@@ -42,12 +42,12 @@ public class AsyncHttpClient {
     public static int maxConnections = 20;
     public static int socketTimeout = 30000;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map clientHeaderMap;
+    public final Map<String, String> clientHeaderMap;
     public Context mCtx;
     public ProxyURLConnection mProxyURLConnection;
     public long[] mRetryIntervals;
-    public final Map requestFutureMap;
-    public final Map requestMap;
+    public final Map<Context, CopyOnWriteArrayList<WeakReference<Future<AsyncHttpRequest>>>> requestFutureMap;
+    public final Map<Context, CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>>> requestMap;
     public ThreadPoolExecutor threadPool;
 
     static {
@@ -115,14 +115,14 @@ public class AsyncHttpClient {
     }
 
     public void cancelTaskRequests(Context context, AsyncHttpRequest asyncHttpRequest) {
-        List list;
+        CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, asyncHttpRequest) == null) && (list = (List) this.requestMap.get(context)) != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, asyncHttpRequest) == null) && (copyOnWriteArrayList = this.requestMap.get(context)) != null) {
             if (asyncHttpRequest != null) {
                 asyncHttpRequest.isInterrupt = true;
                 asyncHttpRequest.cancelRequest();
             }
-            list.remove(asyncHttpRequest);
+            copyOnWriteArrayList.remove(asyncHttpRequest);
         }
     }
 
@@ -132,20 +132,20 @@ public class AsyncHttpClient {
             if (binaryHttpResponseHandler != null) {
                 binaryHttpResponseHandler.stopRunning();
             }
-            List<WeakReference> list = (List) this.requestMap.remove(context);
-            if (list != null) {
-                for (WeakReference weakReference : list) {
-                    AsyncHttpRequest asyncHttpRequest = (AsyncHttpRequest) weakReference.get();
+            CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>> remove = this.requestMap.remove(context);
+            if (remove != null) {
+                for (WeakReference<AsyncHttpRequest> weakReference : remove) {
+                    AsyncHttpRequest asyncHttpRequest = weakReference.get();
                     if (asyncHttpRequest != null) {
                         asyncHttpRequest.isInterrupt = true;
                         asyncHttpRequest.cancelRequest();
                     }
                 }
             }
-            List<WeakReference> list2 = (List) this.requestFutureMap.remove(context);
-            if (list2 != null) {
-                for (WeakReference weakReference2 : list2) {
-                    Future future = (Future) weakReference2.get();
+            CopyOnWriteArrayList<WeakReference<Future<AsyncHttpRequest>>> remove2 = this.requestFutureMap.remove(context);
+            if (remove2 != null) {
+                for (WeakReference<Future<AsyncHttpRequest>> weakReference2 : remove2) {
+                    Future<AsyncHttpRequest> future = weakReference2.get();
                     if (future != null) {
                         future.cancel(z);
                     }
@@ -154,7 +154,7 @@ public class AsyncHttpClient {
         }
     }
 
-    public void get(Context context, String str, Map map, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler, MultiSrcRequestParams multiSrcRequestParams) {
+    public void get(Context context, String str, Map<String, String> map, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler, MultiSrcRequestParams multiSrcRequestParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, map, requestParams, asyncHttpResponseHandler, multiSrcRequestParams}) == null) {
             performGetURLConnection(context, str, map, requestParams, asyncHttpResponseHandler, multiSrcRequestParams);
@@ -186,13 +186,13 @@ public class AsyncHttpClient {
         }
     }
 
-    public List getTaskHttpRequestList(Context context) {
+    public List<WeakReference<AsyncHttpRequest>> getTaskHttpRequestList(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            Map map = this.requestMap;
+            Map<Context, CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>>> map = this.requestMap;
             if (map != null) {
-                return (List) map.get(context);
+                return map.get(context);
             }
             return null;
         }
@@ -221,11 +221,11 @@ public class AsyncHttpClient {
     }
 
     public void interruptRetryWaiting(Context context) {
-        List<WeakReference> list;
+        CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, context) == null) && (list = (List) this.requestMap.get(context)) != null) {
-            for (WeakReference weakReference : list) {
-                AsyncHttpRequest asyncHttpRequest = (AsyncHttpRequest) weakReference.get();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, context) == null) && (copyOnWriteArrayList = this.requestMap.get(context)) != null) {
+            for (WeakReference<AsyncHttpRequest> weakReference : copyOnWriteArrayList) {
+                AsyncHttpRequest asyncHttpRequest = weakReference.get();
                 if (asyncHttpRequest != null) {
                     asyncHttpRequest.interruptRetryWaiting();
                 }
@@ -233,20 +233,20 @@ public class AsyncHttpClient {
         }
     }
 
-    public void performGetURLConnection(Context context, String str, Map map, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler, MultiSrcRequestParams multiSrcRequestParams) {
+    public void performGetURLConnection(Context context, String str, Map<String, String> map, RequestParams requestParams, AsyncHttpResponseHandler asyncHttpResponseHandler, MultiSrcRequestParams multiSrcRequestParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, str, map, requestParams, asyncHttpResponseHandler, multiSrcRequestParams}) == null) {
             String urlWithQueryString = getUrlWithQueryString(str, requestParams);
             if (map == null) {
                 try {
-                    map = new HashMap();
+                    map = new HashMap<>();
                 } catch (Exception e) {
                     e.printStackTrace();
                     return;
                 }
             }
-            Map map2 = map;
-            if (TextUtils.isEmpty((CharSequence) map2.get("User-Agent"))) {
+            Map<String, String> map2 = map;
+            if (TextUtils.isEmpty(map2.get("User-Agent"))) {
                 map2.put("User-Agent", USER_AGENT_HTTPURLCONNECTION);
             }
             if (asyncHttpResponseHandler instanceof MultiSrcBinaryTaskHandler) {
@@ -257,46 +257,46 @@ public class AsyncHttpClient {
         }
     }
 
-    public void sendMultiSrcURLConnectionRequest(String str, AsyncHttpResponseHandler asyncHttpResponseHandler, Context context, String str2, MultiSrcRequestParams multiSrcRequestParams, Map map) {
+    public void sendMultiSrcURLConnectionRequest(String str, AsyncHttpResponseHandler asyncHttpResponseHandler, Context context, String str2, MultiSrcRequestParams multiSrcRequestParams, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, asyncHttpResponseHandler, context, str2, multiSrcRequestParams, map}) == null) {
             MultiSrcAsyncHttpRequest multiSrcAsyncHttpRequest = new MultiSrcAsyncHttpRequest(new UrlConnectionRequestHandler(this.mProxyURLConnection, str, map), asyncHttpResponseHandler, str2, multiSrcRequestParams);
             Future<?> submit = this.threadPool.submit(multiSrcAsyncHttpRequest);
             if (context != null) {
-                CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.requestFutureMap.get(context);
+                CopyOnWriteArrayList<WeakReference<Future<AsyncHttpRequest>>> copyOnWriteArrayList = this.requestFutureMap.get(context);
                 if (copyOnWriteArrayList == null) {
-                    copyOnWriteArrayList = new CopyOnWriteArrayList();
+                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                     this.requestFutureMap.put(context, copyOnWriteArrayList);
                 }
-                copyOnWriteArrayList.add(new WeakReference(submit));
-                CopyOnWriteArrayList copyOnWriteArrayList2 = (CopyOnWriteArrayList) this.requestMap.get(context);
+                copyOnWriteArrayList.add(new WeakReference<>(submit));
+                CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>> copyOnWriteArrayList2 = this.requestMap.get(context);
                 if (copyOnWriteArrayList2 == null) {
-                    copyOnWriteArrayList2 = new CopyOnWriteArrayList();
+                    copyOnWriteArrayList2 = new CopyOnWriteArrayList<>();
                     this.requestMap.put(context, copyOnWriteArrayList2);
                 }
-                copyOnWriteArrayList2.add(new WeakReference(multiSrcAsyncHttpRequest));
+                copyOnWriteArrayList2.add(new WeakReference<>(multiSrcAsyncHttpRequest));
             }
         }
     }
 
-    public void sendURLConnectionRequest(String str, AsyncHttpResponseHandler asyncHttpResponseHandler, Context context, Map map) {
+    public void sendURLConnectionRequest(String str, AsyncHttpResponseHandler asyncHttpResponseHandler, Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048586, this, str, asyncHttpResponseHandler, context, map) == null) {
             AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest(new UrlConnectionRequestHandler(this.mProxyURLConnection, str, map), asyncHttpResponseHandler);
             Future<?> submit = this.threadPool.submit(asyncHttpRequest);
             if (context != null) {
-                CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.requestFutureMap.get(context);
+                CopyOnWriteArrayList<WeakReference<Future<AsyncHttpRequest>>> copyOnWriteArrayList = this.requestFutureMap.get(context);
                 if (copyOnWriteArrayList == null) {
-                    copyOnWriteArrayList = new CopyOnWriteArrayList();
+                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                     this.requestFutureMap.put(context, copyOnWriteArrayList);
                 }
-                copyOnWriteArrayList.add(new WeakReference(submit));
-                CopyOnWriteArrayList copyOnWriteArrayList2 = (CopyOnWriteArrayList) this.requestMap.get(context);
+                copyOnWriteArrayList.add(new WeakReference<>(submit));
+                CopyOnWriteArrayList<WeakReference<AsyncHttpRequest>> copyOnWriteArrayList2 = this.requestMap.get(context);
                 if (copyOnWriteArrayList2 == null) {
-                    copyOnWriteArrayList2 = new CopyOnWriteArrayList();
+                    copyOnWriteArrayList2 = new CopyOnWriteArrayList<>();
                     this.requestMap.put(context, copyOnWriteArrayList2);
                 }
-                copyOnWriteArrayList2.add(new WeakReference(asyncHttpRequest));
+                copyOnWriteArrayList2.add(new WeakReference<>(asyncHttpRequest));
             }
         }
     }

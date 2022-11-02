@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPoisByLocation.DataRes;
 import tbclient.GetPoisByLocation.PoiInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LocationData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String formatted_address;
-    public List poi_info;
+    public List<NearByAddressData> poi_info;
     public String sn;
 
-    /* loaded from: classes5.dex */
-    public class NearByAddressData implements Serializable {
+    /* loaded from: classes6.dex */
+    public static class NearByAddressData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String addr;
@@ -116,7 +116,7 @@ public class LocationData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public List getPoi_info() {
+    public List<NearByAddressData> getPoi_info() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

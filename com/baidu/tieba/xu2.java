@@ -1,153 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class xu2 extends n33 {
+public class xu2 extends vu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetworkBroadcastReceiver a;
-    public TelephonyManager b;
-    public a c;
-
-    /* loaded from: classes6.dex */
-    public class a extends PhoneStateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
-        public String b;
-        public String c;
-        public final /* synthetic */ xu2 d;
-
-        public a(xu2 xu2Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xu2Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = xu2Var;
-            this.c = "";
-            this.a = new WeakReference(callbackHandler);
-            this.b = str;
-        }
-
-        public void a(CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-                this.a = new WeakReference(callbackHandler);
-                this.b = str;
-            }
-        }
-
-        @Override // android.telephony.PhoneStateListener
-        public void onDataConnectionStateChanged(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-                if (xu2.d) {
-                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
-                }
-                if (2 == i) {
-                    String d = SwanAppNetworkUtils.d(i2, null);
-                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
-                        this.c = d;
-                        SwanAppNetworkUtils.k(this.d, (CallbackHandler) this.a.get(), this.b);
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312788, "Lcom/baidu/tieba/xu2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312788, "Lcom/baidu/tieba/xu2;");
-                return;
-            }
-        }
-        d = wj1.a;
-    }
+    public final boolean e;
+    public final nq1 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xu2(m33 m33Var) {
-        super(m33Var);
+    public xu2(nq1 nq1Var, boolean z) {
+        super(6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {m33Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {nq1Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((m33) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = z;
+        this.f = nq1Var;
     }
 
-    public void a(CallbackHandler callbackHandler, String str) {
+    @Override // com.baidu.tieba.vu2
+    public String d() {
+        InterceptResult invokeV;
+        c83 params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
-            if (this.b == null) {
-                this.b = (TelephonyManager) getSystemService("phone");
-                a aVar = new a(this, callbackHandler, str);
-                this.c = aVar;
-                this.b.listen(aVar, 64);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            nq1 nq1Var = this.f;
+            if (nq1Var != null && (params = nq1Var.getParams()) != null) {
+                return params.c;
             }
-            a aVar2 = this.c;
-            if (aVar2 != null) {
-                aVar2.a(callbackHandler, str);
-            }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(CallbackHandler callbackHandler, String str) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
-            if (networkBroadcastReceiver == null) {
-                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                registerReceiver(this.a, intentFilter);
-            } else if (networkBroadcastReceiver != null) {
-                networkBroadcastReceiver.updateCallback(callbackHandler, str);
-            }
-            a(callbackHandler, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return invokeV.booleanValue;
     }
 }

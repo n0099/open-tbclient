@@ -1,5 +1,6 @@
 package com.kuaishou.weapon.p0;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +12,14 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+@SuppressLint({"LongLogTag"})
 /* loaded from: classes7.dex */
 public class o3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +56,7 @@ public class o3 {
     }
 
     /* loaded from: classes7.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +112,7 @@ public class o3 {
     }
 
     /* loaded from: classes7.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,7 +157,7 @@ public class o3 {
     }
 
     /* loaded from: classes7.dex */
-    public final class d {
+    public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +202,7 @@ public class o3 {
     }
 
     /* loaded from: classes7.dex */
-    public final class e {
+    public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

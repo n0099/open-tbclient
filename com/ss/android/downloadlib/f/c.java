@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class c implements j {
     public static volatile c a;
-    public List b;
+    public List<j> b;
 
     public c() {
         ArrayList arrayList = new ArrayList();
@@ -31,7 +31,7 @@ public class c implements j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final DownloadInfo downloadInfo, final int i, final i iVar) {
         if (i != this.b.size() && i >= 0) {
-            ((j) this.b.get(i)).a(downloadInfo, new i() { // from class: com.ss.android.downloadlib.f.c.1
+            this.b.get(i).a(downloadInfo, new i() { // from class: com.ss.android.downloadlib.f.c.1
                 @Override // com.ss.android.socialbase.appdownloader.c.i
                 public void a() {
                     c.this.a(downloadInfo, i + 1, iVar);

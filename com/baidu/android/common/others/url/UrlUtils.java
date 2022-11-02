@@ -1,8 +1,10 @@
 package com.baidu.android.common.others.url;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.util.PatternsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -157,7 +159,7 @@ public final class UrlUtils {
         return (String) invokeLLL.objValue;
     }
 
-    public static String appendParams(String str, Map map) {
+    public static String appendParams(String str, @NonNull Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map)) == null) {
@@ -171,7 +173,7 @@ public final class UrlUtils {
             for (String str2 : map.keySet()) {
                 stringBuffer.append(str2);
                 stringBuffer.append("=");
-                stringBuffer.append((String) map.get(str2));
+                stringBuffer.append(map.get(str2));
                 stringBuffer.append("&");
             }
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -286,7 +288,7 @@ public final class UrlUtils {
         return invokeL.booleanValue;
     }
 
-    public static String deleteParam(String str, Set set) {
+    public static String deleteParam(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, set)) == null) {
@@ -311,7 +313,7 @@ public final class UrlUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static String deleteQueryParam(String str, Set set) {
+    public static String deleteQueryParam(String str, Set<String> set) {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -412,7 +414,8 @@ public final class UrlUtils {
         return (String) invokeLLZ.objValue;
     }
 
-    public static Map getParamsMap(String str) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static Map<String, String> getParamsMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;

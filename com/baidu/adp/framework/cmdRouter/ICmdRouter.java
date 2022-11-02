@@ -1,9 +1,10 @@
 package com.baidu.adp.framework.cmdRouter;
 
+import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface ICmdRouter {
-    Map getCmdRouterMap();
+    Map<String, String> getCmdRouterMap();
 
-    Map getConfigRouterMap();
+    Map<String, ArrayList<String>> getConfigRouterMap();
 }

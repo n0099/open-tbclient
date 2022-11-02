@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c6a;
-import com.baidu.tieba.g6a;
+import com.baidu.tieba.l7a;
+import com.baidu.tieba.p7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements g6a {
+public class YYPayCampaignView extends LinearLayout implements p7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
@@ -37,25 +38,25 @@ public class YYPayCampaignView extends LinearLayout implements g6a {
     public RelativeLayout c;
     public GiftBagsInfo d;
     public PayUIKitConfig e;
-    public List f;
+    public List<GiftBagItemInfo> f;
     public PayAmountCampaignListAdapter g;
     public LinearLayoutManager h;
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, windowParams) == null) {
@@ -89,9 +90,9 @@ public class YYPayCampaignView extends LinearLayout implements g6a {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, c6a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d06ab, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c99);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c52);
+            LayoutInflater.from(new ContextThemeWrapper(context, l7a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d06c0, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091ce2);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c9a);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);
@@ -100,7 +101,7 @@ public class YYPayCampaignView extends LinearLayout implements g6a {
         }
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -109,7 +110,7 @@ public class YYPayCampaignView extends LinearLayout implements g6a {
                 RLog.error("YYPayCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
             }
-            List list = giftBagsInfo.giftbag;
+            List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
                 this.f.clear();
                 this.f.addAll(this.d.giftbag);
@@ -120,7 +121,7 @@ public class YYPayCampaignView extends LinearLayout implements g6a {
         }
     }
 
-    @Override // com.baidu.tieba.g6a
+    @Override // com.baidu.tieba.p7a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, giftBagsInfo) == null) {

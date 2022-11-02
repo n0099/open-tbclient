@@ -2,6 +2,8 @@ package com.kwad.sdk.core.network.kwai;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidubce.AbstractBceClient;
 import com.kwad.sdk.core.network.f;
@@ -30,14 +32,14 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final Pattern YW = Pattern.compile("Unexpected response code for CONNECT: ([0-9]+)", 2);
     public static String YX = "UTF-8";
     public static OkHttpClient YY = null;
     public static OkHttpClient YZ = tG();
 
-    public static com.kwad.sdk.core.network.c a(String str, Map map, boolean z) {
+    public static com.kwad.sdk.core.network.c a(String str, @Nullable Map<String, String> map, boolean z) {
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         try {
             Request.Builder url = new Request.Builder().url(str);
@@ -141,7 +143,7 @@ public final class b {
         }
     }
 
-    public static void a(com.kwad.sdk.core.network.c cVar, Exception exc) {
+    public static void a(@NonNull com.kwad.sdk.core.network.c cVar, Exception exc) {
         String message;
         cVar.XU = exc;
         if (cVar.XT == -1 && (exc instanceof IOException) && (message = exc.getMessage()) != null) {
@@ -169,15 +171,15 @@ public final class b {
         }
     }
 
-    public static void a(Request.Builder builder, Map map) {
+    public static void a(Request.Builder builder, @Nullable Map<String, String> map) {
         if (builder == null || map == null || map.isEmpty()) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry != null) {
                 try {
-                    builder.removeHeader((String) entry.getKey());
-                    builder.addHeader((String) entry.getKey(), (String) entry.getValue());
+                    builder.removeHeader(entry.getKey());
+                    builder.addHeader(entry.getKey(), entry.getValue());
                 } catch (Exception unused) {
                 }
             }
@@ -188,16 +190,16 @@ public final class b {
         builder.post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString()));
     }
 
-    public static void b(Request.Builder builder, Map map) {
+    public static void b(Request.Builder builder, Map<String, String> map) {
         FormBody formBody;
         if (map == null || map.isEmpty()) {
             formBody = null;
         } else {
             FormBody.Builder builder2 = new FormBody.Builder();
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry != null) {
                     try {
-                        builder2.addEncoded((String) entry.getKey(), encode((String) entry.getValue()));
+                        builder2.addEncoded(entry.getKey(), encode(entry.getValue()));
                     } catch (Exception unused) {
                     }
                 }
@@ -210,11 +212,11 @@ public final class b {
         builder.post(formBody);
     }
 
-    public static com.kwad.sdk.core.network.c doGet(String str, Map map) {
+    public static com.kwad.sdk.core.network.c doGet(String str, @Nullable Map<String, String> map) {
         return a(str, map, true);
     }
 
-    public static com.kwad.sdk.core.network.c doPost(String str, Map map, Map map2) {
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, Map<String, String> map2) {
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         try {
             Request.Builder url = new Request.Builder().url(str);
@@ -234,7 +236,7 @@ public final class b {
         return cVar;
     }
 
-    public static com.kwad.sdk.core.network.c doPost(String str, Map map, JSONObject jSONObject) {
+    public static com.kwad.sdk.core.network.c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
         com.kwad.sdk.core.network.c cVar = new com.kwad.sdk.core.network.c();
         try {
             Request.Builder url = new Request.Builder().url(str);

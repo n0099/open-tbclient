@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
 public interface di0 {
-    String a();
+    @NonNull
+    ei0 K();
 }

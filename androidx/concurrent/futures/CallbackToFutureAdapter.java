@@ -1,5 +1,7 @@
 package androidx.concurrent.futures;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -20,8 +22,9 @@ public final class CallbackToFutureAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface Resolver {
-        Object attachCompleter(Completer completer) throws Exception;
+    public interface Resolver<T> {
+        @Nullable
+        Object attachCompleter(@NonNull Completer<T> completer) throws Exception;
     }
 
     /* loaded from: classes.dex */
@@ -83,7 +86,7 @@ public final class CallbackToFutureAdapter {
             return invokeV.booleanValue;
         }
 
-        public void addCancellationListener(Runnable runnable, Executor executor) {
+        public void addCancellationListener(@NonNull Runnable runnable, @NonNull Executor executor) {
             ResolvableFuture<Void> resolvableFuture;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, runnable, executor) == null) && (resolvableFuture = this.cancellationFuture) != null) {
@@ -121,7 +124,7 @@ public final class CallbackToFutureAdapter {
             return invokeL.booleanValue;
         }
 
-        public boolean setException(Throwable th) {
+        public boolean setException(@NonNull Throwable th) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, th)) == null) {
@@ -239,7 +242,7 @@ public final class CallbackToFutureAdapter {
         }
 
         @Override // com.google.common.util.concurrent.ListenableFuture
-        public void addListener(Runnable runnable, Executor executor) {
+        public void addListener(@NonNull Runnable runnable, @NonNull Executor executor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, executor) == null) {
                 this.delegate.addListener(runnable, executor);
@@ -247,7 +250,7 @@ public final class CallbackToFutureAdapter {
         }
 
         @Override // java.util.concurrent.Future
-        public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        public T get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
@@ -352,11 +355,12 @@ public final class CallbackToFutureAdapter {
         }
     }
 
-    public static <T> ListenableFuture<T> getFuture(Resolver<T> resolver) {
+    @NonNull
+    public static <T> ListenableFuture<T> getFuture(@NonNull Resolver<T> resolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resolver)) == null) {
-            Completer completer = new Completer();
+            Completer<T> completer = new Completer<>();
             SafeFuture<T> safeFuture = new SafeFuture<>(completer);
             completer.future = safeFuture;
             completer.tag = resolver.getClass();

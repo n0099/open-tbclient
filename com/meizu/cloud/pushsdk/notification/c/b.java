@@ -18,7 +18,7 @@ public class b {
     public static Field b;
     public static Field c;
     public static Object d = new Object();
-    public static Map e = new ConcurrentHashMap();
+    public static Map<String, Set<String>> e = new ConcurrentHashMap();
 
     static {
         try {
@@ -69,7 +69,7 @@ public class b {
     public static void a(Context context, String str) {
         Set<String> set;
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        if (notificationManager == null || TextUtils.isEmpty(str) || (set = (Set) e.get(str)) == null) {
+        if (notificationManager == null || TextUtils.isEmpty(str) || (set = e.get(str)) == null) {
             return;
         }
         for (String str2 : set) {
@@ -84,7 +84,7 @@ public class b {
         if (notificationManager != null) {
             DebugLogger.i("NotificationUtils", "clear clearNotification notifyId " + i);
             notificationManager.cancel(i);
-            Set set = (Set) e.get(str);
+            Set<String> set = e.get(str);
             if (set != null) {
                 set.remove(String.valueOf(i));
             }
@@ -104,7 +104,7 @@ public class b {
     }
 
     public static void b(Context context, String str, int i) {
-        Set set = (Set) e.get(str);
+        Set<String> set = e.get(str);
         DebugLogger.i("NotificationUtils", "store notifyId " + i);
         if (set != null) {
             set.add(String.valueOf(i));
@@ -116,7 +116,7 @@ public class b {
     }
 
     public static void c(Context context, String str, int i) {
-        Set set = (Set) e.get(str);
+        Set<String> set = e.get(str);
         if (set != null) {
             set.remove(String.valueOf(i));
             DebugLogger.i("NotificationUtils", "remove notifyId " + i);

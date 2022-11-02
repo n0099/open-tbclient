@@ -2,7 +2,7 @@ package com.baidu.swan.bdtls.impl.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qm3;
+import com.baidu.tieba.in3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import java.io.ObjectStreamException;
 public final class Bdtls$Random extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GMTUNIXTIME_FIELD_NUMBER = 1;
-    public static Parser PARSER = null;
+    public static Parser<Bdtls$Random> PARSER = null;
     public static final int RANDOMBYTES_FIELD_NUMBER = 2;
     public static final Bdtls$Random defaultInstance;
     public static final long serialVersionUID = 0;
@@ -40,7 +40,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
     public ByteString randomBytes_;
 
     /* loaded from: classes3.dex */
-    public final class a extends AbstractParser {
+    public static class a extends AbstractParser<Bdtls$Random> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Random, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -223,9 +223,11 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             return this;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
-            u((Bdtls$Random) generatedMessageLite);
+        public /* bridge */ /* synthetic */ b mergeFrom(Bdtls$Random bdtls$Random) {
+            u(bdtls$Random);
             return this;
         }
 
@@ -267,7 +269,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (qm3) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (in3) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -313,18 +315,18 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
                 Bdtls$Random bdtls$Random = null;
                 try {
                     try {
-                        Bdtls$Random bdtls$Random2 = (Bdtls$Random) Bdtls$Random.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (bdtls$Random2 != null) {
-                            u(bdtls$Random2);
+                        Bdtls$Random parsePartialFrom = Bdtls$Random.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            u(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        Bdtls$Random bdtls$Random3 = (Bdtls$Random) e.getUnfinishedMessage();
+                        Bdtls$Random bdtls$Random2 = (Bdtls$Random) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            bdtls$Random = bdtls$Random3;
+                            bdtls$Random = bdtls$Random2;
                             if (bdtls$Random != null) {
                             }
                             throw th;
@@ -408,7 +410,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser getParserForType() {
+    public Parser<Bdtls$Random> getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -558,7 +560,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, qm3 qm3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, in3 in3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -584,7 +586,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, qm3 qm3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, in3 in3Var) {
         this(builder);
     }
 
@@ -592,7 +594,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$Random) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
         }
         return (Bdtls$Random) invokeLL.objValue;
     }
@@ -601,7 +603,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, byteString, extensionRegistryLite)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(byteString, extensionRegistryLite);
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
         }
         return (Bdtls$Random) invokeLL.objValue;
     }
@@ -640,7 +642,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) {
-            return (Bdtls$Random) PARSER.parseDelimitedFrom(inputStream);
+            return PARSER.parseDelimitedFrom(inputStream);
         }
         return (Bdtls$Random) invokeL.objValue;
     }
@@ -649,7 +651,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, byteString)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(byteString);
+            return PARSER.parseFrom(byteString);
         }
         return (Bdtls$Random) invokeL.objValue;
     }
@@ -672,7 +674,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, codedInputStream)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(codedInputStream);
+            return PARSER.parseFrom(codedInputStream);
         }
         return (Bdtls$Random) invokeL.objValue;
     }
@@ -681,7 +683,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, codedInputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
         return (Bdtls$Random) invokeLL.objValue;
     }
@@ -690,7 +692,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(inputStream);
+            return PARSER.parseFrom(inputStream);
         }
         return (Bdtls$Random) invokeL.objValue;
     }
@@ -699,7 +701,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
         }
         return (Bdtls$Random) invokeLL.objValue;
     }
@@ -708,7 +710,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(bArr);
+            return PARSER.parseFrom(bArr);
         }
         return (Bdtls$Random) invokeL.objValue;
     }
@@ -717,7 +719,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, bArr, extensionRegistryLite)) == null) {
-            return (Bdtls$Random) PARSER.parseFrom(bArr, extensionRegistryLite);
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
         }
         return (Bdtls$Random) invokeLL.objValue;
     }

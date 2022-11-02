@@ -24,7 +24,7 @@ public final class CommandListenerRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommandListenerRegistry";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map mListenerMap;
+    public final Map<Pair<String, String>, AbstractCommandListener> mListenerMap;
 
     private void registerListeners() {
         Interceptable interceptable = $ic;
@@ -68,11 +68,11 @@ public final class CommandListenerRegistry {
         }
     }
 
-    private Pair pair(String str, String str2) {
+    private Pair<String, String> pair(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
-            return new Pair(str, str2);
+            return new Pair<>(str, str2);
         }
         return (Pair) invokeLL.objValue;
     }
@@ -81,7 +81,7 @@ public final class CommandListenerRegistry {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return (AbstractCommandListener) this.mListenerMap.get(pair(str, str2));
+            return this.mListenerMap.get(pair(str, str2));
         }
         return (AbstractCommandListener) invokeLL.objValue;
     }
@@ -89,7 +89,7 @@ public final class CommandListenerRegistry {
     public void collectPostData(Context context, CommandPostData commandPostData, IUpdatePostDataFilter iUpdatePostDataFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, commandPostData, iUpdatePostDataFilter) == null) {
-            for (Pair pair : this.mListenerMap.keySet()) {
+            for (Pair<String, String> pair : this.mListenerMap.keySet()) {
                 if (iUpdatePostDataFilter == null || !iUpdatePostDataFilter.isNeedFilter((String) pair.first, (String) pair.second)) {
                     try {
                         collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
@@ -105,17 +105,17 @@ public final class CommandListenerRegistry {
         }
     }
 
-    public void collectPostData(Context context, CommandPostData commandPostData, ArrayList arrayList) {
+    public void collectPostData(Context context, CommandPostData commandPostData, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandPostData, arrayList) != null) || arrayList == null) {
             return;
         }
-        Iterator it = arrayList.iterator();
+        Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            String str = (String) it.next();
-            if (str != null) {
+            String next = it.next();
+            if (next != null) {
                 try {
-                    String[] split = str.split("/");
+                    String[] split = next.split("/");
                     if (split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
                         AbstractCommandListener commandListener = getCommandListener(split[0], split[1]);
                         if (commandListener == null) {

@@ -13,6 +13,8 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -34,7 +36,7 @@ public class TextInputEditText extends AppCompatEditText {
     public boolean textInputLayoutFocusedRectEnabled;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TextInputEditText(Context context) {
+    public TextInputEditText(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +57,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // android.view.View
-    public boolean requestRectangleOnScreen(Rect rect) {
+    public boolean requestRectangleOnScreen(@Nullable Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rect)) == null) {
@@ -71,7 +73,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TextInputEditText(Context context, AttributeSet attributeSet) {
+    public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04026d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,7 +94,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextInputEditText(Context context, AttributeSet attributeSet, int i) {
+    public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +118,8 @@ public class TextInputEditText extends AppCompatEditText {
         obtainStyledAttributes.recycle();
     }
 
-    private String getAccessibilityNodeInfoText(TextInputLayout textInputLayout) {
+    @NonNull
+    private String getAccessibilityNodeInfoText(@NonNull TextInputLayout textInputLayout) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -171,6 +174,7 @@ public class TextInputEditText extends AppCompatEditText {
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     private CharSequence getHintFromLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,6 +188,7 @@ public class TextInputEditText extends AppCompatEditText {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     private TextInputLayout getTextInputLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -199,6 +204,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // android.widget.TextView
+    @Nullable
     public CharSequence getHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -234,7 +240,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void getFocusedRect(Rect rect) {
+    public void getFocusedRect(@Nullable Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
             super.getFocusedRect(rect);
@@ -247,7 +253,8 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
-    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+    @Nullable
+    public InputConnection onCreateInputConnection(@NonNull EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editorInfo)) == null) {
@@ -261,7 +268,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, accessibilityNodeInfo) == null) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
@@ -280,7 +287,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     @Override // android.view.View
-    public boolean getGlobalVisibleRect(Rect rect, Point point) {
+    public boolean getGlobalVisibleRect(@Nullable Rect rect, @Nullable Point point) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect, point)) == null) {

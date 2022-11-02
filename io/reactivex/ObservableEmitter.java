@@ -1,16 +1,21 @@
 package io.reactivex;
 
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Cancellable;
 /* loaded from: classes8.dex */
-public interface ObservableEmitter extends Emitter {
+public interface ObservableEmitter<T> extends Emitter<T> {
     boolean isDisposed();
 
-    ObservableEmitter serialize();
+    @NonNull
+    ObservableEmitter<T> serialize();
 
-    void setCancellable(Cancellable cancellable);
+    void setCancellable(@Nullable Cancellable cancellable);
 
-    void setDisposable(Disposable disposable);
+    void setDisposable(@Nullable Disposable disposable);
 
-    boolean tryOnError(Throwable th);
+    @Experimental
+    boolean tryOnError(@NonNull Throwable th);
 }

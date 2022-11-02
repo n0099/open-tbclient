@@ -28,7 +28,7 @@ public class p {
     public final c f993a;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final c a;
@@ -67,7 +67,7 @@ public class p {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class b implements Runnable {
+    public static abstract class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -92,7 +92,7 @@ public class p {
     }
 
     /* loaded from: classes8.dex */
-    public final class c extends Thread {
+    public static final class c extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile long a;
@@ -109,7 +109,7 @@ public class p {
         public boolean c;
 
         /* loaded from: classes8.dex */
-        public final class a {
+        public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -478,7 +478,7 @@ public class p {
     }
 
     /* loaded from: classes8.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

@@ -1,17 +1,21 @@
 package com.bumptech.glide.load.data;
 
+import androidx.annotation.NonNull;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public interface DataRewinder {
+public interface DataRewinder<T> {
 
     /* loaded from: classes7.dex */
-    public interface Factory {
-        DataRewinder build(Object obj);
+    public interface Factory<T> {
+        @NonNull
+        DataRewinder<T> build(@NonNull T t);
 
-        Class getDataClass();
+        @NonNull
+        Class<T> getDataClass();
     }
 
     void cleanup();
 
-    Object rewindAndGet() throws IOException;
+    @NonNull
+    T rewindAndGet() throws IOException;
 }

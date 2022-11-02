@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 /* loaded from: classes7.dex */
 public class ObjectDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static Map descriptorRegistry;
+    public static Map<Integer, Map<Integer, Class<? extends BaseDescriptor>>> descriptorRegistry;
     public static Logger log;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class ObjectDescriptorFactory {
         }
         log = Logger.getLogger(ObjectDescriptorFactory.class.getName());
         descriptorRegistry = new HashMap();
-        HashSet<Class> hashSet = new HashSet();
+        HashSet<Class<? extends BaseDescriptor>> hashSet = new HashSet();
         hashSet.add(DecoderSpecificInfo.class);
         hashSet.add(SLConfigDescriptor.class);
         hashSet.add(BaseDescriptor.class);
@@ -49,13 +49,13 @@ public class ObjectDescriptorFactory {
         hashSet.add(ExtensionProfileLevelDescriptor.class);
         hashSet.add(ESDescriptor.class);
         hashSet.add(DecoderConfigDescriptor.class);
-        for (Class cls : hashSet) {
+        for (Class<? extends BaseDescriptor> cls : hashSet) {
             Descriptor descriptor = (Descriptor) cls.getAnnotation(Descriptor.class);
             int[] tags = descriptor.tags();
             int objectTypeIndication = descriptor.objectTypeIndication();
-            Map map = (Map) descriptorRegistry.get(Integer.valueOf(objectTypeIndication));
+            Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(objectTypeIndication));
             if (map == null) {
-                map = new HashMap();
+                map = new HashMap<>();
             }
             for (int i : tags) {
                 map.put(Integer.valueOf(i), cls);
@@ -84,14 +84,14 @@ public class ObjectDescriptorFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, byteBuffer)) == null) {
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            Map map = (Map) descriptorRegistry.get(Integer.valueOf(i));
+            Map<Integer, Class<? extends BaseDescriptor>> map = descriptorRegistry.get(Integer.valueOf(i));
             if (map == null) {
-                map = (Map) descriptorRegistry.get(-1);
+                map = descriptorRegistry.get(-1);
             }
-            Class cls = (Class) map.get(Integer.valueOf(readUInt8));
+            Class<? extends BaseDescriptor> cls = map.get(Integer.valueOf(readUInt8));
             if (cls != null && !cls.isInterface() && !Modifier.isAbstract(cls.getModifiers())) {
                 try {
-                    unknownDescriptor = (BaseDescriptor) cls.newInstance();
+                    unknownDescriptor = cls.newInstance();
                 } catch (Exception e) {
                     Logger logger = log;
                     Level level = Level.SEVERE;

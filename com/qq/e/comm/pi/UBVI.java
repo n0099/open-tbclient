@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public interface UBVI extends LADI {
-    public static final Map ext = new HashMap();
+    public static final Map<String, String> ext = new HashMap();
 
     void destroy();
 

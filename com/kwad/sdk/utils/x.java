@@ -1,10 +1,12 @@
 package com.kwad.sdk.utils;
 
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class x {
-    public static List d(List list, int i) {
+    @NonNull
+    public static <T> List<List<T>> d(List<T> list, int i) {
         ArrayList arrayList = new ArrayList();
         if (list == null) {
             return arrayList;

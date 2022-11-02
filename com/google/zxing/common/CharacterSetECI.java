@@ -43,11 +43,11 @@ public final class CharacterSetECI {
     public static final CharacterSetECI ISO8859_7;
     public static final CharacterSetECI ISO8859_8;
     public static final CharacterSetECI ISO8859_9;
-    public static final Map NAME_TO_ECI;
+    public static final Map<String, CharacterSetECI> NAME_TO_ECI;
     public static final CharacterSetECI SJIS;
     public static final CharacterSetECI UTF8;
     public static final CharacterSetECI UnicodeBigUnmarked;
-    public static final Map VALUE_TO_ECI;
+    public static final Map<Integer, CharacterSetECI> VALUE_TO_ECI;
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] otherEncodingNames;
     public final int[] values;
@@ -177,7 +177,7 @@ public final class CharacterSetECI {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return (CharacterSetECI) NAME_TO_ECI.get(str);
+            return NAME_TO_ECI.get(str);
         }
         return (CharacterSetECI) invokeL.objValue;
     }
@@ -187,7 +187,7 @@ public final class CharacterSetECI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
             if (i >= 0 && i < 900) {
-                return (CharacterSetECI) VALUE_TO_ECI.get(Integer.valueOf(i));
+                return VALUE_TO_ECI.get(Integer.valueOf(i));
             }
             throw FormatException.getFormatInstance();
         }

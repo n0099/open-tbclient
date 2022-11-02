@@ -1,5 +1,6 @@
 package com.baidu.turbonet.base;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes6.dex */
@@ -119,6 +121,7 @@ public class JavaHandlerThread {
         this.a = new HandlerThread(str);
     }
 
+    @CalledByNative
     public static JavaHandlerThread create(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -128,6 +131,7 @@ public class JavaHandlerThread {
         return (JavaHandlerThread) invokeL.objValue;
     }
 
+    @CalledByNative
     private void start(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -136,6 +140,8 @@ public class JavaHandlerThread {
         }
     }
 
+    @CalledByNative
+    @TargetApi(18)
     private void stop(long j, long j2) {
         boolean z;
         Interceptable interceptable = $ic;

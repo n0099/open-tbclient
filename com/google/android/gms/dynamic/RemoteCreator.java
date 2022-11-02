@@ -2,6 +2,7 @@ package com.google.android.gms.dynamic;
 
 import android.content.Context;
 import android.os.IBinder;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +10,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
+@KeepForSdk
 /* loaded from: classes7.dex */
-public abstract class RemoteCreator {
+public abstract class RemoteCreator<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String zza;
-    public Object zzb;
+    public T zzb;
 
-    public RemoteCreator(String str) {
+    @KeepForSdk
+    public RemoteCreator(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,15 +39,19 @@ public abstract class RemoteCreator {
         this.zza = str;
     }
 
-    public abstract Object getRemoteCreator(IBinder iBinder);
+    @NonNull
+    @KeepForSdk
+    public abstract T getRemoteCreator(@NonNull IBinder iBinder);
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
-    public class RemoteCreatorException extends Exception {
+    public static class RemoteCreatorException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RemoteCreatorException(String str) {
+        @KeepForSdk
+        public RemoteCreatorException(@NonNull String str) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -63,7 +71,8 @@ public abstract class RemoteCreator {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RemoteCreatorException(String str, Throwable th) {
+        @KeepForSdk
+        public RemoteCreatorException(@NonNull String str, @NonNull Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,7 +93,9 @@ public abstract class RemoteCreator {
         }
     }
 
-    public final Object getRemoteCreatorInstance(Context context) throws RemoteCreatorException {
+    @NonNull
+    @KeepForSdk
+    public final T getRemoteCreatorInstance(@NonNull Context context) throws RemoteCreatorException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -107,6 +118,6 @@ public abstract class RemoteCreator {
             }
             return this.zzb;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

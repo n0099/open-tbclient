@@ -1,14 +1,17 @@
 package com.baidu.swan.pms.database.provider;
 
 import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dc4;
-import com.baidu.tieba.og4;
+import com.baidu.tieba.gh4;
+import com.baidu.tieba.vc4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +23,9 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
-    public static final og4 b;
+    public static final gh4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile dc4 a;
+    public volatile vc4 a;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -47,7 +50,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        b = og4.c();
+        b = gh4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -64,30 +67,31 @@ public class PMSDBProviderProxy extends ContentProvider {
         }
     }
 
-    public dc4 a() {
+    public vc4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
-                synchronized (dc4.class) {
+                synchronized (vc4.class) {
                     if (this.a == null) {
-                        this.a = new dc4(getContext());
+                        this.a = new vc4(getContext());
                     }
                 }
             }
             return this.a;
         }
-        return (dc4) invokeV.objValue;
+        return (vc4) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0040, code lost:
         r2.setTransactionSuccessful();
      */
     @Override // android.content.ContentProvider
+    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ContentProviderResult[] applyBatch(ArrayList arrayList) {
+    public ContentProviderResult[] applyBatch(@NonNull ArrayList<ContentProviderOperation> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
@@ -126,7 +130,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, uri, str, strArr)) == null) {
@@ -136,7 +140,8 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
+    @Nullable
+    public String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
@@ -146,7 +151,8 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValues)) == null) {
@@ -156,7 +162,8 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -166,7 +173,7 @@ public class PMSDBProviderProxy extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {

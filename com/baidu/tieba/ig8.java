@@ -1,58 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes4.dex */
-public class ig8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray a;
+public interface ig8 extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
+    AdvertAppInfo d(@NonNull String str);
 
-        public a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = i;
-        }
-    }
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
 
-    public ig8(SparseArray sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = sparseArray;
-    }
+    boolean f(@NonNull String str);
+
+    void g(@NonNull wh5 wh5Var);
+
+    int getAdCount();
+
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+
+    void j(@NonNull String str);
+
+    void k(@NonNull AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hh;
+import com.xiaomi.push.hn;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class r implements hh {
@@ -39,7 +40,7 @@ public class r implements hh {
     }
 
     @Override // com.xiaomi.push.hh
-    public void a(List list, String str, String str2) {
+    public void a(List<hn> list, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, list, str, str2) == null) {
             this.a.a(new s(this, 4, str, list, str2));

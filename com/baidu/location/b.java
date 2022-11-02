@@ -40,8 +40,7 @@ public class b implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         boolean z;
-        Bundle c;
-        Boolean bool;
+        Bundle d;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             this.a.g = new Messenger(iBinder);
@@ -50,7 +49,7 @@ public class b implements ServiceConnection {
             }
             this.a.e = true;
             Log.d("baidu_location_client", "baidu location connected ...");
-            z = this.a.x;
+            z = this.a.y;
             if (z) {
                 this.a.h.obtainMessage(2).sendToTarget();
                 return;
@@ -58,13 +57,12 @@ public class b implements ServiceConnection {
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
                 obtain.replyTo = this.a.i;
-                c = this.a.c();
-                obtain.setData(c);
+                d = this.a.d();
+                obtain.setData(d);
                 this.a.g.send(obtain);
                 this.a.e = true;
                 if (this.a.c != null) {
-                    bool = this.a.A;
-                    bool.booleanValue();
+                    this.a.B.booleanValue();
                     this.a.h.obtainMessage(4).sendToTarget();
                 }
             } catch (Exception unused) {

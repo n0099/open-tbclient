@@ -1,11 +1,14 @@
 package com.google.android.gms.common;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepName;
+@KeepName
 /* loaded from: classes7.dex */
 public class GooglePlayServicesManifestException extends IllegalStateException {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +22,7 @@ public class GooglePlayServicesManifestException extends IllegalStateException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GooglePlayServicesManifestException(int i, String str) {
+    public GooglePlayServicesManifestException(int i, @NonNull String str) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

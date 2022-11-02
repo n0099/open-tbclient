@@ -1,5 +1,6 @@
 package com.bumptech.glide.load;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,17 +17,19 @@ import java.nio.ByteBuffer;
 public interface ImageHeaderParser {
     public static final int UNKNOWN_ORIENTATION = -1;
 
-    int getOrientation(InputStream inputStream, ArrayPool arrayPool) throws IOException;
+    int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException;
 
-    int getOrientation(ByteBuffer byteBuffer, ArrayPool arrayPool) throws IOException;
+    int getOrientation(@NonNull ByteBuffer byteBuffer, @NonNull ArrayPool arrayPool) throws IOException;
 
-    ImageType getType(InputStream inputStream) throws IOException;
+    @NonNull
+    ImageType getType(@NonNull InputStream inputStream) throws IOException;
 
-    ImageType getType(ByteBuffer byteBuffer) throws IOException;
+    @NonNull
+    ImageType getType(@NonNull ByteBuffer byteBuffer) throws IOException;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class ImageType {
+    public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImageType GIF;

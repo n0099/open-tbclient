@@ -1,36 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumRuleStatus;
 /* loaded from: classes4.dex */
-public class km8 implements eo {
+public class km8 implements pw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumRuleStatus a;
+    public su4 a;
 
-    @Override // com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public km8(ForumData forumData, ForumRuleStatus forumRuleStatus) {
+    public km8(su4 su4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, forumRuleStatus};
+            Object[] objArr = {su4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,22 +27,47 @@ public class km8 implements eo {
                 return;
             }
         }
-        this.a = forumRuleStatus;
+        this.a = su4Var;
     }
 
-    public ForumRuleStatus a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            su4 su4Var = this.a;
+            if (su4Var == null) {
+                return null;
+            }
+            return su4Var.c();
         }
-        return (ForumRuleStatus) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(ForumRuleStatus forumRuleStatus) {
+    @Override // com.baidu.tieba.pw4
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
-            this.a = forumRuleStatus;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            su4 su4Var = this.a;
+            if (su4Var == null) {
+                return null;
+            }
+            return su4Var.b();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pw4
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            su4 su4Var = this.a;
+            if (su4Var == null) {
+                return null;
+            }
+            return su4Var.a();
+        }
+        return (String) invokeV.objValue;
     }
 }

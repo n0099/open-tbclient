@@ -1,11 +1,15 @@
 package com.kwad.sdk.kwai.kwai;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.loader.Wrapper;
@@ -27,13 +31,14 @@ import org.json.JSONObject;
 public class c {
     public static c Rj;
     public d Rk;
-    public final Map Rl = new HashMap();
-    public final Map Rm = new HashMap();
-    public final Stack Rn = new Stack();
+    public final Map<String, Integer> Rl = new HashMap();
+    public final Map<String, Integer> Rm = new HashMap();
+    public final Stack<AdTemplate> Rn = new Stack<>();
     public volatile boolean Ro = false;
     public volatile boolean Rp = false;
     public volatile boolean Rq = false;
 
+    @MainThread
     private void a(AdTemplate adTemplate, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnClickListener onClickListener) {
         if (a.mq()) {
             return;
@@ -46,6 +51,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @MainThread
     public void a(AdTemplate adTemplate, boolean z, int i, boolean z2) {
         if (this.Rk != null || com.kwad.components.core.c.kwai.b.mq()) {
             return;
@@ -74,6 +80,7 @@ public class c {
         com.kwad.sdk.core.report.a.d(adTemplate, (JSONObject) null, fVar);
     }
 
+    @UiThread
     private void a(final AdTemplate adTemplate, boolean z, boolean z2, boolean z3) {
         Context context;
         Context wrapContextIfNeed;
@@ -106,8 +113,8 @@ public class c {
         }
     }
 
-    public static void a(Map map, String str) {
-        map.put(str, map.containsKey(str) ? Integer.valueOf(((Integer) map.get(str)).intValue() + 1) : 1);
+    public static void a(Map<String, Integer> map, String str) {
+        map.put(str, map.containsKey(str) ? Integer.valueOf(map.get(str).intValue() + 1) : 1);
     }
 
     public static boolean ae(AdTemplate adTemplate) {
@@ -155,6 +162,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @MainThread
     public void ak(AdTemplate adTemplate) {
         if (a.mq()) {
             return;
@@ -201,6 +209,7 @@ public class c {
         if (!this.Rp && com.kwad.sdk.kwai.kwai.kwai.b.cp() <= 0) {
             bd.runOnUiThread(new Runnable() { // from class: com.kwad.sdk.kwai.kwai.c.6
                 @Override // java.lang.Runnable
+                @SuppressLint({"WrongConstant"})
                 public final void run() {
                     try {
                         AdTemplate rb = b.ra().rb();
@@ -253,7 +262,7 @@ public class c {
         String valueOf = String.valueOf(com.kwad.sdk.core.response.a.d.ca(adTemplate));
         int i = 0;
         if (this.Rl.containsKey(valueOf)) {
-            i = ((Integer) this.Rl.get(valueOf)).intValue();
+            i = this.Rl.get(valueOf).intValue();
             this.Rl.put(valueOf, Integer.valueOf(i));
         }
         if (i > 0) {
@@ -280,7 +289,7 @@ public class c {
         String valueOf = String.valueOf(bQ.adBaseInfo.creativeId);
         int i = 0;
         if (this.Rm.containsKey(valueOf)) {
-            i = ((Integer) this.Rm.get(valueOf)).intValue();
+            i = this.Rm.get(valueOf).intValue();
             this.Rm.put(valueOf, Integer.valueOf(i));
         }
         if (i > 0) {
@@ -306,12 +315,13 @@ public class c {
         }
     }
 
+    @Nullable
     public final AdTemplate re() {
         AdTemplate adTemplate = null;
         while (!this.Rn.isEmpty()) {
-            AdTemplate adTemplate2 = (AdTemplate) this.Rn.pop();
-            if (ae(adTemplate2)) {
-                adTemplate = adTemplate2;
+            AdTemplate pop = this.Rn.pop();
+            if (ae(pop)) {
+                adTemplate = pop;
             }
         }
         if (adTemplate != null) {
@@ -320,6 +330,7 @@ public class c {
         return adTemplate;
     }
 
+    @SuppressLint({"WrongConstant"})
     public final void rf() {
         if (com.kwad.sdk.core.config.d.rR() != 0 && com.kwad.sdk.kwai.kwai.kwai.b.cp() <= 0) {
             b.ra().a(new b.a() { // from class: com.kwad.sdk.kwai.kwai.c.4

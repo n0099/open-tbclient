@@ -1,5 +1,6 @@
 package androidx.vectordrawable.graphics.drawable;
 
+import androidx.annotation.StyleableRes;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,9 @@ public class AndroidResources {
     public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE;
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_DRAWABLE = 0;
     public static final int[] STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET;
+    @StyleableRes
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET_ANIMATION = 1;
+    @StyleableRes
     public static final int STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET_NAME = 0;
     public static final int[] STYLEABLE_ANIMATOR;
     public static final int STYLEABLE_ANIMATOR_DURATION = 1;

@@ -9,6 +9,10 @@ import android.net.Uri;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -25,6 +29,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.util.Map;
+@RequiresApi(26)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -152,7 +158,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return (Method) invokeL.objValue;
     }
 
-    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i, int i2, int i3, FontVariationAxis[] fontVariationAxisArr) {
+    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i, int i2, int i3, @Nullable FontVariationAxis[] fontVariationAxisArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{context, obj, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fontVariationAxisArr})) == null) {
@@ -179,6 +185,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
+    @Nullable
     public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -217,6 +224,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     private Object newFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -239,6 +247,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return (Class) invokeV.objValue;
     }
 
+    @Nullable
     public Typeface createFromFamiliesWithDefault(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -277,6 +286,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
+    @Nullable
     public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
@@ -304,7 +314,8 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     }
 
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
-    public Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    @Nullable
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Typeface createFromFamiliesWithDefault;
         Interceptable interceptable = $ic;

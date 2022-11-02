@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUISwiperView extends CriusUI {
+public class CriusUISwiperView extends CriusUI<CriusSwiperView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CriusUISwiperView";
     public transient /* synthetic */ FieldHolder $fh;

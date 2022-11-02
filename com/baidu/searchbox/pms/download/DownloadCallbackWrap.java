@@ -1,5 +1,6 @@
 package com.baidu.searchbox.pms.download;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,10 +26,10 @@ public class DownloadCallbackWrap implements InnerCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadCallback mCallback;
-    public List mList;
+    public List<PackageInfo> mList;
     public DownloadOptions mOptions;
 
-    public DownloadCallbackWrap(List list, DownloadCallback downloadCallback, DownloadOptions downloadOptions) {
+    public DownloadCallbackWrap(List<PackageInfo> list, DownloadCallback downloadCallback, DownloadOptions downloadOptions) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,10 +115,11 @@ public class DownloadCallbackWrap implements InnerCallback {
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
+    @SuppressLint({"StaticFieldLeak"})
     public void onSuccess(PackageInfo packageInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, packageInfo) == null) {
-            new AsyncTask(this, packageInfo) { // from class: com.baidu.searchbox.pms.download.DownloadCallbackWrap.1
+            new AsyncTask<PackageInfo, Void, ErrorInfo>(this, packageInfo) { // from class: com.baidu.searchbox.pms.download.DownloadCallbackWrap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadCallbackWrap this$0;

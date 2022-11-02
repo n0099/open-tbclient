@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.IMSDK;
@@ -39,7 +40,7 @@ public class IMAckRequest extends BaseHttpRequest {
     public long mEndid;
     public boolean mIsReliable;
     public String mKey;
-    public ArrayList mMsgList;
+    public ArrayList<ChatMsg> mMsgList;
     public long mTriggerId;
     public long mUk;
 
@@ -67,7 +68,7 @@ public class IMAckRequest extends BaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList arrayList) {
+    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,12 +97,12 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mTriggerId = Utility.getTriggerId(context);
     }
 
-    private void getShortAckMsgs(ArrayList arrayList) {
+    private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, arrayList) == null) {
             LogUtils.d(TAG, "getShortAckMsgs begin~~~");
             new LinkedList();
-            List handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
+            List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false, false);
             if (handleAck != null && handleAck.size() > 0) {
                 Context context = this.mContext;
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), this.mTriggerId, this.mIsReliable);
@@ -137,7 +138,7 @@ public class IMAckRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

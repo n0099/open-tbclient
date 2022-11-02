@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.ga0;
+import com.baidu.tieba.fa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class LiveFeedConfig {
     public long timeoutRefreshTime;
 
     /* loaded from: classes2.dex */
-    public class AbSwitchConfig {
+    public static class AbSwitchConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean newBanner;
@@ -85,7 +85,7 @@ public class LiveFeedConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class InterestInsert {
+    public static class InterestInsert {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int duration;
@@ -124,7 +124,7 @@ public class LiveFeedConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class PlayConfig {
+    public static class PlayConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enable;
@@ -225,10 +225,10 @@ public class LiveFeedConfig {
                     this.minorUfoUrl = optJSONObject.optString("ufo_url");
                 }
                 if (z && z2) {
-                    ga0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                    fa0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
                 }
             } else if (z && z2) {
-                String b = ga0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+                String b = fa0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
                 if (!TextUtils.isEmpty(b)) {
                     try {
                         JSONObject jSONObject2 = new JSONObject(b);
@@ -246,7 +246,7 @@ public class LiveFeedConfig {
                             this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                         }
                     } catch (JSONException unused) {
-                        ga0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                        fa0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                     }
                 }
             }

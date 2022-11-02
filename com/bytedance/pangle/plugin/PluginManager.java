@@ -3,6 +3,7 @@ package com.bytedance.pangle.plugin;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes7.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,7 +34,7 @@ public class PluginManager {
     public volatile boolean hasInstallFromDownloadDir;
     public ExecutorService mInstallThreadPool;
     public volatile boolean mIsParsePluginConfig;
-    public volatile Map mPlugins;
+    public volatile Map<String, Plugin> mPlugins;
     public final c pluginLoader;
 
     public PluginManager() {
@@ -199,7 +201,7 @@ public class PluginManager {
             if (!this.mIsParsePluginConfig) {
                 parsePluginConfig();
             }
-            Plugin plugin = (Plugin) this.mPlugins.get(str);
+            Plugin plugin = this.mPlugins.get(str);
             if (z && plugin != null) {
                 plugin.init();
             }

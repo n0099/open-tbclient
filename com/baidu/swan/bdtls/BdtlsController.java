@@ -1,5 +1,6 @@
 package com.baidu.swan.bdtls;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,6 +15,7 @@ public class BdtlsController {
         void loadLibrary(String str);
     }
 
+    @Keep
     public static native void handleConfsk(byte[] bArr);
 
     public BdtlsController() {

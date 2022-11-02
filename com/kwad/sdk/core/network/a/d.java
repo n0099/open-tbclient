@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.network.k;
@@ -11,7 +12,7 @@ import com.kwad.sdk.core.network.l;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.f;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d implements b {
     public static boolean Zh = true;
     public static double Zi = 1.0d;
@@ -55,7 +56,7 @@ public final class d implements b {
         return jVar;
     }
 
-    public static boolean a(j jVar) {
+    public static boolean a(@NonNull j jVar) {
         if (TextUtils.isEmpty(jVar.url)) {
             return true;
         }

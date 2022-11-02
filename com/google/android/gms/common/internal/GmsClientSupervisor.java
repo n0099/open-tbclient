@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.ServiceConnection;
 import android.os.HandlerThread;
 import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,13 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.util.VisibleForTesting;
 import java.util.concurrent.Executor;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public abstract class GmsClientSupervisor {
     public static /* synthetic */ Interceptable $ic = null;
+    @Nullable
+    @VisibleForTesting
     public static HandlerThread zza = null;
     public static int zzb = 4225;
     public static final Object zzc;
+    @Nullable
     public static zzr zzd;
     public static boolean zze;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,6 +62,7 @@ public abstract class GmsClientSupervisor {
         }
     }
 
+    @KeepForSdk
     public static int getDefaultBindFlags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,9 +71,11 @@ public abstract class GmsClientSupervisor {
 
     public abstract void zza(zzn zznVar, ServiceConnection serviceConnection, String str);
 
-    public abstract boolean zzc(zzn zznVar, ServiceConnection serviceConnection, String str, Executor executor);
+    public abstract boolean zzc(zzn zznVar, ServiceConnection serviceConnection, String str, @Nullable Executor executor);
 
-    public static GmsClientSupervisor getInstance(Context context) {
+    @NonNull
+    @KeepForSdk
+    public static GmsClientSupervisor getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         Looper mainLooper;
         Interceptable interceptable = $ic;
@@ -85,6 +96,8 @@ public abstract class GmsClientSupervisor {
         return (GmsClientSupervisor) invokeL.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public static HandlerThread getOrStartHandlerThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,6 +116,7 @@ public abstract class GmsClientSupervisor {
         return (HandlerThread) invokeV.objValue;
     }
 
+    @KeepForSdk
     public static void setUseHandlerThreadForCallbacks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
@@ -116,7 +130,8 @@ public abstract class GmsClientSupervisor {
         }
     }
 
-    public boolean bindService(ComponentName componentName, ServiceConnection serviceConnection, String str) {
+    @KeepForSdk
+    public boolean bindService(@NonNull ComponentName componentName, @NonNull ServiceConnection serviceConnection, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, componentName, serviceConnection, str)) == null) {
@@ -125,14 +140,16 @@ public abstract class GmsClientSupervisor {
         return invokeLLL.booleanValue;
     }
 
-    public void unbindService(ComponentName componentName, ServiceConnection serviceConnection, String str) {
+    @KeepForSdk
+    public void unbindService(@NonNull ComponentName componentName, @NonNull ServiceConnection serviceConnection, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, componentName, serviceConnection, str) == null) {
             zza(new zzn(componentName, getDefaultBindFlags()), serviceConnection, str);
         }
     }
 
-    public boolean bindService(String str, ServiceConnection serviceConnection, String str2) {
+    @KeepForSdk
+    public boolean bindService(@NonNull String str, @NonNull ServiceConnection serviceConnection, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, serviceConnection, str2)) == null) {
@@ -141,14 +158,15 @@ public abstract class GmsClientSupervisor {
         return invokeLLL.booleanValue;
     }
 
-    public void unbindService(String str, ServiceConnection serviceConnection, String str2) {
+    @KeepForSdk
+    public void unbindService(@NonNull String str, @NonNull ServiceConnection serviceConnection, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, serviceConnection, str2) == null) {
             zza(new zzn(str, getDefaultBindFlags(), false), serviceConnection, str2);
         }
     }
 
-    public final void zzb(String str, String str2, int i, ServiceConnection serviceConnection, String str3, boolean z) {
+    public final void zzb(@NonNull String str, @NonNull String str2, int i, @NonNull ServiceConnection serviceConnection, @NonNull String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), serviceConnection, str3, Boolean.valueOf(z)}) == null) {
             zza(new zzn(str, str2, i, z), serviceConnection, str3);

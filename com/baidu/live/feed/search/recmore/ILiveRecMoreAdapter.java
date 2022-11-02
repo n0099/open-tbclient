@@ -40,12 +40,12 @@ public interface ILiveRecMoreAdapter {
 
         void onShowMoreClick();
 
-        void onUbcResult(boolean z, List list, List list2, int i, String str);
+        void onUbcResult(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i, String str);
     }
 
-    void addNew(List list);
+    void addNew(List<? extends LiveRoomEntity> list);
 
-    RecyclerView.Adapter createAdapter(Context context);
+    RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context);
 
     int getFooterStatus();
 
@@ -55,7 +55,7 @@ public interface ILiveRecMoreAdapter {
 
     void resetData();
 
-    void setData(List list, List list2, boolean z);
+    void setData(List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, boolean z);
 
     void setFollowStatus(int i);
 
@@ -67,11 +67,11 @@ public interface ILiveRecMoreAdapter {
 
     void showNoResult(String str);
 
-    void showRecommend(List list, String str, boolean z);
+    void showRecommend(List<? extends LiveRoomEntity> list, String str, boolean z);
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/live/feed/search/recmore/ILiveRecMoreAdapter$Companion;", "", "STATUS_ERROR", "I", "STATUS_GONE", "STATUS_LOADING", "STATUS_NO_MORE", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATUS_ERROR = 4;

@@ -1,8 +1,8 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ar;
-import com.baidu.tieba.up;
+import com.baidu.tieba.mp;
+import com.baidu.tieba.sq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,21 +14,21 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", "invoke", "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implements Function0 {
+public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $rawTaskStr;
-    public final /* synthetic */ up $taskCallback;
-    public final /* synthetic */ ar $taskInterceptor;
+    public final /* synthetic */ mp $taskCallback;
+    public final /* synthetic */ sq $taskInterceptor;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, up upVar, ar arVar) {
+    public BDPTask$INSTANCE$registerTaskWithInfo$3(String str, mp mpVar, sq sqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, upVar, arVar};
+            Object[] objArr = {str, mpVar, sqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,8 +40,8 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$3 extends Lambda implem
             }
         }
         this.$rawTaskStr = str;
-        this.$taskCallback = upVar;
-        this.$taskInterceptor = arVar;
+        this.$taskCallback = mpVar;
+        this.$taskInterceptor = sqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

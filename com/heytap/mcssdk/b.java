@@ -33,32 +33,32 @@ public interface b extends c {
 
     void resumePush();
 
-    void setAliases(List list);
+    void setAliases(List<String> list);
 
     @Deprecated
     void setNotificationType(int i);
 
-    void setPushTime(List list, int i, int i2, int i3, int i4);
+    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4);
 
     void setRegisterID(String str);
 
-    void setTags(List list);
+    void setTags(List<String> list);
 
     @Deprecated
     void setUserAccount(String str);
 
     @Deprecated
-    void setUserAccounts(List list);
+    void setUserAccounts(List<String> list);
 
     void unRegister();
 
     void unsetAlias(String str);
 
     @Deprecated
-    void unsetAliases(List list);
+    void unsetAliases(List<String> list);
 
-    void unsetTags(List list);
+    void unsetTags(List<String> list);
 
     @Deprecated
-    void unsetUserAccounts(List list);
+    void unsetUserAccounts(List<String> list);
 }

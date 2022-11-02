@@ -17,6 +17,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
@@ -93,7 +95,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("user_agreement");
@@ -102,7 +104,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 super.updateDrawState(textPaint);
@@ -138,7 +140,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("privacy_policy");
@@ -147,7 +149,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 super.updateDrawState(textPaint);
@@ -183,7 +185,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("children_agreement");
@@ -192,7 +194,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 super.updateDrawState(textPaint);
@@ -232,7 +234,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 com.baidu.sapi2.views.logindialog.utils.a.a(this.a);
@@ -241,7 +243,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
+        public void updateDrawState(@NonNull TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
                 super.updateDrawState(textPaint);
@@ -283,16 +285,16 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = z;
             ImageView imageView = this.d;
             if (z) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08107e);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109b);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08107f);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109c);
             }
             imageView.setBackgroundDrawable(drawable);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AgreementView(Context context, AttributeSet attributeSet) {
+    public AgreementView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -313,7 +315,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AgreementView(Context context, AttributeSet attributeSet, int i) {
+    public AgreementView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -344,9 +346,9 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             this.e = booleanValue;
             ImageView imageView = this.d;
             if (booleanValue) {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08107e);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109b);
             } else {
-                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08107f);
+                drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109c);
             }
             imageView.setBackgroundDrawable(drawable);
         }
@@ -355,13 +357,13 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d2, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e2, this);
             setPadding(0, ViewUtils.dp2px(this.a, 25.0f), 0, 0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d97);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d40);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091de0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d89);
             this.d = imageView;
             imageView.setOnClickListener(this);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010119);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01011a);
             this.g = loadAnimation;
             loadAnimation.setRepeatCount(5);
             boolean isShowChildrenAgreement = SapiContext.getInstance().getSapiOptions().getIsShowChildrenAgreement();

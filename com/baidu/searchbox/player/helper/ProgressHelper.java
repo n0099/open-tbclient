@@ -1,6 +1,8 @@
 package com.baidu.searchbox.player.helper;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,7 +13,7 @@ public class ProgressHelper extends AbsHandlerTask {
     public transient /* synthetic */ FieldHolder $fh;
     public final BDVideoPlayer mPlayer;
 
-    public ProgressHelper(BDVideoPlayer bDVideoPlayer) {
+    public ProgressHelper(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,6 +39,7 @@ public class ProgressHelper extends AbsHandlerTask {
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
+    @PublicMethod
     public void doTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

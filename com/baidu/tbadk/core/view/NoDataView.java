@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.qq4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sy4;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class NoDataView extends LinearLayout {
     public int p;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,10 +165,10 @@ public class NoDataView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             Drawable drawable = SkinManager.getDrawable(i);
-            int f = fj.f(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int f2 = fj.f(this.a, R.dimen.obfuscated_res_0x7f070302);
-            drawable.setBounds(0, 0, f, f);
-            this.f.setCompoundDrawablePadding(f2);
+            int g = xi.g(this.a, R.dimen.obfuscated_res_0x7f070207);
+            int g2 = xi.g(this.a, R.dimen.obfuscated_res_0x7f070302);
+            drawable.setBounds(0, 0, g, g);
+            this.f.setCompoundDrawablePadding(g2);
             this.f.setCompoundDrawables(drawable, null, null, null);
         }
     }
@@ -252,33 +252,33 @@ public class NoDataView extends LinearLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0660, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0675, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091010);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09104a);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.c.setDefaultResource(0);
-            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092212);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ff);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fa);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092405);
-            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090440);
-            sy4 sy4Var = new sy4();
+            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092265);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092454);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09245a);
+            this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09044d);
+            iz4 iz4Var = new iz4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(sy4Var);
-            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.h.setConfig(iz4Var);
+            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09246f);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();
         }
     }
 
-    public void f(r9 r9Var, int i) {
+    public void f(r9<?> r9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, r9Var, i) == null) {
             if (r9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) r9Var;
-                zp4 layoutMode = tbPageContext.getLayoutMode();
+                qq4 layoutMode = tbPageContext.getLayoutMode();
                 boolean z = true;
                 if (i != 1) {
                     z = false;
@@ -324,7 +324,7 @@ public class NoDataView extends LinearLayout {
         }
     }
 
-    public void d(r9 r9Var) {
+    public void d(r9<?> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, r9Var) == null) {
             f(r9Var, TbadkCoreApplication.getInst().getSkinType());
@@ -367,7 +367,7 @@ public class NoDataView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.c.setImageDrawable(null);
-            this.c.L(null, 10, false);
+            this.c.K(null, 10, false);
         }
     }
 
@@ -380,7 +380,7 @@ public class NoDataView extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
-    public void g(NoDataViewFactory.d dVar, r9 r9Var) {
+    public void g(NoDataViewFactory.d dVar, r9<?> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, dVar, r9Var) == null) {
             setImgOption(dVar);
@@ -389,14 +389,14 @@ public class NoDataView extends LinearLayout {
     }
 
     public final void h() {
-        int i;
+        int j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (i = fj.i(TbadkCoreApplication.getInst())) > 0) {
-            int i2 = (int) (i * 0.16d);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (j = xi.j(TbadkCoreApplication.getInst())) > 0) {
+            int i = (int) (j * 0.16d);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i2;
+                marginLayoutParams.topMargin = i;
                 this.c.setLayoutParams(marginLayoutParams);
             }
         }
@@ -423,13 +423,13 @@ public class NoDataView extends LinearLayout {
                 }
             }
             if (bVar2 != null && bVar != null) {
-                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090448);
-                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090462);
-                sy4 sy4Var = new sy4();
+                this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090455);
+                this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f09046f);
+                iz4 iz4Var = new iz4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(sy4Var);
+                this.i.setConfig(iz4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(sy4Var);
+                this.j.setConfig(iz4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

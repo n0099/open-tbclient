@@ -1,59 +1,71 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Rect;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes3.dex */
-public class ex1 extends sw1 {
+/* loaded from: classes4.dex */
+public class ex1 extends bx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
 
-    public ex1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ex1(b53 b53Var) {
+        super(b53Var, "/swanAPI/canvas/insert");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((b53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) && this.a != null) {
-            int alpha = tw1Var.b.getAlpha();
-            tw1Var.c(tw1Var.b);
-            canvas.drawRect(this.a, tw1Var.b);
-            tw1Var.b.setAlpha(alpha);
-        }
-    }
-
-    @Override // com.baidu.tieba.sw1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = dh3.g((float) jSONArray.optDouble(0));
-                    int g2 = dh3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, dh3.g((float) jSONArray.optDouble(2)) + g, dh3.g((float) jSONArray.optDouble(3)) + g2);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            bz1 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                e12.c("SwanAppCanvas", "insert action parse model is null");
+                return false;
+            } else if (context == null) {
+                e12.c("SwanAppCanvas", "context is null");
+                unitedSchemeEntity.result = l(1001);
+                return false;
+            } else {
+                String str = k.b;
+                ku2 ku2Var = k.h;
+                if (!TextUtils.isEmpty(str) && ku2Var != null && ku2Var.h()) {
+                    vz1 insert = new e02(context, k).insert();
+                    boolean a = insert.a();
+                    if (!a) {
+                        e12.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
+                    }
+                    j(unitedSchemeEntity, callbackHandler, a);
+                    return a;
                 }
-            } catch (Exception e) {
-                if (wj1.a) {
-                    e.printStackTrace();
-                }
+                e12.c("SwanAppCanvas", "canvas id is empty or position is null");
+                unitedSchemeEntity.result = l(202);
+                return false;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

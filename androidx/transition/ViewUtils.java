@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.util.Property;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -157,14 +159,14 @@ public class ViewUtils {
         }
     }
 
-    public static void clearNonTransitionAlpha(View view2) {
+    public static void clearNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, view2) == null) {
             IMPL.clearNonTransitionAlpha(view2);
         }
     }
 
-    public static ViewOverlayImpl getOverlay(View view2) {
+    public static ViewOverlayImpl getOverlay(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
@@ -176,7 +178,7 @@ public class ViewUtils {
         return (ViewOverlayImpl) invokeL.objValue;
     }
 
-    public static float getTransitionAlpha(View view2) {
+    public static float getTransitionAlpha(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
@@ -185,7 +187,7 @@ public class ViewUtils {
         return invokeL.floatValue;
     }
 
-    public static WindowIdImpl getWindowId(View view2) {
+    public static WindowIdImpl getWindowId(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
@@ -197,49 +199,49 @@ public class ViewUtils {
         return (WindowIdImpl) invokeL.objValue;
     }
 
-    public static void saveNonTransitionAlpha(View view2) {
+    public static void saveNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, view2) == null) {
             IMPL.saveNonTransitionAlpha(view2);
         }
     }
 
-    public static void setAnimationMatrix(View view2, Matrix matrix) {
+    public static void setAnimationMatrix(@NonNull View view2, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, view2, matrix) == null) {
             IMPL.setAnimationMatrix(view2, matrix);
         }
     }
 
-    public static void setTransitionAlpha(View view2, float f) {
+    public static void setTransitionAlpha(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65545, null, view2, f) == null) {
             IMPL.setTransitionAlpha(view2, f);
         }
     }
 
-    public static void setTransitionVisibility(View view2, int i) {
+    public static void setTransitionVisibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, null, view2, i) == null) {
             IMPL.setTransitionVisibility(view2, i);
         }
     }
 
-    public static void transformMatrixToGlobal(View view2, Matrix matrix) {
+    public static void transformMatrixToGlobal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, view2, matrix) == null) {
             IMPL.transformMatrixToGlobal(view2, matrix);
         }
     }
 
-    public static void transformMatrixToLocal(View view2, Matrix matrix) {
+    public static void transformMatrixToLocal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, view2, matrix) == null) {
             IMPL.transformMatrixToLocal(view2, matrix);
         }
     }
 
-    public static void setLeftTopRightBottom(View view2, int i, int i2, int i3, int i4) {
+    public static void setLeftTopRightBottom(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             IMPL.setLeftTopRightBottom(view2, i, i2, i3, i4);

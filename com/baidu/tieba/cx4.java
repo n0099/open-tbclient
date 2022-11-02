@@ -1,122 +1,227 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cx4 extends vw4 {
+public class cx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw4 c;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public boolean e;
+    public Handler f;
 
-    @Override // com.baidu.tieba.vw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+
+        public a(cx4 cx4Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cx4Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (cx4.a().c == 1) {
+                    i = 8;
+                } else {
+                    i = -1;
+                }
+                if (cx4.a().c == 2) {
+                    i = 9;
+                }
+                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
+                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, cx4.a().d);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cx4(tw4 tw4Var) {
-        super(tw4Var);
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MessageQueue.IdleHandler a;
+        public final /* synthetic */ cx4 b;
+
+        public b(cx4 cx4Var, MessageQueue.IdleHandler idleHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cx4Var, idleHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = cx4Var;
+            this.a = idleHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cx4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875552789, "Lcom/baidu/tieba/cx4$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-875552789, "Lcom/baidu/tieba/cx4$c;");
+                    return;
+                }
+            }
+            a = new cx4();
+        }
+    }
+
+    public cx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tw4Var;
+        this.c = 0;
+        this.e = false;
     }
 
-    @ww4(isAsync = false, value = "scanBigImages")
-    public void sanBigImages(JSONObject jSONObject) throws JSONException {
-        String str;
+    public static cx4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c.a;
+        }
+        return (cx4) invokeV.objValue;
+    }
+
+    public final Handler b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                this.f = new Handler(Looper.getMainLooper());
+            }
+            return this.f;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            int i = 0;
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
+                String dataString = intent.getDataString();
+                String className = intent.getComponent().getClassName();
+                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
+                    this.c = !wi.isEmpty(dataString) ? 1 : 0;
+                    this.d = dataString;
+                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
+                    if (!wi.isEmpty(dataString)) {
+                        i = 2;
+                    }
+                    this.c = i;
+                    this.d = dataString;
+                } else {
+                    this.c = 0;
+                }
+            }
+        }
+    }
+
+    public void d(MessageQueue.IdleHandler idleHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
-        int optInt = jSONObject.optInt("clickIndex");
-        int length = optJSONArray.length();
-        ArrayList arrayList = new ArrayList();
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        for (int i = 0; i < length; i++) {
-            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-            if (jSONObject2 != null) {
-                String string = jSONObject2.getString("bigImageUrl");
-                String string2 = jSONObject2.getString("originImageUrl");
-                if (!TextUtils.isEmpty(string)) {
-                    arrayList.add(string);
-                    if (!TextUtils.isEmpty(string2)) {
-                        ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.imageUrl = string;
-                        imageUrlData.originalUrl = string2;
-                        concurrentHashMap.put(string, imageUrlData);
-                    }
-                }
-            }
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            b().post(new b(this, idleHandler));
+            return;
         }
-        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-        builder.A(arrayList);
-        builder.E(optInt);
-        builder.F(true);
-        if (arrayList.size() > 0) {
-            str = (String) arrayList.get(0);
-        } else {
-            str = "";
-        }
-        builder.M(str);
-        builder.I(true);
-        builder.y(concurrentHashMap);
-        builder.K(true);
-        c(new CustomMessage(2010000, builder.x(this.c.getContext())));
+        Looper.myQueue().addIdleHandler(idleHandler);
+        this.e = true;
     }
 
-    @ww4("selectPhotos")
-    public void selectPhotos(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ImageFileInfo imageFileInfo = new ImageFileInfo();
-                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
-                    linkedList.add(imageFileInfo);
-                }
+        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
+            return;
+        }
+        if (a().c != 1 && a().c != 2) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (dx4.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                return;
             }
-            writeImagesInfo.setChosedFiles(linkedList);
-            writeImagesInfo.setMaxImagesAllowed(9);
-            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
-            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
-            albumActivityConfig.setRequestCode(12015);
-            c(new CustomMessage(2002001, albumActivityConfig));
+            a().d(new a(this, activity));
         }
     }
 }

@@ -9,6 +9,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.app.Person;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -48,7 +53,9 @@ public class ShortcutInfoCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final ShortcutInfoCompat mInfo;
 
-        public Builder(Context context, ShortcutInfo shortcutInfo) {
+        @RequiresApi(25)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public Builder(@NonNull Context context, @NonNull ShortcutInfo shortcutInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +85,7 @@ public class ShortcutInfoCompat {
             this.mInfo.mRank = shortcutInfo.getRank();
         }
 
-        public Builder(Context context, String str) {
+        public Builder(@NonNull Context context, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +106,8 @@ public class ShortcutInfoCompat {
             shortcutInfoCompat.mId = str;
         }
 
-        public Builder(ShortcutInfoCompat shortcutInfoCompat) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public Builder(@NonNull ShortcutInfoCompat shortcutInfoCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,6 +146,7 @@ public class ShortcutInfoCompat {
             }
         }
 
+        @NonNull
         public ShortcutInfoCompat build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -155,7 +164,8 @@ public class ShortcutInfoCompat {
             return (ShortcutInfoCompat) invokeV.objValue;
         }
 
-        public Builder setActivity(ComponentName componentName) {
+        @NonNull
+        public Builder setActivity(@NonNull ComponentName componentName) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName)) == null) {
@@ -165,7 +175,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setCategories(Set<String> set) {
+        @NonNull
+        public Builder setCategories(@NonNull Set<String> set) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, set)) == null) {
@@ -175,7 +186,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setDisabledMessage(CharSequence charSequence) {
+        @NonNull
+        public Builder setDisabledMessage(@NonNull CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charSequence)) == null) {
@@ -185,6 +197,7 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setIcon(IconCompat iconCompat) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -195,7 +208,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIntent(Intent intent) {
+        @NonNull
+        public Builder setIntent(@NonNull Intent intent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intent)) == null) {
@@ -204,7 +218,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIntents(Intent[] intentArr) {
+        @NonNull
+        public Builder setIntents(@NonNull Intent[] intentArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, intentArr)) == null) {
@@ -214,7 +229,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setLongLabel(CharSequence charSequence) {
+        @NonNull
+        public Builder setLongLabel(@NonNull CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
@@ -224,6 +240,7 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setLongLived(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -234,7 +251,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setPerson(Person person) {
+        @NonNull
+        public Builder setPerson(@NonNull Person person) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, person)) == null) {
@@ -243,7 +261,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setPersons(Person[] personArr) {
+        @NonNull
+        public Builder setPersons(@NonNull Person[] personArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, personArr)) == null) {
@@ -253,6 +272,7 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setRank(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -263,7 +283,8 @@ public class ShortcutInfoCompat {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setShortLabel(CharSequence charSequence) {
+        @NonNull
+        public Builder setShortLabel(@NonNull CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
@@ -273,6 +294,7 @@ public class ShortcutInfoCompat {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setAlwaysBadged() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -283,6 +305,7 @@ public class ShortcutInfoCompat {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         @Deprecated
         public Builder setLongLived() {
             InterceptResult invokeV;
@@ -309,6 +332,7 @@ public class ShortcutInfoCompat {
         }
     }
 
+    @Nullable
     public ComponentName getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -318,6 +342,7 @@ public class ShortcutInfoCompat {
         return (ComponentName) invokeV.objValue;
     }
 
+    @Nullable
     public Set<String> getCategories() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -327,6 +352,7 @@ public class ShortcutInfoCompat {
         return (Set) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getDisabledMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -336,6 +362,7 @@ public class ShortcutInfoCompat {
         return (CharSequence) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public IconCompat getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -345,6 +372,7 @@ public class ShortcutInfoCompat {
         return (IconCompat) invokeV.objValue;
     }
 
+    @NonNull
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -354,6 +382,7 @@ public class ShortcutInfoCompat {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -364,6 +393,7 @@ public class ShortcutInfoCompat {
         return (Intent) invokeV.objValue;
     }
 
+    @NonNull
     public Intent[] getIntents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -374,6 +404,7 @@ public class ShortcutInfoCompat {
         return (Intent[]) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getLongLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -392,6 +423,7 @@ public class ShortcutInfoCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public CharSequence getShortLabel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,6 +433,8 @@ public class ShortcutInfoCompat {
         return (CharSequence) invokeV.objValue;
     }
 
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     private PersistableBundle buildLegacyExtrasBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -425,7 +459,10 @@ public class ShortcutInfoCompat {
         return (PersistableBundle) invokeV.objValue;
     }
 
-    public static boolean getLongLivedFromExtra(PersistableBundle persistableBundle) {
+    @RequiresApi(25)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    @VisibleForTesting
+    public static boolean getLongLivedFromExtra(@NonNull PersistableBundle persistableBundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, persistableBundle)) == null) {
@@ -437,7 +474,11 @@ public class ShortcutInfoCompat {
         return invokeL.booleanValue;
     }
 
-    public static Person[] getPersonsFromExtra(PersistableBundle persistableBundle) {
+    @VisibleForTesting
+    @Nullable
+    @RequiresApi(25)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Person[] getPersonsFromExtra(@NonNull PersistableBundle persistableBundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, persistableBundle)) == null) {
@@ -488,6 +529,7 @@ public class ShortcutInfoCompat {
         return (Intent) invokeL.objValue;
     }
 
+    @RequiresApi(25)
     public ShortcutInfo toShortcutInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

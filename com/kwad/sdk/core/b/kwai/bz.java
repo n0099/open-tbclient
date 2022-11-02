@@ -4,9 +4,10 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class bz implements com.kwad.sdk.core.d {
-    public static void a(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class bz implements com.kwad.sdk.core.d<AdStyleInfo.ExtraDisplayInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -21,7 +22,8 @@ public final class bz implements com.kwad.sdk.core.d {
         }
     }
 
-    public static JSONObject b(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -29,13 +31,15 @@ public final class bz implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((AdStyleInfo.ExtraDisplayInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
+        a2(extraDisplayInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((AdStyleInfo.ExtraDisplayInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdStyleInfo.ExtraDisplayInfo extraDisplayInfo, JSONObject jSONObject) {
+        return b2(extraDisplayInfo, jSONObject);
     }
 }

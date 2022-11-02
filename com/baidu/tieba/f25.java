@@ -1,122 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public class f25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final f25 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public List<g25> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712256, "Lcom/baidu/tieba/f25;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712256, "Lcom/baidu/tieba/f25;");
-                return;
-            }
-        }
-        c = new f25(false);
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public f25(boolean z) {
+    public f25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public static f25 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return c;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("image_url");
-                String optString2 = optJSONObject.optString("url");
-                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
-                    f25 f25Var = new f25(true);
-                    f25Var.f(optString);
-                    f25Var.e(optString2);
-                    return f25Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    ky4.k().y("key_index_tab_info_list", "[]");
+                    return;
                 }
+                JSONArray jSONArray2 = new JSONArray(ky4.k().q("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    g25 g25Var = new g25();
+                    g25 g25Var2 = new g25();
+                    g25Var.h(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        g25Var2.h(jSONArray2.getJSONObject(i2));
+                        if (g25Var.c != null && g25Var.c.equals(g25Var2.c)) {
+                            if (!TextUtils.isEmpty(g25Var2.e) && g25Var2.e.equals(g25Var.e)) {
+                                z = false;
+                                g25Var.f = z;
+                            }
+                            z = true;
+                            g25Var.f = z;
+                        }
+                    }
+                    if (!g25Var.e()) {
+                        this.a.add(g25Var);
+                    }
+                }
+                ky4.k().y("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return c;
-        }
-        return (f25) invokeL.objValue;
-    }
-
-    public boolean a(f25 f25Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f25Var)) == null) {
-            if (this.b.equals(f25Var.b()) && this.a.equals(f25Var.c())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
         }
     }
 }

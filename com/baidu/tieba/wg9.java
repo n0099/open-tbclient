@@ -1,126 +1,95 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.io.RandomAccessFile;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wg9 {
+public class wg9 extends sg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public int c;
-    public boolean d;
 
-    public wg9(String str) throws IOException {
+    @Override // com.baidu.tieba.sg9
+    public Map<String, String> f(xg9 xg9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xg9Var)) == null) {
+            return null;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public void j(xg9 xg9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xg9Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.sg9
+    public void n(xg9 xg9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xg9Var) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wg9(pg9 pg9Var, xg9 xg9Var, mg9.a aVar) {
+        super(pg9Var, xg9Var, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {pg9Var, xg9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((pg9) objArr2[0], (xg9) objArr2[1], (mg9.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 2;
-        this.c = 0;
-        this.d = false;
-        this.a = new MediaMuxer(str, 0);
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
+    @Override // com.baidu.tieba.sg9
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (this.d) {
-                    throw new IllegalStateException("muxer already started");
-                }
-                addTrack = this.a.addTrack(mediaFormat);
-                ih9.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
-            }
-            return addTrack;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(0L);
+            return randomAccessFile;
         }
-        return invokeL.intValue;
+        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c > 0) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
-        }
-    }
-
-    public synchronized boolean c() {
+    @Override // com.baidu.tieba.sg9
+    public String h() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                ih9.k(MediaMuxerWrapper.TAG, "start:");
-                int i = this.c + 1;
-                this.c = i;
-                if (this.b > 0 && i == this.b) {
-                    this.a.start();
-                    this.d = true;
-                    notifyAll();
-                    ih9.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
-                }
-                z = this.d;
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return wg9.class.getSimpleName();
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                ih9.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
-                int i = this.c + (-1);
-                this.c = i;
-                if (this.b > 0 && i <= 0) {
-                    if (this.d) {
-                        this.a.stop();
-                    }
-                    this.a.release();
-                    this.d = false;
-                    ih9.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
-                }
-            }
-        }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

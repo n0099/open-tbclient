@@ -21,29 +21,29 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCollectSingle extends Single implements FuseToFlowable {
+public final class FlowableCollectSingle<T, U> extends Single<U> implements FuseToFlowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer collector;
-    public final Callable initialSupplier;
-    public final Flowable source;
+    public final BiConsumer<? super U, ? super T> collector;
+    public final Callable<? extends U> initialSupplier;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class CollectSubscriber implements FlowableSubscriber, Disposable {
+    public static final class CollectSubscriber<T, U> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final BiConsumer collector;
+        public final SingleObserver<? super U> actual;
+        public final BiConsumer<? super U, ? super T> collector;
         public boolean done;
         public Subscription s;
-        public final Object u;
+        public final U u;
 
-        public CollectSubscriber(SingleObserver singleObserver, Object obj, BiConsumer biConsumer) {
+        public CollectSubscriber(SingleObserver<? super U> singleObserver, U u, BiConsumer<? super U, ? super T> biConsumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, obj, biConsumer};
+                Object[] objArr = {singleObserver, u, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
             }
             this.actual = singleObserver;
             this.collector = biConsumer;
-            this.u = obj;
+            this.u = u;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -80,6 +80,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
             return invokeV.booleanValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
@@ -88,7 +89,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
             }
             this.done = true;
             this.s = SubscriptionHelper.CANCELLED;
-            this.actual.onSuccess(this.u);
+            this.actual.onSuccess((U) this.u);
         }
 
         @Override // org.reactivestreams.Subscriber
@@ -105,14 +106,15 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: U, ? super U */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
-                this.collector.accept(this.u, obj);
+                this.collector.accept((U) this.u, t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -131,7 +133,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
         }
     }
 
-    public FlowableCollectSingle(Flowable flowable, Callable callable, BiConsumer biConsumer) {
+    public FlowableCollectSingle(Flowable<T> flowable, Callable<? extends U> callable, BiConsumer<? super U, ? super T> biConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +154,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<U> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -162,7 +164,7 @@ public final class FlowableCollectSingle extends Single implements FuseToFlowabl
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super U> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             try {

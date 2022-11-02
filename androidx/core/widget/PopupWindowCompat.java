@@ -4,6 +4,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -40,7 +41,7 @@ public final class PopupWindowCompat {
         }
     }
 
-    public static boolean getOverlapAnchor(PopupWindow popupWindow) {
+    public static boolean getOverlapAnchor(@NonNull PopupWindow popupWindow) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, popupWindow)) == null) {
@@ -75,7 +76,7 @@ public final class PopupWindowCompat {
         return invokeL.booleanValue;
     }
 
-    public static int getWindowLayoutType(PopupWindow popupWindow) {
+    public static int getWindowLayoutType(@NonNull PopupWindow popupWindow) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
@@ -103,7 +104,7 @@ public final class PopupWindowCompat {
         return invokeL.intValue;
     }
 
-    public static void setOverlapAnchor(PopupWindow popupWindow, boolean z) {
+    public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, popupWindow, z) == null) {
             int i = Build.VERSION.SDK_INT;
@@ -132,7 +133,7 @@ public final class PopupWindowCompat {
         }
     }
 
-    public static void setWindowLayoutType(PopupWindow popupWindow, int i) {
+    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, popupWindow, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
@@ -158,7 +159,7 @@ public final class PopupWindowCompat {
         }
     }
 
-    public static void showAsDropDown(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
+    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (Build.VERSION.SDK_INT >= 19) {

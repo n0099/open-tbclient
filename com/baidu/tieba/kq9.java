@@ -1,27 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.tieba.gq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsSplashScreenAd;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.qq.e.ads.splash.SplashAD;
 /* loaded from: classes4.dex */
-public class kq9 extends oq9 {
+public class kq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsSplashScreenAd c;
-    public final /* synthetic */ jq9 d;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public SplashAD g;
+    public View h;
+    public int i;
+    public int j;
+    public int[] k;
+    public int l;
+    public int m;
 
-    public kq9(jq9 jq9Var, KsSplashScreenAd ksSplashScreenAd) {
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
+
+    public kq9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jq9Var, ksSplashScreenAd};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,54 +50,38 @@ public class kq9 extends oq9 {
                 return;
             }
         }
-        this.d = jq9Var;
-        this.c = ksSplashScreenAd;
+        this.k = new int[2];
+        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
+        this.a = round;
+        this.b = Math.round((round * 16) / 9);
+        this.c = PxUtils.dpToPx(context, 6);
+        this.d = PxUtils.dpToPx(context, 100);
+        this.e = 1;
+        this.f = 300;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdClicked() {
+    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowError(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
-            this.d.onAdError(this.c, i, str);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
+            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
+            ViewUtils.removeFromParent(view2);
+            view2.setScaleX(1.0f);
+            view2.setScaleY(1.0f);
+            view2.setX(0.0f);
+            view2.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f - iArr2[0]) + iArr[0];
+            float f4 = (f2 - iArr2[1]) + iArr[1];
+            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
+            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
+            viewGroup2.addView(view2, -1, -1);
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
+            viewGroup2.setTranslationX(f3);
+            viewGroup2.setTranslationY(f4);
+            if (aVar != null) {
+                ((gq9.b.a) aVar).a.b.zoomOutAnimationFinish();
+            }
         }
     }
 }

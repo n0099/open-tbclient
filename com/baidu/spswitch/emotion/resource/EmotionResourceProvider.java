@@ -33,12 +33,12 @@ public class EmotionResourceProvider implements IResourceProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String mEmotionConfigInfo;
-    public Map mEmotionIconFileMap;
+    public Map<String, File> mEmotionIconFileMap;
     public File mEmotionSoundFile;
     public File mResourcePath;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,7 +378,7 @@ public class EmotionResourceProvider implements IResourceProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return (File) this.mEmotionIconFileMap.get(str);
+            return this.mEmotionIconFileMap.get(str);
         }
         return (File) invokeL.objValue;
     }

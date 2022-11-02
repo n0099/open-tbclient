@@ -14,6 +14,7 @@ import java.net.CacheResponse;
 import java.net.ResponseCache;
 import java.net.URI;
 import java.net.URLConnection;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class HttpResponseCache extends ResponseCache {
@@ -133,7 +134,7 @@ public final class HttpResponseCache extends ResponseCache {
     }
 
     @Override // java.net.ResponseCache
-    public CacheResponse get(URI uri, String str, Map map) throws IOException {
+    public CacheResponse get(URI uri, String str, Map<String, List<String>> map) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, uri, str, map)) == null) {

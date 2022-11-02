@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
@@ -62,7 +63,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
-    public void updateInfo(BreakpointInfo breakpointInfo) throws IOException {
+    public void updateInfo(@NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, breakpointInfo) == null) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
@@ -89,7 +90,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public static ContentValues toValues(int i, int i2, BlockInfo blockInfo) {
+    public static ContentValues toValues(int i, int i2, @NonNull BlockInfo blockInfo) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i, i2, blockInfo)) == null) {
@@ -104,7 +105,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         return (ContentValues) invokeIIL.objValue;
     }
 
-    public void updateBlockIncrease(BreakpointInfo breakpointInfo, int i, long j) {
+    public void updateBlockIncrease(@NonNull BreakpointInfo breakpointInfo, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{breakpointInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ContentValues contentValues = new ContentValues();
@@ -113,7 +114,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public static ContentValues toValues(BreakpointInfo breakpointInfo) {
+    public static ContentValues toValues(@NonNull BreakpointInfo breakpointInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, breakpointInfo)) == null) {
@@ -131,7 +132,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         return (ContentValues) invokeL.objValue;
     }
 
-    public void insert(BreakpointInfo breakpointInfo) throws IOException {
+    public void insert(@NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, breakpointInfo) == null) {
             int blockCount = breakpointInfo.getBlockCount();
@@ -149,7 +150,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void insert(SQLiteDatabase sQLiteDatabase, BreakpointInfo breakpointInfo) throws IOException {
+    public void insert(SQLiteDatabase sQLiteDatabase, @NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sQLiteDatabase, breakpointInfo) == null) {
             int blockCount = breakpointInfo.getBlockCount();
@@ -166,7 +167,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public synchronized void updateFilename(String str, String str2) {
+    public synchronized void updateFilename(@NonNull String str, @NonNull String str2) {
         Cursor rawQuery;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
@@ -204,7 +205,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List loadDirtyFileList() {
+    public List<Integer> loadDirtyFileList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -225,12 +226,12 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         return (List) invokeV.objValue;
     }
 
-    public HashMap loadResponseFilenameToMap() {
+    public HashMap<String, String> loadResponseFilenameToMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             Cursor cursor = null;
             try {
                 cursor = writableDatabase.rawQuery("SELECT * FROM bddownloadResponseFilename", null);
@@ -247,7 +248,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         return (HashMap) invokeV.objValue;
     }
 
-    public SparseArray loadToCache() {
+    public SparseArray<BreakpointInfo> loadToCache() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -284,7 +285,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
                 if (cursor2 != null) {
                     cursor2.close();
                 }
-                SparseArray sparseArray = new SparseArray();
+                SparseArray<BreakpointInfo> sparseArray = new SparseArray<>();
                 for (BreakpointInfoRow breakpointInfoRow : arrayList) {
                     BreakpointInfo info = breakpointInfoRow.toInfo();
                     Iterator it = arrayList2.iterator();

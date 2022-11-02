@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,6 +33,7 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
     public static final String TAG_FIX_TITLE = "tag_fix_title";
+    public static final String TAG_LOADING_STYLE = "tag_loading_style";
     public static final String TAG_LOAD_BY_WEB_CLIENT = "tag_load_by_web_client";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
     public static final String TAG_NEED_STYLE_IMMERSIVE_STICKY = "tag_style_immersive_sticky";
@@ -42,9 +43,11 @@ public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_NO_MENU = "tag_nomenu";
     public static final String TAG_NO_SHARE = "tag_noshare";
     public static final String TAG_PAGE_TRANSLUCENT = "tag_page_translucent";
+    public static final String TAG_SHOW_LOADING_SWITCH = "tag_show_loading_switch";
     public static final String TAG_TEXT_AUTO_SIZE = "tag_text_auto_size";
     public static final String TAG_TITLE = "tag_title";
     public static final String TAG_URL = "tag_url";
+    public static final String TAG_WEB_DIALOG_NAME = "tag_web_dialog_name";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -165,52 +168,73 @@ public class WebViewActivityConfig extends IntentConfig {
         }
     }
 
+    public void setLoadingStyle(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_LOADING_STYLE, i);
+        }
+    }
+
+    public void setLoadingSwitch(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_SHOW_LOADING_SWITCH, i);
+        }
+    }
+
     public void setNeedImmerSiveSticky(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, z);
         }
     }
 
     public void setNoClose(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_CLOSE, z);
         }
     }
 
     public void setNoHelp(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_HELP, z);
         }
     }
 
     public void setNoMenu(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_MENU, z);
         }
     }
 
     public void setNoShare(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_NO_SHARE, z);
         }
     }
 
     public void setPageTranslucent(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_PAGE_TRANSLUCENT, str);
         }
     }
 
     public void setTextAutoSize(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && getIntent() != null) {
             getIntent().putExtra(TAG_TEXT_AUTO_SIZE, z);
+        }
+    }
+
+    public void setWebDialogName(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(TAG_WEB_DIALOG_NAME, str);
         }
     }
 
@@ -218,9 +242,9 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!ej.isEmpty(str)) {
+            if (!wi.isEmpty(str)) {
                 if (str.indexOf("_client_version=") < 0) {
-                    if (ej.isEmpty(Uri.parse(str).getQuery())) {
+                    if (wi.isEmpty(Uri.parse(str).getQuery())) {
                         str = str + "?_client_version=" + TbConfig.getVersion();
                     } else {
                         str = str + "&_client_version=" + TbConfig.getVersion();
@@ -242,7 +266,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                fj.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15d6));
+                xi.P(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15f4));
                 return false;
             }
             return true;

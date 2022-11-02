@@ -13,30 +13,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final int TRANSITION_NONE = 2;
+    @VisibleForTesting
     public static final int TRANSITION_RUNNING = 1;
+    @VisibleForTesting
     public static final int TRANSITION_STARTING = 0;
     public static boolean sGlobalFadingEnable = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final int ACTUAL_IMAGE_INDEX;
+    @VisibleForTesting
     public int mAlpha;
+    @VisibleForTesting
     public int[] mAlphas;
     public boolean mCallOnFadeFinishedListener;
     public final int mDefaultLayerAlpha;
     public final boolean mDefaultLayerIsOn;
+    @VisibleForTesting
     public int mDurationMs;
+    @VisibleForTesting
     public boolean[] mIsLayerOn;
     public final Drawable[] mLayers;
     @Nullable
     public OnFadeFinishedListener mOnFadeFinishedListener;
+    @VisibleForTesting
     public int mPreventInvalidateCount;
+    @VisibleForTesting
     public int[] mStartAlphas;
+    @VisibleForTesting
     public long mStartTimeMs;
+    @VisibleForTesting
     public int mTransitionState;
 
     /* loaded from: classes7.dex */
@@ -218,6 +230,7 @@ public class FadeDrawable extends ArrayDrawable {
         return invokeV.intValue;
     }
 
+    @VisibleForTesting
     public int getTransitionState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

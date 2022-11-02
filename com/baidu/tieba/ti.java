@@ -1,63 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
 public class ti {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(File file) {
+    public static void a(InputStream inputStream, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (File file2 : listFiles) {
-                        a(file2);
-                    }
+        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    gZIPOutputStream.finish();
+                    gZIPOutputStream.close();
                     return;
                 }
-                return;
             }
-            String absolutePath = file.getAbsolutePath();
-            if (file.delete()) {
-                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
-                return;
-            }
-            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
         }
     }
 
-    public static void b(Context context) {
-        File[] listFiles;
+    public static void b(byte[] bArr, OutputStream outputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || Build.VERSION.SDK_INT < 24) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, bArr, outputStream) == null) && bArr != null && bArr.length != 0) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            gZIPOutputStream.write(bArr, 0, bArr.length);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.finish();
+            gZIPOutputStream.close();
         }
-        try {
-            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null && filesDir.getParent() != null) {
-                File file = new File(filesDir.getParent());
-                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                    for (File file2 : listFiles) {
-                        String absolutePath = file2.getAbsolutePath();
-                        if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                            a(file2);
-                        }
-                    }
+    }
+
+    public static void c(InputStream inputStream, OutputStream outputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
+            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    gZIPInputStream.close();
+                    return;
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

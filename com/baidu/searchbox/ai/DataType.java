@@ -21,7 +21,7 @@ public final class DataType {
     public static final DataType INT64;
     public static final DataType STRING;
     public static final DataType UINT8;
-    public static HashMap classDataTypes;
+    public static HashMap<Class<?>, DataType> classDataTypes;
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
@@ -47,7 +47,7 @@ public final class DataType {
         DataType dataType = new DataType("BOOL", 6, 7);
         BOOL = dataType;
         $VALUES = new DataType[]{FLOAT, DOUBLE, INT32, INT64, UINT8, STRING, dataType};
-        HashMap hashMap = new HashMap();
+        HashMap<Class<?>, DataType> hashMap = new HashMap<>();
         classDataTypes = hashMap;
         hashMap.put(Integer.TYPE, INT32);
         classDataTypes.put(Integer.class, INT32);
@@ -92,7 +92,7 @@ public final class DataType {
             while (cls.isArray()) {
                 cls = cls.getComponentType();
             }
-            DataType dataType = (DataType) classDataTypes.get(cls);
+            DataType dataType = classDataTypes.get(cls);
             if (dataType != null) {
                 return dataType;
             }

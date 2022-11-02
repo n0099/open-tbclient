@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.Logging;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JNILogging {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,6 +29,7 @@ public class JNILogging {
         this.loggable = loggable;
     }
 
+    @CalledByNative
     public void logToInjectable(String str, Integer num, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, num, str2) == null) {

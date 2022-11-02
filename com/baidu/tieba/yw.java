@@ -1,199 +1,110 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.baidu.webkit.sdk.LoadErrorCode;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes6.dex */
-public class yw {
-    public static /* synthetic */ Interceptable $ic;
+public class yw implements WebKitFactory.WebkitInstallListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "yw";
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
+    public byte a;
+    public long b;
 
-    public Object a(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323151, "Lcom/baidu/tieba/yw;")) == null) {
+            return;
         }
-        return invokeL.objValue;
-    }
-
-    public void b(boolean z, Object obj, Object obj2, Object obj3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), obj, obj2, obj3}) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448323151, "Lcom/baidu/tieba/yw;");
         }
     }
 
-    public int f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, obj, obj2)) == null) {
-            return 1;
-        }
-        return invokeLL.intValue;
-    }
-
-    public yw(int i) {
+    public yw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (i > 0) {
-            this.c = i;
-            this.a = new LinkedHashMap(0, 0.75f, true);
+    }
+
+    public static void c(LoadErrorCode loadErrorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
+            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
+        }
+    }
+
+    public final void a(LoadErrorCode loadErrorCode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
+            WebKitFactory.setEngine(0);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        throw new IllegalArgumentException("maxSize <= 0");
-    }
-
-    public final Object c(Object obj) {
-        InterceptResult invokeL;
-        Object put;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj != null) {
-                synchronized (this) {
-                    Object obj2 = this.a.get(obj);
-                    if (obj2 != null) {
-                        this.g++;
-                        return obj2;
-                    }
-                    this.h++;
-                    Object a = a(obj);
-                    if (a == null) {
-                        return null;
-                    }
-                    synchronized (this) {
-                        this.e++;
-                        put = this.a.put(obj, a);
-                        if (put != null) {
-                            this.a.put(obj, put);
-                        } else {
-                            this.b += e(obj, a);
-                        }
-                    }
-                    if (put != null) {
-                        b(false, obj, a, put);
-                        return put;
-                    }
-                    g(this.c);
-                    return a;
-                }
-            }
-            throw new NullPointerException("key == null");
+        this.a = (byte) 0;
+        if (!str.startsWith("file://")) {
+            str = "file://".concat(String.valueOf(str));
         }
-        return invokeL.objValue;
+        BdZeusUtil.printKernellog("install plugin from download");
+        WebKitFactory.installAsync(str, this);
+        this.b = System.currentTimeMillis();
+        Log.i(c, "full update started!");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void g(int i) {
-        Object key;
-        Object value;
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallFinish(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            while (true) {
-                synchronized (this) {
-                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
-                        if (this.b <= i || this.a.isEmpty()) {
-                            break;
-                        }
-                        Map.Entry entry = (Map.Entry) this.a.entrySet().iterator().next();
-                        key = entry.getKey();
-                        value = entry.getValue();
-                        this.a.remove(key);
-                        this.b -= e(key, value);
-                        this.f++;
-                    } else {
-                        break;
-                    }
-                }
-                b(true, key, value, null);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            System.currentTimeMillis();
+            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
+            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
+            if (i == 0) {
+                Log.d(c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
+            } else {
+                Log.d(c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
             }
+            BdSailorPlatform.getWebkitManager().enableBdWebkit();
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            String str2 = c;
+            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }
 
-    public final Object d(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Object put;
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, obj2)) == null) {
-            if (obj != null && obj2 != null) {
-                synchronized (this) {
-                    this.d++;
-                    this.b += e(obj, obj2);
-                    put = this.a.put(obj, obj2);
-                    if (put != null) {
-                        this.b -= e(obj, put);
-                    }
-                }
-                if (put != null) {
-                    b(false, obj, put, obj2);
-                }
-                g(this.c);
-                return put;
-            }
-            throw new NullPointerException("key == null || value == null");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return invokeLL.objValue;
-    }
-
-    public final int e(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, obj2)) == null) {
-            int f = f(obj, obj2);
-            if (f >= 0) {
-                return f;
-            }
-            throw new IllegalStateException("Negative size: " + obj + "=" + obj2);
-        }
-        return invokeLL.intValue;
-    }
-
-    public final synchronized String toString() {
-        InterceptResult invokeV;
-        int i;
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                int i2 = this.g + this.h;
-                if (i2 != 0) {
-                    i = (this.g * 100) / i2;
-                } else {
-                    i = 0;
-                }
-                format = String.format("LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.c), Integer.valueOf(this.g), Integer.valueOf(this.h), Integer.valueOf(i));
-            }
-            return format;
-        }
-        return (String) invokeV.objValue;
     }
 }

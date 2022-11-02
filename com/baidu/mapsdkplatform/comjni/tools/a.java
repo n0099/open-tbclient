@@ -3,7 +3,9 @@ package com.baidu.mapsdkplatform.comjni.tools;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.mapapi.model.inner.Point;
+import com.baidu.platform.comapi.basestruct.Point;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.platform.comjni.tools.ParcelItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,70 +30,73 @@ public class a {
         return invokeLL.doubleValue;
     }
 
-    public static com.baidu.mapapi.model.inner.a a(String str) {
+    public static com.baidu.platform.comapi.basestruct.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null || str.equals("")) {
-                return null;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("strkey", str);
-            JNITools.TransGeoStr2ComplexPt(bundle);
-            com.baidu.mapapi.model.inner.a aVar = new com.baidu.mapapi.model.inner.a();
-            Bundle bundle2 = bundle.getBundle("map_bound");
-            if (bundle2 != null) {
-                Bundle bundle3 = bundle2.getBundle("ll");
-                if (bundle3 != null) {
-                    aVar.b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
-                }
-                Bundle bundle4 = bundle2.getBundle("ru");
-                if (bundle4 != null) {
-                    aVar.c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
-                }
-            }
-            for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.d == null) {
-                    aVar.d = new ArrayList();
-                }
-                Bundle bundle5 = parcelItem.getBundle();
-                if (bundle5 != null) {
-                    ParcelItem[] parcelItemArr = (ParcelItem[]) bundle5.getParcelableArray("point_array");
-                    ArrayList arrayList = new ArrayList();
-                    for (ParcelItem parcelItem2 : parcelItemArr) {
-                        Bundle bundle6 = parcelItem2.getBundle();
-                        if (bundle6 != null) {
-                            arrayList.add(new Point((int) bundle6.getDouble("ptx"), (int) bundle6.getDouble("pty")));
-                        }
+            if (str != null && !str.equals("")) {
+                Bundle bundle = new Bundle();
+                bundle.putString("strkey", str);
+                JNITools.TransGeoStr2ComplexPt(bundle);
+                com.baidu.platform.comapi.basestruct.a aVar = new com.baidu.platform.comapi.basestruct.a();
+                Bundle bundle2 = bundle.getBundle("map_bound");
+                if (bundle2 != null) {
+                    Bundle bundle3 = bundle2.getBundle("ll");
+                    if (bundle3 != null) {
+                        aVar.b = new Point((int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle3.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
                     }
-                    arrayList.trimToSize();
-                    aVar.d.add(arrayList);
+                    Bundle bundle4 = bundle2.getBundle("ru");
+                    if (bundle4 != null) {
+                        aVar.c = new Point((int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle4.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY));
+                    }
                 }
+                for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
+                    if (aVar.d == null) {
+                        aVar.d = new ArrayList<>();
+                    }
+                    Bundle bundle5 = parcelItem.getBundle();
+                    if (bundle5 != null) {
+                        ParcelItem[] parcelItemArr = (ParcelItem[]) bundle5.getParcelableArray("point_array");
+                        ArrayList<Point> arrayList = new ArrayList<>();
+                        for (ParcelItem parcelItem2 : parcelItemArr) {
+                            Bundle bundle6 = parcelItem2.getBundle();
+                            if (bundle6 != null) {
+                                arrayList.add(new Point((int) bundle6.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTX), (int) bundle6.getDouble(MapBundleKey.MapObjKey.OBJ_SL_PTY)));
+                            }
+                        }
+                        arrayList.trimToSize();
+                        aVar.d.add(arrayList);
+                    }
+                }
+                aVar.d.trimToSize();
+                aVar.a = (int) bundle.getDouble("type");
+                return aVar;
             }
-            aVar.d.trimToSize();
-            aVar.a = (int) bundle.getDouble("type");
-            return aVar;
+            return null;
         }
-        return (com.baidu.mapapi.model.inner.a) invokeL.objValue;
+        return (com.baidu.platform.comapi.basestruct.a) invokeL.objValue;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? JNITools.GetToken() : (String) invokeV.objValue;
-    }
-
-    public static void a(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            JNITools.openLogEnable(z, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return JNITools.GetToken();
         }
+        return (String) invokeV.objValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             JNITools.initClass(new Bundle(), 0);
+        }
+    }
+
+    public static void a(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            JNITools.openLogEnable(z, i);
         }
     }
 }

@@ -27,20 +27,20 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
+public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int capacityHint;
-    public final Publisher other;
+    public final Publisher<B> other;
 
     /* loaded from: classes8.dex */
-    public final class WindowBoundaryInnerSubscriber extends DisposableSubscriber {
+    public static final class WindowBoundaryInnerSubscriber<T, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean done;
-        public final WindowBoundaryMainSubscriber parent;
+        public final WindowBoundaryMainSubscriber<T, B> parent;
 
-        public WindowBoundaryInnerSubscriber(WindowBoundaryMainSubscriber windowBoundaryMainSubscriber) {
+        public WindowBoundaryInnerSubscriber(WindowBoundaryMainSubscriber<T, B> windowBoundaryMainSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,9 +72,9 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) != null) || this.done) {
                 return;
             }
             this.parent.innerNext();
@@ -92,22 +92,22 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowBoundaryMainSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription, Runnable {
+    public static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Object NEXT_WINDOW;
         public static final long serialVersionUID = 2233020065421370272L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WindowBoundaryInnerSubscriber boundarySubscriber;
+        public final WindowBoundaryInnerSubscriber<T, B> boundarySubscriber;
         public final int capacityHint;
         public volatile boolean done;
-        public final Subscriber downstream;
+        public final Subscriber<? super Flowable<T>> downstream;
         public long emitted;
         public final AtomicThrowable errors;
-        public final MpscLinkedQueue queue;
+        public final MpscLinkedQueue<Object> queue;
         public final AtomicLong requested;
         public final AtomicBoolean stopWindows;
-        public final AtomicReference upstream;
-        public UnicastProcessor window;
+        public final AtomicReference<Subscription> upstream;
+        public UnicastProcessor<T> window;
         public final AtomicInteger windows;
 
         static {
@@ -172,7 +172,7 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
             }
         }
 
-        public WindowBoundaryMainSubscriber(Subscriber subscriber, int i) {
+        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,33 +189,35 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
             }
             this.downstream = subscriber;
             this.capacityHint = i;
-            this.boundarySubscriber = new WindowBoundaryInnerSubscriber(this);
-            this.upstream = new AtomicReference();
+            this.boundarySubscriber = new WindowBoundaryInnerSubscriber<>(this);
+            this.upstream = new AtomicReference<>();
             this.windows = new AtomicInteger(1);
-            this.queue = new MpscLinkedQueue();
+            this.queue = new MpscLinkedQueue<>();
             this.errors = new AtomicThrowable();
             this.stopWindows = new AtomicBoolean();
             this.requested = new AtomicLong();
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: io.reactivex.processors.UnicastProcessor<T> */
+        /* JADX WARN: Multi-variable type inference failed */
         public void drain() {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.downstream;
-            MpscLinkedQueue mpscLinkedQueue = this.queue;
+            Subscriber<? super Flowable<T>> subscriber = this.downstream;
+            MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
             AtomicThrowable atomicThrowable = this.errors;
             long j = this.emitted;
             int i = 1;
             while (this.windows.get() != 0) {
-                UnicastProcessor unicastProcessor = this.window;
+                UnicastProcessor<T> unicastProcessor = this.window;
                 boolean z2 = this.done;
                 if (z2 && atomicThrowable.get() != null) {
                     mpscLinkedQueue.clear();
                     Throwable terminate = atomicThrowable.terminate();
-                    if (unicastProcessor != null) {
+                    if (unicastProcessor != 0) {
                         this.window = null;
                         unicastProcessor.onError(terminate);
                     }
@@ -231,14 +233,14 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
                 if (z2 && z) {
                     Throwable terminate2 = atomicThrowable.terminate();
                     if (terminate2 == null) {
-                        if (unicastProcessor != null) {
+                        if (unicastProcessor != 0) {
                             this.window = null;
                             unicastProcessor.onComplete();
                         }
                         subscriber.onComplete();
                         return;
                     }
-                    if (unicastProcessor != null) {
+                    if (unicastProcessor != 0) {
                         this.window = null;
                         unicastProcessor.onError(terminate2);
                     }
@@ -253,12 +255,12 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
                 } else if (poll != NEXT_WINDOW) {
                     unicastProcessor.onNext(poll);
                 } else {
-                    if (unicastProcessor != null) {
+                    if (unicastProcessor != 0) {
                         this.window = null;
                         unicastProcessor.onComplete();
                     }
                     if (!this.stopWindows.get()) {
-                        UnicastProcessor create = UnicastProcessor.create(this.capacityHint, this);
+                        UnicastProcessor<T> create = UnicastProcessor.create(this.capacityHint, this);
                         this.window = create;
                         this.windows.getAndIncrement();
                         if (j != this.requested.get()) {
@@ -305,10 +307,10 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-                this.queue.offer(obj);
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                this.queue.offer(t);
                 drain();
             }
         }
@@ -331,7 +333,7 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowBoundary(Flowable flowable, Publisher publisher, int i) {
+    public FlowableWindowBoundary(Flowable<T> flowable, Publisher<B> publisher, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -353,7 +355,7 @@ public final class FlowableWindowBoundary extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Flowable<T>> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             WindowBoundaryMainSubscriber windowBoundaryMainSubscriber = new WindowBoundaryMainSubscriber(subscriber, this.capacityHint);

@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 /* loaded from: classes9.dex */
-public final class Notification {
+public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Notification d;
+    public static final Notification<Void> d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Kind a;
     public final Throwable b;
-    public final Object c;
+    public final T c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class Kind {
+    public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Kind OnCompleted;
@@ -100,14 +100,14 @@ public final class Notification {
                 return;
             }
         }
-        d = new Notification(Kind.OnCompleted, null, null);
+        d = new Notification<>(Kind.OnCompleted, null, null);
     }
 
-    public static Notification a() {
+    public static <T> Notification<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d;
+            return (Notification<T>) d;
         }
         return (Notification) invokeV.objValue;
     }
@@ -130,13 +130,13 @@ public final class Notification {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object f() {
+    public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public boolean g() {
@@ -199,12 +199,12 @@ public final class Notification {
         return invokeV.booleanValue;
     }
 
-    public Notification(Kind kind, Object obj, Throwable th) {
+    public Notification(Kind kind, T t, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kind, obj, th};
+            Object[] objArr = {kind, t, th};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,25 +214,25 @@ public final class Notification {
                 return;
             }
         }
-        this.c = obj;
+        this.c = t;
         this.b = th;
         this.a = kind;
     }
 
-    public static Notification b(Throwable th) {
+    public static <T> Notification<T> b(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            return new Notification(Kind.OnError, null, th);
+            return new Notification<>(Kind.OnError, null, th);
         }
         return (Notification) invokeL.objValue;
     }
 
-    public static Notification c(Object obj) {
+    public static <T> Notification<T> c(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            return new Notification(Kind.OnNext, obj, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            return new Notification<>(Kind.OnNext, t, null);
         }
         return (Notification) invokeL.objValue;
     }
@@ -254,9 +254,9 @@ public final class Notification {
             if (notification.d() != d()) {
                 return false;
             }
-            Object obj2 = this.c;
-            Object obj3 = notification.c;
-            if (obj2 != obj3 && (obj2 == null || !obj2.equals(obj3))) {
+            T t = this.c;
+            T t2 = notification.c;
+            if (t != t2 && (t == null || !t.equals(t2))) {
                 return false;
             }
             Throwable th = this.b;

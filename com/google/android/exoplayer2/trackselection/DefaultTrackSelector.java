@@ -34,7 +34,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     public static final int WITHIN_RENDERER_CAPABILITIES_BONUS = 1000;
     public transient /* synthetic */ FieldHolder $fh;
     public final TrackSelection.Factory adaptiveTrackSelectionFactory;
-    public final AtomicReference paramsReference;
+    public final AtomicReference<Parameters> paramsReference;
 
     public static int compareFormatValues(int i, int i2) {
         InterceptResult invokeII;
@@ -74,7 +74,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     }
 
     /* loaded from: classes7.dex */
-    public final class AudioConfigurationTuple {
+    public static final class AudioConfigurationTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int channelCount;
@@ -139,7 +139,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     }
 
     /* loaded from: classes7.dex */
-    public final class AudioTrackScore implements Comparable {
+    public static final class AudioTrackScore implements Comparable<AudioTrackScore> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bitrate;
@@ -247,7 +247,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     }
 
     /* loaded from: classes7.dex */
-    public final class Parameters {
+    public static final class Parameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean allowMixedMimeAdaptiveness;
@@ -542,7 +542,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (Parameters) this.paramsReference.get();
+            return this.paramsReference.get();
         }
         return (Parameters) invokeV.objValue;
     }
@@ -563,7 +563,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             }
         }
         this.adaptiveTrackSelectionFactory = factory;
-        this.paramsReference = new AtomicReference(new Parameters());
+        this.paramsReference = new AtomicReference<>(new Parameters());
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -598,11 +598,11 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return invokeLL.booleanValue;
     }
 
-    public static void filterAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List list) {
+    public static void filterAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{trackGroup, iArr, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list}) == null) {
             for (int size = list.size() - 1; size >= 0; size--) {
-                int intValue = ((Integer) list.get(size)).intValue();
+                int intValue = list.get(size).intValue();
                 if (!isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i, i2, i3, i4)) {
                     list.remove(size);
                 }
@@ -610,13 +610,13 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    public static int getAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List list) {
+    public static int getAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{trackGroup, iArr, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list})) == null) {
             int i5 = 0;
             for (int i6 = 0; i6 < list.size(); i6++) {
-                int intValue = ((Integer) list.get(i6)).intValue();
+                int intValue = list.get(i6).intValue();
                 if (isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i, i2, i3, i4)) {
                     i5++;
                 }
@@ -750,7 +750,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             if (trackGroup.length < 2) {
                 return NO_TRACKS;
             }
-            List viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup, i5, i6, z2);
+            List<Integer> viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup, i5, i6, z2);
             if (viewportFilteredTrackIndices.size() < 2) {
                 return NO_TRACKS;
             }
@@ -759,7 +759,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
                 String str2 = null;
                 int i7 = 0;
                 for (int i8 = 0; i8 < viewportFilteredTrackIndices.size(); i8++) {
-                    String str3 = trackGroup.getFormat(((Integer) viewportFilteredTrackIndices.get(i8)).intValue()).sampleMimeType;
+                    String str3 = trackGroup.getFormat(viewportFilteredTrackIndices.get(i8).intValue()).sampleMimeType;
                     if (hashSet.add(str3) && (adaptiveVideoTrackCountForMimeType = getAdaptiveVideoTrackCountForMimeType(trackGroup, iArr, i, str3, i2, i3, i4, viewportFilteredTrackIndices)) > i7) {
                         i7 = adaptiveVideoTrackCountForMimeType;
                         str2 = str3;
@@ -812,7 +812,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return (Point) invokeCommon.objValue;
     }
 
-    public static List getViewportFilteredTrackIndices(TrackGroup trackGroup, int i, int i2, boolean z) {
+    public static List<Integer> getViewportFilteredTrackIndices(TrackGroup trackGroup, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
@@ -948,7 +948,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             int i10 = -1;
             while (i6 < trackGroupArray2.length) {
                 TrackGroup trackGroup2 = trackGroupArray2.get(i6);
-                List viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup2, parameters.viewportWidth, parameters.viewportHeight, parameters.viewportOrientationMayChange);
+                List<Integer> viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup2, parameters.viewportWidth, parameters.viewportHeight, parameters.viewportOrientationMayChange);
                 int[] iArr2 = iArr[i6];
                 int i11 = 0;
                 while (i11 < trackGroup2.length) {
@@ -1098,7 +1098,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, rendererCapabilitiesArr, trackGroupArrayArr, iArr)) == null) {
             int length = rendererCapabilitiesArr.length;
             TrackSelection[] trackSelectionArr = new TrackSelection[length];
-            Parameters parameters = (Parameters) this.paramsReference.get();
+            Parameters parameters = this.paramsReference.get();
             boolean z = false;
             int i = 0;
             boolean z2 = false;
@@ -1183,7 +1183,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, parameters) == null) {
             Assertions.checkNotNull(parameters);
-            if (!((Parameters) this.paramsReference.getAndSet(parameters)).equals(parameters)) {
+            if (!this.paramsReference.getAndSet(parameters).equals(parameters)) {
                 invalidate();
             }
         }

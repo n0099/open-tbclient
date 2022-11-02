@@ -10,10 +10,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d41;
+import com.baidu.tieba.v41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = d41.a(12.0f);
-        q = d41.d(30.0f);
-        r = d41.a(17.0f);
-        s = d41.a(13.0f);
-        t = d41.a(2.0f);
-        d41.a(9.0f);
-        u = d41.b(90.0f);
-        v = d41.b(90.0f);
-        w = d41.a(77.0f);
-        x = d41.a(7.0f);
-        y = d41.a(1.0f);
-        z = d41.a(23.0f);
-        A = d41.a(21.0f);
-        B = d41.a(64.0f);
-        C = d41.a(34.0f);
-        D = d41.a(27.0f);
-        E = d41.a(25.0f);
-        F = d41.a(11.0f);
-        G = d41.a(9.0f);
-        H = d41.a(60.0f);
+        p = v41.a(12.0f);
+        q = v41.d(30.0f);
+        r = v41.a(17.0f);
+        s = v41.a(13.0f);
+        t = v41.a(2.0f);
+        v41.a(9.0f);
+        u = v41.b(90.0f);
+        v = v41.b(90.0f);
+        w = v41.a(77.0f);
+        x = v41.a(7.0f);
+        y = v41.a(1.0f);
+        z = v41.a(23.0f);
+        A = v41.a(21.0f);
+        B = v41.a(64.0f);
+        C = v41.a(34.0f);
+        D = v41.a(27.0f);
+        E = v41.a(25.0f);
+        F = v41.a(11.0f);
+        G = v41.a(9.0f);
+        H = v41.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -117,7 +118,7 @@ public class BdVideoSeekbarImageView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoSeekbarImageView(Context context, AttributeSet attributeSet) {
+    public BdVideoSeekbarImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -180,7 +181,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3d);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e58);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

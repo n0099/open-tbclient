@@ -1,5 +1,8 @@
 package com.google.android.material.bottomappbar;
 
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,6 +74,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         return invokeV.floatValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float getFabDiameter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,6 +84,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         return invokeV.floatValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float getHorizontalOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +95,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f, float f2, float f3, ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
             float f4 = this.fabDiameter;
@@ -122,7 +127,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         }
     }
 
-    public void setCradleVerticalOffset(float f) {
+    public void setCradleVerticalOffset(@FloatRange(from = 0.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
             if (f >= 0.0f) {
@@ -147,6 +152,7 @@ public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Clone
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setFabDiameter(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {

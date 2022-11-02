@@ -13,6 +13,8 @@ import android.os.Messenger;
 import android.os.Process;
 import android.os.RemoteException;
 import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.kwad.sdk.api.proxy.app.ServiceProxyRemote;
 import com.kwad.sdk.collector.AppStatusRules;
@@ -24,7 +26,6 @@ import com.kwad.sdk.utils.f;
 import com.kwad.sdk.utils.r;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
@@ -32,35 +33,35 @@ import org.json.JSONArray;
 public class a extends com.kwad.sdk.g.a {
     public static AtomicBoolean SW = new AtomicBoolean(false);
     public static volatile Message SX;
-    public HandlerC0594a SU = new HandlerC0594a((byte) 0);
+    public HandlerC0605a SU = new HandlerC0605a((byte) 0);
     public Messenger SV = new Messenger(this.SU);
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class HandlerC0594a extends Handler {
-        public WeakReference SZ;
+    public static class HandlerC0605a extends Handler {
+        public WeakReference<Service> SZ;
 
-        public HandlerC0594a() {
+        public HandlerC0605a() {
         }
 
-        public /* synthetic */ HandlerC0594a(byte b) {
+        public /* synthetic */ HandlerC0605a(byte b) {
             this();
         }
 
-        public final void a(Service service) {
+        public final void a(@Nullable Service service) {
             if (service != null) {
-                this.SZ = new WeakReference(service);
+                this.SZ = new WeakReference<>(service);
             } else {
                 this.SZ = null;
             }
         }
 
         @Override // android.os.Handler
-        public final void handleMessage(Message message) {
+        public final void handleMessage(@NonNull Message message) {
             super.handleMessage(message);
             b.d("RemoteService", "handleMessage");
-            WeakReference weakReference = this.SZ;
-            Service service = weakReference != null ? (Service) weakReference.get() : null;
+            WeakReference<Service> weakReference = this.SZ;
+            Service service = weakReference != null ? weakReference.get() : null;
             if (service == null) {
                 return;
             }
@@ -78,7 +79,7 @@ public class a extends com.kwad.sdk.g.a {
             final Bundle bundle = new Bundle();
             f.a(service, new f.b() { // from class: com.kwad.sdk.collector.a.a.a.1
                 @Override // com.kwad.sdk.utils.f.b
-                public final void m(List list) {
+                public final void m(List<com.kwad.sdk.collector.model.b> list) {
                     b.d("RemoteService", "RemoteService: onAppStatusResult list: " + list);
                     if (list != null && !list.isEmpty()) {
                         b.d("RemoteService", "RemoteService: onAppStatusResult: " + list.size());
@@ -87,7 +88,7 @@ public class a extends com.kwad.sdk.g.a {
                         b.d("RemoteService", "resultJson :" + jSONArray);
                         if (jSONArray != null) {
                             AppStatusRules yV = f.yV();
-                            ArrayList allStrategy = yV != null ? yV.getAllStrategy() : null;
+                            ArrayList<AppStatusRules.Strategy> allStrategy = yV != null ? yV.getAllStrategy() : null;
                             String jSONArray2 = allStrategy != null ? r.B(allStrategy).toString() : null;
                             bundle.putString("resultJson", jSONArray);
                             bundle.putString("allStrategyJson", jSONArray2);
@@ -103,16 +104,15 @@ public class a extends com.kwad.sdk.g.a {
                     if (list == null || list.isEmpty()) {
                         return;
                     }
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        ((com.kwad.sdk.collector.model.b) it.next()).destroy();
+                    for (com.kwad.sdk.collector.model.b bVar : list) {
+                        bVar.destroy();
                     }
                 }
             });
         }
     }
 
-    public static void a(Context context, ServiceConnection serviceConnection) {
+    public static void a(@NonNull Context context, ServiceConnection serviceConnection) {
         b.d("RemoteService", "bindASService");
         context.bindService(new Intent(context, ServiceProxyRemote.class), serviceConnection, 1);
     }
@@ -122,7 +122,7 @@ public class a extends com.kwad.sdk.g.a {
         return (processName == null || context.getPackageName().equals(processName)) ? false : true;
     }
 
-    public static void b(Context context, ServiceConnection serviceConnection) {
+    public static void b(@NonNull Context context, ServiceConnection serviceConnection) {
         b.d("RemoteService", "unbindASService");
         try {
             context.unbindService(serviceConnection);
@@ -136,7 +136,7 @@ public class a extends com.kwad.sdk.g.a {
     }
 
     @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
-    public IBinder onBind(Service service, Intent intent) {
+    public IBinder onBind(@NonNull Service service, Intent intent) {
         return this.SV.getBinder();
     }
 
@@ -176,7 +176,7 @@ public class a extends com.kwad.sdk.g.a {
     }
 
     @Override // com.kwad.sdk.g.a, com.kwad.sdk.api.proxy.IServiceProxy
-    public void onDestroy(Service service) {
+    public void onDestroy(@NonNull Service service) {
         super.onDestroy(service);
         b.d("RemoteService", MissionEvent.MESSAGE_DESTROY);
         this.SU.a(null);

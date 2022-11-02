@@ -8,20 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.util.AppendOnlyLinkedArrayList;
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class SerializedSubject extends Subject implements AppendOnlyLinkedArrayList.NonThrowingPredicate {
+public final class SerializedSubject<T> extends Subject<T> implements AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subject actual;
+    public final Subject<T> actual;
     public volatile boolean done;
     public boolean emitting;
-    public AppendOnlyLinkedArrayList queue;
+    public AppendOnlyLinkedArrayList<Object> queue;
 
-    public SerializedSubject(Subject subject) {
+    public SerializedSubject(Subject<T> subject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +41,7 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, observer) == null) {
             this.actual.subscribe(observer);
@@ -58,7 +59,7 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
     }
 
     public void emitLoop() {
-        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList;
+        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
             return;
@@ -77,6 +78,7 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
     }
 
     @Override // io.reactivex.subjects.Subject
+    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,9 +130,9 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
             }
             this.done = true;
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
                 appendOnlyLinkedArrayList.add(NotificationLite.complete());
@@ -154,9 +156,9 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
                 if (!this.done) {
                     this.done = true;
                     if (this.emitting) {
-                        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                         if (appendOnlyLinkedArrayList == null) {
-                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                             this.queue = appendOnlyLinkedArrayList;
                         }
                         appendOnlyLinkedArrayList.setFirst(NotificationLite.error(th));
@@ -183,9 +185,9 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
                 synchronized (this) {
                     if (!this.done) {
                         if (this.emitting) {
-                            AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                            AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                             if (appendOnlyLinkedArrayList == null) {
-                                appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                                appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                                 this.queue = appendOnlyLinkedArrayList;
                             }
                             appendOnlyLinkedArrayList.add(NotificationLite.disposable(disposable));
@@ -206,9 +208,9 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || this.done) {
             return;
         }
         synchronized (this) {
@@ -216,16 +218,16 @@ public final class SerializedSubject extends Subject implements AppendOnlyLinked
                 return;
             }
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
-                appendOnlyLinkedArrayList.add(NotificationLite.next(obj));
+                appendOnlyLinkedArrayList.add(NotificationLite.next(t));
                 return;
             }
             this.emitting = true;
-            this.actual.onNext(obj);
+            this.actual.onNext(t);
             emitLoop();
         }
     }

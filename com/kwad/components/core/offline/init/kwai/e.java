@@ -3,6 +3,7 @@ package com.kwad.components.core.offline.init.kwai;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -141,7 +142,7 @@ public final class e implements IImageLoader {
     }
 
     @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, String str) {
+    public final void loadImage(ImageView imageView, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
             KSImageLoader.loadImage(imageView, str, null);
@@ -149,7 +150,7 @@ public final class e implements IImageLoader {
     }
 
     @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat) {
+    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, displayImageOptionsCompat) == null) {
             KSImageLoader.loadImage(imageView, str, (AdTemplate) null, a(displayImageOptionsCompat));
@@ -157,7 +158,7 @@ public final class e implements IImageLoader {
     }
 
     @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat, IImageLoader.ImageLoadingListener imageLoadingListener) {
+    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.DisplayImageOptionsCompat displayImageOptionsCompat, IImageLoader.ImageLoadingListener imageLoadingListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, imageView, str, displayImageOptionsCompat, imageLoadingListener) == null) {
             KSImageLoader.loadImage(imageView, str, null, a(displayImageOptionsCompat), a(imageLoadingListener, displayImageOptionsCompat, imageView));
@@ -165,7 +166,7 @@ public final class e implements IImageLoader {
     }
 
     @Override // com.kwad.components.offline.api.core.api.IImageLoader
-    public final void loadImage(ImageView imageView, String str, IImageLoader.ImageLoadingListener imageLoadingListener) {
+    public final void loadImage(ImageView imageView, @Nullable String str, IImageLoader.ImageLoadingListener imageLoadingListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, imageView, str, imageLoadingListener) == null) {
             KSImageLoader.loadImage(imageView, str, (AdTemplate) null, a(imageLoadingListener, null, imageView));

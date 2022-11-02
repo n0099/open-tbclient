@@ -11,28 +11,30 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
+@Experimental
 /* loaded from: classes8.dex */
-public final class MaybeFlatMapSingleElement extends Maybe {
+public final class MaybeFlatMapSingleElement<T, R> extends Maybe<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
-    public final MaybeSource source;
+    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class FlatMapMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class FlatMapMaybeObserver<T, R> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4827726964688405508L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final Function mapper;
+        public final MaybeObserver<? super R> actual;
+        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
 
-        public FlatMapMaybeObserver(MaybeObserver maybeObserver, Function function) {
+        public FlatMapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends SingleSource<? extends R>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +66,7 @@ public final class MaybeFlatMapSingleElement extends Maybe {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -94,11 +96,11 @@ public final class MaybeFlatMapSingleElement extends Maybe {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 try {
-                    ((SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null SingleSource")).subscribe(new FlatMapSingleObserver(this, this.actual));
+                    ((SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null SingleSource")).subscribe(new FlatMapSingleObserver(this, this.actual));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     onError(th);
@@ -108,13 +110,13 @@ public final class MaybeFlatMapSingleElement extends Maybe {
     }
 
     /* loaded from: classes8.dex */
-    public final class FlatMapSingleObserver implements SingleObserver {
+    public static final class FlatMapSingleObserver<R> implements SingleObserver<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final AtomicReference parent;
+        public final MaybeObserver<? super R> actual;
+        public final AtomicReference<Disposable> parent;
 
-        public FlatMapSingleObserver(AtomicReference atomicReference, MaybeObserver maybeObserver) {
+        public FlatMapSingleObserver(AtomicReference<Disposable> atomicReference, MaybeObserver<? super R> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,15 +152,15 @@ public final class MaybeFlatMapSingleElement extends Maybe {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r) == null) {
+                this.actual.onSuccess(r);
             }
         }
     }
 
-    public MaybeFlatMapSingleElement(MaybeSource maybeSource, Function function) {
+    public MaybeFlatMapSingleElement(MaybeSource<T> maybeSource, Function<? super T, ? extends SingleSource<? extends R>> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +180,7 @@ public final class MaybeFlatMapSingleElement extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FlatMapMaybeObserver(maybeObserver, this.mapper));

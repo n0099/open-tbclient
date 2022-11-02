@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.view.narootview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -14,6 +15,7 @@ public class SwanAppInlineFullScreenContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

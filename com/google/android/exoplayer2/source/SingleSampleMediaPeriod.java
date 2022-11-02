@@ -25,7 +25,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback {
+public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback<SourceLoadable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_SAMPLE_SIZE = 1024;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
     public final int minLoadableRetryCount;
     public byte[] sampleData;
     public int sampleSize;
-    public final ArrayList sampleStreams;
+    public final ArrayList<SampleStreamImpl> sampleStreams;
     public final TrackGroupArray tracks;
     public final boolean treatLoadErrorsAsEndOfStream;
     public final Uri uri;
@@ -182,7 +182,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
     }
 
     /* loaded from: classes7.dex */
-    public final class SourceLoadable implements Loader.Loadable {
+    public static final class SourceLoadable implements Loader.Loadable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource dataSource;
@@ -275,7 +275,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         this.eventSourceId = i2;
         this.treatLoadErrorsAsEndOfStream = z;
         this.tracks = new TrackGroupArray(new TrackGroup(format));
-        this.sampleStreams = new ArrayList();
+        this.sampleStreams = new ArrayList<>();
         this.loader = new Loader("Loader:SingleSampleMediaPeriod");
     }
 
@@ -325,7 +325,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
             for (int i = 0; i < this.sampleStreams.size(); i++) {
-                ((SampleStreamImpl) this.sampleStreams.get(i)).seekToUs(j);
+                this.sampleStreams.get(i).seekToUs(j);
             }
             return j;
         }

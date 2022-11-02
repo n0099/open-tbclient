@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,9 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class TbPatternsCompat {
     public static /* synthetic */ Interceptable $ic = null;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final Pattern AUTOLINK_EMAIL_ADDRESS;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final Pattern AUTOLINK_WEB_URL;
     public static final Pattern DOMAIN_NAME;
     public static final String EMAIL_ADDRESS_DOMAIN = "(?=.{1,255}(?:\\s|$|^))([a-zA-Z0-9](?:[a-zA-Z0-9_\\-]{0,61}[a-zA-Z0-9]){0,1}\\.)+(xn\\-\\-[\\w\\-]{0,58}\\w|[a-zA-Z]{2,63})";

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserVipInfoData;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +41,7 @@ public class AccountData implements Serializable {
     public String mStoken;
     public String mTbs;
     public long mTime;
-    public List mUserIcons;
+    public List<IconData> mUserIcons;
     public UserVipInfoData mVipInfo;
     public String nameShow;
     public String personalBgUrl;
@@ -308,7 +309,7 @@ public class AccountData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public List getUserIcons() {
+    public List<IconData> getUserIcons() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
@@ -529,7 +530,7 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setUserIcons(List list) {
+    public void setUserIcons(List<IconData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, list) == null) {
             this.mUserIcons = list;

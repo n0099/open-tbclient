@@ -19,7 +19,7 @@ public class DBOperationFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBOperationFactory";
     public static long sAppid = -1;
-    public static HashMap sDbOperatioContainer = null;
+    public static HashMap<String, DBOperation> sDbOperatioContainer = null;
     public static long sEnv = -1;
     public static String sUid;
     public static long sUk;
@@ -38,7 +38,7 @@ public class DBOperationFactory {
                 return;
             }
         }
-        sDbOperatioContainer = new HashMap();
+        sDbOperatioContainer = new HashMap<>();
     }
 
     public DBOperationFactory() {
@@ -58,7 +58,7 @@ public class DBOperationFactory {
     public static void closeDb(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && sDbOperatioContainer.containsKey(str)) {
-            ((DBOperation) sDbOperatioContainer.remove(str)).closeDb();
+            sDbOperatioContainer.remove(str).closeDb();
         }
     }
 
@@ -82,7 +82,7 @@ public class DBOperationFactory {
                     }
                 }
             }
-            return (DBOperation) sDbOperatioContainer.get(str);
+            return sDbOperatioContainer.get(str);
         }
         return (DBOperation) invokeLL.objValue;
     }

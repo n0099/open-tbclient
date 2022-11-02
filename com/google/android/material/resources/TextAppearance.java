@@ -7,6 +7,12 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.util.Log;
+import androidx.annotation.FontRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,22 +32,28 @@ public class TextAppearance {
     public static final int TYPEFACE_SERIF = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public Typeface font;
+    @Nullable
     public final String fontFamily;
+    @FontRes
     public final int fontFamilyResourceId;
     public boolean fontResolved;
+    @Nullable
     public final ColorStateList shadowColor;
     public final float shadowDx;
     public final float shadowDy;
     public final float shadowRadius;
     public final boolean textAllCaps;
+    @Nullable
     public final ColorStateList textColor;
+    @Nullable
     public final ColorStateList textColorHint;
+    @Nullable
     public final ColorStateList textColorLink;
     public final float textSize;
     public final int textStyle;
     public final int typeface;
 
-    public TextAppearance(Context context, int i) {
+    public TextAppearance(@NonNull Context context, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +124,9 @@ public class TextAppearance {
         return (Typeface) invokeV.objValue;
     }
 
-    public Typeface getFont(Context context) {
+    @NonNull
+    @VisibleForTesting
+    public Typeface getFont(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -137,7 +152,7 @@ public class TextAppearance {
         return (Typeface) invokeL.objValue;
     }
 
-    public void getFontAsync(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void getFontAsync(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, textPaint, textAppearanceFontCallback) == null) {
             updateTextPaintMeasureState(textPaint, getFallbackFont());
@@ -177,7 +192,7 @@ public class TextAppearance {
                 }
 
                 @Override // com.google.android.material.resources.TextAppearanceFontCallback
-                public void onFontRetrieved(Typeface typeface, boolean z) {
+                public void onFontRetrieved(@NonNull Typeface typeface, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, z) == null) {
                         this.this$0.updateTextPaintMeasureState(this.val$textPaint, typeface);
@@ -188,7 +203,7 @@ public class TextAppearance {
         }
     }
 
-    public void updateMeasureState(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void updateMeasureState(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, context, textPaint, textAppearanceFontCallback) == null) {
             if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
@@ -199,7 +214,7 @@ public class TextAppearance {
         }
     }
 
-    public void getFontAsync(Context context, TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void getFontAsync(@NonNull Context context, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, textAppearanceFontCallback) == null) {
             if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
@@ -251,7 +266,7 @@ public class TextAppearance {
                     }
 
                     @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                    public void onFontRetrieved(Typeface typeface) {
+                    public void onFontRetrieved(@NonNull Typeface typeface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface) == null) {
                             TextAppearance textAppearance = this.this$0;
@@ -272,7 +287,7 @@ public class TextAppearance {
         }
     }
 
-    public void updateDrawState(Context context, TextPaint textPaint, TextAppearanceFontCallback textAppearanceFontCallback) {
+    public void updateDrawState(@NonNull Context context, @NonNull TextPaint textPaint, @NonNull TextAppearanceFontCallback textAppearanceFontCallback) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -298,7 +313,7 @@ public class TextAppearance {
         }
     }
 
-    public void updateTextPaintMeasureState(TextPaint textPaint, Typeface typeface) {
+    public void updateTextPaintMeasureState(@NonNull TextPaint textPaint, @NonNull Typeface typeface) {
         boolean z;
         float f;
         Interceptable interceptable = $ic;

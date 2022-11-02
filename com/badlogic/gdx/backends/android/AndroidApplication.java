@@ -1,5 +1,6 @@
 package com.badlogic.gdx.backends.android;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -45,10 +46,10 @@ public class AndroidApplication extends Activity implements h2 {
     public x2 e;
     public c1 f;
     public boolean g;
-    public final b7 h;
-    public final b7 i;
-    public final h8 j;
-    public final b7 k;
+    public final b7<Runnable> h;
+    public final b7<Runnable> i;
+    public final h8<h1> j;
+    public final b7<m2> k;
     public int l;
     public d1 m;
     public boolean n;
@@ -145,7 +146,7 @@ public class AndroidApplication extends Activity implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getExecutedRunnables() {
+    public b7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -175,7 +176,7 @@ public class AndroidApplication extends Activity implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public h8 getLifecycleListeners() {
+    public h8<h1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -185,7 +186,7 @@ public class AndroidApplication extends Activity implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getRunnables() {
+    public b7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -226,10 +227,10 @@ public class AndroidApplication extends Activity implements h2 {
             }
         }
         this.g = true;
-        this.h = new b7();
-        this.i = new b7();
-        this.j = new h8(h1.class);
-        this.k = new b7();
+        this.h = new b7<>();
+        this.i = new b7<>();
+        this.j = new h8<>(h1.class);
+        this.k = new b7<>();
         this.l = 2;
         this.n = false;
         this.o = false;
@@ -327,7 +328,7 @@ public class AndroidApplication extends Activity implements h2 {
             super.onActivityResult(i, i2, intent);
             synchronized (this.k) {
                 for (int i3 = 0; i3 < this.k.b; i3++) {
-                    ((m2) this.k.get(i3)).onActivityResult(i, i2, intent);
+                    this.k.get(i3).onActivityResult(i, i2, intent);
                 }
             }
         }
@@ -341,6 +342,7 @@ public class AndroidApplication extends Activity implements h2 {
         getWindow().getDecorView().setSystemUiVisibility(1);
     }
 
+    @TargetApi(19)
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && z && e() >= 19) {

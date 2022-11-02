@@ -2,17 +2,17 @@ package com.baidu.mapapi.search.geocode;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.search.core.l;
+import com.baidu.mapapi.search.core.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class GeoCoder extends l {
+public class GeoCoder extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.platform.core.b.d a;
+    public com.baidu.platform.core.c.d a;
     public boolean b;
 
     public GeoCoder() {
@@ -28,7 +28,7 @@ public class GeoCoder extends l {
                 return;
             }
         }
-        this.a = new com.baidu.platform.core.b.a();
+        this.a = new com.baidu.platform.core.c.a();
     }
 
     public static GeoCoder newInstance() {
@@ -43,7 +43,7 @@ public class GeoCoder extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
             return;
         }
         this.b = true;
@@ -55,12 +55,12 @@ public class GeoCoder extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geoCodeOption)) == null) {
-            com.baidu.platform.core.b.d dVar = this.a;
+            com.baidu.platform.core.c.d dVar = this.a;
             if (dVar != null) {
-                if (geoCodeOption == null || geoCodeOption.mAddress == null || geoCodeOption.mCity == null) {
-                    throw new IllegalArgumentException("BDMapSDKException: option or address or city can not be null");
+                if (geoCodeOption != null && geoCodeOption.mAddress != null && geoCodeOption.mCity != null) {
+                    return dVar.a(geoCodeOption);
                 }
-                return dVar.a(geoCodeOption);
+                throw new IllegalArgumentException("BDMapSDKException: option or address or city can not be null");
             }
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
@@ -72,10 +72,10 @@ public class GeoCoder extends l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reverseGeoCodeOption)) == null) {
             if (this.a != null) {
-                if (reverseGeoCodeOption == null || reverseGeoCodeOption.getLocation() == null) {
-                    throw new IllegalArgumentException("BDMapSDKException: option or mLocation can not be null");
+                if (reverseGeoCodeOption != null && reverseGeoCodeOption.getLocation() != null) {
+                    return this.a.a(reverseGeoCodeOption);
                 }
-                return this.a.a(reverseGeoCodeOption);
+                throw new IllegalArgumentException("BDMapSDKException: option or mLocation can not be null");
             }
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
@@ -85,14 +85,15 @@ public class GeoCoder extends l {
     public void setOnGetGeoCodeResultListener(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onGetGeoCoderResultListener) == null) {
-            com.baidu.platform.core.b.d dVar = this.a;
-            if (dVar == null) {
-                throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
-            }
-            if (onGetGeoCoderResultListener == null) {
+            com.baidu.platform.core.c.d dVar = this.a;
+            if (dVar != null) {
+                if (onGetGeoCoderResultListener != null) {
+                    dVar.a(onGetGeoCoderResultListener);
+                    return;
+                }
                 throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
             }
-            dVar.a(onGetGeoCoderResultListener);
+            throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
     }
 }

@@ -1,9 +1,12 @@
 package androidx.legacy.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,6 +20,7 @@ public class Space extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.view.View
+    @SuppressLint({"MissingSuperCall"})
     @Deprecated
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
@@ -26,7 +30,7 @@ public class Space extends View {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public Space(Context context) {
+    public Space(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +52,7 @@ public class Space extends View {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public Space(Context context, AttributeSet attributeSet) {
+    public Space(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +74,7 @@ public class Space extends View {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public Space(Context context, AttributeSet attributeSet, int i) {
+    public Space(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

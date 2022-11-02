@@ -2,6 +2,8 @@ package com.bytedance.pangle.fragment;
 
 import android.app.Application;
 import android.content.Context;
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +15,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusFragmentV4 extends Fragment {
     public static /* synthetic */ Interceptable $ic;
@@ -46,6 +49,7 @@ public class ZeusFragmentV4 extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.tieba.h2
+    @Nullable
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

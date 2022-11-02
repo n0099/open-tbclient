@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,30 +10,60 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class au1 extends st1 {
+public class au1 extends vt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pr1
+    @Override // com.baidu.tieba.hs1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PhoneCallApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "RestartApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(au1 au1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {au1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mh3.a(rp2.U().getActivity());
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au1(nr1 nr1Var) {
-        super(nr1Var);
+    public au1(@NonNull fs1 fs1Var) {
+        super(fs1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nr1Var};
+            Object[] objArr = {fs1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nr1) newInitContext.callArgs[0]);
+                super((fs1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,33 +71,22 @@ public class au1 extends st1 {
         }
     }
 
-    public mv1 x(String str) {
+    public ew1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#makePhoneCall", false);
-            if (n()) {
-                m02.c("PhoneCallApi", "PhoneCallApi does not supported when app is invisible.");
-                return new mv1(1001, "PhoneCallApi does not supported when app is invisible.");
-            }
-            Intent intent = new Intent("android.intent.action.DIAL");
-            Pair s = s(str);
-            mv1 mv1Var = (mv1) s.first;
-            if (!mv1Var.isSuccess()) {
-                return mv1Var;
-            }
+            q("#restart params=" + str, false);
+            Pair<ew1, JSONObject> s = s(str);
             JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject != null) {
-                String optString = jSONObject.optString("phoneNumber");
-                if (!TextUtils.isEmpty(optString)) {
-                    intent.setData(Uri.fromParts("tel", optString, null));
+            if (((ew1) s.first).isSuccess() && jSONObject != null) {
+                if (!jSONObject.optString("invokeFrom").equals("swanWeb")) {
+                    return new ew1(201, "error invoke from value.");
                 }
+                yh3.a0(new a(this));
+                return ew1.f();
             }
-            if (vf3.g(getContext(), intent)) {
-                return mv1.f();
-            }
-            return new mv1(1001);
+            return new ew1(202);
         }
-        return (mv1) invokeL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

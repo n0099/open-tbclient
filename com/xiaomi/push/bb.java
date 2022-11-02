@@ -123,7 +123,7 @@ public class bb implements au {
     }
 
     /* loaded from: classes8.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

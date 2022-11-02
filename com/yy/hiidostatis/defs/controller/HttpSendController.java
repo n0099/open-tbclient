@@ -20,7 +20,7 @@ public class HttpSendController {
     public File cacheDir;
     public int delayStep;
     public IStatisHttpUtil httpUtil;
-    public TreeMap waitForSend;
+    public TreeMap<Long, SendCell> waitForSend;
     public int waitQueueCapacity;
 
     public HttpSendController(IStatisHttpUtil iStatisHttpUtil, File file, int i, int i2) {
@@ -38,7 +38,7 @@ public class HttpSendController {
                 return;
             }
         }
-        this.waitForSend = new TreeMap();
+        this.waitForSend = new TreeMap<>();
         this.waitQueueCapacity = 20;
         this.delayStep = 2;
         this.httpUtil = iStatisHttpUtil;
@@ -230,9 +230,9 @@ public class HttpSendController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             synchronized (this.waitForSend) {
-                Map.Entry pollLastEntry = this.waitForSend.pollLastEntry();
+                Map.Entry<Long, SendCell> pollLastEntry = this.waitForSend.pollLastEntry();
                 if (pollLastEntry != null) {
-                    return (SendCell) pollLastEntry.getValue();
+                    return pollLastEntry.getValue();
                 }
                 return null;
             }
@@ -242,13 +242,13 @@ public class HttpSendController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void putTask(SendCell sendCell) {
-        Map.Entry pollFirstEntry;
+        Map.Entry<Long, SendCell> pollFirstEntry;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, sendCell) == null) {
             synchronized (this.waitForSend) {
                 this.waitForSend.put(Long.valueOf(sendCell.getId()), sendCell);
                 if (this.waitForSend.size() > this.waitQueueCapacity && (pollFirstEntry = this.waitForSend.pollFirstEntry()) != null && pollFirstEntry.getValue() != null) {
-                    save((SendCell) pollFirstEntry.getValue());
+                    save(pollFirstEntry.getValue());
                 }
             }
         }

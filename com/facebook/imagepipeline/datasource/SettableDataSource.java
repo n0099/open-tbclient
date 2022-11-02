@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
-public final class SettableDataSource extends AbstractDataSource {
+public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,11 +30,11 @@ public final class SettableDataSource extends AbstractDataSource {
         }
     }
 
-    public static SettableDataSource create() {
+    public static <V> SettableDataSource<V> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new SettableDataSource();
+            return new SettableDataSource<>();
         }
         return (SettableDataSource) invokeV.objValue;
     }
@@ -40,7 +42,7 @@ public final class SettableDataSource extends AbstractDataSource {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
     @Nullable
-    public CloseableReference getResult() {
+    public CloseableReference<T> getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -49,16 +51,14 @@ public final class SettableDataSource extends AbstractDataSource {
         return (CloseableReference) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.datasource.AbstractDataSource
-    public void closeResult(@Nullable CloseableReference closeableReference) {
+    public void closeResult(@Nullable CloseableReference<T> closeableReference) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, closeableReference) == null) {
-            CloseableReference.closeSafely(closeableReference);
+            CloseableReference.closeSafely((CloseableReference<?>) closeableReference);
         }
     }
 
-    public boolean set(@Nullable CloseableReference closeableReference) {
+    public boolean set(@Nullable CloseableReference<T> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, closeableReference)) == null) {
@@ -84,5 +84,10 @@ public final class SettableDataSource extends AbstractDataSource {
             return super.setProgress(f);
         }
         return invokeF.booleanValue;
+    }
+
+    @Override // com.facebook.datasource.AbstractDataSource
+    public /* bridge */ /* synthetic */ void closeResult(@Nullable Object obj) {
+        closeResult((CloseableReference) ((CloseableReference) obj));
     }
 }

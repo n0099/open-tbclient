@@ -1,95 +1,82 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class bq {
-    public static /* synthetic */ Interceptable $ic;
-    public static final bq a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bq {
+    void a(long j, long j2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300862, "Lcom/baidu/tieba/bq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    void onCancel();
+
+    void onFinish();
+
+    void onPause();
+
+    void onResume();
+
+    void onStart();
+
+    /* loaded from: classes3.dex */
+    public static class a implements bq {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.bq
+        public void a(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bq
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bq
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bq
+        public void onPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bq
+        public void onResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.bq
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448300862, "Lcom/baidu/tieba/bq;");
-                return;
-            }
-        }
-        a = new bq();
-    }
-
-    public bq() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        yu f;
-        qu d;
-        qu d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, taskInfo, taskStatus) == null) {
-            pu v = BDPTask.m.v();
-            if (v != null && (d2 = v.d()) != null) {
-                d2.b(taskInfo.getSingleKey(), lr.c.a());
-            }
-            pu v2 = BDPTask.m.v();
-            if (v2 != null && (d = v2.d()) != null) {
-                d.a(taskInfo.getSingleKey());
-            }
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
-            }
-            String c = zu.a.c(taskStatus);
-            pu v3 = BDPTask.m.v();
-            if (v3 != null && (f = v3.f()) != null) {
-                f.a(str, "icon_clk", zu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
-            }
-        }
-    }
-
-    public final void b(int i, TaskInfo taskInfo, TaskStatus taskStatus) {
-        String str;
-        yu f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, taskInfo, taskStatus) == null) {
-            if (TaskGuideData.Companion.c(i)) {
-                str = "y_task_diyicon";
-            } else {
-                str = "y_task_icon";
-            }
-            String c = zu.a.c(taskStatus);
-            pu v = BDPTask.m.v();
-            if (v != null && (f = v.f()) != null) {
-                f.a(str, "close_clk", zu.a.a(taskInfo.getId(), taskInfo.getActTaskId(), c));
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }

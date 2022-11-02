@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.uf8;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.eh8;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +50,9 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
                 builder.tab_code = this.tabCode;
                 builder.lf_user = this.lfUser;
                 builder.lf_user_taskid = this.taskId;
-                builder.app_pos = uf8.e().a();
+                builder.app_pos = eh8.e().a();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yh5.c(builder, true, true, false);
+                    vi5.c(builder, true, true, false);
                 }
                 MoreTreasureTroveReqIdl.Builder builder2 = new MoreTreasureTroveReqIdl.Builder();
                 builder2.data = builder.build(false);

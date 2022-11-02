@@ -9,6 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
+import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@UpdateAction(action = UserSettingForceListListener.FORCE_LIST_ACTION, module = "usersetting")
 /* loaded from: classes2.dex */
 public class UserSettingForceListListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -97,7 +99,6 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -108,11 +109,11 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
                 Log.d(TAG, "execute command action: " + str2);
             }
             if (actionData != null && TextUtils.equals(str2, FORCE_LIST_ACTION)) {
-                Object obj = actionData.data;
-                if (obj == null) {
+                JSONObject jSONObject = actionData.data;
+                if (jSONObject == null) {
                     str3 = "";
                 } else {
-                    str3 = ((JSONObject) obj).toString();
+                    str3 = jSONObject.toString();
                 }
                 new SharedPrefsWrapper("").putString(FORCE_LIST_DATA_KEY, str3);
                 new SharedPrefsWrapper("").putString(FORCE_LIST_VERSION_KEY, actionData.version);

@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.os.IBinder;
 import android.text.TextUtils;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
 import com.ss.android.socialbase.downloader.depend.af;
@@ -55,7 +56,7 @@ public class DownloadHandlerService extends Service {
         Toast.makeText(context, "Open Fail!", 0).show();
     }
 
-    private void b(DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
+    private void b(@NonNull DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
         int id = downloadInfo.getId();
         Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
         intent.putExtra("extra_click_download_ids", id);
@@ -197,7 +198,7 @@ public class DownloadHandlerService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
+    private void a(@NonNull DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.c.d dVar, z zVar) {
         boolean a2;
         int id = downloadInfo.getId();
         af m = com.ss.android.socialbase.downloader.downloader.d.a().m(id);

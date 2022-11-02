@@ -1,9 +1,9 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.f6a;
-import com.baidu.tieba.h5a;
-import com.baidu.tieba.v6a;
+import com.baidu.tieba.e8a;
+import com.baidu.tieba.n6a;
+import com.baidu.tieba.o7a;
+import com.baidu.tieba.q6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends f6a, v6a {
+public interface IYYPayWayView extends o7a, e8a {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(h5a h5aVar, e5a e5aVar, AppCustomExpand appCustomExpand);
+        void a(q6a q6aVar, n6a n6aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i, String str);
 
@@ -33,7 +34,7 @@ public interface IYYPayWayView extends f6a, v6a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class PayViewState {
+    public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PayViewState SELECTING_VIEW_STATE;
@@ -98,14 +99,14 @@ public interface IYYPayWayView extends f6a, v6a {
     }
 
     /* loaded from: classes9.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List a;
+        public List<PayWayInfo> a;
         public String b;
-        public e5a c;
+        public n6a c;
         public AppCustomExpand d;
-        public Map e;
+        public Map<String, String> e;
         public boolean f;
         public AbsViewEventHandler g;
         public PayFlowType h;

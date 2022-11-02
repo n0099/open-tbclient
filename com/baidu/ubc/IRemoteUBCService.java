@@ -43,7 +43,7 @@ public interface IRemoteUBCService extends IInterface {
     void uploadLocalDatas() throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IRemoteUBCService {
+    public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.ubc.IRemoteUBCService";
         public static final int TRANSACTION_flowAddEvent = 5;
@@ -70,7 +70,7 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IRemoteUBCService {
+        public static class Proxy implements IRemoteUBCService {
             public static /* synthetic */ Interceptable $ic;
             public static IRemoteUBCService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +237,7 @@ public interface IRemoteUBCService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            flow = (Flow) Flow.CREATOR.createFromParcel(obtain2);
+                            flow = Flow.CREATOR.createFromParcel(obtain2);
                         } else {
                             flow = null;
                         }
@@ -424,7 +424,7 @@ public interface IRemoteUBCService extends IInterface {
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
-                            flow = (Flow) Flow.CREATOR.createFromParcel(obtain2);
+                            flow = Flow.CREATOR.createFromParcel(obtain2);
                         } else {
                             flow = null;
                         }
@@ -579,7 +579,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 5:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowAddEvent(flow, parcel.readString(), parcel.readString());
                             parcel2.writeNoException();
@@ -587,7 +587,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 6:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowAddEventWithTime(flow, parcel.readString(), parcel.readString(), parcel.readLong());
                             parcel2.writeNoException();
@@ -595,7 +595,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 7:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowSetValue(flow, parcel.readString());
                             parcel2.writeNoException();
@@ -603,7 +603,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 8:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowSetValueWithDuration(flow, parcel.readString());
                             parcel2.writeNoException();
@@ -611,7 +611,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 9:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowStartSlot(flow, parcel.readString(), parcel.readString());
                             parcel2.writeNoException();
@@ -619,7 +619,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 10:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowEndSlot(flow, parcel.readString());
                             parcel2.writeNoException();
@@ -627,7 +627,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 11:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowCancel(flow);
                             parcel2.writeNoException();
@@ -635,7 +635,7 @@ public interface IRemoteUBCService extends IInterface {
                         case 12:
                             parcel.enforceInterface(DESCRIPTOR);
                             if (parcel.readInt() != 0) {
-                                flow = (Flow) Flow.CREATOR.createFromParcel(parcel);
+                                flow = Flow.CREATOR.createFromParcel(parcel);
                             }
                             flowEnd(flow);
                             parcel2.writeNoException();
@@ -663,7 +663,7 @@ public interface IRemoteUBCService extends IInterface {
     }
 
     /* loaded from: classes6.dex */
-    public class Default implements IRemoteUBCService {
+    public static class Default implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

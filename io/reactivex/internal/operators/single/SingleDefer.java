@@ -12,12 +12,12 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class SingleDefer extends Single {
+public final class SingleDefer<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable singleSupplier;
+    public final Callable<? extends SingleSource<? extends T>> singleSupplier;
 
-    public SingleDefer(Callable callable) {
+    public SingleDefer(Callable<? extends SingleSource<? extends T>> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +36,7 @@ public final class SingleDefer extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             try {

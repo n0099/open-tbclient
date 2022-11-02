@@ -1,107 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.net.URLEncoder;
 /* loaded from: classes3.dex */
-public class dz3 extends j53 {
+public class dz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-
-        public a(dz3 dz3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dz3Var, callbackHandler, unitedSchemeEntity, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(p83 p83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
-                if (!k83.h(p83Var)) {
-                    k83.p(p83Var, this.a, this.b);
-                    return;
-                }
-                lz2.L(ae2.b(this.c.optInt("emitReplaceGameCore")));
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                lz2.Z();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dz3(j43 j43Var) {
-        super(j43Var, "/swanAPI/debug/setReplaceGameCoreConfig");
+    public static void a(ly3 ly3Var, JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, ly3Var, jsObject) == null) {
+            ez3 ez3Var = new ez3();
+            lw1 F = lw1.F(jsObject);
+            if (F == null) {
+                F = new lw1();
+            }
+            boolean z = false;
+            if (ly3Var == null) {
+                ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                q64.call(F, false, ez3Var);
                 return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            JSONObject a2 = j53.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                m02.c("setReplaceGameCoreConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceGameCore")) {
-                m02.c("setReplaceGameCoreConfig", "emitReplaceGameCore is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (o04.c()) {
+                e43 M = e43.M();
+                if (M != null) {
+                    String str = "{\"appKey\":\"" + M.O() + "\"}";
+                    if (SchemeRouter.invoke(ln2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        ez3Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    ez3Var.errMsg = "openCustomerServiceConversation:fail";
+                }
             } else {
-                m33Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2));
-                return true;
+                ez3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
             }
+            q64.call(F, z, ez3Var);
         }
-        return invokeLLLL.booleanValue;
     }
 }

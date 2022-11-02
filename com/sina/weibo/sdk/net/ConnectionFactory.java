@@ -47,7 +47,7 @@ public class ConnectionFactory {
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     URL url = new URL(str);
-                    Pair apn = NetStateManager.getAPN();
+                    Pair<String, Integer> apn = NetStateManager.getAPN();
                     if (apn != null) {
                         proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress((String) apn.first, ((Integer) apn.second).intValue()));
                     } else {

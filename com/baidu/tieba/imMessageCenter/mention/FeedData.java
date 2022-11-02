@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.rb5;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes4.dex */
-public class FeedData implements Serializable, rb5 {
+public class FeedData implements Serializable, nc5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -49,9 +49,9 @@ public class FeedData implements Serializable, rb5 {
     public boolean mIsStory;
     public OriginalThreadInfo mOriginalThreadInfo;
     public String mPraiseItemType;
-    public List mPraiseList;
+    public List<LikeData> mPraiseList;
     public int mPraiseNum;
-    public List newReplayInfo;
+    public List<NewFloorInfo> newReplayInfo;
     public String postFrom;
     public String post_id;
     public String quote_content;
@@ -153,7 +153,7 @@ public class FeedData implements Serializable, rb5 {
         return invokeV.booleanValue;
     }
 
-    public List getNewReplayInfo() {
+    public List<NewFloorInfo> getNewReplayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -198,7 +198,7 @@ public class FeedData implements Serializable, rb5 {
         return (String) invokeV.objValue;
     }
 
-    public List getPraiseList() {
+    public List<LikeData> getPraiseList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -423,7 +423,7 @@ public class FeedData implements Serializable, rb5 {
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.r(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!ej.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!wi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 if (optJSONObject.optInt("consent_type") == 2) {
                     z6 = true;
@@ -517,7 +517,7 @@ public class FeedData implements Serializable, rb5 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!ej.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!wi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             if (zan.consent_type.intValue() == 2) {
                 z5 = true;

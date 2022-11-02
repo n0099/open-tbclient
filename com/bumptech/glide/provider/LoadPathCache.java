@@ -1,5 +1,6 @@
 package com.bumptech.glide.provider;
 
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,10 +19,10 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public class LoadPathCache {
     public static /* synthetic */ Interceptable $ic;
-    public static final LoadPath NO_PATHS_SIGNAL;
+    public static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayMap cache;
-    public final AtomicReference keyRef;
+    public final ArrayMap<MultiClassKey, LoadPath<?, ?, ?>> cache;
+    public final AtomicReference<MultiClassKey> keyRef;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +37,7 @@ public class LoadPathCache {
                 return;
             }
         }
-        NO_PATHS_SIGNAL = new LoadPath(Object.class, Object.class, Object.class, Collections.singletonList(new DecodePath(Object.class, Object.class, Object.class, Collections.emptyList(), new UnitTranscoder(), null)), null);
+        NO_PATHS_SIGNAL = new LoadPath<>(Object.class, Object.class, Object.class, Collections.singletonList(new DecodePath(Object.class, Object.class, Object.class, Collections.emptyList(), new UnitTranscoder(), null)), null);
     }
 
     public LoadPathCache() {
@@ -52,32 +53,33 @@ public class LoadPathCache {
                 return;
             }
         }
-        this.cache = new ArrayMap();
-        this.keyRef = new AtomicReference();
+        this.cache = new ArrayMap<>();
+        this.keyRef = new AtomicReference<>();
     }
 
-    private MultiClassKey getKey(Class cls, Class cls2, Class cls3) {
+    private MultiClassKey getKey(Class<?> cls, Class<?> cls2, Class<?> cls3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, cls, cls2, cls3)) == null) {
-            MultiClassKey multiClassKey = (MultiClassKey) this.keyRef.getAndSet(null);
-            if (multiClassKey == null) {
-                multiClassKey = new MultiClassKey();
+            MultiClassKey andSet = this.keyRef.getAndSet(null);
+            if (andSet == null) {
+                andSet = new MultiClassKey();
             }
-            multiClassKey.set(cls, cls2, cls3);
-            return multiClassKey;
+            andSet.set(cls, cls2, cls3);
+            return andSet;
         }
         return (MultiClassKey) invokeLLL.objValue;
     }
 
-    public LoadPath get(Class cls, Class cls2, Class cls3) {
+    @Nullable
+    public <Data, TResource, Transcode> LoadPath<Data, TResource, Transcode> get(Class<Data> cls, Class<TResource> cls2, Class<Transcode> cls3) {
         InterceptResult invokeLLL;
-        LoadPath loadPath;
+        LoadPath<Data, TResource, Transcode> loadPath;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cls, cls2, cls3)) == null) {
             MultiClassKey key = getKey(cls, cls2, cls3);
             synchronized (this.cache) {
-                loadPath = (LoadPath) this.cache.get(key);
+                loadPath = (LoadPath<Data, TResource, Transcode>) this.cache.get(key);
             }
             this.keyRef.set(key);
             return loadPath;
@@ -85,7 +87,7 @@ public class LoadPathCache {
         return (LoadPath) invokeLLL.objValue;
     }
 
-    public boolean isEmptyLoadPath(LoadPath loadPath) {
+    public boolean isEmptyLoadPath(@Nullable LoadPath<?, ?, ?> loadPath) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadPath)) == null) {
@@ -94,11 +96,11 @@ public class LoadPathCache {
         return invokeL.booleanValue;
     }
 
-    public void put(Class cls, Class cls2, Class cls3, LoadPath loadPath) {
+    public void put(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable LoadPath<?, ?, ?> loadPath) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, cls3, loadPath) == null) {
             synchronized (this.cache) {
-                ArrayMap arrayMap = this.cache;
+                ArrayMap<MultiClassKey, LoadPath<?, ?, ?>> arrayMap = this.cache;
                 MultiClassKey multiClassKey = new MultiClassKey(cls, cls2, cls3);
                 if (loadPath == null) {
                     loadPath = NO_PATHS_SIGNAL;

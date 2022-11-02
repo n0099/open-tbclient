@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.badlogic.gdx.math.Matrix4;
@@ -21,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes4.dex */
-public class m4 extends u1 {
+/* loaded from: classes5.dex */
+public class m4 extends u1<u1.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final d7 d;
@@ -50,7 +49,7 @@ public class m4 extends u1 {
         this.d = d7Var;
     }
 
-    public b7 p(w4 w4Var, JsonValue jsonValue) {
+    public b7<z4> p(w4 w4Var, JsonValue jsonValue) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, w4Var, jsonValue)) == null) {
@@ -76,6 +75,12 @@ public class m4 extends u1 {
         return (w4) invokeLL.objValue;
     }
 
+    /* JADX WARN: Type inference failed for: r10v2, types: [com.badlogic.gdx.math.Vector3, T] */
+    /* JADX WARN: Type inference failed for: r15v7, types: [com.badlogic.gdx.math.Vector3, T] */
+    /* JADX WARN: Type inference failed for: r8v8, types: [T, com.badlogic.gdx.math.Quaternion] */
+    /* JADX WARN: Type inference failed for: r9v10, types: [com.badlogic.gdx.math.Vector3, T] */
+    /* JADX WARN: Type inference failed for: r9v15, types: [com.badlogic.gdx.math.Vector3, T] */
+    /* JADX WARN: Type inference failed for: r9v17, types: [T, com.badlogic.gdx.math.Quaternion] */
     public void j(w4 w4Var, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w4Var, jsonValue) == null) {
@@ -111,19 +116,19 @@ public class m4 extends u1 {
                                 JsonValue l4 = jsonValue4.l("translation");
                                 if (l4 != null && l4.j == i4) {
                                     if (a5Var.b == null) {
-                                        a5Var.b = new b7();
+                                        a5Var.b = new b7<>();
                                     }
-                                    b5 b5Var = new b5();
+                                    b5<Vector3> b5Var = new b5<>();
                                     b5Var.a = o;
                                     b5Var.b = new Vector3(l4.n(i3), l4.n(i2), l4.n(i));
                                     a5Var.b.a(b5Var);
                                 }
-                                JsonValue l5 = jsonValue4.l(Key.ROTATION);
+                                JsonValue l5 = jsonValue4.l("rotation");
                                 if (l5 != null && l5.j == 4) {
                                     if (a5Var.c == null) {
-                                        a5Var.c = new b7();
+                                        a5Var.c = new b7<>();
                                     }
-                                    b5 b5Var2 = new b5();
+                                    b5<Quaternion> b5Var2 = new b5<>();
                                     b5Var2.a = o;
                                     b5Var2.b = new Quaternion(l5.n(0), l5.n(i2), l5.n(i), l5.n(3));
                                     a5Var.c.a(b5Var2);
@@ -131,9 +136,9 @@ public class m4 extends u1 {
                                 JsonValue l6 = jsonValue4.l("scale");
                                 if (l6 != null && l6.j == 3) {
                                     if (a5Var.d == null) {
-                                        a5Var.d = new b7();
+                                        a5Var.d = new b7<>();
                                     }
-                                    b5 b5Var3 = new b5();
+                                    b5<Vector3> b5Var3 = new b5<>();
                                     b5Var3.a = o;
                                     b5Var3.b = new Vector3(l6.n(0), l6.n(1), l6.n(2));
                                     a5Var.d.a(b5Var3);
@@ -149,11 +154,11 @@ public class m4 extends u1 {
                         } else {
                             JsonValue l7 = jsonValue3.l("translation");
                             if (l7 != null && l7.u()) {
-                                b7 b7Var = new b7();
+                                b7<b5<Vector3>> b7Var = new b7<>();
                                 a5Var.b = b7Var;
                                 b7Var.e(l7.j);
                                 for (JsonValue jsonValue5 = l7.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
-                                    b5 b5Var4 = new b5();
+                                    b5<Vector3> b5Var4 = new b5<>();
                                     a5Var.b.a(b5Var4);
                                     b5Var4.a = jsonValue5.o("keytime", 0.0f) / 1000.0f;
                                     JsonValue l8 = jsonValue5.l("value");
@@ -162,13 +167,13 @@ public class m4 extends u1 {
                                     }
                                 }
                             }
-                            JsonValue l9 = jsonValue3.l(Key.ROTATION);
+                            JsonValue l9 = jsonValue3.l("rotation");
                             if (l9 != null && l9.u()) {
-                                b7 b7Var2 = new b7();
+                                b7<b5<Quaternion>> b7Var2 = new b7<>();
                                 a5Var.c = b7Var2;
                                 b7Var2.e(l9.j);
                                 for (JsonValue jsonValue6 = l9.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
-                                    b5 b5Var5 = new b5();
+                                    b5<Quaternion> b5Var5 = new b5<>();
                                     a5Var.c.a(b5Var5);
                                     b5Var5.a = jsonValue6.o("keytime", 0.0f) / 1000.0f;
                                     JsonValue l10 = jsonValue6.l("value");
@@ -179,11 +184,11 @@ public class m4 extends u1 {
                             }
                             JsonValue l11 = jsonValue3.l("scaling");
                             if (l11 != null && l11.u()) {
-                                b7 b7Var3 = new b7();
+                                b7<b5<Vector3>> b7Var3 = new b7<>();
                                 a5Var.d = b7Var3;
                                 b7Var3.e(l11.j);
                                 for (JsonValue jsonValue7 = l11.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                    b5 b5Var6 = new b5();
+                                    b5<Vector3> b5Var6 = new b5<>();
                                     a5Var.d.a(b5Var6);
                                     b5Var6.a = jsonValue7.o("keytime", 0.0f) / 1000.0f;
                                     JsonValue l12 = jsonValue7.l("value");
@@ -300,7 +305,7 @@ public class m4 extends u1 {
                                     if (r3 != null) {
                                         d5Var.d = r(r3);
                                         if (modelMaterial.i == null) {
-                                            modelMaterial.i = new b7();
+                                            modelMaterial.i = new b7<>();
                                         }
                                         modelMaterial.i.a(d5Var);
                                     } else {
@@ -439,8 +444,8 @@ public class m4 extends u1 {
                     vector3 = new Vector3(l.n(0), l.n(1), l.n(2));
                 }
                 z4Var.b = vector3;
-                String str5 = Key.ROTATION;
-                JsonValue l2 = jsonValue.l(Key.ROTATION);
+                String str5 = "rotation";
+                JsonValue l2 = jsonValue.l("rotation");
                 if (l2 != null && l2.j != 4) {
                     throw new GdxRuntimeException("Node rotation incomplete");
                 }
@@ -475,7 +480,7 @@ public class m4 extends u1 {
                             c5Var.b = r2;
                             JsonValue l5 = jsonValue2.l("bones");
                             if (l5 != null) {
-                                c5Var.c = new c7(z, l5.j, String.class, Matrix4.class);
+                                c5Var.c = new c7<>(z, l5.j, String.class, Matrix4.class);
                                 JsonValue jsonValue3 = l5.f;
                                 while (jsonValue3 != null) {
                                     String r4 = jsonValue3.r("node", null);

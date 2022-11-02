@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatedDrawableBackend mAnimatedDrawableBackend;
     public AnimatedImageCompositor mAnimatedImageCompositor;
@@ -110,7 +110,7 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
             @Nullable
-            public CloseableReference getCachedBitmap(int i3) {
+            public CloseableReference<Bitmap> getCachedBitmap(int i3) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) {

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +36,7 @@ public class j {
     public static String a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Set f798a;
+    public static final Set<String> f798a;
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f799a = false;
@@ -99,6 +100,7 @@ public class j {
         return invokeI.floatValue;
     }
 
+    @TargetApi(17)
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

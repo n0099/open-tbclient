@@ -15,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class ApicFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ApicFrame> CREATOR;
     public static final String ID = "APIC";
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
@@ -36,7 +36,7 @@ public final class ApicFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.ApicFrame.1
+        CREATOR = new Parcelable.Creator<ApicFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.ApicFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public final class ApicFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ApicFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -66,6 +67,7 @@ public final class ApicFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ApicFrame[] newArray(int i) {
                 InterceptResult invokeI;

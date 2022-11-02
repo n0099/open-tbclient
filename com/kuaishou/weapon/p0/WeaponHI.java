@@ -24,7 +24,7 @@ public class WeaponHI {
     public static String encryENV = "";
     public static String hostVersionName = "";
     public static int ii = 0;
-    public static List isList = null;
+    public static List<Integer> isList = null;
     public static Context mContext = null;
     public static IWeaponInitParams mParams = null;
     public static String sChannel = "";
@@ -37,7 +37,7 @@ public class WeaponHI {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -88,7 +88,7 @@ public class WeaponHI {
     }
 
     /* loaded from: classes7.dex */
-    public final class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IWeaponInitParams a;
@@ -151,7 +151,7 @@ public class WeaponHI {
     }
 
     /* loaded from: classes7.dex */
-    public final class c implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -37,7 +37,7 @@ public class Jni {
             }
         }
         try {
-            System.loadLibrary("locSDK7d");
+            System.loadLibrary("locSDK8b");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
@@ -73,7 +73,7 @@ public class Jni {
                 return dArr;
             }
             int i2 = -1;
-            if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+            if (str.equals("bd09")) {
                 i2 = a;
             } else if (str.equals("bd09ll")) {
                 i2 = b;
@@ -92,7 +92,9 @@ public class Jni {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
                 dArr[0] = Double.parseDouble(split[0]);
                 dArr[1] = Double.parseDouble(split[1]);
-            } catch (UnsatisfiedLinkError unused) {
+            } catch (Throwable unused) {
+                dArr[0] = 0.0d;
+                dArr[1] = 0.0d;
             }
             return dArr;
         }
@@ -239,10 +241,39 @@ public class Jni {
         return (String) invokeL.objValue;
     }
 
+    public static String encodeTp4NoTag(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (j) {
+                return "err!";
+            }
+            try {
+                str2 = new String(str.getBytes(), "UTF-8");
+            } catch (Exception unused) {
+                str2 = "";
+            }
+            try {
+                return ee(str2, 132456);
+            } catch (UnsatisfiedLinkError e2) {
+                e2.printStackTrace();
+                return "err!";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static native byte[] encrypt(byte[] bArr);
+
+    public static native void f(byte[] bArr, byte[] bArr2);
+
+    public static native String g(byte[] bArr);
+
     public static double getGpsSwiftRadius(float f2, double d2, double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Float.valueOf(f2), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
             if (j) {
                 return 0.0d;
             }
@@ -258,7 +289,7 @@ public class Jni {
     public static String getldkaiv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             if (j) {
                 return null;
             }

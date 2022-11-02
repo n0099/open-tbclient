@@ -47,7 +47,7 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
-    public void addNew(List list) {
+    public void addNew(List<LiveRoomEntity> list) {
         LiveSubTabAdapter liveSubTabAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (liveSubTabAdapter = this.adapter) != null) {
@@ -56,7 +56,7 @@ public final class LiveRecSubTabAdapter implements ILiveRecSubTabAdapter {
     }
 
     @Override // com.baidu.live.recmore.ILiveRecSubTabAdapter
-    public RecyclerView.Adapter createAdapter(Context context) {
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {

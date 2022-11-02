@@ -1,84 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class qi5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str, ar4 ar4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, ar4Var)) == null) {
-            if (context == null || ar4Var == null) {
-                return false;
-            }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else if ("frs".equals(str)) {
-                i = 3;
-            } else {
-                i = -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(ar4Var.getThreadData().originalThreadData, context, i, (Rect) null, ar4Var.getThreadData().getForum_name());
-            return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948092812, "Lcom/baidu/tieba/qi5;")) == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948092812, "Lcom/baidu/tieba/qi5;");
+        }
     }
 
-    public static boolean b(Context context, String str, ar4 ar4Var) {
-        InterceptResult invokeLLL;
-        int i;
+    public static void a(String str, String str2, String str3, int i, r9 r9Var, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, ar4Var)) == null) {
-            if (context == null || ar4Var == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), r9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (!StringUtils.isNull(str3) && r9Var != null && r9Var.getPageActivity() != null) {
+                if (d.equals(a)) {
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(r9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                    createSubPbActivityConfig.setKeyPageStartFrom(8);
+                    createSubPbActivityConfig.setBjhData(baijiahaoData);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                    return;
+                }
+                PbActivityConfig createNormalCfg = new PbActivityConfig(r9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+                createNormalCfg.setStartFrom(8);
+                createNormalCfg.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else if ("frs".equals(str)) {
-                i = 3;
-            } else {
-                i = -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(ar4Var, context, i, false);
-            return true;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

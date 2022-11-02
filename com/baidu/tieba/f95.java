@@ -1,228 +1,177 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.core.widget.NestedScrollView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public class f95 extends d95 {
-    public static /* synthetic */ Interceptable $ic;
+public class f95 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "add_user_collect_emotoin";
+    public static String b = "image_url";
+    public static String c = "thumbnail_url";
+    public static String d = "pic_id";
+    public static String e = "package_id";
+    public static String f = "#(meme,setting)";
+    public static String g = "#(meme,collect_";
+    public static String h = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
-    public NestedScrollView a;
-    public LinearLayout b;
-    public TbImageView c;
-    public TextView d;
-    public TextView e;
-    public TBSpecificationBtn f;
-    public LinearLayout g;
-    public int h;
-    public Rect i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947718983, "Lcom/baidu/tieba/f95;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947718983, "Lcom/baidu/tieba/f95;");
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f95 a;
+        public String a;
+        public String b;
 
-        public a(f95 f95Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f95Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = f95Var;
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(-1);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f95(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) null));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = 0;
-        this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091dd5);
-        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906dc);
-        this.c = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166c);
-        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166b);
-        this.e = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166e);
-        this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166d);
-        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166a);
-        sy4 sy4Var = new sy4();
-        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0feb));
-        this.f.setTextSize(R.dimen.tbds42);
-        this.f.setConfig(sy4Var);
-        this.f.setOnClickListener(onClickListener);
-        this.attachedView.setOnClickListener(null);
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.h <= 0) {
-                this.h = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
-            }
-            NestedScrollView nestedScrollView = this.a;
-            if (nestedScrollView == null) {
-                return;
-            }
-            if (i == 0) {
-                nestedScrollView.post(new a(this));
-            }
-            if (!this.a.getLocalVisibleRect(this.i)) {
-                return;
-            }
-            int i2 = this.i.bottom;
-            int abs = Math.abs(this.b.getTop());
-            int abs2 = i2 - Math.abs(this.b.getBottom());
-            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
-            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                return;
-            }
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            int i3 = this.h;
-            if (abs < i3) {
-                marginLayoutParams.topMargin = i3;
-                this.b.setLayoutParams(marginLayoutParams);
-            } else if (abs == i3) {
-                if (abs2 > i3) {
-                    marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
-                    this.b.setLayoutParams(marginLayoutParams);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } else if (abs > i3) {
-                if (abs2 < i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 == i3) {
-                    marginLayoutParams.topMargin = i3;
-                } else if (abs2 > i3) {
-                    marginLayoutParams.topMargin = (abs + abs2) / 2;
-                }
-                this.b.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public View b() {
+    public static String a() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("diy_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.attachedView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Math.abs(b().hashCode()) + "";
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f() {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f.setVisibility(0);
-            this.e.setVisibility(0);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d95
-    public void onViewAttached() {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
-        }
-    }
-
-    @Override // com.baidu.tieba.d95
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onViewDettached();
-            this.c.setImageResource(0);
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f.setText(str);
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str == null) {
-                this.d.setVisibility(8);
-                return;
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i = 0;
+        int i2 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i2++;
             }
-            this.d.setVisibility(0);
-            this.d.setText(str);
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
-            return;
-        }
-        this.e.setText(str);
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.c, R.drawable.new_pic_emotion_08);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0107, 1, skinType);
-            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
-            TBSpecificationBtn tBSpecificationBtn = this.f;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
+                i++;
             }
+        }
+        if (i2 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem);
+        }
+        if (i > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i);
+            TiebaStatic.log(statisticItem2);
         }
     }
 }

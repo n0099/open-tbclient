@@ -28,7 +28,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public static final String TAG = "IMQueryMemberPauidRequest";
     public transient /* synthetic */ FieldHolder $fh;
     public String mKey;
-    public List mUids;
+    public List<Long> mUids;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
@@ -48,7 +48,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     }
 
     /* loaded from: classes.dex */
-    public class UserId {
+    public static class UserId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mBduid;
@@ -106,7 +106,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMQueryMemberPauidRequest(Context context, List list, String str) {
+    public IMQueryMemberPauidRequest(Context context, List<Long> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
@@ -146,7 +146,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
             StringBuilder sb = new StringBuilder();
             sb.append("method=get_user_ids");
             JSONArray jSONArray = new JSONArray();
-            List list = this.mUids;
+            List<Long> list = this.mUids;
             if (list != null && list.size() > 0) {
                 for (Long l : this.mUids) {
                     jSONArray.put(Utility.transBDUID(String.valueOf(l.longValue())));

@@ -38,7 +38,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
     public String mUniqueId;
 
     /* loaded from: classes7.dex */
-    public final class a implements DownloadListener {
+    public class a implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ KsAdWebView KO;
@@ -84,7 +84,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
                 if (readyClientConfig != null) {
                     readyClientConfig.R(this.KO.gX.getAdTemplate());
                 }
-                com.kwad.components.core.c.a.a.a(new a.C0566a(this.KO.getContext2()).L(this.KO.gX.getAdTemplate()).al(true));
+                com.kwad.components.core.c.a.a.a(new a.C0577a(this.KO.getContext2()).L(this.KO.gX.getAdTemplate()).al(true));
             }
         }
     }

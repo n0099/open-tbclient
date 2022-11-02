@@ -20,30 +20,29 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSequenceEqualSingle extends Single implements FuseToFlowable {
+public final class FlowableSequenceEqualSingle<T> extends Single<Boolean> implements FuseToFlowable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate comparer;
-    public final Publisher first;
+    public final BiPredicate<? super T, ? super T> comparer;
+    public final Publisher<? extends T> first;
     public final int prefetch;
-    public final Publisher second;
+    public final Publisher<? extends T> second;
 
     /* loaded from: classes8.dex */
-    public final class EqualCoordinator extends AtomicInteger implements Disposable, FlowableSequenceEqual.EqualCoordinatorHelper {
+    public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable, FlowableSequenceEqual.EqualCoordinatorHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final BiPredicate comparer;
+        public final SingleObserver<? super Boolean> actual;
+        public final BiPredicate<? super T, ? super T> comparer;
         public final AtomicThrowable error;
-        public final FlowableSequenceEqual.EqualSubscriber first;
-        public final FlowableSequenceEqual.EqualSubscriber second;
-        public Object v1;
-        public Object v2;
+        public final FlowableSequenceEqual.EqualSubscriber<T> first;
+        public final FlowableSequenceEqual.EqualSubscriber<T> second;
+        public T v1;
+        public T v2;
 
-        public EqualCoordinator(SingleObserver singleObserver, int i, BiPredicate biPredicate) {
+        public EqualCoordinator(SingleObserver<? super Boolean> singleObserver, int i, BiPredicate<? super T, ? super T> biPredicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +59,8 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
             }
             this.actual = singleObserver;
             this.comparer = biPredicate;
-            this.first = new FlowableSequenceEqual.EqualSubscriber(this, i);
-            this.second = new FlowableSequenceEqual.EqualSubscriber(this, i);
+            this.first = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
+            this.second = new FlowableSequenceEqual.EqualSubscriber<>(this, i);
             this.error = new AtomicThrowable();
         }
 
@@ -93,7 +92,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return SubscriptionHelper.isCancelled((Subscription) this.first.get());
+                return SubscriptionHelper.isCancelled(this.first.get());
             }
             return invokeV.booleanValue;
         }
@@ -107,21 +106,21 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
             }
             int i = 1;
             do {
-                SimpleQueue simpleQueue = this.first.queue;
-                SimpleQueue simpleQueue2 = this.second.queue;
+                SimpleQueue<T> simpleQueue = this.first.queue;
+                SimpleQueue<T> simpleQueue2 = this.second.queue;
                 if (simpleQueue != null && simpleQueue2 != null) {
                     while (!isDisposed()) {
-                        if (((Throwable) this.error.get()) != null) {
+                        if (this.error.get() != null) {
                             cancelAndClear();
                             this.actual.onError(this.error.terminate());
                             return;
                         }
                         boolean z2 = this.first.done;
-                        Object obj = this.v1;
-                        if (obj == null) {
+                        T t = this.v1;
+                        if (t == null) {
                             try {
-                                obj = simpleQueue.poll();
-                                this.v1 = obj;
+                                t = simpleQueue.poll();
+                                this.v1 = t;
                             } catch (Throwable th) {
                                 Exceptions.throwIfFatal(th);
                                 cancelAndClear();
@@ -131,17 +130,17 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
                             }
                         }
                         boolean z3 = false;
-                        if (obj == null) {
+                        if (t == null) {
                             z = true;
                         } else {
                             z = false;
                         }
                         boolean z4 = this.second.done;
-                        Object obj2 = this.v2;
-                        if (obj2 == null) {
+                        T t2 = this.v2;
+                        if (t2 == null) {
                             try {
-                                obj2 = simpleQueue2.poll();
-                                this.v2 = obj2;
+                                t2 = simpleQueue2.poll();
+                                this.v2 = t2;
                             } catch (Throwable th2) {
                                 Exceptions.throwIfFatal(th2);
                                 cancelAndClear();
@@ -150,7 +149,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
                                 return;
                             }
                         }
-                        if (obj2 == null) {
+                        if (t2 == null) {
                             z3 = true;
                         }
                         if (z2 && z4 && z && z3) {
@@ -162,7 +161,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
                             return;
                         } else if (!z && !z3) {
                             try {
-                                if (!this.comparer.test(obj, obj2)) {
+                                if (!this.comparer.test(t, t2)) {
                                     cancelAndClear();
                                     this.actual.onSuccess(Boolean.FALSE);
                                     return;
@@ -187,7 +186,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
                     this.first.clear();
                     this.second.clear();
                     return;
-                } else if (((Throwable) this.error.get()) != null) {
+                } else if (this.error.get() != null) {
                     cancelAndClear();
                     this.actual.onError(this.error.terminate());
                     return;
@@ -208,7 +207,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
             }
         }
 
-        public void subscribe(Publisher publisher, Publisher publisher2) {
+        public void subscribe(Publisher<? extends T> publisher, Publisher<? extends T> publisher2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, publisher, publisher2) == null) {
                 publisher.subscribe(this.first);
@@ -217,7 +216,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
         }
     }
 
-    public FlowableSequenceEqualSingle(Publisher publisher, Publisher publisher2, BiPredicate biPredicate, int i) {
+    public FlowableSequenceEqualSingle(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +238,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<Boolean> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -249,7 +248,7 @@ public final class FlowableSequenceEqualSingle extends Single implements FuseToF
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(singleObserver, this.prefetch, this.comparer);

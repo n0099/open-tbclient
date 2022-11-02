@@ -56,7 +56,7 @@ public interface UrlRequest {
     void start();
 
     /* loaded from: classes6.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TurbonetEngine a;
@@ -64,11 +64,11 @@ public interface UrlRequest {
         public final Callback c;
         public final Executor d;
         public String e;
-        public final ArrayList f;
+        public final ArrayList<Pair<String, String>> f;
         public boolean g;
         public boolean h;
         public int i;
-        public Collection j;
+        public Collection<Object> j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -102,7 +102,7 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f = new ArrayList();
+            this.f = new ArrayList<>();
             this.i = 3;
             this.j = Collections.emptyList();
             if (str != null) {
@@ -181,10 +181,10 @@ public interface UrlRequest {
                 if (str != null) {
                     b.e(str);
                 }
-                Iterator it = this.f.iterator();
+                Iterator<Pair<String, String>> it = this.f.iterator();
                 while (it.hasNext()) {
-                    Pair pair = (Pair) it.next();
-                    b.addHeader((String) pair.first, (String) pair.second);
+                    Pair<String, String> next = it.next();
+                    b.addHeader((String) next.first, (String) next.second);
                 }
                 UploadDataProvider uploadDataProvider = this.k;
                 if (uploadDataProvider != null) {
@@ -322,7 +322,7 @@ public interface UrlRequest {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class Callback {
+    public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -358,7 +358,7 @@ public interface UrlRequest {
     }
 
     /* loaded from: classes6.dex */
-    public class Status {
+    public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -441,7 +441,7 @@ public interface UrlRequest {
     }
 
     /* loaded from: classes6.dex */
-    public abstract class StatusListener {
+    public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -12,9 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class dw5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public cv5 a;
+    public cv5 b;
+    public cv5 c;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +31,7 @@ public class dw5 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public dw5() {
@@ -46,12 +48,12 @@ public class dw5 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }

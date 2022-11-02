@@ -3,6 +3,7 @@ package com.baidu.spswitch.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.IPanelHeightTarget;
 import com.baidu.spswitch.handler.SPSwitchFSPanelLayoutHandler;
@@ -39,7 +40,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements IPanelH
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchFSPanelLinearLayout(Context context, AttributeSet attributeSet) {
+    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +61,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements IPanelH
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchFSPanelLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public SPSwitchFSPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

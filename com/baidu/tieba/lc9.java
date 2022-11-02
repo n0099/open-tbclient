@@ -1,35 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class lc9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lc9 {
+    void a(int i);
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return false;
-            }
-            if (sc9.i() && vc9.f(context) != 1) {
-                return false;
-            }
-            return mc9.c(mc9.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
-        }
-        return invokeLL.booleanValue;
-    }
+    String b(boolean z);
+
+    String c(String str);
+
+    int d();
+
+    String e(String str);
+
+    Context getAppContext();
+
+    int getInt(String str, int i);
+
+    long getLong(String str, long j);
+
+    boolean isDebug();
+
+    void putInt(String str, int i);
+
+    void putLong(String str, long j);
+
+    void putString(String str, String str2);
 }

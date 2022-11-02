@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class EventInfo extends Info {
+public class EventInfo extends Info<EventElementInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2909020670205500872L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,12 +45,12 @@ public class EventInfo extends Info {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator it = iterator();
+            Iterator<EventElementInfo> it = iterator();
             int i = 0;
             while (it.hasNext()) {
-                EventElementInfo eventElementInfo = (EventElementInfo) it.next();
-                if (eventElementInfo.ctype == 1) {
-                    i = (int) (i + parseAsInt(eventElementInfo.cvalue));
+                EventElementInfo next = it.next();
+                if (next.ctype == 1) {
+                    i = (int) (i + parseAsInt(next.cvalue));
                 } else {
                     i++;
                 }

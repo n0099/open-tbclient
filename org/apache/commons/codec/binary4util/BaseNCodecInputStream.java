@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,6 +11,7 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;

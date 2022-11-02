@@ -20,7 +20,7 @@ public final class SClient$getConnectSClientTime$1 extends ContinuationImpl {
     public final /* synthetic */ SClient this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$getConnectSClientTime$1(SClient sClient, Continuation continuation) {
+    public SClient$getConnectSClientTime$1(SClient sClient, Continuation<? super SClient$getConnectSClientTime$1> continuation) {
         super(continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -65,19 +65,19 @@ public final class bx {
         return (String) invokeLI.objValue;
     }
 
-    public static HashMap a(Map map) {
+    public static HashMap<String, String> a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             if (map != null) {
-                return new HashMap(map);
+                return new HashMap<>(map);
             }
             return null;
         }
         return (HashMap) invokeL.objValue;
     }
 
-    public static boolean a(Class cls, String str) {
+    public static boolean a(Class<?> cls, String str) {
         InterceptResult invokeLL;
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;

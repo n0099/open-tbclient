@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.e;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static j b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;

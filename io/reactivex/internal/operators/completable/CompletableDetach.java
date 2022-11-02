@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
+@Experimental
 /* loaded from: classes8.dex */
 public final class CompletableDetach extends Completable {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +20,7 @@ public final class CompletableDetach extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class DetachCompletableObserver implements CompletableObserver, Disposable {
+    public static final class DetachCompletableObserver implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CompletableObserver actual;

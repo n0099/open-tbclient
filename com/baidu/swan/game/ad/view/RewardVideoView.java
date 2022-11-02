@@ -10,11 +10,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dr3;
-import com.baidu.tieba.es3;
-import com.baidu.tieba.hs3;
+import com.baidu.tieba.vr3;
+import com.baidu.tieba.ws3;
+import com.baidu.tieba.zs3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RewardVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hs3 a;
+    public zs3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -149,18 +150,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void e(boolean z) {
-        hs3 hs3Var;
+        zs3 zs3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (hs3Var = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (zs3Var = this.a) != null) {
             this.c = z;
-            hs3Var.mute(z);
+            zs3Var.mute(z);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            dr3 b = b();
+            vr3 b = b();
             b.p = str;
             this.a.h(b);
             this.a.d(false);
@@ -174,19 +175,20 @@ public class RewardVideoView extends RelativeLayout {
         }
     }
 
-    public final dr3 b() {
+    @NonNull
+    public final vr3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            dr3 dr3Var = new dr3();
-            dr3Var.f = true;
-            dr3Var.b = this.c;
-            dr3Var.o = false;
-            dr3Var.z = false;
-            dr3Var.v = false;
-            return dr3Var;
+            vr3 vr3Var = new vr3();
+            vr3Var.f = true;
+            vr3Var.b = this.c;
+            vr3Var.o = false;
+            vr3Var.z = false;
+            vr3Var.v = false;
+            return vr3Var;
         }
-        return (dr3) invokeV.objValue;
+        return (vr3) invokeV.objValue;
     }
 
     public boolean d() {
@@ -198,13 +200,13 @@ public class RewardVideoView extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public hs3 getPlayer() {
+    public zs3 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return (hs3) invokeV.objValue;
+        return (zs3) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -224,7 +226,7 @@ public class RewardVideoView extends RelativeLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hs3 c = es3.c();
+            zs3 c = ws3.c();
             c.e(getContext(), b());
             this.a = c;
             AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
@@ -241,9 +243,9 @@ public class RewardVideoView extends RelativeLayout {
             this.c = z;
             FrameLayout frameLayout = new FrameLayout(this.b);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            hs3 hs3Var = this.a;
-            if (hs3Var != null) {
-                hs3Var.a(frameLayout);
+            zs3 zs3Var = this.a;
+            if (zs3Var != null) {
+                zs3Var.a(frameLayout);
             }
         }
     }

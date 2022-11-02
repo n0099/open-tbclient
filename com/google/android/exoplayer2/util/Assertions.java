@@ -55,16 +55,16 @@ public final class Assertions {
         return (String) invokeL.objValue;
     }
 
-    public static Object checkNotNull(Object obj) {
+    public static <T> T checkNotNull(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
             throw null;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public static void checkState(boolean z) {
@@ -95,16 +95,16 @@ public final class Assertions {
         return (String) invokeLL.objValue;
     }
 
-    public static Object checkNotNull(Object obj, Object obj2) {
+    public static <T> T checkNotNull(T t, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, obj2)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
             }
-            throw new NullPointerException(String.valueOf(obj2));
+            throw new NullPointerException(String.valueOf(obj));
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static void checkState(boolean z, Object obj) {

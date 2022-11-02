@@ -23,7 +23,7 @@ public final class MultiFormatOneDReader extends OneDReader {
     public transient /* synthetic */ FieldHolder $fh;
     public final OneDReader[] readers;
 
-    public MultiFormatOneDReader(Map map) {
+    public MultiFormatOneDReader(Map<DecodeHintType, ?> map) {
         Collection collection;
         boolean z;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class MultiFormatOneDReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {

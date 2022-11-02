@@ -60,7 +60,7 @@ public class w extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     public void a() {
-        bg.b bVar;
+        bg.b next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             t m680a = u.m680a((Context) this.a);
@@ -77,13 +77,13 @@ public class w extends XMPushService.j {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.m89a("do registration now.");
-            Collection m637a = bg.a().m637a("5");
+            Collection<bg.b> m637a = bg.a().m637a("5");
             if (m637a.isEmpty()) {
-                bVar = m680a.a(this.a);
-                ah.a(this.a, bVar);
-                bg.a().a(bVar);
+                next = m680a.a(this.a);
+                ah.a(this.a, next);
+                bg.a().a(next);
             } else {
-                bVar = (bg.b) m637a.iterator().next();
+                next = m637a.iterator().next();
             }
             if (!this.a.m597c()) {
                 x.a(this.f1009a, this.f1010a);
@@ -91,14 +91,14 @@ public class w extends XMPushService.j {
                 return;
             }
             try {
-                if (bVar.f932a == bg.c.c) {
+                if (next.f932a == bg.c.c) {
                     ah.a(this.a, this.f1009a, this.f1010a);
-                } else if (bVar.f932a == bg.c.a) {
+                } else if (next.f932a == bg.c.a) {
                     x.a(this.f1009a, this.f1010a);
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();
-                    xMPushService.a(new XMPushService.b(xMPushService2, bVar));
+                    xMPushService.a(new XMPushService.b(xMPushService2, next));
                 }
             } catch (gh e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("meet error, disconnect connection. " + e2);

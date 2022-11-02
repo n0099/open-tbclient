@@ -130,18 +130,18 @@ public class b {
         }
     }
 
-    public static void a(HashMap hashMap, a aVar) {
+    public static void a(HashMap<String, String> hashMap, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, hashMap, aVar) == null) {
-            String str = (String) hashMap.get("url");
-            String str2 = (String) hashMap.get("file-folder");
-            String str3 = (String) hashMap.get("file-name");
+            String str = hashMap.get("url");
+            String str2 = hashMap.get("file-folder");
+            String str3 = hashMap.get("file-name");
             if (str == null || str2 == null || str3 == null) {
                 return;
             }
             o.b(str2);
             String str4 = str2 + File.separator + str3;
-            String str5 = (String) hashMap.get("is-asyn");
+            String str5 = hashMap.get("is-asyn");
             if (TextUtils.isEmpty(str5) || !str5.equals("0")) {
                 CyberTaskExcutor.getInstance().execute(new Runnable(str4, str, aVar) { // from class: com.baidu.cyberplayer.sdk.downloader.b.1
                     public static /* synthetic */ Interceptable $ic;
@@ -197,12 +197,12 @@ public class b {
     /* JADX WARN: Type inference failed for: r1v7 */
     /* JADX WARN: Type inference failed for: r1v8, types: [java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r1v9 */
-    public static byte[] a(HashMap hashMap) {
+    public static byte[] a(HashMap<String, String> hashMap) {
         Interceptable interceptable;
         InterceptResult invokeL;
         Interceptable interceptable2 = $ic;
         if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(65539, null, hashMap)) == null) {
-            String str = (String) hashMap.get("url");
+            String str = hashMap.get("url");
             byte[] bArr = null;
             bArr = null;
             bArr = null;

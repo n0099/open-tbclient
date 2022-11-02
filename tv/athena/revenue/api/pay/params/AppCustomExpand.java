@@ -1,17 +1,19 @@
 package tv.athena.revenue.api.pay.params;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+@Keep
 /* loaded from: classes9.dex */
 public class AppCustomExpand {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map appClientExpand;
-    public Map appServerExpand;
+    public Map<String, String> appClientExpand;
+    public Map<String, String> appServerExpand;
     public IAppServerExpand iAppServerExpand;
 
     public AppCustomExpand() {

@@ -18,7 +18,6 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class hb {
@@ -41,11 +40,11 @@ public class hb {
     public static String f457a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List f458a;
+    public static List<a> f458a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -267,16 +266,14 @@ public class hb {
         return invokeL.intValue;
     }
 
-    public static void b(Context context, List list) {
+    public static void b(Context context, List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f824a) {
                     SQLiteDatabase writableDatabase = m389a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        a aVar = (a) it.next();
+                    for (a aVar : list) {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("package_name", aVar.f460a);
                         contentValues.put("message_ts", Long.valueOf(aVar.f459a));

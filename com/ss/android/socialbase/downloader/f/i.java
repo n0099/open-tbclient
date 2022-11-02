@@ -3,7 +3,6 @@ package com.ss.android.socialbase.downloader.f;
 import android.util.Log;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONException;
@@ -97,9 +96,9 @@ public final class i {
         this.d.addAndGet(j);
     }
 
-    public static String a(List list) {
+    public static String a(List<i> list) {
         if (list != null && !list.isEmpty()) {
-            Collections.sort(list, new Comparator() { // from class: com.ss.android.socialbase.downloader.f.i.1
+            Collections.sort(list, new Comparator<i>() { // from class: com.ss.android.socialbase.downloader.f.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
                 /* renamed from: a */
@@ -108,9 +107,8 @@ public final class i {
                 }
             });
             StringBuilder sb = new StringBuilder();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                sb.append((i) it.next());
+            for (i iVar : list) {
+                sb.append(iVar);
                 sb.append("\r\n");
             }
             return sb.toString();

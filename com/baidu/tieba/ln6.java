@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import java.util.List;
-/* loaded from: classes4.dex */
+import android.view.View;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes5.dex */
 public interface ln6 {
-    void a(int i, int i2, List list, List list2, boolean z, boolean z2, int i3);
+    void a(nv6 nv6Var, FrsViewData frsViewData);
 
-    void b(int i, int i2, String str);
+    void b(View view2);
+
+    void c(nv6 nv6Var, aj6 aj6Var, FrsViewData frsViewData);
+
+    int d(int i, FrsRequestData frsRequestData);
+
+    boolean e(int i);
 }

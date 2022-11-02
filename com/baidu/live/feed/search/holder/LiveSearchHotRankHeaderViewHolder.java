@@ -2,9 +2,10 @@ package com.baidu.live.feed.search.holder;
 
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +16,7 @@ public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveSearchHotRankHeaderViewHolder(View view2) {
+    public LiveSearchHotRankHeaderViewHolder(@NonNull View view2) {
         super(view2);
         int i;
         Interceptable interceptable = $ic;
@@ -37,10 +38,10 @@ public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
             return;
         }
         ImageView imageView = (ImageView) view2;
-        if ("day".equals(vc0.f().r())) {
-            i = R.drawable.obfuscated_res_0x7f080d2b;
+        if ("day".equals(uc0.f().r())) {
+            i = R.drawable.obfuscated_res_0x7f080d45;
         } else {
-            i = R.drawable.obfuscated_res_0x7f080d2c;
+            i = R.drawable.obfuscated_res_0x7f080d46;
         }
         imageView.setImageResource(i);
     }

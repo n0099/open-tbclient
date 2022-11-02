@@ -38,17 +38,17 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes7.dex */
-public class SsManifestParser implements ParsingLoadable.Parser {
+public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory xmlParserFactory;
 
     /* loaded from: classes7.dex */
-    public abstract class ElementParser {
+    public static abstract class ElementParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String baseUri;
-        public final List normalizedAttributes;
+        public final List<Pair<String, Object>> normalizedAttributes;
         public final ElementParser parent;
         public final String tag;
 
@@ -148,7 +148,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                 for (int i = 0; i < this.normalizedAttributes.size(); i++) {
-                    Pair pair = (Pair) this.normalizedAttributes.get(i);
+                    Pair<String, Object> pair = this.normalizedAttributes.get(i);
                     if (((String) pair.first).equals(str)) {
                         return pair.second;
                     }
@@ -303,7 +303,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* loaded from: classes7.dex */
-    public class MissingFieldException extends ParserException {
+    public static class MissingFieldException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,7 +329,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* loaded from: classes7.dex */
-    public class ProtectionParser extends ElementParser {
+    public static class ProtectionParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_SYSTEM_ID = "SystemID";
         public static final String TAG = "Protection";
@@ -420,7 +420,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* loaded from: classes7.dex */
-    public class QualityLevelParser extends ElementParser {
+    public static class QualityLevelParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_BITRATE = "Bitrate";
         public static final String KEY_CHANNELS = "Channels";
@@ -457,7 +457,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
             }
         }
 
-        public static List buildCodecSpecificData(String str) {
+        public static List<byte[]> buildCodecSpecificData(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -538,7 +538,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
                     }
                     int parseRequiredInt2 = parseRequiredInt(xmlPullParser, KEY_CHANNELS);
                     int parseRequiredInt3 = parseRequiredInt(xmlPullParser, KEY_SAMPLING_RATE);
-                    List buildCodecSpecificData = buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA));
+                    List<byte[]> buildCodecSpecificData = buildCodecSpecificData(xmlPullParser.getAttributeValue(null, KEY_CODEC_PRIVATE_DATA));
                     if (buildCodecSpecificData.isEmpty() && "audio/mp4a-latm".equals(fourCCToMimeType)) {
                         buildCodecSpecificData = Collections.singletonList(CodecSpecificDataUtil.buildAacLcAudioSpecificConfig(parseRequiredInt3, parseRequiredInt2));
                     }
@@ -553,7 +553,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* loaded from: classes7.dex */
-    public class SmoothStreamingMediaParser extends ElementParser {
+    public static class SmoothStreamingMediaParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DURATION = "Duration";
         public static final String KEY_DVR_WINDOW_LENGTH = "DVRWindowLength";
@@ -571,7 +571,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
         public int majorVersion;
         public int minorVersion;
         public SsManifest.ProtectionElement protectionElement;
-        public final List streamElements;
+        public final List<SsManifest.StreamElement> streamElements;
         public long timescale;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -662,7 +662,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamIndexParser extends ElementParser {
+    public static class StreamIndexParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";
         public static final String KEY_DISPLAY_WIDTH = "DisplayWidth";
@@ -686,13 +686,13 @@ public class SsManifestParser implements ParsingLoadable.Parser {
         public final String baseUri;
         public int displayHeight;
         public int displayWidth;
-        public final List formats;
+        public final List<Format> formats;
         public String language;
         public long lastChunkDuration;
         public int maxHeight;
         public int maxWidth;
         public String name;
-        public ArrayList startTimes;
+        public ArrayList<Long> startTimes;
         public String subType;
         public long timescale;
         public int type;
@@ -746,7 +746,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
                 if (parseInt == -1) {
                     this.timescale = ((Long) getNormalizedAttribute("TimeScale")).longValue();
                 }
-                this.startTimes = new ArrayList();
+                this.startTimes = new ArrayList<>();
             }
         }
 
@@ -760,7 +760,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
                     if (size == 0) {
                         parseLong = 0;
                     } else if (this.lastChunkDuration != -1) {
-                        parseLong = ((Long) this.startTimes.get(size - 1)).longValue() + this.lastChunkDuration;
+                        parseLong = this.startTimes.get(size - 1).longValue() + this.lastChunkDuration;
                     } else {
                         throw new ParserException("Unable to infer start time");
                     }
@@ -869,6 +869,7 @@ public class SsManifestParser implements ParsingLoadable.Parser {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
     public SsManifest parse(Uri uri, InputStream inputStream) throws IOException {
         InterceptResult invokeLL;

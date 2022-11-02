@@ -21,7 +21,7 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public PagerAdapter mAdapter;
     public boolean mBoundaryCaching;
-    public SparseArray mToDestroy;
+    public SparseArray<ToDestroy> mToDestroy;
 
     private int getRealFirstPosition() {
         InterceptResult invokeV;
@@ -39,7 +39,7 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     }
 
     /* loaded from: classes2.dex */
-    public class ToDestroy {
+    public static class ToDestroy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ViewGroup container;
@@ -82,7 +82,7 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
                 return;
             }
         }
-        this.mToDestroy = new SparseArray();
+        this.mToDestroy = new SparseArray<>();
         this.mAdapter = pagerAdapter;
     }
 
@@ -127,11 +127,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SparseArray sparseArray = this.mToDestroy;
+            SparseArray<ToDestroy> sparseArray = this.mToDestroy;
             if (sparseArray != null) {
                 sparseArray.clear();
             }
-            this.mToDestroy = new SparseArray();
+            this.mToDestroy = new SparseArray<>();
             super.notifyDataSetChanged();
             this.mAdapter.notifyDataSetChanged();
         }
@@ -239,7 +239,7 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
             } else {
                 i2 = i;
             }
-            if (this.mBoundaryCaching && (toDestroy = (ToDestroy) this.mToDestroy.get(i)) != null) {
+            if (this.mBoundaryCaching && (toDestroy = this.mToDestroy.get(i)) != null) {
                 this.mToDestroy.remove(i);
                 return toDestroy.object;
             }

@@ -18,18 +18,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh4;
-import com.baidu.tieba.gh4;
-import com.baidu.tieba.hh4;
-import com.baidu.tieba.ih4;
-import com.baidu.tieba.wg4;
-import com.baidu.tieba.yg4;
+import com.baidu.tieba.ai4;
+import com.baidu.tieba.ei4;
+import com.baidu.tieba.oh4;
+import com.baidu.tieba.qh4;
+import com.baidu.tieba.qi4;
+import com.baidu.tieba.rh4;
+import com.baidu.tieba.vh4;
 import com.baidu.tieba.yh4;
-import com.baidu.tieba.zg4;
+import com.baidu.tieba.zh4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,11 +46,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes3.dex */
-public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
+public class FragmentActivity extends vh4 implements oh4.b, qh4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-    public final gh4 b;
+    public final yh4 b;
     public boolean c;
     public boolean d;
     public boolean e;
@@ -118,7 +121,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends hh4 {
+    public class b extends zh4<FragmentActivity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentActivity j;
@@ -144,7 +147,8 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             this.j = fragmentActivity;
         }
 
-        @Override // com.baidu.tieba.hh4, com.baidu.tieba.fh4
+        @Override // com.baidu.tieba.zh4, com.baidu.tieba.xh4
+        @Nullable
         public View a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -154,7 +158,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return (View) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public void k(Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fragment) == null) {
@@ -162,7 +166,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             }
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public boolean q(Fragment fragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -172,7 +176,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.hh4, com.baidu.tieba.fh4
+        @Override // com.baidu.tieba.zh4, com.baidu.tieba.xh4
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -186,7 +190,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public LayoutInflater m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -196,7 +200,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return (LayoutInflater) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public int n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -210,7 +214,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public boolean o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -223,7 +227,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public void s() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -231,7 +235,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             }
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, fileDescriptor, printWriter, strArr) == null) {
@@ -239,15 +243,15 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             }
         }
 
-        @Override // com.baidu.tieba.hh4
-        public void p(Fragment fragment, String[] strArr, int i) {
+        @Override // com.baidu.tieba.zh4
+        public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048583, this, fragment, strArr, i) == null) {
                 this.j.r(fragment, strArr, i);
             }
         }
 
-        @Override // com.baidu.tieba.hh4
+        @Override // com.baidu.tieba.zh4
         public void r(Fragment fragment, Intent intent, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048585, this, fragment, intent, i) == null) {
@@ -257,12 +261,12 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
     }
 
     /* loaded from: classes3.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
-        public List b;
-        public yh4 c;
+        public List<Fragment> b;
+        public qi4<String, ei4> c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -293,7 +297,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             }
         }
         this.a = new a(this);
-        this.b = gh4.b(new b(this));
+        this.b = yh4.b(new b(this));
     }
 
     @Override // android.app.Activity
@@ -305,8 +309,8 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
                 j(true);
             }
             Object q = q();
-            List F = this.b.F();
-            yh4 E = this.b.E();
+            List<Fragment> F = this.b.F();
+            qi4<String, ei4> E = this.b.E();
             if (F == null && E == null && q == null) {
                 return null;
             }
@@ -339,7 +343,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         }
     }
 
-    @Override // com.baidu.tieba.ch4
+    @Override // com.baidu.tieba.uh4
     public final View h(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -547,7 +551,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         }
     }
 
-    @Override // com.baidu.tieba.yg4.a
+    @Override // com.baidu.tieba.qh4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
@@ -581,13 +585,13 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         }
     }
 
-    public ih4 l() {
+    public ai4 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b.y();
         }
-        return (ih4) invokeV.objValue;
+        return (ai4) invokeV.objValue;
     }
 
     public void o() {
@@ -691,7 +695,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            wg4.e(this);
+            oh4.e(this);
         }
     }
 
@@ -699,7 +703,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                zg4.a(this);
+                rh4.a(this);
             } else {
                 this.h = true;
             }
@@ -797,7 +801,7 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
                 int i4 = i3 - 1;
                 int x = this.b.x();
                 if (x != 0 && i4 >= 0 && i4 < x) {
-                    Fragment fragment = (Fragment) this.b.w(new ArrayList(x)).get(i4);
+                    Fragment fragment = this.b.w(new ArrayList(x)).get(i4);
                     if (fragment == null) {
                         Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                         return;
@@ -812,15 +816,15 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.tieba.wg4.b
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    @Override // android.app.Activity, com.baidu.tieba.oh4.b
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048598, this, i, strArr, iArr) == null) && (i2 = (i >> 8) & 255) != 0) {
             int i3 = i2 - 1;
             int x = this.b.x();
             if (x != 0 && i3 >= 0 && i3 < x) {
-                Fragment fragment = (Fragment) this.b.w(new ArrayList(x)).get(i3);
+                Fragment fragment = this.b.w(new ArrayList(x)).get(i3);
                 if (fragment == null) {
                     Log.w(androidx.fragment.app.FragmentActivity.TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                     return;
@@ -832,11 +836,11 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         }
     }
 
-    @Override // com.baidu.tieba.ch4, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    @Override // com.baidu.tieba.uh4, android.app.Activity
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            List list = null;
+            List<Fragment> list = null;
             this.b.a(null);
             super.onCreate(bundle);
             c cVar = (c) getLastNonConfigurationInstance();
@@ -845,11 +849,11 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
             }
             if (bundle != null) {
                 Parcelable parcelable = bundle.getParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG);
-                gh4 gh4Var = this.b;
+                yh4 yh4Var = this.b;
                 if (cVar != null) {
                     list = cVar.b;
                 }
-                gh4Var.C(parcelable, list);
+                yh4Var.C(parcelable, list);
             }
             this.b.f();
         }
@@ -877,10 +881,10 @@ public class FragmentActivity extends dh4 implements wg4.b, yg4.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048607, this, fragment, strArr, i) == null) {
             if (i == -1) {
-                wg4.requestPermissions(this, strArr, i);
+                oh4.requestPermissions(this, strArr, i);
             } else if ((i & (-256)) == 0) {
                 this.i = true;
-                wg4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+                oh4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
             } else {
                 throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
             }

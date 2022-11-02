@@ -9,18 +9,18 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class FunNativeAdListenerHelper {
+public class FunNativeAdListenerHelper<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap a;
-    public final ReporterPidLoader b;
+    public final HashMap<K, FunNativeAdListenerHelper<K, V>.ListenerHolder> a;
+    public final ReporterPidLoader<K> b;
 
     /* loaded from: classes7.dex */
     public class ListenerHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-        public final Object b;
+        public final V b;
         public final Ssp.Pid c;
         public boolean d;
         public boolean e;
@@ -28,12 +28,12 @@ public class FunNativeAdListenerHelper {
         public FunAdInteractionListener g;
         public final /* synthetic */ FunNativeAdListenerHelper h;
 
-        public ListenerHolder(FunNativeAdListenerHelper funNativeAdListenerHelper, String str, Ssp.Pid pid, Object obj) {
+        public ListenerHolder(FunNativeAdListenerHelper funNativeAdListenerHelper, String str, Ssp.Pid pid, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funNativeAdListenerHelper, str, pid, obj};
+                Object[] objArr = {funNativeAdListenerHelper, str, pid, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,12 +45,12 @@ public class FunNativeAdListenerHelper {
             }
             this.h = funNativeAdListenerHelper;
             this.a = str;
-            this.b = obj;
+            this.b = v;
             this.c = pid;
         }
     }
 
-    public FunNativeAdListenerHelper(ReporterPidLoader reporterPidLoader) {
+    public FunNativeAdListenerHelper(ReporterPidLoader<K> reporterPidLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,28 +65,28 @@ public class FunNativeAdListenerHelper {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
         this.b = reporterPidLoader;
     }
 
-    public final void destroy(Object obj) {
+    public final void destroy(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, k) == null) {
             synchronized (this.a) {
-                this.a.remove(obj);
+                this.a.remove(k);
             }
         }
     }
 
-    public final void onAdClick(Object obj) {
+    public final void onAdClick(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k) == null) {
             synchronized (this.a) {
-                ListenerHolder listenerHolder = (ListenerHolder) this.a.get(obj);
+                FunNativeAdListenerHelper<K, V>.ListenerHolder listenerHolder = this.a.get(k);
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.h.b.onAdClicked(obj, listenerHolder.f, new String[0]);
+                listenerHolder.h.b.onAdClicked(k, listenerHolder.f, new String[0]);
                 listenerHolder.f = true;
                 FunAdInteractionListener funAdInteractionListener = listenerHolder.g;
                 if (funAdInteractionListener != null) {
@@ -98,15 +98,15 @@ public class FunNativeAdListenerHelper {
         }
     }
 
-    public final void onAdClose(Object obj) {
+    public final void onAdClose(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k) == null) {
             synchronized (this.a) {
-                ListenerHolder listenerHolder = (ListenerHolder) this.a.get(obj);
+                FunNativeAdListenerHelper<K, V>.ListenerHolder listenerHolder = this.a.get(k);
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.h.b.onAdClose(obj);
+                listenerHolder.h.b.onAdClose(k);
                 FunAdInteractionListener funAdInteractionListener = listenerHolder.g;
                 if (funAdInteractionListener != null) {
                     funAdInteractionListener.onAdClose(listenerHolder.a);
@@ -115,15 +115,15 @@ public class FunNativeAdListenerHelper {
         }
     }
 
-    public final void onAdShow(Object obj) {
+    public final void onAdShow(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, k) == null) {
             synchronized (this.a) {
-                ListenerHolder listenerHolder = (ListenerHolder) this.a.get(obj);
+                FunNativeAdListenerHelper<K, V>.ListenerHolder listenerHolder = this.a.get(k);
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.h.b.onAdShow(obj, listenerHolder.e, new String[0]);
+                listenerHolder.h.b.onAdShow(k, listenerHolder.e, new String[0]);
                 listenerHolder.e = true;
                 FunAdInteractionListener funAdInteractionListener = listenerHolder.g;
                 if (funAdInteractionListener != null) {
@@ -135,16 +135,16 @@ public class FunNativeAdListenerHelper {
         }
     }
 
-    public final void startShow(Object obj, String str, Ssp.Pid pid, Object obj2, FunAdInteractionListener funAdInteractionListener) {
+    public final void startShow(K k, String str, Ssp.Pid pid, V v, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, obj, str, pid, obj2, funAdInteractionListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, k, str, pid, v, funAdInteractionListener) == null) {
             synchronized (this.a) {
-                ListenerHolder listenerHolder = (ListenerHolder) this.a.get(obj);
+                FunNativeAdListenerHelper<K, V>.ListenerHolder listenerHolder = this.a.get(k);
                 if (listenerHolder == null) {
-                    listenerHolder = new ListenerHolder(this, str, pid, obj2);
-                    this.a.put(obj, listenerHolder);
+                    listenerHolder = new ListenerHolder(this, str, pid, v);
+                    this.a.put(k, listenerHolder);
                 }
-                listenerHolder.h.b.onShowStart(obj, listenerHolder.d);
+                listenerHolder.h.b.onShowStart(k, listenerHolder.d);
                 listenerHolder.d = true;
                 listenerHolder.g = funAdInteractionListener;
             }

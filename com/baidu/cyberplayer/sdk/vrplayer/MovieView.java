@@ -15,6 +15,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,6 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import java.util.Map;
+@Keep
 /* loaded from: classes2.dex */
 public class MovieView extends FrameLayout implements ICyberVideoView {
     public static /* synthetic */ Interceptable $ic;
@@ -59,7 +61,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public int ab;
     public boolean ac;
     public float ad;
-    public HashMap ae;
+    public HashMap<String, String> ae;
     public Context b;
     public Surface c;
     public View d;
@@ -73,7 +75,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public String l;
     public Uri m;
     public Uri n;
-    public Map o;
+    public Map<String, String> o;
     public boolean p;
     public String q;
     public CyberPlayerManager.OnCompletionListener r;
@@ -121,7 +123,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class h {
+    public static final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
         public static final h b;
@@ -191,7 +193,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class i {
+    public static final class i {
         public static /* synthetic */ Interceptable $ic;
         public static final i a;
         public static final i b;
@@ -282,7 +284,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ab = 0;
         this.ac = false;
         this.ad = 1.0f;
-        this.ae = new HashMap();
+        this.ae = new HashMap<>();
         h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
@@ -328,7 +330,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ab = 0;
         this.ac = false;
         this.ad = 1.0f;
-        this.ae = new HashMap();
+        this.ae = new HashMap<>();
         h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
@@ -371,7 +373,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.ab = 0;
         this.ac = false;
         this.ad = 1.0f;
-        this.ae = new HashMap();
+        this.ae = new HashMap<>();
         h hVar = h.b;
         this.G = hVar;
         this.H = hVar;
@@ -499,10 +501,10 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             a(this.n != null, false);
             ((AudioManager) this.b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
             this.h = d(i2);
-            HashMap hashMap = this.ae;
+            HashMap<String, String> hashMap = this.ae;
             if (hashMap != null) {
                 for (String str : hashMap.keySet()) {
-                    this.h.setOption(str, (String) this.ae.get(str));
+                    this.h.setOption(str, this.ae.get(str));
                 }
             }
             Surface surface = this.c;
@@ -810,8 +812,8 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public void changeProxyDynamic(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.h != null && TextUtils.isEmpty(o.c())) {
-            HashMap hashMap = this.ae;
-            String str2 = hashMap != null ? (String) hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
+            HashMap<String, String> hashMap = this.ae;
+            String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
@@ -823,7 +825,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 this.h.changeProxyDynamic(str, true);
             }
             this.h.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
-            HashMap hashMap2 = this.ae;
+            HashMap<String, String> hashMap2 = this.ae;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
@@ -862,7 +864,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             a(1, "destroy");
-            HashMap hashMap = this.ae;
+            HashMap<String, String> hashMap = this.ae;
             if (hashMap != null) {
                 hashMap.clear();
             }
@@ -1420,7 +1422,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
                 a(1, "Do not set option when the video player playing");
                 return;
             }
-            HashMap hashMap = this.ae;
+            HashMap<String, String> hashMap = this.ae;
             if (hashMap != null) {
                 hashMap.put(str, str2);
             }
@@ -1518,7 +1520,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map map) {
+    public void setVideoURI(Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048662, this, uri, map) == null) {
             a(1, "videoURI:" + uri.toString());
@@ -1573,7 +1575,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
             a(1, IntentConfig.STOP);
             a(false);
             pauseRender();
-            HashMap hashMap = this.ae;
+            HashMap<String, String> hashMap = this.ae;
             if (hashMap != null) {
                 hashMap.clear();
             }

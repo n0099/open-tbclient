@@ -1,5 +1,6 @@
 package com.bumptech.glide.manager;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +35,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         }
     }
 
-    public DefaultConnectivityMonitor(Context context, ConnectivityMonitor.ConnectivityListener connectivityListener) {
+    public DefaultConnectivityMonitor(@NonNull Context context, @NonNull ConnectivityMonitor.ConnectivityListener connectivityListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +74,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             }
 
             @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context2, Intent intent) {
+            public void onReceive(@NonNull Context context2, Intent intent) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) {
                     DefaultConnectivityMonitor defaultConnectivityMonitor = this.this$0;
@@ -133,7 +135,8 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         }
     }
 
-    public boolean isConnected(Context context) {
+    @SuppressLint({"MissingPermission"})
+    public boolean isConnected(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {

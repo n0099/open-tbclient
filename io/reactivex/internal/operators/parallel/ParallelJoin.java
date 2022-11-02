@@ -22,25 +22,25 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelJoin extends Flowable {
+public final class ParallelJoin<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
     public final int prefetch;
-    public final ParallelFlowable source;
+    public final ParallelFlowable<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class JoinInnerSubscriber extends AtomicReference implements FlowableSubscriber {
+    public static final class JoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8410034718427740355L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int limit;
-        public final JoinSubscriptionBase parent;
+        public final JoinSubscriptionBase<T> parent;
         public final int prefetch;
         public long produced;
-        public volatile SimplePlainQueue queue;
+        public volatile SimplePlainQueue<T> queue;
 
-        public JoinInnerSubscriber(JoinSubscriptionBase joinSubscriptionBase, int i) {
+        public JoinInnerSubscriber(JoinSubscriptionBase<T> joinSubscriptionBase, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,11 +69,11 @@ public final class ParallelJoin extends Flowable {
             return invokeV.booleanValue;
         }
 
-        public SimplePlainQueue getQueue() {
+        public SimplePlainQueue<T> getQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
+                SimplePlainQueue<T> simplePlainQueue = this.queue;
                 if (simplePlainQueue == null) {
                     SpscArrayQueue spscArrayQueue = new SpscArrayQueue(this.prefetch);
                     this.queue = spscArrayQueue;
@@ -98,7 +98,7 @@ public final class ParallelJoin extends Flowable {
                 long j = this.produced + 1;
                 if (j == this.limit) {
                     this.produced = 0L;
-                    ((Subscription) get()).request(j);
+                    get().request(j);
                     return;
                 }
                 this.produced = j;
@@ -114,10 +114,10 @@ public final class ParallelJoin extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.parent.onNext(this, obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.parent.onNext(this, t);
             }
         }
 
@@ -135,7 +135,7 @@ public final class ParallelJoin extends Flowable {
                 long j2 = this.produced + j;
                 if (j2 >= this.limit) {
                     this.produced = 0L;
-                    ((Subscription) get()).request(j2);
+                    get().request(j2);
                     return;
                 }
                 this.produced = j2;
@@ -144,13 +144,13 @@ public final class ParallelJoin extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class JoinSubscription extends JoinSubscriptionBase {
+    public static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6312374661811000451L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscription(Subscriber subscriber, int i, int i2) {
+        public JoinSubscription(Subscriber<? super T> subscriber, int i, int i2) {
             super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -210,12 +210,12 @@ public final class ParallelJoin extends Flowable {
             boolean z;
             boolean z2;
             boolean z3;
-            Object poll;
+            Object obj;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
                 int length = joinInnerSubscriberArr.length;
-                Subscriber subscriber = this.actual;
+                Subscriber<? super T> subscriber = this.actual;
                 int i = 1;
                 while (true) {
                     long j = this.requested.get();
@@ -225,7 +225,7 @@ public final class ParallelJoin extends Flowable {
                             cleanup();
                             return;
                         }
-                        Throwable th = (Throwable) this.errors.get();
+                        Throwable th = this.errors.get();
                         if (th != null) {
                             cleanup();
                             subscriber.onError(th);
@@ -242,10 +242,10 @@ public final class ParallelJoin extends Flowable {
                             if (i2 >= joinInnerSubscriberArr.length) {
                                 break;
                             }
-                            JoinInnerSubscriber joinInnerSubscriber = joinInnerSubscriberArr[i2];
-                            SimplePlainQueue simplePlainQueue = joinInnerSubscriber.queue;
-                            if (simplePlainQueue != null && (poll = simplePlainQueue.poll()) != null) {
-                                subscriber.onNext(poll);
+                            JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
+                            SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
+                            if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
+                                subscriber.onNext(obj);
                                 joinInnerSubscriber.requestOne();
                                 j2++;
                                 if (j2 == j) {
@@ -261,7 +261,7 @@ public final class ParallelJoin extends Flowable {
                             cleanup();
                             return;
                         }
-                        Throwable th2 = (Throwable) this.errors.get();
+                        Throwable th2 = this.errors.get();
                         if (th2 != null) {
                             cleanup();
                             subscriber.onError(th2);
@@ -275,7 +275,7 @@ public final class ParallelJoin extends Flowable {
                         int i3 = 0;
                         while (true) {
                             if (i3 < length) {
-                                SimplePlainQueue simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
+                                SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
                                 if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
                                     z2 = false;
                                     break;
@@ -317,17 +317,17 @@ public final class ParallelJoin extends Flowable {
         }
 
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj) {
+        public void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, obj) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, t) == null) {
                 if (get() == 0 && compareAndSet(0, 1)) {
                     if (this.requested.get() != 0) {
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                         if (this.requested.get() != Long.MAX_VALUE) {
                             this.requested.decrementAndGet();
                         }
                         joinInnerSubscriber.request(1L);
-                    } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
+                    } else if (!joinInnerSubscriber.getQueue().offer(t)) {
                         cancelAll();
                         MissingBackpressureException missingBackpressureException = new MissingBackpressureException("Queue full?!");
                         if (this.errors.compareAndSet(null, missingBackpressureException)) {
@@ -341,7 +341,7 @@ public final class ParallelJoin extends Flowable {
                     if (decrementAndGet() == 0) {
                         return;
                     }
-                } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
+                } else if (!joinInnerSubscriber.getQueue().offer(t)) {
                     cancelAll();
                     onError(new MissingBackpressureException("Queue full?!"));
                     return;
@@ -354,16 +354,16 @@ public final class ParallelJoin extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class JoinSubscriptionBase extends AtomicInteger implements Subscription {
+    public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3100232009247827843L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public final AtomicInteger done;
         public final AtomicThrowable errors;
         public final AtomicLong requested;
-        public final JoinInnerSubscriber[] subscribers;
+        public final JoinInnerSubscriber<T>[] subscribers;
 
         public abstract void drain();
 
@@ -371,9 +371,9 @@ public final class ParallelJoin extends Flowable {
 
         public abstract void onError(Throwable th);
 
-        public abstract void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj);
+        public abstract void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t);
 
-        public JoinSubscriptionBase(Subscriber subscriber, int i, int i2) {
+        public JoinSubscriptionBase(Subscriber<? super T> subscriber, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -392,9 +392,9 @@ public final class ParallelJoin extends Flowable {
             this.requested = new AtomicLong();
             this.done = new AtomicInteger();
             this.actual = subscriber;
-            JoinInnerSubscriber[] joinInnerSubscriberArr = new JoinInnerSubscriber[i];
+            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = new JoinInnerSubscriber[i];
             for (int i5 = 0; i5 < i; i5++) {
-                joinInnerSubscriberArr[i5] = new JoinInnerSubscriber(this, i2);
+                joinInnerSubscriberArr[i5] = new JoinInnerSubscriber<>(this, i2);
             }
             this.subscribers = joinInnerSubscriberArr;
             this.done.lazySet(i);
@@ -417,7 +417,7 @@ public final class ParallelJoin extends Flowable {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int i = 0;
                 while (true) {
-                    JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                    JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
                     if (i < joinInnerSubscriberArr.length) {
                         joinInnerSubscriberArr[i].cancel();
                         i++;
@@ -433,7 +433,7 @@ public final class ParallelJoin extends Flowable {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 int i = 0;
                 while (true) {
-                    JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                    JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
                     if (i < joinInnerSubscriberArr.length) {
                         joinInnerSubscriberArr[i].queue = null;
                         i++;
@@ -455,13 +455,13 @@ public final class ParallelJoin extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class JoinSubscriptionDelayError extends JoinSubscriptionBase {
+    public static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5737965195918321883L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscriptionDelayError(Subscriber subscriber, int i, int i2) {
+        public JoinSubscriptionDelayError(Subscriber<? super T> subscriber, int i, int i2) {
             super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -506,7 +506,7 @@ public final class ParallelJoin extends Flowable {
             if (r15 == false) goto L84;
          */
         /* JADX WARN: Code restructure failed: missing block: B:30:0x005b, code lost:
-            if (((java.lang.Throwable) r18.errors.get()) == null) goto L82;
+            if (r18.errors.get() == null) goto L82;
          */
         /* JADX WARN: Code restructure failed: missing block: B:31:0x005d, code lost:
             r3.onError(r18.errors.terminate());
@@ -530,12 +530,12 @@ public final class ParallelJoin extends Flowable {
             boolean z;
             boolean z2;
             boolean z3;
-            Object poll;
+            Object obj;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                JoinInnerSubscriber[] joinInnerSubscriberArr = this.subscribers;
+                JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
                 int length = joinInnerSubscriberArr.length;
-                Subscriber subscriber = this.actual;
+                Subscriber<? super T> subscriber = this.actual;
                 int i = 1;
                 while (true) {
                     long j = this.requested.get();
@@ -556,10 +556,10 @@ public final class ParallelJoin extends Flowable {
                             if (i2 >= length) {
                                 break;
                             }
-                            JoinInnerSubscriber joinInnerSubscriber = joinInnerSubscriberArr[i2];
-                            SimplePlainQueue simplePlainQueue = joinInnerSubscriber.queue;
-                            if (simplePlainQueue != null && (poll = simplePlainQueue.poll()) != null) {
-                                subscriber.onNext(poll);
+                            JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
+                            SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
+                            if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
+                                subscriber.onNext(obj);
                                 joinInnerSubscriber.requestOne();
                                 j2++;
                                 if (j2 == j) {
@@ -583,7 +583,7 @@ public final class ParallelJoin extends Flowable {
                         int i3 = 0;
                         while (true) {
                             if (i3 < length) {
-                                SimplePlainQueue simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
+                                SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
                                 if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
                                     z2 = false;
                                     break;
@@ -595,7 +595,7 @@ public final class ParallelJoin extends Flowable {
                             }
                         }
                         if (z && z2) {
-                            if (((Throwable) this.errors.get()) != null) {
+                            if (this.errors.get() != null) {
                                 subscriber.onError(this.errors.terminate());
                                 return;
                             } else {
@@ -627,17 +627,17 @@ public final class ParallelJoin extends Flowable {
         }
 
         @Override // io.reactivex.internal.operators.parallel.ParallelJoin.JoinSubscriptionBase
-        public void onNext(JoinInnerSubscriber joinInnerSubscriber, Object obj) {
+        public void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, obj) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, joinInnerSubscriber, t) == null) {
                 if (get() == 0 && compareAndSet(0, 1)) {
                     if (this.requested.get() != 0) {
-                        this.actual.onNext(obj);
+                        this.actual.onNext(t);
                         if (this.requested.get() != Long.MAX_VALUE) {
                             this.requested.decrementAndGet();
                         }
                         joinInnerSubscriber.request(1L);
-                    } else if (!joinInnerSubscriber.getQueue().offer(obj)) {
+                    } else if (!joinInnerSubscriber.getQueue().offer(t)) {
                         joinInnerSubscriber.cancel();
                         this.errors.addThrowable(new MissingBackpressureException("Queue full?!"));
                         this.done.decrementAndGet();
@@ -648,7 +648,7 @@ public final class ParallelJoin extends Flowable {
                         return;
                     }
                 } else {
-                    if (!joinInnerSubscriber.getQueue().offer(obj) && joinInnerSubscriber.cancel()) {
+                    if (!joinInnerSubscriber.getQueue().offer(t) && joinInnerSubscriber.cancel()) {
                         this.errors.addThrowable(new MissingBackpressureException("Queue full?!"));
                         this.done.decrementAndGet();
                     }
@@ -661,7 +661,7 @@ public final class ParallelJoin extends Flowable {
         }
     }
 
-    public ParallelJoin(ParallelFlowable parallelFlowable, int i, boolean z) {
+    public ParallelJoin(ParallelFlowable<? extends T> parallelFlowable, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -682,7 +682,7 @@ public final class ParallelJoin extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         JoinSubscriptionBase joinSubscription;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {

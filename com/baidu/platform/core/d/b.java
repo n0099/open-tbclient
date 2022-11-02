@@ -1,77 +1,169 @@
 package com.baidu.platform.core.d;
 
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.BikingRoutePlanOption;
-import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.CoordUtil;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
+import com.baidu.mapapi.search.poi.PoiIndoorInfo;
+import com.baidu.mapapi.search.poi.PoiIndoorResult;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.platform.base.e {
+public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b(BikingRoutePlanOption bikingRoutePlanOption) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bikingRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a(bikingRoutePlanOption);
     }
 
-    private void a(BikingRoutePlanOption bikingRoutePlanOption) {
+    private boolean a(String str, PoiIndoorResult poiIndoorResult) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, bikingRoutePlanOption) == null) {
-            this.a.a("mode", "riding");
-            LatLng location = bikingRoutePlanOption.mFrom.getLocation();
-            if (location != null) {
-                if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
-                    location = CoordTrans.gcjToBaidu(location);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, poiIndoorResult)) == null) {
+            if (str != null && !"".equals(str)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("errNo");
+                    if (optInt != 0) {
+                        if (optInt != 1) {
+                            if (optInt != 5) {
+                                poiIndoorResult.error = SearchResult.ERRORNO.POIINDOOR_SERVER_ERROR;
+                                return true;
+                            }
+                        } else {
+                            String optString = jSONObject.optString("Msg");
+                            if (optString.contains(MapBundleKey.MapObjKey.OBJ_BID)) {
+                                poiIndoorResult.error = SearchResult.ERRORNO.POIINDOOR_BID_ERROR;
+                                return true;
+                            } else if (optString.contains("floor")) {
+                                poiIndoorResult.error = SearchResult.ERRORNO.POIINDOOR_FLOOR_ERROR;
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject == null) {
+                        return false;
+                    }
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("poi_list");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        ArrayList arrayList = new ArrayList();
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                            if (jSONObject2 != null) {
+                                PoiIndoorInfo poiIndoorInfo = new PoiIndoorInfo();
+                                poiIndoorInfo.address = jSONObject2.optString("address");
+                                poiIndoorInfo.bid = jSONObject2.optString("bd_id");
+                                poiIndoorInfo.cid = jSONObject2.optInt("cid");
+                                poiIndoorInfo.discount = jSONObject2.optInt("discount");
+                                poiIndoorInfo.floor = jSONObject2.optString("floor");
+                                poiIndoorInfo.name = jSONObject2.optString("name");
+                                poiIndoorInfo.phone = jSONObject2.optString("phone");
+                                poiIndoorInfo.price = jSONObject2.optInt("price");
+                                poiIndoorInfo.starLevel = jSONObject2.optInt("star_level");
+                                poiIndoorInfo.tag = jSONObject2.optString("tag");
+                                poiIndoorInfo.uid = jSONObject2.optString("uid");
+                                poiIndoorInfo.groupNum = jSONObject2.optInt("tuan_nums");
+                                int parseInt = Integer.parseInt(jSONObject2.optString("twp"));
+                                if ((parseInt & 1) == 1) {
+                                    poiIndoorInfo.isGroup = true;
+                                }
+                                if ((parseInt & 2) == 1) {
+                                    poiIndoorInfo.isTakeOut = true;
+                                }
+                                if ((parseInt & 4) == 1) {
+                                    poiIndoorInfo.isWaited = true;
+                                }
+                                poiIndoorInfo.latLng = CoordUtil.mc2ll(new GeoPoint(jSONObject2.optDouble("pt_y"), jSONObject2.optDouble("pt_x")));
+                                arrayList.add(poiIndoorInfo);
+                            }
+                        }
+                        poiIndoorResult.error = SearchResult.ERRORNO.NO_ERROR;
+                        poiIndoorResult.setmArrayPoiInfo(arrayList);
+                    } else {
+                        poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    }
+                    poiIndoorResult.pageNum = optJSONObject.optInt(SuggestAddrField.KEY_PAGE_NUM);
+                    poiIndoorResult.poiNum = optJSONObject.optInt("poi_num");
+                    poiIndoorResult.error = SearchResult.ERRORNO.NO_ERROR;
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                com.baidu.platform.util.a aVar = this.a;
-                aVar.a("origin", location.latitude + "," + location.longitude);
-            } else {
-                this.a.a("origin", bikingRoutePlanOption.mFrom.getName());
             }
-            LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
-            if (location2 != null) {
-                if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
-                    location2 = CoordTrans.gcjToBaidu(location2);
-                }
-                com.baidu.platform.util.a aVar2 = this.a;
-                aVar2.a("destination", location2.latitude + "," + location2.longitude);
-            } else {
-                this.a.a("destination", bikingRoutePlanOption.mTo.getName());
-            }
-            this.a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
-            this.a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
-            int i = bikingRoutePlanOption.mRidingType;
-            if (i == 1) {
-                this.a.a("riding_type", String.valueOf(i));
-            }
-            this.a.a("output", "json");
-            this.a.a("from", "android_map_sdk");
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.platform.base.e
-    public String a(com.baidu.platform.domain.c cVar) {
+    @Override // com.baidu.platform.base.d
+    public SearchResult a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.j() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            PoiIndoorResult poiIndoorResult = new PoiIndoorResult();
+            if (str != null && !str.equals("")) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("SDK_InnerError")) {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                        if (optJSONObject.has("PermissionCheckError")) {
+                            poiIndoorResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                            return poiIndoorResult;
+                        } else if (optJSONObject.has("httpStateError")) {
+                            String optString = optJSONObject.optString("httpStateError");
+                            if (optString.equals("NETWORK_ERROR")) {
+                                poiIndoorResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
+                            } else if (optString.equals("REQUEST_ERROR")) {
+                                poiIndoorResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
+                            } else {
+                                poiIndoorResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                            }
+                            return poiIndoorResult;
+                        }
+                    }
+                    if (!a(str, poiIndoorResult, false) && !a(str, poiIndoorResult)) {
+                        poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    }
+                    return poiIndoorResult;
+                } catch (Exception unused) {
+                    poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    return poiIndoorResult;
+                }
+            }
+            poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+            return poiIndoorResult;
+        }
+        return (SearchResult) invokeL.objValue;
+    }
+
+    @Override // com.baidu.platform.base.d
+    public void a(SearchResult searchResult, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
+            ((OnGetPoiSearchResultListener) obj).onGetPoiIndoorResult((PoiIndoorResult) searchResult);
+        }
     }
 }

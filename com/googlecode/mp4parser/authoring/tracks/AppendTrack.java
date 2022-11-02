@@ -11,12 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.SampleEntry;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.boxes.mp4.AbstractDescriptorBox;
@@ -89,7 +91,7 @@ public class AppendTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -181,19 +183,19 @@ public class AppendTrack extends AbstractTrack {
                                                     if (Arrays.equals(audioSampleEntry.getSoundVersion2Data(), audioSampleEntry2.getSoundVersion2Data())) {
                                                         audioSampleEntry3.setSoundVersion2Data(audioSampleEntry.getSoundVersion2Data());
                                                         if (audioSampleEntry.getBoxes().size() == audioSampleEntry2.getBoxes().size()) {
-                                                            Iterator it = audioSampleEntry2.getBoxes().iterator();
+                                                            Iterator<Box> it = audioSampleEntry2.getBoxes().iterator();
                                                             for (Box box : audioSampleEntry.getBoxes()) {
-                                                                Box box2 = (Box) it.next();
+                                                                Box next = it.next();
                                                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                                                                 try {
                                                                     box.getBox(Channels.newChannel(byteArrayOutputStream));
-                                                                    box2.getBox(Channels.newChannel(byteArrayOutputStream2));
+                                                                    next.getBox(Channels.newChannel(byteArrayOutputStream2));
                                                                     if (Arrays.equals(byteArrayOutputStream.toByteArray(), byteArrayOutputStream2.toByteArray())) {
                                                                         audioSampleEntry3.addBox(box);
-                                                                    } else if (ESDescriptorBox.TYPE.equals(box.getType()) && ESDescriptorBox.TYPE.equals(box2.getType())) {
+                                                                    } else if (ESDescriptorBox.TYPE.equals(box.getType()) && ESDescriptorBox.TYPE.equals(next.getType())) {
                                                                         ESDescriptorBox eSDescriptorBox = (ESDescriptorBox) box;
-                                                                        eSDescriptorBox.setDescriptor(mergeDescriptors(eSDescriptorBox.getEsDescriptor(), ((ESDescriptorBox) box2).getEsDescriptor()));
+                                                                        eSDescriptorBox.setDescriptor(mergeDescriptors(eSDescriptorBox.getEsDescriptor(), ((ESDescriptorBox) next).getEsDescriptor()));
                                                                         audioSampleEntry3.addBox(box);
                                                                     }
                                                                 } catch (IOException e) {
@@ -341,19 +343,19 @@ public class AppendTrack extends AbstractTrack {
                                     if (visualSampleEntry.getHorizresolution() == visualSampleEntry2.getHorizresolution()) {
                                         visualSampleEntry3.setHorizresolution(visualSampleEntry.getHorizresolution());
                                         if (visualSampleEntry.getBoxes().size() == visualSampleEntry2.getBoxes().size()) {
-                                            Iterator it = visualSampleEntry2.getBoxes().iterator();
+                                            Iterator<Box> it = visualSampleEntry2.getBoxes().iterator();
                                             for (Box box : visualSampleEntry.getBoxes()) {
-                                                Box box2 = (Box) it.next();
+                                                Box next = it.next();
                                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
                                                 try {
                                                     box.getBox(Channels.newChannel(byteArrayOutputStream));
-                                                    box2.getBox(Channels.newChannel(byteArrayOutputStream2));
+                                                    next.getBox(Channels.newChannel(byteArrayOutputStream2));
                                                     if (Arrays.equals(byteArrayOutputStream.toByteArray(), byteArrayOutputStream2.toByteArray())) {
                                                         visualSampleEntry3.addBox(box);
-                                                    } else if ((box instanceof AbstractDescriptorBox) && (box2 instanceof AbstractDescriptorBox)) {
+                                                    } else if ((box instanceof AbstractDescriptorBox) && (next instanceof AbstractDescriptorBox)) {
                                                         AbstractDescriptorBox abstractDescriptorBox = (AbstractDescriptorBox) box;
-                                                        abstractDescriptorBox.setDescriptor(mergeDescriptors(abstractDescriptorBox.getDescriptor(), ((AbstractDescriptorBox) box2).getDescriptor()));
+                                                        abstractDescriptorBox.setDescriptor(mergeDescriptors(abstractDescriptorBox.getDescriptor(), ((AbstractDescriptorBox) next).getDescriptor()));
                                                         visualSampleEntry3.addBox(box);
                                                     }
                                                 } catch (IOException e) {
@@ -389,7 +391,7 @@ public class AppendTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -448,7 +450,7 @@ public class AppendTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

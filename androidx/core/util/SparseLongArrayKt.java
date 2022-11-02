@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.util.SparseLongArray;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -21,6 +22,7 @@ public final class SparseLongArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(18)
     public static final boolean contains(SparseLongArray sparseLongArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -33,6 +35,7 @@ public final class SparseLongArrayKt {
         return invokeLI.booleanValue;
     }
 
+    @RequiresApi(18)
     public static final boolean containsKey(SparseLongArray sparseLongArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -45,6 +48,7 @@ public final class SparseLongArrayKt {
         return invokeLI.booleanValue;
     }
 
+    @RequiresApi(18)
     public static final boolean containsValue(SparseLongArray sparseLongArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
@@ -57,6 +61,7 @@ public final class SparseLongArrayKt {
         return invokeLJ.booleanValue;
     }
 
+    @RequiresApi(18)
     public static final void forEach(SparseLongArray sparseLongArray, Function2<? super Integer, ? super Long, Unit> function2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, sparseLongArray, function2) == null) {
@@ -67,6 +72,7 @@ public final class SparseLongArrayKt {
         }
     }
 
+    @RequiresApi(18)
     public static final SparseLongArray plus(SparseLongArray sparseLongArray, SparseLongArray sparseLongArray2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -79,6 +85,7 @@ public final class SparseLongArrayKt {
         return (SparseLongArray) invokeLL.objValue;
     }
 
+    @RequiresApi(18)
     public static final void putAll(SparseLongArray sparseLongArray, SparseLongArray sparseLongArray2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, sparseLongArray, sparseLongArray2) == null) {
@@ -89,6 +96,7 @@ public final class SparseLongArrayKt {
         }
     }
 
+    @RequiresApi(18)
     public static final long getOrDefault(SparseLongArray sparseLongArray, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -98,6 +106,7 @@ public final class SparseLongArrayKt {
         return invokeCommon.longValue;
     }
 
+    @RequiresApi(18)
     public static final long getOrElse(SparseLongArray sparseLongArray, int i, Function0<Long> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -106,11 +115,12 @@ public final class SparseLongArrayKt {
             if (indexOfKey >= 0) {
                 return sparseLongArray.valueAt(indexOfKey);
             }
-            return ((Number) function0.invoke()).longValue();
+            return function0.invoke().longValue();
         }
         return invokeLIL.longValue;
     }
 
+    @RequiresApi(18)
     public static final void set(SparseLongArray sparseLongArray, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseLongArray, Integer.valueOf(i), Long.valueOf(j)}) == null) {
@@ -118,6 +128,7 @@ public final class SparseLongArrayKt {
         }
     }
 
+    @RequiresApi(18)
     public static final int getSize(SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -127,6 +138,7 @@ public final class SparseLongArrayKt {
         return invokeL.intValue;
     }
 
+    @RequiresApi(18)
     public static final boolean isEmpty(SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -139,6 +151,7 @@ public final class SparseLongArrayKt {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(18)
     public static final boolean isNotEmpty(SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -151,6 +164,7 @@ public final class SparseLongArrayKt {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(18)
     public static final IntIterator keyIterator(final SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -225,6 +239,7 @@ public final class SparseLongArrayKt {
         return (IntIterator) invokeL.objValue;
     }
 
+    @RequiresApi(18)
     public static final LongIterator valueIterator(final SparseLongArray sparseLongArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -299,6 +314,7 @@ public final class SparseLongArrayKt {
         return (LongIterator) invokeL.objValue;
     }
 
+    @RequiresApi(18)
     public static final boolean remove(SparseLongArray sparseLongArray, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

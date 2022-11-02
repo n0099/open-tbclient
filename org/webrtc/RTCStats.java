@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RTCStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String id;
-    public final Map members;
+    public final Map<String, Object> members;
     public final long timestampUs;
     public final String type;
 
-    public RTCStats(long j, String str, String str2, Map map) {
+    public RTCStats(long j, String str, String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,6 +39,7 @@ public class RTCStats {
         this.members = map;
     }
 
+    @CalledByNative
     public static RTCStats create(long j, String str, String str2, Map map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -80,7 +81,7 @@ public class RTCStats {
         return (String) invokeV.objValue;
     }
 
-    public Map getMembers() {
+    public Map<String, Object> getMembers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -118,9 +119,9 @@ public class RTCStats {
             sb.append(this.type);
             sb.append(", id: ");
             sb.append(this.id);
-            for (Map.Entry entry : this.members.entrySet()) {
+            for (Map.Entry<String, Object> entry : this.members.entrySet()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append((String) entry.getKey());
+                sb.append(entry.getKey());
                 sb.append(": ");
                 appendValue(sb, entry.getValue());
             }

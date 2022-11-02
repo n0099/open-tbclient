@@ -17,7 +17,7 @@ import java.util.List;
 public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mClosedIds;
+    public List<Long> mClosedIds;
     public long mInterval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,7 +38,7 @@ public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List getClosedIds() {
+    public List<Long> getClosedIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

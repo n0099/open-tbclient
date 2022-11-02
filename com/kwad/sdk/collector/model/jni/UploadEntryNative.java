@@ -1,5 +1,7 @@
 package com.kwad.sdk.collector.model.jni;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.r;
@@ -66,7 +68,7 @@ public class UploadEntryNative extends NativeObject implements e {
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -77,6 +79,8 @@ public class UploadEntryNative extends NativeObject implements e {
     }
 
     @Override // com.kwad.sdk.collector.model.e
+    @Nullable
+    @WorkerThread
     public final JSONObject rv() {
         try {
             JSONObject jSONObject = new JSONObject();

@@ -1,5 +1,6 @@
 package com.google.android.material.shape;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +42,7 @@ public final class MarkerEdgeTreatment extends EdgeTreatment {
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f, float f2, float f3, ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
             float sqrt = (float) ((this.radius * Math.sqrt(2.0d)) / 2.0d);

@@ -13,9 +13,9 @@ public class SimpleOutputBuffer extends OutputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer data;
-    public final SimpleDecoder owner;
+    public final SimpleDecoder<?, SimpleOutputBuffer, ?> owner;
 
-    public SimpleOutputBuffer(SimpleDecoder simpleDecoder) {
+    public SimpleOutputBuffer(SimpleDecoder<?, SimpleOutputBuffer, ?> simpleDecoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

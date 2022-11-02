@@ -1,92 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ur0 {
+public abstract class ur0 extends tr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final wr0 b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof ur0) {
-                    ur0 ur0Var = (ur0) obj;
-                    return Intrinsics.areEqual(this.a, ur0Var.a) && Intrinsics.areEqual(this.b, ur0Var.b);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            wr0 wr0Var = this.b;
-            return hashCode + (wr0Var != null ? wr0Var.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ur0(String host, wr0 wr0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ur0(@NonNull lv0 lv0Var, @Nullable Context context) {
+        super(lv0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {host, wr0Var};
+            Object[] objArr = {lv0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((lv0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(host, "host");
-        this.a = host;
-        this.b = wr0Var;
     }
 
-    public final wr0 a() {
+    @Override // com.baidu.tieba.sr0
+    @NonNull
+    public mv0 E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            if (this.v == null) {
+                this.v = this.y.a();
+            }
+            return this.v;
         }
-        return (wr0) invokeV.objValue;
+        return (mv0) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sr0
+    public void h0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            E().a(this);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sr0
+    public void F0(@Nullable gx0 gx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gx0Var) == null) {
+            super.F0(E().b(this, gx0Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.tr0
+    @CallSuper
+    public void F1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            E().c(this, z);
+            mu0 w = au0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
+            w.n(9, Boolean.valueOf(z));
+            q0(w);
+        }
     }
 }

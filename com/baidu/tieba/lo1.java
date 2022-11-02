@@ -1,19 +1,8 @@
 package com.baidu.tieba;
 
-import java.io.File;
-/* loaded from: classes4.dex */
-public interface lo1 extends dx2 {
-    File a();
-
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+import android.app.Activity;
+import android.os.Bundle;
+/* loaded from: classes5.dex */
+public interface lo1 {
+    void a(Activity activity, Bundle bundle, as2 as2Var);
 }

@@ -69,7 +69,7 @@ public class WorkPublishHotTopicSelectActivityConfig extends IntentConfig {
         }
     }
 
-    public void setTopicList(ArrayList arrayList) {
+    public void setTopicList(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             getIntent().putStringArrayListExtra(WORK_PUBLISH_TOPIC_LIST, arrayList);

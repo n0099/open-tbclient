@@ -11,10 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.TimeToSampleBox;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
@@ -66,41 +68,41 @@ public class CroppedTrack extends AbstractTrack {
         this.toSample = (int) j2;
     }
 
-    public static List getCompositionTimeEntries(List list, long j, long j2) {
+    public static List<CompositionTimeToSample.Entry> getCompositionTimeEntries(List<CompositionTimeToSample.Entry> list, long j, long j2) {
         InterceptResult invokeCommon;
-        CompositionTimeToSample.Entry entry;
+        CompositionTimeToSample.Entry next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (list != null && !list.isEmpty()) {
                 long j3 = 0;
-                ListIterator listIterator = list.listIterator();
+                ListIterator<CompositionTimeToSample.Entry> listIterator = list.listIterator();
                 ArrayList arrayList = new ArrayList();
                 while (true) {
-                    entry = (CompositionTimeToSample.Entry) listIterator.next();
-                    if (entry.getCount() + j3 > j) {
+                    next = listIterator.next();
+                    if (next.getCount() + j3 > j) {
                         break;
                     }
-                    j3 += entry.getCount();
+                    j3 += next.getCount();
                 }
-                if (entry.getCount() + j3 >= j2) {
-                    arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j), entry.getOffset()));
+                if (next.getCount() + j3 >= j2) {
+                    arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j), next.getOffset()));
                     return arrayList;
                 }
-                arrayList.add(new CompositionTimeToSample.Entry((int) ((entry.getCount() + j3) - j), entry.getOffset()));
-                int count = entry.getCount();
+                arrayList.add(new CompositionTimeToSample.Entry((int) ((next.getCount() + j3) - j), next.getOffset()));
+                int count = next.getCount();
                 while (true) {
                     j3 += count;
                     if (!listIterator.hasNext()) {
                         break;
                     }
-                    entry = (CompositionTimeToSample.Entry) listIterator.next();
-                    if (entry.getCount() + j3 >= j2) {
+                    next = listIterator.next();
+                    if (next.getCount() + j3 >= j2) {
                         break;
                     }
-                    arrayList.add(entry);
-                    count = entry.getCount();
+                    arrayList.add(next);
+                    count = next.getCount();
                 }
-                arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j3), entry.getOffset()));
+                arrayList.add(new CompositionTimeToSample.Entry((int) (j2 - j3), next.getOffset()));
                 return arrayList;
             }
             return null;
@@ -108,41 +110,41 @@ public class CroppedTrack extends AbstractTrack {
         return (List) invokeCommon.objValue;
     }
 
-    public static List getDecodingTimeEntries(List list, long j, long j2) {
+    public static List<TimeToSampleBox.Entry> getDecodingTimeEntries(List<TimeToSampleBox.Entry> list, long j, long j2) {
         InterceptResult invokeCommon;
-        TimeToSampleBox.Entry entry;
+        TimeToSampleBox.Entry next;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (list != null && !list.isEmpty()) {
                 long j3 = 0;
-                ListIterator listIterator = list.listIterator();
+                ListIterator<TimeToSampleBox.Entry> listIterator = list.listIterator();
                 LinkedList linkedList = new LinkedList();
                 while (true) {
-                    entry = (TimeToSampleBox.Entry) listIterator.next();
-                    if (entry.getCount() + j3 > j) {
+                    next = listIterator.next();
+                    if (next.getCount() + j3 > j) {
                         break;
                     }
-                    j3 += entry.getCount();
+                    j3 += next.getCount();
                 }
-                if (entry.getCount() + j3 >= j2) {
-                    linkedList.add(new TimeToSampleBox.Entry(j2 - j, entry.getDelta()));
+                if (next.getCount() + j3 >= j2) {
+                    linkedList.add(new TimeToSampleBox.Entry(j2 - j, next.getDelta()));
                     return linkedList;
                 }
-                linkedList.add(new TimeToSampleBox.Entry((entry.getCount() + j3) - j, entry.getDelta()));
-                long count = entry.getCount();
+                linkedList.add(new TimeToSampleBox.Entry((next.getCount() + j3) - j, next.getDelta()));
+                long count = next.getCount();
                 while (true) {
                     j3 += count;
                     if (!listIterator.hasNext()) {
                         break;
                     }
-                    entry = (TimeToSampleBox.Entry) listIterator.next();
-                    if (entry.getCount() + j3 >= j2) {
+                    next = listIterator.next();
+                    if (next.getCount() + j3 >= j2) {
                         break;
                     }
-                    linkedList.add(entry);
-                    count = entry.getCount();
+                    linkedList.add(next);
+                    count = next.getCount();
                 }
-                linkedList.add(new TimeToSampleBox.Entry(j2 - j3, entry.getDelta()));
+                linkedList.add(new TimeToSampleBox.Entry(j2 - j3, next.getDelta()));
                 return linkedList;
             }
             return null;
@@ -151,7 +153,7 @@ public class CroppedTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -207,7 +209,7 @@ public class CroppedTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -237,7 +239,7 @@ public class CroppedTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

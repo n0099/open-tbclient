@@ -5,7 +5,7 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface DownloadCallback {
-    void onBulkDownloaded(List list, List list2, List list3);
+    void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3);
 
     void onDownloadCancel(PackageInfo packageInfo);
 

@@ -1,6 +1,7 @@
 package androidx.core.graphics;
 
 import android.graphics.PointF;
+import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ public final class PathSegment {
     public final PointF mStart;
     public final float mStartFraction;
 
-    public PathSegment(PointF pointF, float f, PointF pointF2, float f2) {
+    public PathSegment(@NonNull PointF pointF, float f, @NonNull PointF pointF2, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,6 +58,7 @@ public final class PathSegment {
         return invokeL.booleanValue;
     }
 
+    @NonNull
     public PointF getEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +77,7 @@ public final class PathSegment {
         return invokeV.floatValue;
     }
 
+    @NonNull
     public PointF getStart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

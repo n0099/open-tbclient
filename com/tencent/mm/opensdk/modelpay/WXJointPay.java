@@ -13,7 +13,7 @@ public class WXJointPay {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class JointPayReq extends PayReq {
+    public static class JointPayReq extends PayReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public class WXJointPay {
     }
 
     /* loaded from: classes8.dex */
-    public class JointPayResp extends PayResp {
+    public static class JointPayResp extends PayResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

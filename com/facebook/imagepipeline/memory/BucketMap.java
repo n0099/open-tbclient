@@ -8,37 +8,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.infer.annotation.ThreadSafe;
 import java.util.LinkedList;
 import javax.annotation.Nullable;
+@ThreadSafe
 /* loaded from: classes7.dex */
-public class BucketMap {
+public class BucketMap<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     @Nullable
-    public LinkedEntry mHead;
-    public final SparseArray mMap;
+    public LinkedEntry<T> mHead;
+    public final SparseArray<LinkedEntry<T>> mMap;
+    @VisibleForTesting
     @Nullable
-    public LinkedEntry mTail;
+    public LinkedEntry<T> mTail;
 
     /* renamed from: com.facebook.imagepipeline.memory.BucketMap$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class LinkedEntry {
+    public static class LinkedEntry<I> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int key;
         @Nullable
-        public LinkedEntry next;
+        public LinkedEntry<I> next;
         @Nullable
-        public LinkedEntry prev;
-        public LinkedList value;
+        public LinkedEntry<I> prev;
+        public LinkedList<I> value;
 
-        public LinkedEntry(@Nullable LinkedEntry linkedEntry, int i, LinkedList linkedList, @Nullable LinkedEntry linkedEntry2) {
+        public LinkedEntry(@Nullable LinkedEntry<I> linkedEntry, int i, LinkedList<I> linkedList, @Nullable LinkedEntry<I> linkedEntry2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,27 +92,28 @@ public class BucketMap {
                 return;
             }
         }
-        this.mMap = new SparseArray();
+        this.mMap = new SparseArray<>();
     }
 
     @Nullable
-    public synchronized Object removeFromEnd() {
+    public synchronized T removeFromEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                LinkedEntry linkedEntry = this.mTail;
+                LinkedEntry<T> linkedEntry = this.mTail;
                 if (linkedEntry == null) {
                     return null;
                 }
-                Object pollLast = linkedEntry.value.pollLast();
+                T pollLast = linkedEntry.value.pollLast();
                 maybePrune(linkedEntry);
                 return pollLast;
             }
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public synchronized int valueCount() {
         InterceptResult invokeV;
         int i;
@@ -125,7 +132,7 @@ public class BucketMap {
         return invokeV.intValue;
     }
 
-    private void maybePrune(LinkedEntry linkedEntry) {
+    private void maybePrune(LinkedEntry<T> linkedEntry) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, linkedEntry) == null) && linkedEntry != null && linkedEntry.value.isEmpty()) {
             prune(linkedEntry);
@@ -133,13 +140,15 @@ public class BucketMap {
         }
     }
 
-    private void moveToFront(LinkedEntry linkedEntry) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.facebook.imagepipeline.memory.BucketMap$LinkedEntry<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void moveToFront(LinkedEntry<T> linkedEntry) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, this, linkedEntry) != null) || this.mHead == linkedEntry) {
             return;
         }
         prune(linkedEntry);
-        LinkedEntry linkedEntry2 = this.mHead;
+        LinkedEntry linkedEntry2 = (LinkedEntry<T>) this.mHead;
         if (linkedEntry2 == null) {
             this.mHead = linkedEntry;
             this.mTail = linkedEntry;
@@ -150,12 +159,12 @@ public class BucketMap {
         this.mHead = linkedEntry;
     }
 
-    private synchronized void prune(LinkedEntry linkedEntry) {
+    private synchronized void prune(LinkedEntry<T> linkedEntry) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, linkedEntry) == null) {
             synchronized (this) {
-                LinkedEntry linkedEntry2 = linkedEntry.prev;
-                LinkedEntry linkedEntry3 = linkedEntry.next;
+                LinkedEntry linkedEntry2 = (LinkedEntry<T>) linkedEntry.prev;
+                LinkedEntry linkedEntry3 = (LinkedEntry<T>) linkedEntry.next;
                 if (linkedEntry2 != null) {
                     linkedEntry2.next = linkedEntry3;
                 }
@@ -175,33 +184,33 @@ public class BucketMap {
     }
 
     @Nullable
-    public synchronized Object acquire(int i) {
+    public synchronized T acquire(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this) {
-                LinkedEntry linkedEntry = (LinkedEntry) this.mMap.get(i);
+                LinkedEntry<T> linkedEntry = this.mMap.get(i);
                 if (linkedEntry == null) {
                     return null;
                 }
-                Object pollFirst = linkedEntry.value.pollFirst();
+                T pollFirst = linkedEntry.value.pollFirst();
                 moveToFront(linkedEntry);
                 return pollFirst;
             }
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public synchronized void release(int i, Object obj) {
+    public synchronized void release(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t) == null) {
             synchronized (this) {
-                LinkedEntry linkedEntry = (LinkedEntry) this.mMap.get(i);
+                LinkedEntry<T> linkedEntry = this.mMap.get(i);
                 if (linkedEntry == null) {
-                    linkedEntry = new LinkedEntry(null, i, new LinkedList(), null, null);
+                    linkedEntry = new LinkedEntry<>(null, i, new LinkedList(), null, null);
                     this.mMap.put(i, linkedEntry);
                 }
-                linkedEntry.value.addLast(obj);
+                linkedEntry.value.addLast(t);
                 moveToFront(linkedEntry);
             }
         }

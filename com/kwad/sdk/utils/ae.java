@@ -1,5 +1,6 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -8,6 +9,9 @@ import android.telephony.ServiceState;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import java.net.InetAddress;
 /* loaded from: classes8.dex */
 public final class ae {
@@ -126,6 +130,8 @@ public final class ae {
         return anO;
     }
 
+    @Nullable
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo cv(Context context) {
         ConnectivityManager connectivityManager;
         if (SystemUtil.b(context, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
@@ -185,16 +191,18 @@ public final class ae {
         return 0;
     }
 
-    public static boolean dM(String str) {
+    public static boolean dM(@NonNull String str) {
         return str.contains("nrState=NOT_RESTRICTED") || str.contains("nrState=CONNECTED");
     }
 
+    @WorkerThread
     public static boolean dN(String str) {
         return m(str, 3000);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x004c A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x004d A[Catch: Exception -> 0x0075, TRY_ENTER, TryCatch #1 {Exception -> 0x0075, blocks: (B:6:0x0012, B:9:0x001d, B:11:0x0026, B:20:0x004d, B:22:0x0053, B:24:0x0063, B:25:0x0069, B:12:0x002b, B:14:0x0035), top: B:33:0x0012 }] */
+    @SuppressLint({"MissingPermission"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -293,6 +301,7 @@ public final class ae {
         return false;
     }
 
+    @WorkerThread
     public static boolean m(String str, int i) {
         try {
             return InetAddress.getByName(str).isReachable(3000);

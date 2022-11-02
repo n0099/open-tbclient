@@ -19,7 +19,7 @@ public class b {
         c.a();
     }
 
-    public List getAllDownloadInfo() {
+    public List<DownloadInfo> getAllDownloadInfo() {
         return d.a().e();
     }
 
@@ -206,7 +206,7 @@ public class b {
         return d.a().k(i);
     }
 
-    public List getDownloadInfoList(String str) {
+    public List<DownloadInfo> getDownloadInfoList(String str) {
         return d.a().a(str);
     }
 
@@ -214,11 +214,11 @@ public class b {
         return d.a().l(i);
     }
 
-    public List getDownloadingDownloadInfosWithMimeType(String str) {
+    public List<DownloadInfo> getDownloadingDownloadInfosWithMimeType(String str) {
         return d.a().e(str);
     }
 
-    public List getFailedDownloadInfosWithMimeType(String str) {
+    public List<DownloadInfo> getFailedDownloadInfosWithMimeType(String str) {
         return d.a().b(str);
     }
 
@@ -226,11 +226,11 @@ public class b {
         return d.a().i(i);
     }
 
-    public List getSuccessedDownloadInfosWithMimeType(String str) {
+    public List<DownloadInfo> getSuccessedDownloadInfosWithMimeType(String str) {
         return d.a().c(str);
     }
 
-    public List getUnCompletedDownloadInfosWithMimeType(String str) {
+    public List<DownloadInfo> getUnCompletedDownloadInfosWithMimeType(String str) {
         return d.a().d(str);
     }
 
@@ -284,11 +284,11 @@ public class b {
         d.a().g(i);
     }
 
-    public void restartAllFailedDownloadTasks(List list) {
+    public void restartAllFailedDownloadTasks(List<String> list) {
         d.a().a(list);
     }
 
-    public void restartAllPauseReserveOnWifiDownloadTasks(List list) {
+    public void restartAllPauseReserveOnWifiDownloadTasks(List<String> list) {
         d.a().b(list);
     }
 

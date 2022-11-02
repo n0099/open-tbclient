@@ -14,8 +14,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.hp4;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public class HkMWebView extends BaseWebView {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements DownloadListener {
+    public static class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HkMWebView a;
@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    fj.O(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                    xi.Q(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
                 } else {
                     this.b.startActivity(intent);
                 }
@@ -116,7 +116,7 @@ public class HkMWebView extends BaseWebView {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends WebViewClient {
+    public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HkMWebView a;
@@ -155,7 +155,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                hp4.a("HkMWebView", webView);
+                yp4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -320,7 +320,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    @Override // android.webkit.WebView
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -328,8 +328,8 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
-    public void loadUrl(String str, Map map) {
+    @Override // android.webkit.WebView
+    public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
             super.loadUrl(str, map);

@@ -2,18 +2,21 @@ package com.baidu.tieba.frs.voiceroom.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.xu6;
-import com.baidu.tieba.yu6;
+import com.baidu.tieba.gw6;
+import com.baidu.tieba.hw6;
+import com.baidu.tieba.tc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class VoiceRoomListNetModel extends NetAutoModel {
+public class VoiceRoomListNetModel extends NetAutoModel<gw6, hw6, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +55,7 @@ public class VoiceRoomListNetModel extends NetAutoModel {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (xb5) objArr[1]);
+                super((TbPageContext) objArr[0], (tc5) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,7 +64,7 @@ public class VoiceRoomListNetModel extends NetAutoModel {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class O() {
+    public Class<? extends MvcProtobufHttpResponsedMessage> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -71,7 +74,7 @@ public class VoiceRoomListNetModel extends NetAutoModel {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class R() {
+    public Class<? extends MvcSocketResponsedMessage> R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -81,19 +84,19 @@ public class VoiceRoomListNetModel extends NetAutoModel {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class getResponseDataClass() {
+    public Class<hw6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return yu6.class;
+            return hw6.class;
         }
         return (Class) invokeV.objValue;
     }
 
-    public void c0(xu6 xu6Var) {
+    public void c0(gw6 gw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xu6Var) == null) {
-            this.c = xu6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gw6Var) == null) {
+            this.c = gw6Var;
         }
     }
 }

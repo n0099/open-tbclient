@@ -1,5 +1,9 @@
 package com.kwad.sdk.core.webview.a.kwai;
-/* loaded from: classes7.dex */
+
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+/* loaded from: classes8.dex */
 public interface a {
-    void a(com.kwad.sdk.core.webview.a.a.a aVar);
+    @WorkerThread
+    void a(@Nullable com.kwad.sdk.core.webview.a.a.a aVar);
 }

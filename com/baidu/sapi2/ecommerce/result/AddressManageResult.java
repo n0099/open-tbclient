@@ -18,7 +18,7 @@ public class AddressManageResult extends SapiResult implements NoProguard {
     public static final String KEY_NAME = "name";
     public static final String KEY_TAG = "tag";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap map;
+    public HashMap<String, String> map;
 
     public AddressManageResult() {
         Interceptable interceptable = $ic;
@@ -33,6 +33,6 @@ public class AddressManageResult extends SapiResult implements NoProguard {
                 return;
             }
         }
-        this.map = new HashMap();
+        this.map = new HashMap<>();
     }
 }

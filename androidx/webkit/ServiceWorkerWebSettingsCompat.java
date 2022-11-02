@@ -1,5 +1,6 @@
 package androidx.webkit;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,6 +13,7 @@ public abstract class ServiceWorkerWebSettingsCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface CacheMode {
     }
@@ -32,6 +34,7 @@ public abstract class ServiceWorkerWebSettingsCompat {
 
     public abstract void setCacheMode(int i);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ServiceWorkerWebSettingsCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -92,16 +92,16 @@ public final class DisposableHelper implements Disposable {
         }
     }
 
-    public static boolean dispose(AtomicReference atomicReference) {
+    public static boolean dispose(AtomicReference<Disposable> atomicReference) {
         InterceptResult invokeL;
-        Disposable disposable;
+        Disposable andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, atomicReference)) == null) {
-            Disposable disposable2 = (Disposable) atomicReference.get();
+            Disposable disposable = atomicReference.get();
             DisposableHelper disposableHelper = DISPOSED;
-            if (disposable2 != disposableHelper && (disposable = (Disposable) atomicReference.getAndSet(disposableHelper)) != disposableHelper) {
-                if (disposable != null) {
-                    disposable.dispose();
+            if (disposable != disposableHelper && (andSet = atomicReference.getAndSet(disposableHelper)) != disposableHelper) {
+                if (andSet != null) {
+                    andSet.dispose();
                     return true;
                 }
                 return true;
@@ -132,13 +132,13 @@ public final class DisposableHelper implements Disposable {
         return (DisposableHelper) invokeL.objValue;
     }
 
-    public static boolean replace(AtomicReference atomicReference, Disposable disposable) {
+    public static boolean replace(AtomicReference<Disposable> atomicReference, Disposable disposable) {
         Disposable disposable2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference, disposable)) == null) {
             do {
-                disposable2 = (Disposable) atomicReference.get();
+                disposable2 = atomicReference.get();
                 if (disposable2 == DISPOSED) {
                     if (disposable != null) {
                         disposable.dispose();
@@ -152,13 +152,13 @@ public final class DisposableHelper implements Disposable {
         return invokeLL.booleanValue;
     }
 
-    public static boolean set(AtomicReference atomicReference, Disposable disposable) {
+    public static boolean set(AtomicReference<Disposable> atomicReference, Disposable disposable) {
         Disposable disposable2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, atomicReference, disposable)) == null) {
             do {
-                disposable2 = (Disposable) atomicReference.get();
+                disposable2 = atomicReference.get();
                 if (disposable2 == DISPOSED) {
                     if (disposable != null) {
                         disposable.dispose();
@@ -176,7 +176,7 @@ public final class DisposableHelper implements Disposable {
         return invokeLL.booleanValue;
     }
 
-    public static boolean setOnce(AtomicReference atomicReference, Disposable disposable) {
+    public static boolean setOnce(AtomicReference<Disposable> atomicReference, Disposable disposable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, atomicReference, disposable)) == null) {
@@ -194,7 +194,7 @@ public final class DisposableHelper implements Disposable {
         return invokeLL.booleanValue;
     }
 
-    public static boolean trySet(AtomicReference atomicReference, Disposable disposable) {
+    public static boolean trySet(AtomicReference<Disposable> atomicReference, Disposable disposable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, atomicReference, disposable)) == null) {

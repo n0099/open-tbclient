@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.bdtask.framework.ui.toast.ToastViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dt implements gt {
+public class dt<VD extends ToastViewData> implements ys<VD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final it a;
+    public final at<VD> a;
 
     public dt() {
         Interceptable interceptable = $ic;
@@ -26,22 +26,22 @@ public class dt implements gt {
                 return;
             }
         }
-        this.a = new it();
+        this.a = new at<>();
     }
 
-    public ht a() {
+    public zs<VD> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ht) invokeV.objValue;
+        return (zs) invokeV.objValue;
     }
 
-    public void b(TaskDialogData taskDialogData) {
+    public void b(VD vd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskDialogData) == null) {
-            this.a.o(taskDialogData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd) == null) {
+            this.a.o(vd);
         }
     }
 }

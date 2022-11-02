@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -28,7 +27,7 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
         this.mInstallInfo = patchInstallInfo;
     }
 
-    private int verifyExtractedDex(List list) {
+    private int verifyExtractedDex(List<File> list) {
         ZipFile zipFile;
         InputStream inputStream;
         ZipFile zipFile2 = null;
@@ -44,9 +43,7 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
             th = th;
         }
         try {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                File file = (File) it.next();
+            for (File file : list) {
                 ZipFile zipFile3 = new ZipFile(file);
                 try {
                     String replace = file.getName().replace(".jar", ".dex");
@@ -111,9 +108,9 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
     private int verifyOptDex() {
         File[] listFiles;
         File dexOptDir = this.mInstallInfo.getDexOptDir();
-        HashMap readOptDigests = this.mInstallInfo.readOptDigests();
+        HashMap<String, String> readOptDigests = this.mInstallInfo.readOptDigests();
         for (File file : dexOptDir.listFiles()) {
-            if (!file.isDirectory() && !TextUtils.equals(EncodeUtils.bytesToHex(EncodeUtils.sha256(file)), (String) readOptDigests.get(file.getName()))) {
+            if (!file.isDirectory() && !TextUtils.equals(EncodeUtils.bytesToHex(EncodeUtils.sha256(file)), readOptDigests.get(file.getName()))) {
                 return -9;
             }
         }
@@ -128,7 +125,7 @@ public class SignatureVerifierKITKAT extends SignatureVerifier {
         if (verifySignature != 0) {
             return verifySignature;
         }
-        List orderedDexList = this.mInstallInfo.getOrderedDexList();
+        List<File> orderedDexList = this.mInstallInfo.getOrderedDexList();
         System.currentTimeMillis();
         if (!orderedDexList.isEmpty()) {
             int verifyExtractedDex = verifyExtractedDex(orderedDexList);

@@ -1,81 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.TypedValue;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishManager;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public class b29 {
+public class b29 extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
+    public final int a;
     public boolean b;
-    public ForumWriteData c;
-    public int d;
-    public d29 e;
-    public String f;
-    public String g;
-    public String h;
 
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public b29(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i, g25 g25Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b29(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str, Integer.valueOf(i), g25Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.d = 3;
-        this.f = "";
-        this.g = AlbumActivityConfig.FROM_WRITE;
-        this.h = "0";
-        this.a = viewGroup;
-        this.g = str;
-        if (!"main_tab".equals(str)) {
-            "frs".equals(this.g);
-        }
-        this.e = new d29(tbPageContext, str);
-        d(TbadkCoreApplication.getInst().getSkinType());
+        this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081299);
     }
 
-    public boolean b() {
+    public boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            Rect rect = new Rect();
+            getHitRect(rect);
+            int i3 = rect.left;
+            int i4 = this.a;
+            rect.left = i3 - i4;
+            rect.right += i4;
+            rect.top -= i4;
+            rect.bottom += i4;
+            return rect.contains(i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean isPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -84,34 +68,11 @@ public class b29 {
         return invokeV.booleanValue;
     }
 
-    public void c(r9 r9Var) {
+    @Override // android.view.View
+    public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r9Var) == null) {
-            this.e.c(r9Var, this.c, this.f);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.d != i) {
-            this.d = i;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            WorkPublishManager.setObjLocate(this.h);
-            a(false);
-            this.e.j(this.c, i, this.f);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", this.h).param("obj_type", 3));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

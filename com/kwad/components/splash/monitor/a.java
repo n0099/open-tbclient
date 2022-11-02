@@ -1,6 +1,7 @@
 package com.kwad.components.splash.monitor;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,6 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
@@ -42,14 +42,14 @@ public class a {
         init();
     }
 
-    public static void W(AdTemplate adTemplate) {
+    public static void W(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, adTemplate) == null) {
             k.h(QJ, new SplashMonitorInfo().setRatioCount(QI).setStatus(1).setType(com.kwad.sdk.core.response.a.a.aC(d.bQ(adTemplate)) ? 2 : 1).toJson());
         }
     }
 
-    public static void X(AdTemplate adTemplate) {
+    public static void X(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, adTemplate) == null) {
             AdInfo bQ = d.bQ(adTemplate);
@@ -57,7 +57,7 @@ public class a {
         }
     }
 
-    public static void a(AdInfo adInfo, int i, String str) {
+    public static void a(@NonNull AdInfo adInfo, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, null, adInfo, i, str) == null) {
             k.f(QJ, new SplashMonitorInfo().setRatioCount(QI).setStatus(2).setPreloadId(com.kwad.sdk.core.response.a.a.az(adInfo)).setCreativeId(com.kwad.sdk.core.response.a.a.z(adInfo)).setFailUrl(com.kwad.sdk.core.response.a.a.aB(adInfo) ? com.kwad.sdk.core.response.a.a.A(adInfo) : com.kwad.sdk.core.response.a.a.at(adInfo).materialUrl).setErrorCode(i).setErrorMsg(str).setMaterialType(com.kwad.sdk.core.response.a.a.aB(adInfo) ? 1 : 2).setType(1).toJson());
@@ -85,7 +85,7 @@ public class a {
         return invokeL.booleanValue;
     }
 
-    public static void d(AdTemplate adTemplate, int i, String str) {
+    public static void d(@NonNull AdTemplate adTemplate, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65542, null, adTemplate, i, str) == null) {
             AdInfo bQ = d.bQ(adTemplate);
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public static void f(AdTemplate adTemplate, long j) {
+    public static void f(@NonNull AdTemplate adTemplate, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65544, null, adTemplate, j) == null) {
             AdInfo bQ = d.bQ(adTemplate);
@@ -109,7 +109,7 @@ public class a {
         }
     }
 
-    public static void h(AdResultData adResultData) {
+    public static void h(@NonNull AdResultData adResultData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, adResultData) == null) {
             ArrayList arrayList = new ArrayList();
@@ -172,7 +172,7 @@ public class a {
         }
     }
 
-    public final void U(AdTemplate adTemplate) {
+    public final void U(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
             if (b(adTemplate.loadDataTime)) {
@@ -182,7 +182,7 @@ public class a {
         }
     }
 
-    public final void V(AdTemplate adTemplate) {
+    public final void V(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
             if (b(adTemplate.loadDataTime, adTemplate.checkDataTime)) {
@@ -192,7 +192,7 @@ public class a {
         }
     }
 
-    public final void a(AdInfo adInfo, long j, int i) {
+    public final void a(@NonNull AdInfo adInfo, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{adInfo, Long.valueOf(j), Integer.valueOf(i)}) == null) {
             if (b(j)) {
@@ -207,15 +207,14 @@ public class a {
         }
     }
 
-    public final void b(List list, long j) {
+    public final void b(@NonNull List<AdTemplate> list, long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLJ(1048579, this, list, j) == null) || b(j)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            arrayList.add(com.kwad.sdk.core.response.a.a.az(d.bQ((AdTemplate) it.next())));
+        for (AdTemplate adTemplate : list) {
+            arrayList.add(com.kwad.sdk.core.response.a.a.az(d.bQ(adTemplate)));
         }
         k.e(QJ, new SplashMonitorInfo().setRatioCount(QI).setStatus(2).setIds(arrayList).setLoadDataTime(j).setCount(list.size()).toJson());
     }

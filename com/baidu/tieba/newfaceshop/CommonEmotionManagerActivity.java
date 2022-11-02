@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,10 +80,10 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e6);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e8);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = fj.s(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = xi.u(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;
@@ -94,7 +94,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906dc, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906ea, this.b).commit();
         }
     }
 }

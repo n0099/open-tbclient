@@ -1,157 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.tt1;
-import com.baidu.tieba.yc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
-public class zc3 extends j53 {
+public class zc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public boolean f;
+    public long g;
+    public long h;
+    public int i;
 
     /* loaded from: classes6.dex */
-    public class a implements yc3.a {
+    public static final class a implements Comparator<zc3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ eu1 c;
-        public final /* synthetic */ zc3 d;
 
-        public a(zc3 zc3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, eu1 eu1Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zc3Var, unitedSchemeEntity, callbackHandler, eu1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = zc3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = eu1Var;
         }
 
-        @Override // com.baidu.tieba.yc3.a
-        public void a(double[] dArr) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(zc3 zc3Var, zc3 zc3Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
-                if (dArr != null && dArr.length == 3) {
-                    m02.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.d.k(this.a, this.b, this.c, dArr);
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zc3Var, zc3Var2)) == null) {
+                int length = zc3Var2.b.length() - zc3Var.b.length();
+                if (length != 0) {
+                    return length;
                 }
-                m02.c("accelerometer", "illegal accelerometers");
+                int length2 = zc3Var2.a.length() - zc3Var.a.length();
+                if (length2 != 0) {
+                    return length2;
+                }
+                int hashCode = zc3Var2.c.hashCode() - zc3Var.c.hashCode();
+                if (hashCode != 0) {
+                    return hashCode;
+                }
+                if (zc3Var2.d == null) {
+                    return -1;
+                }
+                if (zc3Var.d == null) {
+                    return 1;
+                }
+                return 0;
             }
+            return invokeLL.intValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zc3(j43 j43Var) {
-        super(j43Var, "/swanAPI/startAccelerometer");
+    public zc3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public zc3(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.e = -1L;
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (m33Var == null) {
-                m02.c("accelerometer", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (j53.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                if (!this.a.startsWith(".")) {
+                    return str.equals(this.a);
                 }
-                return false;
-            } else if (context == null) {
-                m02.c("accelerometer", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (j53.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (j53.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
+                if (str.endsWith(this.a.substring(1))) {
+                    int length = this.a.length();
+                    int length2 = str.length();
+                    if (length2 > length - 1 && str.charAt(length2 - length) != '.') {
+                        return false;
                     }
-                    m02.c("accelerometer", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+                    return true;
                 }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (j53.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
-                    }
-                    m02.c("accelerometer", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                m02.i("accelerometer", " init ");
-                eu1 eu1Var = new eu1("accelerometerChange", optParamsAsJo, optString);
-                yc3 a2 = yc3.a();
-                a2.b(context, tt1.b.a(optParamsAsJo.optString("interval")));
-                a2.e(new a(this, unitedSchemeEntity, callbackHandler, eu1Var));
-                a2.f();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                eu1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
             }
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, eu1 eu1Var, double[] dArr) {
+    public boolean b(zc3 zc3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, eu1Var, dArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("x", dArr[0]);
-                jSONObject.put("y", dArr[1]);
-                jSONObject.put("z", dArr[2]);
-                eu1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                m02.c("accelerometer", "handle compass,json error，" + e.toString());
-                eu1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zc3Var)) == null) {
+            if (zc3Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, zc3Var.a) || !TextUtils.equals(this.b, zc3Var.b) || !TextUtils.equals(this.c, zc3Var.c)) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
+                return false;
+            }
+            int length = this.b.length();
+            int length2 = str.length();
+            if (this.b.charAt(length - 1) != '/' && length2 > length && str.charAt(length) != '/') {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
+        }
+        return (String) invokeV.objValue;
     }
 }

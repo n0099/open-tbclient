@@ -1,5 +1,6 @@
 package com.bumptech.glide.disklrucache;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
@@ -30,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -51,14 +51,14 @@ public final class DiskLruCache implements Closeable {
     public static final String VERSION_1 = "1";
     public transient /* synthetic */ FieldHolder $fh;
     public final int appVersion;
-    public final Callable cleanupCallable;
+    public final Callable<Void> cleanupCallable;
     public final File directory;
     public final ThreadPoolExecutor executorService;
     public final File journalFile;
     public final File journalFileBackup;
     public final File journalFileTmp;
     public Writer journalWriter;
-    public final LinkedHashMap lruEntries;
+    public final LinkedHashMap<String, Entry> lruEntries;
     public long maxSize;
     public long nextSequenceNumber;
     public int redundantOpCount;
@@ -66,7 +66,7 @@ public final class DiskLruCache implements Closeable {
     public final int valueCount;
 
     /* loaded from: classes7.dex */
-    public final class DiskLruCacheThreadFactory implements ThreadFactory {
+    public static final class DiskLruCacheThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -428,10 +428,10 @@ public final class DiskLruCache implements Closeable {
             }
         }
         this.size = 0L;
-        this.lruEntries = new LinkedHashMap(0, 0.75f, true);
+        this.lruEntries = new LinkedHashMap<>(0, 0.75f, true);
         this.nextSequenceNumber = 0L;
         this.executorService = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new DiskLruCacheThreadFactory());
-        this.cleanupCallable = new Callable(this) { // from class: com.bumptech.glide.disklrucache.DiskLruCache.1
+        this.cleanupCallable = new Callable<Void>(this) { // from class: com.bumptech.glide.disklrucache.DiskLruCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DiskLruCache this$0;
@@ -598,7 +598,7 @@ public final class DiskLruCache implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             while (this.size > this.maxSize) {
-                remove((String) ((Map.Entry) this.lruEntries.entrySet().iterator().next()).getKey());
+                remove(this.lruEntries.entrySet().iterator().next().getKey());
             }
         }
     }
@@ -674,6 +674,7 @@ public final class DiskLruCache implements Closeable {
         return invokeV.longValue;
     }
 
+    @TargetApi(26)
     public static void closeWriter(Writer writer) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, writer) == null) {
@@ -691,6 +692,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
+    @TargetApi(26)
     public static void flushWriter(Writer writer) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, writer) == null) {
@@ -782,7 +784,7 @@ public final class DiskLruCache implements Closeable {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65551, this, str, j)) == null) {
             synchronized (this) {
                 checkNotClosed();
-                Entry entry = (Entry) this.lruEntries.get(str);
+                Entry entry = this.lruEntries.get(str);
                 if (j != -1 && (entry == null || entry.sequenceNumber != j)) {
                     return null;
                 }
@@ -809,21 +811,21 @@ public final class DiskLruCache implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             deleteIfExists(this.journalFileTmp);
-            Iterator it = this.lruEntries.values().iterator();
+            Iterator<Entry> it = this.lruEntries.values().iterator();
             while (it.hasNext()) {
-                Entry entry = (Entry) it.next();
+                Entry next = it.next();
                 int i = 0;
-                if (entry.currentEditor != null) {
-                    entry.currentEditor = null;
+                if (next.currentEditor != null) {
+                    next.currentEditor = null;
                     while (i < this.valueCount) {
-                        deleteIfExists(entry.getCleanFile(i));
-                        deleteIfExists(entry.getDirtyFile(i));
+                        deleteIfExists(next.getCleanFile(i));
+                        deleteIfExists(next.getDirtyFile(i));
                         i++;
                     }
                     it.remove();
                 } else {
                     while (i < this.valueCount) {
-                        this.size += entry.lengths[i];
+                        this.size += next.lengths[i];
                         i++;
                     }
                 }
@@ -943,7 +945,7 @@ public final class DiskLruCache implements Closeable {
                 } else {
                     substring = str.substring(i, indexOf2);
                 }
-                Entry entry = (Entry) this.lruEntries.get(substring);
+                Entry entry = this.lruEntries.get(substring);
                 if (entry == null) {
                     entry = new Entry(substring);
                     this.lruEntries.put(substring, entry);
@@ -973,7 +975,7 @@ public final class DiskLruCache implements Closeable {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             synchronized (this) {
                 checkNotClosed();
-                Entry entry = (Entry) this.lruEntries.get(str);
+                Entry entry = this.lruEntries.get(str);
                 if (entry != null && entry.currentEditor == null) {
                     for (int i = 0; i < this.valueCount; i++) {
                         File cleanFile = entry.getCleanFile(i);
@@ -1006,7 +1008,7 @@ public final class DiskLruCache implements Closeable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
                 checkNotClosed();
-                Entry entry = (Entry) this.lruEntries.get(str);
+                Entry entry = this.lruEntries.get(str);
                 if (entry == null) {
                     return null;
                 }

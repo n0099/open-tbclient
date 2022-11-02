@@ -17,12 +17,13 @@ import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bq4;
-import com.baidu.tieba.hp4;
-import com.baidu.tieba.mk0;
-import com.baidu.tieba.w21;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.o31;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,12 +43,12 @@ public abstract class BaseAdWebView extends WebView {
     public String c;
     public boolean d;
     public d e;
-    public mk0 f;
+    public lk0 f;
     public e g;
 
     /* loaded from: classes3.dex */
     public interface d {
-        void j1(mk0 mk0Var);
+        void i1(lk0 lk0Var);
     }
 
     /* loaded from: classes3.dex */
@@ -55,7 +56,7 @@ public abstract class BaseAdWebView extends WebView {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    public abstract void b(mk0 mk0Var, boolean z);
+    public abstract void b(@NonNull lk0 lk0Var, boolean z);
 
     public abstract String getUserAgent();
 
@@ -141,7 +142,7 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends WebViewClient {
+    public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BaseAdWebView a;
@@ -184,7 +185,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                hp4.a("BaseAdWebView", webView);
+                yp4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -254,7 +255,7 @@ public abstract class BaseAdWebView extends WebView {
 
     public void setLightTouchEnabled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {\tvar bodystyle = document.body.style.cssText;\tif (bodystyle == undefined || bodystyle == null)\t\tbodystyle = '';\tvar tapstylekey = '-webkit-tap-highlight-color';\tif (bodystyle.indexOf(tapstylekey) < 0) {\t\tbodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';\t\tdocument.body.style.cssText = bodystyle;\t}}\");");
             loadUrl("javascript:SetBodyStyleTapColor();");
         }
@@ -389,16 +390,16 @@ public abstract class BaseAdWebView extends WebView {
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (bq4.e()) {
+            if (sq4.e()) {
                 Log.e(h, "init webview succeed");
             }
         }
     }
 
-    public void d(mk0 mk0Var) {
+    public void d(@NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mk0Var) == null) {
-            this.f = mk0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lk0Var) == null) {
+            this.f = lk0Var;
         }
     }
 
@@ -430,24 +431,10 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    public void setDownloadPicOnLoad(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.d = z;
-        }
-    }
-
     public void setDownloadStartListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
             this.e = dVar;
-        }
-    }
-
-    public void setWebViewScrollListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.g = eVar;
         }
     }
 
@@ -458,19 +445,19 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         if (this.f == null) {
-            if (!bq4.e()) {
+            if (!sq4.e()) {
                 return;
             }
             throw new IllegalArgumentException("cache key is null");
         }
-        if (bq4.e()) {
+        if (sq4.e()) {
             Log.e(h, "start downloading.....");
             String str4 = h;
             Log.e(str4, "download url：" + str);
         }
         this.f.g = str;
-        String e2 = w21.e(str, str2, str3);
-        if (w21.b(w21.c(e2), str3) == 3) {
+        String e2 = o31.e(str, str2, str3);
+        if (o31.b(o31.c(e2), str3) == 3) {
             z = true;
         } else {
             z = false;
@@ -486,9 +473,9 @@ public abstract class BaseAdWebView extends WebView {
                 e2 = str;
             }
         }
-        mk0 mk0Var = this.f;
-        mk0Var.d = e2;
-        b(mk0Var, z);
+        lk0 lk0Var = this.f;
+        lk0Var.d = e2;
+        b(lk0Var, z);
     }
 
     @Override // android.webkit.WebView
@@ -514,7 +501,7 @@ public abstract class BaseAdWebView extends WebView {
     }
 
     @Override // android.webkit.WebView
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, map) == null) {
             if (!this.d) {

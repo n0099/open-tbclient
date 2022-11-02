@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface CookieManager {
@@ -64,14 +63,13 @@ public interface CookieManager {
         }
 
         @Override // com.baidu.searchbox.http.cookie.CookieManager
-        public void storeCookie(String str, List list) {
+        public void storeCookie(String str, List<String> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
                 try {
                     android.webkit.CookieManager cookieManager = android.webkit.CookieManager.getInstance();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        cookieManager.setCookie(str, (String) it.next());
+                    for (String str2 : list) {
+                        cookieManager.setCookie(str, str2);
                     }
                     CookieSyncManager.getInstance().sync();
                 } catch (Exception unused) {
@@ -86,5 +84,5 @@ public interface CookieManager {
 
     boolean shouldSendCookie(String str, String str2);
 
-    void storeCookie(String str, List list);
+    void storeCookie(String str, List<String> list);
 }

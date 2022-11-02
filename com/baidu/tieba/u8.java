@@ -106,7 +106,7 @@ public final class u8 {
         return invokeLL.booleanValue;
     }
 
-    public static Object i(Class cls) throws ReflectionException {
+    public static <T> T i(Class<T> cls) throws ReflectionException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) {
@@ -118,6 +118,6 @@ public final class u8 {
                 throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e2);
             }
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

@@ -33,7 +33,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMGetSubscriptionRequest(Context context, long j, List list, List list2, String str, String str2) {
+    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
         super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +75,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener != null && (removeListener instanceof IGetSubscriptionListener)) {

@@ -39,7 +39,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public int defaultLength;
     public int descriptionLength;
-    public List groupEntries;
+    public List<GroupEntry> groupEntries;
     public String groupingType;
 
     static {
@@ -68,7 +68,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public List getGroupEntries() {
+    public List<GroupEntry> getGroupEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -144,7 +144,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
                 i = 0;
             }
             int i3 = ((i * 31) + this.defaultLength) * 31;
-            List list = this.groupEntries;
+            List<GroupEntry> list = this.groupEntries;
             if (list != null) {
                 i2 = list.hashCode();
             }
@@ -243,7 +243,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
             if (this.defaultLength != sampleGroupDescriptionBox.defaultLength) {
                 return false;
             }
-            List list = this.groupEntries;
+            List<GroupEntry> list = this.groupEntries;
             if (list == null ? sampleGroupDescriptionBox.groupEntries != null : !list.equals(sampleGroupDescriptionBox.groupEntries)) {
                 return false;
             }
@@ -284,7 +284,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         }
     }
 
-    public void setGroupEntries(List list) {
+    public void setGroupEntries(List<GroupEntry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));

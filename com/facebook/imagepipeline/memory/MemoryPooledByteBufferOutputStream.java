@@ -7,19 +7,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
 import com.facebook.common.references.CloseableReference;
 import java.io.IOException;
+import javax.annotation.concurrent.NotThreadSafe;
+@NotThreadSafe
 /* loaded from: classes7.dex */
 public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CloseableReference mBufRef;
+    public CloseableReference<MemoryChunk> mBufRef;
     public int mCount;
     public final MemoryChunkPool mPool;
 
     /* loaded from: classes7.dex */
-    public class InvalidStreamException extends RuntimeException {
+    public static class InvalidStreamException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,15 +66,16 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
         }
     }
 
+    @VisibleForTesting
     public void realloc(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             ensureValid();
-            if (i <= ((MemoryChunk) this.mBufRef.get()).getSize()) {
+            if (i <= this.mBufRef.get().getSize()) {
                 return;
             }
-            MemoryChunk memoryChunk = (MemoryChunk) this.mPool.get(i);
-            ((MemoryChunk) this.mBufRef.get()).copy(0, memoryChunk, 0, this.mCount);
+            MemoryChunk memoryChunk = this.mPool.get(i);
+            this.mBufRef.get().copy(0, memoryChunk, 0, this.mCount);
             this.mBufRef.close();
             this.mBufRef = CloseableReference.of(memoryChunk, this.mPool);
         }
@@ -161,7 +165,7 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
             if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
                 ensureValid();
                 realloc(this.mCount + i2);
-                ((MemoryChunk) this.mBufRef.get()).write(this.mCount, bArr, i, i2);
+                this.mBufRef.get().write(this.mCount, bArr, i, i2);
                 this.mCount += i2;
                 return;
             }

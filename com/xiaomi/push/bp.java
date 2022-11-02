@@ -83,7 +83,7 @@ public class bp {
         return (String) invokeLI.objValue;
     }
 
-    public static String a(Collection collection, String str) {
+    public static String a(Collection<?> collection, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, collection, str)) == null) {
@@ -96,7 +96,7 @@ public class bp {
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:23:0x003b -> B:17:0x0029 */
-    public static String a(Iterator it, String str) {
+    public static String a(Iterator<?> it, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, it, str)) == null) {

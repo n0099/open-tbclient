@@ -1,7 +1,9 @@
 package com.kwad.sdk.core.report;
 
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class g extends com.kwad.sdk.core.response.kwai.a {
     public int ZZ;
     public long creativeId;

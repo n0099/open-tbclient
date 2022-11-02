@@ -105,7 +105,7 @@ public class TlsSniSocketFactory extends SSLSocketFactory {
     }
 
     /* loaded from: classes8.dex */
-    public class HostnameVerifierEx implements HostnameVerifier {
+    public static class HostnameVerifierEx implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALT_DNS_NAME = 2;
         public static final Pattern VERIFY_AS_IP_ADDRESS;
@@ -155,7 +155,7 @@ public class TlsSniSocketFactory extends SSLSocketFactory {
             return invokeL.booleanValue;
         }
 
-        public static List getSubjectAltNames(X509Certificate x509Certificate, int i) {
+        public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
             InterceptResult invokeLI;
             Integer num;
             String str;

@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,10 +77,10 @@ public class y {
     public static Cif a(Context context, Cif cif) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cif)) == null) ? a(context, cif, (Map) null) : (Cif) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cif)) == null) ? a(context, cif, (Map<String, String>) null) : (Cif) invokeLL.objValue;
     }
 
-    public static Cif a(Context context, Cif cif, Map map) {
+    public static Cif a(Context context, Cif cif, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, cif, map)) == null) {
@@ -104,7 +105,7 @@ public class y {
                 try {
                     if (map.size() > 0) {
                         for (String str : map.keySet()) {
-                            m465a2.a(str, (String) map.get(str));
+                            m465a2.a(str, map.get(str));
                         }
                     }
                 } catch (Throwable unused) {
@@ -282,8 +283,8 @@ public class y {
                 }
                 if (m465a != null && !TextUtils.isEmpty(m465a.m439c()) && !TextUtils.isEmpty(m465a.d()) && m465a.f543b != 1 && !al.m608a((Context) xMPushService, a3.f633b, al.m610a(m465a.m432a()))) {
                     if (m465a != null) {
-                        Map map = m465a.f541a;
-                        str7 = map != null ? (String) map.get("jobkey") : null;
+                        Map<String, String> map = m465a.f541a;
+                        str7 = map != null ? map.get("jobkey") : null;
                         if (TextUtils.isEmpty(str7)) {
                             str7 = m465a.m431a();
                         }
@@ -300,7 +301,7 @@ public class y {
                     }
                     com.xiaomi.channel.commonutils.logger.b.m89a(str6);
                     b(xMPushService, a3);
-                } else if ("com.xiaomi.xmsf".contains(a3.f633b) && !a3.m473b() && m465a != null && m465a.m432a() != null && m465a.m432a().containsKey("ab")) {
+                } else if ("com.xiaomi.xmsf".contains(a3.f633b) && !a3.m473b() && m465a != null && m465a.m432a() != null && m465a.m432a().containsKey(DI.AB_NAME)) {
                     b(xMPushService, a3);
                     com.xiaomi.channel.commonutils.logger.b.c("receive abtest message. ack it." + m465a.m431a());
                 } else if (a(xMPushService, str, a3, m465a)) {
@@ -349,7 +350,7 @@ public class y {
                             if (z && (iuVar instanceof ii)) {
                                 iiVar = (ii) iuVar;
                                 if (ht.C.f506a.equals(iiVar.f650d) && iiVar.m481a() != null) {
-                                    str2 = (String) iiVar.m481a().get(bk.M);
+                                    str2 = iiVar.m481a().get(bk.M);
                                     i = -2;
                                     if (!TextUtils.isEmpty(str2)) {
                                         try {
@@ -363,7 +364,7 @@ public class y {
                                         al.a(xMPushService, a3.f633b, i);
                                     } else {
                                         com.xiaomi.channel.commonutils.logger.b.m89a("try to retract a message by title&description.");
-                                        al.a(xMPushService, a3.f633b, (String) iiVar.m481a().get(bk.K), (String) iiVar.m481a().get(bk.L));
+                                        al.a(xMPushService, a3.f633b, iiVar.m481a().get(bk.K), iiVar.m481a().get(bk.L));
                                     }
                                     if (m465a != null && m465a.m432a() != null && com.xiaomi.push.m.m561a((Context) xMPushService) && "pulldown".equals(ay.a((Object) m465a.m432a()))) {
                                         ag.a(a3);
@@ -380,7 +381,7 @@ public class y {
                             if (z) {
                                 iiVar = (ii) iuVar;
                                 if (ht.C.f506a.equals(iiVar.f650d)) {
-                                    str2 = (String) iiVar.m481a().get(bk.M);
+                                    str2 = iiVar.m481a().get(bk.M);
                                     i = -2;
                                     if (!TextUtils.isEmpty(str2)) {
                                     }
@@ -412,7 +413,7 @@ public class y {
 
     public static void a(XMPushService xMPushService, byte[] bArr, long j) {
         Cif a;
-        Map m432a;
+        Map<String, String> m432a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{xMPushService, bArr, Long.valueOf(j)}) == null) || (a = a(bArr)) == null) {
             return;
@@ -459,7 +460,7 @@ public class y {
             }
             eo.a(xMPushService.getApplicationContext()).a(a.b(), al.b(a), m465a.m431a(), "3");
         } else if (hj.e != a.a() || com.xiaomi.push.j.a() != 999 || !com.xiaomi.push.j.a(xMPushService, a3)) {
-            if (m465a == null || (m432a = m465a.m432a()) == null || !m432a.containsKey("hide") || !"true".equalsIgnoreCase((String) m432a.get("hide"))) {
+            if (m465a == null || (m432a = m465a.m432a()) == null || !m432a.containsKey("hide") || !"true".equalsIgnoreCase(m432a.get("hide"))) {
                 a(xMPushService, a3, bArr, a2);
             } else {
                 b(xMPushService, a);
@@ -568,7 +569,7 @@ public class y {
                 boolean m386a = com.xiaomi.push.h.m386a(xMPushService.getApplicationContext(), str);
                 iiVar.f645a.put("app_running", Boolean.toString(m386a));
                 if (!m386a) {
-                    boolean parseBoolean = Boolean.parseBoolean((String) hwVar.m432a().get("__awake"));
+                    boolean parseBoolean = Boolean.parseBoolean(hwVar.m432a().get("__awake"));
                     iiVar.f645a.put("awaked", Boolean.toString(parseBoolean));
                     if (!parseBoolean) {
                         z = false;
@@ -608,7 +609,7 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, cif)) == null) {
-            Map m432a = cif.m465a().m432a();
+            Map<String, String> m432a = cif.m465a().m432a();
             return m432a != null && m432a.containsKey("notify_effect");
         }
         return invokeL.booleanValue;

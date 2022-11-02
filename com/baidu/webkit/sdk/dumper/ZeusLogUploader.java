@@ -35,7 +35,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ZeusLogUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
@@ -67,8 +67,8 @@ public final class ZeusLogUploader {
     public String mType;
     public boolean mUseHttps;
 
-    /* loaded from: classes6.dex */
-    public class LogFilter implements FilenameFilter {
+    /* loaded from: classes7.dex */
+    public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mLogType;
@@ -112,7 +112,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class MyRunner implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }
@@ -636,7 +636,7 @@ public final class ZeusLogUploader {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x0027 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:51:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0089 A[Catch: Exception -> 0x00ab, TRY_LEAVE, TryCatch #1 {Exception -> 0x00ab, blocks: (B:49:0x0079, B:52:0x0089), top: B:74:0x0079 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0089 A[Catch: Exception -> 0x00ac, TRY_LEAVE, TryCatch #1 {Exception -> 0x00ac, blocks: (B:49:0x0079, B:52:0x0089), top: B:74:0x0079 }] */
     /* JADX WARN: Type inference failed for: r3v0, types: [boolean] */
     /* JADX WARN: Type inference failed for: r3v1 */
     /* JADX WARN: Type inference failed for: r3v10 */

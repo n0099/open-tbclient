@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ConfirmFriendMsg> CREATOR;
     public static final String TAG = "ConfirmFriendMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public long fromUser;
@@ -35,7 +35,7 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
+        CREATOR = new Parcelable.Creator<ConfirmFriendMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ConfirmFriendMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,6 +54,7 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConfirmFriendMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -65,6 +66,7 @@ public class ConfirmFriendMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ConfirmFriendMsg[] newArray(int i) {
                 InterceptResult invokeI;

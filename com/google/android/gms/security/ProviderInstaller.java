@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,16 +24,19 @@ import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class ProviderInstaller {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
     public static final String PROVIDER_NAME = "GmsCore_OpenSSL";
     public static final GoogleApiAvailabilityLight zza;
     public static final Object zzb;
+    @GuardedBy("ProviderInstaller.lock")
     public static Method zzc;
+    @GuardedBy("ProviderInstaller.lock")
     public static Method zzd;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface ProviderInstallListener {
-        void onProviderInstallFailed(int i, Intent intent);
+        void onProviderInstallFailed(int i, @Nullable Intent intent);
 
         void onProviderInstalled();
     }
@@ -68,7 +74,7 @@ public class ProviderInstaller {
         zzd = null;
     }
 
-    public static void installIfNeeded(Context context) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
+    public static void installIfNeeded(@NonNull Context context) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
         String str;
         Context context2;
         String str2;
@@ -122,7 +128,7 @@ public class ProviderInstaller {
         }
     }
 
-    public static void installIfNeededAsync(Context context, ProviderInstallListener providerInstallListener) {
+    public static void installIfNeededAsync(@NonNull Context context, @NonNull ProviderInstallListener providerInstallListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, providerInstallListener) == null) {
             Preconditions.checkNotNull(context, "Context must not be null");
@@ -141,6 +147,7 @@ public class ProviderInstaller {
         return (Method) invokeLLLL.objValue;
     }
 
+    @GuardedBy("ProviderInstaller.lock")
     public static void zzc(Context context, Context context2, String str) throws GooglePlayServicesNotAvailableException {
         String message;
         String str2;

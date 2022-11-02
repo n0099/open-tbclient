@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BrandMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BrandMsg> CREATOR;
     public static final String DEFAULT_DESC = "有事搜一搜，没事看一看";
     public static final String TAG = "BrandMsg";
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class BrandMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BrandMsg.1
+        CREATOR = new Parcelable.Creator<BrandMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BrandMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,6 +62,7 @@ public class BrandMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BrandMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -73,6 +74,7 @@ public class BrandMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BrandMsg[] newArray(int i) {
                 InterceptResult invokeI;

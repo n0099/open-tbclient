@@ -30,24 +30,24 @@ public final class Validator {
         }
     }
 
-    public static void containsNoNulls(Collection collection, String str) {
+    public static <T> void containsNoNulls(Collection<T> collection, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, collection, str) == null) {
             notNull(collection, str);
-            for (Object obj : collection) {
-                if (obj == null) {
+            for (T t : collection) {
+                if (t == null) {
                     throw new NullPointerException(String.format(CONTAINS_NO_NULLS_FMT, str));
                 }
             }
         }
     }
 
-    public static void notEmptyAndContainsNoNulls(Collection collection, String str) {
+    public static <T> void notEmptyAndContainsNoNulls(Collection<T> collection, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, collection, str) == null) {
             notNullOrEmpty(collection, str);
-            for (Object obj : collection) {
-                if (obj == null) {
+            for (T t : collection) {
+                if (t == null) {
                     throw new NullPointerException(String.format(CONTAINS_NO_NULLS_FMT, str));
                 }
             }
@@ -70,7 +70,7 @@ public final class Validator {
         throw new IllegalArgumentException(String.format(NOT_NULL_OR_EMPTY_FMT, str2));
     }
 
-    public static void notNullOrEmpty(Collection collection, String str) {
+    public static <T> void notNullOrEmpty(Collection<T> collection, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65541, null, collection, str) != null) || !Utils.isEmpty(collection)) {
             return;
@@ -78,11 +78,11 @@ public final class Validator {
         throw new IllegalArgumentException(String.format(NOT_NULL_OR_EMPTY_FMT, str));
     }
 
-    public static void notNullOrEmpty(Object[] objArr, String str) {
+    public static <T> void notNullOrEmpty(T[] tArr, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, objArr, str) == null) {
-            notNull(objArr, str);
-            if (objArr.length != 0) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, tArr, str) == null) {
+            notNull(tArr, str);
+            if (tArr.length != 0) {
                 return;
             }
             throw new IllegalArgumentException(String.format(NOT_NULL_OR_EMPTY_FMT, str));

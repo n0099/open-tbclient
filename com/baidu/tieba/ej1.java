@@ -2,134 +2,420 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.os.Build;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
-import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ej1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ Context e;
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (!kh1.f(context).d()) {
-                    return -1000;
+        public a(int i, int i2, String str, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (Build.VERSION.SDK_INT < 24) {
-                    return -1001;
+            }
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = context;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("1", System.currentTimeMillis());
+                    jSONObject.put("2", this.c);
+                    jSONObject.put("3", this.d);
+                    jSONObject.put("4", "1");
+                    jSONArray.put(jSONObject);
+                    cj1.c(this.e).f(jSONArray.toString(), "1077112", 2);
+                } catch (Throwable th) {
+                    oj1.d(th);
                 }
-                if (!wi1.n(context)) {
-                    return -1002;
-                }
-                return SubscriptionManager.getDefaultDataSubscriptionId();
-            } catch (Throwable th) {
-                wi1.d(th);
-                return -1001;
             }
         }
-        return invokeL.intValue;
     }
 
-    public static Pair c(Context context) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = -1;
-            Pair pair = new Pair(-1, -1);
-            try {
-                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
-                if (networkType == null) {
-                    return pair;
+    /* loaded from: classes4.dex */
+    public static class b extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ Context g;
+
+        public b(int i, long j, int i2, int i3, String str, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (networkType.has("networktype")) {
-                    i2 = Integer.parseInt(networkType.optString("networktype", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatortype", "-1"));
-                } else if (networkType.has("networkType")) {
-                    i2 = Integer.parseInt(networkType.optString("networkType", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatorType", "-1"));
-                } else {
-                    i = -1;
+            }
+            this.b = i;
+            this.c = j;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+            this.g = context;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = "";
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("1", "");
+                    jSONObject.put("2", Build.VERSION.SDK_INT);
+                    jSONObject.put("3", this.c);
+                    jSONObject.put("4", this.d);
+                    jSONObject.put("5", this.e);
+                    if (!TextUtils.isEmpty(this.f)) {
+                        str = this.f;
+                    }
+                    jSONObject.put("6", str);
+                    jSONArray.put(jSONObject);
+                    cj1.c(this.g).f(jSONArray.toString(), "1077128", 2);
+                } catch (Throwable th) {
+                    oj1.d(th);
                 }
-                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-            } catch (Throwable th) {
-                wi1.d(th);
-                return pair;
             }
         }
-        return (Pair) invokeL.objValue;
     }
 
-    public static Pair d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (!kh1.f(context).d()) {
-                    return new Pair(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
+    /* loaded from: classes4.dex */
+    public static class c extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+
+        public c(int i, Context context, int i2, int i3, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (Build.VERSION.SDK_INT < 22) {
-                    return new Pair(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!bj1.a(context, com.kuaishou.weapon.p0.h.c)) {
-                    return new Pair(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!wi1.n(context)) {
-                    return new Pair(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
-                }
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
-                }
-                String[] strArr = new String[4];
-                int i = 0;
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i2 = i * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    String iccId = subscriptionInfo.getIccId();
-                    if (TextUtils.isEmpty(iccId)) {
-                        iccId = String.valueOf(-1003);
+            }
+            this.b = i;
+            this.c = context;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("3", System.currentTimeMillis());
+                    int Z = ci1.f(this.c).Z();
+                    if (Z != -1) {
+                        jSONObject.put("4", Z);
                     }
-                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i2 + 1] = carrierName.toString();
-                    } else {
-                        strArr[i2 + 1] = String.valueOf(-1003);
+                    jSONObject.put("5", ci1.f(this.c).a0());
+                    jSONObject.put("7", this.d);
+                    if (this.e != -1) {
+                        jSONObject.put("8", this.e);
                     }
-                    i++;
-                    if (i >= 2) {
-                        break;
-                    }
+                    jSONObject.put("9", this.f);
+                    jSONObject.put("10", 1);
+                    jSONObject.put("11", li1.q);
+                    jSONObject.put("12", "1");
+                    new yi1(this.c, null).h(jSONObject);
+                } catch (Throwable th) {
+                    oj1.d(th);
                 }
-                for (int i3 = 0; i3 < 4; i3++) {
-                    if (TextUtils.isEmpty(strArr[i3])) {
-                        strArr[i3] = String.valueOf(-1003);
-                    }
-                }
-                return new Pair(Integer.valueOf(i), strArr);
-            } catch (Throwable th) {
-                wi1.d(th);
-                return new Pair(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
             }
         }
-        return (Pair) invokeL.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+
+        public d(int i, Context context, int i2, int i3, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = context;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("3", System.currentTimeMillis());
+                    int d0 = ci1.f(this.c).d0();
+                    if (d0 != -1) {
+                        jSONObject.put("4", d0);
+                    }
+                    jSONObject.put("5", ci1.f(this.c).e0());
+                    jSONObject.put("7", this.d);
+                    if (this.e != -1) {
+                        jSONObject.put("8", this.e);
+                    }
+                    jSONObject.put("9", this.f);
+                    jSONObject.put("10", 1);
+                    jSONObject.put("11", li1.r);
+                    jSONObject.put("12", "1");
+                    jSONArray.put(jSONObject);
+                    cj1.c(this.c).f(jSONArray.toString(), "1077122", 2);
+                } catch (Throwable th) {
+                    oj1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ Context g;
+
+        public e(int i, int i2, String str, int i3, int i4, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = i3;
+            this.f = i4;
+            this.g = context;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", System.currentTimeMillis());
+                    jSONObject.put("1", this.e);
+                    jSONObject.put("2", this.b);
+                    if (this.c != -1) {
+                        jSONObject.put("3", this.c);
+                    }
+                    if (!TextUtils.isEmpty(this.d)) {
+                        jSONObject.put("4", this.d);
+                    }
+                    jSONObject.put("5", 1);
+                    jSONObject.put("6", li1.q);
+                    jSONObject.put("7", this.f);
+                    jSONObject.put("8", "1");
+                    jSONArray.put(jSONObject);
+                    cj1.c(this.g).f(jSONArray.toString(), "1077105", 2);
+                } catch (Throwable th) {
+                    oj1.d(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f extends jj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ Context g;
+
+        public f(int i, int i2, String str, int i3, int i4, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = i3;
+            this.f = i4;
+            this.g = context;
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", System.currentTimeMillis());
+                    jSONObject.put("1", this.e);
+                    jSONObject.put("2", this.b);
+                    if (this.c != -1) {
+                        jSONObject.put("3", this.c);
+                    }
+                    if (!TextUtils.isEmpty(this.d)) {
+                        jSONObject.put("4", this.d);
+                    }
+                    jSONObject.put("5", 1);
+                    jSONObject.put("6", li1.r);
+                    jSONObject.put("7", this.f);
+                    jSONObject.put("8", "1");
+                    jSONArray.put(jSONObject);
+                    cj1.c(this.g).f(jSONArray.toString(), "1077123", 2);
+                } catch (Throwable th) {
+                    oj1.d(th);
+                }
+            }
+        }
+    }
+
+    public static void a(Context context, int i, int i2, int i3, int i4, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            lj1.c().b(new e(i3, i4, str, i, i2, context));
+        }
+    }
+
+    public static void c(Context context, int i, int i2, long j, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str}) == null) {
+            lj1.c().b(new b(i, j, i3, i2, str, context));
+        }
+    }
+
+    public static void e(Context context, int i, int i2, int i3, int i4, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            lj1.c().b(new f(i3, i4, str, i, i2, context));
+        }
+    }
+
+    public static void b(Context context, int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            lj1.c().b(new c(i, context, i3, i2, str));
+        }
+    }
+
+    public static void f(Context context, int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            lj1.c().b(new d(i, context, i3, i2, str));
+        }
+    }
+
+    public static void d(Context context, int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) {
+            lj1.c().b(new a(i, i2, str, context));
+        }
     }
 }

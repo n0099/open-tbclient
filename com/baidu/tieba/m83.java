@@ -1,453 +1,570 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.ProviderInfo;
+import android.content.res.Resources;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import android.util.Log;
+import android.view.KeyCharacterMap;
+import android.view.ViewConfiguration;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import java.io.Closeable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class m83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static ContentObserver c;
+    public static ContentResolver d;
+    public static PackageManager e;
+    public static boolean f;
+    public static long g;
+    public static List<k83> h;
+    public static Runnable i;
+    public static int j;
+    public static Uri k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public final String b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public String g;
-    public List h;
-    public final List i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public a n;
-    public JSONObject o;
-    public String p;
-    public String q;
-    public String r;
-    public List s;
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public JSONArray f;
+        public final /* synthetic */ Handler a;
 
-        public a() {
+        /* renamed from: com.baidu.tieba.m83$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0345a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Uri a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0345a(a aVar, Uri uri) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, uri};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = uri;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    m83.q(this.b.a, this.a);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Handler handler, Handler handler2) {
+            super(handler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler, handler2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler2;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
+                super.onChange(z, uri);
+                if (m83.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
+                }
+                ExecutorUtilsExt.postOnElastic(new RunnableC0345a(this, uri), "systemScreenShot", 1);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Handler b;
+        public final /* synthetic */ d c;
+
+        public b(String str, Handler handler, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, handler, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = handler;
+            this.c = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            long j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                m83.e();
+                if (m83.a) {
+                    Log.d("SYSTEM_SCREENSHOT", "mCount: " + m83.j);
+                }
+                if (lg3.a()) {
+                    j = 500;
+                } else {
+                    j = 100;
+                }
+                if (!m83.m(this.a, m83.k) && m83.j <= 10) {
+                    this.b.postDelayed(m83.i, j);
+                } else if (m83.m(this.a, m83.k) && m83.l() && !m83.o(this.a, m83.k)) {
+                    for (k83 k83Var : m83.h) {
+                        if (k83Var != null) {
+                            k83Var.a(this.c);
+                        }
+                    }
                 }
             }
         }
     }
 
-    public m83(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public static String[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-648396414, "Lcom/baidu/tieba/m83$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-648396414, "Lcom/baidu/tieba/m83$c;");
+                    return;
+                }
+            }
+            a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
+            b = new String[]{"_display_name", "_data", "date_added", "_id"};
+        }
+
+        public static boolean e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+                if (str != null && (str.toLowerCase().contains(StatisticConstants.SCREENSHOT) || str.contains("截屏") || str.contains("截图"))) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public static boolean f(long j, long j2) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+                if (Math.abs(j - j2) <= 10) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public Uri b;
+
+        public d(String str, Long l, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, l, uri};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            l.longValue();
+            this.b = uri;
+        }
+
+        public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
+            this(str, l, uri);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926497, "Lcom/baidu/tieba/m83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926497, "Lcom/baidu/tieba/m83;");
                 return;
             }
         }
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = -1;
-        this.k = "";
-        this.l = "";
-        this.m = "";
-        this.b = str;
+        a = ok1.a;
+        g = System.currentTimeMillis() - 10000;
+        h = new ArrayList();
+        j = 0;
+        l = null;
+        m = null;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
+            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+            if (!hasPermanentMenuKey && !deviceHasKey) {
+                Resources resources = AppRuntime.getAppContext().getResources();
+                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
             }
-            if (bh3.f("3.320.0")) {
-                return str;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1456866260:
-                    if (str.equals("scope.phoneContact")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -653473286:
-                    if (str.equals("scope.userLocation")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -21617665:
-                    if (str.equals("scope.camera")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 277279100:
-                    if (str.equals("scope.mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 411225387:
-                    if (str.equals("scope.record")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 583039347:
-                    if (str.equals("scope.userInfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 671518104:
-                    if (str.equals("scope.calendar")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case 986629481:
-                    if (str.equals("scope.writePhotosAlbum")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1303164176:
-                    if (str.equals("scope.faceVerify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 1326852849:
-                    if (str.equals("scope.realNameInfo")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 1555675269:
-                    if (str.equals("scope.invoiceTitle")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 1927763546:
-                    if (str.equals("scope.address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "snsapi_userinfo";
-                case 1:
-                    return "mobile";
-                case 2:
-                    return "mapp_location";
-                case 3:
-                    return "mapp_images";
-                case 4:
-                    return "mapp_choose_address";
-                case 5:
-                    return "mapp_choose_invoice";
-                case 6:
-                    return PermissionProxy.SCOPE_ID_CAMERA;
-                case 7:
-                    return PermissionProxy.SCOPE_ID_RECORD;
-                case '\b':
-                    return "mapp_i_face_verify";
-                case '\t':
-                    return "ppcert";
-                case '\n':
-                    return "scope_calendar";
-                case 11:
-                    return "mapp_i_read_contacts";
-                default:
-                    return str;
-            }
+            return 0;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (bh3.f("3.320.0")) {
-                return str;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1994404663:
-                    if (str.equals("scope_calendar")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -1785599184:
-                    if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -1603097981:
-                    if (str.equals("mapp_images")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1352756132:
-                    if (str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -1074510320:
-                    if (str.equals("mapp_choose_invoice")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1068855134:
-                    if (str.equals("mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -982018012:
-                    if (str.equals("ppcert")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -977063690:
-                    if (str.equals("snsapi_userinfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -218238720:
-                    if (str.equals("mapp_location")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 112565975:
-                    if (str.equals("mapp_choose_address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 862108635:
-                    if (str.equals("mapp_i_read_contacts")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 1746078554:
-                    if (str.equals("mapp_i_face_verify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "scope.userInfo";
-                case 1:
-                    return "scope.mobile";
-                case 2:
-                    return "scope.userLocation";
-                case 3:
-                    return "scope.writePhotosAlbum";
-                case 4:
-                    return "scope.address";
-                case 5:
-                    return "scope.invoiceTitle";
-                case 6:
-                    return "scope.camera";
-                case 7:
-                    return "scope.record";
-                case '\b':
-                    return "scope.faceVerify";
-                case '\t':
-                    return "scope.realNameInfo";
-                case '\n':
-                    return "scope.calendar";
-                case 11:
-                    return "scope.phoneContact";
-                default:
-                    return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static m83 f(String str, JSONObject jSONObject) {
+    public static boolean m(String str, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, jSONObject)) == null) {
-            m83 m83Var = new m83(str);
-            m83Var.a = jSONObject;
-            m83Var.c = jSONObject.optBoolean("permit", false);
-            m83Var.d = jSONObject.optBoolean("forbidden", true);
-            m83Var.e = jSONObject.optString("grade");
-            m83Var.k = jSONObject.optString("type", "");
-            m83Var.f = jSONObject.optString("name", "");
-            m83Var.g = jSONObject.optString("short_name", "");
-            jSONObject.optString("description", "");
-            m83Var.j = jSONObject.optInt("tip_status", -1);
-            m83Var.l = jSONObject.optString("explain", "");
-            m83Var.m = jSONObject.optString("sub_explain", "");
-            JSONArray optJSONArray = jSONObject.optJSONArray("ext");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    m83Var.i.add(optJSONArray.optString(i));
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, uri)) == null) {
+            if (lg3.a()) {
+                return n(uri);
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("rule");
-            if (optJSONArray2 != null) {
-                int length2 = optJSONArray2.length();
-                for (int i2 = 0; i2 < length2; i2++) {
-                    m83Var.h.add(optJSONArray2.optString(i2));
-                }
+            new BitmapFactory.Options().inJustDecodeBounds = true;
+            if (BitmapFactory.decodeFile(str) != null) {
+                return true;
             }
-            m83Var.o = jSONObject.optJSONObject(ImageViewerConfig.FROM_OTHER);
-            m83Var.p = jSONObject.optString("plugin_app_name");
-            m83Var.q = jSONObject.optString("plugin_icon_url");
-            if (!jSONObject.has("forbidden")) {
-                m02.k("SwanAppUpdateManager", "scope:" + str + WebGLImageLoader.DATA_URL + jSONObject);
-            }
-            return m83Var;
+            return false;
         }
-        return (m83) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static m83 g(JSONObject jSONObject) {
+    public static /* synthetic */ int e() {
+        int i2 = j;
+        j = i2 + 1;
+        return i2;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (sp2.a().b() && currentTimeMillis > 2000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (System.currentTimeMillis() - g <= 1000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double i(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(d, uri);
+                if (bitmap == null) {
+                    return 0.0d;
+                }
+                int height = bitmap.getHeight();
+                int width = bitmap.getWidth();
+                if (width == 0) {
+                    return 0.0d;
+                }
+                return height / (width * 1.0d);
+            } catch (Exception unused) {
+                return 0.0d;
             }
-            String optString = jSONObject.optString("id", "");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            return f(optString, jSONObject);
         }
-        return (m83) invokeL.objValue;
+        return invokeL.doubleValue;
     }
 
-    public void i(List list) {
+    public static boolean n(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.s = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            try {
+                if (MediaStore.Images.Media.getBitmap(d, uri) == null) {
+                    return false;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static boolean p(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || hi4.a(context, com.kuaishou.weapon.p0.h.i) == 0) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void r(k83 k83Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.j != 0) {
+        if ((interceptable == null || interceptable.invokeL(65554, null, k83Var) == null) && k83Var != null) {
+            h.add(k83Var);
+        }
+    }
+
+    public static void u(k83 k83Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65557, null, k83Var) == null) && k83Var != null) {
+            h.remove(k83Var);
+        }
+    }
+
+    public static boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (lg3.a()) {
+                Uri uri = k;
+                if (uri != null && !TextUtils.equals(l, uri.toString())) {
+                    return false;
+                }
+                return true;
+            } else if (!TextUtils.isEmpty(str) && !TextUtils.equals(m, str)) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean o(String str, Uri uri) {
+        InterceptResult invokeLL;
+        double d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, uri)) == null) {
+            Point point = new Point();
+            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
+            if (windowManager.getDefaultDisplay() != null) {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            int j2 = point.y + j();
+            int i2 = point.x;
+            double d3 = 0.0d;
+            if (i2 != 0) {
+                d2 = j2 / (i2 * 1.0d);
+            } else {
+                d2 = 0.0d;
+            }
+            double d4 = d2 * 1.2d;
+            if (lg3.a()) {
+                d3 = i(uri);
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i4 != 0) {
+                d3 = i3 / (i4 * 1.0d);
+            }
+            if (d3 > d4) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
+    public static void q(Handler handler, Uri uri) {
+        Cursor cursor;
+        Closeable closeable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "1".equals(this.k);
+        if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
+            if (!uri.toString().matches(c.a + ".*")) {
+                return;
+            }
+            if (t() && f) {
+                g = System.currentTimeMillis();
+                return;
+            }
+            j = 0;
+            g = System.currentTimeMillis();
+            Closeable closeable2 = null;
+            try {
+                try {
+                    cursor = d.query(uri, c.b, null, null, "date_added DESC");
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                                long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
+                                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                                k = uri;
+                                if (lg3.a()) {
+                                    k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
+                                }
+                                if (a) {
+                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
+                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
+                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
+                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
+                                }
+                                if (k(string)) {
+                                    ik4.d(cursor);
+                                    return;
+                                }
+                                l = k.toString();
+                                m = string;
+                                if (c.e(string) && c.f(currentTimeMillis, j2)) {
+                                    f = true;
+                                    b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
+                                    i = bVar;
+                                    handler.post(bVar);
+                                } else {
+                                    f = false;
+                                }
+                            }
+                        } catch (RuntimeException unused) {
+                            if (e != null) {
+                                List<ProviderInfo> queryContentProviders = e.queryContentProviders(null, 0, 131072);
+                                HashMap hashMap = new HashMap();
+                                hashMap.put("from", "SystemScreenshot");
+                                hashMap.put("page", "SystemScreenshot");
+                                hashMap.put("ext", queryContentProviders.toString());
+                                la3.j(BdNetTypeUtil.NATION_CODE, hashMap);
+                            }
+                            ik4.d(cursor);
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    ik4.d(closeable2);
+                    throw th;
+                }
+            } catch (RuntimeException unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                ik4.d(closeable2);
+                throw th;
+            }
+            ik4.d(cursor);
         }
-        return invokeV.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void s(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.b, Integer.valueOf(this.j));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.o) != null && jSONObject.keys() != null && this.o.keys().hasNext()) {
-            a aVar = new a();
-            this.n = aVar;
-            aVar.a = this.o.optString("detail_text");
-            this.n.c = this.o.optString("detail_url");
-            this.n.b = this.o.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            this.n.d = this.o.optString("keyword");
-            this.n.e = this.o.optString("key_color");
-            JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
-            if (optJSONObject != null) {
-                this.n.f = optJSONObject.optJSONArray("details");
+        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
+            e = context.getPackageManager();
+            Handler handler = new Handler(Looper.getMainLooper());
+            d = context.getContentResolver();
+            c = new a(handler, handler);
+            if (p(context)) {
+                d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, c);
+            } else if (a && yh3.G()) {
+                e12.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
             }
         }
     }

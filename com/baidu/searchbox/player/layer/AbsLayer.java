@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -27,6 +30,7 @@ public abstract class AbsLayer implements ILayer {
     public Context mContext;
     public Handler mHandler;
     public LayerContainer mLayerContainer;
+    @Nullable
     public IMessenger mMessenger;
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
@@ -70,14 +74,14 @@ public abstract class AbsLayer implements ILayer {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onControlEventNotify(VideoEvent videoEvent) {
+    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onInteractiveEventNotify(VideoEvent videoEvent) {
+    public void onInteractiveEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, videoEvent) == null) {
         }
@@ -91,14 +95,14 @@ public abstract class AbsLayer implements ILayer {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onLayerEventNotify(VideoEvent videoEvent) {
+    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent videoEvent) {
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, videoEvent) == null) {
         }
@@ -112,24 +116,24 @@ public abstract class AbsLayer implements ILayer {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onSystemEventNotify(VideoEvent videoEvent) {
+    public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, videoEvent) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(VideoEvent videoEvent) {
+    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, videoEvent) == null) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class PrivateHandler extends Handler {
+    public static class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference mWeakControl;
+        public final WeakReference<AbsLayer> mWeakControl;
 
         public PrivateHandler(AbsLayer absLayer) {
             Interceptable interceptable = $ic;
@@ -146,14 +150,14 @@ public abstract class AbsLayer implements ILayer {
                     return;
                 }
             }
-            this.mWeakControl = new WeakReference(absLayer);
+            this.mWeakControl = new WeakReference<>(absLayer);
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public void handleMessage(@NonNull Message message) {
             AbsLayer absLayer;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (absLayer = (AbsLayer) this.mWeakControl.get()) != null && absLayer.getContentView() != null && absLayer.getContentView().getParent() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (absLayer = this.mWeakControl.get()) != null && absLayer.getContentView() != null && absLayer.getContentView().getParent() != null) {
                 absLayer.handleLayerMessage(message);
             }
         }
@@ -206,6 +210,8 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
+    @Nullable
+    @PublicMethod
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,6 +221,8 @@ public abstract class AbsLayer implements ILayer {
         return (Activity) invokeV.objValue;
     }
 
+    @NonNull
+    @PublicMethod
     public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,6 +232,7 @@ public abstract class AbsLayer implements ILayer {
         return (Context) invokeV.objValue;
     }
 
+    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -237,6 +246,7 @@ public abstract class AbsLayer implements ILayer {
         return (BDVideoPlayer) invokeV.objValue;
     }
 
+    @PublicMethod
     public ControlEventTrigger getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -246,6 +256,7 @@ public abstract class AbsLayer implements ILayer {
         return (ControlEventTrigger) invokeV.objValue;
     }
 
+    @PublicMethod
     public Handler getHandlerInnerLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -265,6 +276,7 @@ public abstract class AbsLayer implements ILayer {
         return (LayerContainer) invokeV.objValue;
     }
 
+    @Nullable
     public IMessenger getMessenger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,7 +297,7 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    public AbsLayer(Context context) {
+    public AbsLayer(@Nullable Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,7 +316,7 @@ public abstract class AbsLayer implements ILayer {
         init(context);
     }
 
-    private void init(Context context) {
+    private void init(@Nullable Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             if (context == null) {
@@ -324,14 +336,14 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    public void addInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+    public void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVideoEventInterceptor) == null) {
             getBindPlayer().addInterceptor(iVideoEventInterceptor);
         }
     }
 
-    public void attachMessenger(IMessenger iMessenger) {
+    public void attachMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iMessenger) == null) {
             this.mMessenger = iMessenger;
@@ -339,7 +351,7 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    public void removeInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+    public void removeInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, iVideoEventInterceptor) == null) {
             getBindPlayer().removeInterceptor(iVideoEventInterceptor);
@@ -362,21 +374,21 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    public void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+    public void setInterceptor(@Nullable IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, iVideoEventInterceptor) == null) {
             getBindPlayer().setInterceptor(iVideoEventInterceptor);
         }
     }
 
-    public void setLayerContainer(LayerContainer layerContainer) {
+    public void setLayerContainer(@NonNull LayerContainer layerContainer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, layerContainer) == null) {
             this.mLayerContainer = layerContainer;
         }
     }
 
-    public void addInterceptor(int i, IVideoEventInterceptor iVideoEventInterceptor) {
+    public void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, iVideoEventInterceptor) == null) {
             getBindPlayer().addInterceptor(i, iVideoEventInterceptor);

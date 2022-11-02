@@ -16,7 +16,7 @@ public class AdBitResultData extends AdResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3932631606478587475L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List adBidList;
+    public List<AdBid> adBidList;
     public String adxId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

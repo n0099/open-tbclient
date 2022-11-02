@@ -17,7 +17,7 @@ public class WXLaunchMiniProgram {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class Req extends BaseReq {
+    public static final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
         public static final int MINIPROGRAM_TYPE_TEST = 1;
@@ -92,7 +92,7 @@ public class WXLaunchMiniProgram {
     }
 
     /* loaded from: classes8.dex */
-    public final class Resp extends BaseResp {
+    public static final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String extMsg;

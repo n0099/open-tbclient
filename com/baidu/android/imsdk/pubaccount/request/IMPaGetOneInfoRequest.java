@@ -36,7 +36,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
     public String mKey;
-    public ArrayList mPaids;
+    public ArrayList<Long> mPaids;
     public long mUk;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -63,7 +63,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         return invokeV.booleanValue;
     }
 
-    public IMPaGetOneInfoRequest(Context context, String str, ArrayList arrayList, long j, long j2) {
+    public IMPaGetOneInfoRequest(Context context, String str, ArrayList<Long> arrayList, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,10 +86,10 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     }
 
     private void onRequestReturn(Integer num, String str, IGetPaInfoListener iGetPaInfoListener) {
-        ArrayList arrayList;
+        ArrayList<Long> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65537, this, num, str, iGetPaInfoListener) == null) && (arrayList = this.mPaids) != null && arrayList.size() > 0) {
-            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(((Long) this.mPaids.get(0)).longValue());
+            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(this.mPaids.get(0).longValue());
             if (iGetPaInfoListener != null) {
                 if (queryPaInfo != null) {
                     iGetPaInfoListener.onGetPaInfoResult(0, Constants.ERROR_MSG_SUCCESS, queryPaInfo);
@@ -128,11 +128,11 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 jSONObject.put("timestamp", currentTimeMillis);
                 JSONArray jSONArray = new JSONArray();
                 if (this.mPaids != null) {
-                    Iterator it = this.mPaids.iterator();
+                    Iterator<Long> it = this.mPaids.iterator();
                     while (it.hasNext()) {
-                        Long l = (Long) it.next();
-                        if (l.longValue() > 0) {
-                            jSONArray.put(l);
+                        Long next = it.next();
+                        if (next.longValue() > 0) {
+                            jSONArray.put(next);
                         }
                     }
                 }
@@ -160,7 +160,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             onRequestReturn((Integer) transErrorCode.first, (String) transErrorCode.second, (IGetPaInfoListener) ListenerManager.getInstance().removeListener(this.mKey));
         }
     }

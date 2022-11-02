@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.InterTypeDeclaration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InterTypeDeclarationImpl implements InterTypeDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType declaringType;
+    public AjType<?> declaringType;
     public int modifiers;
-    public AjType targetType;
+    public AjType<?> targetType;
     public String targetTypeName;
 
-    public InterTypeDeclarationImpl(AjType ajType, String str, int i) {
+    public InterTypeDeclarationImpl(AjType<?> ajType, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +41,7 @@ public class InterTypeDeclarationImpl implements InterTypeDeclaration {
         }
     }
 
-    public InterTypeDeclarationImpl(AjType ajType, AjType ajType2, int i) {
+    public InterTypeDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class InterTypeDeclarationImpl implements InterTypeDeclaration {
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeDeclaration
-    public AjType getDeclaringType() {
+    public AjType<?> getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -83,11 +83,11 @@ public class InterTypeDeclarationImpl implements InterTypeDeclaration {
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeDeclaration
-    public AjType getTargetType() throws ClassNotFoundException {
+    public AjType<?> getTargetType() throws ClassNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AjType ajType = this.targetType;
+            AjType<?> ajType = this.targetType;
             if (ajType != null) {
                 return ajType;
             }

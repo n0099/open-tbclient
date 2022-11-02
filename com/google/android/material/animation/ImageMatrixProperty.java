@@ -3,6 +3,7 @@ package com.google.android.material.animation;
 import android.graphics.Matrix;
 import android.util.Property;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ImageMatrixProperty extends Property {
+public class ImageMatrixProperty extends Property<ImageView, Matrix> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Matrix matrix;
@@ -37,7 +38,8 @@ public class ImageMatrixProperty extends Property {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public Matrix get(ImageView imageView) {
+    @NonNull
+    public Matrix get(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageView)) == null) {
@@ -49,7 +51,7 @@ public class ImageMatrixProperty extends Property {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public void set(ImageView imageView, Matrix matrix) {
+    public void set(@NonNull ImageView imageView, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, matrix) == null) {
             imageView.setImageMatrix(matrix);

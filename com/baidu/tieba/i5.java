@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i5 implements p7.c {
+public class i5<T> implements p7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x7 a;
-    public b7 b;
-    public b7 c;
-    public Object d;
+    public x7<String, b> a;
+    public b7<b> b;
+    public b7<a> c;
+    public T d;
 
     /* loaded from: classes4.dex */
-    public class a implements p7.c {
+    public static class a<T> implements p7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public Class b;
+        public Class<T> b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class i5 implements p7.c {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements p7.c {
+    public static class b implements p7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public m7 a;
@@ -105,34 +105,34 @@ public class i5 implements p7.c {
                 return;
             }
         }
-        this.a = new x7();
-        this.b = new b7(true, 3, b.class);
-        this.c = new b7();
+        this.a = new x7<>();
+        this.b = new b7<>(true, 3, b.class);
+        this.c = new b7<>();
     }
 
     @Override // com.baidu.tieba.p7.c
     public void a(p7 p7Var, JsonValue jsonValue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, p7Var, jsonValue) == null) {
-            x7 x7Var = (x7) p7Var.l("unique", x7.class, jsonValue);
+            x7<String, b> x7Var = (x7) p7Var.l("unique", x7.class, jsonValue);
             this.a = x7Var;
-            x7.a b2 = x7Var.b();
+            x7.a<String, b> b2 = x7Var.b();
             b2.c();
             while (b2.hasNext()) {
-                ((b) ((x7.b) b2.next()).b).b = this;
+                ((b) b2.next().b).b = this;
             }
-            b7 b7Var = (b7) p7Var.m("data", b7.class, b.class, jsonValue);
+            b7<b> b7Var = (b7) p7Var.m("data", b7.class, b.class, jsonValue);
             this.b = b7Var;
-            b7.b it = b7Var.iterator();
+            b7.b<b> it = b7Var.iterator();
             while (it.hasNext()) {
-                ((b) it.next()).b = this;
+                it.next().b = this;
             }
             this.c.b((b7) p7Var.m("assets", b7.class, a.class, jsonValue));
-            this.d = p7Var.l("resource", null, jsonValue);
+            this.d = (T) p7Var.l("resource", null, jsonValue);
         }
     }
 
-    public b7 b() {
+    public b7<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

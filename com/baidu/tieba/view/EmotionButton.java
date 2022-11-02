@@ -12,12 +12,13 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +101,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        p = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        p = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
         q = 1;
     }
 
@@ -126,7 +127,7 @@ public class EmotionButton extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionButton(Context context, AttributeSet attributeSet) {
+    public EmotionButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,15 +145,15 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, fj.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, xi.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionButton(Context context, AttributeSet attributeSet, int i) {
+    public EmotionButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -170,9 +171,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.EmotionButton);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.EmotionButton);
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, fj.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, xi.g(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }

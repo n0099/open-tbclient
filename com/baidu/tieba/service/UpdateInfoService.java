@@ -8,9 +8,9 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ag;
+import com.baidu.tieba.eh8;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.baidu.tieba.uf8;
+import com.baidu.tieba.sf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ag.c locationCallBack;
+    public sf.c locationCallBack;
     public ReportUserInfoModel mModel;
 
     @Override // android.app.Service
@@ -83,7 +83,7 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ag.c {
+    public class b implements sf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateInfoService a;
@@ -106,15 +106,15 @@ public class UpdateInfoService extends BdBaseService {
             this.a = updateInfoService;
         }
 
-        @Override // com.baidu.tieba.ag.c
+        @Override // com.baidu.tieba.sf.c
         public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                uf8.e().j(String.valueOf(longitude));
-                uf8.e().i(String.valueOf(latitude));
-                uf8.e().k(System.currentTimeMillis());
+                eh8.e().j(String.valueOf(longitude));
+                eh8.e().i(String.valueOf(latitude));
+                eh8.e().k(System.currentTimeMillis());
                 if (this.a.mModel.A() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.C(1, longitude, latitude);
                     this.a.mModel.D();
@@ -142,14 +142,14 @@ public class UpdateInfoService extends BdBaseService {
     private void findLocationFromLocal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ag.n().k(false, this.locationCallBack);
+            sf.n().k(false, this.locationCallBack);
         }
     }
 
     private void unRegisterLocalLocation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ag.n().s(this.locationCallBack);
+            sf.n().s(this.locationCallBack);
         }
     }
 

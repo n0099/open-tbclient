@@ -18,7 +18,7 @@ public class DecoderJNI implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class Wrapper implements INoProGuard {
+    public static class Wrapper implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long[] context;
@@ -142,7 +142,7 @@ public class DecoderJNI implements INoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;

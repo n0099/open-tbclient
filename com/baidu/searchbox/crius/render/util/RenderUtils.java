@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import android.text.style.ReplacementSpan;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtils;
@@ -39,13 +41,13 @@ public class RenderUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class PrefixLabelSpan extends ReplacementSpan {
+    public static class PrefixLabelSpan extends ReplacementSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float mLabelWidth;
 
         @Override // android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
             }
@@ -70,7 +72,7 @@ public class RenderUtils {
         }
 
         @Override // android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
@@ -94,7 +96,7 @@ public class RenderUtils {
         }
     }
 
-    public static float convertFloatValue(double d, Context context) {
+    public static float convertFloatValue(double d, @NonNull Context context) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d), context})) == null) {
@@ -103,7 +105,7 @@ public class RenderUtils {
         return invokeCommon.floatValue;
     }
 
-    public static void renderTextView(View view2, RenderData renderData, boolean z, boolean z2) {
+    public static void renderTextView(@Nullable View view2, @Nullable RenderData renderData, boolean z, boolean z2) {
         float f;
         float f2;
         String str;
@@ -211,7 +213,7 @@ public class RenderUtils {
     }
 
     @Deprecated
-    public static void setAlpha(View view2, double d, double d2, boolean z) {
+    public static void setAlpha(@Nullable View view2, double d, double d2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{view2, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z)}) != null) || view2 == null) {
             return;
@@ -225,7 +227,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setBackground(View view2, String str, RenderData renderData, boolean z, boolean z2) {
+    public static void setBackground(@Nullable View view2, @Nullable String str, @Nullable RenderData renderData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, str, renderData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             GradientAttrs gradientAttrs = renderData.gradientBgColor;
@@ -239,7 +241,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setBackgroundColor(View view2, RenderData.BackgroundData backgroundData, boolean z) {
+    public static void setBackgroundColor(@Nullable View view2, @Nullable RenderData.BackgroundData backgroundData, boolean z) {
         IllegalArgumentException illegalArgumentException;
         IllegalArgumentException illegalArgumentException2;
         IllegalArgumentException illegalArgumentException3;
@@ -296,7 +298,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setBackgroundImage(View view2, String str, RenderData.BackgroundImgData backgroundImgData, boolean z, boolean z2) {
+    public static void setBackgroundImage(@Nullable View view2, @Nullable String str, @Nullable RenderData.BackgroundImgData backgroundImgData, boolean z, boolean z2) {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
@@ -326,7 +328,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setBgGradientColor(View view2, GradientAttrs gradientAttrs, RenderData.BorderData borderData, boolean z) {
+    public static void setBgGradientColor(@NonNull View view2, @NonNull GradientAttrs gradientAttrs, @Nullable RenderData.BorderData borderData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{view2, gradientAttrs, borderData, Boolean.valueOf(z)}) == null) {
             CriusGradientDrawable criusGradientDrawable = new CriusGradientDrawable();
@@ -352,7 +354,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setBorder(View view2, RenderData.BackgroundData backgroundData, RenderData.BorderData borderData, boolean z, boolean z2) {
+    public static void setBorder(@Nullable View view2, @Nullable RenderData.BackgroundData backgroundData, @Nullable RenderData.BorderData borderData, boolean z, boolean z2) {
         String str;
         String str2;
         String str3;
@@ -463,7 +465,7 @@ public class RenderUtils {
         }
     }
 
-    public static void setInitAlphaAndController(View view2, RenderData.Opacities opacities, boolean z, boolean z2) {
+    public static void setInitAlphaAndController(@Nullable View view2, RenderData.Opacities opacities, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65545, null, new Object[]{view2, opacities, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || view2 == null) {
             return;

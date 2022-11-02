@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDelay extends AbstractFlowableWithUpstream {
+public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -23,10 +23,10 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class DelaySubscriber implements FlowableSubscriber, Subscription {
+    public static final class DelaySubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final long delay;
         public final boolean delayError;
         public Subscription s;
@@ -113,15 +113,15 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
         public final class OnNext implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final Object t;
+            public final T t;
             public final /* synthetic */ DelaySubscriber this$0;
 
-            public OnNext(DelaySubscriber delaySubscriber, Object obj) {
+            public OnNext(DelaySubscriber delaySubscriber, T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {delaySubscriber, obj};
+                    Object[] objArr = {delaySubscriber, t};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,19 +132,20 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
                     }
                 }
                 this.this$0 = delaySubscriber;
-                this.t = obj;
+                this.t = t;
             }
 
+            /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$0.actual.onNext(this.t);
+                    this.this$0.actual.onNext((T) this.t);
                 }
             }
         }
 
-        public DelaySubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
+        public DelaySubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,10 +201,10 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.w.schedule(new OnNext(this, obj), this.delay, this.unit);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.w.schedule(new OnNext(this, t), this.delay, this.unit);
             }
         }
 
@@ -226,7 +227,7 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDelay(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public FlowableDelay(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -250,7 +251,7 @@ public final class FlowableDelay extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         SerializedSubscriber serializedSubscriber;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {

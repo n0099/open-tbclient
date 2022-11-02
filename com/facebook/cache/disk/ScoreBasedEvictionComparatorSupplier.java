@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskStorage;
+import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes7.dex */
 public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     public static /* synthetic */ Interceptable $ic;
@@ -33,6 +34,7 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
         this.mSizeWeight = f2;
     }
 
+    @VisibleForTesting
     public float calculateScore(DiskStorage.Entry entry, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;

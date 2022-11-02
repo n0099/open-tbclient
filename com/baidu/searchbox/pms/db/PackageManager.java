@@ -1,5 +1,7 @@
 package com.baidu.searchbox.pms.db;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,9 +36,9 @@ public class PackageManager {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            Map finishedPackageInfo = getFinishedPackageInfo(str, str2);
+            Map<String, PackageInfo> finishedPackageInfo = getFinishedPackageInfo(str, str2);
             if (finishedPackageInfo != null && finishedPackageInfo.size() > 0) {
-                packageInfo = (PackageInfo) finishedPackageInfo.get(str2);
+                packageInfo = finishedPackageInfo.get(str2);
             } else {
                 packageInfo = null;
             }
@@ -48,7 +50,8 @@ public class PackageManager {
         return invokeLL.booleanValue;
     }
 
-    public static Map getFinishedPackageFiles(String str, List list) {
+    @NonNull
+    public static Map<String, PackageInfo> getFinishedPackageFiles(@NonNull String str, @Nullable List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
@@ -68,7 +71,7 @@ public class PackageManager {
         return (Map) invokeLL.objValue;
     }
 
-    public static Map getFinishedPackageInfo(String str, String str2) {
+    public static Map<String, PackageInfo> getFinishedPackageInfo(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
@@ -88,7 +91,7 @@ public class PackageManager {
         return (Map) invokeLL.objValue;
     }
 
-    public static List getFinishedPackageFiles(String str, String str2, String str3) {
+    public static List<PackageInfo> getFinishedPackageFiles(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
@@ -101,16 +104,16 @@ public class PackageManager {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
-            List finishedPackageFiles = getFinishedPackageFiles(str, str2, str3);
+            List<PackageInfo> finishedPackageFiles = getFinishedPackageFiles(str, str2, str3);
             if (finishedPackageFiles != null && finishedPackageFiles.size() > 0) {
-                return (PackageInfo) finishedPackageFiles.get(0);
+                return finishedPackageFiles.get(0);
             }
             return null;
         }
         return (PackageInfo) invokeLLL.objValue;
     }
 
-    public static int resetUpdateVersion(String str, List list) {
+    public static int resetUpdateVersion(String str, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {

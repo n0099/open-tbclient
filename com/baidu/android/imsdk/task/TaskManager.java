@@ -31,7 +31,7 @@ public class TaskManager {
     public ExecutorService singleThreadService;
 
     /* loaded from: classes.dex */
-    public class Task implements Runnable {
+    public static class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAction;
@@ -135,7 +135,7 @@ public class TaskManager {
         return (TaskManager) invokeL.objValue;
     }
 
-    public Future submitForLocalCallable(Callable callable) {
+    public <T> Future<T> submitForLocalCallable(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callable)) == null) {

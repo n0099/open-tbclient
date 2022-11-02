@@ -19,7 +19,7 @@ public class DownDetail {
     public static final int RETRY_STRATEGY_SUCCESS = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public String allInfo;
-    public List domainNameAndIpInfo;
+    public List<UrlDNSInfo> domainNameAndIpInfo;
     public String extendInfo;
     public int extendType;
     public String retryException;
@@ -65,7 +65,7 @@ public class DownDetail {
             stringBuffer.append("[allInfo=");
             stringBuffer.append(this.allInfo);
             stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
-            List list = this.domainNameAndIpInfo;
+            List<UrlDNSInfo> list = this.domainNameAndIpInfo;
             if (list != null && !list.isEmpty()) {
                 for (UrlDNSInfo urlDNSInfo : this.domainNameAndIpInfo) {
                     stringBuffer.append("host:" + urlDNSInfo.host + "ip:" + urlDNSInfo.ip + "t:" + urlDNSInfo.dnsTime);

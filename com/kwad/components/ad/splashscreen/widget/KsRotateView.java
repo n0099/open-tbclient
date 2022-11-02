@@ -9,6 +9,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,6 +32,7 @@ public class KsRotateView extends b {
     public static int Ap = 25;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView Ak;
+    @DrawableRes
     public int Aq;
     public ImageView nC;
 
@@ -48,7 +52,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(Context context) {
+    public KsRotateView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +72,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(Context context, AttributeSet attributeSet) {
+    public KsRotateView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,7 +93,7 @@ public class KsRotateView extends b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRotateView(Context context, AttributeSet attributeSet, int i) {
+    public KsRotateView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,15 +114,15 @@ public class KsRotateView extends b {
     }
 
     @Override // com.kwad.components.ad.splashscreen.widget.b
-    public final void a(Context context, AttributeSet attributeSet, int i) {
+    public final void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2d);
+            this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c47);
             obtainStyledAttributes.recycle();
             ImageView imageView = new ImageView(getContext());
             this.Ak = imageView;
-            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c2c);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c46);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 49;
             addView(this.Ak, layoutParams);
@@ -159,20 +163,20 @@ public class KsRotateView extends b {
             AnimatorSet animatorSet = new AnimatorSet();
             interactionView.setPivotX(interactionView.getWidth() / 2.0f);
             interactionView.setPivotY(interactionView.getHeight() / 2.0f);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, An).setDuration(500L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, An).setDuration(500L);
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(interactionView, Key.ALPHA, 1.0f, 1.0f);
             ofFloat.setDuration(340L);
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, An, 0.0f).setDuration(Al);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, Ao).setDuration(Al);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, Ao, 0.0f).setDuration(Al);
-            ObjectAnimator duration5 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, Am).setDuration(Al);
-            ObjectAnimator duration6 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, Am, 0.0f).setDuration(Al);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(interactionView, "rotation", An, 0.0f).setDuration(Al);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ao).setDuration(Al);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(interactionView, "rotation", Ao, 0.0f).setDuration(Al);
+            ObjectAnimator duration5 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Am).setDuration(Al);
+            ObjectAnimator duration6 = ObjectAnimator.ofFloat(interactionView, "rotation", Am, 0.0f).setDuration(Al);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(interactionView, Key.ALPHA, 1.0f, 1.0f);
             ofFloat2.setDuration(500L);
-            ObjectAnimator duration7 = ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, Ap).setDuration(500L);
+            ObjectAnimator duration7 = ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ap).setDuration(500L);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(interactionView, Key.ALPHA, 1.0f, 1.0f);
             ofFloat.setDuration(340L);
-            animatorSet.playSequentially(duration, ofFloat, duration2, duration3, duration4, duration5, duration6, ofFloat2, duration7, ofFloat3, ObjectAnimator.ofFloat(interactionView, Key.ROTATION, Ap, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, Am).setDuration(Al), ObjectAnimator.ofFloat(interactionView, Key.ROTATION, Am, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, Key.ROTATION, 0.0f, Ao).setDuration(Al), ObjectAnimator.ofFloat(interactionView, Key.ROTATION, Ao, 0.0f).setDuration(Al));
+            animatorSet.playSequentially(duration, ofFloat, duration2, duration3, duration4, duration5, duration6, ofFloat2, duration7, ofFloat3, ObjectAnimator.ofFloat(interactionView, "rotation", Ap, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Am).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", Am, 0.0f).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", 0.0f, Ao).setDuration(Al), ObjectAnimator.ofFloat(interactionView, "rotation", Ao, 0.0f).setDuration(Al));
             return animatorSet;
         }
         return (Animator) invokeV.objValue;

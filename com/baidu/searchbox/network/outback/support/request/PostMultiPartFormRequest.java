@@ -3,6 +3,7 @@ package com.baidu.searchbox.network.outback.support.request;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
@@ -15,7 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +26,13 @@ public class PostMultiPartFormRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.PostMultiPartFormRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class PostBytes {
+    public static class PostBytes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] bytes;
@@ -88,7 +88,7 @@ public class PostMultiPartFormRequest extends Request {
     }
 
     /* loaded from: classes2.dex */
-    public class PostFile {
+    public static class PostFile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String contentType;
@@ -157,12 +157,12 @@ public class PostMultiPartFormRequest extends Request {
     }
 
     /* loaded from: classes2.dex */
-    public class PostMultiPartFormRequestBuilder extends Request.Builder {
+    public static class PostMultiPartFormRequestBuilder extends Request.Builder<PostMultiPartFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LinkedHashMap params;
-        public List postBytes;
-        public List postFiles;
+        public LinkedHashMap<String, String> params;
+        public List<PostBytes> postBytes;
+        public List<PostFile> postFiles;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostMultiPartFormRequestBuilder(PostMultiPartFormRequest postMultiPartFormRequest) {
@@ -182,13 +182,13 @@ public class PostMultiPartFormRequest extends Request {
                     return;
                 }
             }
-            this.params = new LinkedHashMap();
+            this.params = new LinkedHashMap<>();
             this.postFiles = new ArrayList();
             this.postBytes = new ArrayList();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PostMultiPartFormRequestBuilder(Map map) {
+        public PostMultiPartFormRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -205,31 +205,31 @@ public class PostMultiPartFormRequest extends Request {
                     return;
                 }
             }
-            this.params = new LinkedHashMap();
+            this.params = new LinkedHashMap<>();
         }
 
         private RequestBody buildRequestBody() {
             InterceptResult invokeV;
-            List list;
+            List<PostFile> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                LinkedHashMap linkedHashMap = this.params;
+                LinkedHashMap<String, String> linkedHashMap = this.params;
                 if ((linkedHashMap != null && !linkedHashMap.isEmpty()) || ((list = this.postFiles) != null && list.size() > 0)) {
                     MultipartBody.Builder builder = new MultipartBody.Builder();
                     builder.setType(MultipartBody.FORM);
-                    LinkedHashMap linkedHashMap2 = this.params;
+                    LinkedHashMap<String, String> linkedHashMap2 = this.params;
                     if (linkedHashMap2 != null && !linkedHashMap2.isEmpty()) {
-                        for (Map.Entry entry : this.params.entrySet()) {
-                            builder.addFormDataPart((String) entry.getKey(), (String) entry.getValue());
+                        for (Map.Entry<String, String> entry : this.params.entrySet()) {
+                            builder.addFormDataPart(entry.getKey(), entry.getValue());
                         }
                     }
-                    List list2 = this.postFiles;
+                    List<PostFile> list2 = this.postFiles;
                     if (list2 != null && list2.size() > 0) {
                         for (PostFile postFile : this.postFiles) {
                             builder.addFormDataPart(postFile.key, postFile.fileName, RequestBody.create(MediaType.parse(postFile.contentType), postFile.file));
                         }
                     }
-                    List list3 = this.postBytes;
+                    List<PostBytes> list3 = this.postBytes;
                     if (list3 != null && list3.size() > 0) {
                         for (PostBytes postBytes : this.postBytes) {
                             builder.addFormDataPart(postBytes.key, postBytes.fileName, RequestBody.create(MediaType.parse(postBytes.contentType), postBytes.bytes));
@@ -268,11 +268,11 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder addFiles(List list) {
+        public PostMultiPartFormRequestBuilder addFiles(List<PostFile> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
-                List list2 = this.postFiles;
+                List<PostFile> list2 = this.postFiles;
                 if (list2 == null) {
                     this.postFiles = new ArrayList(list);
                 } else {
@@ -283,7 +283,7 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder addParams(Map map) {
+        public PostMultiPartFormRequestBuilder addParams(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) {
@@ -293,7 +293,7 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder bytes(List list) {
+        public PostMultiPartFormRequestBuilder bytes(List<PostBytes> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, list)) == null) {
@@ -303,7 +303,7 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder files(List list) {
+        public PostMultiPartFormRequestBuilder files(List<PostFile> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, list)) == null) {
@@ -313,11 +313,11 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder params(Map map) {
+        public PostMultiPartFormRequestBuilder params(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, map)) == null) {
-                this.params = new LinkedHashMap(map);
+                this.params = new LinkedHashMap<>(map);
                 return this;
             }
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
@@ -333,14 +333,13 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder removeParams(List list) {
+        public PostMultiPartFormRequestBuilder removeParams(List<String> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, list)) == null) {
                 if (list != null && list.size() > 0) {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        this.params.remove((String) it.next());
+                    for (String str : list) {
+                        this.params.remove(str);
                     }
                 }
                 return this;
@@ -384,11 +383,11 @@ public class PostMultiPartFormRequest extends Request {
             return (PostMultiPartFormRequestBuilder) invokeLLL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder addBytes(List list) {
+        public PostMultiPartFormRequestBuilder addBytes(List<PostBytes> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-                List list2 = this.postBytes;
+                List<PostBytes> list2 = this.postBytes;
                 if (list2 == null) {
                     this.postBytes = new ArrayList(list);
                 } else {
@@ -433,7 +432,7 @@ public class PostMultiPartFormRequest extends Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                return new PostMultiPartFormRequest((PostMultiPartFormRequestBuilder) post(buildRequestBody()), null);
+                return new PostMultiPartFormRequest(post(buildRequestBody()), null);
             }
             return (PostMultiPartFormRequest) invokeV.objValue;
         }

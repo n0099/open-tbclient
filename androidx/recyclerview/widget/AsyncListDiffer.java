@@ -2,6 +2,8 @@ package androidx.recyclerview.widget;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.AsyncDifferConfig;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,16 +25,18 @@ public class AsyncListDiffer<T> {
     public static final Executor sMainThreadExecutor;
     public transient /* synthetic */ FieldHolder $fh;
     public final AsyncDifferConfig<T> mConfig;
+    @Nullable
     public List<T> mList;
     public final List<ListListener<T>> mListeners;
     public Executor mMainThreadExecutor;
     public int mMaxScheduledGeneration;
+    @NonNull
     public List<T> mReadOnlyList;
     public final ListUpdateCallback mUpdateCallback;
 
     /* loaded from: classes.dex */
-    public interface ListListener {
-        void onCurrentListChanged(List list, List list2);
+    public interface ListListener<T> {
+        void onCurrentListChanged(@NonNull List<T> list, @NonNull List<T> list2);
     }
 
     /* loaded from: classes.dex */
@@ -58,7 +62,7 @@ public class AsyncListDiffer<T> {
         }
 
         @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
+        public void execute(@NonNull Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
                 this.mHandler.post(runnable);
@@ -82,6 +86,7 @@ public class AsyncListDiffer<T> {
         sMainThreadExecutor = new MainThreadExecutor();
     }
 
+    @NonNull
     public List<T> getCurrentList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +96,7 @@ public class AsyncListDiffer<T> {
         return (List) invokeV.objValue;
     }
 
-    public AsyncListDiffer(ListUpdateCallback listUpdateCallback, AsyncDifferConfig<T> asyncDifferConfig) {
+    public AsyncListDiffer(@NonNull ListUpdateCallback listUpdateCallback, @NonNull AsyncDifferConfig<T> asyncDifferConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +122,7 @@ public class AsyncListDiffer<T> {
         }
     }
 
-    public void submitList(List<T> list, Runnable runnable) {
+    public void submitList(@Nullable List<T> list, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, list, runnable) == null) {
             int i = this.mMaxScheduledGeneration + 1;
@@ -238,6 +243,7 @@ public class AsyncListDiffer<T> {
                                 }
 
                                 @Override // androidx.recyclerview.widget.DiffUtil.Callback
+                                @Nullable
                                 public Object getChangePayload(int i2, int i3) {
                                     InterceptResult invokeII;
                                     Interceptable interceptable3 = $ic;
@@ -316,7 +322,7 @@ public class AsyncListDiffer<T> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AsyncListDiffer(RecyclerView.Adapter adapter, DiffUtil.ItemCallback<T> itemCallback) {
+    public AsyncListDiffer(@NonNull RecyclerView.Adapter adapter, @NonNull DiffUtil.ItemCallback<T> itemCallback) {
         this(new AdapterListUpdateCallback(adapter), new AsyncDifferConfig.Builder(itemCallback).build());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -336,7 +342,7 @@ public class AsyncListDiffer<T> {
         }
     }
 
-    private void onCurrentListChanged(List<T> list, Runnable runnable) {
+    private void onCurrentListChanged(@NonNull List<T> list, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, list, runnable) == null) {
             for (ListListener<T> listListener : this.mListeners) {
@@ -348,28 +354,28 @@ public class AsyncListDiffer<T> {
         }
     }
 
-    public void addListListener(ListListener<T> listListener) {
+    public void addListListener(@NonNull ListListener<T> listListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, listListener) == null) {
             this.mListeners.add(listListener);
         }
     }
 
-    public void removeListListener(ListListener<T> listListener) {
+    public void removeListListener(@NonNull ListListener<T> listListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, listListener) == null) {
             this.mListeners.remove(listListener);
         }
     }
 
-    public void submitList(List<T> list) {
+    public void submitList(@Nullable List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             submitList(list, null);
         }
     }
 
-    public void latchList(List<T> list, DiffUtil.DiffResult diffResult, Runnable runnable) {
+    public void latchList(@NonNull List<T> list, @NonNull DiffUtil.DiffResult diffResult, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, list, diffResult, runnable) == null) {
             List<T> list2 = this.mReadOnlyList;

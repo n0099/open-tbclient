@@ -11,13 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mOriginDatas;
+    public List<Object> mOriginDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaMGetLiveStatusRequestMessage() {
@@ -38,7 +37,7 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         this.mOriginDatas = new ArrayList();
     }
 
-    public List getOrignData() {
+    public List<Object> getOrignData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -54,7 +53,7 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         }
     }
 
-    public void setOriginData(List list) {
+    public void setOriginData(List<Object> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.mOriginDatas.clear();
@@ -62,14 +61,12 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         }
     }
 
-    public void setListIds(List list) {
+    public void setListIds(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             JsonArray jsonArray = new JsonArray();
             jsonArray.add((Number) 0L);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Long l = (Long) it.next();
+            for (Long l : list) {
                 if (l != null) {
                     jsonArray.add(l);
                 }

@@ -17,7 +17,7 @@ public class IntHashMap {
     public int threshold;
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int hash;

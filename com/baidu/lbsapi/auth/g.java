@@ -2,7 +2,9 @@ package com.baidu.lbsapi.auth;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +35,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public String b;
-    public HashMap c;
+    public HashMap<String, String> c;
     public String d;
 
     public g(Context context) {
@@ -59,14 +61,24 @@ public class g {
 
     private String a(Context context) {
         InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, context)) == null) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+                if (connectivityManager == null) {
+                    return null;
+                }
+                if (Build.VERSION.SDK_INT >= 29) {
+                    NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                    if (networkCapabilities != null) {
+                        return networkCapabilities.hasTransport(1) ? "WIFI" : networkCapabilities.hasTransport(0) ? "CELLULAR" : networkCapabilities.hasTransport(3) ? "ETHERNET" : networkCapabilities.hasTransport(6) ? "LoWPAN" : networkCapabilities.hasTransport(4) ? "VPN" : networkCapabilities.hasTransport(5) ? "WifiAware" : "wifi";
+                    }
+                    return "wifi";
+                }
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     String extraInfo = activeNetworkInfo.getExtraInfo();
-                    return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CMWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_UNIWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_3GWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CTWAP))) ? "wifi" : extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CTWAP) ? ConectivityUtils.APN_CTWAP : ConectivityUtils.APN_CMWAP;
+                    return extraInfo != null ? (extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CMWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_UNIWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_3GWAP) || extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CTWAP)) ? extraInfo.trim().toLowerCase().equals(ConectivityUtils.APN_CTWAP) ? ConectivityUtils.APN_CTWAP : ConectivityUtils.APN_CMWAP : "wifi" : "wifi";
                 }
                 return null;
             } catch (Exception e) {
@@ -401,21 +413,21 @@ public class g {
         }
     }
 
-    public static String b(HashMap hashMap) throws UnsupportedEncodingException {
+    public static String b(HashMap<String, String> hashMap) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
             StringBuilder sb = new StringBuilder();
             boolean z = true;
-            for (Map.Entry entry : hashMap.entrySet()) {
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 if (z) {
                     z = false;
                 } else {
                     sb.append("&");
                 }
-                sb.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
+                sb.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
                 sb.append("=");
-                sb.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                sb.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
             }
             return sb.toString();
         }
@@ -466,11 +478,11 @@ public class g {
         return (HttpsURLConnection) invokeV.objValue;
     }
 
-    private HashMap c(HashMap hashMap) {
+    private HashMap<String, String> c(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, hashMap)) == null) {
-            HashMap hashMap2 = new HashMap();
+            HashMap<String, String> hashMap2 = new HashMap<>();
             for (String str : hashMap.keySet()) {
                 String str2 = str.toString();
                 hashMap2.put(str2, hashMap.get(str2));
@@ -480,13 +492,13 @@ public class g {
         return (HashMap) invokeL.objValue;
     }
 
-    public String a(HashMap hashMap) {
+    public String a(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            HashMap c = c(hashMap);
+            HashMap<String, String> c = c(hashMap);
             this.c = c;
-            this.b = (String) c.get("url");
+            this.b = c.get("url");
             HttpsURLConnection b = b();
             if (b == null) {
                 a.c("syncConnect failed,httpsURLConnection is null");
@@ -500,20 +512,24 @@ public class g {
 
     public boolean a() {
         InterceptResult invokeV;
-        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a.a("checkNetwork start");
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) this.a.getSystemService("connectivity");
-                if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
+                if (connectivityManager == null) {
                     return false;
                 }
-                if (activeNetworkInfo.isAvailable()) {
-                    a.a("checkNetwork end");
-                    return true;
+                if (Build.VERSION.SDK_INT >= 29) {
+                    NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
+                    return networkCapabilities != null && networkCapabilities.hasCapability(12) && networkCapabilities.hasCapability(16);
                 }
-                return false;
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
+                    return false;
+                }
+                a.a("checkNetwork end");
+                return true;
             } catch (Exception e) {
                 if (a.a) {
                     e.printStackTrace();

@@ -15,7 +15,7 @@ import kotlin.Metadata;
 public final class GestureService implements IService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mListeners;
+    public final List<OnGestureListener> mListeners;
 
     public GestureService() {
         Interceptable interceptable = $ic;

@@ -42,7 +42,7 @@ public class CaptureDownloadService extends Service {
     }
 
     /* loaded from: classes2.dex */
-    public class ProgressCallback extends DownloadCallback {
+    public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RequestTask mAppInfo;

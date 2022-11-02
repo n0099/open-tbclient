@@ -3,16 +3,19 @@ package com.kwad.components.core.g;
 import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
+import com.kwad.sdk.mvp.a;
 /* loaded from: classes7.dex */
-public abstract class c extends FrameLayout {
+public abstract class c<T extends com.kwad.sdk.mvp.a> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.kwad.sdk.mvp.a EH;
+    public T EH;
     public ViewGroup iB;
     public Presenter mPresenter;
 
@@ -47,11 +50,12 @@ public abstract class c extends FrameLayout {
         }
     }
 
+    @LayoutRes
     public abstract int getLayoutId();
 
     public abstract ViewGroup jt();
 
-    public abstract com.kwad.sdk.mvp.a jv();
+    public abstract T jv();
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
@@ -70,6 +74,7 @@ public abstract class c extends FrameLayout {
         }
     }
 
+    @NonNull
     public abstract Presenter onCreatePresenter();
 
     @Override // android.view.ViewGroup, android.view.View
@@ -77,9 +82,9 @@ public abstract class c extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            com.kwad.sdk.mvp.a aVar = this.EH;
-            if (aVar != null) {
-                aVar.release();
+            T t = this.EH;
+            if (t != null) {
+                t.release();
             }
             onActivityDestroy();
         }

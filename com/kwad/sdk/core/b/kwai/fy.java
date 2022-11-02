@@ -3,9 +3,10 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class fy implements com.kwad.sdk.core.d {
-    public static void a(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class fy implements com.kwad.sdk.core.d<PhotoInfo.VideoInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -31,7 +32,8 @@ public final class fy implements com.kwad.sdk.core.d {
         videoInfo.heightRatio = jSONObject.optDouble("heightRatio", new Double("1.0f").doubleValue());
     }
 
-    public static JSONObject b(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -76,13 +78,15 @@ public final class fy implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((PhotoInfo.VideoInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+        a2(videoInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((PhotoInfo.VideoInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(PhotoInfo.VideoInfo videoInfo, JSONObject jSONObject) {
+        return b2(videoInfo, jSONObject);
     }
 }

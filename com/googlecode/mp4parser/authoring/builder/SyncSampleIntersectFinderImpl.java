@@ -25,15 +25,15 @@ import java.util.logging.Logger;
 public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
-    public static Map getSampleNumbersCache;
-    public static Map getTimesCache;
+    public static Map<CacheTuple, long[]> getSampleNumbersCache;
+    public static Map<CacheTuple, long[]> getTimesCache;
     public transient /* synthetic */ FieldHolder $fh;
     public final int minFragmentDurationSeconds;
     public Movie movie;
     public Track referenceTrack;
 
     /* loaded from: classes7.dex */
-    public class CacheTuple {
+    public static class CacheTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Movie movie;
@@ -159,7 +159,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         return invokeLL.longValue;
     }
 
-    public static List getSyncSamplesTimestamps(Movie movie, Track track) {
+    public static List<long[]> getSyncSamplesTimestamps(Movie movie, Track track) {
         InterceptResult invokeLL;
         long[] syncSamples;
         Interceptable interceptable = $ic;
@@ -280,13 +280,13 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, track)) == null) {
             CacheTuple cacheTuple = new CacheTuple(track, this.movie);
-            long[] jArr = (long[]) getSampleNumbersCache.get(cacheTuple);
+            long[] jArr = getSampleNumbersCache.get(cacheTuple);
             if (jArr != null) {
                 return jArr;
             }
             if ("vide".equals(track.getHandler())) {
                 if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                    List syncSamplesTimestamps = getSyncSamplesTimestamps(this.movie, track);
+                    List<long[]> syncSamplesTimestamps = getSyncSamplesTimestamps(this.movie, track);
                     long[] commonIndices = getCommonIndices(track.getSyncSamples(), getTimes(track, this.movie), track.getTrackMetaData().getTimescale(), (long[][]) syncSamplesTimestamps.toArray(new long[syncSamplesTimestamps.size()]));
                     getSampleNumbersCache.put(cacheTuple, commonIndices);
                     return commonIndices;
@@ -309,18 +309,18 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                     int length = sampleNumbers.length;
                     long[] jArr2 = new long[length];
                     long j = 192000;
-                    Iterator it = this.movie.getTracks().iterator();
+                    Iterator<Track> it = this.movie.getTracks().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        Track track4 = (Track) it.next();
-                        if (track.getSampleDescriptionBox().getSampleEntry().getType().equals(track4.getSampleDescriptionBox().getSampleEntry().getType())) {
-                            AudioSampleEntry audioSampleEntry = (AudioSampleEntry) track4.getSampleDescriptionBox().getSampleEntry();
+                        Track next = it.next();
+                        if (track.getSampleDescriptionBox().getSampleEntry().getType().equals(next.getSampleDescriptionBox().getSampleEntry().getType())) {
+                            AudioSampleEntry audioSampleEntry = (AudioSampleEntry) next.getSampleDescriptionBox().getSampleEntry();
                             if (audioSampleEntry.getSampleRate() < 192000) {
                                 long sampleRate = audioSampleEntry.getSampleRate();
-                                double size2 = track4.getSamples().size() / size;
-                                long j2 = track4.getSampleDurations()[0];
+                                double size2 = next.getSamples().size() / size;
+                                long j2 = next.getSampleDurations()[0];
                                 int i2 = 0;
                                 while (i2 < length) {
                                     jArr2[i2] = (long) Math.ceil((sampleNumbers[i2] - 1) * size2 * j2);
@@ -347,10 +347,10 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
                 }
                 throw new RuntimeException("There was absolutely no Track with sync samples. I can't work with that!");
             }
-            for (Track track5 : this.movie.getTracks()) {
-                if (track5.getSyncSamples() != null && track5.getSyncSamples().length > 0) {
-                    long[] sampleNumbers2 = sampleNumbers(track5);
-                    int size3 = track5.getSamples().size();
+            for (Track track4 : this.movie.getTracks()) {
+                if (track4.getSyncSamples() != null && track4.getSyncSamples().length > 0) {
+                    long[] sampleNumbers2 = sampleNumbers(track4);
+                    int size3 = track4.getSamples().size();
                     int length2 = sampleNumbers2.length;
                     long[] jArr3 = new long[length2];
                     double size4 = track.getSamples().size() / size3;

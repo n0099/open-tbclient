@@ -1,5 +1,6 @@
 package com.bumptech.glide.load;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +80,7 @@ public final class HttpException extends IOException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpException(String str, int i, Throwable th) {
+    public HttpException(String str, int i, @Nullable Throwable th) {
         super(str + ", status code: " + i, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

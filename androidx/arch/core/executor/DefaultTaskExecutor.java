@@ -3,6 +3,9 @@ package androidx.arch.core.executor;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,12 +17,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DefaultTaskExecutor extends TaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService mDiskIO;
     public final Object mLock;
+    @Nullable
     public volatile Handler mMainHandler;
 
     public DefaultTaskExecutor() {
@@ -76,7 +81,7 @@ public class DefaultTaskExecutor extends TaskExecutor {
         });
     }
 
-    public static Handler createAsync(Looper looper) {
+    public static Handler createAsync(@NonNull Looper looper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, looper)) == null) {

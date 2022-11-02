@@ -12,24 +12,24 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class ParsingLoadable implements Loader.Loadable {
+public final class ParsingLoadable<T> implements Loader.Loadable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long bytesLoaded;
     public final DataSource dataSource;
     public final DataSpec dataSpec;
     public volatile boolean isCanceled;
-    public final Parser parser;
-    public volatile Object result;
+    public final Parser<? extends T> parser;
+    public volatile T result;
     public final int type;
 
     /* loaded from: classes7.dex */
-    public interface Parser {
-        Object parse(Uri uri, InputStream inputStream) throws IOException;
+    public interface Parser<T> {
+        T parse(Uri uri, InputStream inputStream) throws IOException;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ParsingLoadable(DataSource dataSource, Uri uri, int i, Parser parser) {
+    public ParsingLoadable(DataSource dataSource, Uri uri, int i, Parser<? extends T> parser) {
         this(dataSource, new DataSpec(uri, 1), i, parser);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +49,7 @@ public final class ParsingLoadable implements Loader.Loadable {
         }
     }
 
-    public ParsingLoadable(DataSource dataSource, DataSpec dataSpec, int i, Parser parser) {
+    public ParsingLoadable(DataSource dataSource, DataSpec dataSpec, int i, Parser<? extends T> parser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,13 +87,13 @@ public final class ParsingLoadable implements Loader.Loadable {
         }
     }
 
-    public final Object getResult() {
+    public final T getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.result;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.Loadable

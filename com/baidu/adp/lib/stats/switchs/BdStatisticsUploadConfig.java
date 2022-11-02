@@ -14,14 +14,14 @@ public class BdStatisticsUploadConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3356496353918792359L;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap item;
+    public HashMap<String, BdStatisticsUploadConfigItem> item;
 
     /* loaded from: classes.dex */
-    public class BdStatisticsUploadConfigItem implements Serializable {
+    public static class BdStatisticsUploadConfigItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7225735564387772L;
         public transient /* synthetic */ FieldHolder $fh;
-        public HashMap childItem;
+        public HashMap<String, BdStatistisUploadChilidItem> childItem;
         public boolean isUpload;
         public boolean isWifi;
         public String type;
@@ -41,12 +41,12 @@ public class BdStatisticsUploadConfig implements Serializable {
             }
             this.isUpload = false;
             this.isWifi = true;
-            this.childItem = new HashMap();
+            this.childItem = new HashMap<>();
         }
     }
 
     /* loaded from: classes.dex */
-    public class BdStatistisUploadChilidItem implements Serializable {
+    public static class BdStatistisUploadChilidItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 492107549674799283L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class BdStatisticsUploadConfig implements Serializable {
                 return;
             }
         }
-        this.item = new HashMap();
+        this.item = new HashMap<>();
     }
 
     public int geUploadCycle(String str, int i) {
@@ -99,12 +99,12 @@ public class BdStatisticsUploadConfig implements Serializable {
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = (BdStatisticsUploadConfigItem) this.item.get("alert");
+            BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
             if (bdStatisticsUploadConfigItem == null) {
                 return i;
             }
-            HashMap hashMap = bdStatisticsUploadConfigItem.childItem;
-            if (hashMap != null && (bdStatistisUploadChilidItem = (BdStatistisUploadChilidItem) hashMap.get(str)) != null) {
+            HashMap<String, BdStatistisUploadChilidItem> hashMap = bdStatisticsUploadConfigItem.childItem;
+            if (hashMap != null && (bdStatistisUploadChilidItem = hashMap.get(str)) != null) {
                 return bdStatistisUploadChilidItem.uploadCycle;
             }
             return i;
@@ -117,12 +117,12 @@ public class BdStatisticsUploadConfig implements Serializable {
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = (BdStatisticsUploadConfigItem) this.item.get("alert");
+            BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
             if (bdStatisticsUploadConfigItem == null) {
                 return i;
             }
-            HashMap hashMap = bdStatisticsUploadConfigItem.childItem;
-            if (hashMap != null && (bdStatistisUploadChilidItem = (BdStatistisUploadChilidItem) hashMap.get(str)) != null) {
+            HashMap<String, BdStatistisUploadChilidItem> hashMap = bdStatisticsUploadConfigItem.childItem;
+            if (hashMap != null && (bdStatistisUploadChilidItem = hashMap.get(str)) != null) {
                 return bdStatistisUploadChilidItem.maxAlertCount;
             }
             return i;
@@ -135,13 +135,13 @@ public class BdStatisticsUploadConfig implements Serializable {
         BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = (BdStatisticsUploadConfigItem) this.item.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = this.item.get(str)) == null) {
                 return false;
             }
             if (TextUtils.isEmpty(str2)) {
                 return bdStatisticsUploadConfigItem.isUpload;
             }
-            BdStatistisUploadChilidItem bdStatistisUploadChilidItem = (BdStatistisUploadChilidItem) bdStatisticsUploadConfigItem.childItem.get(str2);
+            BdStatistisUploadChilidItem bdStatistisUploadChilidItem = bdStatisticsUploadConfigItem.childItem.get(str2);
             if (bdStatistisUploadChilidItem == null) {
                 return bdStatisticsUploadConfigItem.isUpload;
             }
@@ -158,13 +158,13 @@ public class BdStatisticsUploadConfig implements Serializable {
         BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = (BdStatisticsUploadConfigItem) this.item.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = this.item.get(str)) == null) {
                 return true;
             }
             if (TextUtils.isEmpty(str2)) {
                 return bdStatisticsUploadConfigItem.isWifi;
             }
-            BdStatistisUploadChilidItem bdStatistisUploadChilidItem = (BdStatistisUploadChilidItem) bdStatisticsUploadConfigItem.childItem.get(str2);
+            BdStatistisUploadChilidItem bdStatistisUploadChilidItem = bdStatisticsUploadConfigItem.childItem.get(str2);
             if (bdStatistisUploadChilidItem == null) {
                 return bdStatisticsUploadConfigItem.isWifi;
             }
@@ -182,7 +182,7 @@ public class BdStatisticsUploadConfig implements Serializable {
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = (BdStatisticsUploadConfigItem) this.item.get(str)) == null || TextUtils.isEmpty(str2) || (bdStatistisUploadChilidItem = (BdStatistisUploadChilidItem) bdStatisticsUploadConfigItem.childItem.get(str2)) == null || 100 == bdStatistisUploadChilidItem.percent || ((int) (Math.random() * 100.0d)) < bdStatistisUploadChilidItem.percent) {
+            if (TextUtils.isEmpty(str) || (bdStatisticsUploadConfigItem = this.item.get(str)) == null || TextUtils.isEmpty(str2) || (bdStatistisUploadChilidItem = bdStatisticsUploadConfigItem.childItem.get(str2)) == null || 100 == bdStatistisUploadChilidItem.percent || ((int) (Math.random() * 100.0d)) < bdStatistisUploadChilidItem.percent) {
                 return true;
             }
             return false;

@@ -1,125 +1,92 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.kg5;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.sg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ug5 extends pg5 {
+public class ug5<Q extends rg5, P extends sg5> implements tg5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kg5.c a;
-    public TbPageContext b;
-    public BdRecyclerView c;
-    public PbListView d;
+    public int a;
+    public int b;
+    public String c;
+    public Q d;
+    public P e;
 
-    public ug5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, kg5.c cVar) {
+    public ug5(int i, int i2, String str, Q q, P p) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = bdRecyclerView;
-        this.a = cVar;
-        PbListView pbListView = new PbListView(getActivity());
-        this.d = pbListView;
-        pbListView.b();
-        this.d.p(R.color.transparent);
-        this.d.t(this.a.a);
-        this.d.M(this.a.b);
-        this.d.y();
-        this.d.H(R.dimen.tbfontsize33);
-        this.d.F(SkinManager.getColor(R.color.CAM_X0107));
-        this.d.B(R.color.CAM_X0110);
-        this.d.s();
+        this.a = i;
+        this.b = i2;
+        this.c = str;
+        this.d = q;
+        this.e = p;
     }
 
-    private Activity getActivity() {
+    @Override // com.baidu.tieba.tg5
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return this.b.getPageActivity();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Activity) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pg5
-    public void a() {
+    @Override // com.baidu.tieba.tg5
+    public Q b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.g) {
-                e();
-            } else {
-                d();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return (Q) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pg5
-    public void b() {
+    @Override // com.baidu.tieba.tg5
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.R();
-            this.d.D(this.a.c);
-            this.d.C(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pg5
-    public void c() {
+    @Override // com.baidu.tieba.tg5
+    public P d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.e);
-            this.d.C(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (P) invokeV.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.tg5
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.d);
-            this.d.C(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.f);
-            this.d.C(this.a.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.sg5
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.d(i);
-        }
+        return invokeV.intValue;
     }
 }

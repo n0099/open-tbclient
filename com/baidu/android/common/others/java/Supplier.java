@@ -1,6 +1,6 @@
 package com.baidu.android.common.others.java;
 @Deprecated
 /* loaded from: classes.dex */
-public interface Supplier {
-    Object get();
+public interface Supplier<T> {
+    T get();
 }

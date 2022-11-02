@@ -9,6 +9,10 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -71,7 +75,7 @@ public class ViewDragHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public int clampViewPositionHorizontal(View view2, int i, int i2) {
+        public int clampViewPositionHorizontal(@NonNull View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) {
@@ -80,7 +84,7 @@ public class ViewDragHelper {
             return invokeLII.intValue;
         }
 
-        public int clampViewPositionVertical(View view2, int i, int i2) {
+        public int clampViewPositionVertical(@NonNull View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2)) == null) {
@@ -95,7 +99,7 @@ public class ViewDragHelper {
             return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.intValue;
         }
 
-        public int getViewHorizontalDragRange(View view2) {
+        public int getViewHorizontalDragRange(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
@@ -104,7 +108,7 @@ public class ViewDragHelper {
             return invokeL.intValue;
         }
 
-        public int getViewVerticalDragRange(View view2) {
+        public int getViewVerticalDragRange(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
@@ -134,7 +138,7 @@ public class ViewDragHelper {
             }
         }
 
-        public void onViewCaptured(View view2, int i) {
+        public void onViewCaptured(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
             }
@@ -146,19 +150,19 @@ public class ViewDragHelper {
             }
         }
 
-        public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
+        public void onViewPositionChanged(@NonNull View view2, int i, int i2, @Px int i3, @Px int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
         }
 
-        public void onViewReleased(View view2, float f, float f2) {
+        public void onViewReleased(@NonNull View view2, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             }
         }
 
-        public abstract boolean tryCaptureView(View view2, int i);
+        public abstract boolean tryCaptureView(@NonNull View view2, int i);
 
         public Callback() {
             Interceptable interceptable = $ic;
@@ -241,6 +245,7 @@ public class ViewDragHelper {
         return invokeV.intValue;
     }
 
+    @Nullable
     public View getCapturedView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,6 +255,7 @@ public class ViewDragHelper {
         return (View) invokeV.objValue;
     }
 
+    @Px
     public int getDefaultEdgeSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -259,6 +265,7 @@ public class ViewDragHelper {
         return invokeV.intValue;
     }
 
+    @Px
     public int getEdgeSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -277,6 +284,7 @@ public class ViewDragHelper {
         return invokeV.floatValue;
     }
 
+    @Px
     public int getTouchSlop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -295,7 +303,7 @@ public class ViewDragHelper {
         return invokeV.intValue;
     }
 
-    public ViewDragHelper(Context context, ViewGroup viewGroup, Callback callback) {
+    public ViewDragHelper(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -445,7 +453,7 @@ public class ViewDragHelper {
         return invokeCommon.floatValue;
     }
 
-    public static ViewDragHelper create(ViewGroup viewGroup, float f, Callback callback) {
+    public static ViewDragHelper create(@NonNull ViewGroup viewGroup, float f, @NonNull Callback callback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{viewGroup, Float.valueOf(f), callback})) == null) {
@@ -475,7 +483,7 @@ public class ViewDragHelper {
         return invokeIII.intValue;
     }
 
-    public boolean isViewUnder(View view2, int i, int i2) {
+    public boolean isViewUnder(@Nullable View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048596, this, view2, i, i2)) == null) {
@@ -487,7 +495,7 @@ public class ViewDragHelper {
         return invokeLII.booleanValue;
     }
 
-    public boolean smoothSlideViewTo(View view2, int i, int i2) {
+    public boolean smoothSlideViewTo(@NonNull View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048604, this, view2, i, i2)) == null) {
@@ -682,7 +690,7 @@ public class ViewDragHelper {
         return invokeCommon.intValue;
     }
 
-    public static ViewDragHelper create(ViewGroup viewGroup, Callback callback) {
+    public static ViewDragHelper create(@NonNull ViewGroup viewGroup, @NonNull Callback callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, viewGroup, callback)) == null) {
@@ -741,7 +749,7 @@ public class ViewDragHelper {
         }
     }
 
-    public void captureChildView(View view2, int i) {
+    public void captureChildView(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
             if (view2.getParent() == this.mParentView) {
@@ -832,7 +840,7 @@ public class ViewDragHelper {
         }
     }
 
-    public void setEdgeSize(int i) {
+    public void setEdgeSize(@IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.mEdgeSize = i;
@@ -970,6 +978,7 @@ public class ViewDragHelper {
         return invokeII.intValue;
     }
 
+    @Nullable
     public View findTopChildUnder(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -985,7 +994,7 @@ public class ViewDragHelper {
         return (View) invokeII.objValue;
     }
 
-    public boolean canScroll(View view2, boolean z, int i, int i2, int i3, int i4) {
+    public boolean canScroll(@NonNull View view2, boolean z, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         int i5;
         Interceptable interceptable = $ic;
@@ -1090,7 +1099,7 @@ public class ViewDragHelper {
         return invokeZ.booleanValue;
     }
 
-    public void processTouchEvent(MotionEvent motionEvent) {
+    public void processTouchEvent(@NonNull MotionEvent motionEvent) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, motionEvent) == null) {
@@ -1229,7 +1238,7 @@ public class ViewDragHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean shouldInterceptTouchEvent(MotionEvent motionEvent) {
+    public boolean shouldInterceptTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         boolean z;
         boolean z2;

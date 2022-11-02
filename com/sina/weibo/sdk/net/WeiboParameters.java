@@ -21,7 +21,7 @@ public class WeiboParameters {
     public transient /* synthetic */ FieldHolder $fh;
     public String mAnonymousCookie;
     public String mAppKey;
-    public LinkedHashMap mParams;
+    public LinkedHashMap<String, Object> mParams;
 
     public WeiboParameters(String str) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class WeiboParameters {
                 return;
             }
         }
-        this.mParams = new LinkedHashMap();
+        this.mParams = new LinkedHashMap<>();
         this.mAppKey = str;
     }
 
@@ -133,7 +133,7 @@ public class WeiboParameters {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && this.mParams.containsKey(str)) {
             this.mParams.remove(str);
-            LinkedHashMap linkedHashMap = this.mParams;
+            LinkedHashMap<String, Object> linkedHashMap = this.mParams;
             linkedHashMap.remove(linkedHashMap.get(str));
         }
     }
@@ -145,7 +145,7 @@ public class WeiboParameters {
         }
     }
 
-    public void setParams(LinkedHashMap linkedHashMap) {
+    public void setParams(LinkedHashMap<String, Object> linkedHashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, linkedHashMap) == null) {
             this.mParams = linkedHashMap;
@@ -199,7 +199,7 @@ public class WeiboParameters {
         return (String) invokeV.objValue;
     }
 
-    public LinkedHashMap getParams() {
+    public LinkedHashMap<String, Object> getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -208,7 +208,7 @@ public class WeiboParameters {
         return (LinkedHashMap) invokeV.objValue;
     }
 
-    public Set keySet() {
+    public Set<String> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

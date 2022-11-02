@@ -1,21 +1,23 @@
 package com.baidu.tieba.livesdk.dispatcher;
 
 import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.jg8;
-import com.baidu.tieba.jk7;
-import com.baidu.tieba.yi5;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class MixLiveDispatcher implements jg8 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes5.dex */
+public class MixLiveDispatcher implements th8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/mixlive";
     public transient /* synthetic */ FieldHolder $fh;
 
     public MixLiveDispatcher() {
@@ -32,36 +34,16 @@ public class MixLiveDispatcher implements jg8 {
         }
     }
 
-    public static String bundleToJsonStr(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
-            if (hashMap != null && !hashMap.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (String str : hashMap.keySet()) {
-                    try {
-                        jSONObject.put(str, hashMap.get(str));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.jg8
+    @Override // com.baidu.tieba.th8
     public void dispatch(JSONObject jSONObject, Context context) {
+        TbPageContext<?> currentPageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && context != null && jSONObject != null) {
-            Uri parse = Uri.parse(yi5.d(jSONObject.optString("url"), "url"));
-            HashMap hashMap = new HashMap();
-            for (String str : parse.getQueryParameterNames()) {
-                hashMap.put(str, parse.getQueryParameter(str));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && context != null && jSONObject != null && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(context)) != null) {
+            try {
+                UrlManager.getInstance().dealOneLink(currentPageContext, new String[]{UrlUtils.appendParam(URL_PREFIX, "url", URLEncoder.encode(jSONObject.optString("url"), IMAudioTransRequest.CHARSET))});
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
-            jk7.j().w(context, (String) hashMap.get("room_id"), (String) hashMap.get("source"), bundleToJsonStr(hashMap), parse);
         }
     }
 }

@@ -1,8 +1,8 @@
 package rx.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.u2a;
+import com.baidu.tieba.d4a;
+import com.baidu.tieba.nz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class RefCountSubscription implements ey9 {
+public final class RefCountSubscription implements nz9 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ey9 a;
-    public final AtomicReference b;
+    public final nz9 a;
+    public final AtomicReference<a> b;
 
     /* loaded from: classes9.dex */
-    public final class InnerSubscription extends AtomicInteger implements ey9 {
+    public static final class InnerSubscription extends AtomicInteger implements nz9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public final class RefCountSubscription implements ey9 {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public final class RefCountSubscription implements ey9 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ey9
+        @Override // com.baidu.tieba.nz9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -68,7 +68,7 @@ public final class RefCountSubscription implements ey9 {
     }
 
     /* loaded from: classes9.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
@@ -142,34 +142,34 @@ public final class RefCountSubscription implements ey9 {
         a b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AtomicReference atomicReference = this.b;
+            AtomicReference<a> atomicReference = this.b;
             do {
-                aVar = (a) atomicReference.get();
+                aVar = atomicReference.get();
                 b = aVar.b();
             } while (!atomicReference.compareAndSet(aVar, b));
             c(b);
         }
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ((a) this.b.get()).a;
+            return this.b.get().a;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey9
+    @Override // com.baidu.tieba.nz9
     public void unsubscribe() {
         a aVar;
         a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AtomicReference atomicReference = this.b;
+            AtomicReference<a> atomicReference = this.b;
             do {
-                aVar = (a) atomicReference.get();
+                aVar = atomicReference.get();
                 if (aVar.a) {
                     return;
                 }
@@ -179,12 +179,12 @@ public final class RefCountSubscription implements ey9 {
         }
     }
 
-    public RefCountSubscription(ey9 ey9Var) {
+    public RefCountSubscription(nz9 nz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ey9Var};
+            Object[] objArr = {nz9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -194,29 +194,29 @@ public final class RefCountSubscription implements ey9 {
                 return;
             }
         }
-        this.b = new AtomicReference(c);
-        if (ey9Var != null) {
-            this.a = ey9Var;
+        this.b = new AtomicReference<>(c);
+        if (nz9Var != null) {
+            this.a = nz9Var;
             return;
         }
         throw new IllegalArgumentException("s");
     }
 
-    public ey9 a() {
+    public nz9 a() {
         InterceptResult invokeV;
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AtomicReference atomicReference = this.b;
+            AtomicReference<a> atomicReference = this.b;
             do {
-                aVar = (a) atomicReference.get();
+                aVar = atomicReference.get();
                 if (aVar.a) {
-                    return u2a.c();
+                    return d4a.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
             return new InnerSubscription(this);
         }
-        return (ey9) invokeV.objValue;
+        return (nz9) invokeV.objValue;
     }
 
     public final void c(a aVar) {

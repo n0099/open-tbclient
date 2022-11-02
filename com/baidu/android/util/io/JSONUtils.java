@@ -90,20 +90,20 @@ public final class JSONUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static Object get(JSONObject jSONObject, String str, Class cls) {
+    public static <T> T get(JSONObject jSONObject, String str, Class<T> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, cls)) == null) {
             if (jSONObject == null) {
                 return null;
             }
-            Object opt = jSONObject.opt(str);
-            if (!cls.isInstance(opt)) {
+            T t = (T) jSONObject.opt(str);
+            if (!cls.isInstance(t)) {
                 return null;
             }
-            return opt;
+            return t;
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     public static boolean getBoolean(JSONObject jSONObject, String str, boolean z) {
@@ -143,17 +143,17 @@ public final class JSONUtils {
         return invokeLLI.intValue;
     }
 
-    public static Object getItem(JSONArray jSONArray, int i, Class cls) {
+    public static <T> T getItem(JSONArray jSONArray, int i, Class<T> cls) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, jSONArray, i, cls)) == null) {
-            Object opt = jSONArray.opt(i);
-            if (cls.isInstance(opt)) {
-                return opt;
+            T t = (T) jSONArray.opt(i);
+            if (cls.isInstance(t)) {
+                return t;
             }
             return null;
         }
-        return invokeLIL.objValue;
+        return (T) invokeLIL.objValue;
     }
 
     public static JSONObject parseString(String str) {

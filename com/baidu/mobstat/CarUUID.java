@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
@@ -167,6 +168,7 @@ public class CarUUID {
         return invokeLL.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static boolean a(File file, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

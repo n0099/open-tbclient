@@ -25,7 +25,7 @@ public final class c {
     public int b;
 
     /* loaded from: classes8.dex */
-    public class a extends IOException {
+    public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.g;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,8 @@ import android.os.Environment;
 import android.os.Looper;
 import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.download.api.config.n;
@@ -178,8 +181,9 @@ public class l {
         }
     }
 
-    public static HashMap b(JSONObject jSONObject) {
-        HashMap hashMap = new HashMap();
+    @NonNull
+    public static HashMap<String, String> b(JSONObject jSONObject) {
+        HashMap<String, String> hashMap = new HashMap<>();
         if (jSONObject != null) {
             try {
                 Iterator<String> keys = jSONObject.keys();
@@ -304,11 +308,12 @@ public class l {
         return cVar;
     }
 
-    public static Object a(Object... objArr) {
-        if (objArr != null) {
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    return obj;
+    @NonNull
+    public static <T> T a(T... tArr) {
+        if (tArr != null) {
+            for (T t : tArr) {
+                if (t != null) {
+                    return t;
                 }
             }
             throw new IllegalArgumentException("args is null");
@@ -330,6 +335,7 @@ public class l {
         return com.ss.android.download.api.c.b.a(strArr);
     }
 
+    @NonNull
     public static JSONObject a(JSONObject jSONObject) {
         return com.ss.android.download.api.c.b.a(jSONObject);
     }
@@ -338,6 +344,7 @@ public class l {
         return com.ss.android.download.api.c.b.a(jSONObject, jSONObject2);
     }
 
+    @NonNull
     public static JSONObject a(JSONObject... jSONObjectArr) {
         return com.ss.android.download.api.c.b.a(jSONObjectArr);
     }
@@ -436,6 +443,7 @@ public class l {
         return true;
     }
 
+    @SuppressLint({"MissingPermission"})
     public static void b() {
         try {
             if (!com.ss.android.downloadlib.addownload.j.e().a(com.ss.android.downloadlib.addownload.j.getContext(), "android.permission.REORDER_TASKS")) {
@@ -453,6 +461,7 @@ public class l {
         }
     }
 
+    @WorkerThread
     public static boolean c(String str) {
         File file;
         Context context = com.ss.android.downloadlib.addownload.j.getContext();

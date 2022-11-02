@@ -1,5 +1,6 @@
 package com.airbnb.lottie.model.content;
 
+import android.graphics.PointF;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.RectangleContent;
@@ -12,10 +13,10 @@ public class RectangleShape implements ContentModel {
     public final AnimatableFloatValue cornerRadius;
     public final boolean hidden;
     public final String name;
-    public final AnimatableValue position;
+    public final AnimatableValue<PointF, PointF> position;
     public final AnimatablePointValue size;
 
-    public RectangleShape(String str, AnimatableValue animatableValue, AnimatablePointValue animatablePointValue, AnimatableFloatValue animatableFloatValue, boolean z) {
+    public RectangleShape(String str, AnimatableValue<PointF, PointF> animatableValue, AnimatablePointValue animatablePointValue, AnimatableFloatValue animatableFloatValue, boolean z) {
         this.name = str;
         this.position = animatableValue;
         this.size = animatablePointValue;
@@ -31,7 +32,7 @@ public class RectangleShape implements ContentModel {
         return this.name;
     }
 
-    public AnimatableValue getPosition() {
+    public AnimatableValue<PointF, PointF> getPosition() {
         return this.position;
     }
 

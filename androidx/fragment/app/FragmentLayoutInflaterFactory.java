@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.R;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -40,7 +42,8 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
     }
 
     @Override // android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         int i;
         Interceptable interceptable = $ic;
@@ -131,7 +134,8 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
     }
 
     @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public View onCreateView(@NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {

@@ -8,22 +8,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.facebook.imagepipeline.request.RepeatedPostprocessor;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PostprocessedBitmapMemoryCacheProducer implements Producer {
+public class PostprocessedBitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "PostprocessedBitmapMemoryCacheProducer";
+    @VisibleForTesting
     public static final String VALUE_FOUND = "cached_value_found";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
-    public final Producer mInputProducer;
-    public final MemoryCache mMemoryCache;
+    public final Producer<CloseableReference<CloseableImage>> mInputProducer;
+    public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
 
     public String getProducerName() {
         InterceptResult invokeV;
@@ -32,16 +35,16 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
     }
 
     /* loaded from: classes7.dex */
-    public class CachedPostprocessorConsumer extends DelegatingConsumer {
+    public static class CachedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKey mCacheKey;
         public final boolean mIsMemoryCachedEnabled;
         public final boolean mIsRepeatedProcessor;
-        public final MemoryCache mMemoryCache;
+        public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CachedPostprocessorConsumer(Consumer consumer, CacheKey cacheKey, boolean z, MemoryCache memoryCache, boolean z2) {
+        public CachedPostprocessorConsumer(Consumer<CloseableReference<CloseableImage>> consumer, CacheKey cacheKey, boolean z, MemoryCache<CacheKey, CloseableImage> memoryCache, boolean z2) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -66,10 +69,10 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference closeableReference, int i) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i) == null) {
-                CloseableReference closeableReference2 = null;
+                CloseableReference<CloseableImage> closeableReference2 = null;
                 if (closeableReference == null) {
                     if (BaseConsumer.isLast(i)) {
                         getConsumer().onNewResult(null, i);
@@ -81,7 +84,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
                     }
                     try {
                         getConsumer().onProgressUpdate(1.0f);
-                        Consumer consumer = getConsumer();
+                        Consumer<CloseableReference<CloseableImage>> consumer = getConsumer();
                         if (closeableReference2 != null) {
                             closeableReference = closeableReference2;
                         }
@@ -94,7 +97,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
         }
     }
 
-    public PostprocessedBitmapMemoryCacheProducer(MemoryCache memoryCache, CacheKeyFactory cacheKeyFactory, Producer producer) {
+    public PostprocessedBitmapMemoryCacheProducer(MemoryCache<CacheKey, CloseableImage> memoryCache, CacheKeyFactory cacheKeyFactory, Producer<CloseableReference<CloseableImage>> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +118,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext) == null) {
             ProducerListener2 producerListener = producerContext.getProducerListener();
@@ -125,8 +128,8 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer {
             if (postprocessor != null && postprocessor.getPostprocessorCacheKey() != null) {
                 producerListener.onProducerStart(producerContext, getProducerName());
                 CacheKey postprocessedBitmapCacheKey = this.mCacheKeyFactory.getPostprocessedBitmapCacheKey(imageRequest, callerContext);
-                CloseableReference closeableReference = this.mMemoryCache.get(postprocessedBitmapCacheKey);
-                Map map = null;
+                CloseableReference<CloseableImage> closeableReference = this.mMemoryCache.get(postprocessedBitmapCacheKey);
+                Map<String, String> map = null;
                 if (closeableReference != null) {
                     String producerName = getProducerName();
                     if (producerListener.requiresExtraMap(producerContext, getProducerName())) {

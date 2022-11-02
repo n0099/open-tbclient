@@ -2,6 +2,7 @@ package com.bumptech.glide.load.data;
 
 import android.content.res.AssetManager;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,13 +14,13 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public abstract class AssetPathFetcher implements DataFetcher {
+public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AssetPathFetcher";
     public transient /* synthetic */ FieldHolder $fh;
     public final AssetManager assetManager;
     public final String assetPath;
-    public Object data;
+    public T data;
 
     @Override // com.bumptech.glide.load.data.DataFetcher
     public void cancel() {
@@ -28,9 +29,9 @@ public abstract class AssetPathFetcher implements DataFetcher {
         }
     }
 
-    public abstract void close(Object obj) throws IOException;
+    public abstract void close(T t) throws IOException;
 
-    public abstract Object loadResource(AssetManager assetManager, String str) throws IOException;
+    public abstract T loadResource(AssetManager assetManager, String str) throws IOException;
 
     public AssetPathFetcher(AssetManager assetManager, String str) {
         Interceptable interceptable = $ic;
@@ -53,18 +54,19 @@ public abstract class AssetPathFetcher implements DataFetcher {
 
     @Override // com.bumptech.glide.load.data.DataFetcher
     public void cleanup() {
-        Object obj;
+        T t;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (obj = this.data) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (t = this.data) == null) {
             return;
         }
         try {
-            close(obj);
+            close(t);
         } catch (IOException unused) {
         }
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
+    @NonNull
     public DataSource getDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,11 +77,11 @@ public abstract class AssetPathFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super T> dataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
             try {
-                Object loadResource = loadResource(this.assetManager, this.assetPath);
+                T loadResource = loadResource(this.assetManager, this.assetPath);
                 this.data = loadResource;
                 dataCallback.onDataReady(loadResource);
             } catch (IOException e) {

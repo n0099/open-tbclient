@@ -23,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.HttpCookie;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +61,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void get(String str, ReqPriority reqPriority, List list, HttpHandlerWrap httpHandlerWrap) {
+    public void get(String str, ReqPriority reqPriority, List<HttpCookie> list, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, reqPriority, list, httpHandlerWrap) == null) {
             get(str, reqPriority, null, list, null, httpHandlerWrap);
@@ -74,7 +75,7 @@ public class HttpClientWrap {
         }
     }
 
-    private PassHttpParamDTO buildParamDTO(String str, HttpHashMap httpHashMap, HashMap hashMap, List list, String str2, int i) {
+    private PassHttpParamDTO buildParamDTO(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, httpHashMap, hashMap, list, str2, Integer.valueOf(i)})) == null) {
@@ -97,7 +98,7 @@ public class HttpClientWrap {
         return (PassHttpParamDTO) invokeCommon.objValue;
     }
 
-    private PassHttpParamDTO buildParamDTO(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap hashMap, List list, String str2, int i) {
+    private PassHttpParamDTO buildParamDTO(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i)})) == null) {
@@ -108,7 +109,7 @@ public class HttpClientWrap {
         return (PassHttpParamDTO) invokeCommon.objValue;
     }
 
-    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, reqPriority, httpHashMap, list, str2, Integer.valueOf(i), httpHandlerWrap})) == null) {
@@ -117,7 +118,7 @@ public class HttpClientWrap {
         return (PassHttpClientRequest) invokeCommon.objValue;
     }
 
-    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap hashMap, List list, String str2, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, httpHandlerWrap})) == null) {
@@ -165,7 +166,7 @@ public class HttpClientWrap {
         return invokeL.booleanValue;
     }
 
-    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap hashMap, List list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i), httpHandlerWrap})) == null) {
@@ -260,7 +261,7 @@ public class HttpClientWrap {
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
-                public void onSuccess(int i2, String str3, HashMap hashMap2) {
+                public void onSuccess(int i2, String str3, HashMap<String, String> hashMap2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048579, this, i2, str3, hashMap2) == null) {
                         try {
@@ -278,7 +279,7 @@ public class HttpClientWrap {
         return (PassHttpClientRequest) invokeCommon.objValue;
     }
 
-    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap hashMap, List list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i), httpHandlerWrap})) == null) {
@@ -373,7 +374,7 @@ public class HttpClientWrap {
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
-                public void onSuccess(int i2, String str3, HashMap hashMap2) {
+                public void onSuccess(int i2, String str3, HashMap<String, String> hashMap2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048579, this, i2, str3, hashMap2) == null) {
                         try {
@@ -391,14 +392,14 @@ public class HttpClientWrap {
         return (PassHttpClientRequest) invokeCommon.objValue;
     }
 
-    public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, String str2, HttpHandlerWrap httpHandlerWrap) {
+    public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, reqPriority, httpHashMap, list, str2, httpHandlerWrap}) == null) {
             get(str, reqPriority, httpHashMap, null, list, str2, 0, httpHandlerWrap);
         }
     }
 
-    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List list, String str2, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, reqPriority, httpHashMap, list, str2, httpHandlerWrap})) == null) {
@@ -414,7 +415,7 @@ public class HttpClientWrap {
         }
     }
 
-    public void post(String str, HttpHashMap httpHashMap, List list, String str2, HttpHandlerWrap httpHandlerWrap) {
+    public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, httpHashMap, list, str2, httpHandlerWrap) == null) {
             post(str, ReqPriority.IMMEDIATE, httpHashMap, null, list, str2, 0, httpHandlerWrap);

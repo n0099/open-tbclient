@@ -38,7 +38,7 @@ public final class ObservableBlockingSubscribe {
         throw new IllegalStateException("No instances!");
     }
 
-    public static void subscribe(ObservableSource observableSource) {
+    public static <T> void subscribe(ObservableSource<? extends T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, observableSource) == null) {
             BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
@@ -57,7 +57,7 @@ public final class ObservableBlockingSubscribe {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void subscribe(ObservableSource observableSource, Observer observer) {
+    public static <T> void subscribe(ObservableSource<? extends T> observableSource, Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, observableSource, observer) == null) {
             LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
@@ -84,7 +84,7 @@ public final class ObservableBlockingSubscribe {
         }
     }
 
-    public static void subscribe(ObservableSource observableSource, Consumer consumer, Consumer consumer2, Action action) {
+    public static <T> void subscribe(ObservableSource<? extends T> observableSource, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, observableSource, consumer, consumer2, action) == null) {
             ObjectHelper.requireNonNull(consumer, "onNext is null");

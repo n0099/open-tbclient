@@ -18,13 +18,13 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
 
     /* renamed from: com.baidu.searchbox.config.QuickPersistConfig$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final QuickPersistConfig INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;

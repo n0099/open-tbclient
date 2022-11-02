@@ -19,7 +19,7 @@ public final class n implements u {
     public final u att;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final n atu;
         public transient /* synthetic */ FieldHolder $fh;

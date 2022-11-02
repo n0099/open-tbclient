@@ -2,7 +2,7 @@ package com.baidu.bdtask.strategy.impl.lifecycle;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.tieba.nr;
+import com.baidu.tieba.fr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BaseLifecycleStrategy$finishGuideShowAborted$1 extends Lambda implements Function0 {
+public final class BaseLifecycleStrategy$finishGuideShowAborted$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ SubTaskState $subState;
@@ -50,7 +50,7 @@ public final class BaseLifecycleStrategy$finishGuideShowAborted$1 extends Lambda
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("showFinishGuide abort by ");
-            nr g = this.this$0.g(this.$subState);
+            fr g = this.this$0.g(this.$subState);
             if (g != null) {
                 str = g.e();
             } else {

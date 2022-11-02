@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.data;
 
+import androidx.annotation.NonNull;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -126,7 +127,7 @@ public final class ExifOrientationStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         int i3;
         Interceptable interceptable = $ic;

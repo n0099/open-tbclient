@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Service
 /* loaded from: classes2.dex */
 public class DiskFetchLogJob extends IFetchJob {
     public static /* synthetic */ Interceptable $ic = null;

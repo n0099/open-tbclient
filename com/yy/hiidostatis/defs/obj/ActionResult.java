@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map moreinfo;
+    public Map<String, String> moreinfo;
     public long reqTime;
     public String ret;
     public long rtime;
@@ -45,7 +45,7 @@ public class ActionResult implements IJsonSerialize {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionResult(int i, String str, long j, String str2, Map map) {
+    public ActionResult(int i, String str, long j, String str2, Map<String, String> map) {
         this(i, str, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,8 +80,8 @@ public class ActionResult implements IJsonSerialize {
                 jSONObject.put("rtime", this.rtime);
                 if (this.moreinfo != null && !this.moreinfo.isEmpty()) {
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry entry : this.moreinfo.entrySet()) {
-                        jSONObject2.put((String) entry.getKey(), entry.getValue());
+                    for (Map.Entry<String, String> entry : this.moreinfo.entrySet()) {
+                        jSONObject2.put(entry.getKey(), entry.getValue());
                     }
                     jSONObject.put("moreinfo", jSONObject2);
                 }

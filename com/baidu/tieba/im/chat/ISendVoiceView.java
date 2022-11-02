@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.dd7;
-import com.baidu.tieba.e87;
+import com.baidu.tieba.ne7;
+import com.baidu.tieba.o97;
 /* loaded from: classes4.dex */
-public interface ISendVoiceView extends e87 {
+public interface ISendVoiceView extends o97 {
     void setRecoding(boolean z);
 
-    void setTouchCallBack(dd7 dd7Var);
+    void setTouchCallBack(ne7 ne7Var);
 }

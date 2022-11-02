@@ -2,6 +2,8 @@ package com.facebook.drawee.components;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.AnyThread;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,8 +16,8 @@ public class DeferredReleaserConcurrentImpl extends DeferredReleaser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mLock;
-    public ArrayList mPendingReleasables;
-    public ArrayList mTempList;
+    public ArrayList<DeferredReleaser.Releasable> mPendingReleasables;
+    public ArrayList<DeferredReleaser.Releasable> mTempList;
     public final Handler mUiHandler;
     public final Runnable releaseRunnable;
 
@@ -57,6 +59,7 @@ public class DeferredReleaserConcurrentImpl extends DeferredReleaser {
             }
 
             @Override // java.lang.Runnable
+            @MainThread
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -73,12 +76,13 @@ public class DeferredReleaserConcurrentImpl extends DeferredReleaser {
                 }
             }
         };
-        this.mPendingReleasables = new ArrayList();
-        this.mTempList = new ArrayList();
+        this.mPendingReleasables = new ArrayList<>();
+        this.mTempList = new ArrayList<>();
         this.mUiHandler = new Handler(Looper.getMainLooper());
     }
 
     @Override // com.facebook.drawee.components.DeferredReleaser
+    @AnyThread
     public void cancelDeferredRelease(DeferredReleaser.Releasable releasable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, releasable) == null) {
@@ -89,6 +93,7 @@ public class DeferredReleaserConcurrentImpl extends DeferredReleaser {
     }
 
     @Override // com.facebook.drawee.components.DeferredReleaser
+    @AnyThread
     public void scheduleDeferredRelease(DeferredReleaser.Releasable releasable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, releasable) == null) {

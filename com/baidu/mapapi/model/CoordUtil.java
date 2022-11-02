@@ -3,9 +3,9 @@ package com.baidu.mapapi.model;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,41 +34,86 @@ public class CoordUtil {
     public static LatLng Coordinate_encryptEx(float f, float f2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), str})) == null) ? com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str) : (LatLng) invokeCommon.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), str})) == null) {
+            return com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str);
+        }
+        return (LatLng) invokeCommon.objValue;
     }
 
     public static LatLng decodeLocation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            CoordType coordType = SDKInitializer.getCoordType();
-            CoordType coordType2 = CoordType.GCJ02;
-            LatLng a = com.baidu.mapsdkplatform.comapi.util.b.a(str);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(a) : a;
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.a(str));
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.a(str);
         }
         return (LatLng) invokeL.objValue;
     }
 
-    public static List decodeLocationList(String str) {
+    public static List<LatLng> decodeLocationList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.c(str) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return com.baidu.mapsdkplatform.comapi.util.b.c(str);
+        }
+        return (List) invokeL.objValue;
     }
 
-    public static List decodeLocationList2D(String str) {
+    public static List<List<LatLng>> decodeLocationList2D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? com.baidu.mapsdkplatform.comapi.util.b.d(str) : (List) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return com.baidu.mapsdkplatform.comapi.util.b.d(str);
+        }
+        return (List) invokeL.objValue;
     }
 
     public static LatLng decodeNodeLocation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            CoordType coordType = SDKInitializer.getCoordType();
-            CoordType coordType2 = CoordType.GCJ02;
-            LatLng b = com.baidu.mapsdkplatform.comapi.util.b.b(str);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(b) : b;
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.b(str));
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.b(str);
+        }
+        return (LatLng) invokeL.objValue;
+    }
+
+    public static GeoPoint ll2mc(LatLng latLng) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, latLng)) == null) {
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng));
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.a(latLng);
+        }
+        return (GeoPoint) invokeL.objValue;
+    }
+
+    public static Point ll2point(LatLng latLng) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, latLng)) == null) {
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return com.baidu.mapsdkplatform.comapi.util.b.b(CoordTrans.gcjToBaidu(latLng));
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.b(latLng);
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public static LatLng mc2ll(GeoPoint geoPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, geoPoint)) == null) {
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return CoordTrans.baiduToGcj(com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint));
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
         }
         return (LatLng) invokeL.objValue;
     }
@@ -76,36 +121,21 @@ public class CoordUtil {
     public static double getDistance(Point point, Point point2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, point, point2)) == null) ? com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2) : invokeLL.doubleValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, point, point2)) == null) {
+            return com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2);
+        }
+        return invokeLL.doubleValue;
     }
 
     public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, latLng, i)) == null) ? SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i) : invokeLI.intValue;
-    }
-
-    public static GeoPoint ll2mc(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, latLng)) == null) ? SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng)) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng) : (GeoPoint) invokeL.objValue;
-    }
-
-    public static Point ll2point(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, latLng)) == null) ? SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.b(CoordTrans.gcjToBaidu(latLng)) : com.baidu.mapsdkplatform.comapi.util.b.b(latLng) : (Point) invokeL.objValue;
-    }
-
-    public static LatLng mc2ll(GeoPoint geoPoint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, geoPoint)) == null) {
-            CoordType coordType = SDKInitializer.getCoordType();
-            CoordType coordType2 = CoordType.GCJ02;
-            LatLng a = com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(a) : a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, latLng, i)) == null) {
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i);
+            }
+            return com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i);
         }
-        return (LatLng) invokeL.objValue;
+        return invokeLI.intValue;
     }
 }

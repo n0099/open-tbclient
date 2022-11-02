@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.transition;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.dg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -196,7 +196,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return (VideoFollowData) new ue9().b(str, VideoFollowData.class);
+                return (VideoFollowData) new dg9().b(str, VideoFollowData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -212,7 +212,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return new ue9().a(videoFollowData);
+                return new dg9().a(videoFollowData);
             } catch (Exception unused) {
                 return null;
             }

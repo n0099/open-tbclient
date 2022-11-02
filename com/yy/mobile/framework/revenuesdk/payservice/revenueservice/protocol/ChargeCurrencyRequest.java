@@ -32,7 +32,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     public int usedChannel;
 
     /* loaded from: classes8.dex */
-    public class ExpandBuilder {
+    public static class ExpandBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hdid;

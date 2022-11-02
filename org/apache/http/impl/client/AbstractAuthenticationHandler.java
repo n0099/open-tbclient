@@ -16,7 +16,7 @@ import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.client.AuthenticationHandler;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractAuthenticationHandler implements AuthenticationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public abstract class AbstractAuthenticationHandler implements AuthenticationHan
         throw new RuntimeException("Stub!");
     }
 
-    public List getAuthPreferences() {
+    public List<String> getAuthPreferences() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -46,7 +46,7 @@ public abstract class AbstractAuthenticationHandler implements AuthenticationHan
         return (List) invokeV.objValue;
     }
 
-    public Map parseChallenges(Header[] headerArr) throws MalformedChallengeException {
+    public Map<String, Header> parseChallenges(Header[] headerArr) throws MalformedChallengeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headerArr)) == null) {
@@ -56,7 +56,7 @@ public abstract class AbstractAuthenticationHandler implements AuthenticationHan
     }
 
     @Override // org.apache.http.client.AuthenticationHandler
-    public AuthScheme selectScheme(Map map, HttpResponse httpResponse, HttpContext httpContext) throws AuthenticationException {
+    public AuthScheme selectScheme(Map<String, Header> map, HttpResponse httpResponse, HttpContext httpContext) throws AuthenticationException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, map, httpResponse, httpContext)) == null) {

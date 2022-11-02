@@ -1,5 +1,6 @@
 package androidx.drawerlayout.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -20,6 +21,11 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowInsets;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -84,6 +90,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     public Object mLastInsets;
     public final ViewDragCallback mLeftCallback;
     public final ViewDragHelper mLeftDragger;
+    @Nullable
     public DrawerListener mListener;
     public List<DrawerListener> mListeners;
     public int mLockModeEnd;
@@ -109,11 +116,11 @@ public class DrawerLayout extends ViewGroup implements Openable {
 
     /* loaded from: classes.dex */
     public interface DrawerListener {
-        void onDrawerClosed(View view2);
+        void onDrawerClosed(@NonNull View view2);
 
-        void onDrawerOpened(View view2);
+        void onDrawerOpened(@NonNull View view2);
 
-        void onDrawerSlide(View view2, float f);
+        void onDrawerSlide(@NonNull View view2, float f);
 
         void onDrawerStateChanged(int i);
     }
@@ -335,7 +342,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(Context context, AttributeSet attributeSet) {
+        public LayoutParams(@NonNull Context context, @Nullable AttributeSet attributeSet) {
             super(context, attributeSet);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -360,7 +367,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.LayoutParams layoutParams) {
+        public LayoutParams(@NonNull ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -381,7 +388,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
+        public LayoutParams(@NonNull ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -402,7 +409,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(LayoutParams layoutParams) {
+        public LayoutParams(@NonNull LayoutParams layoutParams) {
             super((ViewGroup.MarginLayoutParams) layoutParams);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -503,7 +510,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
+        public SavedState(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
             super(parcel, classLoader);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -530,7 +537,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcelable parcelable) {
+        public SavedState(@NonNull Parcelable parcelable) {
             super(parcelable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -956,7 +963,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DrawerLayout(Context context) {
+    public DrawerLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -993,7 +1000,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return (View) invokeI.objValue;
     }
 
-    public int getDrawerLockMode(View view2) {
+    public int getDrawerLockMode(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, view2)) == null) {
@@ -1005,7 +1012,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return invokeL.intValue;
     }
 
-    public boolean isDrawerOpen(View view2) {
+    public boolean isDrawerOpen(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view2)) == null) {
@@ -1020,7 +1027,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return invokeL.booleanValue;
     }
 
-    public boolean isDrawerVisible(View view2) {
+    public boolean isDrawerVisible(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, view2)) == null) {
@@ -1057,7 +1064,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DrawerLayout(Context context, AttributeSet attributeSet) {
+    public DrawerLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040261);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1184,7 +1191,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DrawerLayout(Context context, AttributeSet attributeSet, int i) {
+    public DrawerLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1238,7 +1245,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
             }
 
             @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-            public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
+            public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
@@ -1449,7 +1456,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void addDrawerListener(DrawerListener drawerListener) {
+    public void addDrawerListener(@NonNull DrawerListener drawerListener) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, drawerListener) != null) || drawerListener == null) {
             return;
@@ -1490,6 +1497,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
+    @Nullable
     public CharSequence getDrawerTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1590,7 +1598,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void removeDrawerListener(DrawerListener drawerListener) {
+    public void removeDrawerListener(@NonNull DrawerListener drawerListener) {
         List<DrawerListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048633, this, drawerListener) != null) || drawerListener == null || (list = this.mListeners) == null) {
@@ -1646,7 +1654,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void setScrimColor(int i) {
+    public void setScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
             this.mScrimColor = i;
@@ -1668,7 +1676,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void setStatusBarBackgroundColor(int i) {
+    public void setStatusBarBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
             this.mStatusBarBackground = new ColorDrawable(i);
@@ -1827,6 +1835,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public Drawable getStatusBarBackgroundDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1970,6 +1979,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return invokeIL.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setChildInsets(Object obj, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
@@ -1986,14 +1996,14 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void setDrawerShadow(int i, int i2) {
+    public void setDrawerShadow(@DrawableRes int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048642, this, i, i2) == null) {
             setDrawerShadow(ContextCompat.getDrawable(getContext(), i), i2);
         }
     }
 
-    public void setDrawerTitle(int i, CharSequence charSequence) {
+    public void setDrawerTitle(int i, @Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048644, this, i, charSequence) == null) {
             int absoluteGravity = GravityCompat.getAbsoluteGravity(i, ViewCompat.getLayoutDirection(this));
@@ -2032,7 +2042,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void setDrawerLockMode(int i, View view2) {
+    public void setDrawerLockMode(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048641, this, i, view2) == null) {
             if (isDrawerView(view2)) {
@@ -2142,7 +2152,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void closeDrawer(View view2) {
+    public void closeDrawer(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             closeDrawer(view2, true);
@@ -2165,14 +2175,14 @@ public class DrawerLayout extends ViewGroup implements Openable {
         return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public void openDrawer(View view2) {
+    public void openDrawer(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, view2) == null) {
             openDrawer(view2, true);
         }
     }
 
-    public void setStatusBarBackground(Drawable drawable) {
+    public void setStatusBarBackground(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048648, this, drawable) == null) {
             this.mStatusBarBackground = drawable;
@@ -2180,7 +2190,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void closeDrawer(View view2, boolean z) {
+    public void closeDrawer(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, view2, z) == null) {
             if (isDrawerView(view2)) {
@@ -2207,7 +2217,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
         }
     }
 
-    public void openDrawer(View view2, boolean z) {
+    public void openDrawer(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048632, this, view2, z) == null) {
             if (isDrawerView(view2)) {
@@ -2659,6 +2669,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     @Override // android.view.View
+    @SuppressLint({"WrongConstant"})
     public void onMeasure(int i, int i2) {
         boolean z;
         boolean z2;

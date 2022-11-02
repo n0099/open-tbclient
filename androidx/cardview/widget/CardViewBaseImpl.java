@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.RoundRectDrawableWithShadow;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -205,7 +206,7 @@ public class CardViewBaseImpl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setBackgroundColor(CardViewDelegate cardViewDelegate, ColorStateList colorStateList) {
+    public void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, cardViewDelegate, colorStateList) == null) {
             getShadowBackground(cardViewDelegate).setColor(colorStateList);

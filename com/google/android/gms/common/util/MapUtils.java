@@ -1,11 +1,14 @@
 package com.google.android.gms.common.util;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.HashMap;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class MapUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +28,8 @@ public class MapUtils {
         }
     }
 
-    public static void writeStringMapToJson(StringBuilder sb, HashMap hashMap) {
+    @KeepForSdk
+    public static void writeStringMapToJson(@NonNull StringBuilder sb, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, sb, hashMap) == null) {
             sb.append("{");
@@ -34,7 +38,7 @@ public class MapUtils {
                 if (!z) {
                     sb.append(",");
                 }
-                String str2 = (String) hashMap.get(str);
+                String str2 = hashMap.get(str);
                 sb.append("\"");
                 sb.append(str);
                 sb.append("\":");

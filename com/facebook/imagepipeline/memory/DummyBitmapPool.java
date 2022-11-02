@@ -36,6 +36,7 @@ public class DummyBitmapPool implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public Bitmap get(int i) {
         InterceptResult invokeI;

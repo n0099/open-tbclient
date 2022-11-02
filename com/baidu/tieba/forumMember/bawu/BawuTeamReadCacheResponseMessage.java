@@ -13,7 +13,7 @@ import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes4.dex */
-public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage {
+public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BawuTeam mBawuTeamInfo;

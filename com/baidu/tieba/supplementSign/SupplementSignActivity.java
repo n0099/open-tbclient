@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import com.baidu.tieba.eo8;
+import com.baidu.tieba.np8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public eo8 f;
+    public np8 f;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -58,7 +58,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 this.a.mWebView.loadUrl("javascript:TbJsBridge.refreshRemainDay()");
@@ -83,7 +83,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new eo8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new np8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +106,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.eo8
+            @Override // com.baidu.tieba.np8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -150,7 +150,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mView.N();
+            this.mView.O();
         }
     }
 
@@ -164,7 +164,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.a = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
             addJsPromptInterface(this.f);
-            this.mView.A(false);
+            this.mView.B(false);
             registerListener(this.e);
         }
     }

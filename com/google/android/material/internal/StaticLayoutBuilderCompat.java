@@ -7,6 +7,10 @@ import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class StaticLayoutBuilderCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -22,11 +27,14 @@ public final class StaticLayoutBuilderCompat {
     public static final String TEXT_DIR_CLASS = "android.text.TextDirectionHeuristic";
     public static final String TEXT_DIR_CLASS_LTR = "LTR";
     public static final String TEXT_DIR_CLASS_RTL = "RTL";
-    public static Constructor constructor;
+    @Nullable
+    public static Constructor<StaticLayout> constructor;
     public static boolean initialized;
+    @Nullable
     public static Object textDirection;
     public transient /* synthetic */ FieldHolder $fh;
     public Layout.Alignment alignment;
+    @Nullable
     public TextUtils.TruncateAt ellipsize;
     public int end;
     public boolean includePad;
@@ -38,7 +46,7 @@ public final class StaticLayoutBuilderCompat {
     public final int width;
 
     /* loaded from: classes7.dex */
-    public class StaticLayoutBuilderCompatException extends Exception {
+    public static class StaticLayoutBuilderCompatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -125,7 +133,7 @@ public final class StaticLayoutBuilderCompat {
                 textDirection = loadClass2.getField(str).get(loadClass2);
                 cls = loadClass;
             }
-            Constructor declaredConstructor = StaticLayout.class.getDeclaredConstructor(CharSequence.class, Integer.TYPE, Integer.TYPE, TextPaint.class, Integer.TYPE, Layout.Alignment.class, cls, Float.TYPE, Float.TYPE, Boolean.TYPE, TextUtils.TruncateAt.class, Integer.TYPE, Integer.TYPE);
+            Constructor<StaticLayout> declaredConstructor = StaticLayout.class.getDeclaredConstructor(CharSequence.class, Integer.TYPE, Integer.TYPE, TextPaint.class, Integer.TYPE, Layout.Alignment.class, cls, Float.TYPE, Float.TYPE, Boolean.TYPE, TextUtils.TruncateAt.class, Integer.TYPE, Integer.TYPE);
             constructor = declaredConstructor;
             declaredConstructor.setAccessible(true);
             initialized = true;
@@ -134,7 +142,8 @@ public final class StaticLayoutBuilderCompat {
         }
     }
 
-    public static StaticLayoutBuilderCompat obtain(CharSequence charSequence, TextPaint textPaint, int i) {
+    @NonNull
+    public static StaticLayoutBuilderCompat obtain(@NonNull CharSequence charSequence, @NonNull TextPaint textPaint, @IntRange(from = 0) int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i)) == null) {
@@ -187,7 +196,8 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayout) invokeV.objValue;
     }
 
-    public StaticLayoutBuilderCompat setAlignment(Layout.Alignment alignment) {
+    @NonNull
+    public StaticLayoutBuilderCompat setAlignment(@NonNull Layout.Alignment alignment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alignment)) == null) {
@@ -197,7 +207,8 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
-    public StaticLayoutBuilderCompat setEllipsize(TextUtils.TruncateAt truncateAt) {
+    @NonNull
+    public StaticLayoutBuilderCompat setEllipsize(@Nullable TextUtils.TruncateAt truncateAt) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, truncateAt)) == null) {
@@ -207,7 +218,8 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeL.objValue;
     }
 
-    public StaticLayoutBuilderCompat setEnd(int i) {
+    @NonNull
+    public StaticLayoutBuilderCompat setEnd(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -217,6 +229,7 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
+    @NonNull
     public StaticLayoutBuilderCompat setIncludePad(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -237,7 +250,8 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeZ.objValue;
     }
 
-    public StaticLayoutBuilderCompat setMaxLines(int i) {
+    @NonNull
+    public StaticLayoutBuilderCompat setMaxLines(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -247,7 +261,8 @@ public final class StaticLayoutBuilderCompat {
         return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
-    public StaticLayoutBuilderCompat setStart(int i) {
+    @NonNull
+    public StaticLayoutBuilderCompat setStart(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {

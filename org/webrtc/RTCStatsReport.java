@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RTCStatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map stats;
+    public final Map<String, RTCStats> stats;
     public final long timestampUs;
 
-    public RTCStatsReport(long j, Map map) {
+    public RTCStatsReport(long j, Map<String, RTCStats> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,6 +33,7 @@ public class RTCStatsReport {
         this.stats = map;
     }
 
+    @CalledByNative
     public static RTCStatsReport create(long j, Map map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
@@ -42,7 +43,7 @@ public class RTCStatsReport {
         return (RTCStatsReport) invokeJL.objValue;
     }
 
-    public Map getStatsMap() {
+    public Map<String, RTCStats> getStatsMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

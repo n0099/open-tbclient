@@ -1,6 +1,7 @@
 package androidx.media2.session;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +68,7 @@ public class ConnectionRequest implements VersionedParcelable {
         return invokeV.intValue;
     }
 
-    public ConnectionRequest(String str, int i, Bundle bundle) {
+    public ConnectionRequest(String str, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

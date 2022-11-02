@@ -190,7 +190,7 @@ public class OauthActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.B == 1) {
-                SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback(this) { // from class: com.baidu.sapi2.activity.OauthActivity.1
+                SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>(this) { // from class: com.baidu.sapi2.activity.OauthActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ OauthActivity a;
@@ -462,7 +462,7 @@ public class OauthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 if (!b()) {
                     return;
                 }
@@ -620,10 +620,10 @@ public class OauthActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         if (this.a.B == 0) {
-                            Map urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
+                            Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
                             if (urlParamsToMap.containsKey("error")) {
                                 OauthActivity oauthActivity = this.a;
-                                oauthActivity.setResult(0, oauthActivity.a(-204, (String) urlParamsToMap.get("error")));
+                                oauthActivity.setResult(0, oauthActivity.a(-204, urlParamsToMap.get("error")));
                             } else {
                                 JSONObject jSONObject = new JSONObject();
                                 try {

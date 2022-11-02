@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.fresco.animation.backend.AnimationBackend;
@@ -47,15 +48,15 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public static final int CACHING_STRATEGY_NO_CACHE = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final AnimatedDrawableBackendProvider mAnimatedDrawableBackendProvider;
-    public final CountingMemoryCache mBackingCache;
-    public final Supplier mCachingStrategySupplier;
+    public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
+    public final Supplier<Integer> mCachingStrategySupplier;
     public final ExecutorService mExecutorServiceForFramePreparing;
     public final MonotonicClock mMonotonicClock;
-    public final Supplier mNumberOfFramesToPrepareSupplier;
+    public final Supplier<Integer> mNumberOfFramesToPrepareSupplier;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    public ExperimentalBitmapAnimationDrawableFactory(AnimatedDrawableBackendProvider animatedDrawableBackendProvider, ScheduledExecutorService scheduledExecutorService, ExecutorService executorService, MonotonicClock monotonicClock, PlatformBitmapFactory platformBitmapFactory, CountingMemoryCache countingMemoryCache, Supplier supplier, Supplier supplier2) {
+    public ExperimentalBitmapAnimationDrawableFactory(AnimatedDrawableBackendProvider animatedDrawableBackendProvider, ScheduledExecutorService scheduledExecutorService, ExecutorService executorService, MonotonicClock monotonicClock, PlatformBitmapFactory platformBitmapFactory, CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache, Supplier<Integer> supplier, Supplier<Integer> supplier2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +128,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
             AnimatedDrawableBackend createAnimatedDrawableBackend = createAnimatedDrawableBackend(animatedImageResult);
             BitmapFrameCache createBitmapFrameCache = createBitmapFrameCache(animatedImageResult);
             AnimatedDrawableBackendFrameRenderer animatedDrawableBackendFrameRenderer = new AnimatedDrawableBackendFrameRenderer(createBitmapFrameCache, createAnimatedDrawableBackend);
-            int intValue = ((Integer) this.mNumberOfFramesToPrepareSupplier.get()).intValue();
+            int intValue = this.mNumberOfFramesToPrepareSupplier.get().intValue();
             if (intValue > 0) {
                 FixedNumberBitmapFramePreparationStrategy fixedNumberBitmapFramePreparationStrategy2 = new FixedNumberBitmapFramePreparationStrategy(intValue);
                 bitmapFramePreparer = createBitmapFramePreparer(animatedDrawableBackendFrameRenderer);
@@ -145,7 +146,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, animatedImageResult)) == null) {
-            int intValue = ((Integer) this.mCachingStrategySupplier.get()).intValue();
+            int intValue = this.mCachingStrategySupplier.get().intValue();
             if (intValue != 1) {
                 if (intValue != 2) {
                     if (intValue != 3) {

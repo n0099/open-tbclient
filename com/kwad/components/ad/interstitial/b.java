@@ -2,6 +2,7 @@ package com.kwad.components.ad.interstitial;
 
 import android.app.Activity;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +23,10 @@ public final class b implements com.kwad.components.core.internal.api.a, KsInter
     public KsScene fn;
     public KsInterstitialAd.AdInteractionListener fo;
     public d fp;
+    @NonNull
     public final AdTemplate mAdTemplate;
 
-    public b(KsScene ksScene, AdTemplate adTemplate) {
+    public b(@NonNull KsScene ksScene, @NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +89,7 @@ public final class b implements com.kwad.components.core.internal.api.a, KsInter
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
-    public final void setAdInteractionListener(KsInterstitialAd.AdInteractionListener adInteractionListener) {
+    public final void setAdInteractionListener(@NonNull KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, adInteractionListener) == null) {
             this.fo = adInteractionListener;

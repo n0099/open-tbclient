@@ -3,6 +3,8 @@ package com.bytedance.pangle.plugin;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -40,7 +42,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a extends IOException {
+    public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +112,7 @@ public final class b {
         a = g.a();
     }
 
-    public static void a(String str, int i, String str2, int i2, long j, String str3, Throwable th) {
+    public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3, th}) == null) {
             JSONObject jSONObject = new JSONObject();

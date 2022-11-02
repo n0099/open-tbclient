@@ -21,7 +21,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public final String b;
-    public final Map c;
+    public final Map<String, String> c;
     public final String d;
     public boolean e;
     public final String f;
@@ -52,7 +52,7 @@ public class c {
         }
     }
 
-    public c(String str, Map map, g gVar, String str2, String str3) {
+    public c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         String jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +71,7 @@ public class c {
         this.e = false;
         this.b = str;
         this.k = gVar;
-        this.c = map == null ? new HashMap() : map;
+        this.c = map == null ? new HashMap<>() : map;
         if (gVar == null) {
             jSONObject = "";
         } else {
@@ -96,6 +96,18 @@ public class c {
         }
     }
 
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (e.a(this.f) && !this.b.contains("logReport") && !this.b.contains("uniConfig")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,7 +126,7 @@ public class c {
         return invokeV.booleanValue;
     }
 
-    public Map c() {
+    public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -148,18 +160,6 @@ public class c {
             return this.f;
         }
         return (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (e.a(this.f) && !this.b.contains("logReport") && !this.b.contains("uniConfig")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 
     public Network h() {

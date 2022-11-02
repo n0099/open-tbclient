@@ -1,5 +1,6 @@
 package androidx.core.graphics;
 
+import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -17,6 +18,7 @@ public final class RectKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @SuppressLint({"CheckResult"})
     public static final Rect and(Rect rect, Rect rect2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -92,6 +94,7 @@ public final class RectKt {
         return (Region) invokeLL.objValue;
     }
 
+    @SuppressLint({"CheckResult"})
     public static final RectF and(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

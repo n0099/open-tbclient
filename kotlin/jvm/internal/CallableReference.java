@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.lang.annotation.Annotation;
 import java.util.List;
 import java.util.Map;
+import kotlin.SinceKotlin;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KDeclarationContainer;
@@ -14,16 +15,23 @@ import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KVisibility;
 /* loaded from: classes8.dex */
 public abstract class CallableReference implements KCallable, Serializable {
+    @SinceKotlin(version = "1.1")
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
+    @SinceKotlin(version = "1.4")
     public final boolean isTopLevel;
+    @SinceKotlin(version = "1.4")
     public final String name;
+    @SinceKotlin(version = "1.4")
     public final Class owner;
+    @SinceKotlin(version = "1.1")
     public final Object receiver;
     public transient KCallable reflected;
+    @SinceKotlin(version = "1.4")
     public final String signature;
 
     public abstract KCallable computeReflected();
 
+    @SinceKotlin(version = "1.2")
     /* loaded from: classes8.dex */
     public static class NoReceiver implements Serializable {
         public static final NoReceiver INSTANCE = new NoReceiver();
@@ -37,6 +45,7 @@ public abstract class CallableReference implements KCallable, Serializable {
         this(NO_RECEIVER);
     }
 
+    @SinceKotlin(version = "1.1")
     public KCallable compute() {
         KCallable kCallable = this.reflected;
         if (kCallable == null) {
@@ -52,6 +61,7 @@ public abstract class CallableReference implements KCallable, Serializable {
         return getReflected().getAnnotations();
     }
 
+    @SinceKotlin(version = "1.1")
     public Object getBoundReceiver() {
         return this.receiver;
     }
@@ -77,6 +87,7 @@ public abstract class CallableReference implements KCallable, Serializable {
         return getReflected().getParameters();
     }
 
+    @SinceKotlin(version = "1.1")
     public KCallable getReflected() {
         KCallable compute = compute();
         if (compute != this) {
@@ -95,35 +106,42 @@ public abstract class CallableReference implements KCallable, Serializable {
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.1")
     public List<KTypeParameter> getTypeParameters() {
         return getReflected().getTypeParameters();
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.1")
     public KVisibility getVisibility() {
         return getReflected().getVisibility();
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.1")
     public boolean isAbstract() {
         return getReflected().isAbstract();
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.1")
     public boolean isFinal() {
         return getReflected().isFinal();
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.1")
     public boolean isOpen() {
         return getReflected().isOpen();
     }
 
     @Override // kotlin.reflect.KCallable
+    @SinceKotlin(version = "1.3")
     public boolean isSuspend() {
         return getReflected().isSuspend();
     }
 
+    @SinceKotlin(version = "1.1")
     public CallableReference(Object obj) {
         this(obj, null, null, null, false);
     }
@@ -138,6 +156,7 @@ public abstract class CallableReference implements KCallable, Serializable {
         return getReflected().callBy(map);
     }
 
+    @SinceKotlin(version = "1.4")
     public CallableReference(Object obj, Class cls, String str, String str2, boolean z) {
         this.receiver = obj;
         this.owner = cls;

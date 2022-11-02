@@ -2,6 +2,8 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +20,7 @@ public class NestedScrollingChildHelper {
     public int[] mTempNestedScrollConsumed;
     public final View mView;
 
-    public NestedScrollingChildHelper(View view2) {
+    public NestedScrollingChildHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +65,7 @@ public class NestedScrollingChildHelper {
         return invokeI.booleanValue;
     }
 
-    public void onStopNestedScroll(View view2) {
+    public void onStopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
             ViewCompat.stopNestedScroll(this.mView);
@@ -98,7 +100,7 @@ public class NestedScrollingChildHelper {
         }
     }
 
-    private boolean dispatchNestedScrollInternal(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
+    private boolean dispatchNestedScrollInternal(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @Nullable int[] iArr2) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         int i6;
@@ -227,7 +229,7 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
+    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
@@ -236,7 +238,7 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2, int i3) {
+    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         ViewParent nestedScrollingParentForType;
         int i4;
@@ -281,14 +283,14 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    public void dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5, int[] iArr2) {
+    public void dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @Nullable int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
             dispatchNestedScrollInternal(i, i2, i3, i4, iArr, i5, iArr2);
         }
     }
 
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
@@ -297,7 +299,7 @@ public class NestedScrollingChildHelper {
         return invokeCommon.booleanValue;
     }
 
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5) {
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {

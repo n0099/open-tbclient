@@ -17,13 +17,13 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class InstantPeriodicTask implements Callable, Disposable {
+public final class InstantPeriodicTask implements Callable<Void>, Disposable {
     public static /* synthetic */ Interceptable $ic;
-    public static final FutureTask CANCELLED;
+    public static final FutureTask<Void> CANCELLED;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService executor;
-    public final AtomicReference first;
-    public final AtomicReference rest;
+    public final AtomicReference<Future<?>> first;
+    public final AtomicReference<Future<?>> rest;
     public Thread runner;
     public final Runnable task;
 
@@ -40,7 +40,7 @@ public final class InstantPeriodicTask implements Callable, Disposable {
                 return;
             }
         }
-        CANCELLED = new FutureTask(Functions.EMPTY_RUNNABLE, null);
+        CANCELLED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
     }
 
     @Override // io.reactivex.disposables.Disposable
@@ -72,8 +72,8 @@ public final class InstantPeriodicTask implements Callable, Disposable {
             }
         }
         this.task = runnable;
-        this.first = new AtomicReference();
-        this.rest = new AtomicReference();
+        this.first = new AtomicReference<>();
+        this.rest = new AtomicReference<>();
         this.executor = executorService;
     }
 
@@ -102,33 +102,33 @@ public final class InstantPeriodicTask implements Callable, Disposable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Future future = (Future) this.first.getAndSet(CANCELLED);
+            Future<?> andSet = this.first.getAndSet(CANCELLED);
             boolean z2 = true;
-            if (future != null && future != CANCELLED) {
+            if (andSet != null && andSet != CANCELLED) {
                 if (this.runner != Thread.currentThread()) {
                     z = true;
                 } else {
                     z = false;
                 }
-                future.cancel(z);
+                andSet.cancel(z);
             }
-            Future future2 = (Future) this.rest.getAndSet(CANCELLED);
-            if (future2 != null && future2 != CANCELLED) {
+            Future<?> andSet2 = this.rest.getAndSet(CANCELLED);
+            if (andSet2 != null && andSet2 != CANCELLED) {
                 if (this.runner == Thread.currentThread()) {
                     z2 = false;
                 }
-                future2.cancel(z2);
+                andSet2.cancel(z2);
             }
         }
     }
 
-    public void setFirst(Future future) {
-        Future future2;
+    public void setFirst(Future<?> future) {
+        Future<?> future2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, future) == null) {
             do {
-                future2 = (Future) this.first.get();
+                future2 = this.first.get();
                 if (future2 == CANCELLED) {
                     if (this.runner != Thread.currentThread()) {
                         z = true;
@@ -142,13 +142,13 @@ public final class InstantPeriodicTask implements Callable, Disposable {
         }
     }
 
-    public void setRest(Future future) {
-        Future future2;
+    public void setRest(Future<?> future) {
+        Future<?> future2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, future) == null) {
             do {
-                future2 = (Future) this.rest.get();
+                future2 = this.rest.get();
                 if (future2 == CANCELLED) {
                     if (this.runner != Thread.currentThread()) {
                         z = true;

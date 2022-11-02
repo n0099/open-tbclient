@@ -1,11 +1,14 @@
 package com.facebook.soloader;
 
+import android.annotation.TargetApi;
 import android.os.Trace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
+@DoNotOptimize
+@TargetApi(18)
 /* loaded from: classes7.dex */
 public class Api18TraceUtils {
     public static /* synthetic */ Interceptable $ic = null;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.chat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -29,9 +30,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.pb7;
-import com.baidu.tieba.ru4;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.zc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,11 +42,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
-public abstract class AbsMsgImageActivity extends BaseActivity {
+public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap a;
+    public LinkedHashMap<String, String> a;
     public int b;
     public g c;
     public View d;
@@ -65,12 +67,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public String r;
     public String s;
     public long t;
-    public HashMap u;
+    public HashMap<String, Boolean> u;
     public int v;
     public boolean w;
     public PermissionJudgePolicy x;
 
-    public abstract void i2(String str, pb7 pb7Var);
+    public abstract void h2(String str, zc7 zc7Var);
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -80,7 +82,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0274a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0303a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -99,7 +101,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 }
             }
 
-            public animation.Animation$AnimationListenerC0274a(a aVar) {
+            public animation.Animation$AnimationListenerC0303a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +185,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c82));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c99));
                         }
                     } catch (Exception unused) {
                     }
@@ -191,7 +193,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 } else {
                     if (this.a.g.getVisibility() != 0) {
                         this.a.g.setVisibility(0);
-                        this.a.h.C();
+                        this.a.h.D();
                         this.a.l = new AlphaAnimation(0.0f, 1.0f);
                     } else {
                         this.a.l = new AlphaAnimation(1.0f, 0.0f);
@@ -200,7 +202,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                     }
                     this.a.l.setDuration(300L);
                     this.a.l.setFillAfter(true);
-                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0274a(this));
+                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0303a(this));
                     this.a.m = false;
                     this.a.g.startAnimation(this.a.l);
                 }
@@ -244,21 +246,20 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 AbsMsgImageActivity absMsgImageActivity = this.a;
-                absMsgImageActivity.f2(absMsgImageActivity.b, i);
+                absMsgImageActivity.e2(absMsgImageActivity.b, i);
                 this.a.b = i;
-                this.a.j2();
+                this.a.i2();
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i != 1 || System.nanoTime() - this.a.t <= 300000000 || this.a.a == null || this.a.b >= this.a.a.size()) {
-                return;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 1 && System.nanoTime() - this.a.t > 300000000 && this.a.a != null && this.a.b < this.a.a.size()) {
+                HashMap hashMap = this.a.u;
+                LinkedHashMap linkedHashMap = this.a.a;
+                hashMap.put(linkedHashMap.get("" + this.a.b), Boolean.TRUE);
             }
-            HashMap hashMap = this.a.u;
-            LinkedHashMap linkedHashMap = this.a.a;
-            hashMap.put(linkedHashMap.get("" + this.a.b), Boolean.TRUE);
         }
     }
 
@@ -295,7 +296,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements ru4.c {
+    public class d implements kv4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -318,10 +319,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.ru4.c
-        public void a(ru4 ru4Var, int i, View view2) {
+        @Override // com.baidu.tieba.kv4.c
+        public void a(kv4 kv4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, ru4Var, i, view2) == null) && ru4Var == this.a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, kv4Var, i, view2) == null) && kv4Var == this.a.getListMenu()) {
                 if (i == 0) {
                     try {
                         Activity pageActivity = this.a.getPageContext().getPageActivity();
@@ -340,12 +341,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                             this.a.c.execute(new String[0]);
                             this.a.e.setClickable(false);
                         } else {
-                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c82));
+                            this.a.showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c99));
                         }
                     } catch (Exception unused) {
                     }
                 }
-                ru4Var.e();
+                kv4Var.e();
             }
         }
     }
@@ -354,10 +355,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public class e implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ru4.c a;
+        public final /* synthetic */ kv4.c a;
         public final /* synthetic */ AbsMsgImageActivity b;
 
-        public e(AbsMsgImageActivity absMsgImageActivity, ru4.c cVar) {
+        public e(AbsMsgImageActivity absMsgImageActivity, kv4.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -380,17 +381,17 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         public boolean onLongClick(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b5)}, this.a);
-                this.b.showListMenu();
-                return false;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
+                return invokeL.booleanValue;
             }
-            return invokeL.booleanValue;
+            this.b.createListMenu(new String[]{this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f10d0)}, this.a);
+            this.b.showListMenu();
+            return false;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements pb7 {
+    public class f implements zc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -413,64 +414,64 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.pb7
-        public void a(LinkedHashMap linkedHashMap, HashMap hashMap) {
+        @Override // com.baidu.tieba.zc7
+        public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, linkedHashMap, hashMap) == null) {
                 if (linkedHashMap == null || this.a.w) {
-                    linkedHashMap = new LinkedHashMap();
+                    linkedHashMap = new LinkedHashMap<>();
                 }
                 if (linkedHashMap.isEmpty() && !TextUtils.isEmpty(this.a.p)) {
                     linkedHashMap.put(this.a.s, this.a.p);
                     if (hashMap == null) {
-                        hashMap = new HashMap();
+                        hashMap = new HashMap<>();
                     }
                     ImageUrlData imageUrlData = new ImageUrlData();
                     imageUrlData.imageUrl = this.a.q;
                     imageUrlData.urlType = 10;
                     hashMap.put(this.a.p, imageUrlData);
                 }
-                if (linkedHashMap.size() == 0) {
-                    this.a.finish();
-                    return;
-                }
-                String str = this.a.s;
-                Iterator it = linkedHashMap.keySet().iterator();
-                int i = 0;
-                while (true) {
-                    if (it.hasNext()) {
-                        String str2 = (String) it.next();
-                        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !str2.equals(str)) {
-                            i++;
+                if (linkedHashMap.size() != 0) {
+                    String str = this.a.s;
+                    Iterator<String> it = linkedHashMap.keySet().iterator();
+                    int i = 0;
+                    while (true) {
+                        if (it.hasNext()) {
+                            String next = it.next();
+                            if (TextUtils.isEmpty(next) || TextUtils.isEmpty(str) || TextUtils.isEmpty(next) || !next.equals(str)) {
+                                i++;
+                            } else {
+                                this.a.b = i;
+                                z = true;
+                                break;
+                            }
                         } else {
-                            this.a.b = i;
-                            z = true;
+                            z = false;
                             break;
                         }
-                    } else {
-                        z = false;
-                        break;
                     }
+                    this.a.o = linkedHashMap.size();
+                    if (!z) {
+                        AbsMsgImageActivity absMsgImageActivity = this.a;
+                        absMsgImageActivity.b = absMsgImageActivity.o - 1;
+                    }
+                    this.a.f.setVisibility(0);
+                    this.a.i2();
+                    this.a.h.setIsFromCDN(true);
+                    this.a.h.setAllowLocalUrl(true);
+                    this.a.h.setAssistUrls(hashMap);
+                    this.a.h.setUrlData(new ArrayList<>(linkedHashMap.values()));
+                    this.a.h.setCurrentItem(this.a.b, false);
+                    return;
                 }
-                this.a.o = linkedHashMap.size();
-                if (!z) {
-                    AbsMsgImageActivity absMsgImageActivity = this.a;
-                    absMsgImageActivity.b = absMsgImageActivity.o - 1;
-                }
-                this.a.f.setVisibility(0);
-                this.a.j2();
-                this.a.h.setIsFromCDN(true);
-                this.a.h.setAllowLocalUrl(true);
-                this.a.h.setAssistUrls(hashMap);
-                this.a.h.setUrlData(new ArrayList(linkedHashMap.values()));
-                this.a.h.setCurrentItem(this.a.b, false);
+                this.a.finish();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class g extends BdAsyncTask {
+    public class g extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -527,9 +528,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10bc);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10d7);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10bd);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10d8);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -599,10 +600,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d03c1);
-            g2(bundle);
-            h2();
-            e2();
+            setContentView(R.layout.obfuscated_res_0x7f0d03c9);
+            f2(bundle);
+            g2();
+            d2();
         }
     }
 
@@ -612,7 +613,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
             super.onNewIntent(intent);
             setIntent(intent);
-            e2();
+            d2();
         }
     }
 
@@ -633,28 +634,49 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         return invokeIL.booleanValue;
     }
 
+    public final int c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinkedHashMap<String, String> linkedHashMap = this.a;
+            if (linkedHashMap != null && linkedHashMap.size() > 0) {
+                int size = this.a.size();
+                if (this.b >= size) {
+                    this.b = size - 1;
+                }
+                if (this.b < 0) {
+                    this.b = 0;
+                }
+            } else {
+                this.b = 0;
+            }
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
         }
     }
 
-    public final void e2() {
+    public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (TextUtils.isEmpty(this.r)) {
                 finish();
             }
-            i2(this.r, new f(this));
+            h2(this.r, new f(this));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
         }
     }
@@ -673,7 +695,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            this.h.w();
+            this.h.x();
         }
     }
 
@@ -682,7 +704,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onResume();
-            this.h.x();
+            this.h.y();
         }
     }
 
@@ -692,8 +714,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
             int i = this.b;
-            f2(i, i);
-            this.h.v();
+            e2(i, i);
+            this.h.w();
             g gVar = this.c;
             if (gVar != null) {
                 gVar.cancel();
@@ -706,38 +728,17 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     public void releaseResouce() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.h.v();
+            this.h.w();
         }
     }
 
-    public final int d2() {
-        InterceptResult invokeV;
+    public final void e2(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap linkedHashMap = this.a;
-            if (linkedHashMap != null && linkedHashMap.size() > 0) {
-                int size = this.a.size();
-                if (this.b >= size) {
-                    this.b = size - 1;
-                }
-                if (this.b < 0) {
-                    this.b = 0;
-                }
-            } else {
-                this.b = 0;
-            }
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f2(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             synchronized (this.u) {
                 if (System.nanoTime() - this.t > 300000000 && this.a != null && i < this.a.size()) {
-                    HashMap hashMap = this.u;
-                    LinkedHashMap linkedHashMap = this.a;
+                    HashMap<String, Boolean> hashMap = this.u;
+                    LinkedHashMap<String, String> linkedHashMap = this.a;
                     hashMap.put(linkedHashMap.get("" + i), Boolean.TRUE);
                 }
                 this.t = System.nanoTime();
@@ -745,7 +746,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
         }
     }
 
-    public final void g2(Bundle bundle) {
+    public final void f2(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             Intent intent = getIntent();
@@ -764,7 +765,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 if (this.p == null) {
                     this.p = "";
                 }
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
                 this.a = linkedHashMap;
                 linkedHashMap.put(this.s, this.p);
                 this.v = intent.getIntExtra(TbEnum.ParamKey.CHAT_MODE, 0);
@@ -783,20 +784,20 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                     this.r = "";
                 }
             }
-            this.u = new HashMap();
+            this.u = new HashMap<>();
         }
     }
 
-    public final void h2() {
+    public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.i = new a(this);
             this.k = new b(this);
             this.j = new c(this);
             e eVar = new e(this, new d(this));
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091649);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
             this.g = navigationBar;
-            FrameLayout frameLayout = (FrameLayout) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c2, this.i);
+            FrameLayout frameLayout = (FrameLayout) navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03cb, this.i);
             this.e = frameLayout;
             if (this.w) {
                 frameLayout.setVisibility(8);
@@ -804,13 +805,13 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             this.d = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.i);
             SkinManager.setImageResource(this.g.getBackImageView(), R.drawable.icon_return_bg);
             this.f = this.g.setTitleText("");
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f092619);
             this.h = multiImageView;
-            multiImageView.setPageMargin(fj.d(getPageContext().getContext(), 8.0f));
+            multiImageView.setPageMargin(xi.d(getPageContext().getContext(), 8.0f));
             this.h.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
             this.h.setOnPageChangeListener(this.k);
             this.h.setItemOnclickListener(this.i);
-            this.h.setCurrentItem(d2(), false);
+            this.h.setCurrentItem(c2(), false);
             this.h.setOnScrollOutListener(this.j);
             this.h.setItemOnLongClickListener(eVar);
             this.h.setHasNext(false);
@@ -818,12 +819,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
             this.h.setIsFromCDN(true);
             this.h.setAllowLocalUrl(true);
             int i = this.b;
-            f2(i, i);
+            e2(i, i);
             this.f.setVisibility(4);
         }
     }
 
-    public final void j2() {
+    public final void i2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a != null) {
             String valueOf = String.valueOf(this.b + 1);
@@ -831,7 +832,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
                 valueOf = (valueOf + "/") + this.o;
             }
             if (this.h.getHasNext() && this.b == this.h.getItemNum() - 1) {
-                this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f8));
+                this.f.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0902));
                 this.e.setClickable(false);
                 return;
             }
@@ -841,6 +842,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
+    @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

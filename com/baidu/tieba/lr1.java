@@ -1,57 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fl1;
-import com.baidu.tieba.go2;
-import com.baidu.tieba.ka2;
-import com.baidu.tieba.lh3;
-import com.baidu.tieba.m12;
-import com.baidu.tieba.m72;
-import com.baidu.tieba.pu1;
-import com.baidu.tieba.rc3;
-import com.baidu.tieba.s63;
-import com.baidu.tieba.ud2;
-import com.baidu.tieba.wb2;
-import com.baidu.tieba.z82;
+import android.media.MediaMetadataRetriever;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class lr1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
+/* loaded from: classes5.dex */
+public class lr1 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final File a;
 
-    public static HashMap a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952382, "Lcom/baidu/tieba/lr1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952382, "Lcom/baidu/tieba/lr1;");
+                return;
+            }
+        }
+        b = ok1.a;
+    }
+
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(s63.b.class, new s63.b());
-            hashMap.put(ka2.f.class, new ka2.f());
-            hashMap.put(ka2.g.class, new ka2.g());
-            hashMap.put(m72.a.class, new m72.a());
-            hashMap.put(z82.a.class, new z82.a());
-            hashMap.put(lh3.c.class, new lh3.c());
-            hashMap.put(rc3.b.class, new rc3.b());
-            hashMap.put(go2.c.class, new go2.c());
-            hashMap.put(zu2.class, new zu2());
-            hashMap.put(vq1.class, new vq1());
-            hashMap.put(wq1.class, new wq1());
-            hashMap.put(yb3.class, new yb3());
-            hashMap.put(xb3.class, new xb3());
-            hashMap.put(bc3.class, new bc3());
-            hashMap.put(qc2.class, new qc2());
-            hashMap.put(wb2.c.class, new wb2.c());
-            hashMap.put(jt2.class, new jt2());
-            hashMap.put(pu1.b.class, new pu1.b());
-            hashMap.put(fl1.a.class, new fl1.a());
-            hashMap.put(w12.class, new w12());
-            hashMap.put(ud2.a.class, new ud2.a());
-            hashMap.put(ud2.b.class, new ud2.b());
-            hashMap.put(mw2.class, new mw2());
-            hashMap.put(m12.b.class, new m12.b());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.length();
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return MediaType.parse(a(this.a.getPath()));
+        }
+        return (MediaType) invokeV.objValue;
+    }
+
+    public lr1(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = file;
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            String str2 = "image/jpeg";
+            if (str != null) {
+                try {
+                    try {
+                        try {
+                            try {
+                                mediaMetadataRetriever.setDataSource(str);
+                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
+                                if (extractMetadata != null) {
+                                    str2 = extractMetadata;
+                                }
+                                try {
+                                    mediaMetadataRetriever.release();
+                                } catch (Exception e) {
+                                    if (b) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                if (b) {
+                                    e2.printStackTrace();
+                                }
+                                return "image/jpeg";
+                            }
+                        } catch (Exception e3) {
+                            if (b) {
+                                e3.printStackTrace();
+                            }
+                            return "image/jpeg";
+                        }
+                    } catch (Exception e4) {
+                        if (b) {
+                            e4.printStackTrace();
+                        }
+                    }
+                } catch (IllegalArgumentException unused) {
+                    mediaMetadataRetriever.release();
+                    return "image/jpeg";
+                } catch (IllegalStateException unused2) {
+                    mediaMetadataRetriever.release();
+                } catch (RuntimeException unused3) {
+                    mediaMetadataRetriever.release();
+                    return "image/jpeg";
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e5) {
+                        if (b) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+            Source source = null;
+            try {
+                source = Okio.source(this.a);
+                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
+                    bufferedSink.flush();
+                }
+            } finally {
+                ik4.d(source);
+            }
+        }
     }
 }

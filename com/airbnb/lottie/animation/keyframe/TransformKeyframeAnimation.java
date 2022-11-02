@@ -2,6 +2,8 @@ package com.airbnb.lottie.animation.keyframe;
 
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
 import com.airbnb.lottie.model.animatable.AnimatableTransform;
@@ -12,26 +14,35 @@ import com.airbnb.lottie.value.ScaleXY;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class TransformKeyframeAnimation {
-    public BaseKeyframeAnimation anchorPoint;
-    public BaseKeyframeAnimation endOpacity;
+    @NonNull
+    public BaseKeyframeAnimation<PointF, PointF> anchorPoint;
+    @Nullable
+    public BaseKeyframeAnimation<?, Float> endOpacity;
     public final Matrix matrix = new Matrix();
-    public BaseKeyframeAnimation opacity;
-    public BaseKeyframeAnimation position;
-    public BaseKeyframeAnimation rotation;
-    public BaseKeyframeAnimation scale;
+    @NonNull
+    public BaseKeyframeAnimation<Integer, Integer> opacity;
+    @NonNull
+    public BaseKeyframeAnimation<?, PointF> position;
+    @NonNull
+    public BaseKeyframeAnimation<Float, Float> rotation;
+    @NonNull
+    public BaseKeyframeAnimation<ScaleXY, ScaleXY> scale;
+    @Nullable
     public FloatKeyframeAnimation skew;
+    @Nullable
     public FloatKeyframeAnimation skewAngle;
     public final Matrix skewMatrix1;
     public final Matrix skewMatrix2;
     public final Matrix skewMatrix3;
     public final float[] skewValues;
-    public BaseKeyframeAnimation startOpacity;
+    @Nullable
+    public BaseKeyframeAnimation<?, Float> startOpacity;
 
     public TransformKeyframeAnimation(AnimatableTransform animatableTransform) {
-        BaseKeyframeAnimation createAnimation;
-        BaseKeyframeAnimation createAnimation2;
-        BaseKeyframeAnimation createAnimation3;
-        BaseKeyframeAnimation createAnimation4;
+        BaseKeyframeAnimation<PointF, PointF> createAnimation;
+        BaseKeyframeAnimation<PointF, PointF> createAnimation2;
+        BaseKeyframeAnimation<ScaleXY, ScaleXY> createAnimation3;
+        BaseKeyframeAnimation<Float, Float> createAnimation4;
         FloatKeyframeAnimation floatKeyframeAnimation;
         FloatKeyframeAnimation floatKeyframeAnimation2;
         if (animatableTransform.getAnchorPoint() == null) {
@@ -102,15 +113,18 @@ public class TransformKeyframeAnimation {
         }
     }
 
-    public BaseKeyframeAnimation getEndOpacity() {
+    @Nullable
+    public BaseKeyframeAnimation<?, Float> getEndOpacity() {
         return this.endOpacity;
     }
 
-    public BaseKeyframeAnimation getOpacity() {
+    @Nullable
+    public BaseKeyframeAnimation<?, Integer> getOpacity() {
         return this.opacity;
     }
 
-    public BaseKeyframeAnimation getStartOpacity() {
+    @Nullable
+    public BaseKeyframeAnimation<?, Float> getStartOpacity() {
         return this.startOpacity;
     }
 
@@ -127,31 +141,31 @@ public class TransformKeyframeAnimation {
     }
 
     public void addListener(BaseKeyframeAnimation.AnimationListener animationListener) {
-        BaseKeyframeAnimation baseKeyframeAnimation = this.opacity;
+        BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation = this.opacity;
         if (baseKeyframeAnimation != null) {
             baseKeyframeAnimation.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation2 = this.startOpacity;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2 = this.startOpacity;
         if (baseKeyframeAnimation2 != null) {
             baseKeyframeAnimation2.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation3 = this.endOpacity;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation3 = this.endOpacity;
         if (baseKeyframeAnimation3 != null) {
             baseKeyframeAnimation3.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation4 = this.anchorPoint;
+        BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
         if (baseKeyframeAnimation4 != null) {
             baseKeyframeAnimation4.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation5 = this.position;
+        BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation5 = this.position;
         if (baseKeyframeAnimation5 != null) {
             baseKeyframeAnimation5.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation6 = this.scale;
+        BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation6 = this.scale;
         if (baseKeyframeAnimation6 != null) {
             baseKeyframeAnimation6.addUpdateListener(animationListener);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation7 = this.rotation;
+        BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation7 = this.rotation;
         if (baseKeyframeAnimation7 != null) {
             baseKeyframeAnimation7.addUpdateListener(animationListener);
         }
@@ -166,31 +180,31 @@ public class TransformKeyframeAnimation {
     }
 
     public void setProgress(float f) {
-        BaseKeyframeAnimation baseKeyframeAnimation = this.opacity;
+        BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation = this.opacity;
         if (baseKeyframeAnimation != null) {
             baseKeyframeAnimation.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation2 = this.startOpacity;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2 = this.startOpacity;
         if (baseKeyframeAnimation2 != null) {
             baseKeyframeAnimation2.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation3 = this.endOpacity;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation3 = this.endOpacity;
         if (baseKeyframeAnimation3 != null) {
             baseKeyframeAnimation3.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation4 = this.anchorPoint;
+        BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
         if (baseKeyframeAnimation4 != null) {
             baseKeyframeAnimation4.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation5 = this.position;
+        BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation5 = this.position;
         if (baseKeyframeAnimation5 != null) {
             baseKeyframeAnimation5.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation6 = this.scale;
+        BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation6 = this.scale;
         if (baseKeyframeAnimation6 != null) {
             baseKeyframeAnimation6.setProgress(f);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation7 = this.rotation;
+        BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation7 = this.rotation;
         if (baseKeyframeAnimation7 != null) {
             baseKeyframeAnimation7.setProgress(f);
         }
@@ -204,72 +218,72 @@ public class TransformKeyframeAnimation {
         }
     }
 
-    public boolean applyValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
+    public <T> boolean applyValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
         FloatKeyframeAnimation floatKeyframeAnimation;
         FloatKeyframeAnimation floatKeyframeAnimation2;
-        BaseKeyframeAnimation baseKeyframeAnimation;
-        BaseKeyframeAnimation baseKeyframeAnimation2;
-        if (obj == LottieProperty.TRANSFORM_ANCHOR_POINT) {
-            BaseKeyframeAnimation baseKeyframeAnimation3 = this.anchorPoint;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2;
+        if (t == LottieProperty.TRANSFORM_ANCHOR_POINT) {
+            BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation3 = this.anchorPoint;
             if (baseKeyframeAnimation3 == null) {
                 this.anchorPoint = new ValueCallbackKeyframeAnimation(lottieValueCallback, new PointF());
                 return true;
             }
             baseKeyframeAnimation3.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_POSITION) {
-            BaseKeyframeAnimation baseKeyframeAnimation4 = this.position;
+        } else if (t == LottieProperty.TRANSFORM_POSITION) {
+            BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation4 = this.position;
             if (baseKeyframeAnimation4 == null) {
                 this.position = new ValueCallbackKeyframeAnimation(lottieValueCallback, new PointF());
                 return true;
             }
             baseKeyframeAnimation4.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_SCALE) {
-            BaseKeyframeAnimation baseKeyframeAnimation5 = this.scale;
+        } else if (t == LottieProperty.TRANSFORM_SCALE) {
+            BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation5 = this.scale;
             if (baseKeyframeAnimation5 == null) {
                 this.scale = new ValueCallbackKeyframeAnimation(lottieValueCallback, new ScaleXY());
                 return true;
             }
             baseKeyframeAnimation5.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_ROTATION) {
-            BaseKeyframeAnimation baseKeyframeAnimation6 = this.rotation;
+        } else if (t == LottieProperty.TRANSFORM_ROTATION) {
+            BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation6 = this.rotation;
             if (baseKeyframeAnimation6 == null) {
                 this.rotation = new ValueCallbackKeyframeAnimation(lottieValueCallback, Float.valueOf(0.0f));
                 return true;
             }
             baseKeyframeAnimation6.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_OPACITY) {
-            BaseKeyframeAnimation baseKeyframeAnimation7 = this.opacity;
+        } else if (t == LottieProperty.TRANSFORM_OPACITY) {
+            BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation7 = this.opacity;
             if (baseKeyframeAnimation7 == null) {
                 this.opacity = new ValueCallbackKeyframeAnimation(lottieValueCallback, 100);
                 return true;
             }
             baseKeyframeAnimation7.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_START_OPACITY && (baseKeyframeAnimation2 = this.startOpacity) != null) {
+        } else if (t == LottieProperty.TRANSFORM_START_OPACITY && (baseKeyframeAnimation2 = this.startOpacity) != null) {
             if (baseKeyframeAnimation2 == null) {
                 this.startOpacity = new ValueCallbackKeyframeAnimation(lottieValueCallback, 100);
                 return true;
             }
             baseKeyframeAnimation2.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_END_OPACITY && (baseKeyframeAnimation = this.endOpacity) != null) {
+        } else if (t == LottieProperty.TRANSFORM_END_OPACITY && (baseKeyframeAnimation = this.endOpacity) != null) {
             if (baseKeyframeAnimation == null) {
                 this.endOpacity = new ValueCallbackKeyframeAnimation(lottieValueCallback, 100);
                 return true;
             }
             baseKeyframeAnimation.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_SKEW && (floatKeyframeAnimation2 = this.skew) != null) {
+        } else if (t == LottieProperty.TRANSFORM_SKEW && (floatKeyframeAnimation2 = this.skew) != null) {
             if (floatKeyframeAnimation2 == null) {
                 this.skew = new FloatKeyframeAnimation(Collections.singletonList(new Keyframe(Float.valueOf(0.0f))));
             }
             this.skew.setValueCallback(lottieValueCallback);
             return true;
-        } else if (obj == LottieProperty.TRANSFORM_SKEW_ANGLE && (floatKeyframeAnimation = this.skewAngle) != null) {
+        } else if (t == LottieProperty.TRANSFORM_SKEW_ANGLE && (floatKeyframeAnimation = this.skewAngle) != null) {
             if (floatKeyframeAnimation == null) {
                 this.skewAngle = new FloatKeyframeAnimation(Collections.singletonList(new Keyframe(Float.valueOf(0.0f))));
             }
@@ -285,17 +299,17 @@ public class TransformKeyframeAnimation {
         float sin;
         float floatValue;
         this.matrix.reset();
-        BaseKeyframeAnimation baseKeyframeAnimation = this.position;
+        BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation = this.position;
         if (baseKeyframeAnimation != null) {
-            PointF pointF = (PointF) baseKeyframeAnimation.getValue();
-            if (pointF.x != 0.0f || pointF.y != 0.0f) {
-                this.matrix.preTranslate(pointF.x, pointF.y);
+            PointF value = baseKeyframeAnimation.getValue();
+            if (value.x != 0.0f || value.y != 0.0f) {
+                this.matrix.preTranslate(value.x, value.y);
             }
         }
-        BaseKeyframeAnimation baseKeyframeAnimation2 = this.rotation;
+        BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation2 = this.rotation;
         if (baseKeyframeAnimation2 != null) {
             if (baseKeyframeAnimation2 instanceof ValueCallbackKeyframeAnimation) {
-                floatValue = ((Float) baseKeyframeAnimation2.getValue()).floatValue();
+                floatValue = baseKeyframeAnimation2.getValue().floatValue();
             } else {
                 floatValue = ((FloatKeyframeAnimation) baseKeyframeAnimation2).getFloatValue();
             }
@@ -344,65 +358,65 @@ public class TransformKeyframeAnimation {
             this.skewMatrix3.preConcat(this.skewMatrix2);
             this.matrix.preConcat(this.skewMatrix3);
         }
-        BaseKeyframeAnimation baseKeyframeAnimation3 = this.scale;
+        BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation3 = this.scale;
         if (baseKeyframeAnimation3 != null) {
-            ScaleXY scaleXY = (ScaleXY) baseKeyframeAnimation3.getValue();
-            if (scaleXY.getScaleX() != 1.0f || scaleXY.getScaleY() != 1.0f) {
-                this.matrix.preScale(scaleXY.getScaleX(), scaleXY.getScaleY());
+            ScaleXY value2 = baseKeyframeAnimation3.getValue();
+            if (value2.getScaleX() != 1.0f || value2.getScaleY() != 1.0f) {
+                this.matrix.preScale(value2.getScaleX(), value2.getScaleY());
             }
         }
-        BaseKeyframeAnimation baseKeyframeAnimation4 = this.anchorPoint;
+        BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
         if (baseKeyframeAnimation4 != null) {
-            PointF pointF2 = (PointF) baseKeyframeAnimation4.getValue();
-            if (pointF2.x != 0.0f || pointF2.y != 0.0f) {
-                this.matrix.preTranslate(-pointF2.x, -pointF2.y);
+            PointF value3 = baseKeyframeAnimation4.getValue();
+            if (value3.x != 0.0f || value3.y != 0.0f) {
+                this.matrix.preTranslate(-value3.x, -value3.y);
             }
         }
         return this.matrix;
     }
 
     public Matrix getMatrixForRepeater(float f) {
-        PointF pointF;
-        ScaleXY scaleXY;
+        PointF value;
+        ScaleXY value2;
         float f2;
-        BaseKeyframeAnimation baseKeyframeAnimation = this.position;
-        PointF pointF2 = null;
+        BaseKeyframeAnimation<?, PointF> baseKeyframeAnimation = this.position;
+        PointF pointF = null;
         if (baseKeyframeAnimation == null) {
-            pointF = null;
+            value = null;
         } else {
-            pointF = (PointF) baseKeyframeAnimation.getValue();
+            value = baseKeyframeAnimation.getValue();
         }
-        BaseKeyframeAnimation baseKeyframeAnimation2 = this.scale;
+        BaseKeyframeAnimation<ScaleXY, ScaleXY> baseKeyframeAnimation2 = this.scale;
         if (baseKeyframeAnimation2 == null) {
-            scaleXY = null;
+            value2 = null;
         } else {
-            scaleXY = (ScaleXY) baseKeyframeAnimation2.getValue();
+            value2 = baseKeyframeAnimation2.getValue();
         }
         this.matrix.reset();
-        if (pointF != null) {
-            this.matrix.preTranslate(pointF.x * f, pointF.y * f);
+        if (value != null) {
+            this.matrix.preTranslate(value.x * f, value.y * f);
         }
-        if (scaleXY != null) {
+        if (value2 != null) {
             double d = f;
-            this.matrix.preScale((float) Math.pow(scaleXY.getScaleX(), d), (float) Math.pow(scaleXY.getScaleY(), d));
+            this.matrix.preScale((float) Math.pow(value2.getScaleX(), d), (float) Math.pow(value2.getScaleY(), d));
         }
-        BaseKeyframeAnimation baseKeyframeAnimation3 = this.rotation;
+        BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation3 = this.rotation;
         if (baseKeyframeAnimation3 != null) {
-            float floatValue = ((Float) baseKeyframeAnimation3.getValue()).floatValue();
-            BaseKeyframeAnimation baseKeyframeAnimation4 = this.anchorPoint;
+            float floatValue = baseKeyframeAnimation3.getValue().floatValue();
+            BaseKeyframeAnimation<PointF, PointF> baseKeyframeAnimation4 = this.anchorPoint;
             if (baseKeyframeAnimation4 != null) {
-                pointF2 = (PointF) baseKeyframeAnimation4.getValue();
+                pointF = baseKeyframeAnimation4.getValue();
             }
             Matrix matrix = this.matrix;
             float f3 = floatValue * f;
             float f4 = 0.0f;
-            if (pointF2 == null) {
+            if (pointF == null) {
                 f2 = 0.0f;
             } else {
-                f2 = pointF2.x;
+                f2 = pointF.x;
             }
-            if (pointF2 != null) {
-                f4 = pointF2.y;
+            if (pointF != null) {
+                f4 = pointF.y;
             }
             matrix.preRotate(f3, f2, f4);
         }

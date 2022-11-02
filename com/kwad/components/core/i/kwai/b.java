@@ -1,5 +1,6 @@
 package com.kwad.components.core.i.kwai;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,6 +29,7 @@ public final class b {
         }
     }
 
+    @NonNull
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

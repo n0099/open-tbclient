@@ -5,12 +5,13 @@ import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.clientreport.data.Config;
+import com.xiaomi.push.iu;
 /* loaded from: classes8.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, Config config) {
+    public static <T extends iu<T, ?>> void a(Context context, Config config) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65536, null, context, config) == null) || config == null) {
             return;

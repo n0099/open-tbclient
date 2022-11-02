@@ -1,5 +1,7 @@
 package com.baidu.sapi2.activity;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -74,7 +76,7 @@ public class LoginActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public List C;
+    public List<PassNameValuePair> C;
     public AuthorizationListener D;
     public boolean mNeedSetContentView;
     public SapiWebView sapiWebView;
@@ -240,11 +242,12 @@ public class LoginActivity extends BaseActivity {
                 return;
             }
             sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f10b2);
+            setTitleText(R.string.obfuscated_res_0x7f0f10cd);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
 
+    @SuppressLint({"ClickableViewAccessibility"})
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
@@ -312,6 +315,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @TargetApi(5)
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -595,7 +599,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                    setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 }
                 init();
                 setupViews();
@@ -619,7 +623,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
-        List arrayList;
+        List<PassNameValuePair> arrayList;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -628,7 +632,7 @@ public class LoginActivity extends BaseActivity {
             if (webLoginDTO != null) {
                 arrayList = webLoginDTO.extraParams;
             } else {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
             }
             this.C = arrayList;
             this.w = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
@@ -940,7 +944,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f10b2);
+                    setTitleText(R.string.obfuscated_res_0x7f0f10cd);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -956,7 +960,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair("loginUserName", this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f10a5);
+                    setTitleText(R.string.obfuscated_res_0x7f0f10c0);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }

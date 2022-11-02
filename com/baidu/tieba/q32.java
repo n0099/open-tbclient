@@ -1,19 +1,64 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tieba.n32;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class q32 {
+public class q32 extends k32 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
+    public RelativeLayout F0;
+    public RelativeLayout G0;
+
+    @Override // com.baidu.tieba.k32
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k32
+    public boolean c2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k32
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.k32
+    public void j2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
     public q32() {
         Interceptable interceptable = $ic;
@@ -25,67 +70,91 @@ public final class q32 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static q32 V2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new q32();
+        }
+        return (q32) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k32
+    public void U1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            V1(view2);
+            t2(-1);
+            C2(-16777216);
+            v2(G(R.string.obfuscated_res_0x7f0f129d));
+            x2(true);
+            J2(false);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091552) {
+                ln2.t0().a();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090306) {
+                W2();
+            }
+        }
+    }
+
+    public final void U2(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091552);
+            this.F0 = relativeLayout;
+            relativeLayout.setOnClickListener(this);
+            if (ln2.y0().d() || !yh3.G()) {
+                this.F0.setVisibility(8);
+            }
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090306);
+            this.G0 = relativeLayout2;
+            relativeLayout2.setOnClickListener(this);
+        }
+    }
+
+    public final void W2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (k32.E0) {
+                Log.d("SwanAppBaseFragment", "startSettingFragment");
+            }
+            n32 M1 = M1();
+            if (M1 == null) {
+                w33.f(getContext(), R.string.obfuscated_res_0x7f0f01a6).G();
                 return;
             }
-        }
-        this.a = new ArrayList();
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
+            n32.b i = M1.i("navigateTo");
+            i.n(n32.g, n32.i);
+            i.k("authority", null).a();
+            ut2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
         }
     }
 
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    @Nullable
+    public View x0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = false;
-                Iterator it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (((p32) it.next()).c()) {
-                        z = true;
-                        break;
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0832, viewGroup, false);
+            U1(inflate);
+            U2(inflate);
+            if (T1()) {
+                inflate = W1(inflate);
             }
-            return z;
+            return D1(inflate, this);
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized List d() {
-        InterceptResult invokeV;
-        List list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                list = this.a;
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized boolean a(p32 p32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p32Var)) == null) {
-            synchronized (this) {
-                if (p32Var != null) {
-                    return this.a.add(p32Var);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (View) invokeLLL.objValue;
     }
 }

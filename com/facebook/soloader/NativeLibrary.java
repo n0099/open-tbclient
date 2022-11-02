@@ -18,7 +18,7 @@ public abstract class NativeLibrary {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mLibrariesLoaded;
     @Nullable
-    public List mLibraryNames;
+    public List<String> mLibraryNames;
     @Nullable
     public volatile UnsatisfiedLinkError mLinkError;
     public Boolean mLoadLibraries;
@@ -45,7 +45,7 @@ public abstract class NativeLibrary {
         }
     }
 
-    public NativeLibrary(List list) {
+    public NativeLibrary(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

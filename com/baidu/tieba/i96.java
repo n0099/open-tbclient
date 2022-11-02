@@ -1,234 +1,138 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.enterForum.data.ForumCreateInfoData;
-import com.baidu.tieba.enterForum.data.HotSearchInfoData;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumGuide.DataRes;
 /* loaded from: classes4.dex */
-public class i96 {
+public class i96 extends d96 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m96 a;
-    public qt4 b;
-    public ForumCreateInfoData c;
-    public PrivateForumPopInfoData d;
-    public q96 e;
-    public r96 f;
-    public boolean g;
-    public int h;
-    public HotSearchInfoData i;
-    public int j;
+    public DownloadManagerNetModel b;
+    public j96 c;
+    public k96 d;
+    public g96 e;
 
-    public i96() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i96(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = true;
-        this.h = 0;
-        this.a = new m96();
-        this.b = new qt4();
-        this.c = new ForumCreateInfoData();
-        this.d = new PrivateForumPopInfoData();
-        this.e = new q96();
-        this.f = new r96();
-        this.g = false;
+        this.c = new j96(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.b0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d96
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (System.currentTimeMillis() / j45.a.longValue() == (this.h * 1000) / j45.a.longValue()) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.c();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.d96
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.d96
+    public void d(g96 g96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g96Var) == null) {
+            this.e = g96Var;
+        }
+    }
+
+    public final void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && i != 0) {
+            this.e.b(i, str);
+        }
+    }
+
+    public final boolean f(k96 k96Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k96Var)) == null) {
+            if (k96Var == null) {
+                return false;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ForumCreateInfoData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ForumCreateInfoData) invokeV.objValue;
-    }
-
-    public r96 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (r96) invokeV.objValue;
-    }
-
-    public HotSearchInfoData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (HotSearchInfoData) invokeV.objValue;
-    }
-
-    public m96 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (m96) invokeV.objValue;
-    }
-
-    public qt4 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (qt4) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        try {
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
-            }
-            if (dataRes.forum_create_info != null) {
-                this.c.D(dataRes.forum_create_info);
-            }
-            if (!ListUtils.isEmpty(dataRes.hot_search)) {
-                this.i = new HotSearchInfoData();
-                this.i.B(dataRes.hot_search.get(0).search_title);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void j(tbclient.ForumRecommend.DataRes dataRes) {
-        int intValue;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        try {
-            if (dataRes.forum_popup_info != null) {
-                this.f.f(dataRes.forum_popup_info);
-            }
-            p(dataRes.time.intValue());
-            if (dataRes.sort_type.intValue() == 0) {
-                intValue = 1;
+            if (this.c.a() != 1) {
+                this.d.a(k96Var);
             } else {
-                intValue = dataRes.sort_type.intValue();
+                this.d = k96Var;
             }
-            this.j = intValue;
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
-            }
-            if (dataRes.recommend_forum_info != null) {
-                this.b.j(dataRes.recommend_forum_info);
-            }
-            if (dataRes.forum_create_info != null) {
-                this.c.D(dataRes.forum_create_info);
-            }
-            if (dataRes.private_forum_popinfo != null) {
-                this.d.E(dataRes.private_forum_popinfo);
-            }
-            if (dataRes.hot_search != null) {
-                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-                this.i = hotSearchInfoData;
-                hotSearchInfoData.A(dataRes.hot_search);
-            }
-            if (dataRes.nav_tab_info != null) {
-                this.e.a(dataRes.nav_tab_info);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            g96 g96Var = this.e;
+            k96 k96Var2 = this.d;
+            g96Var.a(k96Var2.a, k96Var2.b, k96Var2.c.intValue());
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void k(ForumCreateInfoData forumCreateInfoData) {
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, forumCreateInfoData) == null) {
-            this.c = forumCreateInfoData;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
         }
+        k96 k96Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            k96Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (k96Var != null && f(k96Var)) {
+            return;
+        }
+        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
     }
 
-    public void l(HotSearchInfoData hotSearchInfoData) {
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hotSearchInfoData) == null) {
-            this.i = hotSearchInfoData;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
         }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = z;
+        k96 k96Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            k96Var = (k96) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
         }
-    }
-
-    public void n(m96 m96Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, m96Var) == null) {
-            this.a = m96Var;
+        if (k96Var != null && f(k96Var)) {
+            return;
         }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
-        }
+        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
     }
 }

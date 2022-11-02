@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -164,7 +165,7 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    public static List getAuthorizedDomains() {
+    public static List<String> getAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
@@ -173,7 +174,7 @@ public class SapiUtils implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public static List getAuthorizedDomainsForPtoken() {
+    public static List<String> getAuthorizedDomainsForPtoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
@@ -191,7 +192,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public static List getCuidAuthorizedDomains() {
+    public static List<String> getCuidAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
@@ -268,18 +269,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeLL.objValue;
     }
 
-    public static String buildSidCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            calendar.add(5, 7);
-            return buildCookie(str, "sid", str2, calendar.getTime(), false);
-        }
-        return (String) invokeLL.objValue;
-    }
-
+    @TargetApi(23)
     public static boolean checkRequestPermission(String str, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -472,6 +462,18 @@ public class SapiUtils implements NoProguard {
         return (String) invokeLL.objValue;
     }
 
+    public static String buildSidCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            calendar.add(5, 7);
+            return buildCookie(str, "sid", str2, calendar.getTime(), false);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String buildStokenCookie(String str, String str2) {
         InterceptResult invokeLL;
         int i;
@@ -519,26 +521,26 @@ public class SapiUtils implements NoProguard {
         return (String) invokeLL.objValue;
     }
 
-    public static String calculateSig(Map map, String str) {
+    public static String calculateSig(Map<String, String> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, map, str)) == null) {
             map.remove(FunAdSdk.PLATFORM_SIG);
             ArrayList arrayList = new ArrayList();
-            for (Object obj : map.keySet()) {
-                arrayList.add(obj);
+            for (String str2 : map.keySet()) {
+                arrayList.add(str2);
             }
             Collections.sort(arrayList);
             StringBuilder sb = new StringBuilder();
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                String str2 = (String) it.next();
+                String str3 = (String) it.next();
                 try {
-                    String str3 = (String) map.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        sb.append(str2);
+                    String str4 = map.get(str3);
+                    if (!TextUtils.isEmpty(str4)) {
+                        sb.append(str3);
                         sb.append("=");
-                        sb.append(URLEncoder.encode(str3, "UTF-8"));
+                        sb.append(URLEncoder.encode(str4, "UTF-8"));
                         sb.append("&");
                     }
                 } catch (UnsupportedEncodingException e) {
@@ -614,7 +616,7 @@ public class SapiUtils implements NoProguard {
         return (String[]) invokeLL.objValue;
     }
 
-    public static String mapToUrlParams(Map map, boolean z) {
+    public static String mapToUrlParams(Map<String, String> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65601, null, map, z)) == null) {
@@ -622,9 +624,9 @@ public class SapiUtils implements NoProguard {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : map.entrySet()) {
-                String str = (String) entry.getKey();
-                Object value = entry.getValue();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
                 if (sb.length() <= 0 && !z) {
                     sb.append("?");
                 } else {
@@ -632,16 +634,16 @@ public class SapiUtils implements NoProguard {
                 }
                 if (value == null) {
                     try {
-                        sb.append(str);
+                        sb.append(key);
                         sb.append("=");
                     } catch (Exception e) {
-                        sb.append(str);
+                        sb.append(key);
                         sb.append("=");
-                        sb.append(value);
+                        sb.append((Object) value);
                         e.printStackTrace();
                     }
                 } else {
-                    sb.append(str);
+                    sb.append(key);
                     sb.append("=");
                     sb.append(URLEncoder.encode(value.toString(), "UTF-8"));
                 }
@@ -651,15 +653,13 @@ public class SapiUtils implements NoProguard {
         return (String) invokeLZ.objValue;
     }
 
-    public static String createRequestParams(List list) {
+    public static String createRequestParams(List<PassNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) {
             StringBuilder sb = new StringBuilder();
             if (list != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    PassNameValuePair passNameValuePair = (PassNameValuePair) it.next();
+                for (PassNameValuePair passNameValuePair : list) {
                     if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                         if (TextUtils.isEmpty(sb.toString())) {
                             sb.append(passNameValuePair.getName());
@@ -679,6 +679,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(3)
     public static String getNetworkClass(Context context) {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
@@ -728,6 +729,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(4)
     public static boolean isEmulator(Context context) {
         InterceptResult invokeL;
         String str;
@@ -767,8 +769,8 @@ public class SapiUtils implements NoProguard {
             if (TextUtils.isEmpty(str) || !str.contains("response_type") || !str.contains("client_id") || !str.contains("redirect_uri")) {
                 return false;
             }
-            Map urlParamsToMap = urlParamsToMap(str);
-            if (!TextUtils.isEmpty((CharSequence) urlParamsToMap.get("response_type")) && !TextUtils.isEmpty((CharSequence) urlParamsToMap.get("client_id")) && !TextUtils.isEmpty((CharSequence) urlParamsToMap.get("redirect_uri"))) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            if (!TextUtils.isEmpty(urlParamsToMap.get("response_type")) && !TextUtils.isEmpty(urlParamsToMap.get("client_id")) && !TextUtils.isEmpty(urlParamsToMap.get("redirect_uri"))) {
                 return true;
             }
             return false;
@@ -783,8 +785,8 @@ public class SapiUtils implements NoProguard {
             if (TextUtils.isEmpty(str) || !str.contains("qrsign") || !str.contains("scope") || !str.contains("channelid") || !str.contains("client_id")) {
                 return false;
             }
-            Map urlParamsToMap = urlParamsToMap(str);
-            if (TextUtils.isEmpty((CharSequence) urlParamsToMap.get("qrsign")) || TextUtils.isEmpty((CharSequence) urlParamsToMap.get("scope")) || TextUtils.isEmpty((CharSequence) urlParamsToMap.get("channelid")) || TextUtils.isEmpty((CharSequence) urlParamsToMap.get("client_id"))) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            if (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) {
                 return false;
             }
             return true;
@@ -792,6 +794,7 @@ public class SapiUtils implements NoProguard {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(4)
     public static boolean isOnline(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -808,7 +811,7 @@ public class SapiUtils implements NoProguard {
                 Log.e(ShareUtils.TAG, "isDebug=true  isSupportDebugShareLogin=" + sapiConfiguration.isSupportDebugShareLogin);
                 return sapiConfiguration.isSupportDebugShareLogin;
             }
-            Map authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
+            Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
             String packageSign = getPackageSign(context, packageName);
             for (String str : authorizedPackages.keySet()) {
                 if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
@@ -831,8 +834,8 @@ public class SapiUtils implements NoProguard {
             if (TextUtils.isEmpty(str) || !str.contains("error") || !str.contains("sign") || !str.contains("cmd") || !str.contains(KEY_QR_LOGIN_LP)) {
                 return false;
             }
-            Map urlParamsToMap = urlParamsToMap(str);
-            if (!TextUtils.isEmpty((CharSequence) urlParamsToMap.get("error")) && !TextUtils.isEmpty((CharSequence) urlParamsToMap.get("sign")) && !TextUtils.isEmpty((CharSequence) urlParamsToMap.get("cmd")) && !TextUtils.isEmpty((CharSequence) urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            if (!TextUtils.isEmpty(urlParamsToMap.get("error")) && !TextUtils.isEmpty(urlParamsToMap.get("sign")) && !TextUtils.isEmpty(urlParamsToMap.get("cmd")) && !TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
                 return true;
             }
             return false;
@@ -840,7 +843,7 @@ public class SapiUtils implements NoProguard {
         return invokeL.booleanValue;
     }
 
-    public static Map parseQrLoginSchema(String str) {
+    public static Map<String, String> parseQrLoginSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, str)) == null) {
@@ -851,8 +854,8 @@ public class SapiUtils implements NoProguard {
             } else if (!isQrLoginSchema(str)) {
                 return hashMap;
             } else {
-                Map urlParamsToMap = urlParamsToMap(str);
-                if ("pc".equals((String) urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+                Map<String, String> urlParamsToMap = urlParamsToMap(str);
+                if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
                     HashMap hashMap2 = new HashMap();
                     if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
                         hashMap2.put("islogin", "0");
@@ -925,7 +928,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
-    public static List getPackageList(Context context) {
+    public static List<String> getPackageList(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, context)) == null) {
@@ -962,7 +965,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
-    public static Map urlParamsToMap(String str) {
+    public static Map<String, String> urlParamsToMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65611, null, str)) == null) {
@@ -1036,6 +1039,7 @@ public class SapiUtils implements NoProguard {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(4)
     public static boolean isDebug(Context context) {
         InterceptResult invokeL;
         boolean z;
@@ -1106,6 +1110,7 @@ public class SapiUtils implements NoProguard {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(3)
     public static String getBlueToothDeviceName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1124,6 +1129,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(3)
     public static String getCurProcessName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1159,6 +1165,7 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(3)
     public static void hideSoftInput(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65585, null, activity) == null) {
@@ -1177,7 +1184,7 @@ public class SapiUtils implements NoProguard {
                 return true;
             }
             if (!TextUtils.isEmpty(str) && str.contains(KEY_QR_LOGIN_ENCUID)) {
-                return !TextUtils.isEmpty((CharSequence) urlParamsToMap(str).get(KEY_QR_LOGIN_ENCUID));
+                return !TextUtils.isEmpty(urlParamsToMap(str).get(KEY_QR_LOGIN_ENCUID));
             }
             return false;
         }
@@ -1679,15 +1686,15 @@ public class SapiUtils implements NoProguard {
         return invokeLLLL.booleanValue;
     }
 
-    public static JSONArray map2JsonArray(Map map, String str, String str2) {
+    public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, map, str, str2)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (map != null && !map.isEmpty()) {
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, Long> entry : map.entrySet()) {
                     JSONObject jSONObject = new JSONObject();
-                    if (!TextUtils.isEmpty((CharSequence) entry.getKey())) {
+                    if (!TextUtils.isEmpty(entry.getKey())) {
                         try {
                             jSONObject.put(str, entry.getKey());
                             jSONObject.put(str2, entry.getValue());
@@ -1702,7 +1709,7 @@ public class SapiUtils implements NoProguard {
         return (JSONArray) invokeLLL.objValue;
     }
 
-    public static void sendSms(Context context, String str, List list) {
+    public static void sendSms(Context context, String str, List<String> list) {
         String str2;
         String str3;
         String defaultSmsPackage;
@@ -1736,7 +1743,7 @@ public class SapiUtils implements NoProguard {
         }
     }
 
-    public static void syncCookies(Context context, List list) {
+    public static void syncCookies(Context context, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65610, null, context, list) == null) {
             CookieSyncManager.createInstance(context);
@@ -1758,9 +1765,7 @@ public class SapiUtils implements NoProguard {
                 }
             }
             if (list != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    PassNameValuePair passNameValuePair = (PassNameValuePair) it.next();
+                for (PassNameValuePair passNameValuePair : list) {
                     if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                         cookieManager.setCookie(passNameValuePair.getName(), passNameValuePair.getValue());
                     }

@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.view.LayoutInflater;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -91,7 +92,7 @@ public class ContextThemeWrapper extends ContextWrapper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContextThemeWrapper(Context context, int i) {
+    public ContextThemeWrapper(Context context, @StyleRes int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

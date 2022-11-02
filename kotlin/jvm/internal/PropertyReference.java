@@ -1,5 +1,6 @@
 package kotlin.jvm.internal;
 
+import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KProperty;
 /* loaded from: classes8.dex */
@@ -12,11 +13,13 @@ public abstract class PropertyReference extends CallableReference implements KPr
     }
 
     @Override // kotlin.reflect.KProperty
+    @SinceKotlin(version = "1.1")
     public boolean isConst() {
         return getReflected().isConst();
     }
 
     @Override // kotlin.reflect.KProperty
+    @SinceKotlin(version = "1.1")
     public boolean isLateinit() {
         return getReflected().isLateinit();
     }
@@ -29,11 +32,13 @@ public abstract class PropertyReference extends CallableReference implements KPr
         return "property " + getName() + Reflection.REFLECTION_NOT_AVAILABLE;
     }
 
+    @SinceKotlin(version = "1.1")
     public PropertyReference(Object obj) {
         super(obj);
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
+    @SinceKotlin(version = "1.4")
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -66,6 +71,7 @@ public abstract class PropertyReference extends CallableReference implements KPr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.internal.CallableReference
+    @SinceKotlin(version = "1.1")
     public KProperty getReflected() {
         return (KProperty) super.getReflected();
     }

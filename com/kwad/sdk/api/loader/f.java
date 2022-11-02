@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class f {
-    public Map Sm = new HashMap();
+    public Map<String, String> Sm = new HashMap();
     public IKsAdSDK Sn;
     public String a;
     public String b;
@@ -183,8 +183,8 @@ public final class f {
                 if (httpURLConnection != null) {
                     String a2 = a();
                     if (this.Sm != null) {
-                        for (Map.Entry entry : this.Sm.entrySet()) {
-                            httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                        for (Map.Entry<String, String> entry : this.Sm.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
                     httpURLConnection.connect();
@@ -202,15 +202,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0593a c0593a = new a.C0593a();
-                        bVar.Sg = c0593a;
+                        a.C0604a c0604a = new a.C0604a();
+                        bVar.Sg = c0604a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0593a.a = optJSONObject.optInt("dynamicType");
-                            c0593a.b = optJSONObject.optString("dynamicUrl");
-                            c0593a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0593a.Se = optJSONObject.optLong("interval");
-                            c0593a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0604a.a = optJSONObject.optInt("dynamicType");
+                            c0604a.b = optJSONObject.optString("dynamicUrl");
+                            c0604a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0604a.Se = optJSONObject.optLong("interval");
+                            c0604a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

@@ -1,6 +1,7 @@
 package com.baidu.sapi2.views;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -211,6 +212,7 @@ public class ClipBoxView extends View {
         d();
     }
 
+    @TargetApi(11)
     private void a() {
         int i;
         int i2;
@@ -271,6 +273,7 @@ public class ClipBoxView extends View {
         }
     }
 
+    @TargetApi(11)
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {

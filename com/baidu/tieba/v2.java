@@ -65,14 +65,14 @@ public class v2 {
     public final void b(f3 f3Var, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{f3Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-            f3.f fVar = (f3.f) f3Var.g.e();
-            fVar.a = j;
-            fVar.c = i2;
-            fVar.d = i3;
-            fVar.b = i;
-            fVar.e = i4;
-            fVar.f = i5;
-            f3Var.j.add(fVar);
+            f3.f e = f3Var.g.e();
+            e.a = j;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.e = i4;
+            e.f = i5;
+            f3Var.j.add(e);
         }
     }
 }

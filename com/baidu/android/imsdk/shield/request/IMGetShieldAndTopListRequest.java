@@ -69,7 +69,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         this.mFilterType = i2;
     }
 
-    private void generateUser(List list, JSONObject jSONObject, int i, int i2) {
+    private void generateUser(List<ChatSession> list, JSONObject jSONObject, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65537, this, list, jSONObject, i, i2) == null) {
             ChatSession chatSession = new ChatSession();
@@ -127,7 +127,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMGetShieldAndTopListRequest onFailure :" + transErrorCode.first);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();

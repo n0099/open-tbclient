@@ -205,7 +205,7 @@ public class h7 {
         }
     }
 
-    public static int e(Comparable comparable, Object[] objArr, int i, int i2, int i3) {
+    public static int e(Comparable<Object> comparable, Object[] objArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int i4;
         int i5;
@@ -269,7 +269,7 @@ public class h7 {
         return invokeCommon.intValue;
     }
 
-    public static int f(Comparable comparable, Object[] objArr, int i, int i2, int i3) {
+    public static int f(Comparable<Object> comparable, Object[] objArr, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int i4;
         int i5;

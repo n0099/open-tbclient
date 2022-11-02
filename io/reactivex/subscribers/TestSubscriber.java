@@ -23,14 +23,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public class TestSubscriber extends BaseTestConsumer implements FlowableSubscriber, Subscription, Disposable {
+public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> implements FlowableSubscriber<T>, Subscription, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super T> actual;
     public volatile boolean cancelled;
     public final AtomicLong missedRequested;
-    public QueueSubscription qs;
-    public final AtomicReference subscription;
+    public QueueSubscription<T> qs;
+    public final AtomicReference<Subscription> subscription;
 
     public void onStart() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class EmptySubscriber implements FlowableSubscriber {
+    public static final class EmptySubscriber implements FlowableSubscriber<Object> {
         public static final /* synthetic */ EmptySubscriber[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EmptySubscriber INSTANCE;
@@ -189,7 +189,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TestSubscriber(Subscriber subscriber) {
+    public TestSubscriber(Subscriber<? super T> subscriber) {
         this(subscriber, Long.MAX_VALUE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -209,7 +209,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         }
     }
 
-    public TestSubscriber(Subscriber subscriber, long j) {
+    public TestSubscriber(Subscriber<? super T> subscriber, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,23 +226,23 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         }
         if (j >= 0) {
             this.actual = subscriber;
-            this.subscription = new AtomicReference();
+            this.subscription = new AtomicReference<>();
             this.missedRequested = new AtomicLong(j);
             return;
         }
         throw new IllegalArgumentException("Negative initial request not allowed");
     }
 
-    public static TestSubscriber create() {
+    public static <T> TestSubscriber<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new TestSubscriber();
+            return new TestSubscriber<>();
         }
         return (TestSubscriber) invokeV.objValue;
     }
 
-    public final TestSubscriber assertFuseable() {
+    public final TestSubscriber<T> assertFuseable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -254,7 +254,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         return (TestSubscriber) invokeV.objValue;
     }
 
-    public final TestSubscriber assertNotFuseable() {
+    public final TestSubscriber<T> assertNotFuseable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -314,16 +314,16 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         return invokeV.booleanValue;
     }
 
-    public static TestSubscriber create(long j) {
+    public static <T> TestSubscriber<T> create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            return new TestSubscriber(j);
+            return new TestSubscriber<>(j);
         }
         return (TestSubscriber) invokeJ.objValue;
     }
 
-    public final TestSubscriber assertOf(Consumer consumer) {
+    public final TestSubscriber<T> assertOf(Consumer<? super TestSubscriber<T>> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, consumer)) == null) {
@@ -345,7 +345,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         }
     }
 
-    public final TestSubscriber requestMore(long j) {
+    public final TestSubscriber<T> requestMore(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
@@ -355,7 +355,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         return (TestSubscriber) invokeJ.objValue;
     }
 
-    public final TestSubscriber setInitialFusionMode(int i) {
+    public final TestSubscriber<T> setInitialFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
@@ -365,16 +365,16 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
         return (TestSubscriber) invokeI.objValue;
     }
 
-    public static TestSubscriber create(Subscriber subscriber) {
+    public static <T> TestSubscriber<T> create(Subscriber<? super T> subscriber) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, subscriber)) == null) {
-            return new TestSubscriber(subscriber);
+            return new TestSubscriber<>(subscriber);
         }
         return (TestSubscriber) invokeL.objValue;
     }
 
-    public final TestSubscriber assertFusionMode(int i) {
+    public final TestSubscriber<T> assertFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -415,7 +415,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.observers.BaseTestConsumer
-    public final TestSubscriber assertNotSubscribed() {
+    public final TestSubscriber<T> assertNotSubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -432,7 +432,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.observers.BaseTestConsumer
-    public final TestSubscriber assertSubscribed() {
+    public final TestSubscriber<T> assertSubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -465,9 +465,9 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, t) == null) {
             if (!this.checkSubscriptionOnce) {
                 this.checkSubscriptionOnce = true;
                 if (this.subscription.get() == null) {
@@ -476,16 +476,16 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
             }
             this.lastThread = Thread.currentThread();
             if (this.establishedFusionMode != 2) {
-                this.values.add(obj);
-                if (obj == null) {
+                this.values.add(t);
+                if (t == null) {
                     this.errors.add(new NullPointerException("onNext received a null value"));
                 }
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
                 return;
             }
             while (true) {
                 try {
-                    Object poll = this.qs.poll();
+                    T poll = this.qs.poll();
                     if (poll != null) {
                         this.values.add(poll);
                     } else {
@@ -515,7 +515,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
             } else {
                 int i = this.initialFusionMode;
                 if (i != 0 && (subscription instanceof QueueSubscription)) {
-                    QueueSubscription queueSubscription = (QueueSubscription) subscription;
+                    QueueSubscription<T> queueSubscription = (QueueSubscription) subscription;
                     this.qs = queueSubscription;
                     int requestFusion = queueSubscription.requestFusion(i);
                     this.establishedFusionMode = requestFusion;
@@ -524,7 +524,7 @@ public class TestSubscriber extends BaseTestConsumer implements FlowableSubscrib
                         this.lastThread = Thread.currentThread();
                         while (true) {
                             try {
-                                Object poll = this.qs.poll();
+                                T poll = this.qs.poll();
                                 if (poll != null) {
                                     this.values.add(poll);
                                 } else {

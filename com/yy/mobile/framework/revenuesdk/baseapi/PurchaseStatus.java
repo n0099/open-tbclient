@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -12,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+@Keep
 /* loaded from: classes8.dex */
 public final class PurchaseStatus {
     public static final /* synthetic */ PurchaseStatus[] $VALUES;

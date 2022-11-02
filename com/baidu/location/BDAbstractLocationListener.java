@@ -36,5 +36,17 @@ public abstract class BDAbstractLocationListener {
         }
     }
 
+    public void onReceiveLocString(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
     public abstract void onReceiveLocation(BDLocation bDLocation);
+
+    public void onReceiveVdrLocation(BDLocation bDLocation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bDLocation) == null) {
+        }
+    }
 }

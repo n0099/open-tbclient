@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
+import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
 import com.facebook.common.references.CloseableReference;
@@ -58,7 +59,7 @@ public class EmptyJpegGenerator {
         this.mPooledByteBufferFactory = pooledByteBufferFactory;
     }
 
-    public CloseableReference generate(short s, short s2) {
+    public CloseableReference<PooledByteBuffer> generate(short s, short s2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Short.valueOf(s), Short.valueOf(s2)})) == null) {

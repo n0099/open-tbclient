@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Path;
@@ -93,6 +94,7 @@ public class ArcMotion extends PathMotion {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public ArcMotion(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;

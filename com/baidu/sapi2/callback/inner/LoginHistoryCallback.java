@@ -3,6 +3,7 @@ package com.baidu.sapi2.callback.inner;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.common.LoginHistoryModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +39,7 @@ public abstract class LoginHistoryCallback implements NoProguard {
         }
     }
 
-    public void onSuccess(List list) {
+    public void onSuccess(List<LoginHistoryModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
         }

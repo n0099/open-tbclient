@@ -1,5 +1,6 @@
 package com.kwad.components.ad.i;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.webkit.DownloadListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,11 +35,12 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0527a BU;
+    public InterfaceC0538a BU;
     public boolean BV;
     public boolean BW;
     public boolean BX;
     public b BY;
+    @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
     public FrameLayout bS;
     public AdBaseFrameLayout ct;
@@ -50,7 +53,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0527a {
+    public interface InterfaceC0538a {
         void V(boolean z);
     }
 
@@ -86,13 +89,14 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.BX ? !this.BP : (this.BP || this.BV || this.BW) ? false : true : invokeV.booleanValue;
     }
 
+    @SuppressLint({"ClickableViewAccessibility"})
     private void fh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.bS.removeAllViews();
             this.bS.setVisibility(4);
             this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091232);
+            KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09126c);
             this.BQ = ksAdWebView;
             ksAdWebView.setBackgroundColor(-1);
             u.b bVar = new u.b();
@@ -134,7 +138,7 @@ public final class a {
                     }
                 }
             });
-            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09109e);
+            ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0910db);
             this.mBackIcon = imageView;
             imageView.setVisibility(8);
             this.mBackIcon.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.i.a.2
@@ -175,7 +179,7 @@ public final class a {
     public static int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0409 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? R.layout.obfuscated_res_0x7f0d0414 : invokeV.intValue;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -321,10 +325,10 @@ public final class a {
         }
     }
 
-    public final void a(InterfaceC0527a interfaceC0527a) {
+    public final void a(InterfaceC0538a interfaceC0538a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0527a) == null) {
-            this.BU = interfaceC0527a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0538a) == null) {
+            this.BU = interfaceC0538a;
         }
     }
 
@@ -399,6 +403,7 @@ public final class a {
                     }
 
                     @Override // android.view.View.OnTouchListener
+                    @SuppressLint({"ClickableViewAccessibility"})
                     public final boolean onTouch(View view2, MotionEvent motionEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;

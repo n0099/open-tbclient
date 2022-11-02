@@ -10,8 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.common.executors.DefaultSerialExecutorService;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.time.RealtimeSinceBootClock;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
@@ -32,6 +34,9 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.image.QualityInfo;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.NotThreadSafe;
+@DoNotStrip
+@NotThreadSafe
 /* loaded from: classes7.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,12 +50,13 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public AnimatedDrawableUtil mAnimatedDrawableUtil;
     @Nullable
     public AnimatedImageFactory mAnimatedImageFactory;
-    public final CountingMemoryCache mBackingCache;
+    public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
     public final boolean mDownscaleFrameToDrawableDimensions;
     public final ExecutorSupplier mExecutorSupplier;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    public AnimatedFactoryV2Impl(PlatformBitmapFactory platformBitmapFactory, ExecutorSupplier executorSupplier, CountingMemoryCache countingMemoryCache, boolean z) {
+    @DoNotStrip
+    public AnimatedFactoryV2Impl(PlatformBitmapFactory platformBitmapFactory, ExecutorSupplier executorSupplier, CountingMemoryCache<CacheKey, CloseableImage> countingMemoryCache, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -288,7 +294,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return new ExperimentalBitmapAnimationDrawableFactory(getAnimatedDrawableBackendProvider(), UiThreadImmediateExecutorService.getInstance(), new DefaultSerialExecutorService(this.mExecutorSupplier.forDecode()), RealtimeSinceBootClock.get(), this.mPlatformBitmapFactory, this.mBackingCache, new Supplier(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.3
+            return new ExperimentalBitmapAnimationDrawableFactory(getAnimatedDrawableBackendProvider(), UiThreadImmediateExecutorService.getInstance(), new DefaultSerialExecutorService(this.mExecutorSupplier.forDecode()), RealtimeSinceBootClock.get(), this.mPlatformBitmapFactory, this.mBackingCache, new Supplier<Integer>(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimatedFactoryV2Impl this$0;
@@ -312,6 +318,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.facebook.common.internal.Supplier
                 public Integer get() {
                     InterceptResult invokeV2;
@@ -321,7 +328,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                     }
                     return (Integer) invokeV2.objValue;
                 }
-            }, new Supplier(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.4
+            }, new Supplier<Integer>(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimatedFactoryV2Impl this$0;
@@ -345,6 +352,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.facebook.common.internal.Supplier
                 public Integer get() {
                     InterceptResult invokeV2;

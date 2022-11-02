@@ -1,53 +1,133 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cesium.i.i;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class oz {
+public final class oz extends nz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz[] a;
+    public b d;
 
-    public oz() {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Class<?> a;
+        public Method b;
+        public Method c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            d();
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public final long b(Object obj) throws i.a {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                try {
+                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+            return invokeL.longValue;
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a = Class.forName(com.baidu.cesium.i.i.a(lz.b()), true, Object.class.getClassLoader());
+                    this.b = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(lz.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.c = com.baidu.cesium.i.i.b(this.a, com.baidu.cesium.i.i.a(lz.c()), null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public final void f(Object obj, byte[] bArr, int i, int i2) throws i.a {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
+                try {
+                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                } catch (Exception unused) {
+                    throw new i.a("");
+                }
+            }
+        }
+
+        public final Object g() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
+        }
+    }
+
+    public oz(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new sz[]{new tz(8, 0), new uz(0, 1), new uz(1, 1), new tz(7, 1)};
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+        this.d = new b(null);
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nz
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
+        long j;
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        rz rzVar = new rz();
-        byte[] b = pz.b(bArr, bArr.length + ((this.a.length + 1) * rz.b));
-        pz.a(b, rzVar.b(), bArr.length);
-        int i = 0;
-        while (true) {
-            sz[] szVarArr = this.a;
-            if (i >= szVarArr.length) {
-                return Arrays.copyOf(rzVar.b(), rz.b);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            try {
+                Object g = this.d.g();
+                this.d.f(g, bArr, i, i2);
+                j = this.d.b(g);
+            } catch (Exception unused) {
+                j = 4294967295L;
             }
-            sz szVar = szVarArr[i];
-            i++;
-            int length = bArr.length + (rz.b * i);
-            rzVar.a(szVar.b(b, 0, length), szVar.d(), szVar.a(), szVar.c());
-            pz.a(b, rzVar.b(), length);
+            return com.baidu.cesium.i.b.a(new long[]{j});
         }
+        return (com.baidu.cesium.i.b) invokeLII.objValue;
     }
 }

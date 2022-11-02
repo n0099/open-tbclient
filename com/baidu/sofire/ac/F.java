@@ -98,17 +98,17 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Pair getDeviceInfoCallback() {
+    public Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new Pair(Boolean.FALSE, m.a);
+            return new Pair<>(Boolean.FALSE, m.a);
         }
         return (Pair) invokeV.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Map gpd() {
+    public Map<Integer, String> gpd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -201,7 +201,7 @@ public class F implements FI {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void cm(String str, String str2, String str3, Callback callback, Class[] clsArr, Object... objArr) {
+    public void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, callback, clsArr, objArr}) == null) {
             try {
@@ -216,7 +216,7 @@ public class F implements FI {
                     }
                     ApkInfo b = kVar.b(str2);
                     if (kVar.b(str) != null && b != null) {
-                        Class a = ((j) b.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                        Class<?> a = ((j) b.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                         Object a2 = com.baidu.sofire.k.a.a(a.getDeclaredMethod("getInstance", Context.class).invoke(a, null), str3, clsArr, objArr);
                         if (callback != null) {
                             callback.onEnd(a2);
@@ -232,19 +232,19 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Pair cmsi(int i, String str, Class[] clsArr, Object... objArr) {
+    public Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
             try {
                 d dVar = d.d;
                 if (dVar == null) {
-                    return new Pair(4, null);
+                    return new Pair<>(4, null);
                 }
                 return dVar.a(i, str, clsArr, objArr);
             } catch (Throwable unused) {
                 int i2 = b.a;
-                return new Pair(3, null);
+                return new Pair<>(3, null);
             }
         }
         return (Pair) invokeCommon.objValue;
@@ -328,7 +328,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             try {
-                ApkInfo apkInfo = (ApkInfo) k.f.d.get(str);
+                ApkInfo apkInfo = k.f.d.get(str);
                 if (apkInfo == null) {
                     return null;
                 }
@@ -414,7 +414,7 @@ public class F implements FI {
                     }
                     String str3 = b.apkMD5;
                     if (U.sRealtimeMd5Map != null) {
-                        String str4 = (String) U.sRealtimeMd5Map.get(b.key + b.versionName);
+                        String str4 = U.sRealtimeMd5Map.get(b.key + b.versionName);
                         if (!TextUtils.isEmpty(str4)) {
                             return str4;
                         }
@@ -568,7 +568,7 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void sse(Context context, String str, Map map, boolean z) {
+    public void sse(Context context, String str, Map<String, Object> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) {
             com.baidu.sofire.k.a.a(context, str, map, z);
@@ -576,7 +576,7 @@ public class F implements FI {
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void sser(Context context, String str, Map map) {
+    public void sser(Context context, String str, Map<String, Object> map) {
         String str2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048600, this, context, str, map) == null) && !TextUtils.isEmpty(str)) {

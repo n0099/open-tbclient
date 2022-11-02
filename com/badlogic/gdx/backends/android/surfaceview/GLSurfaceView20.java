@@ -1,5 +1,6 @@
 package com.badlogic.gdx.backends.android.surfaceview;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.os.Build;
@@ -79,6 +80,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
             this.a = gLSurfaceView20;
         }
 
+        @TargetApi(16)
         public final void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -104,7 +106,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
     }
 
     /* loaded from: classes.dex */
-    public class b implements GLSurfaceView.EGLConfigChooser {
+    public static class b implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic;
         public static int[] h;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +212,7 @@ public class GLSurfaceView20 extends GLSurfaceView {
     }
 
     /* loaded from: classes.dex */
-    public class c implements GLSurfaceView.EGLContextFactory {
+    public static class c implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 12440;
         public transient /* synthetic */ FieldHolder $fh;

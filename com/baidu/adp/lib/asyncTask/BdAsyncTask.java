@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xe;
-import com.baidu.tieba.ye;
+import com.baidu.tieba.pe;
+import com.baidu.tieba.qe;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,11 +31,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MESSAGE_POST_PROGRESS = 2;
     public static final int MESSAGE_POST_RESULT = 1;
-    public static final xe sDefaultExecutor;
+    public static final pe sDefaultExecutor;
     public static final e sHandler;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isSelfExecute;
-    public final ye<Result> mFuture;
+    public final qe<Result> mFuture;
     public boolean mIsTimeout;
     public String mKey;
     public BdAsyncTaskParallel mParallel;
@@ -147,7 +147,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public class a extends f {
+    public class a extends f<Params, Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -174,22 +174,22 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         }
 
         @Override // java.util.concurrent.Callable
-        public Object call() throws Exception {
+        public Result call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!this.b.mFuture.isCancelled()) {
                     BdAsyncTask bdAsyncTask = this.b;
-                    return bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.a));
+                    return (Result) bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.a));
                 }
-                return this.b.postResult(null);
+                return (Result) this.b.postResult(null);
             }
-            return invokeV.objValue;
+            return (Result) invokeV.objValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public class b extends ye {
+    public class b extends qe<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -216,7 +216,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             this.b = bdAsyncTask;
         }
 
-        @Override // com.baidu.tieba.ye
+        @Override // com.baidu.tieba.qe
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -246,7 +246,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,18 +278,18 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* loaded from: classes.dex */
-    public class d {
+    public static class d<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BdAsyncTask a;
-        public final Object[] b;
+        public final Data[] b;
 
-        public d(BdAsyncTask bdAsyncTask, Object... objArr) {
+        public d(BdAsyncTask bdAsyncTask, Data... dataArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {bdAsyncTask, objArr};
+                Object[] objArr = {bdAsyncTask, dataArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -300,7 +300,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 }
             }
             this.a = bdAsyncTask;
-            this.b = objArr;
+            this.b = dataArr;
         }
     }
 
@@ -329,8 +329,6 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: com.baidu.adp.lib.asyncTask.BdAsyncTask */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
@@ -387,7 +385,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 return;
             }
         }
-        sDefaultExecutor = xe.e();
+        sDefaultExecutor = pe.e();
         sHandler = new e(Looper.getMainLooper());
     }
 

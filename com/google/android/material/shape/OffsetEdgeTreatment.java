@@ -1,5 +1,6 @@
 package com.google.android.material.shape;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public final class OffsetEdgeTreatment extends EdgeTreatment {
     public final float offset;
     public final EdgeTreatment other;
 
-    public OffsetEdgeTreatment(EdgeTreatment edgeTreatment, float f) {
+    public OffsetEdgeTreatment(@NonNull EdgeTreatment edgeTreatment, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +44,7 @@ public final class OffsetEdgeTreatment extends EdgeTreatment {
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f, float f2, float f3, ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
             this.other.getEdgePath(f, f2 - this.offset, f3, shapePath);

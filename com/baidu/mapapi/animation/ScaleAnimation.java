@@ -3,7 +3,6 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
-import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,10 +28,11 @@ public class ScaleAnimation extends Animation {
                 return;
             }
         }
-        if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("BDMapSDKException: the scales is null");
+        if (fArr != null && fArr.length != 0) {
+            this.bdAnimation = new h(fArr);
+            return;
         }
-        this.bdAnimation = new h(fArr);
+        throw new NullPointerException("BDMapSDKException: the scales is null");
     }
 
     @Override // com.baidu.mapapi.animation.Animation
@@ -75,20 +75,13 @@ public class ScaleAnimation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
-        c cVar;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, repeatMode) == null) {
             if (repeatMode == Animation.RepeatMode.RESTART) {
-                cVar = this.bdAnimation;
-                i = 1;
-            } else if (repeatMode != Animation.RepeatMode.REVERSE) {
-                return;
-            } else {
-                cVar = this.bdAnimation;
-                i = 2;
+                this.bdAnimation.a(1);
+            } else if (repeatMode == Animation.RepeatMode.REVERSE) {
+                this.bdAnimation.a(2);
             }
-            cVar.a(i);
         }
     }
 }

@@ -1,22 +1,32 @@
 package com.asus.msa.sdid;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     @Deprecated
     public static final String APPLICATION_ID = "com.asus.msa.sdid";
+    @Keep
     public static final String BUILD_TYPE = "release";
+    @Keep
     public static final boolean DEBUG = false;
+    @Keep
     public static final String FLAVOR = "";
+    @Keep
     public static final String LIBRARY_PACKAGE_NAME = "com.asus.msa.sdid";
+    @Keep
     public static final int VERSION_CODE = 1;
+    @Keep
     public static final String VERSION_NAME = "1.0";
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     public BuildConfig() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

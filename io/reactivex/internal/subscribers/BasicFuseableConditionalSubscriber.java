@@ -14,12 +14,12 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class BasicFuseableConditionalSubscriber implements ConditionalSubscriber, QueueSubscription {
+public abstract class BasicFuseableConditionalSubscriber<T, R> implements ConditionalSubscriber<T>, QueueSubscription<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConditionalSubscriber actual;
+    public final ConditionalSubscriber<? super R> actual;
     public boolean done;
-    public QueueSubscription qs;
+    public QueueSubscription<T> qs;
     public Subscription s;
     public int sourceMode;
 
@@ -38,7 +38,7 @@ public abstract class BasicFuseableConditionalSubscriber implements ConditionalS
         return invokeV.booleanValue;
     }
 
-    public BasicFuseableConditionalSubscriber(ConditionalSubscriber conditionalSubscriber) {
+    public BasicFuseableConditionalSubscriber(ConditionalSubscriber<? super R> conditionalSubscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +66,10 @@ public abstract class BasicFuseableConditionalSubscriber implements ConditionalS
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(Object obj) {
+    public final boolean offer(R r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, r)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeL.booleanValue;
@@ -115,7 +115,7 @@ public abstract class BasicFuseableConditionalSubscriber implements ConditionalS
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            QueueSubscription queueSubscription = this.qs;
+            QueueSubscription<T> queueSubscription = this.qs;
             if (queueSubscription != null && (i & 4) == 0) {
                 int requestFusion = queueSubscription.requestFusion(i);
                 if (requestFusion != 0) {
@@ -165,10 +165,10 @@ public abstract class BasicFuseableConditionalSubscriber implements ConditionalS
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(Object obj, Object obj2) {
+    public final boolean offer(R r, R r2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, r, r2)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeLL.booleanValue;

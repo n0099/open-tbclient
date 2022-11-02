@@ -12,20 +12,20 @@ import java.util.List;
 public class ReserveHandleData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mByteArrayListData;
+    public List<byte[]> mByteArrayListData;
     public int mByteDataSize;
     public int[] mByteFormats;
     public int[] mByteHeights;
     public int[] mByteWidths;
-    public List mCharArrayListData;
+    public List<char[]> mCharArrayListData;
     public int mCharDataSize;
-    public List mDoubleArrayListData;
+    public List<double[]> mDoubleArrayListData;
     public int mDoubleDataSize;
-    public List mFloatArrayListData;
+    public List<float[]> mFloatArrayListData;
     public int mFloatDataSize;
-    public List mIntArrayListData;
+    public List<int[]> mIntArrayListData;
     public int mIntDataSize;
-    public List mLongArrayListData;
+    public List<long[]> mLongArrayListData;
     public int mLongDataSize;
 
     public ReserveHandleData() {
@@ -42,7 +42,7 @@ public class ReserveHandleData {
         }
     }
 
-    public List getByteArrayListData() {
+    public List<byte[]> getByteArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mByteArrayListData : (List) invokeV.objValue;
@@ -72,7 +72,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mByteWidths : (int[]) invokeV.objValue;
     }
 
-    public List getCharArrayListData() {
+    public List<char[]> getCharArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mCharArrayListData : (List) invokeV.objValue;
@@ -84,7 +84,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mCharDataSize : invokeV.intValue;
     }
 
-    public List getDoubleArrayListData() {
+    public List<double[]> getDoubleArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mDoubleArrayListData : (List) invokeV.objValue;
@@ -96,7 +96,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mDoubleDataSize : invokeV.intValue;
     }
 
-    public List getFloatArrayListData() {
+    public List<float[]> getFloatArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mFloatArrayListData : (List) invokeV.objValue;
@@ -108,7 +108,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mFloatDataSize : invokeV.intValue;
     }
 
-    public List getIntArrayListData() {
+    public List<int[]> getIntArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mIntArrayListData : (List) invokeV.objValue;
@@ -120,7 +120,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIntDataSize : invokeV.intValue;
     }
 
-    public List getLongArrayListData() {
+    public List<long[]> getLongArrayListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mLongArrayListData : (List) invokeV.objValue;
@@ -132,7 +132,7 @@ public class ReserveHandleData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mLongDataSize : invokeV.intValue;
     }
 
-    public void setByteArrayListData(List list) {
+    public void setByteArrayListData(List<byte[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.mByteArrayListData = list;
@@ -167,7 +167,7 @@ public class ReserveHandleData {
         }
     }
 
-    public void setCharArrayListData(List list) {
+    public void setCharArrayListData(List<char[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
             this.mCharArrayListData = list;
@@ -181,7 +181,7 @@ public class ReserveHandleData {
         }
     }
 
-    public void setDoubleArrayListData(List list) {
+    public void setDoubleArrayListData(List<double[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
             this.mDoubleArrayListData = list;
@@ -195,7 +195,7 @@ public class ReserveHandleData {
         }
     }
 
-    public void setFloatArrayListData(List list) {
+    public void setFloatArrayListData(List<float[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
             this.mFloatArrayListData = list;
@@ -209,7 +209,7 @@ public class ReserveHandleData {
         }
     }
 
-    public void setIntArrayListData(List list) {
+    public void setIntArrayListData(List<int[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, list) == null) {
             this.mIntArrayListData = list;
@@ -223,7 +223,7 @@ public class ReserveHandleData {
         }
     }
 
-    public void setLongArrayListData(List list) {
+    public void setLongArrayListData(List<long[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
             this.mLongArrayListData = list;

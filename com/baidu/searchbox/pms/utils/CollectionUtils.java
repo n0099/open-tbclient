@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -31,28 +30,26 @@ public class CollectionUtils {
         }
     }
 
-    public static List convertToPackageNameList(List list) {
+    public static List<String> convertToPackageNameList(List<PackageParams> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             ArrayList arrayList = new ArrayList(list.size());
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                arrayList.add(((PackageParams) it.next()).packageName);
+            for (PackageParams packageParams : list) {
+                arrayList.add(packageParams.packageName);
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    public static List convertToPackageParamsList(List list) {
+    public static List<PackageParams> convertToPackageParamsList(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             ArrayList arrayList = new ArrayList(list.size());
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                arrayList.add(new PackageParams((String) it.next()));
+            for (String str : list) {
+                arrayList.add(new PackageParams(str));
             }
             return arrayList;
         }

@@ -10,14 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a93;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.w23;
-import com.baidu.tieba.x23;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.o33;
+import com.baidu.tieba.p33;
+import com.baidu.tieba.s93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,23 +28,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
-public class CommonOverflowMenuView extends LinearLayout implements w23.g {
+/* loaded from: classes3.dex */
+public class CommonOverflowMenuView extends LinearLayout implements o33.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public ColorStateList c;
-    public List d;
-    public List e;
-    public HashMap f;
+    public List<ImageView> d;
+    public List<TextView> e;
+    public HashMap<p33, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
-    /* loaded from: classes2.dex */
-    public class a implements a93 {
+    /* loaded from: classes3.dex */
+    public class a implements s93 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonOverflowMenuView a;
@@ -86,10 +87,10 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
             }
         }
         this.a = R.drawable.obfuscated_res_0x7f08014c;
-        this.b = R.color.obfuscated_res_0x7f0603c7;
+        this.b = R.color.obfuscated_res_0x7f0603c8;
         this.d = new ArrayList();
         this.e = new ArrayList();
-        this.f = new HashMap();
+        this.f = new HashMap<>();
         new SparseArray();
         this.j = new Object();
         a(context);
@@ -115,10 +116,10 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
             }
         }
         this.a = R.drawable.obfuscated_res_0x7f08014c;
-        this.b = R.color.obfuscated_res_0x7f0603c7;
+        this.b = R.color.obfuscated_res_0x7f0603c8;
         this.d = new ArrayList();
         this.e = new ArrayList();
-        this.f = new HashMap();
+        this.f = new HashMap<>();
         new SparseArray();
         this.j = new Object();
         a(context);
@@ -127,10 +128,10 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bc, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bd, (ViewGroup) this, true);
             this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914fc);
-            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0914ff);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09153b);
+            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f09153e);
             setFocusable(true);
             setFocusableInTouchMode(true);
             b();
@@ -140,7 +141,7 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603aa);
+            this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603ab);
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014b));
             for (ImageView imageView : this.d) {
                 imageView.setBackgroundColor(getResources().getColor(this.b));
@@ -148,8 +149,8 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
             for (TextView textView : this.e) {
                 textView.setTextColor(this.c);
             }
-            for (Map.Entry entry : this.f.entrySet()) {
-                ((ImageView) entry.getValue()).setImageDrawable(((x23) entry.getKey()).b());
+            for (Map.Entry<p33, ImageView> entry : this.f.entrySet()) {
+                entry.getValue().setImageDrawable(entry.getKey().b());
             }
         }
     }
@@ -186,7 +187,7 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            tm2.M().f(this.j, new a(this));
+            ln2.M().f(this.j, new a(this));
             b();
         }
     }
@@ -196,7 +197,7 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            tm2.M().g(this.j);
+            ln2.M().g(this.j);
         }
     }
 
@@ -207,7 +208,7 @@ public class CommonOverflowMenuView extends LinearLayout implements w23.g {
         }
     }
 
-    public void setItemTextColor(int i) {
+    public void setItemTextColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.c = AppCompatResources.getColorStateList(getContext(), i);

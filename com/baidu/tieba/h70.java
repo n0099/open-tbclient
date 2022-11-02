@@ -1,192 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.RequestBody;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.Cookie;
+import com.baidu.searchbox.network.support.cookie.CookieHandler;
+import com.baidu.searchbox.network.support.cookie.CookieJar;
+import com.baidu.tieba.t60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class h70 implements d70 {
+public final class h70 implements t60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpURLConnection a;
-    public int b;
+    public final CookieJar a;
+    public y60 b;
 
-    /* loaded from: classes4.dex */
-    public class a extends InputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public InputStream a;
-        public final /* synthetic */ h70 b;
-
-        public a(h70 h70Var, InputStream inputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h70Var, inputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = h70Var;
-            this.a = inputStream;
-        }
-
-        public final IOException a(IOException iOException) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
-                this.b.disconnect();
-                if (TextUtils.isEmpty(iOException.getMessage())) {
-                    return new IOException(iOException.getClass().getName(), iOException);
-                }
-                return iOException;
-            }
-            return (IOException) invokeL.objValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void mark(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                synchronized (this) {
-                    this.a.mark(i);
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public int read(byte[] bArr) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-                try {
-                    return read(bArr, 0, bArr.length);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public long skip(long j) throws IOException {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-                try {
-                    return this.a.skip(j);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeJ.longValue;
-        }
-
-        @Override // java.io.InputStream
-        public int available() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                try {
-                    return this.a.available();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    if (read() >= 0) {
-                        this.a.close();
-                        this.b.disconnect();
-                        return;
-                    }
-                    this.a.close();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public boolean markSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.markSupported();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // java.io.InputStream
-        public int read() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                try {
-                    return this.a.read();
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // java.io.InputStream
-        public synchronized void reset() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                synchronized (this) {
-                    try {
-                        this.a.reset();
-                    } catch (IOException e) {
-                        throw a(e);
-                    }
-                }
-            }
-        }
-
-        @Override // java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) throws IOException {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
-                try {
-                    return this.a.read(bArr, i, i2);
-                } catch (IOException e) {
-                    throw a(e);
-                }
-            }
-            return invokeLII.intValue;
-        }
-    }
-
-    public h70(HttpURLConnection httpURLConnection) {
+    public h70(CookieJar cookieJar, y60 y60Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {httpURLConnection};
+            Object[] objArr = {cookieJar, y60Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -196,126 +38,65 @@ public class h70 implements d70 {
                 return;
             }
         }
-        this.b = 4;
-        this.a = httpURLConnection;
+        this.a = cookieJar;
+        this.b = y60Var;
     }
 
-    @Override // com.baidu.tieba.d70
-    public void t(int i) {
+    @Override // com.baidu.tieba.t60
+    public Response a(t60.a aVar) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (httpURLConnection = this.a) != null) {
-            httpURLConnection.disconnect();
-        }
-    }
-
-    @Override // com.baidu.tieba.d70
-    public void disconnect() {
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (httpURLConnection = this.a) != null) {
-            try {
-                httpURLConnection.disconnect();
-            } catch (NullPointerException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d70
-    public int getCode() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                return this.a.getResponseCode();
-            } catch (IOException e) {
-                disconnect();
-                throw e;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.d70
-    public Map getHeaders() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getHeaderFields();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d70
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                InputStream inputStream = this.a.getInputStream();
-                if (inputStream == null) {
-                    disconnect();
-                    return inputStream;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            Request.Builder newBuilder = request.newBuilder();
+            newBuilder.removeHeader("bdapp-support-brotli");
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
                 }
-                return new BufferedInputStream(new a(this, inputStream));
-            } catch (IOException e) {
-                disconnect();
-                throw e;
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
+                } else {
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
+                }
             }
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            if (request.header("User-Agent") == null && this.b.C() != null) {
+                newBuilder.header("User-Agent", this.b.C());
+            }
+            Response a = aVar.a(newBuilder.build());
+            CookieHandler.receiveHeaders(this.a, request, a.headers());
+            return a.newBuilder().request(request).build();
         }
-        return (InputStream) invokeV.objValue;
+        return (Response) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d70
-    public String getMessage() throws IOException {
-        InterceptResult invokeV;
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return this.a.getResponseMessage();
-            } catch (IOException e) {
-                disconnect();
-                throw e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
+                }
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
             }
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d70
-    public InputStream q() throws IOException {
-        InterceptResult invokeV;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (getCode() >= 400) {
-                inputStream = this.a.getErrorStream();
-            } else {
-                inputStream = null;
-            }
-            if (inputStream != null) {
-                return new a(this, inputStream);
-            }
-            return inputStream;
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d70
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 }

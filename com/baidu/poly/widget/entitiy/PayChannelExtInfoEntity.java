@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class PayChannelExtInfoEntity implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mInstallmentEntities;
+    public ArrayList<InstallmentEntity> mInstallmentEntities;
     public String mInstallmentTotal;
 
     public PayChannelExtInfoEntity() {
@@ -28,10 +28,10 @@ public class PayChannelExtInfoEntity implements Serializable {
                 return;
             }
         }
-        this.mInstallmentEntities = new ArrayList();
+        this.mInstallmentEntities = new ArrayList<>();
     }
 
-    public ArrayList getInstallmentEntities() {
+    public ArrayList<InstallmentEntity> getInstallmentEntities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -49,7 +49,7 @@ public class PayChannelExtInfoEntity implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public void setInstallmentEntities(ArrayList arrayList) {
+    public void setInstallmentEntities(ArrayList<InstallmentEntity> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.mInstallmentEntities = arrayList;

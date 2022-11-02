@@ -15,7 +15,7 @@ public class UniversalCountDownTimer {
     public CountDownTimer mCountDownTimer;
 
     /* loaded from: classes.dex */
-    public abstract class StatusListener {
+    public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

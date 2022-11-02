@@ -1,49 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.Window;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes5.dex */
-public interface n41 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final n41 b = new a();
+public final class n41 implements o41 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(Activity activity);
-
-    /* loaded from: classes5.dex */
-    public final class a implements n41 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public n41() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.n41
-        public void a(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21) {
-                Window window = activity.getWindow();
-                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                window.addFlags(Integer.MIN_VALUE);
-                window.setStatusBarColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f060898));
-            }
+    public static n41 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new n41();
+        }
+        return (n41) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.o41
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.o41
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
         }
     }
 }

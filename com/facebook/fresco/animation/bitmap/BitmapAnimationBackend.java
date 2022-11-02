@@ -6,6 +6,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,7 +35,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public static final int FRAME_TYPE_FALLBACK = 3;
     public static final int FRAME_TYPE_REUSED = 1;
     public static final int FRAME_TYPE_UNKNOWN = -1;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final AnimationInformation mAnimationInformation;
     public Bitmap.Config mBitmapConfig;
@@ -175,7 +176,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
         updateBitmapDimensions();
     }
 
-    private boolean drawBitmapAndCache(int i, @Nullable CloseableReference closeableReference, Canvas canvas, int i2) {
+    private boolean drawBitmapAndCache(int i, @Nullable CloseableReference<Bitmap> closeableReference, Canvas canvas, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), closeableReference, canvas, Integer.valueOf(i2)})) == null) {
@@ -183,9 +184,9 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
                 return false;
             }
             if (this.mBounds == null) {
-                canvas.drawBitmap((Bitmap) closeableReference.get(), 0.0f, 0.0f, this.mPaint);
+                canvas.drawBitmap(closeableReference.get(), 0.0f, 0.0f, this.mPaint);
             } else {
-                canvas.drawBitmap((Bitmap) closeableReference.get(), (Rect) null, this.mBounds, this.mPaint);
+                canvas.drawBitmap(closeableReference.get(), (Rect) null, this.mBounds, this.mPaint);
             }
             if (i2 != 3) {
                 this.mBitmapFrameCache.onFrameRendered(i, closeableReference, i2);
@@ -202,7 +203,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
 
     private boolean drawFrameOrFallback(Canvas canvas, int i, int i2) {
         InterceptResult invokeLII;
-        CloseableReference cachedFrame;
+        CloseableReference<Bitmap> cachedFrame;
         boolean drawBitmapAndCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, canvas, i, i2)) == null) {
@@ -247,20 +248,20 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
                 FLog.w(TAG, "Failed to create frame bitmap", e);
                 return false;
             } finally {
-                CloseableReference.closeSafely((CloseableReference) null);
+                CloseableReference.closeSafely((CloseableReference<?>) null);
             }
         }
         return invokeLII.booleanValue;
     }
 
-    private boolean renderFrameInBitmap(int i, @Nullable CloseableReference closeableReference) {
+    private boolean renderFrameInBitmap(int i, @Nullable CloseableReference<Bitmap> closeableReference) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, closeableReference)) == null) {
             if (!CloseableReference.isValid(closeableReference)) {
                 return false;
             }
-            boolean renderFrame = this.mBitmapFrameRenderer.renderFrame(i, (Bitmap) closeableReference.get());
+            boolean renderFrame = this.mBitmapFrameRenderer.renderFrame(i, closeableReference.get());
             if (!renderFrame) {
                 CloseableReference.closeSafely(closeableReference);
             }
@@ -332,7 +333,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(int i) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.mPaint.setAlpha(i);

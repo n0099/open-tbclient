@@ -12,6 +12,7 @@ import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.TransitionUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -239,7 +240,8 @@ public class ChangeImageTransform extends Transition {
         return (Matrix) invokeL.objValue;
     }
 
-    public static Matrix copyImageMatrix(ImageView imageView) {
+    @NonNull
+    public static Matrix copyImageMatrix(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, imageView)) == null) {
@@ -268,7 +270,8 @@ public class ChangeImageTransform extends Transition {
         return (ObjectAnimator) invokeLLL.objValue;
     }
 
-    private ObjectAnimator createNullAnimator(ImageView imageView) {
+    @NonNull
+    private ObjectAnimator createNullAnimator(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, imageView)) == null) {
@@ -281,7 +284,7 @@ public class ChangeImageTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -289,7 +292,7 @@ public class ChangeImageTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -309,7 +312,7 @@ public class ChangeImageTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;

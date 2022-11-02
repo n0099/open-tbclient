@@ -1,102 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tieba.im2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fz2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fz2 {
+    public static final fz2 a = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781355, "Lcom/baidu/tieba/fz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public interface b {
+    }
+
+    void a(String str);
+
+    boolean b();
+
+    Object c(Activity activity, String str, b bVar, boolean z);
+
+    void d(Activity activity, Object obj);
+
+    boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj);
+
+    void f(Activity activity, Object obj);
+
+    /* loaded from: classes4.dex */
+    public static class a implements fz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.fz2
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public Object c(Activity activity, String str, b bVar, boolean z) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, bVar, Boolean.valueOf(z)})) == null) {
+                return null;
+            }
+            return invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public void d(Activity activity, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, activity, obj) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, Integer.valueOf(i), strArr, iArr, obj})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public void f(Activity activity, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, activity, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947781355, "Lcom/baidu/tieba/fz2;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = wj1.a;
-    }
-
-    public static void a() {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = im2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    nc4 nc4Var = new nc4();
-                    nc4Var.g = str;
-                    nc4Var.i = -1L;
-                    jb4.i().f(nc4Var);
-                }
-            }
-            im2.e.d();
-        }
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = im2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List q = ty2.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        ez2.b(Log.getStackTraceString(e));
-                    }
-                }
-                if (!c(j, q)) {
-                    qj4.L(im2.t(str, str2));
-                    ez2.b("delete plugin name = " + str + " ; version = " + str2);
-                }
-            }
-            nc4 nc4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    nc4Var = (nc4) q.get(0);
-                } else if (q.size() >= 2) {
-                    nc4Var = (nc4) q.get(1);
-                }
-            }
-            if (nc4Var != null) {
-                jb4.i().f(nc4Var);
-            }
-        }
-    }
-
-    public static boolean c(long j, List list) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    nc4 nc4Var = (nc4) list.get(i);
-                    if (nc4Var != null && (j == nc4Var.i || j == bh3.c(nc4Var.j))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeJL.booleanValue;
     }
 }

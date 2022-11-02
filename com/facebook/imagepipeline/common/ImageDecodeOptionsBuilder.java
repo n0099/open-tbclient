@@ -9,11 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.common.ImageDecodeOptionsBuilder;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ImageDecodeOptionsBuilder {
+public class ImageDecodeOptionsBuilder<T extends ImageDecodeOptionsBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bitmap.Config mBitmapConfig;
@@ -30,10 +31,10 @@ public class ImageDecodeOptionsBuilder {
     public int mMinDecodeIntervalMs;
     public boolean mUseLastFrameForPreview;
 
-    public ImageDecodeOptionsBuilder getThis() {
+    public T getThis() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this : (ImageDecodeOptionsBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this : (T) invokeV.objValue;
     }
 
     public ImageDecodeOptionsBuilder() {
@@ -156,104 +157,104 @@ public class ImageDecodeOptionsBuilder {
         return invokeV.booleanValue;
     }
 
-    public ImageDecodeOptionsBuilder setBitmapConfig(Bitmap.Config config) {
+    public T setBitmapConfig(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, config)) == null) {
             this.mBitmapConfig = config;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setBitmapTransformation(@Nullable BitmapTransformation bitmapTransformation) {
+    public T setBitmapTransformation(@Nullable BitmapTransformation bitmapTransformation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bitmapTransformation)) == null) {
             this.mBitmapTransformation = bitmapTransformation;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setColorSpace(ColorSpace colorSpace) {
+    public T setColorSpace(ColorSpace colorSpace) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, colorSpace)) == null) {
             this.mColorSpace = colorSpace;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setCustomImageDecoder(@Nullable ImageDecoder imageDecoder) {
+    public T setCustomImageDecoder(@Nullable ImageDecoder imageDecoder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, imageDecoder)) == null) {
             this.mCustomImageDecoder = imageDecoder;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setDecodeAllFrames(boolean z) {
+    public T setDecodeAllFrames(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
             this.mDecodeAllFrames = z;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setDecodePreviewFrame(boolean z) {
+    public T setDecodePreviewFrame(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
             this.mDecodePreviewFrame = z;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setForceStaticImage(boolean z) {
+    public T setForceStaticImage(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
             this.mForceStaticImage = z;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setMaxDimensionPx(int i) {
+    public T setMaxDimensionPx(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
             this.mMaxDimensionPx = i;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setMinDecodeIntervalMs(int i) {
+    public T setMinDecodeIntervalMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
             this.mMinDecodeIntervalMs = i;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public ImageDecodeOptionsBuilder setUseLastFrameForPreview(boolean z) {
+    public T setUseLastFrameForPreview(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
             this.mUseLastFrameForPreview = z;
             return getThis();
         }
-        return (ImageDecodeOptionsBuilder) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
     public ImageDecodeOptionsBuilder setFrom(ImageDecodeOptions imageDecodeOptions) {

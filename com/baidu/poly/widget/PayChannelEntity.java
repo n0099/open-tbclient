@@ -25,7 +25,7 @@ public class PayChannelEntity implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean alreadySigned;
     public long available_par_money;
-    public List childrenPayChannels;
+    public List<PayChannelEntity> childrenPayChannels;
     public int disAbled;
     public String disAbledMsg;
     public String display_color;
@@ -265,7 +265,7 @@ public class PayChannelEntity implements Serializable {
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("detail");
             String optString = optJSONObject.optString("total");
             if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<InstallmentEntity> arrayList = new ArrayList<>();
                 int i3 = 0;
                 while (i3 < optJSONArray2.length()) {
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);

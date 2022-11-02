@@ -49,7 +49,7 @@ public final class StatisticApi {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             if (wU == null) {
                 try {
-                    Constructor a = com.baidu.ar.h.n.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
+                    Constructor<?> a = com.baidu.ar.h.n.a("com.baidu.ar.statistic.StatisticApiImpl", Context.class, HandlerThread.class);
                     if (a != null) {
                         wU = (g) com.baidu.ar.h.n.a(a, context, null);
                     }
@@ -94,7 +94,7 @@ public final class StatisticApi {
         gVar.onEvent(str, str2);
     }
 
-    public static void onEvent(String str, Map map) {
+    public static void onEvent(String str, Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65542, null, str, map) == null) || (gVar = wU) == null) {
@@ -112,7 +112,7 @@ public final class StatisticApi {
         gVar.onEventDebounce(str, j, str2);
     }
 
-    public static void onEventDebounce(String str, long j, Map map) {
+    public static void onEventDebounce(String str, long j, Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j), map}) == null) || (gVar = wU) == null) {
@@ -148,7 +148,7 @@ public final class StatisticApi {
         gVar.onEventStatus(str, str2, z);
     }
 
-    public static void onPerformance(String str, Map map) {
+    public static void onPerformance(String str, Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) || (gVar = wU) == null) {
@@ -205,7 +205,7 @@ public final class StatisticApi {
         gVar.setPubParam(str, str2);
     }
 
-    public static void setPubParams(Map map) {
+    public static void setPubParams(Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65554, null, map) == null) || (gVar = wU) == null) {

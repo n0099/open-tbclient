@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface vf {
-    int a();
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
 
-    int b();
+    boolean netABTest();
 
-    View c(LayoutInflater layoutInflater);
+    boolean netBdABTest();
 
-    int getXOffset();
-
-    int getYOffset();
+    boolean qaHttpsTest();
 }

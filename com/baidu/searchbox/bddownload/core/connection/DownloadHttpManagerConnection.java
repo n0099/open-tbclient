@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.connection;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ProtocolException;
+import java.util.List;
 import java.util.Map;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -26,11 +28,12 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     public static final String TAG = "DownloadHttpManagerConnection";
     public transient /* synthetic */ FieldHolder $fh;
     public Request request;
+    @NonNull
     public final GetRequest.GetRequestBuilder requestBuilder;
     public Response response;
 
     /* loaded from: classes2.dex */
-    public class Factory implements DownloadConnection.Factory {
+    public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,13 +57,13 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 Util.d(DownloadHttpManagerConnection.TAG, " create url = " + str);
-                return new DownloadHttpManagerConnection((GetRequest.GetRequestBuilder) HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str));
+                return new DownloadHttpManagerConnection(HttpManager.getDefault(BdDownload.with().context()).getRequest().url(str));
             }
             return (DownloadConnection) invokeL.objValue;
         }
     }
 
-    public DownloadHttpManagerConnection(GetRequest.GetRequestBuilder getRequestBuilder) {
+    public DownloadHttpManagerConnection(@NonNull GetRequest.GetRequestBuilder getRequestBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +110,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public boolean setRequestMethod(String str) throws ProtocolException {
+    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
@@ -164,7 +167,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public Map getResponseHeaderFields() {
+    public Map<String, List<String>> getResponseHeaderFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -205,7 +208,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public Map getRequestProperties() {
+    public Map<String, List<String>> getRequestProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

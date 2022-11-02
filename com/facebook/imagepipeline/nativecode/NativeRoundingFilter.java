@@ -8,18 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeRoundingFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotStrip
     public static native void nativeAddRoundedCornersFilter(Bitmap bitmap, int i, int i2, int i3, int i4);
 
+    @DoNotStrip
     public static native void nativeToCircleFastFilter(Bitmap bitmap, boolean z);
 
+    @DoNotStrip
     public static native void nativeToCircleFilter(Bitmap bitmap, boolean z);
 
+    @DoNotStrip
     public static native void nativeToCircleWithBorderFilter(Bitmap bitmap, int i, int i2, boolean z);
 
     static {
@@ -73,6 +79,7 @@ public class NativeRoundingFilter {
         }
     }
 
+    @DoNotStrip
     public static void toCircle(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, bitmap, z) == null) {
@@ -81,6 +88,7 @@ public class NativeRoundingFilter {
         }
     }
 
+    @DoNotStrip
     public static void toCircleFast(Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65546, null, bitmap, z) == null) {

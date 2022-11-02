@@ -3,10 +3,10 @@ package com.kwad.sdk.crash.a;
 import android.text.TextUtils;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
-    public Set ahi = new HashSet();
-    public Set ahj = new HashSet();
+    public Set<String> ahi = new HashSet();
+    public Set<String> ahj = new HashSet();
 
     public final synchronized void a(String[] strArr, String[] strArr2) {
         if (strArr != null) {

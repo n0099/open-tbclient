@@ -35,7 +35,7 @@ public class PacDownload implements IResourceTask, INetListener {
     public transient /* synthetic */ FieldHolder $fh;
     public ByteArrayOutputStream mData;
     public boolean mFreeFlowEnabled;
-    public Map mHeader;
+    public Map<String, String> mHeader;
 
     static {
         InterceptResult invokeClinit;
@@ -331,7 +331,7 @@ public class PacDownload implements IResourceTask, INetListener {
                 String str = new String(byteArray, "UTF-8");
                 if (getFreeFlowEnabled()) {
                     if (this.mHeader != null) {
-                        String str2 = (String) this.mHeader.get(Headers.LAST_MODIFIED);
+                        String str2 = this.mHeader.get(Headers.LAST_MODIFIED);
                         Log.w(LOG_TAG, "lastModify freeflow  ".concat(String.valueOf(str2)));
                         if (str2 != null) {
                             Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str2)));
@@ -344,7 +344,7 @@ public class PacDownload implements IResourceTask, INetListener {
                     return;
                 }
                 if (this.mHeader != null) {
-                    String str3 = (String) this.mHeader.get(Headers.LAST_MODIFIED);
+                    String str3 = this.mHeader.get(Headers.LAST_MODIFIED);
                     Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str3)));
                     if (str3 != null) {
                         Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str3)));

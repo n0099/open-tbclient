@@ -1,70 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 /* loaded from: classes6.dex */
-public class yl9 implements AdRipper {
-    public static /* synthetic */ Interceptable $ic;
+public final class yl9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] SVGImageView;
+    public static final int SVGImageView_css = 0;
+    public static final int SVGImageView_svg = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yl9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334147, "Lcom/baidu/tieba/yl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334147, "Lcom/baidu/tieba/yl9;");
+                return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void destroy(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeLZ.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void preParseRippedAd(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void report(Object obj, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
-        }
+        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f04066d};
     }
 }

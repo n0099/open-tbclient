@@ -1,5 +1,6 @@
 package com.baidu.tbadk.img;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,6 +30,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public String picId;
     public picInfo picInfo;
     public String resourceId;
+    @Nullable
     public String sharpText;
 
     static {
@@ -206,7 +208,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
         return invokeI.booleanValue;
     }
 
-    public void setSharpText(String str) {
+    public void setSharpText(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.sharpText = str;

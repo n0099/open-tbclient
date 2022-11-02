@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.decoder.SimpleDecoder;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public abstract class SimpleSubtitleDecoder extends SimpleDecoder implements SubtitleDecoder {
+public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputBuffer, SubtitleOutputBuffer, SubtitleDecoderException> implements SubtitleDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String name;
@@ -103,7 +103,7 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder implements Sub
     public final void releaseOutputBuffer(SubtitleOutputBuffer subtitleOutputBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subtitleOutputBuffer) == null) {
-            super.releaseOutputBuffer((OutputBuffer) subtitleOutputBuffer);
+            super.releaseOutputBuffer((SimpleSubtitleDecoder) subtitleOutputBuffer);
         }
     }
 }

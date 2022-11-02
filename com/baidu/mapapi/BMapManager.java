@@ -35,13 +35,25 @@ public class BMapManager {
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? com.baidu.mapsdkplatform.comapi.a.a().e() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                return com.baidu.mapsdkplatform.comapi.a.a().e();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Context) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            com.baidu.mapsdkplatform.comapi.a.a().b();
+            try {
+                com.baidu.mapsdkplatform.comapi.a.a().b();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

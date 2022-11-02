@@ -9,6 +9,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +52,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     public int mTouchSlop;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PagerTabStrip(Context context) {
+    public PagerTabStrip(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +73,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PagerTabStrip(Context context, AttributeSet attributeSet) {
+    public PagerTabStrip(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -195,6 +200,7 @@ public class PagerTabStrip extends PagerTitleStrip {
         return invokeV.intValue;
     }
 
+    @ColorInt
     public int getTabIndicatorColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -256,7 +262,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(@ColorInt int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -290,7 +296,7 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -315,7 +321,7 @@ public class PagerTabStrip extends PagerTitleStrip {
         }
     }
 
-    public void setTabIndicatorColor(int i) {
+    public void setTabIndicatorColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.mIndicatorColor = i;
@@ -324,7 +330,7 @@ public class PagerTabStrip extends PagerTitleStrip {
         }
     }
 
-    public void setTabIndicatorColorResource(int i) {
+    public void setTabIndicatorColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             setTabIndicatorColor(ContextCompat.getColor(getContext(), i));

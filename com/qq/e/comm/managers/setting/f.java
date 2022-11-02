@@ -23,24 +23,24 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-        public final Object b;
+        public final T b;
 
-        public b(String str, Object obj) {
+        public b(String str, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, obj};
+                Object[] objArr = {str, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,17 +51,17 @@ public class f {
                 }
             }
             this.a = str;
-            this.b = obj;
+            this.b = t;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
             this(str, obj);
         }
 
-        public Object a() {
+        public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
         }
 
         public String b() {
@@ -71,15 +71,15 @@ public class f {
         }
     }
 
-    public static b a(Context context) {
+    public static b<com.qq.e.comm.managers.setting.a> a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Pair a2 = a(context, "devCloudSetting");
+            Pair<String, String> a2 = a(context, "devCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b((String) a2.first, new com.qq.e.comm.managers.setting.a((String) a2.second), null);
+            return new b<>((String) a2.first, new com.qq.e.comm.managers.setting.a((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -90,15 +90,15 @@ public class f {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) ? a(context, "devCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
-    public static b b(Context context) {
+    public static b<d> b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            Pair a2 = a(context, "placementCloudSetting");
+            Pair<String, String> a2 = a(context, "placementCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b((String) a2.first, new d((String) a2.second), null);
+            return new b<>((String) a2.first, new d((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -196,15 +196,15 @@ public class f {
         return invokeLLLL.booleanValue;
     }
 
-    public static b c(Context context) {
+    public static b<e> c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Pair a2 = a(context, "sdkCloudSetting");
+            Pair<String, String> a2 = a(context, "sdkCloudSetting");
             if (a2 == null) {
                 return null;
             }
-            return new b((String) a2.first, new e((String) a2.second), null);
+            return new b<>((String) a2.first, new e((String) a2.second), null);
         }
         return (b) invokeL.objValue;
     }
@@ -215,7 +215,7 @@ public class f {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, str2)) == null) ? a(context, "sdkCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
-    public static Pair a(Context context, String str) {
+    public static Pair<String, String> a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
@@ -233,7 +233,7 @@ public class f {
                         com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
                         if (a2 != null) {
                             if (a2.a(readAll, Md5Util.encode(readAll2))) {
-                                return new Pair(readAll, new String(Base64.decode(readAll2, 0), "UTF-8"));
+                                return new Pair<>(readAll, new String(Base64.decode(readAll2, 0), "UTF-8"));
                             }
                         } else {
                             throw null;

@@ -8,8 +8,8 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public class c {
-    public static void a(int i, SparseArray sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
-        SparseArray clone;
+    public static void a(int i, SparseArray<IDownloadListener> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
+        SparseArray<IDownloadListener> clone;
         if (z && sparseArray != null) {
             try {
                 if (sparseArray.size() > 0) {
@@ -17,7 +17,7 @@ public class c {
                         clone = sparseArray.clone();
                     }
                     for (int i2 = 0; i2 < clone.size(); i2++) {
-                        IDownloadListener iDownloadListener = (IDownloadListener) clone.get(clone.keyAt(i2));
+                        IDownloadListener iDownloadListener = clone.get(clone.keyAt(i2));
                         if (iDownloadListener != null) {
                             if (i != 1) {
                                 if (i != 2) {

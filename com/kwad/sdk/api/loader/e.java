@@ -2,21 +2,22 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import dalvik.system.DexClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class e {
-    public static final List Sl;
+    public static final List<String> Sl;
 
     /* loaded from: classes7.dex */
-    public final class a extends DexClassLoader {
+    public static class a extends DexClassLoader {
         public a(String str, String str2, String str3, ClassLoader classLoader) {
             super(str, str2, str3, classLoader);
         }
 
         @Override // java.lang.ClassLoader
-        public final Class loadClass(String str, boolean z) {
+        public final Class<?> loadClass(String str, boolean z) {
             if (!TextUtils.isEmpty(str) && str.startsWith("com.kwad.sdk.api")) {
                 return getParent().loadClass(str);
             }
@@ -42,6 +43,7 @@ public final class e {
         Sl.add("android.support.rastermill");
     }
 
+    @NonNull
     public static ClassLoader a(Context context, String str, String str2, String str3) {
         return new a(str, str2, str3, context.getClassLoader());
     }

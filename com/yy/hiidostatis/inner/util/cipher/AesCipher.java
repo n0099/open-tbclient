@@ -16,7 +16,7 @@ public class AesCipher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_CBC_NOPADDING = "AES/CBC/NoPadding";
     public static final int BLOCK_SIZE = 16;
-    public static final ThreadLocal Cipher_AES_CBC_NOPADDING;
+    public static final ThreadLocal<Cipher> Cipher_AES_CBC_NOPADDING;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] m_key;
 
@@ -33,7 +33,7 @@ public class AesCipher {
                 return;
             }
         }
-        Cipher_AES_CBC_NOPADDING = new ThreadLocal() { // from class: com.yy.hiidostatis.inner.util.cipher.AesCipher.1
+        Cipher_AES_CBC_NOPADDING = new ThreadLocal<Cipher>() { // from class: com.yy.hiidostatis.inner.util.cipher.AesCipher.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public class AesCipher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             try {
-                Cipher cipher = (Cipher) Cipher_AES_CBC_NOPADDING.get();
+                Cipher cipher = Cipher_AES_CBC_NOPADDING.get();
                 cipher.init(2, new SecretKeySpec(this.m_key, "AES"), createIv());
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
@@ -122,7 +122,7 @@ public class AesCipher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
             try {
-                Cipher cipher = (Cipher) Cipher_AES_CBC_NOPADDING.get();
+                Cipher cipher = Cipher_AES_CBC_NOPADDING.get();
                 cipher.init(1, new SecretKeySpec(this.m_key, "AES"), createIv());
                 return cipher.doFinal(fillBlock(bArr));
             } catch (Throwable th) {
@@ -158,7 +158,7 @@ public class AesCipher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
             try {
-                Cipher cipher = (Cipher) Cipher_AES_CBC_NOPADDING.get();
+                Cipher cipher = Cipher_AES_CBC_NOPADDING.get();
                 cipher.init(2, new SecretKeySpec(this.m_key, "AES"), createIv());
                 return cipher.doFinal(bArr, i, i2);
             } catch (Throwable th) {

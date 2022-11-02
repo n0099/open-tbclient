@@ -285,7 +285,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     }
 
                     @Override // com.baidu.ar.lua.c
-                    public void a(int i, int i2, HashMap hashMap) {
+                    public void a(int i, int i2, HashMap<String, Object> hashMap) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
                             if (i != 305) {
@@ -308,7 +308,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     }
 
                     @Override // com.baidu.ar.lua.c
-                    public List n() {
+                    public List<Integer> n() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Arrays.asList(306, 305) : (List) invokeV.objValue;
@@ -325,7 +325,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
             l r = r();
             if (this.rV && !this.rX) {
                 this.rX = true;
-                b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, (HashMap) null);
+                b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, (HashMap<String, Object>) null);
                 if (r != null) {
                     this.rY = r.isDriverdByARPVersion();
                 }
@@ -365,7 +365,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.baidu.ar.h.b.c(TAG, "release()");
             a((g) this);
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("succeeded", 1);
             b(304, hashMap);
             b(this.rN);
@@ -375,7 +375,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);
@@ -407,7 +407,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     }
                     r.a(this.rO.eW());
                 }
-                HashMap hashMap2 = new HashMap();
+                HashMap<String, Object> hashMap2 = new HashMap<>();
                 hashMap2.put("succeeded", 1);
                 b(302, hashMap2);
             }

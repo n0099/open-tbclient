@@ -82,7 +82,7 @@ public class TrackBox extends AbstractContainerBox {
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public void setBoxes(List list) {
+    public void setBoxes(List<Box> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             super.setBoxes(list);

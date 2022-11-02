@@ -116,7 +116,7 @@ public final class CommonPool extends ExecutorCoroutineDispatcher {
         pool = null;
     }
 
-    private final Object Try(Function0 function0) {
+    private final <T> T Try(Function0<? extends T> function0) {
         try {
             return function0.invoke();
         } catch (Throwable unused) {
@@ -200,7 +200,7 @@ public final class CommonPool extends ExecutorCoroutineDispatcher {
         }
     }
 
-    public final boolean isGoodCommonPool$kotlinx_coroutines_core(Class cls, ExecutorService executorService) {
+    public final boolean isGoodCommonPool$kotlinx_coroutines_core(Class<?> cls, ExecutorService executorService) {
         executorService.submit(CommonPool$isGoodCommonPool$1.INSTANCE);
         Integer num = null;
         try {

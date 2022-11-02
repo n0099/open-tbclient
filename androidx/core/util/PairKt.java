@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import android.annotation.SuppressLint;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,6 +12,7 @@ public final class PairKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @SuppressLint({"UnknownNullness"})
     public static final <F, S> F component1(android.util.Pair<F, S> pair) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -20,6 +22,7 @@ public final class PairKt {
         return (F) invokeL.objValue;
     }
 
+    @SuppressLint({"UnknownNullness"})
     public static final <F, S> S component2(android.util.Pair<F, S> pair) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

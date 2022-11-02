@@ -23,11 +23,11 @@ public class a extends j {
     public int cj;
     public int ck;
     public boolean cl;
-    public InterfaceC0045a cm;
+    public InterfaceC0046a cm;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0045a {
+    public interface InterfaceC0046a {
         void b(FramePixels framePixels);
     }
 
@@ -69,10 +69,10 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC0045a interfaceC0045a) {
+    public void a(InterfaceC0046a interfaceC0046a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0045a) == null) {
-            this.cm = interfaceC0045a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0046a) == null) {
+            this.cm = interfaceC0046a;
         }
     }
 
@@ -119,9 +119,9 @@ public class a extends j {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, framePixels)) == null) {
             if (this.cl) {
                 this.cl = false;
-                InterfaceC0045a interfaceC0045a = this.cm;
-                if (interfaceC0045a != null) {
-                    interfaceC0045a.b(framePixels);
+                InterfaceC0046a interfaceC0046a = this.cm;
+                if (interfaceC0046a != null) {
+                    interfaceC0046a.b(framePixels);
                     return true;
                 }
                 return true;

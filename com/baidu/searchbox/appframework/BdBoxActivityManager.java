@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class BdBoxActivityManager {
@@ -50,7 +51,7 @@ public class BdBoxActivityManager {
         return invokeV.intValue;
     }
 
-    public static LinkedList getActivityStack() {
+    public static LinkedList<WeakReference<Activity>> getActivityStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {

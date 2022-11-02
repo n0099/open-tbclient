@@ -99,7 +99,7 @@ public class CriusUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static Map getMapIfExist(JSONObject jSONObject, String str) {
+    public static Map<String, String> getMapIfExist(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;

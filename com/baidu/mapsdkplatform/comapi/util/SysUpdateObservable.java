@@ -14,7 +14,7 @@ public class SysUpdateObservable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SysUpdateObservable a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List b;
+    public List<SysUpdateObserver> b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class SysUpdateObservable {
         }
     }
 
-    public void init() {
+    public void init(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
-                    sysUpdateObserver.init();
+                    sysUpdateObserver.init(str);
                 }
             }
         }
@@ -89,12 +89,12 @@ public class SysUpdateObservable {
         }
     }
 
-    public void updatePhoneInfo() {
+    public void updatePhoneInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
-                    sysUpdateObserver.updatePhoneInfo();
+                    sysUpdateObserver.updatePhoneInfo(str);
                 }
             }
         }

@@ -13,7 +13,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.runtime.internal.AroundClosure;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JoinPointImpl implements ProceedingJoinPoint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class JoinPointImpl implements ProceedingJoinPoint {
     public JoinPoint.StaticPart staticPart;
     public Object target;
 
-    /* loaded from: classes8.dex */
-    public class EnclosingStaticPartImpl extends StaticPartImpl implements JoinPoint.EnclosingStaticPart {
+    /* loaded from: classes9.dex */
+    public static class EnclosingStaticPartImpl extends StaticPartImpl implements JoinPoint.EnclosingStaticPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,8 +50,8 @@ public class JoinPointImpl implements ProceedingJoinPoint {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class StaticPartImpl implements JoinPoint.StaticPart {
+    /* loaded from: classes9.dex */
+    public static class StaticPartImpl implements JoinPoint.StaticPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;

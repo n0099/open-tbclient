@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.personExtra.PersonBarByUidLocalMessage;
-import com.baidu.tieba.personExtra.ResponsePersonBarByUidLocalMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BubbleInfo;
 /* loaded from: classes4.dex */
-public class g78 implements CustomMessageTask.CustomRunnable {
+public class g78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
 
     public g78() {
         Interceptable interceptable = $ic;
@@ -31,26 +29,40 @@ public class g78 implements CustomMessageTask.CustomRunnable {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof PersonBarByUidLocalMessage)) {
-                ou4.f();
-                String str = (String) ou4.g("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
-                ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-                if (str != null) {
-                    try {
-                        responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
-                    }
-                }
-                return responsePersonBarByUidLocalMessage;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(BubbleInfo bubbleInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, bubbleInfo) != null) || bubbleInfo == null) {
+            return;
+        }
+        this.a = bubbleInfo.bubble_id.intValue();
+        this.b = bubbleInfo.bubble_text;
+        this.c = bubbleInfo.bubble_pic;
     }
 }

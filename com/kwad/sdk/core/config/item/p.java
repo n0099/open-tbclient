@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
@@ -8,9 +9,9 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class p extends b {
-    public p(String str, List list) {
+/* loaded from: classes8.dex */
+public final class p extends b<List<String>> {
+    public p(String str, List<String> list) {
         super(str, list);
     }
 
@@ -25,7 +26,7 @@ public final class p extends b {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(SharedPreferences.Editor editor) {
+    public final void b(@NonNull SharedPreferences.Editor editor) {
         if (af.C(getValue())) {
             editor.putString(getKey(), b.bt(r.toJsonArray(getValue()).toString()));
         }
@@ -52,9 +53,10 @@ public final class p extends b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.config.item.b
+    @NonNull
     /* renamed from: sE */
-    public final List getValue() {
-        List list = (List) super.getValue();
+    public final List<String> getValue() {
+        List<String> list = (List) super.getValue();
         return list == null ? new ArrayList() : list;
     }
 }

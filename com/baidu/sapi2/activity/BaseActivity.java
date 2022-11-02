@@ -49,6 +49,7 @@ import com.baidu.sapi2.callback.IdcardOcrImageCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.sapi2.dto.IdCardOcrDTO;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.provider.FileProvider;
 import com.baidu.sapi2.result.GetTplStokenResult;
@@ -68,6 +69,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.VibrateUtils;
 import com.baidu.sapi2.utils.a;
 import com.baidu.sapi2.utils.b;
+import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.FingerprintDialog;
@@ -121,8 +123,8 @@ public class BaseActivity extends TitleActivity {
     public static final int r = 1006;
     public static final int s = 2001;
     public transient /* synthetic */ FieldHolder $fh;
-    public ValueCallback a;
-    public ValueCallback b;
+    public ValueCallback<Uri> a;
+    public ValueCallback<Uri[]> b;
     public SapiWebView.PickPhotoResult c;
     public SapiWebView.BiometricsIdentifyResult d;
     public SapiScheme e;
@@ -556,7 +558,7 @@ public class BaseActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ValueCallback valueCallback) {
+    public void a(ValueCallback<Uri> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, valueCallback) == null) {
             this.a = valueCallback;
@@ -640,7 +642,7 @@ public class BaseActivity extends TitleActivity {
                 public void onSuccess(GetTplStokenResult getTplStokenResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
-                        String str = (String) getTplStokenResult.tplStokenMap.get("pp");
+                        String str = getTplStokenResult.tplStokenMap.get("pp");
                         if (!TextUtils.isEmpty(str)) {
                             SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult2 = this.a;
                             if (biometricsIdentifyResult2.biometricType == 1) {
@@ -666,7 +668,7 @@ public class BaseActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(ValueCallback valueCallback) {
+    public void b(ValueCallback<Uri[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, valueCallback) == null) {
             this.b = valueCallback;
@@ -784,7 +786,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c80)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc8)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -908,7 +910,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10b4, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10cf, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");
@@ -1355,7 +1357,7 @@ public class BaseActivity extends TitleActivity {
             Log.e(k, "子activity重写了webview布局");
         }
         this.sapiWebView.setHadMakeBarHide(true);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c80);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc8);
         if (this.mTitleLayout == null) {
             this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
         }
@@ -1449,7 +1451,7 @@ public class BaseActivity extends TitleActivity {
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609de));
+                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
             }
             if (getWebDTO() != null && getWebDTO().loadingView != null) {
                 b.a(this, this.sapiWebView, getWebDTO().loadingView);
@@ -1489,8 +1491,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f1080);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f107f);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f109b);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f109a);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -1522,7 +1524,7 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LocalConfigCallback
-                public List getFastLoginFeatureList() {
+                public List<FastLoginFeature> getFastLoginFeatureList() {
                     InterceptResult invokeV;
                     WebLoginDTO.Config config;
                     Interceptable interceptable2 = $ic;
@@ -1560,7 +1562,7 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.FileChooserCallback
-                public void onFileChooser(ValueCallback valueCallback) {
+                public void onFileChooser(ValueCallback<Uri> valueCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeL(1048576, this, valueCallback) != null) {
                         return;
@@ -1569,7 +1571,7 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.FileChooserCallback
-                public void onFileChooserForOSVersion5(ValueCallback valueCallback) {
+                public void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, valueCallback) != null) {
                         return;
@@ -1743,7 +1745,7 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
-                public void onInvokeScApp(String str, String str2, List list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+                public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, str2, list, invokeScAppResult) == null) {
                         this.a.e = new SapiScheme();

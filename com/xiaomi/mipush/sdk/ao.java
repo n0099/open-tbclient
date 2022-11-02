@@ -54,7 +54,7 @@ public class ao {
     public static ao a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final ArrayList f56a;
+    public static final ArrayList<a> f56a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,20 +77,20 @@ public class ao {
     public String f62a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f63a;
+    public List<Message> f63a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f64a;
     public boolean c;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a<T extends iu<T, ?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public hj a;
 
         /* renamed from: a  reason: collision with other field name */
-        public iu f65a;
+        public T f65a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f66a;
@@ -123,7 +123,7 @@ public class ao {
                 return;
             }
         }
-        f56a = new ArrayList();
+        f56a = new ArrayList<>();
     }
 
     public ao(Context context) {
@@ -224,7 +224,7 @@ public class ao {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, au auVar, boolean z, HashMap hashMap) {
+    public void a(String str, au auVar, boolean z, HashMap<String, String> hashMap) {
         ii iiVar;
         String str2;
         Interceptable interceptable = $ic;
@@ -278,7 +278,7 @@ public class ao {
             com.xiaomi.channel.commonutils.logger.b.e("type:" + auVar + StringUtil.ARRAY_ELEMENT_SEPARATOR + str);
             iiVar2.b(b.m131a(this.f57a).m132a());
             iiVar2.d(this.f57a.getPackageName());
-            a((iu) iiVar2, hj.i, false, (hw) null);
+            a((ao) iiVar2, hj.i, false, (hw) null);
             if (z) {
                 iiVar.b(b.m131a(this.f57a).m132a());
                 iiVar.d(this.f57a.getPackageName());
@@ -608,18 +608,18 @@ public class ao {
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, hw hwVar) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, hw hwVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iuVar, hjVar, hwVar) == null) {
-            a(iuVar, hjVar, !hjVar.equals(hj.a), hwVar);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t, hjVar, hwVar) == null) {
+            a((ao) t, hjVar, !hjVar.equals(hj.a), hwVar);
         }
     }
 
-    public void a(iu iuVar, hj hjVar, boolean z) {
+    public <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, iuVar, hjVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, t, hjVar, z) == null) {
             a aVar = new a();
-            aVar.f65a = iuVar;
+            aVar.f65a = t;
             aVar.a = hjVar;
             aVar.f66a = z;
             synchronized (f56a) {
@@ -631,54 +631,54 @@ public class ao {
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, hw hwVar) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, hw hwVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), hwVar}) == null) {
-            a(iuVar, hjVar, z, true, hwVar, true);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{t, hjVar, Boolean.valueOf(z), hwVar}) == null) {
+            a(t, hjVar, z, true, hwVar, true);
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, hw hwVar, boolean z2) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, hw hwVar, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), hwVar, Boolean.valueOf(z2)}) == null) {
-            a(iuVar, hjVar, z, true, hwVar, z2);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{t, hjVar, Boolean.valueOf(z), hwVar, Boolean.valueOf(z2)}) == null) {
+            a(t, hjVar, z, true, hwVar, z2);
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3)}) == null) {
-            a(iuVar, hjVar, z, z2, hwVar, z3, this.f57a.getPackageName(), b.m131a(this.f57a).m132a());
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{t, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3)}) == null) {
+            a(t, hjVar, z, z2, hwVar, z3, this.f57a.getPackageName(), b.m131a(this.f57a).m132a());
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2}) == null) {
-            a(iuVar, hjVar, z, z2, hwVar, z3, str, str2, true);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{t, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2}) == null) {
+            a(t, hjVar, z, z2, hwVar, z3, str, str2, true);
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2, boolean z4) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2, boolean z4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2, Boolean.valueOf(z4)}) == null) {
-            a(iuVar, hjVar, z, z2, hwVar, z3, str, str2, z4, true);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{t, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2, Boolean.valueOf(z4)}) == null) {
+            a(t, hjVar, z, z2, hwVar, z3, str, str2, z4, true);
         }
     }
 
-    public final void a(iu iuVar, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2, boolean z4, boolean z5) {
+    public final <T extends iu<T, ?>> void a(T t, hj hjVar, boolean z, boolean z2, hw hwVar, boolean z3, String str, String str2, boolean z4, boolean z5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{iuVar, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2, Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{t, hjVar, Boolean.valueOf(z), Boolean.valueOf(z2), hwVar, Boolean.valueOf(z3), str, str2, Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
             if (z5 && !b.m131a(this.f57a).m140c()) {
                 if (z2) {
-                    a(iuVar, hjVar, z);
+                    a((ao) t, hjVar, z);
                     return;
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.m89a("drop the message before initialization.");
                     return;
                 }
             }
-            Cif a2 = z4 ? ai.a(this.f57a, iuVar, hjVar, z, str, str2) : ai.b(this.f57a, iuVar, hjVar, z, str, str2);
+            Cif a2 = z4 ? ai.a(this.f57a, t, hjVar, z, str, str2) : ai.b(this.f57a, t, hjVar, z, str, str2);
             if (hwVar != null) {
                 a2.a(hwVar);
             }
@@ -687,7 +687,7 @@ public class ao {
                 com.xiaomi.channel.commonutils.logger.b.m89a("send message fail, because msgBytes is null.");
                 return;
             }
-            db.a(this.f57a.getPackageName(), this.f57a, iuVar, hjVar, a3.length);
+            db.a(this.f57a.getPackageName(), this.f57a, t, hjVar, a3.length);
             Intent m114a = m114a();
             m114a.setAction("com.xiaomi.mipush.SEND_MESSAGE");
             m114a.putExtra("mipush_payload", a3);
@@ -736,7 +736,7 @@ public class ao {
                 af.a(this.f57a).a(au.a, "");
                 auVar = au.b;
             }
-            a(str, auVar, true, (HashMap) null);
+            a(str, auVar, true, (HashMap<String, String>) null);
         }
     }
 
@@ -762,7 +762,7 @@ public class ao {
                 HashMap hashMap = new HashMap();
                 iiVar.f645a = hashMap;
                 hashMap.put("boot_mode", i + "");
-                a(this.f57a).a((iu) iiVar, hj.i, false, (hw) null);
+                a(this.f57a).a((ao) iiVar, hj.i, false, (hw) null);
                 return true;
             }
             return false;
@@ -830,10 +830,10 @@ public class ao {
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             synchronized (f56a) {
                 boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
-                Iterator it = f56a.iterator();
+                Iterator<a> it = f56a.iterator();
                 while (it.hasNext()) {
-                    a aVar = (a) it.next();
-                    a(aVar.f65a, aVar.a, aVar.f66a, false, null, true);
+                    a next = it.next();
+                    a(next.f65a, next.a, next.f66a, false, null, true);
                     if (!z) {
                         try {
                             Thread.sleep(100L);

@@ -174,7 +174,7 @@ public class DeviceStatus {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public Map getLacAndCeilId() {
+    public Map<String, String> getLacAndCeilId() {
         InterceptResult invokeV;
         int i;
         GsmCellLocation gsmCellLocation;

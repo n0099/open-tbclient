@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.db;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -23,6 +24,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public Context mContext;
 
     @Override // android.database.sqlite.SQLiteOpenHelper
+    @TargetApi(11)
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ie implements iu, Serializable, Cloneable {
+public class ie implements iu<ie, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -46,7 +46,7 @@ public class ie implements iu, Serializable, Cloneable {
     public BitSet f617a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f618a;
+    public List<String> f618a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f619a;
@@ -211,7 +211,7 @@ public class ie implements iu, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public List m459a() {
+    public List<String> m459a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f618a : (List) invokeV.objValue;
@@ -637,7 +637,7 @@ public class ie implements iu, Serializable, Cloneable {
             if (h()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("cmdArgs:");
-                List list = this.f618a;
+                List<String> list = this.f618a;
                 if (list == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

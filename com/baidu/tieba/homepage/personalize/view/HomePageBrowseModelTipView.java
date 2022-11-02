@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.uy4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.kz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams.height = -2;
         this.d.setLayoutParams(layoutParams);
         this.d.setOrientation(0);
-        nv4 d = nv4.d(this.d);
+        kw4 d = kw4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
         this.d.addView(this.a);
@@ -96,10 +96,10 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams2.rightMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
         this.b.setLayoutParams(layoutParams2);
-        uy4 uy4Var = new uy4();
-        uy4Var.p(R.color.CAM_X0304);
-        this.b.setConfig(uy4Var);
-        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0347));
+        kz4 kz4Var = new kz4();
+        kz4Var.p(R.color.CAM_X0304);
+        this.b.setConfig(kz4Var);
+        this.b.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0348));
         this.b.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams3.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
@@ -107,10 +107,10 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
         this.a.setLayoutParams(layoutParams3);
-        nv4 d2 = nv4.d(this.a);
+        kw4 d2 = kw4.d(this.a);
         d2.z(R.dimen.T_X06);
         d2.v(R.color.CAM_X0105);
-        this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0348));
+        this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0349));
         this.a.setSingleLine();
         this.a.setEllipsize(TextUtils.TruncateAt.END);
     }
@@ -118,7 +118,7 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nv4 d = nv4.d(this.d);
+            kw4 d = kw4.d(this.d);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

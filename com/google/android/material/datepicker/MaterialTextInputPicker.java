@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,14 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
-public final class MaterialTextInputPicker extends PickerFragment {
+public final class MaterialTextInputPicker<S> extends PickerFragment<S> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
     public static final String DATE_SELECTOR_KEY = "DATE_SELECTOR_KEY";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public CalendarConstraints calendarConstraints;
-    public DateSelector dateSelector;
+    @Nullable
+    public DateSelector<S> dateSelector;
 
     public MaterialTextInputPicker() {
         Interceptable interceptable = $ic;
@@ -35,11 +41,12 @@ public final class MaterialTextInputPicker extends PickerFragment {
     }
 
     @Override // com.google.android.material.datepicker.PickerFragment
-    public DateSelector getDateSelector() {
+    @NonNull
+    public DateSelector<S> getDateSelector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DateSelector dateSelector = this.dateSelector;
+            DateSelector<S> dateSelector = this.dateSelector;
             if (dateSelector != null) {
                 return dateSelector;
             }
@@ -48,11 +55,12 @@ public final class MaterialTextInputPicker extends PickerFragment {
         return (DateSelector) invokeV.objValue;
     }
 
-    public static MaterialTextInputPicker newInstance(DateSelector dateSelector, CalendarConstraints calendarConstraints) {
+    @NonNull
+    public static <T> MaterialTextInputPicker<T> newInstance(@NonNull DateSelector<T> dateSelector, @NonNull CalendarConstraints calendarConstraints) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dateSelector, calendarConstraints)) == null) {
-            MaterialTextInputPicker materialTextInputPicker = new MaterialTextInputPicker();
+            MaterialTextInputPicker<T> materialTextInputPicker = new MaterialTextInputPicker<>();
             Bundle bundle = new Bundle();
             bundle.putParcelable("DATE_SELECTOR_KEY", dateSelector);
             bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", calendarConstraints);
@@ -63,7 +71,7 @@ public final class MaterialTextInputPicker extends PickerFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
@@ -76,7 +84,7 @@ public final class MaterialTextInputPicker extends PickerFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
@@ -86,11 +94,12 @@ public final class MaterialTextInputPicker extends PickerFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @NonNull
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            return this.dateSelector.onCreateTextInputView(layoutInflater, viewGroup, bundle, this.calendarConstraints, new OnSelectionChangedListener(this) { // from class: com.google.android.material.datepicker.MaterialTextInputPicker.1
+            return this.dateSelector.onCreateTextInputView(layoutInflater, viewGroup, bundle, this.calendarConstraints, new OnSelectionChangedListener<S>(this) { // from class: com.google.android.material.datepicker.MaterialTextInputPicker.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MaterialTextInputPicker this$0;
@@ -114,12 +123,12 @@ public final class MaterialTextInputPicker extends PickerFragment {
                 }
 
                 @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-                public void onSelectionChanged(Object obj) {
+                public void onSelectionChanged(S s) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                        Iterator it = this.this$0.onSelectionChangedListeners.iterator();
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s) == null) {
+                        Iterator<OnSelectionChangedListener<S>> it = this.this$0.onSelectionChangedListeners.iterator();
                         while (it.hasNext()) {
-                            ((OnSelectionChangedListener) it.next()).onSelectionChanged(obj);
+                            it.next().onSelectionChanged(s);
                         }
                     }
                 }
@@ -128,9 +137,9 @@ public final class MaterialTextInputPicker extends PickerFragment {
                 public void onIncompleteSelectionChanged() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        Iterator it = this.this$0.onSelectionChangedListeners.iterator();
+                        Iterator<OnSelectionChangedListener<S>> it = this.this$0.onSelectionChangedListeners.iterator();
                         while (it.hasNext()) {
-                            ((OnSelectionChangedListener) it.next()).onIncompleteSelectionChanged();
+                            it.next().onIncompleteSelectionChanged();
                         }
                     }
                 }

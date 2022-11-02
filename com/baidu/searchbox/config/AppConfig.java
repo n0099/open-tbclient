@@ -1,5 +1,6 @@
 package com.baidu.searchbox.config;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -27,6 +28,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+@SuppressLint({"BDOfflineUrl"})
 /* loaded from: classes2.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,7 +40,7 @@ public class AppConfig {
     public static final String UBC_DEBUG_URL = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
     public static final int VOICE_ID = 790;
     public static final String WEEKLY_CONFIG_FILE = "weekly_searchbox_config.ini";
-    public static HashMap sConfigMap;
+    public static HashMap<String, String> sConfigMap;
     public static boolean sDebug;
     public static String sFileContent;
     public static String sInternalFileContent;
@@ -106,7 +108,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class AppInfo {
+    public static class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         public static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -240,7 +242,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class ConfigWhiteList {
+    public static class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +294,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class Debug {
+    public static class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,7 +323,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class Downloads {
+    public static class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -359,7 +361,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class HTTPSConfig {
+    public static class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
         public transient /* synthetic */ FieldHolder $fh;
@@ -405,7 +407,7 @@ public class AppConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class Speed {
+    public static class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -763,11 +765,11 @@ public class AppConfig {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
-            HashMap hashMap = sConfigMap;
+            HashMap<String, String> hashMap = sConfigMap;
             if (hashMap == null) {
                 return z;
             }
-            String str2 = (String) hashMap.get(str);
+            String str2 = hashMap.get(str);
             if (str2 != null) {
                 return Boolean.parseBoolean(str2);
             }
@@ -780,11 +782,11 @@ public class AppConfig {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, str, i)) == null) {
-            HashMap hashMap = sConfigMap;
+            HashMap<String, String> hashMap = sConfigMap;
             if (hashMap == null) {
                 return i;
             }
-            String str2 = (String) hashMap.get(str);
+            String str2 = hashMap.get(str);
             if (str2 != null) {
                 return Integer.parseInt(str2);
             }
@@ -797,11 +799,11 @@ public class AppConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, str, str2)) == null) {
-            HashMap hashMap = sConfigMap;
+            HashMap<String, String> hashMap = sConfigMap;
             if (hashMap == null) {
                 return str2;
             }
-            String str3 = (String) hashMap.get(str);
+            String str3 = hashMap.get(str);
             if (str3 != null) {
                 return str3;
             }
@@ -840,7 +842,7 @@ public class AppConfig {
     public static void parseConfig(ConfigValueFilter configValueFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65573, null, configValueFilter) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             if (!parseExternalConfig(hashMap, configValueFilter) || !sIsDaily) {
                 parseInternalConfig(hashMap, configValueFilter);
             }
@@ -850,7 +852,7 @@ public class AppConfig {
         }
     }
 
-    public static boolean parseExternalConfig(HashMap hashMap, ConfigValueFilter configValueFilter) {
+    public static boolean parseExternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, hashMap, configValueFilter)) == null) {
@@ -896,7 +898,7 @@ public class AppConfig {
         return invokeLL.booleanValue;
     }
 
-    public static void parseInternalConfig(HashMap hashMap, ConfigValueFilter configValueFilter) {
+    public static void parseInternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         InputStream open;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65575, null, hashMap, configValueFilter) == null) {
@@ -935,7 +937,7 @@ public class AppConfig {
         }
     }
 
-    public static void parseStream(InputStream inputStream, Map map, ConfigValueFilter configValueFilter, boolean z) {
+    public static void parseStream(InputStream inputStream, Map<String, String> map, ConfigValueFilter configValueFilter, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65576, null, new Object[]{inputStream, map, configValueFilter, Boolean.valueOf(z)}) == null) {
             try {

@@ -1,5 +1,7 @@
 package androidx.room;
 
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteProgram;
 import androidx.sqlite.db.SupportSQLiteQuery;
@@ -15,25 +17,35 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOB = 5;
+    @VisibleForTesting
     public static final int DESIRED_POOL_SIZE = 10;
     public static final int DOUBLE = 3;
     public static final int LONG = 2;
     public static final int NULL = 1;
+    @VisibleForTesting
     public static final int POOL_LIMIT = 15;
     public static final int STRING = 4;
+    @VisibleForTesting
     public static final TreeMap<Integer, RoomSQLiteQuery> sQueryPool;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public int mArgCount;
     public final int[] mBindingTypes;
+    @VisibleForTesting
     public final byte[][] mBlobBindings;
+    @VisibleForTesting
     public final int mCapacity;
+    @VisibleForTesting
     public final double[] mDoubleBindings;
+    @VisibleForTesting
     public final long[] mLongBindings;
     public volatile String mQuery;
+    @VisibleForTesting
     public final String[] mStringBindings;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable

@@ -5,6 +5,8 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
@@ -75,7 +78,7 @@ public class TintContextWrapper extends ContextWrapper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TintContextWrapper(Context context) {
+    public TintContextWrapper(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -104,7 +107,7 @@ public class TintContextWrapper extends ContextWrapper {
         this.mTheme = null;
     }
 
-    public static boolean shouldWrap(Context context) {
+    public static boolean shouldWrap(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -119,7 +122,7 @@ public class TintContextWrapper extends ContextWrapper {
         return invokeL.booleanValue;
     }
 
-    public static Context wrap(Context context) {
+    public static Context wrap(@NonNull Context context) {
         InterceptResult invokeL;
         TintContextWrapper tintContextWrapper;
         Interceptable interceptable = $ic;

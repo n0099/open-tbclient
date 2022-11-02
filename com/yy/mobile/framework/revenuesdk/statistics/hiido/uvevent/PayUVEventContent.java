@@ -54,7 +54,7 @@ public final class PayUVEventContent extends AbstractHiidoContent {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\t\u0010\nR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003¨\u0006\u000b"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$Companion;", "", "CHARGE_CONFIGID", "Ljava/lang/String;", "EVENT", "OPENID", "PAY_CHANNEL", "PAY_METHOD", "USER_TYPE", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,7 +79,7 @@ public final class PayUVEventContent extends AbstractHiidoContent {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\n\u0018\u0000B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\t\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\t\u0010\nJ\u0015\u0010\u000b\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\u000b\u0010\nJ\u0015\u0010\f\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\f\u0010\nJ\u0015\u0010\r\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\b¢\u0006\u0004\b\r\u0010\nR\u0016\u0010\u000e\u001a\u00020\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "build", "()Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;", "content", "setAbstractHiidoContent", "(Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/BaseHiidoContent;)Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "", "setChargeConfigId", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent$ProductEventBuilder;", "setEvent", "setPayChannel", "setPayMethod", "mProductEventContent", "Lcom/yy/mobile/framework/revenuesdk/statistics/hiido/uvevent/PayUVEventContent;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class ProductEventBuilder {
+    public static final class ProductEventBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PayUVEventContent mProductEventContent;
@@ -264,9 +264,9 @@ public final class PayUVEventContent extends AbstractHiidoContent {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.statistics.hiido.AbstractHiidoContent
-    public Map getMapContent() {
+    public Map<String, String> getMapContent() {
         InterceptResult invokeV;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BaseHiidoContent baseHiidoContent = this.mBaseHiidoContent;
@@ -276,7 +276,7 @@ public final class PayUVEventContent extends AbstractHiidoContent {
                 map = null;
             }
             if (map == null) {
-                map = new LinkedHashMap();
+                map = new LinkedHashMap<>();
             }
             map.put("event", this.mEvent);
             String str = HiidoConstantContent.mUserType;

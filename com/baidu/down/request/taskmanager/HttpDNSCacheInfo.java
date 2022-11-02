@@ -29,18 +29,18 @@ public class HttpDNSCacheInfo {
     public static final String TAG = "HttpDNSCacheInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public String mApn;
-    public TreeSet mBackupHttpDNSInfoSet;
+    public TreeSet<HttpDNSInfo> mBackupHttpDNSInfoSet;
     public long mDownFlowCostTime;
     public int mDownFlowLiveTime;
     public String mDownloadUri;
     public String mHost;
-    public List mIpList;
+    public List<String> mIpList;
     public int mIpLiveTime;
     public boolean mIsTestSpeed;
     public int mMode;
     public String mRequestId;
     public long mRequestTime;
-    public List mRetryRequestUrl;
+    public List<RetryRequestInfo> mRetryRequestUrl;
     public int mStatus;
     public String mXCode;
 
@@ -68,12 +68,12 @@ public class HttpDNSCacheInfo {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            List list = this.mIpList;
+            List<String> list = this.mIpList;
             if (list != null && list.size() - 1 < i) {
                 return null;
             }
             try {
-                String replace = str.replace(new URL(str).getHost(), (CharSequence) this.mIpList.get(i));
+                String replace = str.replace(new URL(str).getHost(), this.mIpList.get(i));
                 if (URLUtil.isHttpsUrl(str)) {
                     replace = replace.replaceFirst("https://", "http://");
                 }
@@ -89,7 +89,7 @@ public class HttpDNSCacheInfo {
         return (String) invokeLI.objValue;
     }
 
-    public List getSequenceRetryRequest(String str, Exception exc) {
+    public List<RetryRequestInfo> getSequenceRetryRequest(String str, Exception exc) {
         InterceptResult invokeLL;
         String retryStrategyUrlUseIp;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class HttpDNSCacheInfo {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             String wifiOr2gOr3G = Utils.getWifiOr2gOr3G(context);
-            List list = this.mIpList;
+            List<String> list = this.mIpList;
             if (list != null && list.size() != 0 && elapsedRealtime - this.mRequestTime < this.mIpLiveTime * 1000 && !TextUtils.isEmpty(this.mApn) && wifiOr2gOr3G.equals(this.mApn) && !TextUtils.isEmpty(this.mHost)) {
                 return false;
             }

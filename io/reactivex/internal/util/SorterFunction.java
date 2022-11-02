@@ -11,12 +11,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes8.dex */
-public final class SorterFunction implements Function {
+public final class SorterFunction<T> implements Function<List<T>, List<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Comparator comparator;
+    public final Comparator<? super T> comparator;
 
-    public SorterFunction(Comparator comparator) {
+    public SorterFunction(Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,9 +34,12 @@ public final class SorterFunction implements Function {
         this.comparator = comparator;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.functions.Function
-    public List apply(List list) throws Exception {
+    public /* bridge */ /* synthetic */ Object apply(Object obj) throws Exception {
+        return apply((List) ((List) obj));
+    }
+
+    public List<T> apply(List<T> list) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {

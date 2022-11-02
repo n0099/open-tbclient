@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@NotProguard
 /* loaded from: classes2.dex */
 public class FontParser {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,14 +35,14 @@ public class FontParser {
     public static final Pattern TAG_PATTERN;
     public static boolean first = false;
     public static boolean mIsAndroidPad = false;
-    public static ArrayList sFallbackFonts = null;
+    public static ArrayList<String> sFallbackFonts = null;
     public static final String sFontStyleDefault = "normal";
     public static final String sFontWeightDefault = "400";
-    public static Map sSystemFontMap;
+    public static Map<String, String> sSystemFontMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class Alias {
+    public static class Alias {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -64,7 +65,7 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public class Axis {
+    public static class Axis {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float styleValue;
@@ -91,11 +92,11 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public class Config {
+    public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List aliases;
-        public List families;
+        public List<Alias> aliases;
+        public List<Family> families;
 
         public Config() {
             Interceptable interceptable = $ic;
@@ -116,15 +117,15 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public class Family {
+    public static class Family {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List fonts;
+        public List<Font> fonts;
         public String lang;
         public String name;
         public String variant;
 
-        public Family(String str, List list, String str2, String str3) {
+        public Family(String str, List<Font> list, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,16 +148,16 @@ public class FontParser {
     }
 
     /* loaded from: classes2.dex */
-    public class Font {
+    public static class Font {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List axes;
+        public final List<Axis> axes;
         public String fontName;
         public boolean isItalic;
         public int ttcIndex;
         public int weight;
 
-        public Font(String str, int i, List list, int i2, boolean z) {
+        public Font(String str, int i, List<Axis> list, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +194,7 @@ public class FontParser {
             }
         }
         sSystemFontMap = new HashMap();
-        sFallbackFonts = new ArrayList();
+        sFallbackFonts = new ArrayList<>();
         first = true;
         FILENAME_WHITESPACE_PATTERN = Pattern.compile("^[ \\n\\r\\t]+|[ \\n\\r\\t]+$");
         TAG_PATTERN = Pattern.compile("[\\x00-\\xFF]{4}");
@@ -261,7 +262,7 @@ public class FontParser {
                 alias.weight = Integer.parseInt(attributeValue);
             }
             skip(xmlPullParser);
-            String str = (String) sSystemFontMap.get(alias.toName + "/normal/" + alias.weight);
+            String str = sSystemFontMap.get(alias.toName + "/normal/" + alias.weight);
             if (str != null) {
                 sSystemFontMap.put(alias.name + "/normal/" + sFontWeightDefault, str);
             }

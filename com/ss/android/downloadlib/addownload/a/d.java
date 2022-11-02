@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class d extends Dialog {
@@ -22,19 +23,19 @@ public class d extends Dialog {
     public String i;
 
     public int a() {
-        return R.layout.obfuscated_res_0x7f0d08a5;
+        return R.layout.obfuscated_res_0x7f0d08b9;
     }
 
     public int b() {
-        return R.id.obfuscated_res_0x7f0906d5;
+        return R.id.obfuscated_res_0x7f0906e3;
     }
 
     public int c() {
-        return R.id.obfuscated_res_0x7f0904ac;
+        return R.id.obfuscated_res_0x7f0904b9;
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public Activity a;
         public String b;
         public String c;
@@ -76,8 +77,8 @@ public class d extends Dialog {
         }
     }
 
-    public d(Activity activity, String str, String str2, String str3, boolean z, c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f10041f);
+    public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
+        super(activity, R.style.obfuscated_res_0x7f100420);
         this.f = activity;
         this.d = cVar;
         this.g = str;
@@ -88,7 +89,7 @@ public class d extends Dialog {
     }
 
     @Override // android.app.Dialog, android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+    public boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
         if (keyEvent.getKeyCode() == 4) {
             return true;
         }
@@ -99,7 +100,7 @@ public class d extends Dialog {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09151e);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09155d);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }

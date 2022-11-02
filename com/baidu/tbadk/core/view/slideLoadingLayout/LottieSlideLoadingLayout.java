@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -66,7 +68,7 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LottieSlideLoadingLayout(Context context) {
+    public LottieSlideLoadingLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,8 +92,8 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public void t(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frameLayout) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b3, (ViewGroup) frameLayout, true);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f09140e);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c7, (ViewGroup) frameLayout, true);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f09144d);
             this.t = continuousAnimationView;
             continuousAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
             this.t.setSpeed(1.3f);
@@ -100,7 +102,7 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LottieSlideLoadingLayout(Context context, AttributeSet attributeSet) {
+    public LottieSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -121,7 +123,7 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LottieSlideLoadingLayout(Context context, AttributeSet attributeSet, int i) {
+    public LottieSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

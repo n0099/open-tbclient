@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +19,11 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CursorToStringConverter mCursorToStringConverter;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int[] mFrom;
     public String[] mOriginalFrom;
     public int mStringConversionColumn;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int[] mTo;
     public ViewBinder mViewBinder;
 

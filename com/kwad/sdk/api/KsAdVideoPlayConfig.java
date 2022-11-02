@@ -1,25 +1,30 @@
 package com.kwad.sdk.api;
 
+import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 @KsAdSdkApi
+@Keep
 /* loaded from: classes7.dex */
 public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public boolean dataFlowAutoStart;
         public boolean videoSoundEnable;
         public boolean isNoCache = false;
         public KsAdVideoPlayConfig config = (KsAdVideoPlayConfig) Loader.get().newInstance(KsAdVideoPlayConfig.class);
 
         @KsAdSdkApi
+        @Keep
         public KsAdVideoPlayConfig build() {
             return this.config;
         }
 
         @KsAdSdkApi
+        @Keep
         @Deprecated
         public Builder dataFlowAutoStart(boolean z) {
             this.config.setDataFlowAutoStart(z);
@@ -27,18 +32,21 @@ public interface KsAdVideoPlayConfig {
         }
 
         @KsAdSdkApi
+        @Keep
         public Builder noCache() {
             this.config.setNoCache();
             return this;
         }
 
         @KsAdSdkApi
+        @Keep
         public Builder videoAutoPlayType(int i) {
             this.config.setVideoAutoPlayType(i);
             return this;
         }
 
         @KsAdSdkApi
+        @Keep
         public Builder videoSoundEnable(boolean z) {
             this.config.setVideoSoundEnable(z);
             return this;
@@ -46,6 +54,7 @@ public interface KsAdVideoPlayConfig {
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public @interface VideoAutoPlayType {
         public static final int AUTO_PLAY = 1;
@@ -55,27 +64,35 @@ public interface KsAdVideoPlayConfig {
     }
 
     @KsAdSdkApi
+    @Keep
     int getVideoAutoPlayType();
 
     @KsAdSdkApi
+    @Keep
     boolean isDataFlowAutoStart();
 
     @KsAdSdkApi
+    @Keep
     boolean isNoCache();
 
     @KsAdSdkApi
+    @Keep
     boolean isVideoSoundEnable();
 
     @KsAdSdkApi
+    @Keep
     @Deprecated
     void setDataFlowAutoStart(boolean z);
 
     @KsAdSdkApi
+    @Keep
     void setNoCache();
 
     @KsAdSdkApi
-    void setVideoAutoPlayType(int i);
+    @Keep
+    void setVideoAutoPlayType(@VideoAutoPlayType int i);
 
     @KsAdSdkApi
+    @Keep
     void setVideoSoundEnable(boolean z);
 }

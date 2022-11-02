@@ -110,7 +110,7 @@ public class c implements a, b {
     }
 
     @Override // com.baidu.ar.vo.b.b
-    public void a(FramePixels framePixels, ICallbackWith iCallbackWith) {
+    public void a(FramePixels framePixels, ICallbackWith<f> iCallbackWith) {
         d dVar;
         float[] hb;
         Interceptable interceptable = $ic;
@@ -123,10 +123,10 @@ public class c implements a, b {
         }
         this.yM = hb;
         ARVOJniClient.track(framePixels.getPixelsAddress(), p(hb));
-        ArrayList fetchModelPose = ARVOJniClient.fetchModelPose();
-        Iterator it = fetchModelPose.iterator();
+        ArrayList<TrackModel> fetchModelPose = ARVOJniClient.fetchModelPose();
+        Iterator<TrackModel> it = fetchModelPose.iterator();
         while (it.hasNext()) {
-            c(((TrackModel) it.next()).pose, this.yM);
+            c(it.next().pose, this.yM);
         }
         g gVar = new g(framePixels.getTimestamp());
         gVar.F(true);

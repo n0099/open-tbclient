@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class ImageUrlData extends OrmObject implements Serializable, Comparable {
+public class ImageUrlData extends OrmObject implements Serializable, Comparable<ImageUrlData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     public static final long serialVersionUID = 2037469186418617574L;

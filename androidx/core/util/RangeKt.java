@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.util.Range;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +20,7 @@ public final class RangeKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> Range<T> and(Range<T> range, Range<T> range2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -30,6 +32,7 @@ public final class RangeKt {
         return (Range) invokeLL.objValue;
     }
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> Range<T> plus(Range<T> range, Range<T> range2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -41,6 +44,7 @@ public final class RangeKt {
         return (Range) invokeLL.objValue;
     }
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> Range<T> rangeTo(T t, T t2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -50,6 +54,7 @@ public final class RangeKt {
         return (Range) invokeLL.objValue;
     }
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> Range<T> plus(Range<T> range, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -61,6 +66,7 @@ public final class RangeKt {
         return (Range) invokeLL.objValue;
     }
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> ClosedRange<T> toClosedRange(final Range<T> range) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -135,6 +141,7 @@ public final class RangeKt {
         return (ClosedRange) invokeL.objValue;
     }
 
+    @RequiresApi(21)
     public static final <T extends Comparable<? super T>> Range<T> toRange(ClosedRange<T> closedRange) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

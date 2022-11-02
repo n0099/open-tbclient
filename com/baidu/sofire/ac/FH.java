@@ -84,7 +84,7 @@ public class FH {
         return invokeIL.booleanValue;
     }
 
-    public static Pair callSync(int i, String str) {
+    public static Pair<Integer, Object> callSync(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, str)) == null) {
@@ -125,7 +125,7 @@ public class FH {
         }
     }
 
-    public static boolean call(int i, String str, Callback callback, Class[] clsArr, Object... objArr) {
+    public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, callback, clsArr, objArr})) == null) {
@@ -141,7 +141,7 @@ public class FH {
         }
     }
 
-    public static boolean call(int i, String str, Class[] clsArr, Object... objArr) {
+    public static boolean call(int i, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
@@ -150,7 +150,7 @@ public class FH {
         return invokeCommon.booleanValue;
     }
 
-    public static Pair callSync(int i, String str, Class[] clsArr, Object... objArr) {
+    public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
@@ -175,7 +175,7 @@ public class FH {
         }
     }
 
-    public static Pair gel() {
+    public static Pair<Integer, String> gel() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -187,10 +187,10 @@ public class FH {
                 } else {
                     str = Base64.encodeToString(c.a.getBytes(), 0);
                 }
-                return new Pair(Integer.valueOf(c.b), str);
+                return new Pair<>(Integer.valueOf(c.b), str);
             } catch (Throwable unused) {
                 int i = b.a;
-                return new Pair(Integer.valueOf(c.b), "");
+                return new Pair<>(Integer.valueOf(c.b), "");
             }
         }
         return (Pair) invokeV.objValue;
@@ -239,7 +239,7 @@ public class FH {
                         return com.baidu.sofire.k.a.a(context, 8);
                     }
                     int i3 = 2;
-                    Pair a = e.a(100067, "retrieveToken", new Class[]{String.class, String.class, Integer.TYPE, String.class}, str, str2, Integer.valueOf(i), str3);
+                    Pair<Integer, Object> a = e.a(100067, "retrieveToken", new Class[]{String.class, String.class, Integer.TYPE, String.class}, str, str2, Integer.valueOf(i), str3);
                     if (((Integer) a.first).intValue() == 0) {
                         String str5 = (String) a.second;
                         if (!TextUtils.isEmpty(str5)) {
@@ -309,7 +309,7 @@ public class FH {
         }
     }
 
-    public static Pair invokeMethod(Context context, String str) {
+    public static Pair<Integer, String> invokeMethod(Context context, String str) {
         InterceptResult invokeLL;
         Method[] methods;
         Method method;
@@ -317,10 +317,10 @@ public class FH {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, context, str)) == null) {
             try {
                 if (context == null) {
-                    return new Pair(-1, "");
+                    return new Pair<>(-1, "");
                 }
                 if (!n.a(context)) {
-                    return new Pair(12, "");
+                    return new Pair<>(12, "");
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("f");
@@ -333,7 +333,7 @@ public class FH {
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
                         } else if (optJSONArray != null && optJSONArray.length() < 2) {
-                            return new Pair(-6, "");
+                            return new Pair<>(-6, "");
                         } else {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class, Class[].class, Object[].class);
                         }
@@ -343,7 +343,7 @@ public class FH {
                         } else if (optJSONArray != null && optJSONArray.length() == 3) {
                             method = FH.class.getMethod("gzfi", Context.class, String.class, Integer.TYPE, String.class);
                         } else {
-                            return new Pair(-6, "");
+                            return new Pair<>(-6, "");
                         }
                     } else {
                         Method method2 = null;
@@ -358,11 +358,11 @@ public class FH {
                         }
                         if (i > 0 && method2 != null) {
                             if (i >= 2) {
-                                return new Pair(-5, "");
+                                return new Pair<>(-5, "");
                             }
                             method = method2;
                         }
-                        return new Pair(-4, "");
+                        return new Pair<>(-4, "");
                     }
                     Object[] parseParams = parseParams(optString, context, optJSONArray, 0, method.getParameterTypes());
                     if ("callSync".equals(optString)) {
@@ -370,25 +370,25 @@ public class FH {
                         if (((Integer) pair.first).intValue() == 0) {
                             Object obj = pair.second;
                             if (obj == null) {
-                                return new Pair(0, "");
+                                return new Pair<>(0, "");
                             }
-                            return new Pair(0, obj.toString());
+                            return new Pair<>(0, obj.toString());
                         }
-                        return new Pair(pair.first, "");
+                        return new Pair<>(pair.first, "");
                     }
                     Object invoke = method.invoke(null, parseParams);
                     if (invoke == null) {
-                        return new Pair(0, "");
+                        return new Pair<>(0, "");
                     }
-                    return new Pair(0, invoke.toString());
+                    return new Pair<>(0, invoke.toString());
                 }
-                return new Pair(-3, "");
+                return new Pair<>(-3, "");
             } catch (IllegalArgumentException unused) {
                 int i2 = b.a;
-                return new Pair(-6, "");
+                return new Pair<>(-6, "");
             } catch (Throwable unused2) {
                 int i3 = b.a;
-                return new Pair(-1, "");
+                return new Pair<>(-1, "");
             }
         }
         return (Pair) invokeLL.objValue;
@@ -708,7 +708,7 @@ public class FH {
             if (!n.a(context)) {
                 return "";
             }
-            Pair b = e.b(1, "xgz", new Class[]{String.class}, str);
+            Pair<Integer, Object> b = e.b(1, "xgz", new Class[]{String.class}, str);
             if (((Integer) b.first).intValue() == 0 && !TextUtils.isEmpty((String) b.second)) {
                 return (String) b.second;
             }

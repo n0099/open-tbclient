@@ -5,12 +5,13 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tieba.ci9;
-import com.baidu.tieba.hh9;
-import com.baidu.tieba.ih9;
-import com.baidu.tieba.ld9;
+import com.baidu.tieba.lj9;
+import com.baidu.tieba.qi9;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.ue9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,14 +108,14 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (checkSD() && !ci9.a(str)) {
+            if (checkSD() && !lj9.a(str)) {
                 try {
                     if (!new File(str).exists()) {
                         return false;
                     }
                     return true;
                 } catch (Exception e) {
-                    ih9.g(e);
+                    ri9.g(e);
                 }
             }
             return false;
@@ -204,13 +205,13 @@ public class FileUtils {
                         } catch (Exception e) {
                             e = e;
                             fileInputStream = fileInputStream2;
-                            ih9.g(e);
-                            hh9.b(fileInputStream);
+                            ri9.g(e);
+                            qi9.b(fileInputStream);
                             return j;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
-                            hh9.b(fileInputStream);
+                            qi9.b(fileInputStream);
                             throw th;
                         }
                     }
@@ -220,7 +221,7 @@ public class FileUtils {
             } catch (Exception e2) {
                 e = e2;
             }
-            hh9.b(fileInputStream);
+            qi9.b(fileInputStream);
             return j;
         }
         return invokeL.longValue;
@@ -230,12 +231,12 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            File file = new File(ld9.c().a(), str);
+            File file = new File(ue9.c().a(), str);
             if (!file.exists()) {
                 if (file.mkdirs()) {
                     return file;
                 }
-                return ld9.c().getContext().getCacheDir();
+                return ue9.c().getContext().getCacheDir();
             }
             return file;
         }
@@ -398,12 +399,12 @@ public class FileUtils {
                     closeable = file;
                 } catch (Exception e3) {
                     e = e3;
-                    ih9.g(e);
+                    ri9.g(e);
                     closeable = file;
-                    hh9.b(fileChannel2);
-                    hh9.b(closeable);
-                    hh9.b(fileChannel);
-                    hh9.b(fileInputStream);
+                    qi9.b(fileChannel2);
+                    qi9.b(closeable);
+                    qi9.b(fileChannel);
+                    qi9.b(fileInputStream);
                     return z;
                 }
             } catch (Exception e4) {
@@ -412,16 +413,16 @@ public class FileUtils {
             } catch (Throwable th4) {
                 th = th4;
                 file2 = 0;
-                hh9.b(null);
-                hh9.b(file);
-                hh9.b(file2);
-                hh9.b(fileInputStream);
+                qi9.b(null);
+                qi9.b(file);
+                qi9.b(file2);
+                qi9.b(fileInputStream);
                 throw th;
             }
-            hh9.b(fileChannel2);
-            hh9.b(closeable);
-            hh9.b(fileChannel);
-            hh9.b(fileInputStream);
+            qi9.b(fileChannel2);
+            qi9.b(closeable);
+            qi9.b(fileChannel);
+            qi9.b(fileInputStream);
             return z;
         }
         return invokeLL.booleanValue;
@@ -655,7 +656,7 @@ public class FileUtils {
         return invokeL.longValue;
     }
 
-    public static final String getPrefix(String str) {
+    public static final String getPrefix(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
@@ -664,7 +665,7 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    public static final String getSuffix(String str) {
+    public static final String getSuffix(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
@@ -927,7 +928,7 @@ public class FileUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             File file = null;
             if (isSDMounted()) {
-                file = ld9.c().getContext().getExternalFilesDir(null);
+                file = ue9.c().getContext().getExternalFilesDir(null);
             }
             File file2 = new File(file, FaceItem.DIR_UGC_DEFAULT);
             if (!file2.exists()) {
@@ -1011,40 +1012,40 @@ public class FileUtils {
                     if (!bitmap.isRecycled()) {
                         File file = new File(str);
                         if (!file.exists() && !file.mkdirs()) {
-                            hh9.b(null);
+                            qi9.b(null);
                             return null;
                         }
                         File file2 = new File(str, str2);
                         if (file2.exists() && !file2.delete()) {
-                            hh9.b(null);
+                            qi9.b(null);
                             return null;
                         } else if (!file2.createNewFile()) {
-                            hh9.b(null);
+                            qi9.b(null);
                             return null;
                         } else {
                             FileOutputStream fileOutputStream3 = new FileOutputStream(file2);
                             try {
                                 bitmap.compress(compressFormat, i, fileOutputStream3);
                                 String absolutePath = file2.getAbsolutePath();
-                                hh9.b(fileOutputStream3);
+                                qi9.b(fileOutputStream3);
                                 return absolutePath;
                             } catch (Exception e) {
                                 fileOutputStream = fileOutputStream3;
                                 e = e;
                                 try {
-                                    ih9.g(e);
-                                    hh9.b(fileOutputStream);
+                                    ri9.g(e);
+                                    qi9.b(fileOutputStream);
                                     return null;
                                 } catch (Throwable th) {
                                     th = th;
                                     fileOutputStream2 = fileOutputStream;
-                                    hh9.b(fileOutputStream2);
+                                    qi9.b(fileOutputStream2);
                                     throw th;
                                 }
                             } catch (Throwable th2) {
                                 fileOutputStream2 = fileOutputStream3;
                                 th = th2;
-                                hh9.b(fileOutputStream2);
+                                qi9.b(fileOutputStream2);
                                 throw th;
                             }
                         }
@@ -1056,7 +1057,7 @@ public class FileUtils {
                     th = th3;
                 }
             }
-            hh9.b(null);
+            qi9.b(null);
             return null;
         }
         return (String) invokeCommon.objValue;
@@ -1139,18 +1140,18 @@ public class FileUtils {
             try {
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
-                hh9.b(fileOutputStream);
+                qi9.b(fileOutputStream);
                 return true;
             } catch (Exception e2) {
                 e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
-                hh9.b(fileOutputStream2);
+                qi9.b(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                hh9.b(fileOutputStream2);
+                qi9.b(fileOutputStream2);
                 throw th;
             }
         }

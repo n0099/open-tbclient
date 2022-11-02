@@ -16,7 +16,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
-    public List b;
+    public List<f> b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class g {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < this.b.size(); i++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("type", ((f) this.b.get(i)).a());
-                    if (((f) this.b.get(i)).a(jSONObject2) != null) {
+                    jSONObject2.put("type", this.b.get(i).a());
+                    if (this.b.get(i).a(jSONObject2) != null) {
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -71,7 +71,7 @@ public class g {
             } else if (this.b != null) {
                 e eVar = new e(i, str, str2);
                 for (int i2 = 0; i2 < this.b.size(); i2++) {
-                    f fVar = (f) this.b.get(i2);
+                    f fVar = this.b.get(i2);
                     if (fVar.a() == i) {
                         fVar.a(eVar);
                         return;
@@ -91,7 +91,7 @@ public class g {
             if (cVar != null) {
                 cVar.b();
             }
-            List list = this.b;
+            List<f> list = this.b;
             if (list != null) {
                 list.clear();
             }

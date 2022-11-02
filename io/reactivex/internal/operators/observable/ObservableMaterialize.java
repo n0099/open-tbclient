@@ -12,18 +12,18 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableMaterialize extends AbstractObservableWithUpstream {
+public final class ObservableMaterialize<T> extends AbstractObservableWithUpstream<T, Notification<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class MaterializeObserver implements Observer, Disposable {
+    public static final class MaterializeObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Notification<T>> actual;
         public Disposable s;
 
-        public MaterializeObserver(Observer observer) {
+        public MaterializeObserver(Observer<? super Notification<T>> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,10 +51,10 @@ public final class ObservableMaterialize extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(Notification.createOnNext(obj));
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(Notification.createOnNext(t));
             }
         }
 
@@ -96,7 +96,7 @@ public final class ObservableMaterialize extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMaterialize(ObservableSource observableSource) {
+    public ObservableMaterialize(ObservableSource<T> observableSource) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +116,7 @@ public final class ObservableMaterialize extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Notification<T>> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new MaterializeObserver(observer));

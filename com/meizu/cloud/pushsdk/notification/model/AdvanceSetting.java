@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.notification.model.AdvanceSetting.1
+    public static final Parcelable.Creator<AdvanceSetting> CREATOR = new Parcelable.Creator<AdvanceSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.AdvanceSetting.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

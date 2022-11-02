@@ -8,7 +8,7 @@ public interface ITiebaPay {
 
     void onPayResult(String str, String str2, Context context, boolean z);
 
-    void pay(String str, HashMap hashMap, ITiebaPayCallback iTiebaPayCallback);
+    void pay(String str, HashMap<String, String> hashMap, ITiebaPayCallback iTiebaPayCallback);
 
     void release();
 }

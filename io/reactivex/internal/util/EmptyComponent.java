@@ -20,7 +20,7 @@ import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class EmptyComponent implements FlowableSubscriber, Observer, MaybeObserver, SingleObserver, CompletableObserver, Subscription, Disposable {
+public final class EmptyComponent implements FlowableSubscriber<Object>, Observer<Object>, MaybeObserver<Object>, SingleObserver<Object>, CompletableObserver, Subscription, Disposable {
     public static final /* synthetic */ EmptyComponent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final EmptyComponent INSTANCE;
@@ -96,7 +96,7 @@ public final class EmptyComponent implements FlowableSubscriber, Observer, Maybe
         $VALUES = new EmptyComponent[]{emptyComponent};
     }
 
-    public static Observer asObserver() {
+    public static <T> Observer<T> asObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -105,7 +105,7 @@ public final class EmptyComponent implements FlowableSubscriber, Observer, Maybe
         return (Observer) invokeV.objValue;
     }
 
-    public static Subscriber asSubscriber() {
+    public static <T> Subscriber<T> asSubscriber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {

@@ -2,6 +2,7 @@ package com.google.android.gms.common.api.internal;
 
 import android.app.Activity;
 import android.content.ContextWrapper;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,20 +10,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class LifecycleActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object zza;
 
+    @NonNull
     public final Activity zza() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (Activity) this.zza : (Activity) invokeV.objValue;
     }
 
-    public LifecycleActivity(Activity activity) {
+    public LifecycleActivity(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +45,8 @@ public class LifecycleActivity {
         this.zza = activity;
     }
 
-    public LifecycleActivity(ContextWrapper contextWrapper) {
+    @KeepForSdk
+    public LifecycleActivity(@NonNull ContextWrapper contextWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,6 +64,7 @@ public class LifecycleActivity {
         throw new UnsupportedOperationException();
     }
 
+    @NonNull
     public final FragmentActivity zzb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,8 +30,8 @@ public class ItemHotThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public HashMap b;
-    public List c;
+    public HashMap<String, View> b;
+    public List<SimpleThreadInfo> c;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -70,7 +70,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public LinearLayout a;
@@ -116,11 +116,11 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.b = new HashMap();
+        this.b = new HashMap<>();
         c(context);
     }
 
-    public void setData(List list) {
+    public void setData(List<SimpleThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.c = list;
@@ -131,7 +131,7 @@ public class ItemHotThreadView extends LinearLayout {
                     if (i == list.size() - 1) {
                         z = false;
                     }
-                    b((SimpleThreadInfo) list.get(i), z);
+                    b(list.get(i), z);
                 }
             }
         }
@@ -156,7 +156,7 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.b = new HashMap();
+        this.b = new HashMap<>();
         c(context);
     }
 
@@ -164,7 +164,7 @@ public class ItemHotThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a9, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, true);
             setVisibility(8);
         }
     }
@@ -177,18 +177,18 @@ public class ItemHotThreadView extends LinearLayout {
             return;
         }
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02aa, (ViewGroup) this, false);
+            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ac, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09219b);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e05);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e04);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921ee);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e36);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e34);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e35);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
             view2.setTag(bVar);
             this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
             addView(view2);
         } else {
-            view2 = (View) this.b.get(String.valueOf(simpleThreadInfo.tid));
+            view2 = this.b.get(String.valueOf(simpleThreadInfo.tid));
             bVar = (b) view2.getTag();
         }
         bVar.b.setText(simpleThreadInfo.title);
@@ -202,7 +202,7 @@ public class ItemHotThreadView extends LinearLayout {
                 }
             }
         }
-        if (!ej.isEmpty(sb.toString().trim())) {
+        if (!wi.isEmpty(sb.toString().trim())) {
             bVar.c.setText(sb.toString());
             bVar.c.setVisibility(0);
         } else {
@@ -228,7 +228,7 @@ public class ItemHotThreadView extends LinearLayout {
     public void d(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i) == null) {
-            zp4 layoutMode = forumDetailActivity.getLayoutMode();
+            qq4 layoutMode = forumDetailActivity.getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;

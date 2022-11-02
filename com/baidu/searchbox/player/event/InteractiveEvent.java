@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.event;
 
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,6 +55,7 @@ public class InteractiveEvent extends VideoEvent {
         }
     }
 
+    @PublicMethod
     public static VideoEvent obtainEvent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

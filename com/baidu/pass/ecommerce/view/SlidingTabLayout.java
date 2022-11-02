@@ -79,7 +79,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public int mTextSelectColor;
     public int mTextUnselectColor;
     public float mTextsize;
-    public List mTitles;
+    public List<String> mTitles;
     public Paint mTrianglePaint;
     public Path mTrianglePath;
     public int mUnderlineColor;
@@ -99,7 +99,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public class InnerPagerAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList fragments;
+        public ArrayList<Fragment> fragments;
         public final /* synthetic */ SlidingTabLayout this$0;
         public String[] titles;
 
@@ -121,7 +121,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public InnerPagerAdapter(SlidingTabLayout slidingTabLayout, FragmentManager fragmentManager, ArrayList arrayList, String[] strArr) {
+        public InnerPagerAdapter(SlidingTabLayout slidingTabLayout, FragmentManager fragmentManager, ArrayList<Fragment> arrayList, String[] strArr) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -139,7 +139,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
                 }
             }
             this.this$0 = slidingTabLayout;
-            this.fragments = new ArrayList();
+            this.fragments = new ArrayList<>();
             this.fragments = arrayList;
             this.titles = strArr;
         }
@@ -159,7 +159,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                return (Fragment) this.fragments.get(i);
+                return this.fragments.get(i);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -197,23 +197,23 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     }
 
     public void addNewTab(String str) {
-        CharSequence charSequence;
+        String str2;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             View inflate = View.inflate(this.mContext, R.layout.layout_sapi_sdk_dialog_address_selector_tab, null);
-            List list = this.mTitles;
+            List<String> list = this.mTitles;
             if (list != null) {
                 list.add(str);
             }
-            List list2 = this.mTitles;
+            List<String> list2 = this.mTitles;
             if (list2 == null) {
-                charSequence = this.mViewPager.getAdapter().getPageTitle(this.mTabCount);
+                str2 = this.mViewPager.getAdapter().getPageTitle(this.mTabCount);
             } else {
-                charSequence = (CharSequence) list2.get(this.mTabCount);
+                str2 = list2.get(this.mTabCount);
             }
-            addTab(this.mTabCount, charSequence.toString(), inflate);
-            List list3 = this.mTitles;
+            addTab(this.mTabCount, str2.toString(), inflate);
+            List<String> list3 = this.mTitles;
             if (list3 == null) {
                 size = this.mViewPager.getAdapter().getCount();
             } else {
@@ -498,7 +498,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         }
     }
 
-    public void setTitles(List list) {
+    public void setTitles(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, list) == null) {
             this.mTitles = list;
@@ -765,11 +765,11 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
     public void notifyDataSetChanged() {
         int size;
-        CharSequence charSequence;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.mTabsContainer.removeAllViews();
-            List list = this.mTitles;
+            List<String> list = this.mTitles;
             if (list == null) {
                 size = this.mViewPager.getAdapter().getCount();
             } else {
@@ -778,13 +778,13 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             this.mTabCount = size;
             for (int i = 0; i < this.mTabCount; i++) {
                 View inflate = View.inflate(this.mContext, R.layout.layout_sapi_sdk_dialog_address_selector_tab, null);
-                List list2 = this.mTitles;
+                List<String> list2 = this.mTitles;
                 if (list2 == null) {
-                    charSequence = this.mViewPager.getAdapter().getPageTitle(i);
+                    str = this.mViewPager.getAdapter().getPageTitle(i);
                 } else {
-                    charSequence = (CharSequence) list2.get(i);
+                    str = list2.get(i);
                 }
-                addTab(i, charSequence.toString(), inflate);
+                addTab(i, str.toString(), inflate);
             }
             updateTabStyles();
         }
@@ -1045,7 +1045,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         return invokeV.floatValue;
     }
 
-    public List getTitles() {
+    public List<String> getTitles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -1213,7 +1213,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         }
     }
 
-    public void setViewPager(ViewPager viewPager, String[] strArr, FragmentActivity fragmentActivity, ArrayList arrayList) {
+    public void setViewPager(ViewPager viewPager, String[] strArr, FragmentActivity fragmentActivity, ArrayList<Fragment> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048639, this, viewPager, strArr, fragmentActivity, arrayList) == null) {
             if (viewPager != null) {

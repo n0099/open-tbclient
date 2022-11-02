@@ -20,14 +20,14 @@ public class b implements Parcelable {
     public int g;
     public AtomicInteger h;
     public long i;
-    public List j;
+    public List<b> j;
     public b k;
     public int l;
     public boolean m;
     public AtomicBoolean n;
     public com.ss.android.socialbase.downloader.h.b o;
     public static final String a = b.class.getSimpleName();
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.socialbase.downloader.model.b.1
+    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.ss.android.socialbase.downloader.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
@@ -49,7 +49,7 @@ public class b implements Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public int a;
         public long b;
         public long c;
@@ -134,20 +134,20 @@ public class b implements Parcelable {
             bVar = this;
         }
         if (bVar != null && bVar.f()) {
-            return (b) bVar.g().get(0);
+            return bVar.g().get(0);
         }
         return null;
     }
 
     public boolean f() {
-        List list = this.j;
+        List<b> list = this.j;
         if (list != null && list.size() > 0) {
             return true;
         }
         return false;
     }
 
-    public List g() {
+    public List<b> g() {
         return this.j;
     }
 
@@ -186,7 +186,7 @@ public class b implements Parcelable {
         if (f()) {
             n = 0;
             for (int i = 0; i < this.j.size(); i++) {
-                b bVar = (b) this.j.get(i);
+                b bVar = this.j.get(i);
                 if (bVar != null) {
                     n += bVar.n() - bVar.l();
                 }
@@ -320,7 +320,7 @@ public class b implements Parcelable {
         return contentValues;
     }
 
-    public List a(int i, long j) {
+    public List<b> a(int i, long j) {
         b bVar;
         long p;
         long j2;
@@ -383,13 +383,13 @@ public class b implements Parcelable {
             }
             long j10 = 0;
             for (int size = arrayList.size() - 1; size > 0; size--) {
-                b bVar3 = (b) arrayList.get(size);
+                b bVar3 = arrayList.get(size);
                 if (bVar3 != null) {
                     j10 += bVar3.q();
                 }
             }
             com.ss.android.socialbase.downloader.c.a.b(a, "reuseChunkContentLen:" + j10);
-            b bVar4 = (b) arrayList.get(0);
+            b bVar4 = arrayList.get(0);
             if (bVar4 != null) {
                 if (p() == 0) {
                     p = j - l();
@@ -458,7 +458,7 @@ public class b implements Parcelable {
         }
     }
 
-    public void a(List list) {
+    public void a(List<b> list) {
         this.j = list;
     }
 
@@ -481,7 +481,7 @@ public class b implements Parcelable {
             return false;
         }
         for (int i = 0; i < this.k.g().size(); i++) {
-            b bVar2 = (b) this.k.g().get(i);
+            b bVar2 = this.k.g().get(i);
             if (bVar2 != null) {
                 int indexOf = this.k.g().indexOf(this);
                 if (indexOf > i && !bVar2.i()) {
@@ -501,7 +501,7 @@ public class b implements Parcelable {
             int indexOf = this.k.g().indexOf(this);
             boolean z = false;
             for (int i = 0; i < this.k.g().size(); i++) {
-                b bVar2 = (b) this.k.g().get(i);
+                b bVar2 = this.k.g().get(i);
                 if (bVar2 != null) {
                     if (z) {
                         return bVar2.n();
@@ -519,7 +519,7 @@ public class b implements Parcelable {
         if (d() && f()) {
             long j = 0;
             for (int i = 0; i < this.j.size(); i++) {
-                b bVar = (b) this.j.get(i);
+                b bVar = this.j.get(i);
                 if (bVar != null) {
                     if (!bVar.i()) {
                         return bVar.m();

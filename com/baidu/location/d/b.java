@@ -43,6 +43,7 @@ public class b implements Runnable {
         i = aVar.h;
         if (i == 3) {
             Log.d("baidu_location_service", "baidu location service force stopped ...");
+            aVar.i = false;
             aVar.b();
         }
     }

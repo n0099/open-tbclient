@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SettingRemindMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SettingRemindMsg> CREATOR;
     public static final String PAGE_SYMBOL = "msg_setting_page";
     public static final char SEARCH_SYMBOL = '#';
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class SettingRemindMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.SettingRemindMsg.1
+        CREATOR = new Parcelable.Creator<SettingRemindMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SettingRemindMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,6 +66,7 @@ public class SettingRemindMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SettingRemindMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -77,6 +78,7 @@ public class SettingRemindMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SettingRemindMsg[] newArray(int i) {
                 InterceptResult invokeI;

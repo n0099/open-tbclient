@@ -1,105 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ah3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class tc3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class tc3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176357, "Lcom/baidu/tieba/tc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948176357, "Lcom/baidu/tieba/tc3;");
-                return;
-            }
-        }
-        a = wj1.a;
-    }
-
-    public static void a() {
+    public tc3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File c = c();
-            if (c.exists()) {
-                qj4.j(c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static long b() {
-        InterceptResult invokeV;
+    @Nullable
+    public static AshmemFileDescriptor c(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return ac3.a().getLong("aiapps_cur_debug_ver_key", 0L);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("name", str);
+            bundle.putInt("size", i);
+            t03 c = r03.c(tc3.class, bundle);
+            if (c.a()) {
+                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) c.a.getParcelable(TiebaStatic.LogFields.RESULT);
+            }
+            return null;
         }
-        return invokeV.longValue;
+        return (AshmemFileDescriptor) invokeLI.objValue;
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new File(((ah3.a) eo2.d().get(0)).a, "/aiapps_debug_swan_core/");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            String string = bundle.getString("name", null);
+            int i = bundle.getInt("size", 0);
+            Bundle bundle2 = new Bundle();
+            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            bundle2.putParcelable(TiebaStatic.LogFields.RESULT, yc3.a(string, i));
+            return bundle2;
         }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (!c.exists()) {
-                c.mkdirs();
-            }
-            return new File(c, "debugSwanCore.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            File file = new File(c().getPath(), "pkginfo.json");
-            if (!file.exists()) {
-                return false;
-            }
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(qj4.E(file));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            if (jSONObject == null) {
-                return false;
-            }
-            String optString = jSONObject.optString("version_name");
-            if (!TextUtils.isEmpty(optString)) {
-                ac3.a().putLong("aiapps_cur_debug_ver_key", bh3.b(optString));
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 }

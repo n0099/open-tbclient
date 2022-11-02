@@ -76,7 +76,7 @@ public abstract class GetChatObjectInfoForRecordHandler {
         }
     }
 
-    private void updateChatRecord(String str, String str2, Class[] clsArr, Object[] objArr) {
+    private void updateChatRecord(String str, String str2, Class<?>[] clsArr, Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, this, str, str2, clsArr, objArr) == null) {
             Class<?> cls = null;
@@ -118,7 +118,7 @@ public abstract class GetChatObjectInfoForRecordHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7}) == null) {
             Object[] objArr = {this.mContext, chatObject, str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, str4, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j), Integer.valueOf(i5), Long.valueOf(j2), str5, str6, str7};
-            Class cls = Integer.TYPE;
+            Class<?> cls = Integer.TYPE;
             updateChatRecord("com.baidu.android.imsdk.chatmessage.ChatMsgManager", "createChatSession", new Class[]{Context.class, ChatObject.class, String.class, cls, String.class, cls, String.class, String.class, cls, cls, Long.TYPE, Integer.TYPE, Long.TYPE, String.class, String.class, String.class}, objArr);
         }
     }

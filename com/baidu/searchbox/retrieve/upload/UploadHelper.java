@@ -13,12 +13,12 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.dj9;
-import com.baidu.tieba.ej9;
-import com.baidu.tieba.rj9;
-import com.baidu.tieba.sj9;
-import com.baidu.tieba.uj9;
-import com.baidu.tieba.vj9;
+import com.baidu.tieba.al9;
+import com.baidu.tieba.bl9;
+import com.baidu.tieba.dl9;
+import com.baidu.tieba.el9;
+import com.baidu.tieba.mk9;
+import com.baidu.tieba.nk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class UploadHelper {
     public static ExecutorService mExecutorService;
     public static volatile UploadHelper sSingleton;
     public transient /* synthetic */ FieldHolder $fh;
-    public sj9 mVoyager;
+    public bl9 mVoyager;
 
     static {
         InterceptResult invokeClinit;
@@ -105,7 +105,7 @@ public class UploadHelper {
         }
         mExecutorService = Executors.newSingleThreadExecutor();
         if (this.mVoyager == null) {
-            this.mVoyager = (sj9) ServiceManager.getService(sj9.a);
+            this.mVoyager = (bl9) ServiceManager.getService(bl9.a);
         }
     }
 
@@ -122,7 +122,7 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashSet getFetchDirSet(long j, long j2, List list) {
+    public HashSet<String> getFetchDirSet(long j, long j2, List<String> list) {
         InterceptResult invokeCommon;
         File[] listFiles;
         String substring;
@@ -131,35 +131,35 @@ public class UploadHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list})) == null) {
             String baseDir = LoggerManager.getBaseDir();
-            HashSet hashSet = new HashSet();
+            HashSet<String> hashSet = new HashSet<>();
             if (list != null && list.size() > 0) {
-                Iterator it = list.iterator();
+                Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
-                    String str3 = (String) it.next();
-                    if (!TextUtils.isEmpty(str3)) {
-                        int indexOf = str3.indexOf("/");
+                    String next = it.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        int indexOf = next.indexOf("/");
                         if (indexOf == -1) {
                             substring = "";
                         } else {
-                            String substring2 = str3.substring(0, indexOf);
-                            substring = str3.substring(indexOf + 1);
-                            str3 = substring2;
+                            String substring2 = next.substring(0, indexOf);
+                            substring = next.substring(indexOf + 1);
+                            next = substring2;
                         }
-                        if (TextUtils.isEmpty(str3)) {
+                        if (TextUtils.isEmpty(next)) {
                             str = "*";
                         } else {
-                            str = str3;
+                            str = next;
                         }
                         if (TextUtils.isEmpty(substring)) {
                             str2 = "*";
                         } else {
                             str2 = substring;
                         }
-                        List queryLogFiles = LoggerManager.queryLogFiles(j / 1000, j2 / 1000, str, str2);
+                        List<String> queryLogFiles = LoggerManager.queryLogFiles(j / 1000, j2 / 1000, str, str2);
                         if (queryLogFiles != null && queryLogFiles.size() != 0) {
-                            Iterator it2 = queryLogFiles.iterator();
+                            Iterator<String> it2 = queryLogFiles.iterator();
                             while (it2.hasNext()) {
-                                hashSet.add(baseDir + File.separator + ((String) it2.next()));
+                                hashSet.add(baseDir + File.separator + it2.next());
                             }
                         }
                     }
@@ -184,14 +184,14 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startUploadActiveFile(String str, String str2, List list, long j, IActiveUploadListener iActiveUploadListener) {
+    public void startUploadActiveFile(String str, String str2, List<String> list, long j, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{str, str2, list, Long.valueOf(j), iActiveUploadListener}) == null) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-                sj9 sj9Var = (sj9) ServiceManager.getService(sj9.a);
-                if (sj9Var == null) {
+                bl9 bl9Var = (bl9) ServiceManager.getService(bl9.a);
+                if (bl9Var == null) {
                     if (DEBUG) {
                         Log.d(TAG, "loss voyager impl component");
                         return;
@@ -200,7 +200,7 @@ public class UploadHelper {
                 }
                 ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, null);
                 activeUpObj.setFileType("2");
-                sj9Var.e(list, "acupload", j * 1024, new rj9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
+                bl9Var.e(list, "acupload", j * 1024, new al9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UploadHelper this$0;
@@ -227,7 +227,7 @@ public class UploadHelper {
                         this.val$activeUploadListener = iActiveUploadListener;
                     }
 
-                    @Override // com.baidu.tieba.rj9
+                    @Override // com.baidu.tieba.al9
                     public void onFailure(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str3, jSONObject) == null) {
@@ -245,7 +245,7 @@ public class UploadHelper {
                         }
                     }
 
-                    @Override // com.baidu.tieba.rj9
+                    @Override // com.baidu.tieba.al9
                     public void onSuccess(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, jSONObject) == null) {
@@ -266,15 +266,15 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startUploadActiveFile(String str, String str2, List list, String str3, long j, JSONObject jSONObject) {
+    public void startUploadActiveFile(String str, String str2, List<String> list, String str3, long j, JSONObject jSONObject) {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, str2, list, str3, Long.valueOf(j), jSONObject}) == null) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-                sj9 sj9Var = (sj9) ServiceManager.getService(sj9.a);
-                if (sj9Var == null) {
+                bl9 bl9Var = (bl9) ServiceManager.getService(bl9.a);
+                if (bl9Var == null) {
                     if (DEBUG) {
                         Log.d(TAG, "loss voyager impl component");
                         return;
@@ -298,7 +298,7 @@ public class UploadHelper {
                         e.printStackTrace();
                     }
                 }
-                sj9Var.b(list, "acupload", j2, jSONObject2);
+                bl9Var.b(list, "acupload", j2, jSONObject2);
                 return;
             }
             if (DEBUG) {
@@ -372,7 +372,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUpload(String str, String str2, List list, String str3, long j, long j2, long j3, JSONObject jSONObject) {
+    public void activeUpload(String str, String str2, List<String> list, String str3, long j, long j2, long j3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, list, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), jSONObject}) == null) {
             mExecutorService.execute(new Runnable(this, str2, str, j2, j3, list, j, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.2
@@ -454,7 +454,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadSnapShot(String str, String str2, List list, long j, long j2, long j3, boolean z, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadSnapShot(String str, String str2, List<String> list, long j, long j2, long j3, boolean z, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, list, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), iActiveUploadListener}) == null) {
             mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j2, j3, list, z, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.4
@@ -520,7 +520,7 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "snap short dir: " + str3);
                     }
-                    HashSet snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str3);
+                    HashSet<String> snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str3);
                     if (snapShotSet == null || snapShotSet.size() == 0) {
                         if (UploadHelper.DEBUG) {
                             Log.d(UploadHelper.TAG, "not get upload dir");
@@ -578,7 +578,7 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File zipFetchFile(HashSet hashSet, String str, String str2, String str3, String str4, long j, long j2, long j3, JSONObject jSONObject) {
+    public File zipFetchFile(HashSet<String> hashSet, String str, String str2, String str3, String str4, long j, long j2, long j3, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{hashSet, str, str2, str3, str4, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), jSONObject})) == null) {
@@ -587,47 +587,47 @@ public class UploadHelper {
             }
             long j4 = 1000 * j;
             if (hashSet.size() > 0) {
-                Iterator it = hashSet.iterator();
+                Iterator<String> it = hashSet.iterator();
                 long j5 = 0;
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    String str5 = (String) it.next();
-                    File file = new File(str5);
+                    String next = it.next();
+                    File file = new File(next);
                     if (file.exists()) {
-                        int lastIndexOf = str5.lastIndexOf("/");
+                        int lastIndexOf = next.lastIndexOf("/");
                         if (lastIndexOf > -1) {
-                            str5 = str5.substring(lastIndexOf + 1);
+                            next = next.substring(lastIndexOf + 1);
                         }
-                        if (checkValid(str5, j2, j3)) {
+                        if (checkValid(next, j2, j3)) {
                             j5 += file.length();
                             if (j5 > j4) {
-                                ej9.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
+                                nk9.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                 break;
                             }
                             String substring = file.getAbsolutePath().substring(str.length());
                             if (DEBUG) {
                                 Log.d(TAG, "new Path:" + substring);
                             }
-                            ej9.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
+                            nk9.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
                         } else {
                             continue;
                         }
                     }
                 }
-                String str6 = AppRuntime.getAppContext().getApplicationInfo().dataDir + LOG_FILE_FETCH_ZIP_PATH + File.separator;
-                String str7 = UUID.randomUUID().toString().replace("-", "") + ".zip";
-                File file2 = new File(str6);
+                String str5 = AppRuntime.getAppContext().getApplicationInfo().dataDir + LOG_FILE_FETCH_ZIP_PATH + File.separator;
+                String str6 = UUID.randomUUID().toString().replace("-", "") + ".zip";
+                File file2 = new File(str5);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
-                String str8 = str6 + str7;
+                String str7 = str5 + str6;
                 if (DEBUG) {
-                    Log.d(TAG, "zipPath: " + str8);
+                    Log.d(TAG, "zipPath: " + str7);
                 }
-                File file3 = new File(str8);
-                if (vj9.i(new ArrayList(hashSet), str8, str)) {
+                File file3 = new File(str7);
+                if (el9.i(new ArrayList(hashSet), str7, str)) {
                     if (file3.length() > 0) {
                         if (DEBUG) {
                             Log.d(TAG, "zip directory is succeed, zip length is: " + file3.length());
@@ -644,7 +644,7 @@ public class UploadHelper {
         return (File) invokeCommon.objValue;
     }
 
-    public void activeUpload(String str, String str2, List list, long j, long j2, long j3, IActiveUploadListener iActiveUploadListener) {
+    public void activeUpload(String str, String str2, List<String> list, long j, long j2, long j3, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, list, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), iActiveUploadListener}) == null) {
             mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j2, j3, list, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.3
@@ -739,7 +739,7 @@ public class UploadHelper {
         }
     }
 
-    public void fetchUpload(String str, String str2, String str3, long j, long j2, long j3, List list) {
+    public void fetchUpload(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
             mExecutorService.execute(new Runnable(this, str, str2, str3, j2, j3, list, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.1
@@ -859,9 +859,9 @@ public class UploadHelper {
                                             return;
                                         }
                                         AnonymousClass1 anonymousClass19 = this.this$1;
-                                        anonymousClass19.this$0.reportTaskDone(anonymousClass19.val$type, anonymousClass19.val$jobId, anonymousClass19.val$version, "", "1", uj9.c(anonymousClass19.val$spaces));
+                                        anonymousClass19.this$0.reportTaskDone(anonymousClass19.val$type, anonymousClass19.val$jobId, anonymousClass19.val$version, "", "1", dl9.c(anonymousClass19.val$spaces));
                                         AnonymousClass1 anonymousClass110 = this.this$1;
-                                        anonymousClass110.this$0.statFetchData("query", false, anonymousClass110.val$jobId, anonymousClass110.val$type, anonymousClass110.val$version, StatConstants.ERR_MSG_QUERY_FAIL, "", uj9.c(anonymousClass110.val$spaces));
+                                        anonymousClass110.this$0.statFetchData("query", false, anonymousClass110.val$jobId, anonymousClass110.val$type, anonymousClass110.val$version, StatConstants.ERR_MSG_QUERY_FAIL, "", dl9.c(anonymousClass110.val$spaces));
                                         return;
                                     }
                                     AnonymousClass1 anonymousClass111 = this.this$1;
@@ -875,7 +875,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadFile(String str, String str2, List list, long j, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadFile(String str, String str2, List<String> list, long j, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, list, Long.valueOf(j), iActiveUploadListener}) == null) {
             mExecutorService.execute(new Runnable(this, str, str2, list, j, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.6
@@ -924,10 +924,10 @@ public class UploadHelper {
     }
 
     public void uploadFetchZipFile(String str, String str2, String str3, File file, JSONObject jSONObject) {
-        sj9 sj9Var;
+        bl9 bl9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048587, this, str, str2, str3, file, jSONObject) == null) && file != null && file.length() != 0 && (sj9Var = this.mVoyager) != null) {
-            sj9Var.d(file.getAbsolutePath(), "fetchlog", new rj9(this, str2, str, str3, jSONObject, file) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
+        if ((interceptable == null || interceptable.invokeLLLLL(1048587, this, str, str2, str3, file, jSONObject) == null) && file != null && file.length() != 0 && (bl9Var = this.mVoyager) != null) {
+            bl9Var.d(file.getAbsolutePath(), "fetchlog", new al9(this, str2, str, str3, jSONObject, file) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -960,7 +960,7 @@ public class UploadHelper {
                     this.val$zipFile = file;
                 }
 
-                @Override // com.baidu.tieba.rj9
+                @Override // com.baidu.tieba.al9
                 public void onFailure(String str4, JSONObject jSONObject2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject2) == null) {
@@ -969,12 +969,12 @@ public class UploadHelper {
                         String str6 = this.val$jobId;
                         String str7 = this.val$version;
                         JSONObject jSONObject3 = this.val$metaJson;
-                        uj9.a(jSONObject3, str4);
+                        dl9.a(jSONObject3, str4);
                         uploadHelper.reportTaskDone(str5, str6, str7, "", "1", jSONObject3);
                     }
                 }
 
-                @Override // com.baidu.tieba.rj9
+                @Override // com.baidu.tieba.al9
                 public void onSuccess(String str4, JSONObject jSONObject2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject2) == null) {
@@ -992,7 +992,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadFile(String str, String str2, List list, String str3, long j, JSONObject jSONObject) {
+    public void activeUploadFile(String str, String str2, List<String> list, String str3, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, list, str3, Long.valueOf(j), jSONObject}) == null) {
             mExecutorService.execute(new Runnable(this, str, str2, list, str3, j, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.7
@@ -1042,7 +1042,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadSnapShot(String str, String str2, List list, String str3, long j, long j2, long j3, boolean z, JSONObject jSONObject) {
+    public void activeUploadSnapShot(String str, String str2, List<String> list, String str3, long j, long j2, long j3, boolean z, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, list, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), jSONObject}) == null) {
             mExecutorService.execute(new Runnable(this, str2, str, j2, j3, list, z, j, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.5
@@ -1105,7 +1105,7 @@ public class UploadHelper {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "snap short dir: " + str4);
                     }
-                    HashSet snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str4);
+                    HashSet<String> snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str4);
                     if (snapShotSet == null || snapShotSet.size() == 0) {
                         if (UploadHelper.DEBUG) {
                             Log.d(UploadHelper.TAG, "not get upload dir");
@@ -1131,13 +1131,13 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadZipFile(String str, String str2, List list, String str3, File file, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadZipFile(String str, String str2, List<String> list, String str3, File file, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, list, str3, file, iActiveUploadListener}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && file != null && file.length() != 0) {
             ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, str3);
             activeUpObj.setFileType("1");
-            sj9 sj9Var = this.mVoyager;
-            if (sj9Var == null) {
+            bl9 bl9Var = this.mVoyager;
+            if (bl9Var == null) {
                 if (DEBUG) {
                     Log.d(TAG, "voyager component fail");
                 }
@@ -1147,7 +1147,7 @@ public class UploadHelper {
                 }
                 return;
             }
-            sj9Var.a(file.getAbsolutePath(), "acupload", dj9.l, new rj9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+            bl9Var.a(file.getAbsolutePath(), "acupload", mk9.l, new al9(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -1174,7 +1174,7 @@ public class UploadHelper {
                     this.val$activeUploadListener = iActiveUploadListener;
                 }
 
-                @Override // com.baidu.tieba.rj9
+                @Override // com.baidu.tieba.al9
                 public void onFailure(String str4, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject) == null) {
@@ -1192,7 +1192,7 @@ public class UploadHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.rj9
+                @Override // com.baidu.tieba.al9
                 public void onSuccess(String str4, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject) == null) {
@@ -1205,7 +1205,7 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadZipFile(String str, String str2, List list, String str3, String str4, File file, JSONObject jSONObject) {
+    public void activeUploadZipFile(String str, String str2, List<String> list, String str3, String str4, File file, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, list, str3, str4, file, jSONObject}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && file != null && file.length() != 0) {
             if (this.mVoyager == null) {
@@ -1234,32 +1234,32 @@ public class UploadHelper {
         }
     }
 
-    public HashSet getSnapShotSet(long j, long j2, List list, boolean z, boolean z2, String str) {
+    public HashSet<String> getSnapShotSet(long j, long j2, List<String> list, boolean z, boolean z2, String str) {
         InterceptResult invokeCommon;
         String substring;
         String str2;
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
-            HashSet hashSet = new HashSet();
+            HashSet<String> hashSet = new HashSet<>();
             if (list != null && list.size() > 0) {
                 StringBuilder sb = new StringBuilder();
-                Iterator it = list.iterator();
+                Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
-                    String str4 = (String) it.next();
-                    if (!TextUtils.isEmpty(str4)) {
-                        int indexOf = str4.indexOf("/");
+                    String next = it.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        int indexOf = next.indexOf("/");
                         if (indexOf == -1) {
                             substring = "";
                         } else {
-                            String substring2 = str4.substring(0, indexOf);
-                            substring = str4.substring(indexOf + 1);
-                            str4 = substring2;
+                            String substring2 = next.substring(0, indexOf);
+                            substring = next.substring(indexOf + 1);
+                            next = substring2;
                         }
-                        if (TextUtils.isEmpty(str4)) {
+                        if (TextUtils.isEmpty(next)) {
                             str2 = "*";
                         } else {
-                            str2 = str4;
+                            str2 = next;
                         }
                         if (TextUtils.isEmpty(substring)) {
                             str3 = "*";
@@ -1269,11 +1269,11 @@ public class UploadHelper {
                         List<String> createLogSnapShot = LoggerManager.createLogSnapShot(j / 1000, j2 / 1000, str2, str3, z, z2, str);
                         if (createLogSnapShot != null) {
                             if (createLogSnapShot.size() != 0) {
-                                for (String str5 : createLogSnapShot) {
+                                for (String str4 : createLogSnapShot) {
                                     sb.setLength(0);
                                     sb.append(str);
                                     sb.append(File.separator);
-                                    sb.append(str5);
+                                    sb.append(str4);
                                     hashSet.add(sb.toString());
                                 }
                             }

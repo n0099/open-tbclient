@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface sv4 {
-    String getPicLinkUrl();
 
-    String getPicUrl();
+import android.view.View;
+/* loaded from: classes6.dex */
+public interface sv4 {
+    void a();
+
+    View getView();
 }

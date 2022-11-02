@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
+import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.FullBox;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -92,7 +93,7 @@ public abstract class FullContainerBox extends AbstractContainerBox implements F
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
-    public List getBoxes(Class cls) {
+    public <T extends Box> List<T> getBoxes(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {

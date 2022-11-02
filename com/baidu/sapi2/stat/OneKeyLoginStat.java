@@ -40,7 +40,7 @@ public class OneKeyLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class CheckAbility implements NoProguard {
+    public static class CheckAbility implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -60,7 +60,7 @@ public class OneKeyLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "one_key_check_ability";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -140,7 +140,7 @@ public class OneKeyLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class LoadLogin implements NoProguard {
+    public static class LoadLogin implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -155,7 +155,7 @@ public class OneKeyLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "one_key_load_login";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -235,7 +235,7 @@ public class OneKeyLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class OauthToken implements NoProguard {
+    public static class OauthToken implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -250,7 +250,7 @@ public class OneKeyLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "one_key_oauth_token";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -330,7 +330,7 @@ public class OneKeyLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class PreGetPhoneStat implements NoProguard {
+    public static class PreGetPhoneStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -351,7 +351,7 @@ public class OneKeyLoginStat implements NoProguard {
         public static final String VALUE_PAGE = "one_key_pre_get_phone";
         public static final String VALUE_UNABLE = "0";
         public static String sValue;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

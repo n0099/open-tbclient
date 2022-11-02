@@ -85,11 +85,11 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    public void a(int i, HashMap hashMap, byte[] bArr) {
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, hashMap, bArr) == null) {
             if (hashMap != null && hashMap.get("Content-Type") != null) {
-                String str = (String) hashMap.get("Content-Type");
+                String str = hashMap.get("Content-Type");
                 String[] strArr = this.a;
                 int length = strArr.length;
                 boolean z = false;
@@ -117,7 +117,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    public void c(int i, HashMap hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
             if (this.executCallbackInChildThread) {

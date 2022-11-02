@@ -38,7 +38,7 @@ public final class FlowableBlockingSubscribe {
         throw new IllegalStateException("No instances!");
     }
 
-    public static void subscribe(Publisher publisher) {
+    public static <T> void subscribe(Publisher<? extends T> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, publisher) == null) {
             BlockingIgnoringReceiver blockingIgnoringReceiver = new BlockingIgnoringReceiver();
@@ -53,7 +53,7 @@ public final class FlowableBlockingSubscribe {
         }
     }
 
-    public static void subscribe(Publisher publisher, Consumer consumer, Consumer consumer2, Action action) {
+    public static <T> void subscribe(Publisher<? extends T> publisher, Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, publisher, consumer, consumer2, action) == null) {
             ObjectHelper.requireNonNull(consumer, "onNext is null");
@@ -63,7 +63,7 @@ public final class FlowableBlockingSubscribe {
         }
     }
 
-    public static void subscribe(Publisher publisher, Subscriber subscriber) {
+    public static <T> void subscribe(Publisher<? extends T> publisher, Subscriber<? super T> subscriber) {
         Object poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, publisher, subscriber) == null) {

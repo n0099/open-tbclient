@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,44 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public final class qz9 implements zx9 {
+public final class qz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zx9 g;
+    public static final AtomicReference<qz9> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public zx9 b;
-    public boolean c;
-    public long d;
-    public long e;
-    public zx9 f;
-
-    /* loaded from: classes5.dex */
-    public final class a implements zx9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.zx9
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public final jz9 a;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +29,33 @@ public final class qz9 implements zx9 {
                 return;
             }
         }
-        g = new a();
+        b = new AtomicReference<>();
+    }
+
+    public static qz9 a() {
+        qz9 qz9Var;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                qz9 qz9Var2 = b.get();
+                if (qz9Var2 != null) {
+                    return qz9Var2;
+                }
+                qz9Var = new qz9();
+            } while (!b.compareAndSet(null, qz9Var));
+            return qz9Var;
+        }
+        return (qz9) invokeV.objValue;
+    }
+
+    public static jz9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (jz9) invokeV.objValue;
     }
 
     public qz9() {
@@ -73,161 +68,14 @@ public final class qz9 implements zx9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                zx9 zx9Var = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && zx9Var == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    } else {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    }
-                }
-                if (zx9Var != null) {
-                    if (zx9Var == g) {
-                        this.b = null;
-                    } else {
-                        this.b = zx9Var;
-                        zx9Var.request(j3);
-                    }
-                } else {
-                    zx9 zx9Var2 = this.b;
-                    if (zx9Var2 != null && i != 0) {
-                        zx9Var2.request(j);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n > 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.baidu.tieba.zx9
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    return;
-                }
-                synchronized (this) {
-                    if (this.c) {
-                        this.d += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a + j;
-                        if (j2 < 0) {
-                            j2 = Long.MAX_VALUE;
-                        }
-                        this.a = j2;
-                        zx9 zx9Var = this.b;
-                        if (zx9Var != null) {
-                            zx9Var.request(j);
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n >= 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(zx9 zx9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx9Var) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (zx9Var == null) {
-                        zx9Var = g;
-                    }
-                    this.f = zx9Var;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = zx9Var;
-                    if (zx9Var != null) {
-                        zx9Var.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
+        jz9 b2 = oz9.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new rz9(Looper.getMainLooper());
         }
     }
 }

@@ -1,113 +1,169 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public final class cb1 {
+public class cb1 implements eb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eb1
+    public void i(Activity activity, JSONObject jSONObject, za1 za1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = pc1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = pc1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, za1Var) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Context a = pc1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = pc1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668887, "Lcom/baidu/tieba/cb1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947668887, "Lcom/baidu/tieba/cb1;");
+                return;
             }
         }
-        return (String) invokeV.objValue;
+        a = SchemeConfig.getSchemeHead() + "://swan/";
     }
 
-    public static final void c(va1 va1Var, String str) {
-        boolean z;
+    public cb1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, va1Var, str) == null) && va1Var != null) {
-            boolean z2 = false;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String str2 = (String) va1Var.a("Cookie");
-                String str3 = "BDUSS=" + str;
-                if ((str2 == null || StringsKt__StringsJVMKt.isBlank(str2)) ? true : true) {
-                    va1Var.d("Cookie", str3);
-                    return;
-                }
-                va1Var.d("Cookie", str2 + "; " + str3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static final void d(va1 va1Var) {
+    @Override // com.baidu.tieba.eb1
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, va1Var) == null) && va1Var != null) {
-            va1Var.d("channel", "cashiersdk");
-            va1Var.d("deviceType", "ANDROID");
-            va1Var.d("osVersion", Build.VERSION.RELEASE);
-            va1Var.d(CommandMessage.SDK_VERSION, "2.8.7.9");
-            va1Var.d("appVersion", b());
-            va1Var.d("sdkPgName", a());
-            va1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            ln2.S().a(activity, str, str2);
         }
     }
 
-    public static final ua1 e(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.eb1
+    public void aLiAuth(Activity activity, String str, lb1<JSONObject> lb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, lb1Var) == null) {
+            ln2.S().f(activity, str, lb1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void c(Activity activity, String str, za1 za1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, za1Var) == null) {
+            ln2.S().c(activity, str, za1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void d(Context context, JSONObject jSONObject, za1 za1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, za1Var) == null) {
+            ln2.S().d(context, jSONObject, za1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void e(Activity activity, String str, za1 za1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, za1Var) == null) {
+            ln2.S().e(activity, str, za1Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            ua1 ua1Var = new ua1();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    ua1Var.d(next, jSONObject.optString(next));
-                }
-            }
-            return ua1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return ln2.S().b(context);
         }
-        return (ua1) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            sw2.b().a = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return ln2.G0().a(context);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void f(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+            if (jSONObject == null) {
+                PaymentManager.i(3, "支付信息不能为空");
+                return;
+            }
+            String optString = jSONObject.optString("appKey");
+            String optString2 = jSONObject.optString("redirectUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                SchemeRouter.invoke(context, a + optString + optString2);
+                return;
+            }
+            PaymentManager.i(3, "支付信息不能为空");
+        }
+    }
+
+    @Override // com.baidu.tieba.eb1
+    public void g(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            String str = sw2.b().a;
+            if (TextUtils.isEmpty(str)) {
+                wa1.a(bundle);
+                return;
+            }
+            u03 e = u03.e();
+            w03 w03Var = new w03(119, bundle);
+            w03Var.c(str);
+            w03Var.p(true);
+            e.h(w03Var);
+        }
     }
 }

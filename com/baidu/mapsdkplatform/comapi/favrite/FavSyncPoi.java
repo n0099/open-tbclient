@@ -1,6 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.favrite;
 
-import com.baidu.mapapi.model.inner.Point;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

@@ -2,6 +2,7 @@ package com.baidu.sapi2.dto;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +24,12 @@ public class WebLoginDTO extends SapiWebDTO {
     public static final String EXTRA_LOGIN_WITH_USERNAME = "extra_login_with_username";
     public static final String EXTRA_STAT_EXTRA = "extrajson";
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap agreement;
+    public LinkedHashMap<String, String> agreement;
     public int businessType;
     public Config config;
     public String encryptedId;
     public String extraJson;
-    public List extraParams;
+    public List<PassNameValuePair> extraParams;
     public boolean finishActivityAfterSuc;
     public boolean hideSuccessTip;
     public boolean isAcceptBrowseModeAgreement;
@@ -42,10 +43,10 @@ public class WebLoginDTO extends SapiWebDTO {
     public String uid;
 
     /* loaded from: classes2.dex */
-    public class Config {
+    public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List fastLoginFeatureList;
+        public List<FastLoginFeature> fastLoginFeatureList;
         public boolean supportTouchGuide;
 
         public Config() {

@@ -11,17 +11,17 @@ import java.util.ArrayList;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<C0089a> a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0088a {
+    public static class C0089a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public Object b;
 
-        public C0088a(String str, Object obj) {
+        public C0089a(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class a {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new ArrayList<>();
     }
 
     public void a() {
@@ -88,17 +88,17 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             int size = this.a.size();
             for (int i = 0; i < size; i++) {
-                C0088a c0088a = (C0088a) this.a.get(i);
-                if (c0088a != null && c0088a.a() != null && c0088a.a().equals(str)) {
-                    c0088a.a(obj);
+                C0089a c0089a = this.a.get(i);
+                if (c0089a != null && c0089a.a() != null && c0089a.a().equals(str)) {
+                    c0089a.a(obj);
                     return;
                 }
             }
-            this.a.add(new C0088a(str, obj));
+            this.a.add(new C0089a(str, obj));
         }
     }
 
-    public ArrayList b() {
+    public ArrayList<C0089a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;

@@ -1,6 +1,10 @@
 package androidx.core.os;
 
 import android.os.Build;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -25,9 +29,11 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public static final Locale[] sEmptyList;
     public transient /* synthetic */ FieldHolder $fh;
     public final Locale[] mList;
+    @NonNull
     public final String mStringRepresentation;
 
     @Override // androidx.core.os.LocaleListInterface
+    @Nullable
     public Object getLocaleList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +87,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         }
     }
 
-    public LocaleListCompatWrapper(Locale... localeArr) {
+    public LocaleListCompatWrapper(@NonNull Locale... localeArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,6 +145,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         return (Locale) invokeLZ.objValue;
     }
 
+    @VisibleForTesting
     public static void toLanguageTag(StringBuilder sb, Locale locale) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, sb, locale) == null) {
@@ -193,6 +200,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         return invokeLZ.intValue;
     }
 
+    @IntRange(from = 0, to = 1)
     public static int matchScore(Locale locale, Locale locale2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -281,7 +289,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     }
 
     @Override // androidx.core.os.LocaleListInterface
-    public Locale getFirstMatch(String[] strArr) {
+    public Locale getFirstMatch(@NonNull String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {

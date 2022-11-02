@@ -19,15 +19,15 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSamplePublisher extends Flowable {
+public final class FlowableSamplePublisher<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
-    public final Publisher other;
-    public final Publisher source;
+    public final Publisher<?> other;
+    public final Publisher<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SampleMainEmitLast extends SamplePublisherSubscriber {
+    public static final class SampleMainEmitLast<T> extends SamplePublisherSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableSamplePublisher extends Flowable {
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainEmitLast(Subscriber subscriber, Publisher publisher) {
+        public SampleMainEmitLast(Subscriber<? super T> subscriber, Publisher<?> publisher) {
             super(subscriber, publisher);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -97,13 +97,13 @@ public final class FlowableSamplePublisher extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class SampleMainNoLast extends SamplePublisherSubscriber {
+    public static final class SampleMainNoLast<T> extends SamplePublisherSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainNoLast(Subscriber subscriber, Publisher publisher) {
+        public SampleMainNoLast(Subscriber<? super T> subscriber, Publisher<?> publisher) {
             super(subscriber, publisher);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,15 +149,15 @@ public final class FlowableSamplePublisher extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class SamplePublisherSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
+    public static abstract class SamplePublisherSubscriber<T> extends AtomicReference<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final AtomicReference other;
+        public final Subscriber<? super T> actual;
+        public final AtomicReference<Subscription> other;
         public final AtomicLong requested;
         public Subscription s;
-        public final Publisher sampler;
+        public final Publisher<?> sampler;
 
         public abstract void completeMain();
 
@@ -165,7 +165,7 @@ public final class FlowableSamplePublisher extends Flowable {
 
         public abstract void run();
 
-        public SamplePublisherSubscriber(Subscriber subscriber, Publisher publisher) {
+        public SamplePublisherSubscriber(Subscriber<? super T> subscriber, Publisher<?> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public final class FlowableSamplePublisher extends Flowable {
                 }
             }
             this.requested = new AtomicLong();
-            this.other = new AtomicReference();
+            this.other = new AtomicReference<>();
             this.actual = subscriber;
             this.sampler = publisher;
         }
@@ -213,7 +213,7 @@ public final class FlowableSamplePublisher extends Flowable {
         }
 
         public void emit() {
-            Object andSet;
+            T andSet;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (andSet = getAndSet(null)) != null) {
                 if (this.requested.get() != 0) {
@@ -244,10 +244,10 @@ public final class FlowableSamplePublisher extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-                lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+                lazySet(t);
             }
         }
 
@@ -281,12 +281,12 @@ public final class FlowableSamplePublisher extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class SamplerSubscriber implements FlowableSubscriber {
+    public static final class SamplerSubscriber<T> implements FlowableSubscriber<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SamplePublisherSubscriber parent;
+        public final SamplePublisherSubscriber<T> parent;
 
-        public SamplerSubscriber(SamplePublisherSubscriber samplePublisherSubscriber) {
+        public SamplerSubscriber(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -337,7 +337,7 @@ public final class FlowableSamplePublisher extends Flowable {
         }
     }
 
-    public FlowableSamplePublisher(Publisher publisher, Publisher publisher2, boolean z) {
+    public FlowableSamplePublisher(Publisher<T> publisher, Publisher<?> publisher2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -358,7 +358,7 @@ public final class FlowableSamplePublisher extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);

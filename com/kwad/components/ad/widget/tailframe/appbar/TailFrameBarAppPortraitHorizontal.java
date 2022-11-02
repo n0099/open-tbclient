@@ -3,6 +3,8 @@ package com.kwad.components.ad.widget.tailframe.appbar;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -40,7 +42,7 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarAppPortraitHorizontal(Context context, AttributeSet attributeSet) {
+    public TailFrameBarAppPortraitHorizontal(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,7 +63,7 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameBarAppPortraitHorizontal(Context context, AttributeSet attributeSet, int i) {
+    public TailFrameBarAppPortraitHorizontal(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,11 +84,11 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     }
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
-    public final void c(AdTemplate adTemplate) {
+    public final void c(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
             if (d.p(adTemplate)) {
-                this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060789));
+                this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06078a));
                 this.hG.setTextColor(Color.parseColor("#FFFFFF"));
                 this.CI.setTextColor(Color.parseColor("#FFFFFF"));
             } else {
@@ -100,6 +102,6 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d047a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0485 : invokeV.intValue;
     }
 }

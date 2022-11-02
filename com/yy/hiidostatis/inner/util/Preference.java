@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class Preference {
     public static /* synthetic */ Interceptable $ic;
@@ -124,7 +126,7 @@ public class Preference {
         }
     }
 
-    public Map getAll(Context context) {
+    public Map<String, ?> getAll(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {

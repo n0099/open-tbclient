@@ -1,55 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p85 {
+public class p85 extends p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
-    public p85() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p85(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0557), 34, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static p85 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                p85 p85Var = new p85();
-                p85Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                p85Var.b = jSONObject.optInt("width");
-                p85Var.c = jSONObject.optInt("height");
-                p85Var.d = jSONObject.optString("pic_url");
-                p85Var.e = jSONObject.optString("thumbnail");
-                p85Var.g = jSONObject.optString("origin_url");
-                return p85Var;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (p85) invokeL.objValue;
+        this.d = R.drawable.obfuscated_res_0x7f080833;
+        this.i = false;
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{60};
     }
 }

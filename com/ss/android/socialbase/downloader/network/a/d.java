@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class d implements i {
     public final Object a;
-    public final List b;
+    public final List<com.ss.android.socialbase.downloader.model.c> b;
     public i c;
     public boolean d;
     public long e;
@@ -59,7 +59,7 @@ public class d implements i {
         }
     }
 
-    public List f() {
+    public List<com.ss.android.socialbase.downloader.model.c> f() {
         return this.b;
     }
 

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +40,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, fj.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, xi.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     public void i() {
@@ -64,16 +64,16 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 TextView textView = this.e;
                 Context context = this.a;
                 if (z) {
-                    i2 = R.style.obfuscated_res_0x7f1003f5;
+                    i2 = R.style.obfuscated_res_0x7f1003f6;
                 } else {
-                    i2 = R.style.obfuscated_res_0x7f1003f4;
+                    i2 = R.style.obfuscated_res_0x7f1003f5;
                 }
                 textView.setTextAppearance(context, i2);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !ej.isEmpty(TbConfig.getSubVersion())) {
+            if (TbConfig.getVersionType() == 1 && !wi.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
             this.e.setText(version);
@@ -81,9 +81,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             TextView textView2 = this.e;
             Context context2 = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f1003f7;
+                i = R.style.obfuscated_res_0x7f1003f8;
             } else {
-                i = R.style.obfuscated_res_0x7f1003f6;
+                i = R.style.obfuscated_res_0x7f1003f7;
             }
             textView2.setTextAppearance(context2, i);
         }

@@ -1,5 +1,6 @@
 package com.baidu.swan.bdprivate.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
@@ -10,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w23;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.o33;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BdContextMenuView extends FrameLayout implements w23.g {
+public class BdContextMenuView extends FrameLayout implements o33.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -66,7 +67,7 @@ public class BdContextMenuView extends FrameLayout implements w23.g {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 this.a.a.a(i);
@@ -87,7 +88,7 @@ public class BdContextMenuView extends FrameLayout implements w23.g {
                 return;
             }
         }
-        boolean z = wj1.a;
+        boolean z = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +137,7 @@ public class BdContextMenuView extends FrameLayout implements w23.g {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"NewApi"})
     public BdContextMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -166,7 +168,7 @@ public class BdContextMenuView extends FrameLayout implements w23.g {
             ListView listView = new ListView(this.b);
             this.c = listView;
             listView.setCacheColorHint(0);
-            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06039d));
+            this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06039e));
             this.c.setDividerHeight(1);
             this.c.setSelector(new ColorDrawable(0));
             addView(this.c, new FrameLayout.LayoutParams(-1, -1));

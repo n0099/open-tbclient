@@ -1,112 +1,117 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActHot;
 /* loaded from: classes5.dex */
 public class mo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String[] split3;
+    public mo8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (ej.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return split3[split3.length - 1];
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("upgrade");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (ej.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("notificationName");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(ActHot actHot) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, actHot) != null) || actHot == null) {
+            return;
+        }
+        String str = actHot.bsize;
+        if (str != null) {
             try {
-                if (!ej.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
-                    return str2.substring(0, (str2.length() - str3.length()) - 1);
-                }
-                return null;
+                String[] split = str.split(",");
+                this.b = wg.e(split[0], 1);
+                this.c = wg.e(split[1], 1);
             } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+                BdLog.e(e.getMessage());
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSONObject f(String str) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (ej.isEmpty(str)) {
-                return new JSONObject();
-            }
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return new JSONObject();
-            }
-            String queryParameter = parse.getQueryParameter("params");
-            if (ej.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            return new JSONObject(queryParameter);
+        if (this.b <= 0) {
+            this.b = 1;
         }
-        return (JSONObject) invokeL.objValue;
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        this.a = actHot.img_src;
+        this.d = actHot.link;
+        this.e = actHot.author_name;
+        this.f = actHot.img_des;
+        actHot.img_type.intValue();
     }
 }

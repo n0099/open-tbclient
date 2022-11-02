@@ -64,8 +64,8 @@ public class DnsResolveFlow {
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger mIncreaseId;
     public NetStatusReceiver mNetStatusReceiver;
-    public ConcurrentHashMap mPendingHttpCode;
-    public ConcurrentHashMap mPendingReqs;
+    public ConcurrentHashMap<String, AtomicInteger> mPendingHttpCode;
+    public ConcurrentHashMap<String, AtomicBoolean> mPendingReqs;
     public Runnable mRunnable;
 
     static {
@@ -97,8 +97,8 @@ public class DnsResolveFlow {
             }
         }
         this.mIncreaseId = new AtomicInteger(1);
-        this.mPendingReqs = new ConcurrentHashMap();
-        this.mPendingHttpCode = new ConcurrentHashMap();
+        this.mPendingReqs = new ConcurrentHashMap<>();
+        this.mPendingHttpCode = new ConcurrentHashMap<>();
         this.mNetStatusReceiver = null;
         this.mRunnable = new Runnable(this) { // from class: com.yy.gslbsdk.flow.DnsResolveFlow.4
             public static /* synthetic */ Interceptable $ic;
@@ -326,7 +326,7 @@ public class DnsResolveFlow {
         }
     }
 
-    public void updateHostList(ArrayList arrayList, boolean z) {
+    public void updateHostList(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, arrayList, z) == null) {
             AsynTaskMgr.INSTANCE.updateHost(arrayList, z);
@@ -524,14 +524,14 @@ public class DnsResolveFlow {
                     } else {
                         dnsResultInfo.mDataSource = 1;
                     }
-                    Map filterIpVer = IpVersionController.filterIpVer(dnsInfo.getIps());
+                    Map<Integer, List<String>> filterIpVer = IpVersionController.filterIpVer(dnsInfo.getIps());
                     String[] strArr = new String[0];
                     String[] strArr2 = new String[0];
-                    List list = (List) filterIpVer.get(6);
+                    List<String> list = filterIpVer.get(6);
                     if (list != null && !list.isEmpty()) {
                         strArr2 = (String[]) list.toArray(new String[0]);
                     }
-                    List list2 = (List) filterIpVer.get(4);
+                    List<String> list2 = filterIpVer.get(4);
                     if (list2 != null && !list2.isEmpty()) {
                         strArr = (String[]) list2.toArray(new String[0]);
                     }
@@ -600,14 +600,14 @@ public class DnsResolveFlow {
         int i;
         int i2;
         StatisticInfo statisticInfo;
-        ArrayList arrayList;
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, this, netStatusInfo, strArr, str)) == null) {
             NetworkStatus networkStatus = netStatusInfo.getNetworkStatus();
             int i3 = 3;
             int i4 = 2;
             LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, start, network: %s, host: %s, requestId: %s", networkStatus.toString(), Arrays.toString(strArr), str));
-            ArrayList bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(networkStatus);
+            ArrayList<String> bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(networkStatus);
             i3 = (networkStatus.canV6() && networkStatus.canV4()) ? 2 : 2;
             LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, minSrvIp: %d, best: %s", Integer.valueOf(i3), bestServerIPCache.toString()));
             if (bestServerIPCache.size() < i3) {
@@ -618,7 +618,7 @@ public class DnsResolveFlow {
                 }
                 LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, cache: %s", bestServerIPCache.toString()));
             }
-            ArrayList arrayList2 = bestServerIPCache;
+            ArrayList<String> arrayList2 = bestServerIPCache;
             if (arrayList2.size() == 0) {
                 LogTools.printError(TAG, "request HttpDns no ServerIp");
                 return 8;
@@ -643,7 +643,7 @@ public class DnsResolveFlow {
                 while (i6 < arrayList2.size()) {
                     try {
                         try {
-                            str2 = (String) arrayList2.get(i6);
+                            str2 = arrayList2.get(i6);
                             if (i5 == i4) {
                                 z = true;
                             } else if (i5 == 1) {
@@ -915,9 +915,9 @@ public class DnsResolveFlow {
                 IpVersionController.getInstance().delResultByHost(hostTB.getHost());
             } else {
                 if (!ssid.equals(IpVersionController.IPV6_ONLY) && (netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV4())) {
-                    List resultByNetworkHost = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 1);
+                    List<ResultTB> resultByNetworkHost = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 1);
                     if (resultByNetworkHost != null && !resultByNetworkHost.isEmpty()) {
-                        ResultTB resultTB = (ResultTB) resultByNetworkHost.get(0);
+                        ResultTB resultTB = resultByNetworkHost.get(0);
                         if (isDead(resultTB.getUpdateTime())) {
                             IpVersionController.getInstance().delResult(resultTB);
                         }
@@ -936,9 +936,9 @@ public class DnsResolveFlow {
                     }
                 }
                 if (!ssid.equals(IpVersionController.IPV4_ONLY) && (netStatusInfo.getNetworkStatus() == null || netStatusInfo.getNetworkStatus().canV6())) {
-                    List resultByNetworkHost2 = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 2);
+                    List<ResultTB> resultByNetworkHost2 = IpVersionController.getInstance().getResultByNetworkHost(netStatusID, hostTB.getHost(), 2);
                     if (resultByNetworkHost2 != null && !resultByNetworkHost2.isEmpty()) {
-                        ResultTB resultTB2 = (ResultTB) resultByNetworkHost2.get(0);
+                        ResultTB resultTB2 = resultByNetworkHost2.get(0);
                         if (isDead(resultTB2.getUpdateTime())) {
                             IpVersionController.getInstance().delResult(resultTB2);
                         }
@@ -969,7 +969,7 @@ public class DnsResolveFlow {
     public void judgeUpdateHost(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(65555, this, str, i, i2) == null) && i == 0 && i2 == 0) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             updateHostList(arrayList, false);
         }
@@ -998,7 +998,7 @@ public class DnsResolveFlow {
             int i2 = 1;
             int i3 = 2;
             LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS, start, network: %s, host: %s, requestId: %s", networkStatus.toString(), Arrays.toString(strArr), str));
-            ArrayList bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(networkStatus);
+            ArrayList<String> bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(networkStatus);
             if (networkStatus.canV6() && networkStatus.canV4()) {
                 i = 3;
             } else {
@@ -1026,7 +1026,7 @@ public class DnsResolveFlow {
             synchronized (atomicInteger) {
                 int i5 = 0;
                 while (i5 < bestServerIPCache.size()) {
-                    String str2 = (String) bestServerIPCache.get(i5);
+                    String str2 = bestServerIPCache.get(i5);
                     if (i4 == i3 || (i4 == i2 && i5 >= bestServerIPCache.size() / i3)) {
                         z = true;
                     } else {
@@ -1043,7 +1043,7 @@ public class DnsResolveFlow {
                     LogTools.printDebug(TAG, String.format(locale, "preHandleHttpDNS.handleOper, HttpDns thread[%s], serverIp: %s, is_https: %b, httpsLevel: %d, requestId: %s", objArr));
                     long uptimeMillis = SystemClock.uptimeMillis();
                     String[] requestHttpDnsV2 = HttpDNSProtocolMgr.requestHttpDnsV2(strArr, str2, r8, z, str);
-                    ArrayList arrayList = bestServerIPCache;
+                    ArrayList<String> arrayList = bestServerIPCache;
                     LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS.handleOper, cost HttpDns thread[%s], requestId: %s , cost : %d", str3, str, Long.valueOf(SystemClock.uptimeMillis() - uptimeMillis)));
                     if (requestHttpDnsV2 != null && BasicPushStatus.SUCCESS_CODE.equals(requestHttpDnsV2[0])) {
                         LogTools.printDebug(TAG, String.format(Locale.US, "preHandleHttpDNS succeed response serverIp: %s, requestId: %s, res: %s", str2, str, requestHttpDnsV2[1]));
@@ -1109,36 +1109,36 @@ public class DnsResolveFlow {
         return invokeLLL.intValue;
     }
 
-    private int synUpdateHostList(ArrayList arrayList, boolean z) {
+    private int synUpdateHostList(ArrayList<String> arrayList, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65557, this, arrayList, z)) == null) {
             if (GlobalTools.APP_CONTEXT != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
-                Iterator it = arrayList.iterator();
+                Iterator<String> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    String str = (String) it.next();
-                    List hostByHost = dBAccessMgr.getHostByHost(str);
+                    String next = it.next();
+                    List<HostTB> hostByHost = dBAccessMgr.getHostByHost(next);
                     if (hostByHost.isEmpty()) {
                         HostTB hostTB = new HostTB();
-                        hostTB.setHost(str);
+                        hostTB.setHost(next);
                         hostTB.setInsertTime(currentTimeMillis);
                         hostTB.setIsPre(z ? 1 : 0);
                         dBAccessMgr.addHost(hostTB);
                     } else {
-                        HostTB hostTB2 = (HostTB) hostByHost.get(0);
+                        HostTB hostTB2 = hostByHost.get(0);
                         hostTB2.setInsertTime(currentTimeMillis);
                         hostTB2.setIsPre(z ? 1 : 0);
                         dBAccessMgr.updateHost(hostTB2);
                     }
                 }
-                List allHost = dBAccessMgr.getAllHost();
+                List<HostTB> allHost = dBAccessMgr.getAllHost();
                 int size = allHost.size();
                 while (true) {
                     size--;
                     if (size >= GlobalTools.KEEP_HOST_NUM) {
-                        dBAccessMgr.delHost((HostTB) allHost.get(size));
+                        dBAccessMgr.delHost(allHost.get(size));
                     } else {
                         allHost.clear();
                         return 0;
@@ -1152,7 +1152,7 @@ public class DnsResolveFlow {
         }
     }
 
-    private void updateIps(NetStatusInfo netStatusInfo, Set set) {
+    private void updateIps(NetStatusInfo netStatusInfo, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, this, netStatusInfo, set) == null) {
             ThreadInfo threadInfo = new ThreadInfo("HttpDNS-TTL-Update-" + System.currentTimeMillis());
@@ -1812,12 +1812,12 @@ public class DnsResolveFlow {
             StatisticInfo statisticInfo = StatisticMgr.getInstance().getStatisticInfo(str);
             LogTools.printDebug(TAG, String.format(Locale.US, "handleDnsSync, start, key: %s, requestId: %s", str3, str));
             synchronized (this.mPendingReqs) {
-                atomicBoolean = (AtomicBoolean) this.mPendingReqs.get(str3);
+                atomicBoolean = this.mPendingReqs.get(str3);
                 if (atomicBoolean == null) {
                     atomicBoolean = new AtomicBoolean(false);
                     this.mPendingReqs.putIfAbsent(str3, atomicBoolean);
                 }
-                atomicInteger = (AtomicInteger) this.mPendingHttpCode.get(str3);
+                atomicInteger = this.mPendingHttpCode.get(str3);
                 if (atomicInteger == null) {
                     atomicInteger = new AtomicInteger(2);
                     this.mPendingHttpCode.putIfAbsent(str3, atomicInteger);
@@ -1874,11 +1874,11 @@ public class DnsResolveFlow {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{netStatusInfo, strArr, resInfo, Boolean.valueOf(z)})) == null) {
-            ArrayList bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(netStatusInfo.getNetworkStatus());
+            ArrayList<String> bestServerIPCache = IpVersionController.getInstance().getBestServerIPCache(netStatusInfo.getNetworkStatus());
             if (bestServerIPCache.isEmpty()) {
                 str = IpVersionController.getInstance().getOneServerIPByUnKnownISP(GlobalTools.APP_CONTEXT, netStatusInfo.getNetworkStatus());
             } else {
-                str = (String) bestServerIPCache.get(0);
+                str = bestServerIPCache.get(0);
             }
             if (str == null) {
                 LogTools.printDebug(TAG, "ServerIP is NULL");
@@ -1926,7 +1926,7 @@ public class DnsResolveFlow {
         }
     }
 
-    public synchronized void preHost(ArrayList arrayList) {
+    public synchronized void preHost(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             synchronized (this) {
@@ -1943,13 +1943,13 @@ public class DnsResolveFlow {
                     return;
                 }
                 HashSet hashSet = new HashSet();
-                Iterator it = arrayList.iterator();
+                Iterator<String> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    String str = (String) it.next();
+                    String next = it.next();
                     if (hashSet.size() >= 10) {
                         break;
                     }
-                    hashSet.add(str);
+                    hashSet.add(next);
                 }
                 if (!hashSet.isEmpty()) {
                     updateIps(netStatusInfo, hashSet);

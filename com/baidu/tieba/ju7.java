@@ -1,56 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tieba.lq4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ju7 extends lq4 {
+public class ju7 extends jn<su7, InterestedForumStyleAMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static ju7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lq4.a b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947895869, "Lcom/baidu/tieba/ju7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947895869, "Lcom/baidu/tieba/ju7;");
-        }
-    }
+    public yu7 a;
+    public zu7 b;
 
     /* loaded from: classes4.dex */
-    public class a implements lq4.a {
+    public class a implements go {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.lq4.a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
+        public final /* synthetic */ ju7 a;
 
         public a(ju7 ju7Var) {
             Interceptable interceptable = $ic;
@@ -64,115 +37,115 @@ public class ju7 extends lq4 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ju7Var;
         }
 
-        @Override // com.baidu.tieba.lq4.a
-        public void c(AccountData accountData) {
+        @Override // com.baidu.tieba.go
+        public void b(View view2, wn wnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, wnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(wnVar instanceof su7)) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.lq4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) && i == 1) {
-                ReloginManager.g().f(null);
+            su7 su7Var = (su7) wnVar;
+            if (this.a.a != null) {
+                this.a.a.d(su7Var.a(), su7Var.b(), i);
+            }
+            if (this.a.b != null) {
+                this.a.b.a();
             }
         }
     }
 
-    public ju7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ju7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    public static ju7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                c = new ju7();
-            }
-            return c;
-        }
-        return (ju7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lq4
-    public BdAsyncTask a(String str, String str2, String str3, String str4, lq4.a aVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, aVar)) == null) {
-            return jp7.a(str, str2, str3, str4, aVar);
-        }
-        return (BdAsyncTask) invokeLLLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lq4
-    public lq4.b c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: u */
+    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            lq4.b bVar = null;
-            if (str == null) {
-                return null;
-            }
-            try {
-                String[] split = str.split("[|]");
-                if (split == null || split.length < 1) {
-                    return null;
-                }
-                lq4.b bVar2 = new lq4.b();
-                try {
-                    bVar2.a = split[0];
-                    if (split.length >= 2) {
-                        bVar2.b = split[1];
-                    }
-                    return bVar2;
-                } catch (Exception e) {
-                    e = e;
-                    bVar = bVar2;
-                    BdLog.e(e.getMessage());
-                    return bVar;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } else {
-            return (lq4.b) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f8, viewGroup, false));
+        }
+        return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+    }
+
+    public void x(yu7 yu7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yu7Var) == null) {
+            this.a = yu7Var;
         }
     }
 
-    @Override // com.baidu.tieba.lq4
-    public void d() {
+    public void y(zu7 zu7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zu7Var) == null) {
+            this.b = zu7Var;
         }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            lq4.b c2 = c(currentAccountObj.getBDUSS());
-            if (c2 != null) {
-                jp7.a(currentAccountObj.getAccount(), c2.a, c2.b, currentAccountObj.getStoken(), this.b);
-                return;
+    }
+
+    public final void z(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
+            kw4 d = kw4.d(interestedForumStyleAMoreViewHolder.c);
+            d.v(R.color.CAM_X0302);
+            d.z(R.dimen.T_X07);
+            kw4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, su7 su7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        v(i, view2, viewGroup, su7Var, interestedForumStyleAMoreViewHolder);
+        return view2;
+    }
+
+    public View v(int i, View view2, ViewGroup viewGroup, su7 su7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, su7Var, interestedForumStyleAMoreViewHolder})) == null) {
+            z(interestedForumStyleAMoreViewHolder);
+            w(interestedForumStyleAMoreViewHolder, su7Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void w(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, su7 su7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, su7Var) == null) {
+            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0968));
+            if (su7Var.c()) {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
+            } else {
+                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
             }
-            return;
         }
-        jx4.a(DI.ACCOUNT, -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
     }
 }

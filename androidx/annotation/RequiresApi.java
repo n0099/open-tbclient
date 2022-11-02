@@ -8,7 +8,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes.dex */
 public @interface RequiresApi {
+    @IntRange(from = 1)
     int api() default 1;
 
+    @IntRange(from = 1)
     int value() default 1;
 }

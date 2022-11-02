@@ -126,7 +126,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         IStatusListener iStatusListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             int i2 = this.mSubBusiness;
             if (i2 == 1) {
                 if (this.mContacterType == 0) {

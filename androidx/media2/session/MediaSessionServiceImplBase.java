@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.KeyEvent;
+import androidx.annotation.GuardedBy;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -34,10 +35,14 @@ public class MediaSessionServiceImplBase implements MediaSessionService.MediaSes
     public static final boolean DEBUG = true;
     public static final String TAG = "MSS2ImplBase";
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public MediaSessionService mInstance;
     public final Object mLock;
+    @GuardedBy("mLock")
     public MediaNotificationHandler mNotificationHandler;
+    @GuardedBy("mLock")
     public Map<String, MediaSession> mSessions;
+    @GuardedBy("mLock")
     public MediaSessionServiceStub mStub;
 
     /* loaded from: classes.dex */

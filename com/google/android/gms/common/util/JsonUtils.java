@@ -1,6 +1,8 @@
 package com.google.android.gms.common.util;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import java.util.Iterator;
 import java.util.regex.Matcher;
@@ -16,6 +19,8 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@VisibleForTesting
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +59,8 @@ public final class JsonUtils {
         }
     }
 
-    public static boolean areJsonValuesEquivalent(Object obj, Object obj2) {
+    @KeepForSdk
+    public static boolean areJsonValuesEquivalent(@Nullable Object obj, @Nullable Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
@@ -104,7 +110,9 @@ public final class JsonUtils {
         return invokeLL.booleanValue;
     }
 
-    public static String escapeString(String str) {
+    @Nullable
+    @KeepForSdk
+    public static String escapeString(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
@@ -159,7 +167,9 @@ public final class JsonUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String unescapeString(String str) {
+    @NonNull
+    @KeepForSdk
+    public static String unescapeString(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

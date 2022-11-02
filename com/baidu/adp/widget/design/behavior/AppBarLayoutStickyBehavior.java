@@ -3,6 +3,7 @@ package com.baidu.adp.widget.design.behavior;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -135,7 +136,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+    public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         AppBarLayout.OnOffsetChangedListener onOffsetChangedListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, layoutParams) == null) {

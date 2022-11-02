@@ -1,6 +1,8 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -21,14 +23,16 @@ public class BreakpointStoreOnCache implements DownloadStore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List fileDirtyList;
+    public final List<Integer> fileDirtyList;
+    @NonNull
     public final KeyToIdMap keyToIdMap;
-    public final HashMap responseFilenameMap;
-    public final List sortedOccupiedIds;
-    public final SparseArray storedInfos;
-    public final SparseArray unStoredTasks;
+    public final HashMap<String, String> responseFilenameMap;
+    public final List<Integer> sortedOccupiedIds;
+    public final SparseArray<BreakpointInfo> storedInfos;
+    public final SparseArray<IdentifiedTask> unStoredTasks;
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
+    @Nullable
     public BreakpointInfo getAfterCompleted(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -74,7 +78,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
         }
     }
 
-    public BreakpointStoreOnCache(SparseArray sparseArray, List list, HashMap hashMap) {
+    public BreakpointStoreOnCache(SparseArray<BreakpointInfo> sparseArray, List<Integer> list, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +93,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
                 return;
             }
         }
-        this.unStoredTasks = new SparseArray();
+        this.unStoredTasks = new SparseArray<>();
         this.storedInfos = sparseArray;
         this.fileDirtyList = list;
         this.responseFilenameMap = hashMap;
@@ -97,12 +101,12 @@ public class BreakpointStoreOnCache implements DownloadStore {
         int size = sparseArray.size();
         this.sortedOccupiedIds = new ArrayList(size);
         for (int i3 = 0; i3 < size; i3++) {
-            this.sortedOccupiedIds.add(Integer.valueOf(((BreakpointInfo) sparseArray.valueAt(i3)).id));
+            this.sortedOccupiedIds.add(Integer.valueOf(sparseArray.valueAt(i3).id));
         }
         Collections.sort(this.sortedOccupiedIds);
     }
 
-    public BreakpointStoreOnCache(SparseArray sparseArray, List list, HashMap hashMap, SparseArray sparseArray2, List list2, KeyToIdMap keyToIdMap) {
+    public BreakpointStoreOnCache(SparseArray<BreakpointInfo> sparseArray, List<Integer> list, HashMap<String, String> hashMap, SparseArray<IdentifiedTask> sparseArray2, List<Integer> list2, KeyToIdMap keyToIdMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +149,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
                     if (i3 >= this.sortedOccupiedIds.size()) {
                         break;
                     }
-                    Integer num = (Integer) this.sortedOccupiedIds.get(i3);
+                    Integer num = this.sortedOccupiedIds.get(i3);
                     if (num == null) {
                         i2 = i4 + 1;
                         break;
@@ -168,7 +172,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
                 }
                 if (i2 == 0) {
                     if (!this.sortedOccupiedIds.isEmpty()) {
-                        i = 1 + ((Integer) this.sortedOccupiedIds.get(this.sortedOccupiedIds.size() - 1)).intValue();
+                        i = 1 + this.sortedOccupiedIds.get(this.sortedOccupiedIds.size() - 1).intValue();
                         i3 = this.sortedOccupiedIds.size();
                     }
                 } else {
@@ -182,7 +186,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo createAndInsert(DownloadTask downloadTask) {
+    @NonNull
+    public BreakpointInfo createAndInsert(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask)) == null) {
@@ -217,9 +222,9 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo findAnotherInfoFromCompare(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    public BreakpointInfo findAnotherInfoFromCompare(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
-        SparseArray clone;
+        SparseArray<BreakpointInfo> clone;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, breakpointInfo)) == null) {
             synchronized (this) {
@@ -227,9 +232,9 @@ public class BreakpointStoreOnCache implements DownloadStore {
             }
             int size = clone.size();
             for (int i = 0; i < size; i++) {
-                BreakpointInfo breakpointInfo2 = (BreakpointInfo) clone.valueAt(i);
-                if (breakpointInfo2 != breakpointInfo && breakpointInfo2.isSameFrom(downloadTask)) {
-                    return breakpointInfo2;
+                BreakpointInfo valueAt = clone.valueAt(i);
+                if (valueAt != breakpointInfo && valueAt.isSameFrom(downloadTask)) {
+                    return valueAt;
                 }
             }
             return null;
@@ -238,7 +243,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public synchronized int findOrCreateId(DownloadTask downloadTask) {
+    public synchronized int findOrCreateId(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, downloadTask)) == null) {
@@ -249,16 +254,16 @@ public class BreakpointStoreOnCache implements DownloadStore {
                 }
                 int size = this.storedInfos.size();
                 for (int i = 0; i < size; i++) {
-                    BreakpointInfo breakpointInfo = (BreakpointInfo) this.storedInfos.valueAt(i);
-                    if (breakpointInfo != null && breakpointInfo.isSameFrom(downloadTask)) {
-                        return breakpointInfo.id;
+                    BreakpointInfo valueAt = this.storedInfos.valueAt(i);
+                    if (valueAt != null && valueAt.isSameFrom(downloadTask)) {
+                        return valueAt.id;
                     }
                 }
                 int size2 = this.unStoredTasks.size();
                 for (int i2 = 0; i2 < size2; i2++) {
-                    IdentifiedTask identifiedTask = (IdentifiedTask) this.unStoredTasks.valueAt(i2);
-                    if (identifiedTask != null && identifiedTask.compareIgnoreId(downloadTask)) {
-                        return identifiedTask.getId();
+                    IdentifiedTask valueAt2 = this.unStoredTasks.valueAt(i2);
+                    if (valueAt2 != null && valueAt2.compareIgnoreId(downloadTask)) {
+                        return valueAt2.getId();
                     }
                 }
                 int allocateId = allocateId();
@@ -275,17 +280,18 @@ public class BreakpointStoreOnCache implements DownloadStore {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (BreakpointInfo) this.storedInfos.get(i);
+            return this.storedInfos.get(i);
         }
         return (BreakpointInfo) invokeI.objValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
+    @Nullable
     public String getResponseFilename(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return (String) this.responseFilenameMap.get(str);
+            return this.responseFilenameMap.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -329,10 +335,10 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(BreakpointInfo breakpointInfo, int i, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            BreakpointInfo breakpointInfo2 = (BreakpointInfo) this.storedInfos.get(breakpointInfo.id);
+            BreakpointInfo breakpointInfo2 = this.storedInfos.get(breakpointInfo.id);
             if (breakpointInfo == breakpointInfo2) {
                 breakpointInfo2.getBlock(i).increaseCurrentOffset(j);
                 return;
@@ -342,7 +348,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskEnd(int i, EndCause endCause, Exception exc) {
+    public void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048588, this, i, endCause, exc) == null) && endCause == EndCause.COMPLETED) {
             remove(i);
@@ -350,7 +356,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public boolean update(BreakpointInfo breakpointInfo) {
+    public boolean update(@NonNull BreakpointInfo breakpointInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, breakpointInfo)) == null) {
@@ -358,7 +364,7 @@ public class BreakpointStoreOnCache implements DownloadStore {
             if (breakpointInfo.isTaskOnlyProvidedParentPath() && filename != null) {
                 this.responseFilenameMap.put(breakpointInfo.getUrl(), filename);
             }
-            BreakpointInfo breakpointInfo2 = (BreakpointInfo) this.storedInfos.get(breakpointInfo.id);
+            BreakpointInfo breakpointInfo2 = this.storedInfos.get(breakpointInfo.id);
             if (breakpointInfo2 != null) {
                 if (breakpointInfo2 == breakpointInfo) {
                     return true;

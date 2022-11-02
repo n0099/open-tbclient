@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.NetworkMonitorAutoDetect;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetworkMonitor";
@@ -23,11 +23,11 @@ public class NetworkMonitor {
     public NetworkMonitorAutoDetect autoDetect;
     public final Object autoDetectLock;
     public volatile NetworkMonitorAutoDetect.ConnectionType currentConnectionType;
-    public final ArrayList nativeNetworkObservers;
-    public final ArrayList networkObservers;
+    public final ArrayList<Long> nativeNetworkObservers;
+    public final ArrayList<NetworkObserver> networkObservers;
     public int numObservers;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface NetworkObserver {
         void onConnectionTypeChanged(NetworkMonitorAutoDetect.ConnectionType connectionType);
     }
@@ -47,8 +47,8 @@ public class NetworkMonitor {
 
     private native void nativeNotifyOfNetworkDisconnect(long j, long j2);
 
-    /* loaded from: classes8.dex */
-    public class InstanceHolder {
+    /* loaded from: classes9.dex */
+    public static class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final NetworkMonitor instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,8 +98,8 @@ public class NetworkMonitor {
             }
         }
         this.autoDetectLock = new Object();
-        this.nativeNetworkObservers = new ArrayList();
-        this.networkObservers = new ArrayList();
+        this.nativeNetworkObservers = new ArrayList<>();
+        this.networkObservers = new ArrayList<>();
         this.numObservers = 0;
         this.currentConnectionType = NetworkMonitorAutoDetect.ConnectionType.CONNECTION_UNKNOWN;
     }
@@ -245,6 +245,7 @@ public class NetworkMonitor {
         }
     }
 
+    @CalledByNative
     public static int androidSdkInt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,6 +281,7 @@ public class NetworkMonitor {
         return invokeV.longValue;
     }
 
+    @CalledByNative
     public static NetworkMonitor getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -289,7 +291,7 @@ public class NetworkMonitor {
         return (NetworkMonitor) invokeV.objValue;
     }
 
-    private List getNativeNetworkObserversSync() {
+    private List<Long> getNativeNetworkObserversSync() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -314,6 +316,7 @@ public class NetworkMonitor {
         return invokeV.booleanValue;
     }
 
+    @CalledByNative
     private boolean networkBindingSupported() {
         InterceptResult invokeV;
         boolean z;
@@ -396,6 +399,7 @@ public class NetworkMonitor {
         }
     }
 
+    @CalledByNative
     private void startMonitoring(@Nullable Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65561, this, context, j) == null) {
@@ -412,6 +416,7 @@ public class NetworkMonitor {
         }
     }
 
+    @CalledByNative
     private void stopMonitoring(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
@@ -424,7 +429,7 @@ public class NetworkMonitor {
     }
 
     private void updateObserverActiveNetworkList(long j) {
-        List activeNetworkList;
+        List<NetworkMonitorAutoDetect.NetworkInformation> activeNetworkList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65564, this, j) == null) {
             synchronized (this.autoDetectLock) {

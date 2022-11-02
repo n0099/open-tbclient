@@ -23,7 +23,7 @@ public class InsideMode {
 
     /* renamed from: com.yy.hiidostatis.inner.util.InsideMode$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType;
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class InsideMode {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class EncriptType {
+    public static final class EncriptType {
         public static final /* synthetic */ EncriptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final EncriptType DOUBLE_MD5;
@@ -153,7 +153,7 @@ public class InsideMode {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class HostApp {
+    public static final class HostApp {
         public static final /* synthetic */ HostApp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HostApp MEIPAI;

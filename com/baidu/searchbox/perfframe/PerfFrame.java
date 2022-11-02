@@ -2,6 +2,7 @@ package com.baidu.searchbox.perfframe;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -27,7 +28,7 @@ public class PerfFrame implements IPerfFrame {
 
     /* renamed from: com.baidu.searchbox.perfframe.PerfFrame$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,7 +49,7 @@ public class PerfFrame implements IPerfFrame {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mIsNeedDynamicperf;
@@ -160,7 +161,7 @@ public class PerfFrame implements IPerfFrame {
     }
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
-    public void submitPerformanceData(String str, String str2, long j, long j2, String str3, String str4, String str5) {
+    public void submitPerformanceData(@NonNull String str, @NonNull String str2, long j, long j2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j, j2, str3, str4, str5);

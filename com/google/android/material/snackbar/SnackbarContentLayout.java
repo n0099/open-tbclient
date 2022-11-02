@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.color.MaterialColors;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +30,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     public TextView messageView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SnackbarContentLayout(Context context) {
+    public SnackbarContentLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,7 +51,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SnackbarContentLayout(Context context, AttributeSet attributeSet) {
+    public SnackbarContentLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,7 +105,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         }
     }
 
-    public static void updateTopBottomPadding(View view2, int i, int i2) {
+    public static void updateTopBottomPadding(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, view2, i, i2) == null) {
             if (ViewCompat.isPaddingRelative(view2)) {
@@ -155,8 +159,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.messageView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0f);
-            this.actionView = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0e);
+            this.messageView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f5a);
+            this.actionView = (Button) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f59);
         }
     }
 

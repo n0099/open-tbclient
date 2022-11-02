@@ -53,7 +53,7 @@ public final class H265Reader implements ElementaryStreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class SampleReader {
+    public static final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FIRST_SLICE_FLAG_OFFSET = 2;
         public transient /* synthetic */ FieldHolder $fh;

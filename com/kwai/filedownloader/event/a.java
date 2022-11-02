@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor avD;
-    public final HashMap avE;
+    public final HashMap<String, LinkedList<c>> avE;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,10 +31,10 @@ public class a {
             }
         }
         this.avD = com.kwai.filedownloader.e.b.l(10, "EventPool");
-        this.avE = new HashMap();
+        this.avE = new HashMap<>();
     }
 
-    public static void a(LinkedList linkedList, b bVar) {
+    public static void a(LinkedList<c> linkedList, b bVar) {
         Object[] array;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, linkedList, bVar) == null) {
@@ -59,13 +59,13 @@ public class a {
                 d.g(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList linkedList = (LinkedList) this.avE.get(str);
+                LinkedList<c> linkedList = this.avE.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = (LinkedList) this.avE.get(str);
+                        linkedList = this.avE.get(str);
                         if (linkedList == null) {
-                            HashMap hashMap = this.avE;
-                            LinkedList linkedList2 = new LinkedList();
+                            HashMap<String, LinkedList<c>> hashMap = this.avE;
+                            LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
                         }
@@ -90,10 +90,10 @@ public class a {
             }
             if (bVar != null) {
                 String id = bVar.getId();
-                LinkedList linkedList = (LinkedList) this.avE.get(id);
+                LinkedList<c> linkedList = this.avE.get(id);
                 if (linkedList == null) {
                     synchronized (id.intern()) {
-                        linkedList = (LinkedList) this.avE.get(id);
+                        linkedList = this.avE.get(id);
                         if (linkedList == null) {
                             if (d.awL) {
                                 d.e(this, "No listener for this event %s", id);

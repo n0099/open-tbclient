@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TempletMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<TempletMsg> CREATOR;
     public static final int IMAGE = 2;
     public static final int LINK = 1;
     public static final int NO_FOOT = 0;
@@ -36,7 +36,7 @@ public class TempletMsg extends NormalMsg {
     public Image mImage;
     public String mImageDetail;
     public String mKeywords;
-    public ArrayList mLinks;
+    public ArrayList<Link> mLinks;
     public int mMode;
     public String mRemarkColor;
     public String mRemarkName;
@@ -54,9 +54,9 @@ public class TempletMsg extends NormalMsg {
     }
 
     /* loaded from: classes.dex */
-    public class Commodity implements Parcelable, NoProGuard {
+    public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Commodity> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mColor;
         public String mName;
@@ -85,7 +85,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Commodity.1
+            CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Commodity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,6 +104,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -115,6 +116,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity[] newArray(int i) {
                     InterceptResult invokeI;
@@ -221,9 +223,9 @@ public class TempletMsg extends NormalMsg {
     }
 
     /* loaded from: classes.dex */
-    public class Image implements Parcelable {
+    public static class Image implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Image> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String description;
         public String image;
@@ -253,7 +255,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Image.1
+            CREATOR = new Parcelable.Creator<Image>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Image.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,6 +274,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Image createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -283,6 +286,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Image[] newArray(int i) {
                     InterceptResult invokeI;
@@ -379,9 +383,9 @@ public class TempletMsg extends NormalMsg {
     }
 
     /* loaded from: classes.dex */
-    public class Link implements Parcelable {
+    public static class Link implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Link> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
         public String title;
@@ -410,7 +414,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Link.1
+            CREATOR = new Parcelable.Creator<Link>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Link.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -429,6 +433,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Link createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -440,6 +445,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Link[] newArray(int i) {
                     InterceptResult invokeI;
@@ -525,9 +531,9 @@ public class TempletMsg extends NormalMsg {
     }
 
     /* loaded from: classes.dex */
-    public class Video implements Parcelable {
+    public static class Video implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Video> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String cover;
         public String description;
@@ -558,7 +564,7 @@ public class TempletMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Video.1
+            CREATOR = new Parcelable.Creator<Video>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.Video.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -577,6 +583,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Video createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -588,6 +595,7 @@ public class TempletMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Video[] newArray(int i) {
                     InterceptResult invokeI;
@@ -707,7 +715,7 @@ public class TempletMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.1
+        CREATOR = new Parcelable.Creator<TempletMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.TempletMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -726,6 +734,7 @@ public class TempletMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TempletMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -737,6 +746,7 @@ public class TempletMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TempletMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -763,7 +773,7 @@ public class TempletMsg extends NormalMsg {
             }
         }
         this.mMode = 0;
-        this.mLinks = new ArrayList();
+        this.mLinks = new ArrayList<>();
         setMsgType(12);
     }
 
@@ -830,7 +840,7 @@ public class TempletMsg extends NormalMsg {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getLinks() {
+    public ArrayList<Link> getLinks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -916,7 +926,7 @@ public class TempletMsg extends NormalMsg {
             }
         }
         this.mMode = 0;
-        this.mLinks = new ArrayList();
+        this.mLinks = new ArrayList<>();
         this.mTitle = parcel.readString();
         this.mDetailurl = parcel.readString();
         this.mFirstName = parcel.readString();

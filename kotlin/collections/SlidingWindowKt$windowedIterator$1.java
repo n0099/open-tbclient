@@ -49,9 +49,10 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         return slidingWindowKt$windowedIterator$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((SlidingWindowKt$windowedIterator$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return ((SlidingWindowKt$windowedIterator$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0082  */

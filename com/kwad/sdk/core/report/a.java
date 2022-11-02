@@ -2,7 +2,10 @@ package com.kwad.sdk.core.report;
 
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
@@ -12,17 +15,18 @@ import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.utils.ai;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static ExecutorService ZC = com.kwad.sdk.core.threads.b.vm();
 
+    @KsJson
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0604a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes8.dex */
+    public static class C0615a extends com.kwad.sdk.core.response.kwai.a {
         public String Qd;
         public int code;
 
-        public C0604a(int i, String str) {
+        public C0615a(int i, String str) {
             this.code = i;
             this.Qd = str;
         }
@@ -36,7 +40,7 @@ public final class a {
         b(adTemplate, 141, bVar, null);
     }
 
-    public static void a(AdTemplate adTemplate, int i, long j, int i2, JSONObject jSONObject) {
+    public static void a(AdTemplate adTemplate, int i, long j, int i2, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.ss = j;
         bVar.abX = i2;
@@ -55,7 +59,7 @@ public final class a {
         }
     }
 
-    public static void a(AdTemplate adTemplate, int i, u.b bVar) {
+    public static void a(@Nullable AdTemplate adTemplate, int i, u.b bVar) {
         if (bVar == null) {
             bVar = new u.b();
         }
@@ -63,13 +67,13 @@ public final class a {
         b(adTemplate, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, bVar, null);
     }
 
-    public static void a(AdTemplate adTemplate, int i, u.b bVar, JSONObject jSONObject) {
+    public static void a(AdTemplate adTemplate, int i, @NonNull u.b bVar, @Nullable JSONObject jSONObject) {
         bVar.abE = i;
         b(adTemplate, Cea708Decoder.COMMAND_DLW, bVar, null);
     }
 
     @Deprecated
-    public static void a(AdTemplate adTemplate, int i, aa.a aVar) {
+    public static void a(AdTemplate adTemplate, int i, @Nullable aa.a aVar) {
         u.b bVar = new u.b();
         bVar.gJ = i;
         if (aVar != null) {
@@ -79,7 +83,7 @@ public final class a {
     }
 
     @Deprecated
-    public static void a(AdTemplate adTemplate, int i, aa.a aVar, JSONObject jSONObject) {
+    public static void a(AdTemplate adTemplate, int i, aa.a aVar, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.gJ = i;
         bVar.gL = aVar;
@@ -87,7 +91,7 @@ public final class a {
     }
 
     @Deprecated
-    public static void a(AdTemplate adTemplate, int i, JSONObject jSONObject) {
+    public static void a(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.abD = i;
         b(adTemplate, 3, bVar, jSONObject);
@@ -99,13 +103,13 @@ public final class a {
         b(adTemplate, i, bVar, jSONObject);
     }
 
-    public static void a(AdTemplate adTemplate, C0604a c0604a) {
+    public static void a(AdTemplate adTemplate, C0615a c0615a) {
         u.b bVar = new u.b();
-        bVar.abL = c0604a.toJson().toString();
+        bVar.abL = c0615a.toJson().toString();
         b(adTemplate, 40, bVar, null);
     }
 
-    public static void a(AdTemplate adTemplate, f fVar) {
+    public static void a(AdTemplate adTemplate, @Nullable f fVar) {
         b(adTemplate, 141, fVar != null ? fVar.uw() : null, null);
     }
 
@@ -129,7 +133,7 @@ public final class a {
         bQ.adBaseInfo.appPackageName = dO;
     }
 
-    public static void a(AdTemplate adTemplate, u.b bVar, JSONObject jSONObject) {
+    public static void a(AdTemplate adTemplate, u.b bVar, @Nullable JSONObject jSONObject) {
         if (bVar != null && adTemplate.fromCache) {
             bVar.a(g.aH(adTemplate));
         }
@@ -223,15 +227,15 @@ public final class a {
         b(adTemplate, 768, bVar, new JSONObject());
     }
 
-    public static void aw(AdTemplate adTemplate) {
+    public static void aw(@Nullable AdTemplate adTemplate) {
         h(adTemplate, (JSONObject) null);
     }
 
-    public static void ax(AdTemplate adTemplate) {
+    public static void ax(@Nullable AdTemplate adTemplate) {
         i(adTemplate, (JSONObject) null);
     }
 
-    public static void ay(AdTemplate adTemplate) {
+    public static void ay(@Nullable AdTemplate adTemplate) {
         s(adTemplate, 58);
     }
 
@@ -240,7 +244,7 @@ public final class a {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 int)] */
-    public static void b(final AdTemplate adTemplate, final int i, final u.b bVar, final JSONObject jSONObject) {
+    public static void b(@Nullable final AdTemplate adTemplate, final int i, @Nullable final u.b bVar, @Nullable final JSONObject jSONObject) {
         if (adTemplate == null || !aG(adTemplate)) {
             return;
         }
@@ -256,6 +260,7 @@ public final class a {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.a
+            @NonNull
             /* renamed from: um */
             public u createRequest() {
                 return new u(AdTemplate.this, i, bVar, jSONObject);
@@ -263,21 +268,21 @@ public final class a {
         }.fetch();
     }
 
-    public static void b(AdTemplate adTemplate, int i, JSONObject jSONObject) {
+    public static void b(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.abB = i;
         b(adTemplate, 402, bVar, jSONObject);
     }
 
-    public static void b(AdTemplate adTemplate, f fVar, JSONObject jSONObject) {
+    public static void b(AdTemplate adTemplate, f fVar, @Nullable JSONObject jSONObject) {
         b(adTemplate, 3, fVar != null ? fVar.uw() : null, null);
     }
 
-    public static void b(AdTemplate adTemplate, u.b bVar) {
+    public static void b(@Nullable AdTemplate adTemplate, u.b bVar) {
         b(adTemplate, 50, bVar, null);
     }
 
-    public static void b(AdTemplate adTemplate, JSONObject jSONObject, f fVar) {
+    public static void b(@NonNull AdTemplate adTemplate, @Nullable JSONObject jSONObject, @Nullable f fVar) {
         if (adTemplate.mPvReported) {
             return;
         }
@@ -294,20 +299,20 @@ public final class a {
         b(adTemplate, 1, uw, jSONObject);
     }
 
-    public static void c(AdTemplate adTemplate, int i, int i2) {
+    public static void c(@Nullable AdTemplate adTemplate, int i, int i2) {
         u.b bVar = new u.b();
         bVar.abT = i;
         bVar.acg = i2;
         b(adTemplate, 323, bVar, null);
     }
 
-    public static void c(AdTemplate adTemplate, int i, JSONObject jSONObject) {
+    public static void c(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.abE = i;
         b(adTemplate, Cea708Decoder.COMMAND_DLW, bVar, jSONObject);
     }
 
-    public static void c(AdTemplate adTemplate, u.b bVar) {
+    public static void c(@Nullable AdTemplate adTemplate, u.b bVar) {
         b(adTemplate, 51, bVar, null);
     }
 
@@ -315,7 +320,7 @@ public final class a {
         e(adTemplate, 601, jSONObject);
     }
 
-    public static void c(AdTemplate adTemplate, JSONObject jSONObject, f fVar) {
+    public static void c(AdTemplate adTemplate, @Nullable JSONObject jSONObject, f fVar) {
         b(adTemplate, 451, fVar != null ? fVar.uw() : null, null);
     }
 
@@ -327,24 +332,24 @@ public final class a {
         b(adTemplate, 501, bVar, null);
     }
 
-    public static void d(AdTemplate adTemplate, int i, JSONObject jSONObject) {
+    public static void d(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.abN = com.kwad.sdk.core.response.a.a.ag(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
         bVar.abE = 93;
         b(adTemplate, Cea708Decoder.COMMAND_DLW, bVar, null);
     }
 
-    public static void d(AdTemplate adTemplate, u.b bVar) {
+    public static void d(@Nullable AdTemplate adTemplate, u.b bVar) {
         b(adTemplate, 52, bVar, null);
     }
 
-    public static void d(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void d(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.downloadSource = adTemplate.downloadSource;
         b(adTemplate, 33, bVar, jSONObject);
     }
 
-    public static void d(AdTemplate adTemplate, JSONObject jSONObject, f fVar) {
+    public static void d(AdTemplate adTemplate, @Nullable JSONObject jSONObject, f fVar) {
         b(adTemplate, Cea708Decoder.COMMAND_DLW, fVar != null ? fVar.uw() : null, jSONObject);
     }
 
@@ -352,11 +357,11 @@ public final class a {
         b(adTemplate, i, null, jSONObject);
     }
 
-    public static void e(AdTemplate adTemplate, u.b bVar) {
+    public static void e(@Nullable AdTemplate adTemplate, u.b bVar) {
         b(adTemplate, 59, bVar, null);
     }
 
-    public static void e(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void e(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         u.b bVar = new u.b();
         bVar.downloadSource = adTemplate.downloadSource;
         b(adTemplate, 34, bVar, jSONObject);
@@ -401,7 +406,7 @@ public final class a {
         b(adTemplate, 37, bVar, null);
     }
 
-    public static void h(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void h(@Nullable AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         e(adTemplate, 399, jSONObject);
     }
 
@@ -411,39 +416,39 @@ public final class a {
         b(adTemplate, 923, bVar, null);
     }
 
-    public static void i(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void i(@Nullable AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         e(adTemplate, 400, jSONObject);
     }
 
-    public static void j(AdTemplate adTemplate, int i) {
+    public static void j(@Nullable AdTemplate adTemplate, int i) {
         a(adTemplate, 2, (u.b) null);
     }
 
-    public static void j(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void j(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         e(adTemplate, 501, jSONObject);
     }
 
-    public static void k(AdTemplate adTemplate, int i) {
+    public static void k(@Nullable AdTemplate adTemplate, int i) {
         u.b bVar = new u.b();
         bVar.abI = i;
         b(adTemplate, 321, bVar, null);
     }
 
-    public static void k(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void k(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         e(adTemplate, 450, jSONObject);
     }
 
-    public static void l(AdTemplate adTemplate, int i) {
+    public static void l(@Nullable AdTemplate adTemplate, int i) {
         u.b bVar = new u.b();
         bVar.abI = i;
         b(adTemplate, 803, bVar, null);
     }
 
-    public static void l(AdTemplate adTemplate, JSONObject jSONObject) {
+    public static void l(AdTemplate adTemplate, @Nullable JSONObject jSONObject) {
         e(adTemplate, 451, jSONObject);
     }
 
-    public static void m(AdTemplate adTemplate, int i) {
+    public static void m(@Nullable AdTemplate adTemplate, int i) {
         c(adTemplate, i, 0);
     }
 

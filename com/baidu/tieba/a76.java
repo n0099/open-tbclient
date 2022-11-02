@@ -8,64 +8,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public final class a76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
+    public List<? extends y66> a;
+    public List<? extends Object> b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947568137, "Lcom/baidu/tieba/a76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947568137, "Lcom/baidu/tieba/a76;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947568137, "Lcom/baidu/tieba/a76;")) == null) {
+            return;
         }
-        f = new a(null);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947568137, "Lcom/baidu/tieba/a76;");
+        }
     }
 
     /* loaded from: classes3.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z;
         }
 
-        public final long b() {
+        public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.nanoTime();
+                return this.a;
             }
-            return invokeV.longValue;
+            return invokeV.booleanValue;
         }
     }
 
@@ -82,88 +81,70 @@ public final class a76 {
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = CollectionsKt__CollectionsKt.emptyList();
+        this.b = CollectionsKt__CollectionsKt.emptyList();
     }
 
-    public final long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e / 1000000;
-        }
-        return invokeV.longValue;
-    }
-
-    public final float b() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.y66>, java.util.List<com.baidu.tieba.y66> */
+    public final List<y66> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return invokeV.floatValue;
+        return (List) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public final List<Object> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public static /* synthetic */ void f(a76 a76Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = a76Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = a76Var.b;
-        }
-        a76Var.e(j, f2);
-    }
-
-    public final void d(boolean z) {
+    public final a a(h66 item, k86 timer, b66 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void e(long j, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
-        }
-    }
-
-    public final void g(Float f2) {
-        Long valueOf;
-        long longValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                longValue = 0;
-            } else {
-                if (f2 == null) {
-                    valueOf = null;
-                } else {
-                    valueOf = Long.valueOf(f2.floatValue() * 1000000000);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            Iterator<? extends y66> it = this.a.iterator();
+            int i = 0;
+            boolean z = false;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
                 }
-                if (valueOf == null) {
-                    longValue = b - this.a;
-                } else {
-                    longValue = valueOf.longValue();
+                y66 next = it.next();
+                boolean b = next.b(item, timer, config);
+                if (b) {
+                    i = next.a();
+                    z = b;
+                    break;
                 }
+                z = b;
             }
-            long j = ((float) longValue) * this.b;
-            this.e += j;
-            this.d = ((float) j) / 1.0E9f;
-            this.a = b;
+            return new a(z, i);
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final void d(List<? extends y66> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.a = list;
+        }
+    }
+
+    public final void e(List<? extends Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.b = list;
         }
     }
 }

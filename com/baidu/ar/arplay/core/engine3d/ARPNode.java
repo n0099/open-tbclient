@@ -20,7 +20,7 @@ public class ARPNode implements IARPNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long fK;
-    public HashMap fL;
+    public HashMap<String, ARPNode> fL;
     public Lock fM;
 
     public ARPNode() {
@@ -45,7 +45,7 @@ public class ARPNode implements IARPNode {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.fM = new ReentrantLock();
             nativeInit();
-            this.fL = new HashMap();
+            this.fL = new HashMap<>();
         }
     }
 
@@ -62,14 +62,14 @@ public class ARPNode implements IARPNode {
                 Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
-            HashMap hashMap = this.fL;
-            ARPNode aRPNode = hashMap != null ? (ARPNode) hashMap.get(str) : null;
+            HashMap<String, ARPNode> hashMap = this.fL;
+            ARPNode aRPNode = hashMap != null ? hashMap.get(str) : null;
             if (aRPNode == null) {
                 long nativeGetChildNodeByName = nativeGetChildNodeByName(this.fK, str);
                 if (nativeGetChildNodeByName != -1) {
                     aRPNode = new ARPNode();
                     aRPNode.bindInternal(nativeGetChildNodeByName);
-                    HashMap hashMap2 = this.fL;
+                    HashMap<String, ARPNode> hashMap2 = this.fL;
                     if (hashMap2 != null) {
                         hashMap2.put(str, aRPNode);
                     }
@@ -94,12 +94,12 @@ public class ARPNode implements IARPNode {
             }
             long nativeGetParentNodePtr = nativeGetParentNodePtr(j);
             String nativeGetName = nativeGetName(nativeGetParentNodePtr);
-            HashMap hashMap = this.fL;
-            ARPNode aRPNode = hashMap != null ? (ARPNode) hashMap.get(nativeGetName) : null;
+            HashMap<String, ARPNode> hashMap = this.fL;
+            ARPNode aRPNode = hashMap != null ? hashMap.get(nativeGetName) : null;
             if (aRPNode == null && nativeGetParentNodePtr != -1) {
                 aRPNode = new ARPNode();
                 aRPNode.bindInternal(nativeGetParentNodePtr);
-                HashMap hashMap2 = this.fL;
+                HashMap<String, ARPNode> hashMap2 = this.fL;
                 if (hashMap2 != null) {
                     hashMap2.put(nativeGetName, aRPNode);
                 }

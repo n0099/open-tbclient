@@ -123,10 +123,10 @@ public final class ProtocolEncoder {
         return (String) invokeLL.objValue;
     }
 
-    public final BaseJsonRequest encodeProtocol(int i, int i2, RequestParams requestParams) {
+    public final <T extends RequestParams> BaseJsonRequest encodeProtocol(int i, int i2, T t) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, requestParams)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, t)) == null) {
             if (i != 1005) {
                 if (i != 1061) {
                     if (i != 1071) {
@@ -134,19 +134,19 @@ public final class ProtocolEncoder {
                             if (i != 1022) {
                                 return new BaseJsonRequest(ProtocolType.UNKNOW);
                             }
-                            ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) requestParams;
+                            ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) t;
                             return encodeProtocol(i, i2, getParamsToken(chargeCurrencyReqParams.getTokenCallback(), chargeCurrencyReqParams.getToken()), chargeCurrencyReqParams.getTraceid(), new ChargeCurrencyRequest(chargeCurrencyReqParams.getUid(), chargeCurrencyReqParams.getSid(), chargeCurrencyReqParams.getAppId(), chargeCurrencyReqParams.getUsedChannel(), chargeCurrencyReqParams.getCurrencyType(), chargeCurrencyReqParams.getSeq(), chargeCurrencyReqParams.getPayChannel(), chargeCurrencyReqParams.getPayMethod(), chargeCurrencyReqParams.getSrcAmount(), chargeCurrencyReqParams.getCid(), true, chargeCurrencyReqParams.getReturnUrl(), chargeCurrencyReqParams.getExpand(), chargeCurrencyReqParams.getClientVersion(), chargeCurrencyReqParams.getToken()));
                         }
-                        QueryCurrencyReqParams queryCurrencyReqParams = (QueryCurrencyReqParams) requestParams;
+                        QueryCurrencyReqParams queryCurrencyReqParams = (QueryCurrencyReqParams) t;
                         return encodeProtocol(i, i2, getParamsToken(queryCurrencyReqParams.getTokenCallback(), queryCurrencyReqParams.getToken()), queryCurrencyReqParams.getTraceid(), new GetChargeCurrencyConfigRequest(queryCurrencyReqParams.getUid(), queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel(), queryCurrencyReqParams.getCurrencyType(), queryCurrencyReqParams.getSeq(), queryCurrencyReqParams.getToken(), queryCurrencyReqParams.getExpand()));
                     }
-                    GetBannerConfigReqParams getBannerConfigReqParams = (GetBannerConfigReqParams) requestParams;
-                    return encodeProtocol(i, i2, getParamsToken(requestParams.getTokenCallback(), requestParams.getToken()), requestParams.getTraceid(), new GetBannerConfigRequest(getBannerConfigReqParams.getUid(), getBannerConfigReqParams.getAppId(), getBannerConfigReqParams.getUsedChannel(), getBannerConfigReqParams.getTypes(), getBannerConfigReqParams.getSeq(), getBannerConfigReqParams.getExpand()));
+                    GetBannerConfigReqParams getBannerConfigReqParams = (GetBannerConfigReqParams) t;
+                    return encodeProtocol(i, i2, getParamsToken(t.getTokenCallback(), t.getToken()), t.getTraceid(), new GetBannerConfigRequest(getBannerConfigReqParams.getUid(), getBannerConfigReqParams.getAppId(), getBannerConfigReqParams.getUsedChannel(), getBannerConfigReqParams.getTypes(), getBannerConfigReqParams.getSeq(), getBannerConfigReqParams.getExpand()));
                 }
-                GetChargeOrderStatusReqParams getChargeOrderStatusReqParams = (GetChargeOrderStatusReqParams) requestParams;
-                return encodeProtocol(i, i2, getParamsToken(requestParams.getTokenCallback(), requestParams.getToken()), requestParams.getTraceid(), new GetChargeOrderStatusRequest(getChargeOrderStatusReqParams.getOrderId(), getChargeOrderStatusReqParams.getUid(), getChargeOrderStatusReqParams.getSid(), getChargeOrderStatusReqParams.getAppId(), getChargeOrderStatusReqParams.getUsedChannel(), getChargeOrderStatusReqParams.getSeq(), getChargeOrderStatusReqParams.getExpand()));
+                GetChargeOrderStatusReqParams getChargeOrderStatusReqParams = (GetChargeOrderStatusReqParams) t;
+                return encodeProtocol(i, i2, getParamsToken(t.getTokenCallback(), t.getToken()), t.getTraceid(), new GetChargeOrderStatusRequest(getChargeOrderStatusReqParams.getOrderId(), getChargeOrderStatusReqParams.getUid(), getChargeOrderStatusReqParams.getSid(), getChargeOrderStatusReqParams.getAppId(), getChargeOrderStatusReqParams.getUsedChannel(), getChargeOrderStatusReqParams.getSeq(), getChargeOrderStatusReqParams.getExpand()));
             }
-            QueryCurrencyReqParams queryCurrencyReqParams2 = (QueryCurrencyReqParams) requestParams;
+            QueryCurrencyReqParams queryCurrencyReqParams2 = (QueryCurrencyReqParams) t;
             return encodeProtocol(i, i2, getParamsToken(queryCurrencyReqParams2.getTokenCallback(), queryCurrencyReqParams2.getToken()), queryCurrencyReqParams2.getTraceid(), new GetUserAccountRequest(queryCurrencyReqParams2.getSeq(), queryCurrencyReqParams2.getUid(), queryCurrencyReqParams2.getAppId(), queryCurrencyReqParams2.getUsedChannel(), queryCurrencyReqParams2.getReturnYb()));
         }
         return (BaseJsonRequest) invokeIIL.objValue;

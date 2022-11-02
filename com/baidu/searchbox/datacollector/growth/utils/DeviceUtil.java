@@ -1,5 +1,6 @@
 package com.baidu.searchbox.datacollector.growth.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,8 +9,8 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.t20;
-import com.baidu.tieba.v20;
+import com.baidu.tieba.o20;
+import com.baidu.tieba.q20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,9 +58,9 @@ public class DeviceUtil {
     public static void generateOaid(Context context, IDeviceCallback iDeviceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iDeviceCallback) == null) {
-            t20 f = t20.f(context);
+            o20 f = o20.f(context);
             if (f != null) {
-                f.o(new v20(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+                f.o(new q20<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IDeviceCallback val$callback;
@@ -82,7 +83,7 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // com.baidu.tieba.v20
+                    @Override // com.baidu.tieba.q20
                     public void onError(int i, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -92,7 +93,7 @@ public class DeviceUtil {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.v20
+                    @Override // com.baidu.tieba.q20
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -107,6 +108,7 @@ public class DeviceUtil {
         }
     }
 
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

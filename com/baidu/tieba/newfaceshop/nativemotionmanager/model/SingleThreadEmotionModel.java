@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.bt7;
+import com.baidu.tieba.et7;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.hh;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
-import com.baidu.tieba.ps7;
-import com.baidu.tieba.sr7;
-import com.baidu.tieba.vr7;
+import com.baidu.tieba.yt7;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,15 +25,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ps7 a;
-    public List b;
+    public yt7 a;
+    public List<String> b;
     public final HttpMessageListener c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,7 +120,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                 return;
             }
             this.a.G();
-            List<MyEmotionGroupData> f = vr7.i().f();
+            List<MyEmotionGroupData> f = et7.i().f();
             JSONArray jSONArray = new JSONArray();
             if (f != null && !f.isEmpty()) {
                 for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -132,7 +131,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                 }
             }
             SingleThreadEmotionModel singleThreadEmotionModel = this.a;
-            hh.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+            zg.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
         }
     }
 
@@ -140,7 +139,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<SingleThreadEmotionModel> a;
 
         public c(SingleThreadEmotionModel singleThreadEmotionModel, SingleThreadEmotionModel singleThreadEmotionModel2) {
             Interceptable interceptable = $ic;
@@ -157,14 +156,14 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
                     return;
                 }
             }
-            this.a = new WeakReference(singleThreadEmotionModel2);
+            this.a = new WeakReference<>(singleThreadEmotionModel2);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             SingleThreadEmotionModel singleThreadEmotionModel;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (singleThreadEmotionModel = (SingleThreadEmotionModel) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (singleThreadEmotionModel = this.a.get()) != null) {
                 singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
             }
         }
@@ -191,10 +190,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         registerListener(this.c);
     }
 
-    public void H(ps7 ps7Var) {
+    public void H(yt7 yt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ps7Var) == null) {
-            this.a = ps7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yt7Var) == null) {
+            this.a = yt7Var;
         }
     }
 
@@ -207,16 +206,14 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    public final List D(List list) {
+    public final List<EmotionPackageData> D(List<EmotionPackageData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null) {
-                List E = E();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    EmotionPackageData emotionPackageData = (EmotionPackageData) it.next();
+                List<String> E = E();
+                for (EmotionPackageData emotionPackageData : list) {
                     int i = emotionPackageData.status;
                     if (i == 5 || i == 1) {
                         if (emotionPackageData.status == 1 && E.contains(String.valueOf(emotionPackageData.id))) {
@@ -231,7 +228,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         return (List) invokeL.objValue;
     }
 
-    public final synchronized List E() {
+    public final synchronized List<String> E() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -265,7 +262,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            sr7.b().a(new b(this));
+            bt7.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

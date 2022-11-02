@@ -17,21 +17,21 @@ import com.fun.ad.sdk.NativeInflater;
 import com.fun.ad.sdk.internal.api.flavor.Flavors;
 import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
 /* loaded from: classes7.dex */
-public class BaseNativeAd2 implements FunNativeAd2 {
+public class BaseNativeAd2<A, B extends View> implements FunNativeAd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public B a;
     public final FunNativeAd2.NativeType b;
     public final FunNativeInfo c;
-    public final FunNativeAd2Bridger d;
-    public final Object mAd;
+    public final FunNativeAd2Bridger<A, B> d;
+    public final A mAd;
 
-    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, Object obj, FunNativeInfo funNativeInfo, FunNativeAd2Bridger funNativeAd2Bridger) {
+    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeInfo funNativeInfo, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeType, obj, funNativeInfo, funNativeAd2Bridger};
+            Object[] objArr = {nativeType, a, funNativeInfo, funNativeAd2Bridger};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,19 +42,19 @@ public class BaseNativeAd2 implements FunNativeAd2 {
             }
         }
         this.b = nativeType;
-        this.mAd = obj;
+        this.mAd = a;
         this.c = funNativeInfo;
         this.d = funNativeAd2Bridger;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, Object obj, FunNativeAd2Bridger funNativeAd2Bridger) {
-        this(nativeType, obj, null, funNativeAd2Bridger);
+    public BaseNativeAd2(FunNativeAd2.NativeType nativeType, A a, FunNativeAd2Bridger<A, B> funNativeAd2Bridger) {
+        this(nativeType, a, null, funNativeAd2Bridger);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeType, obj, funNativeAd2Bridger};
+            Object[] objArr = {nativeType, a, funNativeAd2Bridger};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class BaseNativeAd2 implements FunNativeAd2 {
         }
     }
 
-    public View getExpressView() {
+    public B getExpressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -77,7 +77,7 @@ public class BaseNativeAd2 implements FunNativeAd2 {
             }
             return this.a;
         }
-        return (View) invokeV.objValue;
+        return (B) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd2
@@ -109,11 +109,11 @@ public class BaseNativeAd2 implements FunNativeAd2 {
             if (activity == null || nativeInflater == null || str == null || funAdInteractionListener == null) {
                 throw new IllegalArgumentException("Null args is not allowed");
             }
-            PidLoaderSession session = this.d.getSession(this.mAd);
+            PidLoaderSession<A> session = this.d.getSession(this.mAd);
             if (session != null && session.getShowSidSessionMeta(this.mAd) == null) {
                 session.setShowSidSessionMeta(this.mAd, new SidSessionMeta(str, session.getLoadSidSessionMeta().sidVer));
             }
-            ReporterPidLoader loader = this.d.getLoader();
+            ReporterPidLoader<A> loader = this.d.getLoader();
             if (loader != null && (shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(loader.getPid().pid, loader.getAdType())) != null) {
                 if (shouldIntercept.shouldInterceptShow(shouldIntercept.needRipper() ? loader.getRippedAdInternal(this.mAd) : null)) {
                     funAdInteractionListener.onAdError(str);

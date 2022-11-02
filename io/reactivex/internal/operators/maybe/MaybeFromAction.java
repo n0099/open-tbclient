@@ -15,7 +15,7 @@ import io.reactivex.functions.Action;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class MaybeFromAction extends Maybe implements Callable {
+public final class MaybeFromAction<T> extends Maybe<T> implements Callable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action action;
@@ -39,18 +39,18 @@ public final class MaybeFromAction extends Maybe implements Callable {
     }
 
     @Override // java.util.concurrent.Callable
-    public Object call() throws Exception {
+    public T call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.action.run();
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             Disposable empty = Disposables.empty();

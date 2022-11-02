@@ -22,7 +22,7 @@ public final class WebvttCue extends Cue {
 
     /* renamed from: com.google.android.exoplayer2.text.webvtt.WebvttCue$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$text$Layout$Alignment;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public final class WebvttCue extends Cue {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "WebvttCueBuilder";
         public transient /* synthetic */ FieldHolder $fh;

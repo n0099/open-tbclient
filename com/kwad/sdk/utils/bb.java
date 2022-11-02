@@ -1,9 +1,10 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
 public final class bb {
-    public static void a(long j, int i, Context context) {
+    public static void a(long j, int i, @Nullable Context context) {
         if (j == 0 || context == null) {
             return;
         }
@@ -11,7 +12,7 @@ public final class bb {
         (Math.abs(currentTimeMillis) / 3600000 > ((long) i) ? context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong("key_time_diff_s2c", currentTimeMillis) : context.getSharedPreferences("ksadsdk_pref", 0).edit().remove("key_time_diff_s2c")).apply();
     }
 
-    public static long dz(Context context) {
+    public static long dz(@Nullable Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         if (context != null) {
             long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong("key_time_diff_s2c", 0L);

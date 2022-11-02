@@ -33,8 +33,9 @@ public class b extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            this.a.a(message);
+        if (interceptable != null && interceptable.invokeL(1048576, this, message) != null) {
+            return;
         }
+        this.a.a(message);
     }
 }

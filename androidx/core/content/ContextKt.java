@@ -3,6 +3,8 @@ package androidx.core.content;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import androidx.annotation.AttrRes;
+import androidx.annotation.StyleRes;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +18,7 @@ public final class ContextKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void withStyledAttributes(Context context, int i, int[] iArr, Function1<? super TypedArray, Unit> function1) {
+    public static final void withStyledAttributes(Context context, @StyleRes int i, int[] iArr, Function1<? super TypedArray, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65537, null, context, i, iArr, function1) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, iArr);
@@ -25,7 +27,7 @@ public final class ContextKt {
         }
     }
 
-    public static final void withStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, Function1<? super TypedArray, Unit> function1) {
+    public static final void withStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, @AttrRes int i, @StyleRes int i2, Function1<? super TypedArray, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), function1}) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr, i, i2);

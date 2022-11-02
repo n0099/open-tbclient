@@ -33,23 +33,23 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowablePublish extends ConnectableFlowable implements HasUpstreamPublisher {
+public final class FlowablePublish<T> extends ConnectableFlowable<T> implements HasUpstreamPublisher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CANCELLED = Long.MIN_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final AtomicReference current;
-    public final Publisher onSubscribe;
-    public final Flowable source;
+    public final AtomicReference<PublishSubscriber<T>> current;
+    public final Publisher<T> onSubscribe;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class FlowablePublisher implements Publisher {
+    public static final class FlowablePublisher<T> implements Publisher<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
-        public final AtomicReference curr;
+        public final AtomicReference<PublishSubscriber<T>> curr;
 
-        public FlowablePublisher(AtomicReference atomicReference, int i) {
+        public FlowablePublisher(AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,16 +69,16 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         }
 
         @Override // org.reactivestreams.Publisher
-        public void subscribe(Subscriber subscriber) {
-            PublishSubscriber publishSubscriber;
+        public void subscribe(Subscriber<? super T> subscriber) {
+            PublishSubscriber<T> publishSubscriber;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-                InnerSubscriber innerSubscriber = new InnerSubscriber(subscriber);
+                InnerSubscriber<T> innerSubscriber = new InnerSubscriber<>(subscriber);
                 subscriber.onSubscribe(innerSubscriber);
                 while (true) {
-                    publishSubscriber = (PublishSubscriber) this.curr.get();
+                    publishSubscriber = this.curr.get();
                     if (publishSubscriber == null || publishSubscriber.isDisposed()) {
-                        PublishSubscriber publishSubscriber2 = new PublishSubscriber(this.curr, this.bufferSize);
+                        PublishSubscriber<T> publishSubscriber2 = new PublishSubscriber<>(this.curr, this.bufferSize);
                         if (this.curr.compareAndSet(publishSubscriber, publishSubscriber2)) {
                             publishSubscriber = publishSubscriber2;
                         } else {
@@ -100,15 +100,15 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
     }
 
     /* loaded from: classes8.dex */
-    public final class InnerSubscriber extends AtomicLong implements Subscription {
+    public static final class InnerSubscriber<T> extends AtomicLong implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4453897557930727610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber child;
+        public final Subscriber<? super T> child;
         public long emitted;
-        public volatile PublishSubscriber parent;
+        public volatile PublishSubscriber<T> parent;
 
-        public InnerSubscriber(Subscriber subscriber) {
+        public InnerSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
                 BackpressureHelper.addCancel(this, j);
-                PublishSubscriber publishSubscriber = this.parent;
+                PublishSubscriber<T> publishSubscriber = this.parent;
                 if (publishSubscriber != null) {
                     publishSubscriber.dispatch();
                 }
@@ -140,7 +140,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
 
         @Override // org.reactivestreams.Subscription
         public void cancel() {
-            PublishSubscriber publishSubscriber;
+            PublishSubscriber<T> publishSubscriber;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != Long.MIN_VALUE && getAndSet(Long.MIN_VALUE) != Long.MIN_VALUE && (publishSubscriber = this.parent) != null) {
                 publishSubscriber.remove(this);
@@ -150,19 +150,19 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
     }
 
     /* loaded from: classes8.dex */
-    public final class PublishSubscriber extends AtomicInteger implements FlowableSubscriber, Disposable {
+    public static final class PublishSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerSubscriber[] EMPTY;
         public static final InnerSubscriber[] TERMINATED;
         public static final long serialVersionUID = -202316842419149694L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
-        public final AtomicReference current;
-        public volatile SimpleQueue queue;
-        public final AtomicReference s;
+        public final AtomicReference<PublishSubscriber<T>> current;
+        public volatile SimpleQueue<T> queue;
+        public final AtomicReference<Subscription> s;
         public final AtomicBoolean shouldConnect;
         public int sourceMode;
-        public final AtomicReference subscribers;
+        public final AtomicReference<InnerSubscriber<T>[]> subscribers;
         public volatile Object terminalEvent;
 
         static {
@@ -186,9 +186,9 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Object obj = this.subscribers.get();
-                Object obj2 = TERMINATED;
-                if (obj != obj2 && ((InnerSubscriber[]) this.subscribers.getAndSet(obj2)) != TERMINATED) {
+                InnerSubscriber<T>[] innerSubscriberArr = this.subscribers.get();
+                InnerSubscriber<T>[] innerSubscriberArr2 = TERMINATED;
+                if (innerSubscriberArr != innerSubscriberArr2 && this.subscribers.getAndSet(innerSubscriberArr2) != TERMINATED) {
                     this.current.compareAndSet(this, null);
                     SubscriptionHelper.cancel(this.s);
                 }
@@ -217,7 +217,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
             }
         }
 
-        public PublishSubscriber(AtomicReference atomicReference, int i) {
+        public PublishSubscriber(AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -232,8 +232,8 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                     return;
                 }
             }
-            this.s = new AtomicReference();
-            this.subscribers = new AtomicReference(EMPTY);
+            this.s = new AtomicReference<>();
+            this.subscribers = new AtomicReference<>(EMPTY);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
             this.bufferSize = i;
@@ -248,10 +248,10 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                     if (NotificationLite.isComplete(obj)) {
                         if (z) {
                             this.current.compareAndSet(this, null);
-                            InnerSubscriber[] innerSubscriberArr = (InnerSubscriber[]) this.subscribers.getAndSet(TERMINATED);
-                            int length = innerSubscriberArr.length;
+                            InnerSubscriber<T>[] andSet = this.subscribers.getAndSet(TERMINATED);
+                            int length = andSet.length;
                             while (i < length) {
-                                innerSubscriberArr[i].child.onComplete();
+                                andSet[i].child.onComplete();
                                 i++;
                             }
                             return true;
@@ -259,11 +259,11 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                     } else {
                         Throwable error = NotificationLite.getError(obj);
                         this.current.compareAndSet(this, null);
-                        InnerSubscriber[] innerSubscriberArr2 = (InnerSubscriber[]) this.subscribers.getAndSet(TERMINATED);
-                        if (innerSubscriberArr2.length != 0) {
-                            int length2 = innerSubscriberArr2.length;
+                        InnerSubscriber<T>[] andSet2 = this.subscribers.getAndSet(TERMINATED);
+                        if (andSet2.length != 0) {
+                            int length2 = andSet2.length;
                             while (i < length2) {
-                                innerSubscriberArr2[i].child.onError(error);
+                                andSet2[i].child.onError(error);
                                 i++;
                             }
                         } else {
@@ -277,14 +277,14 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
             return invokeLZ.booleanValue;
         }
 
-        public boolean add(InnerSubscriber innerSubscriber) {
-            InnerSubscriber[] innerSubscriberArr;
-            InnerSubscriber[] innerSubscriberArr2;
+        public boolean add(InnerSubscriber<T> innerSubscriber) {
+            InnerSubscriber<T>[] innerSubscriberArr;
+            InnerSubscriber<T>[] innerSubscriberArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerSubscriber)) == null) {
                 do {
-                    innerSubscriberArr = (InnerSubscriber[]) this.subscribers.get();
+                    innerSubscriberArr = this.subscribers.get();
                     if (innerSubscriberArr == TERMINATED) {
                         return false;
                     }
@@ -312,10 +312,10 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-                if (this.sourceMode == 0 && !this.queue.offer(obj)) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                if (this.sourceMode == 0 && !this.queue.offer(t)) {
                     onError(new MissingBackpressureException("Prefetch queue is full?!"));
                 } else {
                     dispatch();
@@ -332,37 +332,37 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         */
         public void dispatch() {
             boolean z;
-            Object obj;
+            T t;
             boolean z2;
             long j;
-            Object obj2;
+            T t2;
             boolean z3;
-            SimpleQueue simpleQueue;
+            SimpleQueue<T> simpleQueue;
             boolean z4;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            AtomicReference atomicReference = this.subscribers;
+            AtomicReference<InnerSubscriber<T>[]> atomicReference = this.subscribers;
             int i = 1;
-            InnerSubscriber[] innerSubscriberArr = (InnerSubscriber[]) atomicReference.get();
+            InnerSubscriber<T>[] innerSubscriberArr = atomicReference.get();
             int i2 = 1;
             while (true) {
-                Object obj3 = this.terminalEvent;
-                SimpleQueue simpleQueue2 = this.queue;
+                Object obj = this.terminalEvent;
+                SimpleQueue<T> simpleQueue2 = this.queue;
                 if (simpleQueue2 != null && !simpleQueue2.isEmpty()) {
                     z = false;
                 } else {
                     z = true;
                 }
-                if (checkTerminated(obj3, z)) {
+                if (checkTerminated(obj, z)) {
                     return;
                 }
                 if (!z) {
                     int length = innerSubscriberArr.length;
                     int i3 = 0;
                     long j2 = Long.MAX_VALUE;
-                    for (InnerSubscriber innerSubscriber : innerSubscriberArr) {
+                    for (InnerSubscriber<T> innerSubscriber : innerSubscriberArr) {
                         long j3 = innerSubscriber.get();
                         if (j3 != Long.MIN_VALUE) {
                             j2 = Math.min(j2, j3 - innerSubscriber.emitted);
@@ -371,26 +371,26 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                         }
                     }
                     if (length == i3) {
-                        Object obj4 = this.terminalEvent;
+                        Object obj2 = this.terminalEvent;
                         try {
-                            obj = simpleQueue2.poll();
+                            t = simpleQueue2.poll();
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            ((Subscription) this.s.get()).cancel();
-                            obj4 = NotificationLite.error(th);
-                            this.terminalEvent = obj4;
-                            obj = null;
+                            this.s.get().cancel();
+                            obj2 = NotificationLite.error(th);
+                            this.terminalEvent = obj2;
+                            t = null;
                         }
-                        if (obj == null) {
+                        if (t == null) {
                             z2 = true;
                         } else {
                             z2 = false;
                         }
-                        if (checkTerminated(obj4, z2)) {
+                        if (checkTerminated(obj2, z2)) {
                             return;
                         }
                         if (this.sourceMode != i) {
-                            ((Subscription) this.s.get()).request(1L);
+                            this.s.get().request(1L);
                         }
                     } else {
                         int i4 = 0;
@@ -399,34 +399,34 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                             if (j >= j2) {
                                 break;
                             }
-                            Object obj5 = this.terminalEvent;
+                            Object obj3 = this.terminalEvent;
                             try {
-                                obj2 = simpleQueue2.poll();
+                                t2 = simpleQueue2.poll();
                             } catch (Throwable th2) {
                                 Exceptions.throwIfFatal(th2);
-                                ((Subscription) this.s.get()).cancel();
-                                obj5 = NotificationLite.error(th2);
-                                this.terminalEvent = obj5;
-                                obj2 = null;
+                                this.s.get().cancel();
+                                obj3 = NotificationLite.error(th2);
+                                this.terminalEvent = obj3;
+                                t2 = null;
                             }
-                            if (obj2 == null) {
+                            if (t2 == null) {
                                 z3 = true;
                             } else {
                                 z3 = false;
                             }
-                            if (checkTerminated(obj5, z3)) {
+                            if (checkTerminated(obj3, z3)) {
                                 return;
                             }
                             if (z3) {
                                 z = z3;
                                 break;
                             }
-                            Object value = NotificationLite.getValue(obj2);
+                            Object value = NotificationLite.getValue(t2);
                             int length2 = innerSubscriberArr.length;
                             int i5 = 0;
                             boolean z5 = false;
                             while (i5 < length2) {
-                                InnerSubscriber innerSubscriber2 = innerSubscriberArr[i5];
+                                InnerSubscriber<T> innerSubscriber2 = innerSubscriberArr[i5];
                                 long j4 = innerSubscriber2.get();
                                 if (j4 != Long.MIN_VALUE) {
                                     int i6 = (j4 > Long.MAX_VALUE ? 1 : (j4 == Long.MAX_VALUE ? 0 : -1));
@@ -445,10 +445,10 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                                 simpleQueue2 = simpleQueue;
                                 z3 = z4;
                             }
-                            SimpleQueue simpleQueue3 = simpleQueue2;
+                            SimpleQueue<T> simpleQueue3 = simpleQueue2;
                             boolean z6 = z3;
                             i4++;
-                            InnerSubscriber[] innerSubscriberArr2 = (InnerSubscriber[]) atomicReference.get();
+                            InnerSubscriber<T>[] innerSubscriberArr2 = atomicReference.get();
                             if (z5 || innerSubscriberArr2 != innerSubscriberArr) {
                                 break;
                             }
@@ -458,7 +458,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                         if (i4 > 0) {
                             i = 1;
                             if (this.sourceMode != 1) {
-                                ((Subscription) this.s.get()).request(j);
+                                this.s.get().request(j);
                             }
                         } else {
                             i = 1;
@@ -471,7 +471,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
                 if (i2 == 0) {
                     return;
                 }
-                innerSubscriberArr = (InnerSubscriber[]) atomicReference.get();
+                innerSubscriberArr = atomicReference.get();
             }
         }
 
@@ -500,13 +500,15 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
             }
         }
 
-        public void remove(InnerSubscriber innerSubscriber) {
-            InnerSubscriber[] innerSubscriberArr;
+        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.flowable.FlowablePublish$InnerSubscriber<T>[]> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void remove(InnerSubscriber<T> innerSubscriber) {
+            InnerSubscriber<T>[] innerSubscriberArr;
             InnerSubscriber[] innerSubscriberArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, innerSubscriber) == null) {
                 do {
-                    innerSubscriberArr = (InnerSubscriber[]) this.subscribers.get();
+                    innerSubscriberArr = this.subscribers.get();
                     int length = innerSubscriberArr.length;
                     if (length != 0) {
                         int i = -1;
@@ -540,7 +542,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         }
     }
 
-    public FlowablePublish(Publisher publisher, Flowable flowable, AtomicReference atomicReference, int i) {
+    public FlowablePublish(Publisher<T> publisher, Flowable<T> flowable, AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -561,7 +563,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
         this.bufferSize = i;
     }
 
-    public static ConnectableFlowable create(Flowable flowable, int i) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, flowable, i)) == null) {
@@ -572,16 +574,16 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
     }
 
     @Override // io.reactivex.flowables.ConnectableFlowable
-    public void connect(Consumer consumer) {
-        PublishSubscriber publishSubscriber;
+    public void connect(Consumer<? super Disposable> consumer) {
+        PublishSubscriber<T> publishSubscriber;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
             while (true) {
-                publishSubscriber = (PublishSubscriber) this.current.get();
+                publishSubscriber = this.current.get();
                 if (publishSubscriber != null && !publishSubscriber.isDisposed()) {
                     break;
                 }
-                PublishSubscriber publishSubscriber2 = new PublishSubscriber(this.current, this.bufferSize);
+                PublishSubscriber<T> publishSubscriber2 = new PublishSubscriber<>(this.current, this.bufferSize);
                 if (this.current.compareAndSet(publishSubscriber, publishSubscriber2)) {
                     publishSubscriber = publishSubscriber2;
                     break;
@@ -602,7 +604,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamPublisher
-    public Publisher source() {
+    public Publisher<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -612,7 +614,7 @@ public final class FlowablePublish extends ConnectableFlowable implements HasUps
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriber) == null) {
             this.onSubscribe.subscribe(subscriber);

@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.rz4;
+import com.baidu.tieba.sx;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes4.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements yx {
+public class CardItemInfoDownloadLayout extends FrameLayout implements sx {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -164,8 +164,8 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements yx {
                 return;
             }
         }
-        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06f7);
-        r = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
+        q = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06fa);
+        r = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -194,12 +194,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements yx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                nv4 d = nv4.d(this.h);
+                kw4 d = kw4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            nv4 d2 = nv4.d(this.h);
+            kw4 d2 = kw4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }
@@ -254,9 +254,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements yx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            bz4 bz4Var = new bz4(6);
-            bz4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bz4Var));
+            rz4 rz4Var = new rz4(6);
+            rz4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, rz4Var));
         }
     }
 
@@ -334,41 +334,41 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements yx {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0329, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032b, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09220b);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fae);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09225e);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fe7);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002a);
-            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fc4);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090fb3);
+            this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ffd);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090fec);
             this.i = rankStarView;
-            rankStarView.setStarSpacing(fj.f(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090dcf);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fa0);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fb5);
+            rankStarView.setStarSpacing(xi.g(getContext(), R.dimen.M_W_X001));
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090dfe);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd9);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fee);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.topMargin = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.topMargin = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            nv4 d = nv4.d(this.a);
+            kw4 d = kw4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            nv4 d2 = nv4.d(this.g);
+            kw4 d2 = kw4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            nv4.d(this.h).v(R.color.CAM_X0305);
-            nv4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08095a, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            kw4.d(this.h).v(R.color.CAM_X0305);
+            kw4.d(this.e).v(R.color.CAM_X0311);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080971, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }

@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 import android.widget.ImageView;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
@@ -493,6 +494,7 @@ public class ImageFilterView extends AppCompatImageView {
         return invokeV.floatValue;
     }
 
+    @RequiresApi(21)
     public void setRound(float f) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -570,6 +572,7 @@ public class ImageFilterView extends AppCompatImageView {
         }
     }
 
+    @RequiresApi(21)
     public void setRoundPercent(float f) {
         boolean z;
         Interceptable interceptable = $ic;

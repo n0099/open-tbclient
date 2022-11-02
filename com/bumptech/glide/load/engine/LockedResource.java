@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,14 +15,14 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 /* loaded from: classes7.dex */
-public final class LockedResource implements Resource, FactoryPools.Poolable {
+public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pools.Pool POOL;
+    public static final Pools.Pool<LockedResource<?>> POOL;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isLocked;
     public boolean isRecycled;
     public final StateVerifier stateVerifier;
-    public Resource toWrap;
+    public Resource<Z> toWrap;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +37,7 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
                 return;
             }
         }
-        POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory() { // from class: com.bumptech.glide.load.engine.LockedResource.1
+        POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory<LockedResource<?>>() { // from class: com.bumptech.glide.load.engine.LockedResource.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,12 +56,13 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-            public LockedResource create() {
+            public LockedResource<?> create() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new LockedResource();
+                    return new LockedResource<>();
                 }
                 return (LockedResource) invokeV.objValue;
             }
@@ -92,17 +94,19 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Object get() {
+    @NonNull
+    public Z get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.toWrap.get();
         }
-        return invokeV.objValue;
+        return (Z) invokeV.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<Z> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -122,6 +126,7 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
     }
 
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
+    @NonNull
     public StateVerifier getVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,7 +168,7 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
         }
     }
 
-    private void init(Resource resource) {
+    private void init(Resource<Z> resource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, resource) == null) {
             this.isRecycled = false;
@@ -172,11 +177,12 @@ public final class LockedResource implements Resource, FactoryPools.Poolable {
         }
     }
 
-    public static LockedResource obtain(Resource resource) {
+    @NonNull
+    public static <Z> LockedResource<Z> obtain(Resource<Z> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, resource)) == null) {
-            LockedResource lockedResource = (LockedResource) Preconditions.checkNotNull((LockedResource) POOL.acquire());
+            LockedResource<Z> lockedResource = (LockedResource) Preconditions.checkNotNull(POOL.acquire());
             lockedResource.init(resource);
             return lockedResource;
         }

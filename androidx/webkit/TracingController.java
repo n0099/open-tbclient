@@ -1,5 +1,8 @@
 package androidx.webkit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.TracingControllerImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,9 +20,9 @@ public abstract class TracingController {
 
     public abstract boolean isTracing();
 
-    public abstract void start(TracingConfig tracingConfig);
+    public abstract void start(@NonNull TracingConfig tracingConfig);
 
-    public abstract boolean stop(OutputStream outputStream, Executor executor);
+    public abstract boolean stop(@Nullable OutputStream outputStream, @NonNull Executor executor);
 
     /* loaded from: classes.dex */
     public static class LAZY_HOLDER {
@@ -58,6 +61,7 @@ public abstract class TracingController {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public TracingController() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,6 +76,7 @@ public abstract class TracingController {
         }
     }
 
+    @NonNull
     public static TracingController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.yd2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class xd2 {
+public class xd2 implements yd2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ve2 a;
+    public final String a;
+    public JSONObject b;
 
-    public xd2(ve2 ve2Var) {
+    public xd2(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ve2Var};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,24 +34,71 @@ public abstract class xd2 {
                 return;
             }
         }
-        this.a = ve2Var;
-    }
-
-    public File b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return new File(a(), String.valueOf(j));
+        JSONObject jSONObject = new JSONObject();
+        this.b = jSONObject;
+        this.a = str;
+        try {
+            jSONObject.put(IntentConfig.PKG_ID, str);
+            if (z) {
+                update();
+            }
+        } catch (JSONException e) {
+            if (yd2.m0) {
+                e.printStackTrace();
+            }
         }
-        return (File) invokeJ.objValue;
     }
 
-    public File a() {
+    public static xd2 query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new xd2(str, true);
+        }
+        return (xd2) invokeL.objValue;
+    }
+
+    private void update() throws JSONException {
+        PMSAppInfo u;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = bc4.i().u(this.a)) != null) {
+            this.b.put("app_name", u.appName);
+            this.b.put("pkg_vername", u.versionName);
+            this.b.put("pkg_vercode", u.versionCode);
+            this.b.put("create_time", u.createTime);
+            this.b.put("last_launch_time", u.getLastLaunchTime());
+            this.b.put("launch_count", u.getLaunchCount());
+            this.b.put("install_src", u.getInstallSrc());
+        }
+    }
+
+    @Override // com.baidu.tieba.yd2.a
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.f();
+            return this.a;
         }
-        return (File) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yd2.a
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yd2.a
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
     }
 }

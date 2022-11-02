@@ -64,14 +64,14 @@ public final class ExceptionsUtils {
         }
     }
 
-    public static boolean addThrowable(AtomicReference atomicReference, Throwable th) {
+    public static boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th) {
         Throwable th2;
         Throwable compositeException;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, atomicReference, th)) == null) {
             do {
-                th2 = (Throwable) atomicReference.get();
+                th2 = atomicReference.get();
                 if (th2 == TERMINATED) {
                     return false;
                 }
@@ -102,14 +102,14 @@ public final class ExceptionsUtils {
         return invokeL.booleanValue;
     }
 
-    public static Throwable terminate(AtomicReference atomicReference) {
+    public static Throwable terminate(AtomicReference<Throwable> atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, atomicReference)) == null) {
-            Throwable th = (Throwable) atomicReference.get();
+            Throwable th = atomicReference.get();
             Throwable th2 = TERMINATED;
             if (th != th2) {
-                return (Throwable) atomicReference.getAndSet(th2);
+                return atomicReference.getAndSet(th2);
             }
             return th;
         }
@@ -125,11 +125,11 @@ public final class ExceptionsUtils {
         return (ExceptionsUtils) invokeL.objValue;
     }
 
-    public static boolean isTerminated(AtomicReference atomicReference) {
+    public static boolean isTerminated(AtomicReference<Throwable> atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference)) == null) {
-            return isTerminated((Throwable) atomicReference.get());
+            return isTerminated(atomicReference.get());
         }
         return invokeL.booleanValue;
     }

@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -11,8 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bt2 extends zs2 {
+public class bt2 extends gt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +34,7 @@ public class bt2 extends zs2 {
                 return;
             }
         }
-        boolean z = wj1.a;
+        boolean z = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,23 +57,44 @@ public class bt2 extends zs2 {
         }
     }
 
-    private void update(us2 us2Var, ws2 ws2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, this, us2Var, ws2Var, unitedSchemeEntity, callbackHandler) == null) {
-            us2Var.h(ws2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    @Override // com.baidu.tieba.zs2
-    public boolean a(us2 us2Var, ws2 ws2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
+    @Override // com.baidu.tieba.gt2
+    public boolean a(ws2 ws2Var, ys2 ys2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{us2Var, ws2Var, context, unitedSchemeEntity, callbackHandler, m33Var})) == null) {
-            m02.b("vrvideo", "update, video id:" + ws2Var.j + " slave id: " + ws2Var.c);
-            update(us2Var, ws2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ws2Var, ys2Var, context, unitedSchemeEntity, callbackHandler, e43Var})) == null) {
+            e12.i("video", "open, video id:" + ys2Var.j + " slave id: " + ys2Var.c);
+            ws2Var.l();
+            d(ws2Var, ys2Var, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public ws2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            cr2 f = dr2.f(str, str2, str3);
+            if (f == null) {
+                return new ws2(context, ys2.h(jSONObject, new ys2()));
+            }
+            if (!(f.i() instanceof ws2)) {
+                return null;
+            }
+            return (ws2) f.i();
+        }
+        return (ws2) invokeLLLLL.objValue;
+    }
+
+    public final void d(ws2 ws2Var, ys2 ys2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ws2Var, ys2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ws2Var.o(ys2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

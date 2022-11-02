@@ -1,80 +1,114 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oo2 {
+public class oo2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
 
-    public abstract Object c(Bundle bundle, String str, Object obj);
-
-    public abstract void e(Bundle bundle, String str, Object obj);
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public oo2() {
-        this(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038903, "Lcom/baidu/tieba/oo2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038903, "Lcom/baidu/tieba/oo2;");
                 return;
             }
         }
+        a = ok1.a;
     }
 
-    public oo2(Object obj) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(c32 c32Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c32Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (c32Var != null) {
+                try {
+                    jSONObject.put("containerId", c32Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
+                } catch (JSONException e) {
+                    if (!a) {
+                        e.printStackTrace();
+                    } else {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(ya2.U().T());
+            e12.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + rf2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(mn2.i().s()));
+            jSONObject.put("isDebugSdk", a);
+            if ((c32Var instanceof NgWebView) && ((NgWebView) c32Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", sc3.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = sc3.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && d03.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = ln2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = kd3.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", bg2.USER_DATA_PATH);
+            jSONObject.put("preloadId", ya2.U().a0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", ng4.b().a());
+            jSONObject.put("coreJSPath", ya2.U().c0());
+            if (ot1.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) zv1.d()));
+            }
+            jSONObject.put("swanNativeVersion", pk1.a());
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
         }
-        this.a = obj;
+        return (String) invokeL.objValue;
     }
 
-    public Object a(po2 po2Var, String str) {
-        InterceptResult invokeLL;
+    public static String b(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, po2Var, str)) == null) {
-            return b(po2Var, str, this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
+            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
+                return extensionCore.extensionCorePath;
+            }
+            return "";
         }
-        return invokeLL.objValue;
-    }
-
-    public Object b(po2 po2Var, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, po2Var, str, obj)) == null) {
-            return c(po2Var.C(), str, obj);
-        }
-        return invokeLLL.objValue;
-    }
-
-    public void d(po2 po2Var, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, po2Var, str, obj) == null) {
-            e(po2Var.C(), str, obj);
-        }
+        return (String) invokeL.objValue;
     }
 }

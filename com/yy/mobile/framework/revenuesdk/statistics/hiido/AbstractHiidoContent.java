@@ -16,7 +16,7 @@ public abstract class AbstractHiidoContent {
 
     public abstract String getContent();
 
-    public abstract Map getMapContent();
+    public abstract Map<String, String> getMapContent();
 
     public AbstractHiidoContent() {
         Interceptable interceptable = $ic;

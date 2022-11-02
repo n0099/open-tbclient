@@ -7,9 +7,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qq9;
+import com.baidu.tieba.zr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +58,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdGroupImgAppDownloadView(Context context, AttributeSet attributeSet) {
+    public KSNativeAdGroupImgAppDownloadView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,7 +79,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdGroupImgAppDownloadView(Context context, AttributeSet attributeSet, int i) {
+    public KSNativeAdGroupImgAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -108,7 +109,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ae);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900af);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b0);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900dd);
             this.h = (TextView) findViewById(R.id.ad_app_source);
             this.i = (ImageView) findViewById(R.id.ad_app_icon);
             this.j = (TextView) findViewById(R.id.ad_app_title);
@@ -141,17 +142,17 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             arrayList.add(this.k);
             this.a.clear();
             this.a.addAll(arrayList);
-            List imageList = ksNativeAd.getImageList();
+            List<KsImage> imageList = ksNativeAd.getImageList();
             if (imageList != null && imageList.size() >= 3) {
-                KsImage ksImage = (KsImage) imageList.get(0);
+                KsImage ksImage = imageList.get(0);
                 if (ksImage != null && ksImage.isValid()) {
                     GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.d);
                 }
-                KsImage ksImage2 = (KsImage) imageList.get(1);
+                KsImage ksImage2 = imageList.get(1);
                 if (ksImage2 != null && ksImage2.isValid()) {
                     GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.e);
                 }
-                KsImage ksImage3 = (KsImage) imageList.get(2);
+                KsImage ksImage3 = imageList.get(2);
                 if (ksImage3 != null && ksImage3.isValid()) {
                     GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f);
                 }
@@ -171,7 +172,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new qq9(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new zr9(ksNativeAd.getActionDescription(), this.k));
         }
     }
 }

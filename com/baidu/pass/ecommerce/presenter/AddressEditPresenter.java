@@ -9,6 +9,7 @@ import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
+import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
@@ -26,7 +27,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddressEditPresenter extends BasePresenter {
+public class AddressEditPresenter extends BasePresenter<IBaseView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CREATE_ADDR_CODE = 1004;
     public static final int DEL_ADDR_CODE = 1002;

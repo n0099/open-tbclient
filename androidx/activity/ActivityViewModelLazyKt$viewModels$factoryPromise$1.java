@@ -39,6 +39,7 @@ public final class ActivityViewModelLazyKt$viewModels$factoryPromise$1 extends L
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final ViewModelProvider.Factory invoke() {
         InterceptResult invokeV;

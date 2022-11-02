@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.widget.EditText;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchPanel;
 import com.baidu.live.feed.search.view.LiveSearchPanel;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.wa0;
+import com.baidu.tieba.va0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +125,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         LiveSearchPanel liveSearchPanel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (liveSearchPanel = this.searchPanel) != null) {
@@ -141,7 +143,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setHintTextColor(int i) {
+    public void setHintTextColor(@ColorInt int i) {
         LiveSearchPanel liveSearchPanel;
         EditText editText;
         Interceptable interceptable = $ic;
@@ -180,7 +182,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setTextColor(int i) {
+    public void setTextColor(@ColorInt int i) {
         LiveSearchPanel liveSearchPanel;
         EditText editText;
         Interceptable interceptable = $ic;
@@ -190,7 +192,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setTextCursorDrawable(int i) {
+    public void setTextCursorDrawable(@DrawableRes int i) {
         EditText editText;
         EditText editText2;
         Interceptable interceptable = $ic;
@@ -205,7 +207,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
             }
             LiveSearchPanel liveSearchPanel2 = this.searchPanel;
             if (liveSearchPanel2 != null && (editText = liveSearchPanel2.getEditText()) != null) {
-                wa0.a(editText, i);
+                va0.a(editText, i);
             }
         }
     }
@@ -221,7 +223,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
     }
 
     @Override // com.baidu.live.feed.search.recmore.ILiveRecSearchPanel
-    public void setQueryHintList(String str, List list) {
+    public void setQueryHintList(String str, List<String> list) {
         LiveSearchPanel liveSearchPanel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048588, this, str, list) == null) && (liveSearchPanel = this.searchPanel) != null) {

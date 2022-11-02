@@ -1,61 +1,185 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.lego.indicator.SlidingTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oj7 implements CustomMessageTask.CustomRunnable {
+public class oj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+    public View b;
+    public TextView c;
+    public SlidingTabLayout d;
+    public Context e;
+    public Animation f;
+    public Animation g;
+    public boolean h;
+    public yg i;
 
-    public oj7() {
+    /* loaded from: classes5.dex */
+    public class a extends yg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oj7 a;
+
+        public a(oj7 oj7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oj7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oj7Var;
+        }
+
+        @Override // com.baidu.tieba.yg
+        public void a(Animation animation) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animation) != null) || this.a.c == null) {
+                return;
+            }
+            if (animation == this.a.f) {
+                this.a.c.setVisibility(0);
+                this.a.c.setClickable(true);
+            } else if (animation == this.a.g) {
+                this.a.c.setVisibility(8);
+                this.a.c.setClickable(false);
+            }
+        }
+    }
+
+    public oj7(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = true;
+        this.i = new a(this);
+        this.b = view2;
+        this.e = context;
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092072);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092070);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092071);
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (imageView = this.a) != null) {
+            imageView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.startAnimation(f());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+        }
+    }
+
+    public final Animation e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010063);
+                this.f = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.f;
+        }
+        return (Animation) invokeV.objValue;
+    }
+
+    public final Animation f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_out);
+                this.g = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.g;
+        }
+        return (Animation) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = false;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.setVisibility(0);
+                this.c.startAnimation(e());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            if (this.h) {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+            } else {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+            }
+            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
+            SlidingTabLayout slidingTabLayout = this.d;
+            if (slidingTabLayout != null) {
+                slidingTabLayout.onChangeSkinType(i);
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
-        InterceptResult invokeL;
+    public void i(ViewPager viewPager, int i) {
+        SlidingTabLayout slidingTabLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                ou4.f();
-                kf h = ou4.h("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.k().j(h);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        h.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) && (slidingTabLayout = this.d) != null) {
+            slidingTabLayout.setViewPager(viewPager, i);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

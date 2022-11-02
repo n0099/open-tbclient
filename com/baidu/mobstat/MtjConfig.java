@@ -19,7 +19,7 @@ public class MtjConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class FeedTrackStrategy {
+    public static final class FeedTrackStrategy {
         public static /* synthetic */ Interceptable $ic;
         public static final FeedTrackStrategy TRACK_ALL;
         public static final FeedTrackStrategy TRACK_NONE;
@@ -87,7 +87,7 @@ public class MtjConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class PushPlatform {
+    public static final class PushPlatform {
         public static /* synthetic */ Interceptable $ic;
         public static final PushPlatform ALIYUN;
         public static final PushPlatform BAIDUYUN;

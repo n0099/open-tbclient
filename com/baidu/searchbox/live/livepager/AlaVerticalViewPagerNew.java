@@ -56,7 +56,7 @@ import java.util.Comparator;
 public class AlaVerticalViewPagerNew extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLOSE_ENOUGH = 2;
-    public static final Comparator COMPARATOR;
+    public static final Comparator<ItemInfo> COMPARATOR;
     public static final boolean DEBUG = false;
     public static final int DEFAULT_GUTTER_SIZE = 16;
     public static final int DEFAULT_OFFSCREEN_PAGES = 1;
@@ -93,7 +93,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     public int mDefaultGutterSize;
     public float mDetermineYRatio;
     public int mDrawingOrder;
-    public ArrayList mDrawingOrderedChildren;
+    public ArrayList<View> mDrawingOrderedChildren;
     public final Runnable mEndScrollRunnable;
     public int mExpectedAdapterCount;
     public long mFakeDragBeginTime;
@@ -110,7 +110,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     public boolean mIsBeingDragged;
     public boolean mIsScrollable;
     public boolean mIsUnableToDrag;
-    public final ArrayList mItems;
+    public final ArrayList<ItemInfo> mItems;
     public float mLastMotionX;
     public float mLastMotionY;
     public float mLastOffset;
@@ -154,7 +154,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class ItemInfo {
+    public static class ItemInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float heightFactor;
@@ -179,7 +179,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int childIndex;
@@ -372,9 +372,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public Parcelable adapterState;
         public ClassLoader loader;
@@ -393,7 +393,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     return;
                 }
             }
-            CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks() { // from class: com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew.SavedState.1
+            CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -412,6 +412,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.core.os.ParcelableCompatCreatorCallbacks
                 public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
@@ -423,6 +424,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.core.os.ParcelableCompatCreatorCallbacks
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
@@ -500,7 +502,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class ViewPositionComparator implements Comparator {
+    public static class ViewPositionComparator implements Comparator<View> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -553,7 +555,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             }
         }
         LAYOUT_ATTRS = new int[]{16842931};
-        COMPARATOR = new Comparator() { // from class: com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew.1
+        COMPARATOR = new Comparator<ItemInfo>() { // from class: com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -617,9 +619,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     private void sortChildDrawingOrder() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && this.mDrawingOrder != 0) {
-            ArrayList arrayList = this.mDrawingOrderedChildren;
+            ArrayList<View> arrayList = this.mDrawingOrderedChildren;
             if (arrayList == null) {
-                this.mDrawingOrderedChildren = new ArrayList();
+                this.mDrawingOrderedChildren = new ArrayList<>();
             } else {
                 arrayList.clear();
             }
@@ -652,7 +654,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mIsScrollable = true;
         this.isPointerCountValid = false;
         this.disallowIntercept = false;
-        this.mItems = new ArrayList();
+        this.mItems = new ArrayList<>();
         this.mTempItem = new ItemInfo();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
@@ -723,7 +725,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             }
             this.mPopulatePending = false;
             for (int i = 0; i < this.mItems.size(); i++) {
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(i);
+                ItemInfo itemInfo = this.mItems.get(i);
                 if (itemInfo.scrolling) {
                     itemInfo.scrolling = false;
                     z2 = true;
@@ -761,7 +763,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         this.mIsScrollable = true;
         this.isPointerCountValid = false;
         this.disallowIntercept = false;
-        this.mItems = new ArrayList();
+        this.mItems = new ArrayList<>();
         this.mTempItem = new ItemInfo();
         this.mTempRect = new Rect();
         this.mRestoredCurItem = -1;
@@ -847,7 +849,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             if (this.mDrawingOrder == 2) {
                 i2 = (i - 1) - i2;
             }
-            return ((LayoutParams) ((View) this.mDrawingOrderedChildren.get(i2)).getLayoutParams()).childIndex;
+            return ((LayoutParams) this.mDrawingOrderedChildren.get(i2).getLayoutParams()).childIndex;
         }
         return invokeII.intValue;
     }
@@ -1007,7 +1009,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
             for (int i2 = 0; i2 < this.mItems.size(); i2++) {
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(i2);
+                ItemInfo itemInfo = this.mItems.get(i2);
                 if (itemInfo.position == i) {
                     return itemInfo;
                 }
@@ -1334,14 +1336,14 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     int i6 = i4 + 1;
                     int i7 = 0;
                     while (i6 <= itemInfo.position && i7 < this.mItems.size()) {
-                        Object obj = this.mItems.get(i7);
+                        ItemInfo itemInfo5 = this.mItems.get(i7);
                         while (true) {
-                            itemInfo4 = (ItemInfo) obj;
+                            itemInfo4 = itemInfo5;
                             if (i6 <= itemInfo4.position || i7 >= this.mItems.size() - 1) {
                                 break;
                             }
                             i7++;
-                            obj = this.mItems.get(i7);
+                            itemInfo5 = this.mItems.get(i7);
                         }
                         while (i6 < itemInfo4.position) {
                             f4 += this.mAdapter.getPageWidth(i6) + f;
@@ -1359,14 +1361,14 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         if (i4 < itemInfo.position || size < 0) {
                             break;
                         }
-                        Object obj2 = this.mItems.get(size);
+                        ItemInfo itemInfo6 = this.mItems.get(size);
                         while (true) {
-                            itemInfo3 = (ItemInfo) obj2;
+                            itemInfo3 = itemInfo6;
                             if (i4 >= itemInfo3.position || size <= 0) {
                                 break;
                             }
                             size--;
-                            obj2 = this.mItems.get(size);
+                            itemInfo6 = this.mItems.get(size);
                         }
                         while (i4 > itemInfo3.position) {
                             f5 -= this.mAdapter.getPageWidth(i4) + f;
@@ -1396,17 +1398,17 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             this.mLastOffset = f3;
             int i11 = i - 1;
             while (i11 >= 0) {
-                ItemInfo itemInfo5 = (ItemInfo) this.mItems.get(i11);
+                ItemInfo itemInfo7 = this.mItems.get(i11);
                 while (true) {
-                    i3 = itemInfo5.position;
+                    i3 = itemInfo7.position;
                     if (i9 <= i3) {
                         break;
                     }
                     f6 -= this.mAdapter.getPageWidth(i9) + f;
                     i9--;
                 }
-                f6 -= itemInfo5.heightFactor + f;
-                itemInfo5.offset = f6;
+                f6 -= itemInfo7.heightFactor + f;
+                itemInfo7.offset = f6;
                 if (i3 == 0) {
                     this.mFirstOffset = f6;
                 }
@@ -1417,9 +1419,9 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             int i12 = itemInfo.position + 1;
             int i13 = i + 1;
             while (i13 < size2) {
-                ItemInfo itemInfo6 = (ItemInfo) this.mItems.get(i13);
+                ItemInfo itemInfo8 = this.mItems.get(i13);
                 while (true) {
-                    i2 = itemInfo6.position;
+                    i2 = itemInfo8.position;
                     if (i12 >= i2) {
                         break;
                     }
@@ -1427,10 +1429,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     i12++;
                 }
                 if (i2 == i10) {
-                    this.mLastOffset = (itemInfo6.heightFactor + f7) - 1.0f;
+                    this.mLastOffset = (itemInfo8.heightFactor + f7) - 1.0f;
                 }
-                itemInfo6.offset = f7;
-                f7 += itemInfo6.heightFactor + f;
+                itemInfo8.offset = f7;
+                f7 += itemInfo8.heightFactor + f;
                 i13++;
                 i12++;
             }
@@ -1447,7 +1449,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     private int determineTargetPage(int i, float f, int i2, int i3) {
         InterceptResult invokeCommon;
         float f2;
-        ArrayList arrayList;
+        ArrayList<ItemInfo> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if (Math.abs(i3) <= this.mFlingDistance || Math.abs(i2) <= this.mMinimumVelocity) {
@@ -1465,7 +1467,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     i = (int) (i + f + f2);
                 }
                 if (this.mItems.size() > 0) {
-                    return Math.max(((ItemInfo) this.mItems.get(0)).position, Math.min(i, ((ItemInfo) this.mItems.get(arrayList.size() - 1)).position));
+                    return Math.max(this.mItems.get(0).position, Math.min(i, this.mItems.get(arrayList.size() - 1).position));
                 }
                 return i;
             }
@@ -1495,7 +1497,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 int i4 = this.mCurItem;
                 if (i > i4 + i3 || i < i4 - i3) {
                     for (int i5 = 0; i5 < this.mItems.size(); i5++) {
-                        ((ItemInfo) this.mItems.get(i5)).scrolling = true;
+                        this.mItems.get(i5).scrolling = true;
                     }
                 }
                 if (this.mCurItem != i) {
@@ -1545,7 +1547,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             int i3 = 0;
             boolean z = true;
             while (i3 < this.mItems.size()) {
-                ItemInfo itemInfo2 = (ItemInfo) this.mItems.get(i3);
+                ItemInfo itemInfo2 = this.mItems.get(i3);
                 if (!z && itemInfo2.position != (i = i2 + 1)) {
                     itemInfo2 = this.mTempItem;
                     itemInfo2.offset = f3 + f4 + f2;
@@ -1745,7 +1747,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void addTouchables(ArrayList arrayList) {
+    public void addTouchables(ArrayList<View> arrayList) {
         ItemInfo infoForChild;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
@@ -1763,7 +1765,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, view2)) == null) {
             for (int i = 0; i < this.mItems.size(); i++) {
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(i);
+                ItemInfo itemInfo = this.mItems.get(i);
                 if (this.mAdapter.isViewFromObject(view2, itemInfo.object)) {
                     return itemInfo;
                 }
@@ -1844,10 +1846,10 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             float f3 = this.mFirstOffset * clientHeight;
             float f4 = this.mLastOffset * clientHeight;
             boolean z2 = false;
-            ItemInfo itemInfo = (ItemInfo) this.mItems.get(0);
-            ArrayList arrayList = this.mItems;
+            ItemInfo itemInfo = this.mItems.get(0);
+            ArrayList<ItemInfo> arrayList = this.mItems;
             boolean z3 = true;
-            ItemInfo itemInfo2 = (ItemInfo) arrayList.get(arrayList.size() - 1);
+            ItemInfo itemInfo2 = arrayList.get(arrayList.size() - 1);
             if (itemInfo.position != 0) {
                 f3 = itemInfo.offset * clientHeight;
                 z = false;
@@ -1917,7 +1919,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     public void fakeDragBy(float f) {
-        ArrayList arrayList;
+        ArrayList<ItemInfo> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
             if (this.mFakeDragging) {
@@ -1926,8 +1928,8 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 float clientHeight = getClientHeight();
                 float f2 = this.mFirstOffset * clientHeight;
                 float f3 = this.mLastOffset * clientHeight;
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(0);
-                ItemInfo itemInfo2 = (ItemInfo) this.mItems.get(arrayList.size() - 1);
+                ItemInfo itemInfo = this.mItems.get(0);
+                ItemInfo itemInfo2 = this.mItems.get(arrayList.size() - 1);
                 if (itemInfo.position != 0) {
                     f2 = itemInfo.offset * clientHeight;
                 }
@@ -1965,15 +1967,15 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 float height2 = getHeight();
                 float f3 = this.mPageMargin / height2;
                 int i = 0;
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(0);
+                ItemInfo itemInfo = this.mItems.get(0);
                 float f4 = itemInfo.offset;
                 int size = this.mItems.size();
                 int i2 = itemInfo.position;
-                int i3 = ((ItemInfo) this.mItems.get(size - 1)).position;
+                int i3 = this.mItems.get(size - 1).position;
                 while (i2 < i3) {
                     while (i2 > itemInfo.position && i < size) {
                         i++;
-                        itemInfo = (ItemInfo) this.mItems.get(i);
+                        itemInfo = this.mItems.get(i);
                     }
                     if (i2 == itemInfo.position) {
                         float f5 = itemInfo.offset;
@@ -2012,7 +2014,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                 pagerAdapter2.unregisterDataSetObserver(this.mObserver);
                 this.mAdapter.startUpdate((ViewGroup) this);
                 for (int i = 0; i < this.mItems.size(); i++) {
-                    ItemInfo itemInfo = (ItemInfo) this.mItems.get(i);
+                    ItemInfo itemInfo = this.mItems.get(i);
                     this.mAdapter.destroyItem((ViewGroup) this, itemInfo.position, itemInfo.object);
                 }
                 this.mAdapter.finishUpdate((ViewGroup) this);
@@ -2118,7 +2120,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void addFocusables(ArrayList arrayList, int i, int i2) {
+    public void addFocusables(ArrayList<View> arrayList, int i, int i2) {
         ItemInfo infoForChild;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, arrayList, i, i2) == null) {
@@ -2340,7 +2342,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
             int i2 = 0;
             boolean z2 = false;
             while (i2 < this.mItems.size()) {
-                ItemInfo itemInfo = (ItemInfo) this.mItems.get(i2);
+                ItemInfo itemInfo = this.mItems.get(i2);
                 int itemPosition = this.mAdapter.getItemPosition(itemInfo.object);
                 if (itemPosition != -1) {
                     if (itemPosition == -2) {
@@ -3165,7 +3167,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         if (i5 >= this.mItems.size()) {
                             break;
                         }
-                        itemInfo2 = (ItemInfo) this.mItems.get(i5);
+                        itemInfo2 = this.mItems.get(i5);
                         int i6 = itemInfo2.position;
                         int i7 = this.mCurItem;
                         if (i6 < i7) {
@@ -3179,7 +3181,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                     if (itemInfo2 != null) {
                         int i8 = i5 - 1;
                         if (i8 >= 0) {
-                            itemInfo4 = (ItemInfo) this.mItems.get(i8);
+                            itemInfo4 = this.mItems.get(i8);
                         } else {
                             itemInfo4 = null;
                         }
@@ -3201,7 +3203,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                     i8--;
                                     i5--;
                                     if (i8 >= 0) {
-                                        itemInfo6 = (ItemInfo) this.mItems.get(i8);
+                                        itemInfo6 = this.mItems.get(i8);
                                         itemInfo4 = itemInfo6;
                                     }
                                     itemInfo6 = null;
@@ -3211,7 +3213,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                 f += itemInfo4.heightFactor;
                                 i8--;
                                 if (i8 >= 0) {
-                                    itemInfo6 = (ItemInfo) this.mItems.get(i8);
+                                    itemInfo6 = this.mItems.get(i8);
                                     itemInfo4 = itemInfo6;
                                 }
                                 itemInfo6 = null;
@@ -3220,7 +3222,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                 f += addNewItem(i9, i8 + 1).heightFactor;
                                 i5++;
                                 if (i8 >= 0) {
-                                    itemInfo6 = (ItemInfo) this.mItems.get(i8);
+                                    itemInfo6 = this.mItems.get(i8);
                                     itemInfo4 = itemInfo6;
                                 }
                                 itemInfo6 = null;
@@ -3231,7 +3233,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                         int i10 = i5 + 1;
                         if (f2 < 2.0f) {
                             if (i10 < this.mItems.size()) {
-                                itemInfo5 = (ItemInfo) this.mItems.get(i10);
+                                itemInfo5 = this.mItems.get(i10);
                             } else {
                                 itemInfo5 = null;
                             }
@@ -3252,7 +3254,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                         this.mItems.remove(i10);
                                         this.mAdapter.destroyItem((ViewGroup) this, i11, itemInfo5.object);
                                         if (i10 < this.mItems.size()) {
-                                            itemInfo5 = (ItemInfo) this.mItems.get(i10);
+                                            itemInfo5 = this.mItems.get(i10);
                                         } else {
                                             itemInfo5 = null;
                                         }
@@ -3263,7 +3265,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                     if (i10 >= this.mItems.size()) {
                                         itemInfo5 = null;
                                     } else {
-                                        itemInfo5 = (ItemInfo) this.mItems.get(i10);
+                                        itemInfo5 = this.mItems.get(i10);
                                     }
                                 } else {
                                     ItemInfo addNewItem = addNewItem(i11, i10);
@@ -3272,7 +3274,7 @@ public class AlaVerticalViewPagerNew extends ViewGroup {
                                     if (i10 >= this.mItems.size()) {
                                         itemInfo5 = null;
                                     } else {
-                                        itemInfo5 = (ItemInfo) this.mItems.get(i10);
+                                        itemInfo5 = this.mItems.get(i10);
                                     }
                                 }
                             }

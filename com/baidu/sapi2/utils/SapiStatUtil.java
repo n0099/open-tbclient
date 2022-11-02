@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,12 +56,10 @@ public class SapiStatUtil {
         }
     }
 
-    public static void buildStatExtraMap(Map map, List list) {
+    public static void buildStatExtraMap(Map<String, String> map, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, map, list) == null) && list != null && !list.isEmpty()) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                PassNameValuePair passNameValuePair = (PassNameValuePair) it.next();
+            for (PassNameValuePair passNameValuePair : list) {
                 if (passNameValuePair.name.equals("extrajson") && SapiUtils.statExtraValid(passNameValuePair.getValue())) {
                     map.put("extrajson", passNameValuePair.getValue());
                 }
@@ -70,7 +67,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV1Login(SapiAccount sapiAccount, List list) {
+    public static void statShareV1Login(SapiAccount sapiAccount, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65548, null, sapiAccount, list) == null) && ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE.equals(SapiContext.getInstance().getAccountActionType())) {
             SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.CHOICE_SHARE.getName());
@@ -174,7 +171,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Click(ShareCallPacking.StatModel statModel, List list, String str) {
+    public static void statShareV2Click(ShareCallPacking.StatModel statModel, List<PassNameValuePair> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65549, null, statModel, list, str) == null) {
             HashMap hashMap = new HashMap();
@@ -254,7 +251,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareClickOther(String str, List list) {
+    public static void statShareClickOther(String str, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, str, list) == null) {
             HashMap hashMap = new HashMap();
@@ -279,7 +276,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Fail(ShareCallPacking.StatModel statModel, String str, String str2, String str3, List list, String str4) {
+    public static void statShareV2Fail(ShareCallPacking.StatModel statModel, String str, String str2, String str3, List<PassNameValuePair> list, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{statModel, str, str2, str3, list, str4}) == null) {
             HashMap hashMap = new HashMap();
@@ -296,14 +293,12 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Open(List list, String str, List list2) {
+    public static void statShareV2Open(List<ShareStorage.StorageModel> list, String str, List<PassNameValuePair> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, null, list, str, list2) == null) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ShareStorage.StorageModel storageModel = (ShareStorage.StorageModel) it.next();
+            for (ShareStorage.StorageModel storageModel : list) {
                 if (!TextUtils.isEmpty(storageModel.tpl)) {
                     arrayList.add(storageModel.tpl);
                 }
@@ -324,7 +319,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List list) {
+    public static void statShareV2OpenMax(Context context, int i, int i2, int i3, int i4, ShareStorage shareStorage, List<ShareStorage.StorageModel> list) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), shareStorage, list}) == null) {
@@ -347,7 +342,7 @@ public class SapiStatUtil {
         }
     }
 
-    public static void statShareV2Success(ShareCallPacking.StatModel statModel, String str, List list, String str2) {
+    public static void statShareV2Success(ShareCallPacking.StatModel statModel, String str, List<PassNameValuePair> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65553, null, statModel, str, list, str2) == null) {
             HashMap hashMap = new HashMap();

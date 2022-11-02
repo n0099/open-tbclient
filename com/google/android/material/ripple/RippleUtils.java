@@ -1,10 +1,16 @@
 package com.google.android.material.ripple;
 
+import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.util.StateSet;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class RippleUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,6 +28,7 @@ public class RippleUtils {
     public static final int[] FOCUSED_STATE_SET;
     public static final int[] HOVERED_FOCUSED_STATE_SET;
     public static final int[] HOVERED_STATE_SET;
+    @VisibleForTesting
     public static final String LOG_TAG;
     public static final int[] PRESSED_STATE_SET;
     public static final int[] SELECTED_FOCUSED_STATE_SET;
@@ -28,6 +36,7 @@ public class RippleUtils {
     public static final int[] SELECTED_HOVERED_STATE_SET;
     public static final int[] SELECTED_PRESSED_STATE_SET;
     public static final int[] SELECTED_STATE_SET;
+    @VisibleForTesting
     public static final String TRANSPARENT_DEFAULT_COLOR_WARNING = "Use a non-transparent color for the default color as it will be used to finish ripple animations.";
     public static final boolean USE_FRAMEWORK_RIPPLE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +88,8 @@ public class RippleUtils {
         }
     }
 
-    public static ColorStateList convertToRippleDrawableColor(ColorStateList colorStateList) {
+    @NonNull
+    public static ColorStateList convertToRippleDrawableColor(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, colorStateList)) == null) {
@@ -99,7 +109,9 @@ public class RippleUtils {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static int doubleAlpha(int i) {
+    @ColorInt
+    @TargetApi(21)
+    public static int doubleAlpha(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
@@ -108,7 +120,8 @@ public class RippleUtils {
         return invokeI.intValue;
     }
 
-    public static int getColorForState(ColorStateList colorStateList, int[] iArr) {
+    @ColorInt
+    public static int getColorForState(@Nullable ColorStateList colorStateList, int[] iArr) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -126,7 +139,8 @@ public class RippleUtils {
         return invokeLL.intValue;
     }
 
-    public static ColorStateList sanitizeRippleDrawableColor(ColorStateList colorStateList) {
+    @NonNull
+    public static ColorStateList sanitizeRippleDrawableColor(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, colorStateList)) == null) {
@@ -142,7 +156,7 @@ public class RippleUtils {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static boolean shouldDrawRippleCompat(int[] iArr) {
+    public static boolean shouldDrawRippleCompat(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iArr)) == null) {

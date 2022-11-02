@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ public class LogUploadConfig {
 
     /* renamed from: com.baidu.searchbox.logsystem.logsys.LogUploadConfig$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -26,7 +27,7 @@ public class LogUploadConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mUploadWifiOnly;
@@ -47,6 +48,7 @@ public class LogUploadConfig {
             this.mUploadWifiOnly = false;
         }
 
+        @NonNull
         public LogUploadConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -56,6 +58,7 @@ public class LogUploadConfig {
             return (LogUploadConfig) invokeV.objValue;
         }
 
+        @NonNull
         public Builder setUploadWifiOnly(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -67,7 +70,7 @@ public class LogUploadConfig {
         }
     }
 
-    public LogUploadConfig(Builder builder) {
+    public LogUploadConfig(@NonNull Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

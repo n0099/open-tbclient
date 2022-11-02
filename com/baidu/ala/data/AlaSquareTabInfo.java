@@ -18,14 +18,14 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AlaSquareTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AlaSquareTabInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String bitmapWHRatio;
     public int iconType;
     public String iconUrl;
     public int id;
     public String name;
-    public List sortTypeList;
+    public List<String> sortTypeList;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -50,7 +50,7 @@ public class AlaSquareTabInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ala.data.AlaSquareTabInfo.1
+        CREATOR = new Parcelable.Creator<AlaSquareTabInfo>() { // from class: com.baidu.ala.data.AlaSquareTabInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,6 +69,7 @@ public class AlaSquareTabInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AlaSquareTabInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -80,6 +81,7 @@ public class AlaSquareTabInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AlaSquareTabInfo[] newArray(int i) {
                 InterceptResult invokeI;

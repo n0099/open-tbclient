@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.ah7;
-import com.baidu.tieba.ii7;
-import com.baidu.tieba.rg7;
-import com.baidu.tieba.rn4;
-import com.baidu.tieba.sg7;
-import com.baidu.tieba.sn4;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.ug7;
-import com.baidu.tieba.vg7;
-import com.baidu.tieba.wg7;
-import com.baidu.tieba.zg7;
+import com.baidu.tieba.bi7;
+import com.baidu.tieba.ci7;
+import com.baidu.tieba.di7;
+import com.baidu.tieba.ei7;
+import com.baidu.tieba.fi7;
+import com.baidu.tieba.gi7;
+import com.baidu.tieba.ji7;
+import com.baidu.tieba.jo4;
+import com.baidu.tieba.ki7;
+import com.baidu.tieba.ko4;
+import com.baidu.tieba.sj7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class LegoListActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,12 +49,12 @@ public class LegoListActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<LegoListActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((LegoListActivityConfig) customMessage.getData()).startActivity(LegoListActivity.class);
+                    customMessage.getData().startActivity(LegoListActivity.class);
                 }
                 return null;
             }
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        ii7.a.set(new rg7());
+        sj7.a.set(new bi7());
         TbConfig.setLegoLibVersion("3.0.0");
-        zg7.h().g(ah7.f());
+        ji7.h().g(ki7.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        tg7.a().b(new wg7());
-        sg7.a().b(new ug7());
-        sg7.a().b(new vg7());
-        sn4.a.set(tg7.a());
-        rn4.a.set(sg7.a());
+        di7.a().b(new gi7());
+        ci7.a().b(new ei7());
+        ci7.a().b(new fi7());
+        ko4.a.set(di7.a());
+        jo4.a.set(ci7.a());
     }
 
     public LegoListActivityStatic() {

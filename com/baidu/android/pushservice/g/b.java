@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.PriorityBlockingQueue;
 /* loaded from: classes.dex */
-public class b extends PriorityBlockingQueue {
+public class b<E> extends PriorityBlockingQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,15 @@ public class b extends PriorityBlockingQueue {
     }
 
     @Override // java.util.concurrent.PriorityBlockingQueue, java.util.Queue, java.util.concurrent.BlockingQueue
-    public boolean offer(Object obj) {
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
             try {
                 if (size() >= 20) {
                     return false;
                 }
-                return super.offer(obj);
+                return super.offer(e);
             } catch (Exception unused) {
                 return false;
             }

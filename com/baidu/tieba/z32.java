@@ -1,55 +1,145 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c33;
+import com.baidu.tieba.i33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z32 extends w32 {
+public class z32 extends c33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
+    public FrameLayout k;
+    public a l;
 
-    public z32() {
+    /* loaded from: classes6.dex */
+    public static class a extends c33.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.i33.a
+        public /* bridge */ /* synthetic */ i33.a U(int i) {
+            d0(i);
+            return this;
+        }
+
+        public a c0(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d0(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                super.U(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.i33.a
+        public i33 h(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+                return new z32(context);
+            }
+            return (i33) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.c33.b, com.baidu.tieba.i33.a
+        public i33 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                z32 z32Var = (z32) super.c();
+                z32Var.q(this);
+                return z32Var;
+            }
+            return (i33) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z32(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static z32 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.c33
+    public View k(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            z32 z32Var = new z32();
-            z32Var.a = 1;
-            z32Var.b = str;
-            z32Var.c = 0L;
-            z32Var.d = bitmap;
-            return z32Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
+            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091fae);
+            p();
+            return inflate;
         }
-        return (z32) invokeLL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static z32 b(String str, long j) {
-        InterceptResult invokeLJ;
+    public void q(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            z32 z32Var = new z32();
-            z32Var.a = 1;
-            z32Var.b = str;
-            z32Var.c = j;
-            return z32Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.l = aVar;
         }
-        return (z32) invokeLJ.objValue;
+    }
+
+    public final void p() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.l) != null) {
+            this.k.addView(aVar.g);
+        }
     }
 }

@@ -1,70 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.uk3;
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.view.menu.SwanImageMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class rj3 extends mz2 {
+public class rj3 extends o33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements uk3.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rj3 a;
-
-        public a(rj3 rj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rj3Var;
-        }
-
-        @Override // com.baidu.tieba.uk3.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.d.putString(TiebaStatic.LogFields.RESULT, str);
-                this.a.c();
-            }
-        }
-    }
-
-    public rj3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rj3(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        s(-1);
+        p(true);
+        q(true);
+    }
+
+    @Override // com.baidu.tieba.o33
+    public void l(View view2, List<p33> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanImageMenuView) view2).d(list);
         }
     }
 
-    @Override // com.baidu.tieba.mz2
-    public void b(Bundle bundle) {
+    @Override // com.baidu.tieba.o33
+    public View m(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            nj3.n(bundle.getString("key_result_client_id"), bundle.getStringArrayList("key_param_tpl_list"), new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
+            swanImageMenuView.setMenu(this);
+            return swanImageMenuView;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.o33
+    public void u(PopupWindow popupWindow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 80, 0, 0);
         }
     }
 }

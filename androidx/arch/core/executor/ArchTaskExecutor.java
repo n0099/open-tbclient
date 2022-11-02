@@ -1,5 +1,8 @@
 package androidx.arch.core.executor;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,14 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ArchTaskExecutor extends TaskExecutor {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
     public static final Executor sIOThreadExecutor;
     public static volatile ArchTaskExecutor sInstance;
+    @NonNull
     public static final Executor sMainThreadExecutor;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public TaskExecutor mDefaultTaskExecutor;
+    @NonNull
     public TaskExecutor mDelegate;
 
     static {
@@ -105,6 +113,7 @@ public class ArchTaskExecutor extends TaskExecutor {
         this.mDelegate = defaultTaskExecutor;
     }
 
+    @NonNull
     public static Executor getIOThreadExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,6 +123,7 @@ public class ArchTaskExecutor extends TaskExecutor {
         return (Executor) invokeV.objValue;
     }
 
+    @NonNull
     public static ArchTaskExecutor getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,6 +141,7 @@ public class ArchTaskExecutor extends TaskExecutor {
         return (ArchTaskExecutor) invokeV.objValue;
     }
 
+    @NonNull
     public static Executor getMainThreadExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,7 +177,7 @@ public class ArchTaskExecutor extends TaskExecutor {
         }
     }
 
-    public void setDelegate(TaskExecutor taskExecutor) {
+    public void setDelegate(@Nullable TaskExecutor taskExecutor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, taskExecutor) == null) {
             if (taskExecutor == null) {

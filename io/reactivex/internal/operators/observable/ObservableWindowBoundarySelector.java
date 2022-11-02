@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
@@ -28,22 +29,22 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableWindowBoundarySelector extends AbstractObservableWithUpstream {
+public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObservableWithUpstream<T, Observable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final Function close;
-    public final ObservableSource open;
+    public final Function<? super B, ? extends ObservableSource<V>> close;
+    public final ObservableSource<B> open;
 
     /* loaded from: classes8.dex */
-    public final class OperatorWindowBoundaryCloseObserver extends DisposableObserver {
+    public static final class OperatorWindowBoundaryCloseObserver<T, V> extends DisposableObserver<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean done;
-        public final WindowBoundaryMainObserver parent;
-        public final UnicastSubject w;
+        public final WindowBoundaryMainObserver<T, ?, V> parent;
+        public final UnicastSubject<T> w;
 
-        public OperatorWindowBoundaryCloseObserver(WindowBoundaryMainObserver windowBoundaryMainObserver, UnicastSubject unicastSubject) {
+        public OperatorWindowBoundaryCloseObserver(WindowBoundaryMainObserver<T, ?, V> windowBoundaryMainObserver, UnicastSubject<T> unicastSubject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,9 +87,9 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(V v) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v) == null) {
                 dispose();
                 onComplete();
             }
@@ -96,12 +97,12 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
     }
 
     /* loaded from: classes8.dex */
-    public final class OperatorWindowBoundaryOpenObserver extends DisposableObserver {
+    public static final class OperatorWindowBoundaryOpenObserver<T, B> extends DisposableObserver<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WindowBoundaryMainObserver parent;
+        public final WindowBoundaryMainObserver<T, B, ?> parent;
 
-        public OperatorWindowBoundaryOpenObserver(WindowBoundaryMainObserver windowBoundaryMainObserver) {
+        public OperatorWindowBoundaryOpenObserver(WindowBoundaryMainObserver<T, B, ?> windowBoundaryMainObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,10 +129,10 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.parent.open(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+                this.parent.open(b);
             }
         }
 
@@ -145,27 +146,27 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowBoundaryMainObserver extends QueueDrainObserver implements Disposable {
+    public static final class WindowBoundaryMainObserver<T, B, V> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference boundary;
+        public final AtomicReference<Disposable> boundary;
         public final int bufferSize;
-        public final Function close;
-        public final ObservableSource open;
+        public final Function<? super B, ? extends ObservableSource<V>> close;
+        public final ObservableSource<B> open;
         public final CompositeDisposable resources;
         public Disposable s;
         public final AtomicLong windows;
-        public final List ws;
+        public final List<UnicastSubject<T>> ws;
 
         @Override // io.reactivex.internal.observers.QueueDrainObserver, io.reactivex.internal.util.ObservableQueueDrain
-        public void accept(Observer observer, Object obj) {
+        public void accept(Observer<? super Observable<T>> observer, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, observer, obj) == null) {
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowBoundaryMainObserver(Observer observer, ObservableSource observableSource, Function function, int i) {
+        public WindowBoundaryMainObserver(Observer<? super Observable<T>> observer, ObservableSource<B> observableSource, Function<? super B, ? extends ObservableSource<V>> function, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -183,7 +184,7 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                     return;
                 }
             }
-            this.boundary = new AtomicReference();
+            this.boundary = new AtomicReference<>();
             this.windows = new AtomicLong();
             this.open = observableSource;
             this.close = function;
@@ -193,7 +194,7 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
             this.windows.lazySet(1L);
         }
 
-        public void close(OperatorWindowBoundaryCloseObserver operatorWindowBoundaryCloseObserver) {
+        public void close(OperatorWindowBoundaryCloseObserver<T, V> operatorWindowBoundaryCloseObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, operatorWindowBoundaryCloseObserver) == null) {
                 this.resources.delete(operatorWindowBoundaryCloseObserver);
@@ -213,10 +214,10 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
             }
         }
 
-        public void open(Object obj) {
+        public void open(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, obj) == null) {
-                this.queue.offer(new WindowOperation(null, obj));
+            if (interceptable == null || interceptable.invokeL(1048587, this, b) == null) {
+                this.queue.offer(new WindowOperation(null, b));
                 if (enter()) {
                     drainLoop();
                 }
@@ -249,13 +250,14 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
             return invokeV.booleanValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: B, ? super B */
         public void drainLoop() {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer observer = this.actual;
-                List<UnicastSubject> list = this.ws;
+                Observer<? super V> observer = this.actual;
+                List<UnicastSubject<T>> list = this.ws;
                 int i = 1;
                 while (true) {
                     boolean z2 = this.done;
@@ -269,11 +271,11 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                         disposeBoundary();
                         Throwable th = this.error;
                         if (th != null) {
-                            for (UnicastSubject unicastSubject : list) {
+                            for (UnicastSubject<T> unicastSubject : list) {
                                 unicastSubject.onError(th);
                             }
                         } else {
-                            for (UnicastSubject unicastSubject2 : list) {
+                            for (UnicastSubject<T> unicastSubject2 : list) {
                                 unicastSubject2.onComplete();
                             }
                         }
@@ -286,7 +288,7 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                         }
                     } else if (poll instanceof WindowOperation) {
                         WindowOperation windowOperation = (WindowOperation) poll;
-                        UnicastSubject unicastSubject3 = windowOperation.w;
+                        UnicastSubject<T> unicastSubject3 = windowOperation.w;
                         if (unicastSubject3 != null) {
                             if (list.remove(unicastSubject3)) {
                                 windowOperation.w.onComplete();
@@ -298,11 +300,11 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                                 continue;
                             }
                         } else if (!this.cancelled) {
-                            UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                            UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
                             list.add(create);
                             observer.onNext(create);
                             try {
-                                ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.close.apply(windowOperation.open), "The ObservableSource supplied is null");
+                                ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.close.apply((B) windowOperation.open), "The ObservableSource supplied is null");
                                 OperatorWindowBoundaryCloseObserver operatorWindowBoundaryCloseObserver = new OperatorWindowBoundaryCloseObserver(this, create);
                                 if (this.resources.add(operatorWindowBoundaryCloseObserver)) {
                                     this.windows.getAndIncrement();
@@ -315,8 +317,8 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                             }
                         }
                     } else {
-                        for (UnicastSubject unicastSubject4 : list) {
-                            unicastSubject4.onNext(NotificationLite.getValue(poll));
+                        for (UnicastSubject<T> unicastSubject4 : list) {
+                            unicastSubject4.onNext((T) NotificationLite.getValue(poll));
                         }
                     }
                 }
@@ -377,18 +379,18 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 if (fastEnter()) {
-                    for (UnicastSubject unicastSubject : this.ws) {
-                        unicastSubject.onNext(obj);
+                    for (UnicastSubject<T> unicastSubject : this.ws) {
+                        unicastSubject.onNext(t);
                     }
                     if (leave(-1) == 0) {
                         return;
                     }
                 } else {
-                    this.queue.offer(NotificationLite.next(obj));
+                    this.queue.offer(NotificationLite.next(t));
                     if (!enter()) {
                         return;
                     }
@@ -399,18 +401,18 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowOperation {
+    public static final class WindowOperation<T, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Object open;
-        public final UnicastSubject w;
+        public final B open;
+        public final UnicastSubject<T> w;
 
-        public WindowOperation(UnicastSubject unicastSubject, Object obj) {
+        public WindowOperation(UnicastSubject<T> unicastSubject, B b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {unicastSubject, obj};
+                Object[] objArr = {unicastSubject, b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -421,12 +423,12 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
                 }
             }
             this.w = unicastSubject;
-            this.open = obj;
+            this.open = b;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowBoundarySelector(ObservableSource observableSource, ObservableSource observableSource2, Function function, int i) {
+    public ObservableWindowBoundarySelector(ObservableSource<T> observableSource, ObservableSource<B> observableSource2, Function<? super B, ? extends ObservableSource<V>> function, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -449,7 +451,7 @@ public final class ObservableWindowBoundarySelector extends AbstractObservableWi
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Observable<T>> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new WindowBoundaryMainObserver(new SerializedObserver(observer), this.open, this.close, this.bufferSize));

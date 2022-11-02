@@ -1,15 +1,19 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes7.dex */
-public abstract class n implements h {
+
+import androidx.annotation.NonNull;
+import com.kwad.sdk.core.network.BaseResultData;
+import com.kwad.sdk.core.network.g;
+/* loaded from: classes8.dex */
+public abstract class n<R extends g, T extends BaseResultData> implements h<R, T> {
     @Override // com.kwad.sdk.core.network.h
-    public void onError(g gVar, int i, String str) {
+    public void onError(@NonNull R r, int i, String str) {
     }
 
     @Override // com.kwad.sdk.core.network.h
-    public void onStartRequest(g gVar) {
+    public void onStartRequest(@NonNull R r) {
     }
 
     @Override // com.kwad.sdk.core.network.h
-    public void onSuccess(g gVar, BaseResultData baseResultData) {
+    public void onSuccess(@NonNull R r, @NonNull T t) {
     }
 }

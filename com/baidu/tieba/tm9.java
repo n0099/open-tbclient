@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class tm9 implements TTAdDislike.DislikeInteractionCallback {
+public class tm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ gn9 b;
-    public final /* synthetic */ om9 c;
+    public final Map<String, PidLoaderCreator> a;
+    public final Map<Ssp.Pid, PidLoader> b;
 
-    public tm9(om9 om9Var, View view2, gn9 gn9Var) {
+    public tm9(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {om9Var, view2, gn9Var};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,35 +33,34 @@ public class tm9 implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.c = om9Var;
-        this.a = view2;
-        this.b = gn9Var;
+        this.b = new HashMap();
+        this.a = map;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
+    public PidLoader a(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            if (this.a.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            synchronized (this.b) {
+                PidLoader pidLoader = this.b.get(pid);
+                if (pidLoader != null) {
+                    return pidLoader;
+                }
+                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
+                if (pidLoaderCreator == null) {
+                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
+                    return null;
+                }
+                PidLoader create = pidLoaderCreator.create(pid);
+                if (create == null) {
+                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
+                    return null;
+                }
+                ns9 ns9Var = new ns9(create);
+                this.b.put(pid, ns9Var);
+                return ns9Var;
             }
-            this.c.onAdClose(this.b);
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

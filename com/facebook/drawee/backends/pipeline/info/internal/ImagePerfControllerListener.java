@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfMonitor;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
@@ -16,7 +17,7 @@ import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ImagePerfControllerListener extends BaseControllerListener implements OnDrawControllerListener {
+public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> implements OnDrawControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MonotonicClock mClock;
@@ -43,6 +44,7 @@ public class ImagePerfControllerListener extends BaseControllerListener implemen
         this.mImagePerfMonitor = imagePerfMonitor;
     }
 
+    @VisibleForTesting
     private void reportViewInvisible(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
@@ -52,6 +54,7 @@ public class ImagePerfControllerListener extends BaseControllerListener implemen
         }
     }
 
+    @VisibleForTesting
     public void reportViewVisible(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {

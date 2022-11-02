@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 /* loaded from: classes9.dex */
 public class WebRtcAudioManager {
@@ -35,6 +36,7 @@ public class WebRtcAudioManager {
         }
     }
 
+    @CalledByNative
     public static AudioManager getAudioManager(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,6 +93,7 @@ public class WebRtcAudioManager {
         return invokeL.booleanValue;
     }
 
+    @CalledByNative
     public static int getInputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -103,6 +106,7 @@ public class WebRtcAudioManager {
         return invokeLLII.intValue;
     }
 
+    @CalledByNative
     public static int getOutputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
@@ -147,6 +151,7 @@ public class WebRtcAudioManager {
         return invokeII.intValue;
     }
 
+    @CalledByNative
     public static int getSampleRate(AudioManager audioManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

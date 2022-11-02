@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ZeusPerformanceTiming {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "startup_timing_log";
@@ -119,21 +119,21 @@ public class ZeusPerformanceTiming {
     public static JSONArray mZeusDownloadInfo;
     public static int mZeusWebViewLoadClassTime;
     public static String sAppStartSource;
-    public static ConcurrentHashMap sEndThreadTimeStamps;
-    public static ConcurrentHashMap sEndTimeStamps;
-    public static ArrayList sExcludedKeysStartup;
+    public static ConcurrentHashMap<String, Long> sEndThreadTimeStamps;
+    public static ConcurrentHashMap<String, Long> sEndTimeStamps;
+    public static ArrayList<String> sExcludedKeysStartup;
     public static boolean sLogEnabled;
     public static int sRecordType;
-    public static ConcurrentHashMap sStartThreadTimeStamps;
-    public static ConcurrentHashMap sStartTimeStamps;
+    public static ConcurrentHashMap<String, Long> sStartThreadTimeStamps;
+    public static ConcurrentHashMap<String, Long> sStartTimeStamps;
     public static boolean sUploaded;
     public static long sWebViewInitTiming;
-    public static List sWebViewInitTimingList;
+    public static List<Long> sWebViewInitTimingList;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class Stage {
+    /* loaded from: classes7.dex */
+    public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Stage End;
@@ -205,10 +205,10 @@ public class ZeusPerformanceTiming {
             }
         }
         sWebViewInitTimingList = new ArrayList();
-        sStartTimeStamps = new ConcurrentHashMap();
-        sEndTimeStamps = new ConcurrentHashMap();
-        sStartThreadTimeStamps = new ConcurrentHashMap();
-        sEndThreadTimeStamps = new ConcurrentHashMap();
+        sStartTimeStamps = new ConcurrentHashMap<>();
+        sEndTimeStamps = new ConcurrentHashMap<>();
+        sStartThreadTimeStamps = new ConcurrentHashMap<>();
+        sEndThreadTimeStamps = new ConcurrentHashMap<>();
     }
 
     public ZeusPerformanceTiming() {
@@ -269,8 +269,8 @@ public class ZeusPerformanceTiming {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (sStartThreadTimeStamps.containsKey(str) && sEndThreadTimeStamps.containsKey(str)) {
-                long longValue = ((Long) sEndThreadTimeStamps.get(str)).longValue();
-                long longValue2 = ((Long) sStartThreadTimeStamps.get(str)).longValue();
+                long longValue = sEndThreadTimeStamps.get(str).longValue();
+                long longValue2 = sStartThreadTimeStamps.get(str).longValue();
                 if (longValue > longValue2) {
                     return longValue - longValue2;
                 }
@@ -286,8 +286,8 @@ public class ZeusPerformanceTiming {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (sStartTimeStamps.containsKey(str) && sEndTimeStamps.containsKey(str)) {
-                long longValue = ((Long) sEndTimeStamps.get(str)).longValue();
-                long longValue2 = ((Long) sStartTimeStamps.get(str)).longValue();
+                long longValue = sEndTimeStamps.get(str).longValue();
+                long longValue2 = sStartTimeStamps.get(str).longValue();
                 if (longValue > longValue2) {
                     return longValue - longValue2;
                 }
@@ -312,14 +312,14 @@ public class ZeusPerformanceTiming {
         return (String) invokeV.objValue;
     }
 
-    public static long getTimeStampFromMap(Map map, String str) {
+    public static long getTimeStampFromMap(Map<String, Long> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, map, str)) == null) {
             if (map == null || str == null || !map.containsKey(str)) {
                 return 0L;
             }
-            return ((Long) map.get(str)).longValue();
+            return map.get(str).longValue();
         }
         return invokeLL.longValue;
     }
@@ -342,7 +342,7 @@ public class ZeusPerformanceTiming {
         return (String) invokeV.objValue;
     }
 
-    public static List getWebViewInitTimings() {
+    public static List<Long> getWebViewInitTimings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? sWebViewInitTimingList : (List) invokeV.objValue;
@@ -356,7 +356,7 @@ public class ZeusPerformanceTiming {
             if (sStartTimeStamps.containsKey(KEY_INIT_WEBKIT) && sEndTimeStamps.containsKey(KEY_INIT_WEBKIT)) {
                 sb.append("initWebkit = ");
                 sb.append(getRecordedTime(KEY_INIT_WEBKIT));
-                long longValue = ((Long) sStartTimeStamps.get(KEY_INIT_WEBKIT)).longValue();
+                long longValue = sStartTimeStamps.get(KEY_INIT_WEBKIT).longValue();
                 makeTimingFormat(sb, "shouldUseSystemWebView   ", getTimeStampFromMap(sStartTimeStamps, KEY_CHECK_USE_T7), getTimeStampFromMap(sEndTimeStamps, KEY_CHECK_USE_T7), longValue);
                 makeTimingFormat(sb, "fetchDefaultPackageInfo   ", getTimeStampFromMap(sStartTimeStamps, KEY_FETCH_PACKAGE_INFO), getTimeStampFromMap(sEndTimeStamps, KEY_FETCH_PACKAGE_INFO), longValue);
                 makeTimingFormat(sb, ZeusClassLoader.TAG, getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL), getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL), longValue);
@@ -377,7 +377,7 @@ public class ZeusPerformanceTiming {
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             if (sExcludedKeysStartup == null) {
                 str = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3;
-                ArrayList arrayList = new ArrayList();
+                ArrayList<String> arrayList = new ArrayList<>();
                 sExcludedKeysStartup = arrayList;
                 str2 = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP2;
                 arrayList.add("type");
@@ -440,7 +440,7 @@ public class ZeusPerformanceTiming {
                 if (CommonUtils.getSysMemoryInfo() != null) {
                     jSONObject.putOpt("memory", CommonUtils.getSysMemoryInfo().get("MemTotal:"));
                 }
-                HashMap currentSystemInfraInfo = WebView.getCurrentSystemInfraInfo();
+                HashMap<String, Long> currentSystemInfraInfo = WebView.getCurrentSystemInfraInfo();
                 if (currentSystemInfraInfo != null) {
                     Log.d("getZeusPerformanceTiming", " getCurrentSystemInfraInfo");
                     jSONObject.putOpt(KEY_NUM_PROCESSORS, currentSystemInfraInfo.get(KEY_NUM_PROCESSORS));

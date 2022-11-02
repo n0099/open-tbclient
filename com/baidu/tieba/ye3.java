@@ -1,199 +1,308 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.LinearLayout;
-import androidx.constraintlayout.motion.widget.Key;
+import android.net.wifi.ScanResult;
+import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.tabbar.view.SwanAppBottomTabIconView;
-import com.baidu.tieba.im2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.system.wifi.listener.SwanWifiBroadcastReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes6.dex */
-public class ye3 {
+public abstract class ye3 implements ze3, af3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public LinearLayout b;
-    public int c;
-    public u22 d;
-    public SwanAppConfigData.n e;
-    public ArrayList f;
-    public List g;
-    public String h;
-    public String i;
+    public Context a;
+    public WifiManager b;
+    public SwanWifiBroadcastReceiver c;
+    public final af3 d;
+    public boolean e;
+    public volatile List<xi3<ef3<df3>>> f;
+    public final we3 g;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class c implements af3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ ye3 b;
+        public volatile List<xi3<ef3<List<df3>>>> a;
+        public boolean b;
+        public List<xi3<ef3<Void>>> c;
+        public Lock d;
+        public Handler e;
+        public List<ScanResult> f;
+        public Runnable g;
+        public xe3 h;
+        public final /* synthetic */ ye3 i;
 
-        public a(ye3 ye3Var, int i) {
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.d.lock();
+                    try {
+                        if (!this.a.b) {
+                            return;
+                        }
+                        this.a.m(this.a.f);
+                        this.a.b = false;
+                    } finally {
+                        this.a.d.unlock();
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements xe3 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // com.baidu.tieba.xe3
+            public void a(List<ScanResult> list) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
+                    return;
+                }
+                this.a.f = list;
+                this.a.d.lock();
+                try {
+                    if (!this.a.b) {
+                        return;
+                    }
+                    this.a.e.removeCallbacks(this.a.g);
+                    this.a.m(list);
+                    this.a.b = false;
+                } finally {
+                    this.a.d.unlock();
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.ye3$c$c  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0479c implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ xi3 a;
+            public final /* synthetic */ c b;
+
+            public RunnableC0479c(c cVar, xi3 xi3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, xi3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = cVar;
+                this.a = xi3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (!this.b.i.e) {
+                        this.b.i.g(12000, "not init", null, this.a);
+                    } else if (!this.b.i.b.isWifiEnabled()) {
+                        this.b.i.g(12005, "wifi is not on", null, this.a);
+                    } else if (!yh3.K(this.b.i.a)) {
+                        this.b.i.g(12006, "LBS is not on", null, this.a);
+                    } else if (ContextCompat.checkSelfPermission(this.b.i.a, com.kuaishou.weapon.p0.h.g) != 0) {
+                        this.b.i.g(12012, "no location permission", null, this.a);
+                    } else {
+                        this.b.d.lock();
+                        try {
+                            if (this.b.b) {
+                                this.b.c.add(this.a);
+                                return;
+                            }
+                            this.b.b = true;
+                            this.b.d.unlock();
+                            this.b.e.postDelayed(this.b.g, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+                            this.b.i.b.startScan();
+                            this.b.i.g(0, "success", null, this.a);
+                        } finally {
+                            this.b.d.unlock();
+                        }
+                    }
+                }
+            }
+        }
+
+        public c(ye3 ye3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, Integer.valueOf(i)};
+                Object[] objArr = {ye3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ye3Var;
-            this.a = i;
+            this.i = ye3Var;
+            this.a = new CopyOnWriteArrayList();
+            this.b = false;
+            this.c = new CopyOnWriteArrayList();
+            this.d = new ReentrantLock();
+            this.e = new Handler(Looper.getMainLooper());
+            this.g = new a(this);
+            b bVar = new b(this);
+            this.h = bVar;
+            ye3Var.c.setScanListener(bVar);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public final void m(List<ScanResult> list) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (list != null) {
+                    for (ScanResult scanResult : list) {
+                        arrayList.add(new df3(scanResult));
+                    }
+                }
+                List<xi3<ef3<List<df3>>>> list2 = this.a;
+                for (xi3<ef3<List<df3>>> xi3Var : list2) {
+                    this.i.g(0, "success", arrayList, xi3Var);
+                }
+                List<xi3<ef3<Void>>> list3 = this.c;
+                this.c = new CopyOnWriteArrayList();
+                for (xi3<ef3<Void>> xi3Var2 : list3) {
+                    this.i.g(0, "success", null, xi3Var2);
+                    for (xi3<ef3<List<df3>>> xi3Var3 : list2) {
+                        this.i.g(0, "success", arrayList, xi3Var3);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.af3
+        public boolean b(xi3<ef3<List<df3>>> xi3Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xi3Var)) == null) {
+                if (xi3Var == null) {
+                    return false;
+                }
+                List<xi3<ef3<List<df3>>>> list = this.a;
+                if (!list.contains(xi3Var)) {
+                    return true;
+                }
+                return list.remove(xi3Var);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.af3
+        public void c(xi3<ef3<Void>> xi3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi3Var) != null) || xi3Var == null) {
                 return;
             }
-            this.b.g(this.a);
+            yg3.k(new RunnableC0479c(this, xi3Var), "wifiScan");
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppBottomTabIconView a;
-        public final /* synthetic */ Bitmap b;
-        public final /* synthetic */ ye3 c;
-
-        public b(ye3 ye3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
+        @Override // com.baidu.tieba.af3
+        public boolean d(xi3<ef3<List<df3>>> xi3Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, swanAppBottomTabIconView, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi3Var)) == null) {
+                if (xi3Var == null) {
+                    return false;
                 }
+                List<xi3<ef3<List<df3>>>> list = this.a;
+                if (list.contains(xi3Var)) {
+                    return true;
+                }
+                return list.add(xi3Var);
             }
-            this.c = ye3Var;
-            this.a = swanAppBottomTabIconView;
-            this.b = bitmap;
+            return invokeL.booleanValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void n() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setIconView(this.b);
-                if (this.c.h == null) {
-                    this.a.setTextColor(this.c.e.a);
-                } else {
-                    this.a.setTextColor(SwanAppConfigData.t(this.c.h));
-                }
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.a = new CopyOnWriteArrayList();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppBottomTabIconView a;
-        public final /* synthetic */ Bitmap b;
-        public final /* synthetic */ ye3 c;
-
-        public c(ye3 ye3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, swanAppBottomTabIconView, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ye3Var;
-            this.a = swanAppBottomTabIconView;
-            this.b = bitmap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setIconView(this.b);
-                if (this.c.i == null) {
-                    this.a.setTextColor(this.c.e.b);
-                } else {
-                    this.a.setTextColor(SwanAppConfigData.t(this.c.i));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Animator.AnimatorListener {
+    public class a implements we3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ye3 a;
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        public d(ye3 ye3Var) {
+        public a(ye3 ye3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,28 +320,31 @@ public class ye3 {
             this.a = ye3Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // com.baidu.tieba.we3
+        public void a(WifiInfo wifiInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.b.setVisibility(8);
+            if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
+                if (wifiInfo == null) {
+                    wifiInfo = this.a.b.getConnectionInfo();
+                }
+                this.a.m(wifiInfo);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppBottomTabIconView a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ xi3 a;
+        public final /* synthetic */ ye3 b;
 
-        public e(ye3 ye3Var, SwanAppBottomTabIconView swanAppBottomTabIconView, String str) {
+        public b(ye3 ye3Var, xi3 xi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, swanAppBottomTabIconView, str};
+                Object[] objArr = {ye3Var, xi3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -242,506 +354,213 @@ public class ye3 {
                     return;
                 }
             }
-            this.a = swanAppBottomTabIconView;
-            this.b = str;
+            this.b = ye3Var;
+            this.a = xi3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setTextView(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppBottomTabIconView a;
-
-        public f(ye3 ye3Var, SwanAppBottomTabIconView swanAppBottomTabIconView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye3Var, swanAppBottomTabIconView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                WifiInfo wifiInfo = null;
+                if (!this.b.e) {
+                    this.b.g(12000, "not init", null, this.a);
+                } else if (!this.b.b.isWifiEnabled()) {
+                    this.b.g(12005, "wifi is not on", null, this.a);
+                } else if (!yh3.K(this.b.a)) {
+                    this.b.g(12006, "LBS is not on", null, this.a);
+                } else if (ContextCompat.checkSelfPermission(this.b.a, com.kuaishou.weapon.p0.h.g) != 0) {
+                    this.b.g(12012, "no location permission", null, this.a);
+                } else {
+                    WifiInfo connectionInfo = this.b.b.getConnectionInfo();
+                    if (connectionInfo == null || connectionInfo.getSupplicantState() == SupplicantState.COMPLETED) {
+                        wifiInfo = connectionInfo;
+                    }
+                    ye3 ye3Var = this.b;
+                    ye3Var.g(0, "success", new df3(wifiInfo, gf3.a(ff3.b(ye3Var.a, ye3Var.b, wifiInfo))), this.a);
                 }
             }
-            this.a = swanAppBottomTabIconView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setRedDotVisibleState(false);
-            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327234, "Lcom/baidu/tieba/ye3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327234, "Lcom/baidu/tieba/ye3;");
-                return;
-            }
-        }
-        j = wj1.a;
-    }
-
-    public LinearLayout m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return (LinearLayout) invokeV.objValue;
-    }
-
-    public final jo2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            m33 M = m33.M();
-            if (M != null) {
-                return M.Y();
-            }
-            return null;
-        }
-        return (jo2) invokeV.objValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            LinearLayout linearLayout = this.b;
-            if (linearLayout != null && linearLayout.getVisibility() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ye3(u22 u22Var) {
+    public ye3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u22Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.d = u22Var;
+        this.e = false;
+        this.f = new CopyOnWriteArrayList();
+        this.g = new a(this);
+        this.a = context;
+        this.b = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        SwanWifiBroadcastReceiver swanWifiBroadcastReceiver = new SwanWifiBroadcastReceiver(this.b);
+        this.c = swanWifiBroadcastReceiver;
+        swanWifiBroadcastReceiver.setConnectSuccessListener(this.g);
+        this.d = new c(this);
     }
 
-    public int o(String str) {
+    @Override // com.baidu.tieba.af3
+    public boolean b(xi3<ef3<List<df3>>> xi3Var) {
         InterceptResult invokeL;
-        List list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (list = this.g) != null && list.size() != 0) {
-                for (int i = 0; i < this.g.size(); i++) {
-                    SwanAppConfigData.o oVar = (SwanAppConfigData.o) this.g.get(i);
-                    if (oVar != null && TextUtils.equals(oVar.a, str)) {
-                        return i;
-                    }
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xi3Var)) == null) {
+            return this.d.b(xi3Var);
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public final void t(boolean z) {
-        long j2;
+    @Override // com.baidu.tieba.af3
+    public void c(xi3<ef3<Void>> xi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, tm2.c().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700fa), 0.0f);
-            if (z) {
-                j2 = 240;
-            } else {
-                j2 = 0;
-            }
-            ofFloat.setDuration(j2);
-            ofFloat.start();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi3Var) == null) {
+            this.d.c(xi3Var);
         }
     }
 
-    public final void u(int i) {
+    @Override // com.baidu.tieba.af3
+    public boolean d(xi3<ef3<List<df3>>> xi3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            A((SwanAppBottomTabIconView) this.f.get(this.c), (SwanAppConfigData.o) this.g.get(this.c));
-            C((SwanAppBottomTabIconView) this.f.get(i), (SwanAppConfigData.o) this.g.get(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi3Var)) == null) {
+            return this.d.d(xi3Var);
         }
+        return invokeL.booleanValue;
     }
 
-    public boolean w(int i, String str) {
-        InterceptResult invokeIL;
+    public void j(xi3<ef3<df3>> xi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, str)) == null) {
-            if (!q(i)) {
-                return false;
-            }
-            SwanAppBottomTabIconView swanAppBottomTabIconView = (SwanAppBottomTabIconView) this.f.get(i);
-            swanAppBottomTabIconView.setBadgeVisibleState(true);
-            swanAppBottomTabIconView.setBadgeText(str);
-            return true;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public final void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            for (int i = 0; i < this.g.size(); i++) {
-                if (((SwanAppConfigData.o) this.g.get(i)).a.equals(str)) {
-                    u(i);
-                    this.c = i;
-                    return;
-                }
-            }
-        }
-    }
-
-    public boolean i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (!q(i)) {
-                return false;
-            }
-            ((SwanAppBottomTabIconView) this.f.get(i)).setBadgeVisibleState(false);
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            View view2 = this.a;
-            if (view2 != null && this.b != null) {
-                view2.setVisibility(8);
-                if (z) {
-                    l();
-                    return true;
-                }
-                this.b.setVisibility(8);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public boolean k(int i) {
-        InterceptResult invokeI;
-        SwanAppBottomTabIconView swanAppBottomTabIconView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (!q(i) || (swanAppBottomTabIconView = (SwanAppBottomTabIconView) this.f.get(i)) == null) {
-                return false;
-            }
-            gh3.e0(new f(this, swanAppBottomTabIconView));
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final boolean q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            ArrayList arrayList = this.f;
-            if (arrayList != null && i < arrayList.size() && i >= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean r(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            View view2 = this.a;
-            if (view2 == null || this.b == null) {
-                return false;
-            }
-            view2.setVisibility(0);
-            this.b.setVisibility(0);
-            t(z);
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public boolean s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            if (!q(i)) {
-                return false;
-            }
-            ((SwanAppBottomTabIconView) this.f.get(i)).setRedDotVisibleState(true);
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.b.setBackgroundColor(SwanAppConfigData.t(str));
-        }
-    }
-
-    public final boolean A(SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.o oVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, swanAppBottomTabIconView, oVar)) == null) {
-            jo2 n = n();
-            if (n == null) {
-                return false;
-            }
-            String l = lz2.l(n);
-            if (TextUtils.isEmpty(l)) {
-                l = im2.e.i(n.H(), n.v1()).getPath();
-            }
-            String str = l + File.separator + oVar.b;
-            if (!qj4.v(str)) {
-                return false;
-            }
-            swanAppBottomTabIconView.setmIsSelect(false);
-            gh3.e0(new b(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean C(SwanAppBottomTabIconView swanAppBottomTabIconView, SwanAppConfigData.o oVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, swanAppBottomTabIconView, oVar)) == null) {
-            jo2 n = n();
-            if (n == null) {
-                return false;
-            }
-            String l = lz2.l(n);
-            if (TextUtils.isEmpty(l)) {
-                l = im2.e.i(n.H(), n.v1()).getPath();
-            }
-            String str = l + File.separator + oVar.c;
-            if (!qj4.v(str)) {
-                return false;
-            }
-            swanAppBottomTabIconView.setmIsSelect(true);
-            gh3.e0(new c(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void f(View view2, Context context, String str) {
-        String g;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048581, this, view2, context, str) != null) || !this.d.e2()) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, xi3Var) != null) || xi3Var == null) {
             return;
         }
-        SwanAppConfigData s = zo2.U().s();
-        if (s == null) {
-            if (j) {
-                Log.e("bottomBarViewController", "configData is null." + Log.getStackTraceString(new Exception()));
+        yg3.k(new b(this, xi3Var), "getConnectedWifi");
+    }
+
+    public boolean n(xi3<ef3<df3>> xi3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, xi3Var)) == null) {
+            if (xi3Var == null) {
+                return false;
+            }
+            List<xi3<ef3<df3>>> list = this.f;
+            if (list.contains(xi3Var)) {
+                return true;
+            }
+            return list.add(xi3Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void p(xi3<ef3<Void>> xi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, xi3Var) == null) {
+            if (this.e) {
+                g(0, "success", null, xi3Var);
                 return;
             }
-            return;
-        }
-        SwanAppConfigData.n nVar = s.f;
-        this.e = nVar;
-        List list = nVar.e;
-        this.g = list;
-        int size = list.size();
-        this.f = new ArrayList(size);
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f0903e6);
-        y(this.e.c);
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090173);
-        this.b = linearLayout;
-        linearLayout.setVisibility(0);
-        this.b.setBackgroundColor(this.e.d);
-        boolean z = false;
-        for (int i = 0; i < size; i++) {
-            SwanAppBottomTabIconView swanAppBottomTabIconView = new SwanAppBottomTabIconView(context);
-            SwanAppConfigData.o oVar = (SwanAppConfigData.o) this.g.get(i);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, size);
-            layoutParams.gravity = 1;
-            if (!TextUtils.isEmpty(str)) {
-                g = str;
-            } else {
-                g = zo2.U().g();
-            }
-            if (TextUtils.equals(oVar.a, g) && !z) {
-                C(swanAppBottomTabIconView, oVar);
-                this.c = i;
-                z = true;
-            } else {
-                A(swanAppBottomTabIconView, oVar);
-            }
-            swanAppBottomTabIconView.setTextView(oVar.d);
-            swanAppBottomTabIconView.setOnClickListener(new a(this, i));
-            this.f.add(swanAppBottomTabIconView);
-            this.b.addView(swanAppBottomTabIconView, layoutParams);
+            k();
+            g(0, "success", null, xi3Var);
         }
     }
 
-    public final void g(int i) {
+    public void q(xi3<ef3<Void>> xi3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            String uuid = UUID.randomUUID().toString();
-            sw2.b(uuid);
-            u(i);
-            v(i);
-            if (this.c == i) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, xi3Var) == null) {
+            if (!this.e) {
+                g(0, "success", null, xi3Var);
                 return;
             }
-            this.c = i;
-            this.d.pause();
-            mt2 d2 = mt2.d(((SwanAppConfigData.o) this.g.get(i)).a, zo2.U().z());
-            d2.e = "5";
-            d2.f = uuid;
-            aa3.g(d2);
-            this.d.l3(d2, uuid);
-            u22.U3("switchTab");
-            this.d.resume();
+            i();
+            g(0, "success", null, xi3Var);
         }
     }
 
-    public final void v(int i) {
+    public boolean r(xi3<ef3<df3>> xi3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            HashMap hashMap = new HashMap();
-            SwanAppConfigData.o oVar = (SwanAppConfigData.o) this.g.get(i);
-            String w3 = this.d.w3(mt2.d(oVar.a, zo2.U().z()).a);
-            hashMap.put("index", String.valueOf(i));
-            hashMap.put("pagePath", oVar.a);
-            hashMap.put("text", oVar.d);
-            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, w3);
-            zo2.U().u(new nd2("onTabItemTap", hashMap));
-        }
-    }
-
-    public final void y(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048600, this, i) != null) || AppRuntime.getAppContext() == null) {
-            return;
-        }
-        if (-1 == i) {
-            this.a.setVisibility(0);
-            this.a.setBackgroundColor(-1);
-        } else if (-16777216 == i) {
-            this.a.setVisibility(0);
-            this.a.setBackgroundColor(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f5));
-        } else {
-            this.a.setVisibility(0);
-            this.a.setBackgroundColor(-1);
-        }
-    }
-
-    public boolean h(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, str, str2, str3, str4)) == null) {
-            if (this.a != null && this.b != null) {
-                y(SwanAppConfigData.t(str4));
-                z(str3);
-                B(str);
-                D(str2);
-                Iterator it = this.f.iterator();
-                while (it.hasNext()) {
-                    SwanAppBottomTabIconView swanAppBottomTabIconView = (SwanAppBottomTabIconView) it.next();
-                    if (swanAppBottomTabIconView.a()) {
-                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.t(str2));
-                    } else {
-                        swanAppBottomTabIconView.setTextColor(SwanAppConfigData.t(str));
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, 0.0f, tm2.c().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700fa));
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new DecelerateInterpolator());
-            ofFloat.addListener(new d(this));
-            ofFloat.start();
-        }
-    }
-
-    public boolean x(int i, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            if (!q(i)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, xi3Var)) == null) {
+            if (xi3Var == null) {
                 return false;
             }
-            SwanAppBottomTabIconView swanAppBottomTabIconView = (SwanAppBottomTabIconView) this.f.get(i);
-            gh3.e0(new e(this, swanAppBottomTabIconView, str));
-            if (!TextUtils.isEmpty(str2)) {
-                ((SwanAppConfigData.o) this.g.get(i)).b = str2;
+            List<xi3<ef3<df3>>> list = this.f;
+            if (!list.contains(xi3Var)) {
+                return true;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                ((SwanAppConfigData.o) this.g.get(i)).c = str3;
-            }
-            if (swanAppBottomTabIconView.a()) {
-                return C(swanAppBottomTabIconView, (SwanAppConfigData.o) this.g.get(i));
-            }
-            return A(swanAppBottomTabIconView, (SwanAppConfigData.o) this.g.get(i));
+            return list.remove(xi3Var);
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public <ResultType> void g(int i, String str, ResultType resulttype, xi3<ef3<ResultType>> xi3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, resulttype, xi3Var}) != null) || xi3Var == null) {
+            return;
+        }
+        ef3<ResultType> ef3Var = new ef3<>();
+        ef3Var.a = i;
+        ef3Var.b = str;
+        ef3Var.c = resulttype;
+        xi3Var.a(ef3Var);
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.unregisterSelf(this.a);
+            this.f = new CopyOnWriteArrayList();
+            ((c) this.d).n();
+            o(false);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.unregisterSelf(this.a);
+            o(false);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.registerSelf(this.a);
+            o(true);
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m(WifiInfo wifiInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, wifiInfo) == null) {
+            for (xi3<ef3<df3>> xi3Var : this.f) {
+                g(0, "success", new df3(wifiInfo, gf3.a(ff3.b(this.a, this.b, wifiInfo))), xi3Var);
+            }
+        }
     }
 }

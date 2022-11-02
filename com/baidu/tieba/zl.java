@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.base.BdBaseApplication;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zl implements IResourcesFetcher {
+public abstract class zl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    public abstract String a();
 
     public zl() {
         Interceptable interceptable = $ic;
@@ -24,34 +28,79 @@ public class zl implements IResourcesFetcher {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        if (TextUtils.isEmpty(a())) {
+            return;
+        }
+        try {
+            new JSONObject().put("version", i);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void c(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
+            String str = a + "_download";
+            if (i == 0) {
+                yl.c(str, arrayList);
+            } else {
+                yl.b(str, arrayList);
             }
         }
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getBaseContextResources() {
-        InterceptResult invokeV;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_install";
+            if (i == 13) {
+                yl.c(str, arrayList);
+            } else {
+                yl.b(str, arrayList);
+            }
         }
-        return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getGlobalResources() {
-        InterceptResult invokeV;
+    public void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String a = a();
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
+            String str = a + "_launch";
+            if (i == 14) {
+                yl.c(str, arrayList);
+            } else {
+                yl.b(str, arrayList);
+            }
         }
-        return (Resources) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources[] getWrapperResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

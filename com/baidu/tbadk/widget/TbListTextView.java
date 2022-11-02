@@ -1,5 +1,6 @@
 package com.baidu.tbadk.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"WrongCall"})
 /* loaded from: classes3.dex */
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -23,14 +25,14 @@ public class TbListTextView extends TextView {
     public boolean a;
 
     /* loaded from: classes3.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
-        public final List b;
-        public final List c;
+        public final List<Object> b;
+        public final List<Object> c;
 
-        public a(boolean z, List list, List list2) {
+        public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +52,7 @@ public class TbListTextView extends TextView {
             this.c = list2;
         }
 
-        public static a a(List list, List list2) {
+        public static a a(List<Object> list, List<Object> list2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) {

@@ -1,61 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.webkit.WebViewAssetLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes3.dex */
-public class bm4 extends xl4 {
+public final class bm4 implements WebViewAssetLoader.PathHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long e;
+    @NonNull
+    public final File a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bm4(rl4 rl4Var) {
-        super(rl4Var);
+    public bm4(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rl4Var};
+            Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rl4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = System.currentTimeMillis();
+        try {
+            this.a = new File(am4.a(file));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
+        }
     }
 
-    public synchronized long i() {
-        InterceptResult invokeV;
-        long j;
+    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+    @NonNull
+    @WorkerThread
+    public WebResourceResponse handle(@NonNull String str) {
+        InterceptResult invokeL;
+        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                this.e = System.currentTimeMillis() + 60000;
-                j = this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                b = am4.b(this.a, str);
+            } catch (IOException e) {
+                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
             }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (System.currentTimeMillis() - this.e >= 60000) {
-                return true;
+            if (b != null) {
+                return new WebResourceResponse(am4.c(str), null, am4.e(b));
             }
-            return false;
+            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
+            return new WebResourceResponse(null, null, null);
         }
-        return invokeV.booleanValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 }

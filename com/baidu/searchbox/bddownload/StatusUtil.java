@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -22,7 +24,7 @@ public class StatusUtil {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Status {
+    public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status COMPLETED;
@@ -106,7 +108,8 @@ public class StatusUtil {
         }
     }
 
-    public static DownloadTask createFinder(String str, String str2, String str3) {
+    @NonNull
+    public static DownloadTask createFinder(@NonNull String str, @NonNull String str2, @Nullable String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
@@ -115,7 +118,8 @@ public class StatusUtil {
         return (DownloadTask) invokeLLL.objValue;
     }
 
-    public static BreakpointInfo getCurrentInfo(String str, String str2, String str3) {
+    @Nullable
+    public static BreakpointInfo getCurrentInfo(@NonNull String str, @NonNull String str2, @Nullable String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
@@ -124,7 +128,7 @@ public class StatusUtil {
         return (BreakpointInfo) invokeLLL.objValue;
     }
 
-    public static Status getStatus(String str, String str2, String str3) {
+    public static Status getStatus(@NonNull String str, @NonNull String str2, @Nullable String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
@@ -133,7 +137,7 @@ public class StatusUtil {
         return (Status) invokeLLL.objValue;
     }
 
-    public static boolean isCompleted(String str, String str2, String str3) {
+    public static boolean isCompleted(@NonNull String str, @NonNull String str2, @Nullable String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
@@ -142,7 +146,8 @@ public class StatusUtil {
         return invokeLLL.booleanValue;
     }
 
-    public static BreakpointInfo getCurrentInfo(DownloadTask downloadTask) {
+    @Nullable
+    public static BreakpointInfo getCurrentInfo(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadTask)) == null) {
@@ -156,7 +161,7 @@ public class StatusUtil {
         return (BreakpointInfo) invokeL.objValue;
     }
 
-    public static boolean isCompleted(DownloadTask downloadTask) {
+    public static boolean isCompleted(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, downloadTask)) == null) {
@@ -168,7 +173,7 @@ public class StatusUtil {
         return invokeL.booleanValue;
     }
 
-    public static boolean isSameTaskPendingOrRunning(DownloadTask downloadTask) {
+    public static boolean isSameTaskPendingOrRunning(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, downloadTask)) == null) {
@@ -180,7 +185,7 @@ public class StatusUtil {
         return invokeL.booleanValue;
     }
 
-    public static Status getStatus(DownloadTask downloadTask) {
+    public static Status getStatus(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask)) == null) {
@@ -201,7 +206,7 @@ public class StatusUtil {
         return (Status) invokeL.objValue;
     }
 
-    public static Status isCompletedOrUnknown(DownloadTask downloadTask) {
+    public static Status isCompletedOrUnknown(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, downloadTask)) == null) {

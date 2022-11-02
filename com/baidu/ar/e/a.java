@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class a implements b {
+public abstract class a<InT, OutT> implements b<InT, OutT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean qH;
-    public a tD;
-    public Object tE;
+    public a<OutT, ?> tD;
+    public OutT tE;
     public boolean tF;
     public boolean tG;
     public boolean tH;
@@ -46,7 +46,7 @@ public abstract class a implements b {
     }
 
     private void fo() {
-        a aVar;
+        a<OutT, ?> aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.qH || !this.tF || (aVar = this.tD) == null) {
             return;
@@ -59,7 +59,9 @@ public abstract class a implements b {
         }
     }
 
-    public b a(a aVar) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.ar.e.a<OutT, T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> b<OutT, T> a(a<OutT, T> aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
@@ -78,7 +80,7 @@ public abstract class a implements b {
         iError.onError(i, str, null);
     }
 
-    public abstract void a(Object obj, ICallbackWith iCallbackWith, IError iError);
+    public abstract void a(InT r1, ICallbackWith<OutT> iCallbackWith, IError iError);
 
     public final void b(int i, String str) {
         Interceptable interceptable = $ic;
@@ -134,12 +136,12 @@ public abstract class a implements b {
 
     public abstract void fp();
 
-    public final void h(Object obj) {
+    public final void h(InT r5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, obj) == null) || this.qH) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, r5) == null) || this.qH) {
             return;
         }
-        a(obj, new ICallbackWith(this) { // from class: com.baidu.ar.e.a.1
+        a((a<InT, OutT>) r5, new ICallbackWith<OutT>(this) { // from class: com.baidu.ar.e.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a tK;
@@ -163,15 +165,15 @@ public abstract class a implements b {
             }
 
             @Override // com.baidu.ar.callback.ICallbackWith
-            public void run(Object obj2) {
+            public void run(OutT outt) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, outt) == null) {
                     this.tK.tF = true;
-                    this.tK.tE = obj2;
+                    this.tK.tE = outt;
                     if (this.tK.qH || this.tK.tD == null) {
                         return;
                     }
-                    this.tK.tD.h(obj2);
+                    this.tK.tD.h(outt);
                 }
             }
         }, new IError(this) { // from class: com.baidu.ar.e.a.2

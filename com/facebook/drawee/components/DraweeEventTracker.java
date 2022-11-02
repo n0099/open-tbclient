@@ -17,11 +17,11 @@ public class DraweeEventTracker {
     public static boolean sEnabled;
     public static final DraweeEventTracker sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue mEventQueue;
+    public final Queue<Event> mEventQueue;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Event {
+    public static final class Event {
         public static final /* synthetic */ Event[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Event ON_ACTIVITY_START;

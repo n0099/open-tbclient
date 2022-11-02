@@ -1,9 +1,11 @@
 package kotlin.jvm.internal;
 
+import kotlin.SinceKotlin;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
 /* loaded from: classes8.dex */
 public class PropertyReference2Impl extends PropertyReference2 {
+    @SinceKotlin(version = "1.4")
     public PropertyReference2Impl(Class cls, String str, String str2, int i) {
         super(cls, str, str2, i);
     }

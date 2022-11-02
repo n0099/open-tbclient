@@ -18,10 +18,10 @@ public class CloudControlRequestInfo {
     public Object mFilter;
     public boolean mIsForceDispatch;
     public Object mPostData;
-    public HashMap mQueryData;
+    public HashMap<String, String> mQueryData;
     public String mServiceName;
 
-    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class CloudControlRequestInfo {
         this.mCheckInfo = obj2;
     }
 
-    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2, Object obj3) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class CloudControlRequestInfo {
         this.mFilter = obj3;
     }
 
-    public CloudControlRequestInfo(String str, Object obj, HashMap hashMap, Object obj2, Object obj3, boolean z) {
+    public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2, Object obj3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,12 +123,12 @@ public class CloudControlRequestInfo {
         return invokeV.objValue;
     }
 
-    public HashMap getQueryData() {
+    public HashMap<String, String> getQueryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mQueryData == null) {
-                this.mQueryData = new HashMap();
+                this.mQueryData = new HashMap<>();
             }
             return this.mQueryData;
         }

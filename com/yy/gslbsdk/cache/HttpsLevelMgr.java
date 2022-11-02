@@ -1,7 +1,6 @@
 package com.yy.gslbsdk.cache;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -160,7 +159,7 @@ public class HttpsLevelMgr {
                         SwitchController.getInstance().deal(1);
                         return 3;
                     }
-                    int i = jSONObject.getInt(PollingModel.LEVEL);
+                    int i = jSONObject.getInt("level");
                     SwitchController.getInstance().deal(i);
                     if (i >= 0 && 2 >= i) {
                         setHttpsLevel(i);

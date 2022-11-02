@@ -15,7 +15,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ObservableTakeLastTimed extends AbstractObservableWithUpstream {
+public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -26,22 +26,22 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TakeLastTimedObserver extends AtomicBoolean implements Observer, Disposable {
+    public static final class TakeLastTimedObserver<T> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5677354903406201275L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public volatile boolean cancelled;
         public final long count;
         public Disposable d;
         public final boolean delayError;
         public Throwable error;
-        public final SpscLinkedArrayQueue queue;
+        public final SpscLinkedArrayQueue<Object> queue;
         public final Scheduler scheduler;
         public final long time;
         public final TimeUnit unit;
 
-        public TakeLastTimedObserver(Observer observer, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+        public TakeLastTimedObserver(Observer<? super T> observer, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
             this.time = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue(i);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.delayError = z;
         }
 
@@ -102,8 +102,8 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !compareAndSet(false, true)) {
                 return;
             }
-            Observer observer = this.actual;
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            Observer<? super T> observer = this.actual;
+            SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
             boolean z2 = this.delayError;
             while (!this.cancelled) {
                 if (!z2 && (th = this.error) != null) {
@@ -154,11 +154,11 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                 long now = this.scheduler.now(this.unit);
                 long j = this.time;
                 long j2 = this.count;
@@ -167,7 +167,7 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
                 } else {
                     z = false;
                 }
-                spscLinkedArrayQueue.offer(Long.valueOf(now), obj);
+                spscLinkedArrayQueue.offer(Long.valueOf(now), t);
                 while (!spscLinkedArrayQueue.isEmpty()) {
                     if (((Long) spscLinkedArrayQueue.peek()).longValue() <= now - j || (!z && (spscLinkedArrayQueue.size() >> 1) > j2)) {
                         spscLinkedArrayQueue.poll();
@@ -181,7 +181,7 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeLastTimed(ObservableSource observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
+    public ObservableTakeLastTimed(ObservableSource<T> observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -207,7 +207,7 @@ public final class ObservableTakeLastTimed extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new TakeLastTimedObserver(observer, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));

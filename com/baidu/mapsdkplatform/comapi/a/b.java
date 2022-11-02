@@ -36,13 +36,15 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            animationListener = this.a.d;
-            if (animationListener != null) {
-                animationListener2 = this.a.d;
-                animationListener2.onAnimationCancel();
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+            return;
         }
+        animationListener = this.a.d;
+        if (animationListener == null) {
+            return;
+        }
+        animationListener2 = this.a.d;
+        animationListener2.onAnimationCancel();
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -50,13 +52,15 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            animationListener = this.a.d;
-            if (animationListener != null) {
-                animationListener2 = this.a.d;
-                animationListener2.onAnimationEnd();
-            }
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
+            return;
         }
+        animationListener = this.a.d;
+        if (animationListener == null) {
+            return;
+        }
+        animationListener2 = this.a.d;
+        animationListener2.onAnimationEnd();
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -64,13 +68,15 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            animationListener = this.a.d;
-            if (animationListener != null) {
-                animationListener2 = this.a.d;
-                animationListener2.onAnimationRepeat();
-            }
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) {
+            return;
         }
+        animationListener = this.a.d;
+        if (animationListener == null) {
+            return;
+        }
+        animationListener2 = this.a.d;
+        animationListener2.onAnimationRepeat();
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -78,12 +84,14 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            animationListener = this.a.d;
-            if (animationListener != null) {
-                animationListener2 = this.a.d;
-                animationListener2.onAnimationStart();
-            }
+        if (interceptable != null && interceptable.invokeL(1048579, this, animator) != null) {
+            return;
         }
+        animationListener = this.a.d;
+        if (animationListener == null) {
+            return;
+        }
+        animationListener2 = this.a.d;
+        animationListener2.onAnimationStart();
     }
 }

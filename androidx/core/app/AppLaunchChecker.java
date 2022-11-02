@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
 import androidx.core.content.IntentCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +33,7 @@ public class AppLaunchChecker {
         }
     }
 
-    public static boolean hasStartedFromLauncher(Context context) {
+    public static boolean hasStartedFromLauncher(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -41,7 +42,7 @@ public class AppLaunchChecker {
         return invokeL.booleanValue;
     }
 
-    public static void onActivityCreate(Activity activity) {
+    public static void onActivityCreate(@NonNull Activity activity) {
         Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {

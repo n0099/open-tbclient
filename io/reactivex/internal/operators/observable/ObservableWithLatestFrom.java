@@ -16,18 +16,18 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableWithLatestFrom extends AbstractObservableWithUpstream {
+public final class ObservableWithLatestFrom<T, U, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction combiner;
-    public final ObservableSource other;
+    public final BiFunction<? super T, ? super U, ? extends R> combiner;
+    public final ObservableSource<? extends U> other;
 
     /* loaded from: classes8.dex */
-    public final class WithLastFrom implements Observer {
+    public final class WithLastFrom implements Observer<U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ObservableWithLatestFrom this$0;
-        public final WithLatestFromObserver wlf;
+        public final WithLatestFromObserver<T, U, R> wlf;
 
         @Override // io.reactivex.Observer
         public void onComplete() {
@@ -36,7 +36,7 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
             }
         }
 
-        public WithLastFrom(ObservableWithLatestFrom observableWithLatestFrom, WithLatestFromObserver withLatestFromObserver) {
+        public WithLastFrom(ObservableWithLatestFrom observableWithLatestFrom, WithLatestFromObserver<T, U, R> withLatestFromObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,10 +64,10 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(U u) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.wlf.lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u) == null) {
+                this.wlf.lazySet(u);
             }
         }
 
@@ -81,16 +81,16 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
     }
 
     /* loaded from: classes8.dex */
-    public final class WithLatestFromObserver extends AtomicReference implements Observer, Disposable {
+    public static final class WithLatestFromObserver<T, U, R> extends AtomicReference<U> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -312246233408980075L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final BiFunction combiner;
-        public final AtomicReference other;
-        public final AtomicReference s;
+        public final Observer<? super R> actual;
+        public final BiFunction<? super T, ? super U, ? extends R> combiner;
+        public final AtomicReference<Disposable> other;
+        public final AtomicReference<Disposable> s;
 
-        public WithLatestFromObserver(Observer observer, BiFunction biFunction) {
+        public WithLatestFromObserver(Observer<? super R> observer, BiFunction<? super T, ? super U, ? extends R> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +105,8 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
                     return;
                 }
             }
-            this.s = new AtomicReference();
-            this.other = new AtomicReference();
+            this.s = new AtomicReference<>();
+            this.other = new AtomicReference<>();
             this.actual = observer;
             this.combiner = biFunction;
         }
@@ -125,7 +125,7 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.s.get());
+                return DisposableHelper.isDisposed(this.s.get());
             }
             return invokeV.booleanValue;
         }
@@ -174,12 +174,12 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
-            Object obj2;
+        public void onNext(T t) {
+            U u;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && (obj2 = get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (u = get()) != null) {
                 try {
-                    this.actual.onNext(ObjectHelper.requireNonNull(this.combiner.apply(obj, obj2), "The combiner returned a null value"));
+                    this.actual.onNext(ObjectHelper.requireNonNull(this.combiner.apply(t, u), "The combiner returned a null value"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     dispose();
@@ -190,7 +190,7 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWithLatestFrom(ObservableSource observableSource, BiFunction biFunction, ObservableSource observableSource2) {
+    public ObservableWithLatestFrom(ObservableSource<T> observableSource, BiFunction<? super T, ? super U, ? extends R> biFunction, ObservableSource<? extends U> observableSource2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -212,7 +212,7 @@ public final class ObservableWithLatestFrom extends AbstractObservableWithUpstre
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

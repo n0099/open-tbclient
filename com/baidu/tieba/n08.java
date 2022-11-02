@@ -1,39 +1,114 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class n08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public View.OnClickListener b;
-    public RelativeLayout c;
-    public HeadImageView d;
-    public TextView e;
-    public TextView f;
-    public ImageView g;
+    public PbModel a;
+    public b b;
+    public final BdUniqueId c;
+    public final pb d;
 
-    public n08(PbFragment pbFragment, View.OnClickListener onClickListener) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str, String str2);
+
+        void onSuccess(List<PostData> list);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends pb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n08 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(n08 n08Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n08Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n08Var;
+        }
+
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag() != this.a.c) {
+                return;
+            }
+            if (responsedMessage instanceof LookMoreHttpResMessage) {
+                LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                List<PostData> data = lookMoreHttpResMessage.getData();
+                String errorString = lookMoreHttpResMessage.getErrorString();
+                int error = lookMoreHttpResMessage.getError();
+                if (error == 0) {
+                    if (!ListUtils.isEmpty(data)) {
+                        this.a.b.onSuccess(data);
+                        return;
+                    }
+                    return;
+                }
+                this.a.b.a(error, errorString, "");
+            } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                List<PostData> data2 = lookMoreSocketResMessage.getData();
+                String errorString2 = lookMoreSocketResMessage.getErrorString();
+                int error2 = lookMoreSocketResMessage.getError();
+                if (error2 == 0) {
+                    if (data2 != null) {
+                        this.a.b.onSuccess(data2);
+                        return;
+                    }
+                    return;
+                }
+                this.a.b.a(error2, errorString2, "");
+            }
+        }
+    }
+
+    public n08(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, onClickListener};
+            Object[] objArr = {pbModel, baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,99 +118,54 @@ public class n08 {
                 return;
             }
         }
+        this.d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        this.a = pbModel;
+        this.c = BdUniqueId.gen();
+        e();
+        this.d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.d);
         this.b = null;
-        this.a = pbFragment;
-        this.b = onClickListener;
-        b();
     }
 
-    public void a(BdTypeListView bdTypeListView, int i) {
-        RelativeLayout relativeLayout;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.x(relativeLayout, i);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void b() {
+    public void c(List<Long> list) {
+        PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c != null) {
-            return;
-        }
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ed, (ViewGroup) null);
-        this.c = relativeLayout;
-        HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091013);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setPlaceHolder(1);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923cd);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923cc);
-        this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091012);
-        this.c.setOnClickListener(this.b);
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            RelativeLayout relativeLayout = this.c;
-            if (relativeLayout != null) {
-                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
-            }
-            HeadImageView headImageView = this.d;
-            if (headImageView != null) {
-                headImageView.setSkinType(i);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-            }
-            TextView textView2 = this.f;
-            if (textView2 != null) {
-                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.g;
-            if (imageView != null) {
-                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (pbModel = this.a) != null && pbModel.S1() != null) {
+            int l = xi.l(TbadkCoreApplication.getInst());
+            int j = xi.j(TbadkCoreApplication.getInst());
+            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+            lookMoreReqMessage.setKz(Long.valueOf(wg.g(this.a.b, 0L)));
+            lookMoreReqMessage.setPost_id(list);
+            lookMoreReqMessage.setSt_type(wg.e(this.a.mStType, 0));
+            lookMoreReqMessage.setWith_floor(1);
+            lookMoreReqMessage.setScr_w(l);
+            lookMoreReqMessage.setScr_h(j);
+            lookMoreReqMessage.setTag(this.c);
+            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
         }
     }
 
-    public void d(BdTypeListView bdTypeListView) {
-        RelativeLayout relativeLayout;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && bdTypeListView != null && (relativeLayout = this.c) != null) {
-            bdTypeListView.removeHeaderView(relativeLayout);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    public void e(uv7 uv7Var, BdTypeListView bdTypeListView) {
-        String charSequence;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, uv7Var, bdTypeListView) == null) && uv7Var != null && bdTypeListView != null) {
-            if (uv7Var.P().isVideoThreadType() && uv7Var.P().getSmartApp() != null) {
-                SmartApp smartApp = uv7Var.P().getSmartApp();
-                this.c.setVisibility(0);
-                d(bdTypeListView);
-                a(bdTypeListView, 1);
-                if (!ej.isEmpty(smartApp.avatar)) {
-                    this.d.M(smartApp.avatar, 10, false, false);
-                }
-                if (!ej.isEmpty(smartApp.name)) {
-                    charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11de));
-                } else {
-                    charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f092b).toString();
-                }
-                this.e.setText(charSequence);
-                if (!ej.isEmpty(smartApp._abstract)) {
-                    this.f.setText(smartApp._abstract);
-                } else {
-                    this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11dd));
-                }
-                this.c.setTag(smartApp);
-                return;
-            }
-            this.c.setVisibility(8);
-            d(bdTypeListView);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, io8.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            io8.f(309446, LookMoreSocketResMessage.class, false);
         }
     }
 }

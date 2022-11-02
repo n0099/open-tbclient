@@ -7,19 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class ScalarSubscription extends AtomicInteger implements QueueSubscription {
+public final class ScalarSubscription<T> extends AtomicInteger implements QueueSubscription<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCELLED = 2;
     public static final int NO_REQUEST = 0;
     public static final int REQUESTED = 1;
     public static final long serialVersionUID = -3830916580126663321L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber subscriber;
-    public final Object value;
+    public final Subscriber<? super T> subscriber;
+    public final T value;
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
     public int requestFusion(int i) {
@@ -28,12 +29,12 @@ public final class ScalarSubscription extends AtomicInteger implements QueueSubs
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i & 1 : invokeI.intValue;
     }
 
-    public ScalarSubscription(Subscriber subscriber, Object obj) {
+    public ScalarSubscription(Subscriber<? super T> subscriber, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {subscriber, obj};
+            Object[] objArr = {subscriber, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +45,7 @@ public final class ScalarSubscription extends AtomicInteger implements QueueSubs
             }
         }
         this.subscriber = subscriber;
-        this.value = obj;
+        this.value = t;
     }
 
     @Override // org.reactivestreams.Subscription
@@ -89,7 +90,8 @@ public final class ScalarSubscription extends AtomicInteger implements QueueSubs
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public Object poll() {
+    @Nullable
+    public T poll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -99,25 +101,26 @@ public final class ScalarSubscription extends AtomicInteger implements QueueSubs
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(Object obj) {
+    public boolean offer(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v1. Raw type applied. Possible types: T, ? super T */
     @Override // org.reactivestreams.Subscription
     public void request(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j) && compareAndSet(0, 1)) {
-            Subscriber subscriber = this.subscriber;
-            subscriber.onNext(this.value);
+            Subscriber<? super T> subscriber = this.subscriber;
+            subscriber.onNext((T) this.value);
             if (get() != 2) {
                 subscriber.onComplete();
             }
@@ -125,10 +128,10 @@ public final class ScalarSubscription extends AtomicInteger implements QueueSubs
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(Object obj, Object obj2) {
+    public boolean offer(T t, T t2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, t, t2)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeLL.booleanValue;

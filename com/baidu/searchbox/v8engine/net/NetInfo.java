@@ -28,13 +28,13 @@ public class NetInfo {
     public Timing mTiming;
 
     /* loaded from: classes2.dex */
-    public class Dns {
+    public static class Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
 
         /* loaded from: classes2.dex */
-        public class Config {
+        public static class Config {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class NetInfo {
         }
 
         /* loaded from: classes2.dex */
-        public class Result {
+        public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Socket {
+    public static class Socket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
@@ -101,7 +101,7 @@ public class NetInfo {
         public boolean mReused;
 
         /* loaded from: classes2.dex */
-        public class Attempts {
+        public static class Attempts {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,13 +153,13 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class SwanExtra {
+    public static class SwanExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Timing mTiming;
 
         /* loaded from: classes2.dex */
-        public class Timing {
+        public static class Timing {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long mConnectTime;
@@ -208,7 +208,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Base {
+    public static class Base {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
@@ -252,7 +252,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class JSONObjectUtils {
+    public static class JSONObjectUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -374,7 +374,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Quic {
+    public static class Quic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -394,7 +394,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Response {
+    public static class Response {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mBackupJob;
@@ -462,7 +462,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Ssl {
+    public static class Ssl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mClientCertSent;
@@ -508,7 +508,7 @@ public class NetInfo {
     }
 
     /* loaded from: classes2.dex */
-    public class Timing {
+    public static class Timing {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mConnect;

@@ -16,6 +16,10 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.math.MathUtils;
 import androidx.core.text.TextDirectionHeuristicCompat;
 import androidx.core.text.TextDirectionHeuristicsCompat;
@@ -35,16 +39,19 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
+    @NonNull
     public static final Paint DEBUG_DRAW_PAINT;
     public static final String ELLIPSIS_NORMAL = "…";
     public static final String TAG = "CollapsingTextHelper";
     public static final boolean USE_SCALING_TEXTURE;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean boundsChanged;
+    @NonNull
     public final Rect collapsedBounds;
     public float collapsedDrawX;
     public float collapsedDrawY;
@@ -58,12 +65,14 @@ public final class CollapsingTextHelper {
     public int collapsedTextGravity;
     public float collapsedTextSize;
     public Typeface collapsedTypeface;
+    @NonNull
     public final RectF currentBounds;
     public float currentDrawX;
     public float currentDrawY;
     public float currentTextSize;
     public Typeface currentTypeface;
     public boolean drawTitle;
+    @NonNull
     public final Rect expandedBounds;
     public float expandedDrawX;
     public float expandedDrawY;
@@ -78,6 +87,7 @@ public final class CollapsingTextHelper {
     public ColorStateList expandedTextColor;
     public int expandedTextGravity;
     public float expandedTextSize;
+    @Nullable
     public Bitmap expandedTitleTexture;
     public Typeface expandedTypeface;
     public boolean isRtl;
@@ -85,18 +95,22 @@ public final class CollapsingTextHelper {
     public TimeInterpolator positionInterpolator;
     public float scale;
     public int[] state;
+    @Nullable
     public CharSequence text;
     public StaticLayout textLayout;
+    @NonNull
     public final TextPaint textPaint;
     public TimeInterpolator textSizeInterpolator;
+    @Nullable
     public CharSequence textToDraw;
     public CharSequence textToDrawCollapsed;
     public Paint texturePaint;
+    @NonNull
     public final TextPaint tmpPaint;
     public boolean useTexture;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1074view;
+    public final View f1075view;
 
     static {
         InterceptResult invokeClinit;
@@ -159,7 +173,7 @@ public final class CollapsingTextHelper {
         this.expandedTextSize = 15.0f;
         this.collapsedTextSize = 15.0f;
         this.maxLines = 1;
-        this.f1074view = view2;
+        this.f1075view = view2;
         this.textPaint = new TextPaint(129);
         this.tmpPaint = new TextPaint(this.textPaint);
         this.collapsedBounds = new Rect();
@@ -167,7 +181,7 @@ public final class CollapsingTextHelper {
         this.currentBounds = new RectF();
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             int save = canvas.save();
@@ -331,6 +345,7 @@ public final class CollapsingTextHelper {
         }
     }
 
+    @ColorInt
     private int getCurrentExpandedTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -344,7 +359,7 @@ public final class CollapsingTextHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
-            if (ViewCompat.getLayoutDirection(this.f1074view) == 1) {
+            if (ViewCompat.getLayoutDirection(this.f1075view) == 1) {
                 return true;
             }
             return false;
@@ -429,6 +444,7 @@ public final class CollapsingTextHelper {
         return (Typeface) invokeV.objValue;
     }
 
+    @ColorInt
     public int getCurrentCollapsedTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -506,6 +522,7 @@ public final class CollapsingTextHelper {
         return invokeV.intValue;
     }
 
+    @Nullable
     public CharSequence getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -531,13 +548,13 @@ public final class CollapsingTextHelper {
 
     public void recalculate() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.f1074view.getHeight() > 0 && this.f1074view.getWidth() > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.f1075view.getHeight() > 0 && this.f1075view.getWidth() > 0) {
             calculateBaseOffsets();
             calculateCurrentOffsets();
         }
     }
 
-    private boolean calculateIsRtl(CharSequence charSequence) {
+    private boolean calculateIsRtl(@NonNull CharSequence charSequence) {
         InterceptResult invokeL;
         TextDirectionHeuristicCompat textDirectionHeuristicCompat;
         Interceptable interceptable = $ic;
@@ -552,7 +569,8 @@ public final class CollapsingTextHelper {
         return invokeL.booleanValue;
     }
 
-    private int getCurrentColor(ColorStateList colorStateList) {
+    @ColorInt
+    private int getCurrentColor(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, colorStateList)) == null) {
@@ -568,7 +586,7 @@ public final class CollapsingTextHelper {
         return invokeL.intValue;
     }
 
-    private void getTextPaintCollapsed(TextPaint textPaint) {
+    private void getTextPaintCollapsed(@NonNull TextPaint textPaint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, textPaint) == null) {
             textPaint.setTextSize(this.collapsedTextSize);
@@ -576,7 +594,7 @@ public final class CollapsingTextHelper {
         }
     }
 
-    private void getTextPaintExpanded(TextPaint textPaint) {
+    private void getTextPaintExpanded(@NonNull TextPaint textPaint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, textPaint) == null) {
             textPaint.setTextSize(this.expandedTextSize);
@@ -588,7 +606,7 @@ public final class CollapsingTextHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65559, this, f) == null) {
             this.collapsedTextBlend = f;
-            ViewCompat.postInvalidateOnAnimation(this.f1074view);
+            ViewCompat.postInvalidateOnAnimation(this.f1075view);
         }
     }
 
@@ -613,7 +631,7 @@ public final class CollapsingTextHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65561, this, f) == null) {
             this.expandedTextBlend = f;
-            ViewCompat.postInvalidateOnAnimation(this.f1074view);
+            ViewCompat.postInvalidateOnAnimation(this.f1075view);
         }
     }
 
@@ -648,11 +666,11 @@ public final class CollapsingTextHelper {
             if (z) {
                 ensureExpandedTexture();
             }
-            ViewCompat.postInvalidateOnAnimation(this.f1074view);
+            ViewCompat.postInvalidateOnAnimation(this.f1075view);
         }
     }
 
-    public void setCollapsedBounds(Rect rect) {
+    public void setCollapsedBounds(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, rect) == null) {
             setCollapsedBounds(rect.left, rect.top, rect.right, rect.bottom);
@@ -690,7 +708,7 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public void setExpandedBounds(Rect rect) {
+    public void setExpandedBounds(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, rect) == null) {
             setExpandedBounds(rect.left, rect.top, rect.right, rect.bottom);
@@ -770,7 +788,7 @@ public final class CollapsingTextHelper {
         return invokeL.booleanValue;
     }
 
-    public void setText(CharSequence charSequence) {
+    public void setText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, charSequence) == null) {
             if (charSequence == null || !TextUtils.equals(this.text, charSequence)) {
@@ -816,7 +834,7 @@ public final class CollapsingTextHelper {
                 this.textPaint.setColor(getCurrentCollapsedTextColor());
             }
             this.textPaint.setShadowLayer(lerp(this.expandedShadowRadius, this.collapsedShadowRadius, f, null), lerp(this.expandedShadowDx, this.collapsedShadowDx, f, null), lerp(this.expandedShadowDy, this.collapsedShadowDy, f, null), blendColors(getCurrentColor(this.expandedShadowColor), getCurrentColor(this.collapsedShadowColor), f));
-            ViewCompat.postInvalidateOnAnimation(this.f1074view);
+            ViewCompat.postInvalidateOnAnimation(this.f1075view);
         }
     }
 
@@ -894,7 +912,7 @@ public final class CollapsingTextHelper {
         }
     }
 
-    private void drawMultinlineTransition(Canvas canvas, float f, float f2) {
+    private void drawMultinlineTransition(@NonNull Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             int alpha = this.textPaint.getAlpha();
@@ -954,7 +972,7 @@ public final class CollapsingTextHelper {
         return invokeII.floatValue;
     }
 
-    private float getCollapsedTextRightBound(RectF rectF, int i, int i2) {
+    private float getCollapsedTextRightBound(@NonNull RectF rectF, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, this, rectF, i, i2)) == null) {
@@ -988,7 +1006,7 @@ public final class CollapsingTextHelper {
     public void setCollapsedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.f1074view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1075view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.collapsedTextColor = colorStateList;
@@ -1039,7 +1057,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.f1074view.getContext(), this.collapsedFontCallback);
+            textAppearance.getFontAsync(this.f1075view.getContext(), this.collapsedFontCallback);
             recalculate();
         }
     }
@@ -1047,7 +1065,7 @@ public final class CollapsingTextHelper {
     public void setExpandedTextAppearance(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.f1074view.getContext(), i);
+            TextAppearance textAppearance = new TextAppearance(this.f1075view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.expandedTextColor = colorStateList;
@@ -1098,7 +1116,7 @@ public final class CollapsingTextHelper {
                     }
                 }
             }, textAppearance.getFallbackFont());
-            textAppearance.getFontAsync(this.f1074view.getContext(), this.expandedFontCallback);
+            textAppearance.getFontAsync(this.f1075view.getContext(), this.expandedFontCallback);
             recalculate();
         }
     }
@@ -1115,7 +1133,7 @@ public final class CollapsingTextHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static float lerp(float f, float f2, float f3, TimeInterpolator timeInterpolator) {
+    public static float lerp(float f, float f2, float f3, @Nullable TimeInterpolator timeInterpolator) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), timeInterpolator})) == null) {
@@ -1127,7 +1145,7 @@ public final class CollapsingTextHelper {
         return invokeCommon.floatValue;
     }
 
-    public static boolean rectEquals(Rect rect, int i, int i2, int i3, int i4) {
+    public static boolean rectEquals(@NonNull Rect rect, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
@@ -1139,7 +1157,7 @@ public final class CollapsingTextHelper {
         return invokeCommon.booleanValue;
     }
 
-    public void getCollapsedTextActualBounds(RectF rectF, int i, int i2) {
+    public void getCollapsedTextActualBounds(@NonNull RectF rectF, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, rectF, i, i2) == null) {
             this.isRtl = calculateIsRtl(this.text);

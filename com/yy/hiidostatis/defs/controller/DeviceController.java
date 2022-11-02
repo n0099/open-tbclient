@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +126,7 @@ public class DeviceController {
                 int intExtra2 = registerReceiver.getIntExtra("status", -1);
                 if (intExtra2 != 2 && intExtra2 != 5) {
                     z = false;
-                    float intExtra3 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                    float intExtra3 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     intExtra = registerReceiver.getIntExtra("plugged", -1);
                     if (intExtra != 2) {
                         z2 = true;
@@ -222,7 +221,7 @@ public class DeviceController {
                     this.statisAPI.reportDevice(j, statisContent);
                 }
                 z = true;
-                float intExtra32 = (registerReceiver.getIntExtra(PollingModel.LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                float intExtra32 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                 intExtra = registerReceiver.getIntExtra("plugged", -1);
                 if (intExtra != 2) {
                 }

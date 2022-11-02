@@ -12,7 +12,7 @@ public interface IListManager {
 
     View createView();
 
-    void onCloseRoom(List list);
+    void onCloseRoom(List<String> list);
 
     void onDestroy();
 

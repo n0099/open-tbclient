@@ -1,129 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ar0 {
+public final class ar0 implements uq0 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static Context c;
-    public static boolean d;
-    public static dx0 e;
-    public static cw0 f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final long b;
+    public final String c;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947624650, "Lcom/baidu/tieba/ar0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ar0(boolean z, long j, String str, String str2, Exception exc) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), str, str2, exc};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947624650, "Lcom/baidu/tieba/ar0;");
-        }
+        this.a = z;
+        this.b = j;
+        this.c = str;
+        this.d = str2;
     }
 
-    public static String a() {
+    @Override // com.baidu.tieba.uq0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public static Context b() {
+    @Override // com.baidu.tieba.uq0
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (Context) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static cw0 c() {
+    @Override // com.baidu.tieba.uq0
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f == null) {
-                f = new bw0();
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (cw0) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static dx0 d() {
+    @Override // com.baidu.tieba.uq0
+    public boolean isSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                e = new ex0();
-            }
-            return e;
-        }
-        return (dx0) invokeV.objValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            h(z);
-            Context context = c;
-            if (context != null) {
-                DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                b = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-                a = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
-            }
-        }
-    }
-
-    public static void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            c = context;
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void j(cw0 cw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, cw0Var) == null) {
-            f = cw0Var;
-        }
     }
 }

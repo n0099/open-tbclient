@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.relationship;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class GetContactListResponsedMessage extends CustomResponsedMessage {
+public class GetContactListResponsedMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List contacts;
+    public List<t35> contacts;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetContactListResponsedMessage() {
@@ -32,7 +33,7 @@ public class GetContactListResponsedMessage extends CustomResponsedMessage {
         }
     }
 
-    public List getContacts() {
+    public List<t35> getContacts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,7 +42,7 @@ public class GetContactListResponsedMessage extends CustomResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public void setContacts(List list) {
+    public void setContacts(List<t35> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.contacts = list;

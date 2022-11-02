@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -89,6 +90,7 @@ public final class bn {
         return invokeLL.booleanValue;
     }
 
+    @SuppressLint({"DefaultLocale"})
     public static HttpURLConnection a(Context context, String str, int i, int i2) throws IOException {
         InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;

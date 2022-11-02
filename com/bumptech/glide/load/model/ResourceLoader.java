@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,16 +18,16 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class ResourceLoader implements ModelLoader {
+public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResourceLoader";
     public transient /* synthetic */ FieldHolder $fh;
     public final Resources resources;
-    public final ModelLoader uriLoader;
+    public final ModelLoader<Uri, Data> uriLoader;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(Integer num) {
+    public boolean handles(@NonNull Integer num) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num)) == null) {
@@ -35,7 +37,7 @@ public class ResourceLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public final class AssetFileDescriptorFactory implements ModelLoaderFactory {
+    public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Resources resources;
@@ -66,7 +68,7 @@ public class ResourceLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader<Integer, AssetFileDescriptor> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -77,7 +79,7 @@ public class ResourceLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class FileDescriptorFactory implements ModelLoaderFactory {
+    public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Resources resources;
@@ -108,7 +110,8 @@ public class ResourceLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Integer, ParcelFileDescriptor> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -119,7 +122,7 @@ public class ResourceLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamFactory implements ModelLoaderFactory {
+    public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Resources resources;
@@ -150,7 +153,8 @@ public class ResourceLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Integer, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -161,7 +165,7 @@ public class ResourceLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class UriFactory implements ModelLoaderFactory {
+    public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Resources resources;
@@ -192,7 +196,8 @@ public class ResourceLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Integer, Uri> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -202,7 +207,7 @@ public class ResourceLoader implements ModelLoader {
         }
     }
 
-    public ResourceLoader(Resources resources, ModelLoader modelLoader) {
+    public ResourceLoader(Resources resources, ModelLoader<Uri, Data> modelLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,6 +226,7 @@ public class ResourceLoader implements ModelLoader {
         this.uriLoader = modelLoader;
     }
 
+    @Nullable
     private Uri getResourceUri(Integer num) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -240,7 +246,7 @@ public class ResourceLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(Integer num, int i, int i2, Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Integer num, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{num, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ public class CountDownTextView extends TextView {
     public String f;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -35,10 +36,10 @@ public class CountDownTextView extends TextView {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<CountDownTextView> a;
 
         public b(CountDownTextView countDownTextView) {
             Interceptable interceptable = $ic;
@@ -55,7 +56,7 @@ public class CountDownTextView extends TextView {
                     return;
                 }
             }
-            this.a = new WeakReference(countDownTextView);
+            this.a = new WeakReference<>(countDownTextView);
         }
 
         public /* synthetic */ b(CountDownTextView countDownTextView, a aVar) {
@@ -66,7 +67,7 @@ public class CountDownTextView extends TextView {
         public void run() {
             CountDownTextView countDownTextView;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (countDownTextView = (CountDownTextView) this.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (countDownTextView = this.a.get()) == null) {
                 return;
             }
             countDownTextView.b(1);
@@ -98,7 +99,7 @@ public class CountDownTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, AttributeSet attributeSet) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,7 +124,7 @@ public class CountDownTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CountDownTextView(Context context, AttributeSet attributeSet, int i) {
+    public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

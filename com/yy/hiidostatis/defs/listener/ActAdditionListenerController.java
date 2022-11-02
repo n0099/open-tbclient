@@ -17,7 +17,7 @@ import java.util.Map;
 public class ActAdditionListenerController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map actMap;
+    public Map<IAct, ActListener> actMap;
     public HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate;
 
     public ActAdditionListenerController() {
@@ -49,9 +49,9 @@ public class ActAdditionListenerController {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, actListener)) == null) {
-            ActListener actListener2 = (ActListener) this.actMap.put(actListener.getAct(), actListener);
+            ActListener put = this.actMap.put(actListener.getAct(), actListener);
             L.info(this, "add ActListener act[%s] new listener[%s],old listener[%s]", actListener.getAct(), actListener, actListener);
-            return actListener2;
+            return put;
         }
         return (ActListener) invokeL.objValue;
     }
@@ -62,7 +62,7 @@ public class ActAdditionListenerController {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, actListener)) == null) {
             try {
                 L.info(this, "remove ActListener act[%s] listener[%s]", actListener.getAct(), actListener);
-                return (ActListener) this.actMap.remove(actListener.getAct());
+                return this.actMap.remove(actListener.getAct());
             } catch (Throwable th) {
                 L.error(this, "error %s", th);
                 return null;
@@ -73,7 +73,7 @@ public class ActAdditionListenerController {
 
     public StatisContent getActAddition(Act act, ActListener actListener) {
         InterceptResult invokeLL;
-        Map additionParams;
+        Map<String, String> additionParams;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, act, actListener)) == null) {
@@ -84,9 +84,9 @@ public class ActAdditionListenerController {
                     if (actAdditionListener.getAdditionMap() != null && !actAdditionListener.getAdditionMap().isEmpty()) {
                         statisContent = new StatisContent();
                         i = actAdditionListener.getAdditionMap().size();
-                        for (Map.Entry entry : actAdditionListener.getAdditionMap().entrySet()) {
-                            if (!Util.empty((String) entry.getKey()) && !Util.empty((String) entry.getValue())) {
-                                statisContent.put((String) entry.getKey(), (String) entry.getValue());
+                        for (Map.Entry<String, String> entry : actAdditionListener.getAdditionMap().entrySet()) {
+                            if (!Util.empty(entry.getKey()) && !Util.empty(entry.getValue())) {
+                                statisContent.put(entry.getKey(), entry.getValue());
                             }
                         }
                         L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
@@ -123,9 +123,9 @@ public class ActAdditionListenerController {
                 if (statisContent == null) {
                     statisContent = new StatisContent();
                 }
-                for (Map.Entry entry2 : additionParams.entrySet()) {
-                    if (!Util.empty((String) entry2.getKey()) && !Util.empty((String) entry2.getValue())) {
-                        statisContent.put((String) entry2.getKey(), (String) entry2.getValue());
+                for (Map.Entry<String, String> entry2 : additionParams.entrySet()) {
+                    if (!Util.empty(entry2.getKey()) && !Util.empty(entry2.getValue())) {
+                        statisContent.put(entry2.getKey(), entry2.getValue());
                     }
                 }
             }
@@ -138,7 +138,7 @@ public class ActAdditionListenerController {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iAct)) == null) {
-            return (ActListener) this.actMap.get(iAct);
+            return this.actMap.get(iAct);
         }
         return (ActListener) invokeL.objValue;
     }

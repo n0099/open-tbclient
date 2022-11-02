@@ -32,6 +32,7 @@ public class a {
         b = Boolean.valueOf(com.sdk.f.g.b);
     }
 
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Ljava/util/ArrayList<Ljava/lang/String;>;Z)Lcom/sdk/o/f$a; */
     public static f.a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

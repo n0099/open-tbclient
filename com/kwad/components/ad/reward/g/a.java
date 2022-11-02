@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,6 +30,7 @@ public final class a extends e implements DialogInterface.OnKeyListener, DialogI
     public transient /* synthetic */ FieldHolder $fh;
     public AdTemplate mAdTemplate;
     public o pu;
+    @Nullable
     public b pw;
 
     public a() {
@@ -57,7 +59,7 @@ public final class a extends e implements DialogInterface.OnKeyListener, DialogI
         }
     }
 
-    private void a(b bVar) {
+    private void a(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, bVar) == null) {
             this.pw = bVar;
@@ -79,7 +81,7 @@ public final class a extends e implements DialogInterface.OnKeyListener, DialogI
     }
 
     @Override // com.kwad.components.core.i.e
-    public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup) {
+    public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutInflater, viewGroup)) == null) {

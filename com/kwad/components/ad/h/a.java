@@ -1,5 +1,7 @@
 package com.kwad.components.ad.h;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,10 +21,11 @@ public class a {
     public b BL;
     public boolean BM;
     public g BN;
+    @NonNull
     public AdTemplate mAdTemplate;
     public DetailVideoView mDetailVideoView;
 
-    public a(AdTemplate adTemplate, DetailVideoView detailVideoView) {
+    public a(@NonNull AdTemplate adTemplate, DetailVideoView detailVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,6 +110,7 @@ public class a {
         }
     }
 
+    @WorkerThread
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -115,6 +119,7 @@ public class a {
         }
     }
 
+    @WorkerThread
     public void releaseSync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

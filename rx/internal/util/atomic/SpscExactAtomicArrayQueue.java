@@ -2,7 +2,7 @@ package rx.internal.util.atomic;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x0a;
+import com.baidu.tieba.g2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes9.dex */
-public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implements Queue {
+public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpscExactAtomicArrayQueue(int i) {
-        super(x0a.b(i));
+        super(g2a.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,17 +49,17 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Queue, java.util.Collection
-    public boolean add(Object obj) {
+    public boolean add(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
     }
 
     @Override // java.util.Collection
-    public boolean addAll(Collection collection) {
+    public boolean addAll(Collection<? extends T> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
@@ -79,7 +79,7 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Collection
-    public boolean containsAll(Collection collection) {
+    public boolean containsAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
@@ -99,7 +99,7 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Collection
-    public boolean removeAll(Collection collection) {
+    public boolean removeAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, collection)) == null) {
@@ -109,7 +109,7 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Collection
-    public boolean retainAll(Collection collection) {
+    public boolean retainAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, collection)) == null) {
@@ -119,13 +119,13 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Collection
-    public Object[] toArray(Object[] objArr) {
+    public <E> E[] toArray(E[] eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, eArr)) == null) {
             throw new UnsupportedOperationException();
         }
-        return (Object[]) invokeL.objValue;
+        return (E[]) ((Object[]) invokeL.objValue);
     }
 
     @Override // java.util.Collection
@@ -142,13 +142,13 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Queue
-    public Object element() {
+    public T element() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             throw new UnsupportedOperationException();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Collection
@@ -165,7 +165,7 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Collection, java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -175,41 +175,41 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Queue
-    public Object peek() {
+    public T peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return get(this.mask & ((int) this.consumerIndex.get()));
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Queue
-    public Object poll() {
+    public T poll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             long j = this.consumerIndex.get();
             int i = ((int) j) & this.mask;
-            Object obj = get(i);
-            if (obj == null) {
+            T t = get(i);
+            if (t == null) {
                 return null;
             }
             this.consumerIndex.lazySet(j + 1);
             lazySet(i, null);
-            return obj;
+            return t;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Queue
-    public Object remove() {
+    public T remove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             throw new UnsupportedOperationException();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.Collection
@@ -242,18 +242,18 @@ public final class SpscExactAtomicArrayQueue extends AtomicReferenceArray implem
     }
 
     @Override // java.util.Queue
-    public boolean offer(Object obj) {
+    public boolean offer(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t)) == null) {
+            if (t != null) {
                 long j = this.producerIndex.get();
                 int i = this.mask;
                 if (get(((int) (this.capacitySkip + j)) & i) != null) {
                     return false;
                 }
                 this.producerIndex.lazySet(j + 1);
-                lazySet(i & ((int) j), obj);
+                lazySet(i & ((int) j), t);
                 return true;
             }
             throw null;

@@ -2,6 +2,8 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,12 +26,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public class BitmapEncoder implements ResourceEncoder {
+public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Option COMPRESSION_FORMAT;
-    public static final Option COMPRESSION_QUALITY;
+    public static final Option<Bitmap.CompressFormat> COMPRESSION_FORMAT;
+    public static final Option<Integer> COMPRESSION_QUALITY;
     public static final String TAG = "BitmapEncoder";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final ArrayPool arrayPool;
 
     static {
@@ -66,7 +69,7 @@ public class BitmapEncoder implements ResourceEncoder {
         this.arrayPool = null;
     }
 
-    public BitmapEncoder(ArrayPool arrayPool) {
+    public BitmapEncoder(@NonNull ArrayPool arrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +88,8 @@ public class BitmapEncoder implements ResourceEncoder {
     }
 
     @Override // com.bumptech.glide.load.ResourceEncoder
-    public EncodeStrategy getEncodeStrategy(Options options) {
+    @NonNull
+    public EncodeStrategy getEncodeStrategy(@NonNull Options options) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, options)) == null) {
@@ -118,12 +122,12 @@ public class BitmapEncoder implements ResourceEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean encode(Resource resource, File file, Options options) {
+    public boolean encode(@NonNull Resource<Bitmap> resource, @NonNull File file, @NonNull Options options) {
         InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, resource, file, options)) == null) {
-            Bitmap bitmap = (Bitmap) resource.get();
+            Bitmap bitmap = resource.get();
             Bitmap.CompressFormat format = getFormat(bitmap, options);
             GlideTrace.beginSectionFormat("encode: [%dx%d] %s", Integer.valueOf(bitmap.getWidth()), Integer.valueOf(bitmap.getHeight()), format);
             try {

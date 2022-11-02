@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuPresenter;
@@ -20,6 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.internal.ParcelableSparseArray;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
     public static /* synthetic */ Interceptable $ic;
@@ -84,10 +88,11 @@ public class BottomNavigationPresenter implements MenuPresenter {
     }
 
     /* loaded from: classes7.dex */
-    public class SavedState implements Parcelable {
+    public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public ParcelableSparseArray badgeSavedStates;
         public int selectedItemId;
 
@@ -114,7 +119,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.bottomnavigation.BottomNavigationPresenter.SavedState.1
+            CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.material.bottomnavigation.BottomNavigationPresenter.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,8 +138,10 @@ public class BottomNavigationPresenter implements MenuPresenter {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -144,7 +151,9 @@ public class BottomNavigationPresenter implements MenuPresenter {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
+                @NonNull
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
@@ -170,7 +179,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
             }
         }
 
-        public SavedState(Parcel parcel) {
+        public SavedState(@NonNull Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,7 +199,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 parcel.writeInt(this.selectedItemId);
@@ -226,6 +235,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
+    @NonNull
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,17 +1,20 @@
 package com.baidu.live.business.model;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.ILiveFeedModel;
 import com.baidu.live.business.model.data.LiveFeedData;
+import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.model.data.LiveTabWrapData;
 import com.baidu.live.business.util.GrParasmUtil;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.tieba.wb0;
+import com.baidu.tieba.x90;
 import com.baidu.tieba.xb0;
-import com.baidu.tieba.y90;
-import com.baidu.tieba.yb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,7 +130,7 @@ public class LiveFeedModel implements ILiveFeedModel {
         return (String) invokeL.objValue;
     }
 
-    private void realReq(String str, String str2, int i, String str3, String str4, String str5, int i2, String str6, List list, ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
+    private void realReq(String str, String str2, int i, String str3, String str4, String str5, int i2, String str6, List<String> list, ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, Integer.valueOf(i2), str6, list, onDataLoadCallback}) == null) {
             HashMap hashMap = new HashMap();
@@ -145,7 +148,7 @@ public class LiveFeedModel implements ILiveFeedModel {
             hashMap.put("refresh_index", String.valueOf(i2));
             hashMap.put("start_time", System.currentTimeMillis() + "");
             hashMap.put("source", this.mSource);
-            yb0.f(FEED_PAGE_URL, hashMap, new xb0(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
+            xb0.f(FEED_PAGE_URL, hashMap, new wb0<LiveFeedData>(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveFeedModel this$0;
@@ -174,15 +177,14 @@ public class LiveFeedModel implements ILiveFeedModel {
                     this.val$callback = onDataLoadCallback;
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't wrap try/catch for region: R(11:3|(2:5|(3:44|(1:46)|47)(3:8|(1:10)|11))(3:48|(1:50)|51)|12|(3:14|(9:38|39|40|18|(2:(1:36)(1:27)|28)(1:37)|29|30|31|32)|16)(1:43)|17|18|(0)(0)|29|30|31|32) */
                 /* JADX WARN: Removed duplicated region for block: B:32:0x00b4  */
                 /* JADX WARN: Removed duplicated region for block: B:42:0x00cc  */
-                @Override // com.baidu.tieba.xb0
+                /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list2) {
+                public void onNetResponse2(NetResponse netResponse, LiveFeedData liveFeedData, Map<String, String> map, List<String> list2) {
                     String str7;
                     String str8;
                     int i3;
@@ -194,7 +196,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                     String str13;
                     String str14;
                     LiveTabWrapData liveTabWrapData;
-                    List list3;
+                    List<LiveTabEntity> list3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, netResponse, liveFeedData, map, list2) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
@@ -228,20 +230,20 @@ public class LiveFeedModel implements ILiveFeedModel {
                             str8 = "网络不给力，请稍后重试";
                             i3 = -100;
                         }
-                        String n = y90.n(this.this$0.mPage);
+                        String n = x90.n(this.this$0.mPage);
                         if (map == null) {
                             str9 = "";
                             str10 = str9;
                             str11 = str10;
                             str12 = str11;
                         } else {
-                            String str16 = (String) map.get("tab");
-                            String str17 = (String) map.get("subtab");
-                            str10 = (String) map.get("resource");
-                            String str18 = (String) map.get("session_id");
+                            String str16 = map.get("tab");
+                            String str17 = map.get("subtab");
+                            str10 = map.get("resource");
+                            String str18 = map.get("session_id");
                             if (map.containsKey("start_time")) {
                                 try {
-                                    j = currentTimeMillis - Long.parseLong((String) map.get("start_time"));
+                                    j = currentTimeMillis - Long.parseLong(map.get("start_time"));
                                     str9 = str16;
                                     str11 = str17;
                                     str12 = str18;
@@ -258,7 +260,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                                     str13 = str14;
                                 }
                                 str15 = URLEncoder.encode(str10, "UTF-8");
-                                y90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
+                                x90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
                             }
                             str9 = str16;
                             str11 = str17;
@@ -268,12 +270,19 @@ public class LiveFeedModel implements ILiveFeedModel {
                         if (str10.contains("tab")) {
                         }
                         str15 = URLEncoder.encode(str10, "UTF-8");
-                        y90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
+                        x90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str15, str9, str11, str12, str13);
                     }
                 }
 
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
+                @Override // com.baidu.tieba.wb0
+                public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list2) {
+                    onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list2);
+                }
+
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.xb0
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // com.baidu.tieba.wb0
                 public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -310,6 +319,7 @@ public class LiveFeedModel implements ILiveFeedModel {
     }
 
     @Override // com.baidu.live.business.model.ILiveFeedModel
+    @NonNull
     public String getInitResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -323,7 +333,7 @@ public class LiveFeedModel implements ILiveFeedModel {
     }
 
     @Override // com.baidu.live.business.model.ILiveFeedModel
-    public void reqInit(String str, String str2, ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
+    public void reqInit(@Nullable String str, @Nullable String str2, @Nullable ILiveFeedModel.OnDataLoadCallback onDataLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, onDataLoadCallback) == null) {
             realReq(getInitResource(), "", 0, str, str2, "", 1, GrParasmUtil.genUploadJson(), GrParasmUtil.uploadFeedList, onDataLoadCallback);

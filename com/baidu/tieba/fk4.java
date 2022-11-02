@@ -1,95 +1,134 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.provider.Settings;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fk4 implements ak4 {
+public class fk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public fk4(Context context) {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "Android" : (String) invokeV.objValue;
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.densityDpi;
             }
+            return 0;
         }
-        this.a = context.getApplicationContext();
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ak4
-    public boolean a() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.heightPixels;
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak4
-    /* renamed from: b */
-    public String get() {
+    public static DisplayMetrics c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null) {
+                return null;
+            }
+            return appContext.getResources().getDisplayMetrics();
+        }
+        return (DisplayMetrics) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.widthPixels;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
         }
         return (String) invokeV.objValue;
     }
 
-    public final String c() {
+    public static String e() {
         InterceptResult invokeV;
+        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!ik4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+                return "no";
             }
-            try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
-            } catch (Exception unused) {
-                return null;
+            if (activeNetworkInfo.getType() == 1) {
+                return "WiFi";
             }
+            if (activeNetworkInfo.getType() != 0) {
+                return "unknown";
+            }
+            int subtype = activeNetworkInfo.getSubtype();
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return "2G";
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return "3G";
+                    case 13:
+                        return "4G";
+                    default:
+                        return "unknown";
+                }
+            }
+            return "5G";
         }
         return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ak4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !ik4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-            return;
-        }
-        try {
-            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-        } catch (Exception unused) {
-        }
     }
 }

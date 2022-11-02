@@ -1,136 +1,206 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
+import android.webkit.WebSettings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q70;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
 public class p70 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile p70 e;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile p70 c = null;
+    public static int d = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Context c;
-    public boolean d;
+    public final OkHttpClient a;
+    public Context b;
 
-    public p70() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q70 a;
+        public final /* synthetic */ byte[] b;
+        public final /* synthetic */ r70 c;
+        public final /* synthetic */ p70 d;
+
+        public a(p70 p70Var, q70 q70Var, byte[] bArr, r70 r70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p70Var, q70Var, bArr, r70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = p70Var;
+            this.a = q70Var;
+            this.b = bArr;
+            this.c = r70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e(this.a.b(), this.a.a(), this.b, this.a.d(), this.a.c(), this.c);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014816, "Lcom/baidu/tieba/p70;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948014816, "Lcom/baidu/tieba/p70;");
+        }
+    }
+
+    public p70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = "";
+        this.a = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).build();
+        this.b = context;
     }
 
-    public static p70 d() {
-        InterceptResult invokeV;
+    public static p70 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (c == null) {
                 synchronized (p70.class) {
-                    if (e == null) {
-                        e = new p70();
+                    if (c == null) {
+                        c = new p70(context);
                     }
                 }
             }
-            return e;
+            return c;
         }
-        return (p70) invokeV.objValue;
+        return (p70) invokeL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static Headers c(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void e(Context context, String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b = str;
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            this.a = i;
-            this.d = z;
-        }
-    }
-
-    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (TextUtils.isEmpty(this.b) || this.c == null || jSONArray == null || jSONArray.length() == 0) {
-                y70.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
-                return;
-            }
-            Context context = this.c;
-            if (jSONArray == null || jSONArray.length() == 0) {
-                y70.a("UBCUploader", "upload json is null");
-                return;
-            }
-            y70.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
-            if (z2) {
-                y70.a("UBCUploader", "save ubcdata");
-                return;
-            }
-            JSONObject a2 = new v70(z, jSONArray).a();
-            if (a2 == null) {
-                y70.a("UBCUploader", "uploadJsonData is null");
-                return;
-            }
-            String jSONObject = a2.toString();
-            if (TextUtils.isEmpty(jSONObject)) {
-                a = null;
-            } else {
-                a = x70.a(jSONObject.getBytes());
-                if (a != null && a.length > 2) {
-                    a[0] = 117;
-                    a[1] = 123;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            try {
+                Headers.Builder builder = new Headers.Builder();
+                if (map != null && map.size() > 0) {
+                    for (String str : map.keySet()) {
+                        String str2 = str.toString();
+                        builder.add(str2, map.get(str2));
+                    }
                 }
+                return builder.build();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            byte[] bArr = a;
-            if (bArr == null || bArr.length < 3) {
-                y70.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
-                return;
+        }
+        return (Headers) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0024  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String b() {
+        InterceptResult invokeV;
+        String defaultUserAgent;
+        int length;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                try {
+                    defaultUserAgent = WebSettings.getDefaultUserAgent(this.b);
+                } catch (Exception unused) {
+                }
+                StringBuffer stringBuffer = new StringBuffer();
+                length = defaultUserAgent.length();
+                for (i = 0; i < length; i++) {
+                    char charAt = defaultUserAgent.charAt(i);
+                    if (charAt <= 31 || charAt >= 127) {
+                        stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    } else {
+                        stringBuffer.append(charAt);
+                    }
+                }
+                x70.a("HttpExecutor", "getUserAgent:" + stringBuffer.toString());
+                return stringBuffer.toString();
             }
-            y70.a("UBCUploader", "gzip success, length:" + bArr.length);
-            y70.a("UBCUploader", "start execute http upload data");
-            t70 t70Var = new t70(context);
-            q70 a3 = q70.a(context);
-            if (context == null || TextUtils.isEmpty(t70Var.a())) {
-                t70Var.b(q70.d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
-            } else if (z3) {
-                u70.a().b(new q70.a(a3, t70Var, bArr, t70Var));
-            } else {
-                a3.e(t70Var.b(), t70Var.a(), bArr, t70Var.d(), t70Var.c(), t70Var);
+            defaultUserAgent = System.getProperty("http.agent");
+            StringBuffer stringBuffer2 = new StringBuffer();
+            length = defaultUserAgent.length();
+            while (i < length) {
+            }
+            x70.a("HttpExecutor", "getUserAgent:" + stringBuffer2.toString());
+            return stringBuffer2.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(String str, String str2, byte[] bArr, Map<String, String> map, String str3, r70 r70Var) {
+        Request.Builder addHeader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, bArr, map, str3, r70Var}) == null) {
+            try {
+                if ("POST".equals(str)) {
+                    if (TextUtils.isEmpty(str3)) {
+                        str3 = "application/x-www-form-urlencoded";
+                    }
+                    addHeader = new Request.Builder().url(str2).headers(c(map)).removeHeader("User-Agent").addHeader("User-Agent", b()).post(RequestBody.create(MediaType.parse(str3), bArr));
+                } else {
+                    addHeader = new Request.Builder().url(str2).headers(c(map)).removeHeader("User-Agent").addHeader("User-Agent", b());
+                }
+                Response execute = this.a.newCall(addHeader.build()).execute();
+                byte[] bytes = execute.body().bytes();
+                x70.c("HttpExecutor", "requestUrl:" + str2 + "\nrequest method: " + str + "\nrequest contentType: " + str3 + "\nresponse : " + new String(bytes));
+                r70Var.a(execute.code(), bytes);
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (r70Var != null) {
+                    r70Var.b(d, "Http Unknown exception".getBytes());
+                }
             }
         }
     }

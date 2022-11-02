@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -140,7 +141,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(LoginDialogData loginDialogData, String str) {
+    public LoginDialogActivityConfig(LoginDialogData loginDialogData, @NonNull String str) {
         this(loginDialogData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -162,7 +163,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginDialogActivityConfig(LoginDialogData loginDialogData, String str, String str2, String str3) {
+    public LoginDialogActivityConfig(LoginDialogData loginDialogData, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         this(loginDialogData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

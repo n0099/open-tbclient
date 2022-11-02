@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class d {
-    public static final Map amI;
+    public static final Map<String, String> amI;
 
     static {
         HashMap hashMap = new HashMap();
@@ -60,7 +60,7 @@ public final class d {
             str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
         }
         try {
-            String str3 = (String) amI.get(Build.BRAND);
+            String str3 = amI.get(Build.BRAND);
             Uri parse = Uri.parse(str);
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");

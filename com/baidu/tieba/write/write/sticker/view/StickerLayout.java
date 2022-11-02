@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.b79;
-import com.baidu.tieba.d79;
-import com.baidu.tieba.hh5;
+import com.baidu.tieba.di5;
+import com.baidu.tieba.k89;
+import com.baidu.tieba.m89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,38 +22,38 @@ public class StickerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List b;
+    public List<StickerView> b;
     public FrameLayout.LayoutParams c;
     public int d;
 
     /* loaded from: classes6.dex */
-    public class a implements b79 {
+    public class a implements k89 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerView a;
-        public final /* synthetic */ d79 b;
+        public final /* synthetic */ m89 b;
         public final /* synthetic */ StickerLayout c;
 
-        @Override // com.baidu.tieba.b79
+        @Override // com.baidu.tieba.k89
         public void a(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.b79
+        @Override // com.baidu.tieba.k89
         public void c(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
             }
         }
 
-        public a(StickerLayout stickerLayout, StickerView stickerView, d79 d79Var) {
+        public a(StickerLayout stickerLayout, StickerView stickerView, m89 m89Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {stickerLayout, stickerView, d79Var};
+                Object[] objArr = {stickerLayout, stickerView, m89Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,10 +65,10 @@ public class StickerLayout extends FrameLayout {
             }
             this.c = stickerLayout;
             this.a = stickerView;
-            this.b = d79Var;
+            this.b = m89Var;
         }
 
-        @Override // com.baidu.tieba.b79
+        @Override // com.baidu.tieba.k89
         public void b(StickerView stickerView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerView, z) == null) {
@@ -79,16 +79,16 @@ public class StickerLayout extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.b79
+        @Override // com.baidu.tieba.k89
         public void onDelete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.c.removeView(this.a);
                 this.c.b.remove(this.a);
                 this.c.e();
-                d79 d79Var = this.b;
-                if (d79Var != null) {
-                    d79Var.a();
+                m89 m89Var = this.b;
+                if (m89Var != null) {
+                    m89Var.a();
                 }
             }
         }
@@ -115,18 +115,18 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public void f(d79 d79Var) {
+    public void f(m89 m89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d79Var) == null) {
-            Iterator it = this.b.iterator();
+        if (interceptable == null || interceptable.invokeL(1048580, this, m89Var) == null) {
+            Iterator<StickerView> it = this.b.iterator();
             while (it.hasNext()) {
-                StickerView stickerView = (StickerView) it.next();
-                if (stickerView != null) {
-                    removeView(stickerView);
+                StickerView next = it.next();
+                if (next != null) {
+                    removeView(next);
                     it.remove();
                     e();
-                    if (d79Var != null) {
-                        d79Var.a();
+                    if (m89Var != null) {
+                        m89Var.a();
                     }
                 }
             }
@@ -192,19 +192,19 @@ public class StickerLayout extends FrameLayout {
         }
     }
 
-    public StickerView b(Bitmap bitmap, d79 d79Var) {
+    public StickerView b(Bitmap bitmap, m89 m89Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, d79Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, m89Var)) == null) {
             StickerView stickerView = new StickerView(this.a);
             stickerView.setImageBitmap(bitmap);
             stickerView.setLayoutParams(this.c);
-            stickerView.setmOnStickerActionListener(new a(this, stickerView, d79Var));
+            stickerView.setmOnStickerActionListener(new a(this, stickerView, m89Var));
             addView(stickerView);
             this.b.add(stickerView);
             e();
-            if (d79Var != null) {
-                d79Var.d();
+            if (m89Var != null) {
+                m89Var.d();
             }
             return stickerView;
         }
@@ -219,12 +219,12 @@ public class StickerLayout extends FrameLayout {
                 return null;
             }
             e();
-            return hh5.c(this);
+            return di5.c(this);
         }
         return (Bitmap) invokeV.objValue;
     }
 
-    public List getStickerViews() {
+    public List<StickerView> getStickerViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

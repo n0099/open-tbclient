@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.Metadata;
+import kotlin.SinceKotlin;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.functions.Function4;
@@ -16,35 +17,36 @@ import kotlin.jvm.internal.Intrinsics;
 public class GroupingKt__GroupingKt extends GroupingKt__GroupingJVMKt {
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R> Map<K, R> aggregate(Grouping<T, ? extends K> aggregate, Function4<? super K, ? super R, ? super T, ? super Boolean, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(aggregate, "$this$aggregate");
         Intrinsics.checkNotNullParameter(operation, "operation");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        Iterator sourceIterator = aggregate.sourceIterator();
+        Iterator<T> sourceIterator = aggregate.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = aggregate.keyOf(next);
-            Object obj = linkedHashMap.get(keyOf);
-            if (obj == null && !linkedHashMap.containsKey(keyOf)) {
+            ?? next = sourceIterator.next();
+            Object obj = (K) aggregate.keyOf(next);
+            Object obj2 = (Object) linkedHashMap.get(obj);
+            if (obj2 == 0 && !linkedHashMap.containsKey(obj)) {
                 z = true;
             } else {
                 z = false;
             }
-            linkedHashMap.put(keyOf, operation.invoke(keyOf, obj, next, Boolean.valueOf(z)));
+            linkedHashMap.put(obj, operation.invoke(obj, obj2, next, Boolean.valueOf(z)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: M extends java.util.Map<? super K, java.lang.Integer> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, M extends Map<? super K, Integer>> M eachCountTo(Grouping<T, ? extends K> eachCountTo, M destination) {
         boolean z;
         Intrinsics.checkNotNullParameter(eachCountTo, "$this$eachCountTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        Iterator sourceIterator = eachCountTo.sourceIterator();
+        Iterator<T> sourceIterator = eachCountTo.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object keyOf = eachCountTo.keyOf(sourceIterator.next());
+            K keyOf = eachCountTo.keyOf(sourceIterator.next());
             Object obj = destination.get(keyOf);
             if (obj == null && !destination.containsKey(keyOf)) {
                 z = true;
@@ -59,8 +61,10 @@ public class GroupingKt__GroupingKt extends GroupingKt__GroupingJVMKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: ? super K */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.Grouping<T extends S, ? extends K> */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.1")
     public static final <S, T extends S, K> Map<K, S> reduce(Grouping<T, ? extends K> reduce, Function3<? super K, ? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduce, "$this$reduce");
@@ -68,35 +72,35 @@ public class GroupingKt__GroupingKt extends GroupingKt__GroupingJVMKt {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         Iterator sourceIterator = reduce.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = reduce.keyOf(next);
-            Object obj = linkedHashMap.get(keyOf);
-            if (obj == null && !linkedHashMap.containsKey(keyOf)) {
+            S s = (Object) sourceIterator.next();
+            Object obj = (Object) reduce.keyOf(s);
+            Object obj2 = (Object) linkedHashMap.get(obj);
+            if (obj2 == 0 && !linkedHashMap.containsKey(obj)) {
                 z = true;
             } else {
                 z = false;
             }
             if (!z) {
-                next = operation.invoke(keyOf, obj, next);
+                s = operation.invoke(obj, obj2, s);
             }
-            linkedHashMap.put(keyOf, next);
+            linkedHashMap.put(obj, s);
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, R> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R, M extends Map<? super K, R>> M aggregateTo(Grouping<T, ? extends K> aggregateTo, M destination, Function4<? super K, ? super R, ? super T, ? super Boolean, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(aggregateTo, "$this$aggregateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator sourceIterator = aggregateTo.sourceIterator();
+        Iterator<T> sourceIterator = aggregateTo.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
+            ?? next = sourceIterator.next();
             Object keyOf = aggregateTo.keyOf(next);
-            Object obj = destination.get(keyOf);
-            if (obj == null && !destination.containsKey(keyOf)) {
+            Object obj = (Object) destination.get(keyOf);
+            if (obj == 0 && !destination.containsKey(keyOf)) {
                 z = true;
             } else {
                 z = false;
@@ -106,33 +110,35 @@ public class GroupingKt__GroupingKt extends GroupingKt__GroupingJVMKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R> Map<K, R> fold(Grouping<T, ? extends K> fold, R r, Function2<? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        Iterator sourceIterator = fold.sourceIterator();
+        Iterator<T> sourceIterator = fold.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = fold.keyOf(next);
-            Object obj = linkedHashMap.get(keyOf);
+            ?? next = sourceIterator.next();
+            K keyOf = fold.keyOf(next);
+            Object obj = (Object) linkedHashMap.get(keyOf);
             if (obj == null && !linkedHashMap.containsKey(keyOf)) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
-                obj = r;
+                obj = (Object) r;
             }
             linkedHashMap.put(keyOf, operation.invoke(obj, next));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, S> */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: ? super K */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: kotlin.collections.Grouping<T extends S, ? extends K> */
     /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.1")
     public static final <S, T extends S, K, M extends Map<? super K, S>> M reduceTo(Grouping<T, ? extends K> reduceTo, M destination, Function3<? super K, ? super S, ? super T, ? extends S> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceTo, "$this$reduceTo");
@@ -140,95 +146,97 @@ public class GroupingKt__GroupingKt extends GroupingKt__GroupingJVMKt {
         Intrinsics.checkNotNullParameter(operation, "operation");
         Iterator sourceIterator = reduceTo.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = reduceTo.keyOf(next);
-            Object obj = destination.get(keyOf);
-            if (obj == null && !destination.containsKey(keyOf)) {
+            S s = (Object) sourceIterator.next();
+            Object obj = (Object) reduceTo.keyOf(s);
+            Object obj2 = (Object) destination.get(obj);
+            if (obj2 == 0 && !destination.containsKey(obj)) {
                 z = true;
             } else {
                 z = false;
             }
             if (!z) {
-                next = operation.invoke(keyOf, obj, next);
+                s = operation.invoke(obj, obj2, s);
             }
-            destination.put(keyOf, next);
+            destination.put(obj, s);
         }
         return destination;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R> Map<K, R> fold(Grouping<T, ? extends K> fold, Function2<? super K, ? super T, ? extends R> initialValueSelector, Function3<? super K, ? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(initialValueSelector, "initialValueSelector");
         Intrinsics.checkNotNullParameter(operation, "operation");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        Iterator sourceIterator = fold.sourceIterator();
+        Iterator<T> sourceIterator = fold.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = fold.keyOf(next);
-            Object obj = linkedHashMap.get(keyOf);
-            if (obj == null && !linkedHashMap.containsKey(keyOf)) {
+            ?? next = sourceIterator.next();
+            Object obj = (K) fold.keyOf(next);
+            R r = (Object) linkedHashMap.get(obj);
+            if (r == null && !linkedHashMap.containsKey(obj)) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
-                obj = initialValueSelector.invoke(keyOf, next);
+                r = initialValueSelector.invoke(obj, next);
             }
-            linkedHashMap.put(keyOf, operation.invoke(keyOf, obj, next));
+            linkedHashMap.put(obj, operation.invoke(obj, r, next));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, R> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R, M extends Map<? super K, R>> M foldTo(Grouping<T, ? extends K> foldTo, M destination, R r, Function2<? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(foldTo, "$this$foldTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator sourceIterator = foldTo.sourceIterator();
+        Iterator<T> sourceIterator = foldTo.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
-            Object keyOf = foldTo.keyOf(next);
-            Object obj = destination.get(keyOf);
+            ?? next = sourceIterator.next();
+            K keyOf = foldTo.keyOf(next);
+            Object obj = (Object) destination.get(keyOf);
             if (obj == null && !destination.containsKey(keyOf)) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
-                obj = r;
+                obj = (Object) r;
             }
             destination.put(keyOf, operation.invoke(obj, next));
         }
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: M extends java.util.Map<? super K, R> */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object] */
+    @SinceKotlin(version = "1.1")
     public static final <T, K, R, M extends Map<? super K, R>> M foldTo(Grouping<T, ? extends K> foldTo, M destination, Function2<? super K, ? super T, ? extends R> initialValueSelector, Function3<? super K, ? super R, ? super T, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(foldTo, "$this$foldTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(initialValueSelector, "initialValueSelector");
         Intrinsics.checkNotNullParameter(operation, "operation");
-        Iterator sourceIterator = foldTo.sourceIterator();
+        Iterator<T> sourceIterator = foldTo.sourceIterator();
         while (sourceIterator.hasNext()) {
-            Object next = sourceIterator.next();
+            ?? next = sourceIterator.next();
             Object keyOf = foldTo.keyOf(next);
-            Object obj = destination.get(keyOf);
-            if (obj == null && !destination.containsKey(keyOf)) {
+            R r = (Object) destination.get(keyOf);
+            if (r == null && !destination.containsKey(keyOf)) {
                 z = true;
             } else {
                 z = false;
             }
             if (z) {
-                obj = initialValueSelector.invoke(keyOf, next);
+                r = initialValueSelector.invoke(keyOf, next);
             }
-            destination.put(keyOf, operation.invoke(keyOf, obj, next));
+            destination.put(keyOf, operation.invoke(keyOf, r, next));
         }
         return destination;
     }

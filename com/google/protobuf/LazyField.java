@@ -21,18 +21,18 @@ public class LazyField {
 
     /* renamed from: com.google.protobuf.LazyField$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class LazyEntry implements Map.Entry {
+    public static class LazyEntry<K> implements Map.Entry<K, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map.Entry entry;
+        public Map.Entry<K, LazyField> entry;
 
-        public LazyEntry(Map.Entry entry) {
+        public LazyEntry(Map.Entry<K, LazyField> entry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class LazyField {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 if (obj instanceof MessageLite) {
-                    return ((LazyField) this.entry.getValue()).setValue((MessageLite) obj);
+                    return this.entry.getValue().setValue((MessageLite) obj);
                 }
                 throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
             }
@@ -71,19 +71,19 @@ public class LazyField {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return (LazyField) this.entry.getValue();
+                return this.entry.getValue();
             }
             return (LazyField) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
-        public Object getKey() {
+        public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.entry.getKey();
             }
-            return invokeV.objValue;
+            return (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
@@ -91,23 +91,23 @@ public class LazyField {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                LazyField lazyField = (LazyField) this.entry.getValue();
-                if (lazyField == null) {
+                LazyField value = this.entry.getValue();
+                if (value == null) {
                     return null;
                 }
-                return lazyField.getValue();
+                return value.getValue();
             }
             return invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class LazyIterator implements Iterator {
+    public static class LazyIterator<K> implements Iterator<Map.Entry<K, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Iterator iterator;
+        public Iterator<Map.Entry<K, Object>> iterator;
 
-        public LazyIterator(Iterator it) {
+        public LazyIterator(Iterator<Map.Entry<K, Object>> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,15 +145,15 @@ public class LazyField {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        public Map.Entry next() {
+        public Map.Entry<K, Object> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                Map.Entry entry = (Map.Entry) this.iterator.next();
-                if (entry.getValue() instanceof LazyField) {
-                    return new LazyEntry(entry, null);
+                Map.Entry<K, Object> next = this.iterator.next();
+                if (next.getValue() instanceof LazyField) {
+                    return new LazyEntry(next, null);
                 }
-                return entry;
+                return next;
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -191,7 +191,7 @@ public class LazyField {
             }
             try {
                 if (this.bytes != null) {
-                    this.value = (MessageLite) this.defaultInstance.getParserForType().parseFrom(this.bytes, this.extensionRegistry);
+                    this.value = this.defaultInstance.getParserForType().parseFrom(this.bytes, this.extensionRegistry);
                 }
             } catch (IOException unused) {
             }

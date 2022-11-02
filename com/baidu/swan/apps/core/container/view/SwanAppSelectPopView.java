@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -12,7 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+@Keep
+/* loaded from: classes3.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_PADDING = 22;
@@ -29,7 +31,7 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public View mSearchView;
     public String mSelection;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void doSelectionCopy(String str);
 
@@ -162,10 +164,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onFinishInflate();
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09046d);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09047a);
             this.mCopyView = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09046e);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09047b);
             this.mSearchView = findViewById2;
             findViewById2.setOnClickListener(this);
         }

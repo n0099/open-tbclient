@@ -3,6 +3,8 @@ package androidx.documentfile.provider;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.DocumentsContract;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(19)
 /* loaded from: classes.dex */
 public class SingleDocumentFile extends DocumentFile {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +21,7 @@ public class SingleDocumentFile extends DocumentFile {
     public Uri mUri;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleDocumentFile(DocumentFile documentFile, Context context, Uri uri) {
+    public SingleDocumentFile(@Nullable DocumentFile documentFile, Context context, Uri uri) {
         super(documentFile);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,6 +87,7 @@ public class SingleDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,6 +98,7 @@ public class SingleDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,10 +1,12 @@
 package com.bumptech.glide.manager;
 
 import android.app.Activity;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(26)
 /* loaded from: classes7.dex */
 public final class FirstFrameWaiter implements FrameWaiter {
     public static /* synthetic */ Interceptable $ic;

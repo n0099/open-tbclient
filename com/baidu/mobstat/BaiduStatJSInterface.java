@@ -1,7 +1,9 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Message;
 import android.text.TextUtils;
@@ -53,16 +55,16 @@ public class BaiduStatJSInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class CustomWebChromeViewClient extends WebChromeClient {
+    public static class CustomWebChromeViewClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<Context> a;
         public WebChromeClient b;
-        public ArrayList c;
+        public ArrayList<IWebviewPageLoadCallback> c;
         public bk d;
         public int e;
 
-        public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList arrayList, bk bkVar) {
+        public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bk bkVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +80,7 @@ public class BaiduStatJSInterface {
                 }
             }
             this.e = 0;
-            this.a = new WeakReference(context);
+            this.a = new WeakReference<>(context);
             this.b = webChromeClient;
             this.c = arrayList;
             this.d = bkVar;
@@ -108,6 +110,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebChromeClient
+        @SuppressLint({"NewApi"})
         public void onPermissionRequest(PermissionRequest permissionRequest) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
@@ -117,6 +120,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebChromeClient
+        @SuppressLint({"NewApi"})
         public void onPermissionRequestCanceled(PermissionRequest permissionRequest) {
             WebChromeClient webChromeClient;
             Interceptable interceptable = $ic;
@@ -164,6 +168,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebChromeClient
+        @SuppressLint({"NewApi"})
         @Deprecated
         public void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             WebChromeClient webChromeClient;
@@ -174,7 +179,8 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebChromeClient
-        public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        @SuppressLint({"NewApi"})
+        public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, webView, valueCallback, fileChooserParams)) == null) {
@@ -340,24 +346,24 @@ public class BaiduStatJSInterface {
         public void onProgressChanged(WebView webView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048591, this, webView, i) == null) {
-                ArrayList arrayList = this.c;
+                ArrayList<IWebviewPageLoadCallback> arrayList = this.c;
                 if (arrayList != null) {
                     if (this.e == 0) {
-                        Iterator it = arrayList.iterator();
+                        Iterator<IWebviewPageLoadCallback> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            IWebviewPageLoadCallback iWebviewPageLoadCallback = (IWebviewPageLoadCallback) it.next();
-                            if (iWebviewPageLoadCallback != null) {
-                                iWebviewPageLoadCallback.onPageStarted(webView, webView.getUrl(), this.d);
+                            IWebviewPageLoadCallback next = it.next();
+                            if (next != null) {
+                                next.onPageStarted(webView, webView.getUrl(), this.d);
                             }
                         }
                     }
                     this.e = i;
                     if (i == 100) {
-                        Iterator it2 = this.c.iterator();
+                        Iterator<IWebviewPageLoadCallback> it2 = this.c.iterator();
                         while (it2.hasNext()) {
-                            IWebviewPageLoadCallback iWebviewPageLoadCallback2 = (IWebviewPageLoadCallback) it2.next();
-                            if (iWebviewPageLoadCallback2 != null) {
-                                iWebviewPageLoadCallback2.onPageFinished(webView, webView.getUrl(), this.d);
+                            IWebviewPageLoadCallback next2 = it2.next();
+                            if (next2 != null) {
+                                next2.onPageFinished(webView, webView.getUrl(), this.d);
                             }
                         }
                     }
@@ -371,10 +377,10 @@ public class BaiduStatJSInterface {
     }
 
     /* loaded from: classes2.dex */
-    public class CustomWebViewClient extends WebViewClient {
+    public static class CustomWebViewClient extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<Context> a;
         public WebViewClient b;
         public IWebviewPageLoadCallback c;
         public bk d;
@@ -394,22 +400,22 @@ public class BaiduStatJSInterface {
                     return;
                 }
             }
-            this.a = new WeakReference(context);
+            this.a = new WeakReference<>(context);
             this.b = webViewClient;
             this.c = iWebviewPageLoadCallback;
             this.d = bkVar;
         }
 
-        private HashMap a(JSONObject jSONObject) {
+        private HashMap<String, String> a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-                HashMap hashMap = null;
+                HashMap<String, String> hashMap = null;
                 if (jSONObject == null) {
                     return null;
                 }
                 if (jSONObject.length() != 0) {
-                    hashMap = new HashMap();
+                    hashMap = new HashMap<>();
                 }
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
@@ -433,7 +439,7 @@ public class BaiduStatJSInterface {
                 JSONObject jSONObject = new JSONObject(str);
                 String string = jSONObject.getString("action");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("obj");
-                Context context = (Context) this.a.get();
+                Context context = this.a.get();
                 if (context == null) {
                     return;
                 }
@@ -463,7 +469,7 @@ public class BaiduStatJSInterface {
                         jSONObject3 = (JSONObject) jSONObject2.get("attributes");
                     } catch (Exception unused) {
                     }
-                    BDStatCore.instance().onEvent(context, string4, string5, i, (ExtraInfo) null, (Map) a(jSONObject3), false, true);
+                    BDStatCore.instance().onEvent(context, string4, string5, i, (ExtraInfo) null, (Map<String, String>) a(jSONObject3), false, true);
                 } else if ("onEventStart".equals(string)) {
                     String string6 = jSONObject2.getString("event_id");
                     String string7 = jSONObject2.getString("label");
@@ -526,6 +532,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
@@ -535,6 +542,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
@@ -581,6 +589,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public void onPageCommitVisible(WebView webView, String str) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
@@ -599,6 +608,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
@@ -608,6 +618,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -631,6 +642,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -659,6 +671,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -691,6 +704,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
             WebViewClient webViewClient;
             Interceptable interceptable = $ic;
@@ -700,6 +714,7 @@ public class BaiduStatJSInterface {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"NewApi"})
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.bumptech.glide.signature;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ public final class ObjectKey implements Key {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object object;
 
-    public ObjectKey(Object obj) {
+    public ObjectKey(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +48,7 @@ public final class ObjectKey implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             messageDigest.update(this.object.toString().getBytes(Key.CHARSET));

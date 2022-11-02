@@ -4,6 +4,8 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public abstract class ImageViewTarget extends ViewTarget implements Transition.ViewAdapter {
+public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implements Transition.ViewAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Animatable animatable;
 
-    public abstract void setResource(Object obj);
+    public abstract void setResource(@Nullable Z z);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageViewTarget(ImageView imageView) {
@@ -61,11 +64,11 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
         }
     }
 
-    private void maybeUpdateAnimatable(Object obj) {
+    private void maybeUpdateAnimatable(@Nullable Z z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, obj) == null) {
-            if (obj instanceof Animatable) {
-                Animatable animatable = (Animatable) obj;
+        if (interceptable == null || interceptable.invokeL(65538, this, z) == null) {
+            if (z instanceof Animatable) {
+                Animatable animatable = (Animatable) z;
                 this.animatable = animatable;
                 animatable.start();
                 return;
@@ -74,16 +77,16 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
         }
     }
 
-    private void setResourceInternal(Object obj) {
+    private void setResourceInternal(@Nullable Z z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, obj) == null) {
-            setResource(obj);
-            maybeUpdateAnimatable(obj);
+        if (interceptable == null || interceptable.invokeL(65539, this, z) == null) {
+            setResource(z);
+            maybeUpdateAnimatable(z);
         }
     }
 
     @Override // com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void onLoadCleared(Drawable drawable) {
+    public void onLoadCleared(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
             super.onLoadCleared(drawable);
@@ -97,7 +100,7 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
     }
 
     @Override // com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void onLoadFailed(Drawable drawable) {
+    public void onLoadFailed(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
             super.onLoadFailed(drawable);
@@ -107,7 +110,7 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
     }
 
     @Override // com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
-    public void onLoadStarted(Drawable drawable) {
+    public void onLoadStarted(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
             super.onLoadStarted(drawable);
@@ -120,16 +123,17 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
-            ((ImageView) this.f1063view).setImageDrawable(drawable);
+            ((ImageView) this.f1064view).setImageDrawable(drawable);
         }
     }
 
     @Override // com.bumptech.glide.request.transition.Transition.ViewAdapter
+    @Nullable
     public Drawable getCurrentDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((ImageView) this.f1063view).getDrawable();
+            return ((ImageView) this.f1064view).getDrawable();
         }
         return (Drawable) invokeV.objValue;
     }
@@ -153,13 +157,13 @@ public abstract class ImageViewTarget extends ViewTarget implements Transition.V
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onResourceReady(Object obj, Transition transition) {
+    public void onResourceReady(@NonNull Z z, @Nullable Transition<? super Z> transition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, obj, transition) == null) {
-            if (transition != null && transition.transition(obj, this)) {
-                maybeUpdateAnimatable(obj);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, z, transition) == null) {
+            if (transition != null && transition.transition(z, this)) {
+                maybeUpdateAnimatable(z);
             } else {
-                setResourceInternal(obj);
+                setResourceInternal(z);
             }
         }
     }

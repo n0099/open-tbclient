@@ -2,6 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -88,7 +89,7 @@ public class BOSUploader {
         return (BOSUploader) invokeV.objValue;
     }
 
-    private BosClient createBosClient(STSInfo sTSInfo) {
+    private BosClient createBosClient(@NonNull STSInfo sTSInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, sTSInfo)) == null) {
@@ -103,7 +104,7 @@ public class BOSUploader {
         return (BosClient) invokeL.objValue;
     }
 
-    private BOSResponseEntity uploadByteSync(STSInfo sTSInfo, String str, String str2, byte[] bArr) {
+    private BOSResponseEntity uploadByteSync(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull byte[] bArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sTSInfo, str, str2, bArr)) == null) {
@@ -146,7 +147,7 @@ public class BOSUploader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, String str, String str2, File file) {
+    private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLLL;
         long length;
         Interceptable interceptable = $ic;
@@ -294,7 +295,7 @@ public class BOSUploader {
         }
     }
 
-    public String createObjectKey(String str, String str2) {
+    public String createObjectKey(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
@@ -303,7 +304,7 @@ public class BOSUploader {
         return (String) invokeLL.objValue;
     }
 
-    public BOSResponseEntity uploadByteSync(String str, String str2, byte[] bArr) {
+    public BOSResponseEntity uploadByteSync(@NonNull String str, @NonNull String str2, @NonNull byte[] bArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bArr)) == null) {
@@ -316,7 +317,7 @@ public class BOSUploader {
         return (BOSResponseEntity) invokeLLL.objValue;
     }
 
-    public BOSResponseEntity uploadFileSync(String str, String str2, File file) {
+    public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, file)) == null) {
@@ -329,7 +330,7 @@ public class BOSUploader {
         return (BOSResponseEntity) invokeLLL.objValue;
     }
 
-    public BOSResponseEntity uploadFileSync(String str, String str2, File file, UploadUrlListener uploadUrlListener) {
+    public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file, @NonNull UploadUrlListener uploadUrlListener) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, file, uploadUrlListener)) == null) {

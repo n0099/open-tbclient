@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.ui;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +64,7 @@ public class DefaultTimeBar extends View implements TimeBar {
     public int keyCountIncrement;
     public long keyTimeIncrement;
     public int lastCoarseScrubXPosition;
-    public final CopyOnWriteArraySet listeners;
+    public final CopyOnWriteArraySet<TimeBar.OnScrubListener> listeners;
     public int[] locationOnScreen;
     public boolean[] playedAdGroups;
     public final Paint playedAdMarkerPaint;
@@ -139,7 +141,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         Paint paint = new Paint();
         this.scrubberPaint = paint;
         paint.setAntiAlias(true);
-        this.listeners = new CopyOnWriteArraySet();
+        this.listeners = new CopyOnWriteArraySet<>();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         this.fineScrubYThreshold = dpToPx(displayMetrics, -50);
         int dpToPx = dpToPx(displayMetrics, 4);
@@ -385,6 +387,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         return (String) invokeV.objValue;
     }
 
+    @TargetApi(16)
     private void maybeSetImportantForAccessibilityV16() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65549, this) == null) && getImportantForAccessibility() == 0) {
@@ -442,9 +445,9 @@ public class DefaultTimeBar extends View implements TimeBar {
             if (parent != null) {
                 parent.requestDisallowInterceptTouchEvent(true);
             }
-            Iterator it = this.listeners.iterator();
+            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((TimeBar.OnScrubListener) it.next()).onScrubStart(this, getScrubberPosition());
+                it.next().onScrubStart(this, getScrubberPosition());
             }
         }
     }
@@ -606,9 +609,9 @@ public class DefaultTimeBar extends View implements TimeBar {
                 parent.requestDisallowInterceptTouchEvent(false);
             }
             invalidate();
-            Iterator it = this.listeners.iterator();
+            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((TimeBar.OnScrubListener) it.next()).onScrubStop(this, getScrubberPosition(), z);
+                it.next().onScrubStop(this, getScrubberPosition(), z);
             }
         }
     }
@@ -629,9 +632,9 @@ public class DefaultTimeBar extends View implements TimeBar {
             if (!this.scrubbing) {
                 startScrubbing();
             }
-            Iterator it = this.listeners.iterator();
+            Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
             while (it.hasNext()) {
-                ((TimeBar.OnScrubListener) it.next()).onScrubMove(this, this.scrubPosition);
+                it.next().onScrubMove(this, this.scrubPosition);
             }
             update();
             return true;
@@ -640,6 +643,7 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // android.view.View
+    @TargetApi(21)
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accessibilityNodeInfo) == null) {
@@ -729,6 +733,7 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // android.view.View
+    @TargetApi(16)
     public boolean performAccessibilityAction(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -804,9 +809,9 @@ public class DefaultTimeBar extends View implements TimeBar {
                                     positionScrubber(i);
                                 }
                                 this.scrubPosition = getScrubberPosition();
-                                Iterator it = this.listeners.iterator();
+                                Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
                                 while (it.hasNext()) {
-                                    ((TimeBar.OnScrubListener) it.next()).onScrubMove(this, this.scrubPosition);
+                                    it.next().onScrubMove(this, this.scrubPosition);
                                 }
                                 update();
                                 invalidate();
@@ -839,7 +844,7 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setAdGroupTimesMs(long[] jArr, boolean[] zArr, int i) {
+    public void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048589, this, jArr, zArr, i) == null) {

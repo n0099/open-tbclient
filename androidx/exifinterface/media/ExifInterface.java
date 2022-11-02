@@ -11,6 +11,9 @@ import android.system.Os;
 import android.system.OsConstants;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.AutoScrollHelper;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -481,6 +484,7 @@ public class ExifInterface {
     public static final String TAG_SUB_IFD_POINTER = "SubIFDPointer";
     public static final String TAG_THUMBNAIL_IMAGE_LENGTH = "ThumbnailImageLength";
     public static final String TAG_THUMBNAIL_IMAGE_WIDTH = "ThumbnailImageWidth";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String TAG_THUMBNAIL_ORIENTATION = "ThumbnailOrientation";
     public static final String TAG_TRANSFER_FUNCTION = "TransferFunction";
     public static final String TAG_USER_COMMENT = "UserComment";
@@ -548,11 +552,13 @@ public class ExifInterface {
     public boolean mXmpIsFromSeparateMarker;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface ExifStreamType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface IfdType {
     }
@@ -1919,7 +1925,7 @@ public class ExifInterface {
         }
     }
 
-    public ExifInterface(File file) throws IOException {
+    public ExifInterface(@NonNull File file) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1957,7 +1963,8 @@ public class ExifInterface {
         return (String) invokeCommon.objValue;
     }
 
-    private ExifAttribute getExifAttribute(String str) {
+    @Nullable
+    private ExifAttribute getExifAttribute(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, str)) == null) {
@@ -2052,7 +2059,7 @@ public class ExifInterface {
         return (ByteOrder) invokeL.objValue;
     }
 
-    public ExifInterface(FileDescriptor fileDescriptor) throws IOException {
+    public ExifInterface(@NonNull FileDescriptor fileDescriptor) throws IOException {
         FileInputStream fileInputStream;
         Throwable th;
         Interceptable interceptable = $ic;
@@ -2202,7 +2209,7 @@ public class ExifInterface {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExifInterface(InputStream inputStream) throws IOException {
+    public ExifInterface(@NonNull InputStream inputStream) throws IOException {
         this(inputStream, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -2489,7 +2496,8 @@ public class ExifInterface {
         return invokeCommon.doubleValue;
     }
 
-    public long[] getAttributeRange(String str) {
+    @Nullable
+    public long[] getAttributeRange(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -2523,7 +2531,7 @@ public class ExifInterface {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExifInterface(InputStream inputStream, int i) throws IOException {
+    public ExifInterface(@NonNull InputStream inputStream, int i) throws IOException {
         this(inputStream, i == 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -2543,7 +2551,7 @@ public class ExifInterface {
         }
     }
 
-    public static long parseDateTime(String str, String str2) {
+    public static long parseDateTime(@Nullable String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65583, null, str, str2)) == null) {
@@ -2574,7 +2582,7 @@ public class ExifInterface {
         return invokeLL.longValue;
     }
 
-    public ExifInterface(InputStream inputStream, boolean z) throws IOException {
+    public ExifInterface(@NonNull InputStream inputStream, boolean z) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2811,7 +2819,7 @@ public class ExifInterface {
         }
     }
 
-    public ExifInterface(String str) throws IOException {
+    public ExifInterface(@NonNull String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2881,6 +2889,7 @@ public class ExifInterface {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long getGpsDateTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2902,6 +2911,7 @@ public class ExifInterface {
         return invokeV.longValue;
     }
 
+    @Nullable
     public double[] getLatLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2923,6 +2933,7 @@ public class ExifInterface {
         return (double[]) invokeV.objValue;
     }
 
+    @Nullable
     public Bitmap getThumbnailBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3080,7 +3091,8 @@ public class ExifInterface {
         }
     }
 
-    public byte[] getAttributeBytes(String str) {
+    @Nullable
+    public byte[] getAttributeBytes(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -3112,7 +3124,7 @@ public class ExifInterface {
         return invokeL.booleanValue;
     }
 
-    public boolean hasAttribute(String str) {
+    public boolean hasAttribute(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
@@ -3124,6 +3136,7 @@ public class ExifInterface {
         return invokeL.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void setDateTime(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
@@ -3178,7 +3191,7 @@ public class ExifInterface {
         return invokeLL.booleanValue;
     }
 
-    public int getAttributeInt(String str, int i) {
+    public int getAttributeInt(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
@@ -3501,7 +3514,7 @@ public class ExifInterface {
         return (Pair) invokeL.objValue;
     }
 
-    public static boolean isSupportedMimeType(String str) {
+    public static boolean isSupportedMimeType(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) {
@@ -3866,7 +3879,8 @@ public class ExifInterface {
         }
     }
 
-    public String getAttribute(String str) {
+    @Nullable
+    public String getAttribute(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -4081,7 +4095,7 @@ public class ExifInterface {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, SGET]}, finally: {[INVOKE, SGET, INVOKE, IF] complete} */
-    private void loadAttributes(InputStream inputStream) {
+    private void loadAttributes(@NonNull InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65582, this, inputStream) == null) {
             if (inputStream != null) {
@@ -4233,6 +4247,7 @@ public class ExifInterface {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long getDateTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4242,6 +4257,7 @@ public class ExifInterface {
         return invokeV.longValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long getDateTimeDigitized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4251,6 +4267,7 @@ public class ExifInterface {
         return invokeV.longValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long getDateTimeOriginal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4260,6 +4277,7 @@ public class ExifInterface {
         return invokeV.longValue;
     }
 
+    @Nullable
     public byte[] getThumbnail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4620,7 +4638,7 @@ public class ExifInterface {
         }
     }
 
-    public double getAttributeDouble(String str, double d) {
+    public double getAttributeDouble(@NonNull String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d)})) == null) {
@@ -5109,6 +5127,7 @@ public class ExifInterface {
         return invokeV.intValue;
     }
 
+    @Nullable
     public long[] getThumbnailRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -5136,6 +5155,7 @@ public class ExifInterface {
     /* JADX WARN: Type inference failed for: r1v19, types: [android.content.res.AssetManager$AssetInputStream, java.io.Closeable, java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r1v3, types: [byte[]] */
     /* JADX WARN: Type inference failed for: r1v4 */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -5451,7 +5471,7 @@ public class ExifInterface {
         }
     }
 
-    public void setAttribute(String str, String str2) {
+    public void setAttribute(@NonNull String str, @Nullable String str2) {
         ExifTag exifTag;
         int i;
         String str3;

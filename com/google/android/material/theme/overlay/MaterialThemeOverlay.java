@@ -3,6 +3,10 @@ package com.google.android.material.theme.overlay;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
@@ -51,7 +55,8 @@ public class MaterialThemeOverlay {
         }
     }
 
-    public static int obtainAndroidThemeOverlayId(Context context, AttributeSet attributeSet) {
+    @StyleRes
+    public static int obtainAndroidThemeOverlayId(@NonNull Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, attributeSet)) == null) {
@@ -67,7 +72,8 @@ public class MaterialThemeOverlay {
         return invokeLL.intValue;
     }
 
-    public static int obtainMaterialThemeOverlayId(Context context, AttributeSet attributeSet, int i, int i2) {
+    @StyleRes
+    public static int obtainMaterialThemeOverlayId(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, context, attributeSet, i, i2)) == null) {
@@ -79,7 +85,8 @@ public class MaterialThemeOverlay {
         return invokeLLII.intValue;
     }
 
-    public static Context wrap(Context context, AttributeSet attributeSet, int i, int i2) {
+    @NonNull
+    public static Context wrap(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         InterceptResult invokeLLII;
         boolean z;
         Interceptable interceptable = $ic;

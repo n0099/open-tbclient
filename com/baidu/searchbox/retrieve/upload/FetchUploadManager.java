@@ -2,6 +2,7 @@ package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -100,14 +101,14 @@ public class FetchUploadManager {
         }
     }
 
-    public void uploadReportContent(FetchTaskObj fetchTaskObj) {
+    public void uploadReportContent(@NonNull FetchTaskObj fetchTaskObj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fetchTaskObj) == null) {
             uploadReportContent(fetchTaskObj, null);
         }
     }
 
-    public void uploadReportContent(FetchTaskObj fetchTaskObj, IUploadListener iUploadListener) {
+    public void uploadReportContent(@NonNull FetchTaskObj fetchTaskObj, IUploadListener iUploadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchTaskObj, iUploadListener) == null) {
             this.mContentExecutor.execute(new Runnable(this, fetchTaskObj, iUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.FetchUploadManager.1
@@ -142,7 +143,7 @@ public class FetchUploadManager {
                     JSONObject createFetchReqContent;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (createFetchReqContent = ContentUtils.createFetchReqContent(this.val$taskObj)) != null) {
-                        UploaderProvider.getContentUploader().uploadDataRequestASync("0", createFetchReqContent.toString(), null, new ResponseCallback(this) { // from class: com.baidu.searchbox.retrieve.upload.FetchUploadManager.1.1
+                        UploaderProvider.getContentUploader().uploadDataRequestASync("0", createFetchReqContent.toString(), null, new ResponseCallback<JSONObject>(this) { // from class: com.baidu.searchbox.retrieve.upload.FetchUploadManager.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 this$1;

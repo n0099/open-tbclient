@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.text;
 
+import android.annotation.TargetApi;
 import android.graphics.Typeface;
 import android.view.accessibility.CaptioningManager;
 import androidx.core.view.InputDeviceCompat;
@@ -75,6 +76,7 @@ public final class CaptionStyleCompat {
         this.typeface = typeface;
     }
 
+    @TargetApi(19)
     public static CaptionStyleCompat createFromCaptionStyle(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -87,6 +89,7 @@ public final class CaptionStyleCompat {
         return (CaptionStyleCompat) invokeL.objValue;
     }
 
+    @TargetApi(19)
     public static CaptionStyleCompat createFromCaptionStyleV19(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -96,6 +99,7 @@ public final class CaptionStyleCompat {
         return (CaptionStyleCompat) invokeL.objValue;
     }
 
+    @TargetApi(21)
     public static CaptionStyleCompat createFromCaptionStyleV21(CaptioningManager.CaptionStyle captionStyle) {
         InterceptResult invokeL;
         int i;

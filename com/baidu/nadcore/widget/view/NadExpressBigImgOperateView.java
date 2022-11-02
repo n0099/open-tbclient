@@ -5,13 +5,14 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.to0;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.cq0;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,6 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public AdImageView m;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -77,7 +79,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -86,19 +88,19 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, np0 np0Var) {
-        super(context, attributeSet, i, np0Var);
+    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, cq0 cq0Var) {
+        super(context, attributeSet, i, cq0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), np0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), cq0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (np0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (cq0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -107,14 +109,14 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, np0 np0Var) {
+    public void j(LayoutInflater layoutInflater, cq0 cq0Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, np0Var) == null) {
-            if (np0Var != null && np0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
-                i = np0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, cq0Var) == null) {
+            if (cq0Var != null && cq0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
+                i = cq0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
             } else {
-                i = R.layout.obfuscated_res_0x7f0d05ef;
+                i = R.layout.obfuscated_res_0x7f0d05ff;
             }
             layoutInflater.inflate(i, this);
         }
@@ -124,7 +126,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0915e4);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091623);
         }
     }
 
@@ -147,12 +149,12 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void n(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof to0)) {
-            to0 to0Var = (to0) adBaseModel;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof ip0)) {
+            ip0 ip0Var = (ip0) adBaseModel;
             setMaxTitleLine(2);
             AdImageView adImageView = this.m;
             if (adImageView != null) {
-                adImageView.g(to0Var.r.a);
+                adImageView.g(ip0Var.r.a);
             }
         }
     }
@@ -163,7 +165,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
             return;
         }
         Resources resources = getContext().getResources();
-        int e = u21.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
+        int e = m31.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070043) * 2);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
         layoutParams.width = e;
         layoutParams.height = Math.round((e / resources.getInteger(R.integer.obfuscated_res_0x7f0a0021)) * resources.getInteger(R.integer.obfuscated_res_0x7f0a0020));

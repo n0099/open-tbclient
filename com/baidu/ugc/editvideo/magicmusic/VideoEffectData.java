@@ -3,9 +3,9 @@ package com.baidu.ugc.editvideo.magicmusic;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
-import com.baidu.tieba.nh9;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.dg9;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,9 +20,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class VideoEffectData implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mMagicEffectList;
+    public List<BaseEffect> mMagicEffectList;
     public BaseEffect mTimeEffect;
-    public List mTransitionEffectList;
+    public List<BaseEffect> mTransitionEffectList;
 
     public VideoEffectData() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class VideoEffectData implements Serializable, Cloneable {
             if (videoEffectData == null) {
                 return false;
             }
-            return !nh9.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
+            return !wi9.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
         }
         return invokeL.booleanValue;
     }
@@ -56,7 +56,7 @@ public class VideoEffectData implements Serializable, Cloneable {
     public static boolean hasMagicEffect(VideoEffectData videoEffectData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoEffectData)) == null) ? (videoEffectData == null || nh9.e(videoEffectData.getMagicEffectList())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, videoEffectData)) == null) ? (videoEffectData == null || wi9.e(videoEffectData.getMagicEffectList())) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean hasRepeatTimeEffect(VideoEffectData videoEffectData) {
@@ -82,7 +82,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 if (str.contains("SCALE_SMALL")) {
                     str = str.replace("SCALE_SMALL", "NINE_FRAME");
                 }
-                return (VideoEffectData) new ue9().b(str, VideoEffectData.class);
+                return (VideoEffectData) new dg9().b(str, VideoEffectData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -98,7 +98,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 return null;
             }
             try {
-                return new ue9().a(videoEffectData);
+                return new dg9().a(videoEffectData);
             } catch (Exception unused) {
                 return null;
             }
@@ -112,7 +112,7 @@ public class VideoEffectData implements Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             VideoEffectData videoEffectData = new VideoEffectData();
             try {
-                if (!nh9.e(this.mMagicEffectList)) {
+                if (!wi9.e(this.mMagicEffectList)) {
                     ArrayList arrayList = new ArrayList();
                     for (BaseEffect baseEffect : this.mMagicEffectList) {
                         arrayList.add((BaseEffect) baseEffect.clone());
@@ -122,7 +122,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 if (this.mTimeEffect != null) {
                     videoEffectData.setTimeEffect((BaseEffect) this.mTimeEffect.clone());
                 }
-                if (!nh9.e(this.mTransitionEffectList)) {
+                if (!wi9.e(this.mTransitionEffectList)) {
                     CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
                     for (BaseEffect baseEffect2 : this.mTransitionEffectList) {
                         copyOnWriteArrayList.add((BaseEffect) baseEffect2.clone());
@@ -130,7 +130,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                     videoEffectData.setTransitionEffectList(copyOnWriteArrayList);
                 }
             } catch (Exception e) {
-                ih9.g(e);
+                ri9.g(e);
             }
             return videoEffectData;
         }
@@ -165,16 +165,16 @@ public class VideoEffectData implements Serializable, Cloneable {
                         return false;
                     }
                 }
-                if (nh9.e(this.mMagicEffectList)) {
-                    if (!nh9.e(videoEffectData.mMagicEffectList)) {
+                if (wi9.e(this.mMagicEffectList)) {
+                    if (!wi9.e(videoEffectData.mMagicEffectList)) {
                         return false;
                     }
-                } else if (nh9.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
+                } else if (wi9.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
                     return false;
                 } else {
                     for (int i = 0; i < this.mMagicEffectList.size(); i++) {
-                        BaseEffect baseEffect4 = (BaseEffect) videoEffectData.mMagicEffectList.get(i);
-                        BaseEffect baseEffect5 = (BaseEffect) this.mMagicEffectList.get(i);
+                        BaseEffect baseEffect4 = videoEffectData.mMagicEffectList.get(i);
+                        BaseEffect baseEffect5 = this.mMagicEffectList.get(i);
                         if (baseEffect4 != null) {
                             if (baseEffect5 == null || baseEffect4.effectType != baseEffect5.effectType || baseEffect4.startTime != baseEffect5.startTime || baseEffect4.endTime != baseEffect5.endTime) {
                                 return false;
@@ -195,17 +195,17 @@ public class VideoEffectData implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.mMagicEffectList;
+            List<BaseEffect> list = this.mMagicEffectList;
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            List list2 = this.mMagicEffectList;
-            return (BaseEffect) list2.get(list2.size() - 1);
+            List<BaseEffect> list2 = this.mMagicEffectList;
+            return list2.get(list2.size() - 1);
         }
         return (BaseEffect) invokeV.objValue;
     }
 
-    public List getMagicEffectList() {
+    public List<BaseEffect> getMagicEffectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMagicEffectList : (List) invokeV.objValue;
@@ -217,7 +217,7 @@ public class VideoEffectData implements Serializable, Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTimeEffect : (BaseEffect) invokeV.objValue;
     }
 
-    public List getTransitionEffectList() {
+    public List<BaseEffect> getTransitionEffectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTransitionEffectList : (List) invokeV.objValue;
@@ -225,18 +225,18 @@ public class VideoEffectData implements Serializable, Cloneable {
 
     public BaseEffect remove(int i) {
         InterceptResult invokeI;
-        List list;
+        List<BaseEffect> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             if (i < 0 || (list = this.mMagicEffectList) == null || list.size() <= i) {
                 return null;
             }
-            return (BaseEffect) this.mMagicEffectList.remove(i);
+            return this.mMagicEffectList.remove(i);
         }
         return (BaseEffect) invokeI.objValue;
     }
 
-    public void setMagicEffectList(List list) {
+    public void setMagicEffectList(List<BaseEffect> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.mMagicEffectList = list;
@@ -250,7 +250,7 @@ public class VideoEffectData implements Serializable, Cloneable {
         }
     }
 
-    public void setTransitionEffectList(List list) {
+    public void setTransitionEffectList(List<BaseEffect> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.mTransitionEffectList = list;

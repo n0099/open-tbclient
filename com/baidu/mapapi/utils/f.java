@@ -42,7 +42,7 @@ public final class f implements Runnable {
                     b.a(this.a);
                     b.a(this.b, this.a);
                 }
-                thread = b.v;
+                thread = b.x;
             } while (!thread.isInterrupted());
         }
     }

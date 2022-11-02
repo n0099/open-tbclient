@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class UnSupportedMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UnSupportedMsg> CREATOR;
     public static String unSupportedMsgDesc = "[不支持的消息类型，请升级应用后查看]";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class UnSupportedMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg.1
+        CREATOR = new Parcelable.Creator<UnSupportedMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSupportedMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,6 +69,7 @@ public class UnSupportedMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UnSupportedMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -80,6 +81,7 @@ public class UnSupportedMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UnSupportedMsg[] newArray(int i) {
                 InterceptResult invokeI;

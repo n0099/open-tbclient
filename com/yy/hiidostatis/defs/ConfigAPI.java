@@ -75,7 +75,7 @@ public class ConfigAPI implements IConfigAPI {
         return (JSONObject) invokeLZ.objValue;
     }
 
-    private JSONObject getConfig(String str, Map map, Context context, boolean z, boolean z2) throws Exception {
+    private JSONObject getConfig(String str, Map<String, String> map, Context context, boolean z, boolean z2) throws Exception {
         InterceptResult invokeCommon;
         String str2;
         Interceptable interceptable = $ic;

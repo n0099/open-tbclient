@@ -7,10 +7,10 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.b;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public Context mContext;
-    public final LinkedBlockingQueue Zs = new LinkedBlockingQueue(1);
+    public final LinkedBlockingQueue<IBinder> Zs = new LinkedBlockingQueue<>(1);
     public ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.b.1
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -37,7 +37,7 @@ public final class b {
             intent.setPackage("com.huawei.hwid");
             if (this.mContext.bindService(intent, this.Zq, 1)) {
                 try {
-                    b.a aVar = new b.a((IBinder) this.Zs.take());
+                    b.a aVar = new b.a(this.Zs.take());
                     str = aVar.uk();
                     boolean ul = aVar.ul();
                     StringBuilder sb = new StringBuilder("getOAID oaid:");

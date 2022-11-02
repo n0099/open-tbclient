@@ -26,9 +26,17 @@ public abstract class Animation {
         void onAnimationStart();
     }
 
+    public abstract void cancel();
+
+    public abstract void setAnimationListener(AnimationListener animationListener);
+
+    public abstract void setDuration(long j);
+
+    public abstract void setInterpolator(Interpolator interpolator);
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RepeatMode {
+    public static final class RepeatMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RepeatMode RESTART;
         public static final RepeatMode REVERSE;
@@ -76,13 +84,19 @@ public abstract class Animation {
         public static RepeatMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RepeatMode) Enum.valueOf(RepeatMode.class, str) : (RepeatMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RepeatMode) Enum.valueOf(RepeatMode.class, str);
+            }
+            return (RepeatMode) invokeL.objValue;
         }
 
         public static RepeatMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RepeatMode[]) a.clone() : (RepeatMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RepeatMode[]) a.clone();
+            }
+            return (RepeatMode[]) invokeV.objValue;
         }
     }
 
@@ -99,12 +113,4 @@ public abstract class Animation {
             }
         }
     }
-
-    public abstract void cancel();
-
-    public abstract void setAnimationListener(AnimationListener animationListener);
-
-    public abstract void setDuration(long j);
-
-    public abstract void setInterpolator(Interpolator interpolator);
 }

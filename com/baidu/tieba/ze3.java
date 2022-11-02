@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface ze3 {
-    void a(String str, int i);
-
-    void b(String str, int i);
-
-    void c(String str);
+    void a(cf3 cf3Var, xi3<ef3<df3>> xi3Var);
 }

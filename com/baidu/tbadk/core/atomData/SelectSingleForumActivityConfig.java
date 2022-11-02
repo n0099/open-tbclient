@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +38,7 @@ public class SelectSingleForumActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void setForumList(ArrayList arrayList) {
+    public void setForumList(ArrayList<BazhuInfoData.BaInfo> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) && getIntent() != null) {
             getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);

@@ -4,11 +4,13 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ve1;
+import com.baidu.tieba.nf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +38,7 @@ public class FileUploadStrategy implements IUpload {
     public ThreadPoolExecutor mUploadExecutor;
 
     /* loaded from: classes2.dex */
-    public final class Constants {
+    public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_COUNT_ATTACHMENT = 100;
         public static final long MAX_LIFE_TIME = 2592000000L;
@@ -59,13 +61,15 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* loaded from: classes2.dex */
-    public final class FileEntity implements Comparable {
+    public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public File mFile;
+        @NonNull
         public FileName mFileName;
 
-        public FileEntity(File file, FileName fileName) {
+        public FileEntity(@NonNull File file, @NonNull FileName fileName) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +88,7 @@ public class FileUploadStrategy implements IUpload {
             this.mFileName = fileName;
         }
 
-        public static FileEntity getFileEntity(File file) {
+        public static FileEntity getFileEntity(@NonNull File file) {
             InterceptResult invokeL;
             FileName fileName;
             Interceptable interceptable = $ic;
@@ -99,7 +103,7 @@ public class FileUploadStrategy implements IUpload {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(FileEntity fileEntity) {
+        public int compareTo(@NonNull FileEntity fileEntity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fileEntity)) == null) {
@@ -117,7 +121,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* loaded from: classes2.dex */
-    public final class FileName {
+    public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
         public static final String SEPARATOR = "#";
@@ -127,7 +131,7 @@ public class FileUploadStrategy implements IUpload {
         public String mProcessName;
         public Long mTimestamp;
 
-        public FileName(String str, long j, String str2, String str3) {
+        public FileName(@NonNull String str, long j, @NonNull String str2, @NonNull String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +152,7 @@ public class FileUploadStrategy implements IUpload {
             this.mFileType = str3;
         }
 
-        public static String createFileID(String str, long j) {
+        public static String createFileID(@NonNull String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
@@ -157,7 +161,7 @@ public class FileUploadStrategy implements IUpload {
             return (String) invokeLJ.objValue;
         }
 
-        public static FileName getFileName(String str) {
+        public static FileName getFileName(@NonNull String str) {
             InterceptResult invokeL;
             String[] split;
             String[] split2;
@@ -211,7 +215,8 @@ public class FileUploadStrategy implements IUpload {
             return (FileName) invokeLLL.objValue;
         }
 
-        public static String getFileName(FileName fileName) {
+        @NonNull
+        public static String getFileName(@NonNull FileName fileName) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fileName)) == null) {
@@ -220,6 +225,7 @@ public class FileUploadStrategy implements IUpload {
             return (String) invokeL.objValue;
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -231,7 +237,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* loaded from: classes2.dex */
-    public final class StoreUtil {
+    public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
         public static final String BASE_UPLOAD_ATTACHMENT_DIR = "attachment";
@@ -280,7 +286,8 @@ public class FileUploadStrategy implements IUpload {
             return (File) invokeV.objValue;
         }
 
-        public static File obtainFilePath(File file, FileName fileName) {
+        @NonNull
+        public static File obtainFilePath(@NonNull File file, @NonNull FileName fileName) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, file, fileName)) == null) {
@@ -298,14 +305,14 @@ public class FileUploadStrategy implements IUpload {
                 if (applicationContext != null) {
                     appContext = applicationContext;
                 }
-                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), ve1.b().replace(":", "_"));
+                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), nf1.b().replace(":", "_"));
             }
             return (File) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public final class TrimConfig {
+    public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mLifeTime;
@@ -470,10 +477,10 @@ public class FileUploadStrategy implements IUpload {
     }
 
     @Override // com.baidu.searchbox.aperf.bosuploader.uploadstrategy.IUpload
-    public void upload(List list, String str, String str2) {
+    public void upload(@NonNull List<File> list, @NonNull String str, @NonNull String str2) {
         File createAttachZipFile;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) && (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), ve1.b(), str2)) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) && (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), nf1.b(), str2)) != null) {
             this.mUploadExecutor.execute(new Runnable(this, createAttachZipFile, str) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -530,7 +537,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    private Pair clearInvalidFiles() {
+    private Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
@@ -538,7 +545,7 @@ public class FileUploadStrategy implements IUpload {
             if (listFiles == null || listFiles.length == 0) {
                 return null;
             }
-            Pair fileCluster = fileCluster(listFiles, new TrimConfig(100, 2592000000L));
+            Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(100, 2592000000L));
             if (((LinkedList) fileCluster.second).size() > 0) {
                 Iterator it = ((LinkedList) fileCluster.second).iterator();
                 while (it.hasNext()) {
@@ -556,7 +563,8 @@ public class FileUploadStrategy implements IUpload {
         return (Pair) invokeV.objValue;
     }
 
-    private File createAttachZipFile(List list, String str, String str2, String str3) {
+    @Nullable
+    private File createAttachZipFile(@Nullable List<File> list, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, this, list, str, str2, str3)) == null) {
@@ -612,7 +620,7 @@ public class FileUploadStrategy implements IUpload {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
-            Pair clearInvalidFiles = clearInvalidFiles();
+            Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles = clearInvalidFiles();
             if (clearInvalidFiles == null) {
                 return false;
             }
@@ -641,7 +649,8 @@ public class FileUploadStrategy implements IUpload {
         return invokeI.booleanValue;
     }
 
-    private Pair fileCluster(File[] fileArr, TrimConfig trimConfig) {
+    @NonNull
+    private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(@NonNull File[] fileArr, @NonNull TrimConfig trimConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, fileArr, trimConfig)) == null) {
@@ -678,12 +687,13 @@ public class FileUploadStrategy implements IUpload {
                     }
                 }
             }
-            return new Pair(linkedList, linkedList2);
+            return new Pair<>(linkedList, linkedList2);
         }
         return (Pair) invokeLL.objValue;
     }
 
-    private ResponseEntity uploadAction(FileEntity fileEntity) {
+    @NonNull
+    private ResponseEntity uploadAction(@NonNull FileEntity fileEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, fileEntity)) == null) {
@@ -697,7 +707,8 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ResponseEntity uploadAttachmentSync(String str, File file) {
+    @NonNull
+    public ResponseEntity uploadAttachmentSync(@NonNull String str, @NonNull File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, str, file)) == null) {

@@ -1,61 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.ala.data.AlaSquareTabInfo;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class rx5 extends BaseAdapter {
+public class rx5 extends jn<tx5, AlaSubListLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList b;
+    public TbPageContext<?> a;
+    public by5 b;
+    public boolean c;
+    public zx5 d;
+    public int e;
+    public int f;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-
-        public a(rx5 rx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public rx5(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rx5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), tx5.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,84 +38,98 @@ public class rx5 extends BaseAdapter {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = false;
         this.a = tbPageContext;
     }
 
-    public void b(ArrayList arrayList) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: t */
+    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.d = new zx5(this.a, this.c);
+            return new AlaSubListLiveDoubleViewHolder(this.d);
+        }
+        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void w(by5 by5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!ListUtils.isEmpty(this.b)) {
-                return this.b.get(i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, by5Var) == null) {
+            this.b = by5Var;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final void s(tx5 tx5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx5Var) != null) || tx5Var == null) {
+            return;
+        }
+        int i = this.f;
+        if (i == 1) {
+            if (tx5Var.a != null) {
+                bx5 b = bx5.b();
+                bx5 b2 = bx5.b();
+                int i2 = this.e;
+                cv5 cv5Var = tx5Var.a;
+                b.a(b2.d(i2, "c12117", cv5Var.a, cv5Var.b, cv5Var.getThreadData()));
             }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    public ArrayList a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!ListUtils.isEmpty(this.b)) {
-                return this.b.size();
+            if (tx5Var.b != null) {
+                bx5 b3 = bx5.b();
+                bx5 b4 = bx5.b();
+                int i3 = this.e;
+                cv5 cv5Var2 = tx5Var.b;
+                b3.a(b4.d(i3, "c12117", cv5Var2.a, cv5Var2.b, cv5Var2.getThreadData()));
             }
-            return 0;
+        } else if (i == 2) {
+            cv5 cv5Var3 = tx5Var.a;
+            if (cv5Var3 != null && cv5Var3.getThreadData() != null && tx5Var.a.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData = tx5Var.a.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", tx5Var.a.b));
+            }
+            cv5 cv5Var4 = tx5Var.b;
+            if (cv5Var4 != null && cv5Var4.getThreadData() != null && tx5Var.b.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData2 = tx5Var.b.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", tx5Var.b.b));
+            }
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        a aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tx5 tx5Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e6, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f09071c);
-                aVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801ce);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092203);
-                aVar.b = textView;
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
-                view3.setTag(aVar);
-            } else {
-                view3 = view2;
-                aVar = (a) view2.getTag();
-            }
-            aVar.a.L(((AlaSquareTabInfo) this.b.get(i)).iconUrl, 10, false);
-            aVar.b.setText(((AlaSquareTabInfo) this.b.get(i)).name);
-            return view3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tx5Var, alaSubListLiveDoubleViewHolder})) == null) {
+            s(tx5Var);
+            alaSubListLiveDoubleViewHolder.a.l(tx5Var);
+            alaSubListLiveDoubleViewHolder.a.s(this.b);
+            return alaSubListLiveDoubleViewHolder.getView();
         }
-        return (View) invokeILL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.TargetApi;
 import android.graphics.Matrix;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
@@ -11,11 +12,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.px9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +38,9 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
+@TargetApi(19)
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaCodecProperties AllwinnerH264HwProperties;
@@ -71,6 +73,7 @@ public class MediaCodecVideoEncoder {
     public static final MediaCodecProperties amlogicH264HwProperties;
     public static int bitrateMode;
     public static int codecErrors;
+    @Nullable
     public static MediaCodecVideoEncoderErrorCallback errorCallback;
     public static final MediaCodecProperties exynosH264HighProfileHwProperties;
     public static final MediaCodecProperties exynosH264HwProperties;
@@ -81,7 +84,7 @@ public class MediaCodecVideoEncoder {
     public static final MediaCodecProperties hisiH264HighProfileHwProperties;
     public static final MediaCodecProperties hisiH264HwProperties;
     public static final MediaCodecProperties huaweiIMGH264HwProperties;
-    public static Set hwEncoderDisabledTypes;
+    public static Set<String> hwEncoderDisabledTypes;
     public static final MediaCodecProperties intelVp8HwProperties;
     public static final MediaCodecProperties myMTKH264HighProfileHwProperties;
     public static final MediaCodecProperties myMTKH264HwProperties;
@@ -89,8 +92,10 @@ public class MediaCodecVideoEncoder {
     public static final MediaCodecProperties qcomH264HwProperties;
     public static final MediaCodecProperties qcomVp8HwProperties;
     public static final MediaCodecProperties qcomVp9HwProperties;
+    @Nullable
     public static MediaCodecVideoEncoder runningInstance;
     public static final MediaCodecProperties sprdH264HwProperties;
+    @Nullable
     public static EglBase staticEglBase;
     public static final int[] supportedColorList;
     public static final int[] supportedSurfaceColorList;
@@ -103,14 +108,20 @@ public class MediaCodecVideoEncoder {
     public String bitrateModePreset;
     public double bitrateObservationTimeMs;
     public int colorFormat;
+    @Nullable
     public ByteBuffer configData;
+    @Nullable
     public GlRectDrawer drawer;
+    @Nullable
     public EglBase14 eglBase;
     public long forcedKeyFrameMs;
     public int height;
+    @Nullable
     public Surface inputSurface;
     public long lastKeyFrameMs;
+    @Nullable
     public MediaCodec mediaCodec;
+    @Nullable
     public Thread mediaCodecThread;
     public ByteBuffer[] outputBuffers;
     public int profile;
@@ -119,7 +130,7 @@ public class MediaCodecVideoEncoder {
     public VideoCodecType type;
     public int width;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i);
     }
@@ -129,7 +140,7 @@ public class MediaCodecVideoEncoder {
     public static native void nativeFillInputBuffer(long j, int i, ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4);
 
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,8 +167,8 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class BitrateAdjustmentType {
+    /* loaded from: classes9.dex */
+    public static final class BitrateAdjustmentType {
         public static final /* synthetic */ BitrateAdjustmentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BitrateAdjustmentType DYNAMIC_ADJUSTMENT;
@@ -223,8 +234,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class EncoderProperties {
+    /* loaded from: classes9.dex */
+    public static class EncoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BitrateAdjustmentType bitrateAdjustmentType;
@@ -253,8 +264,8 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class H264Profile {
+    /* loaded from: classes9.dex */
+    public static final class H264Profile {
         public static final /* synthetic */ H264Profile[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final H264Profile BASELINE;
@@ -336,8 +347,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class HwEncoderFactory implements VideoEncoderFactory {
+    /* loaded from: classes9.dex */
+    public static class HwEncoderFactory implements VideoEncoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final VideoCodecInfo[] supportedHardwareCodecs;
@@ -424,6 +435,7 @@ public class MediaCodecVideoEncoder {
         }
 
         @Override // org.webrtc.VideoEncoderFactory
+        @Nullable
         public VideoEncoder createEncoder(VideoCodecInfo videoCodecInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -483,8 +495,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class MediaCodecProperties {
+    /* loaded from: classes9.dex */
+    public static class MediaCodecProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BitrateAdjustmentType bitrateAdjustmentType;
@@ -512,8 +524,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class OutputBufferInfo {
+    /* loaded from: classes9.dex */
+    public static class OutputBufferInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer buffer;
@@ -542,6 +554,7 @@ public class MediaCodecVideoEncoder {
             this.presentationTimestampUs = j;
         }
 
+        @CalledByNative("OutputBufferInfo")
         public ByteBuffer getBuffer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -551,6 +564,7 @@ public class MediaCodecVideoEncoder {
             return (ByteBuffer) invokeV.objValue;
         }
 
+        @CalledByNative("OutputBufferInfo")
         public int getIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -560,6 +574,7 @@ public class MediaCodecVideoEncoder {
             return invokeV.intValue;
         }
 
+        @CalledByNative("OutputBufferInfo")
         public long getPresentationTimestampUs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -569,6 +584,7 @@ public class MediaCodecVideoEncoder {
             return invokeV.longValue;
         }
 
+        @CalledByNative("OutputBufferInfo")
         public boolean isKeyFrame() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -580,8 +596,8 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class VideoCodecType {
+    /* loaded from: classes9.dex */
+    public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VideoCodecType VIDEO_CODEC_H264;
@@ -630,6 +646,7 @@ public class MediaCodecVideoEncoder {
             }
         }
 
+        @CalledByNative("VideoCodecType")
         public static VideoCodecType fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -703,6 +720,7 @@ public class MediaCodecVideoEncoder {
         supportedSurfaceColorList = new int[]{2130708361};
     }
 
+    @CalledByNative
     public MediaCodecVideoEncoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -762,6 +780,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    @Nullable
     public static EglBase.Context getEglContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -859,6 +878,7 @@ public class MediaCodecVideoEncoder {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public static EncoderProperties vp8HwEncoderProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -871,6 +891,7 @@ public class MediaCodecVideoEncoder {
         return (EncoderProperties) invokeV.objValue;
     }
 
+    @CalledByNativeUnchecked
     public int dequeueInputBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -886,6 +907,7 @@ public class MediaCodecVideoEncoder {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public int getColorFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -895,6 +917,7 @@ public class MediaCodecVideoEncoder {
         return invokeV.intValue;
     }
 
+    @CalledByNativeUnchecked
     public ByteBuffer[] getInputBuffers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -906,6 +929,7 @@ public class MediaCodecVideoEncoder {
         return (ByteBuffer[]) invokeV.objValue;
     }
 
+    @Nullable
     public static MediaCodec createByCodecName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -928,6 +952,7 @@ public class MediaCodecVideoEncoder {
         return invokeI.doubleValue;
     }
 
+    @CalledByNative
     public static boolean isTextureBuffer(VideoFrame.Buffer buffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -944,7 +969,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = px9.b(context);
+            staticEglBase = yy9.b(context);
         }
     }
 
@@ -956,6 +981,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    @CalledByNativeUnchecked
     public boolean releaseOutputBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -987,6 +1013,7 @@ public class MediaCodecVideoEncoder {
     /* JADX DEBUG: Multi-variable search result rejected for r9v8, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v4 */
+    @Nullable
     public static EncoderProperties findHwEncoder(String str, MediaCodecProperties[] mediaCodecPropertiesArr, int[] iArr, int i, int i2) {
         InterceptResult invokeCommon;
         MediaCodecInfo mediaCodecInfo;
@@ -1216,6 +1243,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    @CalledByNativeUnchecked
     private boolean setRates(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -1300,6 +1328,8 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    @Nullable
+    @CalledByNativeUnchecked
     public OutputBufferInfo dequeueOutputBuffer() {
         InterceptResult invokeV;
         boolean z;
@@ -1381,6 +1411,7 @@ public class MediaCodecVideoEncoder {
         return (OutputBufferInfo) invokeV.objValue;
     }
 
+    @CalledByNativeUnchecked
     public boolean encodeBuffer(boolean z, int i, int i2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1398,6 +1429,7 @@ public class MediaCodecVideoEncoder {
         return invokeCommon.booleanValue;
     }
 
+    @CalledByNativeUnchecked
     public boolean encodeFrame(long j, boolean z, VideoFrame videoFrame, int i, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -1447,6 +1479,7 @@ public class MediaCodecVideoEncoder {
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x00d9  */
     /* JADX WARN: Removed duplicated region for block: B:86:0x0253  */
+    @CalledByNativeUnchecked
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1570,7 +1603,7 @@ public class MediaCodecVideoEncoder {
                                     createVideoFormat.setInteger("i-frame-interval", i7);
                                     if (z3) {
                                         createVideoFormat.setInteger(Scopes.PROFILE, 8);
-                                        createVideoFormat.setInteger(PollingModel.LEVEL, 256);
+                                        createVideoFormat.setInteger("level", 256);
                                     }
                                     Logging.d(TAG, "  Format: " + createVideoFormat);
                                     MediaCodec createByCodecName = createByCodecName(encoderProperties.codecName);
@@ -1624,6 +1657,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
+    @CalledByNativeUnchecked
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

@@ -17,7 +17,7 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements k {
+    public static class a implements k {
         public Dialog a;
 
         public a(Dialog dialog) {
@@ -73,22 +73,22 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public k a() {
-                this.c.a(new b.InterfaceC0648b() { // from class: com.ss.android.downloadlib.c.g.1.1
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+                this.c.a(new b.InterfaceC0659b() { // from class: com.ss.android.downloadlib.c.g.1.1
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                     public void a(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.d != null) {
                             AnonymousClass1.this.d.onClick(dialogInterface, -1);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                     public void b(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.e != null) {
                             AnonymousClass1.this.e.onClick(dialogInterface, -2);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0648b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0659b
                     public void c(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.f != null && dialogInterface != null) {
                             AnonymousClass1.this.f.onCancel(dialogInterface);

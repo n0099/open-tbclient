@@ -1,6 +1,7 @@
 package com.fun.ad.sdk;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,20 +21,20 @@ public final class FunAdConfig {
     public final Context appContext;
     public final String appId;
     public final String appName;
-    public final Set forbiddenPlatforms;
+    public final Set<String> forbiddenPlatforms;
     public final boolean isUseCloudAdConfiguration;
     public final boolean isUseTextureView;
     public final boolean isVideoDataFlowAutoStart;
     public final boolean isVideoSoundEnable;
     public final boolean logEnabled;
-    public final Map moduleConfigMap;
+    public final Map<String, ModuleAdConfig> moduleConfigMap;
     public final FunModuleInitManager moduleInitManager;
     public final FunRuntimeAdConfig runtimeAdConfig;
     public final String userId;
 
     /* renamed from: com.fun.ad.sdk.FunAdConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -69,7 +70,7 @@ public final class FunAdConfig {
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
@@ -81,10 +82,10 @@ public final class FunAdConfig {
         public boolean g;
         public boolean h;
         public String i;
-        public final Set j;
-        public final Map moduleConfigMap;
+        public final Set<String> j;
+        public final Map<String, ModuleAdConfig> moduleConfigMap;
 
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +120,7 @@ public final class FunAdConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setAppId(String str) {
+        public Builder setAppId(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -129,7 +130,7 @@ public final class FunAdConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setAppName(String str) {
+        public Builder setAppName(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {

@@ -1,5 +1,8 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.arch.core.internal.FastSafeIterableMap;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.core.view.InputDeviceCompat;
@@ -141,7 +144,7 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    public LifecycleRegistry(LifecycleOwner lifecycleOwner) {
+    public LifecycleRegistry(@NonNull LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -312,7 +315,7 @@ public class LifecycleRegistry extends Lifecycle {
         return invokeV.booleanValue;
     }
 
-    public static Lifecycle.State min(Lifecycle.State state, Lifecycle.State state2) {
+    public static Lifecycle.State min(@NonNull Lifecycle.State state, @Nullable Lifecycle.State state2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, state, state2)) == null) {
@@ -346,15 +349,16 @@ public class LifecycleRegistry extends Lifecycle {
         }
     }
 
-    public void handleLifecycleEvent(Lifecycle.Event event) {
+    public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
             moveToState(getStateAfter(event));
         }
     }
 
+    @MainThread
     @Deprecated
-    public void markState(Lifecycle.State state) {
+    public void markState(@NonNull Lifecycle.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             setCurrentState(state);
@@ -362,14 +366,15 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     @Override // androidx.lifecycle.Lifecycle
-    public void removeObserver(LifecycleObserver lifecycleObserver) {
+    public void removeObserver(@NonNull LifecycleObserver lifecycleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, lifecycleObserver) == null) {
             this.mObserverMap.remove(lifecycleObserver);
         }
     }
 
-    public void setCurrentState(Lifecycle.State state) {
+    @MainThread
+    public void setCurrentState(@NonNull Lifecycle.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, state) == null) {
             moveToState(state);
@@ -385,6 +390,7 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     @Override // androidx.lifecycle.Lifecycle
+    @NonNull
     public Lifecycle.State getCurrentState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +432,7 @@ public class LifecycleRegistry extends Lifecycle {
     }
 
     @Override // androidx.lifecycle.Lifecycle
-    public void addObserver(LifecycleObserver lifecycleObserver) {
+    public void addObserver(@NonNull LifecycleObserver lifecycleObserver) {
         LifecycleOwner lifecycleOwner;
         boolean z;
         Interceptable interceptable = $ic;

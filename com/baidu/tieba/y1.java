@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y1 extends p1 {
+public class y1 extends p1<y5, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
@@ -15,7 +15,7 @@ public class y1 extends p1 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: f */
-    public b7 a(String str, k3 k3Var, a aVar) {
+    public b7<j1> a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, aVar)) == null) {
@@ -34,7 +34,7 @@ public class y1 extends p1 {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends l1 {
+    public static class a extends l1<y5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String b;

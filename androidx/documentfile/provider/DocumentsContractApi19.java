@@ -7,12 +7,15 @@ import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(19)
 /* loaded from: classes.dex */
 public class DocumentsContractApi19 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,6 +58,7 @@ public class DocumentsContractApi19 {
         return invokeLL.longValue;
     }
 
+    @Nullable
     public static String getName(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -64,6 +68,7 @@ public class DocumentsContractApi19 {
         return (String) invokeLL.objValue;
     }
 
+    @Nullable
     public static String getRawType(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -73,6 +78,7 @@ public class DocumentsContractApi19 {
         return (String) invokeLL.objValue;
     }
 
+    @Nullable
     public static String getType(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -187,7 +193,7 @@ public class DocumentsContractApi19 {
         return invokeLL.booleanValue;
     }
 
-    public static void closeQuietly(AutoCloseable autoCloseable) {
+    public static void closeQuietly(@Nullable AutoCloseable autoCloseable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, autoCloseable) == null) && autoCloseable != null) {
             try {
@@ -229,7 +235,8 @@ public class DocumentsContractApi19 {
         return invokeCommon.longValue;
     }
 
-    public static String queryForString(Context context, Uri uri, String str, String str2) {
+    @Nullable
+    public static String queryForString(Context context, Uri uri, String str, @Nullable String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, context, uri, str, str2)) == null) {

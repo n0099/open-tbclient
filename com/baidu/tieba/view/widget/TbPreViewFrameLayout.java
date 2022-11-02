@@ -5,9 +5,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +60,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbPreViewFrameLayout(Context context) {
+    public TbPreViewFrameLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +81,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbPreViewFrameLayout(Context context, AttributeSet attributeSet) {
+    public TbPreViewFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +102,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbPreViewFrameLayout(Context context, AttributeSet attributeSet, int i) {
+    public TbPreViewFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -203,12 +205,12 @@ public class TbPreViewFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int k = fj.k(getContext());
-            int i = fj.i(getContext());
+            int l = xi.l(getContext());
+            int j = xi.j(getContext());
             a aVar = this.g;
-            int[] a2 = aVar != null ? aVar.a() : new int[]{fj.k(getContext()), fj.i(getContext())};
-            a2[0] = Math.min(k, a2[0]);
-            a2[1] = Math.min(i, a2[1]);
+            int[] a2 = aVar != null ? aVar.a() : new int[]{xi.l(getContext()), xi.j(getContext())};
+            a2[0] = Math.min(l, a2[0]);
+            a2[1] = Math.min(j, a2[1]);
             return a2;
         }
         return (int[]) invokeV.objValue;
@@ -235,7 +237,7 @@ public class TbPreViewFrameLayout extends FrameLayout {
                     } else if (Math.abs(this.c - motionEvent.getX()) > this.e && (motionEvent.getX() - this.c) - 50.0f > Math.abs(this.d - motionEvent.getY()) && this.i && (cVar = this.f) != null) {
                         cVar.a(motionEvent);
                     }
-                    if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= fj.i(getContext()) * 0.6d && (cVar2 = this.f) != null) {
+                    if (Math.abs(this.c - motionEvent.getX()) < 30.0f && Math.abs(this.d - motionEvent.getY()) < 30.0f && motionEvent.getY() <= xi.j(getContext()) * 0.6d && (cVar2 = this.f) != null) {
                         cVar2.c(motionEvent);
                     }
                 }

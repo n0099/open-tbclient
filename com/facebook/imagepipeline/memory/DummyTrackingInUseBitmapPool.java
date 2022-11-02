@@ -15,7 +15,7 @@ import java.util.Set;
 public class DummyTrackingInUseBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set mInUseValues;
+    public final Set<Bitmap> mInUseValues;
 
     @Override // com.facebook.common.memory.MemoryTrimmable
     public void trim(MemoryTrimType memoryTrimType) {
@@ -41,6 +41,7 @@ public class DummyTrackingInUseBitmapPool implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public Bitmap get(int i) {
         InterceptResult invokeI;

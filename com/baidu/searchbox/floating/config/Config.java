@@ -11,6 +11,7 @@ import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.searchbox.floating.IFloating;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
+import com.baidu.searchbox.floating.listener.FloatViewListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,19 +37,19 @@ public class Config {
     public FloatViewAnimator animator;
     public Rect blockOffset;
     public boolean canDrag;
-    public final Set filter;
-    public ArrayList floatViewListeners;
+    public final Set<String> filter;
+    public ArrayList<FloatViewListener> floatViewListeners;
     public IFloating floatingContext;
     public View floatingView;
     public boolean isAnimating;
     public boolean isDragging;
     public boolean isForeground;
-    public Pair location;
+    public Pair<Integer, Integer> location;
     public Notification notification;
     public boolean reverse;
-    public Pair scaleMode;
+    public Pair<? extends ScaleMode, ? extends ScaleMode> scaleMode;
     public int shadow;
-    public Pair size;
+    public Pair<Integer, Integer> size;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +69,7 @@ public class Config {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/floating/config/Config$Companion;", "", "FLOATING_CLOSE_WARNING", "Ljava/lang/String;", "FLOATING_PERMISSION_AUTH", "<init>", "()V", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,12 +106,12 @@ public class Config {
             }
         }
         this.blockOffset = new Rect(0, 0, 0, 0);
-        this.location = new Pair(-1, -1);
-        this.size = new Pair(-1, -1);
+        this.location = new Pair<>(-1, -1);
+        this.size = new Pair<>(-1, -1);
         ScaleMode scaleMode = ScaleMode.S;
-        this.scaleMode = new Pair(scaleMode, scaleMode);
+        this.scaleMode = new Pair<>(scaleMode, scaleMode);
         this.canDrag = true;
-        this.floatViewListeners = new ArrayList();
+        this.floatViewListeners = new ArrayList<>();
         this.filter = new LinkedHashSet();
     }
 
@@ -141,7 +142,7 @@ public class Config {
         return invokeV.booleanValue;
     }
 
-    public final Set getFilter() {
+    public final Set<String> getFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -150,7 +151,7 @@ public class Config {
         return (Set) invokeV.objValue;
     }
 
-    public final ArrayList getFloatViewListeners() {
+    public final ArrayList<FloatViewListener> getFloatViewListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -177,7 +178,7 @@ public class Config {
         return (View) invokeV.objValue;
     }
 
-    public final Pair getLocation() {
+    public final Pair<Integer, Integer> getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -204,7 +205,8 @@ public class Config {
         return invokeV.booleanValue;
     }
 
-    public final Pair getScaleMode() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.Pair<? extends com.baidu.searchbox.floating.config.ScaleMode, ? extends com.baidu.searchbox.floating.config.ScaleMode>, kotlin.Pair<com.baidu.searchbox.floating.config.ScaleMode, com.baidu.searchbox.floating.config.ScaleMode> */
+    public final Pair<ScaleMode, ScaleMode> getScaleMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -222,7 +224,7 @@ public class Config {
         return invokeV.intValue;
     }
 
-    public final Pair getSize() {
+    public final Pair<Integer, Integer> getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -294,7 +296,7 @@ public class Config {
         }
     }
 
-    public final void setFloatViewListeners(ArrayList arrayList) {
+    public final void setFloatViewListeners(ArrayList<FloatViewListener> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
             Intrinsics.checkNotNullParameter(arrayList, "<set-?>");
@@ -323,7 +325,7 @@ public class Config {
         }
     }
 
-    public final void setLocation(Pair pair) {
+    public final void setLocation(Pair<Integer, Integer> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");
@@ -345,7 +347,7 @@ public class Config {
         }
     }
 
-    public final void setScaleMode(Pair pair) {
+    public final void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");
@@ -360,7 +362,7 @@ public class Config {
         }
     }
 
-    public final void setSize(Pair pair) {
+    public final void setSize(Pair<Integer, Integer> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, pair) == null) {
             Intrinsics.checkNotNullParameter(pair, "<set-?>");

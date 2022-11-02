@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.ContextWrapper;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
 /* loaded from: classes3.dex */
-public abstract class a43 implements qm2 {
+public abstract class a43 extends ContextWrapper implements h43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(Object obj, sm2 sm2Var) throws Exception;
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a43() {
+        super(AppRuntime.getApplication());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,29 +22,11 @@ public abstract class a43 implements qm2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm2
-    public final byte[] call(Object obj) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            sm2 sm2Var = new sm2(byteArrayOutputStream);
-            a(obj, sm2Var);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            sm2Var.close();
-            byteArrayOutputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

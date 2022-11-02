@@ -17,7 +17,7 @@ public interface IPCCallback extends IInterface {
     void call(Bundle bundle) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class Stub extends Binder implements IPCCallback {
+    public static abstract class Stub extends Binder implements IPCCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
         public static final int TRANSACTION_call = 1;
@@ -31,7 +31,7 @@ public interface IPCCallback extends IInterface {
         }
 
         /* loaded from: classes8.dex */
-        public class Proxy implements IPCCallback {
+        public static class Proxy implements IPCCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IPCCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public interface IPCCallback extends IInterface {
     }
 
     /* loaded from: classes8.dex */
-    public class Default implements IPCCallback {
+    public static class Default implements IPCCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

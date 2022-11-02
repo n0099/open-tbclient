@@ -51,7 +51,7 @@ public class DialogRecordDBManager extends DBBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int count;
-        public List result;
+        public List<DialogRecord> result;
         public final /* synthetic */ DialogRecordDBManager this$0;
 
         public Parse(DialogRecordDBManager dialogRecordDBManager, int i) {
@@ -140,7 +140,7 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecordDBManager) invokeL.objValue;
     }
 
-    public List getDialogRecord(int i) {
+    public List<DialogRecord> getDialogRecord(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -172,7 +172,7 @@ public class DialogRecordDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long addBatch(List list) {
+    public long addBatch(List<DialogRecord> list) {
         InterceptResult invokeL;
         SQLiteDatabase sQLiteDatabase;
         Cursor cursor;
@@ -212,13 +212,13 @@ public class DialogRecordDBManager extends DBBase {
                 return -1L;
             }
             sQLiteDatabase.beginTransaction();
-            Iterator it = list.iterator();
+            Iterator<DialogRecord> it = list.iterator();
             Cursor cursor3 = null;
             while (true) {
                 try {
                     if (it.hasNext()) {
-                        DialogRecord dialogRecord = (DialogRecord) it.next();
-                        String[] strArr = {String.valueOf(dialogRecord.getCategory()), String.valueOf(dialogRecord.getContacter())};
+                        DialogRecord next = it.next();
+                        String[] strArr = {String.valueOf(next.getCategory()), String.valueOf(next.getContacter())};
                         Cursor query = sQLiteDatabase.query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", strArr, null, null, null);
                         if (query == null) {
                             if (query != null) {
@@ -231,17 +231,17 @@ public class DialogRecordDBManager extends DBBase {
                         }
                         try {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(dialogRecord.getMaxMsgid()));
-                            contentValues.put("state", Integer.valueOf(dialogRecord.getState()));
-                            contentValues.put("update_time", Long.valueOf(dialogRecord.getUpdateTime()));
-                            contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(dialogRecord.getDialogueMsgid()));
+                            contentValues.put(TableDefine.DRColumns.COLUMN_MAXMSGID, Long.valueOf(next.getMaxMsgid()));
+                            contentValues.put("state", Integer.valueOf(next.getState()));
+                            contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
+                            contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
                             if (query.getCount() > 0) {
                                 contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
                                 j = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
                             } else {
                                 contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
-                                contentValues.put("category", Integer.valueOf(dialogRecord.getCategory()));
-                                contentValues.put("contacter", Long.valueOf(dialogRecord.getContacter()));
+                                contentValues.put("category", Integer.valueOf(next.getCategory()));
+                                contentValues.put("contacter", Long.valueOf(next.getContacter()));
                                 j = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);
                             }
                             if (query != null) {
@@ -384,7 +384,7 @@ public class DialogRecordDBManager extends DBBase {
         }
     }
 
-    public List getUnCompleteDialogRecord() {
+    public List<DialogRecord> getUnCompleteDialogRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

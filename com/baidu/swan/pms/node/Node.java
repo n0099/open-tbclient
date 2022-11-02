@@ -3,15 +3,16 @@ package com.baidu.swan.pms.node;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cg4;
-import com.baidu.tieba.df4;
-import com.baidu.tieba.dg4;
-import com.baidu.tieba.ef4;
-import com.baidu.tieba.hf4;
-import com.baidu.tieba.hg4;
-import com.baidu.tieba.if4;
-import com.baidu.tieba.ig4;
-import com.baidu.tieba.ye4;
+import com.baidu.tieba.ag4;
+import com.baidu.tieba.ah4;
+import com.baidu.tieba.pf4;
+import com.baidu.tieba.qf4;
+import com.baidu.tieba.ug4;
+import com.baidu.tieba.vf4;
+import com.baidu.tieba.vg4;
+import com.baidu.tieba.wf4;
+import com.baidu.tieba.zf4;
+import com.baidu.tieba.zg4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,8 +33,8 @@ public final class Node {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class mParamsProvider;
-    public Class mProcessor;
+    public Class<? extends qf4> mParamsProvider;
+    public Class<? extends pf4> mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -48,10 +49,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", cg4.class, dg4.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", hg4.class, ig4.class, true);
-        CERES = new Node("CERES", 2, "ceres", df4.class, ef4.class);
-        Node node = new Node("COMMON", 3, "common", hf4.class, if4.class);
+        HOST = new Node("HOST", 0, "host", ug4.class, vg4.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", zg4.class, ah4.class, true);
+        CERES = new Node("CERES", 2, "ceres", vf4.class, wf4.class);
+        Node node = new Node("COMMON", 3, "common", zf4.class, ag4.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -119,21 +120,21 @@ public final class Node {
         return (Node) invokeL.objValue;
     }
 
-    public static ye4 getProvider(Node node) {
+    public static qf4 getProvider(Node node) {
         InterceptResult invokeL;
-        Class paramsProvider;
+        Class<? extends qf4> paramsProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, node)) == null) {
             if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
                 return null;
             }
             try {
-                return (ye4) paramsProvider.newInstance();
+                return paramsProvider.newInstance();
             } catch (IllegalAccessException | InstantiationException unused) {
                 return null;
             }
         }
-        return (ye4) invokeL.objValue;
+        return (qf4) invokeL.objValue;
     }
 
     public static Node valueOf(String str) {
@@ -163,7 +164,7 @@ public final class Node {
         return (String) invokeV.objValue;
     }
 
-    public Class getParamsProvider() {
+    public Class<? extends qf4> getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -172,7 +173,7 @@ public final class Node {
         return (Class) invokeV.objValue;
     }
 
-    public Class getProcessor() {
+    public Class<? extends pf4> getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

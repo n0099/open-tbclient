@@ -15,22 +15,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableIgnoreElementsCompletable extends Completable implements FuseToObservable {
+public final class ObservableIgnoreElementsCompletable<T> extends Completable implements FuseToObservable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource source;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class IgnoreObservable implements Observer, Disposable {
+    public static final class IgnoreObservable<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public Disposable d;
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             }
         }
 
@@ -96,7 +96,7 @@ public final class ObservableIgnoreElementsCompletable extends Completable imple
         }
     }
 
-    public ObservableIgnoreElementsCompletable(ObservableSource observableSource) {
+    public ObservableIgnoreElementsCompletable(ObservableSource<T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public final class ObservableIgnoreElementsCompletable extends Completable imple
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable fuseToObservable() {
+    public Observable<T> fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

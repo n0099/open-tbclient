@@ -1,15 +1,19 @@
 package com.google.android.gms.common.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.GoogleSignatureVerifier;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.wrappers.Wrappers;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class UidVerifier {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +33,8 @@ public final class UidVerifier {
         }
     }
 
-    public static boolean isGooglePlayServicesUid(Context context, int i) {
+    @KeepForSdk
+    public static boolean isGooglePlayServicesUid(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
@@ -48,7 +53,9 @@ public final class UidVerifier {
         return invokeLI.booleanValue;
     }
 
-    public static boolean uidHasPackageName(Context context, int i, String str) {
+    @KeepForSdk
+    @TargetApi(19)
+    public static boolean uidHasPackageName(@NonNull Context context, int i, @NonNull String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, str)) == null) {

@@ -3,12 +3,14 @@ package androidx.webkit.internal;
 import android.webkit.ServiceWorkerClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.RequiresApi;
 import androidx.webkit.ServiceWorkerClientCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(24)
 /* loaded from: classes.dex */
 public class FrameworkServiceWorkerClient extends ServiceWorkerClient {
     public static /* synthetic */ Interceptable $ic;

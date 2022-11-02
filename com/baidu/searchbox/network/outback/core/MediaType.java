@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,6 +22,7 @@ public final class MediaType {
     public static final String TOKEN = "([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)";
     public static final Pattern TYPE_SUBTYPE;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final String charset;
     public final String mediaType;
     public final String subtype;
@@ -43,6 +45,7 @@ public final class MediaType {
         PARAMETER = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
     }
 
+    @Nullable
     public Charset charset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +91,7 @@ public final class MediaType {
         return (String) invokeV.objValue;
     }
 
-    public MediaType(String str, String str2, String str3, String str4) {
+    public MediaType(String str, String str2, String str3, @Nullable String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,6 +151,7 @@ public final class MediaType {
         return (MediaType) invokeL.objValue;
     }
 
+    @Nullable
     public static MediaType parse(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -161,7 +165,8 @@ public final class MediaType {
         return (MediaType) invokeL.objValue;
     }
 
-    public Charset charset(Charset charset) {
+    @Nullable
+    public Charset charset(@Nullable Charset charset) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charset)) == null) {
@@ -177,7 +182,7 @@ public final class MediaType {
         return (Charset) invokeL.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {

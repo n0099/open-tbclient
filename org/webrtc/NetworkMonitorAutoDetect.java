@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.net.NetworkRequest;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.p2p.WifiP2pGroup;
 import android.os.Build;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
@@ -30,18 +32,20 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_NET_ID = -1;
     public static final String TAG = "NetworkMonitorAutoDetect";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final ConnectivityManager.NetworkCallback allNetworkCallback;
     public ConnectionType connectionType;
     public ConnectivityManagerDelegate connectivityManagerDelegate;
     public final Context context;
     public final IntentFilter intentFilter;
     public boolean isRegistered;
+    @Nullable
     public final ConnectivityManager.NetworkCallback mobileNetworkCallback;
     public final Observer observer;
     public WifiDirectManagerDelegate wifiDirectManagerDelegate;
@@ -49,13 +53,13 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public String wifiSSID;
 
     /* renamed from: org.webrtc.NetworkMonitorAutoDetect$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Observer {
         void onConnectionTypeChanged(ConnectionType connectionType);
 
@@ -65,8 +69,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class ConnectionType {
+    /* loaded from: classes9.dex */
+    public static final class ConnectionType {
         public static final /* synthetic */ ConnectionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ConnectionType CONNECTION_2G;
@@ -146,10 +150,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class ConnectivityManagerDelegate {
+    /* loaded from: classes9.dex */
+    public static class ConnectivityManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final ConnectivityManager connectivityManager;
 
         public ConnectivityManagerDelegate() {
@@ -168,6 +173,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.connectivityManager = null;
         }
 
+        @SuppressLint({"NewApi"})
         public Network[] getAllNetworks() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -224,7 +230,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         }
 
-        private NetworkState getNetworkState(NetworkInfo networkInfo) {
+        private NetworkState getNetworkState(@Nullable NetworkInfo networkInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, networkInfo)) == null) {
@@ -236,6 +242,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (NetworkState) invokeL.objValue;
         }
 
+        @SuppressLint({"NewApi"})
         public IPAddress[] getIPAddresses(LinkProperties linkProperties) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -252,7 +259,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public NetworkInformation networkToInfo(Network network) {
+        @Nullable
+        @SuppressLint({"NewApi"})
+        public NetworkInformation networkToInfo(@Nullable Network network) {
             InterceptResult invokeL;
             ConnectivityManager connectivityManager;
             Interceptable interceptable = $ic;
@@ -283,7 +292,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (NetworkInformation) invokeL.objValue;
         }
 
-        public NetworkState getNetworkState(Network network) {
+        @SuppressLint({"NewApi"})
+        public NetworkState getNetworkState(@Nullable Network network) {
             InterceptResult invokeL;
             ConnectivityManager connectivityManager;
             NetworkInfo activeNetworkInfo;
@@ -314,7 +324,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (NetworkState) invokeL.objValue;
         }
 
-        public List getActiveNetworkList() {
+        @Nullable
+        public List<NetworkInformation> getActiveNetworkList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -333,6 +344,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (List) invokeV.objValue;
         }
 
+        @SuppressLint({"NewApi"})
         public long getDefaultNetId() {
             InterceptResult invokeV;
             NetworkInfo activeNetworkInfo;
@@ -358,6 +370,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return invokeV.longValue;
         }
 
+        @SuppressLint({"NewApi"})
         public boolean hasInternetCapability(Network network) {
             InterceptResult invokeL;
             NetworkCapabilities networkCapabilities;
@@ -372,6 +385,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return invokeL.booleanValue;
         }
 
+        @SuppressLint({"NewApi"})
         public void registerNetworkCallback(ConnectivityManager.NetworkCallback networkCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, networkCallback) == null) {
@@ -379,6 +393,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
+        @SuppressLint({"NewApi"})
         public void releaseCallback(ConnectivityManager.NetworkCallback networkCallback) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, networkCallback) == null) && supportNetworkCallback()) {
@@ -387,6 +402,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
+        @SuppressLint({"NewApi"})
         public void requestMobileNetwork(ConnectivityManager.NetworkCallback networkCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, networkCallback) == null) {
@@ -397,8 +413,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class IPAddress {
+    /* loaded from: classes9.dex */
+    public static class IPAddress {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] address;
@@ -421,6 +437,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.address = bArr;
         }
 
+        @CalledByNative("IPAddress")
         private byte[] getAddress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -431,8 +448,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class NetworkInformation {
+    /* loaded from: classes9.dex */
+    public static class NetworkInformation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long handle;
@@ -463,6 +480,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.ipAddresses = iPAddressArr;
         }
 
+        @CalledByNative("NetworkInformation")
         private ConnectionType getConnectionType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -472,6 +490,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (ConnectionType) invokeV.objValue;
         }
 
+        @CalledByNative("NetworkInformation")
         private long getHandle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -481,6 +500,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return invokeV.longValue;
         }
 
+        @CalledByNative("NetworkInformation")
         private IPAddress[] getIpAddresses() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -490,6 +510,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (IPAddress[]) invokeV.objValue;
         }
 
+        @CalledByNative("NetworkInformation")
         private String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -499,6 +520,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return (String) invokeV.objValue;
         }
 
+        @CalledByNative("NetworkInformation")
         private ConnectionType getUnderlyingConnectionTypeForVpn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -509,8 +531,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class NetworkState {
+    /* loaded from: classes9.dex */
+    public static class NetworkState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean connected;
@@ -587,7 +609,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
+    @SuppressLint({"NewApi"})
+    /* loaded from: classes9.dex */
     public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -668,13 +691,14 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class WifiDirectManagerDelegate extends BroadcastReceiver {
+    /* loaded from: classes9.dex */
+    public static class WifiDirectManagerDelegate extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public static final int WIFI_P2P_NETWORK_HANDLE = 0;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
         public final Observer observer;
+        @Nullable
         public NetworkInformation wifiP2pNetworkInfo;
 
         public WifiDirectManagerDelegate(Observer observer, Context context) {
@@ -700,7 +724,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             context.registerReceiver(this, intentFilter);
         }
 
-        private void onWifiP2pGroupChange(WifiP2pGroup wifiP2pGroup) {
+        private void onWifiP2pGroupChange(@Nullable WifiP2pGroup wifiP2pGroup) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(65537, this, wifiP2pGroup) == null) && wifiP2pGroup != null && wifiP2pGroup.getInterface() != null) {
                 try {
@@ -726,7 +750,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
-        public List getActiveNetworkList() {
+        public List<NetworkInformation> getActiveNetworkList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -747,6 +771,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @Override // android.content.BroadcastReceiver
+        @SuppressLint({"InlinedApi"})
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) {
@@ -759,10 +784,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class WifiManagerDelegate {
+    /* loaded from: classes9.dex */
+    public static class WifiManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Context context;
 
         public WifiManagerDelegate() {
@@ -815,6 +841,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public NetworkMonitorAutoDetect(Observer observer, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -893,6 +920,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long networkToNetId(Network network) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1022,11 +1050,12 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    public List getActiveNetworkList() {
+    @Nullable
+    public List<NetworkInformation> getActiveNetworkList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List activeNetworkList = this.connectivityManagerDelegate.getActiveNetworkList();
+            List<NetworkInformation> activeNetworkList = this.connectivityManagerDelegate.getActiveNetworkList();
             if (activeNetworkList == null) {
                 return null;
             }

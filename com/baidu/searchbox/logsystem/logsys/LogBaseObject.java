@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogBaseObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public LogType mLogType;
 
     public LogBaseObject() {

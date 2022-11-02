@@ -1,6 +1,7 @@
 package com.baidu.crius;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.crius.annotations.DoNotStrip;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+@DoNotStrip
 /* loaded from: classes.dex */
 public final class CriusDisplay {
     public static final /* synthetic */ CriusDisplay[] $VALUES;

@@ -27,16 +27,16 @@ public final class GroupLastId extends Message {
     public final Long lastMsgId;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<GroupLastId> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List excludeMid;
+        public List<Long> excludeMid;
         public Long groupId;
         public Long lastMsgId;
 
@@ -141,7 +141,7 @@ public final class GroupLastId extends Message {
             } else {
                 this.lastMsgId = l2;
             }
-            List list = builder.excludeMid;
+            List<Long> list = builder.excludeMid;
             if (list == null) {
                 this.excludeMid = DEFAULT_EXCLUDEMID;
                 return;

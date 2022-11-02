@@ -16,7 +16,7 @@ public interface c extends IInterface {
 
     DownloadInfo a(int i, long j, String str, String str2) throws RemoteException;
 
-    List a(String str) throws RemoteException;
+    List<DownloadInfo> a(String str) throws RemoteException;
 
     void a() throws RemoteException;
 
@@ -26,7 +26,7 @@ public interface c extends IInterface {
 
     void a(int i, int i2, long j) throws RemoteException;
 
-    void a(int i, List list) throws RemoteException;
+    void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
 
     void a(b bVar) throws RemoteException;
 
@@ -40,11 +40,11 @@ public interface c extends IInterface {
 
     DownloadInfo b(int i, long j) throws RemoteException;
 
-    List b() throws RemoteException;
+    List<DownloadInfo> b() throws RemoteException;
 
-    List b(String str) throws RemoteException;
+    List<DownloadInfo> b(String str) throws RemoteException;
 
-    void b(int i, List list) throws RemoteException;
+    void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
 
     void b(DownloadInfo downloadInfo) throws RemoteException;
 
@@ -52,15 +52,15 @@ public interface c extends IInterface {
 
     DownloadInfo c(int i, long j) throws RemoteException;
 
-    List c(int i) throws RemoteException;
+    List<com.ss.android.socialbase.downloader.model.b> c(int i) throws RemoteException;
 
-    List c(String str) throws RemoteException;
+    List<DownloadInfo> c(String str) throws RemoteException;
 
     void c() throws RemoteException;
 
     DownloadInfo d(int i, long j) throws RemoteException;
 
-    List d(String str) throws RemoteException;
+    List<DownloadInfo> d(String str) throws RemoteException;
 
     void d(int i) throws RemoteException;
 
@@ -83,7 +83,7 @@ public interface c extends IInterface {
     DownloadInfo j(int i) throws RemoteException;
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements c {
+    public static abstract class a extends Binder implements c {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -91,11 +91,11 @@ public interface c extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0668a implements c {
+        public static class C0679a implements c {
             public static c a;
             public IBinder b;
 
-            public C0668a(IBinder iBinder) {
+            public C0679a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -113,7 +113,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -138,7 +138,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -163,7 +163,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -188,7 +188,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -213,7 +213,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -238,7 +238,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -265,7 +265,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -277,7 +277,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List a(String str) throws RemoteException {
+            public List<DownloadInfo> a(String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -307,7 +307,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -319,7 +319,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List c(int i) throws RemoteException {
+            public List<com.ss.android.socialbase.downloader.model.b> c(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -337,7 +337,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List d(String str) throws RemoteException {
+            public List<DownloadInfo> d(String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -411,7 +411,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -435,7 +435,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -459,7 +459,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -483,7 +483,7 @@ public interface c extends IInterface {
                     }
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
-                        downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(obtain2);
+                        downloadInfo = DownloadInfo.CREATOR.createFromParcel(obtain2);
                     } else {
                         downloadInfo = null;
                     }
@@ -512,7 +512,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List b() throws RemoteException {
+            public List<DownloadInfo> b() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -650,7 +650,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void a(int i, List list) throws RemoteException {
+            public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -669,7 +669,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void b(int i, List list) throws RemoteException {
+            public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -712,7 +712,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List b(String str) throws RemoteException {
+            public List<DownloadInfo> b(String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -730,7 +730,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List c(String str) throws RemoteException {
+            public List<DownloadInfo> c(String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -894,7 +894,7 @@ public interface c extends IInterface {
         }
 
         public static c f() {
-            return C0668a.a;
+            return C0679a.a;
         }
 
         public static c a(IBinder iBinder) {
@@ -905,7 +905,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0668a(iBinder);
+            return new C0679a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -940,37 +940,37 @@ public interface c extends IInterface {
                         return true;
                     case 4:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List a2 = a(parcel.readString());
+                        List<DownloadInfo> a2 = a(parcel.readString());
                         parcel2.writeNoException();
                         parcel2.writeTypedList(a2);
                         return true;
                     case 5:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List b2 = b(parcel.readString());
+                        List<DownloadInfo> b2 = b(parcel.readString());
                         parcel2.writeNoException();
                         parcel2.writeTypedList(b2);
                         return true;
                     case 6:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List c = c(parcel.readString());
+                        List<DownloadInfo> c = c(parcel.readString());
                         parcel2.writeNoException();
                         parcel2.writeTypedList(c);
                         return true;
                     case 7:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List d = d(parcel.readString());
+                        List<DownloadInfo> d = d(parcel.readString());
                         parcel2.writeNoException();
                         parcel2.writeTypedList(d);
                         return true;
                     case 8:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List b3 = b();
+                        List<DownloadInfo> b3 = b();
                         parcel2.writeNoException();
                         parcel2.writeTypedList(b3);
                         return true;
                     case 9:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        List c2 = c(parcel.readInt());
+                        List<com.ss.android.socialbase.downloader.model.b> c2 = c(parcel.readInt());
                         parcel2.writeNoException();
                         parcel2.writeTypedList(c2);
                         return true;
@@ -982,7 +982,7 @@ public interface c extends IInterface {
                     case 11:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                         if (parcel.readInt() != 0) {
-                            bVar = (com.ss.android.socialbase.downloader.model.b) com.ss.android.socialbase.downloader.model.b.CREATOR.createFromParcel(parcel);
+                            bVar = com.ss.android.socialbase.downloader.model.b.CREATOR.createFromParcel(parcel);
                         }
                         a(bVar);
                         parcel2.writeNoException();
@@ -990,7 +990,7 @@ public interface c extends IInterface {
                     case 12:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                         if (parcel.readInt() != 0) {
-                            bVar2 = (com.ss.android.socialbase.downloader.model.b) com.ss.android.socialbase.downloader.model.b.CREATOR.createFromParcel(parcel);
+                            bVar2 = com.ss.android.socialbase.downloader.model.b.CREATOR.createFromParcel(parcel);
                         }
                         b(bVar2);
                         parcel2.writeNoException();
@@ -1024,7 +1024,7 @@ public interface c extends IInterface {
                     case 17:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                         if (parcel.readInt() != 0) {
-                            downloadInfo2 = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo2 = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         boolean a4 = a(downloadInfo2);
                         parcel2.writeNoException();
@@ -1172,7 +1172,7 @@ public interface c extends IInterface {
                     case 33:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                         if (parcel.readInt() != 0) {
-                            downloadInfo = (DownloadInfo) DownloadInfo.CREATOR.createFromParcel(parcel);
+                            downloadInfo = DownloadInfo.CREATOR.createFromParcel(parcel);
                         }
                         b(downloadInfo);
                         parcel2.writeNoException();

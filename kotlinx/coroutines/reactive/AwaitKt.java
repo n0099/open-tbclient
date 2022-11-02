@@ -41,24 +41,24 @@ public final class AwaitKt {
         }
     }
 
-    public static final Object awaitFirst(Publisher publisher, Continuation continuation) {
+    public static final <T> Object awaitFirst(Publisher<T> publisher, Continuation<? super T> continuation) {
         return awaitOne$default(publisher, Mode.FIRST, null, continuation, 2, null);
     }
 
-    public static final Object awaitFirstOrNull(Publisher publisher, Continuation continuation) {
+    public static final <T> Object awaitFirstOrNull(Publisher<T> publisher, Continuation<? super T> continuation) {
         return awaitOne$default(publisher, Mode.FIRST_OR_DEFAULT, null, continuation, 2, null);
     }
 
-    public static final Object awaitLast(Publisher publisher, Continuation continuation) {
+    public static final <T> Object awaitLast(Publisher<T> publisher, Continuation<? super T> continuation) {
         return awaitOne$default(publisher, Mode.LAST, null, continuation, 2, null);
     }
 
-    public static final Object awaitSingle(Publisher publisher, Continuation continuation) {
+    public static final <T> Object awaitSingle(Publisher<T> publisher, Continuation<? super T> continuation) {
         return awaitOne$default(publisher, Mode.SINGLE, null, continuation, 2, null);
     }
 
-    public static final Object awaitFirstOrDefault(Publisher publisher, Object obj, Continuation continuation) {
-        return awaitOne(publisher, Mode.FIRST_OR_DEFAULT, obj, continuation);
+    public static final <T> Object awaitFirstOrDefault(Publisher<T> publisher, T t, Continuation<? super T> continuation) {
+        return awaitOne(publisher, Mode.FIRST_OR_DEFAULT, t, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
@@ -68,7 +68,7 @@ public final class AwaitKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object awaitFirstOrElse(Publisher publisher, Function0 function0, Continuation continuation) {
+    public static final <T> Object awaitFirstOrElse(Publisher<T> publisher, Function0<? extends T> function0, Continuation<? super T> continuation) {
         AwaitKt$awaitFirstOrElse$1 awaitKt$awaitFirstOrElse$1;
         Object obj;
         int i;
@@ -117,17 +117,17 @@ public final class AwaitKt {
         }
     }
 
-    public static final /* synthetic */ Object awaitOne(final Publisher publisher, final Mode mode, final Object obj, Continuation continuation) {
+    public static final /* synthetic */ <T> Object awaitOne(final Publisher<T> publisher, final Mode mode, final T t, Continuation<? super T> continuation) {
         final CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
-        ReactiveFlowKt.injectCoroutineContext(publisher, cancellableContinuationImpl.getContext()).subscribe(new Subscriber() { // from class: kotlinx.coroutines.reactive.AwaitKt$awaitOne$$inlined$suspendCancellableCoroutine$lambda$1
+        ReactiveFlowKt.injectCoroutineContext(publisher, cancellableContinuationImpl.getContext()).subscribe(new Subscriber<T>() { // from class: kotlinx.coroutines.reactive.AwaitKt$awaitOne$$inlined$suspendCancellableCoroutine$lambda$1
             public boolean seenValue;
             public Subscription subscription;
-            public Object value;
+            public T value;
 
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004H\n¢\u0006\u0002\b\u0005¨\u0006\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "", "invoke", "kotlinx/coroutines/reactive/AwaitKt$awaitOne$2$1$onSubscribe$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.reactive.AwaitKt$awaitOne$$inlined$suspendCancellableCoroutine$lambda$1$1  reason: invalid class name */
             /* loaded from: classes8.dex */
-            public final class AnonymousClass1 extends Lambda implements Function1 {
+            public static final class AnonymousClass1 extends Lambda implements Function1<Throwable, Unit> {
                 public final /* synthetic */ Subscription $sub;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,13 +136,16 @@ public final class AwaitKt {
                     this.$sub = subscription;
                 }
 
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function1
-                public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-                    invoke((Throwable) obj);
+                public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+                    invoke2(th);
                     return Unit.INSTANCE;
                 }
 
-                public final void invoke(Throwable th) {
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2(Throwable th) {
                     this.$sub.cancel();
                 }
             }
@@ -152,15 +155,15 @@ public final class AwaitKt {
                 if (this.seenValue) {
                     if (CancellableContinuation.this.isActive()) {
                         CancellableContinuation cancellableContinuation = CancellableContinuation.this;
-                        Object obj2 = this.value;
+                        T t2 = this.value;
                         Result.Companion companion = Result.Companion;
-                        cancellableContinuation.resumeWith(Result.m698constructorimpl(obj2));
+                        cancellableContinuation.resumeWith(Result.m698constructorimpl(t2));
                     }
                 } else if (mode == Mode.FIRST_OR_DEFAULT) {
                     CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
-                    Object obj3 = obj;
+                    Object obj = t;
                     Result.Companion companion2 = Result.Companion;
-                    cancellableContinuation2.resumeWith(Result.m698constructorimpl(obj3));
+                    cancellableContinuation2.resumeWith(Result.m698constructorimpl(obj));
                 } else if (CancellableContinuation.this.isActive()) {
                     CancellableContinuation cancellableContinuation3 = CancellableContinuation.this;
                     NoSuchElementException noSuchElementException = new NoSuchElementException("No value received via onNext for " + mode);
@@ -190,7 +193,7 @@ public final class AwaitKt {
             }
 
             @Override // org.reactivestreams.Subscriber
-            public void onNext(Object obj2) {
+            public void onNext(T t2) {
                 int i = AwaitKt.WhenMappings.$EnumSwitchMapping$0[mode.ordinal()];
                 if (i != 1 && i != 2) {
                     if (i == 3 || i == 4) {
@@ -209,7 +212,7 @@ public final class AwaitKt {
                             }
                             return;
                         }
-                        this.value = obj2;
+                        this.value = t2;
                         this.seenValue = true;
                     }
                 } else if (!this.seenValue) {
@@ -221,7 +224,7 @@ public final class AwaitKt {
                     subscription2.cancel();
                     CancellableContinuation cancellableContinuation2 = CancellableContinuation.this;
                     Result.Companion companion2 = Result.Companion;
-                    cancellableContinuation2.resumeWith(Result.m698constructorimpl(obj2));
+                    cancellableContinuation2.resumeWith(Result.m698constructorimpl(t2));
                 }
             }
         });

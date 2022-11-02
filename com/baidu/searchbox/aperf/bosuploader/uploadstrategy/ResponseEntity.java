@@ -1,5 +1,6 @@
 package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponseEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public String mResponseMessage;
     public boolean mSuccess;
 
@@ -30,6 +32,7 @@ public class ResponseEntity {
         this.mResponseMessage = null;
     }
 
+    @Nullable
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

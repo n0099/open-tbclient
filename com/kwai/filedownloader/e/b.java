@@ -19,7 +19,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger awJ;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class b {
         }
     }
 
-    public static ThreadPoolExecutor a(int i, LinkedBlockingQueue linkedBlockingQueue, String str) {
+    public static ThreadPoolExecutor a(int i, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, linkedBlockingQueue, str)) == null) {

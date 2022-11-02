@@ -6,11 +6,11 @@ import java.util.Map;
 public interface TTAdBridge {
     String call(int i, Bundle bundle);
 
-    Object callMethod(Class cls, int i, Map map);
+    <T> T callMethod(Class<T> cls, int i, Map<String, Object> map);
 
-    Object getObj(Class cls);
+    <T> T getObj(Class<T> cls);
 
-    Object getObj(Class cls, int i, Map map);
+    <T> T getObj(Class<T> cls, int i, Map<String, Object> map);
 
     void init(Bundle bundle);
 

@@ -13,7 +13,6 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
@@ -22,7 +21,7 @@ public class en {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map f312a;
+    public static Map<String, ht> f312a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -178,7 +177,7 @@ public class en {
                     }
                 }
             }
-            ht htVar2 = (ht) f312a.get(str.toLowerCase());
+            ht htVar2 = f312a.get(str.toLowerCase());
             return htVar2 != null ? htVar2 : ht.a;
         }
         return (ht) invokeL.objValue;
@@ -220,15 +219,14 @@ public class en {
         }
     }
 
-    public static void a(Context context, List list) {
+    public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65550, null, context, list) == null) || list == null) {
             return;
         }
         try {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                hn a2 = a(context, (String) it.next());
+            for (String str : list) {
+                hn a2 = a(context, str);
                 if (!com.xiaomi.push.service.bz.a(a2, false)) {
                     a(context, a2);
                 }

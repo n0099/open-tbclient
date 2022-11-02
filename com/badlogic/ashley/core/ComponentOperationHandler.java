@@ -18,7 +18,7 @@ public class ComponentOperationHandler {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public c b;
-    public b7 c;
+    public b7<ComponentOperation> c;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,7 +26,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public class ComponentOperation implements a8.a {
+    public static class ComponentOperation implements a8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
@@ -34,7 +34,7 @@ public class ComponentOperationHandler {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes.dex */
-        public final class Type {
+        public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Type Add;
@@ -142,7 +142,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class ComponentOperationHandler {
     }
 
     /* loaded from: classes.dex */
-    public class c extends a8 {
+    public static class c extends a8<ComponentOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +225,7 @@ public class ComponentOperationHandler {
             }
         }
         this.b = new c(null);
-        this.c = new b7();
+        this.c = new b7<>();
         this.a = bVar;
     }
 
@@ -233,9 +233,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, p0Var) == null) {
             if (this.a.value()) {
-                ComponentOperation componentOperation = (ComponentOperation) this.b.e();
-                componentOperation.a(p0Var);
-                this.c.a(componentOperation);
+                ComponentOperation e = this.b.e();
+                e.a(p0Var);
+                this.c.a(e);
                 return;
             }
             p0Var.g();
@@ -246,9 +246,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0Var) == null) {
             if (this.a.value()) {
-                ComponentOperation componentOperation = (ComponentOperation) this.b.e();
-                componentOperation.b(p0Var);
-                this.c.a(componentOperation);
+                ComponentOperation e = this.b.e();
+                e.b(p0Var);
+                this.c.a(e);
                 return;
             }
             p0Var.h();
@@ -260,9 +260,9 @@ public class ComponentOperationHandler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int i = 0;
             while (true) {
-                b7 b7Var = this.c;
+                b7<ComponentOperation> b7Var = this.c;
                 if (i < b7Var.b) {
-                    ComponentOperation componentOperation = (ComponentOperation) b7Var.get(i);
+                    ComponentOperation componentOperation = b7Var.get(i);
                     int i2 = a.a[componentOperation.a.ordinal()];
                     if (i2 != 1) {
                         if (i2 == 2) {

@@ -22,16 +22,16 @@ public final class g0 {
     public final Executor b;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes4.dex */
-    public class b implements Executor {
+    public static class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ThreadLocal a;
+        public ThreadLocal<Integer> a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public final class g0 {
                     return;
                 }
             }
-            this.a = new ThreadLocal();
+            this.a = new ThreadLocal<>();
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Integer num = (Integer) this.a.get();
+                Integer num = this.a.get();
                 if (num == null) {
                     num = 0;
                 }
@@ -88,7 +88,7 @@ public final class g0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Integer num = (Integer) this.a.get();
+                Integer num = this.a.get();
                 if (num == null) {
                     num = 0;
                 }

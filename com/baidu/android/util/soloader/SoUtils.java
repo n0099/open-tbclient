@@ -1,5 +1,6 @@
 package com.baidu.android.util.soloader;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
@@ -36,7 +37,7 @@ public final class SoUtils implements NoProGuard {
     }
 
     /* loaded from: classes.dex */
-    public final class SOLOG {
+    public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
         public static final String SO_LOAD_TAG = "SO_LOAD_TAG";
@@ -90,6 +91,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     @Deprecated
     public static boolean hasGingerbread() {
         InterceptResult invokeV;
@@ -212,7 +214,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    public static void saveLog(HashMap hashMap, String str, String str2) {
+    public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65546, null, hashMap, str, str2) == null) && !TextUtils.isEmpty(str2)) {
             hashMap.put(str, str2);

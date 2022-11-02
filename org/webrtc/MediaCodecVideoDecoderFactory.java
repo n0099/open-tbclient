@@ -5,7 +5,7 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sx9;
+import com.baidu.tieba.bz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecVideoDecoderFactory";
@@ -29,7 +29,7 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return sx9.$default$createDecoder(this, str);
+        return bz9.$default$createDecoder(this, str);
     }
 
     public MediaCodecVideoDecoderFactory(@Nullable EglBase.Context context, String[] strArr, String[] strArr2) {

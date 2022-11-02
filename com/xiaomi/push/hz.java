@@ -18,7 +18,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class hz implements iu, Serializable, Cloneable {
+public class hz implements iu<hz, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -64,7 +64,7 @@ public class hz implements iu, Serializable, Cloneable {
     public BitSet f567a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f568a;
+    public Map<String, String> f568a;
 
     /* renamed from: a  reason: collision with other field name */
     public short f569a;
@@ -793,9 +793,9 @@ public class hz implements iu, Serializable, Cloneable {
             if (this.f568a != null && t()) {
                 jfVar.a(t);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f568a.size()));
-                for (Map.Entry entry : this.f568a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f568a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -1165,7 +1165,7 @@ public class hz implements iu, Serializable, Cloneable {
             if (t()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("extra:");
-                Map map = this.f568a;
+                Map<String, String> map = this.f568a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

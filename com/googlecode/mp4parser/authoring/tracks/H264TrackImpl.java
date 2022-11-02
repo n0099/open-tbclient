@@ -38,7 +38,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -49,7 +48,7 @@ public class H264TrackImpl extends AbstractTrack {
     public static int BUFFER;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
-    public List ctts;
+    public List<CompositionTimeToSample.Entry> ctts;
     public int currentScSize;
     public DataSource dataSource;
     public long[] decodingTimes;
@@ -59,17 +58,17 @@ public class H264TrackImpl extends AbstractTrack {
     public int height;
     public String lang;
     public PictureParameterSet pictureParameterSet;
-    public LinkedList pictureParameterSetList;
+    public LinkedList<byte[]> pictureParameterSetList;
     public int prevScSize;
     public boolean readSamples;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List samples;
-    public List sdtp;
+    public List<Sample> samples;
+    public List<SampleDependencyTypeBox.Entry> sdtp;
     public SEIMessage seiMessage;
     public SeqParameterSet seqParameterSet;
-    public LinkedList seqParameterSetList;
+    public LinkedList<byte[]> seqParameterSetList;
     public ByteBuffer sixtyFourK;
-    public List stss;
+    public List<Integer> stss;
     public long timescale;
     public TrackMetaData trackMetaData;
     public int width;
@@ -82,7 +81,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     /* loaded from: classes7.dex */
-    public class SliceHeader {
+    public static class SliceHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean bottom_field_flag;
@@ -98,7 +97,7 @@ public class H264TrackImpl extends AbstractTrack {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes7.dex */
-        public final class SliceType {
+        public static final class SliceType {
             public static /* synthetic */ Interceptable $ic;
             public static final SliceType B;
             public static final /* synthetic */ SliceType[] ENUM$VALUES;
@@ -249,7 +248,7 @@ public class H264TrackImpl extends AbstractTrack {
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.H264TrackImpl$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -566,7 +565,7 @@ public class H264TrackImpl extends AbstractTrack {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class NALActions {
+    public static final class NALActions {
         public static /* synthetic */ Interceptable $ic;
         public static final NALActions BUFFER;
         public static final NALActions END;
@@ -860,7 +859,7 @@ public class H264TrackImpl extends AbstractTrack {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             long[] jArr = new long[this.stss.size()];
             for (int i = 0; i < this.stss.size(); i++) {
-                jArr[i] = ((Integer) this.stss.get(i)).intValue();
+                jArr[i] = this.stss.get(i).intValue();
             }
             return jArr;
         }
@@ -885,7 +884,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -906,7 +905,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -936,7 +935,7 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -974,8 +973,8 @@ public class H264TrackImpl extends AbstractTrack {
         this.readSamples = false;
         this.seqParameterSet = null;
         this.pictureParameterSet = null;
-        this.seqParameterSetList = new LinkedList();
-        this.pictureParameterSetList = new LinkedList();
+        this.seqParameterSetList = new LinkedList<>();
+        this.pictureParameterSetList = new LinkedList<>();
         this.frameNrInGop = 0;
         this.determineFrameRate = true;
         this.lang = "eng";
@@ -984,21 +983,20 @@ public class H264TrackImpl extends AbstractTrack {
         parse(new LookAhead(this, dataSource));
     }
 
-    public Sample createSample(List list) {
+    public Sample createSample(List<? extends ByteBuffer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
             byte[] bArr = new byte[list.size() * 4];
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                wrap.putInt(((ByteBuffer) it.next()).remaining());
+            for (ByteBuffer byteBuffer : list) {
+                wrap.putInt(byteBuffer.remaining());
             }
             ByteBuffer[] byteBufferArr = new ByteBuffer[list.size() * 2];
             for (int i = 0; i < list.size(); i++) {
                 int i2 = i * 2;
                 byteBufferArr[i2] = ByteBuffer.wrap(bArr, i * 4, 4);
-                byteBufferArr[i2 + 1] = (ByteBuffer) list.get(i);
+                byteBufferArr[i2 + 1] = list.get(i);
             }
             return new SampleImpl(byteBufferArr);
         }
@@ -1024,8 +1022,8 @@ public class H264TrackImpl extends AbstractTrack {
         this.readSamples = false;
         this.seqParameterSet = null;
         this.pictureParameterSet = null;
-        this.seqParameterSetList = new LinkedList();
-        this.pictureParameterSetList = new LinkedList();
+        this.seqParameterSetList = new LinkedList<>();
+        this.pictureParameterSetList = new LinkedList<>();
         this.frameNrInGop = 0;
         this.determineFrameRate = true;
         this.lang = "eng";
@@ -1054,8 +1052,8 @@ public class H264TrackImpl extends AbstractTrack {
         this.readSamples = false;
         this.seqParameterSet = null;
         this.pictureParameterSet = null;
-        this.seqParameterSetList = new LinkedList();
-        this.pictureParameterSetList = new LinkedList();
+        this.seqParameterSetList = new LinkedList<>();
+        this.pictureParameterSetList = new LinkedList<>();
         this.frameNrInGop = 0;
         this.determineFrameRate = true;
         this.lang = "eng";
@@ -1245,7 +1243,7 @@ public class H264TrackImpl extends AbstractTrack {
                     avcConfigurationBox.setChromaFormat(this.seqParameterSet.chroma_format_idc.getId());
                     avcConfigurationBox.setConfigurationVersion(1);
                     avcConfigurationBox.setLengthSizeMinusOne(3);
-                    avcConfigurationBox.setProfileCompatibility(((byte[]) this.seqParameterSetList.get(0))[1]);
+                    avcConfigurationBox.setProfileCompatibility(this.seqParameterSetList.get(0)[1]);
                     visualSampleEntry.addBox(avcConfigurationBox);
                     this.sampleDescriptionBox.addBox(visualSampleEntry);
                     this.trackMetaData.setCreationTime(new Date());

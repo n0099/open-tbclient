@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public final class e {
-    public static HashMap amJ = new HashMap();
+    public static HashMap<String, ArrayList<String>> amJ = new HashMap<>();
     public static String amK;
 
     public static String a(Signature signature, String str) {
@@ -32,27 +33,29 @@ public final class e {
         }
     }
 
+    @Nullable
     public static String bR(Context context) {
         if (TextUtils.isEmpty(amK)) {
-            ArrayList w = w(context, "SHA1");
+            ArrayList<String> w = w(context, "SHA1");
             if (w != null && w.size() != 0) {
-                amK = (String) w.get(0);
+                amK = w.get(0);
             }
             return amK;
         }
         return amK;
     }
 
-    public static ArrayList w(Context context, String str) {
+    @Nullable
+    public static ArrayList<String> w(Context context, String str) {
         String packageName;
         Signature[] x;
         if (context == null || (packageName = context.getPackageName()) == null) {
             return null;
         }
         if (amJ.get(str) != null) {
-            return (ArrayList) amJ.get(str);
+            return amJ.get(str);
         }
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         try {
             for (Signature signature : x(context, packageName)) {
                 String str2 = "error!";

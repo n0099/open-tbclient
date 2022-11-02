@@ -1,5 +1,6 @@
 package com.baidu.searchbox.util;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -30,8 +31,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.s10;
-import com.baidu.tieba.t20;
+import com.baidu.tieba.n10;
+import com.baidu.tieba.o20;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,6 +74,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes2.dex */
 public final class BaiduActiveManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -106,7 +108,7 @@ public final class BaiduActiveManager {
     public SharedPreferences mSettings;
 
     /* loaded from: classes2.dex */
-    public final class ActiveTimeParser {
+    public static final class ActiveTimeParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "ActiveTimeParser";
         public static ActiveTimeParser mParser;
@@ -418,7 +420,7 @@ public final class BaiduActiveManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Map getActivePostData() {
+    public Map<String, String> getActivePostData() {
         InterceptResult invokeV;
         String str;
         String str2;
@@ -452,7 +454,7 @@ public final class BaiduActiveManager {
                     e = e3;
                     e.printStackTrace();
                     String encode = encode(getRandId(), "none");
-                    String encode2 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
+                    String encode2 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode3 = encode(this.mInvokeSource, "none");
                     String encode4 = encode(this.mLauncherSource, "none");
                     String encode5 = encode(this.mLauncherExt, "none");
@@ -486,7 +488,7 @@ public final class BaiduActiveManager {
                     e = e4;
                     e.printStackTrace();
                     String encode10 = encode(getRandId(), "none");
-                    String encode22 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
+                    String encode22 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
                     String encode32 = encode(this.mInvokeSource, "none");
                     String encode42 = encode(this.mLauncherSource, "none");
                     String encode52 = encode(this.mLauncherExt, "none");
@@ -527,7 +529,7 @@ public final class BaiduActiveManager {
                 str2 = str;
             }
             String encode102 = encode(getRandId(), "none");
-            String encode222 = encode(t20.f(AppRuntime.getAppContext()).e(), "none");
+            String encode222 = encode(o20.f(AppRuntime.getAppContext()).e(), "none");
             String encode322 = encode(this.mInvokeSource, "none");
             String encode422 = encode(this.mLauncherSource, "none");
             String encode522 = encode(this.mLauncherExt, "none");
@@ -650,7 +652,7 @@ public final class BaiduActiveManager {
                             return invokeL.booleanValue;
                         }
                     });
-                    Arrays.sort(listFiles, new Comparator(this) { // from class: com.baidu.searchbox.util.BaiduActiveManager.3
+                    Arrays.sort(listFiles, new Comparator<File>(this) { // from class: com.baidu.searchbox.util.BaiduActiveManager.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaiduActiveManager this$0;
@@ -1038,7 +1040,7 @@ public final class BaiduActiveManager {
                     public void run() {
                         SharedPreferences.Editor edit;
                         String appendParam;
-                        Map activePostData;
+                        Map<String, String> activePostData;
                         String str;
                         ResponseBody body;
                         Interceptable interceptable2 = $ic;
@@ -1063,12 +1065,12 @@ public final class BaiduActiveManager {
                                     }
                                     appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
                                     if (BaiduActiveManager.DEBUG) {
-                                        Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + s10.b().h());
+                                        Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + n10.b().h());
                                         Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
                                     }
                                     activePostData = this.this$0.getActivePostData();
                                     if (activePostData != null) {
-                                        str = (String) activePostData.get("data");
+                                        str = activePostData.get("data");
                                     } else {
                                         str = null;
                                     }
@@ -1080,7 +1082,7 @@ public final class BaiduActiveManager {
                             } catch (ClientProtocolException unused3) {
                             }
                             try {
-                                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(appendParam)).params(activePostData)).cookieManager(this.this$0.mIdentityContextImpl.obtainCookieManager(true, false))).enableStat(true)).requestFrom(10)).requestSubFrom(DebugConstants.HTTP_ERRCODE_VERSION_HIGH)).build().executeSync();
+                                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(appendParam)).params(activePostData).cookieManager(this.this$0.mIdentityContextImpl.obtainCookieManager(true, false))).enableStat(true)).requestFrom(10)).requestSubFrom(DebugConstants.HTTP_ERRCODE_VERSION_HIGH)).build().executeSync();
                                 if (executeSync != null && (i = executeSync.code()) == 200 && (body = executeSync.body()) != null) {
                                     try {
                                         inputStream = body.byteStream();

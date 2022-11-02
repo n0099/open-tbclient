@@ -15,7 +15,7 @@ public interface ISharePrefsWrapper {
 
     String getString(String str, String str2);
 
-    Set getStringSet(String str, Set set);
+    Set<String> getStringSet(String str, Set<String> set);
 
     void putBoolean(String str, boolean z);
 
@@ -27,7 +27,7 @@ public interface ISharePrefsWrapper {
 
     void putString(String str, String str2);
 
-    void putStringSet(String str, Set set);
+    void putStringSet(String str, Set<String> set);
 
     void remove(String str);
 }

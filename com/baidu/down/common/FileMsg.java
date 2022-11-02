@@ -18,9 +18,9 @@ public class FileMsg {
     public String mETag;
     public String mFileName;
     public String mFromParam;
-    public HashMap mHeaders;
+    public HashMap<String, String> mHeaders;
     public long mId;
-    public Map mIntercepters;
+    public Map<String, IIntercepter<?>> mIntercepters;
     public boolean mIsReplace;
     public boolean mKeepNameAndPath;
     public int mMaxThread;
@@ -73,7 +73,7 @@ public class FileMsg {
         this.mETag = str5;
     }
 
-    public FileMsg(String str, long j, String str2, String str3, String str4, Boolean bool, HashMap hashMap, long j2, long j3, String str5) {
+    public FileMsg(String str, long j, String str2, String str3, String str4, Boolean bool, HashMap<String, String> hashMap, long j2, long j3, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class FileMsg {
         this.mETag = str5;
     }
 
-    public void addIntercepter(String str, IIntercepter iIntercepter) {
+    public void addIntercepter(String str, IIntercepter<?> iIntercepter) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, iIntercepter) == null) && str != null) {
             this.mIntercepters.put(str, iIntercepter);

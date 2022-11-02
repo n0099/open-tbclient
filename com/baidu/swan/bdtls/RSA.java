@@ -1,23 +1,29 @@
 package com.baidu.swan.bdtls;
 
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
+@Keep
 /* loaded from: classes3.dex */
 public class RSA {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     public static native byte[] decrypt(byte[] bArr);
 
+    @Keep
     public static native byte[] encrypt(byte[] bArr);
 
+    @Keep
     public static native byte[] privateDecrypt(byte[] bArr);
 
+    @Keep
     public static native byte[] privateEncrypt(byte[] bArr);
 
     public RSA() {

@@ -1,100 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.u21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class q31 extends s31 {
+public class q31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    /* loaded from: classes5.dex */
-    public final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
-
-        public a(String[] strArr, Activity activity, b bVar, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
                 }
-            }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    public static boolean a(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            if (u21.b.d() && r31.a(activity, str)) {
-                return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                str = "";
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (u21.b.d()) {
-                r31.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                requestPermissions(activity, strArr, i, (b) activity);
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest(), "", z);
+            } catch (Exception unused) {
+                return String.valueOf(str.hashCode());
             }
         }
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
-            if (u21.b.d()) {
-                r31.requestPermissions(activity, strArr, i);
-            } else if (!activity.isFinishing() && bVar != null) {
-                oj0.b(new a(strArr, activity, bVar, i));
-            }
-        }
+        return (String) invokeLZ.objValue;
     }
 }

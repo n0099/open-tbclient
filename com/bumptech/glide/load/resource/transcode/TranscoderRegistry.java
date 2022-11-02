@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.resource.transcode;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,17 +13,17 @@ import java.util.List;
 public class TranscoderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List transcoders;
+    public final List<Entry<?, ?>> transcoders;
 
     /* loaded from: classes7.dex */
-    public final class Entry {
+    public static final class Entry<Z, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Class fromClass;
-        public final Class toClass;
-        public final ResourceTranscoder transcoder;
+        public final Class<Z> fromClass;
+        public final Class<R> toClass;
+        public final ResourceTranscoder<Z, R> transcoder;
 
-        public Entry(Class cls, Class cls2, ResourceTranscoder resourceTranscoder) {
+        public Entry(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull ResourceTranscoder<Z, R> resourceTranscoder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +43,7 @@ public class TranscoderRegistry {
             this.transcoder = resourceTranscoder;
         }
 
-        public boolean handles(Class cls, Class cls2) {
+        public boolean handles(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, cls2)) == null) {
@@ -71,7 +72,8 @@ public class TranscoderRegistry {
         this.transcoders = new ArrayList();
     }
 
-    public synchronized ResourceTranscoder get(Class cls, Class cls2) {
+    @NonNull
+    public synchronized <Z, R> ResourceTranscoder<Z, R> get(@NonNull Class<Z> cls, @NonNull Class<R> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, cls2)) == null) {
@@ -79,9 +81,9 @@ public class TranscoderRegistry {
                 if (cls2.isAssignableFrom(cls)) {
                     return UnitTranscoder.get();
                 }
-                for (Entry entry : this.transcoders) {
+                for (Entry<?, ?> entry : this.transcoders) {
                     if (entry.handles(cls, cls2)) {
-                        return entry.transcoder;
+                        return (ResourceTranscoder<Z, R>) entry.transcoder;
                     }
                 }
                 throw new IllegalArgumentException("No transcoder registered to transcode from " + cls + " to " + cls2);
@@ -90,7 +92,8 @@ public class TranscoderRegistry {
         return (ResourceTranscoder) invokeLL.objValue;
     }
 
-    public synchronized List getTranscodeClasses(Class cls, Class cls2) {
+    @NonNull
+    public synchronized <Z, R> List<Class<R>> getTranscodeClasses(@NonNull Class<Z> cls, @NonNull Class<R> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) {
@@ -100,7 +103,7 @@ public class TranscoderRegistry {
                     arrayList.add(cls2);
                     return arrayList;
                 }
-                for (Entry entry : this.transcoders) {
+                for (Entry<?, ?> entry : this.transcoders) {
                     if (entry.handles(cls, cls2)) {
                         arrayList.add(cls2);
                     }
@@ -111,11 +114,11 @@ public class TranscoderRegistry {
         return (List) invokeLL.objValue;
     }
 
-    public synchronized void register(Class cls, Class cls2, ResourceTranscoder resourceTranscoder) {
+    public synchronized <Z, R> void register(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull ResourceTranscoder<Z, R> resourceTranscoder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, resourceTranscoder) == null) {
             synchronized (this) {
-                this.transcoders.add(new Entry(cls, cls2, resourceTranscoder));
+                this.transcoders.add(new Entry<>(cls, cls2, resourceTranscoder));
             }
         }
     }

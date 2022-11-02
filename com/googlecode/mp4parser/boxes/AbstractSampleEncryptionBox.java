@@ -38,7 +38,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
     public transient /* synthetic */ FieldHolder $fh;
     public int algorithmId;
-    public List entries;
+    public List<CencSampleAuxiliaryDataFormat> entries;
     public int ivSize;
     public byte[] kid;
 
@@ -58,7 +58,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    public List getEntries() {
+    public List<CencSampleAuxiliaryDataFormat> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -133,7 +133,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
             if (this.algorithmId != abstractSampleEncryptionBox.algorithmId || this.ivSize != abstractSampleEncryptionBox.ivSize) {
                 return false;
             }
-            List list = this.entries;
+            List<CencSampleAuxiliaryDataFormat> list = this.entries;
             if (list == null ? abstractSampleEncryptionBox.entries != null : !list.equals(abstractSampleEncryptionBox.entries)) {
                 return false;
             }
@@ -155,7 +155,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 199);
     }
 
-    private List parseEntries(ByteBuffer byteBuffer, long j, int i) {
+    private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{byteBuffer, Long.valueOf(j), Integer.valueOf(i)})) == null) {
@@ -208,7 +208,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
             long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
             ByteBuffer duplicate = byteBuffer.duplicate();
             ByteBuffer duplicate2 = byteBuffer.duplicate();
-            List parseEntries = parseEntries(duplicate, readUInt32, 8);
+            List<CencSampleAuxiliaryDataFormat> parseEntries = parseEntries(duplicate, readUInt32, 8);
             this.entries = parseEntries;
             if (parseEntries == null) {
                 this.entries = parseEntries(duplicate2, readUInt32, 16);
@@ -259,7 +259,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<CencSampleAuxiliaryDataFormat> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, list));
@@ -283,7 +283,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
     public long getContentSize() {
         InterceptResult invokeV;
         long j;
-        Iterator it;
+        Iterator<CencSampleAuxiliaryDataFormat> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (isOverrideTrackEncryptionBoxParameters()) {
@@ -293,7 +293,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
             }
             long j2 = j + 4;
             while (this.entries.iterator().hasNext()) {
-                j2 += ((CencSampleAuxiliaryDataFormat) it.next()).getSize();
+                j2 += it.next().getSize();
             }
             return j2;
         }
@@ -337,7 +337,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
                 i = 0;
             }
             int i4 = (i2 + i) * 31;
-            List list = this.entries;
+            List<CencSampleAuxiliaryDataFormat> list = this.entries;
             if (list != null) {
                 i3 = list.hashCode();
             }
@@ -346,7 +346,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public List getEntrySizes() {
+    public List<Short> getEntrySizes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

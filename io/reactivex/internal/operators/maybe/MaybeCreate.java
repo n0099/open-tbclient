@@ -18,19 +18,19 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeCreate extends Maybe {
+public final class MaybeCreate<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeOnSubscribe source;
+    public final MaybeOnSubscribe<T> source;
 
     /* loaded from: classes8.dex */
-    public final class Emitter extends AtomicReference implements MaybeEmitter, Disposable {
+    public static final class Emitter<T> extends AtomicReference<Disposable> implements MaybeEmitter<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2467358622224974244L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
 
-        public Emitter(MaybeObserver maybeObserver) {
+        public Emitter(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,24 +85,24 @@ public final class MaybeCreate extends Maybe {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeEmitter
         public void onComplete() {
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
                         this.actual.onComplete();
                     } finally {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     }
                 }
@@ -110,25 +110,25 @@ public final class MaybeCreate extends Maybe {
         }
 
         @Override // io.reactivex.MaybeEmitter
-        public void onSuccess(Object obj) {
-            Disposable disposable;
+        public void onSuccess(T t) {
+            Disposable andSet;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                Object obj2 = get();
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj2 != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
-                        if (obj == null) {
+                        if (t == null) {
                             this.actual.onError(new NullPointerException("onSuccess called with null. Null values are generally not allowed in 2.x operators and sources."));
                         } else {
-                            this.actual.onSuccess(obj);
+                            this.actual.onSuccess(t);
                         }
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     } catch (Throwable th) {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                         throw th;
                     }
@@ -139,20 +139,20 @@ public final class MaybeCreate extends Maybe {
         @Override // io.reactivex.MaybeEmitter
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, th)) == null) {
                 if (th == null) {
                     th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
                 }
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
                         this.actual.onError(th);
                     } finally {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     }
                 }
@@ -162,7 +162,7 @@ public final class MaybeCreate extends Maybe {
         }
     }
 
-    public MaybeCreate(MaybeOnSubscribe maybeOnSubscribe) {
+    public MaybeCreate(MaybeOnSubscribe<T> maybeOnSubscribe) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public final class MaybeCreate extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             Emitter emitter = new Emitter(maybeObserver);

@@ -20,6 +20,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.SpinnerAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionBarPolicy;
@@ -55,6 +57,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayLayout.ActionBarVisibilityCallback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -123,6 +126,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public class ActionModeImpl extends ActionMode implements MenuBuilder.Callback {
         public static /* synthetic */ Interceptable $ic;
@@ -286,7 +290,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, menuBuilder, menuItem)) == null) {
@@ -300,7 +304,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public void onMenuModeChange(MenuBuilder menuBuilder) {
+        public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048588, this, menuBuilder) != null) || this.mCallback == null) {
                 return;
@@ -376,6 +380,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public class TabImpl extends ActionBar.Tab {
         public static /* synthetic */ Interceptable $ic;
@@ -1474,6 +1479,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public WindowDecorActionBar(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1733,7 +1739,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, view2) == null) {
-            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090783);
+            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090791);
             this.mOverlayLayout = actionBarOverlayLayout;
             if (actionBarOverlayLayout != null) {
                 actionBarOverlayLayout.setActionBarVisibilityCallback(this);

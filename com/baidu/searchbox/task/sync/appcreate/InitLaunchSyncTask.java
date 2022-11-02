@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.ForeBackLifecycleMonitorUtil;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.iq4;
-import com.baidu.tieba.mi5;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.zq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            mi5.b(new ii5(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            kj5.b(new gj5<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -83,7 +83,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.ii5
+                @Override // com.baidu.tieba.gj5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -114,7 +114,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     }
                 }
             } else {
-                TbadkCoreApplication.getInst().mRemoteActivity = new ArrayList();
+                TbadkCoreApplication.getInst().mRemoteActivity = new ArrayList<>();
             }
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 TbadkCoreApplication.getInst().sendMessageForEnterBackground();
@@ -158,7 +158,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new iq4());
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new zq4());
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

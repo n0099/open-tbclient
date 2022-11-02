@@ -26,7 +26,7 @@ public final class NalUnitUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class PpsData {
+    public static final class PpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean bottomFieldPicOrderInFramePresentFlag;
@@ -55,7 +55,7 @@ public final class NalUnitUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class SpsData {
+    public static final class SpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean deltaPicOrderAlwaysZeroFlag;

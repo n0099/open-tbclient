@@ -5,6 +5,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ButtonBarLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
@@ -23,7 +27,7 @@ public class ButtonBarLayout extends LinearLayout {
     public int mMinimumHeight;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ButtonBarLayout(Context context, AttributeSet attributeSet) {
+    public ButtonBarLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +114,7 @@ public class ButtonBarLayout extends LinearLayout {
                 i = 80;
             }
             setGravity(i);
-            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f22);
+            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f6d);
             if (findViewById != null) {
                 if (z) {
                     i2 = 8;

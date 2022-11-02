@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.IPanelConflictLayout;
@@ -108,7 +109,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SPSwitchPanelLinearLayout(Context context, AttributeSet attributeSet) {
+    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,7 +147,7 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SPSwitchPanelLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

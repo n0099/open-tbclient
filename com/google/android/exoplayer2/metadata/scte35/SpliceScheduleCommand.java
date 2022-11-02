@@ -19,12 +19,12 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List events;
+    public final List<Event> events;
 
     /* loaded from: classes7.dex */
-    public final class ComponentSplice {
+    public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int componentTag;
@@ -69,14 +69,14 @@ public final class SpliceScheduleCommand extends SpliceCommand {
     }
 
     /* loaded from: classes7.dex */
-    public final class Event {
+    public static final class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean autoReturn;
         public final int availNum;
         public final int availsExpected;
         public final long breakDurationUs;
-        public final List componentSpliceList;
+        public final List<ComponentSplice> componentSpliceList;
         public final boolean outOfNetworkIndicator;
         public final boolean programSpliceFlag;
         public final boolean spliceEventCancelIndicator;
@@ -84,7 +84,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final int uniqueProgramId;
         public final long utcSpliceTime;
 
-        public Event(long j, boolean z, boolean z2, boolean z3, List list, long j2, boolean z4, long j3, int i, int i2, int i3) {
+        public Event(long j, boolean z, boolean z2, boolean z3, List<ComponentSplice> list, long j2, boolean z4, long j3, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,7 +283,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 int size = this.componentSpliceList.size();
                 parcel.writeInt(size);
                 for (int i = 0; i < size; i++) {
-                    ((ComponentSplice) this.componentSpliceList.get(i)).writeToParcel(parcel);
+                    this.componentSpliceList.get(i).writeToParcel(parcel);
                 }
                 parcel.writeLong(this.utcSpliceTime);
                 parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
@@ -308,7 +308,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceScheduleCommand.1
+        CREATOR = new Parcelable.Creator<SpliceScheduleCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceScheduleCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -327,6 +327,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceScheduleCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -338,6 +339,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SpliceScheduleCommand[] newArray(int i) {
                 InterceptResult invokeI;
@@ -380,12 +382,12 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             int size = this.events.size();
             parcel.writeInt(size);
             for (int i2 = 0; i2 < size; i2++) {
-                ((Event) this.events.get(i2)).writeToParcel(parcel);
+                this.events.get(i2).writeToParcel(parcel);
             }
         }
     }
 
-    public SpliceScheduleCommand(List list) {
+    public SpliceScheduleCommand(List<Event> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -9,20 +9,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.BytesRange;
+import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class FetchState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer mConsumer;
+    public final Consumer<EncodedImage> mConsumer;
     public final ProducerContext mContext;
     public long mLastIntermediateResultTimeMs;
     public int mOnNewResultStatusFlags;
     @Nullable
     public BytesRange mResponseBytesRange;
 
-    public FetchState(Consumer consumer, ProducerContext producerContext) {
+    public FetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +43,7 @@ public class FetchState {
         this.mLastIntermediateResultTimeMs = 0L;
     }
 
-    public Consumer getConsumer() {
+    public Consumer<EncodedImage> getConsumer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -96,7 +97,7 @@ public class FetchState {
         return (String) invokeV.objValue;
     }
 
-    public Map getNetRequestHeader() {
+    public Map<String, String> getNetRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -52,6 +53,7 @@ public class DataFetchProducer extends LocalFetchProducer {
         }
     }
 
+    @VisibleForTesting
     public static byte[] getData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -67,6 +69,7 @@ public class DataFetchProducer extends LocalFetchProducer {
         return (byte[]) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public static boolean isBase64(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

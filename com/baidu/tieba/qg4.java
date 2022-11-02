@@ -1,78 +1,140 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, rg4> a;
+    public static HashMap<String, rg4> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public qg4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            FileInputStream fileInputStream2 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return pb4.c().a("SwanDownloadApiStrategy").getString("version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static rg4 a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a == null) {
+                synchronized (qg4.class) {
+                    if (a == null) {
+                        HashMap<String, rg4> hashMap = new HashMap<>();
+                        a = hashMap;
+                        e(hashMap, "download_api_ctrl");
+                    }
+                }
+            }
+            return c(str, a);
+        }
+        return (rg4) invokeL.objValue;
+    }
+
+    @NonNull
+    public static rg4 b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (b == null) {
+                synchronized (qg4.class) {
+                    if (b == null) {
+                        HashMap<String, rg4> hashMap = new HashMap<>();
+                        b = hashMap;
+                        e(hashMap, "preload_api_ctrl");
+                    }
+                }
+            }
+            return c(str, b);
+        }
+        return (rg4) invokeL.objValue;
+    }
+
+    public static void f(@Nullable JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+        gk4 a2 = pb4.c().a("SwanDownloadApiStrategy");
+        a2.putString("version", optString);
+        if (optJSONObject != null) {
+            str = optJSONObject.toString();
+        } else {
+            str = null;
+        }
+        a2.putString("data", str);
+    }
+
+    @NonNull
+    public static rg4 c(@Nullable String str, @NonNull HashMap<String, rg4> hashMap) {
+        InterceptResult invokeLL;
+        rg4 rg4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
+            if (!TextUtils.isEmpty(str) && (rg4Var = hashMap.get(str)) != null) {
+                return rg4Var;
+            }
+            rg4 rg4Var2 = hashMap.get("default");
+            if (rg4Var2 != null) {
+                return rg4Var2;
+            }
+            return rg4.a();
+        }
+        return (rg4) invokeLL.objValue;
+    }
+
+    public static void e(@NonNull HashMap<String, rg4> hashMap, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a = a(messageDigest.digest(), "", z);
-                            qj4.d(fileInputStream);
-                            return a;
+                JSONObject optJSONObject = new JSONObject(pb4.c().a("SwanDownloadApiStrategy").getString("data", StringUtil.EMPTY_ARRAY)).optJSONObject(str);
+                if (optJSONObject != null) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next)) {
+                            hashMap.put(next, rg4.b(optJSONObject.optJSONObject(next)));
                         }
                     }
-                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                    qj4.d(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    qj4.d(fileInputStream2);
-                    throw th;
                 }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } else {
-            return (String) invokeLZ.objValue;
         }
     }
 }

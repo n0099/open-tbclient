@@ -2,8 +2,10 @@ package com.fun.module.gdt;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +47,7 @@ public abstract class u extends NativeAdContainer {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public u(Context context, AttributeSet attributeSet) {
+    public u(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +68,7 @@ public abstract class u extends NativeAdContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(Context context, AttributeSet attributeSet, int i) {
+    public u(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,7 +88,7 @@ public abstract class u extends NativeAdContainer {
         }
     }
 
-    public List a() {
+    public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -118,27 +120,27 @@ public abstract class u extends NativeAdContainer {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0798;
+                    i = R.string.obfuscated_res_0x7f0f079b;
                 } else if (appStatus == 1) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f079f;
+                    i = R.string.obfuscated_res_0x7f0f07a2;
                 } else if (appStatus == 2) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07a3;
+                    i = R.string.obfuscated_res_0x7f0f07a6;
                 } else if (appStatus == 4) {
                     this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f079b;
+                    i = R.string.obfuscated_res_0x7f0f079e;
                 } else if (appStatus == 16) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f079d;
+                    i = R.string.obfuscated_res_0x7f0f07a0;
                 }
                 button.setText(i);
             }
             button = this.c;
-            i = R.string.obfuscated_res_0x7f0f07a4;
+            i = R.string.obfuscated_res_0x7f0f07a7;
             button.setText(i);
         }
     }
@@ -149,7 +151,7 @@ public abstract class u extends NativeAdContainer {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090101);
             this.c = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);
         }
     }

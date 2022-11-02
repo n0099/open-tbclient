@@ -25,7 +25,7 @@ public class b {
     public volatile long e;
     public volatile boolean f;
     public volatile boolean g;
-    public HashMap h;
+    public HashMap<Integer, Long> h;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class b {
         this.e = 0L;
         this.f = false;
         this.g = true;
-        this.h = new HashMap();
+        this.h = new HashMap<>();
         this.b = context;
     }
 
@@ -71,7 +71,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             if (this.h.containsKey(Integer.valueOf(i))) {
-                return ((Long) this.h.get(Integer.valueOf(i))).longValue();
+                return this.h.get(Integer.valueOf(i)).longValue();
             }
             System.currentTimeMillis();
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

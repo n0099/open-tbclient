@@ -5,6 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -16,13 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AlertDialogLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlertDialogLayout(Context context) {
+    public AlertDialogLayout(@Nullable Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +45,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlertDialogLayout(Context context, AttributeSet attributeSet) {
+    public AlertDialogLayout(@Nullable Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,11 +127,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
                     int id = childAt.getId();
-                    if (id == R.id.obfuscated_res_0x7f092274) {
+                    if (id == R.id.obfuscated_res_0x7f0922c7) {
                         view2 = childAt;
-                    } else if (id == R.id.obfuscated_res_0x7f09048a) {
+                    } else if (id == R.id.obfuscated_res_0x7f090497) {
                         view3 = childAt;
-                    } else if ((id != R.id.obfuscated_res_0x7f0906ef && id != R.id.obfuscated_res_0x7f090758) || view4 != null) {
+                    } else if ((id != R.id.obfuscated_res_0x7f0906fd && id != R.id.obfuscated_res_0x7f090766) || view4 != null) {
                         return false;
                     } else {
                         view4 = childAt;

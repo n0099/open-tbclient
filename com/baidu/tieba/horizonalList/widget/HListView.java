@@ -1,5 +1,6 @@
 package com.baidu.tieba.horizonalList.widget;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -28,9 +29,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g87;
+import com.baidu.tieba.gr8;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
-import com.baidu.tieba.w67;
-import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,10 +55,10 @@ public class HListView extends AbsHListView {
     public int mDividerWidth;
     public d mFocusSelector;
     public boolean mFooterDividersEnabled;
-    public ArrayList mFooterViewInfos;
+    public ArrayList<c> mFooterViewInfos;
     public GestureDetector mGestureDetector;
     public boolean mHeaderDividersEnabled;
-    public ArrayList mHeaderViewInfos;
+    public ArrayList<c> mHeaderViewInfos;
     public boolean mIsCacheColorOpaque;
     public boolean mItemsCanFocus;
     public int mMaxWidth;
@@ -67,7 +68,7 @@ public class HListView extends AbsHListView {
     public final Rect mTempRect;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -96,7 +97,7 @@ public class HListView extends AbsHListView {
     }
 
     /* loaded from: classes4.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -148,7 +149,7 @@ public class HListView extends AbsHListView {
     }
 
     /* loaded from: classes4.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
@@ -327,17 +328,17 @@ public class HListView extends AbsHListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, view2)) == null) {
-            ArrayList arrayList = this.mHeaderViewInfos;
+            ArrayList<c> arrayList = this.mHeaderViewInfos;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                if (view2 == ((c) arrayList.get(i)).a) {
+                if (view2 == arrayList.get(i).a) {
                     return true;
                 }
             }
-            ArrayList arrayList2 = this.mFooterViewInfos;
+            ArrayList<c> arrayList2 = this.mFooterViewInfos;
             int size2 = arrayList2.size();
             for (int i2 = 0; i2 < size2; i2++) {
-                if (view2 == ((c) arrayList2.get(i2)).a) {
+                if (view2 == arrayList2.get(i2).a) {
                     return true;
                 }
             }
@@ -401,7 +402,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mFooterViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((w67) listAdapter).d(view2)) {
+                if (listAdapter != null && ((g87) listAdapter).d(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -422,7 +423,7 @@ public class HListView extends AbsHListView {
             boolean z = false;
             if (this.mHeaderViewInfos.size() > 0) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter != null && ((w67) listAdapter).e(view2)) {
+                if (listAdapter != null && ((g87) listAdapter).e(view2)) {
                     AbsHListView.c cVar = this.mDataSetObserver;
                     if (cVar != null) {
                         cVar.onChanged();
@@ -589,8 +590,8 @@ public class HListView extends AbsHListView {
                 return;
             }
         }
-        this.mHeaderViewInfos = new ArrayList();
-        this.mFooterViewInfos = new ArrayList();
+        this.mHeaderViewInfos = new ArrayList<>();
+        this.mFooterViewInfos = new ArrayList<>();
         boolean z2 = true;
         this.mAreAllItemsSelectable = true;
         int i4 = 0;
@@ -600,7 +601,7 @@ public class HListView extends AbsHListView {
         this.mArrowScrollFocusResult = new b(null);
         this.mMaxWidth = 0;
         this.mGestureDetector = new GestureDetector(new e(this, null));
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, wp8.HListView, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, gr8.HListView, i, 0);
         int i5 = -1;
         if (obtainStyledAttributes != null) {
             charSequenceArr = obtainStyledAttributes.getTextArray(0);
@@ -711,7 +712,7 @@ public class HListView extends AbsHListView {
     @Deprecated
     public long[] getCheckItemIds() {
         InterceptResult invokeV;
-        SparseArrayCompat sparseArrayCompat;
+        SparseArrayCompat<Boolean> sparseArrayCompat;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             ListAdapter listAdapter = this.mAdapter;
@@ -724,7 +725,7 @@ public class HListView extends AbsHListView {
                 ListAdapter listAdapter2 = this.mAdapter;
                 int i = 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (((Boolean) sparseArrayCompat.valueAt(i2)).booleanValue()) {
+                    if (sparseArrayCompat.valueAt(i2).booleanValue()) {
                         jArr[i] = listAdapter2.getItemId(sparseArrayCompat.keyAt(i2));
                         i++;
                     }
@@ -808,6 +809,7 @@ public class HListView extends AbsHListView {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, android.view.View
+    @TargetApi(11)
     public void onMeasure(int i, int i2) {
         int count;
         int i3;
@@ -1188,6 +1190,7 @@ public class HListView extends AbsHListView {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, com.baidu.tieba.horizonalList.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         int lookForSelectablePosition;
@@ -1203,7 +1206,7 @@ public class HListView extends AbsHListView {
             if (this.mHeaderViewInfos.size() <= 0 && this.mFooterViewInfos.size() <= 0) {
                 this.mAdapter = listAdapter;
             } else {
-                this.mAdapter = new w67(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
+                this.mAdapter = new g87(this.mHeaderViewInfos, this.mFooterViewInfos, listAdapter);
             }
             this.mOldSelectedPosition = -1;
             this.mOldSelectedColId = Long.MIN_VALUE;
@@ -1237,12 +1240,12 @@ public class HListView extends AbsHListView {
         }
     }
 
-    private void clearRecycledState(ArrayList arrayList) {
+    private void clearRecycledState(ArrayList<c> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, arrayList) == null) && arrayList != null) {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) ((c) arrayList.get(i)).a.getLayoutParams();
+                AbsHListView.LayoutParams layoutParams = (AbsHListView.LayoutParams) arrayList.get(i).a.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.b = false;
                 }
@@ -1378,6 +1381,7 @@ public class HListView extends AbsHListView {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AbsHListView, com.baidu.tieba.horizonalList.widget.AdapterView, android.view.View
+    @TargetApi(14)
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, accessibilityNodeInfo) == null) {
@@ -1569,6 +1573,7 @@ public class HListView extends AbsHListView {
      */
     /* JADX WARN: Removed duplicated region for block: B:135:0x0175 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:136:0x0176  */
+    @TargetApi(11)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2280,12 +2285,12 @@ public class HListView extends AbsHListView {
         return invokeLL.booleanValue;
     }
 
-    private void removeFixedViewInfo(View view2, ArrayList arrayList) {
+    private void removeFixedViewInfo(View view2, ArrayList<c> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65574, this, view2, arrayList) == null) {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                if (((c) arrayList.get(i)).a == view2) {
+                if (arrayList.get(i).a == view2) {
                     arrayList.remove(i);
                     return;
                 }
@@ -2404,6 +2409,7 @@ public class HListView extends AbsHListView {
         return (View) invokeCommon.objValue;
     }
 
+    @TargetApi(11)
     private void setupChild(View view2, int i, int i2, boolean z, int i3, boolean z2, boolean z3) {
         boolean z4;
         boolean z5;
@@ -2412,7 +2418,7 @@ public class HListView extends AbsHListView {
         boolean z8;
         int i4;
         int makeMeasureSpec;
-        SparseArrayCompat sparseArrayCompat;
+        SparseArrayCompat<Boolean> sparseArrayCompat;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z2 && shouldShowSelector()) {
@@ -2470,9 +2476,9 @@ public class HListView extends AbsHListView {
             }
             if (this.mChoiceMode != 0 && (sparseArrayCompat = this.mCheckStates) != null) {
                 if (view2 instanceof Checkable) {
-                    ((Checkable) view2).setChecked(((Boolean) sparseArrayCompat.get(i, Boolean.FALSE)).booleanValue());
+                    ((Checkable) view2).setChecked(sparseArrayCompat.get(i, Boolean.FALSE).booleanValue());
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view2.setActivated(((Boolean) sparseArrayCompat.get(i, Boolean.FALSE)).booleanValue());
+                    view2.setActivated(sparseArrayCompat.get(i, Boolean.FALSE).booleanValue());
                 }
             }
             if (z8) {
@@ -2532,7 +2538,7 @@ public class HListView extends AbsHListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048579, this, view2, obj, z) == null) {
             ListAdapter listAdapter = this.mAdapter;
-            if (listAdapter != null && !(listAdapter instanceof w67)) {
+            if (listAdapter != null && !(listAdapter instanceof g87)) {
                 throw new IllegalStateException("Cannot add header view to list -- setAdapter has already been called.");
             }
             c cVar2 = new c();

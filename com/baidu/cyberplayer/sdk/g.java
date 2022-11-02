@@ -25,7 +25,7 @@ public class g extends SurfaceView implements i {
 
     /* renamed from: com.baidu.cyberplayer.sdk.g$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

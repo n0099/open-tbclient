@@ -6,9 +6,10 @@ import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.a91;
+import com.baidu.tieba.s91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,6 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -36,7 +36,7 @@ public class BundleInfo implements IBundleInfo {
     public String apkPath;
     public boolean broken;
     public String dependence;
-    public List dependency;
+    public List<String> dependency;
     public String description;
     public String downloadUrl;
     public String ext;
@@ -58,7 +58,7 @@ public class BundleInfo implements IBundleInfo {
     public int silence;
     public int silenceUpdate;
     public long size;
-    public List subBundleInfos;
+    public List<SubBundleInfo> subBundleInfos;
     public int type;
     public long updateV;
     public int versionCode;
@@ -116,7 +116,7 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public List getDependency() {
+    public List<String> getDependency() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -172,7 +172,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return a91.b().f(this.packageName);
+            return s91.b().f(this.packageName);
         }
         return (String) invokeV.objValue;
     }
@@ -308,7 +308,7 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public List getSubBundle() {
+    public List<SubBundleInfo> getSubBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -381,7 +381,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            List subBundle = getSubBundle();
+            List<SubBundleInfo> subBundle = getSubBundle();
             if (subBundle != null && !subBundle.isEmpty() && !isSubBundle()) {
                 return true;
             }
@@ -426,7 +426,7 @@ public class BundleInfo implements IBundleInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            List dependency = getDependency();
+            List<String> dependency = getDependency();
             if (dependency != null && !dependency.isEmpty() && !TextUtils.isEmpty(getMainBudble())) {
                 return true;
             }
@@ -543,7 +543,7 @@ public class BundleInfo implements IBundleInfo {
         return (BundleInfo) invokeL.objValue;
     }
 
-    public static String dependency2Str(List list) {
+    public static String dependency2Str(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
@@ -555,7 +555,7 @@ public class BundleInfo implements IBundleInfo {
         return (String) invokeL.objValue;
     }
 
-    public static List parseDependencyStr(String str) {
+    public static List<String> parseDependencyStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
@@ -601,7 +601,7 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setDependency(List list) {
+    public void setDependency(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
             this.dependency = list;
@@ -769,7 +769,7 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSubBundle(List list) {
+    public void setSubBundle(List<SubBundleInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, list) == null) {
             this.subBundleInfos = list;
@@ -816,7 +816,7 @@ public class BundleInfo implements IBundleInfo {
         }
     }
 
-    public static List parseSubBundleStr(String str) {
+    public static List<SubBundleInfo> parseSubBundleStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -841,16 +841,14 @@ public class BundleInfo implements IBundleInfo {
         return (List) invokeL.objValue;
     }
 
-    public static String subBundleList2Str(List list) {
+    public static String subBundleList2Str(List<SubBundleInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             if (list != null && !list.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
                 try {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        SubBundleInfo subBundleInfo = (SubBundleInfo) it.next();
+                    for (SubBundleInfo subBundleInfo : list) {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("package", subBundleInfo.getPackageName());
                         jSONObject.put(KEY_MIN_VERSION, subBundleInfo.getMinVersion());
@@ -887,7 +885,7 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setDownloadUrl(contentValues.getAsString("download_url"));
             bundleInfo.setIconUrl(contentValues.getAsString("icon_url"));
             bundleInfo.setDependence(contentValues.getAsString("dependence"));
-            bundleInfo.setVisible(contentValues.getAsBoolean("visible").booleanValue());
+            bundleInfo.setVisible(contentValues.getAsBoolean(MapBundleKey.MapObjKey.OBJ_SL_VISI).booleanValue());
             bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
             bundleInfo.setSize(contentValues.getAsLong("size").longValue());
             bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
@@ -932,7 +930,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", bundleInfo.getDownloadUrl());
             contentValues.put("icon_url", bundleInfo.getIconUrl());
             contentValues.put("dependence", bundleInfo.getDependence());
-            contentValues.put("visible", Boolean.valueOf(bundleInfo.isVisible()));
+            contentValues.put(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(bundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
@@ -952,7 +950,7 @@ public class BundleInfo implements IBundleInfo {
         return (ContentValues) invokeL.objValue;
     }
 
-    public static Map toBundleInfoGroups(List list, long j) {
+    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, list, j)) == null) {
@@ -960,9 +958,7 @@ public class BundleInfo implements IBundleInfo {
             if (list == null) {
                 return null;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                BundleInfo bundleInfo = (BundleInfo) it.next();
+            for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
                     bundleInfoGroup = new BundleInfoGroup(j);
@@ -975,7 +971,7 @@ public class BundleInfo implements IBundleInfo {
         return (Map) invokeLJ.objValue;
     }
 
-    public static List toBundleInfoList(Cursor cursor) {
+    public static List<BundleInfo> toBundleInfoList(Cursor cursor) {
         InterceptResult invokeL;
         int i;
         int i2;
@@ -1019,7 +1015,7 @@ public class BundleInfo implements IBundleInfo {
             ArrayList arrayList3 = arrayList2;
             int columnIndex15 = cursor.getColumnIndex("icon_url");
             int columnIndex16 = cursor.getColumnIndex("dependence");
-            int columnIndex17 = cursor.getColumnIndex("visible");
+            int columnIndex17 = cursor.getColumnIndex(MapBundleKey.MapObjKey.OBJ_SL_VISI);
             int columnIndex18 = cursor.getColumnIndex("removalbe");
             int columnIndex19 = cursor.getColumnIndex("size");
             int columnIndex20 = cursor.getColumnIndex("need_remove");
@@ -1208,7 +1204,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", iBundleInfo.getDownloadUrl());
             contentValues.put("icon_url", iBundleInfo.getIconUrl());
             contentValues.put("dependence", iBundleInfo.getDependence());
-            contentValues.put("visible", Boolean.valueOf(iBundleInfo.isVisible()));
+            contentValues.put(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(iBundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));

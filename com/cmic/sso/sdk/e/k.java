@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.e;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
@@ -10,14 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+@SuppressLint({"ApplySharedPref"})
 /* loaded from: classes7.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SharedPreferences.Editor a;
@@ -185,7 +188,7 @@ public class k {
         }
     }
 
-    public static void a(Map map) {
+    public static void a(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, null, map) == null) && map != null && !map.isEmpty()) {
             SharedPreferences.Editor edit = a.getSharedPreferences("ssoconfigs", 0).edit();

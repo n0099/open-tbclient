@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class InterActiveMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<InterActiveMsg> CREATOR;
     public static final String TAG = "InterActiveMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public int mTemplate;
@@ -36,7 +36,7 @@ public class InterActiveMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
+        CREATOR = new Parcelable.Creator<InterActiveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,6 +55,7 @@ public class InterActiveMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public InterActiveMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -66,6 +67,7 @@ public class InterActiveMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public InterActiveMsg[] newArray(int i) {
                 InterceptResult invokeI;

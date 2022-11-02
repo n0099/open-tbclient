@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.retrieve.file.util.AESUtil;
@@ -17,7 +18,7 @@ public final class bl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,6 +57,7 @@ public final class bl {
             return (byte[]) invokeV.objValue;
         }
 
+        @SuppressLint({"TrulyRandom"})
         public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -85,7 +87,7 @@ public final class bl {
     }
 
     /* loaded from: classes2.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

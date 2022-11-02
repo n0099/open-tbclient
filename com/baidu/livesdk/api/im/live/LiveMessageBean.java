@@ -100,14 +100,14 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class Pic {
+    public static class Pic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageInfo origin;
         public ImageInfo thumbnail;
 
         /* loaded from: classes2.dex */
-        public class ImageInfo {
+        public static class ImageInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String format;
@@ -146,7 +146,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class Data {
+    public static class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String closeExt;
@@ -192,7 +192,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class Link {
+    public static class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String title;
@@ -214,7 +214,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class MessageBody {
+    public static class MessageBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Link link;
@@ -238,7 +238,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class Txt {
+    public static class Txt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String word;
@@ -259,7 +259,7 @@ public class LiveMessageBean {
     }
 
     /* loaded from: classes2.dex */
-    public class Voice {
+    public static class Voice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String duration;

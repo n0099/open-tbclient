@@ -17,13 +17,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes8.dex */
-public final class BlockingMultiObserver extends CountDownLatch implements SingleObserver, CompletableObserver, MaybeObserver {
+public final class BlockingMultiObserver<T> extends CountDownLatch implements SingleObserver<T>, CompletableObserver, MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
     public Disposable d;
     public Throwable error;
-    public Object value;
+    public T value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlockingMultiObserver() {
@@ -126,7 +126,7 @@ public final class BlockingMultiObserver extends CountDownLatch implements Singl
         return (Throwable) invokeJL.objValue;
     }
 
-    public Object blockingGet() {
+    public T blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -145,13 +145,13 @@ public final class BlockingMultiObserver extends CountDownLatch implements Singl
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public Object blockingGet(Object obj) {
+    public T blockingGet(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
             if (getCount() != 0) {
                 try {
                     BlockingHelper.verifyNonBlocking();
@@ -163,15 +163,15 @@ public final class BlockingMultiObserver extends CountDownLatch implements Singl
             }
             Throwable th = this.error;
             if (th == null) {
-                Object obj2 = this.value;
-                if (obj2 != null) {
-                    return obj2;
+                T t2 = this.value;
+                if (t2 != null) {
+                    return t2;
                 }
-                return obj;
+                return t;
             }
             throw ExceptionHelper.wrapOrThrow(th);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     @Override // io.reactivex.SingleObserver
@@ -195,10 +195,10 @@ public final class BlockingMultiObserver extends CountDownLatch implements Singl
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(Object obj) {
+    public void onSuccess(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-            this.value = obj;
+        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+            this.value = t;
             countDown();
         }
     }

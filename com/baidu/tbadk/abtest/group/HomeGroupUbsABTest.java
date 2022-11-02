@@ -21,7 +21,7 @@ public class HomeGroupUbsABTest extends AbsGroupUbsABTest {
     public static final String SID_D = "11_7_index_d";
     public static final String SID_E = "11_7_index_e";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -41,7 +41,7 @@ public class HomeGroupUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -83,7 +83,7 @@ public class HomeGroupUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         this.mABTestList = arrayList;
         arrayList.add(SID_A);
         this.mABTestList.add(SID_B);

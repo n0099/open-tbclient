@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.resource.drawable;
 
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.Resource;
 /* loaded from: classes7.dex */
-public final class NonOwnedDrawableResource extends DrawableResource {
+public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +42,8 @@ public final class NonOwnedDrawableResource extends DrawableResource {
         }
     }
 
-    public static Resource newInstance(Drawable drawable) {
+    @Nullable
+    public static Resource<Drawable> newInstance(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
@@ -52,8 +55,10 @@ public final class NonOwnedDrawableResource extends DrawableResource {
         return (Resource) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<android.graphics.drawable.Drawable> */
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<Drawable> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

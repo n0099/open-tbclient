@@ -1,44 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 /* loaded from: classes5.dex */
-public class oh8 extends Thread {
+public class oh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
+    public final String a;
+    public final View b;
+    public AdvertAppInfo c;
+    public pi7 d;
+    public TbPageContext e;
+    public AdCard f;
+    public View.OnClickListener g;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 
-    public oh8(String str, String str2, boolean z) {
+    public void c(yg8 yg8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yg8Var) == null) {
+        }
+    }
+
+    public void j(CountDownTextView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        }
+    }
+
+    public oh8(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,93 +58,65 @@ public class oh8 extends Thread {
                 return;
             }
         }
-        this.a = true;
-        this.d = null;
-        this.e = null;
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
-        }
+        this.b = view2;
+        this.a = str;
     }
 
-    public final void a() {
+    public final <T> T a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
-            }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (T) this.b.findViewById(i);
         }
+        return (T) invokeI.objValue;
     }
 
-    public void b(a aVar) {
+    public void f(AdvertAppInfo advertAppInfo) {
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
+            this.c = advertAppInfo;
+            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
+                this.f = (AdCard) iLegoAdvert;
+            }
         }
     }
 
-    public void c() {
+    public void g(pi7 pi7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
+        if (interceptable == null || interceptable.invokeL(1048582, this, pi7Var) == null) {
+            this.d = pi7Var;
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
+    public void h(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
+            this.e = tbPageContext;
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
-                        }
-                    }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            } finally {
-                a();
-            }
+            this.b.setVisibility(0);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
+            z01.b(clogBuilder);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setVisibility(8);
         }
     }
 }

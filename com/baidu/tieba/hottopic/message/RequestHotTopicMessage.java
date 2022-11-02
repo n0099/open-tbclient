@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1051common;
+    public CommonReq f1052common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -60,7 +60,7 @@ public class RequestHotTopicMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1282common = getCommon();
+                builder.f1285common = getCommon();
                 builder.topic_id = getTopicId();
                 builder.topic_name = getTopicName();
                 builder.scr_w = getScrW();
@@ -74,7 +74,7 @@ public class RequestHotTopicMessage extends NetMessage {
                 builder.call_from = Integer.valueOf(getCall_from());
                 builder.topic_tid = Long.valueOf(getTopic_tid());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    yh5.a(builder, true);
+                    vi5.a(builder, true);
                 }
                 HottopicReqIdl.Builder builder2 = new HottopicReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -99,7 +99,7 @@ public class RequestHotTopicMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f1051common;
+            return this.f1052common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -213,7 +213,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, commonReq) == null) {
-            this.f1051common = commonReq;
+            this.f1052common = commonReq;
         }
     }
 

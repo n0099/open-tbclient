@@ -124,7 +124,7 @@ public final class c {
             intent.setExtrasClassLoader(plugin.mClassLoader);
             String stringExtra = intent.getStringExtra("targetPlugin");
             if (plugin.isLoaded() && !TextUtils.isEmpty(stringExtra)) {
-                ActivityInfo activityInfo = (ActivityInfo) plugin.pluginActivities.get(stringExtra);
+                ActivityInfo activityInfo = plugin.pluginActivities.get(stringExtra);
                 if (activityInfo == null) {
                     ZeusLogger.e(ZeusLogger.TAG_ACTIVITY, "Have you declared " + stringExtra + " in plugin's AndroidManifest.xml!");
                     bVar.zeusSuperOnCreate(null);

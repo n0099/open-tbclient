@@ -16,10 +16,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public interface HttpDataSource extends DataSource {
-    public static final Predicate REJECT_PAYWALL_TYPES = new Predicate() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
+    public static final Predicate<String> REJECT_PAYWALL_TYPES = new Predicate<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +78,7 @@ public interface HttpDataSource extends DataSource {
     @Override // com.google.android.exoplayer2.upstream.DataSource
     void close() throws HttpDataSourceException;
 
-    Map getResponseHeaders();
+    Map<String, List<String>> getResponseHeaders();
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
     long open(DataSpec dataSpec) throws HttpDataSourceException;
@@ -88,7 +89,7 @@ public interface HttpDataSource extends DataSource {
     void setRequestProperty(String str, String str2);
 
     /* loaded from: classes7.dex */
-    public abstract class BaseFactory implements Factory {
+    public static abstract class BaseFactory implements Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RequestProperties defaultRequestProperties;
@@ -161,7 +162,7 @@ public interface HttpDataSource extends DataSource {
     }
 
     /* loaded from: classes7.dex */
-    public class HttpDataSourceException extends IOException {
+    public static class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;
         public static final int TYPE_OPEN = 1;
@@ -263,7 +264,7 @@ public interface HttpDataSource extends DataSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class InvalidContentTypeException extends HttpDataSourceException {
+    public static final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String contentType;
@@ -292,14 +293,14 @@ public interface HttpDataSource extends DataSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class InvalidResponseCodeException extends HttpDataSourceException {
+    public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map headerFields;
+        public final Map<String, List<String>> headerFields;
         public final int responseCode;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public InvalidResponseCodeException(int i, Map map, DataSpec dataSpec) {
+        public InvalidResponseCodeException(int i, Map<String, List<String>> map, DataSpec dataSpec) {
             super("Response code: " + i, dataSpec, 1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -323,11 +324,11 @@ public interface HttpDataSource extends DataSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class RequestProperties {
+    public static final class RequestProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map requestProperties;
-        public Map requestPropertiesSnapshot;
+        public final Map<String, String> requestProperties;
+        public Map<String, String> requestPropertiesSnapshot;
 
         public RequestProperties() {
             Interceptable interceptable = $ic;
@@ -355,9 +356,9 @@ public interface HttpDataSource extends DataSource {
             }
         }
 
-        public synchronized Map getSnapshot() {
+        public synchronized Map<String, String> getSnapshot() {
             InterceptResult invokeV;
-            Map map;
+            Map<String, String> map;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this) {
@@ -371,7 +372,7 @@ public interface HttpDataSource extends DataSource {
             return (Map) invokeV.objValue;
         }
 
-        public synchronized void clearAndSet(Map map) {
+        public synchronized void clearAndSet(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
                 synchronized (this) {
@@ -392,7 +393,7 @@ public interface HttpDataSource extends DataSource {
             }
         }
 
-        public synchronized void set(Map map) {
+        public synchronized void set(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
                 synchronized (this) {

@@ -1,90 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.i43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o63 extends j53 {
+public abstract class o63 extends m43 implements xi3<i43.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public boolean c;
+
+    public abstract void I(String str);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o63(j43 j43Var) {
-        super(j43Var, "/swanAPI/setNavigationBarColor");
+    public o63(h43 h43Var) {
+        super(h43Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
+            Object[] objArr = {h43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((h43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 0;
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public static void K(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            v22 V = zo2.U().V();
-            if (V == null) {
-                m02.c("navigationColor", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (optParamsAsJo == null) {
-                m02.c("navigationColor", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("frontColor");
-                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-                s22 m = V.m();
-                if (m == null) {
-                    m02.c("navigationColor", "slave container exception");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.E2(optString, true)) {
-                    m02.c("navigationColor", "set title color fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.u2(SwanAppConfigData.t(optString2), true)) {
-                    m02.c("navigationColor", "set title background fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    if (optJSONObject != null) {
-                        m.s2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
-                        m02.i("navigationColor", "set action bar animator");
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            p03 Q = q03.Q("swan_kill_to_client");
+            Q.J(str);
+            Q.call();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void L(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
+            if (SwanAppProcessInfo.SERVICE.equals(SwanAppProcessInfo.current())) {
+                o63 B = d43.K().B();
+                B.b = i;
+                B.I(str);
+                return;
+            }
+            p03 w = q03.Q("swan_forbidden_kill_on_server").z("mAppId", str).w("ipc_forbidden_flag", i);
+            w.K(true);
+            w.call();
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c) {
+            b43 b43Var = new b43();
+            b43Var.f(this, "event_messenger_call");
+            u(b43Var);
+            this.c = true;
+        }
     }
 }

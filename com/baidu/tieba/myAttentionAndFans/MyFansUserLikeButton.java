@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.jh;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.pv4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.wu4;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.rv4;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public r9 g;
-    public yu4 h;
+    public rv4 h;
     public String i;
     public int j;
 
@@ -46,13 +46,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0335a implements av4.d {
+        public class C0355a implements tv4.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ a b;
 
-            public C0335a(a aVar, View view2) {
+            public C0355a(a aVar, View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +71,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = view2;
             }
 
-            @Override // com.baidu.tieba.av4.d
+            @Override // com.baidu.tieba.tv4.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
@@ -84,12 +84,12 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 } else if (this.b.b.j == 2) {
                     TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.b.b.i));
                 }
-                jh.b(this.b.b.h, this.b.b.g);
+                bh.b(this.b.b.h, this.b.b.g);
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements av4.c {
+        public class b implements tv4.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -112,13 +112,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.av4.c
+            @Override // com.baidu.tieba.tv4.c
             public void onClick() {
                 Interceptable interceptable = $ic;
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b.h == null) {
                     return;
                 }
-                jh.b(this.a.b.h, this.a.b.g);
+                bh.b(this.a.b.h, this.a.b.g);
             }
         }
 
@@ -168,18 +168,18 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                     this.a.onClick(view2);
                 } else if (this.b.g != null) {
                     if (this.b.h == null) {
-                        av4 av4Var = new av4(this.b.g.getContext());
-                        av4Var.q(this.b.g.getString(R.string.obfuscated_res_0x7f0f0447));
+                        tv4 tv4Var = new tv4(this.b.g.getContext());
+                        tv4Var.q(this.b.g.getString(R.string.obfuscated_res_0x7f0f0449));
                         ArrayList arrayList = new ArrayList();
-                        wu4 wu4Var = new wu4(this.b.g.getString(R.string.obfuscated_res_0x7f0f043d), av4Var);
-                        wu4Var.m(new C0335a(this, view2));
-                        arrayList.add(wu4Var);
-                        av4Var.m(new b(this));
-                        av4Var.j(arrayList);
-                        this.b.h = new yu4(this.b.g, av4Var);
+                        pv4 pv4Var = new pv4(this.b.g.getString(R.string.obfuscated_res_0x7f0f043f), tv4Var);
+                        pv4Var.m(new C0355a(this, view2));
+                        arrayList.add(pv4Var);
+                        tv4Var.m(new b(this));
+                        tv4Var.j(arrayList);
+                        this.b.h = new rv4(this.b.g, tv4Var);
                         this.b.h.j(0.7f);
                     }
-                    jh.j(this.b.h, this.b.g);
+                    bh.j(this.b.h, this.b.g);
                 }
             }
         }
@@ -250,7 +250,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         this.j = 1;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.vz4
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.l05
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -287,7 +287,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.vz4
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tieba.l05
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -295,18 +295,18 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
             if (z) {
                 if (i != 1) {
                     if (i != 2) {
-                        setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                        setTextSize(0, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                         setText(this.a);
                     } else {
-                        setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
-                        setText(R.string.obfuscated_res_0x7f0f0536);
+                        setTextSize(0, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+                        setText(R.string.obfuscated_res_0x7f0f0539);
                     }
                 } else {
-                    setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                    setTextSize(0, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                     setText(this.a);
                 }
             } else {
-                setTextSize(0, fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                setTextSize(0, xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                 setText(this.b);
             }
             g(TbadkCoreApplication.getInst().getSkinType());

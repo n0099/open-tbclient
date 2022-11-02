@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class e07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public String b;
-    public int c;
-    public int d;
+    public final List<g25> c;
+    public final List<g25> d;
     public boolean e;
-    public int f;
-    public long g;
 
     public e07() {
         Interceptable interceptable = $ic;
@@ -32,50 +37,177 @@ public class e07 {
                 return;
             }
         }
-        this.e = true;
+        this.a = 1;
+        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        j();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public g25 a(int i, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            g25 g25Var = new g25();
+            g25Var.a = i;
+            g25Var.b = str;
+            g25Var.c = str2;
+            g25Var.d = str3;
+            return g25Var;
         }
-        return invokeV.intValue;
+        return (g25) invokeCommon.objValue;
     }
 
-    public boolean b() {
+    public g25 b(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
+            g25 g25Var = new g25();
+            g25Var.a = i;
+            g25Var.b = str;
+            g25Var.c = str2;
+            if (i == 5) {
+                z = true;
+            } else {
+                z = false;
+            }
+            g25Var.i(z);
+            return g25Var;
+        }
+        return (g25) invokeILL.objValue;
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e) {
+                return false;
+            }
+            List<g25> i = i();
+            int size = i.size();
+            if (size != this.c.size()) {
                 return true;
+            }
+            for (int i2 = 0; i2 < size; i2++) {
+                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public e07(RecomTopicList recomTopicList, int i) {
+    public final List<g25> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f13a7), ""));
+            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f13a3), ""));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a2), "game"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139f), "digital"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a0), "entertainment"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a1), "films"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139d), "campus"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f139c), "animes"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f13a6), "sports"));
+            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f13a4), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public List<g25> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<g25> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            List<g25> i = i();
+            if (!ListUtils.isEmpty(i)) {
+                this.c.addAll(i);
             }
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
-        this.g = recomTopicList.discuss_num.longValue();
+    }
+
+    public final String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return TbadkCoreApplication.getInst().getString(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final List<g25> i() {
+        InterceptResult invokeV;
+        int length;
+        g25 g25Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONArray jSONArray = new JSONArray(ky4.k().q("key_index_tab_info_list", "[]"));
+                List<g25> arrayList2 = new ArrayList<>();
+                if (jSONArray.length() == 0) {
+                    this.e = true;
+                    arrayList2 = d();
+                } else {
+                    this.e = false;
+                }
+                if (this.e) {
+                    length = arrayList2.size();
+                } else {
+                    length = jSONArray.length();
+                }
+                for (int i = 0; i < length; i++) {
+                    if (this.e) {
+                        g25Var = arrayList2.get(i);
+                    } else {
+                        g25Var = new g25();
+                        g25Var.h(jSONArray.getJSONObject(i));
+                    }
+                    if (!g25Var.e()) {
+                        if (g25Var.f() && arrayList.size() < 2) {
+                            arrayList.add(g25Var);
+                        } else {
+                            this.d.add(g25Var);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

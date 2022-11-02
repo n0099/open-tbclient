@@ -4,10 +4,9 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.qr5;
+import com.baidu.tieba.gs5;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.xq5;
+import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,8 +33,8 @@ public class AdInfo implements Serializable {
     public int advisible;
     public String apkFilePath;
     public Integer chargingMode;
-    public ArrayList dcu;
-    public ArrayList ddu;
+    public ArrayList<String> dcu;
+    public ArrayList<String> ddu;
     public int dduTime;
     public String desc;
     public String displayName;
@@ -98,11 +97,11 @@ public class AdInfo implements Serializable {
         return invokeV.booleanValue;
     }
 
-    public static ArrayList convertStrToList(String str) {
+    public static ArrayList<String> convertStrToList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (!TextUtils.isEmpty(str)) {
                 for (String str2 : str.split(",")) {
                     try {
@@ -151,7 +150,7 @@ public class AdInfo implements Serializable {
         }
         try {
             JSONObject jSONObject7 = jSONObject.getJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-            if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray(LaunchStatsUtils.AD)) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
+            if (jSONObject7 != null && (jSONArray = jSONObject7.getJSONArray("ad")) != null && jSONArray.length() > 0 && (jSONObject2 = jSONArray.getJSONObject(0)) != null && (jSONArray2 = jSONObject2.getJSONArray("adInfo")) != null && jSONArray2.length() > 0 && (jSONObject3 = jSONArray2.getJSONObject(0)) != null) {
                 if (jSONObject3.has("advisible")) {
                     this.advisible = jSONObject3.getInt("advisible");
                 } else {
@@ -192,7 +191,7 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            xq5 b = xq5.b(qr5.f());
+            gs5 b = gs5.b(zs5.f());
             if (TextUtils.isEmpty(b.d)) {
                 return true;
             }

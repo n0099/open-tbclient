@@ -7,13 +7,13 @@ public class k {
     public static final String a = "k";
     public final d b;
     public volatile boolean c;
-    public final AtomicReference d;
-    public AtomicReference e;
-    public final ArrayList f;
+    public final AtomicReference<l> d;
+    public AtomicReference<l> e;
+    public final ArrayList<b> f;
     public int g;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static final k a = new k(null);
     }
 
@@ -24,7 +24,7 @@ public class k {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
         static {
@@ -52,8 +52,8 @@ public class k {
     public k() {
         this.b = new d(0.05d);
         this.c = false;
-        this.d = new AtomicReference(l.UNKNOWN);
-        this.f = new ArrayList();
+        this.d = new AtomicReference<>(l.UNKNOWN);
+        this.f = new ArrayList<>();
     }
 
     public static k a() {
@@ -64,7 +64,7 @@ public class k {
         try {
             int size = this.f.size();
             for (int i = 0; i < size; i++) {
-                ((b) this.f.get(i)).a((l) this.d.get());
+                this.f.get(i).a(this.d.get());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -103,7 +103,7 @@ public class k {
             return false;
         }
         try {
-            int i = AnonymousClass1.a[((l) this.d.get()).ordinal()];
+            int i = AnonymousClass1.a[this.d.get().ordinal()];
             double d = 2000.0d;
             double d2 = 550.0d;
             if (i != 1) {
@@ -162,7 +162,7 @@ public class k {
             }
             if (this.d.get() != b2) {
                 this.c = true;
-                this.e = new AtomicReference(b2);
+                this.e = new AtomicReference<>(b2);
             }
         }
     }

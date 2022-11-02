@@ -187,7 +187,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("wxRespCode", this.o);
                 hashMap.put("wxRespState", this.n);
                 StatService.onEventAutoStat("third_login_wx_result", hashMap);
-                if (TextUtils.equals((String) ThirdPartyUtil.wxAuthCodeMap.get(this.o), this.n)) {
+                if (TextUtils.equals(ThirdPartyUtil.wxAuthCodeMap.get(this.o), this.n)) {
                     return;
                 }
                 ThirdPartyUtil.wxAuthCodeMap.put(this.o, this.n);

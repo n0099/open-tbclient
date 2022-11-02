@@ -1,5 +1,7 @@
 package com.baidu.tieba.horizonalList.widget;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -40,12 +42,12 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.EdgeEffectCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a87;
+import com.baidu.tieba.b87;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.h87;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
-import com.baidu.tieba.p67;
-import com.baidu.tieba.q67;
-import com.baidu.tieba.r67;
-import com.baidu.tieba.wp8;
-import com.baidu.tieba.x67;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,8 +57,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@TargetApi(11)
 /* loaded from: classes4.dex */
-public abstract class AbsHListView extends AdapterView implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
+public abstract class AbsHListView extends AdapterView<ListAdapter> implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_POSITION_SEARCH_DISTANCE = 20;
     public static final int INVALID_POINTER = -1;
@@ -93,8 +96,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     public int mCacheColorHint;
     public boolean mCachingActive;
     public boolean mCachingStarted;
-    public SparseArrayCompat mCheckStates;
-    public LongSparseArray mCheckedIdStates;
+    public SparseArrayCompat<Boolean> mCheckStates;
+    public LongSparseArray<Integer> mCheckedIdStates;
     public int mCheckedItemCount;
     public Object mChoiceActionMode;
     public int mChoiceMode;
@@ -167,7 +170,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     public int mTranscriptMode;
     public float mVelocityScale;
     public VelocityTracker mVelocityTracker;
-    public p67.a mViewHelper;
+    public z77.a mViewHelper;
 
     /* loaded from: classes4.dex */
     public interface i {
@@ -260,12 +263,12 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     /* loaded from: classes4.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-        public LongSparseArray checkIdState;
-        public SparseArrayCompat checkState;
+        public LongSparseArray<Integer> checkIdState;
+        public SparseArrayCompat<Boolean> checkState;
         public int checkedItemCount;
         public String filter;
         public long firstId;
@@ -276,7 +279,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         public int width;
 
         /* loaded from: classes4.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -395,7 +398,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
         }
 
-        private SparseArrayCompat readSparseBooleanArray(Parcel parcel) {
+        private SparseArrayCompat<Boolean> readSparseBooleanArray(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcel)) == null) {
@@ -403,14 +406,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 if (readInt < 0) {
                     return null;
                 }
-                SparseArrayCompat sparseArrayCompat = new SparseArrayCompat(readInt);
+                SparseArrayCompat<Boolean> sparseArrayCompat = new SparseArrayCompat<>(readInt);
                 readSparseBooleanArrayInternal(sparseArrayCompat, parcel, readInt);
                 return sparseArrayCompat;
             }
             return (SparseArrayCompat) invokeL.objValue;
         }
 
-        private LongSparseArray readSparseLongArray(Parcel parcel) {
+        private LongSparseArray<Integer> readSparseLongArray(Parcel parcel) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, parcel)) == null) {
@@ -418,14 +421,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 if (readInt <= 0) {
                     return null;
                 }
-                LongSparseArray longSparseArray = new LongSparseArray(readInt);
+                LongSparseArray<Integer> longSparseArray = new LongSparseArray<>(readInt);
                 readSparseLongArrayInternal(longSparseArray, parcel, readInt);
                 return longSparseArray;
             }
             return (LongSparseArray) invokeL.objValue;
         }
 
-        private void readSparseBooleanArrayInternal(SparseArrayCompat sparseArrayCompat, Parcel parcel, int i) {
+        private void readSparseBooleanArrayInternal(SparseArrayCompat<Boolean> sparseArrayCompat, Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(65541, this, sparseArrayCompat, parcel, i) == null) {
                 while (i > 0) {
@@ -440,7 +443,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
         }
 
-        private void readSparseLongArrayInternal(LongSparseArray longSparseArray, Parcel parcel, int i) {
+        private void readSparseLongArrayInternal(LongSparseArray<Integer> longSparseArray, Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(65543, this, longSparseArray, parcel, i) == null) {
                 while (i > 0) {
@@ -450,7 +453,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
         }
 
-        private void writeSparseBooleanArray(SparseArrayCompat sparseArrayCompat, Parcel parcel) {
+        private void writeSparseBooleanArray(SparseArrayCompat<Boolean> sparseArrayCompat, Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65544, this, sparseArrayCompat, parcel) == null) {
                 if (sparseArrayCompat == null) {
@@ -461,12 +464,12 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 parcel.writeInt(size);
                 for (int i = 0; i < size; i++) {
                     parcel.writeInt(sparseArrayCompat.keyAt(i));
-                    parcel.writeByte(((Boolean) sparseArrayCompat.valueAt(i)).booleanValue() ? (byte) 1 : (byte) 0);
+                    parcel.writeByte(sparseArrayCompat.valueAt(i).booleanValue() ? (byte) 1 : (byte) 0);
                 }
             }
         }
 
-        private void writeSparseLongArray(LongSparseArray longSparseArray, Parcel parcel) {
+        private void writeSparseLongArray(LongSparseArray<Integer> longSparseArray, Parcel parcel) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65545, this, longSparseArray, parcel) == null) {
@@ -478,7 +481,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 parcel.writeInt(i);
                 for (int i2 = 0; i2 < i; i2++) {
                     parcel.writeLong(longSparseArray.keyAt(i2));
-                    parcel.writeInt(((Integer) longSparseArray.valueAt(i2)).intValue());
+                    parcel.writeInt(longSparseArray.valueAt(i2).intValue());
                 }
             }
         }
@@ -515,7 +518,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final x67 a;
+        public final h87 a;
         public int b;
         public final Runnable c;
         public final /* synthetic */ AbsHListView d;
@@ -552,11 +555,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 }
                 int i = this.a.d.mActivePointerId;
                 VelocityTracker velocityTracker = this.a.d.mVelocityTracker;
-                x67 x67Var = this.a.a;
+                h87 h87Var = this.a.a;
                 if (velocityTracker != null && i != -1) {
                     velocityTracker.computeCurrentVelocity(1000, this.a.d.mMaximumVelocity);
                     float f = -velocityTracker.getXVelocity(i);
-                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && x67Var.h(f, 0.0f)) {
+                    if (Math.abs(f) >= this.a.d.mMinimumVelocity && h87Var.h(f, 0.0f)) {
                         this.a.d.postDelayed(this, 40L);
                         return;
                     }
@@ -585,7 +588,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
             this.d = absHListView;
             this.c = new a(this);
-            this.a = new x67(absHListView.getContext());
+            this.a = new h87(absHListView.getContext());
         }
 
         public void e(int i) {
@@ -692,13 +695,13 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     i3 = 0;
                 }
                 this.b = i3;
-                x67 x67Var = this.a;
+                h87 h87Var = this.a;
                 if (z) {
                     interpolator = AbsHListView.sLinearInterpolator;
                 } else {
                     interpolator = null;
                 }
-                x67Var.k(interpolator);
+                h87Var.k(interpolator);
                 this.a.m(i3, 0, i, 0, i2);
                 AbsHListView absHListView = this.d;
                 absHListView.mTouchMode = 4;
@@ -721,10 +724,10 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                             c();
                             return;
                         }
-                        x67 x67Var = this.a;
-                        if (x67Var.b()) {
+                        h87 h87Var = this.a;
+                        if (h87Var.b()) {
                             int scrollX = this.d.getScrollX();
-                            int f = x67Var.f();
+                            int f = h87Var.f();
                             AbsHListView absHListView = this.d;
                             if (absHListView.overScrollBy(f - scrollX, 0, scrollX, 0, 0, 0, absHListView.mOverflingDistance, 0, false)) {
                                 if (scrollX <= 0 && f > 0) {
@@ -739,11 +742,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                                     h();
                                     return;
                                 }
-                                int e = (int) x67Var.e();
+                                int e = (int) h87Var.e();
                                 if (z2) {
                                     e = -e;
                                 }
-                                x67Var.a();
+                                h87Var.a();
                                 e(e);
                                 return;
                             }
@@ -763,9 +766,9 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 }
                 AbsHListView absHListView3 = this.d;
                 if (absHListView3.mItemCount != 0 && absHListView3.getChildCount() != 0) {
-                    x67 x67Var2 = this.a;
-                    boolean b = x67Var2.b();
-                    int f2 = x67Var2.f();
+                    h87 h87Var2 = this.a;
+                    boolean b = h87Var2.b();
+                    int f2 = h87Var2.f();
                     int i3 = this.b - f2;
                     if (i3 > 0) {
                         AbsHListView absHListView4 = this.d;
@@ -1282,7 +1285,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     /* loaded from: classes4.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -1463,7 +1466,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     /* loaded from: classes4.dex */
-    public class c extends AdapterView.c {
+    public class c extends AdapterView<ListAdapter>.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsHListView c;
@@ -1713,6 +1716,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
+    @TargetApi(14)
     /* loaded from: classes4.dex */
     public class h extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
@@ -1743,8 +1747,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
                 super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                 int positionForView = this.a.getPositionForView(view2);
-                ListAdapter listAdapter = (ListAdapter) this.a.getAdapter();
-                if (positionForView != -1 && listAdapter != null && this.a.isEnabled() && listAdapter.isEnabled(positionForView)) {
+                ListAdapter adapter = this.a.getAdapter();
+                if (positionForView != -1 && adapter != null && this.a.isEnabled() && adapter.isEnabled(positionForView)) {
                     if (positionForView == this.a.getSelectedItemPosition()) {
                         accessibilityNodeInfoCompat.setSelected(true);
                         accessibilityNodeInfoCompat.addAction(8);
@@ -1772,8 +1776,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     return true;
                 }
                 int positionForView = this.a.getPositionForView(view2);
-                ListAdapter listAdapter = (ListAdapter) this.a.getAdapter();
-                if (positionForView != -1 && listAdapter != null && this.a.isEnabled() && listAdapter.isEnabled(positionForView)) {
+                ListAdapter adapter = this.a.getAdapter();
+                if (positionForView != -1 && adapter != null && this.a.isEnabled() && adapter.isEnabled(positionForView)) {
                     long itemIdAtPosition = this.a.getItemIdAtPosition(positionForView);
                     if (i != 4) {
                         if (i != 8) {
@@ -1865,11 +1869,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         public m a;
         public int b;
         public View[] c;
-        public ArrayList[] d;
+        public ArrayList<View>[] d;
         public int e;
-        public ArrayList f;
-        public ArrayList g;
-        public SparseArrayCompat h;
+        public ArrayList<View> f;
+        public ArrayList<View> g;
+        public SparseArrayCompat<View> h;
         public final /* synthetic */ AbsHListView i;
 
         public boolean q(int i) {
@@ -1906,7 +1910,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 }
                 int itemViewType = this.i.mAdapter.getItemViewType(i);
                 if (itemViewType >= 0) {
-                    ArrayList[] arrayListArr = this.d;
+                    ArrayList<View>[] arrayListArr = this.d;
                     if (itemViewType < arrayListArr.length) {
                         return AbsHListView.retrieveFromScrap(arrayListArr[itemViewType], i);
                     }
@@ -1921,9 +1925,9 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
                 if (i >= 1) {
-                    ArrayList[] arrayListArr = new ArrayList[i];
+                    ArrayList<View>[] arrayListArr = new ArrayList[i];
                     for (int i2 = 0; i2 < i; i2++) {
-                        arrayListArr[i2] = new ArrayList();
+                        arrayListArr[i2] = new ArrayList<>();
                     }
                     this.e = i;
                     this.f = arrayListArr[0];
@@ -1955,18 +1959,18 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             int indexOfKey;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                SparseArrayCompat sparseArrayCompat = this.h;
+                SparseArrayCompat<View> sparseArrayCompat = this.h;
                 if (sparseArrayCompat == null || (indexOfKey = sparseArrayCompat.indexOfKey(i)) < 0) {
                     return null;
                 }
-                View view2 = (View) this.h.valueAt(indexOfKey);
+                View valueAt = this.h.valueAt(indexOfKey);
                 this.h.removeAt(indexOfKey);
-                return view2;
+                return valueAt;
             }
             return (View) invokeI.objValue;
         }
 
-        public void l(List list) {
+        public void l(List<View> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
                 int i = this.e;
@@ -1974,13 +1978,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     list.addAll(this.f);
                     return;
                 }
-                ArrayList[] arrayListArr = this.d;
+                ArrayList<View>[] arrayListArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
                     list.addAll(arrayListArr[i2]);
                 }
             }
         }
 
+        @SuppressLint({"NewApi"})
         public void c(View view2, int i) {
             LayoutParams layoutParams;
             Interceptable interceptable = $ic;
@@ -2005,7 +2010,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 }
             } else if (i2 != -2) {
                 if (this.g == null) {
-                    this.g = new ArrayList();
+                    this.g = new ArrayList<>();
                 }
                 this.g.add(view2);
             }
@@ -2016,21 +2021,21 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int i = this.e;
                 if (i == 1) {
-                    ArrayList arrayList = this.f;
+                    ArrayList<View> arrayList = this.f;
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        this.i.removeDetachedView((View) arrayList.remove((size - 1) - i2), false);
+                        this.i.removeDetachedView(arrayList.remove((size - 1) - i2), false);
                     }
                 } else {
                     for (int i3 = 0; i3 < i; i3++) {
-                        ArrayList arrayList2 = this.d[i3];
+                        ArrayList<View> arrayList2 = this.d[i3];
                         int size2 = arrayList2.size();
                         for (int i4 = 0; i4 < size2; i4++) {
-                            this.i.removeDetachedView((View) arrayList2.remove((size2 - 1) - i4), false);
+                            this.i.removeDetachedView(arrayList2.remove((size2 - 1) - i4), false);
                         }
                     }
                 }
-                SparseArrayCompat sparseArrayCompat = this.h;
+                SparseArrayCompat<View> sparseArrayCompat = this.h;
                 if (sparseArrayCompat != null) {
                     sparseArrayCompat.clear();
                 }
@@ -2042,58 +2047,59 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 int i = this.e;
                 if (i == 1) {
-                    ArrayList arrayList = this.f;
+                    ArrayList<View> arrayList = this.f;
                     int size = arrayList.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((View) arrayList.get(i2)).forceLayout();
+                        arrayList.get(i2).forceLayout();
                     }
                 } else {
                     for (int i3 = 0; i3 < i; i3++) {
-                        ArrayList arrayList2 = this.d[i3];
+                        ArrayList<View> arrayList2 = this.d[i3];
                         int size2 = arrayList2.size();
                         for (int i4 = 0; i4 < size2; i4++) {
-                            ((View) arrayList2.get(i4)).forceLayout();
+                            arrayList2.get(i4).forceLayout();
                         }
                     }
                 }
-                SparseArrayCompat sparseArrayCompat = this.h;
+                SparseArrayCompat<View> sparseArrayCompat = this.h;
                 if (sparseArrayCompat != null) {
                     int size3 = sparseArrayCompat.size();
                     for (int i5 = 0; i5 < size3; i5++) {
-                        ((View) this.h.valueAt(i5)).forceLayout();
+                        this.h.valueAt(i5).forceLayout();
                     }
                 }
             }
         }
 
+        @SuppressLint({"NewApi"})
         public final void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 int length = this.c.length;
                 int i = this.e;
-                ArrayList[] arrayListArr = this.d;
+                ArrayList<View>[] arrayListArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
-                    ArrayList arrayList = arrayListArr[i2];
+                    ArrayList<View> arrayList = arrayListArr[i2];
                     int size = arrayList.size();
                     int i3 = size - length;
                     int i4 = size - 1;
                     int i5 = 0;
                     while (i5 < i3) {
-                        this.i.removeDetachedView((View) arrayList.remove(i4), false);
+                        this.i.removeDetachedView(arrayList.remove(i4), false);
                         i5++;
                         i4--;
                     }
                 }
                 if (this.h != null) {
                     for (int i6 = 0; i6 < this.h.size(); i6++) {
-                        View view2 = (View) this.h.valueAt(i6);
+                        this.h.valueAt(i6);
                     }
                 }
             }
         }
 
         public void e() {
-            SparseArrayCompat sparseArrayCompat;
+            SparseArrayCompat<View> sparseArrayCompat;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (sparseArrayCompat = this.h) != null) {
                 sparseArrayCompat.clear();
@@ -2101,14 +2107,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
 
         public void m() {
-            ArrayList arrayList;
+            ArrayList<View> arrayList;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (arrayList = this.g) == null) {
                 return;
             }
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
-                this.i.removeDetachedView((View) this.g.get(i), false);
+                this.i.removeDetachedView(this.g.get(i), false);
             }
             this.g.clear();
         }
@@ -2131,6 +2137,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
         }
 
+        @SuppressLint({"NewApi"})
         public void n() {
             boolean z;
             boolean z2;
@@ -2147,7 +2154,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 } else {
                     z2 = false;
                 }
-                ArrayList arrayList = this.f;
+                ArrayList<View> arrayList = this.f;
                 for (int length = viewArr.length - 1; length >= 0; length--) {
                     View view2 = viewArr[length];
                     if (view2 != null) {
@@ -2182,17 +2189,17 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
                 int i2 = this.e;
                 if (i2 == 1) {
-                    ArrayList arrayList = this.f;
+                    ArrayList<View> arrayList = this.f;
                     int size = arrayList.size();
                     for (int i3 = 0; i3 < size; i3++) {
-                        ((View) arrayList.get(i3)).setDrawingCacheBackgroundColor(i);
+                        arrayList.get(i3).setDrawingCacheBackgroundColor(i);
                     }
                 } else {
                     for (int i4 = 0; i4 < i2; i4++) {
-                        ArrayList arrayList2 = this.d[i4];
+                        ArrayList<View> arrayList2 = this.d[i4];
                         int size2 = arrayList2.size();
                         for (int i5 = 0; i5 < size2; i5++) {
-                            ((View) arrayList2.get(i5)).setDrawingCacheBackgroundColor(i);
+                            arrayList2.get(i5).setDrawingCacheBackgroundColor(i);
                         }
                     }
                 }
@@ -2339,11 +2346,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     public void clearChoices() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SparseArrayCompat sparseArrayCompat = this.mCheckStates;
+            SparseArrayCompat<Boolean> sparseArrayCompat = this.mCheckStates;
             if (sparseArrayCompat != null) {
                 sparseArrayCompat.clear();
             }
-            LongSparseArray longSparseArray = this.mCheckedIdStates;
+            LongSparseArray<Integer> longSparseArray = this.mCheckedIdStates;
             if (longSparseArray != null) {
                 longSparseArray.clear();
             }
@@ -2391,7 +2398,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
 
     public int getCheckedItemPosition() {
         InterceptResult invokeV;
-        SparseArrayCompat sparseArrayCompat;
+        SparseArrayCompat<Boolean> sparseArrayCompat;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             if (this.mChoiceMode == 1 && (sparseArrayCompat = this.mCheckStates) != null && sparseArrayCompat.size() == 1) {
@@ -2402,7 +2409,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         return invokeV.intValue;
     }
 
-    public SparseArrayCompat getCheckedItemPositions() {
+    public SparseArrayCompat<Boolean> getCheckedItemPositions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -2539,6 +2546,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
+    @TargetApi(11)
     public void invalidateParentIfNeeded() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && this.mViewHelper.a() && (getParent() instanceof View)) {
@@ -2597,6 +2605,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @TargetApi(11)
     public void jumpDrawablesToCurrentState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
@@ -2808,17 +2817,17 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 this.mSpecificLeft = savedState.viewLeft;
                 this.mSyncMode = 1;
             }
-            SparseArrayCompat sparseArrayCompat = savedState.checkState;
+            SparseArrayCompat<Boolean> sparseArrayCompat = savedState.checkState;
             if (sparseArrayCompat != null) {
                 this.mCheckStates = sparseArrayCompat;
             }
-            LongSparseArray longSparseArray = savedState.checkIdState;
+            LongSparseArray<Integer> longSparseArray = savedState.checkIdState;
             if (longSparseArray != null) {
                 this.mCheckedIdStates = longSparseArray;
             }
             this.mCheckedItemCount = savedState.checkedItemCount;
             if (Build.VERSION.SDK_INT >= 11 && savedState.inActionMode && this.mChoiceMode == 3 && (obj = this.mMultiChoiceModeCallback) != null) {
-                this.mChoiceActionMode = startActionMode((r67) obj);
+                this.mChoiceActionMode = startActionMode((b87) obj);
             }
             requestLayout();
         }
@@ -2971,7 +2980,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         this.mActivePointerId = -1;
         this.mDirection = 0;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, wp8.HListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, gr8.HListView, i2, 0);
         if (obtainStyledAttributes != null) {
             drawable = obtainStyledAttributes.getDrawable(0);
             boolean z5 = obtainStyledAttributes.getBoolean(1, false);
@@ -3021,7 +3030,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             if (i3 != 0) {
                 if (i3 != 2 && (Build.VERSION.SDK_INT < 11 || i3 != 3 || this.mChoiceActionMode == null)) {
                     if (this.mChoiceMode == 1) {
-                        if (!((Boolean) this.mCheckStates.get(i2, Boolean.FALSE)).booleanValue()) {
+                        if (!this.mCheckStates.get(i2, Boolean.FALSE).booleanValue()) {
                             this.mCheckStates.clear();
                             this.mCheckStates.put(i2, Boolean.TRUE);
                             if (this.mCheckedIdStates != null && this.mAdapter.hasStableIds()) {
@@ -3029,7 +3038,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                                 this.mCheckedIdStates.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                             }
                             this.mCheckedItemCount = 1;
-                        } else if (this.mCheckStates.size() == 0 || !((Boolean) this.mCheckStates.valueAt(0)).booleanValue()) {
+                        } else if (this.mCheckStates.size() == 0 || !this.mCheckStates.valueAt(0).booleanValue()) {
                             this.mCheckedItemCount = 0;
                         }
                         z = true;
@@ -3042,7 +3051,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                         z2 = true;
                     }
                 } else {
-                    boolean z4 = !((Boolean) this.mCheckStates.get(i2, Boolean.FALSE)).booleanValue();
+                    boolean z4 = !this.mCheckStates.get(i2, Boolean.FALSE).booleanValue();
                     this.mCheckStates.put(i2, Boolean.valueOf(z4));
                     if (this.mCheckedIdStates != null && this.mAdapter.hasStableIds()) {
                         if (z4) {
@@ -3058,7 +3067,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     }
                     Object obj = this.mChoiceActionMode;
                     if (obj != null) {
-                        ((r67) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
+                        ((b87) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
                     } else {
                         z2 = true;
                     }
@@ -3088,7 +3097,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void addTouchables(ArrayList arrayList) {
+    public void addTouchables(ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
             int childCount = getChildCount();
@@ -3165,11 +3174,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
 
     public boolean isItemChecked(int i2) {
         InterceptResult invokeI;
-        SparseArrayCompat sparseArrayCompat;
+        SparseArrayCompat<Boolean> sparseArrayCompat;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) {
             if (this.mChoiceMode != 0 && (sparseArrayCompat = this.mCheckStates) != null) {
-                return ((Boolean) sparseArrayCompat.get(i2, Boolean.FALSE)).booleanValue();
+                return sparseArrayCompat.get(i2, Boolean.FALSE).booleanValue();
             }
             return false;
         }
@@ -3187,6 +3196,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AdapterView, android.view.View
+    @TargetApi(14)
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048638, this, accessibilityEvent) == null) {
@@ -3261,13 +3271,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
-    public void setMultiChoiceModeListener(q67 q67Var) {
+    @TargetApi(11)
+    public void setMultiChoiceModeListener(a87 a87Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048675, this, q67Var) == null) && Build.VERSION.SDK_INT >= 11) {
+        if ((interceptable == null || interceptable.invokeL(1048675, this, a87Var) == null) && Build.VERSION.SDK_INT >= 11) {
             if (this.mMultiChoiceModeCallback == null) {
-                this.mMultiChoiceModeCallback = new r67(this);
+                this.mMultiChoiceModeCallback = new b87(this);
             }
-            ((r67) this.mMultiChoiceModeCallback).c(q67Var);
+            ((b87) this.mMultiChoiceModeCallback).c(a87Var);
         }
     }
 
@@ -3484,7 +3495,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
 
     public long[] getCheckedItemIds() {
         InterceptResult invokeV;
-        LongSparseArray longSparseArray;
+        LongSparseArray<Integer> longSparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (this.mChoiceMode != 0 && (longSparseArray = this.mCheckedIdStates) != null && this.mAdapter != null) {
@@ -3649,7 +3660,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
             this.mOverscrollDistance = viewConfiguration.getScaledOverscrollDistance();
             this.mOverflingDistance = viewConfiguration.getScaledOverflingDistance();
-            this.mViewHelper = p67.a(this);
+            this.mViewHelper = z77.a(this);
         }
     }
 
@@ -3668,9 +3679,9 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 View childAt = getChildAt(i3);
                 int i4 = i2 + i3;
                 if (childAt instanceof Checkable) {
-                    ((Checkable) childAt).setChecked(((Boolean) this.mCheckStates.get(i4, Boolean.FALSE)).booleanValue());
+                    ((Checkable) childAt).setChecked(this.mCheckStates.get(i4, Boolean.FALSE).booleanValue());
                 } else if (z) {
-                    childAt.setActivated(((Boolean) this.mCheckStates.get(i4, Boolean.FALSE)).booleanValue());
+                    childAt.setActivated(this.mCheckStates.get(i4, Boolean.FALSE).booleanValue());
                 }
             }
         }
@@ -3788,6 +3799,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @SuppressLint({"Override"})
     public int[] onCreateDrawableState(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -3818,6 +3830,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // android.view.View
+    @TargetApi(12)
     public boolean onGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -3837,6 +3850,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.AdapterView, android.view.View
+    @SuppressLint({"Override"})
+    @TargetApi(14)
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, accessibilityNodeInfo) == null) {
@@ -3853,6 +3868,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
+    @TargetApi(14)
     public boolean performButtonActionOnTouchDown(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -3874,14 +3890,14 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 boolean hasStableIds = this.mAdapter.hasStableIds();
                 this.mAdapterHasStableIds = hasStableIds;
                 if (this.mChoiceMode != 0 && hasStableIds && this.mCheckedIdStates == null) {
-                    this.mCheckedIdStates = new LongSparseArray();
+                    this.mCheckedIdStates = new LongSparseArray<>();
                 }
             }
-            SparseArrayCompat sparseArrayCompat = this.mCheckStates;
+            SparseArrayCompat<Boolean> sparseArrayCompat = this.mCheckStates;
             if (sparseArrayCompat != null) {
                 sparseArrayCompat.clear();
             }
-            LongSparseArray longSparseArray = this.mCheckedIdStates;
+            LongSparseArray<Integer> longSparseArray = this.mCheckedIdStates;
             if (longSparseArray != null) {
                 longSparseArray.clear();
             }
@@ -3948,20 +3964,20 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
-    public static View retrieveFromScrap(ArrayList arrayList, int i2) {
+    public static View retrieveFromScrap(ArrayList<View> arrayList, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65574, null, arrayList, i2)) == null) {
             int size = arrayList.size();
             if (size > 0) {
                 for (int i3 = 0; i3 < size; i3++) {
-                    View view2 = (View) arrayList.get(i3);
+                    View view2 = arrayList.get(i3);
                     if (((LayoutParams) view2.getLayoutParams()).d == i2) {
                         arrayList.remove(i3);
                         return view2;
                     }
                 }
-                return (View) arrayList.remove(size - 1);
+                return arrayList.remove(size - 1);
             }
             return null;
         }
@@ -4275,7 +4291,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             boolean z2 = false;
             while (i2 < this.mCheckedIdStates.size()) {
                 long keyAt = this.mCheckedIdStates.keyAt(i2);
-                int intValue = ((Integer) this.mCheckedIdStates.valueAt(i2)).intValue();
+                int intValue = this.mCheckedIdStates.valueAt(i2).intValue();
                 if (keyAt != this.mAdapter.getItemId(intValue)) {
                     int max = Math.max(0, intValue - 20);
                     int min = Math.min(intValue + 20, this.mItemCount);
@@ -4298,7 +4314,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                         i2--;
                         this.mCheckedItemCount--;
                         if (Build.VERSION.SDK_INT > 11 && (obj2 = this.mChoiceActionMode) != null && (obj3 = this.mMultiChoiceModeCallback) != null) {
-                            ((r67) obj3).a((ActionMode) obj2, intValue, keyAt, false);
+                            ((b87) obj3).a((ActionMode) obj2, intValue, keyAt, false);
                         }
                         z2 = true;
                     }
@@ -4602,17 +4618,17 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
             savedState.filter = null;
             savedState.inActionMode = (Build.VERSION.SDK_INT < 11 || this.mChoiceMode != 3 || this.mChoiceActionMode == null) ? false : false;
-            SparseArrayCompat sparseArrayCompat = this.mCheckStates;
+            SparseArrayCompat<Boolean> sparseArrayCompat = this.mCheckStates;
             if (sparseArrayCompat != null) {
                 try {
                     savedState.checkState = sparseArrayCompat.m1clone();
                 } catch (NoSuchMethodError e2) {
                     e2.printStackTrace();
-                    savedState.checkState = new SparseArrayCompat();
+                    savedState.checkState = new SparseArrayCompat<>();
                 }
             }
             if (this.mCheckedIdStates != null) {
-                LongSparseArray longSparseArray = new LongSparseArray();
+                LongSparseArray<Integer> longSparseArray = new LongSparseArray<>();
                 int size = this.mCheckedIdStates.size();
                 for (int i4 = 0; i4 < size; i4++) {
                     longSparseArray.put(this.mCheckedIdStates.keyAt(i4), this.mCheckedIdStates.valueAt(i4));
@@ -4761,6 +4777,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
+    @SuppressLint({"NewApi"})
     public View obtainView(int i2, boolean[] zArr) {
         InterceptResult invokeIL;
         View view2;
@@ -4907,6 +4924,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
     }
 
     @Override // android.view.View
+    @SuppressLint({"Override"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         boolean z;
@@ -5155,7 +5173,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     int y2 = (int) motionEvent.getY();
                     int pointToPosition3 = pointToPosition(x4, y2);
                     if (!this.mDataChanged) {
-                        if (this.mTouchMode != 4 && pointToPosition3 >= 0 && ((ListAdapter) getAdapter()).isEnabled(pointToPosition3)) {
+                        if (this.mTouchMode != 4 && pointToPosition3 >= 0 && getAdapter().isEnabled(pointToPosition3)) {
                             this.mTouchMode = 0;
                             if (this.mPendingCheckForTap == null) {
                                 this.mPendingCheckForTap = new f(this);
@@ -5272,7 +5290,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
-    public void reclaimViews(List list) {
+    @SuppressLint({"NewApi"})
+    public void reclaimViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048658, this, list) == null) {
             int childCount = getChildCount();
@@ -5295,6 +5314,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
     }
 
+    @TargetApi(11)
     public void setChoiceMode(int i2) {
         ListAdapter listAdapter;
         Object obj;
@@ -5310,10 +5330,10 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
             }
             if (this.mChoiceMode != 0) {
                 if (this.mCheckStates == null) {
-                    this.mCheckStates = new SparseArrayCompat();
+                    this.mCheckStates = new SparseArrayCompat<>();
                 }
                 if (this.mCheckedIdStates == null && (listAdapter = this.mAdapter) != null && listAdapter.hasStableIds()) {
-                    this.mCheckedIdStates = new LongSparseArray();
+                    this.mCheckedIdStates = new LongSparseArray<>();
                 }
                 if (Build.VERSION.SDK_INT >= 11 && this.mChoiceMode == 3) {
                     clearChoices();
@@ -5330,7 +5350,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{view2, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (Build.VERSION.SDK_INT >= 11 && this.mChoiceMode == 3) {
                 if (this.mChoiceActionMode == null) {
-                    ActionMode startActionMode = startActionMode((r67) this.mMultiChoiceModeCallback);
+                    ActionMode startActionMode = startActionMode((b87) this.mMultiChoiceModeCallback);
                     this.mChoiceActionMode = startActionMode;
                     if (startActionMode != null) {
                         setItemChecked(i2, true);
@@ -5390,8 +5410,8 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
         }
         if (Build.VERSION.SDK_INT >= 11 && z && i3 == 3 && this.mChoiceActionMode == null) {
             Object obj = this.mMultiChoiceModeCallback;
-            if (obj != null && ((r67) obj).b()) {
-                this.mChoiceActionMode = startActionMode((r67) this.mMultiChoiceModeCallback);
+            if (obj != null && ((b87) obj).b()) {
+                this.mChoiceActionMode = startActionMode((b87) this.mMultiChoiceModeCallback);
             } else {
                 throw new IllegalStateException("AbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback.");
             }
@@ -5415,11 +5435,11 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                     this.mCheckedIdStates.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                 }
                 this.mCheckedItemCount = 1;
-            } else if (this.mCheckStates.size() == 0 || !((Boolean) this.mCheckStates.valueAt(0)).booleanValue()) {
+            } else if (this.mCheckStates.size() == 0 || !this.mCheckStates.valueAt(0).booleanValue()) {
                 this.mCheckedItemCount = 0;
             }
         } else {
-            boolean booleanValue = ((Boolean) this.mCheckStates.get(i2, Boolean.FALSE)).booleanValue();
+            boolean booleanValue = this.mCheckStates.get(i2, Boolean.FALSE).booleanValue();
             this.mCheckStates.put(i2, Boolean.valueOf(z));
             if (this.mCheckedIdStates != null && this.mAdapter.hasStableIds()) {
                 if (z) {
@@ -5436,7 +5456,7 @@ public abstract class AbsHListView extends AdapterView implements ViewTreeObserv
                 }
             }
             if (this.mChoiceActionMode != null) {
-                ((r67) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
+                ((b87) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
             }
         }
         if (!this.mInLayout && !this.mBlockLayoutRequests) {

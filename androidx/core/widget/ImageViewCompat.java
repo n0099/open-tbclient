@@ -5,6 +5,8 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +32,8 @@ public class ImageViewCompat {
         }
     }
 
-    public static ColorStateList getImageTintList(ImageView imageView) {
+    @Nullable
+    public static ColorStateList getImageTintList(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageView)) == null) {
@@ -45,7 +48,8 @@ public class ImageViewCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode getImageTintMode(ImageView imageView) {
+    @Nullable
+    public static PorterDuff.Mode getImageTintMode(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageView)) == null) {
@@ -60,7 +64,7 @@ public class ImageViewCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    public static void setImageTintList(ImageView imageView, ColorStateList colorStateList) {
+    public static void setImageTintList(@NonNull ImageView imageView, @Nullable ColorStateList colorStateList) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, imageView, colorStateList) == null) {
@@ -78,7 +82,7 @@ public class ImageViewCompat {
         }
     }
 
-    public static void setImageTintMode(ImageView imageView, PorterDuff.Mode mode) {
+    public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView, mode) == null) {

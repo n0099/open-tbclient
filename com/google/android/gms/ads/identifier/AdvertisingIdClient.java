@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,42 +20,60 @@ import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.annotation.KeepForSdkWithMembers;
 import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.stats.ConnectionTracker;
+import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.internal.ads_identifier.zze;
 import com.google.android.gms.internal.ads_identifier.zzf;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.ParametersAreNonnullByDefault;
+import javax.annotation.concurrent.GuardedBy;
+@KeepForSdk
 @ParametersAreNonnullByDefault
 /* loaded from: classes7.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @GuardedBy("this")
     public BlockingServiceConnection zza;
+    @Nullable
+    @GuardedBy("this")
     public zzf zzb;
+    @GuardedBy("this")
     public boolean zzc;
     public final Object zzd;
+    @Nullable
+    @GuardedBy("mAutoDisconnectTaskLock")
     public zzb zze;
     public final long zzf;
+    @GuardedBy("this")
     public final Context zzg;
 
+    @ShowFirstParty
+    @KeepForSdk
     public static void setShouldSkipGmsCoreVersionCheck(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
         }
     }
 
+    @KeepForSdkWithMembers
     /* loaded from: classes7.dex */
-    public final class Info {
+    public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final String zza;
         public final boolean zzb;
 
         @Deprecated
-        public Info(String str, boolean z) {
+        public Info(@Nullable String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,6 +92,7 @@ public class AdvertisingIdClient {
             this.zzb = z;
         }
 
+        @Nullable
         public String getId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -84,6 +105,7 @@ public class AdvertisingIdClient {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : invokeV.booleanValue;
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -102,7 +124,8 @@ public class AdvertisingIdClient {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AdvertisingIdClient(Context context) {
+    @KeepForSdk
+    public AdvertisingIdClient(@NonNull Context context) {
         this(context, 30000L, false, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -123,7 +146,9 @@ public class AdvertisingIdClient {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static Info getAdvertisingIdInfo(Context context) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
+    @NonNull
+    @KeepForSdk
+    public static Info getAdvertisingIdInfo(@NonNull Context context) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -141,7 +166,8 @@ public class AdvertisingIdClient {
         }
     }
 
-    public AdvertisingIdClient(Context context, long j, boolean z, boolean z2) {
+    @VisibleForTesting
+    public AdvertisingIdClient(@NonNull Context context, long j, boolean z, boolean z2) {
         Context applicationContext;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -167,7 +193,8 @@ public class AdvertisingIdClient {
         this.zzf = j;
     }
 
-    public static boolean getIsAdIdFakeForDebugLogging(Context context) throws IOException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
+    @KeepForSdk
+    public static boolean getIsAdIdFakeForDebugLogging(@NonNull Context context) throws IOException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         InterceptResult invokeL;
         boolean zzd;
         Interceptable interceptable = $ic;
@@ -294,6 +321,8 @@ public class AdvertisingIdClient {
         }
     }
 
+    @NonNull
+    @KeepForSdk
     public Info getInfo() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -303,6 +332,7 @@ public class AdvertisingIdClient {
         return (Info) invokeV.objValue;
     }
 
+    @KeepForSdk
     public void start() throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -310,6 +340,7 @@ public class AdvertisingIdClient {
         }
     }
 
+    @VisibleForTesting
     public final void zzb(boolean z) throws IOException, IllegalStateException, GooglePlayServicesNotAvailableException, GooglePlayServicesRepairableException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -349,7 +380,8 @@ public class AdvertisingIdClient {
         }
     }
 
-    public final boolean zzc(Info info, boolean z, float f, long j, String str, Throwable th) {
+    @VisibleForTesting
+    public final boolean zzc(@Nullable Info info, boolean z, float f, long j, String str, @Nullable Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{info, Boolean.valueOf(z), Float.valueOf(f), Long.valueOf(j), str, th})) == null) {

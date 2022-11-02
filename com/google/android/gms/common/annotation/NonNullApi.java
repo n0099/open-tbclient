@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 import javax.annotation.meta.TypeQualifierDefault;
 @Target({ElementType.TYPE, ElementType.PACKAGE})
 @TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+@KeepForSdk
 @Documented
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes7.dex */

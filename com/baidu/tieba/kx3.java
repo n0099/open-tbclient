@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kx3 {
+public final class kx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public my3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,61 +30,72 @@ public class kx3 {
                 return;
             }
         }
-        a = wj1.a;
+        b = ok1.a;
     }
 
-    public kx3(JsObject jsObject) {
+    public kx3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        tv1 F = tv1.F(jsObject);
-        if (F == null) {
-            return;
-        }
-        m33 M = m33.M();
-        if (M == null) {
-            a(F, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean m = F.m("mixWithOther", false);
-            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
-            }
-            a(F, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            m02.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(F, false, b("internal error"));
         }
     }
 
-    public final void a(tv1 tv1Var, boolean z, String str) {
+    public void c() {
+        my3 my3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tv1Var, Boolean.valueOf(z), str}) == null) {
-            vx3 vx3Var = new vx3();
-            vx3Var.errMsg = str;
-            y54.call(tv1Var, z, vx3Var);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (my3Var = this.a) != null) {
+            my3Var.c();
         }
     }
 
-    public final String b(String str) {
+    public static kx3 d(lw1 lw1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return String.format("setInnerAudioOption:fail %s", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, lw1Var)) == null) {
+            if (lw1Var == null) {
+                return null;
+            }
+            kx3 kx3Var = new kx3();
+            kx3Var.a = my3.e(lw1Var);
+            return kx3Var;
         }
-        return (String) invokeL.objValue;
+        return (kx3) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            my3 my3Var = this.a;
+            if (my3Var != null) {
+                my3Var.b(a);
+            }
+        }
+    }
+
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", rt3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

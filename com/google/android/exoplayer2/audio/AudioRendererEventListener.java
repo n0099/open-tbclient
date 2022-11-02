@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.audio;
 
 import android.os.Handler;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,13 +25,15 @@ public interface AudioRendererEventListener {
     void onAudioSinkUnderrun(int i, long j, long j2);
 
     /* loaded from: classes7.dex */
-    public final class EventDispatcher {
+    public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Handler handler;
+        @Nullable
         public final AudioRendererEventListener listener;
 
-        public EventDispatcher(Handler handler, AudioRendererEventListener audioRendererEventListener) {
+        public EventDispatcher(@Nullable Handler handler, @Nullable AudioRendererEventListener audioRendererEventListener) {
             Handler handler2;
             Interceptable interceptable = $ic;
             if (interceptable != null) {

@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tieba.dt9;
+import com.baidu.tieba.mu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class SVGAParser {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedBlockingQueue c;
+    public static final LinkedBlockingQueue<Runnable> c;
     public static ThreadPoolExecutor d;
     public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +72,13 @@ public final class SVGAParser {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\b\u0016\u0018\u0000B\u0007¢\u0006\u0004\b\u0018\u0010\u0019Jg\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\b0\u000e2\u0006\u0010\u0002\u001a\u00020\u00012!\u0010\t\u001a\u001d\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\b0\u00032%\u0010\r\u001a!\u0012\u0017\u0012\u00150\nj\u0002`\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020\b0\u0003H\u0016¢\u0006\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "Ljava/net/URL;", "url", "Lkotlin/Function1;", "Ljava/io/InputStream;", "Lkotlin/ParameterName;", "name", "inputStream", "", TaskProcessData.keyComplete, "Ljava/lang/Exception;", "Lkotlin/Exception;", "e", SmsLoginView.f.l, "Lkotlin/Function0;", "resume", "(Ljava/net/URL;Lkotlin/Function1;Lkotlin/Function1;)Lkotlin/Function0;", "", "noCache", "Z", "getNoCache", "()Z", "setNoCache", "(Z)V", "<init>", "()V", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public class FileDownloader {
+    public static class FileDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* loaded from: classes8.dex */
-        public final class a implements Runnable {
+        public static final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FileDownloader a;
@@ -189,7 +189,7 @@ public final class SVGAParser {
             return invokeV.booleanValue;
         }
 
-        public Function0 b(URL url, Function1 function1, Function1 function12) {
+        public Function0<Unit> b(URL url, Function1<? super InputStream, Unit> function1, Function1<? super Exception, Unit> function12) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url, function1, function12)) == null) {
@@ -204,7 +204,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -237,7 +237,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public final class c implements Runnable {
+    public static final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SVGAParser a;
@@ -275,7 +275,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public final class d implements Runnable {
+    public static final class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -310,7 +310,7 @@ public final class SVGAParser {
     }
 
     /* loaded from: classes8.dex */
-    public final class e implements Runnable {
+    public static final class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -356,7 +356,7 @@ public final class SVGAParser {
             }
         }
         e = new a(null);
-        c = new LinkedBlockingQueue();
+        c = new LinkedBlockingQueue<>();
         d = new ThreadPoolExecutor(3, 10, 60000L, TimeUnit.MILLISECONDS, c);
     }
 
@@ -549,7 +549,7 @@ public final class SVGAParser {
         }
     }
 
-    public final Function0 q(URL url, b bVar) {
+    public final Function0<Unit> q(URL url, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, url, bVar)) == null) {
@@ -582,9 +582,9 @@ public final class SVGAParser {
                 if (file2 != null) {
                     try {
                         FileInputStream fileInputStream = new FileInputStream(file2);
-                        Object decode = MovieEntity.ADAPTER.decode(fileInputStream);
+                        MovieEntity decode = MovieEntity.ADAPTER.decode(fileInputStream);
                         Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                        s(new SVGAVideoEntity((MovieEntity) decode, file), bVar);
+                        s(new SVGAVideoEntity(decode, file), bVar);
                         Unit unit = Unit.INSTANCE;
                         CloseableKt.closeFinally(fileInputStream, null);
                     } catch (Exception e2) {
@@ -648,7 +648,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = dt9.a;
+            i = mu9.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

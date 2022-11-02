@@ -4,12 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes6.dex */
-public abstract class Callback {
+public abstract class Callback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(Object obj);
+    public abstract void a(T t);
 
     public Callback() {
         Interceptable interceptable = $ic;
@@ -25,6 +26,7 @@ public abstract class Callback {
         }
     }
 
+    @CalledByNative
     private void onResultFromNative(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
@@ -32,6 +34,9 @@ public abstract class Callback {
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @CalledByNative
     private void onResultFromNative(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, obj) == null) {
@@ -39,6 +44,7 @@ public abstract class Callback {
         }
     }
 
+    @CalledByNative
     private void onResultFromNative(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {

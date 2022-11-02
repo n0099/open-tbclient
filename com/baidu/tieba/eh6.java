@@ -1,109 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
-public class eh6 implements oi6 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class eh6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference a;
-    public static final oi6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<jn> a;
+    public BdTypeListView b;
+    public ah6 c;
+    public ch6 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947734390, "Lcom/baidu/tieba/eh6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947734390, "Lcom/baidu/tieba/eh6;");
-                return;
-            }
-        }
-        a = new AtomicReference(null);
-        b = new eh6();
-    }
-
-    public eh6() {
+    public eh6(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        this.b = bdTypeListView;
+        arrayList.add(new wg6(baseActivity.getPageContext(), xg6.d));
+        this.a.add(new yg6(baseActivity.getPageContext(), zg6.c));
+        this.a.add(new vg6(baseActivity.getPageContext(), xi6.c));
+        this.a.add(new mg6(baseActivity.getPageContext(), ng6.b));
+        this.a.add(new og6(baseActivity.getPageContext(), pg6.g));
+        this.a.add(new qg6(baseActivity.getPageContext()));
+        ah6 ah6Var = new ah6(baseActivity.getPageContext(), bh6.e);
+        this.c = ah6Var;
+        this.a.add(ah6Var);
+        ch6 ch6Var = new ch6(baseActivity.getPageContext(), dh6.d);
+        this.d = ch6Var;
+        this.a.add(ch6Var);
     }
 
-    public static oi6 e() {
+    public List<jn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            oi6 oi6Var = (oi6) a.get();
-            if (oi6Var == null) {
-                return b;
-            }
-            return oi6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (oi6) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oi6
-    public rn a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof nn)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (rn) invokeLLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.oi6
-    public kh6 b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.onDestroy();
+            this.d.onDestroy();
         }
-        return (kh6) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oi6
-    public rn d(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (rn) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oi6
-    public rn c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (rn) invokeCommon.objValue;
     }
 }

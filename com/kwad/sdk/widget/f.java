@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public final class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public MotionEvent arc;
@@ -11,7 +12,7 @@ public final class f implements GestureDetector.OnGestureListener, View.OnTouchL
     public GestureDetector kE;
     public View mView;
 
-    public f(Context context, View view2, c cVar) {
+    public f(Context context, @NonNull View view2, c cVar) {
         this.mView = view2;
         view2.setOnTouchListener(this);
         this.kE = new GestureDetector(context, this);

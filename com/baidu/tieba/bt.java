@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes3.dex */
-public interface bt {
-    View getContentView();
+public interface bt<T> {
+    void onChanged(T t);
 }

@@ -25,7 +25,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public long mCreateStartTimestamp;
     public long mInitIdleTaskEndTimeStamp;
     public long mInitLaunchTaskEndTimestamp;
-    public Hashtable mLaunchTaskDuration;
+    public Hashtable<String, Long> mLaunchTaskDuration;
     public long mSuperEndTimeStamp;
 
     public AppCreateSpeedStats() {
@@ -46,7 +46,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         this.mInitIdleTaskEndTimeStamp = -1L;
         this.mInitLaunchTaskEndTimestamp = -1L;
         this.mAppCreateEndTimestamp = -1L;
-        this.mLaunchTaskDuration = new Hashtable();
+        this.mLaunchTaskDuration = new Hashtable<>();
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -154,7 +154,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                 hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j9));
                 hashMap.put(INIT_SPEED_STATUS, String.valueOf(j10));
                 synchronized (this.mLaunchTaskDuration) {
-                    for (Map.Entry entry : this.mLaunchTaskDuration.entrySet()) {
+                    for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                         hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
                     }
                 }

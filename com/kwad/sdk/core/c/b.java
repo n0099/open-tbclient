@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.core.KSLifecycleListener;
 import com.kwad.sdk.api.core.KSLifecycleObserver;
@@ -13,18 +14,19 @@ import com.kwad.sdk.utils.bj;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements c {
     public static volatile b XG;
-    public static final List mListeners = new CopyOnWriteArrayList();
+    public static final List<c> mListeners = new CopyOnWriteArrayList();
     public final AtomicBoolean EL = new AtomicBoolean(false);
+    @Nullable
     public Application mApplication;
 
     public static void a(c cVar) {
         mListeners.add(cVar);
     }
 
-    public static void a(com.kwad.sdk.d.a aVar) {
+    public static <T> void a(com.kwad.sdk.d.a<c> aVar) {
         for (c cVar : mListeners) {
             if (cVar != null) {
                 aVar.accept(cVar);
@@ -36,6 +38,7 @@ public class b implements c {
         mListeners.remove(cVar);
     }
 
+    @Nullable
     public static Activity getCurrentActivity() {
         if (tq()) {
             return KSLifecycleObserver.getInstance().getCurrentActivity();
@@ -94,7 +97,7 @@ public class b implements c {
                     @Override // com.kwad.sdk.api.core.KSLifecycleListener
                     public final void onActivityCreated(final Activity activity, final Bundle bundle) {
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.1
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.1
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX INFO: Access modifiers changed from: private */
                             @Override // com.kwad.sdk.d.a
@@ -108,7 +111,7 @@ public class b implements c {
                     @Override // com.kwad.sdk.api.core.KSLifecycleListener
                     public final void onActivityDestroyed(final Activity activity) {
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.4
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.4
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX INFO: Access modifiers changed from: private */
                             @Override // com.kwad.sdk.d.a
@@ -122,7 +125,7 @@ public class b implements c {
                     @Override // com.kwad.sdk.api.core.KSLifecycleListener
                     public final void onActivityPaused(final Activity activity) {
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.3
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.3
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX INFO: Access modifiers changed from: private */
                             @Override // com.kwad.sdk.d.a
@@ -136,7 +139,7 @@ public class b implements c {
                     @Override // com.kwad.sdk.api.core.KSLifecycleListener
                     public final void onActivityResumed(final Activity activity) {
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.2
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.2
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX INFO: Access modifiers changed from: private */
                             @Override // com.kwad.sdk.d.a
@@ -151,14 +154,15 @@ public class b implements c {
                     public final void onBackToBackground() {
                         com.kwad.sdk.core.e.b.C("LifecycleHolder", "onBackToBackground");
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.6
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.6
                             public static void c(c cVar) {
                                 cVar.onBackToBackground();
                             }
 
+                            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                             @Override // com.kwad.sdk.d.a
-                            public final /* synthetic */ void accept(Object obj) {
-                                c((c) obj);
+                            public final /* synthetic */ void accept(c cVar) {
+                                c(cVar);
                             }
                         });
                     }
@@ -167,14 +171,15 @@ public class b implements c {
                     public final void onBackToForeground() {
                         com.kwad.sdk.core.e.b.C("LifecycleHolder", "onBackToForeground");
                         b bVar = b.this;
-                        b.a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.1.5
+                        b.a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.1.5
                             public static void c(c cVar) {
                                 cVar.onBackToForeground();
                             }
 
+                            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                             @Override // com.kwad.sdk.d.a
-                            public final /* synthetic */ void accept(Object obj) {
-                                c((c) obj);
+                            public final /* synthetic */ void accept(c cVar) {
+                                c(cVar);
                             }
                         });
                     }
@@ -194,7 +199,7 @@ public class b implements c {
 
     @Override // com.kwad.sdk.core.c.c
     public final void onActivityCreated(final Activity activity, final Bundle bundle) {
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.2
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -207,7 +212,7 @@ public class b implements c {
 
     @Override // com.kwad.sdk.core.c.c
     public final void onActivityDestroyed(final Activity activity) {
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.5
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -220,7 +225,7 @@ public class b implements c {
 
     @Override // com.kwad.sdk.core.c.c
     public final void onActivityPaused(final Activity activity) {
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.4
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.4
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -233,7 +238,7 @@ public class b implements c {
 
     @Override // com.kwad.sdk.core.c.c
     public final void onActivityResumed(final Activity activity) {
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.3
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -247,14 +252,15 @@ public class b implements c {
     @Override // com.kwad.sdk.core.c.c
     public final void onBackToBackground() {
         com.kwad.sdk.core.e.b.C("LifecycleHolder", "onBackToBackground old");
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.7
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.7
             public static void c(c cVar) {
                 cVar.onBackToBackground();
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.kwad.sdk.d.a
-            public final /* synthetic */ void accept(Object obj) {
-                c((c) obj);
+            public final /* synthetic */ void accept(c cVar) {
+                c(cVar);
             }
         });
     }
@@ -262,14 +268,15 @@ public class b implements c {
     @Override // com.kwad.sdk.core.c.c
     public final void onBackToForeground() {
         com.kwad.sdk.core.e.b.C("LifecycleHolder", "onBackToForeground old");
-        a(new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.c.b.6
+        a(new com.kwad.sdk.d.a<c>() { // from class: com.kwad.sdk.core.c.b.6
             public static void c(c cVar) {
                 cVar.onBackToForeground();
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // com.kwad.sdk.d.a
-            public final /* synthetic */ void accept(Object obj) {
-                c((c) obj);
+            public final /* synthetic */ void accept(c cVar) {
+                c(cVar);
             }
         });
     }

@@ -38,7 +38,7 @@ public abstract class PluginError extends Exception {
     public final int mCode;
 
     /* loaded from: classes8.dex */
-    public final class CancelError extends PluginError {
+    public static final class CancelError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public abstract class PluginError extends Exception {
     }
 
     /* loaded from: classes8.dex */
-    public final class InstallError extends PluginError {
+    public static final class InstallError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +113,7 @@ public abstract class PluginError extends Exception {
     }
 
     /* loaded from: classes8.dex */
-    public final class LoadError extends PluginError {
+    public static final class LoadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,7 +162,7 @@ public abstract class PluginError extends Exception {
     }
 
     /* loaded from: classes8.dex */
-    public final class NotWifiDownloadError extends PluginError {
+    public static final class NotWifiDownloadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -211,7 +211,7 @@ public abstract class PluginError extends Exception {
     }
 
     /* loaded from: classes8.dex */
-    public final class RetryError extends PluginError {
+    public static final class RetryError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,7 +236,7 @@ public abstract class PluginError extends Exception {
     }
 
     /* loaded from: classes8.dex */
-    public final class UpdateError extends PluginError {
+    public static final class UpdateError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

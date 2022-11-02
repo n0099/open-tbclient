@@ -1,68 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tieba.wd9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public class xd9 {
+public final class xd9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static wd9.a b;
+    public static wd9.a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public yd9 b;
 
-    public xd9(AudioPlayData audioPlayData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948296668, "Lcom/baidu/tieba/xd9;")) == null) {
             return;
         }
-        this.b = new yd9(audioPlayData.audioPath);
-    }
-
-    public yd9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (yd9) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yd9 yd9Var = this.b;
-            return yd9Var != null && yd9Var.i();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeV.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948296668, "Lcom/baidu/tieba/xd9;");
+        }
     }
 
-    public void d(yd9 yd9Var) {
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yd9Var) == null) {
-            this.b = yd9Var;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (xd9.class) {
+                if (!a) {
+                    je9.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new yd9();
+                    c = new ie9();
+                    wd9.a().c();
+                    wd9.a().d(c);
+                    wd9.a().d(b);
+                    wd9.a().e(context);
+                    a = true;
+                    return;
+                }
+                je9.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+            }
         }
     }
 }

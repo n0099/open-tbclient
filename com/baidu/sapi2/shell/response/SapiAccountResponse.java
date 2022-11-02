@@ -32,7 +32,7 @@ public class SapiAccountResponse extends SapiResponse {
     public String socialPortraitUrl;
     public SocialType socialType;
     public String stoken;
-    public Map tplStokenMap;
+    public Map<String, String> tplStokenMap;
     public String uid;
     public String username;
 

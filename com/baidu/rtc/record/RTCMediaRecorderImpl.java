@@ -2,9 +2,10 @@ package com.baidu.rtc.record;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
-import com.baidu.tieba.px9;
+import com.baidu.tieba.yy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
     public RTCVideoFileRenderer videoFileRenderer;
     public final VideoTrack videoTrack;
 
-    public RTCMediaRecorderImpl(VideoTrack videoTrack, RemoteAudioSamplesInterceptor remoteAudioSamplesInterceptor) {
+    public RTCMediaRecorderImpl(@Nullable VideoTrack videoTrack, @Nullable RemoteAudioSamplesInterceptor remoteAudioSamplesInterceptor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +91,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                         }
                         MediaEncodeParams mediaEncodeParams2 = mediaEncodeParams;
                         String absolutePath = file.getAbsolutePath();
-                        EglBase.Context eglBaseContext = px9.a().getEglBaseContext();
+                        EglBase.Context eglBaseContext = yy9.a().getEglBaseContext();
                         if (this.audioInterceptor != null) {
                             z = true;
                         } else {

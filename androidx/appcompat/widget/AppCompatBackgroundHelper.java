@@ -6,6 +6,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -24,9 +26,10 @@ public class AppCompatBackgroundHelper {
     public final AppCompatDrawableManager mDrawableManager;
     public TintInfo mInternalBackgroundTint;
     public TintInfo mTmpInfo;
+    @NonNull
     public final View mView;
 
-    public AppCompatBackgroundHelper(View view2) {
+    public AppCompatBackgroundHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +49,7 @@ public class AppCompatBackgroundHelper {
         this.mDrawableManager = AppCompatDrawableManager.get();
     }
 
-    private boolean applyFrameworkTintUsingColorFilter(Drawable drawable) {
+    private boolean applyFrameworkTintUsingColorFilter(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, drawable)) == null) {
@@ -138,7 +141,7 @@ public class AppCompatBackgroundHelper {
         }
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, attributeSet, i) == null) {
             TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.ViewBackgroundHelper, i, 0);

@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo;
 import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class TransmitForumData implements eo, Parcelable {
+public class TransmitForumData implements wn, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<TransmitForumData> CREATOR;
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA;
     public static final int TYPE_RECOMMEND = 1;
     public static final int TYPE_SELF_SELECT = 0;
@@ -27,7 +27,7 @@ public class TransmitForumData implements eo, Parcelable {
     public long forumId;
     public String forumName;
     public boolean isCurForum;
-    public ArrayList tabItemDatas;
+    public ArrayList<FrsTabItemData> tabItemDatas;
     public int type;
 
     @Override // android.os.Parcelable
@@ -41,7 +41,7 @@ public class TransmitForumData implements eo, Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<TransmitForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +101,7 @@ public class TransmitForumData implements eo, Parcelable {
         CREATOR = new a();
     }
 
-    @Override // com.baidu.tieba.eo
+    @Override // com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

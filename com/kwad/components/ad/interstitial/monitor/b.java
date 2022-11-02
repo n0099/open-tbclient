@@ -2,6 +2,7 @@ package com.kwad.components.ad.interstitial.monitor;
 
 import android.content.Context;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,7 +28,7 @@ public final class b {
     public double ga;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b gb;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +99,7 @@ public final class b {
         }
     }
 
-    public final void a(AdTemplate adTemplate, int i) {
+    public final void a(@NonNull AdTemplate adTemplate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, adTemplate, i) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -114,7 +115,7 @@ public final class b {
         }
     }
 
-    public final void a(AdTemplate adTemplate, int i, String str) {
+    public final void a(@NonNull AdTemplate adTemplate, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, i, str) == null) {
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -122,7 +123,7 @@ public final class b {
         }
     }
 
-    public final void a(AdTemplate adTemplate, long j, boolean z) {
+    public final void a(@NonNull AdTemplate adTemplate, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{adTemplate, Long.valueOf(j), Boolean.valueOf(z)}) == null) || j <= 0) {
             return;
@@ -135,7 +136,7 @@ public final class b {
         k.i(this.fV, new InterstitialMonitorInfo().setRatioCount(this.fW).setStatus(2).setType(z ? 2 : 1).setLoadDataTime(adTemplate.loadDataTime).toJson());
     }
 
-    public final void a(AdTemplate adTemplate, String str) {
+    public final void a(@NonNull AdTemplate adTemplate, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, adTemplate, str) == null) {
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -143,7 +144,7 @@ public final class b {
         }
     }
 
-    public final void b(AdTemplate adTemplate, long j, boolean z) {
+    public final void b(@NonNull AdTemplate adTemplate, long j, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adTemplate, Long.valueOf(j), Boolean.valueOf(z)}) == null) && j > 0 && com.kwad.sdk.core.response.a.a.aE(com.kwad.sdk.core.response.a.d.bQ(adTemplate))) {
             long elapsedRealtime = SystemClock.elapsedRealtime() - j;

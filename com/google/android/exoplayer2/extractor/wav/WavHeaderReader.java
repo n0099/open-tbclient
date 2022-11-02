@@ -21,7 +21,7 @@ public final class WavHeaderReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class ChunkHeader {
+    public static final class ChunkHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SIZE_IN_BYTES = 8;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.mediacodec;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.text.TextUtils;
@@ -26,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+@SuppressLint({"InlinedApi"})
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,18 +40,18 @@ public final class MediaCodecUtil {
     public static final String CODEC_ID_HEV1 = "hev1";
     public static final String CODEC_ID_HVC1 = "hvc1";
     public static final String GOOGLE_RAW_DECODER_NAME = "OMX.google.raw.decoder";
-    public static final Map HEVC_CODEC_STRING_TO_PROFILE_LEVEL;
+    public static final Map<String, Integer> HEVC_CODEC_STRING_TO_PROFILE_LEVEL;
     public static final String MTK_RAW_DECODER_NAME = "OMX.MTK.AUDIO.DECODER.RAW";
     public static final MediaCodecInfo PASSTHROUGH_DECODER_INFO;
     public static final Pattern PROFILE_PATTERN;
     public static final String TAG = "MediaCodecUtil";
-    public static final HashMap decoderInfosCache;
+    public static final HashMap<CodecKey, List<MediaCodecInfo>> decoderInfosCache;
     public static int maxH264DecodableFrameSize;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.mediacodec.MediaCodecUtil$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -102,7 +106,7 @@ public final class MediaCodecUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class CodecKey {
+    public static final class CodecKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mimeType;
@@ -171,7 +175,7 @@ public final class MediaCodecUtil {
     }
 
     /* loaded from: classes7.dex */
-    public class DecoderQueryException extends Exception {
+    public static class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +206,7 @@ public final class MediaCodecUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class MediaCodecListCompatV16 implements MediaCodecListCompat {
+    public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -265,8 +269,9 @@ public final class MediaCodecUtil {
         }
     }
 
+    @TargetApi(21)
     /* loaded from: classes7.dex */
-    public final class MediaCodecListCompatV21 implements MediaCodecListCompat {
+    public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int codecKind;
@@ -355,7 +360,7 @@ public final class MediaCodecUtil {
         }
         PASSTHROUGH_DECODER_INFO = MediaCodecInfo.newPassthroughInstance(GOOGLE_RAW_DECODER_NAME);
         PROFILE_PATTERN = Pattern.compile("^\\D?(\\d+)$");
-        decoderInfosCache = new HashMap();
+        decoderInfosCache = new HashMap<>();
         maxH264DecodableFrameSize = -1;
         SparseIntArray sparseIntArray = new SparseIntArray();
         AVC_PROFILE_NUMBER_TO_CONST = sparseIntArray;
@@ -434,12 +439,12 @@ public final class MediaCodecUtil {
         return (MediaCodecInfo) invokeV.objValue;
     }
 
-    public static void applyWorkarounds(List list) {
+    public static void applyWorkarounds(List<MediaCodecInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && Util.SDK_INT < 26) {
-            if (list.size() > 1 && MTK_RAW_DECODER_NAME.equals(((MediaCodecInfo) list.get(0)).name)) {
+            if (list.size() > 1 && MTK_RAW_DECODER_NAME.equals(list.get(0).name)) {
                 for (int i = 1; i < list.size(); i++) {
-                    MediaCodecInfo mediaCodecInfo = (MediaCodecInfo) list.get(i);
+                    MediaCodecInfo mediaCodecInfo = list.get(i);
                     if (GOOGLE_RAW_DECODER_NAME.equals(mediaCodecInfo.name)) {
                         list.remove(i);
                         list.add(0, mediaCodecInfo);
@@ -462,7 +467,7 @@ public final class MediaCodecUtil {
         return invokeL.booleanValue;
     }
 
-    public static Pair getAvcProfileAndLevel(String str, String[] strArr) {
+    public static Pair<Integer, Integer> getAvcProfileAndLevel(String str, String[] strArr) {
         InterceptResult invokeLL;
         Integer valueOf;
         Integer num;
@@ -494,7 +499,7 @@ public final class MediaCodecUtil {
                     Log.w(TAG, "Unknown AVC level: " + valueOf);
                     return null;
                 }
-                return new Pair(valueOf3, valueOf4);
+                return new Pair<>(valueOf3, valueOf4);
             } catch (NumberFormatException unused) {
                 Log.w(TAG, "Ignoring malformed AVC codec string: " + str);
                 return null;
@@ -503,7 +508,7 @@ public final class MediaCodecUtil {
         return (Pair) invokeLL.objValue;
     }
 
-    public static List getDecoderInfosInternal(CodecKey codecKey, MediaCodecListCompat mediaCodecListCompat) throws DecoderQueryException {
+    public static List<MediaCodecInfo> getDecoderInfosInternal(CodecKey codecKey, MediaCodecListCompat mediaCodecListCompat) throws DecoderQueryException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, codecKey, mediaCodecListCompat)) == null) {
@@ -571,7 +576,7 @@ public final class MediaCodecUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Pair getCodecProfileAndLevel(String str) {
+    public static Pair<Integer, Integer> getCodecProfileAndLevel(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
@@ -624,11 +629,11 @@ public final class MediaCodecUtil {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
-            List decoderInfos = getDecoderInfos(str, z);
+            List<MediaCodecInfo> decoderInfos = getDecoderInfos(str, z);
             if (decoderInfos.isEmpty()) {
                 return null;
             }
-            return (MediaCodecInfo) decoderInfos.get(0);
+            return decoderInfos.get(0);
         }
         return (MediaCodecInfo) invokeLZ.objValue;
     }
@@ -644,14 +649,14 @@ public final class MediaCodecUtil {
         }
     }
 
-    public static synchronized List getDecoderInfos(String str, boolean z) throws DecoderQueryException {
+    public static synchronized List<MediaCodecInfo> getDecoderInfos(String str, boolean z) throws DecoderQueryException {
         InterceptResult invokeLZ;
         MediaCodecListCompat mediaCodecListCompatV16;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, str, z)) == null) {
             synchronized (MediaCodecUtil.class) {
                 CodecKey codecKey = new CodecKey(str, z);
-                List list = (List) decoderInfosCache.get(codecKey);
+                List<MediaCodecInfo> list = decoderInfosCache.get(codecKey);
                 if (list != null) {
                     return list;
                 }
@@ -660,15 +665,15 @@ public final class MediaCodecUtil {
                 } else {
                     mediaCodecListCompatV16 = new MediaCodecListCompatV16(null);
                 }
-                List decoderInfosInternal = getDecoderInfosInternal(codecKey, mediaCodecListCompatV16);
+                List<MediaCodecInfo> decoderInfosInternal = getDecoderInfosInternal(codecKey, mediaCodecListCompatV16);
                 if (z && decoderInfosInternal.isEmpty() && 21 <= Util.SDK_INT && Util.SDK_INT <= 23) {
                     decoderInfosInternal = getDecoderInfosInternal(codecKey, new MediaCodecListCompatV16(null));
                     if (!decoderInfosInternal.isEmpty()) {
-                        Log.w(TAG, "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + ((MediaCodecInfo) decoderInfosInternal.get(0)).name);
+                        Log.w(TAG, "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + decoderInfosInternal.get(0).name);
                     }
                 }
                 applyWorkarounds(decoderInfosInternal);
-                List unmodifiableList = Collections.unmodifiableList(decoderInfosInternal);
+                List<MediaCodecInfo> unmodifiableList = Collections.unmodifiableList(decoderInfosInternal);
                 decoderInfosCache.put(codecKey, unmodifiableList);
                 return unmodifiableList;
             }
@@ -676,7 +681,7 @@ public final class MediaCodecUtil {
         return (List) invokeLZ.objValue;
     }
 
-    public static Pair getHevcProfileAndLevel(String str, String[] strArr) {
+    public static Pair<Integer, Integer> getHevcProfileAndLevel(String str, String[] strArr) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
@@ -699,12 +704,12 @@ public final class MediaCodecUtil {
                 Log.w(TAG, "Unknown HEVC profile string: " + group);
                 return null;
             }
-            Integer num = (Integer) HEVC_CODEC_STRING_TO_PROFILE_LEVEL.get(strArr[3]);
+            Integer num = HEVC_CODEC_STRING_TO_PROFILE_LEVEL.get(strArr[3]);
             if (num == null) {
                 Log.w(TAG, "Unknown HEVC level string: " + matcher.group(1));
                 return null;
             }
-            return new Pair(Integer.valueOf(i), num);
+            return new Pair<>(Integer.valueOf(i), num);
         }
         return (Pair) invokeLL.objValue;
     }

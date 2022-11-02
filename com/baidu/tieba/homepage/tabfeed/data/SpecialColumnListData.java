@@ -7,8 +7,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.xs4;
+import com.baidu.tieba.ot4;
+import com.baidu.tieba.rr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +21,14 @@ import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes4.dex */
-public class SpecialColumnListData extends ar4 implements Parcelable {
+public class SpecialColumnListData extends rr4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
     public static final BdUniqueId TYPE;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mListData;
-    public List mResultListData;
+    public List<SpecialColumnItemData> mListData;
+    public List<SpecialColumnItemData> mResultListData;
     public String title;
 
     @Override // android.os.Parcelable
@@ -41,17 +41,17 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ar4
-    public xs4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.rr4
+    public ot4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (xs4) invokeV.objValue;
+        return (ot4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ar4
+    @Override // com.baidu.tieba.rr4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
     }
 
     /* loaded from: classes4.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<SpecialColumnListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,7 +139,7 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         this.mResultListData = new ArrayList();
     }
 
-    public List getListData() {
+    public List<SpecialColumnItemData> getListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -148,7 +148,7 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         return (List) invokeV.objValue;
     }
 
-    public List getResultData() {
+    public List<SpecialColumnItemData> getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -166,7 +166,7 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.eo
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -196,13 +196,13 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         this.mResultListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
     }
 
-    public void parserProtobuf(List list) {
+    public void parserProtobuf(List<SpecialColumn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < list.size(); i++) {
                 SpecialColumnItemData specialColumnItemData = new SpecialColumnItemData();
-                specialColumnItemData.parserProtobuf((SpecialColumn) list.get(i));
+                specialColumnItemData.parserProtobuf(list.get(i));
                 arrayList.add(specialColumnItemData);
             }
             this.mResultListData.addAll(arrayList);
@@ -220,7 +220,7 @@ public class SpecialColumnListData extends ar4 implements Parcelable {
         parserProtobuf(specialColumnList.item_list);
     }
 
-    public void setListData(List list) {
+    public void setListData(List<SpecialColumnItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.mListData = list;

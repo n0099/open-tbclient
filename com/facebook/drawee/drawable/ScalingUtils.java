@@ -42,7 +42,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public abstract class AbstractScaleType implements ScaleType {
+    public static abstract class AbstractScaleType implements ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +75,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class InterpolatingScaleType implements ScaleType, StatefulScaleType {
+    public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
@@ -321,7 +321,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeCenter extends AbstractScaleType {
+    public static class ScaleTypeCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -372,7 +372,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeCenterCrop extends AbstractScaleType {
+    public static class ScaleTypeCenterCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -434,7 +434,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeCenterInside extends AbstractScaleType {
+    public static class ScaleTypeCenterInside extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -489,7 +489,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitBottomStart extends AbstractScaleType {
+    public static class ScaleTypeFitBottomStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,7 +542,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitCenter extends AbstractScaleType {
+    public static class ScaleTypeFitCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -597,7 +597,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitEnd extends AbstractScaleType {
+    public static class ScaleTypeFitEnd extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -650,7 +650,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitStart extends AbstractScaleType {
+    public static class ScaleTypeFitStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -703,7 +703,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitX extends AbstractScaleType {
+    public static class ScaleTypeFitX extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -756,7 +756,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitXY extends AbstractScaleType {
+    public static class ScaleTypeFitXY extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -808,7 +808,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFitY extends AbstractScaleType {
+    public static class ScaleTypeFitY extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -860,7 +860,7 @@ public class ScalingUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleTypeFocusCrop extends AbstractScaleType {
+    public static class ScaleTypeFocusCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;

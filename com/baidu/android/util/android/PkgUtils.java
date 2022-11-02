@@ -1,5 +1,6 @@
 package com.baidu.android.util.android;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -50,6 +51,7 @@ public class PkgUtils {
         }
     }
 
+    @SuppressLint({"PackageManagerGetSignatures"})
     public static PackageInfo getPackageInfo(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -101,6 +103,7 @@ public class PkgUtils {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"PackageManagerGetSignatures"})
     public static String getSign(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

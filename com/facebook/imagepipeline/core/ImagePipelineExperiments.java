@@ -8,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import com.facebook.common.memory.ByteArrayPool;
+import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.webp.WebpBitmapFactory;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
@@ -20,6 +22,7 @@ import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
+import com.facebook.imagepipeline.image.CloseableImage;
 /* loaded from: classes7.dex */
 public class ImagePipelineExperiments {
     public static /* synthetic */ Interceptable $ic;
@@ -38,13 +41,13 @@ public class ImagePipelineExperiments {
     public final boolean mIsDiskCacheProbingEnabled;
     public final boolean mIsEncodedMemoryCacheProbingEnabled;
     public boolean mKeepCancelledFetchAsLowPriority;
-    public final Supplier mLazyDataSource;
+    public final Supplier<Boolean> mLazyDataSource;
     public final int mMaxBitmapSize;
     public final long mMemoryType;
     public final boolean mNativeCodeDisabled;
     public final boolean mPartialImageCachingEnabled;
     public final ProducerFactoryMethod mProducerFactoryMethod;
-    public final Supplier mSuppressBitmapPrefetchingSupplier;
+    public final Supplier<Boolean> mSuppressBitmapPrefetchingSupplier;
     public final int mTrackedKeysSize;
     public final boolean mUseBitmapPrepareToDraw;
     public final boolean mUseDownsamplingRatioForResizing;
@@ -54,18 +57,18 @@ public class ImagePipelineExperiments {
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipelineExperiments$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
     public interface ProducerFactoryMethod {
-        ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache memoryCache, MemoryCache memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4);
+        ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4);
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mBitmapCloseableRefType;
@@ -83,13 +86,13 @@ public class ImagePipelineExperiments {
         public boolean mIsDiskCacheProbingEnabled;
         public boolean mIsEncodedMemoryCacheProbingEnabled;
         public boolean mKeepCancelledFetchAsLowPriority;
-        public Supplier mLazyDataSource;
+        public Supplier<Boolean> mLazyDataSource;
         public int mMaxBitmapSize;
         public long mMemoryType;
         public boolean mNativeCodeDisabled;
         public boolean mPartialImageCachingEnabled;
         public ProducerFactoryMethod mProducerFactoryMethod;
-        public Supplier mSuppressBitmapPrefetchingSupplier;
+        public Supplier<Boolean> mSuppressBitmapPrefetchingSupplier;
         public int mTrackedKeysSize;
         public boolean mUseBitmapPrepareToDraw;
         public boolean mUseDownsamplingRatioForResizing;
@@ -242,7 +245,7 @@ public class ImagePipelineExperiments {
             return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
-        public ImagePipelineConfig.Builder setLazyDataSource(Supplier supplier) {
+        public ImagePipelineConfig.Builder setLazyDataSource(Supplier<Boolean> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, supplier)) == null) {
@@ -302,7 +305,7 @@ public class ImagePipelineExperiments {
             return (ImagePipelineConfig.Builder) invokeZ.objValue;
         }
 
-        public ImagePipelineConfig.Builder setSuppressBitmapPrefetchingSupplier(Supplier supplier) {
+        public ImagePipelineConfig.Builder setSuppressBitmapPrefetchingSupplier(Supplier<Boolean> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, supplier)) == null) {
@@ -395,7 +398,7 @@ public class ImagePipelineExperiments {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultProducerFactoryMethod implements ProducerFactoryMethod {
+    public static class DefaultProducerFactoryMethod implements ProducerFactoryMethod {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -414,7 +417,7 @@ public class ImagePipelineExperiments {
         }
 
         @Override // com.facebook.imagepipeline.core.ImagePipelineExperiments.ProducerFactoryMethod
-        public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache memoryCache, MemoryCache memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4) {
+        public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, byteArrayPool, imageDecoder, progressiveJpegConfig, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), executorSupplier, pooledByteBufferFactory, memoryCache, memoryCache2, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, platformBitmapFactory, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z4), Integer.valueOf(i3), closeableReferenceFactory, Boolean.valueOf(z5), Integer.valueOf(i4)})) == null) {
@@ -548,7 +551,7 @@ public class ImagePipelineExperiments {
         return (ProducerFactoryMethod) invokeV.objValue;
     }
 
-    public Supplier getSuppressBitmapPrefetchingSupplier() {
+    public Supplier<Boolean> getSuppressBitmapPrefetchingSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -665,7 +668,7 @@ public class ImagePipelineExperiments {
         return invokeV.booleanValue;
     }
 
-    public Supplier isLazyDataSource() {
+    public Supplier<Boolean> isLazyDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {

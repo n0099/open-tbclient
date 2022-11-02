@@ -14,7 +14,7 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class HybridAD extends AbstractAD implements HADI {
+public class HybridAD extends AbstractAD<HADI> implements HADI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HybridADListener f;
@@ -71,14 +71,15 @@ public class HybridAD extends AbstractAD implements HADI {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pOFactory)) == null) ? pOFactory.getHybridAD(this.h, this.f) : (HADI) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.qq.e.ads.AbstractAD
-    public /* bridge */ /* synthetic */ Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
+    public /* bridge */ /* synthetic */ HADI a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         return a(pOFactory);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.qq.e.ads.AbstractAD
-    public /* bridge */ /* synthetic */ void a(Object obj) {
-        HADI hadi = (HADI) obj;
+    public /* bridge */ /* synthetic */ void a(HADI hadi) {
         d();
     }
 
@@ -152,9 +153,9 @@ public class HybridAD extends AbstractAD implements HADI {
                 }).start();
                 return;
             }
-            Object obj = this.a;
-            if (obj != null) {
-                ((HADI) obj).loadUrl(str);
+            T t = this.a;
+            if (t != 0) {
+                ((HADI) t).loadUrl(str);
             } else {
                 a("loadUrl");
             }

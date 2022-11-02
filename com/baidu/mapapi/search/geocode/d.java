@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class d implements Parcelable.Creator {
+public final class d implements Parcelable.Creator<ReverseGeoCodeResult.PoiRegionsInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,10 @@ public final class d implements Parcelable.Creator {
     public ReverseGeoCodeResult.PoiRegionsInfo createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ReverseGeoCodeResult.PoiRegionsInfo(parcel) : (ReverseGeoCodeResult.PoiRegionsInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new ReverseGeoCodeResult.PoiRegionsInfo(parcel);
+        }
+        return (ReverseGeoCodeResult.PoiRegionsInfo) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,6 +46,9 @@ public final class d implements Parcelable.Creator {
     public ReverseGeoCodeResult.PoiRegionsInfo[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ReverseGeoCodeResult.PoiRegionsInfo[i] : (ReverseGeoCodeResult.PoiRegionsInfo[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new ReverseGeoCodeResult.PoiRegionsInfo[i];
+        }
+        return (ReverseGeoCodeResult.PoiRegionsInfo[]) invokeI.objValue;
     }
 }

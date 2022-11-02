@@ -9,9 +9,10 @@ import android.opengl.GLES30;
 import android.os.Build;
 import android.os.Handler;
 import android.view.Surface;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
+import com.baidu.tieba.ri9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,6 +133,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         }
     }
 
+    @RequiresApi(api = 24)
     private Bitmap saveOffscreenBitmapWith2Pbo(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -156,7 +158,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                ih9.g(e);
+                ri9.g(e);
                 return null;
             }
         }
@@ -215,7 +217,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 }, null);
                 new WindowSurface(this.mEglCore, newInstance.getSurface(), true).makeCurrent();
             } catch (OutOfMemoryError e) {
-                ih9.g(e);
+                ri9.g(e);
             }
             return null;
         }
@@ -268,7 +270,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         while (true) {
             int glGetError = GLES20.glGetError();
             if (glGetError != 0) {
-                ih9.d(str + ": glError " + glGetError);
+                ri9.d(str + ": glError " + glGetError);
             } else {
                 return;
             }
@@ -327,7 +329,7 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                 System.currentTimeMillis();
                 return createBitmap;
             } catch (OutOfMemoryError e) {
-                ih9.g(e);
+                ri9.g(e);
                 return null;
             }
         }

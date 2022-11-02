@@ -6,6 +6,10 @@ import android.os.Build;
 import android.util.Base64;
 import android.util.TypedValue;
 import android.util.Xml;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.R;
 import androidx.core.provider.FontRequest;
 import androidx.core.view.InputDeviceCompat;
@@ -24,6 +28,7 @@ import java.util.Collections;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FontResourcesParserCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,9 +53,10 @@ public class FontResourcesParserCompat {
     public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final FontFileResourceEntry[] mEntries;
 
-        public FontFamilyFilesResourceEntry(FontFileResourceEntry[] fontFileResourceEntryArr) {
+        public FontFamilyFilesResourceEntry(@NonNull FontFileResourceEntry[] fontFileResourceEntryArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,6 +74,7 @@ public class FontResourcesParserCompat {
             this.mEntries = fontFileResourceEntryArr;
         }
 
+        @NonNull
         public FontFileResourceEntry[] getEntries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -82,6 +89,7 @@ public class FontResourcesParserCompat {
     public static final class FontFileResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final String mFileName;
         public boolean mItalic;
         public int mResourceId;
@@ -89,7 +97,7 @@ public class FontResourcesParserCompat {
         public String mVariationSettings;
         public int mWeight;
 
-        public FontFileResourceEntry(String str, int i, boolean z, String str2, int i2, int i3) {
+        public FontFileResourceEntry(@NonNull String str, int i, boolean z, @Nullable String str2, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,6 +120,7 @@ public class FontResourcesParserCompat {
             this.mResourceId = i3;
         }
 
+        @NonNull
         public String getFileName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -139,6 +148,7 @@ public class FontResourcesParserCompat {
             return invokeV.intValue;
         }
 
+        @Nullable
         public String getVariationSettings() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -171,11 +181,12 @@ public class FontResourcesParserCompat {
     public static final class ProviderResourceEntry implements FamilyResourceEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final FontRequest mRequest;
         public final int mStrategy;
         public final int mTimeoutMs;
 
-        public ProviderResourceEntry(FontRequest fontRequest, int i, int i2) {
+        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,6 +215,7 @@ public class FontResourcesParserCompat {
             return invokeV.intValue;
         }
 
+        @NonNull
         public FontRequest getRequest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -251,6 +263,7 @@ public class FontResourcesParserCompat {
         return invokeLI.intValue;
     }
 
+    @Nullable
     public static FamilyResourceEntry parse(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         int next;
         InterceptResult invokeLL;
@@ -270,6 +283,7 @@ public class FontResourcesParserCompat {
         return (FamilyResourceEntry) invokeLL.objValue;
     }
 
+    @Nullable
     public static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -284,7 +298,7 @@ public class FontResourcesParserCompat {
         return (FamilyResourceEntry) invokeLL.objValue;
     }
 
-    public static List<List<byte[]>> readCerts(Resources resources, int i) {
+    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
@@ -360,6 +374,7 @@ public class FontResourcesParserCompat {
         return (FontFileResourceEntry) invokeLL.objValue;
     }
 
+    @Nullable
     public static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

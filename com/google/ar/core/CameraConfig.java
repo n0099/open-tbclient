@@ -27,7 +27,7 @@ public class CameraConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class FacingDirection {
+    public static final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FacingDirection BACK;

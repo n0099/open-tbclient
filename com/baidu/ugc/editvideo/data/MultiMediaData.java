@@ -7,11 +7,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.Surface;
+import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.nh9;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.dg9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,14 +27,13 @@ import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MultiMediaData> CREATOR;
     public static final float MAX_SPEED = 8.0f;
     public static final float MIN_SPEED = 0.01f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,9 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public transient Surface surface;
     public transient SurfaceTexture surfaceTexture;
     public int textureId;
+    @IntRange(from = 0, to = 1)
     public int textureMode;
+    @IntRange(from = 0, to = 1)
     public int type;
     public String uuid;
     public transient MediaCodec videoDecoder;
@@ -101,7 +103,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.1
+        CREATOR = new Parcelable.Creator<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,6 +122,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiMediaData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -128,6 +131,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiMediaData[] newArray(int i) {
                 InterceptResult invokeI;
@@ -221,35 +225,33 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         this.ext = parcel.readString();
     }
 
-    public static String arratToJson(List list) {
+    public static String arratToJson(List<MultiMediaData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (nh9.e(list)) {
+            if (wi9.e(list)) {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < list.size(); i++) {
-                MultiMediaData multiMediaData = (MultiMediaData) ((MultiMediaData) list.get(i)).clone();
+                MultiMediaData multiMediaData = (MultiMediaData) list.get(i).clone();
                 multiMediaData.textureId = 0;
                 arrayList.add(multiMediaData);
             }
-            return nh9.e(arrayList) ? "" : new ue9().a(arrayList);
+            return wi9.e(arrayList) ? "" : new dg9().a(arrayList);
         }
         return (String) invokeL.objValue;
     }
 
-    public static List getExtList(List list, String str) {
+    public static List<String> getExtList(List<MultiMediaData> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
-            if (nh9.e(list) || TextUtils.isEmpty(str)) {
+            if (wi9.e(list) || TextUtils.isEmpty(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                MultiMediaData multiMediaData = (MultiMediaData) it.next();
+            for (MultiMediaData multiMediaData : list) {
                 if (multiMediaData != null) {
                     String ext = multiMediaData.getExt(str);
                     if (!TextUtils.isEmpty(ext)) {
@@ -262,7 +264,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         return (List) invokeLL.objValue;
     }
 
-    public static List parseArrayList(String str) {
+    public static List<MultiMediaData> parseArrayList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
@@ -271,7 +273,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new ue9().c(str, new TypeToken() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+                return (List) new dg9().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

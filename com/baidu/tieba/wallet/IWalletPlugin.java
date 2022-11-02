@@ -13,13 +13,13 @@ public interface IWalletPlugin {
 
     void doAliPay(Activity activity, String str, BdUniqueId bdUniqueId);
 
-    void doBaiduLBSPay(Activity activity, Map map, String str, BdUniqueId bdUniqueId);
+    void doBaiduLBSPay(Activity activity, Map<String, String> map, String str, BdUniqueId bdUniqueId);
 
     void doBaiduNovelPay(Context context, String str);
 
     void doBaiduPay(Context context, String str, BdUniqueId bdUniqueId);
 
-    void doBindCard(Context context, Map map);
+    void doBindCard(Context context, Map<String, String> map);
 
     ITiebaPay doTiebaPay(Activity activity);
 

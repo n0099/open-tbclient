@@ -5,6 +5,10 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.PopupWindowCompat;
@@ -46,7 +50,7 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatPopupWindow(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +72,7 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatPopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -11,16 +12,15 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class IMUserListModel extends BdBaseModel {
@@ -75,7 +75,7 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            ux4 k = ux4.k();
+            ky4 k = ky4.k();
             long m = k.m("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
             if (m == 0 || System.currentTimeMillis() - m > REQUEST_SPACE) {
                 return true;
@@ -96,16 +96,14 @@ public class IMUserListModel extends BdBaseModel {
         }
     }
 
-    public void request(boolean z, List list) {
+    public void request(boolean z, List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            String str = (String) it.next();
-            if (eh.g(str, 0L) <= 0) {
+        for (String str : list) {
+            if (wg.g(str, 0L) <= 0) {
                 arrayList.add(str);
             }
         }
@@ -117,12 +115,12 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            ux4 k = ux4.k();
+            ky4 k = ky4.k();
             k.x("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }
 
-    public void requestFroChatActivity(UserData userData) {
+    public void requestFroChatActivity(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
             ArrayList arrayList = new ArrayList();

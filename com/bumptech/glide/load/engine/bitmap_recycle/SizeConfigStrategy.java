@@ -2,6 +2,9 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import android.os.Build;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -19,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
+@RequiresApi(19)
 /* loaded from: classes7.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,13 +33,13 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public static final Bitmap.Config[] RGBA_F16_IN_CONFIGS;
     public static final Bitmap.Config[] RGB_565_IN_CONFIGS;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GroupedLinkedMap groupedMap;
+    public final GroupedLinkedMap<Key, Bitmap> groupedMap;
     public final KeyPool keyPool;
-    public final Map sortedSizes;
+    public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +78,9 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public final class Key implements Poolable {
+    public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config config;
@@ -117,6 +122,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        @VisibleForTesting
         public Key(KeyPool keyPool, int i, Bitmap.Config config) {
             this(keyPool);
             Interceptable interceptable = $ic;
@@ -180,8 +186,9 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class KeyPool extends BaseKeyPool {
+    public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -214,7 +221,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, config)) == null) {
-                Key key = (Key) get();
+                Key key = get();
                 key.init(i, config);
                 return key;
             }
@@ -261,14 +268,14 @@ public class SizeConfigStrategy implements LruPoolStrategy {
             }
         }
         this.keyPool = new KeyPool();
-        this.groupedMap = new GroupedLinkedMap();
+        this.groupedMap = new GroupedLinkedMap<>();
         this.sortedSizes = new HashMap();
     }
 
     private void decrementBitmapOfSize(Integer num, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, num, bitmap) == null) {
-            NavigableMap sizesForConfig = getSizesForConfig(bitmap.getConfig());
+            NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
             Integer num2 = (Integer) sizesForConfig.get(num);
             if (num2 != null) {
                 if (num2.intValue() == 1) {
@@ -290,9 +297,9 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i, config)) == null) {
             Key key = this.keyPool.get(i, config);
             for (Bitmap.Config config2 : getInConfigs(config)) {
-                Integer num = (Integer) getSizesForConfig(config2).ceilingKey(Integer.valueOf(i));
-                if (num != null && num.intValue() <= i * 8) {
-                    if (num.intValue() == i) {
+                Integer ceilingKey = getSizesForConfig(config2).ceilingKey(Integer.valueOf(i));
+                if (ceilingKey != null && ceilingKey.intValue() <= i * 8) {
+                    if (ceilingKey.intValue() == i) {
                         if (config2 == null) {
                             if (config == null) {
                                 return key;
@@ -302,7 +309,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
                         }
                     }
                     this.keyPool.offer(key);
-                    return this.keyPool.get(num.intValue(), config2);
+                    return this.keyPool.get(ceilingKey.intValue(), config2);
                 }
             }
             return key;
@@ -347,7 +354,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
             Key key = this.keyPool.get(Util.getBitmapByteSize(bitmap), bitmap.getConfig());
             this.groupedMap.put(key, bitmap);
-            NavigableMap sizesForConfig = getSizesForConfig(bitmap.getConfig());
+            NavigableMap<Integer, Integer> sizesForConfig = getSizesForConfig(bitmap.getConfig());
             Integer num = (Integer) sizesForConfig.get(Integer.valueOf(key.size));
             Integer valueOf = Integer.valueOf(key.size);
             int i = 1;
@@ -358,11 +365,11 @@ public class SizeConfigStrategy implements LruPoolStrategy {
         }
     }
 
-    private NavigableMap getSizesForConfig(Bitmap.Config config) {
+    private NavigableMap<Integer, Integer> getSizesForConfig(Bitmap.Config config) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, config)) == null) {
-            NavigableMap navigableMap = (NavigableMap) this.sortedSizes.get(config);
+            NavigableMap<Integer, Integer> navigableMap = this.sortedSizes.get(config);
             if (navigableMap == null) {
                 TreeMap treeMap = new TreeMap();
                 this.sortedSizes.put(config, treeMap);
@@ -394,12 +401,13 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    @Nullable
     public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
             Key findBestKey = findBestKey(Util.getBitmapByteSize(i, i2, config), config);
-            Bitmap bitmap = (Bitmap) this.groupedMap.get(findBestKey);
+            Bitmap bitmap = this.groupedMap.get(findBestKey);
             if (bitmap != null) {
                 decrementBitmapOfSize(Integer.valueOf(findBestKey.size), bitmap);
                 bitmap.reconfigure(i, i2, config);
@@ -420,15 +428,16 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
+    @Nullable
     public Bitmap removeLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Bitmap bitmap = (Bitmap) this.groupedMap.removeLast();
-            if (bitmap != null) {
-                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(bitmap)), bitmap);
+            Bitmap removeLast = this.groupedMap.removeLast();
+            if (removeLast != null) {
+                decrementBitmapOfSize(Integer.valueOf(Util.getBitmapByteSize(removeLast)), removeLast);
             }
-            return bitmap;
+            return removeLast;
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -441,7 +450,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
             sb.append("SizeConfigStrategy{groupedMap=");
             sb.append(this.groupedMap);
             sb.append(", sortedSizes=(");
-            for (Map.Entry entry : this.sortedSizes.entrySet()) {
+            for (Map.Entry<Bitmap.Config, NavigableMap<Integer, Integer>> entry : this.sortedSizes.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append('[');
                 sb.append(entry.getValue());

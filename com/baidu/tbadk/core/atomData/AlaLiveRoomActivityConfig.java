@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
@@ -253,7 +254,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         isAlreadyEnterLiveRoom = true;
     }
 
-    public AlaLiveRoomActivityConfig setCommonBroadcastQueue(ArrayList arrayList) {
+    public AlaLiveRoomActivityConfig setCommonBroadcastQueue(ArrayList<Parcelable> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {

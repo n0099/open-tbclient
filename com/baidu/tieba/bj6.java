@@ -1,104 +1,85 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsNoListItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class bj6 {
+public class bj6 extends ui6<cj6, FrsNoListItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o35 a;
-    public FrsActivity b;
-    public Map c;
-    public boolean d;
+    public final int l;
 
-    public bj6(FrsActivity frsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bj6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
+        this.l = (xi.j(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
     }
 
-    public void a() {
-        o35 o35Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (o35Var = this.a) != null) {
-            o35Var.q();
-        }
-    }
-
-    public Date b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: E */
+    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
-            } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
-            }
-            Date date = new Date(System.currentTimeMillis());
-            Map map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference((Date) this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d033f, viewGroup, false);
+            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+            generateLayoutParamsByParent.width = -1;
+            generateLayoutParamsByParent.height = this.l;
+            inflate.setLayoutParams(generateLayoutParamsByParent);
+            return new FrsNoListItemViewHolder(inflate, viewGroup);
         }
-        return (Date) invokeL.objValue;
+        return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public void c(String str) {
-        FrsActivity frsActivity;
+    public View F(int i, View view2, ViewGroup viewGroup, cj6 cj6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date b = b(str);
-            if (!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() && this.d) {
-                boolean z = false;
-                if (p35.g(TbadkCoreApplication.getInst(), 0)) {
-                    FrsActivity frsActivity2 = this.b;
-                    if (frsActivity2 != null && frsActivity2.R0() != null) {
-                        z = this.b.R0().B;
-                    }
-                    HashMap hashMap = new HashMap();
-                    if (z) {
-                        hashMap.put("view_params_key_style", "short");
-                    }
-                    o35 o35Var = this.a;
-                    if (o35Var != null) {
-                        o35Var.q();
-                    }
-                    this.a = p35.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                    this.c.put(str, b);
-                    TbSingleton.getInstance().setHasShowTip(this.c);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cj6Var, frsNoListItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, cj6Var, frsNoListItemViewHolder);
+            if (cj6Var.a() == 6) {
+                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02bc);
+            } else {
+                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c9a);
             }
+            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
+            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ui6, com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (cj6) obj, (FrsNoListItemViewHolder) viewHolder);
+        return view2;
     }
 }

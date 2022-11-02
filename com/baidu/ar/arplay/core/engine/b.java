@@ -76,7 +76,7 @@ public class b {
                 }
 
                 @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
-                public void handleMessage(int i, int i2, HashMap hashMap) {
+                public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) || hashMap == null) {
                         return;

@@ -49,7 +49,7 @@ public class MediaPlayerProxy extends PlayerProxy {
 
     /* renamed from: com.baidu.searchbox.afx.proxy.MediaPlayerProxy$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,10 +89,10 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     /* loaded from: classes2.dex */
-    public class OnCompletionListener implements MediaPlayer.OnCompletionListener {
+    public static class OnCompletionListener implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mPlayerProxyRef;
+        public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
         public OnCompletionListener(MediaPlayerProxy mediaPlayerProxy) {
             Interceptable interceptable = $ic;
@@ -109,14 +109,14 @@ public class MediaPlayerProxy extends PlayerProxy {
                     return;
                 }
             }
-            this.mPlayerProxyRef = new WeakReference(mediaPlayerProxy);
+            this.mPlayerProxyRef = new WeakReference<>(mediaPlayerProxy);
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             MediaPlayerProxy mediaPlayerProxy;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, mediaPlayer) != null) || (mediaPlayerProxy = (MediaPlayerProxy) this.mPlayerProxyRef.get()) == null || mediaPlayerProxy.mMediaPlayer == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, mediaPlayer) != null) || (mediaPlayerProxy = this.mPlayerProxyRef.get()) == null || mediaPlayerProxy.mMediaPlayer == null) {
                 return;
             }
             mediaPlayerProxy.mCompletion = true;
@@ -164,10 +164,10 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     /* loaded from: classes2.dex */
-    public class OnErrorListener implements MediaPlayer.OnErrorListener {
+    public static class OnErrorListener implements MediaPlayer.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mPlayerProxyRef;
+        public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
         public OnErrorListener(MediaPlayerProxy mediaPlayerProxy) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                     return;
                 }
             }
-            this.mPlayerProxyRef = new WeakReference(mediaPlayerProxy);
+            this.mPlayerProxyRef = new WeakReference<>(mediaPlayerProxy);
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -193,7 +193,7 @@ public class MediaPlayerProxy extends PlayerProxy {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                MediaPlayerProxy mediaPlayerProxy = (MediaPlayerProxy) this.mPlayerProxyRef.get();
+                MediaPlayerProxy mediaPlayerProxy = this.mPlayerProxyRef.get();
                 if (mediaPlayerProxy == null) {
                     return true;
                 }
@@ -221,10 +221,10 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     /* loaded from: classes2.dex */
-    public class OnInfoListener implements MediaPlayer.OnInfoListener {
+    public static class OnInfoListener implements MediaPlayer.OnInfoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mPlayerProxyRef;
+        public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
         public OnInfoListener(MediaPlayerProxy mediaPlayerProxy) {
             Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                     return;
                 }
             }
-            this.mPlayerProxyRef = new WeakReference(mediaPlayerProxy);
+            this.mPlayerProxyRef = new WeakReference<>(mediaPlayerProxy);
         }
 
         @Override // android.media.MediaPlayer.OnInfoListener
@@ -250,7 +250,7 @@ public class MediaPlayerProxy extends PlayerProxy {
             OnVideoStartedListener onVideoStartedListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                MediaPlayerProxy mediaPlayerProxy = (MediaPlayerProxy) this.mPlayerProxyRef.get();
+                MediaPlayerProxy mediaPlayerProxy = this.mPlayerProxyRef.get();
                 if (mediaPlayerProxy == null) {
                     return true;
                 }
@@ -265,10 +265,10 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     /* loaded from: classes2.dex */
-    public class OnPrepareListener implements MediaPlayer.OnPreparedListener {
+    public static class OnPrepareListener implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mPlayerProxyRef;
+        public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
         public OnPrepareListener(MediaPlayerProxy mediaPlayerProxy) {
             Interceptable interceptable = $ic;
@@ -285,14 +285,14 @@ public class MediaPlayerProxy extends PlayerProxy {
                     return;
                 }
             }
-            this.mPlayerProxyRef = new WeakReference(mediaPlayerProxy);
+            this.mPlayerProxyRef = new WeakReference<>(mediaPlayerProxy);
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             MediaPlayerProxy mediaPlayerProxy;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && (mediaPlayerProxy = (MediaPlayerProxy) this.mPlayerProxyRef.get()) != null && mediaPlayerProxy.mMediaPlayer != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && (mediaPlayerProxy = this.mPlayerProxyRef.get()) != null && mediaPlayerProxy.mMediaPlayer != null) {
                 mediaPlayerProxy.mPlayerState = PlayerProxy.PlayerState.PREPARED;
                 if (mediaPlayerProxy.mGLTextureView != null) {
                     mediaPlayerProxy.mGLTextureView.setRenderMode(1);

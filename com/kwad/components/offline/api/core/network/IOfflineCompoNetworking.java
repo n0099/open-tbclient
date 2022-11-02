@@ -1,17 +1,21 @@
 package com.kwad.components.offline.api.core.network;
 
+import androidx.annotation.NonNull;
+import com.kwad.components.offline.api.core.network.IOfflineCompoRequest;
+import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResultData;
 import com.kwad.sdk.core.network.c;
 /* loaded from: classes7.dex */
-public interface IOfflineCompoNetworking {
+public interface IOfflineCompoNetworking<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> {
     void cancel();
 
-    IOfflineCompoRequest createRequest();
+    @NonNull
+    R createRequest();
 
     boolean enableMonitorReport();
 
     boolean isPostByJson();
 
-    void onResponse(IOfflineCompoRequest iOfflineCompoRequest, c cVar);
+    void onResponse(R r, c cVar);
 
-    void request(IOfflineCompoRequestListener iOfflineCompoRequestListener);
+    void request(@NonNull IOfflineCompoRequestListener<R, T> iOfflineCompoRequestListener);
 }

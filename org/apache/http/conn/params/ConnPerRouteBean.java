@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
@@ -75,7 +75,7 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         }
     }
 
-    public void setMaxForRoutes(Map map) {
+    public void setMaxForRoutes(Map<HttpRoute, Integer> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             throw new RuntimeException("Stub!");

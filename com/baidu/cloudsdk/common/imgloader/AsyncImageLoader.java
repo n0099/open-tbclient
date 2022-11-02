@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 /* loaded from: classes.dex */
-public class AsyncImageLoader extends AsyncTask {
+public class AsyncImageLoader extends AsyncTask<Uri, Integer, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class AsyncImageLoader extends AsyncTask {
     }
 
     /* loaded from: classes.dex */
-    public class FlushedInputStream extends FilterInputStream {
+    public static class FlushedInputStream extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

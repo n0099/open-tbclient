@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
@@ -54,6 +55,7 @@ public class NetErrorElement extends AbsElement {
     }
 
     @Override // com.baidu.searchbox.player.element.IElement
+    @NonNull
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,17 +96,17 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mRootView == null) {
-                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0154, null);
+                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0156, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
-            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090421);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923d6);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09042e);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(VideoEvent videoEvent) {
+    public void onEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {

@@ -9,7 +9,6 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +55,7 @@ public class CpuMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public class MovingAverage {
+    public static class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double[] circBuffer;
@@ -137,7 +136,7 @@ public class CpuMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public class ProcStat {
+    public static class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long idleTime;
@@ -339,7 +338,7 @@ public class CpuMonitor {
             if (intExtra <= 0) {
                 return 0;
             }
-            return (int) ((registerReceiver.getIntExtra(PollingModel.LEVEL, 0) * 100.0f) / intExtra);
+            return (int) ((registerReceiver.getIntExtra("level", 0) * 100.0f) / intExtra);
         }
         return invokeV.intValue;
     }

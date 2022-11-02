@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APK_FILE_NOT_EXIST = 1009;
@@ -96,8 +96,8 @@ public class LoadErrorCode {
     public volatile JSONArray mDownloadInfo;
     public volatile int mErrorCode;
 
-    /* loaded from: classes6.dex */
-    public class Statistics {
+    /* loaded from: classes7.dex */
+    public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
         public static final String KEY_ERROR_CNT = "error_cnt";
@@ -109,15 +109,15 @@ public class LoadErrorCode {
         public static final String RECORD_RELATIVE_PATH;
         public static final String TAG = "LoadErrorStatistics";
         public static volatile StringBuilder mInfo;
-        public static volatile List sBkupList;
-        public static volatile List sErrorList;
+        public static volatile List<ErrorItem> sBkupList;
+        public static volatile List<ErrorItem> sErrorList;
         public static volatile boolean sIsInited;
         public static volatile boolean sIsUploading;
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
-        public class ErrorItem {
+        /* loaded from: classes7.dex */
+        public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int mCount;

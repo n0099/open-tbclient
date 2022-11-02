@@ -3,7 +3,7 @@ package com.baidu.tbadk.mainTab.videoRedIcon;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.pa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,13 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
+import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements w95 {
+public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
-    public List redIcons;
+    public List<RedIcon> redIcons;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoRedIconHttpResponse() {
@@ -38,8 +39,8 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         }
     }
 
-    @Override // com.baidu.tieba.w95
-    public List getDataList() {
+    @Override // com.baidu.tieba.pa5
+    public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -48,7 +49,7 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w95
+    @Override // com.baidu.tieba.pa5
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

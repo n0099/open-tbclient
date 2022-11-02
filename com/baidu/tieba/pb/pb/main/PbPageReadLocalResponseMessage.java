@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dx7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.uv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes5.dex */
-public class PbPageReadLocalResponseMessage extends CustomResponsedMessage {
+public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public uv7 pbData;
+    public dx7 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage {
         }
     }
 
-    public uv7 getPbData() {
+    public dx7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (uv7) invokeV.objValue;
+        return (dx7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,14 +73,14 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage {
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            uv7 uv7Var = new uv7();
-            this.pbData = uv7Var;
-            uv7Var.E0(1);
+            dx7 dx7Var = new dx7();
+            this.pbData = dx7Var;
+            dx7Var.F0(1);
             try {
-                this.pbData.D0(pbPageResIdl.data);
-                if (!this.pbData.w0()) {
+                this.pbData.E0(pbPageResIdl.data);
+                if (!this.pbData.x0()) {
                     this.pbData = null;
-                } else if (isMarkCache() && this.pbData.u() != null && !this.pbData.u().equals(this.postId)) {
+                } else if (isMarkCache() && this.pbData.v() != null && !this.pbData.v().equals(this.postId)) {
                     this.pbData = null;
                 }
             } catch (Exception unused) {
@@ -95,10 +95,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage {
         }
     }
 
-    public void setPbData(uv7 uv7Var) {
+    public void setPbData(dx7 dx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, uv7Var) == null) {
-            this.pbData = uv7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dx7Var) == null) {
+            this.pbData = dx7Var;
         }
     }
 

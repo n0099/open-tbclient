@@ -14,21 +14,21 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableTakeUntilPredicate extends AbstractFlowableWithUpstream {
+public final class FlowableTakeUntilPredicate<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super T> predicate;
 
     /* loaded from: classes8.dex */
-    public final class InnerSubscriber implements FlowableSubscriber, Subscription {
+    public static final class InnerSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public boolean done;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
         public Subscription s;
 
-        public InnerSubscriber(Subscriber subscriber, Predicate predicate) {
+        public InnerSubscriber(Subscriber<? super T> subscriber, Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,12 +95,12 @@ public final class FlowableTakeUntilPredicate extends AbstractFlowableWithUpstre
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
-                this.actual.onNext(obj);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !this.done) {
+                this.actual.onNext(t);
                 try {
-                    if (this.predicate.test(obj)) {
+                    if (this.predicate.test(t)) {
                         this.done = true;
                         this.s.cancel();
                         this.actual.onComplete();
@@ -115,7 +115,7 @@ public final class FlowableTakeUntilPredicate extends AbstractFlowableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTakeUntilPredicate(Flowable flowable, Predicate predicate) {
+    public FlowableTakeUntilPredicate(Flowable<T> flowable, Predicate<? super T> predicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +136,7 @@ public final class FlowableTakeUntilPredicate extends AbstractFlowableWithUpstre
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new InnerSubscriber(subscriber, this.predicate));

@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface mn6 {
-    on6 a(int i);
+    void a(boolean z);
+
+    void b(boolean z, boolean z2);
+
+    boolean c();
+
+    void onChangeSkinType(int i);
 }

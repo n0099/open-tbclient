@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.h28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x08 mData;
+    public h28 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -44,7 +44,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List parseHotWordsData(JSONArray jSONArray) {
+    private List<String> parseHotWordsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
@@ -63,7 +63,7 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         return (List) invokeL.objValue;
     }
 
-    private List parseImageData(JSONArray jSONArray) {
+    private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONArray)) == null) {
@@ -115,20 +115,20 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            x08 x08Var = new x08();
-            this.mData = x08Var;
-            x08Var.d(parseImageData(jSONObject.optJSONArray("memes")));
+            h28 h28Var = new h28();
+            this.mData = h28Var;
+            h28Var.d(parseImageData(jSONObject.optJSONArray("memes")));
             this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public x08 getData() {
+    public h28 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (x08) invokeV.objValue;
+        return (h28) invokeV.objValue;
     }
 }

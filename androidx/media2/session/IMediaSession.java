@@ -71,7 +71,7 @@ public interface IMediaSession extends IInterface {
 
     void setPlaybackSpeed(IMediaController iMediaController, int i, float f) throws RemoteException;
 
-    void setPlaylist(IMediaController iMediaController, int i, List list, ParcelImpl parcelImpl) throws RemoteException;
+    void setPlaylist(IMediaController iMediaController, int i, List<String> list, ParcelImpl parcelImpl) throws RemoteException;
 
     void setRating(IMediaController iMediaController, int i, String str, ParcelImpl parcelImpl) throws RemoteException;
 

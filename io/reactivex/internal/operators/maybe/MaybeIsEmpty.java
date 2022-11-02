@@ -11,18 +11,18 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeIsEmpty extends AbstractMaybeWithUpstream {
+public final class MaybeIsEmpty<T> extends AbstractMaybeWithUpstream<T, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class IsEmptyMaybeObserver implements MaybeObserver, Disposable {
+    public static final class IsEmptyMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super Boolean> actual;
         public Disposable d;
 
-        public IsEmptyMaybeObserver(MaybeObserver maybeObserver) {
+        public IsEmptyMaybeObserver(MaybeObserver<? super Boolean> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,9 +58,9 @@ public final class MaybeIsEmpty extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.actual.onSuccess(Boolean.FALSE);
             }
         }
@@ -93,7 +93,7 @@ public final class MaybeIsEmpty extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeIsEmpty(MaybeSource maybeSource) {
+    public MaybeIsEmpty(MaybeSource<T> maybeSource) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,7 +113,7 @@ public final class MaybeIsEmpty extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super Boolean> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new IsEmptyMaybeObserver(maybeObserver));

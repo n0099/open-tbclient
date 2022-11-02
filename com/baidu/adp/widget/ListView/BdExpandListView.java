@@ -79,7 +79,7 @@ public class BdExpandListView extends BdListView {
     }
 
     /* loaded from: classes.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

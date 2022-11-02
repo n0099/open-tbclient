@@ -5,6 +5,9 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -42,7 +45,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(Context context) {
+    public MaterialToolbar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +87,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(Context context, AttributeSet attributeSet) {
+    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +108,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(Context context, AttributeSet attributeSet, int i) {
+    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,6 +139,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
     public void setElevation(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {

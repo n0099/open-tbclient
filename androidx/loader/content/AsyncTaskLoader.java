@@ -3,6 +3,9 @@ package androidx.loader.content;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.os.OperationCanceledException;
 import androidx.core.util.TimeUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -35,9 +38,10 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
+    @Nullable
     public abstract D loadInBackground();
 
-    public void onCanceled(D d) {
+    public void onCanceled(@Nullable D d) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d) == null) {
         }
@@ -133,7 +137,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AsyncTaskLoader(Context context) {
+    public AsyncTaskLoader(@NonNull Context context) {
         this(context, ModernAsyncTask.THREAD_POOL_EXECUTOR);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,7 +158,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AsyncTaskLoader(Context context, Executor executor) {
+    public AsyncTaskLoader(@NonNull Context context, @NonNull Executor executor) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -311,6 +315,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
     }
 
+    @Nullable
     public D onLoadInBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -320,6 +325,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return (D) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void waitForLoader() {
         AsyncTaskLoader<D>.LoadTask loadTask;
         Interceptable interceptable = $ic;

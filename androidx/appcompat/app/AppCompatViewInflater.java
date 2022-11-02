@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
@@ -52,6 +54,7 @@ public class AppCompatViewInflater {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object[] mConstructorArgs;
 
+    @Nullable
     public View createView(Context context, String str, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -70,7 +73,7 @@ public class AppCompatViewInflater {
         public Context mResolvedContext;
         public Method mResolvedMethod;
 
-        public DeclaredOnClickListener(View view2, String str) {
+        public DeclaredOnClickListener(@NonNull View view2, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +92,7 @@ public class AppCompatViewInflater {
             this.mMethodName = str;
         }
 
-        private void resolveMethod(Context context) {
+        private void resolveMethod(@Nullable Context context) {
             int id;
             String str;
             Method method;
@@ -120,7 +123,7 @@ public class AppCompatViewInflater {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.mResolvedMethod == null) {
@@ -279,6 +282,7 @@ public class AppCompatViewInflater {
         return (Context) invokeCommon.objValue;
     }
 
+    @NonNull
     public AppCompatAutoCompleteTextView createAutoCompleteTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -288,6 +292,7 @@ public class AppCompatViewInflater {
         return (AppCompatAutoCompleteTextView) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatButton createButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -297,6 +302,7 @@ public class AppCompatViewInflater {
         return (AppCompatButton) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatCheckBox createCheckBox(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -306,6 +312,7 @@ public class AppCompatViewInflater {
         return (AppCompatCheckBox) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatCheckedTextView createCheckedTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -315,6 +322,7 @@ public class AppCompatViewInflater {
         return (AppCompatCheckedTextView) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatEditText createEditText(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -324,6 +332,7 @@ public class AppCompatViewInflater {
         return (AppCompatEditText) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatImageButton createImageButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -333,6 +342,7 @@ public class AppCompatViewInflater {
         return (AppCompatImageButton) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatImageView createImageView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -342,6 +352,7 @@ public class AppCompatViewInflater {
         return (AppCompatImageView) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatMultiAutoCompleteTextView createMultiAutoCompleteTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -351,6 +362,7 @@ public class AppCompatViewInflater {
         return (AppCompatMultiAutoCompleteTextView) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatRadioButton createRadioButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -360,6 +372,7 @@ public class AppCompatViewInflater {
         return (AppCompatRadioButton) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatRatingBar createRatingBar(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -369,6 +382,7 @@ public class AppCompatViewInflater {
         return (AppCompatRatingBar) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatSeekBar createSeekBar(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -378,6 +392,7 @@ public class AppCompatViewInflater {
         return (AppCompatSeekBar) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatSpinner createSpinner(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -387,6 +402,7 @@ public class AppCompatViewInflater {
         return (AppCompatSpinner) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatTextView createTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -396,6 +412,7 @@ public class AppCompatViewInflater {
         return (AppCompatTextView) invokeLL.objValue;
     }
 
+    @NonNull
     public AppCompatToggleButton createToggleButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -405,7 +422,7 @@ public class AppCompatViewInflater {
         return (AppCompatToggleButton) invokeLL.objValue;
     }
 
-    public final View createView(View view2, String str, Context context, AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
+    public final View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         Context context2;
         View createTextView;

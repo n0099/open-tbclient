@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class UpdateServerInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList ips;
+    public LinkedList<String> ips;
     public int isp;
     public int ver;
 
@@ -28,10 +28,10 @@ public class UpdateServerInfo {
                 return;
             }
         }
-        this.ips = new LinkedList();
+        this.ips = new LinkedList<>();
     }
 
-    public LinkedList getIps() {
+    public LinkedList<String> getIps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -58,7 +58,7 @@ public class UpdateServerInfo {
         return invokeV.intValue;
     }
 
-    public void setIps(LinkedList linkedList) {
+    public void setIps(LinkedList<String> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
             this.ips = linkedList;

@@ -18,30 +18,30 @@ import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelReduce extends ParallelFlowable {
+public final class ParallelReduce<T, R> extends ParallelFlowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable initialSupplier;
-    public final BiFunction reducer;
-    public final ParallelFlowable source;
+    public final Callable<R> initialSupplier;
+    public final BiFunction<R, ? super T, R> reducer;
+    public final ParallelFlowable<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class ParallelReduceSubscriber extends DeferredScalarSubscriber {
+    public static final class ParallelReduceSubscriber<T, R> extends DeferredScalarSubscriber<T, R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8200530050639449080L;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object accumulator;
+        public R accumulator;
         public boolean done;
-        public final BiFunction reducer;
+        public final BiFunction<R, ? super T, R> reducer;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelReduceSubscriber(Subscriber subscriber, Object obj, BiFunction biFunction) {
+        public ParallelReduceSubscriber(Subscriber<? super R> subscriber, R r, BiFunction<R, ? super T, R> biFunction) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, obj, biFunction};
+                Object[] objArr = {subscriber, r, biFunction};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ParallelReduce extends ParallelFlowable {
                     return;
                 }
             }
-            this.accumulator = obj;
+            this.accumulator = r;
             this.reducer = biFunction;
         }
 
@@ -70,9 +70,9 @@ public final class ParallelReduce extends ParallelFlowable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.done) {
                 this.done = true;
-                Object obj = this.accumulator;
+                R r = this.accumulator;
                 this.accumulator = null;
-                complete(obj);
+                complete(r);
             }
         }
 
@@ -91,11 +91,11 @@ public final class ParallelReduce extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !this.done) {
                 try {
-                    this.accumulator = ObjectHelper.requireNonNull(this.reducer.apply(this.accumulator, obj), "The reducer returned a null value");
+                    this.accumulator = (R) ObjectHelper.requireNonNull(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     cancel();
@@ -115,7 +115,7 @@ public final class ParallelReduce extends ParallelFlowable {
         }
     }
 
-    public ParallelReduce(ParallelFlowable parallelFlowable, Callable callable, BiFunction biFunction) {
+    public ParallelReduce(ParallelFlowable<? extends T> parallelFlowable, Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,23 +145,23 @@ public final class ParallelReduce extends ParallelFlowable {
         return invokeV.intValue;
     }
 
-    public void reportError(Subscriber[] subscriberArr, Throwable th) {
+    public void reportError(Subscriber<?>[] subscriberArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr, th) == null) {
-            for (Subscriber subscriber : subscriberArr) {
+            for (Subscriber<?> subscriber : subscriberArr) {
                 EmptySubscription.error(th, subscriber);
             }
         }
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super R>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;
         }
         int length = subscriberArr.length;
-        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Subscriber<? super Object>[] subscriberArr2 = new Subscriber[length];
         for (int i = 0; i < length; i++) {
             try {
                 subscriberArr2[i] = new ParallelReduceSubscriber(subscriberArr[i], ObjectHelper.requireNonNull(this.initialSupplier.call(), "The initialSupplier returned a null value"), this.reducer);

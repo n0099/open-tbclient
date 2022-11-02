@@ -1,57 +1,74 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.UnreadTip.DataRes;
 /* loaded from: classes6.dex */
-public class w27 {
+public class w27 extends jn<er5, CardViewHolder<ar5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List b;
-    public long c;
-    public String d;
-    public int e;
+    public TbPageContext a;
+    public ar5 b;
 
-    public w27() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w27(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.a = tbPageContext;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: s */
+    public CardViewHolder<ar5> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new ar5(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return invokeV.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, er5 er5Var, CardViewHolder<ar5> cardViewHolder) {
+        t(i, view2, viewGroup, er5Var, cardViewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, er5 er5Var, CardViewHolder<ar5> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && dataRes != null) {
-            this.a = dataRes.user_count.intValue();
-            this.b = dataRes.portrait_list;
-            this.c = dataRes.hide_unix.longValue() * 1000;
-            this.d = dataRes.show_tip;
-            this.e = dataRes.thread_count.intValue();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, er5Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(er5Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

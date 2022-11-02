@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class DelegatingConsumer extends BaseConsumer {
+public abstract class DelegatingConsumer<I, O> extends BaseConsumer<I> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer mConsumer;
+    public final Consumer<O> mConsumer;
 
-    public DelegatingConsumer(Consumer consumer) {
+    public DelegatingConsumer(Consumer<O> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public abstract class DelegatingConsumer extends BaseConsumer {
         }
     }
 
-    public Consumer getConsumer() {
+    public Consumer<O> getConsumer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

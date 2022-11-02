@@ -1,6 +1,8 @@
 package androidx.lifecycle;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,9 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AndroidViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SuppressLint({"StaticFieldLeak"})
     public Application mApplication;
 
-    public AndroidViewModel(Application application) {
+    public AndroidViewModel(@NonNull Application application) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,6 +33,7 @@ public class AndroidViewModel extends ViewModel {
         this.mApplication = application;
     }
 
+    @NonNull
     public <T extends Application> T getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

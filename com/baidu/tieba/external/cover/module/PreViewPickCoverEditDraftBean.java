@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
     public int mLayoutX;
     @Deprecated
     public int mLayoutY;
-    public List mMultiMediaDataList;
+    public List<MultiMediaData> mMultiMediaDataList;
     @Deprecated
     public float mRotateAngle;
     @Deprecated
@@ -55,7 +55,7 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
         this.mCoverPercent = 0.0f;
     }
 
-    public List cloneMultiMediaDataList() {
+    public List<MultiMediaData> cloneMultiMediaDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

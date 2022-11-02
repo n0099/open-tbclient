@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class BaiduMapOptions implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BaiduMapOptions> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public MapStatus a;
     public boolean b;
@@ -31,6 +31,16 @@ public final class BaiduMapOptions implements Parcelable {
     public Point k;
     public Point l;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -44,7 +54,7 @@ public final class BaiduMapOptions implements Parcelable {
                 return;
             }
         }
-        CREATOR = new g();
+        CREATOR = new l();
     }
 
     public BaiduMapOptions() {
@@ -61,7 +71,7 @@ public final class BaiduMapOptions implements Parcelable {
             }
         }
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = true;
+        this.b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -72,6 +82,12 @@ public final class BaiduMapOptions implements Parcelable {
     }
 
     public BaiduMapOptions(Parcel parcel) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +103,7 @@ public final class BaiduMapOptions implements Parcelable {
             }
         }
         this.a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.b = true;
+        this.b = false;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -96,22 +112,55 @@ public final class BaiduMapOptions implements Parcelable {
         this.h = true;
         this.i = true;
         this.a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
-        this.b = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.b = z;
         this.c = parcel.readInt();
-        this.d = parcel.readByte() != 0;
-        this.e = parcel.readByte() != 0;
-        this.f = parcel.readByte() != 0;
-        this.g = parcel.readByte() != 0;
-        this.h = parcel.readByte() != 0;
+        if (parcel.readByte() != 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.d = z2;
+        if (parcel.readByte() != 0) {
+            z3 = true;
+        } else {
+            z3 = false;
+        }
+        this.e = z3;
+        if (parcel.readByte() != 0) {
+            z4 = true;
+        } else {
+            z4 = false;
+        }
+        this.f = z4;
+        if (parcel.readByte() != 0) {
+            z5 = true;
+        } else {
+            z5 = false;
+        }
+        this.g = z5;
+        if (parcel.readByte() != 0) {
+            z6 = true;
+        } else {
+            z6 = false;
+        }
+        this.h = z6;
         this.i = parcel.readByte() != 0;
         this.k = (Point) parcel.readParcelable(Point.class.getClassLoader());
         this.l = (Point) parcel.readParcelable(Point.class.getClassLoader());
     }
 
-    public com.baidu.mapsdkplatform.comapi.map.z a() {
+    public com.baidu.mapsdkplatform.comapi.map.v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new com.baidu.mapsdkplatform.comapi.map.z().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g) : (com.baidu.mapsdkplatform.comapi.map.z) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new com.baidu.mapsdkplatform.comapi.map.v().a(this.a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
+        }
+        return (com.baidu.mapsdkplatform.comapi.map.v) invokeV.objValue;
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
@@ -122,16 +171,6 @@ public final class BaiduMapOptions implements Parcelable {
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 
     public BaiduMapOptions logoPosition(LogoPosition logoPosition) {
@@ -216,24 +255,6 @@ public final class BaiduMapOptions implements Parcelable {
         return (BaiduMapOptions) invokeZ.objValue;
     }
 
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
-            parcel.writeParcelable(this.a, i);
-            parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
-            parcel.writeInt(this.c);
-            parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.e ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.f ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.g ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.h ? (byte) 1 : (byte) 0);
-            parcel.writeByte(this.i ? (byte) 1 : (byte) 0);
-            parcel.writeParcelable(this.k, i);
-            parcel.writeParcelable(this.l, i);
-        }
-    }
-
     public BaiduMapOptions zoomControlsEnabled(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -262,5 +283,23 @@ public final class BaiduMapOptions implements Parcelable {
             return this;
         }
         return (BaiduMapOptions) invokeZ.objValue;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
+            parcel.writeParcelable(this.a, i);
+            parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
+            parcel.writeInt(this.c);
+            parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.e ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.f ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.g ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.h ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.i ? (byte) 1 : (byte) 0);
+            parcel.writeParcelable(this.k, i);
+            parcel.writeParcelable(this.l, i);
+        }
     }
 }

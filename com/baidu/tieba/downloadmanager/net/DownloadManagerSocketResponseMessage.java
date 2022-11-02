@@ -1,8 +1,9 @@
 package com.baidu.tieba.downloadmanager.net;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.a86;
+import com.baidu.tieba.k96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
 /* loaded from: classes3.dex */
-public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage {
+public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage<k96, ItemManageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,8 +35,9 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class getProtobufResponseIdlClass() {
+    public Class<ItemManageResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -45,14 +47,15 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            a86 a86Var = new a86();
+            k96 k96Var = new k96();
             ItemManageResIdl itemManageResIdl = (ItemManageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemManageResIdl.class);
-            a86Var.b(itemManageResIdl.data);
+            k96Var.b(itemManageResIdl.data);
             if (itemManageResIdl != null && (error = itemManageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -60,7 +63,7 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
                 }
                 setErrorString(itemManageResIdl.error.usermsg);
             }
-            setData(a86Var);
+            setData(k96Var);
             return itemManageResIdl;
         }
         return invokeIL.objValue;

@@ -10,7 +10,7 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class string {
+    public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DATA_WRITE_DB = 0x7f0f000e;
         public static final int DOWNLOAD_CANCELED = 0x7f0f000f;

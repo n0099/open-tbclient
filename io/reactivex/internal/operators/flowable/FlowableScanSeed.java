@@ -22,36 +22,36 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
+public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction accumulator;
-    public final Callable seedSupplier;
+    public final BiFunction<R, ? super T, R> accumulator;
+    public final Callable<R> seedSupplier;
 
     /* loaded from: classes8.dex */
-    public final class ScanSeedSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1776795561228106469L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction accumulator;
-        public final Subscriber actual;
+        public final BiFunction<R, ? super T, R> accumulator;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public int consumed;
         public volatile boolean done;
         public Throwable error;
         public final int limit;
         public final int prefetch;
-        public final SimplePlainQueue queue;
+        public final SimplePlainQueue<R> queue;
         public final AtomicLong requested;
         public Subscription s;
-        public Object value;
+        public R value;
 
-        public ScanSeedSubscriber(Subscriber subscriber, BiFunction biFunction, Object obj, int i) {
+        public ScanSeedSubscriber(Subscriber<? super R> subscriber, BiFunction<R, ? super T, R> biFunction, R r, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, biFunction, obj, Integer.valueOf(i)};
+                Object[] objArr = {subscriber, biFunction, r, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -63,12 +63,12 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
             }
             this.actual = subscriber;
             this.accumulator = biFunction;
-            this.value = obj;
+            this.value = r;
             this.prefetch = i;
             this.limit = i - (i >> 2);
             SpscArrayQueue spscArrayQueue = new SpscArrayQueue(i);
             this.queue = spscArrayQueue;
-            spscArrayQueue.offer(obj);
+            spscArrayQueue.offer(r);
             this.requested = new AtomicLong();
         }
 
@@ -142,8 +142,8 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.actual;
-            SimplePlainQueue simplePlainQueue = this.queue;
+            Subscriber<? super R> subscriber = this.actual;
+            SimplePlainQueue<R> simplePlainQueue = this.queue;
             int i = this.limit;
             int i2 = this.consumed;
             int i3 = 1;
@@ -164,8 +164,8 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
                             subscriber.onError(th);
                             return;
                         }
-                        Object poll = simplePlainQueue.poll();
-                        if (poll == null) {
+                        Object obj = (R) simplePlainQueue.poll();
+                        if (obj == null) {
                             z = true;
                         } else {
                             z = false;
@@ -176,7 +176,7 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
                         } else if (z) {
                             break;
                         } else {
-                            subscriber.onNext(poll);
+                            subscriber.onNext(obj);
                             j2++;
                             i2++;
                             if (i2 == i) {
@@ -223,15 +223,15 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
-                Object requireNonNull = ObjectHelper.requireNonNull(this.accumulator.apply(this.value, obj), "The accumulator returned a null value");
-                this.value = requireNonNull;
-                this.queue.offer(requireNonNull);
+                R r = (R) ObjectHelper.requireNonNull(this.accumulator.apply(this.value, t), "The accumulator returned a null value");
+                this.value = r;
+                this.queue.offer(r);
                 drain();
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
@@ -242,7 +242,7 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableScanSeed(Flowable flowable, Callable callable, BiFunction biFunction) {
+    public FlowableScanSeed(Flowable<T> flowable, Callable<R> callable, BiFunction<R, ? super T, R> biFunction) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -264,7 +264,7 @@ public final class FlowableScanSeed extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

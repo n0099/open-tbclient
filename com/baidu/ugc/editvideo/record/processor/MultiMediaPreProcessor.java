@@ -19,12 +19,12 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.ai9;
-import com.baidu.tieba.fg0;
-import com.baidu.tieba.hg0;
-import com.baidu.tieba.ih9;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.gg0;
+import com.baidu.tieba.jj9;
+import com.baidu.tieba.mg0;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,12 +57,12 @@ public class MultiMediaPreProcessor {
     public int mPreviewHeight;
     public int mPreviewWidth;
     public float[] mProjectionMatrix;
-    public Map mShaderConfigMap;
+    public Map<String, ShaderConfig> mShaderConfigMap;
     public int mSurfaceViewHeight;
     public int mSurfaceViewWidth;
     public boolean mTestSavePic;
     public int mTestSavePicCount;
-    public List mUpdateMediaTracks;
+    public List<MediaTrack> mUpdateMediaTracks;
 
     public MultiMediaPreProcessor() {
         Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class MultiMediaPreProcessor {
                 }
                 f9 = f12 + ((multiMediaData.width / 2.0f) * f);
                 f2 = (f10 - ((multiMediaData.height / 2.0f) * f)) - f13;
-                ih9.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
+                ri9.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
             } else if (multiMediaData.scaleType.contains(charSequence)) {
                 int min = Math.min(i, i2);
                 float f14 = min;
@@ -272,12 +272,12 @@ public class MultiMediaPreProcessor {
             if (this.mBgBitmap != null) {
                 return true;
             }
-            if (nh9.e(this.mUpdateMediaTracks)) {
+            if (wi9.e(this.mUpdateMediaTracks)) {
                 return false;
             }
             for (int i = 1; i < this.mUpdateMediaTracks.size(); i++) {
-                MediaTrack mediaTrack = (MediaTrack) this.mUpdateMediaTracks.get(i);
-                if (mediaTrack != null && (ng0.m(mediaTrack, "user_background") || ng0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) || ng0.m(mediaTrack, "only_background"))) {
+                MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i);
+                if (mediaTrack != null && (mg0.m(mediaTrack, "user_background") || mg0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) || mg0.m(mediaTrack, "only_background"))) {
                     return true;
                 }
             }
@@ -311,14 +311,14 @@ public class MultiMediaPreProcessor {
             }
             if (this.mUpdateMediaTracks != null) {
                 for (int i2 = 1; i2 < this.mUpdateMediaTracks.size(); i2++) {
-                    MediaTrack mediaTrack = (MediaTrack) this.mUpdateMediaTracks.get(i2);
+                    MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i2);
                     if (mediaTrack != null) {
-                        List list = this.mUpdateMediaTracks;
+                        List<MediaTrack> list = this.mUpdateMediaTracks;
                         String str = NotificationCompat.WearableExtender.KEY_BACKGROUND;
-                        if (!ng0.k(list, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
+                        if (!mg0.k(list, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
                             str = "user_background";
                         }
-                        if (ng0.m(mediaTrack, str)) {
+                        if (mg0.m(mediaTrack, str)) {
                             List<MediaSegment> list2 = mediaTrack.mediaSegments;
                             if (list2 != null) {
                                 for (MediaSegment mediaSegment : list2) {
@@ -346,21 +346,21 @@ public class MultiMediaPreProcessor {
         }
     }
 
-    private void drawOneTransition(int i, long j, FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2, fg0 fg0Var, MediaTrack mediaTrack, List list) {
+    private void drawOneTransition(int i, long j, FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2, eg0 eg0Var, MediaTrack mediaTrack, List<MultiMediaData> list) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), fullFrameRect, fullFrameRect2, fg0Var, mediaTrack, list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), fullFrameRect, fullFrameRect2, eg0Var, mediaTrack, list}) == null) {
             List<MediaTransition> list2 = mediaTrack.mediaTransitions;
             if (list2 != null && list2.size() > i) {
                 MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i);
                 long j2 = mediaTransition.end;
                 long j3 = j2 - mediaTransition.start;
                 if (j3 > 0 && j2 - j < j3) {
-                    ShaderConfig shaderConfig = (ShaderConfig) this.mShaderConfigMap.get(mediaTransition.shaderConfigKey);
+                    ShaderConfig shaderConfig = this.mShaderConfigMap.get(mediaTransition.shaderConfigKey);
                     if (shaderConfig == null || shaderConfig.textures == null || list.size() <= (i2 = i + 1)) {
                         return;
                     }
-                    int preDraw = preDraw((MultiMediaData) list.get(i2), fullFrameRect, fullFrameRect2, fg0Var, true, true, mediaTrack.glClearColor);
+                    int preDraw = preDraw(list.get(i2), fullFrameRect, fullFrameRect2, eg0Var, true, true, mediaTrack.glClearColor);
                     for (MediaTextureData mediaTextureData : shaderConfig.textures) {
                         if (TextUtils.equals(MediaTextureData.TEXTURE_INPUT, mediaTextureData.type)) {
                             mediaTextureData.textureId = preDraw;
@@ -431,35 +431,35 @@ public class MultiMediaPreProcessor {
         }
     }
 
-    private int preDraw(MultiMediaData multiMediaData, FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2, fg0 fg0Var, boolean z, boolean z2, float[] fArr) {
+    private int preDraw(MultiMediaData multiMediaData, FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2, eg0 eg0Var, boolean z, boolean z2, float[] fArr) {
         InterceptResult invokeCommon;
         SurfaceTexture surfaceTexture;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{multiMediaData, fullFrameRect, fullFrameRect2, fg0Var, Boolean.valueOf(z), Boolean.valueOf(z2), fArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{multiMediaData, fullFrameRect, fullFrameRect2, eg0Var, Boolean.valueOf(z), Boolean.valueOf(z2), fArr})) == null) {
             if (multiMediaData != null && (surfaceTexture = multiMediaData.surfaceTexture) != null) {
                 surfaceTexture.updateTexImage();
                 surfaceTexture.getTransformMatrix(multiMediaData.mtx);
             }
             boolean checkBg = checkBg();
-            if (z2 && checkBg && fg0Var != null && this.mUpdateMediaTracks != null) {
+            if (z2 && checkBg && eg0Var != null && this.mUpdateMediaTracks != null) {
                 int i = 1;
                 while (true) {
                     if (i >= this.mUpdateMediaTracks.size()) {
                         break;
                     }
-                    MediaTrack mediaTrack = (MediaTrack) this.mUpdateMediaTracks.get(i);
+                    MediaTrack mediaTrack = this.mUpdateMediaTracks.get(i);
                     if (mediaTrack != null) {
-                        List list = this.mUpdateMediaTracks;
+                        List<MediaTrack> list = this.mUpdateMediaTracks;
                         String str = NotificationCompat.WearableExtender.KEY_BACKGROUND;
-                        if (!ng0.k(list, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
+                        if (!mg0.k(list, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
                             str = "user_background";
                         }
-                        if (ng0.m(mediaTrack, str)) {
+                        if (mg0.m(mediaTrack, str)) {
                             List<MediaSegment> list2 = mediaTrack.mediaSegments;
                             if (list2 != null) {
                                 for (MediaSegment mediaSegment : list2) {
                                     if (TextUtils.equals(mediaSegment.type, "input")) {
-                                        processGaussianBlurBg(multiMediaData, fg0Var, mediaTrack, mediaSegment, fullFrameRect2);
+                                        processGaussianBlurBg(multiMediaData, eg0Var, mediaTrack, mediaSegment, fullFrameRect2);
                                     }
                                 }
                             }
@@ -522,11 +522,11 @@ public class MultiMediaPreProcessor {
         return invokeL.intValue;
     }
 
-    private void processGaussianBlurBg(MultiMediaData multiMediaData, fg0 fg0Var, MediaTrack mediaTrack, MediaSegment mediaSegment, FullFrameRect fullFrameRect) {
+    private void processGaussianBlurBg(MultiMediaData multiMediaData, eg0 eg0Var, MediaTrack mediaTrack, MediaSegment mediaSegment, FullFrameRect fullFrameRect) {
         float[] fArr;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65549, this, multiMediaData, fg0Var, mediaTrack, mediaSegment, fullFrameRect) == null) || multiMediaData == null || fg0Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65549, this, multiMediaData, eg0Var, mediaTrack, mediaSegment, fullFrameRect) == null) || multiMediaData == null || eg0Var == null) {
             return;
         }
         float[] fArr2 = mediaTrack.glClearColor;
@@ -592,7 +592,7 @@ public class MultiMediaPreProcessor {
                 fullFrameRect.setVertexPoint(fArr);
             }
             Matrix.setIdentityM(fArr, 0);
-            float[] fArr7 = hg0.b;
+            float[] fArr7 = gg0.b;
             GLES20.glBindFramebuffer(36160, 0);
             int[] iArr = this.mFboTexture2DIds;
             int i5 = this.mCurrentFboIndex;
@@ -603,7 +603,7 @@ public class MultiMediaPreProcessor {
             fArr = fArr3;
             i = i4;
         }
-        mediaSegment.textureId = fg0Var.k(i, fArr, fArr6, i2, i3, f2);
+        mediaSegment.textureId = eg0Var.k(i, fArr, fArr6, i2, i3, f2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x0057  */
@@ -657,7 +657,7 @@ public class MultiMediaPreProcessor {
         ShaderConfig shaderConfig;
         List<MediaTextureData> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65551, this, multiMediaData, str, i) == null) || TextUtils.isEmpty(str) || (shaderConfig = (ShaderConfig) this.mShaderConfigMap.get(str)) == null || (list = shaderConfig.textures) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLI(65551, this, multiMediaData, str, i) == null) || TextUtils.isEmpty(str) || (shaderConfig = this.mShaderConfigMap.get(str)) == null || (list = shaderConfig.textures) == null || list.size() <= 0) {
             return;
         }
         for (MediaTextureData mediaTextureData : shaderConfig.textures) {
@@ -675,7 +675,7 @@ public class MultiMediaPreProcessor {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65552, this, multiMediaData) == null) && this.mTestSavePic && (i = this.mTestSavePicCount) < 1) {
             if (i == 0) {
-                ai9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
+                jj9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MultiMediaPreProcessor this$0;
@@ -802,7 +802,7 @@ public class MultiMediaPreProcessor {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int preProcess(List list, int i, long j, OnDrawUpdateTextureListener onDrawUpdateTextureListener) {
+    public int preProcess(List<MultiMediaDataTrack> list, int i, long j, OnDrawUpdateTextureListener onDrawUpdateTextureListener) {
         InterceptResult invokeCommon;
         MediaTrack mediaTrack;
         int i2;
@@ -811,7 +811,7 @@ public class MultiMediaPreProcessor {
         MultiMediaData multiMediaData2;
         MediaSegment mediaSegment;
         MediaSegment mediaSegment2;
-        List list2;
+        List<MediaTrack> list2;
         MultiMediaData multiMediaData3;
         int i4;
         MultiMediaDataTrack multiMediaDataTrack;
@@ -824,24 +824,24 @@ public class MultiMediaPreProcessor {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j), onDrawUpdateTextureListener})) == null) {
             FullFrameRect fullFrameRect2D = onDrawUpdateTextureListener.getFullFrameRect2D();
             FullFrameRect fullFrameRectEXT = onDrawUpdateTextureListener.getFullFrameRectEXT();
-            fg0 vlogCore = onDrawUpdateTextureListener.getVlogCore();
+            eg0 vlogCore = onDrawUpdateTextureListener.getVlogCore();
             int i6 = 0;
             this.mCurrentFboIndex = 0;
             this.mPlayTime = j;
-            if (nh9.e(list)) {
+            if (wi9.e(list)) {
                 return 0;
             }
-            List list3 = this.mUpdateMediaTracks;
+            List<MediaTrack> list3 = this.mUpdateMediaTracks;
             if (list3 != null && list3.size() == list.size()) {
                 int i7 = 1;
                 while (i7 < this.mUpdateMediaTracks.size()) {
-                    MediaTrack mediaTrack3 = (MediaTrack) this.mUpdateMediaTracks.get(i7);
-                    MultiMediaDataTrack multiMediaDataTrack2 = (MultiMediaDataTrack) list.get(i7);
-                    List list4 = multiMediaDataTrack2.multiMediaDataList;
-                    if (list4 != null && mediaTrack3.mediaSegments != null && list4.size() == mediaTrack3.mediaSegments.size() && (!this.mCompat || !ng0.m(mediaTrack3, "edit_sticker"))) {
+                    MediaTrack mediaTrack3 = this.mUpdateMediaTracks.get(i7);
+                    MultiMediaDataTrack multiMediaDataTrack2 = list.get(i7);
+                    List<MultiMediaData> list4 = multiMediaDataTrack2.multiMediaDataList;
+                    if (list4 != null && mediaTrack3.mediaSegments != null && list4.size() == mediaTrack3.mediaSegments.size() && (!this.mCompat || !mg0.m(mediaTrack3, "edit_sticker"))) {
                         int i8 = 0;
                         while (i8 < multiMediaDataTrack2.multiMediaDataList.size()) {
-                            MultiMediaData multiMediaData5 = (MultiMediaData) multiMediaDataTrack2.multiMediaDataList.get(i8);
+                            MultiMediaData multiMediaData5 = multiMediaDataTrack2.multiMediaDataList.get(i8);
                             MediaSegment mediaSegment4 = mediaTrack3.mediaSegments.get(i8);
                             if (multiMediaData5.textureId != 0) {
                                 if (TextUtils.equals(mediaSegment4.type, "blend")) {
@@ -896,12 +896,12 @@ public class MultiMediaPreProcessor {
                     i6 = 0;
                 }
             }
-            if (list.get(0) != null && ((MultiMediaDataTrack) list.get(0)).multiMediaDataList.size() > i) {
-                List list5 = ((MultiMediaDataTrack) list.get(0)).multiMediaDataList;
-                MultiMediaData multiMediaData6 = (MultiMediaData) list5.get(i);
+            if (list.get(0) != null && list.get(0).multiMediaDataList.size() > i) {
+                List<MultiMediaData> list5 = list.get(0).multiMediaDataList;
+                MultiMediaData multiMediaData6 = list5.get(i);
                 if (this.mShaderConfigMap != null && (list2 = this.mUpdateMediaTracks) != null && list2.size() > 0) {
-                    mediaTrack = (MediaTrack) this.mUpdateMediaTracks.get(0);
-                    int preDraw2 = ng0.m(mediaTrack, "input_blank") ? preDraw(null, fullFrameRect2D, fullFrameRectEXT, true, true, mediaTrack.glClearColor) : preDraw(multiMediaData6, fullFrameRect2D, fullFrameRectEXT, vlogCore, true, true, mediaTrack.glClearColor);
+                    mediaTrack = this.mUpdateMediaTracks.get(0);
+                    int preDraw2 = mg0.m(mediaTrack, "input_blank") ? preDraw(null, fullFrameRect2D, fullFrameRectEXT, true, true, mediaTrack.glClearColor) : preDraw(multiMediaData6, fullFrameRect2D, fullFrameRectEXT, vlogCore, true, true, mediaTrack.glClearColor);
                     List<MediaSegment> list6 = mediaTrack.mediaSegments;
                     if (list6 == null || list6.size() <= i) {
                         i3 = preDraw2;
@@ -911,7 +911,7 @@ public class MultiMediaPreProcessor {
                         drawOneTransition(i, j, fullFrameRect2D, fullFrameRectEXT, vlogCore, mediaTrack, list5);
                     }
                     i2 = 0;
-                    multiMediaData = ((MultiMediaDataTrack) list.get(i2)).multiMediaDataSuperpositionHeader;
+                    multiMediaData = list.get(i2).multiMediaDataSuperpositionHeader;
                     if (mediaTrack != null && (mediaSegment2 = mediaTrack.superpositionHeader) != null && multiMediaData != null) {
                         if (multiMediaData.textureId != 0) {
                             mediaSegment2.textureId = i2;
@@ -920,7 +920,7 @@ public class MultiMediaPreProcessor {
                             i2 = 0;
                         }
                     }
-                    multiMediaData2 = ((MultiMediaDataTrack) list.get(i2)).multiMediaDataSuperpositionFooter;
+                    multiMediaData2 = list.get(i2).multiMediaDataSuperpositionFooter;
                     if (mediaTrack != null && (mediaSegment = mediaTrack.superpositionFooter) != null && multiMediaData2 != null) {
                         if (multiMediaData2.textureId != 0) {
                             i2 = multiMediaData2.type == 1 ? preDrawBlendVideo(multiMediaData2) : preDraw(multiMediaData2, fullFrameRect2D, fullFrameRectEXT, false, false, mediaTrack.glClearColor);
@@ -933,12 +933,12 @@ public class MultiMediaPreProcessor {
             mediaTrack = null;
             i2 = 0;
             i3 = 0;
-            multiMediaData = ((MultiMediaDataTrack) list.get(i2)).multiMediaDataSuperpositionHeader;
+            multiMediaData = list.get(i2).multiMediaDataSuperpositionHeader;
             if (mediaTrack != null) {
                 if (multiMediaData.textureId != 0) {
                 }
             }
-            multiMediaData2 = ((MultiMediaDataTrack) list.get(i2)).multiMediaDataSuperpositionFooter;
+            multiMediaData2 = list.get(i2).multiMediaDataSuperpositionFooter;
             if (mediaTrack != null) {
                 if (multiMediaData2.textureId != 0) {
                 }
@@ -972,14 +972,14 @@ public class MultiMediaPreProcessor {
         }
     }
 
-    public void setShaderConfigMap(Map map) {
+    public void setShaderConfigMap(Map<String, ShaderConfig> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
             this.mShaderConfigMap = map;
         }
     }
 
-    public void setUpdateMediaTracks(List list) {
+    public void setUpdateMediaTracks(List<MediaTrack> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.mUpdateMediaTracks = list;

@@ -8,11 +8,11 @@ public interface g {
 
     void onEvent(String str, String str2);
 
-    void onEvent(String str, Map map);
+    void onEvent(String str, Map<String, String> map);
 
     void onEventDebounce(String str, long j, String str2);
 
-    void onEventDebounce(String str, long j, Map map);
+    void onEventDebounce(String str, long j, Map<String, String> map);
 
     void onEventEnd(String str);
 
@@ -20,7 +20,7 @@ public interface g {
 
     void onEventStatus(String str, String str2, boolean z);
 
-    void onPerformance(String str, Map map);
+    void onPerformance(String str, Map<String, String> map);
 
     void onPerformance(String str, JSONObject jSONObject);
 
@@ -32,5 +32,5 @@ public interface g {
 
     void setPubParam(String str, String str2);
 
-    void setPubParams(Map map);
+    void setPubParams(Map<String, String> map);
 }

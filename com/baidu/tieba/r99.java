@@ -1,58 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.q99;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.Flow;
-import java.util.ConcurrentModificationException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class r99 {
+public final class r99 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public static volatile r99 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ScheduledExecutorService b;
-    public ExecutorService c;
-    public u99 d;
-    public q99 e;
-    public int f;
-    public boolean g;
-    public ja9 h;
-    public boolean i;
-    public boolean j;
+    public final TbPageContext<?> a;
+    public final View b;
+    public final int c;
+    public final int d;
+    public final p99 e;
+    public LinearLayout f;
+    public RelativeLayout g;
+    public LinearLayout h;
+    public RelativeLayout i;
+    public ImageView j;
+    public ImageView k;
+    public EMTextView l;
+    public EMTextView m;
+    public EMTextView n;
+    public EMTextView o;
+    public EMTextView p;
+    public TbCheckBox q;
+    public NavigationBar r;
+    public ImageView s;
+    public ArrayList<q99> t;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static final class a implements TbCheckBox.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
+        public boolean a;
 
-        public a(r99 r99Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,1551 +70,508 @@ public class r99 {
                     return;
                 }
             }
-            this.a = r99Var;
+            this.a = true;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public boolean isChecked() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "sendArrivalData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.e.E();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public void setChecked(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a = z;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ba9 a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ r99 c;
-
-        public b(r99 r99Var, ba9 ba9Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, ba9Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = ba9Var;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "processUploadRealTimeEvent#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.c.e.w(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ r99 c;
-
-        public c(r99 r99Var, boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = z;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                if (this.a) {
-                    this.c.e.Q(this.b);
-                } else {
-                    this.c.e.P(this.b);
-                }
-                wa9.m().B(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public d(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.S();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public e(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "upload#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                if (Math.abs(System.currentTimeMillis() - ya9.a().c("ubc_last_upload_all_time", 0L)) < 3600000) {
-                    return;
-                }
-                this.a.e.S();
-                long currentTimeMillis = System.currentTimeMillis();
-                ya9.a().e("ubc_last_upload_all_time", currentTimeMillis);
-                ya9.a().e("ubc_last_upload_non_real", currentTimeMillis);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public f(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.e == null) {
-                return;
-            }
-            this.a.e.M();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public g(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "saveCache#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.e.m();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q99.c a;
-        public final /* synthetic */ r99 b;
-
-        public h(r99 r99Var, q99.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.b.e.N(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q99.c a;
-        public final /* synthetic */ r99 b;
-
-        public i(r99 r99Var, q99.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.b.e.N(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public j(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "processOneFailedData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.e.v();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class k implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public k(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.e.u();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class l implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public l(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "sendQualityData#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.e.F();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class m implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ka9 a;
-        public boolean b;
-        public ga9 c;
-        public final /* synthetic */ r99 d;
-
-        public m(r99 r99Var, ka9 ka9Var, boolean z, ga9 ga9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, ka9Var, Boolean.valueOf(z), ga9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = r99Var;
-            this.a = ka9Var;
-            this.b = z;
-            this.c = ga9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.d.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "ConfigUpdateRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.d.e.K(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class n implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ba9 a;
-        public String b;
-        public final /* synthetic */ r99 c;
-
-        public n(r99 r99Var, String str, String str2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, str2, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = new ba9(str, str2, i);
-            this.b = str;
-        }
-
-        public n(r99 r99Var, String str, String str2, int i, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, str2, Integer.valueOf(i), str3};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            ba9 ba9Var = new ba9(str, str2, i);
-            this.a = ba9Var;
-            this.b = str;
-            ba9Var.r(str3);
-        }
-
-        public n(r99 r99Var, String str, String str2, int i, String str3, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = new ba9(str, str2, i, str3, i2);
-            this.b = str;
-        }
-
-        public n(r99 r99Var, String str, String str2, int i, String str3, long j, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = new ba9(str, str2, i, str3, j, i2);
-            this.b = str;
-        }
-
-        public n(r99 r99Var, String str, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, jSONObject, Integer.valueOf(i)};
-                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = new ba9(str, jSONObject, i);
-            this.b = str;
-        }
-
-        public n(r99 r99Var, String str, JSONObject jSONObject, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, jSONObject, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65541, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            ba9 ba9Var = new ba9(str, jSONObject, i);
-            this.a = ba9Var;
-            this.b = str;
-            ba9Var.r(str2);
-        }
-
-        public final boolean a(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-                if ((i & 16) != 0 && !pa9.i().c(str)) {
-                    return false;
-                }
-                if (this.c.d != null && !this.c.d.g(str, i)) {
-                    return false;
-                }
-                if (this.c.d != null && this.c.d.F(str)) {
-                    return false;
-                }
-                if (this.c.d != null && this.c.d.h(str)) {
-                    return false;
-                }
-                if (this.c.d != null && this.c.d.d(str)) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeLI.booleanValue;
-        }
-
-        public final void b(String str, String str2) {
-            int length;
-            int s;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (length = str2.length()) > (s = u99.o().s())) {
-                ra9.a().g(String.valueOf(s), String.valueOf(length), str);
-                if (r99.k) {
-                    Log.e("UBCBehaviorProcessor", "UBC log too large, id=" + str + ", content=" + str2);
-                    throw new RuntimeException(String.format("UBC log too large(size=%dKB / threshold=%dKB), log id=%s, please deal with. Any question connect UBC owner. content=%s", Integer.valueOf(length / 1024), Integer.valueOf(s / 1024), str, str2));
-                }
-            }
-        }
-
-        public final void c() {
-            ba9 ba9Var;
-            JSONObject m;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (ba9Var = this.a) == null) {
-                return;
-            }
-            String l = ba9Var.l();
-            if (TextUtils.isEmpty(l)) {
-                return;
-            }
-            String f = this.a.f();
-            if (TextUtils.isEmpty(f) && (m = this.a.m()) != null) {
-                try {
-                    f = m.toString();
-                } catch (ConcurrentModificationException e) {
-                    if (this.c.h != null) {
-                        this.c.h.b(l, e.toString());
-                        return;
-                    }
-                    return;
-                }
-            }
-            if (!TextUtils.isEmpty(f)) {
-                b(l, f);
-                if (this.c.h != null) {
-                    this.c.h.a(l, f);
-                }
-            }
-        }
-
-        public void d(boolean z) {
-            ba9 ba9Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (ba9Var = this.a) != null) {
-                ba9Var.u(z);
-            }
-        }
-
-        public void e(String str) {
-            ba9 ba9Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (ba9Var = this.a) != null) {
-                ba9Var.x(str);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (this.c.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                if (!this.c.i) {
-                    if (this.c.h == null) {
-                        this.c.h = (ja9) ServiceManager.getService(ja9.a);
-                    }
-                    this.c.i = true;
-                }
-                if (this.c.d != null && this.c.d.b(this.b) == 1) {
-                    c();
-                }
-                if (this.a.j() == -1) {
-                    if (!a(this.a.l(), this.a.n())) {
-                        return;
-                    }
-                    if (this.c.d != null && this.c.d.J(this.a.l())) {
-                        d(true);
-                    }
-                    la9.f().a(this.a.l(), true);
-                }
-                this.a.v();
-                String l = this.a.l();
-                if (TextUtils.isEmpty(l)) {
-                    return;
-                }
-                if (this.c.d != null) {
-                    String j = this.c.d.j(l);
-                    if (!TextUtils.isEmpty(j)) {
-                        this.a.s(j);
-                    }
-                }
-                if (this.c.d != null && this.c.d.b(this.b) == 2) {
-                    c();
-                }
-                if (this.a.j() == -1 && TextUtils.equals(l, "1876")) {
-                    this.c.e.C(this.a);
-                } else if ((this.a.n() & 8) != 0) {
-                    this.c.e.B(this.a);
-                } else if ((this.a.n() & 128) != 0) {
-                    if (this.c.j) {
-                        this.c.e.t(this.a);
-                    } else {
-                        this.c.e.A(this.a);
-                    }
-                } else if (this.a != null && this.c.d != null && this.c.d.f(l)) {
-                    this.c.e.X(this.a);
-                } else if (this.c.j) {
-                    this.c.e.t(this.a);
-                } else {
-                    this.c.e.A(this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class o implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public final /* synthetic */ r99 c;
-
-        public o(r99 r99Var, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = r99Var;
-            this.a = str;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "FlowCancelRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.c.e.h(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class p implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public da9 a;
-        public final /* synthetic */ r99 b;
-
-        public p(r99 r99Var, Flow flow, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, flow, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            da9 da9Var = new da9(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.a = da9Var;
-            da9Var.q(flow.getStartTime());
-            this.a.C("1");
-            r99.n(r99Var);
-        }
-
-        public p(r99 r99Var, Flow flow, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, flow, str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            da9 da9Var = new da9(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.a = da9Var;
-            da9Var.q(flow.getStartTime());
-            this.a.C("1");
-            r99.n(r99Var);
-            this.a.r(str2);
-        }
-
-        public p(r99 r99Var, Flow flow, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, flow, jSONObject};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            da9 da9Var = new da9(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
-            this.a = da9Var;
-            da9Var.q(flow.getStartTime());
-            this.a.C("1");
-            r99.n(r99Var);
-        }
-
-        public p(r99 r99Var, Flow flow, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, flow, jSONObject, str};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
-                }
-            }
-            this.b = r99Var;
-            da9 da9Var = new da9(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
-            this.a = da9Var;
-            da9Var.q(flow.getStartTime());
-            this.a.C("1");
-            r99.n(r99Var);
-            this.a.r(str);
-        }
-
-        public void a(boolean z) {
-            da9 da9Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (da9Var = this.a) != null) {
-                da9Var.u(z);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.b.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "FlowCreateRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.a.x();
-                if (!TextUtils.isEmpty(this.b.d.j(this.a.l()))) {
-                    this.a.s(this.b.d.j(this.a.l()));
-                }
-                this.b.e.I(this.a);
-                pa9.q(this.b.f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class q implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public long d;
-        public JSONArray e;
-        public final /* synthetic */ r99 f;
-
-        public q(r99 r99Var, String str, int i, int i2, JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, Integer.valueOf(i), Integer.valueOf(i2), jSONArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = r99Var;
-            this.a = str;
-            this.b = i;
-            this.c = i2;
-            this.d = System.currentTimeMillis();
-            this.e = jSONArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "FlowEndRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                la9.f().a(this.a, true);
-                this.f.e.l(this.a, this.b, this.c, this.d, this.e);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class r implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public final /* synthetic */ r99 d;
-
-        public r(r99 r99Var, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var, str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = r99Var;
-            this.a = str;
-            this.b = i;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.d.e == null) {
-                    if (r99.k) {
-                        Log.d("UBCBehaviorProcessor", "FlowUpdateRunnable#ubc init not finish");
-                        return;
-                    }
-                    return;
-                }
-                this.d.e.L(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class s implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r99 a;
-
-        public s(r99 r99Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r99Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r99Var;
-        }
-
-        public /* synthetic */ s(r99 r99Var, d dVar) {
-            this(r99Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(10);
-                this.a.d = u99.o();
-                this.a.e = new q99(this.a.a);
-                this.a.e.H();
-                r99 r99Var = this.a;
-                r99Var.j = r99Var.d.N();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076599, "Lcom/baidu/tieba/r99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076599, "Lcom/baidu/tieba/r99;");
-                return;
-            }
-        }
-        k = pa9.m();
-    }
-
-    public r99() {
+    public r99(TbPageContext<?> mPageContext, View mRootView, int i, int i2, p99 mPresenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mPageContext, mRootView, Integer.valueOf(i), Integer.valueOf(i2), mPresenter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
-        y(pa9.b());
+        Intrinsics.checkNotNullParameter(mPageContext, "mPageContext");
+        Intrinsics.checkNotNullParameter(mRootView, "mRootView");
+        Intrinsics.checkNotNullParameter(mPresenter, "mPresenter");
+        this.a = mPageContext;
+        this.b = mRootView;
+        this.c = i;
+        this.d = i2;
+        this.e = mPresenter;
+        this.t = new ArrayList<>();
+        n();
     }
 
-    public static r99 w() {
+    public static final void o(r99 this$0, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.e.g();
+        }
+    }
+
+    public static final void p(r99 this$0, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.e.q0(this$0.h().d());
+            if (this$0.c == 2) {
+                TiebaStatic.log(new StatisticItem("c14366"));
+            } else {
+                TiebaStatic.log(new StatisticItem("c14365"));
+            }
+        }
+    }
+
+    public final void b(int i, String title) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, title) == null) {
+            Intrinsics.checkNotNullParameter(title, "title");
+            q99 q99Var = new q99(this.a.getPageActivity());
+            q99Var.e(title);
+            q99Var.d(i);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds77);
+            d().addView(q99Var.b(), layoutParams);
+            this.t.add(q99Var);
+        }
+    }
+
+    public final void A(EMTextView eMTextView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eMTextView) == null) {
+            Intrinsics.checkNotNullParameter(eMTextView, "<set-?>");
+            this.m = eMTextView;
+        }
+    }
+
+    public final void B(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.j = imageView;
+        }
+    }
+
+    public final void C(EMTextView eMTextView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eMTextView) == null) {
+            Intrinsics.checkNotNullParameter(eMTextView, "<set-?>");
+            this.n = eMTextView;
+        }
+    }
+
+    public final void D(EMTextView eMTextView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, eMTextView) == null) {
+            Intrinsics.checkNotNullParameter(eMTextView, "<set-?>");
+            this.l = eMTextView;
+        }
+    }
+
+    public final void E(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.k = imageView;
+        }
+    }
+
+    public final void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            BdTopToast bdTopToast = new BdTopToast(this.a.getPageActivity());
+            bdTopToast.h(false);
+            bdTopToast.g(str);
+            bdTopToast.i(e());
+        }
+    }
+
+    public final void r(ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, imageView) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "<set-?>");
+            this.s = imageView;
+        }
+    }
+
+    public final void s(RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, relativeLayout) == null) {
+            Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
+            this.g = relativeLayout;
+        }
+    }
+
+    public final void t(LinearLayout linearLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, linearLayout) == null) {
+            Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
+            this.h = linearLayout;
+        }
+    }
+
+    public final void u(RelativeLayout relativeLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, relativeLayout) == null) {
+            Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
+            this.i = relativeLayout;
+        }
+    }
+
+    public final void v(LinearLayout linearLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, linearLayout) == null) {
+            Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
+            this.f = linearLayout;
+        }
+    }
+
+    public final void w(NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, navigationBar) == null) {
+            Intrinsics.checkNotNullParameter(navigationBar, "<set-?>");
+            this.r = navigationBar;
+        }
+    }
+
+    public final void x(EMTextView eMTextView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, eMTextView) == null) {
+            Intrinsics.checkNotNullParameter(eMTextView, "<set-?>");
+            this.o = eMTextView;
+        }
+    }
+
+    public final void y(TbCheckBox tbCheckBox) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, tbCheckBox) == null) {
+            Intrinsics.checkNotNullParameter(tbCheckBox, "<set-?>");
+            this.q = tbCheckBox;
+        }
+    }
+
+    public final void z(EMTextView eMTextView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, eMTextView) == null) {
+            Intrinsics.checkNotNullParameter(eMTextView, "<set-?>");
+            this.p = eMTextView;
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            d().removeAllViews();
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0848);
+            Intrinsics.checkNotNullExpressionValue(string, "mPageContext.getString(R…ng.guide_upgrde_item_one)");
+            b(R.drawable.obfuscated_res_0x7f08085a, string);
+            String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f084a);
+            Intrinsics.checkNotNullExpressionValue(string2, "mPageContext.getString(R…ng.guide_upgrde_item_two)");
+            b(R.drawable.obfuscated_res_0x7f080856, string2);
+            String string3 = this.a.getString(R.string.obfuscated_res_0x7f0f0849);
+            Intrinsics.checkNotNullExpressionValue(string3, "mPageContext.getString(R….guide_upgrde_item_three)");
+            b(R.drawable.obfuscated_res_0x7f08082a, string3);
+            String string4 = this.a.getString(R.string.obfuscated_res_0x7f0f0847);
+            Intrinsics.checkNotNullExpressionValue(string4, "mPageContext.getString(R…g.guide_upgrde_item_four)");
+            b(R.drawable.obfuscated_res_0x7f080827, string4);
+        }
+    }
+
+    public final ImageView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (l == null) {
-                synchronized (r99.class) {
-                    if (l == null) {
-                        l = new r99();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ImageView imageView = this.s;
+            if (imageView != null) {
+                return imageView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mLineView");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final LinearLayout d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            LinearLayout linearLayout = this.h;
+            if (linearLayout != null) {
+                return linearLayout;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mUpgradeItemConten");
+            return null;
+        }
+        return (LinearLayout) invokeV.objValue;
+    }
+
+    public final RelativeLayout e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            RelativeLayout relativeLayout = this.i;
+            if (relativeLayout != null) {
+                return relativeLayout;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mUpgradeMain");
+            return null;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public final LinearLayout f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            LinearLayout linearLayout = this.f;
+            if (linearLayout != null) {
+                return linearLayout;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mUpgradeTop");
+            return null;
+        }
+        return (LinearLayout) invokeV.objValue;
+    }
+
+    public final NavigationBar g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            NavigationBar navigationBar = this.r;
+            if (navigationBar != null) {
+                return navigationBar;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
+            return null;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public final TbCheckBox h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            TbCheckBox tbCheckBox = this.q;
+            if (tbCheckBox != null) {
+                return tbCheckBox;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("selectOfficeCkb");
+            return null;
+        }
+        return (TbCheckBox) invokeV.objValue;
+    }
+
+    public final EMTextView i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            EMTextView eMTextView = this.p;
+            if (eMTextView != null) {
+                return eMTextView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("upgradeBottomTip");
+            return null;
+        }
+        return (EMTextView) invokeV.objValue;
+    }
+
+    public final EMTextView j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            EMTextView eMTextView = this.m;
+            if (eMTextView != null) {
+                return eMTextView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("upgradeHasOpen");
+            return null;
+        }
+        return (EMTextView) invokeV.objValue;
+    }
+
+    public final ImageView k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ImageView imageView = this.j;
+            if (imageView != null) {
+                return imageView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("upgradeIcon");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final EMTextView l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            EMTextView eMTextView = this.n;
+            if (eMTextView != null) {
+                return eMTextView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("upgradeOpenBtn");
+            return null;
+        }
+        return (EMTextView) invokeV.objValue;
+    }
+
+    public final EMTextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            EMTextView eMTextView = this.l;
+            if (eMTextView != null) {
+                return eMTextView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("upgradeTip");
+            return null;
+        }
+        return (EMTextView) invokeV.objValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f0924c0);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
+            u((RelativeLayout) findViewById);
+            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f0924c2);
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
+            v((LinearLayout) findViewById2);
+            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f0924bd);
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
+            B((ImageView) findViewById3);
+            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f0924be);
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
+            E((ImageView) findViewById4);
+            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f0924c1);
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
+            D((EMTextView) findViewById5);
+            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f0924bc);
+            Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
+            A((EMTextView) findViewById6);
+            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091e95);
+            Intrinsics.checkNotNullExpressionValue(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
+            y((TbCheckBox) findViewById7);
+            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091e96);
+            Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
+            x((EMTextView) findViewById8);
+            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f0924ba);
+            Intrinsics.checkNotNullExpressionValue(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
+            z((EMTextView) findViewById9);
+            View findViewById10 = this.b.findViewById(R.id.obfuscated_res_0x7f090477);
+            Intrinsics.checkNotNullExpressionValue(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
+            C((EMTextView) findViewById10);
+            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f0924bb);
+            Intrinsics.checkNotNullExpressionValue(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
+            s((RelativeLayout) findViewById11);
+            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f0924bf);
+            Intrinsics.checkNotNullExpressionValue(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
+            t((LinearLayout) findViewById12);
+            View findViewById13 = this.b.findViewById(R.id.obfuscated_res_0x7f091348);
+            Intrinsics.checkNotNullExpressionValue(findViewById13, "mRootView.findViewById(R.id.line_view)");
+            r((ImageView) findViewById13);
+            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f09225f);
+            Intrinsics.checkNotNullExpressionValue(findViewById14, "mRootView.findViewById(R.id.title_bar)");
+            w((NavigationBar) findViewById14);
+            g().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.n99
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        r99.o(r99.this, view2);
                     }
                 }
-            }
-            return l;
-        }
-        return (r99) invokeV.objValue;
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.execute(new k(this));
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.execute(new j(this));
-        }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || !ve1.g()) {
-            return;
-        }
-        this.b.execute(new a(this));
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.b.execute(new l(this));
-        }
-    }
-
-    public void O() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.g) {
-            return;
-        }
-        this.g = true;
-        this.b.execute(new e(this));
-    }
-
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b.execute(new f(this));
-        }
-    }
-
-    public void W() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.b.execute(new d(this));
-        }
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            this.b.execute(new g(this));
-        }
-    }
-
-    public static /* synthetic */ int n(r99 r99Var) {
-        int i2 = r99Var.f;
-        r99Var.f = i2 + 1;
-        return i2;
-    }
-
-    public void R(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jSONObject) == null) {
-            S(jSONObject, null);
-        }
-    }
-
-    public String x(String str) {
-        InterceptResult invokeL;
-        int q2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            q99 q99Var = this.e;
-            if (q99Var != null && (q2 = q99Var.q(str)) != -1) {
-                return String.valueOf(q2);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void I(ba9 ba9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, ba9Var, z) == null) {
-            this.b.execute(new b(this, ba9Var, z));
-        }
-    }
-
-    public void J(Runnable runnable, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, runnable, j2) == null) {
-            this.b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public void S(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, jSONObject, str) == null) {
-            T(jSONObject, str, false, null, null);
-        }
-    }
-
-    public void V(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048597, this, str, z) == null) {
-            this.b.execute(new c(this, z, str));
-        }
-    }
-
-    public void s(String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048603, this, str, i2) == null) {
-            this.b.execute(new o(this, str, i2));
-        }
-    }
-
-    public void A(String str, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) {
-            this.b.execute(new n(this, str, str2, i2));
-        }
-    }
-
-    public void C(String str, JSONObject jSONObject, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, i2) == null) {
-            this.b.execute(new n(this, str, jSONObject, i2));
-        }
-    }
-
-    public void M(ka9 ka9Var, boolean z, ga9 ga9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{ka9Var, Boolean.valueOf(z), ga9Var}) == null) {
-            this.b.execute(new m(this, ka9Var, z, ga9Var));
-        }
-    }
-
-    public void N(String str, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048589, this, str, i2, str2) == null) {
-            this.b.execute(new r(this, str, i2, str2));
-        }
-    }
-
-    public void B(String str, String str2, int i2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2, str3) == null) {
-            this.b.execute(new n(this, str, str2, i2, str3));
-        }
-    }
-
-    public void D(String str, JSONObject jSONObject, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048579, this, str, jSONObject, i2, str2) == null) {
-            this.b.execute(new n(this, str, jSONObject, i2, str2));
-        }
-    }
-
-    public void U(JSONObject jSONObject, boolean z, ba9 ba9Var, ha9 ha9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{jSONObject, Boolean.valueOf(z), ba9Var, ha9Var}) == null) {
-            T(jSONObject, null, z, ba9Var, ha9Var);
-        }
-    }
-
-    public void z(String str, String str2, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048609, this, str, str2, str3, i2) == null) {
-            n nVar = new n(this, str, str2, i2);
-            if (!TextUtils.isEmpty(str3)) {
-                nVar.e(str3);
-            }
-            this.b.execute(nVar);
-        }
-    }
-
-    public void F(String str, String str2, int i2, String str3, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
-            this.b.execute(new n(this, str, str2, i2, str3, i3));
-        }
-    }
-
-    public void G(String str, String str2, int i2, String str3, long j2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            this.b.execute(new n(this, str, str2, i2, str3, j2, i3));
-        }
-    }
-
-    public void Q(za9 za9Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, za9Var, str) == null) {
-            if (k) {
-                Log.d("UBCBehaviorProcessor", "uploadData isDataInFile:" + za9Var.x());
-                if (za9Var.x()) {
-                    za9Var.F("UBCDEBUG");
+            });
+            g().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2b, SkinManager.getColor(R.color.CAM_X0622), null));
+            h().setTagData(new a());
+            int j = xi.j(this.a.getPageActivity());
+            if (xi.l(this.a.getPageActivity()) == 1080 && j == 1920) {
+                ViewGroup.LayoutParams layoutParams = f().getLayoutParams();
+                if (layoutParams != null) {
+                    ((RelativeLayout.LayoutParams) layoutParams).topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds123);
+                    ViewGroup.LayoutParams layoutParams2 = f().getLayoutParams();
+                    if (layoutParams2 != null) {
+                        ((RelativeLayout.LayoutParams) layoutParams2).bottomMargin = 0;
+                    } else {
+                        throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
+                    }
                 } else {
-                    Log.d("UBCDEBUG", za9Var.u().toString());
+                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                 }
             }
-            if (!pa9.l() && !za9Var.A()) {
-                return;
-            }
-            q99.c cVar = new q99.c();
-            boolean x = za9Var.x();
-            cVar.a = x;
-            if (x) {
-                cVar.c = za9Var.o();
-                cVar.f = za9Var.m();
-            } else {
-                cVar.d = za9Var.u();
-            }
-            cVar.h = za9Var.A();
-            cVar.e = str;
-            wa9.m().z();
-            this.c.execute(new i(this, cVar));
-        }
-    }
+            h().setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f080a14, R.drawable.obfuscated_res_0x7f080a13);
+            l().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.o99
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public Flow t(String str, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, str, i2)) == null) {
-            Flow flow = new Flow(str, this.f, i2);
-            u99 u99Var = this.d;
-            if (u99Var != null && !u99Var.g(str, i2)) {
-                flow.setValid(false);
-                return flow;
-            } else if ((i2 & 16) != 0 && !pa9.i().c(str)) {
-                flow.setValid(false);
-                return flow;
-            } else {
-                u99 u99Var2 = this.d;
-                if (u99Var2 != null && u99Var2.h(str)) {
-                    flow.setValid(false);
-                    return flow;
-                }
-                u99 u99Var3 = this.d;
-                if (u99Var3 != null && u99Var3.F(str)) {
-                    flow.setValid(false);
-                    return flow;
-                }
-                u99 u99Var4 = this.d;
-                if (u99Var4 != null && !u99Var4.K(str)) {
-                    flow.setValid(false);
-                }
-                return flow;
-            }
-        }
-        return (Flow) invokeLI.objValue;
-    }
-
-    public final void T(JSONObject jSONObject, String str, boolean z, ba9 ba9Var, ha9 ha9Var) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{jSONObject, str, Boolean.valueOf(z), ba9Var, ha9Var}) == null) {
-            if (k) {
-                Log.d("UBCBehaviorProcessor", "uploadData:" + str);
-                Log.d("UBCDEBUG", jSONObject.toString());
-            }
-            boolean l2 = pa9.l();
-            if (ba9Var != null && (ba9Var.n() & 128) != 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!l2 && !z2) {
-                return;
-            }
-            q99.c cVar = new q99.c();
-            cVar.a = false;
-            cVar.d = jSONObject;
-            cVar.e = str;
-            cVar.g = z;
-            cVar.h = z2;
-            cVar.b = ba9Var;
-            cVar.i = ha9Var;
-            this.c.execute(new h(this, cVar));
-        }
-    }
-
-    public synchronized Flow o(String str, String str2, int i2) {
-        InterceptResult invokeLLI;
-        Flow t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, str, str2, i2)) == null) {
-            synchronized (this) {
-                t = t(str, i2);
-                if (t != null && t.getValid()) {
-                    p pVar = new p(this, t, str2);
-                    if (this.d != null && this.d.J(str)) {
-                        pVar.a(true);
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        r99.p(r99.this, view2);
                     }
-                    this.b.execute(pVar);
                 }
-            }
-            return t;
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public synchronized Flow q(String str, JSONObject jSONObject, int i2) {
-        InterceptResult invokeLLI;
-        Flow t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, jSONObject, i2)) == null) {
-            synchronized (this) {
-                t = t(str, i2);
-                if (t != null && t.getValid()) {
-                    p pVar = new p(this, t, jSONObject);
-                    if (this.d != null && this.d.J(str)) {
-                        pVar.a(true);
-                    }
-                    this.b.execute(pVar);
-                }
-            }
-            return t;
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public synchronized Flow p(String str, String str2, int i2, String str3) {
-        InterceptResult invokeLLIL;
-        Flow t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048600, this, str, str2, i2, str3)) == null) {
-            synchronized (this) {
-                t = t(str, i2);
-                if (t != null && t.getValid()) {
-                    p pVar = new p(this, t, str2, str3);
-                    if (this.d != null && this.d.J(str)) {
-                        pVar.a(true);
-                    }
-                    this.b.execute(pVar);
-                }
-            }
-            return t;
-        }
-        return (Flow) invokeLLIL.objValue;
-    }
-
-    public synchronized Flow r(String str, JSONObject jSONObject, int i2, String str2) {
-        InterceptResult invokeLLIL;
-        Flow t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048602, this, str, jSONObject, i2, str2)) == null) {
-            synchronized (this) {
-                t = t(str, i2);
-                if (t != null && t.getValid()) {
-                    p pVar = new p(this, t, jSONObject, str2);
-                    if (this.d != null && this.d.J(str)) {
-                        pVar.a(true);
-                    }
-                    this.b.execute(pVar);
-                }
-            }
-            return t;
-        }
-        return (Flow) invokeLLIL.objValue;
-    }
-
-    public void u(String str, int i2, int i3, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), jSONArray}) == null) {
-            this.b.execute(new q(this, str, i2, i3, jSONArray));
-        }
-    }
-
-    public final void y(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048608, this, context) == null) && this.a == null && context != null) {
-            if (context instanceof Application) {
-                this.a = context;
+            });
+            if (this.c != 2) {
+                j().setVisibility(8);
             } else {
-                this.a = context.getApplicationContext();
+                l().setText(this.a.getString(R.string.obfuscated_res_0x7f0f0845));
             }
-            this.f = pa9.d();
-            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-            this.b = newSingleThreadScheduledExecutor;
-            newSingleThreadScheduledExecutor.execute(new s(this, null));
-            this.c = Executors.newSingleThreadExecutor();
+            if (this.d == WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE) {
+                i().setVisibility(0);
+            } else {
+                i().setVisibility(8);
+            }
+            a();
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            kw4 d = kw4.d(m());
+            d.z(R.dimen.T_X08);
+            d.A(R.string.F_X01);
+            d.w(R.dimen.M_T_X002);
+            kw4 d2 = kw4.d(i());
+            d2.z(R.dimen.T_X09);
+            d2.w(R.dimen.M_T_X002);
+            kw4 d3 = kw4.d(l());
+            d3.z(R.dimen.T_X05);
+            d3.n(R.string.J_X01);
+            d3.g(SkinManager.getColor(0, (int) R.color.CAM_X0321));
+            h().b();
+            Iterator<q99> it = this.t.iterator();
+            while (it.hasNext()) {
+                it.next().a();
+            }
+            k().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080902, false));
+            c().setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080901, false));
+            e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080900);
         }
     }
 }

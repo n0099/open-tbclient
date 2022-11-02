@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.protobuf.CodedInputStream;
@@ -49,7 +50,7 @@ public class h {
         return new com.ss.android.downloadlib.addownload.b.g(6, 12);
     }
 
-    public static com.ss.android.downloadlib.addownload.b.g b(String str, com.ss.android.downloadad.api.a.a aVar) {
+    public static com.ss.android.downloadlib.addownload.b.g b(String str, @NonNull com.ss.android.downloadad.api.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return new com.ss.android.downloadlib.addownload.b.g(2, 21);
         }
@@ -137,7 +138,7 @@ public class h {
         }
     }
 
-    public static com.ss.android.downloadlib.addownload.b.g d(Context context, String str) {
+    public static com.ss.android.downloadlib.addownload.b.g d(@NonNull Context context, @NonNull String str) {
         try {
             Uri parse = Uri.parse("https://www.samsungapps.com/appquery/appDetail.as?appId=" + str);
             Intent intent = new Intent();
@@ -188,7 +189,7 @@ public class h {
         }
     }
 
-    public static com.ss.android.downloadlib.addownload.b.g a(com.ss.android.downloadad.api.a.b bVar, String str, String str2) {
+    public static com.ss.android.downloadlib.addownload.b.g a(@NonNull com.ss.android.downloadad.api.a.b bVar, String str, String str2) {
         com.ss.android.downloadlib.addownload.b.g b = b(str, bVar);
         if (!com.ss.android.downloadlib.b.f.a(bVar)) {
             return b;
@@ -328,7 +329,7 @@ public class h {
         }
     }
 
-    public static String a(String str, JSONObject jSONObject, String str2) {
+    public static String a(String str, @NonNull JSONObject jSONObject, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -340,7 +341,7 @@ public class h {
         return str;
     }
 
-    public static void a(Activity activity, String str, long j, String str2, String str3) {
+    public static void a(@NonNull Activity activity, String str, long j, String str2, String str3) {
         JSONObject jSONObject;
         int i;
         try {
@@ -352,7 +353,7 @@ public class h {
         try {
             JSONObject i2 = com.ss.android.downloadlib.addownload.j.i();
             boolean a = com.ss.android.socialbase.appdownloader.f.a.a(i2, activity, com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("bg"), i2.optString("s")));
-            HashMap b = l.b(new JSONObject(str2));
+            HashMap<String, String> b = l.b(new JSONObject(str2));
             if (a && !b.isEmpty() && a(activity, str, b)) {
                 b(e, jSONObject, -1, 5);
                 com.ss.android.downloadlib.b.a.a("am_v1", jSONObject, e, true);
@@ -415,7 +416,7 @@ public class h {
         }
     }
 
-    public static boolean a(Activity activity, String str, HashMap hashMap) {
+    public static boolean a(@NonNull Activity activity, @NonNull String str, @NonNull HashMap<String, String> hashMap) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(BaseConstants.MARKET_PREFIX + str));
         intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
@@ -436,7 +437,7 @@ public class h {
         return false;
     }
 
-    public static void b(Context context, String str, String str2, com.ss.android.downloadlib.addownload.b.e eVar, JSONObject jSONObject) {
+    public static void b(Context context, String str, String str2, @NonNull com.ss.android.downloadlib.addownload.b.e eVar, @NonNull JSONObject jSONObject) {
         l.a(jSONObject, "ttdownloader_type", (Object) 5);
         try {
             String a = com.ss.android.socialbase.appdownloader.f.c.a(new JSONObject(str2).optString("a"));
@@ -452,7 +453,7 @@ public class h {
         }
     }
 
-    public static void b(Context context, String str, String str2, com.ss.android.downloadlib.addownload.b.e eVar, JSONObject jSONObject, JSONObject jSONObject2, String str3) {
+    public static void b(Context context, String str, String str2, @NonNull com.ss.android.downloadlib.addownload.b.e eVar, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, String str3) {
         l.a(jSONObject, "ttdownloader_type", (Object) 1);
         try {
             String a = a(com.ss.android.socialbase.appdownloader.f.c.a(new JSONObject(str2).optString("a")), jSONObject2, str3);

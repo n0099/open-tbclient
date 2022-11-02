@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
@@ -51,6 +52,7 @@ public class Mp4ComposerEngine {
     /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
     /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
+    @SuppressLint({"BDThrowableCheck, InlinedApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

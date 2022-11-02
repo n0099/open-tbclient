@@ -1,5 +1,7 @@
 package androidx.core.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,10 +14,11 @@ public final class Pools {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface Pool {
-        Object acquire();
+    public interface Pool<T> {
+        @Nullable
+        T acquire();
 
-        boolean release(Object obj);
+        boolean release(@NonNull T t);
     }
 
     /* loaded from: classes.dex */
@@ -47,7 +50,7 @@ public final class Pools {
             throw new IllegalArgumentException("The max pool size must be > 0");
         }
 
-        private boolean isInPool(T t) {
+        private boolean isInPool(@NonNull T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
@@ -62,7 +65,7 @@ public final class Pools {
         }
 
         @Override // androidx.core.util.Pools.Pool
-        public boolean release(T t) {
+        public boolean release(@NonNull T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
@@ -143,7 +146,7 @@ public final class Pools {
         }
 
         @Override // androidx.core.util.Pools.SimplePool, androidx.core.util.Pools.Pool
-        public boolean release(T t) {
+        public boolean release(@NonNull T t) {
             InterceptResult invokeL;
             boolean release;
             Interceptable interceptable = $ic;

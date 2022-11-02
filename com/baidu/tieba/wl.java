@@ -1,39 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wl implements IThreadManager {
+public class wl {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, zl> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
 
-    public wl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320888, "Lcom/baidu/tieba/wl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448320888, "Lcom/baidu/tieba/wl;");
                 return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("com.baidu.searchbox.livenps", new vl());
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    public static void a(String str, int i) {
+        zl zlVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (zlVar = a.get(str)) != null) {
+            zlVar.b(i);
+        }
+    }
+
+    public static void b(String str, int i, long j) {
+        zl zlVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (zlVar = a.get(str)) != null) {
+            zlVar.c(i, j);
+        }
+    }
+
+    public static void c(String str, int i, int i2) {
+        zl zlVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (zlVar = a.get(str)) != null) {
+            zlVar.d(i, i2);
+        }
+    }
+
+    public static void d(String str, int i, int i2) {
+        zl zlVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (zlVar = a.get(str)) != null) {
+            zlVar.e(i, i2);
         }
     }
 }

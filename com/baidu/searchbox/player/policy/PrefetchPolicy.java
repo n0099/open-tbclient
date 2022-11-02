@@ -65,7 +65,7 @@ public class PrefetchPolicy {
         return invokeL.booleanValue;
     }
 
-    public static Map jsonToMap(JSONObject jSONObject) {
+    public static Map<String, String> jsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
@@ -100,7 +100,7 @@ public class PrefetchPolicy {
         return (PrefetchPolicy) invokeL.objValue;
     }
 
-    public static PrefetchPolicy mapToModel(Map map) {
+    public static PrefetchPolicy mapToModel(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
@@ -108,15 +108,15 @@ public class PrefetchPolicy {
                 return null;
             }
             PrefetchPolicy prefetchPolicy = new PrefetchPolicy();
-            prefetchPolicy.lineDuration = (String) map.get("lineDuration");
-            prefetchPolicy.expiredTime = (String) map.get("expiredTime");
-            prefetchPolicy.expiredCount = (String) map.get("expiredCount");
-            prefetchPolicy.calcCnt = (String) map.get("calcCnt");
-            prefetchPolicy.ctrPass = (String) map.get("ctrPass");
-            prefetchPolicy.coeDuration = (String) map.get("coeDuration");
-            prefetchPolicy.coeNetwork = (String) map.get("coeNetwork");
-            prefetchPolicy.coeDeviceStatic = (String) map.get("coeDeviceStatic");
-            prefetchPolicy.coeDeviceDynamic = (String) map.get("coeDeviceDynamic");
+            prefetchPolicy.lineDuration = map.get("lineDuration");
+            prefetchPolicy.expiredTime = map.get("expiredTime");
+            prefetchPolicy.expiredCount = map.get("expiredCount");
+            prefetchPolicy.calcCnt = map.get("calcCnt");
+            prefetchPolicy.ctrPass = map.get("ctrPass");
+            prefetchPolicy.coeDuration = map.get("coeDuration");
+            prefetchPolicy.coeNetwork = map.get("coeNetwork");
+            prefetchPolicy.coeDeviceStatic = map.get("coeDeviceStatic");
+            prefetchPolicy.coeDeviceDynamic = map.get("coeDeviceDynamic");
             if (!isValid(prefetchPolicy)) {
                 return null;
             }
@@ -125,7 +125,7 @@ public class PrefetchPolicy {
         return (PrefetchPolicy) invokeL.objValue;
     }
 
-    public static Map modelToMap(PrefetchPolicy prefetchPolicy) {
+    public static Map<String, String> modelToMap(PrefetchPolicy prefetchPolicy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchPolicy)) == null) {
@@ -165,7 +165,7 @@ public class PrefetchPolicy {
                 int i2 = size - 1;
                 int i3 = 0;
                 while (size >= parseIntSafe4 && i2 >= 0) {
-                    PlayPerRecord.PerRecord perRecord = (PlayPerRecord.PerRecord) PlayPerRecord.sRecords.get(i2);
+                    PlayPerRecord.PerRecord perRecord = PlayPerRecord.sRecords.get(i2);
                     i = parseIntSafe;
                     if (Math.abs(perRecord.endTime - System.currentTimeMillis()) < parseIntSafe2) {
                         BdVideoLog.d(TAG, "=======>calculate record : " + perRecord);

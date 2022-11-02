@@ -19,10 +19,10 @@ import java.util.List;
 public final class SeiReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List closedCaptionFormats;
+    public final List<Format> closedCaptionFormats;
     public final TrackOutput[] outputs;
 
-    public SeiReader(List list) {
+    public SeiReader(List<Format> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +55,7 @@ public final class SeiReader {
             for (int i = 0; i < this.outputs.length; i++) {
                 trackIdGenerator.generateNewId();
                 TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 3);
-                Format format = (Format) this.closedCaptionFormats.get(i);
+                Format format = this.closedCaptionFormats.get(i);
                 String str = format.sampleMimeType;
                 if (!MimeTypes.APPLICATION_CEA608.equals(str) && !MimeTypes.APPLICATION_CEA708.equals(str)) {
                     z = false;

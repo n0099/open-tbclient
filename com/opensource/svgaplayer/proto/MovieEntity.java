@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.vt9;
-import com.baidu.tieba.wt9;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.jv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,31 +20,31 @@ import java.util.List;
 import java.util.Map;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public final class MovieEntity extends Message {
+public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ProtoAdapter ADAPTER;
+    public static final ProtoAdapter<MovieEntity> ADAPTER;
     public static final String DEFAULT_VERSION = "";
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     @WireField(adapter = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", label = WireField.Label.REPEATED, tag = 5)
-    public final List audios;
+    public final List<AudioEntity> audios;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#BYTES", keyAdapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 3)
-    public final Map images;
+    public final Map<String, ByteString> images;
     @WireField(adapter = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
     @WireField(adapter = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", label = WireField.Label.REPEATED, tag = 4)
-    public final List sprites;
+    public final List<SpriteEntity> sprites;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     /* loaded from: classes8.dex */
-    public final class Builder extends Message.a {
+    public static final class Builder extends Message.a<MovieEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List audios;
-        public Map images;
+        public List<AudioEntity> audios;
+        public Map<String, ByteString> images;
         public MovieParams params;
-        public List sprites;
+        public List<SpriteEntity> sprites;
         public String version;
 
         public Builder() {
@@ -60,27 +60,27 @@ public final class MovieEntity extends Message {
                     return;
                 }
             }
-            this.images = au9.j();
-            this.sprites = au9.i();
-            this.audios = au9.i();
+            this.images = jv9.j();
+            this.sprites = jv9.i();
+            this.audios = jv9.i();
         }
 
-        public Builder audios(List list) {
+        public Builder audios(List<AudioEntity> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                au9.a(list);
+                jv9.a(list);
                 this.audios = list;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder images(Map map) {
+        public Builder images(Map<String, ByteString> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-                au9.b(map);
+                jv9.b(map);
                 this.images = map;
                 return this;
             }
@@ -97,11 +97,11 @@ public final class MovieEntity extends Message {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder sprites(List list) {
+        public Builder sprites(List<SpriteEntity> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                au9.a(list);
+                jv9.a(list);
                 this.sprites = list;
                 return this;
             }
@@ -119,6 +119,7 @@ public final class MovieEntity extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.Message.a
         public MovieEntity build() {
             InterceptResult invokeV;
@@ -131,10 +132,10 @@ public final class MovieEntity extends Message {
     }
 
     /* loaded from: classes8.dex */
-    public final class ProtoAdapter_MovieEntity extends ProtoAdapter {
+    public static final class ProtoAdapter_MovieEntity extends ProtoAdapter<MovieEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ProtoAdapter images;
+        public final ProtoAdapter<Map<String, ByteString>> images;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ProtoAdapter_MovieEntity() {
@@ -157,40 +158,41 @@ public final class MovieEntity extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public MovieEntity decode(vt9 vt9Var) throws IOException {
+        public MovieEntity decode(ev9 ev9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ev9Var)) == null) {
                 Builder builder = new Builder();
-                long c = vt9Var.c();
+                long c = ev9Var.c();
                 while (true) {
-                    int f = vt9Var.f();
+                    int f = ev9Var.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = vt9Var.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(vt9Var));
+                                            FieldEncoding g = ev9Var.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ev9Var));
                                         } else {
-                                            builder.audios.add(AudioEntity.ADAPTER.decode(vt9Var));
+                                            builder.audios.add(AudioEntity.ADAPTER.decode(ev9Var));
                                         }
                                     } else {
-                                        builder.sprites.add(SpriteEntity.ADAPTER.decode(vt9Var));
+                                        builder.sprites.add(SpriteEntity.ADAPTER.decode(ev9Var));
                                     }
                                 } else {
-                                    builder.images.putAll((Map) this.images.decode(vt9Var));
+                                    builder.images.putAll(this.images.decode(ev9Var));
                                 }
                             } else {
-                                builder.params((MovieParams) MovieParams.ADAPTER.decode(vt9Var));
+                                builder.params(MovieParams.ADAPTER.decode(ev9Var));
                             }
                         } else {
-                            builder.version((String) ProtoAdapter.STRING.decode(vt9Var));
+                            builder.version(ProtoAdapter.STRING.decode(ev9Var));
                         }
                     } else {
-                        vt9Var.d(c);
+                        ev9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -201,21 +203,21 @@ public final class MovieEntity extends Message {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(wt9 wt9Var, MovieEntity movieEntity) throws IOException {
+        public void encode(fv9 fv9Var, MovieEntity movieEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wt9Var, movieEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fv9Var, movieEntity) == null) {
                 String str = movieEntity.version;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(wt9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(fv9Var, 1, str);
                 }
                 MovieParams movieParams = movieEntity.params;
                 if (movieParams != null) {
-                    MovieParams.ADAPTER.encodeWithTag(wt9Var, 2, movieParams);
+                    MovieParams.ADAPTER.encodeWithTag(fv9Var, 2, movieParams);
                 }
-                this.images.encodeWithTag(wt9Var, 3, movieEntity.images);
-                SpriteEntity.ADAPTER.asRepeated().encodeWithTag(wt9Var, 4, movieEntity.sprites);
-                AudioEntity.ADAPTER.asRepeated().encodeWithTag(wt9Var, 5, movieEntity.audios);
-                wt9Var.k(movieEntity.unknownFields());
+                this.images.encodeWithTag(fv9Var, 3, movieEntity.images);
+                SpriteEntity.ADAPTER.asRepeated().encodeWithTag(fv9Var, 4, movieEntity.sprites);
+                AudioEntity.ADAPTER.asRepeated().encodeWithTag(fv9Var, 5, movieEntity.audios);
+                fv9Var.k(movieEntity.unknownFields());
             }
         }
 
@@ -243,20 +245,21 @@ public final class MovieEntity extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r5v1, types: [com.squareup.wire2.Message$a, com.opensource.svgaplayer.proto.MovieEntity$Builder] */
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity redact(MovieEntity movieEntity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, movieEntity)) == null) {
-                Builder newBuilder = movieEntity.newBuilder();
-                MovieParams movieParams = newBuilder.params;
+                ?? newBuilder2 = movieEntity.newBuilder2();
+                MovieParams movieParams = newBuilder2.params;
                 if (movieParams != null) {
-                    newBuilder.params = (MovieParams) MovieParams.ADAPTER.redact(movieParams);
+                    newBuilder2.params = MovieParams.ADAPTER.redact(movieParams);
                 }
-                au9.k(newBuilder.sprites, SpriteEntity.ADAPTER);
-                au9.k(newBuilder.audios, AudioEntity.ADAPTER);
-                newBuilder.clearUnknownFields();
-                return newBuilder.build();
+                jv9.k(newBuilder2.sprites, SpriteEntity.ADAPTER);
+                jv9.k(newBuilder2.audios, AudioEntity.ADAPTER);
+                newBuilder2.clearUnknownFields();
+                return newBuilder2.build();
             }
             return (MovieEntity) invokeL.objValue;
         }
@@ -279,7 +282,7 @@ public final class MovieEntity extends Message {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MovieEntity(String str, MovieParams movieParams, Map map, List list, List list2) {
+    public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
         this(str, movieParams, map, list, list2, ByteString.EMPTY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -300,7 +303,7 @@ public final class MovieEntity extends Message {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MovieEntity(String str, MovieParams movieParams, Map map, List list, List list2, ByteString byteString) {
+    public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2, ByteString byteString) {
         super(ADAPTER, byteString);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -320,9 +323,9 @@ public final class MovieEntity extends Message {
         }
         this.version = str;
         this.params = movieParams;
-        this.images = au9.h("images", map);
-        this.sprites = au9.g("sprites", list);
-        this.audios = au9.g("audios", list2);
+        this.images = jv9.h("images", map);
+        this.sprites = jv9.g("sprites", list);
+        this.audios = jv9.g("audios", list2);
     }
 
     public boolean equals(Object obj) {
@@ -336,7 +339,7 @@ public final class MovieEntity extends Message {
                 return false;
             }
             MovieEntity movieEntity = (MovieEntity) obj;
-            if (unknownFields().equals(movieEntity.unknownFields()) && au9.f(this.version, movieEntity.version) && au9.f(this.params, movieEntity.params) && this.images.equals(movieEntity.images) && this.sprites.equals(movieEntity.sprites) && this.audios.equals(movieEntity.audios)) {
+            if (unknownFields().equals(movieEntity.unknownFields()) && jv9.f(this.version, movieEntity.version) && jv9.f(this.params, movieEntity.params) && this.images.equals(movieEntity.images) && this.sprites.equals(movieEntity.sprites) && this.audios.equals(movieEntity.audios)) {
                 return true;
             }
             return false;
@@ -374,17 +377,19 @@ public final class MovieEntity extends Message {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.opensource.svgaplayer.proto.MovieEntity$Builder' to match base method */
     @Override // com.squareup.wire2.Message
-    public Builder newBuilder() {
+    /* renamed from: newBuilder */
+    public Message.a<MovieEntity, Builder> newBuilder2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.version = this.version;
             builder.params = this.params;
-            builder.images = au9.d("images", this.images);
-            builder.sprites = au9.c("sprites", this.sprites);
-            builder.audios = au9.c("audios", this.audios);
+            builder.images = jv9.d("images", this.images);
+            builder.sprites = jv9.c("sprites", this.sprites);
+            builder.audios = jv9.c("audios", this.audios);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

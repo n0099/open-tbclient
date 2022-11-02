@@ -15,7 +15,7 @@ public final class DebugStringsKt {
         return Integer.toHexString(System.identityHashCode(obj));
     }
 
-    public static final String toDebugString(Continuation continuation) {
+    public static final String toDebugString(Continuation<?> continuation) {
         String m698constructorimpl;
         if (continuation instanceof DispatchedContinuation) {
             return continuation.toString();

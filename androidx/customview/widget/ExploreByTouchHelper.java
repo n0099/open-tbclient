@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -67,27 +69,27 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
 
     public abstract void getVisibleVirtualViews(List<Integer> list);
 
-    public abstract boolean onPerformActionForVirtualView(int i, int i2, Bundle bundle);
+    public abstract boolean onPerformActionForVirtualView(int i, int i2, @Nullable Bundle bundle);
 
-    public void onPopulateEventForHost(AccessibilityEvent accessibilityEvent) {
+    public void onPopulateEventForHost(@NonNull AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, accessibilityEvent) == null) {
         }
     }
 
-    public void onPopulateEventForVirtualView(int i, AccessibilityEvent accessibilityEvent) {
+    public void onPopulateEventForVirtualView(int i, @NonNull AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i, accessibilityEvent) == null) {
         }
     }
 
-    public void onPopulateNodeForHost(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public void onPopulateNodeForHost(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, accessibilityNodeInfoCompat) == null) {
         }
     }
 
-    public abstract void onPopulateNodeForVirtualView(int i, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat);
+    public abstract void onPopulateNodeForVirtualView(int i, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat);
 
     public void onVirtualViewKeyboardFocusChanged(int i, boolean z) {
         Interceptable interceptable = $ic;
@@ -257,7 +259,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return (SparseArrayCompat) invokeV.objValue;
     }
 
-    public ExploreByTouchHelper(View view2) {
+    public ExploreByTouchHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,7 +294,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         throw new IllegalArgumentException("View may not be null");
     }
 
-    public final boolean dispatchKeyEvent(KeyEvent keyEvent) {
+    public final boolean dispatchKeyEvent(@NonNull KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
@@ -414,6 +416,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         }
     }
 
+    @NonNull
     public AccessibilityNodeInfoCompat obtainAccessibilityNodeInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -554,7 +557,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return (AccessibilityEvent) invokeII.objValue;
     }
 
-    private boolean moveFocus(int i, Rect rect) {
+    private boolean moveFocus(int i, @Nullable Rect rect) {
         InterceptResult invokeIL;
         AccessibilityNodeInfoCompat accessibilityNodeInfoCompat;
         boolean z;
@@ -600,6 +603,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return invokeIL.booleanValue;
     }
 
+    @NonNull
     private AccessibilityNodeInfoCompat createNodeForChild(int i) {
         InterceptResult invokeI;
         boolean z;
@@ -680,6 +684,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return (AccessibilityNodeInfoCompat) invokeI.objValue;
     }
 
+    @NonNull
     private AccessibilityNodeInfoCompat createNodeForHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -700,7 +705,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return (AccessibilityNodeInfoCompat) invokeV.objValue;
     }
 
-    public static Rect guessPreviouslyFocusedRect(View view2, int i, Rect rect) {
+    public static Rect guessPreviouslyFocusedRect(@NonNull View view2, int i, @NonNull Rect rect) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, null, view2, i, rect)) == null) {
@@ -751,7 +756,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return invokeL.booleanValue;
     }
 
-    public final boolean dispatchHoverEvent(MotionEvent motionEvent) {
+    public final boolean dispatchHoverEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
@@ -797,7 +802,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return invokeIIL.booleanValue;
     }
 
-    public final void onFocusChanged(boolean z, int i, Rect rect) {
+    public final void onFocusChanged(boolean z, int i, @Nullable Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
             int i2 = this.mKeyboardFocusedVirtualViewId;

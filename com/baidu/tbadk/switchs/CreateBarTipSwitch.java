@@ -10,7 +10,7 @@ public class CreateBarTipSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.rf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

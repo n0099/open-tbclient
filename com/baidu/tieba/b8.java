@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class b8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final x7 a;
+    public static final x7<Class, a8> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,10 +24,10 @@ public class b8 {
                 return;
             }
         }
-        a = new x7();
+        a = new x7<>();
     }
 
-    public static a8 a(Class cls) {
+    public static <T> a8<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
@@ -36,17 +36,17 @@ public class b8 {
         return (a8) invokeL.objValue;
     }
 
-    public static a8 b(Class cls, int i) {
+    public static <T> a8<T> b(Class<T> cls, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cls, i)) == null) {
-            a8 a8Var = (a8) a.c(cls);
-            if (a8Var == null) {
+            a8<T> c = a.c(cls);
+            if (c == null) {
                 e8 e8Var = new e8(cls, 4, i);
                 a.i(cls, e8Var);
                 return e8Var;
             }
-            return a8Var;
+            return c;
         }
         return (a8) invokeLI.objValue;
     }

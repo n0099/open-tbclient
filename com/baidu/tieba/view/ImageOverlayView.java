@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -286,7 +287,7 @@ public class ImageOverlayView extends ViewGroup {
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<String> list) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
@@ -295,9 +296,9 @@ public class ImageOverlayView extends ViewGroup {
                 HeadImageView headImageView = (HeadImageView) getChildAt(i);
                 if (headImageView != null && (str = (String) ListUtils.getItem(list, (list.size() - i) - 1)) != null) {
                     if (this.i == 12) {
-                        headImageView.H(str, 12, this.c, this.d, false);
+                        headImageView.G(str, 12, this.c, this.d, false);
                     } else {
-                        headImageView.H(str, 10, this.c, this.d, false);
+                        headImageView.G(str, 10, this.c, this.d, false);
                     }
                 }
             }
@@ -305,7 +306,7 @@ public class ImageOverlayView extends ViewGroup {
         }
     }
 
-    public void setFirstImageStrokeColor(int i) {
+    public void setFirstImageStrokeColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.l = i;

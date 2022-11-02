@@ -4,28 +4,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface VideoDecoder {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onDecodedFrame(VideoFrame videoFrame, Integer num, Integer num2);
     }
 
+    @CalledByNative
     long createNativeVideoDecoder();
 
+    @CalledByNative
     VideoCodecStatus decode(EncodedImage encodedImage, DecodeInfo decodeInfo);
 
+    @CalledByNative
     String getImplementationName();
 
+    @CalledByNative
     boolean getPrefersLateDecoding();
 
+    @CalledByNative
     VideoCodecStatus initDecode(Settings settings, Callback callback);
 
+    @CalledByNative
     VideoCodecStatus release();
 
-    /* loaded from: classes8.dex */
-    public class DecodeInfo {
+    /* loaded from: classes9.dex */
+    public static class DecodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean isMissingFrames;
@@ -51,14 +57,15 @@ public interface VideoDecoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Settings {
+    /* loaded from: classes9.dex */
+    public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int height;
         public final int numberOfCores;
         public final int width;
 
+        @CalledByNative("Settings")
         public Settings(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {

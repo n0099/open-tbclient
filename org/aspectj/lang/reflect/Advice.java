@@ -1,11 +1,11 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.reflect.Type;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Advice {
     AjType getDeclaringType();
 
-    AjType[] getExceptionTypes();
+    AjType<?>[] getExceptionTypes();
 
     Type[] getGenericParameterTypes();
 
@@ -13,7 +13,7 @@ public interface Advice {
 
     String getName();
 
-    AjType[] getParameterTypes();
+    AjType<?>[] getParameterTypes();
 
     PointcutExpression getPointcutExpression();
 }

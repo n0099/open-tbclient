@@ -8,8 +8,8 @@ public final class zzz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String zza;
-    public final zzag zzb;
-    public final zzag zzc;
+    public final zzag<byte[]> zzb;
+    public final zzag<byte[]> zzc;
 
     public /* synthetic */ zzz(String str, long j, zzag zzagVar, zzag zzagVar2, zzy zzyVar) {
         this.zza = str;

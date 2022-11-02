@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Vector;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Vector b;
+    public Vector<String> b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class a {
             }
         }
         this.a = str;
-        this.b = new Vector();
+        this.b = new Vector<>();
     }
 
     public final int a(String str) {

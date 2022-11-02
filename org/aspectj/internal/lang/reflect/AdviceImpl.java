@@ -16,7 +16,7 @@ import org.aspectj.lang.reflect.AdviceKind;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdviceImpl implements Advice {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AJC_INTERNAL = "org.aspectj.runtime.internal";
@@ -30,8 +30,8 @@ public class AdviceImpl implements Advice {
     public PointcutExpression pointcutExpression;
 
     /* renamed from: org.aspectj.internal.lang.reflect.AdviceImpl$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$AdviceKind;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class AdviceImpl implements Advice {
     }
 
     @Override // org.aspectj.lang.reflect.Advice
-    public AjType[] getExceptionTypes() {
+    public AjType<?>[] getExceptionTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -216,7 +216,7 @@ public class AdviceImpl implements Advice {
     }
 
     @Override // org.aspectj.lang.reflect.Advice
-    public AjType[] getParameterTypes() {
+    public AjType<?>[] getParameterTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -284,7 +284,7 @@ public class AdviceImpl implements Advice {
             } else {
                 stringBuffer.append("after(");
             }
-            AjType[] parameterTypes = getParameterTypes();
+            AjType<?>[] parameterTypes = getParameterTypes();
             int length = parameterTypes.length;
             if (this.hasExtraParam) {
                 length--;
@@ -314,7 +314,7 @@ public class AdviceImpl implements Advice {
                 stringBuffer.append(parameterTypes[length - 1].getName());
                 stringBuffer.append(") ");
             }
-            AjType[] exceptionTypes = getExceptionTypes();
+            AjType<?>[] exceptionTypes = getExceptionTypes();
             if (exceptionTypes.length > 0) {
                 stringBuffer.append("throws ");
                 while (i2 < exceptionTypes.length) {

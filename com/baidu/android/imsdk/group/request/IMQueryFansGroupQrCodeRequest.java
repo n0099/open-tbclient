@@ -44,7 +44,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     }
 
     /* loaded from: classes.dex */
-    public class QrCode {
+    public static class QrCode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mExpireTime;
@@ -137,7 +137,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {

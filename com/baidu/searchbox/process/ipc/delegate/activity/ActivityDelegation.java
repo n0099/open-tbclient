@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class ActivityDelegation extends Delegation {
+public abstract class ActivityDelegation extends Delegation<ProcessDelegateBaseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public abstract class ActivityDelegation extends Delegation {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ((ProcessDelegateBaseActivity) getAgent()).exit();
+            getAgent().exit();
         }
     }
 }

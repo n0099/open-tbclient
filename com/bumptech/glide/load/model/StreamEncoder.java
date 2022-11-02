@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamEncoder implements Encoder {
+public class StreamEncoder implements Encoder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamEncoder";
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public class StreamEncoder implements Encoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
-    public boolean encode(InputStream inputStream, File file, Options options) {
+    public boolean encode(@NonNull InputStream inputStream, @NonNull File file, @NonNull Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inputStream, file, options)) == null) {

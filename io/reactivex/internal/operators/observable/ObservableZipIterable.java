@@ -17,24 +17,24 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
-public final class ObservableZipIterable extends Observable {
+public final class ObservableZipIterable<T, U, V> extends Observable<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable other;
-    public final Observable source;
-    public final BiFunction zipper;
+    public final Iterable<U> other;
+    public final Observable<? extends T> source;
+    public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
     /* loaded from: classes8.dex */
-    public final class ZipIterableObserver implements Observer, Disposable {
+    public static final class ZipIterableObserver<T, U, V> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super V> actual;
         public boolean done;
-        public final Iterator iterator;
+        public final Iterator<U> iterator;
         public Disposable s;
-        public final BiFunction zipper;
+        public final BiFunction<? super T, ? super U, ? extends V> zipper;
 
-        public ZipIterableObserver(Observer observer, Iterator it, BiFunction biFunction) {
+        public ZipIterableObserver(Observer<? super V> observer, Iterator<U> it, BiFunction<? super T, ? super U, ? extends V> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,14 +114,14 @@ public final class ObservableZipIterable extends Observable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || this.done) {
                 return;
             }
             try {
                 try {
-                    this.actual.onNext(ObjectHelper.requireNonNull(this.zipper.apply(obj, ObjectHelper.requireNonNull(this.iterator.next(), "The iterator returned a null value")), "The zipper function returned a null value"));
+                    this.actual.onNext(ObjectHelper.requireNonNull(this.zipper.apply(t, ObjectHelper.requireNonNull(this.iterator.next(), "The iterator returned a null value")), "The zipper function returned a null value"));
                     try {
                         if (!this.iterator.hasNext()) {
                             this.done = true;
@@ -143,7 +143,7 @@ public final class ObservableZipIterable extends Observable {
         }
     }
 
-    public ObservableZipIterable(Observable observable, Iterable iterable, BiFunction biFunction) {
+    public ObservableZipIterable(Observable<? extends T> observable, Iterable<U> iterable, BiFunction<? super T, ? super U, ? extends V> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,7 +164,7 @@ public final class ObservableZipIterable extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super V> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {

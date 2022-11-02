@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p61;
-import com.baidu.tieba.r61;
+import com.baidu.tieba.h71;
+import com.baidu.tieba.j71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,8 +24,8 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public boolean C;
     public double D;
     public SlideInterceptor E;
-    public WeakReference F;
-    public p61 G;
+    public WeakReference<Activity> F;
+    public h71 G;
 
     public void setNightMode(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements p61 {
+    public class a implements h71 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -57,7 +57,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.p61
+        @Override // com.baidu.tieba.h71
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -70,7 +70,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements p61 {
+    public class b implements h71 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -93,7 +93,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.p61
+        @Override // com.baidu.tieba.h71
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -133,7 +133,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void m(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && Build.VERSION.SDK_INT >= 21 && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            this.F = new WeakReference(activity);
+            this.F = new WeakReference<>(activity);
             activity.getWindow().getDecorView().setBackgroundColor(0);
             if (!this.C) {
                 q();
@@ -225,10 +225,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    public void setOnTransparentListener(p61 p61Var) {
+    public void setOnTransparentListener(h71 h71Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, p61Var) == null) {
-            this.G = p61Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, h71Var) == null) {
+            this.G = h71Var;
         }
     }
 
@@ -259,14 +259,14 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WeakReference weakReference = this.F;
+            WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                r61.c((Activity) this.F.get(), new b(this));
+                j71.c(this.F.get(), new b(this));
                 return;
             }
-            p61 p61Var = this.G;
-            if (p61Var != null) {
-                p61Var.onTranslucent(true);
+            h71 h71Var = this.G;
+            if (h71Var != null) {
+                h71Var.onTranslucent(true);
             }
         }
     }
@@ -275,14 +275,14 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            WeakReference weakReference = this.F;
+            WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                r61.d((Activity) this.F.get(), new a(this));
+                j71.d(this.F.get(), new a(this));
                 return;
             }
-            p61 p61Var = this.G;
-            if (p61Var != null) {
-                p61Var.onTranslucent(false);
+            h71 h71Var = this.G;
+            if (h71Var != null) {
+                h71Var.onTranslucent(false);
             }
         }
     }

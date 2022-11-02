@@ -1,11 +1,12 @@
 package com.baidu.webkit.sdk.performance;
 
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PageLongTaskData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,8 +15,8 @@ public class PageLongTaskData {
     public long mFCP;
     public long mFMP;
     public long mFSP;
-    public ArrayList mIframeLongTaskList;
-    public ArrayList mLongTaskList;
+    public ArrayList<Pair<Long, Integer>> mIframeLongTaskList;
+    public ArrayList<Pair<Long, Integer>> mLongTaskList;
     public int mLongTaskSize;
     public long mNavigationStart;
     public long mSameDomNavigation;
@@ -34,7 +35,7 @@ public class PageLongTaskData {
                 return;
             }
         }
-        this.mLongTaskList = new ArrayList();
-        this.mIframeLongTaskList = new ArrayList();
+        this.mLongTaskList = new ArrayList<>();
+        this.mIframeLongTaskList = new ArrayList<>();
     }
 }

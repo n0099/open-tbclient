@@ -1,58 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rk3 implements sn1 {
+public class rk3 implements qn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948124463, "Lcom/baidu/tieba/rk3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948124463, "Lcom/baidu/tieba/rk3;");
-        }
-    }
 
     public rk3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sn1
-    public void a(Context context, String str, String str2, ck1 ck1Var) {
+    @Override // com.baidu.tieba.qn1
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, context, str, str2, ck1Var) != null) || ck1Var == null) {
-            return;
-        }
-        if (!(context instanceof Activity)) {
-            ck1Var.a(0);
-        } else {
-            nj3.e((Activity) context, ck1Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            dl3.i(context);
         }
     }
 }

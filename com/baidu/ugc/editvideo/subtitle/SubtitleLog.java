@@ -4,13 +4,12 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class SubtitleLog {
@@ -67,19 +66,17 @@ public final class SubtitleLog {
         }
     }
 
-    public static void d(List list) {
+    public static <T extends RichStickerBaseUnit> void d(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            if (nh9.e(list)) {
+            if (wi9.e(list)) {
                 d("list empty");
                 return;
             }
             int i = 0;
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                RichStickerBaseUnit richStickerBaseUnit = (RichStickerBaseUnit) it.next();
-                if (richStickerBaseUnit instanceof SubTitleUnit) {
-                    SubTitleUnit subTitleUnit = (SubTitleUnit) richStickerBaseUnit;
+            for (T t : list) {
+                if (t instanceof SubTitleUnit) {
+                    SubTitleUnit subTitleUnit = (SubTitleUnit) t;
                     d(i + ": " + subTitleUnit.line + " [" + subTitleUnit.startTime + StringUtil.ARRAY_ELEMENT_SEPARATOR + subTitleUnit.endTime + PreferencesUtil.RIGHT_MOUNT);
                     i++;
                 }

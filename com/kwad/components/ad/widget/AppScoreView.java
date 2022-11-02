@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +39,7 @@ public class AppScoreView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppScoreView(Context context, AttributeSet attributeSet) {
+    public AppScoreView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +60,7 @@ public class AppScoreView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppScoreView(Context context, AttributeSet attributeSet, int i) {
+    public AppScoreView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -83,9 +84,9 @@ public class AppScoreView extends LinearLayout {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d040b, this);
-            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d0);
-            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911cf);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0416, this);
+            this.Cj = (ImageView) findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.Ck = (ImageView) findViewById(R.id.obfuscated_res_0x7f091209);
         }
     }
 
@@ -94,22 +95,22 @@ public class AppScoreView extends LinearLayout {
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             double d = f;
             if (d > 4.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c9e);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c9e);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cb8);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cb8);
             } else if (d > 4.0d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c9e);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080c9f);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cb8);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cb9);
             } else if (d > 3.5d) {
-                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c9e);
-                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ca0);
+                this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cb8);
+                this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cba);
             } else {
                 int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080c9f);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ca0);
+                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cb9);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cba);
                 } else if (i == 0) {
-                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080ca0);
-                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080ca0);
+                    this.Cj.setImageResource(R.drawable.obfuscated_res_0x7f080cba);
+                    this.Ck.setImageResource(R.drawable.obfuscated_res_0x7f080cba);
                 }
             }
         }

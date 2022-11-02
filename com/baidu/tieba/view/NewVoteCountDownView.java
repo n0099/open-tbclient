@@ -179,16 +179,16 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a64);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090779);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090dff);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091534);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09077a);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e00);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091535);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090777);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfe);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091533);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091aa8);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090787);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090e2e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091573);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090788);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e2f);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091574);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090785);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090e2d);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091572);
         }
     }
 
@@ -202,7 +202,7 @@ public class NewVoteCountDownView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 1;
             setLayoutParams(layoutParams);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0658, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d066c, (ViewGroup) this, true);
             c();
         }
     }

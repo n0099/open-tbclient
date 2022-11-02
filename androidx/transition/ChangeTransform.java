@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -13,6 +14,7 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -70,18 +72,18 @@ public class ChangeTransform extends Transition {
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-        public void onTransitionEnd(Transition transition) {
+        public void onTransitionEnd(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, transition) == null) {
                 transition.removeListener(this);
                 GhostViewUtils.removeGhost(this.mView);
-                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092319, null);
-                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091787, null);
+                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236d, null);
+                this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c8, null);
             }
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-        public void onTransitionPause(Transition transition) {
+        public void onTransitionPause(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                 this.mGhostView.setVisibility(4);
@@ -89,7 +91,7 @@ public class ChangeTransform extends Transition {
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-        public void onTransitionResume(Transition transition) {
+        public void onTransitionResume(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition) == null) {
                 this.mGhostView.setVisibility(0);
@@ -461,6 +463,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public ChangeTransform(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -512,8 +515,8 @@ public class ChangeTransform extends Transition {
                 ViewUtils.transformMatrixToGlobal(viewGroup, matrix3);
                 matrix3.preTranslate(-viewGroup.getScrollX(), -viewGroup.getScrollY());
                 transitionValues.values.put(PROPNAME_PARENT_MATRIX, matrix3);
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092319));
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091787));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236d));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c8));
             }
         }
     }
@@ -613,7 +616,7 @@ public class ChangeTransform extends Transition {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, matrix4) == null) {
                         this.mTempMatrix.set(matrix4);
-                        this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092319, this.mTempMatrix);
+                        this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236d, this.mTempMatrix);
                         this.val$transforms.restore(this.val$view);
                     }
                 }
@@ -650,8 +653,8 @@ public class ChangeTransform extends Transition {
                             if (this.val$handleParentChange && this.this$0.mUseOverlay) {
                                 setCurrentMatrix(this.val$finalEndMatrix);
                             } else {
-                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092319, null);
-                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091787, null);
+                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236d, null);
+                                this.val$view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c8, null);
                             }
                         }
                         ViewUtils.setAnimationMatrix(this.val$view, null);
@@ -705,7 +708,7 @@ public class ChangeTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -713,7 +716,7 @@ public class ChangeTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -741,7 +744,7 @@ public class ChangeTransform extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, transitionValues, transitionValues2) == null) {
             Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-            transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091787, matrix);
+            transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c8, matrix);
             Matrix matrix2 = this.mTempMatrix;
             matrix2.reset();
             matrix.invert(matrix2);
@@ -770,7 +773,7 @@ public class ChangeTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;

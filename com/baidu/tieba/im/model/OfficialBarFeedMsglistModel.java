@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.model;
 
 import android.util.LongSparseArray;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -12,6 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.ic7;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
 import com.baidu.tieba.im.forum.broadcast.data.BroadcastMajorHistoryRequestMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorHistoryMessage;
 import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
@@ -19,36 +23,35 @@ import com.baidu.tieba.im.message.LoadOfficialHistoryMessage;
 import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.tieba.la7;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.jc7;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.ya7;
-import com.baidu.tieba.za7;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.tb7;
+import com.baidu.tieba.vb7;
+import com.baidu.tieba.wb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class OfficialBarFeedMsglistModel extends BdBaseModel {
+public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FEED_ITEM_COUNT = 80;
     public transient /* synthetic */ FieldHolder $fh;
     public IFeedHeadLoadCallback callback;
     public CustomMessageListener mCustomMessageListener;
-    public qb netMessageListener;
+    public pb netMessageListener;
 
     /* loaded from: classes4.dex */
     public interface IFeedHeadLoadCallback {
-        void onListDataLoad(List list, List list2);
+        void onListDataLoad(List<jc7> list, List<tb7> list2);
 
-        void onReadCountLoad(LongSparseArray longSparseArray);
+        void onReadCountLoad(LongSparseArray<wb7> longSparseArray);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,7 +66,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficialBarFeedMsglistModel(TbPageContext tbPageContext) {
+    public OfficialBarFeedMsglistModel(TbPageContext<OfficialBarFeedActivity> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,14 +112,14 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001154) {
                     this.this$0.processHeadBarInfo(customResponsedMessage);
                 }
             }
         };
-        this.netMessageListener = new qb(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.2
+        this.netMessageListener = new pb(this, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialBarFeedMsglistModel this$0;
@@ -143,29 +146,30 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.qb
-            public void onMessage(ResponsedMessage responsedMessage) {
-                la7 la7Var;
+            @Override // com.baidu.tieba.pb
+            @RequiresApi(api = 16)
+            public void onMessage(ResponsedMessage<?> responsedMessage) {
+                vb7 vb7Var;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                     return;
                 }
-                LongSparseArray longSparseArray = null;
+                LongSparseArray<wb7> longSparseArray = null;
                 if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
-                    la7Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
+                    vb7Var = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
                 } else if (responsedMessage instanceof ResponseSocketMajorHistoryMessage) {
-                    la7Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
+                    vb7Var = ((ResponseSocketMajorHistoryMessage) responsedMessage).getData();
                 } else {
-                    la7Var = null;
+                    vb7Var = null;
                 }
-                if (la7Var == null) {
+                if (vb7Var == null) {
                     return;
                 }
-                List<ma7> b = la7Var.b();
+                List<wb7> b = vb7Var.b();
                 if (b != null && b.size() > 0) {
-                    longSparseArray = new LongSparseArray(b.size());
-                    for (ma7 ma7Var : b) {
-                        longSparseArray.put(ma7Var.b(), ma7Var);
+                    longSparseArray = new LongSparseArray<>(b.size());
+                    for (wb7 wb7Var : b) {
+                        longSparseArray.put(wb7Var.b(), wb7Var);
                     }
                 }
                 if (this.this$0.callback != null && longSparseArray != null) {
@@ -177,15 +181,13 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
         registerTask();
     }
 
-    private void sendReadCountMessage(List list) {
+    private void sendReadCountMessage(List<jc7> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, this, list) == null) && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList(list.size());
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                za7 za7Var = (za7) it.next();
-                if (za7Var.f()) {
-                    arrayList.add(Long.valueOf(za7Var.d().h));
+            for (jc7 jc7Var : list) {
+                if (jc7Var.f()) {
+                    arrayList.add(Long.valueOf(jc7Var.d().h));
                 }
             }
             BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
@@ -203,7 +205,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void processHeadBarInfo(CustomResponsedMessage customResponsedMessage) {
+    public void processHeadBarInfo(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof OfficialFeedHeadResponsedMessage)) {
@@ -213,17 +215,17 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
         if (officialFeedHeadResponsedMessage.getData() == null) {
             return;
         }
-        List<ChatMessage> list = ((OfficialFeedHeadResponsedMessage.a) officialFeedHeadResponsedMessage.getData()).b;
+        List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().b;
         ArrayList arrayList = new ArrayList();
         loop0: for (ChatMessage chatMessage : list) {
-            List b = ya7.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+            List<ic7.a> b = ic7.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
             if (b != null && b.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                 for (int i = 0; i < b.size(); i++) {
                     if (arrayList.size() >= 80) {
                         break loop0;
                     }
-                    ya7.a aVar = (ya7.a) b.get(i);
-                    za7 a = za7.a(chatMessage, aVar);
+                    ic7.a aVar = b.get(i);
+                    jc7 a = jc7.a(chatMessage, aVar);
                     if (i == 0 && !StringUtils.isNull(aVar.c)) {
                         z = true;
                     } else {
@@ -238,7 +240,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
         sendReadCountMessage(arrayList);
         IFeedHeadLoadCallback iFeedHeadLoadCallback = this.callback;
         if (iFeedHeadLoadCallback != null) {
-            iFeedHeadLoadCallback.onListDataLoad(arrayList, ((OfficialFeedHeadResponsedMessage.a) officialFeedHeadResponsedMessage.getData()).a);
+            iFeedHeadLoadCallback.onListDataLoad(arrayList, officialFeedHeadResponsedMessage.getData().a);
         }
     }
 
@@ -253,8 +255,8 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
     private void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            zm8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
-            zm8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
+            io8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
+            io8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
         }
     }
 
@@ -298,7 +300,7 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (!z) {
-                LinkedList findCustomMessage = MessageManager.getInstance().findCustomMessage(getUniqueId());
+                LinkedList<CustomMessage<?>> findCustomMessage = MessageManager.getInstance().findCustomMessage(getUniqueId());
                 if (findCustomMessage == null || findCustomMessage.size() <= 0) {
                     super.sendMessage(new LoadOfficialHistoryMessage(2001154, null));
                     return;

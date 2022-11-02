@@ -32,7 +32,7 @@ public final class Version {
     }
 
     /* loaded from: classes7.dex */
-    public final class ECB {
+    public static final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int count;
@@ -77,7 +77,7 @@ public final class Version {
     }
 
     /* loaded from: classes7.dex */
-    public final class ECBlocks {
+    public static final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ECB[] ecBlocks;

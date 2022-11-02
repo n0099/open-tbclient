@@ -23,7 +23,7 @@ public class VUpsManager {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static VUpsManager a;
         public transient /* synthetic */ FieldHolder $fh;

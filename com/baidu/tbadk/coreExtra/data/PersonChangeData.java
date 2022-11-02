@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +29,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public int mBirthdayShowStatus;
     public long mBirthdayTime;
     public String mForumAge;
-    public transient ArrayList mInterestedForums;
+    public transient ArrayList<SelectForumData> mInterestedForums;
     public String mIntro;
     public String mName;
     public String mNameShow;
@@ -42,6 +43,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public String tempNickName;
     public String userId;
 
+    @Keep
     /* loaded from: classes3.dex */
     public class Forum {
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +105,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
             return;
         }
         if (this.mInterestedForums == null) {
-            this.mInterestedForums = new ArrayList();
+            this.mInterestedForums = new ArrayList<>();
         }
         this.mInterestedForums.add(selectForumData);
     }
@@ -150,17 +152,17 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setInterestForums(ArrayList arrayList) {
+    public void setInterestForums(ArrayList<SelectForumData> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048604, this, arrayList) != null) || ListUtils.isEmpty(arrayList)) {
             return;
         }
-        ArrayList arrayList2 = this.mInterestedForums;
+        ArrayList<SelectForumData> arrayList2 = this.mInterestedForums;
         if (arrayList2 != null) {
             arrayList2.clear();
         }
         for (int i = 0; i < arrayList.size(); i++) {
-            addInterestForums((SelectForumData) arrayList.get(i));
+            addInterestForums(arrayList.get(i));
         }
     }
 
@@ -309,7 +311,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getInterestedForums() {
+    public ArrayList<SelectForumData> getInterestedForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -442,7 +444,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(this.mInterestedForums)) {
                 for (int i = 0; i < this.mInterestedForums.size(); i++) {
-                    SelectForumData selectForumData = (SelectForumData) this.mInterestedForums.get(i);
+                    SelectForumData selectForumData = this.mInterestedForums.get(i);
                     if (selectForumData != null) {
                         arrayList.add(new Forum(this, selectForumData.forumId, selectForumData.forumName));
                     }

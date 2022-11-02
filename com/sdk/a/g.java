@@ -1,5 +1,6 @@
 package com.sdk.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -32,7 +33,7 @@ import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes8.dex */
-public class g {
+public class g<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "g";
     public static boolean b;
@@ -40,11 +41,11 @@ public class g {
     public static final HostnameVerifier d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context e;
-    public h f;
+    public h<T> f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -146,7 +147,7 @@ public class g {
         d = new f();
     }
 
-    public g(Context context, h hVar) {
+    public g(Context context, h<T> hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,6 +210,7 @@ public class g {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:70:0x013f */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0090 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:30:0x0091  */
+    @SuppressLint({"DefaultLocale"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -288,10 +290,10 @@ public class g {
                     httpsURLConnection.setRequestProperty("user-agent", com.sdk.l.a.a(this.e));
                     httpsURLConnection.setRequestProperty("netType", a3 + "");
                     httpsURLConnection.setRequestProperty("os", "android");
-                    HashMap hashMap = this.f.h;
+                    HashMap<String, Object> hashMap = this.f.h;
                     if (hashMap != null && hashMap.size() > 0) {
-                        for (Map.Entry entry : hashMap.entrySet()) {
-                            httpsURLConnection.setRequestProperty((String) entry.getKey(), entry.getValue() + "");
+                        for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+                            httpsURLConnection.setRequestProperty(entry.getKey(), entry.getValue() + "");
                         }
                     }
                 }
@@ -316,9 +318,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection)) == null) {
             if (httpURLConnection != null) {
-                h hVar = this.f;
+                h<T> hVar = this.f;
                 if (hVar != null) {
-                    ArrayList arrayList = hVar.g;
+                    ArrayList<File> arrayList = hVar.g;
                     if (arrayList != null && arrayList.size() != 0) {
                         z = true;
                     } else {
@@ -334,7 +336,7 @@ public class g {
                                 httpURLConnection.setRequestMethod("POST");
                                 httpURLConnection.getRequestMethod();
                                 httpURLConnection.connect();
-                                h hVar2 = this.f;
+                                h<T> hVar2 = this.f;
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                                 if (hVar2 != null) {
                                     try {
@@ -342,7 +344,7 @@ public class g {
                                         if (hVar2.d.contains("/dro/log/v1.0/log")) {
                                             a2 = hVar2.f.toString();
                                         }
-                                        ArrayList arrayList2 = hVar2.g;
+                                        ArrayList<File> arrayList2 = hVar2.g;
                                         if (arrayList2 != null && arrayList2.size() > 0) {
                                             byteArrayOutputStream.write(("--" + c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes(IMAudioTransRequest.CHARSET));
@@ -350,7 +352,7 @@ public class g {
                                             byteArrayOutputStream.write(a2.getBytes(IMAudioTransRequest.CHARSET));
                                             byteArrayOutputStream.write("\r\n".getBytes(IMAudioTransRequest.CHARSET));
                                             for (int i = 0; i < arrayList2.size(); i++) {
-                                                File file = (File) arrayList2.get(i);
+                                                File file = arrayList2.get(i);
                                                 if (file != null) {
                                                     FileInputStream fileInputStream = new FileInputStream(file);
                                                     String name = file.getName();

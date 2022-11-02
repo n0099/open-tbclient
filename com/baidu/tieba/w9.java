@@ -10,7 +10,7 @@ public class w9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static r9 a(Context context) {
+    public static r9<?> a(Context context) {
         InterceptResult invokeL;
         Object a;
         Interceptable interceptable = $ic;
@@ -24,8 +24,8 @@ public class w9 {
             if (context instanceof s9) {
                 return ((s9) context).getPageContext();
             }
-            Field b = wi.b(context.getClass(), v9.class);
-            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+            Field b = oi.b(context.getClass(), v9.class);
+            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
                 return null;
             }
             return ((s9) a).getPageContext();
@@ -50,8 +50,8 @@ public class w9 {
                     return (v9) orignalPage;
                 }
             }
-            Field b = wi.b(context.getClass(), v9.class);
-            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9)) {
+            Field b = oi.b(context.getClass(), v9.class);
+            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof v9)) {
                 return null;
             }
             return (v9) a;
@@ -59,7 +59,7 @@ public class w9 {
         return (v9) invokeL.objValue;
     }
 
-    public static s9 b(Context context) {
+    public static s9<?> b(Context context) {
         InterceptResult invokeL;
         Object a;
         Interceptable interceptable = $ic;
@@ -70,8 +70,8 @@ public class w9 {
             if (context instanceof s9) {
                 return (s9) context;
             }
-            Field b = wi.b(context.getClass(), v9.class);
-            if (b == null || (a = wi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
+            Field b = oi.b(context.getClass(), v9.class);
+            if (b == null || (a = oi.a(context, b)) == null || !(a instanceof v9) || !(a instanceof s9)) {
                 return null;
             }
             return (s9) a;

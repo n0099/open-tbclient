@@ -1,8 +1,9 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.pa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,13 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
+import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconSocketResponse extends SocketResponsedMessage implements w95 {
+public class VideoRedIconSocketResponse extends SocketResponsedMessage implements pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
-    public List redIcons;
+    public List<RedIcon> redIcons;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoRedIconSocketResponse() {
@@ -37,8 +39,8 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         }
     }
 
-    @Override // com.baidu.tieba.w95
-    public List getDataList() {
+    @Override // com.baidu.tieba.pa5
+    public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -47,7 +49,7 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w95
+    @Override // com.baidu.tieba.pa5
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,6 +60,7 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

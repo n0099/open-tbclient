@@ -10,15 +10,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class BitmapCounter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("this")
     public int mCount;
     public final int mMaxCount;
     public final int mMaxSize;
+    @GuardedBy("this")
     public long mSize;
-    public final ResourceReleaser mUnpooledBitmapsReleaser;
+    public final ResourceReleaser<Bitmap> mUnpooledBitmapsReleaser;
 
     public BitmapCounter(int i, int i2) {
         boolean z;
@@ -45,7 +48,7 @@ public class BitmapCounter {
         Preconditions.checkArgument(i2 > 0);
         this.mMaxCount = i;
         this.mMaxSize = i2;
-        this.mUnpooledBitmapsReleaser = new ResourceReleaser(this) { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
+        this.mUnpooledBitmapsReleaser = new ResourceReleaser<Bitmap>(this) { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BitmapCounter this$0;
@@ -148,7 +151,7 @@ public class BitmapCounter {
         return invokeV.intValue;
     }
 
-    public ResourceReleaser getReleaser() {
+    public ResourceReleaser<Bitmap> getReleaser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

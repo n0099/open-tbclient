@@ -2,17 +2,17 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c78;
+import com.baidu.tieba.m88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage {
+public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c78 mData;
+    public m88 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,13 +32,13 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage {
         }
     }
 
-    public c78 getPersonBarData() {
+    public m88 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (c78) invokeV.objValue;
+        return (m88) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,16 +66,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage {
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            c78 c78Var = new c78();
-            this.mData = c78Var;
-            c78Var.n(str);
+            m88 m88Var = new m88();
+            this.mData = m88Var;
+            m88Var.n(str);
         }
     }
 
-    public void setPersonBarData(c78 c78Var) {
+    public void setPersonBarData(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c78Var) == null) {
-            this.mData = c78Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, m88Var) == null) {
+            this.mData = m88Var;
         }
     }
 }

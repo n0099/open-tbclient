@@ -1,27 +1,27 @@
 package com.kwad.sdk.core.report;
 
+import androidx.annotation.NonNull;
+import com.kwad.sdk.core.report.c;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public final class l implements j {
-    public final Map aaf = new LinkedHashMap();
+/* loaded from: classes8.dex */
+public final class l<T extends c> implements j<T> {
+    public final Map<String, T> aaf = new LinkedHashMap();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // com.kwad.sdk.core.report.j
     /* renamed from: b */
-    public synchronized void d(c cVar) {
-        this.aaf.put(cVar.ZR, cVar);
+    public synchronized void d(@NonNull T t) {
+        this.aaf.put(t.ZR, t);
     }
 
     @Override // com.kwad.sdk.core.report.j
-    public final synchronized void q(List list) {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            this.aaf.remove(((c) it.next()).ZR);
+    public final synchronized void q(List<T> list) {
+        for (T t : list) {
+            this.aaf.remove(t.ZR);
         }
     }
 
@@ -34,10 +34,10 @@ public final class l implements j {
     }
 
     @Override // com.kwad.sdk.core.report.j
-    public final synchronized List uy() {
+    public final synchronized List<T> uy() {
         ArrayList arrayList;
         arrayList = new ArrayList(this.aaf.size());
-        for (Map.Entry entry : this.aaf.entrySet()) {
+        for (Map.Entry<String, T> entry : this.aaf.entrySet()) {
             arrayList.add(entry.getValue());
         }
         return arrayList;

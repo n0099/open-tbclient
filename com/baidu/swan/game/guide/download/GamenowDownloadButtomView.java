@@ -8,6 +8,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
@@ -38,7 +39,7 @@ public class GamenowDownloadButtomView extends View {
     public float m;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,8 +101,8 @@ public class GamenowDownloadButtomView extends View {
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
         this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070142);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f0603ac);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f0603ad);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f0603ad);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f0603ae);
     }
 
     public final void e(Canvas canvas) {
@@ -265,7 +266,7 @@ public class GamenowDownloadButtomView extends View {
         return (GamenowDownloadButtomView) invokeI.objValue;
     }
 
-    public GamenowDownloadButtomView j(int i) {
+    public GamenowDownloadButtomView j(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {

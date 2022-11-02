@@ -29,7 +29,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     public static final int FLAG_IGNORE_SPLICE_INFO_STREAM = 16;
     public static final int FLAG_OVERRIDE_CAPTION_DESCRIPTORS = 32;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List closedCaptionFormats;
+    public final List<Format> closedCaptionFormats;
     public final int flags;
 
     @Retention(RetentionPolicy.SOURCE)
@@ -56,11 +56,11 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Factory
-    public SparseArray createInitialPayloadReaders() {
+    public SparseArray<TsPayloadReader> createInitialPayloadReaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new SparseArray();
+            return new SparseArray<>();
         }
         return (SparseArray) invokeV.objValue;
     }
@@ -86,7 +86,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
         }
     }
 
-    public DefaultTsPayloadReaderFactory(int i, List list) {
+    public DefaultTsPayloadReaderFactory(int i, List<Format> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,12 +119,12 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
                 return new SeiReader(this.closedCaptionFormats);
             }
             ParsableByteArray parsableByteArray = new ParsableByteArray(esInfo.descriptorBytes);
-            List list = this.closedCaptionFormats;
+            List<Format> list = this.closedCaptionFormats;
             while (parsableByteArray.bytesLeft() > 0) {
                 int readUnsignedByte = parsableByteArray.readUnsignedByte();
                 int position = parsableByteArray.getPosition() + parsableByteArray.readUnsignedByte();
                 if (readUnsignedByte == 134) {
-                    list = new ArrayList();
+                    list = new ArrayList<>();
                     int readUnsignedByte2 = parsableByteArray.readUnsignedByte() & 31;
                     for (int i2 = 0; i2 < readUnsignedByte2; i2++) {
                         String readString = parsableByteArray.readString(3);

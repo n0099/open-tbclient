@@ -15,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -186,7 +185,7 @@ public final class ZipUtils {
     }
 
     @Deprecated
-    public static void zip(File file, List list) throws IOException {
+    public static void zip(File file, List<File> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, file, list) == null) {
             zip(list, file);
@@ -244,7 +243,7 @@ public final class ZipUtils {
         }
     }
 
-    public static void zip(List list, File file) throws IOException {
+    public static void zip(List<File> list, File file) throws IOException {
         ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, list, file) == null) && file != null && file.exists() && list != null && list.size() != 0) {
@@ -254,9 +253,7 @@ public final class ZipUtils {
                 zipOutputStream = new ZipOutputStream(new FileOutputStream(file));
                 try {
                     zipOutputStream.setComment(file.getName());
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        File file2 = (File) it.next();
+                    for (File file2 : list) {
                         if (file2.canRead()) {
                             FileInputStream fileInputStream2 = new FileInputStream(file2);
                             try {

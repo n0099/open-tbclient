@@ -187,7 +187,7 @@ public final class RSAUtil {
         return (byte[]) invokeLLI.objValue;
     }
 
-    public static Map generateKey(int i) throws NoSuchAlgorithmException {
+    public static Map<String, Object> generateKey(int i) throws NoSuchAlgorithmException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
@@ -202,7 +202,7 @@ public final class RSAUtil {
         return (Map) invokeI.objValue;
     }
 
-    public static String getPrivateKey(Map map) throws Exception {
+    public static String getPrivateKey(Map<String, Object> map) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, map)) == null) {
@@ -211,7 +211,7 @@ public final class RSAUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getPublicKey(Map map) throws UnsupportedEncodingException {
+    public static String getPublicKey(Map<String, Object> map) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) {

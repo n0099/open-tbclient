@@ -105,26 +105,24 @@ public final class HighLevelEncoder {
         this.text = bArr;
     }
 
-    public static Collection simplifyStates(Iterable iterable) {
+    public static Collection<State> simplifyStates(Iterable<State> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iterable)) == null) {
             LinkedList linkedList = new LinkedList();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                State state = (State) it.next();
+            for (State state : iterable) {
                 boolean z = true;
-                Iterator it2 = linkedList.iterator();
+                Iterator it = linkedList.iterator();
                 while (true) {
-                    if (!it2.hasNext()) {
+                    if (!it.hasNext()) {
                         break;
                     }
-                    State state2 = (State) it2.next();
+                    State state2 = (State) it.next();
                     if (state2.isBetterThanOrEqualTo(state)) {
                         z = false;
                         break;
                     } else if (state.isBetterThanOrEqualTo(state2)) {
-                        it2.remove();
+                        it.remove();
                     }
                 }
                 if (z) {
@@ -136,7 +134,7 @@ public final class HighLevelEncoder {
         return (Collection) invokeL.objValue;
     }
 
-    private void updateStateForChar(State state, int i, Collection collection) {
+    private void updateStateForChar(State state, int i, Collection<State> collection) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65539, this, state, i, collection) == null) {
@@ -167,7 +165,7 @@ public final class HighLevelEncoder {
         }
     }
 
-    public static void updateStateForPair(State state, int i, int i2, Collection collection) {
+    public static void updateStateForPair(State state, int i, int i2, Collection<State> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{state, Integer.valueOf(i), Integer.valueOf(i2), collection}) == null) {
             State endBinaryShift = state.endBinaryShift(i);
@@ -184,28 +182,26 @@ public final class HighLevelEncoder {
         }
     }
 
-    private Collection updateStateListForChar(Iterable iterable, int i) {
+    private Collection<State> updateStateListForChar(Iterable<State> iterable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, iterable, i)) == null) {
             LinkedList linkedList = new LinkedList();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                updateStateForChar((State) it.next(), i, linkedList);
+            for (State state : iterable) {
+                updateStateForChar(state, i, linkedList);
             }
             return simplifyStates(linkedList);
         }
         return (Collection) invokeLI.objValue;
     }
 
-    public static Collection updateStateListForPair(Iterable iterable, int i, int i2) {
+    public static Collection<State> updateStateListForPair(Iterable<State> iterable, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, iterable, i, i2)) == null) {
             LinkedList linkedList = new LinkedList();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                updateStateForPair((State) it.next(), i, i2, linkedList);
+            for (State state : iterable) {
+                updateStateForPair(state, i, i2, linkedList);
             }
             return simplifyStates(linkedList);
         }
@@ -223,7 +219,7 @@ public final class HighLevelEncoder {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Collection singletonList = Collections.singletonList(State.INITIAL_STATE);
+            Collection<State> singletonList = Collections.singletonList(State.INITIAL_STATE);
             int i2 = 0;
             while (true) {
                 byte[] bArr = this.text;
@@ -289,7 +285,7 @@ public final class HighLevelEncoder {
                         i2++;
                     }
                 } else {
-                    return ((State) Collections.min(singletonList, new Comparator(this) { // from class: com.google.zxing.aztec.encoder.HighLevelEncoder.1
+                    return ((State) Collections.min(singletonList, new Comparator<State>(this) { // from class: com.google.zxing.aztec.encoder.HighLevelEncoder.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ HighLevelEncoder this$0;

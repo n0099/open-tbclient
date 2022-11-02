@@ -1,5 +1,6 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,6 +59,7 @@ public class MethodInfo {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public MethodProfileData getProfileData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,6 +69,7 @@ public class MethodInfo {
         return (MethodProfileData) invokeV.objValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,7 +103,7 @@ public class MethodInfo {
         return (String) invokeV.objValue;
     }
 
-    public void setProfileData(MethodProfileData methodProfileData) {
+    public void setProfileData(@NonNull MethodProfileData methodProfileData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, methodProfileData) == null) {
             this.mProfileData = methodProfileData;

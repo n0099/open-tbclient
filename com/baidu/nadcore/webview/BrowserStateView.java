@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,7 +30,7 @@ public class BrowserStateView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ViewState {
+    public static final class ViewState {
         public static final /* synthetic */ ViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ViewState ERROR;
@@ -93,7 +95,7 @@ public class BrowserStateView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +127,7 @@ public class BrowserStateView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BrowserStateView(Context context) {
+    public BrowserStateView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,7 +148,7 @@ public class BrowserStateView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BrowserStateView(Context context, AttributeSet attributeSet) {
+    public BrowserStateView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -219,8 +221,8 @@ public class BrowserStateView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = R.layout.obfuscated_res_0x7f0d0626;
-            this.d = R.layout.obfuscated_res_0x7f0d0627;
+            this.e = R.layout.obfuscated_res_0x7f0d063a;
+            this.d = R.layout.obfuscated_res_0x7f0d063b;
             this.c = LayoutInflater.from(getContext());
             d();
             c();

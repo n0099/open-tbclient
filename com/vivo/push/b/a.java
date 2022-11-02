@@ -11,13 +11,13 @@ import java.util.ArrayList;
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<String> a;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public a(boolean z, String str, ArrayList arrayList) {
+    public a(boolean z, String str, ArrayList<String> arrayList) {
         super(r8, str);
         int i;
         Interceptable interceptable = $ic;

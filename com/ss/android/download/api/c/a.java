@@ -2,6 +2,7 @@ package com.ss.android.download.api.c;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.ss.android.downloadlib.addownload.j;
 /* loaded from: classes8.dex */
@@ -23,7 +24,7 @@ public class a {
         return true;
     }
 
-    public static String b(Uri uri) {
+    public static String b(@NonNull Uri uri) {
         return b.a(uri.getQueryParameter("id"), uri.getQueryParameter("packagename"), uri.getQueryParameter("pkg"), uri.getQueryParameter("package_name"), uri.getQueryParameter(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
     }
 }

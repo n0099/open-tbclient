@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +45,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
     public ValueAnimator zZ;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleSkipView(Context context) {
+    public CircleSkipView(@NonNull Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +66,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CircleSkipView(Context context, AttributeSet attributeSet) {
+    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +87,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleSkipView(Context context, AttributeSet attributeSet, int i) {
+    public CircleSkipView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -177,7 +179,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09e6));
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f09f2));
             textView.setTextColor(-1);
             textView.setTextSize(12.0f);
             return textView;

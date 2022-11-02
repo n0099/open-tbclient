@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cu8;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.lv8;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,24 +25,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class BubbleListModel extends BdBaseModel {
+public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListActivity a;
-    public cu8 b;
-    public List c;
-    public List d;
+    public lv8 b;
+    public List<DressItemData> c;
+    public List<DressItemData> d;
     public c e;
     public int f;
     public boolean g;
     public boolean h;
     public boolean i;
-    public qb j;
+    public pb j;
     public final HttpMessageListener k;
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, cu8 cu8Var, List list);
+        void a(int i, String str, lv8 lv8Var, List<DressItemData> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -56,7 +56,7 @@ public class BubbleListModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleListModel a;
@@ -83,8 +83,8 @@ public class BubbleListModel extends BdBaseModel {
             this.a = bubbleListModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -243,8 +243,8 @@ public class BubbleListModel extends BdBaseModel {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            zm8.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            zm8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            io8.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            io8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -271,7 +271,7 @@ public class BubbleListModel extends BdBaseModel {
     }
 
     public final void R(int i) {
-        List list;
+        List<DressItemData> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (list = this.d) != null && list.size() > 0) {
             for (DressItemData dressItemData : this.d) {

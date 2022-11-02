@@ -23,16 +23,16 @@ public final class DataRes extends Message {
     public final Long interval;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List close_live;
+        public List<Long> close_live;
         public Long interval;
 
         public Builder() {
@@ -75,6 +75,7 @@ public final class DataRes extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataRes build(boolean z) {
             InterceptResult invokeZ;
@@ -122,7 +123,7 @@ public final class DataRes extends Message {
             }
         }
         if (z) {
-            List list = builder.close_live;
+            List<Long> list = builder.close_live;
             if (list == null) {
                 this.close_live = DEFAULT_CLOSE_LIVE;
             } else {

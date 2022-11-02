@@ -14,9 +14,9 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
     public transient /* synthetic */ FieldHolder $fh;
     public final DataSource.Factory baseDataSourceFactory;
     public final Context context;
-    public final TransferListener listener;
+    public final TransferListener<? super DataSource> listener;
 
-    public DefaultDataSourceFactory(Context context, TransferListener transferListener, DataSource.Factory factory) {
+    public DefaultDataSourceFactory(Context context, TransferListener<? super DataSource> transferListener, DataSource.Factory factory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +38,7 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDataSourceFactory(Context context, String str) {
-        this(context, str, (TransferListener) null);
+        this(context, str, (TransferListener<? super DataSource>) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public final class DefaultDataSourceFactory implements DataSource.Factory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDataSourceFactory(Context context, String str, TransferListener transferListener) {
+    public DefaultDataSourceFactory(Context context, String str, TransferListener<? super DataSource> transferListener) {
         this(context, transferListener, new DefaultHttpDataSourceFactory(str, transferListener));
         Interceptable interceptable = $ic;
         if (interceptable != null) {

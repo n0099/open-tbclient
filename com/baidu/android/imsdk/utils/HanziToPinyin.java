@@ -46,7 +46,7 @@ public class HanziToPinyin {
     }
 
     /* loaded from: classes.dex */
-    public class Token {
+    public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;
         public static final int PINYIN = 2;
@@ -110,7 +110,7 @@ public class HanziToPinyin {
         this.mHasChinaCollator = z;
     }
 
-    private void addToken(StringBuilder sb, ArrayList arrayList, int i) {
+    private void addToken(StringBuilder sb, ArrayList<Token> arrayList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65538, this, sb, arrayList, i) == null) {
             String sb2 = sb.toString();
@@ -243,11 +243,11 @@ public class HanziToPinyin {
         return (Token) invokeCommon.objValue;
     }
 
-    public ArrayList get(String str) {
+    public ArrayList<Token> get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Token> arrayList = new ArrayList<>();
             if (this.mHasChinaCollator && !TextUtils.isEmpty(str)) {
                 int length = str.length();
                 StringBuilder sb = new StringBuilder();

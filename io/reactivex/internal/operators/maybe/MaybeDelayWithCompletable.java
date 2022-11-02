@@ -15,20 +15,20 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeDelayWithCompletable extends Maybe {
+public final class MaybeDelayWithCompletable<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class DelayWithMainObserver implements MaybeObserver {
+    public static final class DelayWithMainObserver<T> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final AtomicReference parent;
+        public final MaybeObserver<? super T> actual;
+        public final AtomicReference<Disposable> parent;
 
-        public DelayWithMainObserver(AtomicReference atomicReference, MaybeObserver maybeObserver) {
+        public DelayWithMainObserver(AtomicReference<Disposable> atomicReference, MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,23 +72,23 @@ public final class MaybeDelayWithCompletable extends Maybe {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class OtherObserver extends AtomicReference implements CompletableObserver, Disposable {
+    public static final class OtherObserver<T> extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 703409937383992161L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final MaybeSource source;
+        public final MaybeObserver<? super T> actual;
+        public final MaybeSource<T> source;
 
-        public OtherObserver(MaybeObserver maybeObserver, MaybeSource maybeSource) {
+        public OtherObserver(MaybeObserver<? super T> maybeObserver, MaybeSource<T> maybeSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class MaybeDelayWithCompletable extends Maybe {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -150,7 +150,7 @@ public final class MaybeDelayWithCompletable extends Maybe {
         }
     }
 
-    public MaybeDelayWithCompletable(MaybeSource maybeSource, CompletableSource completableSource) {
+    public MaybeDelayWithCompletable(MaybeSource<T> maybeSource, CompletableSource completableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public final class MaybeDelayWithCompletable extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.other.subscribe(new OtherObserver(maybeObserver, this.source));

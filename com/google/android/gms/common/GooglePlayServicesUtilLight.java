@@ -1,5 +1,6 @@
 package com.google.android.gms.common;
 
+import android.annotation.TargetApi;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -12,6 +13,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,31 +24,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.HideFirstParty;
 import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.internal.zzag;
 import com.google.android.gms.common.util.ClientLibraryUtils;
 import com.google.android.gms.common.util.DeviceProperties;
 import com.google.android.gms.common.util.PlatformVersion;
 import com.google.android.gms.common.util.UidVerifier;
+import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.util.concurrent.atomic.AtomicBoolean;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class GooglePlayServicesUtilLight {
     public static /* synthetic */ Interceptable $ic = null;
+    @KeepForSdk
     public static final int GMS_AVAILABILITY_NOTIFICATION_ID = 10436;
+    @KeepForSdk
     public static final int GMS_GENERAL_ERROR_NOTIFICATION_ID = 39789;
+    @NonNull
+    @KeepForSdk
     public static final String GOOGLE_PLAY_GAMES_PACKAGE = "com.google.android.play.games";
+    @NonNull
+    @KeepForSdk
     @Deprecated
     public static final String GOOGLE_PLAY_SERVICES_PACKAGE = "com.google.android.gms";
+    @KeepForSdk
     @Deprecated
     public static final int GOOGLE_PLAY_SERVICES_VERSION_CODE = 12451000;
+    @NonNull
+    @KeepForSdk
     public static final String GOOGLE_PLAY_STORE_PACKAGE = "com.android.vending";
+    @VisibleForTesting
+    @KeepForSdk
     public static final AtomicBoolean sCanceledAvailabilityNotification;
+    @VisibleForTesting
     public static boolean zza;
     public static boolean zzb;
     public static final AtomicBoolean zzc;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @KeepForSdk
     public GooglePlayServicesUtilLight() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,6 +82,7 @@ public class GooglePlayServicesUtilLight {
         }
     }
 
+    @KeepForSdk
     @Deprecated
     public static boolean isUserRecoverableError(int i) {
         InterceptResult invokeI;
@@ -84,6 +107,8 @@ public class GooglePlayServicesUtilLight {
         zzc = new AtomicBoolean();
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     public static void enableUsingApkIndependentContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
@@ -91,8 +116,9 @@ public class GooglePlayServicesUtilLight {
         }
     }
 
+    @KeepForSdk
     @Deprecated
-    public static void cancelAvailabilityErrorNotifications(Context context) {
+    public static void cancelAvailabilityErrorNotifications(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, null, context) != null) || sCanceledAvailabilityNotification.getAndSet(true)) {
             return;
@@ -106,8 +132,10 @@ public class GooglePlayServicesUtilLight {
         }
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     @Deprecated
-    public static int getApkVersion(Context context) {
+    public static int getApkVersion(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -121,8 +149,10 @@ public class GooglePlayServicesUtilLight {
         return invokeL.intValue;
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     @Deprecated
-    public static int getClientVersion(Context context) {
+    public static int getClientVersion(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -132,7 +162,10 @@ public class GooglePlayServicesUtilLight {
         return invokeL.intValue;
     }
 
+    @NonNull
+    @VisibleForTesting
     @Deprecated
+    @KeepForSdk
     public static String getErrorString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -143,6 +176,9 @@ public class GooglePlayServicesUtilLight {
     }
 
     @Deprecated
+    @Nullable
+    @ShowFirstParty
+    @KeepForSdk
     public static Intent getGooglePlayServicesAvailabilityRecoveryIntent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -152,7 +188,9 @@ public class GooglePlayServicesUtilLight {
         return (Intent) invokeI.objValue;
     }
 
-    public static Context getRemoteContext(Context context) {
+    @Nullable
+    @KeepForSdk
+    public static Context getRemoteContext(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
@@ -165,7 +203,9 @@ public class GooglePlayServicesUtilLight {
         return (Context) invokeL.objValue;
     }
 
-    public static Resources getRemoteResource(Context context) {
+    @Nullable
+    @KeepForSdk
+    public static Resources getRemoteResource(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
@@ -178,8 +218,10 @@ public class GooglePlayServicesUtilLight {
         return (Resources) invokeL.objValue;
     }
 
+    @HideFirstParty
+    @KeepForSdk
     @Deprecated
-    public static int isGooglePlayServicesAvailable(Context context) {
+    public static int isGooglePlayServicesAvailable(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
@@ -188,8 +230,11 @@ public class GooglePlayServicesUtilLight {
         return invokeL.intValue;
     }
 
+    @VisibleForTesting
     @Deprecated
-    public static boolean isSidewinderDevice(Context context) {
+    @ShowFirstParty
+    @KeepForSdk
+    public static boolean isSidewinderDevice(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
@@ -198,8 +243,9 @@ public class GooglePlayServicesUtilLight {
         return invokeL.booleanValue;
     }
 
+    @KeepForSdk
     @Deprecated
-    public static void ensurePlayServicesAvailable(Context context, int i) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
+    public static void ensurePlayServicesAvailable(@NonNull Context context, int i) throws GooglePlayServicesRepairableException, GooglePlayServicesNotAvailableException {
         int isGooglePlayServicesAvailable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) && (isGooglePlayServicesAvailable = GoogleApiAvailabilityLight.getInstance().isGooglePlayServicesAvailable(context, i)) != 0) {
@@ -215,6 +261,7 @@ public class GooglePlayServicesUtilLight {
         }
     }
 
+    @TargetApi(21)
     public static boolean zza(Context context, String str) {
         InterceptResult invokeLL;
         ApplicationInfo applicationInfo;
@@ -247,8 +294,10 @@ public class GooglePlayServicesUtilLight {
         return invokeLL.booleanValue;
     }
 
+    @Nullable
+    @KeepForSdk
     @Deprecated
-    public static PendingIntent getErrorPendingIntent(int i, Context context, int i2) {
+    public static PendingIntent getErrorPendingIntent(int i, @NonNull Context context, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), context, Integer.valueOf(i2)})) == null) {
@@ -257,7 +306,9 @@ public class GooglePlayServicesUtilLight {
         return (PendingIntent) invokeCommon.objValue;
     }
 
-    public static boolean honorsDebugCertificates(Context context) {
+    @ShowFirstParty
+    @KeepForSdk
+    public static boolean honorsDebugCertificates(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -284,8 +335,9 @@ public class GooglePlayServicesUtilLight {
         return invokeL.booleanValue;
     }
 
+    @KeepForSdk
     @Deprecated
-    public static int isGooglePlayServicesAvailable(Context context, int i) {
+    public static int isGooglePlayServicesAvailable(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -293,7 +345,7 @@ public class GooglePlayServicesUtilLight {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
             try {
-                context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0422);
+                context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f0424);
             } catch (Throwable unused) {
                 Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
             }
@@ -379,8 +431,9 @@ public class GooglePlayServicesUtilLight {
         return invokeLI.intValue;
     }
 
+    @KeepForSdk
     @Deprecated
-    public static boolean isGooglePlayServicesUid(Context context, int i) {
+    public static boolean isGooglePlayServicesUid(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i)) == null) {
@@ -389,8 +442,10 @@ public class GooglePlayServicesUtilLight {
         return invokeLI.booleanValue;
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     @Deprecated
-    public static boolean isPlayServicesPossiblyUpdating(Context context, int i) {
+    public static boolean isPlayServicesPossiblyUpdating(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, context, i)) == null) {
@@ -405,8 +460,10 @@ public class GooglePlayServicesUtilLight {
         return invokeLI.booleanValue;
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     @Deprecated
-    public static boolean isPlayStorePossiblyUpdating(Context context, int i) {
+    public static boolean isPlayStorePossiblyUpdating(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, context, i)) == null) {
@@ -418,7 +475,9 @@ public class GooglePlayServicesUtilLight {
         return invokeLI.booleanValue;
     }
 
-    public static boolean isRestrictedUserProfile(Context context) {
+    @KeepForSdk
+    @TargetApi(18)
+    public static boolean isRestrictedUserProfile(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
@@ -436,8 +495,10 @@ public class GooglePlayServicesUtilLight {
         return invokeL.booleanValue;
     }
 
+    @KeepForSdk
+    @TargetApi(19)
     @Deprecated
-    public static boolean uidHasPackageName(Context context, int i, String str) {
+    public static boolean uidHasPackageName(@NonNull Context context, int i, @NonNull String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65557, null, context, i, str)) == null) {

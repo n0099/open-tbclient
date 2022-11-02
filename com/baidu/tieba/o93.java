@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,61 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o93 {
+public class o93 extends p93<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-
-    /* loaded from: classes5.dex */
-    public class a implements Comparator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(o93 o93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
-                }
-                if (lastModified - lastModified2 > 0) {
-                    return 1;
-                }
-                return -1;
-            }
-            return invokeLL.intValue;
-        }
-    }
+    public final Activity m;
+    public final String n;
+    public final String o;
+    public boolean p;
+    public int q;
 
     static {
         InterceptResult invokeClinit;
@@ -80,14 +42,69 @@ public class o93 {
                 return;
             }
         }
-        b = wj1.a;
+        r = ok1.a;
     }
 
-    public o93() {
-        String str;
+    @Override // com.baidu.tieba.p93
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (a93.b() && !Q()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p93
+    public void K() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.q++;
+        }
+    }
+
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.q >= A()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b93
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            v("data", P().toString());
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p93
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return SwanInterfaceType.OPEN_DATA;
+        }
+        return (SwanInterfaceType) invokeV.objValue;
+    }
+
+    public o93(Activity activity, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -97,115 +114,78 @@ public class o93 {
                 return;
             }
         }
-        try {
-            str = AppRuntime.getAppContext().getFilesDir().getPath();
-        } catch (Exception e) {
-            if (!b) {
-                str = "";
-            } else {
-                throw e;
-            }
-        }
-        if (!TextUtils.isEmpty(str)) {
-            this.a = str + File.separator + "aiapps_folder/stability";
-            return;
-        }
-        this.a = "";
+        this.m = activity;
+        this.n = str;
+        this.o = str2;
+        this.p = z;
     }
 
-    public final void a(int i) {
-        File[] c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = c()) != null && c.length != 0) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(c, new a(this));
-            ArrayList<File> arrayList = new ArrayList(c.length);
-            int i2 = 0;
-            for (File file : c) {
-                if (i2 < i) {
-                    if (file.lastModified() - currentTimeMillis > 172800000) {
-                        arrayList.add(file);
-                    }
-                } else {
-                    arrayList.add(file);
-                }
-                i2++;
-            }
-            for (File file2 : arrayList) {
-                qj4.j(file2);
-            }
-        }
-    }
-
-    public final File b(long j) {
-        InterceptResult invokeJ;
-        String g0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            if (m33.g0() == null) {
-                g0 = "";
-            } else {
-                g0 = m33.g0();
-            }
-            return new File(this.a + File.separator + g0 + "_" + j + "_swan_stability_traces.log");
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public File[] c() {
+    public JSONObject P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
+            JSONObject jSONObject = new JSONObject();
             try {
-                return new File(this.a).listFiles();
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                e43 M = M();
+                jSONObject.put("ma_id", M.O());
+                jSONObject.put("scope", this.n);
+                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("host_key_hash", c93.g());
+                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, M.O());
+                if (M.Y() != null && M.Y().T() != null) {
+                    jSONObject.put("scene", M.Y().T());
                 }
-                return null;
+                if (this.p) {
+                    jSONObject.put("action_type", "1");
+                }
+                String l = ln2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject.put("host_api_key", l);
+                }
+                if (!TextUtils.isEmpty(this.o)) {
+                    jSONObject.put("provider_appkey", this.o);
+                }
+            } catch (JSONException e) {
+                if (r) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
         }
-        return (File[]) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public File d(JSONArray jSONArray) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b93
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: R */
+    public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
-        String g0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                a(9);
-                JSONObject jSONObject = new JSONObject();
-                if (m33.g0() == null) {
-                    g0 = "";
-                } else {
-                    g0 = m33.g0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            JSONObject c = c93.c(jSONObject);
+            int optInt = c.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    c93.m(c);
+                    c93.t("MaOpenDataRequest", c.toString());
                 }
-                jSONObject.put("_app_id", g0);
-                jSONObject.put("_date", ag3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
-                jSONArray.put(jSONObject);
-                File b2 = b(currentTimeMillis);
-                if (b2 == null) {
-                    return null;
+                if (r) {
+                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
                 }
-                if (!pm2.b(b2.getPath(), jSONArray.toString(), false)) {
-                    return null;
-                }
-                return b2;
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-                }
-                return null;
             }
+            return c;
         }
-        return (File) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.p93
+    public HttpRequest w(p93 p93Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, p93Var)) == null) {
+            return ln2.o().u(this.m, p93Var.B());
+        }
+        return (HttpRequest) invokeL.objValue;
     }
 }

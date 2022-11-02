@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
@@ -50,6 +51,7 @@ public class SysUtils {
         }
     }
 
+    @CalledByNative
     public static boolean isLowEndDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

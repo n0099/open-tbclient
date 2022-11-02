@@ -8,12 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import java.util.LinkedList;
 import java.util.Queue;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.NotThreadSafe;
+@VisibleForTesting
+@NotThreadSafe
 /* loaded from: classes7.dex */
-public class Bucket {
+public class Bucket<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BUCKET";
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,10 +64,10 @@ public class Bucket {
         this.mFixBucketsReinitialization = z;
     }
 
-    public void addToFreeList(Object obj) {
+    public void addToFreeList(V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.mFreeList.add(obj);
+        if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
+            this.mFreeList.add(v);
         }
     }
 
@@ -83,17 +87,17 @@ public class Bucket {
 
     @Nullable
     @Deprecated
-    public Object get() {
+    public V get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Object pop = pop();
+            V pop = pop();
             if (pop != null) {
                 this.mInUseLength++;
             }
             return pop;
         }
-        return invokeV.objValue;
+        return (V) invokeV.objValue;
     }
 
     public int getFreeListSize() {
@@ -134,19 +138,19 @@ public class Bucket {
     }
 
     @Nullable
-    public Object pop() {
+    public V pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mFreeList.poll();
+            return (V) this.mFreeList.poll();
         }
-        return invokeV.objValue;
+        return (V) invokeV.objValue;
     }
 
-    public void release(Object obj) {
+    public void release(V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-            Preconditions.checkNotNull(obj);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v) == null) {
+            Preconditions.checkNotNull(v);
             boolean z = false;
             if (this.mFixBucketsReinitialization) {
                 if (this.mInUseLength > 0) {
@@ -154,16 +158,16 @@ public class Bucket {
                 }
                 Preconditions.checkState(z);
                 this.mInUseLength--;
-                addToFreeList(obj);
+                addToFreeList(v);
                 return;
             }
             int i = this.mInUseLength;
             if (i > 0) {
                 this.mInUseLength = i - 1;
-                addToFreeList(obj);
+                addToFreeList(v);
                 return;
             }
-            FLog.e(TAG, "Tried to release value %s from an empty bucket!", obj);
+            FLog.e(TAG, "Tried to release value %s from an empty bucket!", v);
         }
     }
 }

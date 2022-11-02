@@ -98,7 +98,7 @@ public final class TtmlRenderUtil {
         }
     }
 
-    public static TtmlStyle resolveStyle(TtmlStyle ttmlStyle, String[] strArr, Map map) {
+    public static TtmlStyle resolveStyle(TtmlStyle ttmlStyle, String[] strArr, Map<String, TtmlStyle> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ttmlStyle, strArr, map)) == null) {
@@ -107,23 +107,23 @@ public final class TtmlRenderUtil {
             }
             int i = 0;
             if (ttmlStyle == null && strArr.length == 1) {
-                return (TtmlStyle) map.get(strArr[0]);
+                return map.get(strArr[0]);
             }
             if (ttmlStyle == null && strArr.length > 1) {
                 TtmlStyle ttmlStyle2 = new TtmlStyle();
                 int length = strArr.length;
                 while (i < length) {
-                    ttmlStyle2.chain((TtmlStyle) map.get(strArr[i]));
+                    ttmlStyle2.chain(map.get(strArr[i]));
                     i++;
                 }
                 return ttmlStyle2;
             } else if (ttmlStyle != null && strArr != null && strArr.length == 1) {
-                return ttmlStyle.chain((TtmlStyle) map.get(strArr[0]));
+                return ttmlStyle.chain(map.get(strArr[0]));
             } else {
                 if (ttmlStyle != null && strArr != null && strArr.length > 1) {
                     int length2 = strArr.length;
                     while (i < length2) {
-                        ttmlStyle.chain((TtmlStyle) map.get(strArr[i]));
+                        ttmlStyle.chain(map.get(strArr[i]));
                         i++;
                     }
                 }

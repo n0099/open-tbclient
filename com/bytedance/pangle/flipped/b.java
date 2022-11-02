@@ -1,5 +1,6 @@
 package com.bytedance.pangle.flipped;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,6 +27,7 @@ public final class b implements c {
     }
 
     @Override // com.bytedance.pangle.flipped.c
+    @SuppressLint({"DiscouragedPrivateApi"})
     public final void invokeHiddenApiRestrictions() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

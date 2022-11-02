@@ -29,7 +29,7 @@ public class DefaultImageDecoder implements ImageDecoder {
     public final ImageDecoder mAnimatedGifDecoder;
     public final ImageDecoder mAnimatedWebPDecoder;
     @Nullable
-    public final Map mCustomDecoders;
+    public final Map<ImageFormat, ImageDecoder> mCustomDecoders;
     public final ImageDecoder mDefaultDecoder;
     public final PlatformDecoder mPlatformDecoder;
 
@@ -54,7 +54,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         }
     }
 
-    public DefaultImageDecoder(ImageDecoder imageDecoder, ImageDecoder imageDecoder2, PlatformDecoder platformDecoder, @Nullable Map map) {
+    public DefaultImageDecoder(ImageDecoder imageDecoder, ImageDecoder imageDecoder2, PlatformDecoder platformDecoder, @Nullable Map<ImageFormat, ImageDecoder> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,8 +136,8 @@ public class DefaultImageDecoder implements ImageDecoder {
                 imageFormat = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
                 encodedImage.setImageFormat(imageFormat);
             }
-            Map map = this.mCustomDecoders;
-            if (map != null && (imageDecoder = (ImageDecoder) map.get(imageFormat)) != null) {
+            Map<ImageFormat, ImageDecoder> map = this.mCustomDecoders;
+            if (map != null && (imageDecoder = map.get(imageFormat)) != null) {
                 return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
             }
             return this.mDefaultDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
@@ -145,12 +145,12 @@ public class DefaultImageDecoder implements ImageDecoder {
         return (CloseableImage) invokeLILL.objValue;
     }
 
-    private void maybeApplyTransformation(@Nullable BitmapTransformation bitmapTransformation, CloseableReference closeableReference) {
+    private void maybeApplyTransformation(@Nullable BitmapTransformation bitmapTransformation, CloseableReference<Bitmap> closeableReference) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65538, this, bitmapTransformation, closeableReference) != null) || bitmapTransformation == null) {
             return;
         }
-        Bitmap bitmap = (Bitmap) closeableReference.get();
+        Bitmap bitmap = closeableReference.get();
         if (Build.VERSION.SDK_INT >= 12 && bitmapTransformation.modifiesTransparency()) {
             bitmap.setHasAlpha(true);
         }
@@ -186,7 +186,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
-            CloseableReference decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.colorSpace);
+            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.colorSpace);
             try {
                 maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
                 return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
@@ -201,7 +201,7 @@ public class DefaultImageDecoder implements ImageDecoder {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, encodedImage, imageDecodeOptions)) == null) {
-            CloseableReference decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.colorSpace);
+            CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, imageDecodeOptions.colorSpace);
             try {
                 maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeFromEncodedImageWithColorSpace);
                 return new CloseableStaticBitmap(decodeFromEncodedImageWithColorSpace, ImmutableQualityInfo.FULL_QUALITY, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());

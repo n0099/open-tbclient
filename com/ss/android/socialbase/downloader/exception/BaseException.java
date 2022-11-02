@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes8.dex */
 public class BaseException extends Exception implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.socialbase.downloader.exception.BaseException.1
+    public static final Parcelable.Creator<BaseException> CREATOR = new Parcelable.Creator<BaseException>() { // from class: com.ss.android.socialbase.downloader.exception.BaseException.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

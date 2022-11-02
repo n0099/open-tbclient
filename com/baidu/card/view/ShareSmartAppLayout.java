@@ -5,24 +5,25 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.p26;
-import com.baidu.tieba.xx;
+import com.baidu.tieba.rr4;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class ShareSmartAppLayout extends LinearLayout implements xx {
+public class ShareSmartAppLayout extends LinearLayout implements rx<rr4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public p26 b;
+    public z36<rr4> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -52,7 +53,7 @@ public class ShareSmartAppLayout extends LinearLayout implements xx {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareSmartAppLayout(Context context, AttributeSet attributeSet) {
+    public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,32 +74,32 @@ public class ShareSmartAppLayout extends LinearLayout implements xx {
         b();
     }
 
-    public void setSubClickListener(p26 p26Var) {
+    public void setSubClickListener(z36<rr4> z36Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, p26Var) == null) {
-            this.b = p26Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, z36Var) == null) {
+            this.b = z36Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c4, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d9, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (AppletsCellView) findViewById(R.id.obfuscated_res_0x7f09054e);
+            this.a = (AppletsCellView) findViewById(R.id.obfuscated_res_0x7f09055b);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
+    @Override // com.baidu.tieba.rx
     /* renamed from: c */
-    public void a(ar4 ar4Var) {
+    public void a(rr4 rr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ar4Var) == null) {
-            if (ar4Var != null && ar4Var.getThreadData() != null && ar4Var.getThreadData().getSmartApp() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rr4Var) == null) {
+            if (rr4Var != null && rr4Var.getThreadData() != null && rr4Var.getThreadData().getSmartApp() != null) {
                 setVisibility(0);
-                ThreadData threadData = ar4Var.getThreadData();
+                ThreadData threadData = rr4Var.getThreadData();
                 this.a.setData(threadData.getSmartApp());
                 this.a.setForumId(String.valueOf(threadData.getFid()));
                 this.a.setFrom("frs_card");
@@ -108,12 +109,12 @@ public class ShareSmartAppLayout extends LinearLayout implements xx {
         }
     }
 
-    public p26 getSubClickListener() {
+    public z36<rr4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (p26) invokeV.objValue;
+        return (z36) invokeV.objValue;
     }
 }

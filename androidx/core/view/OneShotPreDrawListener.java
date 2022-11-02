@@ -2,6 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +37,8 @@ public final class OneShotPreDrawListener implements ViewTreeObserver.OnPreDrawL
         this.mRunnable = runnable;
     }
 
-    public static OneShotPreDrawListener add(View view2, Runnable runnable) {
+    @NonNull
+    public static OneShotPreDrawListener add(@NonNull View view2, @NonNull Runnable runnable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, view2, runnable)) == null) {

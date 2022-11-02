@@ -14,6 +14,8 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
@@ -59,6 +61,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     public float mRotationCount;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public @interface ProgressDrawableSize {
     }
@@ -445,7 +448,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setColors(int[] iArr) {
+        public void setColors(@NonNull int[] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048607, this, iArr) == null) {
                 this.mColors = iArr;
@@ -638,7 +641,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public CircularProgressDrawable(Context context) {
+    public CircularProgressDrawable(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -744,6 +747,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         return invokeV.floatValue;
     }
 
+    @NonNull
     public int[] getColorSchemeColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -780,6 +784,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         return invokeV.floatValue;
     }
 
+    @NonNull
     public Paint.Cap getStrokeCap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -890,7 +895,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setColorSchemeColors(int... iArr) {
+    public void setColorSchemeColors(@NonNull int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, iArr) == null) {
             this.mRing.setColors(iArr);
@@ -907,7 +912,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setStrokeCap(Paint.Cap cap) {
+    public void setStrokeCap(@NonNull Paint.Cap cap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, cap) == null) {
             this.mRing.setStrokeCap(cap);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +21,9 @@ public class SelectRuleView extends LinearLayout {
     public int a;
     public int b;
     public int c;
-    public List d;
-    public List e;
-    public List f;
+    public List<String> d;
+    public List<String> e;
+    public List<String> f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleView(Context context) {
@@ -46,7 +47,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SelectRuleView(Context context, AttributeSet attributeSet) {
+    public SelectRuleView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +68,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectRuleView(Context context, AttributeSet attributeSet, int i) {
+    public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +92,7 @@ public class SelectRuleView extends LinearLayout {
         c();
     }
 
-    public final List a(List list, int i, int i2) {
+    public final List<String> a(List<String> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, list, i, i2)) == null) {
@@ -153,7 +154,7 @@ public class SelectRuleView extends LinearLayout {
         }
     }
 
-    public void setData(List list, List list2) {
+    public void setData(List<String> list, List<String> list2) {
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) {
@@ -163,9 +164,9 @@ public class SelectRuleView extends LinearLayout {
             b();
             this.d = list;
             this.e = list2;
-            List arrayList = new ArrayList();
+            List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list);
-            List arrayList2 = new ArrayList();
+            List<String> arrayList2 = new ArrayList<>();
             arrayList2.addAll(list2);
             if (arrayList.size() > arrayList2.size()) {
                 size = arrayList.size();
@@ -197,7 +198,7 @@ public class SelectRuleView extends LinearLayout {
         }
     }
 
-    public void setData(List list, List list2, List list3) {
+    public void setData(List<String> list, List<String> list2, List<String> list3) {
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, list3) == null) {
@@ -208,11 +209,11 @@ public class SelectRuleView extends LinearLayout {
             this.d = list2;
             this.e = list3;
             this.f = list;
-            List arrayList = new ArrayList();
+            List<String> arrayList = new ArrayList<>();
             arrayList.addAll(list2);
-            List arrayList2 = new ArrayList();
+            List<String> arrayList2 = new ArrayList<>();
             arrayList2.addAll(list3);
-            List arrayList3 = new ArrayList();
+            List<String> arrayList3 = new ArrayList<>();
             arrayList3.addAll(list);
             if (list2.size() > arrayList2.size()) {
                 size = arrayList.size();

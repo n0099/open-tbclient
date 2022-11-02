@@ -2,6 +2,8 @@ package com.bumptech.glide.load.model;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +22,17 @@ public class GlideUrl implements Key {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public volatile byte[] cacheKeyBytes;
     public int hashCode;
     public final Headers headers;
+    @Nullable
     public String safeStringUrl;
+    @Nullable
     public URL safeUrl;
+    @Nullable
     public final String stringUrl;
+    @Nullable
     public final URL url;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -147,7 +154,7 @@ public class GlideUrl implements Key {
         return (String) invokeV.objValue;
     }
 
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -232,7 +239,7 @@ public class GlideUrl implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, messageDigest) == null) {
             messageDigest.update(getCacheKeyBytes());

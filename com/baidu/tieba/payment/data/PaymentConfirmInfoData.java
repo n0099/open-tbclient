@@ -23,7 +23,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public UserInfo user_info;
 
     /* loaded from: classes5.dex */
-    public final class OrderInfo extends OrmObject implements Serializable {
+    public static final class OrderInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2732450616226807443L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public long timestamp;
 
         /* loaded from: classes5.dex */
-        public final class Cpath extends OrmObject implements Serializable {
+        public static final class Cpath extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7950965099930244673L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int tip_exist;
 
             /* loaded from: classes5.dex */
-            public final class Member extends OrmObject implements Serializable {
+            public static final class Member extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final long serialVersionUID = 8094155826429200428L;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public final class UserInfo extends OrmObject implements Serializable {
+    public static final class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4710995963160510207L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String user_nickname;
 
         /* loaded from: classes5.dex */
-        public final class UserScores extends OrmObject implements Serializable {
+        public static final class UserScores extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -667999598567432177L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -655,7 +655,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     }
 
     /* loaded from: classes5.dex */
-    public final class GoodsInfo extends OrmObject implements Serializable {
+    public static final class GoodsInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NAME_LENGTH_MAX = 7;
         public static final long serialVersionUID = 3616864478965520380L;

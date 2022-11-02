@@ -41,7 +41,7 @@ public final class Tun {
     public static /* synthetic */ Interceptable $ic;
     public static final Tun INSTANCE;
     public static ParcelFileDescriptor descriptor;
-    public static Deferred handleLoop;
+    public static Deferred<Unit> handleLoop;
     public static ByteBuffer headerBuf;
     public static boolean inited;
     public static FileInputStream input;
@@ -101,11 +101,11 @@ public final class Tun {
         }
     }
 
-    public final Deferred getHandleLoop() {
+    public final Deferred<Unit> getHandleLoop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Deferred deferred = handleLoop;
+            Deferred<Unit> deferred = handleLoop;
             if (deferred != null) {
                 return deferred;
             }
@@ -149,7 +149,7 @@ public final class Tun {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object loop(Continuation continuation) {
+    public final Object loop(Continuation<? super Unit> continuation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, continuation)) == null) {
@@ -162,7 +162,7 @@ public final class Tun {
         return invokeL.objValue;
     }
 
-    public final void setHandleLoop(Deferred deferred) {
+    public final void setHandleLoop(Deferred<Unit> deferred) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deferred) == null) {
             Intrinsics.checkNotNullParameter(deferred, "<set-?>");
@@ -257,7 +257,7 @@ public final class Tun {
         inited = true;
     }
 
-    public final Object start(Continuation continuation) {
+    public final Object start(Continuation<? super Unit> continuation) {
         InterceptResult invokeL;
         Job launch$default;
         Interceptable interceptable = $ic;

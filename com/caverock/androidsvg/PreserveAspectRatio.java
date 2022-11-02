@@ -19,7 +19,7 @@ public class PreserveAspectRatio {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Alignment {
+    public static final class Alignment {
         public static final /* synthetic */ Alignment[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Alignment none;
@@ -101,7 +101,7 @@ public class PreserveAspectRatio {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Scale {
+    public static final class Scale {
         public static final /* synthetic */ Scale[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Scale meet;

@@ -10,10 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.http.Header;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BrowserCompatSpec extends CookieSpecBase {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] DATE_PATTERNS = null;
@@ -89,7 +90,7 @@ public class BrowserCompatSpec extends CookieSpecBase {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public List formatCookies(List list) {
+    public List<Header> formatCookies(List<Cookie> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
@@ -99,7 +100,7 @@ public class BrowserCompatSpec extends CookieSpecBase {
     }
 
     @Override // org.apache.http.cookie.CookieSpec
-    public List parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, header, cookieOrigin)) == null) {

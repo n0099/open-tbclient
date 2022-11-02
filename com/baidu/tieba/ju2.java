@@ -1,18 +1,51 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ju2 extends gu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ju2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-677978908, "Lcom/baidu/tieba/ju2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-677978908, "Lcom/baidu/tieba/ju2$b;");
+                    return;
+                }
+            }
+            a = new ju2(null);
+        }
+    }
 
     public ju2() {
         Interceptable interceptable = $ic;
@@ -28,40 +61,79 @@ public class ju2 extends gu2 {
         }
     }
 
-    @Override // com.baidu.tieba.gu2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
+    public static ju2 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (gu2.c) {
-                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (ju2) invokeV.objValue;
+    }
+
+    public /* synthetic */ ju2(a aVar) {
+        this();
+    }
+
+    public boolean j(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
+            return TextUtils.equals(c(pMSAppInfo), "1");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public JSONObject k(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.length() > 0) {
+                return b2.optJSONObject("topPages");
             }
-            if (bitmap == null) {
-                return false;
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public boolean h(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            JSONObject d = d(pMSAppInfo);
+            if (d != null && d.length() > 0) {
+                boolean optBoolean = d.optBoolean("is_opti");
+                if (gu2.c) {
+                    Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
+                }
+                return optBoolean;
             }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            int i = 0;
-            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
-                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
-                    int pixel = bitmap.getPixel(i2, i3);
-                    if (i == 0) {
-                        i = pixel;
-                    }
-                    if (i != pixel && pixel != 0) {
-                        if (wj1.a) {
-                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                        return false;
-                    }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean i(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject b2 = b(pMSAppInfo);
+            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
+                z = b2.optBoolean(PrefetchEvent.MODULE);
+            } else {
+                JSONObject a2 = a(pMSAppInfo);
+                if (a2 != null && a2.optBoolean(PrefetchEvent.MODULE)) {
+                    z = true;
+                } else {
+                    z = false;
                 }
             }
             if (gu2.c) {
-                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
             }
-            return true;
+            return z;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

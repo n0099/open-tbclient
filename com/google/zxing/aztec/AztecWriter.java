@@ -110,7 +110,7 @@ public final class AztecWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
         InterceptResult invokeCommon;
         Charset charset;
         int i3;

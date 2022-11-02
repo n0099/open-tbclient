@@ -12,7 +12,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -275,7 +275,7 @@ public class VideoLoadingProgressView extends View {
             this.g = new RectF();
             this.h = new Paint(1);
             this.i = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.j = fj.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+            this.j = xi.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
             this.h.setColor(this.i);
             this.h.setStrokeWidth(this.j);
             this.h.setStyle(Paint.Style.STROKE);

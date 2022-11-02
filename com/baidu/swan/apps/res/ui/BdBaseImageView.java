@@ -1,19 +1,22 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rg3;
+import com.baidu.tieba.jh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+@SuppressLint({"AppCompatCustomView"})
+/* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +46,7 @@ public class BdBaseImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdBaseImageView(Context context, AttributeSet attributeSet) {
+    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +69,7 @@ public class BdBaseImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdBaseImageView(Context context, AttributeSet attributeSet, int i) {
+    public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -92,7 +95,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Color.alpha(rg3.d(getContext())) != 0) {
+            if (Color.alpha(jh3.d(getContext())) != 0) {
                 return true;
             }
             return false;
@@ -104,7 +107,7 @@ public class BdBaseImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.a && this.b == rg3.d(getContext())) {
+            if (!this.a && this.b == jh3.d(getContext())) {
                 return false;
             }
             return true;
@@ -117,8 +120,8 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
-                rg3.b(getContext(), getDrawable());
-                this.b = rg3.d(getContext());
+                jh3.b(getContext(), getDrawable());
+                this.b = jh3.d(getContext());
                 this.a = false;
             }
             super.draw(canvas);
@@ -130,7 +133,7 @@ public class BdBaseImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (a()) {
-                rg3.c(getContext(), getDrawable(), i);
+                jh3.c(getContext(), getDrawable(), i);
             } else {
                 super.setImageAlpha(i);
             }
@@ -138,7 +141,7 @@ public class BdBaseImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView
-    public void setImageDrawable(Drawable drawable) {
+    public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
             this.a = true;

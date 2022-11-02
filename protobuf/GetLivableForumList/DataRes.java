@@ -34,18 +34,18 @@ public final class DataRes extends Message {
     public final String tips;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer available;
         public Integer hasMore;
-        public List likeList;
+        public List<ForumRalatedInfo> likeList;
         public Integer minLevel;
         public String tips;
 
@@ -159,7 +159,7 @@ public final class DataRes extends Message {
             } else {
                 this.tips = str;
             }
-            List list = builder.likeList;
+            List<ForumRalatedInfo> list = builder.likeList;
             if (list == null) {
                 this.likeList = DEFAULT_LIKELIST;
             } else {

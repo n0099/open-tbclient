@@ -1,6 +1,9 @@
 package androidx.room;
 
 import android.database.Cursor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SimpleSQLiteQuery;
@@ -13,15 +16,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public DatabaseConfiguration mConfiguration;
+    @NonNull
     public final Delegate mDelegate;
+    @NonNull
     public final String mIdentityHash;
+    @NonNull
     public final String mLegacyHash;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes.dex */
     public static abstract class Delegate {
         public static /* synthetic */ Interceptable $ic;
@@ -58,7 +67,7 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoomOpenHelper(DatabaseConfiguration databaseConfiguration, Delegate delegate, String str) {
+    public RoomOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration, @NonNull Delegate delegate, @NonNull String str) {
         this(databaseConfiguration, delegate, "", str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +88,7 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoomOpenHelper(DatabaseConfiguration databaseConfiguration, Delegate delegate, String str, String str2) {
+    public RoomOpenHelper(@NonNull DatabaseConfiguration databaseConfiguration, @NonNull Delegate delegate, @NonNull String str, @NonNull String str2) {
         super(delegate.version);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

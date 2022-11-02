@@ -3,6 +3,8 @@ package com.baidu.searchbox.player.kernel;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.constants.PlayerStatus;
@@ -40,8 +42,10 @@ public abstract class AbsVideoKernel implements IPoolItem {
     public String mRemoteServer;
     public int mSpeed;
     public VideoUrlModel mUrlModel;
+    @NonNull
     public final VideoSession mVideoSession;
 
+    @Nullable
     public abstract View getBVideoView();
 
     public abstract int getBufferingPosition();
@@ -74,7 +78,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void seekToMs(int i, int i2);
 
-    public void setClarityInfo(String str) {
+    public void setClarityInfo(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
         }
@@ -86,7 +90,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setExternalInfo(String str, Object obj);
 
-    public void setHttpDns(IDnsProcessListener iDnsProcessListener) {
+    public void setHttpDns(@NonNull IDnsProcessListener iDnsProcessListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, iDnsProcessListener) == null) {
         }
@@ -102,13 +106,13 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setOption(String str, String str2);
 
-    public void setPlayConf(String str) {
+    public void setPlayConf(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
         }
     }
 
-    public abstract void setProxy(String str);
+    public abstract void setProxy(@Nullable String str);
 
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
@@ -130,7 +134,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public abstract void setVideoFormatOptions(String str, HashMap<String, String> hashMap);
+    public abstract void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap);
 
     public abstract void setVideoRotation(int i);
 
@@ -150,10 +154,10 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f);
 
-    public abstract void updateFreeProxy(String str);
+    public abstract void updateFreeProxy(@Nullable String str);
 
     @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(String str) {
+    public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
@@ -197,7 +201,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void setHttpHeader(HashMap<String, String> hashMap) {
+    public void setHttpHeader(@Nullable HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048618, this, hashMap) == null) && hashMap != null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -214,6 +218,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
+    @Nullable
     public String getKernelLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -232,6 +237,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String getServerIpInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,6 +256,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         return (PlayerStatus) invokeV.objValue;
     }
 
+    @NonNull
     public VideoSession getVideoSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -272,6 +279,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public VideoUrlModel getVideoUrlModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -398,14 +406,14 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void bindMessenger(IMessenger iMessenger) {
+    public void bindMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) {
             this.mVideoSession.bindMessenger(iMessenger);
         }
     }
 
-    public <T extends VideoUrlModel> void changePlayUrl(T t) {
+    public <T extends VideoUrlModel> void changePlayUrl(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             String str = getVideoUrlModel().logId;
@@ -420,7 +428,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public boolean matchStatus(PlayerStatus... playerStatusArr) {
+    public boolean matchStatus(@NonNull PlayerStatus... playerStatusArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, playerStatusArr)) == null) {
@@ -436,7 +444,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void play(String str) {
+    public void play(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             printLog("play(), url = " + str);
@@ -453,7 +461,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void setKernelLogId(String str) {
+    public void setKernelLogId(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
             getVideoUrlModel().logId = str;
@@ -475,7 +483,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public <T extends VideoUrlModel> void setVideoUrl(T t) {
+    public <T extends VideoUrlModel> void setVideoUrl(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, t) == null) {
             String reuseLogId = reuseLogId(t.isNeedPrepare);
@@ -486,7 +494,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void changePlayUrl(String str) {
+    public void changePlayUrl(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(str)) {
             updateVideoUrl(str);

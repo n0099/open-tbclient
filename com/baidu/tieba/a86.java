@@ -1,37 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c86;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class a86 implements yb5 {
+public final class a86 implements c86.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
-    public Integer c;
-
-    @Override // com.baidu.tieba.yb5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yb5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-        }
-    }
 
     public a86() {
         Interceptable interceptable = $ic;
@@ -43,33 +23,24 @@ public class a86 implements yb5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c86.a
+    public void a(h66 item, long j, h86 displayer, b66 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            DrawState f = item.f();
+            if (item.i().compareTo(ItemState.Measured) >= 0) {
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
+                f.H(true);
                 return;
             }
-        }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
-    }
-
-    public void a(a86 a86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a86Var) == null) {
-            this.a.addAll(a86Var.a);
-            this.b = a86Var.b;
-            this.c = a86Var.c;
-        }
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(r76.c(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(r76.c(manageInfo2));
-            }
-            this.c = dataRes.has_more;
+            f.H(false);
         }
     }
 }

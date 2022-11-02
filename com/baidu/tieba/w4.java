@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,10 +10,10 @@ public class w4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final short[] a;
-    public final b7 b;
-    public final b7 c;
-    public final b7 d;
-    public final b7 e;
+    public final b7<x4> b;
+    public final b7<ModelMaterial> c;
+    public final b7<z4> d;
+    public final b7<v4> e;
 
     public w4() {
         Interceptable interceptable = $ic;
@@ -28,9 +29,9 @@ public class w4 {
             }
         }
         this.a = new short[2];
-        this.b = new b7();
-        this.c = new b7();
-        this.d = new b7();
-        this.e = new b7();
+        this.b = new b7<>();
+        this.c = new b7<>();
+        this.d = new b7<>();
+        this.e = new b7<>();
     }
 }

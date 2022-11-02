@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs.itemtab;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.cp6;
+import com.baidu.tieba.lq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage {
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<lq6, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,8 +35,9 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage {
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class getProtobufResponseIdlClass() {
+    public Class<ItemPageResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -45,14 +47,15 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            cp6 cp6Var = new cp6();
+            lq6 lq6Var = new lq6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            cp6Var.a(itemPageResIdl.data);
+            lq6Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -60,7 +63,7 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage {
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(cp6Var);
+            setData(lq6Var);
             return itemPageResIdl;
         }
         return invokeIL.objValue;

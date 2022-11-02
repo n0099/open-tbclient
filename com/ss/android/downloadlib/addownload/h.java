@@ -2,6 +2,7 @@ package com.ss.android.downloadlib.addownload;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
@@ -19,7 +20,7 @@ public class h {
         return i == 2 || i == 1;
     }
 
-    public static int a(com.ss.android.downloadlib.addownload.b.e eVar, boolean z, com.ss.android.socialbase.appdownloader.f fVar) {
+    public static int a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar, boolean z, com.ss.android.socialbase.appdownloader.f fVar) {
         int i;
         String str;
         if (fVar != null && !TextUtils.isEmpty(fVar.a()) && fVar.getContext() != null) {
@@ -162,7 +163,7 @@ public class h {
         return false;
     }
 
-    public static boolean a(com.ss.android.socialbase.appdownloader.f fVar, com.ss.android.socialbase.downloader.g.a aVar, int i) {
+    public static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.g.a aVar, int i) {
         boolean z;
         String optString;
         JSONArray e = aVar.e("ah_plans");

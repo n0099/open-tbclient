@@ -1,5 +1,6 @@
 package com.baidu.swan.gamecenter.appmanager.install;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.share.BaseActivity;
+@SuppressLint({BaseActivity.TAG})
 /* loaded from: classes3.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public static /* synthetic */ Interceptable $ic;

@@ -19,6 +19,7 @@ public class a extends c {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (cVar != null) {
@@ -35,7 +36,7 @@ public class a extends c {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: d */
+    /* renamed from: d  reason: avoid collision after fix types in other method */
     public void b(MessageV3 messageV3) {
         DebugLogger.e("AbstractMessageHandler", "ScheduleNotificationHandler dont repeat upload receiver push event");
     }

@@ -1,7 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,83 +7,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
-public class w {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "w";
+public final class w {
+    public static /* synthetic */ Interceptable $ic;
+    public static final w a;
+    public static final w b;
+    public static final /* synthetic */ w[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public v b;
+    public final int c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(724782685, "Lcom/baidu/mapsdkplatform/comapi/map/w;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(724782685, "Lcom/baidu/mapsdkplatform/comapi/map/w;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(724782685, "Lcom/baidu/mapsdkplatform/comapi/map/w;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(724782685, "Lcom/baidu/mapsdkplatform/comapi/map/w;");
-        }
+        a = new w("GLSurfaceView", 0, 1);
+        w wVar = new w("TextureView", 1, 2);
+        b = wVar;
+        d = new w[]{a, wVar};
     }
 
-    public w() {
+    public w(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = i2;
     }
 
-    public void a(Message message) {
+    public static w valueOf(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 65289) {
-            int i = message.arg1;
-            if (i != 12 && i != 101 && i != 102) {
-                switch (i) {
-                    case -1:
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        break;
-                    default:
-                        return;
-                }
-            }
-            v vVar = this.b;
-            if (vVar != null) {
-                vVar.a(message.arg1, message.arg2);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (w) Enum.valueOf(w.class, str);
         }
+        return (w) invokeL.objValue;
     }
 
-    public void a(v vVar) {
+    public static w[] values() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-            this.b = vVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (w[]) d.clone();
         }
-    }
-
-    public void b(v vVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vVar) == null) {
-            this.b = null;
-        }
+        return (w[]) invokeV.objValue;
     }
 }

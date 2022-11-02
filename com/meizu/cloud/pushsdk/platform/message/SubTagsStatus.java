@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
-    public List tagList;
+    public List<Tag> tagList;
 
     /* loaded from: classes8.dex */
     public class Tag implements Serializable {
@@ -52,7 +52,7 @@ public class SubTagsStatus extends BasicPushStatus {
         return this.pushId;
     }
 
-    public List getTagList() {
+    public List<Tag> getTagList() {
         return this.tagList;
     }
 
@@ -85,7 +85,7 @@ public class SubTagsStatus extends BasicPushStatus {
         this.pushId = str;
     }
 
-    public void setTagList(List list) {
+    public void setTagList(List<Tag> list) {
         this.tagList = list;
     }
 

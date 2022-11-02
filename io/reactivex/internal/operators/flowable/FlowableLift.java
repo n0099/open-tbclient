@@ -10,13 +10,13 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableLift extends AbstractFlowableWithUpstream {
+public final class FlowableLift<R, T> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FlowableOperator operator;
+    public final FlowableOperator<? extends R, ? super T> operator;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableLift(Flowable flowable, FlowableOperator flowableOperator) {
+    public FlowableLift(Flowable<T> flowable, FlowableOperator<? extends R, ? super T> flowableOperator) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -37,11 +37,11 @@ public final class FlowableLift extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {
-                Subscriber apply = this.operator.apply(subscriber);
+                Subscriber<? super Object> apply = this.operator.apply(subscriber);
                 if (apply != null) {
                     this.source.subscribe(apply);
                     return;

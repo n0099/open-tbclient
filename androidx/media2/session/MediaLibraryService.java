@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.SessionPlayer;
@@ -27,7 +30,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.media2.session.MediaSessionService
-    public abstract MediaLibrarySession onGetSession(MediaSession.ControllerInfo controllerInfo);
+    @Nullable
+    public abstract MediaLibrarySession onGetSession(@NonNull MediaSession.ControllerInfo controllerInfo);
 
     /* loaded from: classes.dex */
     public static final class LibraryParams implements VersionedParcelable {
@@ -73,6 +77,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 }
             }
 
+            @NonNull
             public LibraryParams build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -82,7 +87,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (LibraryParams) invokeV.objValue;
             }
 
-            public Builder setExtras(Bundle bundle) {
+            @NonNull
+            public Builder setExtras(@Nullable Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -92,6 +98,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeL.objValue;
             }
 
+            @NonNull
             public Builder setOffline(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -102,6 +109,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeZ.objValue;
             }
 
+            @NonNull
             public Builder setRecent(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -112,6 +120,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (Builder) invokeZ.objValue;
             }
 
+            @NonNull
             public Builder setSuggested(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -137,6 +146,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             }
         }
 
+        @Nullable
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -235,25 +245,25 @@ public abstract class MediaLibraryService extends MediaSessionService {
             @Override // androidx.media2.session.MediaSession.MediaSessionImpl
             /* bridge */ /* synthetic */ MediaSession getInstance();
 
-            void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams);
+            void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, @Nullable LibraryParams libraryParams);
 
-            void notifyChildrenChanged(String str, int i, LibraryParams libraryParams);
+            void notifyChildrenChanged(@NonNull String str, int i, @Nullable LibraryParams libraryParams);
 
-            void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams);
+            void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, @Nullable LibraryParams libraryParams);
 
-            LibraryResult onGetChildrenOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams);
+            LibraryResult onGetChildrenOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, @Nullable LibraryParams libraryParams);
 
-            LibraryResult onGetItemOnExecutor(MediaSession.ControllerInfo controllerInfo, String str);
+            LibraryResult onGetItemOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str);
 
-            LibraryResult onGetLibraryRootOnExecutor(MediaSession.ControllerInfo controllerInfo, LibraryParams libraryParams);
+            LibraryResult onGetLibraryRootOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @Nullable LibraryParams libraryParams);
 
-            LibraryResult onGetSearchResultOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams);
+            LibraryResult onGetSearchResultOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, @Nullable LibraryParams libraryParams);
 
-            int onSearchOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams);
+            int onSearchOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams);
 
-            int onSubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams);
+            int onSubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams);
 
-            int onUnsubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str);
+            int onUnsubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str);
         }
 
         /* loaded from: classes.dex */
@@ -262,7 +272,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public Builder(MediaLibraryService mediaLibraryService, SessionPlayer sessionPlayer, Executor executor, MediaLibrarySessionCallback mediaLibrarySessionCallback) {
+            public Builder(@NonNull MediaLibraryService mediaLibraryService, @NonNull SessionPlayer sessionPlayer, @NonNull Executor executor, @NonNull MediaLibrarySessionCallback mediaLibrarySessionCallback) {
                 super(mediaLibraryService, sessionPlayer);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -286,6 +296,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
+            @NonNull
             public MediaLibrarySession build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -326,7 +337,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            public Builder setExtras(Bundle bundle) {
+            @NonNull
+            public Builder setExtras(@NonNull Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
@@ -338,7 +350,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            public Builder setId(String str) {
+            @NonNull
+            public Builder setId(@NonNull String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -350,7 +363,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSession.BuilderBase
-            public Builder setSessionActivity(PendingIntent pendingIntent) {
+            @NonNull
+            public Builder setSessionActivity(@Nullable PendingIntent pendingIntent) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pendingIntent)) == null) {
@@ -365,7 +379,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public int onSearch(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams) {
+            public int onSearch(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
@@ -374,7 +388,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return invokeLLLL.intValue;
             }
 
-            public int onSubscribe(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, LibraryParams libraryParams) {
+            public int onSubscribe(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @Nullable LibraryParams libraryParams) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, mediaLibrarySession, controllerInfo, str, libraryParams)) == null) {
@@ -383,7 +397,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return invokeLLLL.intValue;
             }
 
-            public int onUnsubscribe(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str) {
+            public int onUnsubscribe(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, mediaLibrarySession, controllerInfo, str)) == null) {
@@ -406,7 +420,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 }
             }
 
-            public LibraryResult onGetChildren(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams) {
+            @NonNull
+            public LibraryResult onGetChildren(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable LibraryParams libraryParams) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -415,7 +430,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (LibraryResult) invokeCommon.objValue;
             }
 
-            public LibraryResult onGetSearchResult(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, LibraryParams libraryParams) {
+            @NonNull
+            public LibraryResult onGetSearchResult(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @IntRange(from = 1) int i2, @Nullable LibraryParams libraryParams) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaLibrarySession, controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -424,7 +440,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (LibraryResult) invokeCommon.objValue;
             }
 
-            public LibraryResult onGetItem(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, String str) {
+            @NonNull
+            public LibraryResult onGetItem(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaLibrarySession, controllerInfo, str)) == null) {
@@ -433,7 +450,8 @@ public abstract class MediaLibraryService extends MediaSessionService {
                 return (LibraryResult) invokeLLL.objValue;
             }
 
-            public LibraryResult onGetLibraryRoot(MediaLibrarySession mediaLibrarySession, MediaSession.ControllerInfo controllerInfo, LibraryParams libraryParams) {
+            @NonNull
+            public LibraryResult onGetLibraryRoot(@NonNull MediaLibrarySession mediaLibrarySession, @NonNull MediaSession.ControllerInfo controllerInfo, @Nullable LibraryParams libraryParams) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaLibrarySession, controllerInfo, libraryParams)) == null) {
@@ -477,6 +495,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.session.MediaSession
+        @NonNull
         public MediaLibrarySessionCallback getCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -497,7 +516,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             return (MediaLibrarySessionImpl) invokeV.objValue;
         }
 
-        public void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams) {
+        public void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @Nullable LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048582, this, controllerInfo, str, i, libraryParams) == null) {
                 if (controllerInfo != null) {
@@ -517,7 +536,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             }
         }
 
-        public void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, LibraryParams libraryParams) {
+        public void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, @IntRange(from = 0) int i, @Nullable LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo, str, i, libraryParams) == null) {
                 if (controllerInfo != null) {
@@ -537,7 +556,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
             }
         }
 
-        public void notifyChildrenChanged(String str, int i, LibraryParams libraryParams) {
+        public void notifyChildrenChanged(@NonNull String str, int i, @Nullable LibraryParams libraryParams) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048583, this, str, i, libraryParams) == null) {
                 if (!TextUtils.isEmpty(str)) {
@@ -577,7 +596,7 @@ public abstract class MediaLibraryService extends MediaSessionService {
     }
 
     @Override // androidx.media2.session.MediaSessionService, android.app.Service
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {

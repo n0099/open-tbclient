@@ -29,20 +29,20 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUpstream {
+public final class FlowableBufferBoundarySupplier<T, U extends Collection<? super T>, B> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable boundarySupplier;
-    public final Callable bufferSupplier;
+    public final Callable<? extends Publisher<B>> boundarySupplier;
+    public final Callable<U> bufferSupplier;
 
     /* loaded from: classes8.dex */
-    public final class BufferBoundarySubscriber extends DisposableSubscriber {
+    public static final class BufferBoundarySubscriber<T, U extends Collection<? super T>, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean once;
-        public final BufferBoundarySupplierSubscriber parent;
+        public final BufferBoundarySupplierSubscriber<T, U, B> parent;
 
-        public BufferBoundarySubscriber(BufferBoundarySupplierSubscriber bufferBoundarySupplierSubscriber) {
+        public BufferBoundarySubscriber(BufferBoundarySupplierSubscriber<T, U, B> bufferBoundarySupplierSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,9 +74,9 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || this.once) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) != null) || this.once) {
                 return;
             }
             this.once = true;
@@ -96,17 +96,17 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferBoundarySupplierSubscriber extends QueueDrainSubscriber implements FlowableSubscriber, Subscription, Disposable {
+    public static final class BufferBoundarySupplierSubscriber<T, U extends Collection<? super T>, B> extends QueueDrainSubscriber<T, U, U> implements FlowableSubscriber<T>, Subscription, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable boundarySupplier;
-        public Collection buffer;
-        public final Callable bufferSupplier;
-        public final AtomicReference other;
+        public final Callable<? extends Publisher<B>> boundarySupplier;
+        public U buffer;
+        public final Callable<U> bufferSupplier;
+        public final AtomicReference<Disposable> other;
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferBoundarySupplierSubscriber(Subscriber subscriber, Callable callable, Callable callable2) {
+        public BufferBoundarySupplierSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, Callable<? extends Publisher<B>> callable2) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -124,18 +124,23 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
                     return;
                 }
             }
-            this.other = new AtomicReference();
+            this.other = new AtomicReference<>();
             this.bufferSupplier = callable;
             this.boundarySupplier = callable2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: io.reactivex.internal.operators.flowable.FlowableBufferBoundarySupplier$BufferBoundarySupplierSubscriber<T, U extends java.util.Collection<? super T>, B> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.internal.subscribers.QueueDrainSubscriber, io.reactivex.internal.util.QueueDrain
-        public boolean accept(Subscriber subscriber, Collection collection) {
+        public /* bridge */ /* synthetic */ boolean accept(Subscriber subscriber, Object obj) {
+            return accept((Subscriber<? super Subscriber>) subscriber, (Subscriber) ((Collection) obj));
+        }
+
+        public boolean accept(Subscriber<? super U> subscriber, U u) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, collection)) == null) {
-                this.actual.onNext(collection);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber, u)) == null) {
+                this.actual.onNext(u);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -187,19 +192,19 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 try {
-                    Collection collection = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
+                    U u = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
                     try {
                         Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.boundarySupplier.call(), "The boundary publisher supplied is null");
                         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(this);
                         if (DisposableHelper.replace(this.other, bufferBoundarySubscriber)) {
                             synchronized (this) {
-                                Collection collection2 = this.buffer;
-                                if (collection2 == null) {
+                                U u2 = this.buffer;
+                                if (u2 == null) {
                                     return;
                                 }
-                                this.buffer = collection;
+                                this.buffer = u;
                                 publisher.subscribe(bufferBoundarySubscriber);
-                                fastPathEmitMax(collection2, false, this);
+                                fastPathEmitMax(u2, false, this);
                             }
                         }
                     } catch (Throwable th) {
@@ -221,12 +226,12 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 synchronized (this) {
-                    Collection collection = this.buffer;
-                    if (collection == null) {
+                    U u = this.buffer;
+                    if (u == null) {
                         return;
                     }
                     this.buffer = null;
-                    this.queue.offer(collection);
+                    this.queue.offer(u);
                     this.done = true;
                     if (enter()) {
                         QueueDrainHelper.drainMaxLoop(this.queue, this.actual, false, this, this);
@@ -245,15 +250,15 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 synchronized (this) {
-                    Collection collection = this.buffer;
-                    if (collection == null) {
+                    U u = this.buffer;
+                    if (u == null) {
                         return;
                     }
-                    collection.add(obj);
+                    u.add(t);
                 }
             }
         }
@@ -273,9 +278,9 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
                 return;
             }
             this.s = subscription;
-            Subscriber subscriber = this.actual;
+            Subscriber<? super V> subscriber = this.actual;
             try {
-                this.buffer = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
+                this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The buffer supplied is null");
                 try {
                     Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.boundarySupplier.call(), "The boundary publisher supplied is null");
                     BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(this);
@@ -301,7 +306,7 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBufferBoundarySupplier(Flowable flowable, Callable callable, Callable callable2) {
+    public FlowableBufferBoundarySupplier(Flowable<T> flowable, Callable<? extends Publisher<B>> callable, Callable<U> callable2) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -323,7 +328,7 @@ public final class FlowableBufferBoundarySupplier extends AbstractFlowableWithUp
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BufferBoundarySupplierSubscriber(new SerializedSubscriber(subscriber), this.bufferSupplier, this.boundarySupplier));

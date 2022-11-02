@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.interceptor;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import com.baidu.searchbox.bddownload.core.download.DownloadCache;
@@ -33,6 +34,7 @@ public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch 
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
+    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

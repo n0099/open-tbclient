@@ -24,7 +24,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -33,7 +32,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0166a a;
+    public HandlerC0174a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -42,13 +41,13 @@ public class a {
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0166a extends Handler {
+    public class HandlerC0174a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0166a(a aVar, Looper looper) {
+        public HandlerC0174a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -231,7 +230,7 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0166a(this, h.a());
+        this.a = new HandlerC0174a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }
@@ -271,7 +270,7 @@ public class a {
     */
     public static void a(a aVar, int i, int i2) {
         ?? a;
-        List list;
+        List<com.baidu.sofire.g.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, aVar, i, i2) == null) {
             aVar.getClass();
@@ -385,7 +384,7 @@ public class a {
                     }
                     aVar.a(list, i2, j);
                     if (aVar.a() && i == 0 && i2 == 2 && list.size() >= 100) {
-                        List a3 = aVar.a(i, i2);
+                        List<com.baidu.sofire.g.a> a3 = aVar.a(i, i2);
                         while (a3 != null && a3.size() != 0) {
                             aVar.a(a3, i2, j);
                             if (a3.size() >= 100 && aVar.a()) {
@@ -412,7 +411,7 @@ public class a {
         }
     }
 
-    public final List a(int i, int i2) {
+    public final List<com.baidu.sofire.g.a> a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
@@ -467,7 +466,7 @@ public class a {
         }
     }
 
-    public final void a(List list, int i, long j) {
+    public final void a(List<com.baidu.sofire.g.a> list, int i, long j) {
         JSONObject jSONObject;
         int length;
         Interceptable interceptable = $ic;
@@ -475,10 +474,8 @@ public class a {
             int i2 = this.b.e.getInt("re_net_one_lt", 5);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            Iterator it = list.iterator();
             int i3 = 0;
-            while (it.hasNext()) {
-                com.baidu.sofire.g.a aVar = (com.baidu.sofire.g.a) it.next();
+            for (com.baidu.sofire.g.a aVar : list) {
                 try {
                     String jSONObject2 = com.baidu.sofire.k.a.b(this.c, new JSONObject(aVar.d)).toString();
                     try {

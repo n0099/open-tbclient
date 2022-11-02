@@ -1,148 +1,180 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class oy2 {
+public class oy2 implements ip2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048513, "Lcom/baidu/tieba/oy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final oy2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-531139069, "Lcom/baidu/tieba/oy2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-531139069, "Lcom/baidu/tieba/oy2$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948048513, "Lcom/baidu/tieba/oy2;");
+            a = new oy2(null);
+        }
+    }
+
+    public oy2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public static boolean a(Context context, py2 py2Var) {
-        InterceptResult invokeLL;
+    public static oy2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, py2Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
-            }
-            py2Var.b(2, "method should be called after setActivityRef");
-            if (!a) {
-                return false;
-            }
-            throw new IllegalStateException("this method should be called after setActivityRef");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeLL.booleanValue;
+        return (oy2) invokeV.objValue;
     }
 
-    public static boolean c(ArrayList arrayList, py2 py2Var) {
-        InterceptResult invokeLL;
+    public /* synthetic */ oy2(a aVar) {
+        this();
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, py2Var)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
             }
-            py2Var.a("permission has already granted");
-            return true;
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(ln2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (ip2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
+            }
+            return d;
         }
-        return invokeLL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static ArrayList d(Context context, String[] strArr) {
-        InterceptResult invokeLL;
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (String str : strArr) {
-                if (!ik4.a(context, str)) {
-                    arrayList.add(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                int length = iArr.length;
+                LayoutInflater from = LayoutInflater.from(ln2.c());
+                for (int i : iArr) {
+                    View inflate = from.inflate(i, (ViewGroup) null);
+                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                    if (copyOnWriteArrayList == null) {
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                    }
+                    copyOnWriteArrayList.add(inflate);
+                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+                }
+                if (ip2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+            } catch (Exception e) {
+                if (ip2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
                 }
             }
-            return arrayList;
         }
-        return (ArrayList) invokeLL.objValue;
     }
 
-    public static boolean b(Context context, String str, py2 py2Var) {
-        InterceptResult invokeLLL;
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, py2Var)) == null) {
-            if (ik4.a(context, str)) {
-                py2Var.a("permission has already granted");
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (ip2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
             }
-            return false;
+            if (ip2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                if (view2 == null) {
+                    str = " cache view is null";
+                } else {
+                    str = " adopt cached view";
+                }
+                sb.append(str);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(String str, String[] strArr, int i, Context context, py2 py2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, py2Var}) != null) || !a(context, py2Var) || b(context, str, py2Var)) {
-            return;
-        }
-        g(context, strArr, i, py2Var);
-    }
-
-    @Deprecated
-    public static void f(Context context, String[] strArr, int i, py2 py2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, py2Var) != null) || !a(context, py2Var)) {
-            return;
-        }
-        ArrayList d = d(context, strArr);
-        if (c(d, py2Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new ky2(i, py2Var));
-    }
-
-    public static void g(Context context, String[] strArr, int i, py2 py2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, py2Var) != null) || !a(context, py2Var)) {
-            return;
-        }
-        ArrayList d = d(context, strArr);
-        if (c(d, py2Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new ly2(context, i, py2Var));
-    }
-
-    public static void h(String[] strArr, int i, Context context, py2 py2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, py2Var) != null) || !a(context, py2Var)) {
-            return;
-        }
-        ArrayList d = d(context, strArr);
-        if (c(d, py2Var)) {
-            return;
-        }
-        g(context, (String[]) d.toArray(new String[0]), i, py2Var);
-    }
-
-    @Deprecated
-    public static void requestPermissions(String[] strArr, int i, Context context, py2 py2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, py2Var) != null) || !a(context, py2Var)) {
-            return;
-        }
-        ArrayList d = d(context, strArr);
-        if (c(d, py2Var)) {
-            return;
-        }
-        f(context, (String[]) d.toArray(new String[0]), i, py2Var);
+        return (View) invokeI.objValue;
     }
 }

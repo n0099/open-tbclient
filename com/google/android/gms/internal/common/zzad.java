@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class zzad extends zzaa {
+public final class zzad<E> extends zzaa<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,17 +50,17 @@ public final class zzad extends zzaa {
         }
     }
 
-    public final zzad zzb(Object obj) {
+    public final zzad<E> zzb(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            super.zza(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            super.zza(e);
             return this;
         }
         return (zzad) invokeL.objValue;
     }
 
-    public final zzad zzc(Iterator it) {
+    public final zzad<E> zzc(Iterator<? extends E> it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it)) == null) {

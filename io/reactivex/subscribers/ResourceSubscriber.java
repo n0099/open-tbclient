@@ -16,12 +16,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class ResourceSubscriber implements FlowableSubscriber, Disposable {
+public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicLong missedRequested;
     public final ListCompositeDisposable resources;
-    public final AtomicReference s;
+    public final AtomicReference<Subscription> s;
 
     public ResourceSubscriber() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class ResourceSubscriber implements FlowableSubscriber, Disposab
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
         this.resources = new ListCompositeDisposable();
         this.missedRequested = new AtomicLong();
     }
@@ -81,7 +81,7 @@ public abstract class ResourceSubscriber implements FlowableSubscriber, Disposab
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return SubscriptionHelper.isCancelled((Subscription) this.s.get());
+            return SubscriptionHelper.isCancelled(this.s.get());
         }
         return invokeV.booleanValue;
     }

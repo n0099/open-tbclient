@@ -1,10 +1,13 @@
 package com.kwad.components.core.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.widget.h;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KSCornerImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +45,7 @@ public class KSCornerImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerImageView(Context context, AttributeSet attributeSet) {
+    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +67,7 @@ public class KSCornerImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerImageView(Context context, AttributeSet attributeSet, int i) {
+    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,7 +89,8 @@ public class KSCornerImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSCornerImageView(Context context, AttributeSet attributeSet, int i, int i2) {
+    @RequiresApi(api = 21)
+    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,7 +111,7 @@ public class KSCornerImageView extends ImageView {
         c(context, attributeSet);
     }
 
-    private void c(Context context, AttributeSet attributeSet) {
+    private void c(Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
             h.a aVar = new h.a();

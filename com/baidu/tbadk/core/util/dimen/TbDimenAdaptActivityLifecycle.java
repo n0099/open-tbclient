@@ -5,7 +5,8 @@ import android.app.Application;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,37 +20,37 @@ public class TbDimenAdaptActivityLifecycle implements Application.ActivityLifecy
     public final DisplayMetrics mDefaultMetrics;
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
+    public void onActivityResumed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+    public void onActivityStopped(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
         }
     }
 
@@ -72,17 +73,17 @@ public class TbDimenAdaptActivityLifecycle implements Application.ActivityLifecy
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
+    public void onActivityStarted(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             reDimenActivity(activity);
         }
     }
 
-    public boolean isActivityNeedAdapte(Activity activity) {
+    public static boolean isActivityNeedAdapte(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
             if (activity != null && activity.getClass() != null) {
                 String simpleName = activity.getClass().getSimpleName();
                 if (!"ImageViewerActivity".equalsIgnoreCase(simpleName) && !"LiveShowActivity".equalsIgnoreCase(simpleName) && !"AlaMasterLiveRoomActivity".equalsIgnoreCase(simpleName) && !"AlaGiftTabActivity".equalsIgnoreCase(simpleName) && !"LiveListActivity".equalsIgnoreCase(simpleName) && !"YuyinLivePlayerActivity".equalsIgnoreCase(simpleName) && !"YuyinAlaCreateLiveRoomActivity".equalsIgnoreCase(simpleName)) {
@@ -102,16 +103,16 @@ public class TbDimenAdaptActivityLifecycle implements Application.ActivityLifecy
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
             reDimenActivity(activity);
         }
     }
 
     public void reDimenActivity(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
             if (isActivityNeedAdapte(activity)) {
                 TbDimenManager.getInstance().adaptDimen(activity);
             } else if (this.mDefaultMetrics != null) {

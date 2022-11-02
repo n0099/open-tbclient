@@ -23,7 +23,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List b() throws RemoteException {
+    public List<DownloadInfo> b() throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -100,7 +100,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List a(String str) throws RemoteException {
+    public List<DownloadInfo> a(String str) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -109,7 +109,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List b(String str) throws RemoteException {
+    public List<DownloadInfo> b(String str) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -118,7 +118,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List c(String str) throws RemoteException {
+    public List<DownloadInfo> c(String str) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -127,7 +127,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List d(String str) throws RemoteException {
+    public List<DownloadInfo> d(String str) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -172,7 +172,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List i(int i) throws RemoteException {
+    public List<com.ss.android.socialbase.downloader.model.b> i(int i) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -276,7 +276,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void b(List list) throws RemoteException {
+    public void b(List<String> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar != null) {
             mVar.b(list);
@@ -302,7 +302,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public List e(String str) throws RemoteException {
+    public List<DownloadInfo> e(String str) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return null;
@@ -320,7 +320,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void b(int i, List list) throws RemoteException {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return;
@@ -419,7 +419,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void a(int i, List list) throws RemoteException {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return;
@@ -482,7 +482,7 @@ public class m extends i.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void a(List list) throws RemoteException {
+    public void a(List<String> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar = this.b;
         if (mVar == null) {
             return;

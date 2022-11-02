@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.webkit.CookieManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class an4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bn4 a;
 
     public an4() {
         Interceptable interceptable = $ic;
@@ -28,47 +33,26 @@ public class an4 {
                 return;
             }
         }
-        this.a = new bn4();
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public zm4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (ej.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = dn4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                cn4.a(str2);
-                str3 = b(group);
-            }
-            return new zm4(group, str3, str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
+            httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
+            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            httpMessage.addParam("client_version", TbConfig.getVersion());
+            httpMessage.addParam("client_type", "Android");
+            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            httpMessage.addParam("ua", xj5.e());
+            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (zm4) invokeL.objValue;
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.a.a(dn4.f(str.replaceAll("\\$", "")));
-        }
-        return (String) invokeL.objValue;
     }
 }

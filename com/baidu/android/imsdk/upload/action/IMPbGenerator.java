@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -36,7 +37,7 @@ public final class IMPbGenerator {
     public static final int MAX_ALL_LENGTH = 800;
     public static final int MAX_CRASH_LENGTH = 300;
     public static final String SDK_NAME = "im";
-    public static final List actionList;
+    public static final List<IMPushPb.Action> actionList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -298,7 +299,7 @@ public final class IMPbGenerator {
         return (byte[]) invokeL.objValue;
     }
 
-    public byte[] generateIMRealClient(Context context, IMPushPb.Action action) {
+    public byte[] generateIMRealClient(Context context, @NonNull IMPushPb.Action action) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, action)) == null) {

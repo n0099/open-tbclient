@@ -26,21 +26,31 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public final class MassTransitRouteLine extends RouteLine implements Parcelable {
+public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MassTransitRouteLine> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String b;
     public double c;
-    public List d;
-    public List e;
+    public List<PriceInfo> d;
+    public List<List<TransitStep>> e;
+
+    @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes2.dex */
-    public class TransitStep extends RouteStep implements Parcelable {
+    public static class TransitStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<TransitStep> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-        public List d;
+        public List<TrafficCondition> d;
         public LatLng e;
         public LatLng f;
         public TrainInfo g;
@@ -51,9 +61,19 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
         public String l;
         public String m;
 
+        @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public final class StepVehicleInfoType {
+        public static final class StepVehicleInfoType {
             public static final /* synthetic */ StepVehicleInfoType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final StepVehicleInfoType ESTEP_BUS;
@@ -113,29 +133,48 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
             public static StepVehicleInfoType valueOf(String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (StepVehicleInfoType) Enum.valueOf(StepVehicleInfoType.class, str) : (StepVehicleInfoType) invokeL.objValue;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                    return (StepVehicleInfoType) Enum.valueOf(StepVehicleInfoType.class, str);
+                }
+                return (StepVehicleInfoType) invokeL.objValue;
             }
 
             public static StepVehicleInfoType[] values() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (StepVehicleInfoType[]) $VALUES.clone() : (StepVehicleInfoType[]) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                    return (StepVehicleInfoType[]) $VALUES.clone();
+                }
+                return (StepVehicleInfoType[]) invokeV.objValue;
             }
 
             public int getInt() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.a;
+                }
+                return invokeV.intValue;
             }
         }
 
         /* loaded from: classes2.dex */
-        public class TrafficCondition implements Parcelable {
+        public static class TrafficCondition implements Parcelable {
             public static /* synthetic */ Interceptable $ic;
-            public static final Parcelable.Creator CREATOR;
+            public static final Parcelable.Creator<TrafficCondition> CREATOR;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
             public int b;
+
+            @Override // android.os.Parcelable
+            public int describeContents() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return 0;
+                }
+                return invokeV.intValue;
+            }
 
             static {
                 InterceptResult invokeClinit;
@@ -167,6 +206,24 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
                 }
             }
 
+            public int getTrafficGeoCnt() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.b;
+                }
+                return invokeV.intValue;
+            }
+
+            public int getTrafficStatus() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return this.a;
+                }
+                return invokeV.intValue;
+            }
+
             public TrafficCondition(Parcel parcel) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -184,28 +241,6 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
                 }
                 this.a = parcel.readInt();
                 this.b = parcel.readInt();
-            }
-
-            @Override // android.os.Parcelable
-            public int describeContents() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return 0;
-                }
-                return invokeV.intValue;
-            }
-
-            public int getTrafficGeoCnt() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-            }
-
-            public int getTrafficStatus() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
             }
 
             public void setTrafficGeoCnt(int i) {
@@ -262,10 +297,103 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
             }
         }
 
+        public BusInfo getBusInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.j;
+            }
+            return (BusInfo) invokeV.objValue;
+        }
+
+        public CoachInfo getCoachInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.i;
+            }
+            return (CoachInfo) invokeV.objValue;
+        }
+
+        public LatLng getEndLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.f;
+            }
+            return (LatLng) invokeV.objValue;
+        }
+
+        public String getInstructions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.l;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public PlaneInfo getPlaneInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.h;
+            }
+            return (PlaneInfo) invokeV.objValue;
+        }
+
+        public LatLng getStartLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.e;
+            }
+            return (LatLng) invokeV.objValue;
+        }
+
+        public List<TrafficCondition> getTrafficConditions() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.d;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public TrainInfo getTrainInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.g;
+            }
+            return (TrainInfo) invokeV.objValue;
+        }
+
+        public StepVehicleInfoType getVehileType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.k;
+            }
+            return (StepVehicleInfoType) invokeV.objValue;
+        }
+
+        @Override // com.baidu.mapapi.search.core.RouteStep
+        public List<LatLng> getWayPoints() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                if (this.mWayPoints == null) {
+                    this.mWayPoints = a(this.m);
+                }
+                return this.mWayPoints;
+            }
+            return (List) invokeV.objValue;
+        }
+
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TransitStep(Parcel parcel) {
             super(parcel);
-            StepVehicleInfoType stepVehicleInfoType;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -290,49 +418,29 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
             this.j = (BusInfo) parcel.readParcelable(BusInfo.class.getClassLoader());
             switch (parcel.readInt()) {
                 case 1:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_TRAIN;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_TRAIN;
+                    break;
                 case 2:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_PLANE;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_PLANE;
+                    break;
                 case 3:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_BUS;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_BUS;
+                    break;
                 case 4:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_DRIVING;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_DRIVING;
+                    break;
                 case 5:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_WALK;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_WALK;
+                    break;
                 case 6:
-                    stepVehicleInfoType = StepVehicleInfoType.ESTEP_COACH;
-                    this.k = stepVehicleInfoType;
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
-                default:
-                    this.l = parcel.readString();
-                    this.m = parcel.readString();
-                    return;
+                    this.k = StepVehicleInfoType.ESTEP_COACH;
+                    break;
             }
+            this.l = parcel.readString();
+            this.m = parcel.readString();
         }
 
-        private List a(String str) {
+        private List<LatLng> a(String str) {
             InterceptResult invokeL;
             String[] split;
             Interceptable interceptable = $ic;
@@ -353,83 +461,6 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
                 return arrayList;
             }
             return (List) invokeL.objValue;
-        }
-
-        @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public BusInfo getBusInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (BusInfo) invokeV.objValue;
-        }
-
-        public CoachInfo getCoachInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (CoachInfo) invokeV.objValue;
-        }
-
-        public LatLng getEndLocation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (LatLng) invokeV.objValue;
-        }
-
-        public String getInstructions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (String) invokeV.objValue;
-        }
-
-        public PlaneInfo getPlaneInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (PlaneInfo) invokeV.objValue;
-        }
-
-        public LatLng getStartLocation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (LatLng) invokeV.objValue;
-        }
-
-        public List getTrafficConditions() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (List) invokeV.objValue;
-        }
-
-        public TrainInfo getTrainInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (TrainInfo) invokeV.objValue;
-        }
-
-        public StepVehicleInfoType getVehileType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : (StepVehicleInfoType) invokeV.objValue;
-        }
-
-        @Override // com.baidu.mapapi.search.core.RouteStep
-        public List getWayPoints() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                if (this.mWayPoints == null) {
-                    this.mWayPoints = a(this.m);
-                }
-                return this.mWayPoints;
-            }
-            return (List) invokeV.objValue;
         }
 
         public void setBusInfo(BusInfo busInfo) {
@@ -481,7 +512,7 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
             }
         }
 
-        public void setTrafficConditions(List list) {
+        public void setTrafficConditions(List<TrafficCondition> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
                 this.d = list;
@@ -553,6 +584,42 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
         this.e = null;
     }
 
+    public String getArriveTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<List<TransitStep>> getNewSteps() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public double getPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public List<PriceInfo> getPriceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MassTransitRouteLine(Parcel parcel) {
         super(parcel);
@@ -584,40 +651,6 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
         }
     }
 
-    @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String getArriveTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public List getNewSteps() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public double getPrice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.doubleValue;
-    }
-
-    public List getPriceInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -625,7 +658,7 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
         }
     }
 
-    public void setNewSteps(List list) {
+    public void setNewSteps(List<List<TransitStep>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.e = list;
@@ -639,7 +672,7 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
         }
     }
 
-    public void setPriceInfo(List list) {
+    public void setPriceInfo(List<PriceInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.d = list;
@@ -648,15 +681,21 @@ public final class MassTransitRouteLine extends RouteLine implements Parcelable 
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
-            List list = this.e;
-            parcel.writeInt(list == null ? 0 : list.size());
+            List<List<TransitStep>> list = this.e;
+            if (list == null) {
+                size = 0;
+            } else {
+                size = list.size();
+            }
+            parcel.writeInt(size);
             parcel.writeString(this.b);
             parcel.writeDouble(this.c);
             parcel.writeTypedList(this.d);
-            for (List list2 : this.e) {
+            for (List<TransitStep> list2 : this.e) {
                 parcel.writeTypedList(list2);
             }
         }

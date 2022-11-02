@@ -51,7 +51,7 @@ public class WebRtcAudioManager {
     private native void nativeCacheAudioParameters(int i, int i2, int i3, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i4, int i5, long j);
 
     /* loaded from: classes9.dex */
-    public class VolumeLogger {
+    public static class VolumeLogger {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
         public static final int TIMER_PERIOD_IN_SECONDS = 30;

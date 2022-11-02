@@ -26,7 +26,7 @@ public interface PooledByteBuffer extends Closeable {
     int size();
 
     /* loaded from: classes7.dex */
-    public class ClosedException extends RuntimeException {
+    public static class ClosedException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

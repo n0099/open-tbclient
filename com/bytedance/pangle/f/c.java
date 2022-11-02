@@ -2,6 +2,7 @@ package com.bytedance.pangle.f;
 
 import android.util.ArrayMap;
 import android.util.Pair;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,25 +34,26 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+@RequiresApi(api = 21)
 /* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a extends Exception {
+    public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List a;
-        public final List b;
+        public final List<X509Certificate> a;
+        public final List<Integer> b;
 
-        public b(List list, List list2) {
+        public b(List<X509Certificate> list, List<Integer> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,14 +75,14 @@ public final class c {
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0495c {
+    public static class C0506c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[] a;
         public final b b;
         public byte[] c;
 
-        public C0495c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C0506c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +122,7 @@ public final class c {
                     int i4 = a2.getInt();
                     byte[] b2 = f.b(a2);
                     if (pVar != null) {
-                        Pair d = f.d(i2);
+                        Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i2);
                         PublicKey publicKey = pVar.getPublicKey();
                         Signature signature = Signature.getInstance((String) d.first);
                         signature.initVerify(publicKey);
@@ -174,7 +176,7 @@ public final class c {
         return (b) invokeLL.objValue;
     }
 
-    public static C0495c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C0506c a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, mVar)) == null) {
@@ -184,10 +186,10 @@ public final class c {
                 try {
                     ByteBuffer a2 = f.a(mVar.a);
                     int i = 0;
-                    C0495c c0495c = null;
+                    C0506c c0506c = null;
                     while (a2.hasRemaining()) {
                         try {
-                            c0495c = a(f.a(a2), arrayMap, certificateFactory);
+                            c0506c = a(f.a(a2), arrayMap, certificateFactory);
                             i++;
                         } catch (a unused) {
                         } catch (IOException e) {
@@ -201,14 +203,14 @@ public final class c {
                             throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                         }
                     }
-                    if (i > 0 && c0495c != null) {
+                    if (i > 0 && c0506c != null) {
                         if (i == 1) {
                             if (!arrayMap.isEmpty()) {
                                 f.a(arrayMap, randomAccessFile, mVar);
                                 if (arrayMap.containsKey(3)) {
-                                    c0495c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                    c0506c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                                 }
-                                return c0495c;
+                                return c0506c;
                             }
                             throw new SecurityException("No content digests found");
                         }
@@ -222,10 +224,10 @@ public final class c {
                 throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e5);
             }
         }
-        return (C0495c) invokeLL.objValue;
+        return (C0506c) invokeLL.objValue;
     }
 
-    public static C0495c a(ByteBuffer byteBuffer, List list, CertificateFactory certificateFactory) {
+    public static C0506c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, byteBuffer, list, certificateFactory)) == null) {
@@ -238,7 +240,7 @@ public final class c {
                         if (bVar == null) {
                             bVar = a(a2, certificateFactory);
                             try {
-                                if (bVar.a.size() > 0 && !Arrays.equals(((X509Certificate) bVar.a.get(bVar.a.size() - 1)).getEncoded(), x509CertificateArr[0].getEncoded())) {
+                                if (bVar.a.size() > 0 && !Arrays.equals(bVar.a.get(bVar.a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
                                     throw new SecurityException("Terminal certificate in Proof-of-rotation record does not match APK signing certificate");
                                 }
                             } catch (CertificateEncodingException e) {
@@ -252,12 +254,12 @@ public final class c {
                     throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
                 }
             }
-            return new C0495c(x509CertificateArr, bVar);
+            return new C0506c(x509CertificateArr, bVar);
         }
-        return (C0495c) invokeLLL.objValue;
+        return (C0506c) invokeLLL.objValue;
     }
 
-    public static C0495c a(ByteBuffer byteBuffer, Map map, CertificateFactory certificateFactory) {
+    public static C0506c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, map, certificateFactory)) == null) {
@@ -309,7 +311,7 @@ public final class c {
                     throw new SecurityException("No supported signatures found");
                 } else {
                     String c = f.c(i3);
-                    Pair d = f.d(i3);
+                    Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i3);
                     String str = (String) d.first;
                     AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d.second;
                     try {
@@ -346,8 +348,8 @@ public final class c {
                             }
                             if (arrayList.equals(arrayList2)) {
                                 int a7 = f.a(i3);
-                                byte[] bArr3 = (byte[]) map.put(Integer.valueOf(a7), bArr2);
-                                if (bArr3 != null && !MessageDigest.isEqual(bArr3, bArr2)) {
+                                byte[] put = map.put(Integer.valueOf(a7), bArr2);
+                                if (put != null && !MessageDigest.isEqual(put, bArr2)) {
                                     throw new SecurityException(f.b(a7) + " contents digest does not match the digest specified by a preceding signer");
                                 }
                                 ByteBuffer a8 = f.a(a2);
@@ -385,7 +387,7 @@ public final class c {
                 }
             }
         } else {
-            return (C0495c) invokeLLL.objValue;
+            return (C0506c) invokeLLL.objValue;
         }
     }
 }

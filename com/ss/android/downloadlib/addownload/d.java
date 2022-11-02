@@ -2,6 +2,7 @@ package com.ss.android.downloadlib.addownload;
 
 import android.net.http.Headers;
 import android.os.Handler;
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.addownload.e;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.Map;
@@ -20,13 +21,13 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long a(Map map) {
+    public long a(Map<String, String> map) {
         if (map != null && map.size() != 0) {
             try {
-                for (Map.Entry entry : map.entrySet()) {
-                    String str = (String) entry.getValue();
-                    if (Headers.CONTENT_LEN.equalsIgnoreCase((String) entry.getKey())) {
-                        return Long.parseLong(str);
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    String value = entry.getValue();
+                    if (Headers.CONTENT_LEN.equalsIgnoreCase(entry.getKey())) {
+                        return Long.parseLong(value);
                     }
                 }
             } catch (Exception e) {
@@ -146,7 +147,7 @@ public class d {
         }
         com.ss.android.socialbase.downloader.network.a.b.a(str, new com.ss.android.socialbase.downloader.network.j() { // from class: com.ss.android.downloadlib.addownload.d.3
             @Override // com.ss.android.socialbase.downloader.network.j
-            public void a(Map map) {
+            public void a(Map<String, String> map) {
                 if (d.this.c.get()) {
                     return;
                 }
@@ -166,7 +167,7 @@ public class d {
         });
     }
 
-    private boolean a(int i, com.ss.android.downloadad.api.a.b bVar, String str, long j) {
+    private boolean a(int i, @NonNull com.ss.android.downloadad.api.a.b bVar, String str, long j) {
         if (!com.ss.android.downloadlib.g.e.f(i)) {
             return false;
         }

@@ -3,8 +3,11 @@ package com.baidu.searchbox.player.layer;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.InteractiveEvent;
@@ -41,11 +44,13 @@ public class BaseKernelLayer extends AbsLayer {
 
     /* renamed from: com.baidu.searchbox.player.layer.BaseKernelLayer$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Nullable
+    @PublicMethod(version = "12.5.0.0")
     public IKernelGestureDetector getGestureDetector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,7 +60,8 @@ public class BaseKernelLayer extends AbsLayer {
         return (IKernelGestureDetector) invokeV.objValue;
     }
 
-    public void setGestureDetector(IKernelGestureDetector iKernelGestureDetector) {
+    @PublicMethod(version = "12.5.0.0")
+    public void setGestureDetector(@Nullable IKernelGestureDetector iKernelGestureDetector) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, iKernelGestureDetector) == null) {
         }
@@ -108,7 +114,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public BaseKernelLayer(AbsVideoKernel absVideoKernel) {
+    public BaseKernelLayer(@NonNull AbsVideoKernel absVideoKernel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +135,7 @@ public class BaseKernelLayer extends AbsLayer {
         initLayer();
     }
 
-    public BaseKernelLayer(String str) {
+    public BaseKernelLayer(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,6 +175,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public int getBufferingPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,6 +186,8 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
+    @Nullable
+    @PublicMethod
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,6 +197,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (View) invokeV.objValue;
     }
 
+    @PublicMethod
     public int getDecodeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,6 +207,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -206,6 +217,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public int getDurationMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -215,6 +227,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getKernelLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,6 +237,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (String) invokeV.objValue;
     }
 
+    @PublicMethod
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -233,6 +247,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public int getPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -242,6 +257,8 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @Nullable
+    @PublicMethod
     public String getServerIpInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -251,6 +268,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (String) invokeV.objValue;
     }
 
+    @PublicMethod
     public PlayerStatus getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,6 +279,7 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -270,6 +289,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (int[]) invokeV.objValue;
     }
 
+    @PublicMethod
     public int getSyncPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -279,6 +299,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -288,6 +309,7 @@ public class BaseKernelLayer extends AbsLayer {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public AbsVideoKernel getVideoKernel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,6 +328,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (VideoSession) invokeV.objValue;
     }
 
+    @PublicMethod
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,6 +338,7 @@ public class BaseKernelLayer extends AbsLayer {
         return (String) invokeV.objValue;
     }
 
+    @PublicMethod
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -341,6 +365,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
@@ -348,6 +373,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
@@ -355,6 +381,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048609, this) != null) || (this.mVideoKernel instanceof EmptyKernel)) {
@@ -366,6 +393,7 @@ public class BaseKernelLayer extends AbsLayer {
         VideoKernelPool.getInstance().recycle(absVideoKernel);
     }
 
+    @PublicMethod
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
@@ -373,6 +401,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
@@ -380,6 +409,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
@@ -387,6 +417,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void stopPlayback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
@@ -395,7 +426,7 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer
-    public void attachMessenger(IMessenger iMessenger) {
+    public void attachMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iMessenger) == null) {
             super.attachMessenger(iMessenger);
@@ -404,13 +435,14 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void changePlayUrl(VideoUrlModel videoUrlModel) {
+    public void changePlayUrl(@NonNull VideoUrlModel videoUrlModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoUrlModel) == null) {
             this.mVideoKernel.changePlayUrl((AbsVideoKernel) videoUrlModel);
         }
     }
 
+    @PublicMethod
     public void mute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
@@ -419,7 +451,7 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onInteractiveEventNotify(VideoEvent videoEvent) {
+    public void onInteractiveEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048601, this, videoEvent) == null) && InteractiveEvent.ACTION_INTERACTIVE_ERROR.equals(videoEvent.getAction())) {
             this.mVideoKernel.onError();
@@ -427,7 +459,7 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onSystemEventNotify(VideoEvent videoEvent) {
+    public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048605, this, videoEvent) == null) && this.mAcceptVolumeChange && SystemEvent.ACTION_VOLUME_CHANGED.equals(videoEvent.getAction())) {
@@ -440,13 +472,15 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void play(String str) {
+    @PublicMethod
+    public void play(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
             this.mVideoKernel.play(str);
         }
     }
 
+    @PublicMethod
     public void seekTo(int i) {
         int i2;
         Interceptable interceptable = $ic;
@@ -459,6 +493,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setAcceptVolumeChange(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, bool) == null) {
@@ -466,13 +501,14 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void setClarityInfo(String str) {
+    public void setClarityInfo(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
             this.mVideoKernel.setClarityInfo(str);
         }
     }
 
+    @PublicMethod
     public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
@@ -480,20 +516,23 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void setHttpHeader(HashMap<String, String> hashMap) {
+    @PublicMethod
+    public void setHttpHeader(@Nullable HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, hashMap) == null) {
             this.mVideoKernel.setHttpHeader(hashMap);
         }
     }
 
-    public void setKernelCallBack(IKernelPlayer iKernelPlayer) {
+    @PublicMethod
+    public void setKernelCallBack(@Nullable IKernelPlayer iKernelPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, iKernelPlayer) == null) {
             this.mVideoKernel.setKernelCallBack(iKernelPlayer);
         }
     }
 
+    @PublicMethod
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
@@ -501,20 +540,22 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void setPlayConf(String str) {
+    public void setPlayConf(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
             this.mVideoKernel.setPlayConf(str);
         }
     }
 
-    public void setProxy(String str) {
+    @PublicMethod
+    public void setProxy(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.mVideoKernel.setProxy(str);
         }
     }
 
+    @PublicMethod(version = "11.26.0.0")
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048624, this, f) == null) {
@@ -522,6 +563,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setRemote(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
@@ -529,6 +571,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setSpeed(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048626, this, f) == null) {
@@ -536,6 +579,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, surface) == null) {
@@ -543,6 +587,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
@@ -550,6 +595,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setVideoRotation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
@@ -557,6 +603,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setVideoScalingMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
@@ -564,13 +611,15 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public <T extends VideoUrlModel> void setVideoUrl(T t) {
+    @PublicMethod(version = "12.19.0.0")
+    public <T extends VideoUrlModel> void setVideoUrl(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, t) == null) {
             this.mVideoKernel.setVideoUrl((AbsVideoKernel) t);
         }
     }
 
+    @PublicMethod
     public void setZOrderMediaOverlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
@@ -585,27 +634,30 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void syncStatus(PlayerStatus playerStatus) {
+    @PublicMethod
+    public void syncStatus(@NonNull PlayerStatus playerStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, playerStatus) == null) {
             this.mVideoKernel.getVideoSession().statusChangeNotify(playerStatus);
         }
     }
 
-    public void updateFreeProxy(String str) {
+    @PublicMethod
+    public void updateFreeProxy(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048642, this, str) == null) {
             this.mVideoKernel.updateFreeProxy(str);
         }
     }
 
-    public void changePlayUrl(String str) {
+    public void changePlayUrl(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.mVideoKernel.changePlayUrl(str);
         }
     }
 
+    @PublicMethod
     public void setVideoUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
@@ -615,7 +667,7 @@ public class BaseKernelLayer extends AbsLayer {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onControlEventNotify(VideoEvent videoEvent) {
+    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, videoEvent) == null) {
@@ -706,7 +758,7 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onLayerEventNotify(VideoEvent videoEvent) {
+    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, videoEvent) == null) {
@@ -759,7 +811,7 @@ public class BaseKernelLayer extends AbsLayer {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent videoEvent) {
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, videoEvent) == null) {
@@ -841,6 +893,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setExternalInfo(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048616, this, str, obj) == null) {
@@ -848,6 +901,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public void setOption(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048621, this, str, str2) == null) {
@@ -855,7 +909,8 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void setVideoFormatOptions(String str, HashMap<String, String> hashMap) {
+    @PublicMethod
+    public void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048629, this, str, hashMap) == null) {
             this.mVideoKernel.setVideoFormatOptions(str, hashMap);
@@ -869,6 +924,7 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
+    @PublicMethod
     public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;

@@ -4,6 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.Beta;
+import io.reactivex.annotations.NonNull;
+@Beta
 /* loaded from: classes8.dex */
 public final class OnErrorNotImplementedException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
@@ -11,7 +14,7 @@ public final class OnErrorNotImplementedException extends RuntimeException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnErrorNotImplementedException(String str, Throwable th) {
+    public OnErrorNotImplementedException(String str, @NonNull Throwable th) {
         super(str, th == null ? new NullPointerException() : th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,7 +38,7 @@ public final class OnErrorNotImplementedException extends RuntimeException {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public OnErrorNotImplementedException(Throwable th) {
+    public OnErrorNotImplementedException(@NonNull Throwable th) {
         super(r0, th == null ? new NullPointerException() : th);
         String str;
         Interceptable interceptable = $ic;

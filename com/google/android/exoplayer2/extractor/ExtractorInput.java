@@ -25,7 +25,7 @@ public interface ExtractorInput {
 
     void resetPeekPosition();
 
-    void setRetryPosition(long j, Throwable th) throws Throwable;
+    <E extends Throwable> void setRetryPosition(long j, E e) throws Throwable;
 
     int skip(int i) throws IOException, InterruptedException;
 

@@ -32,7 +32,7 @@ public class SsManifest {
     public final StreamElement[] streamElements;
 
     /* loaded from: classes7.dex */
-    public class ProtectionElement {
+    public static class ProtectionElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] data;
@@ -59,7 +59,7 @@ public class SsManifest {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamElement {
+    public static class StreamElement {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String URL_PLACEHOLDER_BITRATE_1 = "{bitrate}";
         public static final String URL_PLACEHOLDER_BITRATE_2 = "{Bitrate}";
@@ -68,7 +68,7 @@ public class SsManifest {
         public transient /* synthetic */ FieldHolder $fh;
         public final String baseUri;
         public final int chunkCount;
-        public final List chunkStartTimes;
+        public final List<Long> chunkStartTimes;
         public final long[] chunkStartTimesUs;
         public final String chunkTemplate;
         public final int displayHeight;
@@ -84,7 +84,7 @@ public class SsManifest {
         public final int type;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public StreamElement(String str, String str2, int i, String str3, long j, String str4, int i2, int i3, int i4, int i5, String str5, Format[] formatArr, List list, long j2) {
+        public StreamElement(String str, String str2, int i, String str3, long j, String str4, int i2, int i3, int i4, int i5, String str5, Format[] formatArr, List<Long> list, long j2) {
             this(str, str2, i, str3, j, str4, i2, i3, i4, i5, str5, formatArr, list, Util.scaleLargeTimestamps(list, 1000000L, j), Util.scaleLargeTimestamp(j2, 1000000L, j));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -104,7 +104,7 @@ public class SsManifest {
             }
         }
 
-        public StreamElement(String str, String str2, int i, String str3, long j, String str4, int i2, int i3, int i4, int i5, String str5, Format[] formatArr, List list, long[] jArr, long j2) {
+        public StreamElement(String str, String str2, int i, String str3, long j, String str4, int i2, int i3, int i4, int i5, String str5, Format[] formatArr, List<Long> list, long[] jArr, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class SsManifest {
                 }
                 Assertions.checkState(z3);
                 String num = Integer.toString(this.formats[i].bitrate);
-                String l = ((Long) this.chunkStartTimes.get(i2)).toString();
+                String l = this.chunkStartTimes.get(i2).toString();
                 return UriUtil.resolveToUri(this.baseUri, this.chunkTemplate.replace(URL_PLACEHOLDER_BITRATE_1, num).replace(URL_PLACEHOLDER_BITRATE_2, num).replace(URL_PLACEHOLDER_START_TIME_1, l).replace(URL_PLACEHOLDER_START_TIME_2, l));
             }
             return (Uri) invokeII.objValue;
@@ -264,7 +264,7 @@ public class SsManifest {
         }
     }
 
-    public final SsManifest copy(List list) {
+    public final SsManifest copy(List<TrackKey> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {

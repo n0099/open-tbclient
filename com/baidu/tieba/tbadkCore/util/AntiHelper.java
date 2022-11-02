@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.pu4;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.rp4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.zo4;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,20 +34,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AntiHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface k {
-        void onNavigationButtonClick(pu4 pu4Var);
+        void onNavigationButtonClick(iv4 iv4Var);
 
-        void onPositiveButtonClick(pu4 pu4Var);
+        void onPositiveButtonClick(iv4 iv4Var);
     }
 
-    public static boolean d(TbPageContext tbPageContext, AntiData antiData) {
+    public static boolean d(TbPageContext<?> tbPageContext, AntiData antiData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, tbPageContext, antiData)) == null) {
@@ -69,8 +69,8 @@ public class AntiHelper {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
-    public final class OperationType {
+    /* loaded from: classes6.dex */
+    public static final class OperationType {
         public static final /* synthetic */ OperationType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OperationType ACCOUNT_RESTORE;
@@ -140,8 +140,8 @@ public class AntiHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class a implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class a implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,18 +159,18 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                ux4.k().u("anti_vcode_no_longer_tip", true);
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                ky4.k().u("anti_vcode_no_longer_tip", true);
+                iv4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class b implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class b implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -197,22 +197,22 @@ public class AntiHelper {
             this.c = blockPopInfoData;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
                 k kVar = this.a;
                 if (kVar != null) {
-                    kVar.onPositiveButtonClick(pu4Var);
+                    kVar.onPositiveButtonClick(iv4Var);
                 }
-                pu4Var.dismiss();
-                zo4.o(this.b, this.c.ahead_url);
+                iv4Var.dismiss();
+                rp4.o(this.b, this.c.ahead_url);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class c implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class c implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k a;
@@ -235,21 +235,21 @@ public class AntiHelper {
             this.a = kVar;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
                 k kVar = this.a;
                 if (kVar != null) {
-                    kVar.onNavigationButtonClick(pu4Var);
+                    kVar.onNavigationButtonClick(iv4Var);
                 }
-                pu4Var.dismiss();
+                iv4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class d implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class d implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -272,18 +272,18 @@ public class AntiHelper {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
-                zo4.o(this.a, AntiHelper.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
+                rp4.o(this.a, AntiHelper.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class e implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class e implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -301,17 +301,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class f implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class f implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -334,18 +334,18 @@ public class AntiHelper {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
-                zo4.o(this.a, AntiHelper.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
+                rp4.o(this.a, AntiHelper.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class g implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class g implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -363,17 +363,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class h implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class h implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -391,17 +391,17 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class i implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class i implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -426,18 +426,18 @@ public class AntiHelper {
             this.b = pageType;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.a, this.b)));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public final class j implements pu4.e {
+    /* loaded from: classes6.dex */
+    public static class j implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -455,11 +455,11 @@ public class AntiHelper {
             }
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
             }
         }
     }
@@ -485,27 +485,27 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, context, antiData, operationType, pageType) == null) {
-            pu4 pu4Var = new pu4(w9.a(context).getPageActivity());
+            iv4 iv4Var = new iv4(w9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028e);
+                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028f);
                 if (n(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
-                } else if (g(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
-                } else if (h(antiData)) {
                     string2 = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                } else if (g(antiData)) {
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                } else if (h(antiData)) {
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0297);
                 } else {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0293);
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
                 }
-                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0290));
+                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0291));
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f028a);
+                string = context.getString(R.string.obfuscated_res_0x7f0f028b);
             }
-            pu4Var.setMessage(string);
-            pu4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0298), new d(context));
-            pu4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0289), new e());
+            iv4Var.setMessage(string);
+            iv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new d(context));
+            iv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f028a), new e());
             if (context instanceof Activity) {
-                pu4Var.create(w9.a(context)).show();
+                iv4Var.create(w9.a(context)).show();
             }
         }
     }
@@ -523,18 +523,18 @@ public class AntiHelper {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean b(TbPageContext tbPageContext, ThreadData threadData) {
+    public static boolean b(TbPageContext<?> tbPageContext, ThreadData threadData) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, threadData)) == null) {
             if (tbPageContext != null && j(threadData)) {
                 if (StringUtils.isNull(threadData.noCommetStr)) {
-                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0672);
+                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0675);
                 } else {
                     str = threadData.noCommetStr;
                 }
-                fj.N(tbPageContext.getPageActivity(), str);
+                xi.P(tbPageContext.getPageActivity(), str);
                 return true;
             }
             return false;
@@ -542,18 +542,18 @@ public class AntiHelper {
         return invokeLL.booleanValue;
     }
 
-    public static boolean c(TbPageContext tbPageContext, VideoItemData videoItemData) {
+    public static boolean c(TbPageContext<?> tbPageContext, VideoItemData videoItemData) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, videoItemData)) == null) {
             if (tbPageContext != null && k(videoItemData)) {
                 if (StringUtils.isNull(videoItemData.noCommetStr)) {
-                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0672);
+                    str = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0675);
                 } else {
                     str = videoItemData.noCommetStr;
                 }
-                fj.N(tbPageContext.getPageActivity(), str);
+                xi.P(tbPageContext.getPageActivity(), str);
                 return true;
             }
             return false;
@@ -563,11 +563,11 @@ public class AntiHelper {
 
     public static void p(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) && context != null && !ej.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) && context != null && !wi.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair(BaseWebViewActivity.KEY_NO_MENU, "1"));
             arrayList.add(new Pair(BaseWebViewActivity.KEY_NO_SHARE, "1"));
-            zo4.o(context, zo4.d(str, arrayList));
+            rp4.o(context, rp4.d(str, arrayList));
         }
     }
 
@@ -576,7 +576,7 @@ public class AntiHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, threadData)) == null) {
             if (context != null && o(threadData)) {
-                fj.M(context, R.string.obfuscated_res_0x7f0f061f);
+                xi.O(context, R.string.obfuscated_res_0x7f0f0622);
                 return true;
             }
             return false;
@@ -584,22 +584,22 @@ public class AntiHelper {
         return invokeLL.booleanValue;
     }
 
-    public static pu4 s(Context context, BlockPopInfoData blockPopInfoData) {
+    public static iv4 s(Context context, BlockPopInfoData blockPopInfoData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, context, blockPopInfoData)) == null) {
             return t(context, blockPopInfoData, null);
         }
-        return (pu4) invokeLL.objValue;
+        return (iv4) invokeLL.objValue;
     }
 
-    public static pu4 u(Context context, String str) {
+    public static iv4 u(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, context, str)) == null) {
             return v(context, str, 0);
         }
-        return (pu4) invokeLL.objValue;
+        return (iv4) invokeLL.objValue;
     }
 
     public static boolean f(AntiData antiData) {
@@ -691,8 +691,8 @@ public class AntiHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i2, str)) == null) {
             if (i2 == 3250013) {
-                if (ej.isEmpty(str)) {
-                    str = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0288);
+                if (wi.isEmpty(str)) {
+                    str = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0289);
                 }
                 BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), str);
                 b2.f(BdToast.ToastIcon.FAILURE);
@@ -711,36 +711,36 @@ public class AntiHelper {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            ux4.k().D("anti_vcode_no_longer_tip");
+            ky4.k().D("anti_vcode_no_longer_tip");
         }
     }
 
     public static void r(Context context, AntiData antiData, PageType pageType) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65555, null, context, antiData, pageType) != null) || ux4.k().h("anti_vcode_no_longer_tip", false)) {
+        if ((interceptable != null && interceptable.invokeLLL(65555, null, context, antiData, pageType) != null) || ky4.k().h("anti_vcode_no_longer_tip", false)) {
             return;
         }
         boolean isHas_chance = antiData.isHas_chance();
-        pu4 pu4Var = new pu4(w9.a(context).getPageActivity());
+        iv4 iv4Var = new iv4(w9.a(context).getPageActivity());
         if (isHas_chance) {
+            i2 = R.string.obfuscated_res_0x7f0f029b;
+        } else {
             i2 = R.string.obfuscated_res_0x7f0f029a;
-        } else {
-            i2 = R.string.obfuscated_res_0x7f0f0299;
         }
-        pu4Var.setMessage(context.getString(i2));
+        iv4Var.setMessage(context.getString(i2));
         if (!isHas_chance) {
-            pu4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0298), new i(context, pageType));
+            iv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new i(context, pageType));
         } else {
-            pu4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f043d), new j());
+            iv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f043f), new j());
         }
-        pu4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0297), new a());
+        iv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0298), new a());
         if (context instanceof Activity) {
-            pu4Var.create(w9.a(context)).show();
+            iv4Var.create(w9.a(context)).show();
         }
     }
 
-    public static pu4 t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
+    public static iv4 t(Context context, BlockPopInfoData blockPopInfoData, k kVar) {
         InterceptResult invokeLLL;
         String str;
         String str2;
@@ -749,33 +749,33 @@ public class AntiHelper {
             if (blockPopInfoData == null) {
                 return null;
             }
-            pu4 pu4Var = new pu4(w9.a(context).getPageActivity());
+            iv4 iv4Var = new iv4(w9.a(context).getPageActivity());
             if (blockPopInfoData.block_info == null) {
                 blockPopInfoData.block_info = "";
             }
-            pu4Var.setMessage(blockPopInfoData.block_info);
-            if (ej.isEmpty(blockPopInfoData.ahead_info)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f0298);
+            iv4Var.setMessage(blockPopInfoData.block_info);
+            if (wi.isEmpty(blockPopInfoData.ahead_info)) {
+                str = context.getString(R.string.obfuscated_res_0x7f0f0299);
             } else {
                 str = blockPopInfoData.ahead_info;
             }
-            pu4Var.setPositiveButton(str, new b(kVar, context, blockPopInfoData));
-            if (ej.isEmpty(blockPopInfoData.ok_info)) {
-                str2 = context.getString(R.string.obfuscated_res_0x7f0f0289);
+            iv4Var.setPositiveButton(str, new b(kVar, context, blockPopInfoData));
+            if (wi.isEmpty(blockPopInfoData.ok_info)) {
+                str2 = context.getString(R.string.obfuscated_res_0x7f0f028a);
             } else {
                 str2 = blockPopInfoData.ok_info;
             }
-            pu4Var.setNegativeButton(str2, new c(kVar));
+            iv4Var.setNegativeButton(str2, new c(kVar));
             if (!(context instanceof Activity)) {
                 return null;
             }
-            pu4Var.create(w9.a(context)).show();
-            return pu4Var;
+            iv4Var.create(w9.a(context)).show();
+            return iv4Var;
         }
-        return (pu4) invokeLLL.objValue;
+        return (iv4) invokeLLL.objValue;
     }
 
-    public static pu4 v(Context context, String str, int i2) {
+    public static iv4 v(Context context, String str, int i2) {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
@@ -793,10 +793,10 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return s(context, blockPopInfoData);
         }
-        return (pu4) invokeLLI.objValue;
+        return (iv4) invokeLLI.objValue;
     }
 
-    public static pu4 w(Context context, String str, int i2, k kVar) {
+    public static iv4 w(Context context, String str, int i2, k kVar) {
         InterceptResult invokeLLIL;
         String str2;
         Interceptable interceptable = $ic;
@@ -814,7 +814,7 @@ public class AntiHelper {
             blockPopInfoData.ahead_url = str2;
             return t(context, blockPopInfoData, kVar);
         }
-        return (pu4) invokeLLIL.objValue;
+        return (iv4) invokeLLIL.objValue;
     }
 
     public static boolean x(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
@@ -847,27 +847,27 @@ public class AntiHelper {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65562, null, context, antiData, operationType) == null) {
-            pu4 pu4Var = new pu4(w9.a(context).getPageActivity());
+            iv4 iv4Var = new iv4(w9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string2 = context.getString(R.string.obfuscated_res_0x7f0f028e);
+                String string2 = context.getString(R.string.obfuscated_res_0x7f0f028f);
                 if (n(antiData)) {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0295);
-                } else if (g(antiData)) {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0294);
-                } else if (h(antiData)) {
                     string = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                } else if (g(antiData)) {
+                    string = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                } else if (h(antiData)) {
+                    string = context.getString(R.string.obfuscated_res_0x7f0f0297);
                 } else {
-                    string = context.getString(R.string.obfuscated_res_0x7f0f0293);
+                    string = context.getString(R.string.obfuscated_res_0x7f0f0294);
                 }
-                format = MessageFormat.format(string2, string, context.getString(R.string.obfuscated_res_0x7f0f028f));
+                format = MessageFormat.format(string2, string, context.getString(R.string.obfuscated_res_0x7f0f0290));
             } else {
-                format = MessageFormat.format(context.getString(R.string.obfuscated_res_0x7f0f028d), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
+                format = MessageFormat.format(context.getString(R.string.obfuscated_res_0x7f0f028e), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
             }
-            pu4Var.setMessage(format);
-            pu4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0298), new f(context));
-            pu4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0289), new g());
+            iv4Var.setMessage(format);
+            iv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0299), new f(context));
+            iv4Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f028a), new g());
             if (context instanceof Activity) {
-                pu4Var.create(w9.a(context)).show();
+                iv4Var.create(w9.a(context)).show();
             }
         }
     }
@@ -877,26 +877,26 @@ public class AntiHelper {
         String string2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65563, null, context, antiData, operationType) == null) {
-            pu4 pu4Var = new pu4(w9.a(context).getPageActivity());
+            iv4 iv4Var = new iv4(w9.a(context).getPageActivity());
             if (operationType == OperationType.SIGN) {
-                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028e);
+                String string3 = context.getString(R.string.obfuscated_res_0x7f0f028f);
                 if (n(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
-                } else if (g(antiData)) {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
-                } else if (h(antiData)) {
                     string2 = context.getString(R.string.obfuscated_res_0x7f0f0296);
+                } else if (g(antiData)) {
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0295);
+                } else if (h(antiData)) {
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0297);
                 } else {
-                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0293);
+                    string2 = context.getString(R.string.obfuscated_res_0x7f0f0294);
                 }
-                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0291));
+                string = MessageFormat.format(string3, string2, context.getString(R.string.obfuscated_res_0x7f0f0292));
             } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0292);
+                string = context.getString(R.string.obfuscated_res_0x7f0f0293);
             }
-            pu4Var.setMessage(string);
-            pu4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f043d), new h());
+            iv4Var.setMessage(string);
+            iv4Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f043f), new h());
             if (context instanceof Activity) {
-                pu4Var.create(w9.a(context)).show();
+                iv4Var.create(w9.a(context)).show();
             }
         }
     }

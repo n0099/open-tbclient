@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -75,7 +77,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public LoadingView h;
     public LoginPager i;
     public SmsPager j;
-    public List k;
+    public List<Integer> k;
     public com.baidu.sapi2.views.logindialog.a.a l;
     public int m;
     public IQuickLoginDialogCallback n;
@@ -103,7 +105,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
 
     @Override // android.app.Dialog
     @Deprecated
-    public void setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+    public void setOnCancelListener(@Nullable DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, onCancelListener) == null) {
         }
@@ -111,21 +113,21 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
 
     @Override // android.app.Dialog
     @Deprecated
-    public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+    public void setOnDismissListener(@Nullable DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, onDismissListener) == null) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public class Builder implements NoProguard {
+    public static class Builder implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Activity a;
         public ColorType b;
         public QuickLoginDialogCallback c;
 
-        public Builder(Activity activity) {
+        public Builder(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -438,7 +440,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class g {
+    public static /* synthetic */ class g {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -474,7 +476,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(Context context, int i, Builder builder) {
+    public QuickLoginDialog(@NonNull Context context, int i, @NonNull Builder builder) {
         super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -501,8 +503,8 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(Context context, Builder builder) {
-        this(context, R.style.obfuscated_res_0x7f1003e2, builder);
+    public QuickLoginDialog(@NonNull Context context, @NonNull Builder builder) {
+        this(context, R.style.obfuscated_res_0x7f1003e3, builder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -576,7 +578,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QuickLoginDialog(Builder builder) {
+    public QuickLoginDialog(@NonNull Builder builder) {
         this(builder.a, builder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -608,10 +610,10 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091d1a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d63) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("close");
                 cancel();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d0b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d54) {
                 com.baidu.sapi2.views.logindialog.utils.a.a("back");
                 onChange2LoginPage();
             }
@@ -667,7 +669,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     @Override // android.app.Dialog
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
@@ -682,7 +684,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ColorType.DARK == this.b) {
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ead));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec9));
             this.e.setTextColor(Color.parseColor("#FFFFFF"));
             this.h.a();
         }
@@ -740,7 +742,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04d1);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e1);
             Window window = getWindow();
             window.setGravity(83);
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -751,12 +753,12 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
             window.setAttributes(attributes);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d4f);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0b);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1a);
-            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091d5d);
-            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091d62);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d98);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d54);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091de6);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d63);
+            this.h = (LoadingView) findViewById(R.id.obfuscated_res_0x7f091da6);
+            this.g = (NoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091dab);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             c();

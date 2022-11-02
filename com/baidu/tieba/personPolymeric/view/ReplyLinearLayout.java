@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +27,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static ViewGroup.LayoutParams d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<TextView> a;
     public boolean b;
     public View.OnClickListener c;
 
@@ -140,17 +140,17 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
             if (i == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10039, 1);
-                textView.setPadding(0, fj.d(getContext(), 10.0f), 0, fj.d(getContext(), 10.0f));
+                textView.setPadding(0, xi.d(getContext(), 10.0f), 0, xi.d(getContext(), 10.0f));
                 return;
             }
             int i2 = i % 3;
             if (i2 == 2) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10081, 1);
                 textView.setBackgroundResource(R.color.CAM_X0201);
-                textView.setPadding(0, fj.d(getContext(), 10.0f), 0, fj.d(getContext(), 2.0f));
+                textView.setPadding(0, xi.d(getContext(), 10.0f), 0, xi.d(getContext(), 2.0f));
             } else if (i2 == 0) {
                 SkinManager.setViewTextColor(textView, R.color.common_color_10005, 1);
-                textView.setPadding(0, fj.d(getContext(), 2.0f), 0, fj.d(getContext(), 10.0f));
+                textView.setPadding(0, xi.d(getContext(), 2.0f), 0, xi.d(getContext(), 10.0f));
             }
         }
     }
@@ -160,7 +160,7 @@ public class ReplyLinearLayout extends LinearLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setContent(ArrayList arrayList) {
+    public void setContent(ArrayList<String[]> arrayList) {
         int i;
         CharSequence[] charSequenceArr;
         int i2;
@@ -179,7 +179,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 addView(textView);
             }
             for (int i5 = 0; i5 < this.a.size(); i5++) {
-                TextView textView2 = (TextView) this.a.get(i5);
+                TextView textView2 = this.a.get(i5);
                 if (i5 < size) {
                     if (i5 != 0 && i5 != 1) {
                         int i6 = i5 % 3;

@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface CameraSession {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CreateSessionCallback {
         void onDone(CameraSession cameraSession);
 
         void onFailure(FailureType failureType, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Events {
         void onCameraClosed(CameraSession cameraSession);
 
@@ -33,8 +33,8 @@ public interface CameraSession {
     void stop();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class FailureType {
+    /* loaded from: classes9.dex */
+    public static final class FailureType {
         public static final /* synthetic */ FailureType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FailureType DISCONNECTED;

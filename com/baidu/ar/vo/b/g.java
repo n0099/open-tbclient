@@ -1,6 +1,7 @@
 package com.baidu.ar.vo.b;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.slam.TrackModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ public class g {
     public long mTimestamp;
     public boolean nN;
     public boolean pE;
-    public ArrayList yX;
+    public ArrayList<TrackModel> yX;
 
     public g(long j) {
         Interceptable interceptable = $ic;
@@ -41,7 +42,7 @@ public class g {
         }
     }
 
-    public void b(ArrayList arrayList) {
+    public void b(ArrayList<TrackModel> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             this.yX = arrayList;
@@ -54,7 +55,7 @@ public class g {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTimestamp : invokeV.longValue;
     }
 
-    public ArrayList hk() {
+    public ArrayList<TrackModel> hk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.yX : (ArrayList) invokeV.objValue;

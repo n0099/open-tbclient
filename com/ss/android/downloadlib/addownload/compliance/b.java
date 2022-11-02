@@ -3,6 +3,7 @@ package com.ss.android.downloadlib.addownload.compliance;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.q;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
@@ -17,10 +18,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b {
-    public SoftReference a;
+    public SoftReference<Activity> a;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static b a = new b();
     }
 
@@ -32,7 +33,7 @@ public class b {
     }
 
     public Activity b() {
-        Activity activity = (Activity) this.a.get();
+        Activity activity = this.a.get();
         this.a = null;
         return activity;
     }
@@ -69,7 +70,7 @@ public class b {
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject = (JSONObject) optJSONArray.get(i);
-                        bVar.h.add(new Pair(jSONObject.optString("permission_name"), jSONObject.optString("permission_desc")));
+                        bVar.h.add(new Pair<>(jSONObject.optString("permission_name"), jSONObject.optString("permission_desc")));
                     }
                 }
                 c.a().a(bVar);
@@ -86,7 +87,7 @@ public class b {
     }
 
     public void a(Activity activity) {
-        this.a = new SoftReference(activity);
+        this.a = new SoftReference<>(activity);
     }
 
     public boolean a(DownloadModel downloadModel) {
@@ -105,7 +106,7 @@ public class b {
         return true;
     }
 
-    public boolean a(com.ss.android.downloadlib.addownload.b.e eVar) {
+    public boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         long j;
         long j2;
         if (!TextUtils.isEmpty(eVar.b.getLogExtra())) {
@@ -149,7 +150,7 @@ public class b {
             return false;
         }
         final long j4 = j2;
-        com.ss.android.downloadlib.g.c.a(new c.a() { // from class: com.ss.android.downloadlib.addownload.compliance.b.2
+        com.ss.android.downloadlib.g.c.a((c.a<String, R>) new c.a<String, Boolean>() { // from class: com.ss.android.downloadlib.addownload.compliance.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ss.android.downloadlib.g.c.a
             public Boolean a(String str) {
@@ -170,7 +171,7 @@ public class b {
                 });
                 return Boolean.valueOf(zArr[0]);
             }
-        }, "https://apps.oceanengine.com/customer/api/app/pkg_info?" + sb.toString()).a(new c.a() { // from class: com.ss.android.downloadlib.addownload.compliance.b.1
+        }, "https://apps.oceanengine.com/customer/api/app/pkg_info?" + sb.toString()).a(new c.a<Boolean, Object>() { // from class: com.ss.android.downloadlib.addownload.compliance.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ss.android.downloadlib.g.c.a
             public Object a(Boolean bool) {

@@ -19,7 +19,7 @@ public class ImageViewerABTest extends AbsGroupUbsABTest {
     public static final String IMAGE_VIEWER_SID_A = "12_2_pb_picpage_a";
     public static final String IMAGE_VIEWER_SID_B = "12_2_pb_picpage_b";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,7 +39,7 @@ public class ImageViewerABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class ImageViewerABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(3);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.mABTestList = arrayList;
         arrayList.add(IMAGE_VIEWER_SID);
         this.mABTestList.add(IMAGE_VIEWER_SID_A);

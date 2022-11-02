@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.qb;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class BdBaseModel extends OrmObject {
+public abstract class BdBaseModel<T> extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public static final int MODE_INVALID = 0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public abstract class BdBaseModel extends OrmObject {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public BdBaseModel(r9 r9Var) {
+    public BdBaseModel(r9<T> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public abstract class BdBaseModel extends OrmObject {
         this.unique_id = r9Var.getUniqueId();
     }
 
-    public void registerListener(int i, MessageListener messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
@@ -130,17 +130,17 @@ public abstract class BdBaseModel extends OrmObject {
         }
     }
 
-    public void registerListener(int i, qb qbVar) {
+    public void registerListener(int i, pb pbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, pbVar) == null) {
+            if (pbVar != null && pbVar.getTag() == null) {
+                pbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, qbVar);
+            MessageManager.getInstance().registerListener(i, pbVar);
         }
     }
 
-    public void registerListener(MessageListener messageListener) {
+    public void registerListener(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
@@ -150,7 +150,7 @@ public abstract class BdBaseModel extends OrmObject {
         }
     }
 
-    public void sendMessage(Message message) {
+    public void sendMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048587, this, message) != null) || message == null) {
             return;
@@ -189,13 +189,13 @@ public abstract class BdBaseModel extends OrmObject {
         }
     }
 
-    public void registerListener(qb qbVar) {
+    public void registerListener(pb pbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qbVar) == null) {
-            if (qbVar != null && qbVar.getTag() == null) {
-                qbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeL(1048586, this, pbVar) == null) {
+            if (pbVar != null && pbVar.getTag() == null) {
+                pbVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(qbVar);
+            MessageManager.getInstance().registerListener(pbVar);
         }
     }
 

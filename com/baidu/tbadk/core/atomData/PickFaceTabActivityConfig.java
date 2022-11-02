@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.face.data.FaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +16,7 @@ public class PickFaceTabActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PickFaceTabActivityConfig(Context context, int i, ArrayList arrayList) {
+    public PickFaceTabActivityConfig(Context context, int i, ArrayList<FaceData> arrayList) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

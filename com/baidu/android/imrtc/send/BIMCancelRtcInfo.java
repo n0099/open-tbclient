@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.send;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -18,10 +19,10 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMCancelRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mCancelUsers;
+    public List<BIMCancelUser> mCancelUsers;
 
     /* loaded from: classes.dex */
-    public class BIMCancelUser {
+    public static class BIMCancelUser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long appId;
@@ -60,7 +61,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         this.mCancelUsers = new ArrayList();
     }
 
-    public List getBIMCancelUsers() {
+    public List<BIMCancelUser> getBIMCancelUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -91,7 +92,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
-    public void setBIMCancelUsers(List list) {
+    public void setBIMCancelUsers(@NonNull List<BIMCancelUser> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.mCancelUsers.clear();
@@ -100,6 +101,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         JSONArray optJSONArray;
@@ -131,6 +133,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

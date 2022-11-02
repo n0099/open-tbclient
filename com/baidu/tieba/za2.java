@@ -1,142 +1,184 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes6.dex */
-public final class za2 {
+public class za2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile za2 c;
+    public static final boolean a;
+    public static final boolean b;
+    public static Runnable c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList b;
 
-    public za2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                oo3.e(AppRuntime.getAppContext());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                oo3.d(AppRuntime.getAppContext()).g();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948353150, "Lcom/baidu/tieba/za2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948353150, "Lcom/baidu/tieba/za2;");
                 return;
             }
         }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList();
-    }
-
-    public static za2 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (za2.class) {
-                    if (c == null) {
-                        c = new za2();
-                    }
-                }
-            }
-            return c;
+        a = ok1.a;
+        ln2.g0().getSwitch("swan_cpu_booster", 0);
+        b = b(0);
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
+            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
         }
-        return (za2) invokeV.objValue;
+        a();
     }
 
-    public final Object[] a() {
-        Object[] objArr;
-        InterceptResult invokeV;
+    public static void a() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.a.lock();
-                if (this.b.size() > 0) {
-                    objArr = this.b.toArray();
-                } else {
-                    objArr = null;
-                }
-                return objArr;
-            } finally {
-                this.a.unlock();
-            }
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
+            return;
         }
-        return (Object[]) invokeV.objValue;
-    }
-
-    public void b(ua2 ua2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).d(ua2Var);
-            }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        oo3.b(a);
+        if (c == null) {
+            c = new b();
+        }
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
         }
     }
 
-    public void c(ua2 ua2Var) {
-        Object[] a;
+    public static void e() {
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).b(ua2Var);
-            }
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "startBooster");
+        }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        d(c);
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
         }
     }
 
-    public void d(ua2 ua2Var) {
-        Object[] a;
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).f(ua2Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i <= 0) {
+                return false;
             }
+            if (i == 1) {
+                return true;
+            }
+            if (i != 2) {
+                return false;
+            }
+            return ln2.u0().a();
         }
+        return invokeI.booleanValue;
     }
 
-    public void e(ua2 ua2Var) {
-        Object[] a;
+    public static void d(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).c(ua2Var);
-            }
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
+            return;
         }
+        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
     }
 
-    public void f(ua2 ua2Var) {
-        Object[] a;
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).g(ua2Var);
-            }
+        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
+            return;
         }
-    }
-
-    public void g(ua2 ua2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).a(ua2Var);
-            }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
         }
-    }
-
-    public void h(ua2 ua2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, ua2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((db2) obj).e(ua2Var);
-            }
+        a aVar = new a();
+        if (z) {
+            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
+        } else {
+            aVar.run();
         }
     }
 }

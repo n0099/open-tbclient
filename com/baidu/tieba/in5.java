@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface in5 extends on5 {
+public class in5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(qn5 qn5Var, View view2);
-
-        void b(qn5 qn5Var, View view2);
+    public static int a(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != 80) {
+                return -1;
+            }
+            return z ? R.anim.obfuscated_res_0x7f0100ef : R.anim.obfuscated_res_0x7f0100f0;
+        }
+        return invokeCommon.intValue;
     }
-
-    void a(int i);
-
-    void c(Object obj);
-
-    View getView();
-
-    void h(a aVar);
-
-    void j();
-
-    void l(int i);
 }

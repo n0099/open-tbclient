@@ -2,53 +2,24 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.ThreadSmartAppLayout;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ry extends ox {
+public class ry extends gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadSmartAppLayout h;
-    public ar4 i;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ry a;
-
-        public a(ry ryVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ryVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ryVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.i);
-            }
-        }
-    }
+    public FrameLayout h;
+    public ItemCardView i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ry(Context context) {
@@ -68,38 +39,66 @@ public class ry extends ox {
                 return;
             }
         }
-        v(fj.f(context, R.dimen.M_H_X003));
-        this.h = new ThreadSmartAppLayout(context);
-        this.h.setAfterClickListener(new a(this));
+        r(Boolean.TRUE);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
-    /* renamed from: x */
-    public void a(ar4 ar4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) {
-            this.i = ar4Var;
-            this.h.a(ar4Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.zw
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.h == null) {
+                FrameLayout frameLayout = new FrameLayout(this.b);
+                this.h = frameLayout;
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
+                this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.h.removeAllViews();
+            if (this.i == null) {
+                ItemCardView itemCardView = new ItemCardView(this.b);
+                this.i = itemCardView;
+                itemCardView.setBackGroundColor(R.color.CAM_X0205);
+                this.i.setIsShowRightBtn(true);
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            this.h.addView(this.i, layoutParams);
             return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ThreadSmartAppLayout threadSmartAppLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (threadSmartAppLayout = this.h) != null) {
-            threadSmartAppLayout.d();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
+            ItemCardView itemCardView = this.i;
+            if (itemCardView != null) {
+                itemCardView.G();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rx
+    /* renamed from: w */
+    public void a(rr4 rr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rr4Var) == null) {
+            if (rr4Var != null && rr4Var.getThreadData() != null && rr4Var.getThreadData().originalThreadData != null && rr4Var.getThreadData().originalThreadData.C != null) {
+                if (!rr4Var.getThreadData().originalThreadData.m && !rr4Var.getThreadData().shouldShowBlockedState()) {
+                    this.h.setVisibility(0);
+                    this.i.setData(rr4Var.getThreadData().originalThreadData.D, 13, rr4Var.getThreadData().originalThreadData.f);
+                    return;
+                }
+                this.h.setVisibility(8);
+                return;
+            }
+            this.h.setVisibility(8);
         }
     }
 }

@@ -12,17 +12,17 @@ import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableFromObservable extends Flowable {
+public final class FlowableFromObservable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observable upstream;
+    public final Observable<T> upstream;
 
     /* loaded from: classes8.dex */
-    public class SubscriberObserver implements Observer, Subscription {
+    public static class SubscriberObserver<T> implements Observer<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Disposable d;
-        public final Subscriber s;
+        public final Subscriber<? super T> s;
 
         @Override // org.reactivestreams.Subscription
         public void request(long j) {
@@ -31,7 +31,7 @@ public final class FlowableFromObservable extends Flowable {
             }
         }
 
-        public SubscriberObserver(Subscriber subscriber) {
+        public SubscriberObserver(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,10 +58,10 @@ public final class FlowableFromObservable extends Flowable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.s.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.s.onNext(t);
             }
         }
 
@@ -91,7 +91,7 @@ public final class FlowableFromObservable extends Flowable {
         }
     }
 
-    public FlowableFromObservable(Observable observable) {
+    public FlowableFromObservable(Observable<T> observable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public final class FlowableFromObservable extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.upstream.subscribe(new SubscriberObserver(subscriber));

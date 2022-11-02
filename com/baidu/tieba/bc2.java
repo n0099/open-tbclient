@@ -1,148 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class bc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public V8Engine a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947640088, "Lcom/baidu/tieba/bc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947640088, "Lcom/baidu/tieba/bc2;");
+    public bc2(V8Engine v8Engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v8Engine};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wj1.a;
-        b = new HashMap();
-        c = new Object();
-        d = cc2.a();
+        this.a = v8Engine;
     }
 
-    public static Set b() {
-        InterceptResult invokeV;
-        String[] strArr;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return qh3.a(strArr);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove all exclude appIds");
-        }
-        synchronized (c) {
-            b.clear();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.destroyOpenDataContext();
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!d || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            synchronized (c) {
-                containsKey = b.containsKey(str);
-            }
-            if (a) {
-                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-            }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = (Integer) b.get(str);
-            if (num == null) {
-                b.put(str, 1);
-            } else {
-                b.put(str, Integer.valueOf(num.intValue() + 1));
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
-            return;
-        }
-        if (a) {
-            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (c) {
-            Integer num = (Integer) b.get(str);
-            if (num != null) {
-                int intValue = num.intValue() - 1;
-                if (intValue <= 0) {
-                    b.remove(str);
-                } else {
-                    b.put(str, Integer.valueOf(intValue));
-                }
-            }
-        }
-    }
-
-    public static void e(ug4 ug4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, ug4Var) == null) && d && ug4Var != null) {
-            for (kc4 kc4Var : ug4Var.j()) {
-                if (kc4Var instanceof lc4) {
-                    d(kc4Var.g);
-                } else if (kc4Var instanceof mc4) {
-                    d(((mc4) kc4Var).o);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            this.a.requireJSFileForOpenData(str, str2);
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -165,6 +167,7 @@ public class bw {
         return (String) invokeV.objValue;
     }
 
+    @TargetApi(9)
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -923,6 +926,7 @@ public class bw {
         return (String) invokeIL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String k(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -965,6 +969,7 @@ public class bw {
         return (String) invokeIL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String l(Context context) {
         InterceptResult invokeL;
         BluetoothAdapter defaultAdapter;
@@ -1099,7 +1104,7 @@ public class bw {
             } catch (Throwable unused2) {
                 list = null;
                 if (list != null) {
-                    Collections.sort(list, new Comparator() { // from class: com.baidu.mobstat.bw.2
+                    Collections.sort(list, new Comparator<ScanResult>() { // from class: com.baidu.mobstat.bw.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1156,7 +1161,7 @@ public class bw {
                 }
             }
             if (list != null && list.size() != 0) {
-                Collections.sort(list, new Comparator() { // from class: com.baidu.mobstat.bw.2
+                Collections.sort(list, new Comparator<ScanResult>() { // from class: com.baidu.mobstat.bw.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

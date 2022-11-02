@@ -1,30 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface kj5 {
-    void a();
+public class kj5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public static final BdAsyncTaskParallel b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Canvas canvas);
+    /* loaded from: classes4.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gj5<T> a;
+        public li5<T> b;
 
-    void c(ListView listView, Context context, AttributeSet attributeSet);
+        public a(gj5<T> gj5Var, li5<T> li5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj5Var, li5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.a = gj5Var;
+            this.b = li5Var;
+        }
 
-    void onDraw(Canvas canvas);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public T doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                try {
+                    if (this.a == null) {
+                        return null;
+                    }
+                    return this.a.doInBackground();
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return null;
+                }
+            }
+            return (T) invokeL.objValue;
+        }
 
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            li5<T> li5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && (li5Var = this.b) != null) {
+                li5Var.onReturnDataInUI(t);
+            }
+        }
+    }
 
-    void onMeasure(int i, int i2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947915027, "Lcom/baidu/tieba/kj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947915027, "Lcom/baidu/tieba/kj5;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
+    }
 
-    void onSizeChanged(int i, int i2, int i3, int i4);
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            BdAsyncTask.removeAllTask(a);
+        }
+    }
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+    public static <T> void b(gj5<T> gj5Var, li5<T> li5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, gj5Var, li5Var) == null) && gj5Var != null) {
+            a aVar = new a(gj5Var, li5Var);
+            aVar.setParallel(b);
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
+    }
 
-    void requestLayout();
-
-    void setAdapter(ListAdapter listAdapter);
+    public static <T> void c(gj5<T> gj5Var, li5<T> li5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, gj5Var, li5Var) == null) && gj5Var != null) {
+            a aVar = new a(gj5Var, li5Var);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(a);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
+    }
 }

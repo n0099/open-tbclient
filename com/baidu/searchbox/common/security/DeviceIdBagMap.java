@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlin.Metadata;
@@ -21,7 +22,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\u0018\u0000 \u00192\u00020\u00012\u00020\u0002:\u0001\u0019B\u0011\b\u0016\u0012\u0006\u0010\u0011\u001a\u00020\u0010¢\u0006\u0004\b\u0016\u0010\u0017B\u0007¢\u0006\u0004\b\u0016\u0010\u0018J\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0006\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\u0006\u0010\u0005J\u0019\u0010\t\u001a\u00020\b2\b\b\u0002\u0010\u0007\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\t\u0010\nJ!\u0010\u000e\u001a\u0004\u0018\u00010\f2\u0006\u0010\u000b\u001a\u00020\u00032\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u001f\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0014\u0010\u0015¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "Landroid/os/Parcelable;", "Ljava/util/concurrent/ConcurrentHashMap;", "", "describeContents", "()I", "getDeviceFlag", "deviceFlag", "", "isSync", "(I)Z", "key", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "value", "put", "(ILcom/baidu/searchbox/common/security/DeviceIdBag;)Lcom/baidu/searchbox/common/security/DeviceIdBag;", "Landroid/os/Parcel;", "parcel", "flags", "", "writeToParcel", "(Landroid/os/Parcel;I)V", "<init>", "(Landroid/os/Parcel;)V", "()V", "CREATOR", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelable {
+public final class DeviceIdBagMap extends ConcurrentHashMap<Integer, DeviceIdBag> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final CREATOR CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0005\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00040\t2\u0006\u0010\b\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\n\u0010\u000b¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceIdBagMap$CREATOR;", "android/os/Parcelable$Creator", "Landroid/os/Parcel;", "parcel", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "createFromParcel", "(Landroid/os/Parcel;)Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "", "size", "", "newArray", "(I)[Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "<init>", "()V", "lib-security-framework_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class CREATOR implements Parcelable.Creator {
+    public static final class CREATOR implements Parcelable.Creator<DeviceIdBagMap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,6 +78,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public DeviceIdBagMap createFromParcel(Parcel parcel) {
             InterceptResult invokeL;
@@ -89,6 +91,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public DeviceIdBagMap[] newArray(int i) {
             InterceptResult invokeI;
@@ -115,7 +118,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public final /* bridge */ Set entrySet() {
+    public final /* bridge */ Set<Map.Entry<Integer, DeviceIdBag>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -175,7 +178,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public final /* bridge */ Set keySet() {
+    public final /* bridge */ Set<Integer> keySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -195,7 +198,7 @@ public final class DeviceIdBagMap extends ConcurrentHashMap implements Parcelabl
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public final /* bridge */ Collection values() {
+    public final /* bridge */ Collection<DeviceIdBag> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {

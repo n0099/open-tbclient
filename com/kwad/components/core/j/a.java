@@ -1,6 +1,7 @@
 package com.kwad.components.core.j;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +24,6 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import com.kwad.sdk.utils.k;
 import com.kwad.sdk.utils.r;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +36,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0570a {
+    public static final class C0581a {
         public static /* synthetic */ Interceptable $ic;
         public static final a HH;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,34 +108,34 @@ public final class a {
     public static a og() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0570a.HH : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0581a.HH : (a) invokeV.objValue;
     }
 
-    public final void O(AdTemplate adTemplate) {
+    public final void O(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
-            e.a(b(10007L, adTemplate));
+            e.a2(b(10007L, adTemplate));
         }
     }
 
-    public final void P(AdTemplate adTemplate) {
+    public final void P(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            e.a(b(10208L, adTemplate));
+            e.a2(b(10208L, adTemplate));
         }
     }
 
-    public final void Q(AdTemplate adTemplate) {
+    public final void Q(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
-            e.a(b(10209L, adTemplate));
+            e.a2(b(10209L, adTemplate));
         }
     }
 
-    public final void a(int i, AdTemplate adTemplate, String str) {
+    public final void a(int i, @NonNull AdTemplate adTemplate, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, adTemplate, str) == null) {
-            e.a(a(i, adTemplate, str));
+            e.a2(a(i, adTemplate, str));
         }
     }
 
@@ -147,7 +147,7 @@ public final class a {
             o.abm = i;
             o.posId = j;
             o.abn = BuildConfig.VERSION_CODE;
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -159,7 +159,7 @@ public final class a {
             o.HD = bVar.HD;
             o.HE = bVar.HE;
             o.HF = bVar.HF;
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -172,66 +172,65 @@ public final class a {
             if (ksScene instanceof SceneImpl) {
                 o.HS = (SceneImpl) ksScene;
             }
-            e.a(o);
+            e.a2(o);
         }
     }
 
-    public final void a(AdTemplate adTemplate, int i, int i2) {
+    public final void a(@NonNull AdTemplate adTemplate, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, adTemplate, i, i2) == null) {
             m b = b(12006L, adTemplate);
             b.Mo = i;
             b.aat = i2;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void a(AdTemplate adTemplate, long j, int i) {
+    public final void a(@NonNull AdTemplate adTemplate, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adTemplate, Long.valueOf(j), Integer.valueOf(i)}) == null) {
             m b = b(104L, adTemplate);
             b.clickTime = k.ck(adTemplate);
             b.aaR = j;
             b.aaS = i;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void a(AdTemplate adTemplate, long j, long j2, int i) {
+    public final void a(@NonNull AdTemplate adTemplate, long j, long j2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{adTemplate, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
             m b = b(10203L, adTemplate);
             b.aao = j;
             b.blockDuration = j2;
             b.aas = i;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void a(AdTemplate adTemplate, String str, String str2) {
+    public final void a(@NonNull AdTemplate adTemplate, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, adTemplate, str, str2) == null) {
             m b = b(10001L, adTemplate);
             b.failUrl = str;
             b.errorMsg = str2;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void a(boolean z, List list) {
+    public final void a(boolean z, List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048587, this, z, list) == null) {
             m o = o(10204L);
             o.aaN = z;
             if (list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    jSONArray.put((Integer) it.next());
+                for (Integer num : list) {
+                    jSONArray.put(num);
                 }
                 o.aaM = jSONArray;
             }
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -240,7 +239,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             m o = o(10104L);
             o.aaD = i;
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -249,7 +248,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             m o = o(10107L);
             o.aaE = i;
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -261,7 +260,7 @@ public final class a {
         HG = true;
         m o = o(8L);
         o.abd = f.aL(context);
-        e.a(o);
+        e.a2(o);
     }
 
     public final void aq(Context context) {
@@ -271,11 +270,11 @@ public final class a {
             JSONArray[] c = InstalledAppInfoManager.c(context, d.lD());
             o.aaw = c[0];
             o.aax = c[1];
-            e.a(o);
+            e.a2(o);
         }
     }
 
-    public final void b(AdTemplate adTemplate, int i, int i2) {
+    public final void b(@NonNull AdTemplate adTemplate, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048592, this, adTemplate, i, i2) == null) {
             m b = b(10002L, adTemplate);
@@ -289,7 +288,7 @@ public final class a {
             } catch (JSONException e) {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(e);
             }
-            e.a(b);
+            e.a2(b);
         }
     }
 
@@ -299,56 +298,56 @@ public final class a {
             m b = b(adTemplate.isPlayAgainData ? 12300 : com.tencent.connect.common.Constants.REQUEST_EDIT_EMOTION, adTemplate);
             b.aaE = 1;
             b.aaF = str;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void b(AdTemplate adTemplate, String str, String str2) {
+    public final void b(@NonNull AdTemplate adTemplate, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, adTemplate, str, str2) == null) {
             m b = b(10003L, adTemplate);
             b.failUrl = str;
             b.errorMsg = str2;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void c(AdTemplate adTemplate, int i, String str) {
+    public final void c(@NonNull AdTemplate adTemplate, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048595, this, adTemplate, i, str) == null) {
             m b = b(107L, adTemplate);
             b.errorCode = i;
             b.errorMsg = str;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void c(AdTemplate adTemplate, long j) {
+    public final void c(@NonNull AdTemplate adTemplate, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048596, this, adTemplate, j) == null) {
             m b = b(10202L, adTemplate);
             b.aaL = j;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void c(AdTemplate adTemplate, String str, String str2) {
+    public final void c(@NonNull AdTemplate adTemplate, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048597, this, adTemplate, str, str2) == null) {
             m b = b(10005L, adTemplate);
             b.failUrl = com.kwad.sdk.core.response.a.d.bI(adTemplate) ? com.kwad.sdk.core.response.a.a.A(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) : com.kwad.sdk.core.response.a.d.bS(adTemplate);
             b.failUrl = str;
             b.errorMsg = str2;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void c(JSONArray jSONArray) {
+    public final void c(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, jSONArray) == null) {
             m o = o(10200L);
             o.aaH = jSONArray;
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -357,7 +356,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeLI(1048599, this, adTemplate, i) == null) {
             m b = b(10108L, adTemplate);
             b.aaE = i;
-            e.a(b);
+            e.a2(b);
         }
     }
 
@@ -366,11 +365,11 @@ public final class a {
         if (interceptable == null || interceptable.invokeLJ(1048600, this, adTemplate, j) == null) {
             m b = b(10206L, adTemplate);
             b.abb = j;
-            e.a(b);
+            e.a2(b);
         }
     }
 
-    public final void e(AdTemplate adTemplate, int i) {
+    public final void e(@NonNull AdTemplate adTemplate, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048601, this, adTemplate, i) == null) && d.su()) {
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -380,7 +379,7 @@ public final class a {
             o.trace = bQ.trace;
             o.abn = BuildConfig.VERSION_CODE;
             o.posId = com.kwad.sdk.core.response.a.d.bJ(adTemplate);
-            e.a(o);
+            e.a2(o);
         }
     }
 
@@ -389,7 +388,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeLJ(1048602, this, adTemplate, j) == null) {
             m b = b(10207L, adTemplate);
             b.abc = j;
-            e.a(b);
+            e.a2(b);
         }
     }
 
@@ -403,27 +402,27 @@ public final class a {
         }
     }
 
-    public final void e(JSONObject jSONObject, int i) {
+    public final void e(@NonNull JSONObject jSONObject, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048604, this, jSONObject, i) == null) {
             m o = o(10201L);
             r.putValue(jSONObject, "appChangeType", i);
             o.aaG = jSONObject;
-            e.a(o);
+            e.a2(o);
         }
     }
 
     public final void oh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            e.a(o(10101L));
+            e.a2(o(10101L));
         }
     }
 
     public final void oi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            e.a(o(10106L));
+            e.a2(o(10106L));
         }
     }
 }

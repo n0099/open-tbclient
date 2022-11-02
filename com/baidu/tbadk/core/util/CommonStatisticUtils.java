@@ -60,4 +60,14 @@ public class CommonStatisticUtils {
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         statisticItem.eventStat();
     }
+
+    public static void staticUrlNullReport(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_URL_NULL_REPORT);
+            statisticItem.param("tid", str2);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
 }

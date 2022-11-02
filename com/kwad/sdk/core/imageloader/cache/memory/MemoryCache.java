@@ -2,13 +2,13 @@ package com.kwad.sdk.core.imageloader.cache.memory;
 
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface MemoryCache {
     void clear();
 
     DecodedResult get(String str);
 
-    Collection keys();
+    Collection<String> keys();
 
     boolean put(String str, DecodedResult decodedResult);
 

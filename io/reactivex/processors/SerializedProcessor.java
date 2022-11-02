@@ -13,15 +13,15 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SerializedProcessor extends FlowableProcessor {
+public final class SerializedProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FlowableProcessor actual;
+    public final FlowableProcessor<T> actual;
     public volatile boolean done;
     public boolean emitting;
-    public AppendOnlyLinkedArrayList queue;
+    public AppendOnlyLinkedArrayList<Object> queue;
 
-    public SerializedProcessor(FlowableProcessor flowableProcessor) {
+    public SerializedProcessor(FlowableProcessor<T> flowableProcessor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +40,7 @@ public final class SerializedProcessor extends FlowableProcessor {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subscriber) == null) {
             this.actual.subscribe(subscriber);
@@ -48,7 +48,7 @@ public final class SerializedProcessor extends FlowableProcessor {
     }
 
     public void emitLoop() {
-        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList;
+        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
             return;
@@ -118,9 +118,9 @@ public final class SerializedProcessor extends FlowableProcessor {
             }
             this.done = true;
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
                 appendOnlyLinkedArrayList.add(NotificationLite.complete());
@@ -144,9 +144,9 @@ public final class SerializedProcessor extends FlowableProcessor {
                 if (!this.done) {
                     this.done = true;
                     if (this.emitting) {
-                        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                         if (appendOnlyLinkedArrayList == null) {
-                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                             this.queue = appendOnlyLinkedArrayList;
                         }
                         appendOnlyLinkedArrayList.setFirst(NotificationLite.error(th));
@@ -173,9 +173,9 @@ public final class SerializedProcessor extends FlowableProcessor {
                 synchronized (this) {
                     if (!this.done) {
                         if (this.emitting) {
-                            AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                            AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                             if (appendOnlyLinkedArrayList == null) {
-                                appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                                appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                                 this.queue = appendOnlyLinkedArrayList;
                             }
                             appendOnlyLinkedArrayList.add(NotificationLite.subscription(subscription));
@@ -196,9 +196,9 @@ public final class SerializedProcessor extends FlowableProcessor {
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || this.done) {
             return;
         }
         synchronized (this) {
@@ -206,16 +206,16 @@ public final class SerializedProcessor extends FlowableProcessor {
                 return;
             }
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
-                appendOnlyLinkedArrayList.add(NotificationLite.next(obj));
+                appendOnlyLinkedArrayList.add(NotificationLite.next(t));
                 return;
             }
             this.emitting = true;
-            this.actual.onNext(obj);
+            this.actual.onNext(t);
             emitLoop();
         }
     }

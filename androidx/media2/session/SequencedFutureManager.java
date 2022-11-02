@@ -1,6 +1,9 @@
 package androidx.media2.session;
 
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.concurrent.futures.AbstractResolvableFuture;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +21,9 @@ public class SequencedFutureManager implements Closeable {
     public static final String TAG = "SequencedFutureManager";
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mLock;
+    @GuardedBy("mLock")
     public int mNextSequenceNumber;
+    @GuardedBy("mLock")
     public ArrayMap<Integer, SequencedFuture<?>> mSeqToFutureMap;
 
     /* loaded from: classes.dex */
@@ -28,7 +33,7 @@ public class SequencedFutureManager implements Closeable {
         public final T mResultWhenClosed;
         public final int mSequenceNumber;
 
-        public SequencedFuture(int i, T t) {
+        public SequencedFuture(int i, @NonNull T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +52,7 @@ public class SequencedFutureManager implements Closeable {
             this.mResultWhenClosed = t;
         }
 
-        public static <T> SequencedFuture<T> create(int i, T t) {
+        public static <T> SequencedFuture<T> create(int i, @NonNull T t) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, t)) == null) {
@@ -56,6 +61,7 @@ public class SequencedFutureManager implements Closeable {
             return (SequencedFuture) invokeIL.objValue;
         }
 
+        @NonNull
         public T getResultWhenClosed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -82,7 +88,7 @@ public class SequencedFutureManager implements Closeable {
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture
-        public boolean set(T t) {
+        public boolean set(@Nullable T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {

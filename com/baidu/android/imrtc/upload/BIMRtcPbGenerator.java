@@ -27,8 +27,8 @@ public final class BIMRtcPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_NAME = "bim_rtc";
     public static final String TAG = "BIMRtcPbGenerator";
-    public static final List actionList;
-    public static final List requests;
+    public static final List<IMPushPb.Action> actionList;
+    public static final List<Request> requests;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

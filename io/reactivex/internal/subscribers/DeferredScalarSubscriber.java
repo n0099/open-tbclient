@@ -11,7 +11,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class DeferredScalarSubscriber extends DeferredScalarSubscription implements FlowableSubscriber {
+public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements FlowableSubscriber<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2984505488220891551L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public abstract class DeferredScalarSubscriber extends DeferredScalarSubscriptio
     public Subscription s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DeferredScalarSubscriber(Subscriber subscriber) {
+    public DeferredScalarSubscriber(Subscriber<? super R> subscriber) {
         super(subscriber);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

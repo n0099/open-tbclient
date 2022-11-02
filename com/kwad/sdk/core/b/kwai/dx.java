@@ -2,16 +2,18 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.PageInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class dx implements com.kwad.sdk.core.d {
-    public static void a(PageInfo pageInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class dx implements com.kwad.sdk.core.d<PageInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
         pageInfo.pageType = jSONObject.optInt("pageType");
     }
 
-    public static JSONObject b(PageInfo pageInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(PageInfo pageInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -22,13 +24,15 @@ public final class dx implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((PageInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(PageInfo pageInfo, JSONObject jSONObject) {
+        a2(pageInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((PageInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(PageInfo pageInfo, JSONObject jSONObject) {
+        return b2(pageInfo, jSONObject);
     }
 }

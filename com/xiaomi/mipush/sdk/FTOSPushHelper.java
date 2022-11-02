@@ -86,11 +86,11 @@ public class FTOSPushHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m154a(context) : invokeL.booleanValue;
     }
 
-    public static void notifyFTOSNotificationClicked(Context context, Map map) {
+    public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
         PushMessageReceiver a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, context, map) == null) && map != null && map.containsKey("pushMsg")) {
-            String str = (String) map.get("pushMsg");
+            String str = map.get("pushMsg");
             if (TextUtils.isEmpty(str) || (a2 = i.a(context)) == null) {
                 return;
             }

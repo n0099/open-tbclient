@@ -31,6 +31,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.log.TraceLog;
 import com.yy.hiidostatis.message.module.sessionreport.CalAction;
+import com.yy.hiidostatis.message.module.sessionreport.EventValue;
 import com.yy.hiidostatis.message.utils.AndroidUtil;
 import com.yy.hiidostatis.message.utils.KVIO;
 import com.yy.hiidostatis.message.utils.NoNull;
@@ -67,7 +68,7 @@ public class HiidoSDK {
     }
 
     /* loaded from: classes8.dex */
-    public class Options {
+    public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
         public static final int BEHAVIOR_SEND_THRESHOLD_MAX = 100;
@@ -89,7 +90,7 @@ public class HiidoSDK {
         public int defaultMetricsInterval;
         public boolean gaidEnable;
         public float gyroscopeThreshold;
-        public Set ignoreActivity;
+        public Set<String> ignoreActivity;
         public int interval;
         @Deprecated
         public boolean isAbroad;
@@ -262,7 +263,7 @@ public class HiidoSDK {
                 if (strArr == null) {
                     return this;
                 }
-                Set set = this.ignoreActivity;
+                Set<String> set = this.ignoreActivity;
                 if (set == null) {
                     this.ignoreActivity = new HashSet(strArr.length);
                 } else {
@@ -463,7 +464,7 @@ public class HiidoSDK {
             return invokeV.intValue;
         }
 
-        public Set getIgnoreActivity() {
+        public Set<String> getIgnoreActivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -607,7 +608,7 @@ public class HiidoSDK {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class PageActionReportOption {
+    public static final class PageActionReportOption {
         public static final /* synthetic */ PageActionReportOption[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PageActionReportOption DO_NOT_REPORT_ON_FUTURE_RESUME;
@@ -817,7 +818,7 @@ public class HiidoSDK {
         return (StatisOption) invokeV.objValue;
     }
 
-    public static void setHiidoHost(String str, List list) {
+    public static void setHiidoHost(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, list) == null) {
             if (str != null && !str.isEmpty()) {
@@ -826,7 +827,7 @@ public class HiidoSDK {
             if (list != null && !list.isEmpty()) {
                 String[] strArr = new String[list.size()];
                 for (int i = 0; i < list.size(); i++) {
-                    strArr[i] = (String) list.get(i);
+                    strArr[i] = list.get(i);
                 }
                 HIIDO_IPS = strArr;
             }
@@ -951,7 +952,7 @@ public class HiidoSDK {
         }
     }
 
-    public void setABTest(Map map) {
+    public void setABTest(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048647, this, map) == null) {
             ABTestHandler.updateValue(this.appContext, map);
@@ -1035,7 +1036,7 @@ public class HiidoSDK {
         return invokeLL.booleanValue;
     }
 
-    public boolean flushSessionAll(String str, Set set) {
+    public boolean flushSessionAll(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) {
@@ -1182,7 +1183,7 @@ public class HiidoSDK {
         }
     }
 
-    public boolean pushToSession(String str, String str2, List list, Map map, Map map2) {
+    public boolean pushToSession(String str, String str2, List<EventValue> list, Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048609, this, str, str2, list, map, map2)) == null) {
@@ -1191,7 +1192,7 @@ public class HiidoSDK {
         return invokeLLLLL.booleanValue;
     }
 
-    public void beginSession(String str, String str2, long j, Map map) {
+    public void beginSession(String str, String str2, long j, Map<String, Long> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
             this.api.beginSession(str, str2, j, map);
@@ -1205,7 +1206,7 @@ public class HiidoSDK {
         }
     }
 
-    public void reportReg(String str, String str2, String str3, Map map) {
+    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048630, this, str, str2, str3, map) == null) {
             this.api.reportReg(str, str2, str3, map);
@@ -1268,7 +1269,7 @@ public class HiidoSDK {
         }
     }
 
-    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map map, Map map2) {
+    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) {
@@ -1319,14 +1320,14 @@ public class HiidoSDK {
         }
     }
 
-    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
             this.api.reportReturnCode(i, str, j, str2, map);
         }
     }
 
-    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
             this.api.reportSrcData(i, str, str2, j, map);
@@ -1368,14 +1369,14 @@ public class HiidoSDK {
         }
     }
 
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
             this.api.reportReturnCode(str, i, str2, j, str3, map);
         }
     }
 
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
             this.api.reportSrcData(str, i, str2, str3, j, map);

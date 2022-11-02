@@ -7,28 +7,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableLimit extends AbstractFlowableWithUpstream {
+public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long n;
 
     /* loaded from: classes8.dex */
-    public final class LimitSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
+    public static final class LimitSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2288246011222124525L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public long remaining;
         public Subscription upstream;
 
-        public LimitSubscriber(Subscriber subscriber, long j) {
+        public LimitSubscriber(Subscriber<? super T> subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,14 +81,14 @@ public final class FlowableLimit extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 long j = this.remaining;
                 if (j > 0) {
                     long j2 = j - 1;
                     this.remaining = j2;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     if (j2 == 0) {
                         this.upstream.cancel();
                         this.actual.onComplete();
@@ -133,7 +135,7 @@ public final class FlowableLimit extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableLimit(Flowable flowable, long j) {
+    public FlowableLimit(Flowable<T> flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -154,7 +156,7 @@ public final class FlowableLimit extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new LimitSubscriber(subscriber, this.n));

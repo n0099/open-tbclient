@@ -5,30 +5,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public class DiskCacheWriteProducer implements Producer {
+public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final String PRODUCER_NAME = "DiskCacheWriteProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
     public final BufferedDiskCache mDefaultBufferedDiskCache;
-    public final Producer mInputProducer;
+    public final Producer<EncodedImage> mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
     /* renamed from: com.facebook.imagepipeline.producers.DiskCacheWriteProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class DiskCacheWriteConsumer extends DelegatingConsumer {
+    public static class DiskCacheWriteConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CacheKeyFactory mCacheKeyFactory;
@@ -37,7 +39,7 @@ public class DiskCacheWriteProducer implements Producer {
         public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DiskCacheWriteConsumer(Consumer consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory) {
+        public DiskCacheWriteConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -88,7 +90,7 @@ public class DiskCacheWriteProducer implements Producer {
         }
     }
 
-    public DiskCacheWriteProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, Producer producer) {
+    public DiskCacheWriteProducer(BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, Producer<EncodedImage> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +111,7 @@ public class DiskCacheWriteProducer implements Producer {
         this.mInputProducer = producer;
     }
 
-    private void maybeStartInputProducer(Consumer consumer, ProducerContext producerContext) {
+    private void maybeStartInputProducer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, consumer, producerContext) == null) {
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
@@ -125,7 +127,7 @@ public class DiskCacheWriteProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             maybeStartInputProducer(consumer, producerContext);

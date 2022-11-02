@@ -13,19 +13,19 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class SerializedSubscriber implements FlowableSubscriber, Subscription {
+public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUEUE_LINK_SIZE = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super T> actual;
     public final boolean delayError;
     public volatile boolean done;
     public boolean emitting;
-    public AppendOnlyLinkedArrayList queue;
+    public AppendOnlyLinkedArrayList<Object> queue;
     public Subscription subscription;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SerializedSubscriber(Subscriber subscriber) {
+    public SerializedSubscriber(Subscriber<? super T> subscriber) {
         this(subscriber, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +45,7 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
         }
     }
 
-    public SerializedSubscriber(Subscriber subscriber, boolean z) {
+    public SerializedSubscriber(Subscriber<? super T> subscriber, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,8 +72,9 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: org.reactivestreams.Subscriber<? super T>, org.reactivestreams.Subscriber<? super U> */
     public void emitLoop() {
-        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList;
+        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             do {
@@ -85,7 +86,7 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
                     }
                     this.queue = null;
                 }
-            } while (!appendOnlyLinkedArrayList.accept(this.actual));
+            } while (!appendOnlyLinkedArrayList.accept((Subscriber<? super T>) this.actual));
         }
     }
 
@@ -100,9 +101,9 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
                 return;
             }
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
                 appendOnlyLinkedArrayList.add(NotificationLite.complete());
@@ -127,9 +128,9 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
                 if (!this.done) {
                     if (this.emitting) {
                         this.done = true;
-                        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                         if (appendOnlyLinkedArrayList == null) {
-                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                             this.queue = appendOnlyLinkedArrayList;
                         }
                         Object error = NotificationLite.error(th);
@@ -154,12 +155,12 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
             return;
         }
-        if (obj == null) {
+        if (t == null) {
             this.subscription.cancel();
             onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
             return;
@@ -169,16 +170,16 @@ public final class SerializedSubscriber implements FlowableSubscriber, Subscript
                 return;
             }
             if (this.emitting) {
-                AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                 if (appendOnlyLinkedArrayList == null) {
-                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                    appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                     this.queue = appendOnlyLinkedArrayList;
                 }
-                appendOnlyLinkedArrayList.add(NotificationLite.next(obj));
+                appendOnlyLinkedArrayList.add(NotificationLite.next(t));
                 return;
             }
             this.emitting = true;
-            this.actual.onNext(obj);
+            this.actual.onNext(t);
             emitLoop();
         }
     }

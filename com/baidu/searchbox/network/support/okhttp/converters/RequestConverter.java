@@ -40,7 +40,7 @@ public class RequestConverter {
             if (request.headers() != null) {
                 builder.headers(HeadersConverter.toOks(request.headers()));
             }
-            Map tags = request.getTags();
+            Map<Class<?>, Object> tags = request.getTags();
             RequestBody requestBody = null;
             if (request.body() != null) {
                 requestBody = RequestBodyConverter.toOks(request.body());
@@ -48,8 +48,8 @@ public class RequestConverter {
             builder.method(method, requestBody);
             builder.url(oks);
             if (tags != null) {
-                for (Map.Entry entry : tags.entrySet()) {
-                    builder.tag((Class) entry.getKey(), entry.getValue());
+                for (Map.Entry<Class<?>, Object> entry : tags.entrySet()) {
+                    builder.tag(entry.getKey(), entry.getValue());
                 }
             }
             builder.tag(com.baidu.searchbox.network.outback.core.Request.class, request);

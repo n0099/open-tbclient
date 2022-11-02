@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -38,8 +40,8 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
-    public static Map audioObjectTypes;
-    public static Map samplingFrequencyIndexMap;
+    public static Map<Integer, String> audioObjectTypes;
+    public static Map<Integer, Integer> samplingFrequencyIndexMap;
     public transient /* synthetic */ FieldHolder $fh;
     public long avgBitRate;
     public int bufferSizeDB;
@@ -48,11 +50,11 @@ public class AACTrackImpl extends AbstractTrack {
     public String lang;
     public long maxBitRate;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List samples;
+    public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -69,7 +71,7 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -290,14 +292,14 @@ public class AACTrackImpl extends AbstractTrack {
             double d = readSamples.sampleRate / 1024.0d;
             double size = this.samples.size() / d;
             LinkedList linkedList = new LinkedList();
-            Iterator it = this.samples.iterator();
+            Iterator<Sample> it = this.samples.iterator();
             long j = 0;
             while (true) {
                 int i = 0;
                 if (!it.hasNext()) {
                     break;
                 }
-                int size2 = (int) ((Sample) it.next()).getSize();
+                int size2 = (int) it.next().getSize();
                 j += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d) {
@@ -380,7 +382,7 @@ public class AACTrackImpl extends AbstractTrack {
                 adtsHeader.profile = bitReaderBuffer.readBits(2) + 1;
                 int readBits = bitReaderBuffer.readBits(4);
                 adtsHeader.sampleFrequencyIndex = readBits;
-                adtsHeader.sampleRate = ((Integer) samplingFrequencyIndexMap.get(Integer.valueOf(readBits))).intValue();
+                adtsHeader.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
                 bitReaderBuffer.readBits(1);
                 adtsHeader.channelconfig = bitReaderBuffer.readBits(3);
                 adtsHeader.original = bitReaderBuffer.readBits(1);
@@ -458,7 +460,7 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

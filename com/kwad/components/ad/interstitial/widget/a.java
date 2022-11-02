@@ -3,6 +3,7 @@ package com.kwad.components.ad.interstitial.widget;
 import android.app.Dialog;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,12 +26,12 @@ public final class a extends PagerAdapter {
     public final Dialog gi;
     public final boolean ia;
     public b ib;
-    public InterfaceC0534a ic;
-    public final List mAdTemplateList;
+    public InterfaceC0545a ic;
+    public final List<AdTemplate> mAdTemplateList;
 
     /* renamed from: com.kwad.components.ad.interstitial.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0534a {
+    public interface InterfaceC0545a {
         void dL();
     }
 
@@ -61,10 +62,10 @@ public final class a extends PagerAdapter {
         this.ia = com.kwad.sdk.core.response.a.a.bu(com.kwad.sdk.core.response.a.d.bQ(adTemplate)) == 1;
     }
 
-    public final void a(InterfaceC0534a interfaceC0534a) {
+    public final void a(InterfaceC0545a interfaceC0545a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0534a) == null) {
-            this.ic = interfaceC0534a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0545a) == null) {
+            this.ic = interfaceC0545a;
         }
     }
 
@@ -76,7 +77,7 @@ public final class a extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void destroyItem(@NonNull ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) && (obj instanceof View)) {
             viewGroup.removeView((View) obj);
@@ -91,7 +92,8 @@ public final class a extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+    @NonNull
+    public final Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
@@ -139,7 +141,7 @@ public final class a extends PagerAdapter {
                 }
                 eVar.setAggregateShowTriggerType(i2);
             }
-            eVar.a((AdTemplate) this.mAdTemplateList.get(i), this.gi, this.cN, this.fo);
+            eVar.a(this.mAdTemplateList.get(i), this.gi, this.cN, this.fo);
             b bVar = this.ib;
             if (bVar != null) {
                 bVar.a(eVar, i);
@@ -150,13 +152,13 @@ public final class a extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public final boolean isViewFromObject(View view2, Object obj) {
+    public final boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
-    public final void setAdTemplateList(List list) {
+    public final void setAdTemplateList(List<AdTemplate> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || list == null || list.size() <= 0) {
             return;

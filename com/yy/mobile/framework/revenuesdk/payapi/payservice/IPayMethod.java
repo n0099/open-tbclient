@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 /* loaded from: classes8.dex */
 public interface IPayMethod {
     boolean isSupported(Activity activity);
@@ -22,13 +23,13 @@ public interface IPayMethod {
 
     void onWxPayResult(int i, String str);
 
-    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, IPayCallback iPayCallback);
+    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void requestPay(Activity activity, long j, String str, String str2, IPayCallback iPayCallback);
+    void requestPay(Activity activity, long j, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class Status {
+    public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status ERROR;

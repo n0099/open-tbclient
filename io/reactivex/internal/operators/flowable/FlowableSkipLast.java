@@ -12,22 +12,22 @@ import java.util.ArrayDeque;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSkipLast extends AbstractFlowableWithUpstream {
+public final class FlowableSkipLast<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int skip;
 
     /* loaded from: classes8.dex */
-    public final class SkipLastSubscriber extends ArrayDeque implements FlowableSubscriber, Subscription {
+    public static final class SkipLastSubscriber<T> extends ArrayDeque<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3807491841935125653L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public Subscription s;
         public final int skip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SkipLastSubscriber(Subscriber subscriber, int i) {
+        public SkipLastSubscriber(Subscriber<? super T> subscriber, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -72,16 +72,17 @@ public final class FlowableSkipLast extends AbstractFlowableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: T, ? super T */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 if (this.skip == size()) {
-                    this.actual.onNext(poll());
+                    this.actual.onNext((T) poll());
                 } else {
                     this.s.request(1L);
                 }
-                offer(obj);
+                offer(t);
             }
         }
 
@@ -104,7 +105,7 @@ public final class FlowableSkipLast extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkipLast(Flowable flowable, int i) {
+    public FlowableSkipLast(Flowable<T> flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,7 +126,7 @@ public final class FlowableSkipLast extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new SkipLastSubscriber(subscriber, this.skip));

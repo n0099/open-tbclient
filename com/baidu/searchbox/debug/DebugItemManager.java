@@ -16,7 +16,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DebugItemManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap itemListMap;
+    public final HashMap<String, ArrayList<DebugDataGroupProvider>> itemListMap;
 
     public final void collectDebugProvider() {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public final class DebugItemManager {
                 return;
             }
         }
-        this.itemListMap = new HashMap();
+        this.itemListMap = new HashMap<>();
         collectDebugProvider();
     }
 
-    public final HashMap getItemListMap() {
+    public final HashMap<String, ArrayList<DebugDataGroupProvider>> getItemListMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -53,22 +53,22 @@ public final class DebugItemManager {
     public final void addDebugInfo(String str, DebugDataGroupProvider debugDataGroupProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, debugDataGroupProvider) == null) {
-            ArrayList arrayList = (ArrayList) this.itemListMap.get(str);
+            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
             if (arrayList == null) {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
                 this.itemListMap.put(str, arrayList);
             }
             arrayList.add(debugDataGroupProvider);
         }
     }
 
-    public final ArrayList getProviderList(String str) {
+    public final ArrayList<DebugDataGroupProvider> getProviderList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = (ArrayList) this.itemListMap.get(str);
+            ArrayList<DebugDataGroupProvider> arrayList = this.itemListMap.get(str);
             if (arrayList == null) {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
             }
             Intrinsics.checkExpressionValueIsNotNull(arrayList, "itemListMap.get(type) ?: ArrayList()");
             return arrayList;

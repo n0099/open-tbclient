@@ -1,5 +1,6 @@
 package com.baidu.android.util.devices;
 
+import android.annotation.SuppressLint;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -31,6 +32,7 @@ public class IMEIRequestUtils {
         }
     }
 
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String getIMEI(String str) {
         InterceptResult invokeL;
         String str2;

@@ -1,61 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wt {
+public final class wt {
     public static /* synthetic */ Interceptable $ic;
+    public static final wt a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321136, "Lcom/baidu/tieba/wt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return new String(bArr, Charset.forName("UTF-8"));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321136, "Lcom/baidu/tieba/wt;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        a = new wt();
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public wt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return str.getBytes(Charset.forName("UTF-8"));
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
+    public final vt a(TaskStatus taskStatus, TaskInfo taskInfo) {
+        InterceptResult invokeLL;
+        int i;
+        TaskUIData taskUIData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null) {
-                return new byte[0];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
+            if (taskStatus.isFinished()) {
+                taskUIData = taskInfo.getResponse().getUi();
+                i = taskInfo.getResponse().getUiType();
+            } else if (taskStatus.isRunning()) {
+                taskUIData = taskInfo.getTaskMeter().getUi();
+                i = taskInfo.getTaskMeter().getUiType();
+            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
+                taskUIData = taskInfo.getTaskGuide().getUi();
+                i = taskInfo.getTaskGuide().getUiType();
+            } else {
+                i = -1;
+                taskUIData = null;
             }
-            return Base64.encode(bArr, 2);
+            return new vt(i, taskUIData);
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return Base64.decode(bArr, 2);
-            }
-            return new byte[0];
-        }
-        return (byte[]) invokeL.objValue;
+        return (vt) invokeLL.objValue;
     }
 }

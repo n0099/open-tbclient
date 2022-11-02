@@ -4,18 +4,21 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroupOverlay;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(18)
 /* loaded from: classes.dex */
 public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewGroupOverlay mViewGroupOverlay;
 
-    public ViewGroupOverlayApi18(ViewGroup viewGroup) {
+    public ViewGroupOverlayApi18(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +37,7 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void add(Drawable drawable) {
+    public void add(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             this.mViewGroupOverlay.add(drawable);
@@ -42,7 +45,7 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void remove(Drawable drawable) {
+    public void remove(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
             this.mViewGroupOverlay.remove(drawable);
@@ -50,7 +53,7 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void add(View view2) {
+    public void add(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             this.mViewGroupOverlay.add(view2);
@@ -58,7 +61,7 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void remove(View view2) {
+    public void remove(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.mViewGroupOverlay.remove(view2);

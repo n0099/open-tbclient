@@ -27,33 +27,33 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
+public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function mapper;
+    public final Function<? super T, ? extends Publisher<? extends R>> mapper;
     public final int maxConcurrency;
     public final int prefetch;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMapEagerDelayErrorSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription, InnerQueuedSubscriberSupport {
+    public static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, InnerQueuedSubscriberSupport<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4255299542215038287L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
-        public volatile InnerQueuedSubscriber current;
+        public volatile InnerQueuedSubscriber<R> current;
         public volatile boolean done;
         public final ErrorMode errorMode;
         public final AtomicThrowable errors;
-        public final Function mapper;
+        public final Function<? super T, ? extends Publisher<? extends R>> mapper;
         public final int maxConcurrency;
         public final int prefetch;
         public final AtomicLong requested;
         public Subscription s;
-        public final SpscLinkedArrayQueue subscribers;
+        public final SpscLinkedArrayQueue<InnerQueuedSubscriber<R>> subscribers;
 
-        public ConcatMapEagerDelayErrorSubscriber(Subscriber subscriber, Function function, int i, int i2, ErrorMode errorMode) {
+        public ConcatMapEagerDelayErrorSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
             this.maxConcurrency = i;
             this.prefetch = i2;
             this.errorMode = errorMode;
-            this.subscribers = new SpscLinkedArrayQueue(Math.min(i2, i));
+            this.subscribers = new SpscLinkedArrayQueue<>(Math.min(i2, i));
             this.errors = new AtomicThrowable();
             this.requested = new AtomicLong();
         }
@@ -95,9 +95,9 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
                 return;
             }
             while (true) {
-                InnerQueuedSubscriber innerQueuedSubscriber = (InnerQueuedSubscriber) this.subscribers.poll();
-                if (innerQueuedSubscriber != null) {
-                    innerQueuedSubscriber.cancel();
+                InnerQueuedSubscriber<R> poll = this.subscribers.poll();
+                if (poll != null) {
+                    poll.cancel();
                 } else {
                     return;
                 }
@@ -124,31 +124,31 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
         public void drain() {
-            InnerQueuedSubscriber innerQueuedSubscriber;
+            InnerQueuedSubscriber<R> innerQueuedSubscriber;
             int i;
             long j;
             boolean z;
-            SimpleQueue queue;
+            SimpleQueue<R> queue;
             int i2;
             boolean z2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            InnerQueuedSubscriber innerQueuedSubscriber2 = this.current;
-            Subscriber subscriber = this.actual;
+            InnerQueuedSubscriber<R> innerQueuedSubscriber2 = this.current;
+            Subscriber<? super R> subscriber = this.actual;
             ErrorMode errorMode = this.errorMode;
             int i3 = 1;
             while (true) {
                 long j2 = this.requested.get();
                 if (innerQueuedSubscriber2 == null) {
-                    if (errorMode != ErrorMode.END && ((Throwable) this.errors.get()) != null) {
+                    if (errorMode != ErrorMode.END && this.errors.get() != null) {
                         cancelAll();
                         subscriber.onError(this.errors.terminate());
                         return;
                     }
                     boolean z3 = this.done;
-                    innerQueuedSubscriber = (InnerQueuedSubscriber) this.subscribers.poll();
+                    innerQueuedSubscriber = this.subscribers.poll();
                     if (z3 && innerQueuedSubscriber == null) {
                         Throwable terminate = this.errors.terminate();
                         if (terminate != null) {
@@ -174,7 +174,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
                         } else if (this.cancelled) {
                             cancelAll();
                             return;
-                        } else if (errorMode == ErrorMode.IMMEDIATE && ((Throwable) this.errors.get()) != null) {
+                        } else if (errorMode == ErrorMode.IMMEDIATE && this.errors.get() != null) {
                             this.current = null;
                             innerQueuedSubscriber.cancel();
                             cancelAll();
@@ -183,7 +183,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
                         } else {
                             boolean isDone = innerQueuedSubscriber.isDone();
                             try {
-                                Object poll = queue.poll();
+                                R poll = queue.poll();
                                 if (poll == null) {
                                     z2 = true;
                                 } else {
@@ -217,7 +217,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
                         if (this.cancelled) {
                             cancelAll();
                             return;
-                        } else if (errorMode == ErrorMode.IMMEDIATE && ((Throwable) this.errors.get()) != null) {
+                        } else if (errorMode == ErrorMode.IMMEDIATE && this.errors.get() != null) {
                             this.current = null;
                             innerQueuedSubscriber.cancel();
                             cancelAll();
@@ -256,7 +256,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
-        public void innerComplete(InnerQueuedSubscriber innerQueuedSubscriber) {
+        public void innerComplete(InnerQueuedSubscriber<R> innerQueuedSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, innerQueuedSubscriber) == null) {
                 innerQueuedSubscriber.setDone();
@@ -304,7 +304,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
-        public void innerError(InnerQueuedSubscriber innerQueuedSubscriber, Throwable th) {
+        public void innerError(InnerQueuedSubscriber<R> innerQueuedSubscriber, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, innerQueuedSubscriber, th) == null) {
                 if (this.errors.addThrowable(th)) {
@@ -320,10 +320,10 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
-        public void innerNext(InnerQueuedSubscriber innerQueuedSubscriber, Object obj) {
+        public void innerNext(InnerQueuedSubscriber<R> innerQueuedSubscriber, R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, innerQueuedSubscriber, obj) == null) {
-                if (innerQueuedSubscriber.queue().offer(obj)) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, innerQueuedSubscriber, r) == null) {
+                if (innerQueuedSubscriber.queue().offer(r)) {
                     drain();
                     return;
                 }
@@ -333,12 +333,12 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 try {
-                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null Publisher");
-                    InnerQueuedSubscriber innerQueuedSubscriber = new InnerQueuedSubscriber(this, this.prefetch);
+                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null Publisher");
+                    InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
                     if (this.cancelled) {
                         return;
                     }
@@ -358,7 +358,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatMapEager(Flowable flowable, Function function, int i, int i2, ErrorMode errorMode) {
+    public FlowableConcatMapEager(Flowable<T> flowable, Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2, ErrorMode errorMode) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -382,7 +382,7 @@ public final class FlowableConcatMapEager extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ConcatMapEagerDelayErrorSubscriber(subscriber, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));

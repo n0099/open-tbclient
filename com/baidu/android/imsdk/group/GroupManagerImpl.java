@@ -165,7 +165,7 @@ public class GroupManagerImpl {
         return invokeL.booleanValue;
     }
 
-    public ArrayList getNickName(String str) {
+    public ArrayList<GroupMember> getNickName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
@@ -209,7 +209,7 @@ public class GroupManagerImpl {
         return (ChatMsg) invokeCommon.objValue;
     }
 
-    public void getGroupMember(int i, String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void getGroupMember(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), str, arrayList, bIMValueCallBack}) == null) {
             if (str == null) {
@@ -222,7 +222,7 @@ public class GroupManagerImpl {
                     HttpHelper.executor(mContext, iMQueryMemberRequest, iMQueryMemberRequest);
                     return;
                 }
-                ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(mContext, str, arrayList, 0);
+                ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(mContext, str, arrayList, 0);
                 if (groupMember != null && groupMember.size() > 0) {
                     if (bIMValueCallBack != null) {
                         bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupMember);
@@ -241,7 +241,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void addGroupMembers(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void addGroupMembers(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, arrayList, bIMValueCallBack) == null) {
             long longByString = Utility.getLongByString(str, 0L);
@@ -261,7 +261,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void createGroup(int i, String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void createGroup(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, bIMValueCallBack}) == null) {
             if (!isValidGroupName(str)) {
@@ -280,7 +280,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void delFansGroupMember(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void delFansGroupMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, arrayList, bIMValueCallBack) == null) {
             if (str != null && arrayList != null && arrayList.size() != 0) {
@@ -300,7 +300,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupInfo(ArrayList arrayList, boolean z, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupInfo(ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{arrayList, Boolean.valueOf(z), bIMValueCallBack}) == null) {
             if (arrayList != null && arrayList.size() != 0) {
@@ -340,12 +340,12 @@ public class GroupManagerImpl {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 if (!this.val$network) {
-                                    ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(GroupManagerImpl.mContext, this.val$groupIds);
+                                    ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(GroupManagerImpl.mContext, this.val$groupIds);
                                     if (groupInfo != null && groupInfo.size() == this.val$groupIds.size()) {
                                         z2 = true;
-                                        Iterator it = groupInfo.iterator();
+                                        Iterator<GroupInfo> it = groupInfo.iterator();
                                         while (it.hasNext()) {
-                                            if (((GroupInfo) it.next()).getType() != 3) {
+                                            if (it.next().getType() != 3) {
                                                 z2 = false;
                                                 break;
                                             }
@@ -377,7 +377,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void updateGroupName(String str, String str2, BIMValueCallBack bIMValueCallBack) {
+    public void updateGroupName(String str, String str2, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048608, this, str, str2, bIMValueCallBack) == null) {
             if (str != null && str2 != null && isValidGroupName(str2)) {
@@ -396,7 +396,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void delGroupMember(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void delGroupMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, bIMValueCallBack) == null) {
@@ -426,7 +426,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void delStarMember(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void delStarMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, arrayList, bIMValueCallBack) == null) {
@@ -456,7 +456,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getAllGroupMember(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void getAllGroupMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, arrayList, bIMValueCallBack) == null) {
@@ -469,13 +469,13 @@ public class GroupManagerImpl {
             }
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(str);
-            ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList2);
+            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList2);
             if (groupInfo != null && groupInfo.size() > 0) {
-                i = ((GroupInfo) groupInfo.get(0)).getNum();
+                i = groupInfo.get(0).getNum();
             } else {
                 i = 0;
             }
-            ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(mContext, str, arrayList, 0);
+            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(mContext, str, arrayList, 0);
             if (groupMember != null && groupMember.size() > 0) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupMember);
@@ -493,7 +493,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupsInfo(int i, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void getGroupsInfo(int i, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048595, this, i, arrayList, bIMValueCallBack) == null) {
             if (arrayList != null && arrayList.size() != 0) {
@@ -503,7 +503,7 @@ public class GroupManagerImpl {
                         HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);
                         return;
                     }
-                    ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+                    ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
                     if (groupInfo != null && groupInfo.size() > 0) {
                         LogUtils.d(TAG, "getGroupsInfo 0");
                         if (bIMValueCallBack != null) {
@@ -524,11 +524,11 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getAllGroupList(BIMValueCallBack bIMValueCallBack) {
+    public void getAllGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
-                ArrayList allGroupList = GroupInfoDAOImpl.getAllGroupList(mContext);
+                ArrayList<String> allGroupList = GroupInfoDAOImpl.getAllGroupList(mContext);
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(0, "", allGroupList);
                     return;
@@ -542,7 +542,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupUnreadStatus(BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupUnreadStatus(BIMValueCallBack<Integer> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -557,7 +557,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getForwardUserList(BIMValueCallBack bIMValueCallBack) {
+    public void getForwardUserList(BIMValueCallBack<GroupSortUserList> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -572,7 +572,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupList(BIMValueCallBack bIMValueCallBack) {
+    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -587,7 +587,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupInviteMembers(String str, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupInviteMembers(String str, BIMValueCallBack<GroupSortUserList> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bIMValueCallBack) != null) || bIMValueCallBack == null) {
             return;
@@ -603,7 +603,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupList(boolean z, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupList(boolean z, BIMValueCallBack<List<GroupInfo>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048585, this, z, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -656,7 +656,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupQrCode(String str, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupQrCode(String str, BIMValueCallBack<IMQueryFansGroupQrCodeRequest.QrCode> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -671,7 +671,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getPaidAndUkByBduid(List list, BIMValueCallBack bIMValueCallBack) {
+    public void getPaidAndUkByBduid(List<Long> list, BIMValueCallBack<List<IMQueryMemberPauidRequest.UserId>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, list, bIMValueCallBack) == null) {
             if (AccountManager.isLogin(mContext)) {
@@ -686,7 +686,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupMember(String str, ArrayList arrayList, boolean z, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupMember(String str, ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, arrayList, Boolean.valueOf(z), bIMValueCallBack}) == null) {
             if (str == null) {
@@ -729,7 +729,7 @@ public class GroupManagerImpl {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             if (!this.val$network) {
-                                ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
+                                ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
                                 if ((this.val$buids == null && groupMember != null && groupMember.size() > 0) || ((arrayList2 = this.val$buids) != null && groupMember != null && arrayList2.size() == groupMember.size())) {
                                     this.val$listener.onResult(0, null, groupMember);
                                     return;
@@ -749,7 +749,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupUserInfo(String str, ArrayList arrayList, BIMValueCallBack bIMValueCallBack) {
+    public void getFansGroupUserInfo(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, str, arrayList, bIMValueCallBack) == null) {
             if (str == null) {
@@ -788,14 +788,14 @@ public class GroupManagerImpl {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
+                            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
                             ArrayList arrayList2 = this.val$buids;
                             if (arrayList2 != null && arrayList2.size() != 0 && (groupMember == null || groupMember.size() != this.val$buids.size())) {
                                 ArrayList arrayList3 = new ArrayList();
                                 if (groupMember != null && groupMember.size() > 0) {
-                                    Iterator it = groupMember.iterator();
+                                    Iterator<GroupMember> it = groupMember.iterator();
                                     while (it.hasNext()) {
-                                        arrayList3.add(Long.valueOf(((GroupMember) it.next()).getBduid()));
+                                        arrayList3.add(Long.valueOf(it.next().getBduid()));
                                     }
                                 }
                                 ArrayList arrayList4 = new ArrayList();
@@ -838,15 +838,15 @@ public class GroupManagerImpl {
                                         }
 
                                         @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
-                                        public void onGetUsersProfileBatchResult(int i, String str2, ArrayList arrayList6, ArrayList arrayList7) {
+                                        public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList6, ArrayList<ChatUser> arrayList7) {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, arrayList6, arrayList7}) == null) {
                                                 if (i == 0 && arrayList7 != null && arrayList7.size() > 0) {
-                                                    Iterator it3 = arrayList7.iterator();
+                                                    Iterator<ChatUser> it3 = arrayList7.iterator();
                                                     while (it3.hasNext()) {
-                                                        ChatUser chatUser = (ChatUser) it3.next();
-                                                        GroupMember groupMember2 = new GroupMember(this.this$1.val$groupId, chatUser.getUk(), chatUser.getUserName(), chatUser.getBuid(), 2, 0L);
-                                                        groupMember2.setPortrait(chatUser.getIconUrl());
+                                                        ChatUser next = it3.next();
+                                                        GroupMember groupMember2 = new GroupMember(this.this$1.val$groupId, next.getUk(), next.getUserName(), next.getBuid(), 2, 0L);
+                                                        groupMember2.setPortrait(next.getIconUrl());
                                                         this.val$result.add(groupMember2);
                                                     }
                                                 }
@@ -868,7 +868,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void setGroupDisturb(String str, int i, BIMValueCallBack bIMValueCallBack) {
+    public void setGroupDisturb(String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048606, this, str, i, bIMValueCallBack) == null) {
             IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i);
@@ -876,7 +876,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGlobalDisturbStatus(Context context, BIMValueCallBack bIMValueCallBack) {
+    public void getGlobalDisturbStatus(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, context, bIMValueCallBack) == null) {
             IMQueryGlobalConfRequest iMQueryGlobalConfRequest = new IMQueryGlobalConfRequest(context, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext));
@@ -893,11 +893,11 @@ public class GroupManagerImpl {
         return (String) invokeLL.objValue;
     }
 
-    public void getGroupList(BIMValueCallBack bIMValueCallBack, int i, int i2) {
+    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048593, this, bIMValueCallBack, i, i2) == null) {
             if (AccountManager.isLogin(mContext)) {
-                ArrayList groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
+                ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupList);
                     return;
@@ -911,11 +911,11 @@ public class GroupManagerImpl {
         }
     }
 
-    public void sendFansGroupInviteMsg(String str, List list, ISendMessageListener iSendMessageListener) {
+    public void sendFansGroupInviteMsg(String str, List<Long> list, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048605, this, str, list, iSendMessageListener) == null) {
             if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
-                getPaidAndUkByBduid(list, new BIMValueCallBack(this, str, new AtomicInteger(list.size()), iSendMessageListener) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.6
+                getPaidAndUkByBduid(list, new BIMValueCallBack<List<IMQueryMemberPauidRequest.UserId>>(this, str, new AtomicInteger(list.size()), iSendMessageListener) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ GroupManagerImpl this$0;
@@ -946,15 +946,13 @@ public class GroupManagerImpl {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    public void onResult(int i, String str2, List list2) {
+                    public void onResult(int i, String str2, List<IMQueryMemberPauidRequest.UserId> list2) {
                         long j;
                         int i2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, list2) == null) {
                             if (i == 0 && list2 != null) {
-                                Iterator it = list2.iterator();
-                                while (it.hasNext()) {
-                                    IMQueryMemberPauidRequest.UserId userId = (IMQueryMemberPauidRequest.UserId) it.next();
+                                for (IMQueryMemberPauidRequest.UserId userId : list2) {
                                     long pauid = userId.getPauid();
                                     int i3 = (pauid > 0L ? 1 : (pauid == 0L ? 0 : -1));
                                     if (i3 == 0) {
@@ -1068,7 +1066,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getStarOnline(String str, BIMValueCallBack bIMValueCallBack) {
+    public void getStarOnline(String str, BIMValueCallBack<Integer> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, str, bIMValueCallBack) == null) {
@@ -1096,7 +1094,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void joinStarGroup(String str, BIMValueCallBack bIMValueCallBack) {
+    public void joinStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, bIMValueCallBack) == null) {
@@ -1122,7 +1120,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void quitFansGroup(String str, BIMValueCallBack bIMValueCallBack) {
+    public void quitFansGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, bIMValueCallBack) == null) {
@@ -1150,7 +1148,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void quitGroup(String str, BIMValueCallBack bIMValueCallBack) {
+    public void quitGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, str, bIMValueCallBack) == null) {
@@ -1178,7 +1176,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void quitStarGroup(String str, BIMValueCallBack bIMValueCallBack) {
+    public void quitStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, str, bIMValueCallBack) == null) {
@@ -1211,7 +1209,7 @@ public class GroupManagerImpl {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void joinGroup(String str, String str2, int i, String str3, boolean z, BIMValueCallBack bIMValueCallBack) {
+    public void joinGroup(String str, String str2, int i, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, str2, Integer.valueOf(i), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
@@ -1251,7 +1249,7 @@ public class GroupManagerImpl {
         }
     }
 
-    public void setNickName(String str, long j, String str2, boolean z, BIMValueCallBack bIMValueCallBack) {
+    public void setNickName(String str, long j, String str2, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z), bIMValueCallBack}) == null) {
             IMSetNickNameRequest iMSetNickNameRequest = new IMSetNickNameRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), z, str, str2, j);

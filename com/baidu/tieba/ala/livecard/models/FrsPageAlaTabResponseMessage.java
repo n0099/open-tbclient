@@ -3,7 +3,8 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.fj6;
+import com.baidu.tieba.pk6;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,9 +19,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList mAltList;
-    public ArrayList mThreadList;
-    public fj6 pageInfo;
+    public ArrayList<wn> mAltList;
+    public ArrayList<wn> mThreadList;
+    public pk6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -53,13 +54,13 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.errMsg = jSONObject.optString("errmsg");
                 this.alaLiveCount = jSONObject.optInt("ala_live_count");
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                fj6 fj6Var = new fj6();
-                this.pageInfo = fj6Var;
+                pk6 pk6Var = new pk6();
+                this.pageInfo = pk6Var;
                 boolean z = true;
                 if (optJSONObject.optInt("has_more") != 1) {
                     z = false;
                 }
-                fj6Var.g = z;
+                pk6Var.g = z;
                 this.pageInfo.c = optJSONObject.optInt("pn");
                 if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                     FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
@@ -68,7 +69,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
                 if (optJSONArray.length() > 0) {
-                    this.mThreadList = new ArrayList();
+                    this.mThreadList = new ArrayList<>();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         ThreadData threadData = new ThreadData();
@@ -79,7 +80,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
                 if (optJSONArray2.length() > 0) {
-                    this.mAltList = new ArrayList();
+                    this.mAltList = new ArrayList<>();
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
                         ThreadData threadData2 = new ThreadData();

@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
@@ -31,12 +32,12 @@ public final class AsyncTaskAssistant {
     public static final String TAG = "AsyncTaskAssistant";
     public static final Executor THREAD_POOL_EXECUTOR;
     public static Handler sHandler;
-    public static final BlockingQueue sPoolWorkQueue;
+    public static final BlockingQueue<Runnable> sPoolWorkQueue;
     public static final ThreadFactory sThreadFactory;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class Task {
+    public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -58,7 +59,7 @@ public final class AsyncTaskAssistant {
     }
 
     /* loaded from: classes.dex */
-    public class WorkerAsyncTask extends AsyncTask {
+    public static class WorkerAsyncTask extends AsyncTask<Task, Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,6 +183,7 @@ public final class AsyncTaskAssistant {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static void executeOnThreadPool(Runnable runnable, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, str) == null) {

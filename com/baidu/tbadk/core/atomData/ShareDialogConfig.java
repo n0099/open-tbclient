@@ -8,9 +8,10 @@ import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.tv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,10 +28,10 @@ public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
-    public av4.d dialogAddToExpressionListener;
-    public av4.d dialogDownloadOriginListener;
-    public av4.d dialogRecognizePicListener;
-    public av4.d dialogSaveToDiskListener;
+    public tv4.d dialogAddToExpressionListener;
+    public tv4.d dialogDownloadOriginListener;
+    public tv4.d dialogRecognizePicListener;
+    public tv4.d dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public String experimentId;
     public boolean hasSpecialItem;
@@ -55,8 +56,8 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isShowPersonalLetter;
     public boolean isSupportNightMode;
     public boolean mAlaLiveRoomShare;
-    public List mCommandChannelArray;
-    public ArrayList mForumList;
+    public List<Integer> mCommandChannelArray;
+    public ArrayList<TransmitForumData> mForumList;
     public From mFrom;
     public boolean mIsAd;
     public boolean mIsAlaLive;
@@ -68,12 +69,12 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean mShowMoreForumShare;
     public From mThreadFrom;
     public int msgNum;
-    public SparseArray mtjStatistics;
+    public SparseArray<String> mtjStatistics;
     public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
     public View.OnClickListener onWeChatEmotionShareListener;
     public String originImgText;
-    public av4.d qrCodeClickListener;
+    public tv4.d qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;
@@ -82,12 +83,12 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean showNovelMask;
     public boolean showQRCode;
     public ShareItem[] specialShareItems;
-    public ArrayList textViewList;
+    public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
     public String topicId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class From {
+    public static final class From {
         public static final /* synthetic */ From[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final From Concern;
@@ -206,7 +207,7 @@ public class ShareDialogConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray sparseArray) {
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -245,7 +246,7 @@ public class ShareDialogConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray sparseArray, boolean z2) {
+    public ShareDialogConfig(Context context, ShareItem shareItem, boolean z, SparseArray<String> sparseArray, boolean z2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -331,13 +332,13 @@ public class ShareDialogConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, onClickListener) == null) {
             if (this.textViewList == null) {
-                this.textViewList = new ArrayList();
+                this.textViewList = new ArrayList<>();
             }
-            this.textViewList.add(new Pair(Integer.valueOf(i), new Pair(Integer.valueOf(i2), onClickListener)));
+            this.textViewList.add(new Pair<>(Integer.valueOf(i), new Pair(Integer.valueOf(i2), onClickListener)));
         }
     }
 
-    public List getCommandChannelArray() {
+    public List<Integer> getCommandChannelArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -543,7 +544,7 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
-    public void setTransmitForumList(ArrayList arrayList) {
+    public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, arrayList) == null) {
             this.mForumList = arrayList;

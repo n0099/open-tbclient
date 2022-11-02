@@ -2,6 +2,7 @@ package com.kwad.components.offline.api.core.api;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +33,7 @@ public abstract class IOfflineCompoWrapper {
 
     public abstract Context unwrapContextIfNeed(Context context);
 
-    public abstract Context wrapContextIfNeed(Context context);
+    public abstract Context wrapContextIfNeed(@Nullable Context context);
 
     public abstract LayoutInflater wrapInflaterIfNeed(LayoutInflater layoutInflater);
 }

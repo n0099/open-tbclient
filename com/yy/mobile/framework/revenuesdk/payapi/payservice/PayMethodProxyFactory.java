@@ -24,10 +24,10 @@ public class PayMethodProxyFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public Map payMethodProxyMap;
+    public Map<String, IPaySdkServiceProxy> payMethodProxyMap;
 
     /* loaded from: classes8.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final PayMethodProxyFactory instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class PayMethodProxyFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payType)) == null) {
             synchronized (this) {
-                IPaySdkServiceProxy iPaySdkServiceProxy = (IPaySdkServiceProxy) this.payMethodProxyMap.get(payType.getChannel());
+                IPaySdkServiceProxy iPaySdkServiceProxy = this.payMethodProxyMap.get(payType.getChannel());
                 if (iPaySdkServiceProxy == null) {
                     RLog.info("PayMethodProxyFactory", "findProxyPayMethod null paychannel:" + payType.getChannel());
                     return null;

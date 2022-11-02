@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
@@ -16,13 +15,13 @@ import org.apache.http.protocol.HTTP;
 public class c {
 
     /* loaded from: classes7.dex */
-    public class a {
+    public static class a {
         public InputStream a;
-        public Map b;
+        public Map<String, String> b;
         public int c;
         public HttpURLConnection d;
 
-        public a(InputStream inputStream, Map map, int i, HttpURLConnection httpURLConnection) {
+        public a(InputStream inputStream, Map<String, String> map, int i, HttpURLConnection httpURLConnection) {
             this.a = inputStream;
             this.b = map;
             this.c = i;
@@ -30,13 +29,11 @@ public class c {
         }
     }
 
-    public static a a(String str, List list) throws IOException {
+    public static a a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         int responseCode;
         HashMap hashMap = new HashMap();
         if (list != null && !list.isEmpty()) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+            for (com.ss.android.socialbase.downloader.model.c cVar : list) {
                 hashMap.put(cVar.a(), cVar.b());
             }
         }
@@ -44,7 +41,7 @@ public class c {
         if (a2 == null || (responseCode = a2.getResponseCode()) < 200 || responseCode >= 300) {
             return null;
         }
-        Map a3 = a(a2);
+        Map<String, String> a3 = a(a2);
         InputStream inputStream = a2.getInputStream();
         String contentEncoding = a2.getContentEncoding();
         if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.contains("gzip")) {
@@ -53,7 +50,7 @@ public class c {
         return new a(inputStream, a3, responseCode, a2);
     }
 
-    public static HttpURLConnection a(String str, Map map) {
+    public static HttpURLConnection a(String str, Map<String, String> map) {
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
         HttpURLConnection httpURLConnection3 = null;
@@ -69,8 +66,8 @@ public class c {
             httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
             httpURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
             if (map != null && !map.isEmpty()) {
-                for (Map.Entry entry : map.entrySet()) {
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             httpURLConnection.connect();
@@ -88,7 +85,7 @@ public class c {
         }
     }
 
-    public static Map a(HttpURLConnection httpURLConnection) {
+    public static Map<String, String> a(HttpURLConnection httpURLConnection) {
         HashMap hashMap = new HashMap();
         int size = httpURLConnection.getHeaderFields().size();
         for (int i = 0; i < size; i++) {

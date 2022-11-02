@@ -11,7 +11,7 @@ import java.util.List;
 public class KeyframesParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("k");
 
-    public static List parse(JsonReader jsonReader, LottieComposition lottieComposition, float f, ValueParser valueParser) throws IOException {
+    public static <T> List<Keyframe<T>> parse(JsonReader jsonReader, LottieComposition lottieComposition, float f, ValueParser<T> valueParser) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonReader.Token.STRING) {
             lottieComposition.addWarning("Lottie doesn't support expressions.");
@@ -40,9 +40,9 @@ public class KeyframesParser {
         return arrayList;
     }
 
-    public static void setEndFrames(List list) {
+    public static <T> void setEndFrames(List<? extends Keyframe<T>> list) {
         int i;
-        Object obj;
+        T t;
         int size = list.size();
         int i2 = 0;
         while (true) {
@@ -50,18 +50,18 @@ public class KeyframesParser {
             if (i2 >= i) {
                 break;
             }
-            Keyframe keyframe = (Keyframe) list.get(i2);
+            Keyframe<T> keyframe = list.get(i2);
             i2++;
-            Keyframe keyframe2 = (Keyframe) list.get(i2);
+            Keyframe<T> keyframe2 = list.get(i2);
             keyframe.endFrame = Float.valueOf(keyframe2.startFrame);
-            if (keyframe.endValue == null && (obj = keyframe2.startValue) != null) {
-                keyframe.endValue = obj;
+            if (keyframe.endValue == null && (t = keyframe2.startValue) != null) {
+                keyframe.endValue = t;
                 if (keyframe instanceof PathKeyframe) {
                     ((PathKeyframe) keyframe).createPath();
                 }
             }
         }
-        Keyframe keyframe3 = (Keyframe) list.get(i);
+        Keyframe<T> keyframe3 = list.get(i);
         if ((keyframe3.startValue == null || keyframe3.endValue == null) && list.size() > 1) {
             list.remove(keyframe3);
         }

@@ -30,8 +30,8 @@ public class IMSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mAtUsers;
-    public List mCastids;
+    public List<Long> mAtUsers;
+    public List<Long> mCastids;
     public ChatMsg mChatMsg;
     public String mContent;
     public Context mContext;
@@ -40,7 +40,7 @@ public class IMSendMsg extends Message {
     public long mToUser;
     public int mType;
 
-    public IMSendMsg(Context context, long j, int i, String str, String str2, List list, List list2) {
+    public IMSendMsg(Context context, long j, int i, String str, String str2, List<Long> list, List<Long> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public class IMSendMsg extends Message {
                     this.mBody = jSONObject.toString();
                 }
                 jSONObject.put("method", 55);
-                Map otherParameters = IMConfigInternal.getInstance().getIMConfig(this.mContext).getOtherParameters(this.mContext, this.mChatMsg);
+                Map<String, Object> otherParameters = IMConfigInternal.getInstance().getIMConfig(this.mContext).getOtherParameters(this.mContext, this.mChatMsg);
                 if (otherParameters != null) {
                     for (String str : otherParameters.keySet()) {
                         jSONObject.put(str, otherParameters.get(str));

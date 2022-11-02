@@ -106,7 +106,7 @@ public final class SparseBooleanArrayKt {
             if (indexOfKey >= 0) {
                 return sparseBooleanArray.valueAt(indexOfKey);
             }
-            return ((Boolean) function0.invoke()).booleanValue();
+            return function0.invoke().booleanValue();
         }
         return invokeLIL.booleanValue;
     }

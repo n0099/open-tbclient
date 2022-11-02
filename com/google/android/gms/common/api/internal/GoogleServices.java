@@ -3,6 +3,8 @@ package com.google.android.gms.common.api.internal;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,17 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.internal.StringResourceValueReader;
 import com.google.android.gms.common.internal.zzag;
+import com.google.android.gms.common.util.VisibleForTesting;
+import javax.annotation.concurrent.GuardedBy;
+@KeepForSdk
 @Deprecated
 /* loaded from: classes7.dex */
 public final class GoogleServices {
     public static /* synthetic */ Interceptable $ic;
     public static final Object zza;
+    @Nullable
+    @GuardedBy("sLock")
     public static GoogleServices zzb;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final String zzc;
     public final Status zzd;
     public final boolean zze;
@@ -44,6 +53,8 @@ public final class GoogleServices {
         zza = new Object();
     }
 
+    @VisibleForTesting
+    @KeepForSdk
     public GoogleServices(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,6 +76,8 @@ public final class GoogleServices {
         this.zzf = !z;
     }
 
+    @VisibleForTesting
+    @KeepForSdk
     public GoogleServices(Context context) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -82,7 +95,7 @@ public final class GoogleServices {
             }
         }
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0422));
+        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0424));
         if (identifier != 0) {
             int integer = resources.getInteger(identifier);
             if (integer != 0) {
@@ -107,6 +120,7 @@ public final class GoogleServices {
         this.zzd = Status.RESULT_SUCCESS;
     }
 
+    @KeepForSdk
     public static GoogleServices checkInitialized(String str) {
         InterceptResult invokeL;
         GoogleServices googleServices;
@@ -127,6 +141,8 @@ public final class GoogleServices {
         return (GoogleServices) invokeL.objValue;
     }
 
+    @VisibleForTesting
+    @KeepForSdk
     public Status checkGoogleAppId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -145,6 +161,8 @@ public final class GoogleServices {
         return (Status) invokeL.objValue;
     }
 
+    @VisibleForTesting
+    @KeepForSdk
     public static void clearInstanceForTest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -154,6 +172,8 @@ public final class GoogleServices {
         }
     }
 
+    @Nullable
+    @KeepForSdk
     public static String getGoogleAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,6 +183,7 @@ public final class GoogleServices {
         return (String) invokeV.objValue;
     }
 
+    @KeepForSdk
     public static boolean isMeasurementEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -176,6 +197,7 @@ public final class GoogleServices {
         return invokeV.booleanValue;
     }
 
+    @KeepForSdk
     public static boolean isMeasurementExplicitlyDisabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -185,7 +207,9 @@ public final class GoogleServices {
         return invokeV.booleanValue;
     }
 
-    public static Status initialize(Context context) {
+    @NonNull
+    @KeepForSdk
+    public static Status initialize(@NonNull Context context) {
         InterceptResult invokeL;
         Status status;
         Interceptable interceptable = $ic;
@@ -202,7 +226,9 @@ public final class GoogleServices {
         return (Status) invokeL.objValue;
     }
 
-    public static Status initialize(Context context, String str, boolean z) {
+    @NonNull
+    @KeepForSdk
+    public static Status initialize(@NonNull Context context, @NonNull String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, context, str, z)) == null) {

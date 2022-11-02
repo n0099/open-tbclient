@@ -8,9 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClock {
     public static /* synthetic */ Interceptable $ic;
+    @DoNotStrip
     public static final AwakeTimeSinceBootClock INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,6 +47,7 @@ public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClo
         }
     }
 
+    @DoNotStrip
     public static AwakeTimeSinceBootClock get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,6 +58,7 @@ public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClo
     }
 
     @Override // com.facebook.common.time.MonotonicClock
+    @DoNotStrip
     public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,6 +69,7 @@ public class AwakeTimeSinceBootClock implements MonotonicClock, MonotonicNanoClo
     }
 
     @Override // com.facebook.common.time.MonotonicNanoClock
+    @DoNotStrip
     public long nowNanos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

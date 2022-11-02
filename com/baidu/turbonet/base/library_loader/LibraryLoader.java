@@ -5,6 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
 /* loaded from: classes6.dex */
@@ -47,6 +48,7 @@ public class LibraryLoader {
 
     private native void nativeRegisterLibraryPreloaderRendererHistogram(int i);
 
+    @CalledByNative
     public static int getLibraryProcessType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

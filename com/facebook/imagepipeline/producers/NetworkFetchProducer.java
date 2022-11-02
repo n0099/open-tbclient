@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.ByteArrayPool;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteBufferOutputStream;
@@ -23,11 +24,12 @@ import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class NetworkFetchProducer implements Producer {
+public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
     public static final String PRODUCER_NAME = "NetworkFetchProducer";
     public static final int READ_SIZE = 16384;
+    @VisibleForTesting
     public static final long TIME_BETWEEN_PARTIAL_RESULTS_MS = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public final ByteArrayPool mByteArrayPool;
@@ -67,7 +69,7 @@ public class NetworkFetchProducer implements Producer {
     }
 
     @Nullable
-    private Map getExtraMap(FetchState fetchState, int i) {
+    private Map<String, String> getExtraMap(FetchState fetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, fetchState, i)) == null) {
@@ -79,7 +81,7 @@ public class NetworkFetchProducer implements Producer {
         return (Map) invokeLI.objValue;
     }
 
-    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer consumer, ProducerContext producerContext) {
+    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pooledByteBufferOutputStream, Integer.valueOf(i), bytesRange, consumer, producerContext}) == null) {
             CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
@@ -139,7 +141,7 @@ public class NetworkFetchProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, consumer, producerContext) == null) {
             producerContext.getProducerListener().onProducerStart(producerContext, PRODUCER_NAME);
@@ -210,6 +212,7 @@ public class NetworkFetchProducer implements Producer {
         }
     }
 
+    @VisibleForTesting
     public long getSystemUptime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -222,7 +225,7 @@ public class NetworkFetchProducer implements Producer {
     public void handleFinalResult(PooledByteBufferOutputStream pooledByteBufferOutputStream, FetchState fetchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pooledByteBufferOutputStream, fetchState) == null) {
-            Map extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
+            Map<String, String> extraMap = getExtraMap(fetchState, pooledByteBufferOutputStream.size());
             ProducerListener2 listener = fetchState.getListener();
             listener.onProducerFinishWithSuccess(fetchState.getContext(), PRODUCER_NAME, extraMap);
             listener.onUltimateProducerReached(fetchState.getContext(), PRODUCER_NAME, true);
@@ -252,7 +255,7 @@ public class NetworkFetchProducer implements Producer {
             } else {
                 newOutputStream = this.mPooledByteBufferFactory.newOutputStream();
             }
-            byte[] bArr = (byte[]) this.mByteArrayPool.get(16384);
+            byte[] bArr = this.mByteArrayPool.get(16384);
             while (true) {
                 try {
                     int read = inputStream.read(bArr);

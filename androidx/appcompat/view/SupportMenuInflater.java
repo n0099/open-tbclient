@@ -16,6 +16,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuItemWrapperICS;
@@ -37,6 +39,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SupportMenuInflater extends MenuInflater {
     public static /* synthetic */ Interceptable $ic = null;
@@ -528,7 +531,7 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     @Override // android.view.MenuInflater
-    public void inflate(int i, Menu menu) {
+    public void inflate(@LayoutRes int i, Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, menu) == null) {
             if (!(menu instanceof SupportMenu)) {

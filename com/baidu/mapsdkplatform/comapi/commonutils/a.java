@@ -27,6 +27,7 @@ public class a {
 
     static {
         InterceptResult invokeClinit;
+        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1117203753, "Lcom/baidu/mapsdkplatform/comapi/commonutils/a;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -38,7 +39,12 @@ public class a {
                 return;
             }
         }
-        a = Build.VERSION.SDK_INT >= 8;
+        if (Build.VERSION.SDK_INT >= 8) {
+            z = true;
+        } else {
+            z = false;
+        }
+        a = z;
     }
 
     public a() {
@@ -66,148 +72,32 @@ public class a {
                 }
                 return null;
             } catch (Exception unused) {
-                return BitmapFactory.decodeFile(b("assets/" + str, str, context));
+                return BitmapFactory.decodeFile(a("assets/" + str, str, context));
             }
         }
         return (Bitmap) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, inputStream, fileOutputStream) == null) {
-            byte[] bArr = new byte[4096];
-            while (true) {
-                try {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                } finally {
-                    try {
-                        inputStream.close();
-                    } catch (IOException unused) {
-                    }
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException unused2) {
-                    }
-                }
-            }
-            fileOutputStream.flush();
-            try {
-                fileOutputStream.close();
-            } catch (IOException unused3) {
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:43:0x009b A[Catch: IOException -> 0x0097, TRY_LEAVE, TryCatch #2 {IOException -> 0x0097, blocks: (B:39:0x0093, B:43:0x009b), top: B:53:0x0093 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(String str, String str2, Context context) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, context) != null) {
-            return;
-        }
-        InputStream inputStream = null;
-        FileOutputStream fileOutputStream2 = null;
-        inputStream = null;
-        try {
-            try {
-                InputStream open = context.getAssets().open(str);
-                if (open != null) {
-                    try {
-                        byte[] bArr = new byte[open.available()];
-                        open.read(bArr);
-                        File file = new File(context.getFilesDir().getAbsolutePath() + "/" + str2);
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                        file.createNewFile();
-                        fileOutputStream = new FileOutputStream(file);
-                        try {
-                            fileOutputStream.write(bArr);
-                            fileOutputStream.close();
-                            fileOutputStream2 = fileOutputStream;
-                        } catch (Exception unused) {
-                            inputStream = open;
-                            try {
-                                b("assets/" + str, str2, context);
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                    return;
-                                }
-                                return;
-                            } catch (Throwable th) {
-                                th = th;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                        throw th;
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    fileOutputStream.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = open;
-                            if (inputStream != null) {
-                            }
-                            if (fileOutputStream != null) {
-                            }
-                            throw th;
-                        }
-                    } catch (Exception unused2) {
-                        fileOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
-                    }
-                }
-                if (open != null) {
-                    open.close();
-                }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
-        } catch (Exception unused3) {
-            fileOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileOutputStream = null;
-        }
-    }
-
-    public static String b(String str, String str2, Context context) {
+    public static String a(String str, String str2, Context context) {
         InterceptResult invokeLLL;
+        String str3;
         ZipFile zipFile;
         File file;
         File file2;
         ZipEntry entry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, context)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, context)) == null) {
             StringBuilder sb = new StringBuilder(context.getFilesDir().getAbsolutePath());
+            if (a) {
+                str3 = context.getPackageCodePath();
+            } else {
+                str3 = "";
+            }
             ZipFile zipFile2 = null;
             try {
                 try {
                     try {
-                        zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
+                        zipFile = new ZipFile(str3);
                     } catch (IOException unused) {
                     }
                 } catch (Exception e) {
@@ -262,5 +152,36 @@ public class a {
             return sb.toString();
         }
         return (String) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public static void a(InputStream inputStream, FileOutputStream fileOutputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, fileOutputStream) == null) {
+            byte[] bArr = new byte[4096];
+            while (true) {
+                try {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                } finally {
+                    try {
+                        inputStream.close();
+                    } catch (IOException unused) {
+                    }
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused2) {
+                    }
+                }
+            }
+            fileOutputStream.flush();
+            try {
+                fileOutputStream.close();
+            } catch (IOException unused3) {
+            }
+        }
     }
 }

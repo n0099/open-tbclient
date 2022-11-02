@@ -14,12 +14,14 @@ import com.facebook.fresco.ui.common.OnDrawControllerListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
-public class ForwardingControllerListener implements ControllerListener, OnDrawControllerListener {
+public class ForwardingControllerListener<INFO> implements ControllerListener<INFO>, OnDrawControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mListeners;
+    public final List<ControllerListener<? super INFO>> mListeners;
 
     public ForwardingControllerListener() {
         Interceptable interceptable = $ic;
@@ -37,11 +39,11 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
         this.mListeners = new ArrayList(2);
     }
 
-    public static ForwardingControllerListener create() {
+    public static <INFO> ForwardingControllerListener<INFO> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new ForwardingControllerListener();
+            return new ForwardingControllerListener<>();
         }
         return (ForwardingControllerListener) invokeV.objValue;
     }
@@ -55,18 +57,18 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
         }
     }
 
-    public static ForwardingControllerListener of(ControllerListener controllerListener) {
+    public static <INFO> ForwardingControllerListener<INFO> of(ControllerListener<? super INFO> controllerListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, controllerListener)) == null) {
-            ForwardingControllerListener create = create();
+            ForwardingControllerListener<INFO> create = create();
             create.addListener(controllerListener);
             return create;
         }
         return (ForwardingControllerListener) invokeL.objValue;
     }
 
-    public synchronized void addListener(ControllerListener controllerListener) {
+    public synchronized void addListener(ControllerListener<? super INFO> controllerListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, controllerListener) == null) {
             synchronized (this) {
@@ -75,7 +77,7 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
         }
     }
 
-    public synchronized void removeListener(ControllerListener controllerListener) {
+    public synchronized void removeListener(ControllerListener<? super INFO> controllerListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, controllerListener) == null) {
             synchronized (this) {
@@ -87,11 +89,11 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
         }
     }
 
-    public static ForwardingControllerListener of(ControllerListener controllerListener, ControllerListener controllerListener2) {
+    public static <INFO> ForwardingControllerListener<INFO> of(ControllerListener<? super INFO> controllerListener, ControllerListener<? super INFO> controllerListener2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, controllerListener, controllerListener2)) == null) {
-            ForwardingControllerListener create = create();
+            ForwardingControllerListener<INFO> create = create();
             create.addListener(controllerListener);
             create.addListener(controllerListener2);
             return create;
@@ -115,7 +117,7 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                     if (controllerListener != null) {
                         controllerListener.onIntermediateImageFailed(str, th);
                     }
@@ -127,15 +129,15 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
     }
 
     @Override // com.facebook.drawee.controller.ControllerListener
-    public void onIntermediateImageSet(String str, @Nullable Object obj) {
+    public void onIntermediateImageSet(String str, @Nullable INFO info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, info) == null) {
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                     if (controllerListener != null) {
-                        controllerListener.onIntermediateImageSet(str, obj);
+                        controllerListener.onIntermediateImageSet(str, info);
                     }
                 } catch (Exception e) {
                     onException("InternalListener exception in onIntermediateImageSet", e);
@@ -152,7 +154,7 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
                 int size = this.mListeners.size();
                 for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onFailure(str, th);
                         }
@@ -172,7 +174,7 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
                 int size = this.mListeners.size();
                 for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onSubmit(str, obj);
                         }
@@ -185,16 +187,16 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
     }
 
     @Override // com.facebook.drawee.controller.ControllerListener
-    public synchronized void onFinalImageSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
+    public synchronized void onFinalImageSet(String str, @Nullable INFO info, @Nullable Animatable animatable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, animatable) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, info, animatable) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
                 for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
-                            controllerListener.onFinalImageSet(str, obj, animatable);
+                            controllerListener.onFinalImageSet(str, info, animatable);
                         }
                     } catch (Exception e) {
                         onException("InternalListener exception in onFinalImageSet", e);
@@ -205,15 +207,15 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
     }
 
     @Override // com.facebook.fresco.ui.common.OnDrawControllerListener
-    public void onImageDrawn(String str, Object obj, DimensionsInfo dimensionsInfo) {
+    public void onImageDrawn(String str, INFO info, DimensionsInfo dimensionsInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, obj, dimensionsInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, info, dimensionsInfo) == null) {
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                     if (controllerListener instanceof OnDrawControllerListener) {
-                        ((OnDrawControllerListener) controllerListener).onImageDrawn(str, obj, dimensionsInfo);
+                        ((OnDrawControllerListener) controllerListener).onImageDrawn(str, info, dimensionsInfo);
                     }
                 } catch (Exception e) {
                     onException("InternalListener exception in onImageDrawn", e);
@@ -230,7 +232,7 @@ public class ForwardingControllerListener implements ControllerListener, OnDrawC
                 int size = this.mListeners.size();
                 for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener controllerListener = (ControllerListener) this.mListeners.get(i);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onRelease(str);
                         }

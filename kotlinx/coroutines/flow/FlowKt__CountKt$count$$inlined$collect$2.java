@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__CountKt$count$$inlined$collect$2 implements FlowCollector {
+public final class FlowKt__CountKt$count$$inlined$collect$2 implements FlowCollector<T> {
     public final /* synthetic */ Ref.IntRef $i$inlined;
     public final /* synthetic */ Function2 $predicate$inlined;
 
@@ -21,7 +21,7 @@ public final class FlowKt__CountKt$count$$inlined$collect$2 implements FlowColle
     @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__CountKt$count$$inlined$collect$2", f = "Count.kt", i = {0, 0, 0, 0}, l = {Cea708Decoder.COMMAND_DSW}, m = "emit", n = {"this", "value", "continuation", "value"}, s = {"L$0", "L$1", "L$2", "L$3"})
     /* renamed from: kotlinx.coroutines.flow.FlowKt__CountKt$count$$inlined$collect$2$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass1 extends ContinuationImpl {
+    public static final class AnonymousClass1 extends ContinuationImpl {
         public Object L$0;
         public Object L$1;
         public Object L$2;

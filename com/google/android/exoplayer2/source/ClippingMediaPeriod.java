@@ -28,7 +28,7 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     public long startUs;
 
     /* loaded from: classes7.dex */
-    public final class ClippingSampleStream implements SampleStream {
+    public static final class ClippingSampleStream implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long endUs;

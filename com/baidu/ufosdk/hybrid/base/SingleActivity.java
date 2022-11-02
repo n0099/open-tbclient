@@ -14,7 +14,7 @@ import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
 public abstract class SingleActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakHashMap e;
+    public static WeakHashMap<String, WeakReference<SingleActivity>> e;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
 
@@ -31,7 +31,7 @@ public abstract class SingleActivity extends BaseActivity {
                 return;
             }
         }
-        e = new WeakHashMap();
+        e = new WeakHashMap<>();
     }
 
     public SingleActivity() {
@@ -76,9 +76,9 @@ public abstract class SingleActivity extends BaseActivity {
             if (this.d == null) {
                 this.d = SingleActivity.class.getName();
             }
-            WeakReference weakReference = (WeakReference) e.get(this.d);
+            WeakReference<SingleActivity> weakReference = e.get(this.d);
             if (weakReference != null) {
-                return (SingleActivity) weakReference.get();
+                return weakReference.get();
             }
             return null;
         }
@@ -95,7 +95,7 @@ public abstract class SingleActivity extends BaseActivity {
                 d.finish();
             }
             synchronized (e) {
-                e.put(this.d, new WeakReference(this));
+                e.put(this.d, new WeakReference<>(this));
             }
         }
     }

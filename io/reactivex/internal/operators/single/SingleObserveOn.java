@@ -14,23 +14,23 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleObserveOn extends Single {
+public final class SingleObserveOn<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
-    public final SingleSource source;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ObserveOnSingleObserver extends AtomicReference implements SingleObserver, Disposable, Runnable {
+    public static final class ObserveOnSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3528003840217436037L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Throwable error;
         public final Scheduler scheduler;
-        public Object value;
+        public T value;
 
-        public ObserveOnSingleObserver(SingleObserver singleObserver, Scheduler scheduler) {
+        public ObserveOnSingleObserver(SingleObserver<? super T> singleObserver, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,11 +62,12 @@ public final class SingleObserveOn extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -75,7 +76,7 @@ public final class SingleObserveOn extends Single {
                 if (th != null) {
                     this.actual.onError(th);
                 } else {
-                    this.actual.onSuccess(this.value);
+                    this.actual.onSuccess((T) this.value);
                 }
             }
         }
@@ -98,16 +99,16 @@ public final class SingleObserveOn extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.value = obj;
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.value = t;
                 DisposableHelper.replace(this, this.scheduler.scheduleDirect(this));
             }
         }
     }
 
-    public SingleObserveOn(SingleSource singleSource, Scheduler scheduler) {
+    public SingleObserveOn(SingleSource<T> singleSource, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +128,7 @@ public final class SingleObserveOn extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new ObserveOnSingleObserver(singleObserver, this.scheduler));

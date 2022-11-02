@@ -21,23 +21,23 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPublisher, FuseToFlowable {
+public final class FlowableReduceMaybe<T> extends Maybe<T> implements HasUpstreamPublisher<T>, FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction reducer;
-    public final Flowable source;
+    public final BiFunction<T, T, T> reducer;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ReduceSubscriber implements FlowableSubscriber, Disposable {
+    public static final class ReduceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public boolean done;
-        public final BiFunction reducer;
+        public final BiFunction<T, T, T> reducer;
         public Subscription s;
-        public Object value;
+        public T value;
 
-        public ReduceSubscriber(MaybeObserver maybeObserver, BiFunction biFunction) {
+        public ReduceSubscriber(MaybeObserver<? super T> maybeObserver, BiFunction<T, T, T> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,9 +82,9 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
                 return;
             }
             this.done = true;
-            Object obj = this.value;
-            if (obj != null) {
-                this.actual.onSuccess(obj);
+            T t = this.value;
+            if (t != null) {
+                this.actual.onSuccess(t);
             } else {
                 this.actual.onComplete();
             }
@@ -114,18 +114,18 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
-            Object obj2 = this.value;
-            if (obj2 == null) {
-                this.value = obj;
+            T t2 = this.value;
+            if (t2 == null) {
+                this.value = t;
                 return;
             }
             try {
-                this.value = ObjectHelper.requireNonNull(this.reducer.apply(obj2, obj), "The reducer returned a null value");
+                this.value = (T) ObjectHelper.requireNonNull(this.reducer.apply(t2, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.cancel();
@@ -134,7 +134,7 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
         }
     }
 
-    public FlowableReduceMaybe(Flowable flowable, BiFunction biFunction) {
+    public FlowableReduceMaybe(Flowable<T> flowable, BiFunction<T, T, T> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<T> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -164,7 +164,7 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamPublisher
-    public Publisher source() {
+    public Publisher<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -174,7 +174,7 @@ public final class FlowableReduceMaybe extends Maybe implements HasUpstreamPubli
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, maybeObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new ReduceSubscriber(maybeObserver, this.reducer));

@@ -1,124 +1,63 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class yu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
 
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final yu3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-248511883, "Lcom/baidu/tieba/yu3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-248511883, "Lcom/baidu/tieba/yu3$a;");
-                    return;
-                }
-            }
-            a = new yu3();
-        }
-    }
-
-    public yu3() {
+    public yu3(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = i;
     }
 
-    public static yu3 b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (yu3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void a(JSONObject jSONObject, fv3 fv3Var) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, fv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                fv3Var.a(new gv3(31008, "download is not exist"));
-            } else {
-                d04.c().c(optString);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject, fv3 fv3Var) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, fv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                fv3Var.a(new gv3(31008, "download is not exist"));
-            } else {
-                d04.c().e(optString);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-    }
-
-    public void e(JSONObject jSONObject, fv3 fv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, fv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                fv3Var.a(new gv3(31008, "download is not exist"));
-            } else {
-                d04.c().f(optString);
-            }
-        }
-    }
-
-    public void d(JSONObject jSONObject, fv3 fv3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, fv3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                fv3Var.a(new gv3(31008, "download is not exist"));
-                return;
-            }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!d04.c().a(optString3, optString, optString2, optBoolean, new av3(fv3Var))) {
-                    fv3Var.a(new gv3(31006, "is not in main process"));
-                    return;
-                }
-                return;
-            }
-            fv3Var.a(new gv3(31007, "invalid params"));
-        }
+        return invokeV.intValue;
     }
 }

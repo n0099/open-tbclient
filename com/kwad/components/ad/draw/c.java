@@ -2,6 +2,8 @@ package com.kwad.components.ad.draw;
 
 import android.content.Context;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,11 +19,13 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class c extends AbstractKsDrawAd implements com.kwad.components.core.internal.api.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public KsDrawAd.AdInteractionListener aJ;
     public b aT;
+    @NonNull
     public AdTemplate mAdTemplate;
 
-    public c(AdTemplate adTemplate) {
+    public c(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,6 +52,7 @@ public final class c extends AbstractKsDrawAd implements com.kwad.components.cor
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsDrawAd
+    @Nullable
     public final View getDrawView2(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

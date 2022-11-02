@@ -39,9 +39,9 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
     public String d;
     public int e;
     public JSONArray f;
-    public ArrayList g;
+    public ArrayList<String> g;
     public Handler h;
-    public List i;
+    public List<Map<String, Object>> i;
     public View j;
     public EditText k;
     public Button l;
@@ -193,10 +193,10 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             i = new JSONObject(com.baidu.ufosdk.b.a(a2)).optInt("errno", 1);
                             if (i == 0) {
                                 if (str != null) {
-                                    ((Map) c1Var2.i.get(c1Var2.o)).put("discontent_reason", str);
+                                    c1Var2.i.get(c1Var2.o).put("discontent_reason", str);
                                 }
                                 if (jSONArray != null) {
-                                    ((Map) c1Var2.i.get(c1Var2.o)).put("discontent_labels", jSONArray);
+                                    c1Var2.i.get(c1Var2.o).put("discontent_labels", jSONArray);
                                 }
                             }
                         }
@@ -211,7 +211,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c1(Context context, int i, JSONArray jSONArray, int i2, String str, Handler handler, List list) {
+    public c1(Context context, int i, JSONArray jSONArray, int i2, String str, Handler handler, List<Map<String, Object>> list) {
         super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -234,7 +234,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
         this.d = null;
         this.e = 0;
         this.f = null;
-        this.g = new ArrayList();
+        this.g = new ArrayList<>();
         this.q = null;
         this.r = null;
         this.s = null;
@@ -257,7 +257,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             setOnDismissListener(this);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100420);
+            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100421);
             View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.ufo_evaluate_dialog, null);
             inflate.findViewById(com.baidu.tieba.R.id.btn_dialog_close).setOnClickListener(this);
             inflate.findViewById(com.baidu.tieba.R.id.header_transparent).setOnClickListener(this);
@@ -266,7 +266,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.j.setVisibility(8);
-            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c63)).addView(this.j, layoutParams);
+            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091cab)).addView(this.j, layoutParams);
             window.setLayout(-1, -2);
             Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.btn_sumbit_evaluate);
             this.l = button;
@@ -285,7 +285,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             if (length != 4) {
                                 if (length == 5) {
                                     inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_3).setVisibility(0);
-                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c0);
+                                    CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cd);
                                     this.u = checkBox;
                                     checkBox.setVisibility(0);
                                     this.u.setText(this.f.optString(4));
@@ -294,7 +294,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                                 }
                             } else {
                                 inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_2).setVisibility(0);
-                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905bf);
+                                CheckBox checkBox2 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cc);
                                 this.t = checkBox2;
                                 checkBox2.setVisibility(0);
                                 this.t.setText(this.f.optString(3));
@@ -303,7 +303,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                             }
                         } else {
                             inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_2).setVisibility(0);
-                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905be);
+                            CheckBox checkBox3 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905cb);
                             this.s = checkBox3;
                             checkBox3.setVisibility(0);
                             this.s.setText(this.f.optString(2));
@@ -312,7 +312,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                         }
                     } else {
                         inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_1).setVisibility(0);
-                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905bd);
+                        CheckBox checkBox4 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905ca);
                         this.r = checkBox4;
                         checkBox4.setVisibility(0);
                         this.r.setText(this.f.optString(1));
@@ -321,7 +321,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
                     }
                 } else {
                     inflate.findViewById(com.baidu.tieba.R.id.ll_checkboxs_1).setVisibility(0);
-                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905bc);
+                    CheckBox checkBox5 = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0905c9);
                     this.q = checkBox5;
                     checkBox5.setVisibility(0);
                     this.q.setText(this.f.optString(0));

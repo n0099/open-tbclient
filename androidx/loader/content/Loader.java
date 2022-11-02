@@ -3,6 +3,9 @@ package androidx.loader.content;
 import android.content.Context;
 import android.database.ContentObserver;
 import android.os.Handler;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.DebugUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,21 +31,23 @@ public class Loader<D> {
     public boolean mStarted;
 
     /* loaded from: classes.dex */
-    public interface OnLoadCanceledListener {
-        void onLoadCanceled(Loader loader);
+    public interface OnLoadCanceledListener<D> {
+        void onLoadCanceled(@NonNull Loader<D> loader);
     }
 
     /* loaded from: classes.dex */
-    public interface OnLoadCompleteListener {
-        void onLoadComplete(Loader loader, Object obj);
+    public interface OnLoadCompleteListener<D> {
+        void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d);
     }
 
+    @MainThread
     public void onAbandon() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
+    @MainThread
     public boolean onCancelLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,24 +57,28 @@ public class Loader<D> {
         return invokeV.booleanValue;
     }
 
+    @MainThread
     public void onForceLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 
+    @MainThread
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
         }
     }
 
+    @MainThread
     public void onStartLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
         }
     }
 
+    @MainThread
     public void onStopLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -122,7 +131,7 @@ public class Loader<D> {
         }
     }
 
-    public Loader(Context context) {
+    public Loader(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,6 +154,7 @@ public class Loader<D> {
         this.mContext = context.getApplicationContext();
     }
 
+    @MainThread
     public void abandon() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -153,6 +163,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public boolean cancelLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,6 +180,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public void deliverCancellation() {
         OnLoadCanceledListener<D> onLoadCanceledListener;
         Interceptable interceptable = $ic;
@@ -177,6 +189,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public void forceLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -184,6 +197,7 @@ public class Loader<D> {
         }
     }
 
+    @NonNull
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,6 +243,7 @@ public class Loader<D> {
         return invokeV.booleanValue;
     }
 
+    @MainThread
     public void onContentChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -240,6 +255,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -259,6 +275,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public final void startLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -269,6 +286,7 @@ public class Loader<D> {
         }
     }
 
+    @MainThread
     public void stopLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
@@ -303,7 +321,8 @@ public class Loader<D> {
         return (String) invokeV.objValue;
     }
 
-    public String dataToString(D d) {
+    @NonNull
+    public String dataToString(@Nullable D d) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
@@ -315,7 +334,8 @@ public class Loader<D> {
         return (String) invokeL.objValue;
     }
 
-    public void deliverResult(D d) {
+    @MainThread
+    public void deliverResult(@Nullable D d) {
         OnLoadCompleteListener<D> onLoadCompleteListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, d) == null) && (onLoadCompleteListener = this.mListener) != null) {
@@ -323,7 +343,8 @@ public class Loader<D> {
         }
     }
 
-    public void registerOnLoadCanceledListener(OnLoadCanceledListener<D> onLoadCanceledListener) {
+    @MainThread
+    public void registerOnLoadCanceledListener(@NonNull OnLoadCanceledListener<D> onLoadCanceledListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, onLoadCanceledListener) == null) {
             if (this.mOnLoadCanceledListener == null) {
@@ -334,7 +355,8 @@ public class Loader<D> {
         }
     }
 
-    public void unregisterListener(OnLoadCompleteListener<D> onLoadCompleteListener) {
+    @MainThread
+    public void unregisterListener(@NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, onLoadCompleteListener) == null) {
             OnLoadCompleteListener<D> onLoadCompleteListener2 = this.mListener;
@@ -349,7 +371,8 @@ public class Loader<D> {
         }
     }
 
-    public void unregisterOnLoadCanceledListener(OnLoadCanceledListener<D> onLoadCanceledListener) {
+    @MainThread
+    public void unregisterOnLoadCanceledListener(@NonNull OnLoadCanceledListener<D> onLoadCanceledListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, onLoadCanceledListener) == null) {
             OnLoadCanceledListener<D> onLoadCanceledListener2 = this.mOnLoadCanceledListener;
@@ -392,7 +415,8 @@ public class Loader<D> {
         }
     }
 
-    public void registerListener(int i, OnLoadCompleteListener<D> onLoadCompleteListener) {
+    @MainThread
+    public void registerListener(int i, @NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048596, this, i, onLoadCompleteListener) == null) {
             if (this.mListener == null) {

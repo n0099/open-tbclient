@@ -19,13 +19,13 @@ public class OfflineHostProvider {
 
     /* renamed from: com.kwad.components.offline.api.OfflineHostProvider$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final OfflineHostProvider sInstance;
         public transient /* synthetic */ FieldHolder $fh;

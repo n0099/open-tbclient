@@ -4,6 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
+import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
@@ -14,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public final class ThemeEnforcement {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,21 +61,21 @@ public final class ThemeEnforcement {
         }
     }
 
-    public static void checkAppCompatTheme(Context context) {
+    public static void checkAppCompatTheme(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             checkTheme(context, APPCOMPAT_CHECK_ATTRS, APPCOMPAT_THEME_NAME);
         }
     }
 
-    public static void checkMaterialTheme(Context context) {
+    public static void checkMaterialTheme(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             checkTheme(context, MATERIAL_CHECK_ATTRS, MATERIAL_THEME_NAME);
         }
     }
 
-    public static boolean isAppCompatTheme(Context context) {
+    public static boolean isAppCompatTheme(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
@@ -77,7 +84,7 @@ public final class ThemeEnforcement {
         return invokeL.booleanValue;
     }
 
-    public static boolean isMaterialTheme(Context context) {
+    public static boolean isMaterialTheme(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
@@ -86,7 +93,7 @@ public final class ThemeEnforcement {
         return invokeL.booleanValue;
     }
 
-    public static void checkCompatibleTheme(Context context, AttributeSet attributeSet, int i, int i2) {
+    public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i, i2) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.ThemeEnforcement, i, i2);
@@ -102,7 +109,7 @@ public final class ThemeEnforcement {
         }
     }
 
-    public static void checkTextAppearance(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
+    public static void checkTextAppearance(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @Nullable @StyleableRes int... iArr2) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2}) == null) {
@@ -128,7 +135,7 @@ public final class ThemeEnforcement {
         }
     }
 
-    public static void checkTheme(Context context, int[] iArr, String str) {
+    public static void checkTheme(@NonNull Context context, @NonNull int[] iArr, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65542, null, context, iArr, str) != null) || isTheme(context, iArr)) {
             return;
@@ -136,7 +143,7 @@ public final class ThemeEnforcement {
         throw new IllegalArgumentException("The style on this component requires your app theme to be " + str + " (or a descendant).");
     }
 
-    public static boolean isCustomTextAppearanceValid(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
+    public static boolean isCustomTextAppearanceValid(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @NonNull @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {
@@ -153,7 +160,7 @@ public final class ThemeEnforcement {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isTheme(Context context, int[] iArr) {
+    public static boolean isTheme(@NonNull Context context, @NonNull int[] iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, iArr)) == null) {
@@ -170,7 +177,8 @@ public final class ThemeEnforcement {
         return invokeLL.booleanValue;
     }
 
-    public static TypedArray obtainStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
+    @NonNull
+    public static TypedArray obtainStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {
@@ -181,7 +189,7 @@ public final class ThemeEnforcement {
         return (TypedArray) invokeCommon.objValue;
     }
 
-    public static TintTypedArray obtainTintedStyledAttributes(Context context, AttributeSet attributeSet, int[] iArr, int i, int i2, int... iArr2) {
+    public static TintTypedArray obtainTintedStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {

@@ -3,6 +3,9 @@ package com.google.android.material.transition;
 import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.GravityCompat;
 import androidx.transition.TransitionValues;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes7.dex */
-public final class MaterialSharedAxis extends MaterialVisibility {
+public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 0;
     public static final int Y = 1;
@@ -23,6 +26,7 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     public final boolean forward;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface Axis {
     }
@@ -99,11 +103,13 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
+    @NonNull
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getPrimaryAnimatorProvider() {
         return super.getPrimaryAnimatorProvider();
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
+    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }
@@ -128,7 +134,7 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 }

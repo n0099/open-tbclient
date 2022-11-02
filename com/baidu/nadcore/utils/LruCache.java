@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class LruCache extends LinkedHashMap {
+public class LruCache<K, V> extends LinkedHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_CACHE_SIZE = 32;
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -58,7 +58,7 @@ public class LruCache extends LinkedHashMap {
     }
 
     @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry entry) {
+    public boolean removeEldestEntry(Map.Entry<K, V> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {

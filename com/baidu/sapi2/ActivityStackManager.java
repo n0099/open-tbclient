@@ -18,11 +18,11 @@ import java.util.Stack;
 public class ActivityStackManager implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack stack;
+    public Stack<Activity> stack;
 
     /* renamed from: com.baidu.sapi2.ActivityStackManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -63,7 +63,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     }
 
     /* loaded from: classes2.dex */
-    public class Instance {
+    public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static ActivityStackManager INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
                 return;
             }
         }
-        this.stack = new Stack();
+        this.stack = new Stack<>();
     }
 
     public static ActivityStackManager getInstance() {
@@ -128,7 +128,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             while (!this.stack.isEmpty()) {
-                ((Activity) this.stack.pop()).finish();
+                this.stack.pop().finish();
             }
         }
     }
@@ -138,7 +138,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (!this.stack.isEmpty()) {
-                return (Activity) this.stack.lastElement();
+                return this.stack.lastElement();
             }
             return null;
         }
@@ -159,7 +159,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public void finishActivity(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            ((Activity) this.stack.pop()).finish();
+            this.stack.pop().finish();
         }
     }
 
@@ -203,15 +203,15 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         }
     }
 
-    public void finishActivityClass(Class cls) {
+    public void finishActivityClass(Class<Activity> cls) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls) == null) && cls != null) {
-            Iterator it = this.stack.iterator();
+            Iterator<Activity> it = this.stack.iterator();
             while (it.hasNext()) {
-                Activity activity = (Activity) it.next();
-                if (activity.getClass().equals(cls)) {
+                Activity next = it.next();
+                if (next.getClass().equals(cls)) {
                     it.remove();
-                    finishActivity(activity);
+                    finishActivity(next);
                 }
             }
         }
@@ -222,8 +222,8 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (!this.stack.isEmpty() && this.stack.size() >= 2) {
-                Stack stack = this.stack;
-                return (Activity) stack.get(stack.size() - 2);
+                Stack<Activity> stack = this.stack;
+                return stack.get(stack.size() - 2);
             }
             return null;
         }
@@ -239,7 +239,7 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
                 return getTopActivity();
             }
             for (int i = size - 1; i >= 0; i--) {
-                Activity activity = (Activity) this.stack.get(i);
+                Activity activity = this.stack.get(i);
                 if (activity != null && !activity.isFinishing()) {
                     return activity;
                 }

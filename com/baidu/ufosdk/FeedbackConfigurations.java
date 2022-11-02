@@ -24,7 +24,7 @@ public class FeedbackConfigurations implements IConfigurations {
     public String k;
 
     /* loaded from: classes6.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
@@ -32,7 +33,7 @@ public class DeviceUtil implements IDevices {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class BrandInfo {
+    public static class BrandInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +120,7 @@ public class DeviceUtil implements IDevices {
     }
 
     /* loaded from: classes.dex */
-    public final class CPUInfo {
+    public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";
@@ -349,7 +350,7 @@ public class DeviceUtil implements IDevices {
     }
 
     /* loaded from: classes.dex */
-    public class OSInfo {
+    public static class OSInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KITKAT = 19;
         public static final int LOLLIPOP = 21;
@@ -579,7 +580,7 @@ public class DeviceUtil implements IDevices {
     }
 
     /* loaded from: classes.dex */
-    public class ScreenInfo {
+    public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
         public static int originDensityDip;
@@ -660,7 +661,7 @@ public class DeviceUtil implements IDevices {
             return invokeV.booleanValue;
         }
 
-        public static int dp2px(Context context, float f) {
+        public static int dp2px(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
@@ -669,7 +670,7 @@ public class DeviceUtil implements IDevices {
             return invokeLF.intValue;
         }
 
-        public static float dp2pxf(Context context, float f) {
+        public static float dp2pxf(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) {
@@ -678,7 +679,7 @@ public class DeviceUtil implements IDevices {
             return invokeLF.floatValue;
         }
 
-        public static int px2dp(Context context, float f) {
+        public static int px2dp(@Nullable Context context, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f)) == null) {
@@ -687,7 +688,7 @@ public class DeviceUtil implements IDevices {
             return invokeLF.intValue;
         }
 
-        public static float getDensity(Context context) {
+        public static float getDensity(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -701,7 +702,7 @@ public class DeviceUtil implements IDevices {
             return invokeL.floatValue;
         }
 
-        public static int getDensityDpi(Context context) {
+        public static int getDensityDpi(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -715,7 +716,7 @@ public class DeviceUtil implements IDevices {
             return invokeL.intValue;
         }
 
-        public static int getDisplayHeight(Context context) {
+        public static int getDisplayHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -741,7 +742,7 @@ public class DeviceUtil implements IDevices {
             return (DisplayMetrics) invokeL.objValue;
         }
 
-        public static int getDisplayWidth(Context context) {
+        public static int getDisplayWidth(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -789,7 +790,7 @@ public class DeviceUtil implements IDevices {
             return invokeF.floatValue;
         }
 
-        public static int getRealScreenHeight(Context context) {
+        public static int getRealScreenHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
@@ -808,7 +809,7 @@ public class DeviceUtil implements IDevices {
         }
 
         @Deprecated
-        public static String getRealScreenSize(Context context) {
+        public static String getRealScreenSize(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {

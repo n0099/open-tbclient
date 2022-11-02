@@ -2,10 +2,12 @@ package com.android.msasdk;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes.dex */
 public class AppUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +27,15 @@ public class AppUtil {
         }
     }
 
+    @Keep
     public static native PackageInfo getAppInfo(Context context, String str);
 
+    @Keep
     public static native boolean isDebuggable(Context context);
 
+    @Keep
     public static native boolean isInstalled(Context context, String str);
 
+    @Keep
     public static native boolean isSystemApp(Context context, String str);
 }

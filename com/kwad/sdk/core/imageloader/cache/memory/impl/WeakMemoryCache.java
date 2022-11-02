@@ -4,10 +4,10 @@ import com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WeakMemoryCache extends BaseMemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 }

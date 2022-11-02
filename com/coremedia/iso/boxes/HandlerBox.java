@@ -32,7 +32,7 @@ public class HandlerBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
-    public static final Map readableTypes;
+    public static final Map<String, String> readableTypes;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
@@ -111,7 +111,7 @@ public class HandlerBox extends AbstractFullBox {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
             if (readableTypes.get(this.handlerType) != null) {
-                return (String) readableTypes.get(this.handlerType);
+                return readableTypes.get(this.handlerType);
             }
             return "Unknown Handler Type";
         }

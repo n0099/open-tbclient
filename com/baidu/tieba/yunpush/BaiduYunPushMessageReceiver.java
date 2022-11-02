@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.o25;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.ra5;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,14 +35,14 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onDelTags(Context context, int i, List list, List list2, String str) {
+    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onListTags(Context context, int i, List list, String str) {
+    public void onListTags(Context context, int i, List<String> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, context, i, list, str) == null) {
         }
@@ -56,7 +56,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onSetTags(Context context, int i, List list, List list2, String str) {
+    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
@@ -90,7 +90,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                ux4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                ky4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -133,9 +133,9 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    ra5.i(pushRecevierEvent);
-                } else if (!o25.L()) {
-                    int e = eh.e(str6, 2500);
+                    mb5.i(pushRecevierEvent);
+                } else if (!g35.L()) {
+                    int e = wg.e(str6, 2500);
                     if (e < 2500) {
                         e += 2500;
                     }

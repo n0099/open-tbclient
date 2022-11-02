@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Message;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebViewClientWrapper extends WebViewClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -111,6 +112,7 @@ public final class WebViewClientWrapper extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @TargetApi(21)
     public final void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, webView, clientCertRequest) == null) {

@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.tieba.gt4;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.ps4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public ps4 userExtraData;
+    public gt4 userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -306,13 +306,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeV.intValue;
     }
 
-    public ps4 getUserExtraData() {
+    public gt4 getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.userExtraData;
         }
-        return (ps4) invokeV.objValue;
+        return (gt4) invokeV.objValue;
     }
 
     public int getUserType() {
@@ -531,10 +531,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUserExtraData(ps4 ps4Var) {
+    public void setUserExtraData(gt4 gt4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, ps4Var) == null) {
-            this.userExtraData = ps4Var;
+        if (interceptable == null || interceptable.invokeL(1048633, this, gt4Var) == null) {
+            this.userExtraData = gt4Var;
         }
     }
 

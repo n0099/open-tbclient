@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.s;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
@@ -17,7 +19,6 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
@@ -41,7 +42,7 @@ public class g implements m.a {
     }
 
     /* loaded from: classes8.dex */
-    public class a extends com.ss.android.socialbase.downloader.depend.a {
+    public static class a extends com.ss.android.socialbase.downloader.depend.a {
         public m a;
 
         public a(m mVar) {
@@ -198,7 +199,8 @@ public class g implements m.a {
         return str;
     }
 
-    public static List a(Map map) {
+    @NonNull
+    public static List<DownloadStatusChangeListener> a(Map<Integer, Object> map) {
         ArrayList arrayList = new ArrayList();
         if (map != null && !map.isEmpty()) {
             for (Object obj : map.values()) {
@@ -215,7 +217,8 @@ public class g implements m.a {
         return arrayList;
     }
 
-    public static List b(Map map) {
+    @NonNull
+    public static List<com.ss.android.download.api.download.a> b(Map<Integer, Object> map) {
         ArrayList arrayList = new ArrayList();
         if (map != null && !map.isEmpty()) {
             for (Object obj : map.values()) {
@@ -306,6 +309,7 @@ public class g implements m.a {
         }
     }
 
+    @Nullable
     public String b() {
         File externalFilesDir = j.getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
         if (externalFilesDir != null) {
@@ -330,12 +334,12 @@ public class g implements m.a {
         if (context == null) {
             return 0;
         }
-        Map headers = this.b.b.getHeaders();
+        Map<String, String> headers = this.b.b.getHeaders();
         ArrayList arrayList = new ArrayList();
         if (headers != null) {
-            for (Map.Entry entry : headers.entrySet()) {
+            for (Map.Entry<String, String> entry : headers.entrySet()) {
                 if (entry != null) {
-                    arrayList.add(new com.ss.android.socialbase.downloader.model.c((String) entry.getKey(), (String) entry.getValue()));
+                    arrayList.add(new com.ss.android.socialbase.downloader.model.c(entry.getKey(), entry.getValue()));
                 }
             }
         }
@@ -420,7 +424,7 @@ public class g implements m.a {
         }
     }
 
-    public void b(DownloadInfo downloadInfo) {
+    public void b(@Nullable DownloadInfo downloadInfo) {
         b bVar = this.e;
         if (bVar != null) {
             bVar.a(downloadInfo);
@@ -428,7 +432,7 @@ public class g implements m.a {
         }
     }
 
-    public void a(Message message, DownloadShortInfo downloadShortInfo, Map map) {
+    public void a(Message message, DownloadShortInfo downloadShortInfo, Map<Integer, Object> map) {
         b bVar;
         if (message != null && message.what == 3) {
             DownloadInfo downloadInfo = (DownloadInfo) message.obj;
@@ -485,7 +489,7 @@ public class g implements m.a {
         }
     }
 
-    public void a(final s sVar) {
+    public void a(@NonNull final s sVar) {
         if (!TextUtils.isEmpty(this.b.b.getFilePath())) {
             String filePath = this.b.b.getFilePath();
             if (filePath.startsWith(Environment.getDataDirectory().getAbsolutePath())) {
@@ -525,9 +529,8 @@ public class g implements m.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(DownloadInfo downloadInfo, DownloadShortInfo downloadShortInfo, List list) {
+    public void a(DownloadInfo downloadInfo, DownloadShortInfo downloadShortInfo, List<DownloadStatusChangeListener> list) {
         int i;
-        Iterator it;
         if (list.isEmpty()) {
             return;
         }
@@ -544,9 +547,7 @@ public class g implements m.a {
                 }
                 downloadShortInfo.updateFromNewDownloadInfo(downloadInfo);
                 i.a(downloadShortInfo);
-                it = list.iterator();
-                while (it.hasNext()) {
-                    DownloadStatusChangeListener downloadStatusChangeListener = (DownloadStatusChangeListener) it.next();
+                for (DownloadStatusChangeListener downloadStatusChangeListener : list) {
                     switch (downloadInfo.getStatus()) {
                         case -4:
                         case 0:
@@ -598,14 +599,12 @@ public class g implements m.a {
             }
             downloadShortInfo.updateFromNewDownloadInfo(downloadInfo);
             i.a(downloadShortInfo);
-            it = list.iterator();
-            while (it.hasNext()) {
+            while (r9.hasNext()) {
             }
             return;
         }
-        Iterator it2 = list.iterator();
-        while (it2.hasNext()) {
-            ((DownloadStatusChangeListener) it2.next()).onIdle();
+        for (DownloadStatusChangeListener downloadStatusChangeListener2 : list) {
+            downloadStatusChangeListener2.onIdle();
         }
     }
 

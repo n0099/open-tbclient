@@ -2,7 +2,7 @@ package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ig;
+import com.baidu.tieba.ag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,20 +12,20 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class HttpResponsedMessage extends ResponsedMessage {
+public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String contentLength;
     public String contentType;
-    public Map mHeader;
+    public Map<String, List<String>> mHeader;
     public int mStatusCode;
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, Object obj) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
-    public void logStatInBackground(int i, ig igVar) {
+    public void logStatInBackground(int i, ag agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, igVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, agVar) == null) {
         }
     }
 
@@ -103,13 +103,13 @@ public abstract class HttpResponsedMessage extends ResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public synchronized List getHeader(String str) {
+    public synchronized List<String> getHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
                 if (this.mHeader != null && this.mHeader.containsKey(str)) {
-                    return Collections.unmodifiableList((List) this.mHeader.get(str));
+                    return Collections.unmodifiableList(this.mHeader.get(str));
                 }
                 return null;
             }
@@ -131,7 +131,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage {
         }
     }
 
-    public synchronized void setHeader(Map map) {
+    public synchronized void setHeader(Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
             synchronized (this) {

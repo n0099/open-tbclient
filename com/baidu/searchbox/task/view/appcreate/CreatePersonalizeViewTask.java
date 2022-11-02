@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.la5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class CreatePersonalizeViewTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 PersonalizePageView personalizePageView = new PersonalizePageView(TbadkCoreApplication.getInst());
-                s95.e().a(1011, personalizePageView);
+                la5.e().a(1011, personalizePageView);
                 Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
                 if (mainActivity == null) {
                     return;

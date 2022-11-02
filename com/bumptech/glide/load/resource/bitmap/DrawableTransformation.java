@@ -1,7 +1,10 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,19 +17,19 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public class DrawableTransformation implements Transformation {
+public class DrawableTransformation implements Transformation<Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean isRequired;
-    public final Transformation wrapped;
+    public final Transformation<Bitmap> wrapped;
 
-    public Transformation asBitmapDrawable() {
+    public Transformation<BitmapDrawable> asBitmapDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (Transformation) invokeV.objValue;
     }
 
-    public DrawableTransformation(Transformation transformation, boolean z) {
+    public DrawableTransformation(Transformation<Bitmap> transformation, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +48,7 @@ public class DrawableTransformation implements Transformation {
         this.isRequired = z;
     }
 
-    private Resource newDrawableResource(Context context, Resource resource) {
+    private Resource<Drawable> newDrawableResource(Context context, Resource<Bitmap> resource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, context, resource)) == null) {
@@ -68,7 +71,7 @@ public class DrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, messageDigest) == null) {
             this.wrapped.updateDiskCacheKey(messageDigest);
@@ -86,20 +89,21 @@ public class DrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Transformation
-    public Resource transform(Context context, Resource resource, int i, int i2) {
+    @NonNull
+    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, context, resource, i, i2)) == null) {
             BitmapPool bitmapPool = Glide.get(context).getBitmapPool();
-            Drawable drawable = (Drawable) resource.get();
-            Resource convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
+            Drawable drawable = resource.get();
+            Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
             if (convert == null) {
                 if (!this.isRequired) {
                     return resource;
                 }
                 throw new IllegalArgumentException("Unable to convert " + drawable + " to a Bitmap");
             }
-            Resource transform = this.wrapped.transform(context, convert, i, i2);
+            Resource<Bitmap> transform = this.wrapped.transform(context, convert, i, i2);
             if (transform.equals(convert)) {
                 transform.recycle();
                 return resource;

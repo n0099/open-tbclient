@@ -17,7 +17,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ANDROIDX = "androidx.";
@@ -190,7 +190,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public final Class loadClass(String str) throws ClassNotFoundException {
+    public final Class<?> loadClass(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

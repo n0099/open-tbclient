@@ -1,5 +1,6 @@
 package com.kwad.components.offline.api.core.network;
 
+import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsScene;
 import java.util.Map;
 import org.json.JSONObject;
@@ -9,12 +10,13 @@ public interface IOfflineCompoRequest {
 
     JSONObject getBody();
 
-    Map getBodyMap();
+    Map<String, String> getBodyMap();
 
-    Map getHeader();
+    Map<String, String> getHeader();
 
     String getRequestHost();
 
+    @Nullable
     KsScene getScene();
 
     String getUrl();

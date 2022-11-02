@@ -1,5 +1,6 @@
 package com.bumptech.glide.util.pool;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ public abstract class StateVerifier {
 
     /* renamed from: com.bumptech.glide.util.pool.StateVerifier$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -24,7 +25,7 @@ public abstract class StateVerifier {
     public abstract void throwIfRecycled();
 
     /* loaded from: classes7.dex */
-    public class DebugStateVerifier extends StateVerifier {
+    public static class DebugStateVerifier extends StateVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile RuntimeException recycledAtStackTraceException;
@@ -70,7 +71,7 @@ public abstract class StateVerifier {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultStateVerifier extends StateVerifier {
+    public static class DefaultStateVerifier extends StateVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean isReleased;
@@ -125,6 +126,7 @@ public abstract class StateVerifier {
         }
     }
 
+    @NonNull
     public static StateVerifier newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

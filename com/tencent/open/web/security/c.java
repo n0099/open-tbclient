@@ -12,7 +12,7 @@ import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends a.C0699a {
+public class c extends a.C0710a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -42,7 +42,7 @@ public class c extends a.C0699a {
     private void b(String str) {
         WebView webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && (webView = (WebView) this.a.get()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && (webView = this.a.get()) != null) {
             StringBuffer stringBuffer = new StringBuffer("javascript:");
             stringBuffer.append("if(!!");
             stringBuffer.append(this.d);
@@ -57,7 +57,7 @@ public class c extends a.C0699a {
         }
     }
 
-    @Override // com.tencent.open.a.C0699a
+    @Override // com.tencent.open.a.C0710a
     public void a(String str) {
         int i;
         Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class c extends a.C0699a {
         }
     }
 
-    @Override // com.tencent.open.a.C0699a
+    @Override // com.tencent.open.a.C0710a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -88,7 +88,7 @@ public class c extends a.C0699a {
         }
     }
 
-    @Override // com.tencent.open.a.C0699a
+    @Override // com.tencent.open.a.C0710a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {

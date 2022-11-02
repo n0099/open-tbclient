@@ -3,6 +3,7 @@ package com.ss.android.downloadlib.b;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.a.a;
 import org.json.JSONException;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 public class f {
     public static Handler a = new Handler(Looper.getMainLooper());
 
-    public static void b(final com.ss.android.downloadad.api.a.b bVar, final int i) {
+    public static void b(@NonNull final com.ss.android.downloadad.api.a.b bVar, final int i) {
         if (i <= 0) {
             return;
         }
@@ -37,7 +38,7 @@ public class f {
         }, i(bVar) * 1000);
     }
 
-    public static void a(final com.ss.android.downloadad.api.a.b bVar, final h hVar) {
+    public static void a(final com.ss.android.downloadad.api.a.b bVar, @NonNull final h hVar) {
         boolean z;
         boolean b = com.ss.android.socialbase.downloader.a.a.a().b();
         if (!b && Build.VERSION.SDK_INT >= 29) {
@@ -61,12 +62,12 @@ public class f {
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0666a() { // from class: com.ss.android.downloadlib.b.f.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0677a() { // from class: com.ss.android.downloadlib.b.f.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
             public void b() {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
                 com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.b.f.1.1

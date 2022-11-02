@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Path;
 import android.graphics.RectF;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,7 +41,7 @@ public class ShapePath {
     public float startY;
 
     /* loaded from: classes7.dex */
-    public class ArcShadowOperation extends ShadowCompatOperation {
+    public static class ArcShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PathArcOperation operation;
@@ -63,7 +65,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
+        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) != null) {
                 return;
@@ -73,7 +75,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public class LineShadowOperation extends ShadowCompatOperation {
+    public static class LineShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PathLineOperation operation;
@@ -101,7 +103,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
+        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) == null) {
                 RectF rectF = new RectF(0.0f, 0.0f, (float) Math.hypot(this.operation.y - this.startY, this.operation.x - this.startX), 0.0f);
@@ -123,7 +125,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public class PathArcOperation extends PathOperation {
+    public static class PathArcOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final RectF rectF;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +284,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(Matrix matrix, Path path) {
+        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -296,7 +298,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public class PathCubicOperation extends PathOperation {
+    public static class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float controlX1;
@@ -426,7 +428,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(Matrix matrix, Path path) {
+        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -439,7 +441,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public class PathLineOperation extends PathOperation {
+    public static class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float x;
@@ -460,7 +462,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(Matrix matrix, Path path) {
+        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -498,7 +500,7 @@ public class ShapePath {
     }
 
     /* loaded from: classes7.dex */
-    public class PathQuadOperation extends PathOperation {
+    public static class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Deprecated
@@ -561,7 +563,7 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.PathOperation
-        public void applyToPath(Matrix matrix, Path path) {
+        public void applyToPath(@NonNull Matrix matrix, @NonNull Path path) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, matrix, path) == null) {
                 Matrix matrix2 = this.matrix;
@@ -833,6 +835,7 @@ public class ShapePath {
         }
     }
 
+    @NonNull
     public ShadowCompatOperation createShadowCompatOperation(Matrix matrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -927,6 +930,7 @@ public class ShapePath {
         }
     }
 
+    @RequiresApi(21)
     public void cubicToPoint(float f, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
@@ -937,6 +941,7 @@ public class ShapePath {
         }
     }
 
+    @RequiresApi(21)
     public void quadToPoint(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {

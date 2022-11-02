@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.remote.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+@Keep
 /* loaded from: classes2.dex */
 public class RemotePlayerService extends Service {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +59,7 @@ public class RemotePlayerService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             try {
-                CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), (String) null, intent.getIntExtra("installType", 1), (Class) null, (Map) intent.getSerializableExtra("installOpts"), (CyberPlayerManager.InstallListener2) null);
+                CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), (String) null, intent.getIntExtra("installType", 1), (Class<?>) null, (Map<String, String>) intent.getSerializableExtra("installOpts"), (CyberPlayerManager.InstallListener2) null);
             } catch (Exception e) {
                 e.printStackTrace();
             }

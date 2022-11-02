@@ -22,7 +22,7 @@ public abstract class q {
     public abstract void b(Message message);
 
     /* loaded from: classes8.dex */
-    public final class a extends Handler {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q a;

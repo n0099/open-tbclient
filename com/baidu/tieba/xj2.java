@@ -1,78 +1,52 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public interface xj2 extends yj2 {
+public class xj2 extends yh2<pk2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    @Override // com.baidu.tieba.yh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBackgroundMute" : (String) invokeV.objValue;
     }
 
-    void D(int i);
+    public xj2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void E();
-
-    void F(long j);
-
-    void I(int i);
-
-    void J(int i);
-
-    void K(int i);
-
-    void M(boolean z);
-
-    void S();
-
-    void V(int i);
-
-    void Y(int i);
-
-    void Z(a aVar);
-
-    void a0();
-
-    void d();
-
-    void d0(boolean z);
-
-    void e(int i);
-
-    void e0(long j, boolean z);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList h();
-
-    void i(boolean z);
-
-    void i0(String str);
-
-    void j(long j);
-
-    void l0(long j);
-
-    void m0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(ak2 ak2Var);
-
-    ArrayList v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pk2 pk2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pk2Var) == null) {
+            String str = command.what;
+            d(pk2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                pk2Var.M(((Boolean) obj).booleanValue());
+            }
+        }
+    }
 }

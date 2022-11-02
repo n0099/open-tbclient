@@ -1,13 +1,15 @@
 package com.baidu.tieba.enterForum.callback;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.c96;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
-import com.baidu.tieba.k96;
+import com.baidu.tieba.ma6;
+import com.baidu.tieba.ua6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,11 +20,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c96 a;
+    public ma6 a;
     public LikeForumItemAdapter b;
     public String c;
     public String d;
@@ -39,18 +41,18 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) {
         }
     }
 
-    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, c96 c96Var) {
+    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, ma6 ma6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {likeForumItemAdapter, c96Var};
+            Object[] objArr = {likeForumItemAdapter, ma6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,22 +64,22 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
         }
         this.e = false;
         this.b = likeForumItemAdapter;
-        this.a = c96Var;
+        this.a = ma6Var;
     }
 
-    public final String a(List list) {
+    public final String a(List<ua6> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             if (!ListUtils.isEmpty(list)) {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < list.size(); i++) {
-                    k96 k96Var = (k96) list.get(i);
-                    if (k96Var != null) {
+                    ua6 ua6Var = list.get(i);
+                    if (ua6Var != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("forum_id", k96Var.getId());
-                            jSONObject.put("sort_value", String.valueOf(k96Var.t()));
+                            jSONObject.put("forum_id", ua6Var.getId());
+                            jSONObject.put("sort_value", String.valueOf(ua6Var.t()));
                             jSONArray.put(jSONObject);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -92,19 +94,19 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, viewHolder) == null) {
             super.clearView(recyclerView, viewHolder);
-            c96 c96Var = this.a;
-            if (c96Var != null && this.e) {
-                c96Var.a(this.c, this.d);
+            ma6 ma6Var = this.a;
+            if (ma6Var != null && this.e) {
+                ma6Var.a(this.c, this.d);
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, viewHolder)) == null) {
@@ -117,7 +119,7 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int i) {
+    public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             super.onSelectedChanged(viewHolder, i);
@@ -135,7 +137,7 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
+    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, recyclerView, viewHolder, viewHolder2)) == null) {

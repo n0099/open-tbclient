@@ -15,7 +15,7 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableTimer extends Observable {
+public final class ObservableTimer extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -23,13 +23,13 @@ public final class ObservableTimer extends Observable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TimerObserver extends AtomicReference implements Disposable, Runnable {
+    public static final class TimerObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super Long> actual;
 
-        public TimerObserver(Observer observer) {
+        public TimerObserver(Observer<? super Long> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public final class ObservableTimer extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Long> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             TimerObserver timerObserver = new TimerObserver(observer);

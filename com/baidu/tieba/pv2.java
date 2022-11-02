@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.IntentFilter;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +16,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import org.json.JSONArray;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class pv2 {
+public class pv2 extends f43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final pv2 f;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
-    public final Map b;
-    public boolean c;
-    public ov2 d;
+    public NetworkBroadcastReceiver a;
+    public TelephonyManager b;
+    public a c;
+
+    /* loaded from: classes5.dex */
+    public class a extends PhoneStateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<CallbackHandler> a;
+        public String b;
+        public String c;
+        public final /* synthetic */ pv2 d;
+
+        public a(pv2 pv2Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pv2Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = pv2Var;
+            this.c = "";
+            this.a = new WeakReference<>(callbackHandler);
+            this.b = str;
+        }
+
+        public void a(CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+                this.a = new WeakReference<>(callbackHandler);
+                this.b = str;
+            }
+        }
+
+        @Override // android.telephony.PhoneStateListener
+        public void onDataConnectionStateChanged(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                if (pv2.d) {
+                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
+                }
+                if (2 == i) {
+                    String d = SwanAppNetworkUtils.d(i2, null);
+                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
+                        this.c = d;
+                        SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+                    }
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,161 +95,59 @@ public class pv2 {
                 return;
             }
         }
-        e = wj1.a;
-        f = new pv2();
+        d = ok1.a;
     }
 
-    public static pv2 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (pv2) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = true;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "done");
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "reset");
-            }
-        }
-    }
-
-    public pv2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pv2(e43 e43Var) {
+        super(e43Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e43Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((e43) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new HashMap();
-        this.c = false;
     }
 
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
-            return;
-        }
-        JSONArray e2 = e();
-        if (e2 != null && e2.length() > 0) {
-            hybridUbcFlow.D("ma_update_recorder", e2.toString());
-        }
-        c();
-    }
-
-    public void h(ov2 ov2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ov2Var) == null) {
-            this.d = ov2Var;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+            if (this.b == null) {
+                this.b = (TelephonyManager) getSystemService("phone");
+                a aVar = new a(this, callbackHandler, str);
+                this.c = aVar;
+                this.b.listen(aVar, 64);
+                return;
+            }
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                aVar2.a(callbackHandler, str);
+            }
         }
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    public void b(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
+            if (networkBroadcastReceiver == null) {
+                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                registerReceiver(this.a, intentFilter);
+            } else if (networkBroadcastReceiver != null) {
+                networkBroadcastReceiver.updateCallback(callbackHandler, str);
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
-            rv2 rv2Var = new rv2(str);
-            rv2Var.a(currentTimeMillis);
-            synchronized (this.a) {
-                this.b.put(str2, rv2Var);
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
-                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
-            }
-            return str2;
+            a(callbackHandler, str);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
-            return;
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.a) {
-            rv2 rv2Var = (rv2) this.b.get(str);
-            if (rv2Var != null) {
-                rv2Var.c(currentTimeMillis);
-                this.a.add(rv2Var);
-                this.b.remove(str);
-            }
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
-        }
-    }
-
-    public final JSONArray e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (rv2 rv2Var : this.a) {
-                        if (rv2Var != null && (this.d == null || this.d.a(rv2Var))) {
-                            jSONArray.put(rv2Var.d());
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (e) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", jSONArray.toString());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

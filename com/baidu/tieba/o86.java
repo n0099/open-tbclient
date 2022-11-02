@@ -1,112 +1,104 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.framework.task.MessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.ArrayList;
-import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class o86 extends pb {
+public final class o86 {
     public static /* synthetic */ Interceptable $ic;
+    public static final o86 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<h66> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public h86 a;
-    public SparseArray b;
-    public HashMap c;
-    public Gson d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o86(int i) {
-        super(i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986172, "Lcom/baidu/tieba/o86;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986172, "Lcom/baidu/tieba/o86;");
+                return;
+            }
+        }
+        a = new o86();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
+    }
+
+    public o86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new Gson();
-        a();
-    }
-
-    public final void a() {
-        int e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new SparseArray();
-            ArrayList findHttpTasks = MessageManager.getInstance().findHttpTasks();
-            if (ListUtils.isEmpty(findHttpTasks)) {
-                return;
-            }
-            for (int i = 0; i < findHttpTasks.size(); i++) {
-                String url = ((HttpMessageTask) findHttpTasks.get(i)).getUrl();
-                if (!ej.isEmpty(url) && url.contains("?")) {
-                    String[] split = url.split("[?]");
-                    String str = split[1];
-                    String str2 = split[0];
-                    if (!ej.isEmpty(str) && str.contains("=") && (e = eh.e(str.split("[=]")[1], 0)) != 0) {
-                        this.b.put(e, str2.replace(TbConfig.SERVER_ADDRESS, ""));
-                    }
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b(h86 h86Var) {
+    public final PointF b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h86Var) == null) {
-            this.a = h86Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
+            }
+            return acquire;
         }
+        return (PointF) invokeV.objValue;
     }
 
-    public void c(HashMap hashMap) {
+    public final RectF c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.c = hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
+            }
+            return acquire;
         }
+        return (RectF) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kb
-    public /* bridge */ /* synthetic */ Message process(Message message, MessageTask messageTask) {
-        SocketMessage socketMessage = (SocketMessage) message;
-        process(socketMessage, (SocketMessageTask) messageTask);
-        return socketMessage;
-    }
-
-    public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+    public final h66 a(i66 data, DanmakuPlayer player) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask)) == null) {
-            String str = (String) this.b.get(socketMessage.getCmd());
-            if (str == null) {
-                return socketMessage;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            h66 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
             }
-            HashMap hashMap = this.c;
-            if (hashMap != null && hashMap.get(str) != null && this.a != null) {
-                this.a.a(str, this.d.toJson(this.c.get(str)), this.d.toJson(this.d.toJson(socketMessage.getData())));
+            if (acquire == null) {
+                return new h66(data, player);
             }
-            return socketMessage;
+            return acquire;
         }
-        return (SocketMessage) invokeLL.objValue;
+        return (h66) invokeLL.objValue;
     }
 }

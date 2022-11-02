@@ -1,45 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class lq1 extends SwanAppDownloadAction {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+import android.webkit.ValueCallback;
+/* loaded from: classes5.dex */
+public interface lq1 extends c32 {
+    boolean canGoBack();
 
-    @Override // com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction
-    public boolean l(UnitedSchemeEntity unitedSchemeEntity, m33 m33Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, unitedSchemeEntity, m33Var)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    View covertToView();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq1(j43 j43Var) {
-        super(j43Var, "/swanAPI/installApp4Ad");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((j43) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void destroy();
+
+    @Override // com.baidu.tieba.c32
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+
+    int getContentHeight();
+
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

@@ -34,7 +34,7 @@ public abstract class p implements f {
 
     public abstract RandomAccessFile a(File file, String str, long j);
 
-    public abstract Map b(l lVar);
+    public abstract Map<String, String> b(l lVar);
 
     public abstract int i();
 
@@ -253,11 +253,11 @@ public abstract class p implements f {
         }
     }
 
-    public final void h(Map map, URLConnection uRLConnection) {
+    public final void h(Map<String, String> map, URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, map, uRLConnection) == null) && map != null) {
             for (String str : map.keySet()) {
-                uRLConnection.setRequestProperty(str, (String) map.get(str));
+                uRLConnection.setRequestProperty(str, map.get(str));
             }
         }
     }

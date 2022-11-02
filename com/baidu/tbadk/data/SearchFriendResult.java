@@ -17,11 +17,11 @@ public class SearchFriendResult extends OrmObject implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String errmsg;
     public int errorno;
-    public List user_info;
+    public List<UserInfo> user_info;
     public String usermsg;
 
     /* loaded from: classes3.dex */
-    public class UserInfo extends OrmObject implements Serializable {
+    public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4475845825063348182L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         return invokeV.intValue;
     }
 
-    public List getUserInfo() {
+    public List<UserInfo> getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -159,7 +159,7 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         }
     }
 
-    public void setUserInfo(List list) {
+    public void setUserInfo(List<UserInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.user_info = list;

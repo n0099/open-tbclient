@@ -32,7 +32,7 @@ public class VideoFrameDrawer {
 
     /* renamed from: org.webrtc.VideoFrameDrawer$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class VideoFrameDrawer {
     }
 
     /* loaded from: classes9.dex */
-    public class YuvUploader {
+    public static class YuvUploader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable

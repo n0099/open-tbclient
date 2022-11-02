@@ -1,56 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mj6 {
+public class mj6 implements wn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map a(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                HashMap hashMap = new HashMap();
-                int i = 0;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    for (int i3 = 0; i3 < ((TornadoNodeInfo) list.get(i2)).getNodeInfoList().size(); i3++) {
-                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(((TornadoNodeInfo) list.get(i2)).getPackageName(), ((TornadoNodeInfo) list.get(i2)).getNodeInfoList().get(i3), ((TornadoNodeInfo) list.get(i2)).getGameId()));
-                        i++;
-                    }
-                }
-                return hashMap;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947974640, "Lcom/baidu/tieba/mj6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947974640, "Lcom/baidu/tieba/mj6;");
+                return;
+            }
         }
-        return (Map) invokeL.objValue;
+        a = BdUniqueId.gen();
     }
 
-    public static String[] b(List list, int i) {
-        InterceptResult invokeLI;
+    public mj6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i > 0) {
-                String[] strArr = new String[i];
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    for (int i4 = 0; i4 < ((TornadoNodeInfo) list.get(i3)).getNodeInfoList().size(); i4++) {
-                        strArr[i2] = ((TornadoNodeInfo) list.get(i3)).getNodeInfoList().get(i4).getNodeName();
-                        i2++;
-                    }
-                }
-                return strArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (String[]) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

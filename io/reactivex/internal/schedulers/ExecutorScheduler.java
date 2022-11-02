@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -33,20 +34,21 @@ public final class ExecutorScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public static final Scheduler HELPER;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Executor executor;
 
     /* loaded from: classes8.dex */
-    public final class ExecutorWorker extends Scheduler.Worker implements Runnable {
+    public static final class ExecutorWorker extends Scheduler.Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean disposed;
         public final Executor executor;
-        public final MpscLinkedQueue queue;
+        public final MpscLinkedQueue<Runnable> queue;
         public final CompositeDisposable tasks;
         public final AtomicInteger wip;
 
         /* loaded from: classes8.dex */
-        public final class BooleanRunnable extends AtomicBoolean implements Runnable, Disposable {
+        public static final class BooleanRunnable extends AtomicBoolean implements Runnable, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2421395018820541164L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -157,11 +159,12 @@ public final class ExecutorScheduler extends Scheduler {
             this.wip = new AtomicInteger();
             this.tasks = new CompositeDisposable();
             this.executor = executor;
-            this.queue = new MpscLinkedQueue();
+            this.queue = new MpscLinkedQueue<>();
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
@@ -232,15 +235,15 @@ public final class ExecutorScheduler extends Scheduler {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                MpscLinkedQueue mpscLinkedQueue = this.queue;
+                MpscLinkedQueue<Runnable> mpscLinkedQueue = this.queue;
                 int i = 1;
                 while (!this.disposed) {
                     while (true) {
-                        Runnable runnable = (Runnable) mpscLinkedQueue.poll();
-                        if (runnable == null) {
+                        Runnable poll = mpscLinkedQueue.poll();
+                        if (poll == null) {
                             break;
                         }
-                        runnable.run();
+                        poll.run();
                         if (this.disposed) {
                             mpscLinkedQueue.clear();
                             return;
@@ -252,7 +255,8 @@ public final class ExecutorScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -322,7 +326,7 @@ public final class ExecutorScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class DelayedRunnable extends AtomicReference implements Runnable, Disposable, SchedulerRunnableIntrospection {
+    public static final class DelayedRunnable extends AtomicReference<Runnable> implements Runnable, Disposable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4101336210206799084L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -365,7 +369,7 @@ public final class ExecutorScheduler extends Scheduler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Runnable runnable = (Runnable) get();
+                Runnable runnable = get();
                 if (runnable == null) {
                     return Functions.EMPTY_RUNNABLE;
                 }
@@ -391,7 +395,7 @@ public final class ExecutorScheduler extends Scheduler {
         public void run() {
             Runnable runnable;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (runnable = (Runnable) get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (runnable = get()) != null) {
                 try {
                     runnable.run();
                 } finally {
@@ -420,6 +424,7 @@ public final class ExecutorScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -429,7 +434,7 @@ public final class ExecutorScheduler extends Scheduler {
         return (Scheduler.Worker) invokeV.objValue;
     }
 
-    public ExecutorScheduler(Executor executor) {
+    public ExecutorScheduler(@NonNull Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -448,7 +453,8 @@ public final class ExecutorScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
@@ -471,7 +477,8 @@ public final class ExecutorScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -494,7 +501,8 @@ public final class ExecutorScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {

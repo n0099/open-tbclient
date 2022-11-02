@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.content.Context;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +16,7 @@ public class ChatMsgFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final ChatMsgFactory INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +205,7 @@ public class ChatMsgFactory {
                                                                             return new AlertMsg();
                                                                         case 2010:
                                                                             return new RedNotifyMsg();
-                                                                        case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
+                                                                        case 2012:
                                                                             return new ShieldMsg();
                                                                         case 2014:
                                                                             return new UnSubscribeMsg();

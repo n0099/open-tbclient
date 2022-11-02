@@ -183,7 +183,7 @@ public class QRCodeReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public final Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, ChecksumException, FormatException {
+    public final Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeLL;
         ResultPoint[] points;
         DecoderResult decoderResult;
@@ -202,7 +202,7 @@ public class QRCodeReader implements Reader {
                 ((QRCodeDecoderMetaData) decoderResult.getOther()).applyMirroredCorrection(points);
             }
             Result result = new Result(decoderResult.getText(), decoderResult.getRawBytes(), points, BarcodeFormat.QR_CODE);
-            List byteSegments = decoderResult.getByteSegments();
+            List<byte[]> byteSegments = decoderResult.getByteSegments();
             if (byteSegments != null) {
                 result.putMetadata(ResultMetadataType.BYTE_SEGMENTS, byteSegments);
             }

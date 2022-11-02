@@ -1,24 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public class y77 {
+public final class y77 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Random a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            ua7.o();
-            jb7.n();
-            LocalViewSize.getInstance().initial(TbadkCoreApplication.getInst().getContext());
-            bb7.n().o(TbadkCoreApplication.getInst().getContext());
-            kb7.b().c();
-            fb7.i();
-            nb7.k();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283152, "Lcom/baidu/tieba/y77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283152, "Lcom/baidu/tieba/y77;");
+                return;
+            }
         }
+        a = new Random();
+    }
+
+    public static int a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            if (i >= i2) {
+                return i;
+            }
+            return (int) ((a.nextFloat() * (i2 - i)) + i);
+        }
+        return invokeII.intValue;
     }
 }

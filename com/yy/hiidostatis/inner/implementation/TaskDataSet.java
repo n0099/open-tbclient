@@ -19,20 +19,20 @@ import java.util.TreeSet;
 /* loaded from: classes8.dex */
 public class TaskDataSet implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Comparator DATA_COMPARATOR;
+    public static final Comparator<TaskData> DATA_COMPARATOR;
     public static final long serialVersionUID = -8880276834197410994L;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set dataSet;
+    public Set<TaskData> dataSet;
 
     /* renamed from: com.yy.hiidostatis.inner.implementation.TaskDataSet$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public final class MyComparator implements Comparator, Serializable {
+    public static final class MyComparator implements Comparator<TaskData>, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 605434724079570979L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class TaskDataSet implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.dataSet.size() > 0) {
-                return (TaskData) this.dataSet.iterator().next();
+                return this.dataSet.iterator().next();
             }
             return null;
         }
@@ -146,9 +146,11 @@ public class TaskDataSet implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            r1 = null;
+            TaskData taskData = null;
             if (this.dataSet.size() > 0) {
-                for (TaskData taskData : this.dataSet) {
+                Iterator<TaskData> it = this.dataSet.iterator();
+                while (it.hasNext()) {
+                    taskData = it.next();
                 }
             }
             return taskData;
@@ -165,7 +167,7 @@ public class TaskDataSet implements Serializable {
         return invokeV.booleanValue;
     }
 
-    public Iterator iterator() {
+    public Iterator<TaskData> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -179,10 +181,10 @@ public class TaskDataSet implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.dataSet.size() > 0) {
-                Iterator it = this.dataSet.iterator();
-                TaskData taskData = (TaskData) it.next();
+                Iterator<TaskData> it = this.dataSet.iterator();
+                TaskData next = it.next();
                 it.remove();
-                return taskData;
+                return next;
             }
             return null;
         }
@@ -220,7 +222,7 @@ public class TaskDataSet implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public void addAll(Collection collection) {
+    public void addAll(Collection<TaskData> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
             this.dataSet.addAll(collection);
@@ -251,10 +253,12 @@ public class TaskDataSet implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            r1 = null;
+            TaskData taskData = null;
             if (this.dataSet.size() > 0) {
                 int nextInt = new Random().nextInt(this.dataSet.size());
-                for (TaskData taskData : this.dataSet) {
+                Iterator<TaskData> it = this.dataSet.iterator();
+                while (it.hasNext()) {
+                    taskData = it.next();
                     int i = nextInt - 1;
                     if (nextInt <= 0) {
                         break;
@@ -274,9 +278,9 @@ public class TaskDataSet implements Serializable {
             if (this.dataSet.size() <= 0) {
                 return false;
             }
-            Iterator it = this.dataSet.iterator();
+            Iterator<TaskData> it = this.dataSet.iterator();
             while (it.hasNext()) {
-                if (((TaskData) it.next()).equals(taskData)) {
+                if (it.next().equals(taskData)) {
                     it.remove();
                     return true;
                 }

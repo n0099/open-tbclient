@@ -22,7 +22,7 @@ public class Marshallable extends PacketBase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class ELenType {
+    public static final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ELenType E_INT16;
@@ -229,108 +229,108 @@ public class Marshallable extends PacketBase {
         return invokeV.shortValue;
     }
 
-    private Object popKey(Class cls, ELenType eLenType) throws Exception {
+    private <K> K popKey(Class<K> cls, ELenType eLenType) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, cls, eLenType)) == null) {
             if (cls == Byte.class) {
-                return Byte.valueOf(popInt8());
+                return (K) Byte.valueOf(popInt8());
             }
             if (cls == Short.class) {
-                return Short.valueOf(popInt16());
+                return (K) Short.valueOf(popInt16());
             }
             if (cls == Integer.class) {
                 if (eLenType == ELenType.E_INT16) {
-                    return Integer.valueOf(popUint16());
+                    return (K) Integer.valueOf(popUint16());
                 }
-                return Integer.valueOf(popInt32());
+                return (K) Integer.valueOf(popInt32());
             } else if (cls == Long.class) {
                 if (eLenType == ELenType.E_INT32) {
-                    return Long.valueOf(popUint32());
+                    return (K) Long.valueOf(popUint32());
                 }
-                return Long.valueOf(popInt64());
+                return (K) Long.valueOf(popInt64());
             } else if (cls == String.class) {
                 if (eLenType == ELenType.E_INT16) {
-                    return popString16();
+                    return (K) popString16();
                 }
-                return popString32();
+                return (K) popString32();
             } else {
                 throw new IllegalStateException("unknow map key type: " + cls.getName());
             }
         }
-        return invokeLL.objValue;
+        return (K) invokeLL.objValue;
     }
 
-    private Object popValue(Class cls, ELenType eLenType) throws Exception {
+    private <V> V popValue(Class<V> cls, ELenType eLenType) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, eLenType)) == null) {
             if (cls == Byte.class) {
-                return Byte.valueOf(popInt8());
+                return (V) Byte.valueOf(popInt8());
             }
             if (cls == Short.class) {
-                return Short.valueOf(popInt16());
+                return (V) Short.valueOf(popInt16());
             }
             if (cls == Integer.class) {
-                return Integer.valueOf(popInt32());
+                return (V) Integer.valueOf(popInt32());
             }
             if (cls == Long.class) {
                 if (eLenType == ELenType.E_INT32) {
-                    return Long.valueOf(popUint32());
+                    return (V) Long.valueOf(popUint32());
                 }
-                return Long.valueOf(popInt64());
+                return (V) Long.valueOf(popInt64());
             } else if (cls == String.class) {
                 if (eLenType == ELenType.E_INT16) {
-                    return popString16();
+                    return (V) popString16();
                 }
-                return popString32();
+                return (V) popString32();
             } else {
                 throw new IllegalStateException("unknow map value type: " + cls.getName());
             }
         }
-        return invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 
-    private void pushKey(Object obj) {
+    private <K> void pushKey(K k) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, obj) == null) {
-            if (obj instanceof Byte) {
-                pushInt8(((Byte) obj).byteValue());
-            } else if (obj instanceof Short) {
-                pushInt16(((Short) obj).shortValue());
-            } else if (obj instanceof Integer) {
-                pushInt32(((Integer) obj).intValue());
-            } else if (obj instanceof String) {
-                pushString16((String) obj);
+        if (interceptable == null || interceptable.invokeL(65539, this, k) == null) {
+            if (k instanceof Byte) {
+                pushInt8(((Byte) k).byteValue());
+            } else if (k instanceof Short) {
+                pushInt16(((Short) k).shortValue());
+            } else if (k instanceof Integer) {
+                pushInt32(((Integer) k).intValue());
+            } else if (k instanceof String) {
+                pushString16((String) k);
             } else {
-                throw new IllegalStateException("unknow map value type: " + obj.getClass().getName());
+                throw new IllegalStateException("unknow map value type: " + k.getClass().getName());
             }
         }
     }
 
-    private void pushValue(Object obj) {
+    private <V> void pushValue(V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj) == null) {
-            if (obj instanceof Byte) {
-                pushInt8(((Byte) obj).byteValue());
-            } else if (obj instanceof Short) {
-                pushInt16(((Short) obj).shortValue());
-            } else if (obj instanceof Integer) {
-                pushInt32(((Integer) obj).intValue());
-            } else if (obj instanceof String) {
-                pushString16((String) obj);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, v) == null) {
+            if (v instanceof Byte) {
+                pushInt8(((Byte) v).byteValue());
+            } else if (v instanceof Short) {
+                pushInt16(((Short) v).shortValue());
+            } else if (v instanceof Integer) {
+                pushInt32(((Integer) v).intValue());
+            } else if (v instanceof String) {
+                pushString16((String) v);
             } else {
-                throw new IllegalStateException("unknow map value type: " + obj.getClass().getName());
+                throw new IllegalStateException("unknow map value type: " + v.getClass().getName());
             }
         }
     }
 
-    public void pushMap(Map map) {
+    public <K, V> void pushMap(Map<K, V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
             if (map != null && map.size() != 0) {
                 pushInt32(map.size());
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<K, V> entry : map.entrySet()) {
                     pushKey(entry.getKey());
                     pushValue(entry.getValue());
                 }
@@ -340,7 +340,7 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public final Collection popCollection(Class cls, Class cls2) throws Exception {
+    public final <T> Collection<T> popCollection(Class<? extends Collection> cls, Class<T> cls2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2)) == null) {
@@ -349,7 +349,7 @@ public class Marshallable extends PacketBase {
         return (Collection) invokeLL.objValue;
     }
 
-    public Map popMap(Class cls, Class cls2) throws Exception {
+    public <K, V> Map<K, V> popMap(Class<K> cls, Class<V> cls2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls, cls2)) == null) {
@@ -359,13 +359,15 @@ public class Marshallable extends PacketBase {
         return (Map) invokeLL.objValue;
     }
 
-    public final Collection popCollection(Class cls, Class cls2, ELenType eLenType) throws Exception {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: java.util.Collection<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final <T> Collection<T> popCollection(Class<? extends Collection> cls, Class<T> cls2, ELenType eLenType) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, eLenType)) == null) {
             int popInt32 = popInt32();
-            Collection collection = (Collection) cls.newInstance();
-            if (collection != null) {
+            Collection<T> collection = (Collection<T>) cls.newInstance();
+            if (collection != 0) {
                 for (int i = 0; i < popInt32; i++) {
                     collection.add(popValue(cls2, eLenType));
                 }
@@ -375,7 +377,9 @@ public class Marshallable extends PacketBase {
         return (Collection) invokeLLL.objValue;
     }
 
-    public Map popMap(Class cls, ELenType eLenType, Class cls2, ELenType eLenType2) throws Exception {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.TreeMap */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <K, V> Map<K, V> popMap(Class<K> cls, ELenType eLenType, Class<V> cls2, ELenType eLenType2) throws Exception {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, cls, eLenType, cls2, eLenType2)) == null) {

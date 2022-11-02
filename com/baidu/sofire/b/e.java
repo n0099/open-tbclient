@@ -51,11 +51,11 @@ public class e {
     public static int[] f;
     public static Timer g;
     public static Object h;
-    public static List i;
+    public static List<GzfiCallback> i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -189,7 +189,7 @@ public class e {
     }
 
     /* loaded from: classes2.dex */
-    public final class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Callback a;
@@ -341,7 +341,7 @@ public class e {
     }
 
     /* loaded from: classes2.dex */
-    public final class c implements GzfiCallback {
+    public static class c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sofire.d.a a;
@@ -421,7 +421,7 @@ public class e {
     */
     public static Bundle a(Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
-        Pair a2;
+        Pair<Integer, Object> a2;
         String str2;
         String str3;
         int intValue;
@@ -489,7 +489,7 @@ public class e {
                             for (int i4 = 0; i4 < objArr2.length; i4++) {
                                 String str6 = (String) objArr2[i4];
                                 if (!TextUtils.isEmpty(str6) && str6.contains("@@")) {
-                                    Class a3 = com.baidu.sofire.k.a.a(str6);
+                                    Class<?> a3 = com.baidu.sofire.k.a.a(str6);
                                     if (a3 != null) {
                                         clsArr[i4] = a3;
                                     }
@@ -542,25 +542,25 @@ public class e {
         return (Bundle) invokeLLL.objValue;
     }
 
-    public static Pair a(int i2, String str, Class[] clsArr, Object... objArr) {
+    public static Pair<Integer, Object> a(int i2, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
             try {
                 Context context = d.e;
                 if (context == null) {
-                    return new Pair(4, null);
+                    return new Pair<>(4, null);
                 }
                 if (!n.a(context)) {
-                    return new Pair(12, null);
+                    return new Pair<>(12, null);
                 }
                 if (!com.baidu.sofire.k.a.a(d.e, false)) {
-                    return new Pair(11, null);
+                    return new Pair<>(11, null);
                 }
                 String g2 = com.baidu.sofire.k.a.g(d.e);
                 if (TextUtils.isEmpty(g2)) {
                     if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
-                        return new Pair(5, null);
+                        return new Pair<>(5, null);
                     }
                     return d.a(context).a(i2, str, clsArr, objArr);
                 } else if (com.baidu.sofire.k.a.e(g2)) {
@@ -570,28 +570,28 @@ public class e {
                 }
             } catch (Throwable unused) {
                 int i3 = com.baidu.sofire.a.b.a;
-                return new Pair(3, null);
+                return new Pair<>(3, null);
             }
         }
         return (Pair) invokeCommon.objValue;
     }
 
-    public static Pair b(int i2, String str, Class[] clsArr, Object... objArr) {
+    public static Pair<Integer, Object> b(int i2, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
             try {
                 Context context = d.e;
                 if (context == null) {
-                    return new Pair(4, null);
+                    return new Pair<>(4, null);
                 }
                 if (!com.baidu.sofire.k.a.a(context, false)) {
-                    return new Pair(11, null);
+                    return new Pair<>(11, null);
                 }
                 String g2 = com.baidu.sofire.k.a.g(d.e);
                 if (TextUtils.isEmpty(g2)) {
                     if (com.baidu.sofire.k.a.e(d.e.getPackageName())) {
-                        return new Pair(5, null);
+                        return new Pair<>(5, null);
                     }
                     d.a(context);
                     return a(str, clsArr, objArr);
@@ -603,13 +603,13 @@ public class e {
                 }
             } catch (Throwable unused) {
                 int i3 = com.baidu.sofire.a.b.a;
-                return new Pair(3, null);
+                return new Pair<>(3, null);
             }
         }
         return (Pair) invokeCommon.objValue;
     }
 
-    public static Pair a(Context context) {
+    public static Pair<Integer, String> a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -618,21 +618,21 @@ public class e {
                 int i2 = com.baidu.sofire.a.b.a;
             }
             if (!com.baidu.sofire.k.a.b(1)) {
-                return new Pair(-1, "");
+                return new Pair<>(-1, "");
             }
             if (com.baidu.sofire.k.a.k(context) == 0) {
-                return new Pair(-2, "");
+                return new Pair<>(-2, "");
             }
-            Pair a2 = a(1, "gcfs", (Class[]) null, new Object[0]);
+            Pair<Integer, Object> a2 = a(1, "gcfs", (Class<?>[]) null, new Object[0]);
             if (a2 != null && ((Integer) a2.first).intValue() == 0) {
                 return (Pair) a2.second;
             }
-            return new Pair(-1, "");
+            return new Pair<>(-1, "");
         }
         return (Pair) invokeL.objValue;
     }
 
-    public static Pair a(Context context, int i2, int i3, String str, Class[] clsArr, Object... objArr) {
+    public static Pair<Integer, Object> a(Context context, int i2, int i3, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         String str2;
         CallArgs callArgs;
@@ -709,6 +709,7 @@ public class e {
         }
     }
 
+    /* JADX DEBUG: Incorrect args count in method signature: (ILjava/lang/String;[Ljava/lang/Class<*>;[Ljava/lang/Object;)Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/Object;>; */
     public static Pair a(String str, Class[] clsArr, Object... objArr) {
         InterceptResult invokeLLL;
         k kVar;
@@ -727,7 +728,7 @@ public class e {
             }
             ApkInfo b2 = kVar.b("com.baidu.sofire.x0");
             if (b2 != null) {
-                Class a2 = ((j) b2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                Class<?> a2 = ((j) b2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                 return new Pair(0, com.baidu.sofire.k.a.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.e), str, clsArr, objArr));
             }
             return new Pair(3, null);
@@ -770,7 +771,7 @@ public class e {
                     }
                     return b(context, str, i2, str2);
                 } else if (com.baidu.sofire.k.a.e(g2)) {
-                    Pair a2 = a(context, 0, 1, "gzfi", (Class[]) null, str, Integer.valueOf(i2), str2);
+                    Pair<Integer, Object> a2 = a(context, 0, 1, "gzfi", (Class<?>[]) null, str, Integer.valueOf(i2), str2);
                     if (a2 != null) {
                         if (((Integer) a2.first).intValue() == 0) {
                             return (String) a2.second;
@@ -803,7 +804,7 @@ public class e {
                             gzfiCallback.onComplete(i2, str, str2);
                         }
                     }
-                    List list = i;
+                    List<GzfiCallback> list = i;
                     if (list != null) {
                         list.clear();
                     }
@@ -920,13 +921,13 @@ public class e {
                 int i4 = bundle.getInt("timeout", 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    c cVar = new c(a.AbstractBinderC0157a.a(iBinder));
+                    c cVar = new c(a.AbstractBinderC0165a.a(iBinder));
                     synchronized (e.class) {
                         try {
                             if (d.e == null) {
                                 d.e = context.getApplicationContext();
                             }
-                            Pair a2 = a(context);
+                            Pair<Integer, String> a2 = a(context);
                             if (a2 != null && ((Integer) a2.first).intValue() == 1) {
                                 cVar.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
                             } else {
@@ -1003,7 +1004,7 @@ public class e {
         }
     }
 
-    public static boolean a(int i2, String str, Callback callback, Class[] clsArr, Object... objArr) {
+    public static boolean a(int i2, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), str, callback, clsArr, objArr})) == null) {
@@ -1041,7 +1042,7 @@ public class e {
                 }
                 return c(context);
             } else if (com.baidu.sofire.k.a.e(g2)) {
-                Pair a2 = a(context, 0, 1, "gz", (Class[]) null, new Object[0]);
+                Pair<Integer, Object> a2 = a(context, 0, 1, "gz", (Class<?>[]) null, new Object[0]);
                 if (a2 != null) {
                     if (((Integer) a2.first).intValue() != 0) {
                         return "";

@@ -1,71 +1,104 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.ad.FrsADFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bl6 extends kh6 {
+public class bl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsADFragment a;
+    public BdTypeRecyclerView b;
+    public el6 c;
+    public bj6 d;
+    public List<jn> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bl6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public bl6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new ArrayList();
+        this.a = frsADFragment;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: E */
-    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0345, viewGroup, false), this.c.getPageActivity());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new el6(this.a.getPageContext(), dl6.h, this.a.getUniqueId());
+            this.d = new bj6(this.a.getPageContext(), cj6.b);
+            this.e.add(this.c);
+            this.e.add(this.d);
+            e();
+            this.b.a(this.e);
         }
-        return (ReadProgressViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, vh6 vh6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vh6Var, readProgressViewHolder})) == null) {
-            if (vh6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.b(vh6Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (jn jnVar : this.e) {
+                if (jnVar instanceof ui6) {
+                    ((ui6) jnVar).v();
+                }
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.kh6, com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (vh6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
+    public void d(ArrayList<wn> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
+            return;
+        }
+        for (jn jnVar : this.e) {
+            if (jnVar instanceof ui6) {
+                ((ui6) jnVar).C(this.a.getTbPageTag());
+            }
+        }
+    }
+
+    public void f(go goVar) {
+        List<jn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, goVar) == null) && (list = this.e) != null && list.size() != 0) {
+            for (jn jnVar : this.e) {
+                if (jnVar != null && (jnVar instanceof ui6)) {
+                    jnVar.setOnAdapterItemClickListener(goVar);
+                }
+            }
+        }
     }
 }

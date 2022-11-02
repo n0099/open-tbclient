@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmable;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
@@ -15,14 +16,20 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.common.references.OOMSoftReference;
 import com.facebook.common.references.ResourceReleaser;
 import java.util.concurrent.Semaphore;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class SharedByteArray implements MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OOMSoftReference mByteArraySoftRef;
+    @VisibleForTesting
+    public final OOMSoftReference<byte[]> mByteArraySoftRef;
+    @VisibleForTesting
     public final int mMaxByteArraySize;
+    @VisibleForTesting
     public final int mMinByteArraySize;
-    public final ResourceReleaser mResourceReleaser;
+    public final ResourceReleaser<byte[]> mResourceReleaser;
+    @VisibleForTesting
     public final Semaphore mSemaphore;
 
     public SharedByteArray(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams) {
@@ -51,9 +58,9 @@ public class SharedByteArray implements MemoryTrimmable {
         Preconditions.checkArgument(poolParams.maxBucketSize >= poolParams.minBucketSize);
         this.mMaxByteArraySize = poolParams.maxBucketSize;
         this.mMinByteArraySize = poolParams.minBucketSize;
-        this.mByteArraySoftRef = new OOMSoftReference();
+        this.mByteArraySoftRef = new OOMSoftReference<>();
         this.mSemaphore = new Semaphore(1);
-        this.mResourceReleaser = new ResourceReleaser(this) { // from class: com.facebook.imagepipeline.memory.SharedByteArray.1
+        this.mResourceReleaser = new ResourceReleaser<byte[]>(this) { // from class: com.facebook.imagepipeline.memory.SharedByteArray.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SharedByteArray this$0;
@@ -108,7 +115,7 @@ public class SharedByteArray implements MemoryTrimmable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             int bucketedSize = getBucketedSize(i);
-            byte[] bArr = (byte[]) this.mByteArraySoftRef.get();
+            byte[] bArr = this.mByteArraySoftRef.get();
             if (bArr == null || bArr.length < bucketedSize) {
                 return allocateByteArray(bucketedSize);
             }
@@ -117,6 +124,7 @@ public class SharedByteArray implements MemoryTrimmable {
         return (byte[]) invokeI.objValue;
     }
 
+    @VisibleForTesting
     public int getBucketedSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -139,7 +147,7 @@ public class SharedByteArray implements MemoryTrimmable {
         }
     }
 
-    public CloseableReference get(int i) {
+    public CloseableReference<byte[]> get(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;

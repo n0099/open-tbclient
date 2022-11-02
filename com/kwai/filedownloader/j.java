@@ -22,13 +22,13 @@ public final class j {
     public static int atk = 5;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor atf;
-    public final LinkedBlockingQueue atg;
+    public final LinkedBlockingQueue<t> atg;
     public final Object ath;
-    public final ArrayList ati;
+    public final ArrayList<t> ati;
     public final Handler handler;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final j atn;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public final class j {
     }
 
     /* loaded from: classes8.dex */
-    public final class b implements Handler.Callback {
+    public static class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,12 +73,12 @@ public final class j {
             this();
         }
 
-        public static void b(ArrayList arrayList) {
+        public static void b(ArrayList<t> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, null, arrayList) == null) {
-                Iterator it = arrayList.iterator();
+                Iterator<t> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    ((t) it.next()).CM();
+                    it.next().CM();
                 }
                 arrayList.clear();
             }
@@ -132,9 +132,9 @@ public final class j {
         }
         this.atf = com.kwai.filedownloader.e.b.l(5, "BlockCompleted");
         this.ath = new Object();
-        this.ati = new ArrayList();
+        this.ati = new ArrayList<>();
         this.handler = new Handler(Looper.getMainLooper(), new b((byte) 0));
-        this.atg = new LinkedBlockingQueue();
+        this.atg = new LinkedBlockingQueue<>();
     }
 
     public /* synthetic */ j(byte b2) {
@@ -196,9 +196,9 @@ public final class j {
                 if (!CJ() && !this.atg.isEmpty()) {
                     synchronized (this.ath) {
                         if (!this.atg.isEmpty()) {
-                            Iterator it = this.atg.iterator();
+                            Iterator<t> it = this.atg.iterator();
                             while (it.hasNext()) {
-                                b((t) it.next());
+                                b(it.next());
                             }
                         }
                         this.atg.clear();

@@ -5,14 +5,14 @@ public interface ArrayPool {
 
     void clearMemory();
 
-    Object get(int i, Class cls);
+    <T> T get(int i, Class<T> cls);
 
-    Object getExact(int i, Class cls);
+    <T> T getExact(int i, Class<T> cls);
 
-    void put(Object obj);
+    <T> void put(T t);
 
     @Deprecated
-    void put(Object obj, Class cls);
+    <T> void put(T t, Class<T> cls);
 
     void trimMemory(int i);
 }

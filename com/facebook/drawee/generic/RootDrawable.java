@@ -1,5 +1,6 @@
 package com.facebook.drawee.generic;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ForwardingDrawable;
 import com.facebook.drawee.drawable.VisibilityAwareDrawable;
 import com.facebook.drawee.drawable.VisibilityCallback;
@@ -21,6 +23,7 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
     public static ColorFilter sGlobalColorFilter;
     public transient /* synthetic */ FieldHolder $fh;
     public ColorFilter mColorFilter;
+    @VisibleForTesting
     @Nullable
     public Drawable mControllerOverlay;
     public boolean mUserGlobalColorFilter;
@@ -86,6 +89,7 @@ public class RootDrawable extends ForwardingDrawable implements VisibilityAwareD
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
+    @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         ColorFilter colorFilter;
         Interceptable interceptable = $ic;

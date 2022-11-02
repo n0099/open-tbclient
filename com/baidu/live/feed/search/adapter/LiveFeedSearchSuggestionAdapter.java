@@ -22,8 +22,8 @@ import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea0;
-import com.baidu.tieba.vc0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 E2\u00020\u0001:\u0003EFGB\u0017\u0012\u0006\u0010+\u001a\u00020*\u0012\u0006\u00105\u001a\u00020\u0017¢\u0006\u0004\bC\u0010DJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u001f\u0010\u000b\u001a\u00020\n2\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u0005\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u0010\u001a\u00020\b2\u0006\u0010\u000e\u001a\u00020\r2\u0006\u0010\u000f\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u001d\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\u0012¢\u0006\u0004\b\u0013\u0010\u0014J\u0015\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u001f\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u0018\u001a\u00020\u00172\u0006\u0010\u0019\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ9\u0010#\u001a\u00020\n2\u000e\u0010\u001f\u001a\n\u0012\u0004\u0012\u00020\u001e\u0018\u00010\u001d2\u000e\u0010!\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001d2\n\b\u0002\u0010\"\u001a\u0004\u0018\u00010\u0017¢\u0006\u0004\b#\u0010$J\u001d\u0010'\u001a\u00020\u00172\u0006\u0010%\u001a\u00020\u00172\u0006\u0010&\u001a\u00020\u0002¢\u0006\u0004\b'\u0010(R\u0018\u0010\"\u001a\u0004\u0018\u00010\u00178\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010)R\u0019\u0010+\u001a\u00020*8\u0006@\u0006¢\u0006\f\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.R*\u0010/\u001a\n\u0012\u0004\u0012\u00020\u001e\u0018\u00010\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u00104R\u0019\u00105\u001a\u00020\u00178\u0006@\u0006¢\u0006\f\n\u0004\b5\u0010)\u001a\u0004\b6\u00107R\u001e\u0010!\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001d8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u00100R$\u00109\u001a\u0004\u0018\u0001088\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<\"\u0004\b=\u0010>R.\u0010A\u001a\u001a\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0018\u00010?j\f\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0018\u0001`@8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010B¨\u0006H"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "holder", "", "onBindViewHolder", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "Lcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;", "resultDataProcess", "(ILcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;)V", "setFollowStatus", "(I)V", "", "context", "totalText", "Landroid/text/SpannableString;", "setResultColor", "(Ljava/lang/String;Ljava/lang/String;)Landroid/text/SpannableString;", "", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchList", "Lcom/baidu/live/feed/search/model/data/LiveSearchSuggestion;", "suggestionList", "contentText", "setSuggestions", "(Ljava/util/List;Ljava/util/List;Ljava/lang/String;)V", "content", "num", "wordNumCheck", "(Ljava/lang/String;I)Ljava/lang/String;", "Ljava/lang/String;", "Landroid/content/Context;", "mContext", "Landroid/content/Context;", "getMContext", "()Landroid/content/Context;", "resultList", "Ljava/util/List;", "getResultList", "()Ljava/util/List;", "setResultList", "(Ljava/util/List;)V", "scene", "getScene", "()Ljava/lang/String;", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "suggestionListener", "Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "getSuggestionListener", "()Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "setSuggestionListener", "(Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;)V", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "typeList", "Ljava/util/ArrayList;", "<init>", "(Landroid/content/Context;Ljava/lang/String;)V", "Companion", "OnSuggestionListener", "SearchSuggestionViewHolder", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter {
+public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final int ITEM_TYPE_SUG = 1;
@@ -49,11 +49,11 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
     public transient /* synthetic */ FieldHolder $fh;
     public String contentText;
     public final Context mContext;
-    public List resultList;
+    public List<? extends LiveSearchResultInfo> resultList;
     public final String scene;
-    public List suggestionList;
+    public List<? extends LiveSearchSuggestion> suggestionList;
     public OnSuggestionListener suggestionListener;
-    public ArrayList typeList;
+    public ArrayList<Integer> typeList;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010 \n\u0002\b\u0005\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\u000b\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\r\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\r\u0010\u000eJ\u001f\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0012\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0012\u0010\u0011J/\u0010\u0016\u001a\u00020\u00042\u000e\u0010\u0014\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u00132\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u0015\u001a\u00020\u0002H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$OnSuggestionListener;", "Lkotlin/Any;", "", "jumpScheme", "", "jumpAuthorView", "(Ljava/lang/String;)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "itemInfo", "", CriusAttrConstants.POSITION, "onFollowClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "onResultClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;)V", "content", "onSuggestionClick", "(Ljava/lang/String;I)V", "onSuggestionSelect", "", "resultList", "ubcType", "onUbcResult", "(Ljava/util/List;ILjava/lang/String;)V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
@@ -68,7 +68,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
 
         void onSuggestionSelect(String str, int i);
 
-        void onUbcResult(List list, int i, String str);
+        void onUbcResult(List<? extends LiveSearchResultInfo> list, int i, String str);
     }
 
     static {
@@ -89,7 +89,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$Companion;", "", "ITEM_TYPE_SUG", "I", "ITEM_TYPE_TEXT", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\b\u0016\u0018\u00002\u00020\u0001B\u001f\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\t\u001a\u00020\b\u0012\u0006\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\"\u0010#J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\"\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\u0019\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013R\"\u0010\u0015\u001a\u00020\u00148\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\"\u0010\u001c\u001a\u00020\u001b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!¨\u0006$"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveFeedSearchSuggestionAdapter$SearchSuggestionViewHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "bindView", "()V", "Landroid/content/Context;", "mContext", "Landroid/content/Context;", "Landroid/view/View;", "mView", "Landroid/view/View;", "getMView", "()Landroid/view/View;", "setMView", "(Landroid/view/View;)V", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "Landroid/widget/ImageView;", "suggestionArrow", "Landroid/widget/ImageView;", "getSuggestionArrow", "()Landroid/widget/ImageView;", "setSuggestionArrow", "(Landroid/widget/ImageView;)V", "Landroid/widget/TextView;", "suggestionWordContent", "Landroid/widget/TextView;", "getSuggestionWordContent", "()Landroid/widget/TextView;", "setSuggestionWordContent", "(Landroid/widget/TextView;)V", "<init>", "(Landroid/content/Context;Landroid/view/View;Ljava/lang/String;)V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public class SearchSuggestionViewHolder extends RecyclerView.ViewHolder {
+    public static class SearchSuggestionViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
@@ -144,10 +144,10 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
             this.mContext = context;
             this.mView = view2;
             this.scene = str;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09139f);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0913dc);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…earch_suggestion_content)");
             this.suggestionWordContent = (TextView) findViewById;
-            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f09139e);
+            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f0913db);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…arch_suggestion_arrow_iv)");
             this.suggestionArrow = (ImageView) findViewById2;
         }
@@ -162,14 +162,14 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     this.suggestionWordContent.setTypeface(Typeface.DEFAULT_BOLD);
                     this.suggestionWordContent.setTextSize(1, 16.0f);
                 }
-                this.suggestionWordContent.setTextColor(vc0.f().a(this.mContext, this.scene, "color_1F1F1F"));
-                vc0 f = vc0.f();
+                this.suggestionWordContent.setTextColor(uc0.f().a(this.mContext, this.scene, "color_1F1F1F"));
+                uc0 f = uc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                 String r = f.r();
                 if (Intrinsics.areEqual(r, "day")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d4c);
+                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d66);
                 } else if (Intrinsics.areEqual(r, "night")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d4d);
+                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d67);
                 }
             }
         }
@@ -249,7 +249,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         }
         this.mContext = context;
         this.scene = str;
-        this.typeList = new ArrayList();
+        this.typeList = new ArrayList<>();
     }
 
     private final SpannableString setResultColor(String str, String str2) {
@@ -264,6 +264,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LiveFeedSearchSuggestionAdapter this$0;
 
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
@@ -286,9 +287,9 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     public void updateDrawState(TextPaint textPaint) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, textPaint) == null) {
-                            textPaint.setColor(this.this$0.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a1));
+                            textPaint.setColor(this.this$0.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a2));
                             textPaint.bgColor = 0;
-                            textPaint.setTextSize(ea0.c(this.this$0.getMContext().getResources(), 14.0f));
+                            textPaint.setTextSize(da0.c(this.this$0.getMContext().getResources(), 14.0f));
                             textPaint.setUnderlineText(false);
                         }
                     }
@@ -356,8 +357,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList arrayList = this.typeList;
-            if (arrayList != null && (num = (Integer) arrayList.get(i)) != null) {
+            ArrayList<Integer> arrayList = this.typeList;
+            if (arrayList != null && (num = arrayList.get(i)) != null) {
                 return num.intValue();
             }
             return -1;
@@ -365,7 +366,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         return invokeI.intValue;
     }
 
-    public final void setResultList(List list) {
+    public final void setResultList(List<? extends LiveSearchResultInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.resultList = list;
@@ -392,14 +393,14 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List list = this.resultList;
+            List<? extends LiveSearchResultInfo> list = this.resultList;
             int i2 = 0;
             if (list != null) {
                 i = list.size();
             } else {
                 i = 0;
             }
-            List list2 = this.suggestionList;
+            List<? extends LiveSearchSuggestion> list2 = this.suggestionList;
             if (list2 != null) {
                 i2 = list2.size();
             }
@@ -417,7 +418,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         return (Context) invokeV.objValue;
     }
 
-    public final List getResultList() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.live.business.model.data.LiveSearchResultInfo>, java.util.List<com.baidu.live.business.model.data.LiveSearchResultInfo> */
+    public final List<LiveSearchResultInfo> getResultList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -463,8 +465,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     LiveSearchResultViewHolder liveSearchResultViewHolder = (LiveSearchResultViewHolder) viewHolder;
                     resultDataProcess(i, liveSearchResultViewHolder);
                     liveSearchResultViewHolder.a(i);
-                    List list = this.resultList;
-                    if (list != null && (liveSearchResultInfo = (LiveSearchResultInfo) list.get(i)) != null) {
+                    List<? extends LiveSearchResultInfo> list = this.resultList;
+                    if (list != null && (liveSearchResultInfo = list.get(i)) != null) {
                         str3 = liveSearchResultInfo.question;
                     } else {
                         str3 = null;
@@ -474,7 +476,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                         spannableString = setResultColor(str4, str3);
                     }
                     g.setText(spannableString);
-                    List list2 = this.resultList;
+                    List<? extends LiveSearchResultInfo> list2 = this.resultList;
                     if (list2 != null && (onSuggestionListener = this.suggestionListener) != null) {
                         onSuggestionListener.onUbcResult(list2, i, "show");
                         return;
@@ -484,7 +486,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 return;
             }
             Ref.IntRef intRef = new Ref.IntRef();
-            List list3 = this.resultList;
+            List<? extends LiveSearchResultInfo> list3 = this.resultList;
             if (list3 != null) {
                 i2 = list3.size();
             } else {
@@ -492,8 +494,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
             }
             int i3 = i - i2;
             intRef.element = i3;
-            List list4 = this.suggestionList;
-            if (list4 != null && (liveSearchSuggestion = (LiveSearchSuggestion) list4.get(i3)) != null) {
+            List<? extends LiveSearchSuggestion> list4 = this.suggestionList;
+            if (list4 != null && (liveSearchSuggestion = list4.get(i3)) != null) {
                 str = liveSearchSuggestion.question;
             } else {
                 str = null;
@@ -600,12 +602,12 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i == 1) {
-                View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d055f, null);
+                View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d056f, null);
                 Context context = this.mContext;
                 Intrinsics.checkExpressionValueIsNotNull(view2, "view");
                 return new LiveSearchResultViewHolder(context, view2, this.scene);
             }
-            View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0559, viewGroup, false);
+            View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0569, viewGroup, false);
             Context context2 = this.mContext;
             Intrinsics.checkExpressionValueIsNotNull(view3, "view");
             return new SearchSuggestionViewHolder(context2, view3, this.scene);
@@ -632,10 +634,10 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         String str8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, liveSearchResultViewHolder) == null) {
-            List list = this.resultList;
+            List<? extends LiveSearchResultInfo> list = this.resultList;
             Boolean bool = null;
             if (list != null) {
-                liveSearchResultInfo = (LiveSearchResultInfo) list.get(i);
+                liveSearchResultInfo = list.get(i);
             } else {
                 liveSearchResultInfo = null;
             }
@@ -648,8 +650,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 liveSearchResultViewHolder.g().setVisibility(0);
                 liveSearchResultViewHolder.h().setVisibility(8);
                 TextView g = liveSearchResultViewHolder.g();
-                List list2 = this.resultList;
-                if (list2 != null && (liveSearchResultInfo7 = (LiveSearchResultInfo) list2.get(i)) != null && (str8 = liveSearchResultInfo7.displayName) != null) {
+                List<? extends LiveSearchResultInfo> list2 = this.resultList;
+                if (list2 != null && (liveSearchResultInfo7 = list2.get(i)) != null && (str8 = liveSearchResultInfo7.displayName) != null) {
                     str7 = wordNumCheck(str8, 8);
                 } else {
                     str7 = null;
@@ -659,8 +661,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 liveSearchResultViewHolder.g().setVisibility(8);
                 liveSearchResultViewHolder.h().setVisibility(0);
                 TextView h = liveSearchResultViewHolder.h();
-                List list3 = this.resultList;
-                if (list3 != null && (liveSearchResultInfo2 = (LiveSearchResultInfo) list3.get(i)) != null && (str3 = liveSearchResultInfo2.displayName) != null) {
+                List<? extends LiveSearchResultInfo> list3 = this.resultList;
+                if (list3 != null && (liveSearchResultInfo2 = list3.get(i)) != null && (str3 = liveSearchResultInfo2.displayName) != null) {
                     str2 = wordNumCheck(str3, 8);
                 } else {
                     str2 = null;
@@ -668,8 +670,8 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 h.setText(str2);
             }
             TextView c = liveSearchResultViewHolder.c();
-            List list4 = this.resultList;
-            if (list4 != null && (liveSearchResultInfo6 = (LiveSearchResultInfo) list4.get(i)) != null && (str6 = liveSearchResultInfo6.description) != null) {
+            List<? extends LiveSearchResultInfo> list4 = this.resultList;
+            if (list4 != null && (liveSearchResultInfo6 = list4.get(i)) != null && (str6 = liveSearchResultInfo6.description) != null) {
                 str4 = wordNumCheck(str6, 14);
             } else {
                 str4 = null;
@@ -686,49 +688,49 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 liveSearchResultViewHolder.g().setGravity(16);
             }
             SimpleDraweeView b = liveSearchResultViewHolder.b();
-            List list5 = this.resultList;
-            if (list5 != null && (liveSearchResultInfo5 = (LiveSearchResultInfo) list5.get(i)) != null) {
+            List<? extends LiveSearchResultInfo> list5 = this.resultList;
+            if (list5 != null && (liveSearchResultInfo5 = list5.get(i)) != null) {
                 str5 = liveSearchResultInfo5.avatar;
             } else {
                 str5 = null;
             }
             b.setImageURI(str5);
-            List list6 = this.resultList;
-            if (list6 != null && (liveSearchResultInfo4 = (LiveSearchResultInfo) list6.get(i)) != null && liveSearchResultInfo4.hasFollowed) {
+            List<? extends LiveSearchResultInfo> list6 = this.resultList;
+            if (list6 != null && (liveSearchResultInfo4 = list6.get(i)) != null && liveSearchResultInfo4.hasFollowed) {
                 if (Intrinsics.areEqual(this.scene, "recommend")) {
                     liveSearchResultViewHolder.d().setVisibility(8);
                 } else {
                     liveSearchResultViewHolder.d().setVisibility(0);
                     liveSearchResultViewHolder.d().setText("已关注");
                     liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
-                    liveSearchResultViewHolder.d().setTextColor(vc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                    vc0 f = vc0.f();
+                    liveSearchResultViewHolder.d().setTextColor(uc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                    uc0 f = uc0.f();
                     Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                     String r = f.r();
                     if (Intrinsics.areEqual(r, "day")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d24);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3e);
                     } else if (Intrinsics.areEqual(r, "night")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d25);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3f);
                     }
                 }
             } else {
                 liveSearchResultViewHolder.d().setVisibility(0);
                 liveSearchResultViewHolder.d().setText("关注");
                 liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
-                liveSearchResultViewHolder.d().setTextColor(vc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-                vc0 f2 = vc0.f();
+                liveSearchResultViewHolder.d().setTextColor(uc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+                uc0 f2 = uc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                 String r2 = f2.r();
                 if (Intrinsics.areEqual(r2, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d22);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3c);
                 } else if (Intrinsics.areEqual(r2, "night")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d23);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3d);
                 }
             }
             liveSearchResultViewHolder.f().setVisibility(8);
             liveSearchResultViewHolder.e().setVisibility(8);
-            List list7 = this.resultList;
-            if (list7 != null && (liveSearchResultInfo3 = (LiveSearchResultInfo) list7.get(i)) != null) {
+            List<? extends LiveSearchResultInfo> list7 = this.resultList;
+            if (list7 != null && (liveSearchResultInfo3 = list7.get(i)) != null) {
                 bool = Boolean.valueOf(liveSearchResultInfo3.hasLiving);
             }
             if (bool == null) {
@@ -737,7 +739,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
             if (bool.booleanValue()) {
                 liveSearchResultViewHolder.f().setVisibility(0);
                 liveSearchResultViewHolder.e().setVisibility(0);
-                vc0 f3 = vc0.f();
+                uc0 f3 = uc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
                 String r3 = f3.r();
                 if (Intrinsics.areEqual(r3, "day")) {
@@ -788,9 +790,9 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     String str10;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        List resultList = this.this$0.getResultList();
+                        List<LiveSearchResultInfo> resultList = this.this$0.getResultList();
                         if (resultList != null) {
-                            liveSearchResultInfo8 = (LiveSearchResultInfo) resultList.get(this.$position);
+                            liveSearchResultInfo8 = resultList.get(this.$position);
                         } else {
                             liveSearchResultInfo8 = null;
                         }
@@ -799,18 +801,18 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                         }
                         String str11 = "";
                         if (liveSearchResultInfo8.hasLiving) {
-                            List resultList2 = this.this$0.getResultList();
-                            if (resultList2 != null && (liveSearchResultInfo11 = (LiveSearchResultInfo) resultList2.get(this.$position)) != null && (str10 = liveSearchResultInfo11.cmd) != null) {
+                            List<LiveSearchResultInfo> resultList2 = this.this$0.getResultList();
+                            if (resultList2 != null && (liveSearchResultInfo11 = resultList2.get(this.$position)) != null && (str10 = liveSearchResultInfo11.cmd) != null) {
                                 str11 = str10;
                             }
                             LiveFeedPageSdk.liveLog("FeedItemClick: position: " + this.$position + "  scheme: " + str11);
-                            List resultList3 = this.this$0.getResultList();
-                            if (resultList3 != null && (liveSearchResultInfo10 = (LiveSearchResultInfo) resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
+                            List<LiveSearchResultInfo> resultList3 = this.this$0.getResultList();
+                            if (resultList3 != null && (liveSearchResultInfo10 = resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
                                 suggestionListener2.onResultClick(liveSearchResultInfo10);
                             }
                         } else {
-                            List resultList4 = this.this$0.getResultList();
-                            if (resultList4 != null && (liveSearchResultInfo9 = (LiveSearchResultInfo) resultList4.get(this.$position)) != null && (str9 = liveSearchResultInfo9.cmd) != null) {
+                            List<LiveSearchResultInfo> resultList4 = this.this$0.getResultList();
+                            if (resultList4 != null && (liveSearchResultInfo9 = resultList4.get(this.$position)) != null && (str9 = liveSearchResultInfo9.cmd) != null) {
                                 str11 = str9;
                             }
                             LiveFeedPageSdk.liveLog("FeedItemClick: position: " + this.$position + "  scheme: " + str11);
@@ -819,7 +821,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                                 suggestionListener3.jumpAuthorView(str11);
                             }
                         }
-                        List resultList5 = this.this$0.getResultList();
+                        List<LiveSearchResultInfo> resultList5 = this.this$0.getResultList();
                         if (resultList5 != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
                             suggestionListener.onUbcResult(resultList5, this.$position, "clk");
                         }
@@ -860,11 +862,11 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                     LiveFeedSearchSuggestionAdapter.OnSuggestionListener suggestionListener3;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        List resultList = this.this$0.getResultList();
+                        List<LiveSearchResultInfo> resultList = this.this$0.getResultList();
                         if (resultList == null) {
                             Intrinsics.throwNpe();
                         }
-                        LiveSearchResultInfo liveSearchResultInfo9 = (LiveSearchResultInfo) resultList.get(this.$position);
+                        LiveSearchResultInfo liveSearchResultInfo9 = resultList.get(this.$position);
                         if (liveSearchResultInfo9 != null) {
                             bool2 = Boolean.valueOf(liveSearchResultInfo9.hasFollowed);
                         } else {
@@ -874,22 +876,22 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                             Intrinsics.throwNpe();
                         }
                         if (!bool2.booleanValue()) {
-                            List resultList2 = this.this$0.getResultList();
+                            List<LiveSearchResultInfo> resultList2 = this.this$0.getResultList();
                             if (resultList2 == null) {
                                 Intrinsics.throwNpe();
                             }
-                            LiveSearchResultInfo liveSearchResultInfo10 = (LiveSearchResultInfo) resultList2.get(this.$position);
+                            LiveSearchResultInfo liveSearchResultInfo10 = resultList2.get(this.$position);
                             if (liveSearchResultInfo10 != null && (suggestionListener3 = this.this$0.getSuggestionListener()) != null) {
                                 suggestionListener3.onFollowClick(liveSearchResultInfo10, this.$position);
                                 return;
                             }
                             return;
                         }
-                        List resultList3 = this.this$0.getResultList();
-                        if (resultList3 != null && (liveSearchResultInfo8 = (LiveSearchResultInfo) resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
+                        List<LiveSearchResultInfo> resultList3 = this.this$0.getResultList();
+                        if (resultList3 != null && (liveSearchResultInfo8 = resultList3.get(this.$position)) != null && (suggestionListener2 = this.this$0.getSuggestionListener()) != null) {
                             suggestionListener2.onResultClick(liveSearchResultInfo8);
                         }
-                        List resultList4 = this.this$0.getResultList();
+                        List<LiveSearchResultInfo> resultList4 = this.this$0.getResultList();
                         if (resultList4 != null && (suggestionListener = this.this$0.getSuggestionListener()) != null) {
                             suggestionListener.onUbcResult(resultList4, this.$position, "clk");
                         }
@@ -909,20 +911,20 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         LiveSearchResultInfo liveSearchResultInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            List list = this.resultList;
+            List<? extends LiveSearchResultInfo> list = this.resultList;
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
                 z = true;
             }
             if (!z && i >= 0) {
-                List list2 = this.resultList;
+                List<? extends LiveSearchResultInfo> list2 = this.resultList;
                 if (list2 == null) {
                     Intrinsics.throwNpe();
                 }
                 if (i < list2.size()) {
-                    List list3 = this.resultList;
-                    if (list3 != null && (liveSearchResultInfo = (LiveSearchResultInfo) list3.get(i)) != null) {
+                    List<? extends LiveSearchResultInfo> list3 = this.resultList;
+                    if (list3 != null && (liveSearchResultInfo = list3.get(i)) != null) {
                         liveSearchResultInfo.hasFollowed = true;
                     }
                     notifyItemChanged(i);
@@ -931,7 +933,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
         }
     }
 
-    public final void setSuggestions(List list, List list2, String str) {
+    public final void setSuggestions(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2, String str) {
         boolean z;
         boolean z2;
         Integer num;
@@ -941,7 +943,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
             this.resultList = list;
             this.suggestionList = list2;
             this.contentText = str;
-            ArrayList arrayList = this.typeList;
+            ArrayList<Integer> arrayList = this.typeList;
             if (arrayList != null) {
                 arrayList.clear();
             }
@@ -960,14 +962,14 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 if (!z3) {
                     int size = list.size();
                     for (int i = 0; i < size; i++) {
-                        ArrayList arrayList2 = this.typeList;
+                        ArrayList<Integer> arrayList2 = this.typeList;
                         if (arrayList2 != null) {
                             arrayList2.add(1);
                         }
                     }
                     int size2 = list.size() + list2.size();
                     for (int size3 = list.size(); size3 < size2; size3++) {
-                        ArrayList arrayList3 = this.typeList;
+                        ArrayList<Integer> arrayList3 = this.typeList;
                         if (arrayList3 != null) {
                             arrayList3.add(0);
                         }
@@ -988,7 +990,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 }
                 int intValue = num.intValue();
                 for (int i2 = 0; i2 < intValue; i2++) {
-                    ArrayList arrayList4 = this.typeList;
+                    ArrayList<Integer> arrayList4 = this.typeList;
                     if (arrayList4 != null) {
                         arrayList4.add(1);
                     }
@@ -1000,7 +1002,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter 
                 if (!z4) {
                     int size4 = list2.size();
                     for (int i3 = 0; i3 < size4; i3++) {
-                        ArrayList arrayList5 = this.typeList;
+                        ArrayList<Integer> arrayList5 = this.typeList;
                         if (arrayList5 != null) {
                             arrayList5.add(0);
                         }

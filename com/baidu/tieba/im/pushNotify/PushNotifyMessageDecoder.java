@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.pushNotify;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +18,7 @@ import protobuf.PushNotify.PusherMsg;
 public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList mMsgList;
+    public LinkedList<PushNotifyMessage> mMsgList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushNotifyMessageDecoder() {
@@ -39,6 +40,7 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         int size;
@@ -52,7 +54,7 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
             } else {
                 size = list.size();
             }
-            this.mMsgList = new LinkedList();
+            this.mMsgList = new LinkedList<>();
             for (int i2 = 0; i2 < size; i2++) {
                 PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i2);
                 PushNotifyMessage pushNotifyMessage = new PushNotifyMessage();
@@ -70,7 +72,7 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public LinkedList getMsgList() {
+    public LinkedList<PushNotifyMessage> getMsgList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

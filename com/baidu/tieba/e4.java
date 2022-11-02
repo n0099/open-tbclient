@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class e4 implements Comparable {
+public abstract class e4 implements Comparable<e4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final b7 c;
+    public static final b7<String> c;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
     public final int b;
@@ -30,7 +30,7 @@ public abstract class e4 implements Comparable {
                 return;
             }
         }
-        c = new b7();
+        c = new b7<>();
     }
 
     public int hashCode() {
@@ -77,7 +77,7 @@ public abstract class e4 implements Comparable {
         if (r0 >= r7.b) goto L17;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
-        return (java.lang.String) r7.get(r0);
+        return r7.get(r0);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -100,9 +100,9 @@ public abstract class e4 implements Comparable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             int i = 0;
             while (true) {
-                b7 b7Var = c;
+                b7<String> b7Var = c;
                 if (i < b7Var.b) {
-                    if (((String) b7Var.get(i)).compareTo(str) == 0) {
+                    if (b7Var.get(i).compareTo(str) == 0) {
                         return 1 << i;
                     }
                     i++;

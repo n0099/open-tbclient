@@ -2,6 +2,7 @@ package com.ss.android.downloadlib;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.MainThread;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
@@ -45,6 +46,7 @@ public class g {
         return a;
     }
 
+    @MainThread
     public void a(final String str, final int i) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.2
             @Override // java.lang.Runnable
@@ -110,6 +112,7 @@ public class g {
         return com.ss.android.socialbase.appdownloader.d.j().a(j.getContext(), str);
     }
 
+    @MainThread
     public void a(final Context context, final int i, final DownloadStatusChangeListener downloadStatusChangeListener, final DownloadModel downloadModel) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.4
             @Override // java.lang.Runnable
@@ -123,6 +126,7 @@ public class g {
         h().a(aVar);
     }
 
+    @MainThread
     public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.6
             @Override // java.lang.Runnable
@@ -132,6 +136,7 @@ public class g {
         });
     }
 
+    @MainThread
     public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.7
             @Override // java.lang.Runnable
@@ -141,6 +146,7 @@ public class g {
         });
     }
 
+    @MainThread
     public void a(final String str, final long j, final int i, final DownloadEventConfig downloadEventConfig, final DownloadController downloadController, final OnItemClickListener onItemClickListener, final IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.5
             @Override // java.lang.Runnable
@@ -150,6 +156,7 @@ public class g {
         });
     }
 
+    @MainThread
     public void a(final String str, final boolean z) {
         com.ss.android.downloadlib.e.b.a(new Runnable() { // from class: com.ss.android.downloadlib.g.3
             @Override // java.lang.Runnable

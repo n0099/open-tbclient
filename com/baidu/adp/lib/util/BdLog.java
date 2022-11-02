@@ -23,11 +23,11 @@ public class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaiduLog";
     public static String LogFilter_classNameStartsWith;
-    public static ArrayList logPackage;
+    public static ArrayList<String> logPackage;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public final class a extends BdAsyncTask {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Exception a;
@@ -86,7 +86,7 @@ public class BdLog {
                 return;
             }
         }
-        logPackage = new ArrayList();
+        logPackage = new ArrayList<>();
     }
 
     public BdLog() {
@@ -276,7 +276,7 @@ public class BdLog {
         return invokeLZ.intValue;
     }
 
-    public static int detailException(String str, Throwable th, String str2, String str3, Map map, boolean z) {
+    public static int detailException(String str, Throwable th, String str2, String str3, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, th, str2, str3, map, Boolean.valueOf(z)})) == null) {
@@ -313,7 +313,7 @@ public class BdLog {
         return invokeL.intValue;
     }
 
-    public static int e(Throwable th, String str, String str2, Map map, boolean z) {
+    public static int e(Throwable th, String str, String str2, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{th, str, str2, map, Boolean.valueOf(z)})) == null) {
@@ -333,9 +333,9 @@ public class BdLog {
             if (logPackage.size() == 0) {
                 return false;
             }
-            Iterator it = logPackage.iterator();
+            Iterator<String> it = logPackage.iterator();
             while (it.hasNext()) {
-                if (str.startsWith((String) it.next())) {
+                if (str.startsWith(it.next())) {
                     z = true;
                 }
             }
@@ -381,7 +381,7 @@ public class BdLog {
         return invokeIL.intValue;
     }
 
-    public static void reportException(Exception exc, String str, String str2, Map map) {
+    public static void reportException(Exception exc, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65557, null, exc, str, str2, map) == null) {
             new a(exc, str, str2, map).execute(new Void[0]);

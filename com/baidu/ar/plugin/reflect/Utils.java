@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class[] EMPTY_CLASS_ARRAY;
+    public static final Class<?>[] EMPTY_CLASS_ARRAY;
     public static final Object[] EMPTY_OBJECT_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class Utils {
         }
     }
 
-    public static List getAllInterfaces(Class cls) {
+    public static List<Class<?>> getAllInterfaces(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
@@ -64,7 +64,7 @@ public class Utils {
         return (List) invokeL.objValue;
     }
 
-    public static Class[] nullToEmpty(Class[] clsArr) {
+    public static Class<?>[] nullToEmpty(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, clsArr)) == null) {
@@ -76,7 +76,7 @@ public class Utils {
         return (Class[]) invokeL.objValue;
     }
 
-    public static void getAllInterfaces(Class cls, HashSet hashSet) {
+    public static void getAllInterfaces(Class<?> cls, HashSet<Class<?>> hashSet) {
         Class<?>[] interfaces;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, cls, hashSet) == null) {
@@ -121,7 +121,7 @@ public class Utils {
         return (Object[]) invokeL.objValue;
     }
 
-    public static Class[] toClass(Object... objArr) {
+    public static Class<?>[] toClass(Object... objArr) {
         InterceptResult invokeL;
         Class<?> cls;
         Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class Utils {
             if (objArr.length == 0) {
                 return EMPTY_CLASS_ARRAY;
             }
-            Class[] clsArr = new Class[objArr.length];
+            Class<?>[] clsArr = new Class[objArr.length];
             for (int i = 0; i < objArr.length; i++) {
                 if (objArr[i] == null) {
                     cls = null;

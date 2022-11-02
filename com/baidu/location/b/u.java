@@ -1,47 +1,82 @@
 package com.baidu.location.b;
 
-import android.os.HandlerThread;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.location.Location;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
-    public static HandlerThread a;
+    public static long a;
+    public static com.baidu.location.c.a b;
+    public static Location c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1037723903, "Lcom/baidu/location/b/u;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1037723903, "Lcom/baidu/location/b/u;");
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? d : (String) invokeV.objValue;
+    }
+
+    public static void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+            a = j;
         }
     }
 
-    public static synchronized HandlerThread a() {
-        InterceptResult invokeV;
-        HandlerThread handlerThread;
+    public static void a(Location location) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (u.class) {
-                if (a == null) {
-                    HandlerThread handlerThread2 = new HandlerThread("ServiceStartArguments", 10);
-                    a = handlerThread2;
-                    handlerThread2.start();
-                }
-                handlerThread = a;
-            }
-            return handlerThread;
+        if (interceptable == null || interceptable.invokeL(65538, null, location) == null) {
+            c = location;
         }
-        return (HandlerThread) invokeV.objValue;
+    }
+
+    public static void a(com.baidu.location.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
+            b = aVar;
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            d = str;
+        }
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a : invokeV.longValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            e = str;
+        }
+    }
+
+    public static com.baidu.location.c.a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b : (com.baidu.location.c.a) invokeV.objValue;
+    }
+
+    public static Location d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? c : (Location) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? e : (String) invokeV.objValue;
     }
 }

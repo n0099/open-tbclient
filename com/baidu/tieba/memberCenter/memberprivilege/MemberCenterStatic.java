@@ -17,20 +17,24 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BubbleChooseActivityConfig;
 import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberTaskCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
 import com.baidu.tbadk.core.atomData.TailManagementActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.fq7;
+import com.baidu.tieba.gq7;
+import com.baidu.tieba.ho7;
+import com.baidu.tieba.io8;
 import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
@@ -51,11 +55,10 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.vo7;
-import com.baidu.tieba.wo7;
-import com.baidu.tieba.xm7;
-import com.baidu.tieba.yi5;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.p65;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,13 +68,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class MemberCenterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,12 +94,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<p65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage(2001342, new wo7((Context) customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001342, new gq7(customMessage.getData(), 1));
                 }
                 return null;
             }
@@ -104,7 +108,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class b implements CustomMessageTask.CustomRunnable {
+    public static class b implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,12 +127,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<p65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage(2001343, new vo7((Context) customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001343, new fq7(customMessage.getData()));
                 }
                 return null;
             }
@@ -137,7 +141,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class c implements CustomMessageTask.CustomRunnable {
+    public static class c implements CustomMessageTask.CustomRunnable<TbPageContext> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,14 +160,14 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<Boolean> run(CustomMessage<TbPageContext> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
-                    BubbleListModel bubbleListModel = new BubbleListModel((TbPageContext) customMessage.getData());
+                    BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
                     bubbleListModel.F();
-                    bubbleListModel.I(0, fj.k(((TbPageContext) customMessage.getData()).getPageActivity()), fj.i(((TbPageContext) customMessage.getData()).getPageActivity()));
+                    bubbleListModel.I(0, xi.l(customMessage.getData().getPageActivity()), xi.j(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -172,7 +176,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class d implements CustomMessageTask.CustomRunnable {
+    public static class d implements CustomMessageTask.CustomRunnable<HttpResponsedMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,7 +195,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<Map<String, String>> run(CustomMessage<HttpResponsedMessage> customMessage) {
             InterceptResult invokeL;
             BubbleListData bubbleListData;
             Interceptable interceptable = $ic;
@@ -200,27 +204,27 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof ResponseBubbleListMessage) || (bubbleListData = ((ResponseBubbleListMessage) customMessage.getData()).getBubbleListData()) == null || bubbleListData.getB_info() == null || bubbleListData.getB_info().size() <= 0) {
                     return null;
                 }
-                Iterator it = bubbleListData.getB_info().iterator();
+                Iterator<BubbleListData.BubbleData> it = bubbleListData.getB_info().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    BubbleListData.BubbleData bubbleData = (BubbleListData.BubbleData) it.next();
-                    if (bubbleData.getIs_free() == 1) {
+                    BubbleListData.BubbleData next = it.next();
+                    if (next.getIs_free() == 1) {
                         hashMap = new HashMap();
-                        hashMap.put("b_url", bubbleData.getB_url());
-                        hashMap.put("dynamic_url", bubbleData.getDynamicUrl());
+                        hashMap.put("b_url", next.getB_url());
+                        hashMap.put("dynamic_url", next.getDynamicUrl());
                         break;
                     }
                 }
-                return new CustomResponsedMessage(2001284, hashMap);
+                return new CustomResponsedMessage<>(2001284, hashMap);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public final class e implements CustomMessageTask.CustomRunnable {
+    public static class e implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -239,12 +243,12 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<p65> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage(2001339, new xm7((Context) customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001339, new ho7(customMessage.getData()));
                 }
                 return null;
             }
@@ -253,7 +257,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class f implements UrlManager.UrlDealListener {
+    public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,7 +276,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -287,7 +291,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class g implements UrlManager.UrlDealListener {
+    public static class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -306,7 +310,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -326,7 +330,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class h implements UrlManager.UrlDealListener {
+    public static class h implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -345,7 +349,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Uri parse;
             int i;
@@ -365,19 +369,20 @@ public class MemberCenterStatic {
                         String queryParameter2 = parse.getQueryParameter(MemberPayStatistic.REFER_PAGE);
                         String queryParameter3 = parse.getQueryParameter(MemberPayStatistic.CLICK_ZONE);
                         String queryParameter4 = parse.getQueryParameter(MemberPayActivityConfig.FROM_SCENE);
+                        String queryParameter5 = parse.getQueryParameter(MemberPayActivityConfig.DEFAULT_GOODS);
                         if (!StringUtils.isNull(queryParameter)) {
                             if (queryParameter.equals(TbadkCoreStatisticKey.TAIL_PAY_MEMBER_SUCCESS)) {
                                 i2 = 6;
                             } else if (queryParameter.equals(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS)) {
                                 i2 = 7;
                             }
-                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, eh.e(queryParameter4, 0));
+                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, wg.e(queryParameter4, 0), queryParameter5);
                             memberPayActivityConfig.setReferPageClickZone(queryParameter2, queryParameter3);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                             return 0;
                         }
                         i2 = 0;
-                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, eh.e(queryParameter4, 0));
+                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), i, false, i2, wg.e(queryParameter4, 0), queryParameter5);
                         memberPayActivityConfig2.setReferPageClickZone(queryParameter2, queryParameter3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig2));
                         return 0;
@@ -390,7 +395,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class i implements UrlManager.UrlDealListener {
+    public static class i implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -409,19 +414,25 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                        String d = yi5.d(str, MemberPayStatistic.REFER_PAGE);
-                        String d2 = yi5.d(str, MemberPayStatistic.CLICK_ZONE);
-                        String d3 = yi5.d(str, "onlyShowPrice");
+                        String d = xj5.d(str, MemberPayStatistic.REFER_PAGE);
+                        String d2 = xj5.d(str, MemberPayStatistic.CLICK_ZONE);
+                        String d3 = xj5.d(str, "onlyShowPrice");
+                        String d4 = xj5.d(str, GuildActivityConfig.FROM_PAGE);
                         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), 0);
                         memberPayActivityConfig.setReferPageClickZone(d, d2);
                         memberPayActivityConfig.setShowPrice(d3);
+                        if ("tail".equals(d4)) {
+                            memberPayActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                            memberPayActivityConfig.setRequestCode(25073);
+                            memberPayActivityConfig.setClose(true);
+                        }
                         tbPageContext.sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                         return 0;
                     }
@@ -433,7 +444,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class j implements UrlManager.UrlDealListener {
+    public static class j implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -452,7 +463,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -470,7 +481,7 @@ public class MemberCenterStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class k implements UrlManager.UrlDealListener {
+    public static class k implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -489,7 +500,7 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -588,7 +599,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        fj.M(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
+                        xi.O(tbPageContext.getPageActivity(), R.string.pluginstatus_tip_unknown);
                         return;
                     }
                 }
@@ -600,8 +611,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            zm8.h(i3, cls2, false, false);
-            zm8.c(i3, i2, str, cls, false, false, false, false);
+            io8.h(i3, cls2, false, false);
+            io8.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

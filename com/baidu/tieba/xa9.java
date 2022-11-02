@@ -1,21 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.text.TextUtils;
+import android.util.Base64InputStream;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xa9 {
+public abstract class xa9 implements rb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ec9 a;
+    public String b;
+
+    public abstract bc9 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
+
+    public abstract bc9 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 
     static {
         InterceptResult invokeClinit;
@@ -30,67 +46,244 @@ public class xa9 {
                 return;
             }
         }
-        a = pa9.m();
+        c = yb9.m();
     }
 
-    public static boolean a(Context context) {
+    public xa9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ec9();
+        this.b = "";
+    }
+
+    public final HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rb9
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return i(this.b, jSONObject, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rb9
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return h(this.b, file, j, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = yb9.k(z);
+            }
+            return this.b;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = yb9.h(str);
+            } else {
+                c2 = yb9.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = ed9.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = ed9.a(c2, "reallog", "1");
+            }
+            if (db9.o().E()) {
+                return ed9.a(c2, "beta", "1");
+            }
+            return c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(bc9 bc9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bc9Var)) == null) {
+            if (bc9Var == null) {
                 return false;
             }
-            NetworkInfo networkInfo = null;
+            if (!bc9Var.e()) {
+                if (c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + bc9Var.d());
+                } else {
+                    ac9.a().i(bc9Var.d(), null);
+                }
+                if (db9.o().M()) {
+                    g(bc9Var.c());
+                }
+                bc9Var.a();
+                return false;
+            }
             try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
+                int i = new JSONObject(bc9Var.b()).getInt("error");
+                if (i != 0) {
+                    if (c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!c) {
+                        ac9.a().k(i);
+                    }
+                }
             } catch (Exception e) {
-                if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
+                if (c) {
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    ac9.a().j(Log.getStackTraceString(e));
                 }
             }
-            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
-                return false;
-            }
+            bc9Var.a();
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean z = true;
+            if (i != 403 && i != 408 && i != 499) {
+                if (i >= 500 && i < 600) {
+                    j = 300000;
+                } else {
+                    z = false;
+                    if (!z) {
+                        db9.o().Z(currentTimeMillis);
+                        return;
+                    }
+                    return;
                 }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+            } else {
+                j = 60000;
             }
-            return sb.toString();
+            currentTimeMillis += j;
+            if (!z) {
+            }
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (file == null || !file.exists()) {
+                return false;
             }
+            String e = e(str, z, z2);
+            HashMap<String, String> c2 = c();
+            if (fc9.m().p() && j > 0) {
+                c2.put("Content-Length", String.valueOf(j));
+            }
+            InputStream inputStream2 = null;
+            try {
+                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+                try {
+                    try {
+                        boolean f = f(j(e, inputStream, c2));
+                        zc9.b(inputStream);
+                        return f;
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (c) {
+                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                        } else {
+                            ac9.a().i(null, Log.getStackTraceString(e));
+                        }
+                        zc9.b(inputStream);
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    zc9.b(inputStream2);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeCommon.booleanValue;
         }
-        return (String) invokeLZ.objValue;
+    }
+
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = bd9.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = 117;
+                a[1] = 123;
+                String e = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (fc9.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
+                }
+                try {
+                    return f(k(e, a, c2));
+                } catch (IOException e2) {
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+                    } else {
+                        ac9.a().i(null, Log.getStackTraceString(e2));
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

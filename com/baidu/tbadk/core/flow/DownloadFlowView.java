@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.flow;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -14,12 +15,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.rv4;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.tv4;
-import com.baidu.tieba.uv4;
-import com.baidu.tieba.wv4;
-import com.baidu.tieba.xv4;
+import com.baidu.tieba.ow4;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.tw4;
+import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,27 +28,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class DownloadFlowView extends FrameLayout {
+public class DownloadFlowView<T extends pw4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public uv4 c;
+    public rw4 c;
     public View d;
-    public DownloadFlowAdapter e;
-    public rv4 f;
-    public c g;
+    public DownloadFlowAdapter<T> e;
+    public ow4 f;
+    public DownloadFlowView<T>.c g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public wv4 k;
-    public e l;
-    public b m;
-    public d n;
+    public tw4<T> k;
+    public DownloadFlowView<T>.e l;
+    public DownloadFlowView<T>.b m;
+    public DownloadFlowView<T>.d n;
     public long o;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -80,6 +81,8 @@ public class DownloadFlowView extends FrameLayout {
             this(downloadFlowView);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.tw4 */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
@@ -94,6 +97,7 @@ public class DownloadFlowView extends FrameLayout {
         }
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes3.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -187,6 +191,8 @@ public class DownloadFlowView extends FrameLayout {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.tw4 */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
@@ -249,6 +255,8 @@ public class DownloadFlowView extends FrameLayout {
             this(downloadFlowView);
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.tw4 */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
@@ -289,10 +297,10 @@ public class DownloadFlowView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new tv4());
+            setCoverFlowFactory(new qw4());
             addView(this.a);
             addView(this.b);
-            DownloadFlowAdapter downloadFlowAdapter = new DownloadFlowAdapter(context);
+            DownloadFlowAdapter<T> downloadFlowAdapter = new DownloadFlowAdapter<>(context);
             this.e = downloadFlowAdapter;
             downloadFlowAdapter.h(this.l, this.m);
             this.a.setAdapter(this.e);
@@ -300,17 +308,17 @@ public class DownloadFlowView extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(rv4 rv4Var) {
+    public void setCoverFlowFactory(ow4 ow4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, rv4Var) != null) || rv4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, ow4Var) != null) || ow4Var == null) {
             return;
         }
-        this.f = rv4Var;
-        uv4 a2 = rv4Var.a();
+        this.f = ow4Var;
+        rw4 a2 = ow4Var.a();
         this.c = a2;
         a2.i(this.b);
-        rv4Var.c().b(this.a);
-        View b2 = rv4Var.b();
+        ow4Var.c().b(this.a);
+        View b2 = ow4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -387,17 +395,17 @@ public class DownloadFlowView extends FrameLayout {
         }
     }
 
-    public sv4 m(int i) {
+    public T m(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            DownloadFlowAdapter downloadFlowAdapter = this.e;
+            DownloadFlowAdapter<T> downloadFlowAdapter = this.e;
             if (downloadFlowAdapter == null) {
                 return null;
             }
             return downloadFlowAdapter.b(i);
         }
-        return (sv4) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     public final void p(Context context) {
@@ -423,10 +431,10 @@ public class DownloadFlowView extends FrameLayout {
         }
     }
 
-    public void setCallback(wv4 wv4Var) {
+    public void setCallback(tw4<T> tw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wv4Var) == null) {
-            this.k = wv4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tw4Var) == null) {
+            this.k = tw4Var;
         }
     }
 
@@ -484,19 +492,19 @@ public class DownloadFlowView extends FrameLayout {
         }
     }
 
-    public void y(List list) {
-        DownloadFlowAdapter downloadFlowAdapter;
+    public void y(List<T> list) {
+        DownloadFlowAdapter<T> downloadFlowAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048600, this, list) == null) && list != null && !list.isEmpty() && (downloadFlowAdapter = this.e) != null) {
             downloadFlowAdapter.g(list, this.f);
         }
     }
 
-    public void z(xv4 xv4Var) {
+    public void z(uw4 uw4Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, xv4Var) == null) && xv4Var != null && (listViewPager = this.a) != null) {
-            xv4Var.b(listViewPager);
+        if ((interceptable == null || interceptable.invokeL(1048601, this, uw4Var) == null) && uw4Var != null && (listViewPager = this.a) != null) {
+            uw4Var.b(listViewPager);
         }
     }
 
@@ -505,7 +513,7 @@ public class DownloadFlowView extends FrameLayout {
         int count;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DownloadFlowAdapter downloadFlowAdapter = this.e;
+            DownloadFlowAdapter<T> downloadFlowAdapter = this.e;
             if (downloadFlowAdapter == null || (count = downloadFlowAdapter.getCount()) <= 1) {
                 return false;
             }
@@ -524,20 +532,20 @@ public class DownloadFlowView extends FrameLayout {
     }
 
     public void r() {
-        uv4 uv4Var;
+        rw4 rw4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.d();
             IndicatorView indicatorView = this.b;
-            if (indicatorView != null && (uv4Var = this.c) != null) {
-                indicatorView.setDrawable(SkinManager.getDrawable(uv4Var.a()));
+            if (indicatorView != null && (rw4Var = this.c) != null) {
+                indicatorView.setDrawable(SkinManager.getDrawable(rw4Var.a()));
                 this.b.setSelector(SkinManager.getDrawable(this.c.b()));
             }
         }
     }
 
     public final void t() {
-        DownloadFlowAdapter downloadFlowAdapter;
+        DownloadFlowAdapter<T> downloadFlowAdapter;
         int count;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || this.a == null || (downloadFlowAdapter = this.e) == null || (count = downloadFlowAdapter.getCount()) <= 1) {
@@ -597,14 +605,14 @@ public class DownloadFlowView extends FrameLayout {
     }
 
     public void x() {
-        DownloadFlowAdapter downloadFlowAdapter;
+        DownloadFlowAdapter<T> downloadFlowAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (downloadFlowAdapter = this.e) != null) {
             downloadFlowAdapter.i();
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<T> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, list) == null) && list != null && !list.isEmpty()) {

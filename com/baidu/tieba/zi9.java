@@ -1,177 +1,122 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public class zi9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Toast a = null;
+    public static int b = -1;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(InputStream inputStream, OutputStream outputStream) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948361055, "Lcom/baidu/tieba/zi9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948361055, "Lcom/baidu/tieba/zi9;");
+        }
+    }
+
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
-            if (inputStream != null && outputStream != null) {
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            b(i, 0);
+        }
+    }
+
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            c(ue9.c().getContext().getResources().getString(i), i2);
+        }
+    }
+
+    public static void c(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
+            d(str, i, null);
+        }
+    }
+
+    public static void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
+            e(str, i, str2, -1);
+        }
+    }
+
+    public static void e(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            if (b != -1 && c != -1) {
+                Toast toast = a;
+                if (toast != null) {
+                    toast.cancel();
+                }
+                Toast toast2 = new Toast(ue9.c().getContext());
+                a = toast2;
+                if (i2 > -1) {
+                    toast2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
                 try {
-                    byte[] bArr = new byte[3072];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
+                    View inflate = LayoutInflater.from(ue9.c().getContext()).inflate(b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(c);
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(ue9.c().getContext().getResources().getColor(R.color.obfuscated_res_0x7f060410)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
+                        textView.setText(spannableStringBuilder);
+                    } else {
+                        textView.setText(str);
                     }
-                } catch (IOException e) {
+                    a.setView(inflate);
+                    a.show();
+                    return;
+                } catch (Exception e) {
                     e.printStackTrace();
+                    return;
                 }
             }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused) {
-                    }
-                    return c;
-                } catch (FileNotFoundException unused2) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    return null;
-                } catch (Throwable unused4) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    return null;
-                }
-            } catch (FileNotFoundException unused6) {
-                fileInputStream = null;
-            } catch (Throwable unused7) {
-                fileInputStream = null;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String c(FileInputStream fileInputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
-            if (fileInputStream != null) {
-                StringBuilder sb = new StringBuilder();
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine != null) {
-                            sb.append(readLine);
-                        } else {
-                            return sb.toString();
-                        }
-                    }
-                } catch (IOException unused) {
-                    return sb.toString();
-                } catch (Throwable unused2) {
-                    return sb.toString();
+            Toast toast3 = a;
+            if (toast3 == null) {
+                Toast makeText = Toast.makeText(ue9.c().getContext(), str, i);
+                a = makeText;
+                if (i2 > -1) {
+                    makeText.setGravity(i2, 0, 0);
                 }
             } else {
-                throw new NullPointerException("inputStream should not be null");
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static boolean d(InputStream inputStream, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) == null) {
-            boolean z2 = false;
-            FileOutputStream fileOutputStream = null;
-            try {
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
-                try {
-                    if (a(inputStream, fileOutputStream2) != 0) {
-                        z2 = true;
-                    }
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException unused) {
-                    }
-                    return z2;
-                } catch (FileNotFoundException unused2) {
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    throw th;
+                toast3.cancel();
+                Toast makeText2 = Toast.makeText(ue9.c().getContext(), str, i);
+                a = makeText2;
+                if (i2 > -1) {
+                    makeText2.setGravity(i2, 0, 0);
                 }
-            } catch (FileNotFoundException unused5) {
-            } catch (Throwable th2) {
-                th = th2;
+                a.setDuration(i);
             }
-        } else {
-            return invokeLLZ.booleanValue;
-        }
-    }
-
-    public static boolean e(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            try {
+                a.show();
+            } catch (Exception unused) {
             }
-            return d(new ByteArrayInputStream(str.getBytes()), file, z);
         }
-        return invokeLLZ.booleanValue;
     }
 }

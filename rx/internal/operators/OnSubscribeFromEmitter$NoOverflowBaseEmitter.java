@@ -1,13 +1,13 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.sy9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.mz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter extends OnSubscribeFromEmitter$BaseEmitter {
+public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4127754106204442833L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,18 +15,18 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter extends OnSub
     public abstract void onOverflow();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(dy9 dy9Var) {
-        super(dy9Var);
+    public OnSubscribeFromEmitter$NoOverflowBaseEmitter(mz9<? super T> mz9Var) {
+        super(mz9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dy9Var};
+            Object[] objArr = {mz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dy9) newInitContext.callArgs[0]);
+                super((mz9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,15 +34,15 @@ public abstract class OnSubscribeFromEmitter$NoOverflowBaseEmitter extends OnSub
         }
     }
 
-    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter, com.baidu.tieba.yx9
-    public void onNext(Object obj) {
+    @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || this.actual.isUnsubscribed()) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, t) != null) || this.actual.isUnsubscribed()) {
             return;
         }
         if (get() != 0) {
-            this.actual.onNext(obj);
-            sy9.g(this, 1L);
+            this.actual.onNext(t);
+            b0a.g(this, 1L);
             return;
         }
         onOverflow();

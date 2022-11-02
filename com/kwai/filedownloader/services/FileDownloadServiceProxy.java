@@ -1,10 +1,12 @@
 package com.kwai.filedownloader.services;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.webkit.WebView;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,6 +18,8 @@ import com.kwad.sdk.api.proxy.app.FileDownloadService;
 import com.kwad.sdk.utils.an;
 import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
+@Keep
+@SuppressLint({"Registered"})
 /* loaded from: classes8.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,8 +29,9 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
     public i handler;
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
+    @Keep
     /* loaded from: classes8.dex */
-    public class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
+    public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,8 +65,9 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.g.a {
     }
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
+    @Keep
     /* loaded from: classes8.dex */
-    public class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
+    public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

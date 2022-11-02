@@ -38,7 +38,7 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                Class a2 = a(null, "miui.os.Build");
+                Class<?> a2 = a(null, "miui.os.Build");
                 if (a2.getField("IS_STABLE_VERSION").getBoolean(null)) {
                     return 3;
                 }
@@ -57,7 +57,7 @@ public class v {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
-    public static Class a(Context context, String str) {
+    public static Class<?> a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {

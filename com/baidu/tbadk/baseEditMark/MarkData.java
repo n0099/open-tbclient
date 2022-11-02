@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +113,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!ej.isEmpty(this.mAuthorName)) {
+            if (!wi.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -488,7 +488,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (ej.isEmpty(this.portrait)) {
+                if (wi.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

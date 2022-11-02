@@ -84,7 +84,7 @@ public class a {
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
         this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
-        String str2 = (String) CyberPlayerManager.getInstallOpts().get("abtest_sid");
+        String str2 = CyberPlayerManager.getInstallOpts().get("abtest_sid");
         if (str2 != null) {
             this.b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
         }

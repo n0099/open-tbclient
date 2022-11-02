@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.BytesRange;
+import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.BaseNetworkFetcher;
 import com.facebook.imagepipeline.producers.BaseProducerContextCallbacks;
 import com.facebook.imagepipeline.producers.Consumer;
@@ -30,7 +31,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes7.dex */
-public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
+public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
     public static final String FETCH_TIME = "fetch_time";
@@ -45,7 +46,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
     public Context mContext;
 
     /* loaded from: classes7.dex */
-    public class OkHttpNetworkFetchState extends FetchState {
+    public static class OkHttpNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long fetchCompleteTime;
@@ -53,7 +54,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
         public long submitTime;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public OkHttpNetworkFetchState(Consumer consumer, ProducerContext producerContext) {
+        public OkHttpNetworkFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
             super(consumer, producerContext);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -298,9 +299,8 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public OkHttpNetworkFetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+    public OkHttpNetworkFetchState createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, consumer, producerContext)) == null) {
@@ -318,6 +318,11 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
         }
     }
 
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public /* bridge */ /* synthetic */ FetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+        return createFetchState((Consumer<EncodedImage>) consumer, producerContext);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
     public void fetch(OkHttpNetworkFetchState okHttpNetworkFetchState, NetworkFetcher.Callback callback) {
@@ -332,15 +337,15 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
                 if (bytesRange != null) {
                     builder.addHeader("Range", bytesRange.toHttpRangeHeaderValue());
                 }
-                Map netRequestHeader = okHttpNetworkFetchState.getNetRequestHeader();
+                Map<String, String> netRequestHeader = okHttpNetworkFetchState.getNetRequestHeader();
                 if (netRequestHeader == null) {
                     builder.addHeader("User-Agent", DEFAULT_USER_AGENT);
                 } else {
                     if (!netRequestHeader.containsKey("User-Agent")) {
                         builder.addHeader("User-Agent", DEFAULT_USER_AGENT);
                     }
-                    for (Map.Entry entry : netRequestHeader.entrySet()) {
-                        builder.addHeader((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : netRequestHeader.entrySet()) {
+                        builder.addHeader(entry.getKey(), entry.getValue());
                     }
                 }
                 fetchWithRequest(okHttpNetworkFetchState, callback, builder.build());
@@ -352,7 +357,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
+    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, okHttpNetworkFetchState, i)) == null) {

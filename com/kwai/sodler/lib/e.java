@@ -1,8 +1,10 @@
 package com.kwai.sodler.lib;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +42,8 @@ public final class e implements com.kwai.sodler.lib.a.g {
         this.mContext = context.getApplicationContext();
     }
 
-    private void a(int i, com.kwai.sodler.lib.a.f fVar) {
+    @TargetApi(11)
+    private void a(int i, @NonNull com.kwai.sodler.lib.a.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65537, this, i, fVar) == null) {
             if (i == 0) {
@@ -153,7 +156,7 @@ public final class e implements com.kwai.sodler.lib.a.g {
     }
 
     @Override // com.kwai.sodler.lib.a.g
-    public final com.kwai.sodler.lib.a.f i(com.kwai.sodler.lib.a.f fVar) {
+    public final com.kwai.sodler.lib.a.f i(@NonNull com.kwai.sodler.lib.a.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {

@@ -1,5 +1,6 @@
 package androidx.core.text.util;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -8,6 +9,9 @@ import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.webkit.WebView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.PatternsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,6 +40,7 @@ public final class LinkifyCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface LinkifyMask {
     }
@@ -148,7 +153,7 @@ public final class LinkifyCompat {
         return invokeV.booleanValue;
     }
 
-    public static void addLinkMovementMethod(TextView textView) {
+    public static void addLinkMovementMethod(@NonNull TextView textView) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, textView) == null) && !(textView.getMovementMethod() instanceof LinkMovementMethod) && textView.getLinksClickable()) {
             textView.setMovementMethod(LinkMovementMethod.getInstance());
@@ -167,7 +172,7 @@ public final class LinkifyCompat {
         return (String) invokeL.objValue;
     }
 
-    public static void addLinks(TextView textView, Pattern pattern, String str) {
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, textView, pattern, str) == null) {
             if (shouldAddLinksFallbackToFramework()) {
@@ -178,7 +183,7 @@ public final class LinkifyCompat {
         }
     }
 
-    public static void addLinks(TextView textView, Pattern pattern, String str, Linkify.MatchFilter matchFilter, Linkify.TransformFilter transformFilter) {
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, pattern, str, matchFilter, transformFilter) == null) {
             if (shouldAddLinksFallbackToFramework()) {
@@ -189,7 +194,8 @@ public final class LinkifyCompat {
         }
     }
 
-    public static void addLinks(TextView textView, Pattern pattern, String str, String[] strArr, Linkify.MatchFilter matchFilter, Linkify.TransformFilter transformFilter) {
+    @SuppressLint({"NewApi"})
+    public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{textView, pattern, str, strArr, matchFilter, transformFilter}) == null) {
             if (shouldAddLinksFallbackToFramework()) {
@@ -222,7 +228,7 @@ public final class LinkifyCompat {
         }
     }
 
-    public static boolean addLinks(Spannable spannable, int i) {
+    public static boolean addLinks(@NonNull Spannable spannable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, spannable, i)) == null) {
@@ -265,7 +271,7 @@ public final class LinkifyCompat {
         return invokeLI.booleanValue;
     }
 
-    public static boolean addLinks(Spannable spannable, Pattern pattern, String str) {
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, spannable, pattern, str)) == null) {
@@ -277,7 +283,7 @@ public final class LinkifyCompat {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean addLinks(Spannable spannable, Pattern pattern, String str, Linkify.MatchFilter matchFilter, Linkify.TransformFilter transformFilter) {
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, spannable, pattern, str, matchFilter, transformFilter)) == null) {
@@ -289,7 +295,8 @@ public final class LinkifyCompat {
         return invokeLLLLL.booleanValue;
     }
 
-    public static boolean addLinks(Spannable spannable, Pattern pattern, String str, String[] strArr, Linkify.MatchFilter matchFilter, Linkify.TransformFilter transformFilter) {
+    @SuppressLint({"NewApi"})
+    public static boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         InterceptResult invokeCommon;
         boolean z;
         String lowerCase;
@@ -337,7 +344,7 @@ public final class LinkifyCompat {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean addLinks(TextView textView, int i) {
+    public static boolean addLinks(@NonNull TextView textView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, textView, i)) == null) {
@@ -404,7 +411,7 @@ public final class LinkifyCompat {
         }
     }
 
-    public static String makeUrl(String str, String[] strArr, Matcher matcher, Linkify.TransformFilter transformFilter) {
+    public static String makeUrl(@NonNull String str, @NonNull String[] strArr, Matcher matcher, @Nullable Linkify.TransformFilter transformFilter) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;

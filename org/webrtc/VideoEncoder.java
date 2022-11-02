@@ -14,33 +14,42 @@ import org.webrtc.EncodedImage;
 /* loaded from: classes9.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
+    @CalledByNative
     long createNativeVideoEncoder();
 
+    @CalledByNative
     VideoCodecStatus encode(VideoFrame videoFrame, EncodeInfo encodeInfo);
 
+    @CalledByNative
     String getImplementationName();
 
+    @CalledByNative
     ScalingSettings getScalingSettings();
 
+    @CalledByNative
     VideoCodecStatus initEncode(Settings settings, Callback callback);
 
+    @CalledByNative
     boolean isHardwareEncoder();
 
+    @CalledByNative
     VideoCodecStatus release();
 
+    @CalledByNative
     VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i);
 
-    /* loaded from: classes8.dex */
-    public class BitrateAllocation {
+    /* loaded from: classes9.dex */
+    public static class BitrateAllocation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[][] bitratesBbs;
 
+        @CalledByNative("BitrateAllocation")
         public BitrateAllocation(int[][] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -76,8 +85,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class CodecSpecificInfo {
+    /* loaded from: classes9.dex */
+    public static class CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,8 +105,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class CodecSpecificInfoH264 extends CodecSpecificInfo {
+    /* loaded from: classes9.dex */
+    public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,8 +125,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class CodecSpecificInfoVP8 extends CodecSpecificInfo {
+    /* loaded from: classes9.dex */
+    public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,8 +145,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class CodecSpecificInfoVP9 extends CodecSpecificInfo {
+    /* loaded from: classes9.dex */
+    public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,12 +165,13 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class EncodeInfo {
+    /* loaded from: classes9.dex */
+    public static class EncodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final EncodedImage.FrameType[] frameTypes;
 
+        @CalledByNative("EncodeInfo")
         public EncodeInfo(EncodedImage.FrameType[] frameTypeArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -181,8 +191,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class ScalingSettings {
+    /* loaded from: classes9.dex */
+    public static class ScalingSettings {
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingSettings OFF;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,8 +311,8 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class Settings {
+    /* loaded from: classes9.dex */
+    public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean automaticResizeOn;
@@ -313,6 +323,7 @@ public interface VideoEncoder {
         public final int startBitrate;
         public final int width;
 
+        @CalledByNative("Settings")
         public Settings(int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {

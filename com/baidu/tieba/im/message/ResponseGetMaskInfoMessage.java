@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.data.BlackListItemData;
@@ -19,7 +20,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final int FALSE = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList blackList;
+    public ArrayList<BlackListItemData> blackList;
     public int isMask;
     public String list;
 
@@ -41,7 +42,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         }
     }
 
-    public ArrayList getBlackList() {
+    public ArrayList<BlackListItemData> getBlackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -81,6 +82,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         int i2;
@@ -92,7 +94,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getMaskInfoResIdl;
             }
-            this.blackList = new ArrayList();
+            this.blackList = new ArrayList<>();
             DataRes dataRes = getMaskInfoResIdl.data;
             if (dataRes != null) {
                 this.isMask = dataRes.isMask.intValue();

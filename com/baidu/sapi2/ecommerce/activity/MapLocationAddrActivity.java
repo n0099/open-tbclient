@@ -57,7 +57,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class MapLocationAddrActivity extends BaseAddressActivity implements ScrollLayout.OnScrollChangedListener, BaiduMap.OnMapStatusChangeListener {
+public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiPresenter> implements ScrollLayout.OnScrollChangedListener, BaiduMap.OnMapStatusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BDSTOKEN_FROM_ADDR_EDIT = "key_bdstoken_from_addr_edit";
     public static final String KEY_FROM_TYPE = "key_from_type";
@@ -501,7 +501,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity implements Scro
     private void processLocGetPoiInfos() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65576, this) == null) {
-            List addrList4AdapterShow = ((MapLocationPoiPresenter) this.presenter).getAddrList4AdapterShow();
+            List<JSONObject> addrList4AdapterShow = ((MapLocationPoiPresenter) this.presenter).getAddrList4AdapterShow();
             if (addrList4AdapterShow != null && !addrList4AdapterShow.isEmpty()) {
                 this.mRecyclerView.setVisibility(0);
                 this.mapAddrEmpty.setVisibility(8);
@@ -799,7 +799,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity implements Scro
                     }, 100L);
                 }
             });
-            this.mapLocAddrAdapter.setItemClickListener(new ScrollRecyclerView.RecyclerViewItemClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.8
+            this.mapLocAddrAdapter.setItemClickListener(new ScrollRecyclerView.RecyclerViewItemClickListener<JSONObject>(this) { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MapLocationAddrActivity this$0;

@@ -16,15 +16,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleCache extends Single implements SingleObserver {
+public final class SingleCache<T> extends Single<T> implements SingleObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheDisposable[] EMPTY;
     public static final CacheDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference observers;
-    public final SingleSource source;
-    public Object value;
+    public final AtomicReference<CacheDisposable<T>[]> observers;
+    public final SingleSource<? extends T> source;
+    public T value;
     public final AtomicInteger wip;
 
     @Override // io.reactivex.SingleObserver
@@ -35,14 +35,14 @@ public final class SingleCache extends Single implements SingleObserver {
     }
 
     /* loaded from: classes8.dex */
-    public final class CacheDisposable extends AtomicBoolean implements Disposable {
+    public static final class CacheDisposable<T> extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7514387411091976596L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final SingleCache parent;
+        public final SingleObserver<? super T> actual;
+        public final SingleCache<T> parent;
 
-        public CacheDisposable(SingleObserver singleObserver, SingleCache singleCache) {
+        public CacheDisposable(SingleObserver<? super T> singleObserver, SingleCache<T> singleCache) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public final class SingleCache extends Single implements SingleObserver {
         TERMINATED = new CacheDisposable[0];
     }
 
-    public SingleCache(SingleSource singleSource) {
+    public SingleCache(SingleSource<? extends T> singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,14 +114,15 @@ public final class SingleCache extends Single implements SingleObserver {
         }
         this.source = singleSource;
         this.wip = new AtomicInteger();
-        this.observers = new AtomicReference(EMPTY);
+        this.observers = new AtomicReference<>(EMPTY);
     }
 
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: T, ? super T */
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, singleObserver) == null) {
-            CacheDisposable cacheDisposable = new CacheDisposable(singleObserver, this);
+            CacheDisposable<T> cacheDisposable = new CacheDisposable<>(singleObserver, this);
             singleObserver.onSubscribe(cacheDisposable);
             if (add(cacheDisposable)) {
                 if (cacheDisposable.isDisposed()) {
@@ -137,19 +138,19 @@ public final class SingleCache extends Single implements SingleObserver {
             if (th != null) {
                 singleObserver.onError(th);
             } else {
-                singleObserver.onSuccess(this.value);
+                singleObserver.onSuccess((T) this.value);
             }
         }
     }
 
-    public boolean add(CacheDisposable cacheDisposable) {
-        CacheDisposable[] cacheDisposableArr;
-        CacheDisposable[] cacheDisposableArr2;
+    public boolean add(CacheDisposable<T> cacheDisposable) {
+        CacheDisposable<T>[] cacheDisposableArr;
+        CacheDisposable<T>[] cacheDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cacheDisposable)) == null) {
             do {
-                cacheDisposableArr = (CacheDisposable[]) this.observers.get();
+                cacheDisposableArr = this.observers.get();
                 if (cacheDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -165,11 +166,11 @@ public final class SingleCache extends Single implements SingleObserver {
 
     @Override // io.reactivex.SingleObserver
     public void onError(Throwable th) {
-        CacheDisposable[] cacheDisposableArr;
+        CacheDisposable<T>[] andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             this.error = th;
-            for (CacheDisposable cacheDisposable : (CacheDisposable[]) this.observers.getAndSet(TERMINATED)) {
+            for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
                 if (!cacheDisposable.isDisposed()) {
                     cacheDisposable.actual.onError(th);
                 }
@@ -178,26 +179,28 @@ public final class SingleCache extends Single implements SingleObserver {
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(Object obj) {
-        CacheDisposable[] cacheDisposableArr;
+    public void onSuccess(T t) {
+        CacheDisposable<T>[] andSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.value = obj;
-            for (CacheDisposable cacheDisposable : (CacheDisposable[]) this.observers.getAndSet(TERMINATED)) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.value = t;
+            for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
                 if (!cacheDisposable.isDisposed()) {
-                    cacheDisposable.actual.onSuccess(obj);
+                    cacheDisposable.actual.onSuccess(t);
                 }
             }
         }
     }
 
-    public void remove(CacheDisposable cacheDisposable) {
-        CacheDisposable[] cacheDisposableArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.single.SingleCache$CacheDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(CacheDisposable<T> cacheDisposable) {
+        CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable[] cacheDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cacheDisposable) == null) {
             do {
-                cacheDisposableArr = (CacheDisposable[]) this.observers.get();
+                cacheDisposableArr = this.observers.get();
                 int length = cacheDisposableArr.length;
                 if (length == 0) {
                     return;

@@ -21,7 +21,7 @@ public class PassportViewManager implements NoProguard {
     public TitleViewModule b;
 
     /* loaded from: classes2.dex */
-    public class TitleViewModule implements NoProguard {
+    public static class TitleViewModule implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public static final int DEFAULT_TEXT_COLOR;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class PassportViewManager implements NoProguard {
                     return;
                 }
             }
-            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f060a01);
+            DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.obfuscated_res_0x7f060a13);
         }
 
         public TitleViewModule() {
@@ -180,7 +180,7 @@ public class PassportViewManager implements NoProguard {
                 titleViewModule.bgColor = -1;
             }
             if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081040;
+                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f08105c;
             }
         }
     }

@@ -66,13 +66,13 @@ public final class AztecReader implements Reader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         InterceptResult invokeLL;
         ResultPoint[] resultPointArr;
         ResultPoint[] resultPointArr2;
         FormatException formatException;
         ResultPoint[] resultPointArr3;
-        List byteSegments;
+        List<byte[]> byteSegments;
         String eCLevel;
         ResultPointCallback resultPointCallback;
         AztecDetectorResult detect;

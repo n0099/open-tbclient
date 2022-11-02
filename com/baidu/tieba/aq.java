@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.tieba.vs;
+import com.baidu.tieba.ws;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class aq {
+public final class aq<VD extends TaskDialogData, VM extends vs<VD>, View extends ws<VM>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TaskStatus a;
-    public final xp b;
-    public final TaskProcessData c;
-    public final String d;
+    public final View a;
+    public final VM b;
+    public final VD c;
 
-    public aq(TaskStatus taskStatus, xp xpVar, TaskProcessData taskProcessData, String str) {
+    public aq(View view2, VM vm, VD vd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskStatus, xpVar, taskProcessData, str};
+            Object[] objArr = {view2, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,18 +30,16 @@ public final class aq {
                 return;
             }
         }
-        this.a = taskStatus;
-        this.b = xpVar;
-        this.c = taskProcessData;
-        this.d = str;
+        this.a = view2;
+        this.b = vm;
+        this.c = vd;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(this.b);
+            this.b.b(this.c);
         }
-        return (String) invokeV.objValue;
     }
 }

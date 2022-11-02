@@ -14,18 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public abstract class PathUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static AsyncTask a;
+    public static AsyncTask<Void, Void, String[]> a;
     public static Context b;
     public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,6 +78,7 @@ public abstract class PathUtils {
         }
     }
 
+    @CalledByNative
     public static String getExternalStorageDirectory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,6 +97,7 @@ public abstract class PathUtils {
         return (String) invokeI.objValue;
     }
 
+    @CalledByNative
     public static String getCacheDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -104,6 +107,7 @@ public abstract class PathUtils {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getDataDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -113,6 +117,7 @@ public abstract class PathUtils {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getDatabaseDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,6 +127,7 @@ public abstract class PathUtils {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getDownloadsDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -137,6 +143,7 @@ public abstract class PathUtils {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getNativeLibraryDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -151,6 +158,7 @@ public abstract class PathUtils {
         return (String) invokeL.objValue;
     }
 
+    @CalledByNative
     public static String getThumbnailCacheDirectory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -172,7 +180,7 @@ public abstract class PathUtils {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                     return d;
                 }
-                return (String[]) a.get();
+                return a.get();
             } catch (InterruptedException | ExecutionException unused) {
                 return null;
             }

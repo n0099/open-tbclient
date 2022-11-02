@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class UserBlockSetRequestMessage extends NetMessage {
             builder2.chat = Integer.valueOf(this.chat);
             builder.perm_list = builder2.build(true);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             SetUserBlackReqIdl.Builder builder3 = new SetUserBlackReqIdl.Builder();
             builder3.data = builder.build(false);

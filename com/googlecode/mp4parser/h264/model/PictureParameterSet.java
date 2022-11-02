@@ -42,7 +42,7 @@ public class PictureParameterSet extends BitstreamElement {
     public boolean weighted_pred_flag;
 
     /* loaded from: classes7.dex */
-    public class PPSExt {
+    public static class PPSExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean[] pic_scaling_list_present_flag;

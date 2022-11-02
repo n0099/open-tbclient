@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h36;
-import com.baidu.tieba.i36;
+import com.baidu.tieba.r46;
+import com.baidu.tieba.s46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public List b;
+    public List<RecommendTopicListData> b;
 
     /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -56,7 +56,7 @@ public class RecommendTopicData {
         }
 
         /* loaded from: classes3.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,18 +129,18 @@ public class RecommendTopicData {
             }
         }
 
-        public h36 getConvertedCardData() {
+        public r46 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                h36 h36Var = new h36();
-                h36Var.c = this.tag;
-                h36Var.a = this.topicId;
-                h36Var.b = this.topicName;
-                h36Var.b(this.isVideoTopicInt);
-                return h36Var;
+                r46 r46Var = new r46();
+                r46Var.c = this.tag;
+                r46Var.a = this.topicId;
+                r46Var.b = this.topicName;
+                r46Var.b(this.isVideoTopicInt);
+                return r46Var;
             }
-            return (h36) invokeV.objValue;
+            return (r46) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -312,20 +312,20 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0898);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08a2);
             }
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public i36 a() {
+    public s46 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i36 i36Var = new i36();
-            i36Var.c = b();
+            s46 s46Var = new s46();
+            s46Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -336,10 +336,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            i36Var.d = arrayList;
-            return i36Var;
+            s46Var.d = arrayList;
+            return s46Var;
         }
-        return (i36) invokeV.objValue;
+        return (s46) invokeV.objValue;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {

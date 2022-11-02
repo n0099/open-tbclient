@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ao4 {
+public class ao4 extends xn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String b;
-    public boolean c;
+
+    @Override // com.baidu.tieba.wn4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+    }
 
     public ao4() {
         Interceptable interceptable = $ic;
@@ -25,5 +31,20 @@ public class ao4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.wn4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                c(strArr, sb, map, 1);
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

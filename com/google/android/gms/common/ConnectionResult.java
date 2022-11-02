@@ -5,6 +5,8 @@ import android.app.PendingIntent;
 import android.content.IntentSender;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
@@ -16,10 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@SafeParcelable.Class(creator = "ConnectionResultCreator")
 /* loaded from: classes7.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,7 +33,8 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int API_DISABLED_FOR_CONNECTION = 24;
     public static final int API_UNAVAILABLE = 16;
     public static final int CANCELED = 13;
-    public static final Parcelable.Creator CREATOR;
+    @NonNull
+    public static final Parcelable.Creator<ConnectionResult> CREATOR;
     public static final int DEVELOPER_ERROR = 10;
     @Deprecated
     public static final int DRIVE_EXTERNAL_STORAGE_REQUIRED = 1500;
@@ -39,6 +46,9 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int RESOLUTION_ACTIVITY_NOT_FOUND = 22;
     public static final int RESOLUTION_REQUIRED = 6;
     public static final int RESTRICTED_PROFILE = 20;
+    @NonNull
+    @ShowFirstParty
+    @KeepForSdk
     public static final ConnectionResult RESULT_SUCCESS;
     public static final int SERVICE_DISABLED = 3;
     public static final int SERVICE_INVALID = 9;
@@ -50,11 +60,18 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int SIGN_IN_REQUIRED = 4;
     public static final int SUCCESS = 0;
     public static final int TIMEOUT = 14;
+    @KeepForSdk
     public static final int UNKNOWN = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
+    @SafeParcelable.Field(getter = "getErrorCode", id = 2)
     public final int zzb;
+    @Nullable
+    @SafeParcelable.Field(getter = "getResolution", id = 3)
     public final PendingIntent zzc;
+    @Nullable
+    @SafeParcelable.Field(getter = "getErrorMessage", id = 4)
     public final String zzd;
 
     static {
@@ -74,7 +91,8 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         CREATOR = new zzb();
     }
 
-    public ConnectionResult(int i, int i2, PendingIntent pendingIntent, String str) {
+    @SafeParcelable.Constructor
+    public ConnectionResult(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) int i2, @Nullable @SafeParcelable.Param(id = 3) PendingIntent pendingIntent, @Nullable @SafeParcelable.Param(id = 4) String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,12 +119,14 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.zzb : invokeV.intValue;
     }
 
+    @Nullable
     public String getErrorMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zzd : (String) invokeV.objValue;
     }
 
+    @Nullable
     public PendingIntent getResolution() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,7 +167,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ConnectionResult(int i, PendingIntent pendingIntent) {
+    public ConnectionResult(int i, @Nullable PendingIntent pendingIntent) {
         this(i, pendingIntent, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -168,7 +188,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ConnectionResult(int i, PendingIntent pendingIntent, String str) {
+    public ConnectionResult(int i, @Nullable PendingIntent pendingIntent, @Nullable String str) {
         this(1, i, pendingIntent, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -188,6 +208,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         }
     }
 
+    @NonNull
     public static String zza(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -263,7 +284,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         return (String) invokeI.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -291,7 +312,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         return invokeV.intValue;
     }
 
-    public void startResolutionForResult(Activity activity, int i) throws IntentSender.SendIntentException {
+    public void startResolutionForResult(@NonNull Activity activity, int i) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048583, this, activity, i) != null) || !hasResolution()) {
             return;
@@ -301,6 +322,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
         activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,7 +337,7 @@ public final class ConnectionResult extends AbstractSafeParcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);

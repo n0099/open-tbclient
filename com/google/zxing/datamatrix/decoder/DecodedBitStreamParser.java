@@ -34,7 +34,7 @@ public final class DecodedBitStreamParser {
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class DecodedBitStreamParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Mode {
+    public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Mode ANSIX12_ENCODE;
@@ -338,7 +338,7 @@ public final class DecodedBitStreamParser {
         return (Mode) invokeLLL.objValue;
     }
 
-    public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection collection) throws FormatException {
+    public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection<byte[]> collection) throws FormatException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, bitSource, sb, collection) == null) {
             int byteOffset = bitSource.getByteOffset() + 1;

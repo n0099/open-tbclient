@@ -13,20 +13,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface b extends IInterface {
+    void a(IBinder iBinder) throws RemoteException;
 
     /* loaded from: classes2.dex */
-    public abstract class a extends Binder implements b {
+    public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+        }
+
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0106a implements b {
+        public static class C0109a implements b {
             public static /* synthetic */ Interceptable $ic;
+            public static b a;
             public transient /* synthetic */ FieldHolder $fh;
-            public IBinder a;
+            public IBinder b;
 
-            public C0106a(IBinder iBinder) {
+            public C0109a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +50,7 @@ public interface b extends IInterface {
                         return;
                     }
                 }
-                this.a = iBinder;
+                this.b = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -53,8 +62,11 @@ public interface b extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                         obtain.writeStrongBinder(iBinder);
-                        this.a.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
+                        if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                            a.a().a(iBinder);
+                        } else {
+                            obtain2.readException();
+                        }
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -66,7 +78,10 @@ public interface b extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.b;
+                }
+                return (IBinder) invokeV.objValue;
             }
         }
 
@@ -86,24 +101,29 @@ public interface b extends IInterface {
             attachInterface(this, "com.baidu.mapframework.open.aidl.IOpenClientCallback");
         }
 
+        public static b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return C0109a.a;
+            }
+            return (b) invokeV.objValue;
+        }
+
         public static b b(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) {
                 if (iBinder == null) {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IOpenClientCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0106a(iBinder) : (b) queryLocalInterface;
+                if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
+                    return (b) queryLocalInterface;
+                }
+                return new C0109a(iBinder);
             }
             return (b) invokeL.objValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
         @Override // android.os.Binder
@@ -126,6 +146,4 @@ public interface b extends IInterface {
             return invokeCommon.booleanValue;
         }
     }
-
-    void a(IBinder iBinder) throws RemoteException;
 }

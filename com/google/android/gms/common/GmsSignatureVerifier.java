@@ -5,7 +5,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import com.google.android.gms.internal.common.zzag;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class GmsSignatureVerifier {
     public static /* synthetic */ Interceptable $ic;

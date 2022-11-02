@@ -69,7 +69,7 @@ public class FaceLoginService {
         this.context = SapiAccountManager.getInstance().getConfignation().context;
     }
 
-    private List getUidsMapFromV2PriStrage() {
+    private List<FaceLoginModel> getUidsMapFromV2PriStrage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -78,7 +78,7 @@ public class FaceLoginService {
         return (List) invokeV.objValue;
     }
 
-    private String buildV2FaceUidString(Map map) {
+    private String buildV2FaceUidString(Map<String, Long> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, map)) == null) {
@@ -93,26 +93,24 @@ public class FaceLoginService {
         return (String) invokeL.objValue;
     }
 
-    private Map getLinkedHashMap(List list) {
+    private Map<String, Long> getLinkedHashMap(List<FaceLoginModel> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, list)) == null) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             if (list != null && !list.isEmpty()) {
                 Collections.sort(list);
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    FaceLoginModel faceLoginModel = (FaceLoginModel) it.next();
+                for (FaceLoginModel faceLoginModel : list) {
                     if (!linkedHashMap.containsKey(faceLoginModel.livingUname)) {
                         linkedHashMap.put(faceLoginModel.livingUname, Long.valueOf(faceLoginModel.time));
                     }
                 }
                 if (linkedHashMap.size() > 10) {
-                    Iterator it2 = linkedHashMap.entrySet().iterator();
+                    Iterator it = linkedHashMap.entrySet().iterator();
                     int size = linkedHashMap.size() - 10;
-                    for (int i = 0; it2.hasNext() && i < size; i++) {
-                        it2.next();
-                        it2.remove();
+                    for (int i = 0; it.hasNext() && i < size; i++) {
+                        it.next();
+                        it.remove();
                     }
                 }
             }
@@ -121,7 +119,7 @@ public class FaceLoginService {
         return (Map) invokeL.objValue;
     }
 
-    private List getUidsFromV2ShareStorage() {
+    private List<FaceLoginModel> getUidsFromV2ShareStorage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -156,7 +154,7 @@ public class FaceLoginService {
         }
     }
 
-    public List str2ShareModelV2List(String str) {
+    public List<FaceLoginModel> str2ShareModelV2List(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -204,7 +202,7 @@ public class FaceLoginService {
         }
     }
 
-    public void syncFaceLoginUidList(Context context, List list) {
+    public void syncFaceLoginUidList(Context context, List<FaceLoginModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) {
             ArrayList arrayList = new ArrayList();
@@ -213,7 +211,7 @@ public class FaceLoginService {
             }
             arrayList.addAll(getUidsMapFromV2PriStrage());
             arrayList.addAll(getUidsFromV2ShareStorage());
-            Map linkedHashMap = getLinkedHashMap(arrayList);
+            Map<String, Long> linkedHashMap = getLinkedHashMap(arrayList);
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
             try {

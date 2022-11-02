@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface al1 {
-    void a(tv1 tv1Var);
+    void a(JSONObject jSONObject);
 
-    void b(t94 t94Var);
+    void b();
+
+    void c(JSONObject jSONObject);
 }

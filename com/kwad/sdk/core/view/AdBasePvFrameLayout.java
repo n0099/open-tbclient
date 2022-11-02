@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.e.b;
 import com.kwad.sdk.utils.bf;
 import com.kwad.sdk.widget.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public int GD;
     public long afe;
@@ -19,7 +21,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public bf afk;
     public j bx;
 
-    public AdBasePvFrameLayout(Context context) {
+    public AdBasePvFrameLayout(@NonNull Context context) {
         super(context);
         this.afe = 500L;
         this.aff = 0.1f;
@@ -27,7 +29,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         init();
     }
 
-    public AdBasePvFrameLayout(Context context, AttributeSet attributeSet) {
+    public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.afe = 500L;
         this.aff = 0.1f;
@@ -35,7 +37,7 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
         init();
     }
 
-    public AdBasePvFrameLayout(Context context, AttributeSet attributeSet, int i) {
+    public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.afe = 500L;
         this.aff = 0.1f;

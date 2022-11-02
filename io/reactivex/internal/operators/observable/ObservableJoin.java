@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableJoin extends AbstractObservableWithUpstream {
+public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractObservableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function leftEnd;
-    public final ObservableSource other;
-    public final BiFunction resultSelector;
-    public final Function rightEnd;
+    public final Function<? super TLeft, ? extends ObservableSource<TLeftEnd>> leftEnd;
+    public final ObservableSource<? extends TRight> other;
+    public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
+    public final Function<? super TRight, ? extends ObservableSource<TRightEnd>> rightEnd;
 
     /* loaded from: classes8.dex */
-    public final class JoinDisposable extends AtomicInteger implements Disposable, ObservableGroupJoin.JoinSupport {
+    public static final class JoinDisposable<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Disposable, ObservableGroupJoin.JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
         public static final Integer LEFT_VALUE;
@@ -45,18 +45,18 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
         public static final long serialVersionUID = -6071216598687999801L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger active;
-        public final Observer actual;
+        public final Observer<? super R> actual;
         public volatile boolean cancelled;
         public final CompositeDisposable disposables;
-        public final AtomicReference error;
-        public final Function leftEnd;
+        public final AtomicReference<Throwable> error;
+        public final Function<? super TLeft, ? extends ObservableSource<TLeftEnd>> leftEnd;
         public int leftIndex;
-        public final Map lefts;
-        public final SpscLinkedArrayQueue queue;
-        public final BiFunction resultSelector;
-        public final Function rightEnd;
+        public final Map<Integer, TLeft> lefts;
+        public final SpscLinkedArrayQueue<Object> queue;
+        public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
+        public final Function<? super TRight, ? extends ObservableSource<TRightEnd>> rightEnd;
         public int rightIndex;
-        public final Map rights;
+        public final Map<Integer, TRight> rights;
 
         static {
             InterceptResult invokeClinit;
@@ -77,7 +77,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             RIGHT_CLOSE = 4;
         }
 
-        public JoinDisposable(Observer observer, Function function, Function function2, BiFunction biFunction) {
+        public JoinDisposable(Observer<? super R> observer, Function<? super TLeft, ? extends ObservableSource<TLeftEnd>> function, Function<? super TRight, ? extends ObservableSource<TRightEnd>> function2, BiFunction<? super TLeft, ? super TRight, ? extends R> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,10 +94,10 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             }
             this.actual = observer;
             this.disposables = new CompositeDisposable();
-            this.queue = new SpscLinkedArrayQueue(Observable.bufferSize());
+            this.queue = new SpscLinkedArrayQueue<>(Observable.bufferSize());
             this.lefts = new LinkedHashMap();
             this.rights = new LinkedHashMap();
-            this.error = new AtomicReference();
+            this.error = new AtomicReference<>();
             this.leftEnd = function;
             this.rightEnd = function2;
             this.resultSelector = biFunction;
@@ -133,6 +133,9 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             return invokeV.booleanValue;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.util.Map<java.lang.Integer, TLeft> */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v9, resolved type: java.util.Map<java.lang.Integer, TRight> */
+        /* JADX WARN: Multi-variable type inference failed */
         public void drain() {
             boolean z;
             boolean z2;
@@ -140,11 +143,11 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
-            Observer observer = this.actual;
+            SpscLinkedArrayQueue<?> spscLinkedArrayQueue = this.queue;
+            Observer<? super R> observer = this.actual;
             int i = 1;
             while (!this.cancelled) {
-                if (((Throwable) this.error.get()) != null) {
+                if (this.error.get() != null) {
                     spscLinkedArrayQueue.clear();
                     cancelAll();
                     errorAll(observer);
@@ -183,15 +186,15 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
                             ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver = new ObservableGroupJoin.LeftRightEndObserver(this, true, i2);
                             this.disposables.add(leftRightEndObserver);
                             observableSource.subscribe(leftRightEndObserver);
-                            if (((Throwable) this.error.get()) != null) {
+                            if (this.error.get() != null) {
                                 spscLinkedArrayQueue.clear();
                                 cancelAll();
                                 errorAll(observer);
                                 return;
                             }
-                            for (Object obj : this.rights.values()) {
+                            for (TRight tright : this.rights.values()) {
                                 try {
-                                    observer.onNext(ObjectHelper.requireNonNull(this.resultSelector.apply(poll, obj), "The resultSelector returned a null value"));
+                                    observer.onNext((Object) ObjectHelper.requireNonNull(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value"));
                                 } catch (Throwable th) {
                                     fail(th, observer, spscLinkedArrayQueue);
                                     return;
@@ -211,15 +214,15 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
                             ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver2 = new ObservableGroupJoin.LeftRightEndObserver(this, false, i3);
                             this.disposables.add(leftRightEndObserver2);
                             observableSource2.subscribe(leftRightEndObserver2);
-                            if (((Throwable) this.error.get()) != null) {
+                            if (this.error.get() != null) {
                                 spscLinkedArrayQueue.clear();
                                 cancelAll();
                                 errorAll(observer);
                                 return;
                             }
-                            for (Object obj2 : this.lefts.values()) {
+                            for (TLeft tleft : this.lefts.values()) {
                                 try {
-                                    observer.onNext(ObjectHelper.requireNonNull(this.resultSelector.apply(obj2, poll), "The resultSelector returned a null value"));
+                                    observer.onNext((Object) ObjectHelper.requireNonNull(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value"));
                                 } catch (Throwable th3) {
                                     fail(th3, observer, spscLinkedArrayQueue);
                                     return;
@@ -244,7 +247,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             spscLinkedArrayQueue.clear();
         }
 
-        public void errorAll(Observer observer) {
+        public void errorAll(Observer<?> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, observer) == null) {
                 Throwable terminate = ExceptionHelper.terminate(this.error);
@@ -289,7 +292,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             }
         }
 
-        public void fail(Throwable th, Observer observer, SpscLinkedArrayQueue spscLinkedArrayQueue) {
+        public void fail(Throwable th, Observer<?> observer, SpscLinkedArrayQueue<?> spscLinkedArrayQueue) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, th, observer, spscLinkedArrayQueue) == null) {
                 Exceptions.throwIfFatal(th);
@@ -306,7 +309,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048581, this, z, leftRightEndObserver) == null) {
                 synchronized (this) {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                     if (z) {
                         num = LEFT_CLOSE;
                     } else {
@@ -324,7 +327,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048585, this, z, obj) == null) {
                 synchronized (this) {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                     if (z) {
                         num = LEFT_VALUE;
                     } else {
@@ -338,7 +341,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableJoin(ObservableSource observableSource, ObservableSource observableSource2, Function function, Function function2, BiFunction biFunction) {
+    public ObservableJoin(ObservableSource<TLeft> observableSource, ObservableSource<? extends TRight> observableSource2, Function<? super TLeft, ? extends ObservableSource<TLeftEnd>> function, Function<? super TRight, ? extends ObservableSource<TRightEnd>> function2, BiFunction<? super TLeft, ? super TRight, ? extends R> biFunction) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -362,7 +365,7 @@ public final class ObservableJoin extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             JoinDisposable joinDisposable = new JoinDisposable(observer, this.leftEnd, this.rightEnd, this.resultSelector);

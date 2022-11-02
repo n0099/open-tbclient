@@ -25,7 +25,7 @@ public class LiveIMManager implements LiveIM {
     public static final String TAG = "LiveIMController";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public final Map mHashMap;
+    public final Map<String, LiveIMController> mHashMap;
     public IMManager mIMManager;
     public boolean mIsRegisterConnectListener;
 
@@ -68,7 +68,7 @@ public class LiveIMManager implements LiveIM {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return ((LiveIMController) this.mHashMap.get(str)).getConversation();
+            return this.mHashMap.get(str).getConversation();
         }
         return (IMConversation) invokeL.objValue;
     }
@@ -77,7 +77,7 @@ public class LiveIMManager implements LiveIM {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (LiveIMController) this.mHashMap.get(str);
+            return this.mHashMap.get(str);
         }
         return (LiveIMController) invokeL.objValue;
     }
@@ -111,8 +111,8 @@ public class LiveIMManager implements LiveIM {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                for (Map.Entry entry : this.mHashMap.entrySet()) {
-                    LiveIMController liveIMController = (LiveIMController) this.mHashMap.get((String) entry.getKey());
+                for (Map.Entry<String, LiveIMController> entry : this.mHashMap.entrySet()) {
+                    LiveIMController liveIMController = this.mHashMap.get(entry.getKey());
                     if (liveIMController != null) {
                         liveIMController.enterRoom();
                     }
@@ -185,14 +185,14 @@ public class LiveIMManager implements LiveIM {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 try {
-                    for (Map.Entry entry : this.mHashMap.entrySet()) {
-                        String str = (String) entry.getKey();
-                        LiveIMController liveIMController = (LiveIMController) this.mHashMap.get(str);
+                    for (Map.Entry<String, LiveIMController> entry : this.mHashMap.entrySet()) {
+                        String key = entry.getKey();
+                        LiveIMController liveIMController = this.mHashMap.get(key);
                         if (liveIMController != null) {
                             if (liveIMController.isConnect()) {
                                 liveIMController.exitRoom();
                             }
-                            this.mHashMap.remove(str);
+                            this.mHashMap.remove(key);
                         }
                     }
                     this.mIMManager.unregisterConnectListener();

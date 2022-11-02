@@ -51,7 +51,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nn;
     public FaceDetector np;
     public FaceListener nq;
-    public List nr;
+    public List<String> nr;
     public String ns;
     public String nt;
     public int nu;
@@ -59,7 +59,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C0058a nz;
+    public a.C0059a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -209,7 +209,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             a((int[]) null);
             return;
         }
-        FAUPoint2D[] fAUPoint2DArr = (FAUPoint2D[]) faceFrame.getTrackedPointsList().get(0);
+        FAUPoint2D[] fAUPoint2DArr = faceFrame.getTrackedPointsList().get(0);
         int size = faceFrame.getTrackedPointsList().size();
         if (TextUtils.isEmpty(this.nt) || fAUPoint2DArr.length <= 0) {
             return;
@@ -300,7 +300,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C0058a a = this.nx.a(this.ny);
+            a.C0059a a = this.nx.a(this.ny);
             if (a != null) {
                 this.nz = a;
                 this.nw = c.a(a.pO, str, str2, str3);
@@ -359,7 +359,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             }
             try {
                 if (q().size() > 0) {
-                    r.a(j, (String) q().get(0));
+                    r.a(j, q().get(0));
                 }
             } catch (IndexOutOfBoundsException unused) {
                 str = TAG;
@@ -377,7 +377,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s;
@@ -419,7 +419,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c
-    public void adjust(HashMap hashMap) {
+    public void adjust(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.adjust(hashMap);
@@ -467,10 +467,10 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 this.nx.ds();
             }
             this.np.a(this.nz, this.nw, this.nx, this.ny, this.nt);
-            List list = this.nr;
+            List<String> list = this.nr;
             if (list != null && list.size() > 0) {
-                List list2 = this.nr;
-                this.ns = (String) list2.get(list2.size() - 1);
+                List<String> list2 = this.nr;
+                this.ns = list2.get(list2.size() - 1);
             }
             FaceListener faceListener = this.nq;
             if (faceListener != null) {
@@ -574,7 +574,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         a.b a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) {
@@ -723,7 +723,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                         }
 
                         @Override // com.baidu.ar.lua.LuaMsgListener
-                        public List getMsgKeyListened() {
+                        public List<String> getMsgKeyListened() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -735,7 +735,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                         }
 
                         @Override // com.baidu.ar.lua.LuaMsgListener
-                        public void onLuaMessage(HashMap hashMap2) {
+                        public void onLuaMessage(HashMap<String, Object> hashMap2) {
                             int a2;
                             Interceptable interceptable2 = $ic;
                             if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap2) == null) || (a2 = c.a(hashMap2, this.nC.np.em())) < 0) {

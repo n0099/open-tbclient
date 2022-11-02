@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class mx1 extends sw1 {
+public class mx1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public RectF a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public mx1() {
         Interceptable interceptable = $ic;
@@ -27,24 +32,46 @@ public class mx1 extends sw1 {
         }
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
-            if (tw1Var.a() == 0) {
-                tw1Var.b(canvas.save());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && this.a != null) {
+            if (!this.d && Math.abs(this.c) >= 360.0f) {
+                Path path = lx1Var.f;
+                RectF rectF = this.a;
+                float f = rectF.bottom;
+                float f2 = rectF.top;
+                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+                lx1Var.f.arcTo(this.a, 0.0f, this.b);
+                return;
             }
-            canvas.rotate(this.a);
+            float f3 = this.c % 360.0f;
+            if (f3 < 0.0f && !this.d) {
+                f3 += 360.0f;
+            } else if (f3 > 0.0f && this.d) {
+                f3 -= 360.0f;
+            }
+            lx1Var.f.arcTo(this.a, this.b, f3);
         }
     }
 
-    @Override // com.baidu.tieba.sw1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            float optDouble = (float) jSONArray.optDouble(0);
-            this.a = optDouble;
-            this.a = (float) Math.toDegrees(optDouble);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            if (jSONArray.length() > 4) {
+                int g = vh3.g((float) jSONArray.optDouble(0));
+                int g2 = vh3.g((float) jSONArray.optDouble(1));
+                int g3 = vh3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
+            }
         }
     }
 }

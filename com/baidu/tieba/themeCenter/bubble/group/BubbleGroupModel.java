@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cu8;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.qt8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.lv8;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.zu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,20 +25,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class BubbleGroupModel extends BdBaseModel {
+public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public cu8 b;
-    public List c;
+    public lv8 b;
+    public List<zu8> c;
     public c d;
     public boolean e;
-    public qb f;
+    public pb f;
     public final HttpMessageListener g;
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, cu8 cu8Var, List list);
+        void a(int i, String str, lv8 lv8Var, List<zu8> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,7 +52,7 @@ public class BubbleGroupModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -79,8 +79,8 @@ public class BubbleGroupModel extends BdBaseModel {
             this.a = bubbleGroupModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -201,8 +201,8 @@ public class BubbleGroupModel extends BdBaseModel {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zm8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            zm8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            io8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            io8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -228,12 +228,12 @@ public class BubbleGroupModel extends BdBaseModel {
     }
 
     public final void K(int i) {
-        List list;
+        List<zu8> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (qt8 qt8Var : this.c) {
-                if (qt8Var != null && qt8Var.a() != null) {
-                    for (DressItemData dressItemData : qt8Var.a()) {
+            for (zu8 zu8Var : this.c) {
+                if (zu8Var != null && zu8Var.a() != null) {
+                    for (DressItemData dressItemData : zu8Var.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

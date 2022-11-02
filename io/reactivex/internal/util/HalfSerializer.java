@@ -30,7 +30,7 @@ public final class HalfSerializer {
         throw new IllegalStateException("No instances!");
     }
 
-    public static void onComplete(Observer observer, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    public static void onComplete(Observer<?> observer, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65537, null, observer, atomicInteger, atomicThrowable) == null) && atomicInteger.getAndIncrement() == 0) {
             Throwable terminate = atomicThrowable.terminate();
@@ -42,7 +42,7 @@ public final class HalfSerializer {
         }
     }
 
-    public static void onComplete(Subscriber subscriber, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    public static void onComplete(Subscriber<?> subscriber, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65538, null, subscriber, atomicInteger, atomicThrowable) == null) && atomicInteger.getAndIncrement() == 0) {
             Throwable terminate = atomicThrowable.terminate();
@@ -54,7 +54,7 @@ public final class HalfSerializer {
         }
     }
 
-    public static void onError(Observer observer, Throwable th, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    public static void onError(Observer<?> observer, Throwable th, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, observer, th, atomicInteger, atomicThrowable) == null) {
             if (atomicThrowable.addThrowable(th)) {
@@ -68,7 +68,7 @@ public final class HalfSerializer {
         }
     }
 
-    public static void onError(Subscriber subscriber, Throwable th, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    public static void onError(Subscriber<?> subscriber, Throwable th, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, subscriber, th, atomicInteger, atomicThrowable) == null) {
             if (atomicThrowable.addThrowable(th)) {
@@ -82,10 +82,12 @@ public final class HalfSerializer {
         }
     }
 
-    public static void onNext(Observer observer, Object obj, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void onNext(Observer<? super T> observer, T t, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65541, null, observer, obj, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
-            observer.onNext(obj);
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, observer, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
+            observer.onNext(t);
             if (atomicInteger.decrementAndGet() != 0) {
                 Throwable terminate = atomicThrowable.terminate();
                 if (terminate != null) {
@@ -97,10 +99,12 @@ public final class HalfSerializer {
         }
     }
 
-    public static void onNext(Subscriber subscriber, Object obj, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> void onNext(Subscriber<? super T> subscriber, T t, AtomicInteger atomicInteger, AtomicThrowable atomicThrowable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65542, null, subscriber, obj, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
-            subscriber.onNext(obj);
+        if ((interceptable == null || interceptable.invokeLLLL(65542, null, subscriber, t, atomicInteger, atomicThrowable) == null) && atomicInteger.get() == 0 && atomicInteger.compareAndSet(0, 1)) {
+            subscriber.onNext(t);
             if (atomicInteger.decrementAndGet() != 0) {
                 Throwable terminate = atomicThrowable.terminate();
                 if (terminate != null) {

@@ -1,90 +1,86 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class qu5 extends rn {
+public class qu5 implements ho2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ev5 b;
-    public fv5 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qu5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), uu5.d);
+    public qu5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ev5 ev5Var = new ev5(this.a, viewGroup);
-            this.b = ev5Var;
-            fv5 fv5Var = this.c;
-            if (fv5Var != null) {
-                ev5Var.s(fv5Var);
-            }
-            return new LiveTabConcernRecommendLineHolder(this.b);
-        }
-        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
-    }
-
-    public void u(fv5 fv5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fv5Var) == null) {
-            this.c = fv5Var;
-            ev5 ev5Var = this.b;
-            if (ev5Var != null) {
-                ev5Var.s(fv5Var);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uu5 uu5Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
-        InterceptResult invokeCommon;
-        ev5 ev5Var;
+    @Override // com.baidu.tieba.ho2
+    public boolean a(Context context, String str, xf3 xf3Var) {
+        InterceptResult invokeLLL;
+        String p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uu5Var, liveTabConcernRecommendLineHolder})) == null) {
-            if (liveTabConcernRecommendLineHolder != null && (ev5Var = liveTabConcernRecommendLineHolder.a) != null) {
-                ev5Var.l(uu5Var);
-                return liveTabConcernRecommendLineHolder.getView();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, xf3Var)) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
+            if (ft5.l().p() == null) {
+                p = "";
+            } else {
+                p = ft5.l().p();
             }
-            return null;
+            statisticItem.param("uid", p);
+            statisticItem.param("obj_param1", xf3Var.h());
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, xf3Var.e());
+            TiebaStatic.log(statisticItem);
+            if (xf3Var.j() == 10 && xf3Var.h() == 1013) {
+                b(context, xf3Var);
+                return true;
+            }
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public final void b(Context context, xf3 xf3Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xf3Var) == null) {
+            e43 b0 = e43.b0();
+            if (context != null && b0 != null) {
+                String i = jd3.i(rp2.U().M(), b0.Y().G());
+                long h = xf3Var.h();
+                String r = xf3Var.r();
+                if (1020 == h && !TextUtils.isEmpty(r)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    r = cg4.b().a(h);
+                }
+                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + yh3.D() + "/" + i + "/" + xf3Var.a());
+                forbiddenInfo.enableSlidingFlag = -1;
+                yo2.l(context, "type_need_update_sdk", xf3Var, forbiddenInfo, b0.Y().D());
+            }
+        }
     }
 }

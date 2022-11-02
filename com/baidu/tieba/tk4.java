@@ -1,178 +1,70 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.jo2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tk4 extends rk4 {
+public class tk4 implements sk4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xl2
-    public void N(ZeusPluginFactory.Invoker invoker) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
-    public void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xl2
-    public ZeusPluginFactory.Invoker f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rk4, com.baidu.tieba.xl2
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tk4(ZeusPluginFactory.Invoker invoker, String str) {
-        super(invoker, str);
+    public tk4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.tieba.rk4
-    public void C0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
-            try {
-                JSONObject J0 = J0();
-                JSONObject K0 = K0();
-                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
-                K0.put("sub_errorNo", i2);
-                K0.put("errorInfo", str);
-                J0.put("ext", K0.toString());
-                si4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
-            } catch (Exception e) {
-                if (rk4.x) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rk4
-    public void D0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                JSONObject J0 = J0();
-                J0.put("type", "first_frame");
-                J0.put("ext", K0().toString());
-                si4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
-            } catch (Exception e) {
-                if (rk4.x) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final JSONObject J0() {
+    @Override // com.baidu.tieba.sk4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "video");
-                jSONObject.put("network", SwanAppNetworkUtils.e());
-            } catch (Exception e) {
-                if (rk4.x) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TextUtils.isEmpty(get());
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final JSONObject K0() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: b */
+    public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext_from", "aiapp");
-                jSONObject.put("appid", m33.g0());
-                jSONObject.put("url", this.b);
-                jSONObject.put(TiebaStatic.Params.VID, this.b);
-                jSONObject.put("isInline", true);
-                String str = "";
-                m33 M = m33.M();
-                if (M != null) {
-                    if (M.w0()) {
-                        str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-                    } else {
-                        str = "swan";
-                    }
-                    jo2.a Y = M.Y();
-                    if (Y != null && Y.u1() > 0) {
-                        jSONObject.put("ext_start", Y.u1());
-                    }
-                }
-                jSONObject.put("ext_page", str);
-            } catch (Exception e) {
-                if (rk4.x) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(this.a).getString("uuid_identity", null);
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sk4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
+            edit.putString("uuid_identity", str);
+            edit.apply();
+        }
     }
 }

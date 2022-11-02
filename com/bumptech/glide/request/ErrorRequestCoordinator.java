@@ -1,5 +1,7 @@
 package com.bumptech.glide.request;
 
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +15,16 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Request error;
+    @GuardedBy("requestLock")
     public RequestCoordinator.RequestState errorState;
+    @Nullable
     public final RequestCoordinator parent;
     public volatile Request primary;
+    @GuardedBy("requestLock")
     public RequestCoordinator.RequestState primaryState;
     public final Object requestLock;
 
-    public ErrorRequestCoordinator(Object obj, RequestCoordinator requestCoordinator) {
+    public ErrorRequestCoordinator(Object obj, @Nullable RequestCoordinator requestCoordinator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,6 +46,7 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         this.parent = requestCoordinator;
     }
 
+    @GuardedBy("requestLock")
     private boolean isValidRequest(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -124,6 +130,7 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         return invokeL.booleanValue;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyCleared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,6 +144,7 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         return invokeV.booleanValue;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyStatusChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,6 +158,7 @@ public final class ErrorRequestCoordinator implements RequestCoordinator, Reques
         return invokeV.booleanValue;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanSetImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

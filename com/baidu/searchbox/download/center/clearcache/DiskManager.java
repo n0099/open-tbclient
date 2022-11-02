@@ -1,5 +1,6 @@
 package com.baidu.searchbox.download.center.clearcache;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -22,6 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -46,7 +48,7 @@ public final class DiskManager {
     public static final String MONITOR_TYPE_DISK_LEVEL_CHANGE = "1";
     public static final String MONITOR_TYPE_EXCEPTION = "3";
     public static final String TAG = "DiskManager";
-    public static final List diskUsageLevelChangedObservers;
+    public static final List<BDDiskUsageLevelChangedCallback> diskUsageLevelChangedObservers;
     public static boolean firstStart;
     public static final Handler handler;
     public static long lastNotifyTime;
@@ -84,7 +86,7 @@ public final class DiskManager {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\n\b\u0086\u0001\u0018\u00002\u00020\u0001B\u0019\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002\u0012\u0006\u0010\b\u001a\u00020\u0007¢\u0006\u0004\b\f\u0010\rR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006R\u0019\u0010\b\u001a\u00020\u00078\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000bj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/download/center/clearcache/DiskManager$DiskLevel;", "Ljava/lang/Enum;", "", "desc", "Ljava/lang/String;", "getDesc", "()Ljava/lang/String;", "", "value", "I", "getValue", "()I", "<init>", "(Ljava/lang/String;ILjava/lang/String;I)V", "NORMAL", "WARNING", "CRITICAL", "lib-clearcache-base_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class DiskLevel {
+    public static final class DiskLevel {
         public static final /* synthetic */ DiskLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DiskLevel CRITICAL;
@@ -172,7 +174,7 @@ public final class DiskManager {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/download/center/clearcache/DiskManager$NotifyLevel;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "StateNotify", "ForceNotify", "UpgradeNotify", "DebugNotify", "lib-clearcache-base_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class NotifyLevel {
+    public static final class NotifyLevel {
         public static final /* synthetic */ NotifyLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NotifyLevel DebugNotify;
@@ -240,7 +242,7 @@ public final class DiskManager {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0013\b\u0086\u0001\u0018\u00002\u00020\u0001B!\b\u0002\u0012\u0006\u0010\u0007\u001a\u00020\u0002\u0012\u0006\u0010\t\u001a\u00020\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u000b\u0010\fR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006R\u0019\u0010\u0007\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0007\u0010\u0004\u001a\u0004\b\b\u0010\u0006R\u0019\u0010\t\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\t\u0010\u0004\u001a\u0004\b\n\u0010\u0006j\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013j\u0002\b\u0014¨\u0006\u0015"}, d2 = {"Lcom/baidu/searchbox/download/center/clearcache/DiskManager$QuotaBusiness;", "Ljava/lang/Enum;", "", "critical", "J", "getCritical", "()J", "normal", "getNormal", "warning", "getWarning", "<init>", "(Ljava/lang/String;IJJJ)V", "MNP", "LIVE", "LIVEVIP", "AR", "PLAYKERNEL", "BROWSERKERNEL", "SPLASH", "NOVEL", "lib-clearcache-base_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class QuotaBusiness {
+    public static final class QuotaBusiness {
         public static final /* synthetic */ QuotaBusiness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QuotaBusiness AR;
@@ -497,7 +499,7 @@ public final class DiskManager {
             if (j2 != 0 && j3 != 0) {
                 IClearCacheContext clearCacheContext = ClearCacheRuntime.getClearCacheContext();
                 Intrinsics.checkNotNullExpressionValue(clearCacheContext, "ClearCacheRuntime.getClearCacheContext()");
-                List appFileList = clearCacheContext.getAppFileList();
+                List<File> appFileList = clearCacheContext.getAppFileList();
                 Intrinsics.checkNotNullExpressionValue(appFileList, "ClearCacheRuntime.getCle…acheContext().appFileList");
                 IClearCacheContext clearCacheContext2 = ClearCacheRuntime.getClearCacheContext();
                 Intrinsics.checkNotNullExpressionValue(clearCacheContext2, "ClearCacheRuntime.getClearCacheContext()");
@@ -742,6 +744,7 @@ public final class DiskManager {
     /* JADX WARN: Removed duplicated region for block: B:40:0x0097  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x00a4  */
     /* JADX WARN: Removed duplicated region for block: B:52:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"DefaultLocale"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

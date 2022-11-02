@@ -11,6 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.SchedulerSupport;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
@@ -183,6 +185,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
+    @Experimental
     public final Completable onTerminateDetach() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -228,11 +231,11 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test() {
+    public final TestObserver<Void> test() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<Void> testObserver = new TestObserver<>();
             subscribe(testObserver);
             return testObserver;
         }
@@ -242,7 +245,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable toFlowable() {
+    public final <T> Flowable<T> toFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
@@ -256,7 +259,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe toMaybe() {
+    public final <T> Maybe<T> toMaybe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
@@ -270,7 +273,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable toObservable() {
+    public final <T> Observable<T> toObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
@@ -284,7 +287,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable amb(Iterable iterable) {
+    public static Completable amb(Iterable<? extends CompletableSource> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iterable)) == null) {
@@ -296,7 +299,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable concat(Iterable iterable) {
+    public static Completable concat(Iterable<? extends CompletableSource> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable)) == null) {
@@ -320,7 +323,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable defer(Callable callable) {
+    public static Completable defer(Callable<? extends CompletableSource> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, callable)) == null) {
@@ -356,7 +359,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable fromCallable(Callable callable) {
+    public static Completable fromCallable(Callable<?> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, callable)) == null) {
@@ -368,7 +371,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable fromFuture(Future future) {
+    public static Completable fromFuture(Future<?> future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, future)) == null) {
@@ -380,7 +383,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable fromObservable(ObservableSource observableSource) {
+    public static <T> Completable fromObservable(ObservableSource<T> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, observableSource)) == null) {
@@ -393,7 +396,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public static Completable fromPublisher(Publisher publisher) {
+    public static <T> Completable fromPublisher(Publisher<T> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, publisher)) == null) {
@@ -417,7 +420,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable fromSingle(SingleSource singleSource) {
+    public static <T> Completable fromSingle(SingleSource<T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, singleSource)) == null) {
@@ -429,7 +432,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable merge(Iterable iterable) {
+    public static Completable merge(Iterable<? extends CompletableSource> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, iterable)) == null) {
@@ -453,7 +456,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable mergeDelayError(Iterable iterable) {
+    public static Completable mergeDelayError(Iterable<? extends CompletableSource> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, iterable)) == null) {
@@ -529,13 +532,14 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object as(CompletableConverter completableConverter) {
+    @Experimental
+    public final <R> R as(@NonNull CompletableConverter<? extends R> completableConverter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, completableConverter)) == null) {
-            return ((CompletableConverter) ObjectHelper.requireNonNull(completableConverter, "converter is null")).apply(this);
+            return (R) ((CompletableConverter) ObjectHelper.requireNonNull(completableConverter, "converter is null")).apply(this);
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -567,8 +571,8 @@ public abstract class Completable implements CompletableSource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, action)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
-            Consumer emptyConsumer2 = Functions.emptyConsumer();
+            Consumer<? super Disposable> emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Throwable> emptyConsumer2 = Functions.emptyConsumer();
             Action action2 = Functions.EMPTY_ACTION;
             return doOnLifecycle(emptyConsumer, emptyConsumer2, action2, action2, action, action2);
         }
@@ -593,8 +597,8 @@ public abstract class Completable implements CompletableSource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, action)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
-            Consumer emptyConsumer2 = Functions.emptyConsumer();
+            Consumer<? super Disposable> emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Throwable> emptyConsumer2 = Functions.emptyConsumer();
             Action action2 = Functions.EMPTY_ACTION;
             return doOnLifecycle(emptyConsumer, emptyConsumer2, action, action2, action2, action2);
         }
@@ -607,8 +611,8 @@ public abstract class Completable implements CompletableSource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, action)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
-            Consumer emptyConsumer2 = Functions.emptyConsumer();
+            Consumer<? super Disposable> emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Throwable> emptyConsumer2 = Functions.emptyConsumer();
             Action action2 = Functions.EMPTY_ACTION;
             return doOnLifecycle(emptyConsumer, emptyConsumer2, action2, action2, action2, action);
         }
@@ -617,11 +621,11 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable doOnError(Consumer consumer) {
+    public final Completable doOnError(Consumer<? super Throwable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, consumer)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Disposable> emptyConsumer = Functions.emptyConsumer();
             Action action = Functions.EMPTY_ACTION;
             return doOnLifecycle(emptyConsumer, consumer, action, action, action, action);
         }
@@ -630,7 +634,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable doOnEvent(Consumer consumer) {
+    public final Completable doOnEvent(Consumer<? super Throwable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, consumer)) == null) {
@@ -642,11 +646,11 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable doOnSubscribe(Consumer consumer) {
+    public final Completable doOnSubscribe(Consumer<? super Disposable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, consumer)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Throwable> emptyConsumer = Functions.emptyConsumer();
             Action action = Functions.EMPTY_ACTION;
             return doOnLifecycle(consumer, emptyConsumer, action, action, action, action);
         }
@@ -659,8 +663,8 @@ public abstract class Completable implements CompletableSource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, action)) == null) {
-            Consumer emptyConsumer = Functions.emptyConsumer();
-            Consumer emptyConsumer2 = Functions.emptyConsumer();
+            Consumer<? super Disposable> emptyConsumer = Functions.emptyConsumer();
+            Consumer<? super Throwable> emptyConsumer2 = Functions.emptyConsumer();
             Action action2 = Functions.EMPTY_ACTION;
             return doOnLifecycle(emptyConsumer, emptyConsumer2, action2, action, action2, action2);
         }
@@ -705,7 +709,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable onErrorComplete(Predicate predicate) {
+    public final Completable onErrorComplete(Predicate<? super Throwable> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, predicate)) == null) {
@@ -717,7 +721,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable onErrorResumeNext(Function function) {
+    public final Completable onErrorResumeNext(Function<? super Throwable, ? extends CompletableSource> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, function)) == null) {
@@ -751,7 +755,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable repeatWhen(Function function) {
+    public final Completable repeatWhen(Function<? super Flowable<Object>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, function)) == null) {
@@ -773,7 +777,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable retryWhen(Function function) {
+    public final Completable retryWhen(Function<? super Flowable<Throwable>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, function)) == null) {
@@ -822,23 +826,23 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final CompletableObserver subscribeWith(CompletableObserver completableObserver) {
+    public final <E extends CompletableObserver> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, completableObserver)) == null) {
-            subscribe(completableObserver);
-            return completableObserver;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
-        return (CompletableObserver) invokeL.objValue;
+        return (E) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test(boolean z) {
+    public final TestObserver<Void> test(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048630, this, z)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<Void> testObserver = new TestObserver<>();
             if (z) {
                 testObserver.cancel();
             }
@@ -850,23 +854,23 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object to(Function function) {
+    public final <U> U to(Function<? super Completable, U> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, function)) == null) {
             try {
-                return ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
+                return (U) ((Function) ObjectHelper.requireNonNull(function, "converter is null")).apply(this);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeL.objValue;
+        return (U) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single toSingle(Callable callable) {
+    public final <T> Single<T> toSingle(Callable<? extends T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, callable)) == null) {
@@ -878,12 +882,12 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single toSingleDefault(Object obj) {
+    public final <T> Single<T> toSingleDefault(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "completionValue is null");
-            return RxJavaPlugins.onAssembly(new CompletableToSingle(this, null, obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "completionValue is null");
+            return RxJavaPlugins.onAssembly(new CompletableToSingle(this, null, t));
         }
         return (Single) invokeL.objValue;
     }
@@ -957,7 +961,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Completable concat(Publisher publisher) {
+    public static Completable concat(Publisher<? extends CompletableSource> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, publisher)) == null) {
@@ -968,7 +972,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable error(Callable callable) {
+    public static Completable error(Callable<? extends Throwable> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, callable)) == null) {
@@ -981,7 +985,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public static Completable merge(Publisher publisher) {
+    public static Completable merge(Publisher<? extends CompletableSource> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, publisher)) == null) {
@@ -993,7 +997,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public static Completable mergeDelayError(Publisher publisher) {
+    public static Completable mergeDelayError(Publisher<? extends CompletableSource> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, publisher)) == null) {
@@ -1005,7 +1009,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable andThen(Publisher publisher) {
+    public final <T> Flowable<T> andThen(Publisher<T> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, publisher)) == null) {
@@ -1017,7 +1021,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable retry(BiPredicate biPredicate) {
+    public final Completable retry(BiPredicate<? super Integer, ? super Throwable> biPredicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, biPredicate)) == null) {
@@ -1026,15 +1030,17 @@ public abstract class Completable implements CompletableSource {
         return (Completable) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: org.reactivestreams.Publisher<T> */
+    /* JADX WARN: Multi-variable type inference failed */
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable startWith(Publisher publisher) {
+    public final <T> Flowable<T> startWith(Publisher<T> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, publisher)) == null) {
             ObjectHelper.requireNonNull(publisher, "other is null");
-            return toFlowable().startWith(publisher);
+            return toFlowable().startWith((Publisher) publisher);
         }
         return (Flowable) invokeL.objValue;
     }
@@ -1060,7 +1066,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Completable concat(Publisher publisher, int i) {
+    public static Completable concat(Publisher<? extends CompletableSource> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, publisher, i)) == null) {
@@ -1074,7 +1080,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Completable merge(Publisher publisher, int i) {
+    public static Completable merge(Publisher<? extends CompletableSource> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, publisher, i)) == null) {
@@ -1086,7 +1092,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Completable mergeDelayError(Publisher publisher, int i) {
+    public static Completable mergeDelayError(Publisher<? extends CompletableSource> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, publisher, i)) == null) {
@@ -1147,7 +1153,8 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable retry(long j, Predicate predicate) {
+    @Experimental
+    public final Completable retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048615, this, j, predicate)) == null) {
@@ -1158,7 +1165,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Action action, Consumer consumer) {
+    public final Disposable subscribe(Action action, Consumer<? super Throwable> consumer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, action, consumer)) == null) {
@@ -1184,7 +1191,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    private Completable doOnLifecycle(Consumer consumer, Consumer consumer2, Action action, Action action2, Action action3, Action action4) {
+    private Completable doOnLifecycle(Consumer<? super Disposable> consumer, Consumer<? super Throwable> consumer2, Action action, Action action2, Action action3, Action action4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{consumer, consumer2, action, action2, action3, action4})) == null) {
@@ -1202,7 +1209,7 @@ public abstract class Completable implements CompletableSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Completable merge0(Publisher publisher, int i, boolean z) {
+    public static Completable merge0(Publisher<? extends CompletableSource> publisher, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{publisher, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
@@ -1253,7 +1260,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable using(Callable callable, Function function, Consumer consumer, boolean z) {
+    public static <R> Completable using(Callable<R> callable, Function<? super R, ? extends CompletableSource> function, Consumer<? super R> consumer, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{callable, function, consumer, Boolean.valueOf(z)})) == null) {
@@ -1279,7 +1286,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Completable using(Callable callable, Function function, Consumer consumer) {
+    public static <R> Completable using(Callable<R> callable, Function<? super R, ? extends CompletableSource> function, Consumer<? super R> consumer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65571, null, callable, function, consumer)) == null) {
@@ -1312,7 +1319,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe andThen(MaybeSource maybeSource) {
+    public final <T> Maybe<T> andThen(MaybeSource<T> maybeSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, maybeSource)) == null) {
@@ -1324,7 +1331,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable retry(Predicate predicate) {
+    public final Completable retry(Predicate<? super Throwable> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, predicate)) == null) {
@@ -1335,7 +1342,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable startWith(Observable observable) {
+    public final <T> Observable<T> startWith(Observable<T> observable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, observable)) == null) {
@@ -1347,7 +1354,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable andThen(ObservableSource observableSource) {
+    public final <T> Observable<T> andThen(ObservableSource<T> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, observableSource)) == null) {
@@ -1359,7 +1366,7 @@ public abstract class Completable implements CompletableSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single andThen(SingleSource singleSource) {
+    public final <T> Single<T> andThen(SingleSource<T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, singleSource)) == null) {

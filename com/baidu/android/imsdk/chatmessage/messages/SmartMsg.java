@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SmartMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SmartMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Commodity[] mCommodity;
     public String mDetailurl;
@@ -53,9 +53,9 @@ public class SmartMsg extends NormalMsg {
     }
 
     /* loaded from: classes.dex */
-    public class Commodity implements Parcelable, NoProGuard {
+    public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Commodity> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mColor;
         public String mName;
@@ -84,7 +84,7 @@ public class SmartMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.Commodity.1
+            CREATOR = new Parcelable.Creator<Commodity>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.Commodity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,6 +103,7 @@ public class SmartMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -114,6 +115,7 @@ public class SmartMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Commodity[] newArray(int i) {
                     InterceptResult invokeI;
@@ -232,7 +234,7 @@ public class SmartMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.1
+        CREATOR = new Parcelable.Creator<SmartMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SmartMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -251,6 +253,7 @@ public class SmartMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SmartMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -262,6 +265,7 @@ public class SmartMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SmartMsg[] newArray(int i) {
                 InterceptResult invokeI;

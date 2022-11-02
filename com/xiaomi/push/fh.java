@@ -39,7 +39,7 @@ public class fh {
     public boolean f368a;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final fh a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,10 +113,10 @@ public class fh {
                 fbVar.b(a2);
             } catch (iz unused) {
             }
-            LinkedList m201a = this.f365a.m201a();
+            LinkedList<bl.a> m201a = this.f365a.m201a();
             while (m201a.size() > 0) {
                 try {
-                    fa a3 = a((bl.a) m201a.getLast());
+                    fa a3 = a(m201a.getLast());
                     if (a3 != null) {
                         a3.b(a2);
                     }

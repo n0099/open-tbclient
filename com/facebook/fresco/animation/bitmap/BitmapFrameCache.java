@@ -1,5 +1,6 @@
 package com.facebook.fresco.animation.bitmap;
 
+import android.graphics.Bitmap;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -17,19 +18,19 @@ public interface BitmapFrameCache {
     boolean contains(int i);
 
     @Nullable
-    CloseableReference getBitmapToReuseForFrame(int i, int i2, int i3);
+    CloseableReference<Bitmap> getBitmapToReuseForFrame(int i, int i2, int i3);
 
     @Nullable
-    CloseableReference getCachedFrame(int i);
+    CloseableReference<Bitmap> getCachedFrame(int i);
 
     @Nullable
-    CloseableReference getFallbackFrame(int i);
+    CloseableReference<Bitmap> getFallbackFrame(int i);
 
     int getSizeInBytes();
 
-    void onFramePrepared(int i, CloseableReference closeableReference, int i2);
+    void onFramePrepared(int i, CloseableReference<Bitmap> closeableReference, int i2);
 
-    void onFrameRendered(int i, CloseableReference closeableReference, int i2);
+    void onFrameRendered(int i, CloseableReference<Bitmap> closeableReference, int i2);
 
     void setFrameCacheListener(FrameCacheListener frameCacheListener);
 }

@@ -40,7 +40,7 @@ public class b implements k {
     public int jv;
 
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean jx;

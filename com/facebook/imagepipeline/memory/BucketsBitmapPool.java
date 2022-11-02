@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,8 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+@TargetApi(21)
 /* loaded from: classes7.dex */
-public class BucketsBitmapPool extends BasePool implements BitmapPool {
+public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,6 +57,7 @@ public class BucketsBitmapPool extends BasePool implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
     public Bitmap alloc(int i) {
         InterceptResult invokeI;
@@ -86,13 +91,14 @@ public class BucketsBitmapPool extends BasePool implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
     @Nullable
-    public Bitmap getValue(Bucket bucket) {
+    public Bitmap getValue(Bucket<Bitmap> bucket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bucket)) == null) {
-            Bitmap bitmap = (Bitmap) super.getValue(bucket);
+            Bitmap bitmap = (Bitmap) super.getValue((Bucket<Object>) bucket);
             if (bitmap != null) {
                 bitmap.eraseColor(0);
             }

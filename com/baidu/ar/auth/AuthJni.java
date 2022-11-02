@@ -18,7 +18,7 @@ public class AuthJni {
     public static volatile AuthJni jC;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean jD;
-    public final List jE;
+    public final List<Runnable> jE;
 
     public AuthJni() {
         Interceptable interceptable = $ic;

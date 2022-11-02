@@ -9,6 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.CompoundButton;
+import androidx.annotation.BoolRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.Dimension;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -31,11 +37,16 @@ public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES = 2131755873;
     public transient /* synthetic */ FieldHolder $fh;
+    @IdRes
     public int checkedId;
     public final CheckedStateTracker checkedStateTracker;
+    @Dimension
     public int chipSpacingHorizontal;
+    @Dimension
     public int chipSpacingVertical;
+    @Nullable
     public OnCheckedChangeListener onCheckedChangeListener;
+    @NonNull
     public PassThroughHierarchyChangeListener passThroughListener;
     public boolean protectFromCheckedChange;
     public boolean selectionRequired;
@@ -43,14 +54,14 @@ public class ChipGroup extends FlowLayout {
 
     /* renamed from: com.google.android.material.chip.ChipGroup$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {
-        void onCheckedChanged(ChipGroup chipGroup, int i);
+        void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
     static {
@@ -97,7 +108,7 @@ public class ChipGroup extends FlowLayout {
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
-        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        public void onCheckedChanged(@NonNull CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLZ(1048576, this, compoundButton, z) != null) || this.this$0.protectFromCheckedChange) {
                 return;
@@ -124,7 +135,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -299,7 +310,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public int getIndexOfChip(View view2) {
+    public int getIndexOfChip(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
@@ -321,7 +332,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -411,7 +422,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void check(int i) {
+    public void check(@IdRes int i) {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == (i2 = this.checkedId)) {
@@ -440,6 +451,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.ViewGroup
+    @NonNull
     public ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -449,7 +461,7 @@ public class ChipGroup extends FlowLayout {
         return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public void setChipSpacing(int i) {
+    public void setChipSpacing(@Dimension int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             setChipSpacingHorizontal(i);
@@ -457,7 +469,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setChipSpacingHorizontal(int i) {
+    public void setChipSpacingHorizontal(@Dimension int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && this.chipSpacingHorizontal != i) {
             this.chipSpacingHorizontal = i;
@@ -466,21 +478,21 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setChipSpacingHorizontalResource(int i) {
+    public void setChipSpacingHorizontalResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setChipSpacingHorizontal(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingResource(int i) {
+    public void setChipSpacingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             setChipSpacing(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingVertical(int i) {
+    public void setChipSpacingVertical(@Dimension int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048597, this, i) == null) && this.chipSpacingVertical != i) {
             this.chipSpacingVertical = i;
@@ -489,7 +501,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setChipSpacingVerticalResource(int i) {
+    public void setChipSpacingVerticalResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             setChipSpacingVertical(getResources().getDimensionPixelOffset(i));
@@ -505,7 +517,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Deprecated
-    public void setDividerDrawableVertical(Drawable drawable) {
+    public void setDividerDrawableVertical(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, drawable) == null) {
             throw new UnsupportedOperationException("Changing divider drawables have no effect. ChipGroup do not use divider drawables as spacing.");
@@ -558,14 +570,14 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setSingleLine(int i) {
+    public void setSingleLine(@BoolRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             setSingleLine(getResources().getBoolean(i));
         }
     }
 
-    public void setSingleSelection(int i) {
+    public void setSingleSelection(@BoolRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             setSingleSelection(getResources().getBoolean(i));
@@ -603,6 +615,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.ViewGroup
+    @NonNull
     public ViewGroup.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -612,6 +625,7 @@ public class ChipGroup extends FlowLayout {
         return (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
+    @IdRes
     public int getCheckedChipId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -624,6 +638,7 @@ public class ChipGroup extends FlowLayout {
         return invokeV.intValue;
     }
 
+    @Dimension
     public int getChipSpacingHorizontal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -633,6 +648,7 @@ public class ChipGroup extends FlowLayout {
         return invokeV.intValue;
     }
 
+    @Dimension
     public int getChipSpacingVertical() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -696,7 +712,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCheckedStateForView(int i, boolean z) {
+    public void setCheckedStateForView(@IdRes int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             View findViewById = findViewById(i);
@@ -727,6 +743,7 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.ViewGroup
+    @NonNull
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -752,7 +769,8 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public List getCheckedChipIds() {
+    @NonNull
+    public List<Integer> getCheckedChipIds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.widget.SlideInterceptor;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes3.dex */
-public interface bp1 extends SlideInterceptor {
-    double A();
+public interface bp1 {
+    void a(String str);
+
+    void b();
+
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable bp2 bp2Var);
+
+    void e(String str);
+
+    void f(String str);
 }

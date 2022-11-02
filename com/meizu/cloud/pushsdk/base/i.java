@@ -1,18 +1,18 @@
 package com.meizu.cloud.pushsdk.base;
 /* loaded from: classes8.dex */
-public class i {
-    public Object a;
-    public Object b;
+public class i<T> {
+    public T a;
+    public T b;
 
-    public i(Object obj) {
-        if (obj == null) {
+    public i(T t) {
+        if (t == null) {
             throw new RuntimeException("proxy must be has a default implementation");
         }
-        this.b = obj;
+        this.b = t;
     }
 
-    public Object c() {
-        Object obj = this.a;
-        return obj != null ? obj : this.b;
+    public T c() {
+        T t = this.a;
+        return t != null ? t : this.b;
     }
 }

@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.data;
 
 import android.content.res.AssetManager;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class StreamAssetPathFetcher extends AssetPathFetcher {
+public class StreamAssetPathFetcher extends AssetPathFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +46,8 @@ public class StreamAssetPathFetcher extends AssetPathFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public Class getDataClass() {
+    @NonNull
+    public Class<InputStream> getDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -55,6 +57,7 @@ public class StreamAssetPathFetcher extends AssetPathFetcher {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.AssetPathFetcher
     public InputStream loadResource(AssetManager assetManager, String str) throws IOException {
         InterceptResult invokeLL;

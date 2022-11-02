@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ZeusWebViewPreloadClass {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTINGS_KEY = "preload_webview_class";
@@ -38,7 +38,7 @@ public class ZeusWebViewPreloadClass {
     public Object mSavingClassesFileLock;
     public volatile boolean mStartFlushClassesData;
     public boolean mSwitchEnabled;
-    public CopyOnWriteArrayList mZeusClassLoadList;
+    public CopyOnWriteArrayList<String> mZeusClassLoadList;
 
     public ZeusWebViewPreloadClass() {
         Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public class ZeusWebViewPreloadClass {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !this.mStartFlushClassesData && isNeedUpdateSavingClassFile() && isPreloadClassEnabled()) {
             if (this.mZeusClassLoadList == null) {
-                this.mZeusClassLoadList = new CopyOnWriteArrayList();
+                this.mZeusClassLoadList = new CopyOnWriteArrayList<>();
             }
             this.mZeusClassLoadList.add(str);
         }
@@ -201,7 +201,7 @@ public class ZeusWebViewPreloadClass {
     }
 
     public void destroy() {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<String> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (copyOnWriteArrayList = this.mZeusClassLoadList) == null) {
             return;
@@ -211,7 +211,7 @@ public class ZeusWebViewPreloadClass {
     }
 
     public void flushLoadClassesToFile() {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<String> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mStartFlushClassesData || !isNeedUpdateSavingClassFile() || !isPreloadClassEnabled() || (copyOnWriteArrayList = this.mZeusClassLoadList) == null || copyOnWriteArrayList.size() <= 0) {
             return;

@@ -1,5 +1,6 @@
 package com.google.android.gms.internal.ads_identifier;
 
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +28,7 @@ public final class zzi {
         zza = new zzg();
     }
 
+    @TargetApi(28)
     public static void zza() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {

@@ -1,169 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ManagerElection;
 /* loaded from: classes3.dex */
-public class e26 implements View.OnClickListener {
+public class e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public View c;
-    public ImageView d;
-    public View e;
-    public EMTextView f;
-    public ImageView g;
-    public int h;
-    public String i;
+    public d26 a;
+    public c26 b;
+    public List<c26> c;
+    public ManagerElection d;
+    public boolean e;
+    public long f;
+    public BdUniqueId g;
 
-    public e26(Context context) {
+    public e26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = 3;
-        this.a = context;
-        c(context);
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            String str2 = "0";
-            if ("2".equals(str)) {
-                b17.a("c14079", "0", str);
-            }
-            if ("1".equals(str)) {
-                if (!StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId())) {
-                    str2 = TbSingleton.getInstance().getLFUserTaskId();
-                }
-                b17.a("c14079", str2, str);
             }
         }
     }
 
-    public ImageView a() {
+    public d26 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            return this.a;
         }
-        return (ImageView) invokeV.objValue;
+        return (d26) invokeV.objValue;
     }
 
-    public View b() {
+    public List<c26> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ManagerElection e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (ManagerElection) invokeV.objValue;
+    }
+
+    public c26 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.b;
         }
-        return (View) invokeV.objValue;
+        return (c26) invokeV.objValue;
     }
 
-    public void d() {
+    public BdUniqueId g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !StringUtils.isNull(TbSingleton.getInstance().getBannerText())) {
-            this.f.setText(TbSingleton.getInstance().getBannerText());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(ArrayList<c26> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.c = arrayList;
         }
     }
 
-    public final void c(Context context) {
+    public void i(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
-            this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091c80);
-            this.c = findViewById;
-            findViewById.setOnClickListener(this);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f00);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0925b4);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092213);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09065f);
-            this.g = imageView;
-            imageView.setClickable(true);
-            e(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.f = j;
         }
     }
 
-    public void e(int i) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (this.h != i) {
-                nv4 d = nv4.d(this.c);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0201);
-                nv4 d2 = nv4.d(this.e);
-                d2.n(R.string.J_X03);
-                d2.f(R.color.CAM_X0110);
-                nv4.d(this.f).v(R.color.CAM_X0108);
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-                if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080fa5, WebPManager.ResourceStateType.NORMAL);
-                } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080fa4, WebPManager.ResourceStateType.NORMAL);
-                } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080fa3, WebPManager.ResourceStateType.NORMAL);
-                }
-            }
-            this.h = i;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e = z;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void k(ManagerElection managerElection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            HashMap hashMap = new HashMap();
-            String str = "0";
-            if ("from_personaize".equals(this.i)) {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, TbSingleton.getInstance().getLFUser());
-                hashMap.put(LowFlowsActivityConfig.LF_USER_TASKID, TbSingleton.getInstance().getLFUserTaskId());
-                if (!StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId())) {
-                    str = TbSingleton.getInstance().getLFUserTaskId();
-                }
-                b17.a("c14080", str, "1");
-            } else {
-                hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                b17.a("c14080", "0", "2");
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
+        if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
+            this.d = managerElection;
         }
     }
 
-    public void setFrom(String str) {
+    public void l(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+        }
+    }
+
+    public void m(d26 d26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, d26Var) == null) {
+            this.a = d26Var;
+        }
+    }
+
+    public void n(c26 c26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, c26Var) == null) {
+            this.b = c26Var;
         }
     }
 }

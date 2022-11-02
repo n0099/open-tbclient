@@ -2,6 +2,8 @@ package com.baidu.searchbox.player.kernel;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
@@ -22,12 +24,12 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
     public abstract void setVideoViewCallBack(DumediaInfoConverter dumediaInfoConverter);
 
     /* loaded from: classes2.dex */
-    public final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
+    public static final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final IDnsProcessListener dns;
 
-        public CyberPlayerHttpDNS(IDnsProcessListener iDnsProcessListener) {
+        public CyberPlayerHttpDNS(@NonNull IDnsProcessListener iDnsProcessListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +48,7 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.HttpDNS
-        public List getIpList(String str) {
+        public List<String> getIpList(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -72,6 +74,7 @@ public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
         this.mConverter = new DumediaInfoConverter(this);
     }
 
+    @Nullable
     public Uri getVideoUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -61,11 +61,11 @@ public final class TtmlNode {
     public static final String TAG_TT = "tt";
     public static final String UNDERLINE = "underline";
     public transient /* synthetic */ FieldHolder $fh;
-    public List children;
+    public List<TtmlNode> children;
     public final long endTimeUs;
     public final boolean isTextNode;
-    public final HashMap nodeEndsByRegion;
-    public final HashMap nodeStartsByRegion;
+    public final HashMap<String, Integer> nodeEndsByRegion;
+    public final HashMap<String, Integer> nodeStartsByRegion;
     public final String regionId;
     public final long startTimeUs;
     public final TtmlStyle style;
@@ -102,11 +102,11 @@ public final class TtmlNode {
         this.startTimeUs = j;
         this.endTimeUs = j2;
         this.regionId = (String) Assertions.checkNotNull(str3);
-        this.nodeStartsByRegion = new HashMap();
-        this.nodeEndsByRegion = new HashMap();
+        this.nodeStartsByRegion = new HashMap<>();
+        this.nodeEndsByRegion = new HashMap<>();
     }
 
-    private void applyStyleToOutput(Map map, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private void applyStyleToOutput(Map<String, TtmlStyle> map, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         TtmlStyle resolveStyle;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLII(65537, this, map, spannableStringBuilder, i, i2) == null) && i != i2 && (resolveStyle = TtmlRenderUtil.resolveStyle(this.style, this.styleIds, map)) != null) {
@@ -146,9 +146,9 @@ public final class TtmlNode {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List list = this.children;
+            List<TtmlNode> list = this.children;
             if (list != null) {
-                return (TtmlNode) list.get(i);
+                return list.get(i);
             }
             throw new IndexOutOfBoundsException();
         }
@@ -222,7 +222,7 @@ public final class TtmlNode {
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    private void getEventTimes(TreeSet treeSet, boolean z) {
+    private void getEventTimes(TreeSet<Long> treeSet, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, treeSet, z) == null) {
@@ -241,7 +241,7 @@ public final class TtmlNode {
                 return;
             }
             for (int i = 0; i < this.children.size(); i++) {
-                TtmlNode ttmlNode = (TtmlNode) this.children.get(i);
+                TtmlNode ttmlNode = this.children.get(i);
                 if (!z && !equals) {
                     z2 = false;
                 } else {
@@ -252,30 +252,30 @@ public final class TtmlNode {
         }
     }
 
-    public static SpannableStringBuilder getRegionOutput(String str, Map map) {
+    public static SpannableStringBuilder getRegionOutput(String str, Map<String, SpannableStringBuilder> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
             if (!map.containsKey(str)) {
                 map.put(str, new SpannableStringBuilder());
             }
-            return (SpannableStringBuilder) map.get(str);
+            return map.get(str);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    private void traverseForStyle(Map map, Map map2) {
+    private void traverseForStyle(Map<String, TtmlStyle> map, Map<String, SpannableStringBuilder> map2) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, map, map2) == null) {
-            for (Map.Entry entry : this.nodeEndsByRegion.entrySet()) {
-                String str = (String) entry.getKey();
-                if (this.nodeStartsByRegion.containsKey(str)) {
-                    i = ((Integer) this.nodeStartsByRegion.get(str)).intValue();
+            for (Map.Entry<String, Integer> entry : this.nodeEndsByRegion.entrySet()) {
+                String key = entry.getKey();
+                if (this.nodeStartsByRegion.containsKey(key)) {
+                    i = this.nodeStartsByRegion.get(key).intValue();
                 } else {
                     i = 0;
                 }
-                applyStyleToOutput(map, (SpannableStringBuilder) map2.get(str), i, ((Integer) entry.getValue()).intValue());
+                applyStyleToOutput(map, map2.get(key), i, entry.getValue().intValue());
                 for (int i2 = 0; i2 < getChildCount(); i2++) {
                     getChild(i2).traverseForStyle(map, map2);
                 }
@@ -283,7 +283,7 @@ public final class TtmlNode {
         }
     }
 
-    private void traverseForText(long j, boolean z, String str, Map map) {
+    private void traverseForText(long j, boolean z, String str, Map<String, SpannableStringBuilder> map) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), str, map}) == null) {
@@ -299,8 +299,8 @@ public final class TtmlNode {
                 getRegionOutput(str, map).append('\n');
             } else if (!TAG_METADATA.equals(this.tag) && isActive(j)) {
                 boolean equals = "p".equals(this.tag);
-                for (Map.Entry entry : map.entrySet()) {
-                    this.nodeStartsByRegion.put(entry.getKey(), Integer.valueOf(((SpannableStringBuilder) entry.getValue()).length()));
+                for (Map.Entry<String, SpannableStringBuilder> entry : map.entrySet()) {
+                    this.nodeStartsByRegion.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
                 }
                 for (int i = 0; i < getChildCount(); i++) {
                     TtmlNode child = getChild(i);
@@ -314,8 +314,8 @@ public final class TtmlNode {
                 if (equals) {
                     TtmlRenderUtil.endParagraph(getRegionOutput(str, map));
                 }
-                for (Map.Entry entry2 : map.entrySet()) {
-                    this.nodeEndsByRegion.put(entry2.getKey(), Integer.valueOf(((SpannableStringBuilder) entry2.getValue()).length()));
+                for (Map.Entry<String, SpannableStringBuilder> entry2 : map.entrySet()) {
+                    this.nodeEndsByRegion.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
                 }
             }
         }
@@ -325,7 +325,7 @@ public final class TtmlNode {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.children;
+            List<TtmlNode> list = this.children;
             if (list == null) {
                 return 0;
             }
@@ -343,7 +343,7 @@ public final class TtmlNode {
         return (String[]) invokeV.objValue;
     }
 
-    public List getCues(long j, Map map, Map map2) {
+    public List<Cue> getCues(long j, Map<String, TtmlStyle> map, Map<String, TtmlRegion> map2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), map, map2})) == null) {
@@ -352,7 +352,7 @@ public final class TtmlNode {
             traverseForStyle(map, treeMap);
             ArrayList arrayList = new ArrayList();
             for (Map.Entry entry : treeMap.entrySet()) {
-                TtmlRegion ttmlRegion = (TtmlRegion) map2.get(entry.getKey());
+                TtmlRegion ttmlRegion = map2.get(entry.getKey());
                 arrayList.add(new Cue(cleanUpText((SpannableStringBuilder) entry.getValue()), null, ttmlRegion.line, ttmlRegion.lineType, ttmlRegion.lineAnchor, ttmlRegion.position, Integer.MIN_VALUE, ttmlRegion.width));
             }
             return arrayList;
@@ -364,13 +364,13 @@ public final class TtmlNode {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TreeSet treeSet = new TreeSet();
+            TreeSet<Long> treeSet = new TreeSet<>();
             int i = 0;
             getEventTimes(treeSet, false);
             long[] jArr = new long[treeSet.size()];
-            Iterator it = treeSet.iterator();
+            Iterator<Long> it = treeSet.iterator();
             while (it.hasNext()) {
-                jArr[i] = ((Long) it.next()).longValue();
+                jArr[i] = it.next().longValue();
                 i++;
             }
             return jArr;

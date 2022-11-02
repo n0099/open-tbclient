@@ -1,15 +1,27 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface x04 {
-    boolean a(String str, String str2, String str3, boolean z, rg2 rg2Var);
+public class x04 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile w04 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2, String str3, String str4, String str5);
-
-    void c(String str);
-
-    void d(String str, String str2);
-
-    void e(String str);
-
-    void f(String str);
+    public static synchronized w04 a() {
+        InterceptResult invokeV;
+        w04 w04Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (x04.class) {
+                if (a == null) {
+                    a = new w04();
+                }
+                w04Var = a;
+            }
+            return w04Var;
+        }
+        return (w04) invokeV.objValue;
+    }
 }

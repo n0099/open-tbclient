@@ -19,10 +19,10 @@ import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class DefaultMp4SampleList extends AbstractList {
+public class DefaultMp4SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference[] cache;
+    public SoftReference<Sample>[] cache;
     public int[] chunkNumsStartSampleNum;
     public long[] chunkOffsets;
     public int lastChunk;
@@ -60,7 +60,7 @@ public class DefaultMp4SampleList extends AbstractList {
             this.chunkOffsets = trackBox2.getSampleTableBox().getChunkOffsetBox().getChunkOffsets();
             this.cache = (SoftReference[]) Array.newInstance(SoftReference.class, size());
             this.ssb = this.trackBox.getSampleTableBox().getSampleSizeBox();
-            List entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
+            List<SampleToChunkBox.Entry> entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
             SampleToChunkBox.Entry[] entryArr = (SampleToChunkBox.Entry[]) entries.toArray(new SampleToChunkBox.Entry[entries.size()]);
             SampleToChunkBox.Entry entry = entryArr[0];
             long firstChunk = entry.getFirstChunk();
@@ -128,10 +128,10 @@ public class DefaultMp4SampleList extends AbstractList {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            SoftReference[] softReferenceArr = this.cache;
+            SoftReference<Sample>[] softReferenceArr = this.cache;
             if (i < softReferenceArr.length) {
                 if (softReferenceArr[i] != null && softReferenceArr[i].get() != null) {
-                    return (Sample) this.cache[i].get();
+                    return this.cache[i].get();
                 }
                 int chunkForSample = getChunkForSample(i);
                 int i2 = this.chunkNumsStartSampleNum[chunkForSample];
@@ -141,7 +141,7 @@ public class DefaultMp4SampleList extends AbstractList {
                     i2++;
                 }
                 SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i2 - 1), this.topLevel);
-                this.cache[i] = new SoftReference(sampleImpl);
+                this.cache[i] = new SoftReference<>(sampleImpl);
                 return sampleImpl;
             }
             throw new IndexOutOfBoundsException();

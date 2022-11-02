@@ -15,12 +15,12 @@ import io.reactivex.internal.util.NotificationLite;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BlockingObserver extends AtomicReference implements Observer, Disposable {
+public final class BlockingObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object TERMINATED;
     public static final long serialVersionUID = -4875965440900746268L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue queue;
+    public final Queue<Object> queue;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public final class BlockingObserver extends AtomicReference implements Observer,
         }
     }
 
-    public BlockingObserver(Queue queue) {
+    public BlockingObserver(Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,10 +94,10 @@ public final class BlockingObserver extends AtomicReference implements Observer,
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.queue.offer(NotificationLite.next(obj));
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.queue.offer(NotificationLite.next(t));
         }
     }
 

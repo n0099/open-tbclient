@@ -2,6 +2,7 @@ package com.baidu.searchbox.player.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +44,7 @@ public class MainThreadUtil {
         return (Handler) invokeV.objValue;
     }
 
-    public static void runOnUiThread(Runnable runnable) {
+    public static void runOnUiThread(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
@@ -54,7 +55,7 @@ public class MainThreadUtil {
         }
     }
 
-    public static void runOnUiThread(Runnable runnable, long j) {
+    public static void runOnUiThread(@NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, null, runnable, j) == null) {
             if (j > 0) {

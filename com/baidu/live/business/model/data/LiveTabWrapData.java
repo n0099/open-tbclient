@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
-import com.baidu.tieba.ga0;
+import com.baidu.tieba.fa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ public class LiveTabWrapData {
     public int errCode;
     public String errMsg;
     public boolean isCacheData;
-    public List tabList;
+    public List<LiveTabEntity> tabList;
 
     public LiveTabWrapData() {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class LiveTabWrapData {
     }
 
     public void parserJson(JSONObject jSONObject, boolean z, int i, boolean z2) {
-        List list;
+        List<LiveTabEntity> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
             if (jSONObject != null) {
@@ -63,15 +63,15 @@ public class LiveTabWrapData {
                 JSONArray optJSONArray = jSONObject.optJSONArray("items");
                 getTabListByJson(optJSONArray);
                 if (z && optJSONArray != null && (list = this.tabList) != null && !list.isEmpty() && z2) {
-                    ga0.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
-                    ga0.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
+                    fa0.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
+                    fa0.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
                 }
             }
             if (z2 && z) {
-                List list2 = this.tabList;
+                List<LiveTabEntity> list2 = this.tabList;
                 if (list2 == null || list2.isEmpty()) {
                     this.cacheCause = 2;
-                    String b = ga0.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
+                    String b = fa0.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
                     if (!TextUtils.isEmpty(b)) {
                         try {
                             getTabListByJson(new JSONArray(b));
@@ -81,10 +81,10 @@ public class LiveTabWrapData {
                             } else if (this.errCode != 0) {
                                 this.cacheCause = 3;
                             }
-                            this.cacheTime = ga0.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
+                            this.cacheTime = fa0.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
                         } catch (JSONException unused) {
-                            ga0.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
-                            ga0.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
+                            fa0.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
+                            fa0.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
                         }
                     }
                 }

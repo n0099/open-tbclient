@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class DefaultContentUploader extends BaseContentUploader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.searchbox.retrieve.upload.BaseContentUploader
-    public void uploadDataRequestASync(String str, String str2, Map map, ResponseCallback responseCallback) {
+    public void uploadDataRequestASync(String str, String str2, Map<String, String> map, ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, map, responseCallback) == null) {
         }

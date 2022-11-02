@@ -20,7 +20,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public final class n9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList c;
+    public static ArrayList<SoftReference<Activity>> c;
     public static n9 d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
@@ -46,7 +46,7 @@ public final class n9 {
         }
         this.b = 0;
         if (c == null) {
-            c = new ArrayList(20);
+            c = new ArrayList<>(20);
         }
     }
 
@@ -64,19 +64,19 @@ public final class n9 {
 
     public Activity b() {
         InterceptResult invokeV;
-        SoftReference softReference;
+        SoftReference<Activity> softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int size = c.size();
-            if (size == 0 || (softReference = (SoftReference) c.get(size - 1)) == null) {
+            if (size == 0 || (softReference = c.get(size - 1)) == null) {
                 return null;
             }
-            return (Activity) softReference.get();
+            return softReference.get();
         }
         return (Activity) invokeV.objValue;
     }
 
-    public ArrayList d() {
+    public ArrayList<SoftReference<Activity>> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -96,14 +96,14 @@ public final class n9 {
 
     public Activity k() {
         InterceptResult invokeV;
-        SoftReference softReference;
+        SoftReference<Activity> remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int size = c.size();
-            if (size == 0 || (softReference = (SoftReference) c.remove(size - 1)) == null) {
+            if (size == 0 || (remove = c.remove(size - 1)) == null) {
                 return null;
             }
-            return (Activity) softReference.get();
+            return remove.get();
         }
         return (Activity) invokeV.objValue;
     }
@@ -145,7 +145,7 @@ public final class n9 {
     public void o(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, activity) == null) && activity != null) {
-            c.add(new SoftReference(activity));
+            c.add(new SoftReference<>(activity));
             a(this.b);
         }
     }
@@ -174,11 +174,11 @@ public final class n9 {
             if (c.size() == 0) {
                 return null;
             }
-            Iterator it = c.iterator();
+            Iterator<SoftReference<Activity>> it = c.iterator();
             while (it.hasNext()) {
-                SoftReference softReference = (SoftReference) it.next();
-                if (softReference != null && softReference.get() != null && ((Activity) softReference.get()).getClass().getSimpleName() != null && ((Activity) softReference.get()).getClass().getSimpleName().equals(str)) {
-                    return (Activity) softReference.get();
+                SoftReference<Activity> next = it.next();
+                if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
+                    return next.get();
                 }
             }
             return null;
@@ -193,10 +193,10 @@ public final class n9 {
             if (c.size() == 0) {
                 return false;
             }
-            Iterator it = c.iterator();
+            Iterator<SoftReference<Activity>> it = c.iterator();
             while (it.hasNext()) {
-                SoftReference softReference = (SoftReference) it.next();
-                if (softReference != null && softReference.get() != null && ((Activity) softReference.get()).getClass().getSimpleName() != null && ((Activity) softReference.get()).getClass().getSimpleName().equals(str)) {
+                SoftReference<Activity> next = it.next();
+                if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
                     return true;
                 }
             }
@@ -211,12 +211,12 @@ public final class n9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = c;
+            ArrayList<SoftReference<Activity>> arrayList2 = c;
             if (arrayList2 != null && arrayList2.size() != 0) {
-                Iterator it = c.iterator();
+                Iterator<SoftReference<Activity>> it = c.iterator();
                 while (it.hasNext()) {
-                    SoftReference softReference = (SoftReference) it.next();
-                    if (softReference != null && (activity = (Activity) softReference.get()) != null) {
+                    SoftReference<Activity> next = it.next();
+                    if (next != null && (activity = next.get()) != null) {
                         arrayList.add(activity.getClass().getName());
                     }
                 }
@@ -229,14 +229,14 @@ public final class n9 {
 
     public Activity f(int i) {
         InterceptResult invokeI;
-        SoftReference softReference;
+        SoftReference<Activity> softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             int size = c.size();
-            if (size == 0 || i < 0 || i >= size || (softReference = (SoftReference) c.get(i)) == null) {
+            if (size == 0 || i < 0 || i >= size || (softReference = c.get(i)) == null) {
                 return null;
             }
-            return (Activity) softReference.get();
+            return softReference.get();
         }
         return (Activity) invokeI.objValue;
     }
@@ -248,10 +248,10 @@ public final class n9 {
             int size = c.size();
             if (size > 0 && activity != null) {
                 for (int i = size - 1; i >= 0; i--) {
-                    SoftReference softReference = (SoftReference) c.get(i);
+                    SoftReference<Activity> softReference = c.get(i);
                     if (softReference == null) {
                         c.remove(i);
-                    } else if (activity.equals((Activity) softReference.get())) {
+                    } else if (activity.equals(softReference.get())) {
                         return i;
                     }
                 }
@@ -264,14 +264,14 @@ public final class n9 {
 
     public Activity l(int i) {
         InterceptResult invokeI;
-        SoftReference softReference;
+        SoftReference<Activity> remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             int size = c.size();
-            if (size == 0 || i < 0 || i >= size || (softReference = (SoftReference) c.remove(i)) == null) {
+            if (size == 0 || i < 0 || i >= size || (remove = c.remove(i)) == null) {
                 return null;
             }
-            return (Activity) softReference.get();
+            return remove.get();
         }
         return (Activity) invokeI.objValue;
     }
@@ -291,10 +291,10 @@ public final class n9 {
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference softReference = (SoftReference) c.get(i);
+                SoftReference<Activity> softReference = c.get(i);
                 if (softReference == null) {
                     c.remove(i);
-                } else if (activity.equals((Activity) softReference.get())) {
+                } else if (activity.equals(softReference.get())) {
                     c.remove(i);
                     if (c.size() == 0 && (aVar = this.a) != null) {
                         aVar.onActivityClosed();
@@ -314,8 +314,8 @@ public final class n9 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (c != null) {
                 while (!c.isEmpty()) {
-                    SoftReference softReference = (SoftReference) c.remove(0);
-                    if (softReference != null && softReference.get() != null && (activity = (Activity) softReference.get()) != null) {
+                    SoftReference<Activity> remove = c.remove(0);
+                    if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
                         activity.finish();
                     }
                 }
@@ -337,13 +337,13 @@ public final class n9 {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            ArrayList arrayList = c;
+            ArrayList<SoftReference<Activity>> arrayList = c;
             if (arrayList != null && arrayList.size() != 0) {
                 StringBuilder sb = new StringBuilder();
-                Iterator it = c.iterator();
+                Iterator<SoftReference<Activity>> it = c.iterator();
                 while (it.hasNext()) {
-                    SoftReference softReference = (SoftReference) it.next();
-                    if (softReference != null && (activity = (Activity) softReference.get()) != null) {
+                    SoftReference<Activity> next = it.next();
+                    if (next != null && (activity = next.get()) != null) {
                         if (activity.getClass() == null) {
                             str3 = "";
                         } else {

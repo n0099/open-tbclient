@@ -3,40 +3,44 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
-import com.baidu.tieba.en3;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.bp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class om3 {
+public class om3 implements op1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile om3 e;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public xm3 a;
-    public ConcurrentLinkedQueue b;
-    public volatile boolean c;
-    public cn3 d;
+    public PaymentManager a;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a extends oc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ cn3 b;
-        public final /* synthetic */ om3 c;
+        public final /* synthetic */ long a;
 
-        public a(om3 om3Var, String str, cn3 cn3Var) {
+        public a(om3 om3Var, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {om3Var, str, cn3Var};
+                Object[] objArr = {om3Var, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,26 +50,26 @@ public class om3 {
                     return;
                 }
             }
-            this.c = om3Var;
-            this.a = str;
-            this.b = cn3Var;
+            this.a = j;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.oc1
+        public void a(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bg4.e().f();
-                this.c.j(this.a, this.b);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                if (om3.b) {
+                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
+                }
+                ik4.j(om3.e());
+                ik4.N(String.valueOf(this.a), om3.e());
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements en3.b {
+    public class b extends oc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om3 a;
 
         public b(om3 om3Var) {
             Interceptable interceptable = $ic;
@@ -79,294 +83,122 @@ public class om3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = om3Var;
         }
 
-        @Override // com.baidu.tieba.en3.b
-        public void a(boolean z, byte[] bArr) {
-            vm3 a;
+        @Override // com.baidu.tieba.oc1
+        public void a(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, bArr) == null) {
-                String str = "";
-                try {
-                    try {
-                        if (im3.a) {
-                            Log.d("BDTLS", "doHandShake response");
-                        }
-                        if (z && bArr != null && (a = zm3.a(bArr)) != null) {
-                            byte i = a.i();
-                            byte[] f = a.f();
-                            if (f != null) {
-                                if (im3.a) {
-                                    Log.d("BDTLS", "doHandShake response schemeType =" + ((int) i));
-                                }
-                                if (i != 21) {
-                                    if (i == 22) {
-                                        if (ym3.a(this.a.a, f) != null) {
-                                            if (im3.a) {
-                                                Log.d("BDTLS", "doHandShake serverHello");
-                                            }
-                                            this.a.a.s(1);
-                                            nm3.a("serverHello");
-                                            while (true) {
-                                                sm3 sm3Var = (sm3) this.a.b.poll();
-                                                if (sm3Var != null) {
-                                                    this.a.g(sm3Var.b(), sm3Var.a());
-                                                } else {
-                                                    return;
-                                                }
-                                            }
-                                        } else {
-                                            str = "params decode error";
-                                        }
-                                    }
-                                } else {
-                                    if (im3.a) {
-                                        Log.d("BDTLS", "doHandShake alert");
-                                    }
-                                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(f);
-                                    if (parseFrom != null) {
-                                        if (im3.a) {
-                                            Log.d("BDTLS", "bdtls ubc handshake alert");
-                                        }
-                                        if (parseFrom.getDescription() != null) {
-                                            str = new String(parseFrom.getDescription().toByteArray());
-                                        }
-                                        nm3.b(this.a.a, parseFrom);
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        if (im3.a) {
-                            e.printStackTrace();
-                            Log.d("BDTLS", "exception=" + e.getMessage());
-                        }
-                    }
-                    this.a.n(str);
-                } finally {
-                    this.a.c = false;
-                }
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && om3.b) {
+                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
             }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948037012, "Lcom/baidu/tieba/om3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948037012, "Lcom/baidu/tieba/om3;");
+                return;
+            }
+        }
+        b = ok1.a;
     }
 
     public om3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new xm3();
-        this.c = false;
-        this.b = new ConcurrentLinkedQueue();
+        this.a = new PaymentManager();
     }
 
-    public final void o(int i, cn3 cn3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, cn3Var) == null) && cn3Var != null) {
-            cn3Var.f(i);
-        }
-    }
-
-    public void p(String str, cn3 cn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, cn3Var) == null) {
-            gg3.l(new a(this, str, cn3Var), "SessionController");
-        }
-    }
-
-    public static om3 l() {
+    public static File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (e == null) {
-                synchronized (om3.class) {
-                    if (e == null) {
-                        e = new om3();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
         }
-        return (om3) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.op1
+    public boolean a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        e43 b0;
+        bp2.a W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            cn3 cn3Var = this.d;
-            if (cn3Var == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (!m83.l() || (b0 = e43.b0()) == null || (W = b0.W()) == null) {
                 return false;
             }
-            return cn3Var.c();
+            f(str, kj4.g().u(AppRuntime.getAppContext()), ln2.h0().i(ln2.c()), fk3.i(b0.getApplicationContext()), str2, str3, ln2.n().a(), W.T());
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public xm3 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new xm3();
-            }
-            return this.a;
-        }
-        return (xm3) invokeV.objValue;
-    }
-
-    public final void g(String str, cn3 cn3Var) {
-        byte[] b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cn3Var) == null) {
-            if (cn3Var == null) {
-                o(-1, null);
-            } else if (str == null && TextUtils.equals(cn3Var.b(), "POST")) {
-                o(-1, cn3Var);
-            } else {
-                if (im3.a) {
-                    Log.d("BDTLS", "BdtlsPmsRequest before bdtls encrypt requestData = " + str);
-                }
-                if (TextUtils.equals(cn3Var.b(), "GET")) {
-                    b2 = mm3.f().b(this.a, null);
-                } else {
-                    b2 = mm3.f().b(this.a, str);
-                }
-                if (b2 != null) {
-                    if (im3.a) {
-                        Log.d("BDTLS", "doBdtlsApplicationDataRequest");
-                    }
-                    cn3Var.i(true);
-                    this.d = cn3Var;
-                    cn3Var.h(b2);
-                    return;
-                }
-                o(-1, cn3Var);
-            }
-        }
-    }
-
-    public final void j(String str, cn3 cn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cn3Var) == null) {
-            if (this.a.h() != 2) {
-                if (!this.a.j()) {
-                    if (this.b == null) {
-                        this.b = new ConcurrentLinkedQueue();
-                    }
-                    this.b.offer(new sm3(str, cn3Var));
-                    if (kx2.c()) {
-                        tm3 tm3Var = new tm3();
-                        long j = tm3Var.getLong("expireTime", 0L);
-                        if (j > System.currentTimeMillis() / 1000) {
-                            this.a.l(tm3Var.getString("secretKey", "").getBytes());
-                            this.a.t(tm3Var.getString("sessionTicket", "").getBytes());
-                            this.a.r(j);
-                            g(str, cn3Var);
-                            return;
-                        }
-                    }
-                    h();
-                    return;
-                }
-                g(str, cn3Var);
-                return;
-            }
-            i(str, cn3Var);
-        }
-    }
-
-    public void h() {
+    @Override // com.baidu.tieba.op1
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (im3.a) {
-                Log.d("BDTLS", "doHandShake");
-            }
-            if (this.c) {
-                if (im3.a) {
-                    Log.d("BDTLS", "doHandShake isHandshakeRunning");
-                    return;
-                }
-                return;
-            }
-            this.c = true;
-            byte[] e2 = mm3.f().e(this.a);
-            if (e2 != null && e2.length > 0) {
-                new en3().a(e2, new b(this));
-                return;
-            }
-            this.c = false;
-            n("record data error");
-        }
-    }
-
-    public final void i(String str, cn3 cn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cn3Var) == null) {
-            if (cn3Var != null && TextUtils.equals(cn3Var.b(), "GET")) {
-                if (im3.a) {
-                    Log.d("BDTLS", "doNormalApplicationDataRequest");
-                }
-                cn3Var.i(false);
-                this.d = cn3Var;
-                cn3Var.h(null);
-            } else if (cn3Var != null && str != null) {
-                if (im3.a) {
-                    Log.d("BDTLS", "doNormalApplicationDataRequest");
-                }
-                cn3Var.i(false);
-                this.d = cn3Var;
-                cn3Var.h(str.getBytes());
-            } else {
-                o(-1, cn3Var);
-            }
-        }
-    }
-
-    public final void n(String str) {
-        int i;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (im3.a) {
-                Log.d("BDTLS", "onHandshakeError");
-            }
-            if (TextUtils.equals(str, "down grade")) {
-                i = 2;
-            } else {
-                i = -1;
-            }
-            this.a.s(i);
-            while (true) {
-                sm3 sm3Var = (sm3) this.b.poll();
-                if (sm3Var != null) {
-                    if (i == 2) {
-                        i(sm3Var.b(), sm3Var.a());
-                    } else {
-                        cn3 a2 = sm3Var.a();
-                        if (a2 != null) {
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "connect fail";
-                            } else {
-                                str2 = str;
-                            }
-                            a2.e(new IOException(str2));
+            String E = ik4.E(e());
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (!TextUtils.isEmpty(E)) {
+                try {
+                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
+                        if (b) {
+                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
+                            return;
                         }
+                        return;
                     }
-                } else {
+                } catch (NumberFormatException e) {
+                    if (b) {
+                        e.printStackTrace();
+                        return;
+                    }
                     return;
+                }
+            }
+            this.a.p(new a(this, currentTimeMillis));
+        }
+    }
+
+    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("masterId", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("userPassId", str2);
+                }
+                jSONObject.put("cuid", str3);
+                jSONObject.put("bduss", str4);
+                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
+                jSONObject.put("businessId", str6);
+                jSONObject.put("naid", str7);
+                jSONObject.put("scene", str8);
+                this.a.o(jSONObject, new b(this));
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
         }

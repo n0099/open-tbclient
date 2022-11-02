@@ -19,9 +19,11 @@ public final class StringsKt__StringsKt$rangesDelimitedBy$1 extends Lambda imple
         this.$ignoreCase = z;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        return invoke((CharSequence) obj, ((Number) obj2).intValue());
+    public /* bridge */ /* synthetic */ Pair<? extends Integer, ? extends Integer> invoke(CharSequence charSequence, Integer num) {
+        return invoke(charSequence, num.intValue());
     }
 
     public final Pair<Integer, Integer> invoke(CharSequence receiver, int i) {

@@ -19,7 +19,7 @@ public class BLCPRequest {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SendTimeoutSecond {
+    public static final class SendTimeoutSecond {
         public static final /* synthetic */ SendTimeoutSecond[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SendTimeoutSecond TIMEOUT_120s;

@@ -1,95 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class wf1 {
+public class wf1 extends vf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public wf1(Context context) {
+    @Override // com.baidu.tieba.vf1
+    public int delete(int i, Uri uri, String str, String[] strArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public String getType(int i, Uri uri) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
+            return null;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public Uri insert(int i, Uri uri, ContentValues contentValues) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
+            return null;
+        }
+        return (Uri) invokeILL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wf1() {
+        super(0, 100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vf1
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File a = de1.a(str);
-            if (a != null && a.exists() && a.isFile()) {
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
+            if ("_get_service_handler".equals(str)) {
+                return of1.a();
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public Bitmap a(String str, dg1 dg1Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vf1
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, dg1Var)) == null) {
-            try {
-                File a = de1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return BitmapFactory.decodeFile(a.getAbsolutePath());
-                }
-            } catch (OutOfMemoryError unused) {
-            }
-            return MaterialLoader.k(this.a).i(str, dg1Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) {
+            return "_get_service_handler".equals(str);
         }
-        return (Bitmap) invokeLL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vf1
+    public void e(Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
-            try {
-                File a = de1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return a.getAbsolutePath();
-                }
-                return MaterialLoader.k(this.a).m(str, materialCacheType);
-            } catch (Throwable unused) {
-                return null;
-            }
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, uri, i) != null) || i == 3) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        super.e(uri, i);
     }
 
-    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.vf1
+    public void f(UriMatcher uriMatcher, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
-            if (!MaterialLoader.k(this.a).o(str, materialCacheType) && !d(str)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
+            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vf1
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
+            if (i == 1) {
+                return new pf1(of1.a());
+            }
+            return null;
+        }
+        return (Cursor) invokeCommon.objValue;
     }
 }

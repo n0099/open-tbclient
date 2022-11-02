@@ -43,8 +43,8 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     public ProtocolDecoder protocolDecoder;
     public ProtocolEncoder protocolEncoder;
     public final ProtocolType protocolType;
-    public volatile Map requestJobList;
-    public volatile Map requestJobListCmd;
+    public volatile Map<String, IRequest> requestJobList;
+    public volatile Map<Integer, IRequest> requestJobListCmd;
     public final boolean requestReuse;
     public final IRevenueService.IRevenueServiceListener serviceListener;
     public final int useChannel;
@@ -113,14 +113,14 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
             if (this.requestReuse) {
                 String str4 = this.TAG;
                 RLog.debug(str4, "cancel requestReuse = " + this.requestReuse + "Command:" + i);
-                serviceResponse.setReq((IRequest) this.requestJobListCmd.remove(Integer.valueOf(i)));
+                serviceResponse.setReq(this.requestJobListCmd.remove(Integer.valueOf(i)));
             } else {
                 String str5 = this.TAG;
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
                 String format = String.format("cancel seq = %s", Arrays.copyOf(new Object[]{str}, 1));
                 Intrinsics.checkExpressionValueIsNotNull(format, "java.lang.String.format(format, *args)");
                 RLog.error(str5, format, new Object[0]);
-                Map map = this.requestJobList;
+                Map<String, IRequest> map = this.requestJobList;
                 if (map != null) {
                     serviceResponse.setReq((IRequest) TypeIntrinsics.asMutableMap(map).remove(str));
                 } else {
@@ -138,18 +138,18 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int size = this.requestJobList.size();
-            for (Map.Entry entry : this.requestJobList.entrySet()) {
-                IRequest iRequest = (IRequest) entry.getValue();
-                String str = (String) entry.getKey();
-                String str2 = this.TAG;
-                RLog.info(str2, "cancelAllRequest key:" + str + " cmd:" + iRequest.getReqCommand());
-                if (iRequest instanceof RequestJob) {
-                    cancel(iRequest.getReqCommand(), str, ErrorCode.CLIENT_CANCEL_REQUEST, "取消请求");
+            for (Map.Entry<String, IRequest> entry : this.requestJobList.entrySet()) {
+                IRequest value = entry.getValue();
+                String key = entry.getKey();
+                String str = this.TAG;
+                RLog.info(str, "cancelAllRequest key:" + key + " cmd:" + value.getReqCommand());
+                if (value instanceof RequestJob) {
+                    cancel(value.getReqCommand(), key, ErrorCode.CLIENT_CANCEL_REQUEST, "取消请求");
                 }
             }
             int size2 = this.requestJobList.size();
-            String str3 = this.TAG;
-            RLog.info(str3, "cancelAllRequest sizeBeforeCancel:" + size + " sizeAfterCancel:" + size2);
+            String str2 = this.TAG;
+            RLog.info(str2, "cancelAllRequest sizeBeforeCancel:" + size + " sizeAfterCancel:" + size2);
             IRevenueDataSender iRevenueDataSender = this.iDataSender;
             if (iRevenueDataSender != null) {
                 iRevenueDataSender.cancelAllRequest(this.appId, this.useChannel);
@@ -158,25 +158,25 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.IRevenueService
-    public IRequest obtainRequest(int i, RequestParams requestParams) {
+    public <T extends RequestParams> IRequest obtainRequest(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, requestParams)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, t)) == null) {
             String str = this.TAG;
-            RLog.debug(str, "obtainRequest command = " + i + " requestReuse = " + this.requestReuse + " retryCount = " + requestParams.getRetryCount());
+            RLog.debug(str, "obtainRequest command = " + i + " requestReuse = " + this.requestReuse + " retryCount = " + t.getRetryCount());
             if (this.requestReuse) {
-                Object obj = this.requestJobListCmd.get(Integer.valueOf(i));
-                if (obj != null) {
-                    return (IRequest) obj;
+                IRequest iRequest = this.requestJobListCmd.get(Integer.valueOf(i));
+                if (iRequest != null) {
+                    return iRequest;
                 }
-                if (requestParams.getRetryCount() > 0) {
-                    return RetryRequestJob.Companion.obtain(i, this.appId, requestParams, this.protocolEncoder, this, requestParams.getRetryCount(), requestParams.getIntervalMs(), requestParams.getTimeOutMs(), requestParams.getRetryType());
+                if (t.getRetryCount() > 0) {
+                    return RetryRequestJob.Companion.obtain(i, this.appId, t, this.protocolEncoder, this, t.getRetryCount(), t.getIntervalMs(), t.getTimeOutMs(), t.getRetryType());
                 }
-                return RequestJob.Companion.obtain(i, this.appId, requestParams, this.protocolEncoder, this);
-            } else if (requestParams.getRetryCount() > 0) {
-                return RetryRequestJob.Companion.obtain(i, this.appId, requestParams, this.protocolEncoder, this, requestParams.getRetryCount(), requestParams.getIntervalMs(), requestParams.getTimeOutMs(), requestParams.getRetryType());
+                return RequestJob.Companion.obtain(i, this.appId, t, this.protocolEncoder, this);
+            } else if (t.getRetryCount() > 0) {
+                return RetryRequestJob.Companion.obtain(i, this.appId, t, this.protocolEncoder, this, t.getRetryCount(), t.getIntervalMs(), t.getTimeOutMs(), t.getRetryType());
             } else {
-                return RequestJob.Companion.obtain(i, this.appId, requestParams, this.protocolEncoder, this);
+                return RequestJob.Companion.obtain(i, this.appId, t, this.protocolEncoder, this);
             }
         }
         return (IRequest) invokeIL.objValue;
@@ -194,7 +194,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
             if (this.requestReuse) {
                 String str4 = this.TAG;
                 RLog.debug(str4, "onRequestError requestReuse = " + this.requestReuse + "Command:" + i3);
-                IRequest iRequest = (IRequest) this.requestJobListCmd.get(Integer.valueOf(i3));
+                IRequest iRequest = this.requestJobListCmd.get(Integer.valueOf(i3));
                 if (iRequest != null) {
                     if (iRequest instanceof RetryRequestJob) {
                         ((RetryRequestJob) iRequest).onRequestError(i4, str2);
@@ -206,7 +206,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
                 }
                 return;
             }
-            IRequest iRequest2 = (IRequest) this.requestJobList.get(str);
+            IRequest iRequest2 = this.requestJobList.get(str);
             if (iRequest2 != null) {
                 if (iRequest2 instanceof RetryRequestJob) {
                     ((RetryRequestJob) iRequest2).onRequestError(i4, str2);
@@ -232,7 +232,7 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
                 if (decode != null) {
                     int command = decode.getCommand();
                     if (this.requestReuse) {
-                        decode.setReq((IRequest) this.requestJobListCmd.get(Integer.valueOf(command)));
+                        decode.setReq(this.requestJobListCmd.get(Integer.valueOf(command)));
                         this.requestJobListCmd.remove(Integer.valueOf(command));
                         String str2 = this.TAG;
                         RLog.debug(str2, "onResponseData requestReuse = " + this.requestReuse + "Command:" + command);
@@ -248,8 +248,8 @@ public final class RevenueService implements IRevenueService, IDataSender, IReve
                             z = false;
                         }
                         if (!z) {
-                            decode.setReq((IRequest) this.requestJobList.get(decode.getSeq()));
-                            Map map = this.requestJobList;
+                            decode.setReq(this.requestJobList.get(decode.getSeq()));
+                            Map<String, IRequest> map = this.requestJobList;
                             String seq2 = decode.getSeq();
                             if (map != null) {
                                 TypeIntrinsics.asMutableMap(map).remove(seq2);

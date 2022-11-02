@@ -16,29 +16,29 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
+public final class MaybeFlatMapBiSelector<T, U, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
-    public final BiFunction resultSelector;
+    public final Function<? super T, ? extends MaybeSource<? extends U>> mapper;
+    public final BiFunction<? super T, ? super U, ? extends R> resultSelector;
 
     /* loaded from: classes8.dex */
-    public final class FlatMapBiMainObserver implements MaybeObserver, Disposable {
+    public static final class FlatMapBiMainObserver<T, U, R> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final InnerObserver inner;
-        public final Function mapper;
+        public final InnerObserver<T, U, R> inner;
+        public final Function<? super T, ? extends MaybeSource<? extends U>> mapper;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference implements MaybeObserver {
+        public static final class InnerObserver<T, U, R> extends AtomicReference<Disposable> implements MaybeObserver<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2897979525538174559L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MaybeObserver actual;
-            public final BiFunction resultSelector;
-            public Object value;
+            public final MaybeObserver<? super R> actual;
+            public final BiFunction<? super T, ? super U, ? extends R> resultSelector;
+            public T value;
 
-            public InnerObserver(MaybeObserver maybeObserver, BiFunction biFunction) {
+            public InnerObserver(MaybeObserver<? super R> maybeObserver, BiFunction<? super T, ? super U, ? extends R> biFunction) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,13 +82,13 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(U u) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    Object obj2 = this.value;
+                if (interceptable == null || interceptable.invokeL(1048579, this, u) == null) {
+                    T t = this.value;
                     this.value = null;
                     try {
-                        this.actual.onSuccess(ObjectHelper.requireNonNull(this.resultSelector.apply(obj2, obj), "The resultSelector returned a null value"));
+                        this.actual.onSuccess(ObjectHelper.requireNonNull(this.resultSelector.apply(t, u), "The resultSelector returned a null value"));
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         this.actual.onError(th);
@@ -97,7 +97,7 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
             }
         }
 
-        public FlatMapBiMainObserver(MaybeObserver maybeObserver, Function function, BiFunction biFunction) {
+        public FlatMapBiMainObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends MaybeSource<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
                     return;
                 }
             }
-            this.inner = new InnerObserver(maybeObserver, biFunction);
+            this.inner = new InnerObserver<>(maybeObserver, biFunction);
             this.mapper = function;
         }
 
@@ -129,7 +129,7 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.inner.get());
+                return DisposableHelper.isDisposed(this.inner.get());
             }
             return invokeV.booleanValue;
         }
@@ -159,14 +159,14 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 try {
-                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null MaybeSource");
+                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null MaybeSource");
                     if (DisposableHelper.replace(this.inner, null)) {
-                        InnerObserver innerObserver = this.inner;
-                        innerObserver.value = obj;
+                        InnerObserver<T, U, R> innerObserver = this.inner;
+                        innerObserver.value = t;
                         maybeSource.subscribe(innerObserver);
                     }
                 } catch (Throwable th) {
@@ -178,7 +178,7 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeFlatMapBiSelector(MaybeSource maybeSource, Function function, BiFunction biFunction) {
+    public MaybeFlatMapBiSelector(MaybeSource<T> maybeSource, Function<? super T, ? extends MaybeSource<? extends U>> function, BiFunction<? super T, ? super U, ? extends R> biFunction) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -200,7 +200,7 @@ public final class MaybeFlatMapBiSelector extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super R> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new FlatMapBiMainObserver(maybeObserver, this.mapper, this.resultSelector));

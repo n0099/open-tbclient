@@ -22,7 +22,7 @@ public class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a extends GZIPOutputStream {
+    public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

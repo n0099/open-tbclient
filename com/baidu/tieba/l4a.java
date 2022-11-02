@@ -1,37 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes4.dex */
-public class l4a implements r6a {
+public final class l4a implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t3a.b a;
+    public final k4a a;
+    public final IRevenue b;
 
-    @Override // com.baidu.tieba.r6a
-    public boolean b(DialogInterface dialogInterface) {
-        InterceptResult invokeL;
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayEventStatistics getPayEventStatistic() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return invokeL.booleanValue;
+        return (IPayEventStatistics) invokeV.objValue;
     }
 
-    public l4a(t3a.b bVar) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayServiceStatistics getPayServiceStatistics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (IPayServiceStatistics) invokeV.objValue;
+    }
+
+    public l4a(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,18 +57,37 @@ public class l4a implements r6a {
                 return;
             }
         }
-        this.a = bVar;
+        this.b = iRevenue;
+        IAppPayService appPayService = this.b.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.a = new k4a(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.baidu.tieba.r6a
-    public void a(CancelType cancelType) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
-            t3a.b bVar = this.a;
-            if (bVar != null) {
-                bVar.a(cancelType);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (IMiddlePayService) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
+            this.b.updateConfig(revenueConfig);
         }
     }
 }

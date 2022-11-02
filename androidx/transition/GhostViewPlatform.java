@@ -4,6 +4,8 @@ import android.graphics.Matrix;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class GhostViewPlatform implements GhostView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,7 +36,7 @@ public class GhostViewPlatform implements GhostView {
         }
     }
 
-    public GhostViewPlatform(View view2) {
+    public GhostViewPlatform(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

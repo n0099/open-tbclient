@@ -16,29 +16,29 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeOnErrorNext extends AbstractMaybeWithUpstream {
+public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
-    public final Function resumeFunction;
+    public final Function<? super Throwable, ? extends MaybeSource<? extends T>> resumeFunction;
 
     /* loaded from: classes8.dex */
-    public final class OnErrorNextMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class OnErrorNextMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2026620218879969836L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public final boolean allowFatal;
-        public final Function resumeFunction;
+        public final Function<? super Throwable, ? extends MaybeSource<? extends T>> resumeFunction;
 
         /* loaded from: classes8.dex */
-        public final class NextMaybeObserver implements MaybeObserver {
+        public static final class NextMaybeObserver<T> implements MaybeObserver<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MaybeObserver actual;
-            public final AtomicReference d;
+            public final MaybeObserver<? super T> actual;
+            public final AtomicReference<Disposable> d;
 
-            public NextMaybeObserver(MaybeObserver maybeObserver, AtomicReference atomicReference) {
+            public NextMaybeObserver(MaybeObserver<? super T> maybeObserver, AtomicReference<Disposable> atomicReference) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,15 +82,15 @@ public final class MaybeOnErrorNext extends AbstractMaybeWithUpstream {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(T t) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    this.actual.onSuccess(obj);
+                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                    this.actual.onSuccess(t);
                 }
             }
         }
 
-        public OnErrorNextMaybeObserver(MaybeObserver maybeObserver, Function function, boolean z) {
+        public OnErrorNextMaybeObserver(MaybeObserver<? super T> maybeObserver, Function<? super Throwable, ? extends MaybeSource<? extends T>> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public final class MaybeOnErrorNext extends AbstractMaybeWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -164,16 +164,16 @@ public final class MaybeOnErrorNext extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeOnErrorNext(MaybeSource maybeSource, Function function, boolean z) {
+    public MaybeOnErrorNext(MaybeSource<T> maybeSource, Function<? super Throwable, ? extends MaybeSource<? extends T>> function, boolean z) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -195,7 +195,7 @@ public final class MaybeOnErrorNext extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new OnErrorNextMaybeObserver(maybeObserver, this.resumeFunction, this.allowFatal));

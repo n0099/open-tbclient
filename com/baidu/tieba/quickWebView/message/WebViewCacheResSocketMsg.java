@@ -1,10 +1,11 @@
 package com.baidu.tieba.quickWebView.message;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.nd8;
+import com.baidu.tieba.xe8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mModuleInfos;
+    public Map<String, xe8> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResSocketMsg() {
@@ -39,7 +40,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
         }
     }
 
-    public Map getModuleInfos() {
+    public Map<String, xe8> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -49,6 +50,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -63,9 +65,9 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        nd8 nd8Var = new nd8();
-                        nd8Var.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, nd8Var);
+                        xe8 xe8Var = new xe8();
+                        xe8Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, xe8Var);
                     }
                 }
             }

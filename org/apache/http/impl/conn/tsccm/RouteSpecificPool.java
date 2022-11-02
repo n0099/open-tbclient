@@ -11,15 +11,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RouteSpecificPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList freeEntries;
+    public final LinkedList<BasicPoolEntry> freeEntries;
     public final int maxEntries;
     public int numEntries;
     public final HttpRoute route;
-    public final Queue waitingThreads;
+    public final Queue<WaitingThread> waitingThreads;
 
     public RouteSpecificPool(HttpRoute httpRoute, int i) {
         Interceptable interceptable = $ic;

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.l35;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.t25;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class PersonListModel extends BdBaseModel {
+public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
     public static final BdUniqueId FOLLOWME;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel {
     public d d;
     public int e;
     public PersonListActivity f;
-    public t25 g;
+    public l35 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -61,7 +61,7 @@ public class PersonListModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface d {
-        it4 a(it4 it4Var, boolean z);
+        zt4 a(zt4 zt4Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -173,7 +173,7 @@ public class PersonListModel extends BdBaseModel {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0) {
-                it4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                zt4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -187,7 +187,7 @@ public class PersonListModel extends BdBaseModel {
                 }
             } else if (this.a.d != null) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c68);
+                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
@@ -225,21 +225,21 @@ public class PersonListModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 return;
             }
-            it4 data = ((ResponseLocalPersonListMessage) customResponsedMessage).getData();
-            if (data != null) {
-                if (!StringUtils.isNull(data.g)) {
-                    this.a.j = data.g;
-                    this.a.i = data.h;
+            zt4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            if (data2 != null) {
+                if (!StringUtils.isNull(data2.g)) {
+                    this.a.j = data2.g;
+                    this.a.i = data2.h;
                 }
-                data.h = this.a.i;
-                data.g = this.a.j;
+                data2.h = this.a.i;
+                data2.g = this.a.j;
                 if (this.a.d != null) {
-                    this.a.d.a(data, true);
+                    this.a.d.a(data2, true);
                 }
             } else if (this.a.d != null) {
                 this.a.d.b("", true);
@@ -248,7 +248,7 @@ public class PersonListModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class e extends BdAsyncTask {
+    public static class e extends BdAsyncTask<Void, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -385,9 +385,9 @@ public class PersonListModel extends BdBaseModel {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        t25 t25Var = new t25(personListActivity.getPageContext());
-        this.g = t25Var;
-        t25Var.j(this.mLoadDataCallBack);
+        l35 l35Var = new l35(personListActivity.getPageContext());
+        this.g = l35Var;
+        l35Var.j(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

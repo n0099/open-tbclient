@@ -18,24 +18,24 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeEqualSingle extends Single {
+public final class MaybeEqualSingle<T> extends Single<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate isEqual;
-    public final MaybeSource source1;
-    public final MaybeSource source2;
+    public final BiPredicate<? super T, ? super T> isEqual;
+    public final MaybeSource<? extends T> source1;
+    public final MaybeSource<? extends T> source2;
 
     /* loaded from: classes8.dex */
-    public final class EqualCoordinator extends AtomicInteger implements Disposable {
+    public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final BiPredicate isEqual;
-        public final EqualObserver observer1;
-        public final EqualObserver observer2;
+        public final SingleObserver<? super Boolean> actual;
+        public final BiPredicate<? super T, ? super T> isEqual;
+        public final EqualObserver<T> observer1;
+        public final EqualObserver<T> observer2;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EqualCoordinator(SingleObserver singleObserver, BiPredicate biPredicate) {
+        public EqualCoordinator(SingleObserver<? super Boolean> singleObserver, BiPredicate<? super T, ? super T> biPredicate) {
             super(2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -54,8 +54,8 @@ public final class MaybeEqualSingle extends Single {
             }
             this.actual = singleObserver;
             this.isEqual = biPredicate;
-            this.observer1 = new EqualObserver(this);
-            this.observer2 = new EqualObserver(this);
+            this.observer1 = new EqualObserver<>(this);
+            this.observer2 = new EqualObserver<>(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -72,7 +72,7 @@ public final class MaybeEqualSingle extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.observer1.get());
+                return DisposableHelper.isDisposed(this.observer1.get());
             }
             return invokeV.booleanValue;
         }
@@ -93,7 +93,7 @@ public final class MaybeEqualSingle extends Single {
                         return;
                     }
                 }
-                SingleObserver singleObserver = this.actual;
+                SingleObserver<? super Boolean> singleObserver = this.actual;
                 if (obj == null && obj2 == null) {
                     z = true;
                 } else {
@@ -103,11 +103,11 @@ public final class MaybeEqualSingle extends Single {
             }
         }
 
-        public void error(EqualObserver equalObserver, Throwable th) {
+        public void error(EqualObserver<T> equalObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, equalObserver, th) == null) {
                 if (getAndSet(0) > 0) {
-                    EqualObserver equalObserver2 = this.observer1;
+                    EqualObserver<T> equalObserver2 = this.observer1;
                     if (equalObserver == equalObserver2) {
                         this.observer2.dispose();
                     } else {
@@ -120,7 +120,7 @@ public final class MaybeEqualSingle extends Single {
             }
         }
 
-        public void subscribe(MaybeSource maybeSource, MaybeSource maybeSource2) {
+        public void subscribe(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, maybeSource, maybeSource2) == null) {
                 maybeSource.subscribe(this.observer1);
@@ -130,14 +130,14 @@ public final class MaybeEqualSingle extends Single {
     }
 
     /* loaded from: classes8.dex */
-    public final class EqualObserver extends AtomicReference implements MaybeObserver {
+    public static final class EqualObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3031974433025990931L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final EqualCoordinator parent;
+        public final EqualCoordinator<T> parent;
         public Object value;
 
-        public EqualObserver(EqualCoordinator equalCoordinator) {
+        public EqualObserver(EqualCoordinator<T> equalCoordinator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,10 +172,10 @@ public final class MaybeEqualSingle extends Single {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.value = obj;
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.value = t;
                 this.parent.done();
             }
         }
@@ -196,7 +196,7 @@ public final class MaybeEqualSingle extends Single {
         }
     }
 
-    public MaybeEqualSingle(MaybeSource maybeSource, MaybeSource maybeSource2, BiPredicate biPredicate) {
+    public MaybeEqualSingle(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, BiPredicate<? super T, ? super T> biPredicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -217,7 +217,7 @@ public final class MaybeEqualSingle extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             EqualCoordinator equalCoordinator = new EqualCoordinator(singleObserver, this.isEqual);

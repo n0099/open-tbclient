@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -340,6 +341,7 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
         }
     }
 
+    @Nullable
     public final ValueAnimator ar(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

@@ -17,19 +17,19 @@ import com.kwai.filedownloader.b.a;
 public interface b extends IInterface {
 
     /* loaded from: classes8.dex */
-    public abstract class a extends Binder implements b {
+    public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public final class C0622a implements b {
+        public static class C0633a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b avL;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
-            public C0622a(IBinder iBinder) {
+            public C0633a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -423,7 +423,7 @@ public interface b extends IInterface {
         public static b DX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0622a.avL : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0633a.avL : (b) invokeV.objValue;
         }
 
         public static b a(IBinder iBinder) {
@@ -434,7 +434,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0622a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0633a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -458,11 +458,11 @@ public interface b extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC0620a.c(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0631a.c(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC0620a.c(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC0631a.c(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
@@ -472,7 +472,7 @@ public interface b extends IInterface {
                         return true;
                     case 4:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt() != 0, parcel.readInt() != 0 ? (com.kwai.filedownloader.c.b) com.kwai.filedownloader.c.b.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0);
+                        b(parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt(), parcel.readInt(), parcel.readInt(), parcel.readInt() != 0, parcel.readInt() != 0 ? com.kwai.filedownloader.c.b.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0);
                         parcel2.writeNoException();
                         return true;
                     case 5:

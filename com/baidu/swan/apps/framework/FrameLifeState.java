@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.framework;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FrameLifeState {
     public static final /* synthetic */ FrameLifeState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +70,7 @@ public final class FrameLifeState {
         return (FrameLifeState) invokeL.objValue;
     }
 
-    public final boolean moreActiveThan(FrameLifeState frameLifeState) {
+    public final boolean moreActiveThan(@NonNull FrameLifeState frameLifeState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, frameLifeState)) == null) {
@@ -81,7 +82,7 @@ public final class FrameLifeState {
         return invokeL.booleanValue;
     }
 
-    public final boolean moreInactiveThan(FrameLifeState frameLifeState) {
+    public final boolean moreInactiveThan(@NonNull FrameLifeState frameLifeState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, frameLifeState)) == null) {
@@ -93,7 +94,7 @@ public final class FrameLifeState {
         return invokeL.booleanValue;
     }
 
-    public final boolean noMoreActiveThan(FrameLifeState frameLifeState) {
+    public final boolean noMoreActiveThan(@NonNull FrameLifeState frameLifeState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, frameLifeState)) == null) {
@@ -102,7 +103,7 @@ public final class FrameLifeState {
         return invokeL.booleanValue;
     }
 
-    public final boolean noMoreInactiveThan(FrameLifeState frameLifeState) {
+    public final boolean noMoreInactiveThan(@NonNull FrameLifeState frameLifeState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, frameLifeState)) == null) {

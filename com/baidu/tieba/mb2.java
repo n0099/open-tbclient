@@ -1,9 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.CustomJsCodeCacheHandler;
+import com.baidu.searchbox.v8engine.InspectorNativeChannel;
+import com.baidu.searchbox.v8engine.InspectorNativeClient;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.tieba.w22;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +33,113 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mb2 {
+public abstract class mb2 implements ob2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpManager a;
-    public String b;
-    public String c;
-    public kb2 d;
+    public V8Engine a;
+    public jc2 b;
+    public final String c;
+    public EventTarget d;
+    public EventTarget e;
+    public Context f;
+    public ac2 g;
+    public bc2 h;
+    public xb2 i;
+    public List<JSEvent> j;
+    public int k;
+    public boolean l;
+    public boolean m;
+
+    @NonNull
+    public abstract EventTarget A();
+
+    @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+    public String getCurrentPageUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c32
+    public boolean isWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements Callback {
+    public class a extends CustomJsCodeCacheHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(mb2 mb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.CustomJsCodeCacheHandler
+        public String getJsCodeCacheFilePath(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                File file = new File(str);
+                float b = w22.b.b() * 1024.0f;
+                if (b > 0.0f && ((float) file.length()) < b) {
+                    return null;
+                }
+                return str + "_cache";
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements V8Engine.V8StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mb2 a;
 
-        public a(mb2 mb2Var) {
+        @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
+        public void onPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
+        public void onResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public b(mb2 mb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,145 +157,129 @@ public class mb2 {
             this.a = mb2Var;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        @Override // com.baidu.searchbox.v8engine.V8Engine.V8StatusListener
+        public void onReady() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (mb2.e) {
-                    Log.e("ImageDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ot1.f(this.a.a);
+                this.a.z0();
             }
         }
+    }
 
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            InputStream byteStream;
-            String c;
+    /* loaded from: classes5.dex */
+    public class c implements V8ExecuteCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mb2 a;
+
+        public c(mb2 mb2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (TextUtils.isEmpty(this.a.c)) {
-                    if (wj1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
-                        return;
-                    }
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            c = um2.f().c(this.a.b);
-                        } catch (Throwable th) {
-                            th = th;
-                            fileOutputStream = null;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        file = null;
-                        fileOutputStream = null;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
+            }
+            this.a = mb2Var;
+        }
+
+        @Override // com.baidu.searchbox.v8engine.thread.V8ExecuteCallback
+        public void onExecuted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (mb2.n) {
+                    Log.d("SwanAppV8Engine", "finish onExecuted.");
                 }
-                if (TextUtils.isEmpty(c)) {
-                    if (wj1.a) {
-                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
-                    }
-                    qj4.d(byteStream);
-                    qj4.d(null);
-                    qj4.d(response);
+                this.a.w0();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSEvent a;
+        public final /* synthetic */ mb2 b;
+
+        public d(mb2 mb2Var, JSEvent jSEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb2Var, jSEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
-                File file2 = new File(str);
-                if (!file2.exists() || !file2.isDirectory()) {
-                    file2.mkdirs();
+            }
+            this.b = mb2Var;
+            this.a = jSEvent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.b.u0()) {
+                    if (mb2.n) {
+                        Log.d("SwanAppV8Engine", "dispatchEvent add to pending list.");
+                    }
+                    this.b.j.add(this.a);
+                    return;
                 }
-                String substring = c.substring(c.lastIndexOf("/") + 1);
-                file = new File(str, substring + ".bddownload");
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    while (true) {
-                        try {
-                            int read = byteStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        } catch (Exception e3) {
-                            e = e3;
-                            inputStream = byteStream;
-                            try {
-                                if (mb2.e) {
-                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
-                                }
-                                if (file != null) {
-                                    file.delete();
-                                }
-                                if (this.a.d != null) {
-                                    this.a.d.fail(-1, this.a.b);
-                                }
-                                qj4.d(inputStream);
-                                qj4.d(fileOutputStream);
-                                qj4.d(response);
-                            } catch (Throwable th3) {
-                                th = th3;
-                                qj4.d(inputStream);
-                                qj4.d(fileOutputStream);
-                                qj4.d(response);
-                                throw th;
-                            }
-                        } catch (Throwable th4) {
-                            th = th4;
-                            inputStream = byteStream;
-                            qj4.d(inputStream);
-                            qj4.d(fileOutputStream);
-                            qj4.d(response);
-                            throw th;
-                        }
-                    }
-                    fileOutputStream.flush();
-                    File file3 = new File(str, substring);
-                    if (file3.exists() && !file3.isDirectory()) {
-                        file3.delete();
-                    }
-                    String absolutePath = file3.getAbsolutePath();
-                    if (file.renameTo(file3)) {
-                        if (mb2.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
-                        }
-                        if (this.a.d != null) {
-                            this.a.d.a(this.a.b, absolutePath);
-                        }
-                    } else {
-                        if (mb2.e) {
-                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
-                        }
-                        file.delete();
-                        if (this.a.d != null) {
-                            this.a.d.fail(-1, absolutePath);
-                        }
-                    }
-                    qj4.d(byteStream);
-                } catch (Exception e4) {
-                    e = e4;
-                    fileOutputStream = null;
+                this.b.d.dispatchEvent(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mb2 a;
+
+        public e(mb2 mb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                qj4.d(fileOutputStream);
-                qj4.d(response);
+            }
+            this.a = mb2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (JSEvent jSEvent : this.a.j) {
+                    if (mb2.n) {
+                        Log.d("SwanAppV8Engine", "doPendingDispatch event type: " + jSEvent.type);
+                    }
+                    this.a.dispatchEvent(jSEvent);
+                }
+                this.a.j.clear();
             }
         }
     }
@@ -209,22 +297,323 @@ public class mb2 {
                 return;
             }
         }
-        e = wj1.a;
+        n = ok1.a;
+        x93.c();
     }
 
-    public void e() {
+    public void A0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            um2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            u(new yb2(this));
+            G0(new zb2(this));
         }
     }
 
-    public mb2(HttpManager httpManager, String str, String str2, kb2 kb2Var) {
+    @NonNull
+    public EventTarget D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new EventTargetImpl(this);
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null) {
+            tl1 m = mn2.m();
+            String str = null;
+            if (m != null) {
+                str = m.e();
+            }
+            this.a.setBdFileRealPath(str);
+        }
+    }
+
+    public void H0() {
+        V8Engine v8Engine;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (v8Engine = this.a) != null) {
+            v8Engine.setMainPackageBasePath(rp2.U().z());
+        }
+    }
+
+    public final void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (n) {
+                Log.d("SwanAppV8Engine", "doPendingDispatch start.");
+            }
+            runOnJSThread(new e(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public bc2 d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (this.h == null) {
+                this.h = new bc2(this.a);
+            }
+            return this.h;
+        }
+        return (bc2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c32
+    public String getContainerId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.f;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public String getInitBasePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.b.getInitBasePath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c32
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return rp2.U().z();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c32
+    public boolean isDestroyed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048604, this) != null) || this.l) {
+            return;
+        }
+        if (n) {
+            Log.d("SwanAppV8Engine", "finish called.");
+        }
+        this.l = true;
+        x0();
+        this.a.destroyEngine(new c(this));
+    }
+
+    public V8Engine l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.a;
+        }
+        return (V8Engine) invokeV.objValue;
+    }
+
+    public String m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + this.c + "] : ";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public EventTarget n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return this.d;
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    public NetRequest n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.a.getNetRequest();
+        }
+        return (NetRequest) invokeV.objValue;
+    }
+
+    public JSONArray o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            V8Engine v8Engine = this.a;
+            if (v8Engine == null) {
+                return null;
+            }
+            return v8Engine.getPerformanceJson();
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c32
+    public void onJSLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            ya2.U().w0(true);
+        }
+    }
+
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            V8Engine v8Engine = this.a;
+            if (v8Engine != null) {
+                v8Engine.onPause();
+            }
+            p0().f(this);
+            this.k = 4;
+        }
+    }
+
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            V8Engine v8Engine = this.a;
+            if (v8Engine != null) {
+                v8Engine.onResume();
+            }
+            p0().h(this);
+            this.k = 5;
+        }
+    }
+
+    public final rb2 p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return rb2.i();
+        }
+        return (rb2) invokeV.objValue;
+    }
+
+    public boolean s0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            if (this.k == 7) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean t0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+            p0().b(this);
+            this.k = 1;
+        }
+    }
+
+    public final void w0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
+            p0().c(this);
+            this.k = 7;
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public EventTarget x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return this.e;
+        }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    public final void x0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            p0().d(this);
+            this.k = 6;
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public xb2 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            return this.i;
+        }
+        return (xb2) invokeV.objValue;
+    }
+
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+            p0().e(this);
+            this.k = 3;
+            this.m = true;
+            S();
+        }
+    }
+
+    public final void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            p0().g(this);
+            this.k = 2;
+            this.b.c(this);
+        }
+    }
+
+    public mb2(@NonNull String str, @NonNull jc2 jc2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {httpManager, str, str2, kb2Var};
+            Object[] objArr = {str, jc2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -234,11 +623,305 @@ public class mb2 {
                 return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = httpManager;
+        this.k = 0;
+        this.m = false;
         this.c = str;
-        this.b = str2;
-        this.d = kb2Var;
+        this.b = jc2Var;
+        String initBasePath = getInitBasePath();
+        if (TextUtils.isEmpty(initBasePath)) {
+            return;
+        }
+        this.d = A();
+        this.e = D();
+        V8Engine v8Engine = new V8Engine(AppRuntime.getAppContext(), initBasePath, this.b.a(), v8ThreadDelegatePolicy, this.d, this.e);
+        this.a = v8Engine;
+        if (v8ThreadDelegatePolicy instanceof f62) {
+            ((f62) v8ThreadDelegatePolicy).d(v8Engine);
+        }
+        this.a.setExternalV8BinFilesPath(x93.a());
+        this.a.setFileSystemDelegatePolicy(new fc2());
+        if (jc2Var.b() != null) {
+            this.a.setCodeCacheSetting(jc2Var.b());
+        }
+        this.g = new ac2(this.a);
+        this.i = new xb2(this.a);
+        this.j = new ArrayList();
+        v0();
+    }
+
+    public void B0(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, codeCacheSetting) == null) {
+            this.a.setCodeCacheSetting(codeCacheSetting);
+        }
+    }
+
+    public void C0(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            this.f = context;
+        }
+    }
+
+    public void E0(V8FileSystemDelegatePolicy v8FileSystemDelegatePolicy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, v8FileSystemDelegatePolicy) == null) {
+            this.a.setFileSystemDelegatePolicy(v8FileSystemDelegatePolicy);
+        }
+    }
+
+    public void F0(JsCodeCacheCallback jsCodeCacheCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsCodeCacheCallback) == null) {
+            this.a.setJsCodeCacheCallback(jsCodeCacheCallback);
+        }
+    }
+
+    public void G0(@NonNull V8Engine.JavaScriptExceptionDelegate javaScriptExceptionDelegate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, javaScriptExceptionDelegate) == null) {
+            this.a.setJavaScriptExceptionDelegate(javaScriptExceptionDelegate);
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public boolean post(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, runnable)) == null) {
+            runOnJSThread(runnable);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ob2, com.baidu.searchbox.v8engine.JSRuntime
+    public void postOnJSThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048615, this, runnable) != null) || runnable == null) {
+            return;
+        }
+        this.a.postOnJSThread(runnable);
+    }
+
+    public InspectorNativeClient r0(InspectorNativeChannel inspectorNativeChannel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, inspectorNativeChannel)) == null) {
+            return this.a.initInspector(inspectorNativeChannel);
+        }
+        return (InspectorNativeClient) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob2, com.baidu.searchbox.v8engine.JSRuntime
+    public void runOnJSThread(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048619, this, runnable) != null) || runnable == null) {
+            return;
+        }
+        this.a.runOnJSThread(runnable);
+    }
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void runOnJSThreadDirectly(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048620, this, runnable) != null) || runnable == null) {
+            return;
+        }
+        this.a.runOnJSThreadDirectly(runnable);
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public void setPreferredFramesPerSecond(short s) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Short.valueOf(s)}) == null) {
+            this.a.setPreferredFramesPerSecond(s);
+        }
+    }
+
+    public void u(@NonNull V8Engine.V8EngineConsole v8EngineConsole) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048626, this, v8EngineConsole) == null) {
+            this.a.addV8EngineConsole(v8EngineConsole);
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public JsSerializeValue B(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, bArr, z)) == null) {
+            return this.a.deserialize(bArr, z);
+        }
+        return (JsSerializeValue) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public byte[] J(JsSerializeValue jsSerializeValue, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, jsSerializeValue, z)) == null) {
+            return this.a.serialize(jsSerializeValue, z);
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public void Z(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.g.c(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.c32
+    public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048595, this, str, valueCallback) == null) {
+            this.g.b(str, valueCallback);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    public void postOnJSThread(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048616, this, runnable, j) != null) || runnable == null) {
+            return;
+        }
+        this.a.postOnJSThread(runnable, j);
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public void throwJSException(JSExceptionType jSExceptionType, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048625, this, jSExceptionType, str) == null) {
+            this.g.d(jSExceptionType, str);
+        }
+    }
+
+    public void I0(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (n) {
+            Log.d("SwanAppV8Engine", "setUserAgent: " + str);
+        }
+        this.a.setUserAgent(str);
+    }
+
+    @Override // com.baidu.tieba.c32
+    public void addJavascriptInterface(@NonNull Object obj, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, obj, str) == null) {
+            if (n) {
+                Log.d("SwanAppV8Engine", "addJavascriptInterface object: " + obj + " ,name: " + str);
+            }
+            this.g.a(obj, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.c32
+    public void continueTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            synchronized (rb2.class) {
+                if (!isDestroyed()) {
+                    e12.i("SwanAppV8Engine", "continueTimer: for=" + this);
+                    onResume();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c32
+    public void suspendTimer() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+            synchronized (rb2.class) {
+                if (!isDestroyed()) {
+                    e12.i("SwanAppV8Engine", "suspendTimer: for=" + this);
+                    onPause();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ob2
+    public boolean dispatchEvent(JSEvent jSEvent) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, jSEvent)) == null) {
+            if (n) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("dispatchEvent event: ");
+                if (jSEvent != null) {
+                    str = jSEvent.type;
+                } else {
+                    str = "";
+                }
+                sb.append(str);
+                Log.d("SwanAppV8Engine", sb.toString());
+            }
+            if (this.d != null && JSEvent.isValid(jSEvent)) {
+                runOnJSThread(new d(this, jSEvent));
+                return true;
+            } else if (n) {
+                Log.e("SwanAppV8Engine", "dispatchEvent globalObject or event is invalid.");
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
+    public void handleSchemeDispatchCallback(String str, String str2) {
+        String quote;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
+            if (t0()) {
+                if (n) {
+                    Log.e("SwanAppV8Engine", Log.getStackTraceString(new Exception("engine isFinishing.")));
+                    return;
+                }
+                return;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                quote = "";
+            } else {
+                quote = JSONObject.quote(str2);
+            }
+            evaluateJavascript(str + "(" + quote + ");", null);
+            if (n) {
+                Log.d("SwanAppV8Engine", "handleSchemeDispatchCallback callback " + str + " ,params: " + str2);
+            }
+        }
+    }
+
+    public void q0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            this.a.setMemSetMemoryEnable(true);
+            A0();
+            if (n) {
+                Log.d("SwanAppV8Engine", "initEngine start.");
+            }
+            this.b.d(this);
+            boolean a2 = w22.b.a();
+            if (a2) {
+                this.a.setCustomJsCodeCacheHandler(new a(this));
+            }
+            if (n) {
+                Log.i("SwanAppV8Engine", "customCodeCache:" + a2 + ", limitSize=" + w22.b.b() + ", rank=" + w22.b.c());
+            }
+            this.a.startEngine();
+            this.a.addStatusHandler(new b(this));
+            if (n) {
+                Log.d("SwanAppV8Engine", "initEngine end.");
+            }
+        }
     }
 }

@@ -1,197 +1,99 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.SpannableString;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ed1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class fd1 extends BaseAdapter {
+public class fd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public Context b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static NetworkInfo a() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-        public ImageView e;
-        public LinearLayout f;
-        public LinearLayout g;
-        public TextView h;
-        public ImageView i;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = hd1.a();
+            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+                return null;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09071a);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090719);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e3e);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ab);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09071b);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090717);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090714);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090718);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e48);
+            return connectivityManager.getActiveNetworkInfo();
         }
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public fd1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-    }
-
-    public final String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public ed1.a getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.a.size()) {
-                return (ed1.a) this.a.get(i);
-            }
-            return null;
-        }
-        return (ed1.a) invokeI.objValue;
-    }
-
-    public void c(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                return true;
             }
-            return list.size();
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            ed1.a item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            boolean z2 = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01fd, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                if (item.a == -1) {
-                    aVar.g.setVisibility(8);
-                    aVar.f.setVisibility(0);
-                    aVar.h.setText(item.d);
-                    ImageView imageView = aVar.i;
-                    if (item.h == 1) {
-                        z2 = true;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    break;
+                default:
+                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                        return "unknown";
                     }
-                    imageView.setSelected(z2);
-                } else {
-                    aVar.g.setVisibility(0);
-                    aVar.f.setVisibility(8);
-                    aVar.a.setText(item.d);
-                    if (TextUtils.isEmpty(item.e)) {
-                        aVar.b.setVisibility(8);
-                    } else {
-                        aVar.b.setVisibility(0);
-                        aVar.b.setText(item.e);
-                    }
-                    ImageView imageView2 = aVar.c;
-                    if (item.h == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    imageView2.setSelected(z);
-                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
-                    spannableString.setSpan(new AbsoluteSizeSpan(gc1.a(this.b, 14.0f)), 0, 1, 33);
-                    aVar.d.setText(spannableString);
-                }
+                    break;
             }
-            return view2;
+            return "3";
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "4";
+                }
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "0";
+        }
+        return (String) invokeV.objValue;
     }
 }

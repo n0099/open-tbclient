@@ -11,14 +11,17 @@ public final class DisposeOnCancel extends CancelHandler {
         this.handle = disposableHandle;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        invoke((Throwable) obj);
+    public /* bridge */ /* synthetic */ Unit invoke(Throwable th) {
+        invoke2(th);
         return Unit.INSTANCE;
     }
 
     @Override // kotlinx.coroutines.CancelHandlerBase
-    public void invoke(Throwable th) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public void invoke2(Throwable th) {
         this.handle.dispose();
     }
 

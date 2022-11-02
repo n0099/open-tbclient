@@ -1,86 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.content.Context;
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fx1 extends sw1 {
+public class fx1 extends bx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
 
-    public fx1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx1(b53 b53Var) {
+        super(b53Var, "/swanAPI/canvas/measureTextSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((b53) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
-        float f;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
-            TextPaint textPaint = tw1Var.e;
-            int i = tw1Var.k;
-            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top;
-            int i2 = this.c;
-            float f3 = i2 + f2;
-            float f4 = fontMetrics.ascent + i2;
-            float f5 = fontMetrics.bottom;
-            float f6 = i2 + f5;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        f = i2;
-                    } else {
-                        f = i2 - (f4 - f3);
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            unitedSchemeEntity.result = l(201);
+            ez1 m = m(unitedSchemeEntity);
+            if (m == null) {
+                return false;
+            }
+            String str = m.k;
+            if (str != null && str.length() > 0) {
+                if (m.n && m.o) {
+                    i2 = 3;
+                } else if (m.n) {
+                    i2 = 1;
+                } else if (m.o) {
+                    i2 = 2;
                 } else {
-                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
+                    i2 = 0;
                 }
+                TextPaint textPaint = new TextPaint();
+                textPaint.setTypeface(Typeface.create(m.l, i2));
+                textPaint.setTextSize(m.m);
+                Rect rect = new Rect();
+                String str2 = m.k;
+                textPaint.getTextBounds(str2, 0, str2.length(), rect);
+                i = vh3.O(rect.width());
             } else {
-                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
+                i = 0;
             }
-            int alpha = textPaint.getAlpha();
-            tw1Var.c(textPaint);
-            canvas.drawText(this.a, this.b, f, textPaint);
-            textPaint.setAlpha(alpha);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("width", Integer.valueOf(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void b(JSONArray jSONArray) {
+    public ez1 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = dh3.g((float) jSONArray.optDouble(1));
-                    this.c = dh3.g((float) jSONArray.optDouble(2));
-                }
-            } catch (Exception e) {
-                if (wj1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str)) {
+                return new ez1(str);
             }
+            return null;
         }
+        return (ez1) invokeL.objValue;
     }
 }

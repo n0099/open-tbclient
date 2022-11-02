@@ -69,25 +69,25 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void v() {
+    public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    public final void w() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
-    public final void x() {
+    public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    public final void y() {
+    public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
@@ -123,7 +123,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
                 return;
             }
-            this.a.v();
+            this.a.w();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -132,7 +132,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
                 return;
             }
-            this.a.w();
+            this.a.x();
             if (this.a.i) {
                 this.a.i = false;
             }
@@ -146,7 +146,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) {
                 return;
             }
-            this.a.x();
+            this.a.y();
             if (this.a.i) {
                 this.a.cancelAnimation();
                 this.a.i = false;
@@ -159,7 +159,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(1048579, this, animator) != null) {
                 return;
             }
-            this.a.y();
+            this.a.z();
             this.a.h = true;
         }
     }

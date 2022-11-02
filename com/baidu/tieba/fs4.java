@@ -1,88 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes4.dex */
-public class fs4 {
+public class fs4 extends BaseCardInfo implements wn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
+    public List<es4> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774690, "Lcom/baidu/tieba/fs4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774690, "Lcom/baidu/tieba/fs4;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public fs4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        int i;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("is_bawu") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(jSONObject.optString("bawu_type"))) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (jSONObject.optInt("is_deleted") == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
-        boolean z;
-        int i;
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
             return;
         }
-        boolean z2 = false;
-        if (multiForumPerm.is_bawu.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+        for (BannerImage bannerImage : list) {
+            es4 es4Var = new es4();
+            es4Var.d(bannerImage);
+            this.a.add(es4Var);
         }
-        this.a = z;
-        if ("manager".equals(multiForumPerm.bawu_type)) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (multiForumPerm.is_deleted.intValue() == 1) {
-            z2 = true;
-        }
-        this.c = z2;
     }
 }

@@ -1,10 +1,12 @@
 package com.bumptech.glide.manager;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.Set;
 /* loaded from: classes7.dex */
@@ -27,7 +29,8 @@ public final class EmptyRequestManagerTreeNode implements RequestManagerTreeNode
     }
 
     @Override // com.bumptech.glide.manager.RequestManagerTreeNode
-    public Set getDescendants() {
+    @NonNull
+    public Set<RequestManager> getDescendants() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

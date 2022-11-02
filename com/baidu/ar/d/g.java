@@ -22,9 +22,9 @@ public class g {
     public long mI;
     public f mP;
     public e mQ;
-    public ConcurrentHashMap mR;
-    public List mS;
-    public ConcurrentHashMap mT;
+    public ConcurrentHashMap<String, e> mR;
+    public List<k> mS;
+    public ConcurrentHashMap<String, e> mT;
     public OnNeedCacheFrameListener mU;
     public boolean mV;
 
@@ -43,9 +43,9 @@ public class g {
                 return;
             }
         }
-        this.mR = new ConcurrentHashMap();
+        this.mR = new ConcurrentHashMap<>();
         this.mS = Collections.synchronizedList(new ArrayList());
-        this.mT = new ConcurrentHashMap();
+        this.mT = new ConcurrentHashMap<>();
         this.mI = 0L;
         this.g = cVar;
         OnNeedCacheFrameListener onNeedCacheFrameListener = new OnNeedCacheFrameListener(this) { // from class: com.baidu.ar.d.g.1
@@ -156,7 +156,7 @@ public class g {
                 if (lVar != null) {
                     if (lVar.dc() != "DetectorGroup") {
                         if (this.mR != null && this.mR.get(lVar.dc()) != null) {
-                            ((e) this.mR.get(lVar.dc())).a(lVar);
+                            this.mR.get(lVar.dc()).a(lVar);
                         }
                     }
                 }
@@ -172,7 +172,7 @@ public class g {
                 if (lVar != null) {
                     if (lVar.dc() != "DetectorGroup") {
                         if (this.mR != null && this.mR.get(lVar.dc()) != null) {
-                            ((e) this.mR.get(lVar.dc())).b(lVar);
+                            this.mR.get(lVar.dc()).b(lVar);
                         }
                     }
                 }
@@ -187,11 +187,11 @@ public class g {
             synchronized (this) {
                 if (bVar != null) {
                     if (bVar instanceof c) {
-                        Iterator it = ((c) bVar).df().iterator();
+                        Iterator<b> it = ((c) bVar).df().iterator();
                         while (it.hasNext()) {
-                            b bVar2 = (b) it.next();
-                            if (bVar2 != null && !TextUtils.isEmpty(bVar2.dc()) && this.mR != null && this.mR.get(bVar2.dc()) != null) {
-                                ((e) this.mR.get(bVar2.dc())).a(bVar2);
+                            b next = it.next();
+                            if (next != null && !TextUtils.isEmpty(next.dc()) && this.mR != null && this.mR.get(next.dc()) != null) {
+                                this.mR.get(next.dc()).a(next);
                             }
                         }
                     }
@@ -211,18 +211,18 @@ public class g {
                                 this.g.j(true);
                             }
                             this.mS.remove(jVar);
-                            this.mP.b(jVar, (e) this.mT.get(jVar.getName()));
-                            e eVar = (e) this.mT.remove(jVar.getName());
-                            if (eVar != null) {
-                                this.mR.put(jVar.getName(), eVar);
+                            this.mP.b(jVar, this.mT.get(jVar.getName()));
+                            e remove = this.mT.remove(jVar.getName());
+                            if (remove != null) {
+                                this.mR.put(jVar.getName(), remove);
                             }
                         } else if (!jVar.dj() && this.mP.c(jVar)) {
                             this.mP.d(jVar);
                             this.mS.add(jVar);
-                            jVar.d((e) this.mR.get(jVar.getName()));
-                            e eVar2 = (e) this.mR.remove(jVar.getName());
-                            if (eVar2 != null) {
-                                this.mT.put(jVar.getName(), eVar2);
+                            jVar.d(this.mR.get(jVar.getName()));
+                            e remove2 = this.mR.remove(jVar.getName());
+                            if (remove2 != null) {
+                                this.mT.put(jVar.getName(), remove2);
                             }
                             if (this.mP.isEmpty()) {
                                 this.g.j(false);
@@ -256,7 +256,7 @@ public class g {
     }
 
     public synchronized void a(k kVar, e eVar) {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, e> concurrentHashMap;
         String name;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, kVar, eVar) == null) {

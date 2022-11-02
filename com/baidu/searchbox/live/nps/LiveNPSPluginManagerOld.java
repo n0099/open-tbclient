@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -34,9 +35,9 @@ import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b91;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.z81;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
+import com.baidu.tieba.u91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +123,7 @@ public class LiveNPSPluginManagerOld {
     }
 
     /* loaded from: classes2.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManagerOld instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +266,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void clearResourceFile(Context context) {
+    public void clearResourceFile(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             npsLoadChainInitOther();
@@ -330,7 +331,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startAdminListActivity(Context context) {
+    public void startAdminListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             npsLoadChainInitOther();
@@ -392,7 +393,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startForbiddenListActivity(Context context) {
+    public void startForbiddenListActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, context) == null) {
             npsLoadChainInitOther();
@@ -454,7 +455,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startPatronageActivity(Context context) {
+    public void startPatronageActivity(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, context) == null) {
             npsLoadChainInitOther();
@@ -578,7 +579,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void dispatchLiveMasterRouter(Application application, String str, Map map) {
+    public void dispatchLiveMasterRouter(@NonNull Application application, String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, application, str, map) == null) {
             npsLoadChainInitStart();
@@ -644,7 +645,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startBjhMasterActivity(Application application, String str, Uri uri) {
+    public void startBjhMasterActivity(@NonNull Application application, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, application, str, uri) == null) {
             npsLoadChainInitStart();
@@ -710,7 +711,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startFansListActivity(Context context, String str, int i) {
+    public void startFansListActivity(@NonNull Context context, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048596, this, context, str, i) == null) {
             npsLoadChainInitOther();
@@ -774,7 +775,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startGuardianListActivity(Context context, String str, String str2) {
+    public void startGuardianListActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, context, str, str2) == null) {
             npsLoadChainInitOther();
@@ -840,7 +841,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startMasterActivity(Context context, String str, String str2) {
+    public void startMasterActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048602, this, context, str, str2) == null) {
             npsLoadChainInitStart();
@@ -900,7 +901,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startMasterActivityV2(Context context, String str, String str2) {
+    public void startMasterActivityV2(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048603, this, context, str, str2) == null) {
             npsLoadChainInitStart();
@@ -962,7 +963,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startRealAuthActivity(Context context, String str, String str2) {
+    public void startRealAuthActivity(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048607, this, context, str, str2) == null) {
             npsLoadChainInitOther();
@@ -1037,7 +1038,7 @@ public class LiveNPSPluginManagerOld {
         return invokeII.intValue;
     }
 
-    public void getLiveResourceFileSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
+    public void getLiveResourceFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, iLiveFileSizeCallback) == null) {
             npsLoadChainInitOther();
@@ -1099,7 +1100,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void getLiveRoomStatus(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void getLiveRoomStatus(@NonNull String str, @NonNull LiveStatusDataCallback<String> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, liveStatusDataCallback) == null) {
             npsLoadChainInitOther();
@@ -1159,7 +1160,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void getLiveSdkFileSize(Context context, ILiveFileSizeCallback iLiveFileSizeCallback) {
+    public void getLiveSdkFileSize(@NonNull Context context, @NonNull ILiveFileSizeCallback iLiveFileSizeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, iLiveFileSizeCallback) == null) {
             npsLoadChainInitOther();
@@ -1221,7 +1222,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void isInHistory(String str, LiveStatusDataCallback liveStatusDataCallback) {
+    public void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, liveStatusDataCallback) == null) {
             npsLoadChainInitOther();
@@ -1281,7 +1282,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startLiveShowActivity(Context context, String str) {
+    public void startLiveShowActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, context, str) == null) {
             npsLoadChainInitOther();
@@ -1345,7 +1346,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startPatronsActivity(Context context, String str) {
+    public void startPatronsActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048605, this, context, str) == null) {
             npsLoadChainInitOther();
@@ -1409,7 +1410,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startPayActivity(Context context, String str) {
+    public void startPayActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, context, str) == null) {
             npsLoadChainInitOther();
@@ -1473,7 +1474,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startShowMasterActivity(Context context, String str) {
+    public void startShowMasterActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048608, this, context, str) == null) {
             npsLoadChainInitStart();
@@ -1537,7 +1538,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startYuYinCreateLiveRoomActivity(Context context, String str) {
+    public void startYuYinCreateLiveRoomActivity(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048614, this, context, str) == null) {
             npsLoadChainInitOther();
@@ -1601,7 +1602,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public static String bundleToJsonStr(Map map) {
+    public static String bundleToJsonStr(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, map)) == null) {
@@ -1621,7 +1622,7 @@ public class LiveNPSPluginManagerOld {
         return (String) invokeL.objValue;
     }
 
-    public static HashMap stringToMap(String str) {
+    public static HashMap<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -1629,7 +1630,7 @@ public class LiveNPSPluginManagerOld {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             for (String str3 : str.split("&")) {
                 String[] split = str3.split("=");
                 try {
@@ -1676,19 +1677,19 @@ public class LiveNPSPluginManagerOld {
                 }
                 if (!z2) {
                     if (z) {
-                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
+                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LiveNPSPluginManagerOld this$0;
 
-                            @Override // com.baidu.tieba.z81
+                            @Override // com.baidu.tieba.r91
                             public void onProgress(long j, long j2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                                 }
                             }
 
-                            @Override // com.baidu.tieba.z81
+                            @Override // com.baidu.tieba.r91
                             public void onResult(int i, String str) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -1712,7 +1713,7 @@ public class LiveNPSPluginManagerOld {
                                 }
                                 this.this$0 = this;
                             }
-                        }, new b91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
+                        }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -1735,29 +1736,29 @@ public class LiveNPSPluginManagerOld {
                                 this.this$0 = this;
                             }
 
-                            @Override // com.baidu.tieba.b91
-                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, c91 c91Var) {
+                            @Override // com.baidu.tieba.t91
+                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                                 Interceptable interceptable2 = $ic;
-                                if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c91Var) == null) && c91Var != null) {
-                                    c91Var.onResult(1);
+                                if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                                    u91Var.onResult(1);
                                 }
                             }
                         }, 1);
                         return;
                     } else {
-                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
+                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LiveNPSPluginManagerOld this$0;
 
-                            @Override // com.baidu.tieba.z81
+                            @Override // com.baidu.tieba.r91
                             public void onProgress(long j, long j2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                                 }
                             }
 
-                            @Override // com.baidu.tieba.z81
+                            @Override // com.baidu.tieba.r91
                             public void onResult(int i, String str) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -1808,19 +1809,19 @@ public class LiveNPSPluginManagerOld {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65570, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new z81(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
+            NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new r91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManagerOld this$0;
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.z81
+                @Override // com.baidu.tieba.r91
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -1844,7 +1845,7 @@ public class LiveNPSPluginManagerOld {
                     }
                     this.this$0 = this;
                 }
-            }, new b91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
+            }, new t91(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManagerOld this$0;
@@ -1867,11 +1868,11 @@ public class LiveNPSPluginManagerOld {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.b91
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, c91 c91Var) {
+                @Override // com.baidu.tieba.t91
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, u91 u91Var) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, c91Var) == null) && c91Var != null) {
-                        c91Var.onResult(1);
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, u91Var) == null) && u91Var != null) {
+                        u91Var.onResult(1);
                     }
                 }
             }, 1);
@@ -2428,7 +2429,7 @@ public class LiveNPSPluginManagerOld {
                 pluginLoadCallback2.onResult(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, "old arch can not install", null, "download");
                 this.mCurrentCallback = null;
             }
-            showNormalToast(R.string.obfuscated_res_0x7f0f0a54, 0);
+            showNormalToast(R.string.obfuscated_res_0x7f0f0a60, 0);
         }
     }
 
@@ -2466,30 +2467,30 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
+    /* JADX DEBUG: Type inference failed for r0v11. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v11, types: [java.util.Map] */
     public void realJumpToYYLiveActivity(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65587, this, context, str) == null) {
             if (str.contains("&isMix=")) {
-                HashMap stringToMap = stringToMap(getParamsStr(str));
+                HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
                 boolean containsKey = stringToMap.containsKey("params");
-                HashMap hashMap = stringToMap;
+                Map map = stringToMap;
                 if (containsKey) {
                     try {
-                        hashMap = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                        map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                     } catch (Exception unused) {
-                        hashMap = null;
+                        map = null;
                     }
                 }
-                if (hashMap != null) {
-                    String str2 = (String) hashMap.get(ILiveNPSPlugin.PARAMS_ROOM_ID);
-                    String str3 = (String) hashMap.get("source");
-                    if (!hashMap.containsKey("roomType")) {
-                        hashMap.put("roomType", "3");
+                if (map != null) {
+                    String str2 = map.get(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                    String str3 = map.get("source");
+                    if (!map.containsKey("roomType")) {
+                        map.put("roomType", "3");
                     }
-                    startLiveMediaActivity(context, str2, str3, bundleToJsonStr(hashMap), Uri.parse(str), true);
+                    startLiveMediaActivity(context, str2, str3, bundleToJsonStr(map), Uri.parse(str), true);
                     return;
                 }
                 this.mLiveNPSPlugin.getYYLiveEntry().startYYLiveActivity(context, str);
@@ -2499,7 +2500,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startAudioMasterActivity(Application application, String str) {
+    public void startAudioMasterActivity(@NonNull Application application, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, application, str) == null) {
             npsLoadChainInitStart();
@@ -2578,7 +2579,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startYYCustomerServiceActivity(Context context, String str) {
+    public void startYYCustomerServiceActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048610, this, context, str) == null) {
             Log.d(TAG, "startYYCustomerServiceActivity t=" + System.currentTimeMillis());
@@ -2676,7 +2677,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startYYFeedbackActivity(Context context, String str) {
+    public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048611, this, context, str) == null) {
             Log.d(TAG, "startYYFeedbackActivity t=" + System.currentTimeMillis());
@@ -2883,7 +2884,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public static Map paramsJsonToMap(JSONObject jSONObject) {
+    public static Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, jSONObject)) == null) {
@@ -2906,54 +2907,54 @@ public class LiveNPSPluginManagerOld {
         return (Map) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.util.Map] */
     public String parserYYSchemaUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, this, str)) == null) {
-            HashMap stringToMap = stringToMap(getParamsStr(str));
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
-            HashMap hashMap = stringToMap;
+            Map map = stringToMap;
             if (containsKey) {
                 try {
-                    hashMap = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                 } catch (Exception unused) {
-                    hashMap = null;
+                    map = null;
                 }
             }
-            if (hashMap != null) {
-                return (String) hashMap.get("url");
+            if (map != null) {
+                return map.get("url");
             }
             return "";
         }
         return (String) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v6. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.util.Map] */
     private String parseEntry(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, this, str)) == null) {
-            HashMap stringToMap = stringToMap(getParamsStr(str));
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
-            HashMap hashMap = stringToMap;
+            Map map = stringToMap;
             if (containsKey) {
                 try {
-                    hashMap = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                 } catch (Exception unused) {
-                    hashMap = null;
+                    map = null;
                 }
             }
             String str2 = "";
-            if (hashMap == null) {
+            if (map == null) {
                 return "";
             }
-            String str3 = (String) hashMap.get("tab");
-            String str4 = (String) hashMap.get("tag");
-            String str5 = (String) hashMap.get("source");
+            String str3 = map.get("tab");
+            String str4 = map.get("tag");
+            String str5 = map.get("source");
             StringBuilder sb = new StringBuilder();
             if (str3 == null) {
                 str3 = "";
@@ -2971,30 +2972,30 @@ public class LiveNPSPluginManagerOld {
         return (String) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Type inference failed for r1v7. Raw type applied. Possible types: java.util.Map<java.lang.String, java.lang.String> */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.util.Map] */
-    public Map parseYYLiveParamMap(String str) {
+    public Map<String, String> parseYYLiveParamMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, this, str)) == null) {
             HashMap hashMap = new HashMap();
-            HashMap stringToMap = stringToMap(getParamsStr(str));
+            HashMap<String, String> stringToMap = stringToMap(getParamsStr(str));
             boolean containsKey = stringToMap.containsKey("params");
-            HashMap hashMap2 = stringToMap;
+            Map map = stringToMap;
             if (containsKey) {
                 try {
-                    hashMap2 = paramsJsonToMap(new JSONObject((String) stringToMap.get("params")));
+                    map = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
                 } catch (Exception unused) {
-                    hashMap2 = null;
+                    map = null;
                 }
             }
-            if (hashMap2 != null) {
-                String str2 = (String) hashMap2.get("sid");
-                String str3 = (String) hashMap2.get(YyLiveRoomConfig.KEY_SSID);
-                String str4 = (String) hashMap2.get("anchorUid");
-                String str5 = (String) hashMap2.get("templateId");
-                String str6 = (String) hashMap2.get(YyLiveRoomConfig.KEY_STREAMINFO);
+            if (map != null) {
+                String str2 = map.get("sid");
+                String str3 = map.get(YyLiveRoomConfig.KEY_SSID);
+                String str4 = map.get("anchorUid");
+                String str5 = map.get("templateId");
+                String str6 = map.get(YyLiveRoomConfig.KEY_STREAMINFO);
                 if (str.contains("isMix=1")) {
                     hashMap.put("PreJoinChannelType", "mix");
                 } else {
@@ -3061,7 +3062,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void checkArSdkLoadStatus(Context context, LiveNpsArStatusCallback liveNpsArStatusCallback) {
+    public void checkArSdkLoadStatus(@NonNull Context context, @NonNull LiveNpsArStatusCallback liveNpsArStatusCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, liveNpsArStatusCallback) == null) {
             npsLoadChainInitOther();
@@ -3123,7 +3124,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startArSdkLoad(Context context, LiveNpsArLoadCallback liveNpsArLoadCallback) {
+    public void startArSdkLoad(@NonNull Context context, @NonNull LiveNpsArLoadCallback liveNpsArLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, context, liveNpsArLoadCallback) == null) {
             npsLoadChainInitOther();
@@ -3263,7 +3264,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void dispatchHostEvent(Context context, String str, Map map) {
+    public void dispatchHostEvent(@NonNull Context context, @NonNull String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, str, map) == null) && this.mLiveNPSPlugin != null) {
             if (map != null && !TextUtils.isEmpty(str) && context != null) {
@@ -3284,11 +3285,11 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void dispatchYYLiveRouter(Context context, String str) {
+    public void dispatchYYLiveRouter(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostSchemeParseBegin", Long.valueOf(System.currentTimeMillis()));
             checkHandler();
@@ -3364,7 +3365,7 @@ public class LiveNPSPluginManagerOld {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Log.d(LiveNPSPluginManagerOld.TAG, "finish load class t=" + System.currentTimeMillis());
                                         if (YYStaticConfig.conf == null) {
-                                            YYStaticConfig.conf = new HashMap();
+                                            YYStaticConfig.conf = new HashMap<>();
                                         }
                                         if ("download".equals(this.val$loadType)) {
                                             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "download");
@@ -3399,7 +3400,7 @@ public class LiveNPSPluginManagerOld {
                 return;
             }
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "direct");
             if (this.mLiveNPSPlugin.getYYLiveEntry() != null && !this.mLiveNPSPlugin.getYYLiveEntry().isLoaded()) {
@@ -3417,7 +3418,7 @@ public class LiveNPSPluginManagerOld {
         if (interceptable == null || interceptable.invokeLL(1048612, this, context, str) == null) {
             Log.d(TAG, "startYYLiveActivity t=" + System.currentTimeMillis());
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLiveBegin", Long.valueOf(System.currentTimeMillis()));
             UBCManager uBCManager = this.ubcManager;
@@ -3467,7 +3468,7 @@ public class LiveNPSPluginManagerOld {
                             if (i == 14) {
                                 try {
                                     if (YYStaticConfig.conf == null) {
-                                        YYStaticConfig.conf = new HashMap();
+                                        YYStaticConfig.conf = new HashMap<>();
                                     }
                                     if ("download".equals(str3)) {
                                         YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "download");
@@ -3476,7 +3477,7 @@ public class LiveNPSPluginManagerOld {
                                     } else if ("load".equals(str3)) {
                                         YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "load");
                                     }
-                                    Map parseYYLiveParamMap = this.this$0.parseYYLiveParamMap(this.val$url);
+                                    Map<? extends String, ? extends Object> parseYYLiveParamMap = this.this$0.parseYYLiveParamMap(this.val$url);
                                     LiveNPSPluginManagerOld liveNPSPluginManagerOld2 = this.this$0;
                                     liveNPSPluginManagerOld2.dLog("parseYYLiveParamMap " + parseYYLiveParamMap);
                                     YYStaticConfig.conf.putAll(parseYYLiveParamMap);
@@ -3519,7 +3520,7 @@ public class LiveNPSPluginManagerOld {
                 return;
             }
             if (YYStaticConfig.conf == null) {
-                YYStaticConfig.conf = new HashMap();
+                YYStaticConfig.conf = new HashMap<>();
             }
             YYStaticConfig.conf.put("hostJoinLivePluginFromStatus", "direct");
             if (this.mLiveNPSPlugin.getYYLiveEntry() != null) {
@@ -3536,7 +3537,7 @@ public class LiveNPSPluginManagerOld {
                     this.pageFlow = null;
                 }
                 if (!this.mLiveNPSPlugin.getYYLiveEntry().isLoaded()) {
-                    Map parseYYLiveParamMap = parseYYLiveParamMap(str);
+                    Map<String, String> parseYYLiveParamMap = parseYYLiveParamMap(str);
                     dLog("not load parseYYLiveParamMap " + parseYYLiveParamMap);
                     YYStaticConfig.conf.putAll(parseYYLiveParamMap);
                 }
@@ -3684,7 +3685,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startBjhMasterActivityNew(Context context, String str, Uri uri) {
+    public void startBjhMasterActivityNew(@NonNull Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, context, str, uri) == null) {
             if (getPluginInstallVersion() >= 506000000) {
@@ -3757,7 +3758,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startLiveExpActivity(Context context, long j, int i) {
+    public void startLiveExpActivity(@NonNull Context context, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
             npsLoadChainInitOther();
@@ -3830,7 +3831,7 @@ public class LiveNPSPluginManagerOld {
         }
     }
 
-    public void startYuYinActivity(Context context, String str, String str2, Map map) {
+    public void startYuYinActivity(@NonNull Context context, @NonNull String str, @NonNull String str2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048613, this, context, str, str2, map) == null) {
             npsLoadChainInitOther();

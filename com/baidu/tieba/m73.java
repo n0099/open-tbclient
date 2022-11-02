@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m73 extends j53 {
+public class m73 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vp1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m73(j43 j43Var) {
-        super(j43Var, "/swanAPI/webviewPostMessage");
+    public m73(b53 b53Var) {
+        super(b53Var, "/swanAPI/stopPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,63 +36,33 @@ public class m73 extends j53 {
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            m02.i("webviewPostMsg", "start post webview msg");
-            vp1 vp1Var = this.c;
-            if (vp1Var == null) {
-                m02.c("webviewPostMsg", "none webview widget");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            n32 V = rp2.U().V();
+            if (V == null) {
+                e12.c("stopPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            }
-            k73 params = vp1Var.getParams();
-            if (params == null) {
-                m02.c("webviewPostMsg", "none WWWParams");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
-                return false;
-            }
-            JSONObject a = j53.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                m02.c("webviewPostMsg", "none params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
-                return false;
-            } else if (!a.has("data")) {
-                m02.c("webviewPostMsg", "none param data");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
+            } else if (!(V.m() instanceof m32)) {
+                e12.c("stopPullDownRefresh", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                String optString = a.optString("data");
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("data", optString);
-                    jSONObject.put("eventType", "message");
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
-                    jSONObject.put("webviewId", params.b);
-                } catch (JSONException e) {
-                    if (j53.b) {
-                        e.printStackTrace();
-                    }
-                    m02.c("webviewPostMsg", "meet json exception");
+                m32 m32Var = (m32) V.m();
+                if (m32Var.h0() == null) {
+                    e12.c("stopPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
                 }
-                ti3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
-                m02.i("webviewPostMsg", "post webview msg success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                m32Var.h0().w(false);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                e12.i("stopPullDownRefresh", "refresh complete");
                 return true;
             }
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public void j(vp1 vp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vp1Var) == null) {
-            this.c = vp1Var;
-        }
     }
 }

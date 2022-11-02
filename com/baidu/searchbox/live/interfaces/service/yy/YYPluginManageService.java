@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.util.SparseArray;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginBundleInfo;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginDownloadCallback;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginInstallCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,7 +26,7 @@ public interface YYPluginManageService {
 
     void downloadFile(String str, String str2, String str3, String str4, YYPluginDownloadCallback yYPluginDownloadCallback);
 
-    SparseArray getPluginBundleInfo(String str);
+    SparseArray<YYPluginBundleInfo> getPluginBundleInfo(String str);
 
     boolean hookHostAssets(String str);
 
@@ -35,13 +36,13 @@ public interface YYPluginManageService {
 
     boolean installPluginApk(String str);
 
-    Pair installPluginApkWithCode(String str);
+    Pair<Boolean, Integer> installPluginApkWithCode(String str);
 
     void resetBundleType(String str, int i);
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/yy/YYPluginManageService$Companion;", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "SERVICE_REFERENCE", "Lcom/baidu/pyramid/runtime/service/ServiceReference;", "getSERVICE_REFERENCE", "()Lcom/baidu/pyramid/runtime/service/ServiceReference;", "<init>", "()V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE;
         public static /* synthetic */ Interceptable $ic;
         public static final ServiceReference SERVICE_REFERENCE;

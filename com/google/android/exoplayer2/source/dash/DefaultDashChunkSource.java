@@ -59,7 +59,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     public final int trackType;
 
     /* loaded from: classes7.dex */
-    public final class Factory implements DashChunkSource.Factory {
+    public static final class Factory implements DashChunkSource.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource.Factory dataSourceFactory;
@@ -117,7 +117,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class RepresentationHolder {
+    public static final class RepresentationHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ChunkExtractorWrapper extractorWrapper;
@@ -296,10 +296,10 @@ public class DefaultDashChunkSource implements DashChunkSource {
         this.maxSegmentsPerLoad = i3;
         long periodDurationUs = dashManifest.getPeriodDurationUs(i);
         this.liveEdgeTimeUs = C.TIME_UNSET;
-        ArrayList representations = getRepresentations();
+        ArrayList<Representation> representations = getRepresentations();
         this.representationHolders = new RepresentationHolder[trackSelection.length()];
         for (int i6 = 0; i6 < this.representationHolders.length; i6++) {
-            this.representationHolders[i6] = new RepresentationHolder(periodDurationUs, i2, (Representation) representations.get(trackSelection.getIndexInTrackGroup(i6)), z, z2);
+            this.representationHolders[i6] = new RepresentationHolder(periodDurationUs, i2, representations.get(trackSelection.getIndexInTrackGroup(i6)), z, z2);
         }
     }
 
@@ -331,14 +331,14 @@ public class DefaultDashChunkSource implements DashChunkSource {
         }
     }
 
-    private ArrayList getRepresentations() {
+    private ArrayList<Representation> getRepresentations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List list = this.manifest.getPeriod(this.periodIndex).adaptationSets;
-            ArrayList arrayList = new ArrayList();
+            List<AdaptationSet> list = this.manifest.getPeriod(this.periodIndex).adaptationSets;
+            ArrayList<Representation> arrayList = new ArrayList<>();
             for (int i : this.adaptationSetIndices) {
-                arrayList.addAll(((AdaptationSet) list.get(i)).representations);
+                arrayList.addAll(list.get(i).representations);
             }
             return arrayList;
         }
@@ -417,7 +417,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
-    public int getPreferredQueueSize(long j, List list) {
+    public int getPreferredQueueSize(long j, List<? extends MediaChunk> list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, list)) == null) {
@@ -537,9 +537,9 @@ public class DefaultDashChunkSource implements DashChunkSource {
                 this.manifest = dashManifest;
                 this.periodIndex = i;
                 long periodDurationUs = dashManifest.getPeriodDurationUs(i);
-                ArrayList representations = getRepresentations();
+                ArrayList<Representation> representations = getRepresentations();
                 for (int i2 = 0; i2 < this.representationHolders.length; i2++) {
-                    this.representationHolders[i2].updateRepresentation(periodDurationUs, (Representation) representations.get(this.trackSelection.getIndexInTrackGroup(i2)));
+                    this.representationHolders[i2].updateRepresentation(periodDurationUs, representations.get(this.trackSelection.getIndexInTrackGroup(i2)));
                 }
             } catch (BehindLiveWindowException e) {
                 this.fatalError = e;

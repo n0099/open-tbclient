@@ -28,7 +28,7 @@ public class df {
     public Context f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue f208a;
+    public final ConcurrentLinkedQueue<b> f208a;
 
     /* loaded from: classes8.dex */
     public class a extends b {
@@ -275,7 +275,7 @@ public class df {
                 return;
             }
         }
-        ConcurrentLinkedQueue concurrentLinkedQueue = new ConcurrentLinkedQueue();
+        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
         this.f208a = concurrentLinkedQueue;
         this.f207a = context;
         concurrentLinkedQueue.add(new a(this));
@@ -301,9 +301,9 @@ public class df {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        b bVar;
+        b peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (bVar = (b) this.f208a.peek()) != null && bVar.a()) {
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f208a.peek()) != null && peek.a()) {
             b(j);
         }
     }
@@ -337,13 +337,13 @@ public class df {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             while (!this.f208a.isEmpty()) {
-                b bVar = (b) this.f208a.peek();
-                if (bVar != null) {
-                    if (!bVar.b() && this.f208a.size() <= 6) {
+                b peek = this.f208a.peek();
+                if (peek != null) {
+                    if (!peek.b() && this.f208a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f208a.remove(bVar);
+                    this.f208a.remove(peek);
                 }
             }
         }

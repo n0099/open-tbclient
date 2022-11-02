@@ -1,5 +1,6 @@
 package androidx.appcompat.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.SpinnerAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.view.WindowCallbackWrapper;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -142,7 +145,7 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -157,7 +160,7 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLZ(1048576, this, menuBuilder, z) != null) || this.mClosingActionMenu) {
                 return;
@@ -179,7 +182,7 @@ public class ToolbarActionBar extends ActionBar {
         public final /* synthetic */ ToolbarActionBar this$0;
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, menuBuilder, menuItem)) == null) {
@@ -207,7 +210,7 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public void onMenuModeChange(MenuBuilder menuBuilder) {
+        public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder) == null) {
                 ToolbarActionBar toolbarActionBar = this.this$0;
@@ -690,7 +693,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setBackgroundDrawable(Drawable drawable) {
+    public void setBackgroundDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, drawable) == null) {
             this.mDecorToolbar.setBackgroundDrawable(drawable);
@@ -720,6 +723,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
+    @SuppressLint({"WrongConstant"})
     public void setDisplayOptions(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {

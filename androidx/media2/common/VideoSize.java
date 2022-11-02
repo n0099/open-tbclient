@@ -1,5 +1,8 @@
 package androidx.media2.common;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +31,7 @@ public class VideoSize implements VersionedParcelable {
         }
     }
 
+    @IntRange(from = 0)
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,6 +41,7 @@ public class VideoSize implements VersionedParcelable {
         return invokeV.intValue;
     }
 
+    @IntRange(from = 0)
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,6 +62,7 @@ public class VideoSize implements VersionedParcelable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +72,7 @@ public class VideoSize implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
-    public VideoSize(int i, int i2) {
+    public VideoSize(@IntRange(from = 0) int i, @IntRange(from = 0) int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +98,7 @@ public class VideoSize implements VersionedParcelable {
         throw new IllegalArgumentException("width can not be negative");
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {

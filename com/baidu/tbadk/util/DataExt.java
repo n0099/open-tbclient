@@ -2,6 +2,8 @@ package com.baidu.tbadk.util;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -40,20 +42,21 @@ public final class DataExt {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class GsonWidget {
+    public static class GsonWidget {
         public static /* synthetic */ Interceptable $ic;
         public static final Type a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public final class BadNumberFix implements JsonDeserializer {
+        public static final class BadNumberFix implements JsonDeserializer<Number> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final List a;
+            @NonNull
+            public final List<String> a;
 
             /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
             /* loaded from: classes3.dex */
-            public final class NumberType {
+            public static final class NumberType {
                 public static final /* synthetic */ NumberType[] $VALUES;
                 public static /* synthetic */ Interceptable $ic;
                 public static final NumberType DOUBLE;
@@ -61,7 +64,7 @@ public final class DataExt {
                 public static final NumberType INTEGER;
                 public static final NumberType LONG;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final List typeList;
+                public final List<Class<?>> typeList;
 
                 static {
                     InterceptResult invokeClinit;
@@ -114,7 +117,8 @@ public final class DataExt {
                     return (NumberType) invokeL.objValue;
                 }
 
-                public static NumberType valueOfByType(Type type) {
+                @Nullable
+                public static NumberType valueOfByType(@NonNull Type type) {
                     InterceptResult invokeL;
                     NumberType[] values;
                     Interceptable interceptable = $ic;
@@ -163,7 +167,8 @@ public final class DataExt {
                 this.a.add("NULL");
             }
 
-            public static GsonBuilder c(GsonBuilder gsonBuilder) {
+            @NonNull
+            public static GsonBuilder c(@NonNull GsonBuilder gsonBuilder) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gsonBuilder)) == null) {
@@ -211,7 +216,7 @@ public final class DataExt {
                 return (Number) invokeLLL.objValue;
             }
 
-            public final boolean b(String str) {
+            public final boolean b(@NonNull String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -222,7 +227,7 @@ public final class DataExt {
         }
 
         /* loaded from: classes3.dex */
-        public final class MapDeserializerDoubleAsIntFix implements JsonDeserializer {
+        public static final class MapDeserializerDoubleAsIntFix implements JsonDeserializer<Map<String, Object>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -247,7 +252,7 @@ public final class DataExt {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.gson.JsonDeserializer
             /* renamed from: a */
-            public Map deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+            public Map<String, Object> deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, jsonElement, type, jsonDeserializationContext)) == null) {
@@ -335,12 +340,13 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements ParameterizedType {
+    public static class a implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Class a;
 
         @Override // java.lang.reflect.ParameterizedType
+        @Nullable
         public Type getOwnerType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -369,6 +375,7 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
+        @NonNull
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -376,6 +383,7 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
+        @NonNull
         public Type getRawType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -387,11 +395,12 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public final class b implements ParameterizedType {
+    public static class b implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // java.lang.reflect.ParameterizedType
+        @Nullable
         public Type getOwnerType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -416,6 +425,7 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
+        @NonNull
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -423,6 +433,7 @@ public final class DataExt {
         }
 
         @Override // java.lang.reflect.ParameterizedType
+        @NonNull
         public Type getRawType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -434,7 +445,7 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -505,7 +516,8 @@ public final class DataExt {
         }
     }
 
-    public static <T> T toEntity(String str, Class<T> cls) {
+    @NonNull
+    public static <T> T toEntity(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
@@ -514,7 +526,8 @@ public final class DataExt {
         return (T) invokeLL.objValue;
     }
 
-    public static <T> List<T> toEntityList(String str, Class<T> cls) {
+    @NonNull
+    public static <T> List<T> toEntityList(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cls)) == null) {
@@ -523,7 +536,8 @@ public final class DataExt {
         return (List) invokeLL.objValue;
     }
 
-    public static <T> T toEntity(Map<String, Object> map, Class<T> cls) {
+    @NonNull
+    public static <T> T toEntity(@NonNull Map<String, Object> map, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, cls)) == null) {
@@ -532,7 +546,8 @@ public final class DataExt {
         return (T) invokeLL.objValue;
     }
 
-    public static JSONObject toJSONObject(Bundle bundle) {
+    @NonNull
+    public static JSONObject toJSONObject(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Object obj;
         Object wrap;
@@ -562,7 +577,8 @@ public final class DataExt {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static String toJson(Bundle bundle) {
+    @NonNull
+    public static String toJson(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
@@ -571,7 +587,8 @@ public final class DataExt {
         return (String) invokeL.objValue;
     }
 
-    public static Map<String, Object> toMap(Bundle bundle) {
+    @NonNull
+    public static Map<String, Object> toMap(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bundle)) == null) {
@@ -580,7 +597,8 @@ public final class DataExt {
         return (Map) invokeL.objValue;
     }
 
-    public static List<Map<String, Object>> toMapList(String str) {
+    @NonNull
+    public static List<Map<String, Object>> toMapList(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
@@ -589,7 +607,8 @@ public final class DataExt {
         return (List) invokeL.objValue;
     }
 
-    public static String toJson(Object obj) {
+    @NonNull
+    public static String toJson(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
@@ -598,7 +617,8 @@ public final class DataExt {
         return (String) invokeL.objValue;
     }
 
-    public static Map<String, Object> toMap(Object obj) {
+    @NonNull
+    public static Map<String, Object> toMap(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
@@ -607,7 +627,8 @@ public final class DataExt {
         return (Map) invokeL.objValue;
     }
 
-    public static Map<String, Object> toMap(String str) {
+    @NonNull
+    public static Map<String, Object> toMap(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {

@@ -24,7 +24,7 @@ public abstract class BaseExecutorCell implements Recordable {
     public int completedTaskCountInRecordLifeCycle;
     public ThreadPoolExecutor mExecutor;
     public Recordable.RecordStatus mRecordStatus;
-    public List mWorkingTasks;
+    public List<ElasticTask> mWorkingTasks;
     public int maxThreadNum;
     public long recordBeginTime;
     public long recordEndTime;
@@ -36,7 +36,7 @@ public abstract class BaseExecutorCell implements Recordable {
 
     /* renamed from: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell$2  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public abstract class BaseExecutorCell implements Recordable {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ExecutorType {
+    public static final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ExecutorType ARTERY;

@@ -1,5 +1,7 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,8 +29,10 @@ public class ViewModelStores {
         }
     }
 
+    @NonNull
+    @MainThread
     @Deprecated
-    public static ViewModelStore of(Fragment fragment) {
+    public static ViewModelStore of(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
@@ -37,8 +41,10 @@ public class ViewModelStores {
         return (ViewModelStore) invokeL.objValue;
     }
 
+    @NonNull
+    @MainThread
     @Deprecated
-    public static ViewModelStore of(FragmentActivity fragmentActivity) {
+    public static ViewModelStore of(@NonNull FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fragmentActivity)) == null) {

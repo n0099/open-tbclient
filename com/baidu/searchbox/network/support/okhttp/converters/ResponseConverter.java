@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.support.okhttp.converters;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
@@ -28,7 +29,7 @@ public class ResponseConverter {
         }
     }
 
-    public static Response fromOks(Request request, okhttp3.Response response) {
+    public static Response fromOks(@NonNull Request request, @NonNull okhttp3.Response response) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, request, response)) == null) {

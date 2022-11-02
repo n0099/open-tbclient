@@ -24,8 +24,8 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentManager a;
     public FragmentTransaction b;
-    public ArrayList c;
-    public ArrayList d;
+    public ArrayList<Fragment.SavedState> c;
+    public ArrayList<Fragment> d;
     public Fragment e;
 
     public abstract Fragment getItem(int i);
@@ -53,13 +53,13 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
             }
         }
         this.b = null;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.c = new ArrayList<>();
+        this.d = new ArrayList<>();
         this.e = null;
         this.a = fragmentManager;
     }
 
-    public final ArrayList b() {
+    public final ArrayList<Fragment> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -80,7 +80,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
             while (this.c.size() <= i) {
                 this.c.add(null);
             }
-            ArrayList arrayList = this.c;
+            ArrayList<Fragment.SavedState> arrayList = this.c;
             if (fragment != null && fragment.isAdded()) {
                 savedState = this.a.saveFragmentInstanceState(fragment);
             } else {
@@ -109,7 +109,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
         Fragment fragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            if (this.d.size() > i && (fragment = (Fragment) this.d.get(i)) != null) {
+            if (this.d.size() > i && (fragment = this.d.get(i)) != null) {
                 return fragment;
             }
             if (this.b == null) {
@@ -119,7 +119,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
             if (item == null) {
                 return null;
             }
-            if (this.c.size() > i && (savedState = (Fragment.SavedState) this.c.get(i)) != null && !item.isAdded()) {
+            if (this.c.size() > i && (savedState = this.c.get(i)) != null && !item.isAdded()) {
                 item.setInitialSavedState(savedState);
             }
             while (this.d.size() <= i) {
@@ -199,7 +199,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
                 bundle = null;
             }
             for (int i = 0; i < this.d.size(); i++) {
-                Fragment fragment = (Fragment) this.d.get(i);
+                Fragment fragment = this.d.get(i);
                 if (fragment != null && fragment.isAdded()) {
                     if (bundle == null) {
                         bundle = new Bundle();

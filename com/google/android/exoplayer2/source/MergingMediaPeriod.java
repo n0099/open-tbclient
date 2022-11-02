@@ -23,7 +23,7 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
     public int pendingChildPrepareCount;
     public final MediaPeriod[] periods;
     public SequenceableLoader sequenceableLoader;
-    public final IdentityHashMap streamPeriodIndices;
+    public final IdentityHashMap<SampleStream, Integer> streamPeriodIndices;
     public TrackGroupArray trackGroups;
 
     public MergingMediaPeriod(MediaPeriod... mediaPeriodArr) {
@@ -42,7 +42,7 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
             }
         }
         this.periods = mediaPeriodArr;
-        this.streamPeriodIndices = new IdentityHashMap();
+        this.streamPeriodIndices = new IdentityHashMap<>();
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
@@ -229,7 +229,7 @@ public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callba
                 if (sampleStreamArr2[i] == null) {
                     intValue = -1;
                 } else {
-                    intValue = ((Integer) this.streamPeriodIndices.get(sampleStreamArr2[i])).intValue();
+                    intValue = this.streamPeriodIndices.get(sampleStreamArr2[i]).intValue();
                 }
                 iArr[i] = intValue;
                 iArr2[i] = -1;

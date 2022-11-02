@@ -1,48 +1,82 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class lm implements StatisticCallback {
+import java.io.File;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes5.dex */
+public class lm extends DefaultDownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DefaultDownloadCallback a;
 
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addFetchStatistic2InHost(int i, String str, String str2, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public lm() {
+    public lm(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = defaultDownloadCallback;
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, packageInfo, errorInfo) != null) || errorInfo == null) {
+            return;
+        }
+        BdLog.e(errorInfo.errorMsg);
+        DefaultDownloadCallback defaultDownloadCallback = this.a;
+        if (defaultDownloadCallback != null) {
+            defaultDownloadCallback.onDownloadError(packageInfo, errorInfo);
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) && packageInfo != null && !StringUtils.isNull(packageInfo.filePath) && !StringUtils.isNull(packageInfo.name)) {
+            File file = new File(packageInfo.filePath);
+            if (file.exists() && file.isFile()) {
+                String b = nm.b(packageInfo.name);
+                File file2 = new File(b);
+                if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
+                    if (b.contains(".so")) {
+                        if (pm.a(BdBaseApplication.getInst().getContext(), nm.a(packageInfo.name))) {
+                            ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                            String str = packageInfo.name;
+                            resHashMap.put(str, nm.a(str));
+                        }
+                        ((fm) ServiceManager.getService(fm.a)).a(packageInfo.name);
+                    } else {
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo.name;
+                        resHashMap2.put(str2, nm.a(str2));
+                    }
+                    DefaultDownloadCallback defaultDownloadCallback = this.a;
+                    if (defaultDownloadCallback != null) {
+                        defaultDownloadCallback.onDownloadSuccess(packageInfo, errorInfo);
+                    }
+                }
             }
         }
     }

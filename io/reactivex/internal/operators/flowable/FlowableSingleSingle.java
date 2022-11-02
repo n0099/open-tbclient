@@ -17,28 +17,28 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSingleSingle extends Single implements FuseToFlowable {
+public final class FlowableSingleSingle<T> extends Single<T> implements FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object defaultValue;
-    public final Flowable source;
+    public final T defaultValue;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SingleElementSubscriber implements FlowableSubscriber, Disposable {
+    public static final class SingleElementSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final Object defaultValue;
+        public final SingleObserver<? super T> actual;
+        public final T defaultValue;
         public boolean done;
         public Subscription s;
-        public Object value;
+        public T value;
 
-        public SingleElementSubscriber(SingleObserver singleObserver, Object obj) {
+        public SingleElementSubscriber(SingleObserver<? super T> singleObserver, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, obj};
+                Object[] objArr = {singleObserver, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
                 }
             }
             this.actual = singleObserver;
-            this.defaultValue = obj;
+            this.defaultValue = t;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -82,13 +82,13 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
             }
             this.done = true;
             this.s = SubscriptionHelper.CANCELLED;
-            Object obj = this.value;
+            T t = this.value;
             this.value = null;
-            if (obj == null) {
-                obj = this.defaultValue;
+            if (t == null) {
+                t = this.defaultValue;
             }
-            if (obj != null) {
-                this.actual.onSuccess(obj);
+            if (t != null) {
+                this.actual.onSuccess(t);
             } else {
                 this.actual.onError(new NoSuchElementException());
             }
@@ -119,9 +119,9 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             if (this.value != null) {
@@ -131,16 +131,16 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
                 this.actual.onError(new IllegalArgumentException("Sequence contains more than one element!"));
                 return;
             }
-            this.value = obj;
+            this.value = t;
         }
     }
 
-    public FlowableSingleSingle(Flowable flowable, Object obj) {
+    public FlowableSingleSingle(Flowable<T> flowable, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, obj};
+            Object[] objArr = {flowable, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -151,11 +151,11 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
             }
         }
         this.source = flowable;
-        this.defaultValue = obj;
+        this.defaultValue = t;
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<T> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -165,7 +165,7 @@ public final class FlowableSingleSingle extends Single implements FuseToFlowable
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new SingleElementSubscriber(singleObserver, this.defaultValue));

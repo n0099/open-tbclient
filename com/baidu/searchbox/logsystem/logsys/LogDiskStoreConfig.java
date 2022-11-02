@@ -1,6 +1,8 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +15,8 @@ public class LogDiskStoreConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_LOG_STORE_ROOT_DIR = "log_store";
     public transient /* synthetic */ FieldHolder $fh;
-    public Supplier mLogStoreRootDirSupplier;
+    @NonNull
+    public Supplier<File> mLogStoreRootDirSupplier;
 
     public static void init() {
         Interceptable interceptable = $ic;
@@ -22,13 +25,15 @@ public class LogDiskStoreConfig {
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public Context mContext;
-        public Supplier mLogStoreRootDirSupplier;
+        @Nullable
+        public Supplier<File> mLogStoreRootDirSupplier;
 
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +51,8 @@ public class LogDiskStoreConfig {
             this.mContext = context;
         }
 
-        private Builder setLogStoreRootDirSupplier(Supplier supplier) {
+        @NonNull
+        private Builder setLogStoreRootDirSupplier(@Nullable Supplier<File> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, supplier)) == null) {
@@ -56,6 +62,7 @@ public class LogDiskStoreConfig {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public LogDiskStoreConfig build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -66,8 +73,8 @@ public class LogDiskStoreConfig {
         }
     }
 
-    public LogDiskStoreConfig(Builder builder) {
-        Supplier supplier;
+    public LogDiskStoreConfig(@NonNull Builder builder) {
+        Supplier<File> supplier;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +92,7 @@ public class LogDiskStoreConfig {
         if (builder.mLogStoreRootDirSupplier != null) {
             supplier = builder.mLogStoreRootDirSupplier;
         } else {
-            supplier = new Supplier(this, builder) { // from class: com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig.1
+            supplier = new Supplier<File>(this, builder) { // from class: com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LogDiskStoreConfig this$0;
@@ -111,6 +118,7 @@ public class LogDiskStoreConfig {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.android.common.others.java.Supplier
                 public File get() {
                     InterceptResult invokeV;
@@ -129,7 +137,8 @@ public class LogDiskStoreConfig {
         this.mLogStoreRootDirSupplier = supplier;
     }
 
-    public Supplier getLogStoreRootDirSupplier() {
+    @NonNull
+    public Supplier<File> getLogStoreRootDirSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

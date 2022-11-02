@@ -3,11 +3,16 @@ package kotlin.ranges;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.SinceKotlin;
 import kotlin.ULong;
 import kotlin.UnsignedKt;
+import kotlin.WasExperimental;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+@SinceKotlin(version = "1.5")
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u0000 \u00172\u00020\u00012\b\u0012\u0004\u0012\u00020\u00030\u0002:\u0001\u0017B\u0018\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0006J\u001b\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\r\u0010\u000eJ\u0013\u0010\u000f\u001a\u00020\u000b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\b\u0010\u0014\u001a\u00020\u000bH\u0016J\b\u0010\u0015\u001a\u00020\u0016H\u0016R\u001a\u0010\u0005\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u001a\u0010\u0004\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\t\u0010\bø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0018"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ULong;", "start", "endInclusive", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getEndInclusive-s-VKNKU", "()J", "getStart-s-VKNKU", "contains", "", "value", "contains-VKZWuLQ", "(J)Z", "equals", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "", "isEmpty", "toString", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
 /* loaded from: classes8.dex */
 public final class ULongRange extends ULongProgression implements ClosedRange<ULong> {
     public static final Companion Companion = new Companion(null);
@@ -28,8 +33,9 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ Comparable getEndInclusive() {
+    public /* bridge */ /* synthetic */ ULong getEndInclusive() {
         return ULong.m864boximpl(m1913getEndInclusivesVKNKU());
     }
 
@@ -38,8 +44,9 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         return m1910getLastsVKNKU();
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ Comparable getStart() {
+    public /* bridge */ /* synthetic */ ULong getStart() {
         return ULong.m864boximpl(m1914getStartsVKNKU());
     }
 
@@ -69,9 +76,10 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         this(j, j2);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
-        return m1912containsVKZWuLQ(((ULong) comparable).m921unboximpl());
+    public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
+        return m1912containsVKZWuLQ(uLong.m921unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */

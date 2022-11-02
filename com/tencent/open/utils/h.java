@@ -17,7 +17,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
     public static h a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile WeakReference b;
+    public volatile WeakReference<SharedPreferences> b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             if (this.b == null || this.b.get() == null) {
-                this.b = new WeakReference(context.getSharedPreferences("ServerPrefs", 0));
+                this.b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
             }
             try {
                 String host = new URL(str).getHost();
@@ -79,7 +79,7 @@ public class h {
                     SLog.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                     return str;
                 }
-                String string = ((SharedPreferences) this.b.get()).getString(host, null);
+                String string = this.b.get().getString(host, null);
                 if (string != null && !host.equals(string)) {
                     String replace = str.replace(host, string);
                     SLog.v("openSDK_LOG.ServerSetting", "return environment url : " + replace);

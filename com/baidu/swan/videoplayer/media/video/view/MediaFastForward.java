@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.widget.MediaController;
 import com.baidu.tieba.R;
@@ -32,7 +34,7 @@ public final class MediaFastForward extends FrameLayout {
     public int h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaFastForward(Context context) {
+    public MediaFastForward(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,7 +55,7 @@ public final class MediaFastForward extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaFastForward(Context context, AttributeSet attributeSet) {
+    public MediaFastForward(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,7 +76,7 @@ public final class MediaFastForward extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaFastForward(Context context, AttributeSet attributeSet, int i) {
+    public MediaFastForward(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,14 +128,14 @@ public final class MediaFastForward extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             Resources resources = getResources();
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083a, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084f, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e27);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091247);
-            this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091ac8);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e56);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091281);
+            this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091b0c);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706ec), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706eb));
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811f4);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081210);
             this.a.setLayoutParams(layoutParams);
         }
     }

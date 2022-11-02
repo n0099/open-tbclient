@@ -20,7 +20,7 @@ import kotlin.jvm.internal.Lambda;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\t\n\u0000\n\u0002\b\u0003*\u0001\u0001\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "com/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1", "invoke", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class MixYYFakeShell$invokeAbility$2 extends Lambda implements Function0 {
+public final class MixYYFakeShell$invokeAbility$2 extends Lambda implements Function0<AnonymousClass1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ MixYYFakeShell this$0;
@@ -47,6 +47,7 @@ public final class MixYYFakeShell$invokeAbility$2 extends Lambda implements Func
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$invokeAbility$2$1] */
     @Override // kotlin.jvm.functions.Function0
     public final AnonymousClass1 invoke() {
@@ -78,6 +79,7 @@ public final class MixYYFakeShell$invokeAbility$2 extends Lambda implements Func
                     return (MixPagerInfoService) invokeV2.objValue;
                 }
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {

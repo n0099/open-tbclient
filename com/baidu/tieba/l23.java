@@ -1,68 +1,90 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class l23 extends Dialog {
+public class l23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<a> a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l23(Context context, int i) {
-        super(context, i);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public l23() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = i23.b;
-    }
-
-    public void a(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (i23.b && z) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.a = z2;
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    @Nullable
+    public static l23 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a) {
-                i23.k(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            boolean f = i23.f(this);
-            if (f) {
-                getWindow().setFlags(8, 8);
+            l23 l23Var = new l23();
+            l23Var.b = jSONObject.optString("more");
+            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
+            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
+                return null;
             }
-            super.show();
-            if (f) {
-                getWindow().clearFlags(8);
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    a aVar = new a();
+                    optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                    aVar.b = optJSONObject.optString("app_name");
+                    aVar.a = optJSONObject.optString("photo_addr");
+                    aVar.c = optJSONObject.optString("scheme");
+                    arrayList.add(aVar);
+                }
             }
+            l23Var.a = arrayList;
+            return l23Var;
         }
+        return (l23) invokeL.objValue;
     }
 }

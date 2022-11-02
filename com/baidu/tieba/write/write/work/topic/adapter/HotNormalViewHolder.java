@@ -7,6 +7,7 @@ import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -18,9 +19,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.h97;
+import com.baidu.tieba.kw4;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,16 +41,16 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicSearchAdapter.a a;
-        public final /* synthetic */ x77 b;
+        public final /* synthetic */ h97 b;
         public final /* synthetic */ String c;
         public final /* synthetic */ HotNormalViewHolder d;
 
-        public a(HotNormalViewHolder hotNormalViewHolder, VideoHotTopicSearchAdapter.a aVar, x77 x77Var, String str) {
+        public a(HotNormalViewHolder hotNormalViewHolder, VideoHotTopicSearchAdapter.a aVar, h97 h97Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotNormalViewHolder, aVar, x77Var, str};
+                Object[] objArr = {hotNormalViewHolder, aVar, h97Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,7 +62,7 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
             }
             this.d = hotNormalViewHolder;
             this.a = aVar;
-            this.b = x77Var;
+            this.b = h97Var;
             this.c = str;
         }
 
@@ -79,7 +80,7 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotNormalViewHolder(View view2) {
+    public HotNormalViewHolder(@NonNull View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -96,17 +97,17 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922fe);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922bd);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090dfa);
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09170a);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092352);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092311);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090e29);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09174b);
     }
 
-    public void b(HotNormalViewHolder hotNormalViewHolder, int i, x77 x77Var, TbPageContext tbPageContext, String str, VideoHotTopicSearchAdapter.a aVar) {
+    public void b(@NonNull HotNormalViewHolder hotNormalViewHolder, int i, h97 h97Var, TbPageContext tbPageContext, String str, VideoHotTopicSearchAdapter.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotNormalViewHolder, Integer.valueOf(i), x77Var, tbPageContext, str, aVar}) == null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + x77Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            nv4.d(hotNormalViewHolder.a).v(R.color.CAM_X0106);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotNormalViewHolder, Integer.valueOf(i), h97Var, tbPageContext, str, aVar}) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + h97Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
+            kw4.d(hotNormalViewHolder.a).v(R.color.CAM_X0106);
             int indexOf = spannableStringBuilder.toString().indexOf(str);
             if (c(str) && indexOf != -1) {
                 spannableStringBuilder.setSpan(new StyleSpan(1), 1, indexOf, 34);
@@ -114,28 +115,28 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 spannableStringBuilder.setSpan(new StyleSpan(1), str.length() + indexOf, spannableStringBuilder.length() - 1, 34);
                 spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), indexOf + str.length(), spannableStringBuilder.length() - 1, 34);
             }
-            if (x77Var.j() && c(str)) {
+            if (h97Var.j() && c(str)) {
                 spannableStringBuilder.insert(1, (CharSequence) "v");
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a49, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a62, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                eMRichTextAnyIconSpan.f(VideoHotTopicSearchAdapter.h);
                 eMRichTextAnyIconSpan.d(VideoHotTopicSearchAdapter.h);
-                eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.h);
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
             }
             hotNormalViewHolder.a.setText(spannableStringBuilder);
-            if (x77Var.a() > 0 && c(str) && x77Var.j()) {
+            if (h97Var.a() > 0 && c(str) && h97Var.j()) {
                 hotNormalViewHolder.b.setVisibility(0);
-                hotNormalViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f08b9), StringHelper.numberUniformFormatExtra(x77Var.a())));
-            } else if (x77Var.a() == 0 && x77Var.d().longValue() == 0 && c(str)) {
+                hotNormalViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f08c3), StringHelper.numberUniformFormatExtra(h97Var.a())));
+            } else if (h97Var.a() == 0 && h97Var.d().longValue() == 0 && c(str)) {
                 hotNormalViewHolder.b.setVisibility(0);
-                hotNormalViewHolder.b.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f08b8));
+                hotNormalViewHolder.b.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f08c2));
             } else {
                 hotNormalViewHolder.b.setVisibility(8);
             }
-            d(tbPageContext, hotNormalViewHolder.c, x77Var.c());
-            nv4.d(hotNormalViewHolder.b).v(R.color.CAM_X0110);
+            d(tbPageContext, hotNormalViewHolder.c, h97Var.c());
+            kw4.d(hotNormalViewHolder.b).v(R.color.CAM_X0110);
             SkinManager.setBackgroundResource(hotNormalViewHolder.c, R.drawable.hot_select_tag_bg);
             SkinManager.setViewTextColor(hotNormalViewHolder.c, R.color.CAM_X0302, 1);
-            hotNormalViewHolder.d.setOnClickListener(new a(this, aVar, x77Var, str));
+            hotNormalViewHolder.d.setOnClickListener(new a(this, aVar, h97Var, str));
         }
     }
 
@@ -155,10 +156,10 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1482));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f14a0));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1481));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f149f));
         } else {
             textView.setVisibility(8);
         }

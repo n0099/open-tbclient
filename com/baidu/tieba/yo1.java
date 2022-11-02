@@ -1,11 +1,21 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface yo1 {
-    String a();
+    void a(Context context, JSONObject jSONObject);
 
-    String b();
+    void b(Context context, JSONObject jSONObject);
 
-    String getAppName();
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    String getSchemeHeader();
+    void d(Context context, String[] strArr, int i);
+
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+
+    void f(Context context, JSONObject jSONObject);
 }

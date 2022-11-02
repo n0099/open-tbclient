@@ -26,7 +26,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     public final com.baidu.bdtask.service.cache.storage.serializer.raw.a g;
 
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     }
 
     /* loaded from: classes.dex */
-    public final class b implements Runnable {
+    public static final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -127,7 +127,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         }
     }
 
-    public final Map o() {
+    public final Map<String, Object> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -154,7 +154,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         this.g = com.baidu.bdtask.service.cache.storage.serializer.raw.a.a;
     }
 
-    public final void j(Map map) {
+    public final void j(Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
             ExecutorUtilsExt.postOnSerial(new b(this, map), "Storage");

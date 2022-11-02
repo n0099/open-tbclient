@@ -13,12 +13,12 @@ public final class Pools {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface Pool {
-        Object acquire();
+    public interface Pool<T> {
+        T acquire();
 
-        boolean release(Object obj);
+        boolean release(T t);
 
-        void releaseAll(Object[] objArr, int i);
+        void releaseAll(T[] tArr, int i);
     }
 
     /* loaded from: classes.dex */

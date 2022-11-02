@@ -19,7 +19,7 @@ import java.util.Map;
 public class ARProxyManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, d> a;
 
     public ARProxyManager() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ARProxyManager {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
     }
 
     private d a(String str) {
@@ -43,9 +43,9 @@ public class ARProxyManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             if (b(str)) {
                 if (this.a == null) {
-                    this.a = new HashMap();
+                    this.a = new HashMap<>();
                 }
-                d dVar = (d) this.a.get(str);
+                d dVar = this.a.get(str);
                 if (dVar == null) {
                     dVar = c(str);
                 }
@@ -105,7 +105,7 @@ public class ARProxyManager {
     }
 
     public void d() {
-        HashMap hashMap;
+        HashMap<String, d> hashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (hashMap = this.a) == null) {
             return;
@@ -116,10 +116,10 @@ public class ARProxyManager {
     }
 
     public void d(String str) {
-        HashMap hashMap;
+        HashMap<String, d> hashMap;
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.a) == null || (dVar = (d) hashMap.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (hashMap = this.a) == null || (dVar = hashMap.get(str)) == null) {
             return;
         }
         dVar.a(null);
@@ -171,10 +171,10 @@ public class ARProxyManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             d();
-            HashMap hashMap = this.a;
+            HashMap<String, d> hashMap = this.a;
             if (hashMap != null) {
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    ((d) entry.getValue()).release();
+                for (Map.Entry<String, d> entry : hashMap.entrySet()) {
+                    entry.getValue().release();
                 }
                 this.a.clear();
                 this.a = null;

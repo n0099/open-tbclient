@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.helper;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +14,7 @@ public class SimpleKernelReuseHelper extends AbsKernelReuseHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.searchbox.player.helper.AbsKernelReuseHelper
-    public boolean performAutoDetachCache(BDVideoPlayer bDVideoPlayer, String str) {
+    public boolean performAutoDetachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bDVideoPlayer, str)) == null) {

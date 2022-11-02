@@ -38,14 +38,13 @@ public class c implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        this.d.a.lock();
-        try {
-            this.a.a(this.b, this.c);
-        } finally {
-            this.d.a.unlock();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null) {
+            this.d.a.lock();
+            try {
+                this.a.a(this.b, this.c);
+            } finally {
+                this.d.a.unlock();
+            }
         }
     }
 }

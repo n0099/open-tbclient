@@ -27,13 +27,13 @@ public class a {
     public String mCasePath;
     public l qh;
     public FilterStateListener qi;
-    public HashMap qj;
-    public HashMap qk;
-    public HashMap ql;
+    public HashMap<FilterNode, Boolean> qj;
+    public HashMap<FilterNode, Boolean> qk;
+    public HashMap<FilterNode, Boolean> ql;
 
     /* renamed from: com.baidu.ar.filter.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] qm;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,18 +87,18 @@ public class a {
                 return;
             }
         }
-        this.qj = new HashMap();
-        this.qk = new HashMap();
-        this.ql = new HashMap();
+        this.qj = new HashMap<>();
+        this.qk = new HashMap<>();
+        this.ql = new HashMap<>();
         this.d = defaultParams;
-        HashMap hashMap = this.qj;
+        HashMap<FilterNode, Boolean> hashMap = this.qj;
         if (hashMap != null) {
             hashMap.put(FilterNode.lutFilter, Boolean.FALSE);
             this.qj.put(FilterNode.skinFilter, Boolean.FALSE);
             this.qj.put(FilterNode.faceFilter, Boolean.FALSE);
             this.qj.put(FilterNode.makeupFilter, Boolean.FALSE);
         }
-        HashMap hashMap2 = this.qk;
+        HashMap<FilterNode, Boolean> hashMap2 = this.qk;
         if (hashMap2 != null) {
             hashMap2.put(FilterNode.lutFilter, Boolean.TRUE);
             this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.d.isUseBeautyFilter()));
@@ -270,23 +270,23 @@ public class a {
     }
 
     public void eF() {
-        HashMap hashMap;
+        HashMap<FilterNode, Boolean> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            HashMap hashMap2 = this.ql;
+            HashMap<FilterNode, Boolean> hashMap2 = this.ql;
             if (hashMap2 != null && (hashMap = this.qj) != null && this.qk != null) {
                 FilterNode filterNode = FilterNode.lutFilter;
                 boolean z = true;
-                hashMap2.put(filterNode, Boolean.valueOf(((Boolean) hashMap.get(filterNode)).booleanValue() && ((Boolean) this.qk.get(FilterNode.lutFilter)).booleanValue()));
-                HashMap hashMap3 = this.ql;
+                hashMap2.put(filterNode, Boolean.valueOf(hashMap.get(filterNode).booleanValue() && this.qk.get(FilterNode.lutFilter).booleanValue()));
+                HashMap<FilterNode, Boolean> hashMap3 = this.ql;
                 FilterNode filterNode2 = FilterNode.skinFilter;
-                hashMap3.put(filterNode2, Boolean.valueOf(((Boolean) this.qj.get(filterNode2)).booleanValue() && ((Boolean) this.qk.get(FilterNode.skinFilter)).booleanValue()));
-                HashMap hashMap4 = this.ql;
+                hashMap3.put(filterNode2, Boolean.valueOf(this.qj.get(filterNode2).booleanValue() && this.qk.get(FilterNode.skinFilter).booleanValue()));
+                HashMap<FilterNode, Boolean> hashMap4 = this.ql;
                 FilterNode filterNode3 = FilterNode.faceFilter;
-                hashMap4.put(filterNode3, Boolean.valueOf(((Boolean) this.qj.get(filterNode3)).booleanValue() && ((Boolean) this.qk.get(FilterNode.faceFilter)).booleanValue()));
-                HashMap hashMap5 = this.ql;
+                hashMap4.put(filterNode3, Boolean.valueOf(this.qj.get(filterNode3).booleanValue() && this.qk.get(FilterNode.faceFilter).booleanValue()));
+                HashMap<FilterNode, Boolean> hashMap5 = this.ql;
                 FilterNode filterNode4 = FilterNode.makeupFilter;
-                hashMap5.put(filterNode4, Boolean.valueOf((((Boolean) this.qj.get(filterNode4)).booleanValue() && ((Boolean) this.qk.get(FilterNode.makeupFilter)).booleanValue()) ? false : false));
+                hashMap5.put(filterNode4, Boolean.valueOf((this.qj.get(filterNode4).booleanValue() && this.qk.get(FilterNode.makeupFilter).booleanValue()) ? false : false));
                 b.c("ARFilterManager", "callbackFilterStates mFilterStates = " + this.ql.toString() + " && mCasePath = " + this.mCasePath);
             }
             FilterStateListener filterStateListener = this.qi;
@@ -296,7 +296,7 @@ public class a {
         }
     }
 
-    public synchronized void f(List list) {
+    public synchronized void f(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             synchronized (this) {

@@ -31,7 +31,7 @@ public final class MinElf {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class ElfError extends RuntimeException {
+    public static class ElfError extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public final class MinElf {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class ISA {
+    public static final class ISA {
         public static final /* synthetic */ ISA[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ISA AARCH64;

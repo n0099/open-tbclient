@@ -21,7 +21,7 @@ public class PassBiometricConfiguration {
     public final String appId;
     public final String appSignKey;
     public Application b;
-    public Map faceResPaths;
+    public Map<String, String> faceResPaths;
     public final String licenseFileName;
     public final String licenseID;
     public String passDomain;
@@ -33,13 +33,13 @@ public class PassBiometricConfiguration {
 
     /* renamed from: com.baidu.pass.biometrics.base.PassBiometricConfiguration$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -55,7 +55,7 @@ public class PassBiometricConfiguration {
         public boolean k;
         public Application l;
         public boolean m;
-        public Map n;
+        public Map<String, String> n;
 
         public Builder(Application application) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class PassBiometricConfiguration {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setFaceResPaths(Map map) {
+        public Builder setFaceResPaths(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {

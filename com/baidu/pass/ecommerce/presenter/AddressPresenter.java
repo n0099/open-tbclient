@@ -7,6 +7,7 @@ import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
+import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.sapi2.SapiContext;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddressPresenter extends BasePresenter {
+public class AddressPresenter extends BasePresenter<IBaseView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEL_ADDR_CODE = 1002;
     public static final int GET_ADDR_LIST_CODE = 1000;

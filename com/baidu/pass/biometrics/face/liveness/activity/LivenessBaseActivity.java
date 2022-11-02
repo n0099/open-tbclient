@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,6 +58,7 @@ public class LivenessBaseActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
+    @TargetApi(27)
     public void customLiuHai() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Build.VERSION.SDK_INT >= 27) {

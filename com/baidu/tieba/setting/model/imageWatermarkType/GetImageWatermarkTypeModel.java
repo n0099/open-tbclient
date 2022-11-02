@@ -7,15 +7,16 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jq4;
+import com.baidu.tieba.ar4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class GetImageWatermarkTypeModel extends BdBaseModel {
+public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HttpMessageListener a;
@@ -64,7 +65,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel {
             }
             GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
             if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                jq4.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                ar4.c().i(getImageWatermarkTypeResMsg.mMaskType);
             }
         }
     }

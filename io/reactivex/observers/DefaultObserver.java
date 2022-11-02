@@ -6,11 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
 /* loaded from: classes8.dex */
-public abstract class DefaultObserver implements Observer {
+public abstract class DefaultObserver<T> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Disposable s;
@@ -45,7 +46,7 @@ public abstract class DefaultObserver implements Observer {
     }
 
     @Override // io.reactivex.Observer
-    public final void onSubscribe(Disposable disposable) {
+    public final void onSubscribe(@NonNull Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && EndConsumerHelper.validate(this.s, disposable, getClass())) {
             this.s = disposable;

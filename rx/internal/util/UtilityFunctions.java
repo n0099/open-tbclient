@@ -1,6 +1,6 @@
 package rx.internal.util;
 
-import com.baidu.tieba.py9;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AlwaysFalse implements py9 {
+    public static final class AlwaysFalse implements yz9<Object, Boolean> {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysFalse INSTANCE;
@@ -77,7 +77,8 @@ public final class UtilityFunctions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.yz9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -90,7 +91,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AlwaysTrue implements py9 {
+    public static final class AlwaysTrue implements yz9<Object, Boolean> {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysTrue INSTANCE;
@@ -152,7 +153,8 @@ public final class UtilityFunctions {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.py9
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.yz9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -165,13 +167,13 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class Identity implements py9 {
+    public static final class Identity implements yz9<Object, Object> {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Identity INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.py9
+        @Override // com.baidu.tieba.yz9
         public Object call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -234,21 +236,21 @@ public final class UtilityFunctions {
         }
     }
 
-    public static py9 a() {
+    public static <T> yz9<? super T, Boolean> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             return AlwaysTrue.INSTANCE;
         }
-        return (py9) invokeV.objValue;
+        return (yz9) invokeV.objValue;
     }
 
-    public static py9 b() {
+    public static <T> yz9<T, T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return Identity.INSTANCE;
         }
-        return (py9) invokeV.objValue;
+        return (yz9) invokeV.objValue;
     }
 }

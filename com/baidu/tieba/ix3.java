@@ -1,197 +1,77 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.HashMap;
-import java.util.Locale;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
 public class ix3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap a;
+    public static volatile ix3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<kx3> a;
 
-    public static boolean b(float f) {
-        InterceptResult invokeF;
+    public ix3() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868837, "Lcom/baidu/tieba/ix3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868837, "Lcom/baidu/tieba/ix3;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("494433", ".mp3");
-        a.put("524946", ".wav");
+        this.a = new CopyOnWriteArrayList();
     }
 
-    public static String g() {
+    public static ix3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String e = e();
-            if (j() && !TextUtils.isEmpty(e)) {
-                return e;
-            }
-            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (bArr != null && bArr.length > 0) {
-                for (byte b : bArr) {
-                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
-                    if (upperCase.length() < 2) {
-                        sb.append(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ix3.class) {
+                    if (b == null) {
+                        b = new ix3();
                     }
-                    sb.append(upperCase);
-                }
-                String sb2 = sb.toString();
-                if (wj1.a) {
-                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
-                }
-                return sb2;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int lastIndexOf = str.lastIndexOf(46);
-            if (lastIndexOf != -1) {
-                str2 = str.substring(lastIndexOf);
-            } else {
-                str2 = "";
-            }
-            return "/" + m33.g0() + "/" + str.hashCode() + str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static gx3 c(jx3 jx3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jx3Var)) == null) {
-            gx3 gx3Var = new gx3();
-            gx3Var.a = jx3Var.b;
-            gx3Var.e = jx3Var.autoplay;
-            gx3Var.f = jx3Var.loop;
-            gx3Var.c = jx3Var.src;
-            gx3Var.d = jx3Var.startTime;
-            gx3Var.g = jx3Var.obeyMuteSwitch;
-            gx3Var.i = jx3Var.volume;
-            gx3Var.j = i().toString();
-            return gx3Var;
-        }
-        return (gx3) invokeL.objValue;
-    }
-
-    public static String h(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
-            if (bArr != null && 3 <= bArr.length) {
-                byte[] bArr2 = new byte[3];
-                for (int i = 0; i < 3; i++) {
-                    bArr2[i] = bArr[i];
-                }
-                return (String) a.get(a(bArr2));
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = wf2.p() + "/usr";
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return File.separator + "bdata" + File.separator;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return "mounted".equals(Environment.getExternalStorageState());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static JSONObject i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("onCanplay", "canplay");
-                jSONObject.put("onPlay", "play");
-                jSONObject.put("onEnded", "ended");
-                jSONObject.put(MissionEvent.MESSAGE_PAUSE, "pause");
-                jSONObject.put("onSeeking", "seeking");
-                jSONObject.put("onSeeked", "seeked");
-                jSONObject.put(MissionEvent.MESSAGE_STOP, IntentConfig.STOP);
-                jSONObject.put("onError", "error");
-                jSONObject.put("onTimeUpdate", "timeupdate");
-                jSONObject.put("onBufferingUpdate", "buffered");
-                jSONObject.put("onWaiting", "waiting");
-            } catch (Exception e) {
-                if (wj1.a) {
-                    e.printStackTrace();
                 }
             }
-            return jSONObject;
+            return b;
         }
-        return (JSONObject) invokeV.objValue;
+        return (ix3) invokeV.objValue;
+    }
+
+    public void a(kx3 kx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, kx3Var) == null) && kx3Var != null && !this.a.contains(kx3Var)) {
+            this.a.add(kx3Var);
+        }
+    }
+
+    public void d(kx3 kx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kx3Var) == null) && this.a.contains(kx3Var)) {
+            this.a.remove(kx3Var);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (kx3 kx3Var : this.a) {
+                if (i == 16) {
+                    kx3Var.c();
+                } else if (i == 17) {
+                    kx3Var.b(str);
+                }
+                d(kx3Var);
+            }
+        }
     }
 }

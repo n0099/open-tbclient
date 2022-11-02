@@ -2,9 +2,10 @@ package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tp3;
-import com.baidu.tieba.up3;
-import com.baidu.tieba.vp3;
+import com.baidu.tieba.kq3;
+import com.baidu.tieba.lq3;
+import com.baidu.tieba.mq3;
+import com.baidu.tieba.nq3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ public final class ProcessorInfo {
     public static final ProcessorInfo HISTORY;
     public static final ProcessorInfo PARAMS;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class mClass;
+    public Class<? extends kq3> mClass;
     public int mMatcherCode;
     public String mPath;
 
@@ -38,9 +39,9 @@ public final class ProcessorInfo {
                 return;
             }
         }
-        PARAMS = new ProcessorInfo("PARAMS", 0, vp3.class, "params");
-        FAVORITE = new ProcessorInfo("FAVORITE", 1, tp3.class, "favorite");
-        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, up3.class, "history");
+        PARAMS = new ProcessorInfo("PARAMS", 0, nq3.class, "params");
+        FAVORITE = new ProcessorInfo("FAVORITE", 1, lq3.class, "favorite");
+        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, mq3.class, "history");
         HISTORY = processorInfo;
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
@@ -68,7 +69,7 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    private Class getProcessorClass() {
+    private Class<? extends kq3> getProcessorClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -104,7 +105,7 @@ public final class ProcessorInfo {
         return (String) invokeV.objValue;
     }
 
-    public static Class getProcessorClass(int i) {
+    public static Class<? extends kq3> getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;

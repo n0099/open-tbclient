@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GetShieldAndTopResult> CREATOR;
     public static final String TAG = "GetShieldAndTopResult";
     public transient /* synthetic */ FieldHolder $fh;
     public int mChatType;
@@ -52,7 +52,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.shield.model.GetShieldAndTopResult.1
+        CREATOR = new Parcelable.Creator<GetShieldAndTopResult>() { // from class: com.baidu.android.imsdk.shield.model.GetShieldAndTopResult.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,6 +71,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetShieldAndTopResult createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -82,6 +83,7 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GetShieldAndTopResult[] newArray(int i) {
                 InterceptResult invokeI;

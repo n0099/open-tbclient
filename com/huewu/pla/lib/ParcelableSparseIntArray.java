@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ParcelableSparseIntArray extends SparseIntArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ParcelableSparseIntArray> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.os.Parcelable
@@ -29,7 +29,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
     }
 
     /* loaded from: classes7.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<ParcelableSparseIntArray> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,11 +102,11 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         }
     }
 
-    private SparseArray toSparseArray() {
+    private SparseArray<Object> toSparseArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            SparseArray sparseArray = new SparseArray();
+            SparseArray<Object> sparseArray = new SparseArray<>();
             int size = size();
             for (int i = 0; i < size; i++) {
                 sparseArray.append(keyAt(i), Integer.valueOf(valueAt(i)));
@@ -166,12 +166,12 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
         }
     }
 
-    private void append(SparseArray sparseArray) {
+    private void append(SparseArray<Integer> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, sparseArray) == null) {
             int size = sparseArray.size();
             for (int i = 0; i < size; i++) {
-                put(sparseArray.keyAt(i), ((Integer) sparseArray.valueAt(i)).intValue());
+                put(sparseArray.keyAt(i), sparseArray.valueAt(i).intValue());
             }
         }
     }

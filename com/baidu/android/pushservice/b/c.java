@@ -21,8 +21,8 @@ public class c {
     public String a;
     public String b;
     public int c;
-    public ArrayList d;
-    public ArrayList e;
+    public ArrayList<e> d;
+    public ArrayList<f> e;
     public String f;
     public String g;
     public a h;
@@ -103,7 +103,7 @@ public class c {
                 } else {
                     a(0);
                 }
-                ArrayList arrayList = new ArrayList();
+                ArrayList<e> arrayList = new ArrayList<>();
                 String str5 = "match";
                 if (jSONObject.has("osversion")) {
                     JSONArray jSONArray = jSONObject.getJSONArray("osversion");
@@ -137,7 +137,7 @@ public class c {
                     str2 = "apkversion";
                 }
                 String str7 = str4;
-                ArrayList arrayList2 = new ArrayList();
+                ArrayList<f> arrayList2 = new ArrayList<>();
                 if (jSONObject.has("systemprop")) {
                     JSONArray jSONArray3 = jSONObject.getJSONArray("systemprop");
                     int i3 = 0;
@@ -230,7 +230,7 @@ public class c {
         }
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<e> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
             this.d = arrayList;
@@ -257,7 +257,7 @@ public class c {
         }
     }
 
-    public void b(ArrayList arrayList) {
+    public void b(ArrayList<f> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.e = arrayList;
@@ -277,13 +277,13 @@ public class c {
         }
     }
 
-    public ArrayList d() {
+    public ArrayList<e> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList e() {
+    public ArrayList<f> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (ArrayList) invokeV.objValue;

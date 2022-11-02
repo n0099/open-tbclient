@@ -1,10 +1,12 @@
 package com.baidu.swan.game.ad.entity;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +29,7 @@ public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
     public static final int CLOSE_TYPE_TO_NEW_STRATEGY = 6;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AdElementInfo> CREATOR;
     public static final String TAG = "AdElementInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public long createTime;
@@ -41,9 +43,9 @@ public class AdElementInfo implements Parcelable {
     public long mAppSize;
     public String mBannerHtml;
     public String mClickUrl;
-    public Set mCloseTrackers;
+    public Set<String> mCloseTrackers;
     public int mCloseType;
-    public Set mConversionUrls;
+    public Set<String> mConversionUrls;
     public String mDescription;
     public int mDuration;
     public String mEndFrameHtml;
@@ -53,9 +55,9 @@ public class AdElementInfo implements Parcelable {
     public String mFbAct;
     public boolean mGdtAd;
     public String mIconUrl;
-    public Set mImpressionUrls;
+    public Set<String> mImpressionUrls;
     public String mLandBannerHtml;
-    public Set mMonitorClickers;
+    public Set<String> mMonitorClickers;
     public String mPackageName;
     public String mPage;
     public String mPermissionUrl;
@@ -66,10 +68,10 @@ public class AdElementInfo implements Parcelable {
     public int mRewardTimeDefault;
     public int mSkipTime;
     public int mSkipTimeDefault;
-    public Set mSkipTrackers;
-    public Set mStartTrackers;
-    public Set mThirdClickMonitorTrackers;
-    public Set mThirdImpMonitorTrackers;
+    public Set<String> mSkipTrackers;
+    public Set<String> mStartTrackers;
+    public Set<String> mThirdClickMonitorTrackers;
+    public Set<String> mThirdImpMonitorTrackers;
     public String mTitle;
     public String mType;
     public String mUniqueId;
@@ -89,7 +91,7 @@ public class AdElementInfo implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<AdElementInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,7 +231,7 @@ public class AdElementInfo implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    public List getCloseTrackers() {
+    public List<String> getCloseTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -247,7 +249,7 @@ public class AdElementInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List getConversionUrls() {
+    public List<String> getConversionUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -319,7 +321,7 @@ public class AdElementInfo implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    public List getImpressionUrls() {
+    public List<String> getImpressionUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -415,7 +417,7 @@ public class AdElementInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    public List getSkipTrackers() {
+    public List<String> getSkipTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
@@ -424,7 +426,7 @@ public class AdElementInfo implements Parcelable {
         return (List) invokeV.objValue;
     }
 
-    public List getStartTrackers() {
+    public List<String> getStartTrackers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
@@ -433,7 +435,7 @@ public class AdElementInfo implements Parcelable {
         return (List) invokeV.objValue;
     }
 
-    public List getThirdClickTrackingUrls() {
+    public List<String> getThirdClickTrackingUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
@@ -442,7 +444,7 @@ public class AdElementInfo implements Parcelable {
         return (List) invokeV.objValue;
     }
 
-    public List getThirdImpressionTrackingUrls() {
+    public List<String> getThirdImpressionTrackingUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
@@ -574,6 +576,7 @@ public class AdElementInfo implements Parcelable {
         this(parcel);
     }
 
+    @SuppressLint({"DefaultLocale"})
     public AdElementInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -622,7 +625,7 @@ public class AdElementInfo implements Parcelable {
             this.mVideoUrl = jSONObject.optString("vurl", "");
             this.mPrivacyUrl = jSONObject.optString("privacy_link", "");
             this.mPermissionUrl = jSONObject.optString("permission_link", "");
-            this.mVideoWidth = jSONObject.optInt("w", 0);
+            this.mVideoWidth = jSONObject.optInt(Config.DEVICE_WIDTH, 0);
             this.mVideoHeight = jSONObject.optInt("h", 0);
             this.mDuration = jSONObject.optInt("duration", 0);
             this.mCloseType = jSONObject.optInt("closetype", 0);

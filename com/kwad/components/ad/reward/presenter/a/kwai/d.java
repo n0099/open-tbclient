@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -30,6 +31,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     public final h mRewardVerifyListener;
     public com.kwad.components.ad.i.b mn;
     public int qC;
+    @Nullable
     public FrameLayout sF;
 
     public d() {
@@ -121,7 +123,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             }
             k kVar = this.nM;
             bVar.a(frameLayout, kVar.mRootContainer, adTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
-            this.mn.a((b.InterfaceC0528b) null);
+            this.mn.a((b.InterfaceC0539b) null);
             ViewGroup.LayoutParams layoutParams = this.sF.getLayoutParams();
             ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
             if (marginLayoutParams != null) {
@@ -175,7 +177,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             FrameLayout frameLayout = this.bS;
             k kVar2 = this.nM;
             bVar.a(frameLayout, kVar2.mRootContainer, adTemplate, kVar2.mApkDownloadHelper, kVar2.mScreenOrientation);
-            this.bb.a((b.InterfaceC0528b) null);
+            this.bb.a((b.InterfaceC0539b) null);
             com.kwad.components.ad.i.b bVar2 = this.nM.mn;
             this.mn = bVar2;
             if (bVar2 != null) {
@@ -190,9 +192,9 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091230);
-            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091111);
-            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091220);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09126a);
+            this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09114b);
+            this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09125a);
         }
     }
 

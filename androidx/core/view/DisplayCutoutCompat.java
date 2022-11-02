@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -180,6 +181,7 @@ public final class DisplayCutoutCompat {
         return (String) invokeV.objValue;
     }
 
+    @RequiresApi(api = 28)
     public DisplayCutout unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

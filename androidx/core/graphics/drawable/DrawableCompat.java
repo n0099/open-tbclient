@@ -10,6 +10,9 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,21 +47,21 @@ public final class DrawableCompat {
         }
     }
 
-    public static void applyTheme(Drawable drawable, Resources.Theme theme) {
+    public static void applyTheme(@NonNull Drawable drawable, @NonNull Resources.Theme theme) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, drawable, theme) == null) && Build.VERSION.SDK_INT >= 21) {
             drawable.applyTheme(theme);
         }
     }
 
-    public static void setAutoMirrored(Drawable drawable, boolean z) {
+    public static void setAutoMirrored(@NonNull Drawable drawable, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65546, null, drawable, z) == null) && Build.VERSION.SDK_INT >= 19) {
             drawable.setAutoMirrored(z);
         }
     }
 
-    public static void setTint(Drawable drawable, int i) {
+    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65550, null, drawable, i) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -69,7 +72,7 @@ public final class DrawableCompat {
         }
     }
 
-    public static void setTintList(Drawable drawable, ColorStateList colorStateList) {
+    public static void setTintList(@NonNull Drawable drawable, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, drawable, colorStateList) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -80,7 +83,7 @@ public final class DrawableCompat {
         }
     }
 
-    public static void setTintMode(Drawable drawable, PorterDuff.Mode mode) {
+    public static void setTintMode(@NonNull Drawable drawable, @NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, drawable, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -91,7 +94,7 @@ public final class DrawableCompat {
         }
     }
 
-    public static boolean canApplyTheme(Drawable drawable) {
+    public static boolean canApplyTheme(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, drawable)) == null) {
@@ -103,7 +106,7 @@ public final class DrawableCompat {
         return invokeL.booleanValue;
     }
 
-    public static int getAlpha(Drawable drawable) {
+    public static int getAlpha(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, drawable)) == null) {
@@ -115,7 +118,7 @@ public final class DrawableCompat {
         return invokeL.intValue;
     }
 
-    public static ColorFilter getColorFilter(Drawable drawable) {
+    public static ColorFilter getColorFilter(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawable)) == null) {
@@ -127,7 +130,7 @@ public final class DrawableCompat {
         return (ColorFilter) invokeL.objValue;
     }
 
-    public static boolean isAutoMirrored(Drawable drawable) {
+    public static boolean isAutoMirrored(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, drawable)) == null) {
@@ -140,7 +143,7 @@ public final class DrawableCompat {
     }
 
     @Deprecated
-    public static void jumpToCurrentState(Drawable drawable) {
+    public static void jumpToCurrentState(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, drawable) == null) {
             drawable.jumpToCurrentState();
@@ -149,7 +152,7 @@ public final class DrawableCompat {
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: android.graphics.drawable.Drawable */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T extends Drawable> T unwrap(Drawable drawable) {
+    public static <T extends Drawable> T unwrap(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, drawable)) == null) {
@@ -161,7 +164,7 @@ public final class DrawableCompat {
         return (T) invokeL.objValue;
     }
 
-    public static void clearColorFilter(Drawable drawable) {
+    public static void clearColorFilter(@NonNull Drawable drawable) {
         DrawableContainer.DrawableContainerState drawableContainerState;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, drawable) == null) {
@@ -189,7 +192,7 @@ public final class DrawableCompat {
         }
     }
 
-    public static int getLayoutDirection(Drawable drawable) {
+    public static int getLayoutDirection(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, drawable)) == null) {
@@ -223,7 +226,7 @@ public final class DrawableCompat {
         return invokeL.intValue;
     }
 
-    public static void inflate(Drawable drawable, Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static void inflate(@NonNull Drawable drawable, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, drawable, resources, xmlPullParser, attributeSet, theme) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -234,21 +237,21 @@ public final class DrawableCompat {
         }
     }
 
-    public static void setHotspot(Drawable drawable, float f, float f2) {
+    public static void setHotspot(@NonNull Drawable drawable, float f, float f2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{drawable, Float.valueOf(f), Float.valueOf(f2)}) == null) && Build.VERSION.SDK_INT >= 21) {
             drawable.setHotspot(f, f2);
         }
     }
 
-    public static void setHotspotBounds(Drawable drawable, int i, int i2, int i3, int i4) {
+    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && Build.VERSION.SDK_INT >= 21) {
             drawable.setHotspotBounds(i, i2, i3, i4);
         }
     }
 
-    public static boolean setLayoutDirection(Drawable drawable, int i) {
+    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, drawable, i)) == null) {
@@ -283,7 +286,7 @@ public final class DrawableCompat {
         return invokeLI.booleanValue;
     }
 
-    public static Drawable wrap(Drawable drawable) {
+    public static Drawable wrap(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, drawable)) == null) {

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,23 +20,22 @@ public class e extends a {
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
-    public List a() {
+    public List<Integer> a() {
         return b.a();
     }
 
-    public static void c(List list) throws InterruptedException {
+    public static void c(List<Callable<Object>> list) throws InterruptedException {
         ExecutorService q = com.ss.android.socialbase.downloader.downloader.c.q();
         if (q != null) {
             q.invokeAll(list);
         }
     }
 
-    public static List d(List list) {
+    public static List<Future> d(List<Runnable> list) {
         ExecutorService q = com.ss.android.socialbase.downloader.downloader.c.q();
         ArrayList arrayList = new ArrayList(list.size());
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            arrayList.add(q.submit((Runnable) it.next()));
+        for (Runnable runnable : list) {
+            arrayList.add(q.submit(runnable));
         }
         return arrayList;
     }
@@ -58,19 +58,19 @@ public class e extends a {
         dVar.c(i);
     }
 
-    public static Runnable e(List list) {
+    public static Runnable e(List<Future> list) {
         BlockingQueue<Runnable> queue;
         Runnable runnable;
         if (list != null && !list.isEmpty()) {
             try {
                 ExecutorService q = com.ss.android.socialbase.downloader.downloader.c.q();
                 if ((q instanceof ThreadPoolExecutor) && (queue = ((ThreadPoolExecutor) q).getQueue()) != null && !queue.isEmpty()) {
-                    Iterator it = list.iterator();
+                    Iterator<Future> it = list.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            Future future = (Future) it.next();
-                            if ((future instanceof Runnable) && queue.remove(future)) {
-                                runnable = (Runnable) future;
+                            Future next = it.next();
+                            if ((next instanceof Runnable) && queue.remove(next)) {
+                                runnable = (Runnable) next;
                                 break;
                             }
                         } else {

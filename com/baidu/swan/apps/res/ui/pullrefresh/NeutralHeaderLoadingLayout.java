@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        k = wj1.a;
+        k = ok1.a;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -112,7 +112,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return dh3.f(getContext(), 50.0f);
+            return vh3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }
@@ -245,7 +245,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00be, viewGroup, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bf, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -271,8 +271,8 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091676);
-            int f = dh3.f(getContext(), 29.0f);
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f0916b5);
+            int f = vh3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);
             int i = (int) (f * 1.5f);

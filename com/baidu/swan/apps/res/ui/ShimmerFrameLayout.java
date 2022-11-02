@@ -2,6 +2,7 @@ package com.baidu.swan.apps.res.ui;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -18,7 +19,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vj1;
+import com.baidu.tieba.nk1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +52,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class MaskAngle {
+    public static final class MaskAngle {
         public static final /* synthetic */ MaskAngle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MaskAngle CW_0;
@@ -121,7 +122,7 @@ public class ShimmerFrameLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class MaskShape {
+    public static final class MaskShape {
         public static final /* synthetic */ MaskShape[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MaskShape LINEAR;
@@ -264,7 +265,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -319,7 +320,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MaskAngle a;
@@ -403,7 +404,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -537,6 +538,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         return (MaskShape) invokeV.objValue;
     }
 
+    @SuppressLint({"KotlinPropertyAccess"})
     public float getRelativeHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -546,6 +548,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         return invokeV.floatValue;
     }
 
+    @SuppressLint({"KotlinPropertyAccess"})
     public float getRelativeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -771,7 +774,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vj1.ShimmerFrameLayout, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, nk1.ShimmerFrameLayout, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));
@@ -953,6 +956,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
+    @SuppressLint({"KotlinPropertyAccess"})
     public void setRelativeHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
@@ -961,6 +965,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
+    @SuppressLint({"KotlinPropertyAccess"})
     public void setRelativeWidth(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
@@ -1145,6 +1150,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         canvas.drawBitmap(maskBitmap, this.l, this.m, this.b);
     }
 
+    @SuppressLint({"SwanDebugLog"})
     public final Bitmap q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

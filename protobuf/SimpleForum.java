@@ -72,13 +72,13 @@ public final class SimpleForum extends Message {
     public final ThemeColorInfo themeColor;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<SimpleForum> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String avatar;
@@ -98,7 +98,7 @@ public final class SimpleForum extends Message {
         public String name;
         public Integer postNum;
         public String secondClass;
-        public List tabInfo;
+        public List<FrsTabInfo> tabInfo;
         public ThemeColorInfo themeColor;
 
         public Builder() {
@@ -292,7 +292,7 @@ public final class SimpleForum extends Message {
             } else {
                 this.isBrandForum = num7;
             }
-            List list = builder.tabInfo;
+            List<FrsTabInfo> list = builder.tabInfo;
             if (list == null) {
                 this.tabInfo = DEFAULT_TABINFO;
             } else {

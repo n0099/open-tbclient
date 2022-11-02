@@ -20,18 +20,18 @@ import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.gh5;
-import com.baidu.tieba.kj;
-import com.baidu.tieba.mh5;
-import com.baidu.tieba.ph;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.vc5;
-import com.baidu.tieba.wd5;
-import com.baidu.tieba.wg5;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.cj;
+import com.baidu.tieba.hh;
+import com.baidu.tieba.ii5;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rd5;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.sh5;
+import com.baidu.tieba.uh;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,12 +54,12 @@ public class TiebaStatic {
     public static final String PRODUCTNAME = "tieba";
     public static final String SHOW_COST = "show_cost";
     public static final String SUB_PRODUCT = "tieba_android";
-    public static final ArrayList immediatelyUploadKeys;
+    public static final ArrayList<String> immediatelyUploadKeys;
     public static long lastLogOperateMsgTime = 0;
     public static Object lock = null;
     public static int operateMsgUploadCount = 0;
     public static final long operateMsgUploadInterval = 86400000;
-    public static Set statisticCallbacks;
+    public static Set<TiebaStatisticCallback> statisticCallbacks;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -70,7 +70,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class AgreeFunnerValue {
+    public static class AgreeFunnerValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOC_CANT_CLICK_NUM = 5;
         public static final int LOC_CLICK = 1;
@@ -97,7 +97,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class AgreeNotifyValues {
+    public static class AgreeNotifyValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_NOT_SHOW_RED_DOT = 2;
         public static final int TYPE_SHOW_RED_DOT = 1;
@@ -119,7 +119,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class CardImgClickValues {
+    public static class CardImgClickValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int JUMP_TO_IMAGE_VIEWER = 2;
         public static final int JUMP_TO_PB = 1;
@@ -141,7 +141,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class DQPay extends LogFields {
+    public static class DQPay extends LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TYPE_VALUE = "pay";
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class ErrorKey {
+    public static class ErrorKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OP_ALADIN_PORT_ERROR = "op_aladin_port_error";
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class FileKey {
+    public static class FileKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_SD_SIZE = "sd_size";
         public static final String FILE_SD_STATE = "sd_state";
@@ -205,7 +205,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class IM extends LogFields {
+    public static class IM extends LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TYPE_VALUE = "im";
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class LogFields {
+    public static class LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION = "action";
         public static final String CMD = "cmd";
@@ -266,7 +266,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class NetApiName {
+    public static class NetApiName {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -286,7 +286,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class NetKey {
+    public static class NetKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String NET_IMG = "img";
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,7 +307,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class OpKey {
+    public static class OpKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OP_FORUM_ENTER = "op_forum_enter";
         public static final String OP_FRS_ENTER = "op_frs_enter";
@@ -335,7 +335,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class Params {
+    public static class Params {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ABTEST = "abtest";
         public static final String ABTEST_RESULT = "newabtest_result";
@@ -485,7 +485,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class RDValues {
+    public static class RDValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AGREE_FUNNER = 5;
         public static final int FRS_WHITE_TIME = 4;
@@ -510,7 +510,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class ReplyFunnerValue {
+    public static class ReplyFunnerValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOC_BJH_ANTI = 3;
         public static final int LOC_BJH_WILL_SHOW_INPUT = 7;
@@ -551,7 +551,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class StampShareValues {
+    public static class StampShareValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOCATE_FRS = 1;
         public static final int LOCATE_MINE_PAGE = 3;
@@ -580,7 +580,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class YYParams {
+    public static class YYParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String HDID = "hdid";
         public static final String LIVEID = "liveid";
@@ -607,7 +607,7 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class YYValues {
+    public static class YYValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String YY_LIVE = "yylive";
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,7 +645,7 @@ public class TiebaStatic {
         operateMsgUploadCount = 0;
         lock = new Object();
         statisticCallbacks = new LinkedHashSet();
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         immediatelyUploadKeys = arrayList;
         arrayList.add(TbadkCoreStatisticKey.PUSH_CCLICK);
         immediatelyUploadKeys.add(TbadkCoreStatisticKey.HOST_START);
@@ -661,21 +661,21 @@ public class TiebaStatic {
             synchronized (lock) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = ux4.k().m("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = ux4.k().l("operate_msg_arrive_click_count", 0);
+                    lastLogOperateMsgTime = ky4.k().m("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = ky4.k().l("operate_msg_arrive_click_count", 0);
                 }
                 if (lastLogOperateMsgTime > 0) {
                     if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
                         return;
                     }
-                    ux4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
+                    ky4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
                 }
                 lastLogOperateMsgTime = currentTimeMillis;
                 operateMsgUploadCount++;
-                ux4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
+                ky4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
                 BdStatisticsManager.getInstance().saveAndUploadlog("msg");
             }
         }
@@ -720,8 +720,8 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
-                xg.g();
-                wd5.d();
+                pg.g();
+                se5.d();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -748,19 +748,19 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = wg5.d().c();
+        String c = sh5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        vc5.f().e(statisticItem);
-        statisticItem.addParam("session_id", mh5.g().i());
+        rd5.f().e(statisticItem);
+        statisticItem.addParam("session_id", ii5.g().i());
     }
 
     public static String getCua(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            return fj.k(context) + "_" + fj.i(context) + "_android_" + TbConfig.getVersion() + "_" + fj.h(context);
+            return xi.l(context) + "_" + xi.j(context) + "_android_" + TbConfig.getVersion() + "_" + xi.i(context);
         }
         return (String) invokeL.objValue;
     }
@@ -928,7 +928,7 @@ public class TiebaStatic {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length >= 5) {
                 StackTraceElement stackTraceElement = stackTrace[4];
-                str = ej.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
+                str = wi.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
             } else {
                 str = null;
             }
@@ -988,44 +988,44 @@ public class TiebaStatic {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    ph phVar = new ph();
-                    phVar.a = "tieba";
-                    phVar.b = SUB_PRODUCT;
-                    phVar.c = TbConfig.getVersion();
-                    phVar.d = TbConfig.getFrom();
-                    phVar.e = TbConfig.getCurrentFrom();
-                    phVar.f = TbadkCoreApplication.getClientId();
+                    hh hhVar = new hh();
+                    hhVar.a = "tieba";
+                    hhVar.b = SUB_PRODUCT;
+                    hhVar.c = TbConfig.getVersion();
+                    hhVar.d = TbConfig.getFrom();
+                    hhVar.e = TbConfig.getCurrentFrom();
+                    hhVar.f = TbadkCoreApplication.getClientId();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        phVar.g = TbadkCoreApplication.getInst().getCuid();
-                        phVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                        hhVar.g = TbadkCoreApplication.getInst().getCuid();
+                        hhVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
                     }
                     TbadkCoreApplication.getInst().getCuidGid();
-                    phVar.i = TbadkCoreApplication.getInst().getImei();
-                    phVar.j = TbConfig.getSubappType();
-                    phVar.r = gh5.c().f(context) + "_" + gh5.c().e(context);
-                    phVar.v = TbadkCoreApplication.getInst().getAndroidId();
-                    phVar.s = getCua(context);
-                    phVar.t = PermissionUtil.getLastCachedOid(context);
-                    phVar.u = PermissionUtil.getLocalMacAddress(context);
-                    phVar.w = gh5.c().a();
-                    phVar.x = gh5.c().g() + "_" + gh5.c().h();
-                    phVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
-                    phVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-                    phVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-                    phVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-                    phVar.D = TbSingleton.getInstance().getData();
+                    hhVar.i = TbadkCoreApplication.getInst().getImei();
+                    hhVar.j = TbConfig.getSubappType();
+                    hhVar.r = ci5.c().f(context) + "_" + ci5.c().e(context);
+                    hhVar.v = TbadkCoreApplication.getInst().getAndroidId();
+                    hhVar.s = getCua(context);
+                    hhVar.t = PermissionUtil.getLastCachedOid(context);
+                    hhVar.u = PermissionUtil.getLocalMacAddress(context);
+                    hhVar.w = ci5.c().a();
+                    hhVar.x = ci5.c().g() + "_" + ci5.c().h();
+                    hhVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
+                    hhVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                    hhVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+                    hhVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+                    hhVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
-                    if (ux4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                    if (ky4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
                     }
                     if (z2) {
-                        j = ux4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+                        j = ky4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
                     } else {
                         j = 3600000;
                     }
                     long j2 = j;
-                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, phVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
-                    kj kjVar = new kj() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
+                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, hhVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+                    cj cjVar = new cj() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1043,7 +1043,7 @@ public class TiebaStatic {
                             }
                         }
 
-                        @Override // com.baidu.tieba.kj
+                        @Override // com.baidu.tieba.cj
                         public boolean isAgreePrivacyPolicy() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -1053,9 +1053,9 @@ public class TiebaStatic {
                             return invokeV.booleanValue;
                         }
                     };
-                    BdStatisticsManager.getInstance().setPermissionUtil(kjVar);
-                    ci.o().A(kjVar);
-                    ci.o().p();
+                    BdStatisticsManager.getInstance().setPermissionUtil(cjVar);
+                    uh.o().A(cjVar);
+                    uh.o().p();
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }

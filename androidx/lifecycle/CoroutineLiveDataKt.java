@@ -1,11 +1,13 @@
 package androidx.lifecycle;
 
+import androidx.annotation.RequiresApi;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.time.Duration;
+import kotlin.BuilderInference;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -30,7 +32,7 @@ public final class CoroutineLiveDataKt {
         return invokeLLL.objValue;
     }
 
-    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, long j, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
+    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, long j, @BuilderInference Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{coroutineContext, Long.valueOf(j), function2})) == null) {
@@ -39,7 +41,8 @@ public final class CoroutineLiveDataKt {
         return (LiveData) invokeCommon.objValue;
     }
 
-    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, Duration duration, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
+    @RequiresApi(26)
+    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, Duration duration, @BuilderInference Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, coroutineContext, duration, function2)) == null) {

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.hh;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,11 +90,11 @@ public class BdToastHelper {
             } else if (bdToastData.getIconType() == 2) {
                 bdToast.f(BdToast.ToastIcon.FAILURE);
             } else if (bdToastData.getIconType() == 3) {
-                bdToast.e(R.drawable.obfuscated_res_0x7f0807f0);
+                bdToast.e(R.drawable.obfuscated_res_0x7f0807f7);
             } else if (bdToastData.getIconType() == 4) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f080839, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.obfuscated_res_0x7f080844, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
             } else if (bdToastData.getIconType() == 5) {
-                bdToast.g(R.drawable.obfuscated_res_0x7f080841, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
+                bdToast.g(R.drawable.obfuscated_res_0x7f08084c, UtilHelper.getDimenPixelSize(R.dimen.tbds286), UtilHelper.getDimenPixelSize(R.dimen.tbds203));
             }
         }
     }
@@ -107,10 +107,10 @@ public class BdToastHelper {
             if (bdToastData != null && (toastSpannableString = getToastSpannableString(bdToastData)) != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                if (fj.C()) {
+                if (xi.E()) {
                     b.i();
                 } else {
-                    hh.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    zg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;

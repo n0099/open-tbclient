@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.ll0;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.kl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,20 +19,20 @@ public class RetainDialogActivity extends NadDialogActivity {
     public int C;
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean E1() {
+    public boolean F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean F1() {
+    public boolean G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -56,29 +56,28 @@ public class RetainDialogActivity extends NadDialogActivity {
     public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ll0.c().g();
+            kl0.c().f();
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public int B1() {
-        InterceptResult invokeV;
+    public void B1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return lk0.a().b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kl0.c().g();
+            finish();
         }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String G1() {
+    public int C1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return getResources().getString(R.string.obfuscated_res_0x7f0f0bc9);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return kk0.a().b();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
@@ -86,49 +85,50 @@ public class RetainDialogActivity extends NadDialogActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return getResources().getString(R.string.obfuscated_res_0x7f0f0bcd);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f0bd5);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public String I1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return getResources().getString(R.string.obfuscated_res_0x7f0f0bd9);
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Z0() {
+    public void a1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.Z0();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.a1();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void b1() {
+    public void d1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.b1();
-            if (ll0.c().a()) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.d1();
+            if (kl0.c().a()) {
                 finish();
             }
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void z1() {
+    public void E1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ll0.c().f();
-            finish();
-        }
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void D1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Intent intent = this.B;
             if (intent != null) {
                 this.C = intent.getIntExtra("percent", 50);
             }
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0bce);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f09160c)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0bda);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f09164b)).setText(String.format(string, this.C + "%"), TextView.BufferType.NORMAL);
         }
     }
 }

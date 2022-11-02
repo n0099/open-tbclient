@@ -1,5 +1,6 @@
 package com.baidu.searchbox.fluency.tracer;
 
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.core.FrameRefreshMonitor;
 import com.baidu.searchbox.fluency.utils.Logcat;
@@ -43,6 +44,7 @@ public abstract class Tracer extends FrameRefreshMonitor.FrameRefreshObserver im
         return invokeV.booleanValue;
     }
 
+    @CallSuper
     public void onAlive() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -61,6 +63,7 @@ public abstract class Tracer extends FrameRefreshMonitor.FrameRefreshObserver im
         }
     }
 
+    @CallSuper
     public void onDead() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

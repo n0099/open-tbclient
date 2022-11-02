@@ -1,119 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class s07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List b;
-    public ko c;
-    public r07 d;
-    public w07 e;
-    public q07 f;
-    public u07 g;
-    public t07 h;
-    public v07 i;
-    public x07 j;
 
-    public s07(TbPageContext tbPageContext, ko koVar) {
+    public static boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, koVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
             }
+            int i = threadData.threadType;
+            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
+                return false;
+            }
+            return true;
         }
-        this.a = tbPageContext;
-        this.c = koVar;
-        a();
+        return invokeL.booleanValue;
     }
 
-    public final void a() {
+    public static void b(rr4 rr4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            r07 r07Var = new r07(this.a);
-            this.d = r07Var;
-            r07Var.v(this.c);
-            this.b.add(this.d);
-            w07 w07Var = new w07(this.a);
-            this.e = w07Var;
-            w07Var.v(this.c);
-            this.b.add(this.e);
-            q07 q07Var = new q07(this.a);
-            this.f = q07Var;
-            q07Var.v(this.c);
-            this.b.add(this.f);
-            u07 u07Var = new u07(this.a);
-            this.g = u07Var;
-            u07Var.v(this.c);
-            this.b.add(this.g);
-            t07 t07Var = new t07(this.a);
-            this.h = t07Var;
-            t07Var.v(this.c);
-            this.b.add(this.h);
-            v07 v07Var = new v07(this.a);
-            this.i = v07Var;
-            v07Var.v(this.c);
-            this.b.add(this.i);
-            x07 x07Var = new x07(this.a);
-            this.j = x07Var;
-            x07Var.v(this.c);
-            this.b.add(this.j);
-            this.c.a(this.b);
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{rr4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && rr4Var != null && rr4Var.getThreadData() != null && context != null) {
+            ThreadData threadData = rr4Var.getThreadData();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, ImageViewerConfig.FROM_GAME_VIDEO, 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+            createFromThreadCfg.setFrom("from_game_video");
+            createFromThreadCfg.setForumName(threadData.getForum_name());
+            createFromThreadCfg.setStartFrom(i);
+            createFromThreadCfg.setVideoOriginArea(rect);
+            if (rr4Var.getPbInputLocate() != null) {
+                createFromThreadCfg.addLocateParam(rr4Var.getPbInputLocate());
+            }
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && a(threadData)) {
+                createFromThreadCfg.setNeedPreLoad(true);
+                vi6.update(threadData);
+            }
+            createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
+            createFromThreadCfg.setJumpGodReply(z);
+            k36.a(threadData.getTid());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
 
-    public void b() {
-        ko koVar;
+    public static void c(g46 g46Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (koVar = this.c) != null) {
-            koVar.getListAdapter().notifyDataSetChanged();
+        if ((interceptable != null && interceptable.invokeLI(65538, null, g46Var, i) != null) || g46Var == null) {
+            return;
         }
-    }
-
-    public void c(List list) {
-        ko koVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (koVar = this.c) != null) {
-            koVar.setData(list);
-            b();
-        }
-    }
-
-    public void d(rp4 rp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rp4Var) == null) {
-            for (rn rnVar : this.b) {
-                if (rnVar instanceof p07) {
-                    ((p07) rnVar).u(rp4Var);
+        int i2 = 1;
+        StatisticItem w = g46Var.w("c13488", true);
+        if (w != null) {
+            if (g46Var.getThreadData() != null) {
+                ThreadData threadData = g46Var.getThreadData();
+                if (threadData.getTopAgreePost() == null || (threadData.getTopAgreePost().X() == null && threadData.getTopAgreePost().n0() == null)) {
+                    i2 = 0;
+                }
+                w.param("obj_name", i2);
+                if (threadData.getAuthor() != null) {
+                    w.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
                 }
             }
+            w.param("obj_type", i);
+            TiebaStatic.log(w);
         }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public static void d(g46 g46Var, int i) {
+        StatisticItem w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            for (rn rnVar : this.b) {
-                rnVar.setPageId(bdUniqueId);
-            }
+        if ((interceptable == null || interceptable.invokeLI(65539, null, g46Var, i) == null) && g46Var != null && g46Var.getThreadData() != null && p46.R(g46Var.a) && (w = g46Var.w("c13494", true)) != null) {
+            w.param("obj_type", i);
+            TbSingleton.getInstance().setCurrentClickTime(System.currentTimeMillis());
+            TiebaStatic.log(w);
+        }
+    }
+
+    public static void e(g46 g46Var, int i) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, g46Var, i) == null) && g46Var != null && p46.R(g46Var.a) && (w = g46Var.w("c13495", true)) != null) {
+            w.param("obj_type", i);
+            TiebaStatic.log(w);
+        }
+    }
+
+    public static void f(g46 g46Var, int i) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, g46Var, i) == null) && g46Var != null && g46Var.getThreadData() != null && (w = g46Var.w("c13496", true)) != null) {
+            w.param("obj_type", i);
+            TiebaStatic.log(w);
         }
     }
 }

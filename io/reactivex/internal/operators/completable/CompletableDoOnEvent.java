@@ -16,7 +16,7 @@ import io.reactivex.functions.Consumer;
 public final class CompletableDoOnEvent extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onEvent;
+    public final Consumer<? super Throwable> onEvent;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
@@ -82,7 +82,7 @@ public final class CompletableDoOnEvent extends Completable {
         }
     }
 
-    public CompletableDoOnEvent(CompletableSource completableSource, Consumer consumer) {
+    public CompletableDoOnEvent(CompletableSource completableSource, Consumer<? super Throwable> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

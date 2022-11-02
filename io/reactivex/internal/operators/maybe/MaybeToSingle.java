@@ -15,26 +15,26 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class MaybeToSingle extends Single implements HasUpstreamMaybeSource {
+public final class MaybeToSingle<T> extends Single<T> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object defaultValue;
-    public final MaybeSource source;
+    public final T defaultValue;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ToSingleMaybeSubscriber implements MaybeObserver, Disposable {
+    public static final class ToSingleMaybeSubscriber<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Disposable d;
-        public final Object defaultValue;
+        public final T defaultValue;
 
-        public ToSingleMaybeSubscriber(SingleObserver singleObserver, Object obj) {
+        public ToSingleMaybeSubscriber(SingleObserver<? super T> singleObserver, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, obj};
+                Object[] objArr = {singleObserver, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public final class MaybeToSingle extends Single implements HasUpstreamMaybeSourc
                 }
             }
             this.actual = singleObserver;
-            this.defaultValue = obj;
+            this.defaultValue = t;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -72,9 +72,9 @@ public final class MaybeToSingle extends Single implements HasUpstreamMaybeSourc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                Object obj = this.defaultValue;
-                if (obj != null) {
-                    this.actual.onSuccess(obj);
+                T t = this.defaultValue;
+                if (t != null) {
+                    this.actual.onSuccess(t);
                 } else {
                     this.actual.onError(new NoSuchElementException("The MaybeSource is empty"));
                 }
@@ -100,21 +100,21 @@ public final class MaybeToSingle extends Single implements HasUpstreamMaybeSourc
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
-                this.actual.onSuccess(obj);
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public MaybeToSingle(MaybeSource maybeSource, Object obj) {
+    public MaybeToSingle(MaybeSource<T> maybeSource, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {maybeSource, obj};
+            Object[] objArr = {maybeSource, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,11 +125,11 @@ public final class MaybeToSingle extends Single implements HasUpstreamMaybeSourc
             }
         }
         this.source = maybeSource;
-        this.defaultValue = obj;
+        this.defaultValue = t;
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,7 +139,7 @@ public final class MaybeToSingle extends Single implements HasUpstreamMaybeSourc
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new ToSingleMaybeSubscriber(singleObserver, this.defaultValue));

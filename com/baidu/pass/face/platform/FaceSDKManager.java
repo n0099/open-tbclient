@@ -96,8 +96,8 @@ public class FaceSDKManager {
             if (this.g.getResPaths() == null || this.g.getResPaths().size() == 0) {
                 this.g.setResPaths(b());
             }
-            WbEncryptUtil.setKeyPath((String) this.g.getResPaths().get("key"));
-            this.d.initModel(context, (String) this.g.getResPaths().get(ConstPath.KEY_DETECT), (String) this.g.getResPaths().get(ConstPath.KEY_ALIGN), BDFaceSDKCommon.DetectType.DETECT_VIS, BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE, new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.2
+            WbEncryptUtil.setKeyPath(this.g.getResPaths().get("key"));
+            this.d.initModel(context, this.g.getResPaths().get(ConstPath.KEY_DETECT), this.g.getResPaths().get(ConstPath.KEY_ALIGN), BDFaceSDKCommon.DetectType.DETECT_VIS, BDFaceSDKCommon.AlignType.BDFACE_ALIGN_TYPE_RGB_ACCURATE, new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IInitCallback a;
@@ -132,7 +132,7 @@ public class FaceSDKManager {
                     iInitCallback2.initFailure(i, str);
                 }
             });
-            this.d.initQuality(context, (String) this.g.getResPaths().get(ConstPath.KEY_BLUR), (String) this.g.getResPaths().get(ConstPath.KEY_OCCLU), new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.3
+            this.d.initQuality(context, this.g.getResPaths().get(ConstPath.KEY_BLUR), this.g.getResPaths().get(ConstPath.KEY_OCCLU), new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IInitCallback a;
@@ -202,7 +202,7 @@ public class FaceSDKManager {
                     iInitCallback2.initFailure(i, str);
                 }
             });
-            this.f.initActionLiveModel(context, (String) this.g.getResPaths().get(ConstPath.KEY_EYES), (String) this.g.getResPaths().get("mouth"), new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.5
+            this.f.initActionLiveModel(context, this.g.getResPaths().get(ConstPath.KEY_EYES), this.g.getResPaths().get("mouth"), new Callback(this, iInitCallback) { // from class: com.baidu.pass.face.platform.FaceSDKManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IInitCallback a;
@@ -246,7 +246,7 @@ public class FaceSDKManager {
         }
     }
 
-    private Map b() {
+    private Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {

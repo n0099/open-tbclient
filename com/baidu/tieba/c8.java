@@ -16,7 +16,7 @@ public final class c8 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(x7 x7Var, Reader reader) throws IOException {
+    public static void a(x7<String, String> x7Var, Reader reader) throws IOException {
         char c;
         char c2;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public final class c8 {
                                 }
                                 if (i4 >= 0) {
                                     String str = new String(cArr, 0, i);
-                                    Object substring = str.substring(0, i4);
+                                    String substring = str.substring(0, i4);
                                     String substring2 = str.substring(i4);
                                     if (c5 == c4) {
                                         substring2 = substring2 + "\u0000";

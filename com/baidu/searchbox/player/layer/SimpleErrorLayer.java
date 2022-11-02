@@ -2,10 +2,13 @@ package com.baidu.searchbox.player.layer;
 
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.element.AbsElement;
 import com.baidu.searchbox.player.element.KernelErrorElement;
 import com.baidu.searchbox.player.element.NetErrorElement;
 import com.baidu.searchbox.player.event.ControlEvent;
@@ -20,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SimpleErrorLayer extends ElementLayer {
+public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public KernelErrorElement mKernelErrorElement;
@@ -41,6 +44,7 @@ public class SimpleErrorLayer extends ElementLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +101,7 @@ public class SimpleErrorLayer extends ElementLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onControlEventNotify(VideoEvent videoEvent) {
+    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
             super.onControlEventNotify(videoEvent);
@@ -111,14 +115,14 @@ public class SimpleErrorLayer extends ElementLayer {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090421 || view2.getId() == R.id.obfuscated_res_0x7f0919ee) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09042e || view2.getId() == R.id.obfuscated_res_0x7f091a32) {
                 onRetryClick();
             }
         }
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onLayerEventNotify(VideoEvent videoEvent) {
+    public void onLayerEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, videoEvent) == null) {
             super.onLayerEventNotify(videoEvent);
@@ -129,7 +133,7 @@ public class SimpleErrorLayer extends ElementLayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, com.baidu.searchbox.player.layer.AbsLayer, com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(VideoEvent videoEvent) {
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, videoEvent) == null) {

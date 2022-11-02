@@ -21,7 +21,7 @@ public abstract class DownsampleStrategy {
     public static final DownsampleStrategy FIT_CENTER;
     public static final boolean IS_BITMAP_FACTORY_SCALING_SUPPORTED;
     public static final DownsampleStrategy NONE;
-    public static final Option OPTION;
+    public static final Option<DownsampleStrategy> OPTION;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4);
@@ -29,7 +29,7 @@ public abstract class DownsampleStrategy {
     public abstract float getScaleFactor(int i, int i2, int i3, int i4);
 
     /* loaded from: classes7.dex */
-    public class AtLeast extends DownsampleStrategy {
+    public static class AtLeast extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,7 +73,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* loaded from: classes7.dex */
-    public class AtMost extends DownsampleStrategy {
+    public static class AtMost extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* loaded from: classes7.dex */
-    public class CenterInside extends DownsampleStrategy {
+    public static class CenterInside extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,7 +162,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* loaded from: classes7.dex */
-    public class CenterOutside extends DownsampleStrategy {
+    public static class CenterOutside extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +202,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* loaded from: classes7.dex */
-    public class FitCenter extends DownsampleStrategy {
+    public static class FitCenter extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* loaded from: classes7.dex */
-    public class None extends DownsampleStrategy {
+    public static class None extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -293,7 +293,7 @@ public abstract class DownsampleStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class SampleSizeRounding {
+    public static final class SampleSizeRounding {
         public static final /* synthetic */ SampleSizeRounding[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SampleSizeRounding MEMORY;

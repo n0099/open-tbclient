@@ -22,7 +22,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
     public o.b sp;
 
     /* loaded from: classes7.dex */
-    public final class a extends com.kwad.components.ad.reward.presenter.b {
+    public static class a extends com.kwad.components.ad.reward.presenter.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a {
         public final int gS() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f091065 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.id.obfuscated_res_0x7f09109f : invokeV.intValue;
         }
 
         @Override // com.kwad.components.ad.reward.presenter.b

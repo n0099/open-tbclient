@@ -1,16 +1,21 @@
 package com.google.android.gms.common.wrappers;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.util.PlatformVersion;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class InstantApps {
     public static /* synthetic */ Interceptable $ic;
     public static Context zza;
+    @Nullable
     public static Boolean zzb;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +33,8 @@ public class InstantApps {
         }
     }
 
-    public static synchronized boolean isInstantApp(Context context) {
+    @KeepForSdk
+    public static synchronized boolean isInstantApp(@NonNull Context context) {
         InterceptResult invokeL;
         Boolean bool;
         Interceptable interceptable = $ic;

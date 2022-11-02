@@ -14,20 +14,20 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableLastMaybe extends Maybe {
+public final class FlowableLastMaybe<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher source;
+    public final Publisher<T> source;
 
     /* loaded from: classes8.dex */
-    public final class LastSubscriber implements FlowableSubscriber, Disposable {
+    public static final class LastSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public Object item;
+        public final MaybeObserver<? super T> actual;
+        public T item;
         public Subscription s;
 
-        public LastSubscriber(MaybeObserver maybeObserver) {
+        public LastSubscriber(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,10 +56,10 @@ public final class FlowableLastMaybe extends Maybe {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.item = obj;
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.item = t;
             }
         }
 
@@ -100,10 +100,10 @@ public final class FlowableLastMaybe extends Maybe {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.s = SubscriptionHelper.CANCELLED;
-                Object obj = this.item;
-                if (obj != null) {
+                T t = this.item;
+                if (t != null) {
                     this.item = null;
-                    this.actual.onSuccess(obj);
+                    this.actual.onSuccess(t);
                     return;
                 }
                 this.actual.onComplete();
@@ -111,7 +111,7 @@ public final class FlowableLastMaybe extends Maybe {
         }
     }
 
-    public FlowableLastMaybe(Publisher publisher) {
+    public FlowableLastMaybe(Publisher<T> publisher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public final class FlowableLastMaybe extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new LastSubscriber(maybeObserver));

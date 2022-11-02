@@ -6,9 +6,10 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,8 +67,8 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = fj.f(context, R.dimen.tbds20);
-            f = fj.f(context, R.dimen.tbds13);
+            e = xi.g(context, R.dimen.tbds20);
+            f = xi.g(context, R.dimen.tbds13);
             Paint paint = new Paint();
             this.c = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
@@ -91,7 +92,7 @@ public class ArrowView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ArrowView(Context context, AttributeSet attributeSet) {
+    public ArrowView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

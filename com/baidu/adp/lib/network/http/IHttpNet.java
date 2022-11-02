@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface IHttpNet {
     void a(URL url, int i, int i2) throws Exception;
 
-    Map b();
+    Map<String, List<String>> b();
 
     int c() throws Exception;
 
@@ -43,7 +44,7 @@ public interface IHttpNet {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class HttpNetType {
+    public static final class HttpNetType {
         public static final /* synthetic */ HttpNetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HttpNetType GET;

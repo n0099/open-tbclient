@@ -28,20 +28,20 @@ public final class DataReq extends Message {
     public final List<Long> live_ids;
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataReq> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Long audience_count;
 
         /* renamed from: common  reason: collision with root package name */
         public CommonReq f1025common;
-        public List live_ids;
+        public List<Long> live_ids;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -84,6 +84,7 @@ public final class DataReq extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public DataReq build(boolean z) {
             InterceptResult invokeZ;
@@ -132,7 +133,7 @@ public final class DataReq extends Message {
         }
         if (z) {
             this.f1024common = builder.f1025common;
-            List list = builder.live_ids;
+            List<Long> list = builder.live_ids;
             if (list == null) {
                 this.live_ids = DEFAULT_LIVE_IDS;
             } else {

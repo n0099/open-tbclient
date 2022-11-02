@@ -17,10 +17,10 @@ import com.googlecode.mp4parser.authoring.samples.FragmentedMp4SampleList;
 import java.util.AbstractList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class SampleList extends AbstractList {
+public class SampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List samples;
+    public List<Sample> samples;
 
     public SampleList(TrackBox trackBox, IsoFile... isoFileArr) {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class SampleList extends AbstractList {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (Sample) this.samples.get(i);
+            return this.samples.get(i);
         }
         return (Sample) invokeI.objValue;
     }

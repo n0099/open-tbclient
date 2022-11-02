@@ -11,7 +11,7 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class YYStaticConfig {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap conf;
+    public static HashMap<String, Object> conf;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class YYStaticConfig {
                 return;
             }
         }
-        conf = new HashMap();
+        conf = new HashMap<>();
     }
 
     public YYStaticConfig() {

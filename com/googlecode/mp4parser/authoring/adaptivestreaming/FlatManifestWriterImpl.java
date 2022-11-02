@@ -20,7 +20,6 @@ import com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifestP
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.googlecode.mp4parser.Version;
 import com.googlecode.mp4parser.authoring.Movie;
-import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder;
 import com.googlecode.mp4parser.boxes.DTSSpecificBox;
@@ -325,7 +324,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 audioQuality.samplingRate = dTSSpecificBox.getDTSSamplingFrequency();
                 audioQuality.channels = getNumChannelsAndMask(dTSSpecificBox)[0];
                 audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) ((Sample) track.getSamples().get(0)).getSize();
+                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
                 audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
                 return audioQuality;
             }
@@ -502,7 +501,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 audioQuality.samplingRate = audioSampleEntry.getSampleRate();
                 audioQuality.channels = s + s2;
                 audioQuality.bitPerSample = 16;
-                audioQuality.packetSize = (int) ((Sample) track.getSamples().get(0)).getSize();
+                audioQuality.packetSize = (int) track.getSamples().get(0).getSize();
                 audioQuality.codecPrivateData = String.valueOf(Hex.encodeHex(allocate.array())) + Hex.encodeHex(allocate2.array());
                 return audioQuality;
             }

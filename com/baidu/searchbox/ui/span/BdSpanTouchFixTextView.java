@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.Spannable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ui.UnifyTextView;
@@ -44,7 +45,7 @@ public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchF
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdSpanTouchFixTextView(Context context, AttributeSet attributeSet) {
+    public BdSpanTouchFixTextView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +66,7 @@ public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchF
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdSpanTouchFixTextView(Context context, AttributeSet attributeSet, int i) {
+    public BdSpanTouchFixTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

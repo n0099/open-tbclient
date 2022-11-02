@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.send;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -76,14 +77,14 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
-    public void setBIMKickUser(BIMUser bIMUser) {
+    public void setBIMKickUser(@NonNull BIMUser bIMUser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bIMUser) == null) {
             this.mKickUser = bIMUser;
         }
     }
 
-    public void setBIMKickedUser(BIMUser bIMUser) {
+    public void setBIMKickedUser(@NonNull BIMUser bIMUser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bIMUser) == null) {
             this.mKickedUser = bIMUser;
@@ -91,6 +92,7 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -125,6 +127,7 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.kwad.components.offline.api.core.video.mdoel;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,13 +20,13 @@ public class PlayVideoInfo {
 
     /* renamed from: com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isNoCache;
@@ -59,7 +60,7 @@ public class PlayVideoInfo {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PlayVideoInfo(this, null) : (PlayVideoInfo) invokeV.objValue;
         }
 
-        public Builder ksplayerLogParams(KsPlayerLogParams ksPlayerLogParams) {
+        public Builder ksplayerLogParams(@NonNull KsPlayerLogParams ksPlayerLogParams) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksPlayerLogParams)) == null) {

@@ -9,14 +9,14 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public abstract class DeferredScalarObserver extends DeferredScalarDisposable implements Observer {
+public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -266195175408988651L;
     public transient /* synthetic */ FieldHolder $fh;
     public Disposable s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DeferredScalarObserver(Observer observer) {
+    public DeferredScalarObserver(Observer<? super R> observer) {
         super(observer);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,10 +48,10 @@ public abstract class DeferredScalarObserver extends DeferredScalarDisposable im
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Object obj = this.value;
-            if (obj != null) {
+            T t = this.value;
+            if (t != null) {
                 this.value = null;
-                complete(obj);
+                complete(t);
                 return;
             }
             complete();

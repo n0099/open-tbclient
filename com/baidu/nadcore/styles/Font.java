@@ -1,5 +1,6 @@
 package com.baidu.nadcore.styles;
 
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class Font {
     public static final /* synthetic */ Font[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X01;
+    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X02;
+    @SuppressLint({"InlinedApi"})
     public static final Font F_F_X03;
+    @SuppressLint({"InlinedApi"})
     public static final Font F_NORMAL;
     public transient /* synthetic */ FieldHolder $fh;
     public int mFontWeight;

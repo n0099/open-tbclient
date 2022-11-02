@@ -9,27 +9,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
+@Experimental
 /* loaded from: classes8.dex */
-public final class SingleDoAfterSuccess extends Single {
+public final class SingleDoAfterSuccess<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onAfterSuccess;
-    public final SingleSource source;
+    public final Consumer<? super T> onAfterSuccess;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class DoAfterObserver implements SingleObserver, Disposable {
+    public static final class DoAfterObserver<T> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
         public Disposable d;
-        public final Consumer onAfterSuccess;
+        public final Consumer<? super T> onAfterSuccess;
 
-        public DoAfterObserver(SingleObserver singleObserver, Consumer consumer) {
+        public DoAfterObserver(SingleObserver<? super T> singleObserver, Consumer<? super T> consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,12 +86,12 @@ public final class SingleDoAfterSuccess extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onSuccess(t);
                 try {
-                    this.onAfterSuccess.accept(obj);
+                    this.onAfterSuccess.accept(t);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -98,7 +100,7 @@ public final class SingleDoAfterSuccess extends Single {
         }
     }
 
-    public SingleDoAfterSuccess(SingleSource singleSource, Consumer consumer) {
+    public SingleDoAfterSuccess(SingleSource<T> singleSource, Consumer<? super T> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +120,7 @@ public final class SingleDoAfterSuccess extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoAfterObserver(singleObserver, this.onAfterSuccess));

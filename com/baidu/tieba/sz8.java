@@ -1,45 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class sz8 extends BdAsyncTask {
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public class sz8 extends g65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public b c;
+    public b a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
-        void a(boolean z, String str, String str2);
-
-        void b(int i, int i2);
+        void a(String str);
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements mg {
+    /* loaded from: classes6.dex */
+    public class a implements f65 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz8 a;
+        public final /* synthetic */ rz8 a;
+        public final /* synthetic */ sz8 b;
 
-        public a(sz8 sz8Var) {
+        public a(sz8 sz8Var, rz8 rz8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz8Var};
+                Object[] objArr = {sz8Var, rz8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,129 +46,124 @@ public class sz8 extends BdAsyncTask {
                     return;
                 }
             }
-            this.a = sz8Var;
+            this.b = sz8Var;
+            this.a = rz8Var;
         }
 
-        @Override // com.baidu.tieba.mg
-        public void onProgress(int i, int i2) {
+        @Override // com.baidu.tieba.f65
+        public void B(e65 e65Var) {
+            rz8 rz8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c != null) {
-                this.a.c.b(i, i2);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948168824, "Lcom/baidu/tieba/sz8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948168824, "Lcom/baidu/tieba/sz8;");
+            if ((interceptable != null && interceptable.invokeL(1048576, this, e65Var) != null) || (rz8Var = this.a) == null || rz8Var.b() == null || e65Var == null) {
                 return;
             }
+            int i = e65Var.a;
+            if (i != 4) {
+                if (i != 7) {
+                    if (i == 8) {
+                        this.a.z();
+                        if (!this.b.h(this.a.getContext(), 25066)) {
+                            return;
+                        }
+                        this.a.p();
+                        if (this.b.a != null) {
+                            this.b.a.a(this.a.m());
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0d5f);
+                return;
+            }
+            this.a.v((String) e65Var.c);
         }
-        d = File.separator;
     }
 
-    public sz8(String str, String str2, b bVar) {
+    public sz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-        this.c = bVar;
-    }
-
-    public final void c(File file) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, file) != null) || ej.isEmpty(this.a)) {
-            return;
-        }
-        File file2 = new File(this.a);
-        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
-            return;
-        }
-        for (File file3 : listFiles) {
-            if (file3 != null && !file3.equals(file)) {
-                FileHelper.deleteFileOrDir(file3);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
+    @Override // com.baidu.tieba.g65
+    public i65 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!ej.isEmpty(this.a) && !ej.isEmpty(this.b)) {
-                new File(this.a).mkdirs();
-                String str = this.a + d + "annivervideo.temp";
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                ig igVar = new ig();
-                igVar.b().s(this.b);
-                if (new fg(igVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
-                    return e();
-                }
-            }
-            return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setHideBigEmotion(true);
+            editorTools.setBarLauncherType(4);
+            editorTools.setBackgroundColorId(R.color.CAM_X0207);
+            return new rz8(editorTools);
         }
-        return (String) invokeL.objValue;
+        return (i65) invokeL.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g65
+    public void c(i65 i65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a + d + "annivervideo.temp");
-            StringBuilder sb = new StringBuilder();
-            sb.append(mj.c(this.b));
-            sb.append(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            String sb2 = sb.toString();
-            File file2 = new File(this.a + d + sb2);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            if (file.renameTo(file2)) {
-                c(file2);
-                return file2.getAbsolutePath();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i65Var) != null) || !(i65Var instanceof rz8)) {
             return;
         }
-        if (!ej.isEmpty(str)) {
-            this.c.a(true, str, this.b);
-        } else {
-            this.c.a(false, null, null);
+        EditorTools b2 = i65Var.b();
+        a aVar = new a(this, (rz8) i65Var);
+        b2.setActionListener(4, aVar);
+        b2.setActionListener(7, aVar);
+        b2.setActionListener(8, aVar);
+    }
+
+    @Override // com.baidu.tieba.g65
+    public void d(i65 i65Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i65Var) != null) || i65Var == null) {
+            return;
         }
+        EditorTools b2 = i65Var.b();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(5);
+        b2.h(arrayList);
+        p65 n = b2.n(5);
+        if (n != null) {
+            n.e(false);
+            n.d = 0;
+        }
+        b2.d(new tz8(b2.getContext()));
+        b2.f();
+        b2.A(new e65(35, 5, Boolean.FALSE));
+        b2.o();
+    }
+
+    public i65 g(Context context, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
+            this.a = bVar;
+            return super.a(context);
+        }
+        return (i65) invokeLL.objValue;
+    }
+
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

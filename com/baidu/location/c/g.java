@@ -1,24 +1,27 @@
 package com.baidu.location.c;
 
-import android.location.Location;
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes2.dex */
-public class g extends Handler {
+public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ e a;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
+    public long e;
+    public int f;
+    public int g;
 
-    public g(e eVar) {
+    public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,33 +31,18 @@ public class g extends Handler {
                 return;
             }
         }
-        this.a = eVar;
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = 0;
+        this.e = 0L;
+        this.f = Integer.MAX_VALUE;
+        this.g = Integer.MAX_VALUE;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        e eVar;
-        Location location;
-        String str;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && com.baidu.location.f.isServing) {
-            int i = message.what;
-            if (i == 1) {
-                this.a.e((Location) message.obj);
-                return;
-            }
-            if (i == 3) {
-                eVar = this.a;
-                location = (Location) message.obj;
-                str = "&og=1";
-            } else if (i != 4) {
-                return;
-            } else {
-                eVar = this.a;
-                location = (Location) message.obj;
-                str = "&og=2";
-            }
-            eVar.a(str, location);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format(Locale.CHINA, "%d,%s,%s,%d,%d,%d", Integer.valueOf(this.a), this.b, this.c, Integer.valueOf(this.d), Long.valueOf(this.e), Integer.valueOf(this.f)) : (String) invokeV.objValue;
     }
 }

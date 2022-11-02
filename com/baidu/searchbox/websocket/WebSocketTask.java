@@ -99,7 +99,7 @@ public final class WebSocketTask implements IWebSocketClient {
                 }
 
                 @Override // com.baidu.searchbox.websocket.IWebSocketListener
-                public void onOpen(Map headers) {
+                public void onOpen(Map<String, String> headers) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, headers) == null) {
                         Intrinsics.checkNotNullParameter(headers, "headers");

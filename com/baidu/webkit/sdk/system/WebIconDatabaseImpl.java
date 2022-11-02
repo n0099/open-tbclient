@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebIconDatabase;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebIconDatabaseImpl extends WebIconDatabase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class IconWrapper implements WebIconDatabase.IconListener {
+    /* loaded from: classes7.dex */
+    public static class IconWrapper implements WebIconDatabase.IconListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebIconDatabase.IconListener mListener;

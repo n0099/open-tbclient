@@ -16,7 +16,7 @@ public final class SubscribeMiniProgramMsg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Req extends BaseReq {
+    public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Req";
@@ -100,7 +100,7 @@ public final class SubscribeMiniProgramMsg {
     }
 
     /* loaded from: classes8.dex */
-    public class Resp extends BaseResp {
+    public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Resp";
         public transient /* synthetic */ FieldHolder $fh;

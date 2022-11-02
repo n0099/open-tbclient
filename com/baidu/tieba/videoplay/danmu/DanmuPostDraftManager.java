@@ -22,16 +22,16 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DanmuPostDraftManager {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
-    public static final Lazy c;
+    public static final Lazy<DanmuPostDraftManager> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, String> a;
 
     public /* synthetic */ DanmuPostDraftManager(DefaultConstructorMarker defaultConstructorMarker) {
         this();
     }
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public final class DanmuPostDraftManager {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
     }
 
     public final String b(String threadId) {
@@ -101,7 +101,7 @@ public final class DanmuPostDraftManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadId)) == null) {
             Intrinsics.checkNotNullParameter(threadId, "threadId");
-            String str = (String) this.a.get(threadId);
+            String str = this.a.get(threadId);
             if (str == null) {
                 return "";
             }

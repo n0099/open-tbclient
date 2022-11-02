@@ -13,9 +13,9 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.iw8;
-import com.baidu.tieba.jw8;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.rx8;
+import com.baidu.tieba.sx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -118,7 +118,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.videoScaleStyle, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
@@ -355,7 +355,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new iw8(new jw8(getWidth(), getHeight()), new jw8(i, i2)).m(this.b)) != null) {
+        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new rx8(new sx8(getWidth(), getHeight()), new sx8(i, i2)).m(this.b)) != null) {
             setTransform(m);
         }
     }
@@ -383,7 +383,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         }
     }
 
-    public void setDataSource(Context context, Uri uri, Map map) throws IOException {
+    public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048598, this, context, uri, map) == null) {
             a();

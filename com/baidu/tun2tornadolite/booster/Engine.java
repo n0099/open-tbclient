@@ -85,7 +85,7 @@ public final class Engine {
         }
     }
 
-    public final boolean prepare(List sClientList) {
+    public final boolean prepare(List<String> sClientList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sClientList)) == null) {

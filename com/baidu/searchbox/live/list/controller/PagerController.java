@@ -23,6 +23,7 @@ import com.baidu.searchbox.live.livepager.AlaLoopViewPagerAdapter;
 import com.baidu.searchbox.live.livepager.AlaVerticalViewPagerNew;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.searchbox.live.service.MixShellScrollInterface;
+import com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.shell.list.template.MixAudioFakeShell;
 import com.baidu.searchbox.live.shell.list.template.MixConsultFakeShell;
@@ -149,7 +150,7 @@ public final class PagerController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0003R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0003¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/PagerController$Companion;", "", "DEFAULT_SELECT_PAGE", "I", "LIVE_TYPE_AUDIO", "LIVE_TYPE_CONSULT", "LIVE_TYPE_DATE", "LIVE_TYPE_MEDIA", "LIVE_TYPE_NEW_MEDIA", "LIVE_TYPE_SHOPPING", "LIVE_TYPE_SHOW", "LIVE_TYPE_YY", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,18 +175,18 @@ public final class PagerController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000BI\u0012\u0006\u0010 \u001a\u00020\u001f\u0012\f\u0010%\u001a\b\u0012\u0004\u0012\u00020\u00010$\u0012\u0006\u00102\u001a\u000201\u0012\u0012\u0010;\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020:090$\u0012\u0006\u0010/\u001a\u00020.\u0012\u0006\u0010*\u001a\u00020)¢\u0006\u0004\b<\u0010=J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0015\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0007\u0010\bJ!\u0010\f\u001a\u0004\u0018\u00010\u00032\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\f\u0010\rJ!\u0010\u0012\u001a\u00020\u00112\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0006¢\u0006\u0004\b\u0012\u0010\u0013J7\u0010\u0019\u001a\u00020\u000e2\b\u0010\u0015\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0016\u001a\u00020\u00012\u0006\u0010\u0010\u001a\u00020\u00062\u0006\u0010\u0017\u001a\u00020\u00062\u0006\u0010\u0018\u001a\u00020\u0006¢\u0006\u0004\b\u0019\u0010\u001aJ\r\u0010\u001b\u001a\u00020\u0011¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00112\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e¢\u0006\u0004\b\u001d\u0010\u001eR\u0019\u0010 \u001a\u00020\u001f8\u0006@\u0006¢\u0006\f\n\u0004\b \u0010!\u001a\u0004\b\"\u0010#R\u001f\u0010%\u001a\b\u0012\u0004\u0012\u00020\u00010$8\u0006@\u0006¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b'\u0010(R\u0019\u0010*\u001a\u00020)8\u0006@\u0006¢\u0006\f\n\u0004\b*\u0010+\u001a\u0004\b,\u0010-R\u0016\u0010/\u001a\u00020.8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b/\u00100R\u0019\u00102\u001a\u0002018\u0006@\u0006¢\u0006\f\n\u0004\b2\u00103\u001a\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b7\u00108R\"\u0010;\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020:090$8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010&¨\u0006>"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/PagerController$ListPagerAdapter;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "info", "Landroid/view/View;", "generateViewItem", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)Landroid/view/View;", "", "getItemViewType", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)I", "", "viewName", "randomViewId", "inflateLiveView", "(Ljava/lang/String;I)Landroid/view/View;", "Lcom/baidu/searchbox/live/list/controller/PagerController$PagerHolder;", "holder", CriusAttrConstants.POSITION, "", "onBindViewHolder", "(Lcom/baidu/searchbox/live/list/controller/PagerController$PagerHolder;Ljava/lang/Integer;)V", "Landroid/view/ViewGroup;", "parent", "itemModel", "vec", "mSelectedPosition", "onCreateViewHolder", "(Landroid/view/ViewGroup;Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;III)Lcom/baidu/searchbox/live/list/controller/PagerController$PagerHolder;", MissionEvent.MESSAGE_DESTROY, "()V", "onDestroyViewHolder", "(Lcom/baidu/searchbox/live/list/controller/PagerController$PagerHolder;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "", "data", "Ljava/util/List;", "getData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/livepager/AlaLoopViewPagerAdapter;", "mPagerAdapter", "Lcom/baidu/searchbox/live/livepager/AlaLoopViewPagerAdapter;", "getMPagerAdapter", "()Lcom/baidu/searchbox/live/livepager/AlaLoopViewPagerAdapter;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "getMixUniqueId", "()Lcom/baidu/live/arch/utils/MiniUniqueId;", "Lcom/baidu/searchbox/live/list/controller/PagerCache;", "pagerCache", "Lcom/baidu/searchbox/live/list/controller/PagerCache;", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "<init>", "(Landroid/content/Context;Ljava/util/List;Lcom/baidu/live/arch/utils/MiniUniqueId;Ljava/util/List;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;Lcom/baidu/searchbox/live/livepager/AlaLoopViewPagerAdapter;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class ListPagerAdapter {
+    public static final class ListPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context context;
-        public final List data;
+        public final List<LiveContainer.LiveItemModel> data;
         public final AlaLoopViewPagerAdapter mPagerAdapter;
         public final IMixActivityInterface mixActivity;
         public final MiniUniqueId mixUniqueId;
         public final PagerCache pagerCache;
-        public final List shellList;
+        public final List<WeakReference<AbstractMixFakeShell>> shellList;
 
-        public ListPagerAdapter(Context context, List list, MiniUniqueId miniUniqueId, List list2, IMixActivityInterface iMixActivityInterface, AlaLoopViewPagerAdapter alaLoopViewPagerAdapter) {
+        public ListPagerAdapter(Context context, List<LiveContainer.LiveItemModel> list, MiniUniqueId miniUniqueId, List<WeakReference<AbstractMixFakeShell>> list2, IMixActivityInterface iMixActivityInterface, AlaLoopViewPagerAdapter alaLoopViewPagerAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -274,61 +275,61 @@ public final class PagerController implements IListManager {
                     case -1290662271:
                         if (str.equals(MixConstants.LIVE_AUDIO_COMPONENT)) {
                             MixAudioFakeShell mixAudioFakeShell = new MixAudioFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixAudioFakeShell));
+                            this.shellList.add(new WeakReference<>(mixAudioFakeShell));
                             createContainerView = mixAudioFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell));
                         createContainerView = mixMediaFakeShell.createContainerView();
                         break;
                     case -308259055:
                         if (str.equals(MixConstants.LIVE_YY_COMPONENT)) {
                             MixYYFakeShell mixYYFakeShell = new MixYYFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixYYFakeShell));
+                            this.shellList.add(new WeakReference<>(mixYYFakeShell));
                             createContainerView = mixYYFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell2 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell2));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell2));
                         createContainerView = mixMediaFakeShell2.createContainerView();
                         break;
                     case -180546576:
                         if (str.equals(MixConstants.LIVE_COMPONENT_NEW_MEDIA)) {
                             MixNewMediaFakeShell mixNewMediaFakeShell = new MixNewMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixNewMediaFakeShell));
+                            this.shellList.add(new WeakReference<>(mixNewMediaFakeShell));
                             createContainerView = mixNewMediaFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell22 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell22));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell22));
                         createContainerView = mixMediaFakeShell22.createContainerView();
                         break;
                     case 1018636823:
                         if (str.equals(MixConstants.LIVE_COMPONENT_CONSULT)) {
                             MixConsultFakeShell mixConsultFakeShell = new MixConsultFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixConsultFakeShell));
+                            this.shellList.add(new WeakReference<>(mixConsultFakeShell));
                             createContainerView = mixConsultFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell222));
                         createContainerView = mixMediaFakeShell222.createContainerView();
                         break;
                     case 1736280221:
                         if (str.equals(MixConstants.LIVE_COMPONENT_SHOPPING)) {
                             MixShopFakeShell mixShopFakeShell = new MixShopFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                            this.shellList.add(new WeakReference(mixShopFakeShell));
+                            this.shellList.add(new WeakReference<>(mixShopFakeShell));
                             createContainerView = mixShopFakeShell.createContainerView();
                             break;
                         }
                         MixMediaFakeShell mixMediaFakeShell2222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell2222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell2222));
                         createContainerView = mixMediaFakeShell2222.createContainerView();
                         break;
                     default:
                         MixMediaFakeShell mixMediaFakeShell22222 = new MixMediaFakeShell(this.context, this.mixUniqueId, this.mixActivity);
-                        this.shellList.add(new WeakReference(mixMediaFakeShell22222));
+                        this.shellList.add(new WeakReference<>(mixMediaFakeShell22222));
                         createContainerView = mixMediaFakeShell22222.createContainerView();
                         break;
                 }
@@ -349,7 +350,7 @@ public final class PagerController implements IListManager {
             return (Context) invokeV.objValue;
         }
 
-        public final List getData() {
+        public final List<LiveContainer.LiveItemModel> getData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -534,7 +535,7 @@ public final class PagerController implements IListManager {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000B\u0007¢\u0006\u0004\b#\u0010$R\"\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u0004\b\u0006\u0010\u0007R$\u0010\t\u001a\u0004\u0018\u00010\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\"\u0010\u000f\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0003\u001a\u0004\b\u0010\u0010\u0005\"\u0004\b\u0011\u0010\u0007R\"\u0010\u0012\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0003\u001a\u0004\b\u0013\u0010\u0005\"\u0004\b\u0014\u0010\u0007R$\u0010\u0016\u001a\u0004\u0018\u00010\u00158\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0018\u0010\u0019\"\u0004\b\u001a\u0010\u001bR$\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001f\u0010 \"\u0004\b!\u0010\"¨\u0006%"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/PagerController$PagerHolder;", "", "createVec", "I", "getCreateVec", "()I", "setCreateVec", "(I)V", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "destroyVec", "getDestroyVec", "setDestroyVec", "index", "getIndex", "setIndex", "Landroid/widget/FrameLayout;", "mPage", "Landroid/widget/FrameLayout;", "getMPage", "()Landroid/widget/FrameLayout;", "setMPage", "(Landroid/widget/FrameLayout;)V", "Landroid/view/View;", "shellContainer", "Landroid/view/View;", "getShellContainer", "()Landroid/view/View;", "setShellContainer", "(Landroid/view/View;)V", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class PagerHolder {
+    public static final class PagerHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int createVec;
@@ -686,6 +687,7 @@ public final class PagerController implements IListManager {
             public int prePositionOffsetPixels;
             public final /* synthetic */ PagerController this$0;
 
+            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
@@ -980,7 +982,7 @@ public final class PagerController implements IListManager {
             if (this.listController.getItemData().size() <= this.mCurrentLiveIndex) {
                 return this.listController.getCurRoomModel();
             }
-            return (LiveContainer.LiveItemModel) this.listController.getItemData().get(this.mCurrentLiveIndex);
+            return this.listController.getItemData().get(this.mCurrentLiveIndex);
         }
         return (LiveContainer.LiveItemModel) invokeV.objValue;
     }
@@ -994,7 +996,7 @@ public final class PagerController implements IListManager {
             if (size == 0) {
                 return this.listController.getCurRoomModel();
             }
-            return (LiveContainer.LiveItemModel) this.listController.getItemData().get((currentLiveIndex + 1) % size);
+            return this.listController.getItemData().get((currentLiveIndex + 1) % size);
         }
         return (LiveContainer.LiveItemModel) invokeV.objValue;
     }
@@ -1008,7 +1010,7 @@ public final class PagerController implements IListManager {
             if (size == 0) {
                 return this.listController.getCurRoomModel();
             }
-            return (LiveContainer.LiveItemModel) this.listController.getItemData().get(((currentLiveIndex + size) - 1) % size);
+            return this.listController.getItemData().get(((currentLiveIndex + size) - 1) % size);
         }
         return (LiveContainer.LiveItemModel) invokeV.objValue;
     }
@@ -1033,7 +1035,7 @@ public final class PagerController implements IListManager {
             if (TextUtils.isEmpty(str) || this.listController.getItemData().size() <= 0) {
                 return true;
             }
-            LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) this.listController.getItemData().get(0);
+            LiveContainer.LiveItemModel liveItemModel = this.listController.getItemData().get(0);
             if (liveItemModel != null) {
                 str2 = liveItemModel.getRoomId();
             } else {
@@ -1073,7 +1075,7 @@ public final class PagerController implements IListManager {
             if (TextUtils.isEmpty(str) || this.listController.getItemData().size() <= 0) {
                 return true;
             }
-            LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) this.listController.getItemData().get(this.listController.getItemData().size() - 1);
+            LiveContainer.LiveItemModel liveItemModel = this.listController.getItemData().get(this.listController.getItemData().size() - 1);
             if (liveItemModel != null) {
                 str2 = liveItemModel.getRoomId();
             } else {
@@ -1681,12 +1683,12 @@ public final class PagerController implements IListManager {
     }
 
     @Override // com.baidu.searchbox.live.list.controller.IListManager
-    public void onCloseRoom(List list) {
+    public void onCloseRoom(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            Iterator it = this.listController.getItemData().iterator();
+            Iterator<LiveContainer.LiveItemModel> it = this.listController.getItemData().iterator();
             while (it.hasNext()) {
-                if (list.contains(((LiveContainer.LiveItemModel) it.next()).getRoomId())) {
+                if (list.contains(it.next().getRoomId())) {
                     it.remove();
                 }
             }

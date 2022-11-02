@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public Paint mRectPaint;
     public int mScrollOffset;
     public int mSelectorColor;
-    public final List mTabItemView;
+    public final List<View> mTabItemView;
     public LinearLayout mTabsContainer;
 
     /* loaded from: classes.dex */
@@ -61,8 +61,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 }
             }
             this.this$0 = scrollHorizontalTabView;
-            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
-            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09239b);
+            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
+            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
         }
     }
 
@@ -85,8 +85,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
-        this.mIndicatorWidth = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
+        this.mIndicatorWidth = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;
@@ -114,8 +114,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
-        this.mIndicatorWidth = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
+        this.mIndicatorWidth = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;
@@ -143,8 +143,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
         }
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
-        this.mIndicatorWidth = fj.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d1);
+        this.mIndicatorWidth = xi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         this.mCurrentPositionOffset = 0.0f;
@@ -188,7 +188,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int size = this.mTabItemView.size();
             for (int i = 0; i < size; i++) {
-                TextView textView = new ViewHolder(this, (View) this.mTabItemView.get(i)).title;
+                TextView textView = new ViewHolder(this, this.mTabItemView.get(i)).title;
                 if (textView != null) {
                     if (i == this.mCurrentTabIndex) {
                         setTabStatus(textView, true);

@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.g;
 
+import androidx.annotation.NonNull;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.socialbase.appdownloader.g;
@@ -8,12 +9,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class f {
-    public static JSONObject a(JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+    public static JSONObject a(@NonNull JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
         l.a(jSONObject, "open_url", l.a(aVar.f(), "open_url_not_exist"));
         return jSONObject;
     }
 
-    public static JSONObject b(JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
+    public static JSONObject b(@NonNull JSONObject jSONObject, com.ss.android.downloadad.api.a.a aVar) {
         l.a(jSONObject, com.ss.android.socialbase.appdownloader.f.d.i().replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_"), Integer.valueOf(l.b(com.ss.android.downloadlib.addownload.j.getContext(), com.ss.android.socialbase.appdownloader.f.d.i())));
         return jSONObject;
     }

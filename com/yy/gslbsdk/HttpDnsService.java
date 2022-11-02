@@ -29,6 +29,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.IPTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -309,7 +310,7 @@ public class HttpDnsService {
         return (DnsResultInfo) invokeLZ.objValue;
     }
 
-    public void setExternalIpData(Map map, int i) {
+    public void setExternalIpData(Map<String, Map<String, List<String>>> map, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, map, i) == null) {
             ExternalCache.getInstance().setData(map);
@@ -317,7 +318,7 @@ public class HttpDnsService {
         }
     }
 
-    public void setPreResolveHosts(ArrayList arrayList, long j) {
+    public void setPreResolveHosts(ArrayList<String> arrayList, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048610, this, arrayList, j) == null) {
             AsynTaskMgr.INSTANCE.postDelayed(new Runnable(this, arrayList) { // from class: com.yy.gslbsdk.HttpDnsService.1
@@ -409,7 +410,7 @@ public class HttpDnsService {
         }
     }
 
-    public void setExternalIpData(Map map) {
+    public void setExternalIpData(Map<String, Map<String, List<String>>> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, map) == null) {
             ExternalCache.getInstance().setData(map);
@@ -502,7 +503,7 @@ public class HttpDnsService {
         }
     }
 
-    public void setPreResolveHosts(ArrayList arrayList) {
+    public void setPreResolveHosts(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, arrayList) == null) {
             DnsResolveFlow.getInstance().updateHostList(arrayList, true);

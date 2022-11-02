@@ -1,24 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
+import java.io.File;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
 public interface h82 {
+    void a(String str, File file, i82 i82Var);
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(String str);
+    InputStream get(String str);
 
-        WebResourceResponse b(String str, Map map, boolean z);
-
-        boolean c();
-
-        String d();
-
-        String getMimeType();
-
-        Map getRequestHeaders();
-    }
-
-    WebResourceResponse a(a aVar);
+    boolean isClosed();
 }

@@ -87,7 +87,7 @@ public class b implements IAuthenticator {
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback
-                public void onAvailFeaturesUpdate(List list) {
+                public void onAvailFeaturesUpdate(List<Integer> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
                         this.kn[0] = list;

@@ -1,5 +1,6 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
@@ -8,10 +9,10 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ci9;
-import com.baidu.tieba.mh9;
-import com.baidu.tieba.sh9;
-import com.baidu.tieba.zh9;
+import com.baidu.tieba.bj9;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.lj9;
+import com.baidu.tieba.vi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,6 +21,7 @@ import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicReference;
+@TargetApi(18)
 /* loaded from: classes6.dex */
 public class InnerVideoProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -396,7 +398,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String e2 = "video/avc";
-            MediaCodecInfo m = sh9.m("video/avc");
+            MediaCodecInfo m = bj9.m("video/avc");
             if (m == null) {
                 return;
             }
@@ -406,10 +408,10 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             MediaExtractor mediaExtractor = null;
             try {
                 try {
-                    e = sh9.b(this.mSourcePath);
+                    e = bj9.b(this.mSourcePath);
                     try {
                         try {
-                            trackFormat = e.getTrackFormat(sh9.f(e));
+                            trackFormat = e.getTrackFormat(bj9.f(e));
                             if (this.mOutWidth == 0) {
                                 i = trackFormat.getInteger("width");
                             } else {
@@ -422,8 +424,8 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                            int b = ((int) (mh9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (zh9.b) {
+                            int b = ((int) (vi9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                            if (ij9.b) {
                                 trackFormat.setInteger("rotation-degrees", b);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", b);
@@ -434,13 +436,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 i = i5;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (!ci9.a(extractMetadata)) {
-                                this.mSourceVideoDuration = mh9.c(extractMetadata, 0L);
+                            if (!lj9.a(extractMetadata)) {
+                                this.mSourceVideoDuration = vi9.c(extractMetadata, 0L);
                             }
                             this.mLastProgressPercent = 0;
                             String str = e2;
                             if (this.mEncodeHevcVideo) {
-                                MediaCodecInfo m2 = sh9.m(MimeTypes.VIDEO_H265);
+                                MediaCodecInfo m2 = bj9.m(MimeTypes.VIDEO_H265);
                                 str = e2;
                                 if (m2 != null) {
                                     m = m2;
@@ -454,17 +456,17 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             } else {
                                 i3 = this.mOutBitRate;
                             }
-                            sh9.n(trackFormat, createVideoFormat, "bitrate", i3);
+                            bj9.n(trackFormat, createVideoFormat, "bitrate", i3);
                             if (this.mFrameRate == 0) {
                                 i4 = 30;
                             } else {
                                 i4 = this.mFrameRate;
                             }
-                            sh9.n(trackFormat, createVideoFormat, "frame-rate", i4);
-                            sh9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                            bj9.n(trackFormat, createVideoFormat, "frame-rate", i4);
+                            bj9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                             AtomicReference atomicReference = new AtomicReference();
                             try {
-                                e2 = sh9.d(m, createVideoFormat, atomicReference);
+                                e2 = bj9.d(m, createVideoFormat, atomicReference);
                             } catch (Exception unused) {
                                 if (i % 16 != 0) {
                                     i += 16 - (i % 16);
@@ -474,7 +476,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 }
                                 createVideoFormat.setInteger("width", i);
                                 createVideoFormat.setInteger("height", i2);
-                                e2 = sh9.d(m, createVideoFormat, atomicReference);
+                                e2 = bj9.d(m, createVideoFormat, atomicReference);
                             }
                             try {
                                 m = new InputSurface((Surface) atomicReference.get());
@@ -558,7 +560,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                     } else {
                         surface = null;
                     }
-                    mediaCodec2 = sh9.c(trackFormat, surface);
+                    mediaCodec2 = bj9.c(trackFormat, surface);
                     try {
                         doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
                         if (e != 0) {

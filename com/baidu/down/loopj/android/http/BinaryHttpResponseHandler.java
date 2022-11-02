@@ -36,7 +36,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static final int TEST_SPEED_STAGE_EXE = 1;
     public static Pattern mContentRangPattern;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mDomainNameAndIpList;
+    public List<UrlDNSInfo> mDomainNameAndIpList;
     public long mFileTotalBytes;
     public String mHeaderETag;
     public int mTestSpeedStage;
@@ -97,7 +97,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public List getDomainNameAndIpInfo() {
+    public List<UrlDNSInfo> getDomainNameAndIpInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

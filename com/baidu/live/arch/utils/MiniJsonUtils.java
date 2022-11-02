@@ -52,7 +52,7 @@ public final class MiniJsonUtils {
         }
     }
 
-    public final String bundleToJsonStr(Map map) {
+    public final String bundleToJsonStr(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {

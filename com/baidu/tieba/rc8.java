@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class rc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PostSearchActivity a;
-    public View b;
-    public lc8 c;
-    public nc8 d;
-    public qc8 e;
+    public ViewGroup a;
+    public ImageView b;
+    public VideoLoadingProgressView c;
+    public ObjectAnimator d;
+    public ObjectAnimator e;
+    public ObjectAnimator f;
 
-    public rc8(PostSearchActivity postSearchActivity) {
+    public rc8(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity};
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,131 +36,76 @@ public class rc8 {
                 return;
             }
         }
-        this.a = postSearchActivity;
+        this.a = viewGroup;
+        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090312);
+        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090313);
+        d();
     }
 
-    public void g(int i) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c.j(i);
-            this.d.j(i);
-            this.e.g(i);
-            me5.a(this.a.getPageContext(), this.b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.cancel();
+            this.e.cancel();
+            this.f.cancel();
         }
-    }
-
-    public void i(ArrayList arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.e.j(false);
-            this.d.k(arrayList);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.c.l(str);
-        }
-    }
-
-    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
-        qc8 qc8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) && (qc8Var = this.e) != null) {
-            qc8Var.i(onPageChangeListener);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.c.g();
-            d();
-            this.c.f();
-            this.e.j(true);
-            this.e.k(i);
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.d();
-        }
-        return invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.e();
+            a();
+            this.a.setVisibility(8);
+            this.c.h();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.f();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.h();
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.i();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        lc8 lc8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lc8Var = this.c) != null) {
-            lc8Var.k();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.d.m();
-            this.d.g();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.p();
+            a();
+            this.e.start();
+            this.f.start();
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0748);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091e09);
-            this.b = findViewById;
-            this.c = new lc8(this.a, findViewById);
-            this.d = new nc8(this.a, this.b);
-            this.e = new qc8(this.a, this.b);
+            a();
+            this.c.j();
         }
     }
 
-    public void j(int i, mc8 mc8Var, boolean z) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), mc8Var, Boolean.valueOf(z)}) == null) {
-            this.e.h(i, mc8Var, z);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a();
+            this.b.setAlpha(1.0f);
+            this.c.setAlpha(1.0f);
+            this.a.setVisibility(0);
+            this.c.l();
+            this.d.start();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.5f);
+            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.5f, 0.0f);
+            this.f = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
+            this.d.setDuration(50L);
+            this.e.setDuration(50L);
+            this.f.setDuration(50L);
+        }
+    }
+
+    public void f(VideoLoadingProgressView.c cVar) {
+        VideoLoadingProgressView videoLoadingProgressView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && (videoLoadingProgressView = this.c) != null) {
+            videoLoadingProgressView.setLoadingAnimationListener(cVar);
         }
     }
 }

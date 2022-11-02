@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes7.dex */
+
+import com.ksad.json.annotation.KsJson;
+@KsJson
+/* loaded from: classes8.dex */
 public class j extends com.kwad.sdk.core.response.kwai.a {
     public String Yp;
     public int Ys;

@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RendererCommon {
     public static /* synthetic */ Interceptable $ic = null;
     public static float BALANCED_VISIBLE_FRACTION = 0.5625f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface GlDrawer {
         void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7);
 
@@ -29,7 +29,7 @@ public class RendererCommon {
         void release();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface RendererEvents {
         void onFirstFrameRendered();
 
@@ -52,8 +52,8 @@ public class RendererCommon {
     }
 
     /* renamed from: org.webrtc.RendererCommon$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$RendererCommon$ScalingType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,8 +89,8 @@ public class RendererCommon {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class ScalingType {
+    /* loaded from: classes9.dex */
+    public static final class ScalingType {
         public static final /* synthetic */ ScalingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingType SCALE_ASPECT_BALANCED;
@@ -156,8 +156,8 @@ public class RendererCommon {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class VideoLayoutMeasure {
+    /* loaded from: classes9.dex */
+    public static class VideoLayoutMeasure {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ScalingType scalingTypeMatchOrientation;

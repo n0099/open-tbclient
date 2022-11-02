@@ -1,7 +1,9 @@
 package com.baidu.searchbox.player.plugin;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +18,7 @@ public class PluginManager {
     public final BDVideoPlayer mPlayer;
     public final ArrayList<AbsPlugin> mPlugins;
 
-    public PluginManager(BDVideoPlayer bDVideoPlayer) {
+    public PluginManager(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,6 +37,7 @@ public class PluginManager {
         this.mPlayer = bDVideoPlayer;
     }
 
+    @PublicMethod
     public void addPlugin(AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, absPlugin) == null) {
@@ -44,6 +47,7 @@ public class PluginManager {
         }
     }
 
+    @PublicMethod
     public void removePlugin(AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, absPlugin) == null) {
@@ -53,6 +57,8 @@ public class PluginManager {
         }
     }
 
+    @NonNull
+    @PublicMethod
     public BDVideoPlayer getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,6 +68,7 @@ public class PluginManager {
         return (BDVideoPlayer) invokeV.objValue;
     }
 
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

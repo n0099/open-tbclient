@@ -7,6 +7,8 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class VectorEnabledTintResources extends Resources {
     public static /* synthetic */ Interceptable $ic = null;
@@ -41,7 +44,7 @@ public class VectorEnabledTintResources extends Resources {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VectorEnabledTintResources(Context context, Resources resources) {
+    public VectorEnabledTintResources(@NonNull Context context, @NonNull Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         Interceptable interceptable = $ic;
         if (interceptable != null) {

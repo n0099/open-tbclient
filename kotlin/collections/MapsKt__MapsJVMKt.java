@@ -8,10 +8,14 @@ import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentMap;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
 import kotlin.Pair;
+import kotlin.PublishedApi;
+import kotlin.SinceKotlin;
 import kotlin.Unit;
 import kotlin.collections.builders.MapBuilder;
+import kotlin.internal.InlineOnly;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
@@ -20,6 +24,7 @@ import kotlin.jvm.internal.Intrinsics;
 public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
     public static final int INT_MAX_POWER_OF_TWO = 1073741824;
 
+    @PublishedApi
     public static final int mapCapacity(int i) {
         if (i < 0) {
             return i;
@@ -33,17 +38,27 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return Integer.MAX_VALUE;
     }
 
+    @SinceKotlin(version = "1.3")
+    @PublishedApi
+    @ExperimentalStdlibApi
     public static final <K, V> Map<K, V> build(Map<K, V> builder) {
         Intrinsics.checkNotNullParameter(builder, "builder");
         return ((MapBuilder) builder).build();
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalStdlibApi
+    @InlineOnly
+    @PublishedApi
     public static final <K, V> Map<K, V> buildMapInternal(Function1<? super Map<K, V>, Unit> function1) {
         Map createMapBuilder = createMapBuilder();
         function1.invoke(createMapBuilder);
         return build(createMapBuilder);
     }
 
+    @SinceKotlin(version = "1.3")
+    @PublishedApi
+    @ExperimentalStdlibApi
     public static final <K, V> Map<K, V> createMapBuilder(int i) {
         return new MapBuilder(i);
     }
@@ -62,6 +77,7 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return treeMap;
     }
 
+    @InlineOnly
     public static final Properties toProperties(Map<String, String> map) {
         Properties properties = new Properties();
         properties.putAll(map);
@@ -76,6 +92,7 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return singletonMap;
     }
 
+    @InlineOnly
     public static final <K, V> Map<K, V> toSingletonMapOrSelf(Map<K, ? extends V> map) {
         return toSingletonMap(map);
     }
@@ -85,12 +102,17 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return new TreeMap(toSortedMap);
     }
 
+    @SinceKotlin(version = "1.3")
+    @ExperimentalStdlibApi
+    @InlineOnly
+    @PublishedApi
     public static final <K, V> Map<K, V> buildMapInternal(int i, Function1<? super Map<K, V>, Unit> function1) {
         Map createMapBuilder = createMapBuilder(i);
         function1.invoke(createMapBuilder);
         return build(createMapBuilder);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <K, V> SortedMap<K, V> sortedMapOf(Comparator<? super K> comparator, Pair<? extends K, ? extends V>... pairs) {
         Intrinsics.checkNotNullParameter(comparator, "comparator");
         Intrinsics.checkNotNullParameter(pairs, "pairs");
@@ -107,6 +129,9 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         return treeMap;
     }
 
+    @SinceKotlin(version = "1.3")
+    @PublishedApi
+    @ExperimentalStdlibApi
     public static final <K, V> Map<K, V> createMapBuilder() {
         return new MapBuilder();
     }
@@ -116,12 +141,12 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
         Intrinsics.checkNotNullParameter(defaultValue, "defaultValue");
         V v = getOrPut.get(k);
         if (v == null) {
-            V v2 = (V) defaultValue.invoke();
-            V putIfAbsent = getOrPut.putIfAbsent(k, v2);
+            V invoke = defaultValue.invoke();
+            V putIfAbsent = getOrPut.putIfAbsent(k, invoke);
             if (putIfAbsent != null) {
                 return putIfAbsent;
             }
-            return v2;
+            return invoke;
         }
         return v;
     }

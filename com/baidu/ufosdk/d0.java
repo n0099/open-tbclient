@@ -64,14 +64,14 @@ public class d0 {
         return (String) invokeLL.objValue;
     }
 
-    public static RequestBody a(Map map) {
+    public static RequestBody a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             FormBody.Builder builder = new FormBody.Builder(a);
             if (map.size() > 0) {
-                for (Map.Entry entry : map.entrySet()) {
-                    builder.add((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    builder.add(entry.getKey(), entry.getValue());
                 }
             }
             return builder.build();

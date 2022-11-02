@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.HashMap;
@@ -35,13 +36,16 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     public static final int OUTLINE_STROKE_WIDTH_PX = 2;
     public static final int TEXT_BACKGROUND_COLOR = 1711276032;
     public static final int TEXT_COLOR = -1;
+    @VisibleForTesting
     public static final int TEXT_COLOR_IMAGE_ALMOST_OK = -256;
+    @VisibleForTesting
     public static final int TEXT_COLOR_IMAGE_NOT_OK = -65536;
+    @VisibleForTesting
     public static final int TEXT_COLOR_IMAGE_OK = -16711936;
     public static final int TEXT_LINE_SPACING_PX = 8;
     public static final int TEXT_PADDING_PX = 10;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mAdditionalData;
+    public HashMap<String, String> mAdditionalData;
     public String mControllerId;
     public int mCurrentTextXPx;
     public int mCurrentTextYPx;
@@ -103,7 +107,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                 return;
             }
         }
-        this.mAdditionalData = new HashMap();
+        this.mAdditionalData = new HashMap<>();
         this.mTextGravity = 80;
         this.mPaint = new Paint(1);
         this.mMatrix = new Matrix();
@@ -213,6 +217,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
+    @VisibleForTesting
     public int determineSizeHintColor(int i, int i2, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -304,8 +309,8 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             if (str3 != null) {
                 addDebugText(canvas, "origin", str3, this.mOriginColor);
             }
-            for (Map.Entry entry : this.mAdditionalData.entrySet()) {
-                addDebugText(canvas, (String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : this.mAdditionalData.entrySet()) {
+                addDebugText(canvas, entry.getKey(), entry.getValue());
             }
         }
     }
@@ -396,7 +401,7 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             this.mWidthPx = -1;
             this.mHeightPx = -1;
             this.mImageSizeBytes = -1;
-            this.mAdditionalData = new HashMap();
+            this.mAdditionalData = new HashMap<>();
             this.mFrameCount = -1;
             this.mLoopCount = -1;
             this.mImageFormat = null;

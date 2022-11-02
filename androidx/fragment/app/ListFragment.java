@@ -14,6 +14,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +42,7 @@ public class ListFragment extends Fragment {
     public final Runnable mRequestFocus;
     public TextView mStandardEmptyView;
 
-    public void onListItemClick(ListView listView, View view2, int i, long j) {
+    public void onListItemClick(@NonNull ListView listView, @NonNull View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
@@ -125,6 +127,7 @@ public class ListFragment extends Fragment {
         };
     }
 
+    @NonNull
     public final ListAdapter requireListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,6 +232,7 @@ public class ListFragment extends Fragment {
         }
     }
 
+    @Nullable
     public ListAdapter getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -238,6 +242,7 @@ public class ListFragment extends Fragment {
         return (ListAdapter) invokeV.objValue;
     }
 
+    @NonNull
     public ListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +289,8 @@ public class ListFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
@@ -315,7 +321,7 @@ public class ListFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
@@ -323,7 +329,7 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void setEmptyText(CharSequence charSequence) {
+    public void setEmptyText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
             ensureList();
@@ -362,7 +368,7 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void setListAdapter(ListAdapter listAdapter) {
+    public void setListAdapter(@Nullable ListAdapter listAdapter) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, listAdapter) == null) {

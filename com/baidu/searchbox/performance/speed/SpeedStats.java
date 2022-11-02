@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -19,7 +20,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.hc;
+import com.baidu.tieba.gc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -741,6 +742,7 @@ public class SpeedStats {
         Log.d(TAG, "detectStartAppFrom hasDetect=" + this.mHasDetectStartAppFromLauncher + ",isStartAppFromLauncher=" + this.mIsStartAppFromLauncher);
     }
 
+    @DebugTrace
     @TimeSpendTrace(isEnd = true)
     public void onMainPageStatsEnd(Context context) {
         Interceptable interceptable = $ic;
@@ -749,7 +751,7 @@ public class SpeedStats {
         }
         boolean z = true;
         this.isMainPageStatsEnd = true;
-        hc.b().d();
+        gc.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
             SmartLaunchStats.tryToFindFirstIdleTimeStamp();
@@ -775,17 +777,17 @@ public class SpeedStats {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void printUBCFlow(Map map) {
+    public void printUBCFlow(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, this, map) == null) {
             Log.d(TAG, "*****************UBC start*****************");
-            Log.d(TAG, "************" + ((String) map.get(SpeedStatsUtils.UBC_KEY_OPTION)) + "*************");
-            Log.d(TAG, "************duration:" + ((String) map.get("duration")) + "*************");
-            Log.d(TAG, "************version:" + ((String) map.get("version")) + "*************");
-            Log.d(TAG, "************stage:" + ((String) map.get("stage")) + "*************");
-            Log.d(TAG, "************cpu:" + ((String) map.get("cpu")) + "*************");
-            Log.d(TAG, "************device_score:" + ((String) map.get("device_score")) + "*************");
-            Log.d(TAG, "************drawCount:" + ((String) map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT)) + "*************");
+            Log.d(TAG, "************" + map.get(SpeedStatsUtils.UBC_KEY_OPTION) + "*************");
+            Log.d(TAG, "************duration:" + map.get("duration") + "*************");
+            Log.d(TAG, "************version:" + map.get("version") + "*************");
+            Log.d(TAG, "************stage:" + map.get("stage") + "*************");
+            Log.d(TAG, "************cpu:" + map.get("cpu") + "*************");
+            Log.d(TAG, "************device_score:" + map.get("device_score") + "*************");
+            Log.d(TAG, "************drawCount:" + map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT) + "*************");
             Log.d(TAG, "*****************UBC end*****************");
         }
     }
@@ -841,6 +843,7 @@ public class SpeedStats {
         }
     }
 
+    @DebugTrace
     @TimeSpendTrace(isEnd = true)
     public void onSchemeOrPushStatsEnd(Context context, int i, String str) {
         Interceptable interceptable = $ic;
@@ -848,7 +851,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        hc.b().d();
+        gc.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

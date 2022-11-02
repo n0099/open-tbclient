@@ -5,6 +5,7 @@ import android.os.Build;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.os.CancellationSignal;
@@ -32,9 +33,9 @@ public class FragmentTransition {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void onComplete(Fragment fragment, CancellationSignal cancellationSignal);
+        void onComplete(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal);
 
-        void onStart(Fragment fragment, CancellationSignal cancellationSignal);
+        void onStart(@NonNull Fragment fragment, @NonNull CancellationSignal cancellationSignal);
     }
 
     /* loaded from: classes.dex */

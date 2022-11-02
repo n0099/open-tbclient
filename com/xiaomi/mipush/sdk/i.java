@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap a;
+    public static HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class i {
                 return;
             }
         }
-        a = new HashMap();
+        a = new HashMap<>();
     }
 
     public static int a() {
@@ -209,7 +209,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             synchronized (i.class) {
-                str2 = (String) a.get(str);
+                str2 = a.get(str);
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "";
                 }
@@ -248,13 +248,13 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HashMap m150a(Context context, e eVar) {
+    public static HashMap<String, String> m150a(Context context, e eVar) {
         InterceptResult invokeLL;
         w.a a2;
         int a3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, eVar)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             String a4 = a(eVar);
             if (TextUtils.isEmpty(a4)) {
                 return hashMap;
@@ -412,7 +412,7 @@ public class i {
             if (cif == null || cif.m465a() == null || cif.m465a().m432a() == null) {
                 return false;
             }
-            return (eVar == e.b ? "FCM" : "").equalsIgnoreCase((String) cif.m465a().m432a().get("assemble_push_type"));
+            return (eVar == e.b ? "FCM" : "").equalsIgnoreCase(cif.m465a().m432a().get("assemble_push_type"));
         }
         return invokeLL.booleanValue;
     }

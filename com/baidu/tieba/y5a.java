@@ -1,71 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import androidx.core.view.InputDeviceCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class y5a {
+public class y5a implements a8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Activity c;
+    public IYYPayWayView d;
+    public AbsViewEventHandler e;
+    public e5a f;
 
-    public static void a(Context context) {
+    public y5a(int i, int i2, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, e5a e5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, iYYPayWayView, absViewEventHandler, e5aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = activity;
+        this.d = iYYPayWayView;
+        this.e = absViewEventHandler;
+        this.f = e5aVar;
+    }
+
+    @Override // com.baidu.tieba.a8a
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
+            this.f.j();
+            this.f.c(cancelType, this.e);
+            d6a.b(this.a, this.b, cancelType);
         }
     }
 
-    public static void b(Context context) {
+    @Override // com.baidu.tieba.a8a
+    public boolean b(DialogInterface dialogInterface) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
+            return this.f.m(this.c, this.d, this.e);
         }
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-        }
-    }
-
-    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_REGISTER);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
-        }
-    }
-
-    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_UNREGISTER);
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
-        }
+        return invokeL.booleanValue;
     }
 }

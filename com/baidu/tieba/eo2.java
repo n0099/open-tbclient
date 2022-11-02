@@ -1,107 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class eo2 implements qo2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+/* loaded from: classes4.dex */
+public interface eo2 {
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SwanAppConfigData b = y33.b(file.getAbsolutePath());
-                if (qo2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("buildAppJsonConfig cost = ");
-                    sb.append(currentTimeMillis2 - currentTimeMillis);
-                    sb.append("ms ; current thread is main = ");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    sb.append(" ; path = ");
-                    sb.append(file);
-                    Log.d("SwanPerformance", sb.toString());
-                }
-                return b;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(d73 d73Var);
+
+        void onFailed(int i);
     }
 
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file != null && file.exists()) {
-                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) fo2.c().b(file.getAbsolutePath());
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = px2.e().j(file);
-                    if (swanAppConfigData == null) {
-                        swanAppConfigData = a(file);
-                    }
-                    fo2.c().d(file.getAbsolutePath(), swanAppConfigData);
-                } else if (qo2.a) {
-                    Log.d("SwanPerformance", "adopt cached app.json");
-                }
-                return swanAppConfigData;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
+    void a();
 
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) fo2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(tm2.M().a());
-            }
-            if (z) {
-                fo2.c().e("getNightModeStateCache");
-            }
-            return bool;
-        }
-        return (Boolean) invokeZ.objValue;
-    }
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    public static List d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List list = (List) fo2.c().b("getStorageListCache");
-            if (list == null) {
-                List d = ah3.d();
-                fo2.c().d("getStorageListCache", d);
-                return d;
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
-    }
+    void c();
 
-    public static void e(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            fo2.c().d("getNightModeStateCache", bool);
-        }
-    }
+    void d();
+
+    void e();
+
+    void f(a aVar);
+
+    double[] g(@NonNull d73 d73Var, @NonNull String str);
+
+    d73 h();
 }

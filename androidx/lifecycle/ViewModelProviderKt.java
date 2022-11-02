@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import kotlin.Metadata;
@@ -10,6 +11,7 @@ public final class ViewModelProviderKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @MainThread
     public static final /* synthetic */ <VM extends ViewModel> VM get(ViewModelProvider viewModelProvider) {
         Intrinsics.reifiedOperationMarker(4, "VM");
         VM vm = (VM) viewModelProvider.get(ViewModel.class);

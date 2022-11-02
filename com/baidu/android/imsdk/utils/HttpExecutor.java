@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
@@ -40,7 +41,7 @@ public class HttpExecutor {
 
     /* renamed from: com.baidu.android.imsdk.utils.HttpExecutor$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -98,11 +99,12 @@ public class HttpExecutor {
     }
 
     /* loaded from: classes.dex */
-    public class MyTrustManager implements X509TrustManager {
+    public static class MyTrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // javax.net.ssl.X509TrustManager
+        @SuppressLint({"TrustAllX509TrustManager"})
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
@@ -110,6 +112,7 @@ public class HttpExecutor {
         }
 
         @Override // javax.net.ssl.X509TrustManager
+        @SuppressLint({"TrustAllX509TrustManager"})
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
@@ -210,7 +213,7 @@ public class HttpExecutor {
         return (SSLSocketFactory) invokeV.objValue;
     }
 
-    private Headers getHeaders(Map map) {
+    private Headers getHeaders(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, map)) == null) {
@@ -219,7 +222,7 @@ public class HttpExecutor {
                 if (map != null && map.size() > 0) {
                     for (String str : map.keySet()) {
                         String str2 = str.toString();
-                        builder.add(str2, (String) map.get(str2));
+                        builder.add(str2, map.get(str2));
                     }
                 }
                 return builder.build();
@@ -247,7 +250,7 @@ public class HttpExecutor {
         return (HttpExecutor) invokeV.objValue;
     }
 
-    public void execute(int i, String str, byte[] bArr, Map map, String str2, HttpHelper.ResponseHandler responseHandler) {
+    public void execute(int i, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
         Request build;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, bArr, map, str2, responseHandler}) == null) {
@@ -263,7 +266,7 @@ public class HttpExecutor {
                     }
                     build = new Request.Builder().url(str).headers(getHeaders(map)).build();
                 }
-                String str3 = (String) map.get("Host");
+                String str3 = map.get("Host");
                 if (!TextUtils.isEmpty(str3) && str3.contains(IMHttpDnsUrlRequest.HTTP_DNS_HOST)) {
                     this.okHttpClient = this.okHttpClient.newBuilder().sslSocketFactory(createSSLSocketFactory(), new MyTrustManager()).hostnameVerifier(new TrustAllHostnameVerifier(this, null)).build();
                 }

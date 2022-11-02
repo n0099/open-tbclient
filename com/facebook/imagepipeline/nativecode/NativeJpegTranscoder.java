@@ -8,7 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Closeables;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -22,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeJpegTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,8 +34,10 @@ public class NativeJpegTranscoder implements ImageTranscoder {
     public boolean mResizingEnabled;
     public boolean mUseDownsamplingRatio;
 
+    @DoNotStrip
     public static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
 
+    @DoNotStrip
     public static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder
@@ -65,6 +70,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         }
     }
 
+    @VisibleForTesting
     public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
         boolean z;
         boolean z2;
@@ -104,6 +110,7 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         }
     }
 
+    @VisibleForTesting
     public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
         boolean z;
         boolean z2;

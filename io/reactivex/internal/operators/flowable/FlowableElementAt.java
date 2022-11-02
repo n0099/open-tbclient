@@ -14,33 +14,33 @@ import java.util.NoSuchElementException;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableElementAt extends AbstractFlowableWithUpstream {
+public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object defaultValue;
+    public final T defaultValue;
     public final boolean errorOnFewer;
     public final long index;
 
     /* loaded from: classes8.dex */
-    public final class ElementAtSubscriber extends DeferredScalarSubscription implements FlowableSubscriber {
+    public static final class ElementAtSubscriber<T> extends DeferredScalarSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4066607327284737757L;
         public transient /* synthetic */ FieldHolder $fh;
         public long count;
-        public final Object defaultValue;
+        public final T defaultValue;
         public boolean done;
         public final boolean errorOnFewer;
         public final long index;
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ElementAtSubscriber(Subscriber subscriber, long j, Object obj, boolean z) {
+        public ElementAtSubscriber(Subscriber<? super T> subscriber, long j, T t, boolean z) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j), obj, Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, Long.valueOf(j), t, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
                 }
             }
             this.index = j;
-            this.defaultValue = obj;
+            this.defaultValue = t;
             this.errorOnFewer = z;
         }
 
@@ -70,8 +70,8 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.done) {
                 this.done = true;
-                Object obj = this.defaultValue;
-                if (obj == null) {
+                T t = this.defaultValue;
+                if (t == null) {
                     if (this.errorOnFewer) {
                         this.actual.onError(new NoSuchElementException());
                         return;
@@ -80,7 +80,7 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
                         return;
                     }
                 }
-                complete(obj);
+                complete(t);
             }
         }
 
@@ -98,16 +98,16 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.done) {
                 return;
             }
             long j = this.count;
             if (j == this.index) {
                 this.done = true;
                 this.s.cancel();
-                complete(obj);
+                complete(t);
                 return;
             }
             this.count = j + 1;
@@ -125,13 +125,13 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableElementAt(Flowable flowable, long j, Object obj, boolean z) {
+    public FlowableElementAt(Flowable<T> flowable, long j, T t, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j), obj, Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), t, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -143,12 +143,12 @@ public final class FlowableElementAt extends AbstractFlowableWithUpstream {
             }
         }
         this.index = j;
-        this.defaultValue = obj;
+        this.defaultValue = t;
         this.errorOnFewer = z;
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ElementAtSubscriber(subscriber, this.index, this.defaultValue, this.errorOnFewer));

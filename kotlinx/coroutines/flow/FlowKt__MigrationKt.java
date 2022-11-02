@@ -5,10 +5,13 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
+import kotlin.BuilderInference;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
@@ -20,34 +23,34 @@ import kotlin.jvm.functions.Function6;
 /* loaded from: classes8.dex */
 public final /* synthetic */ class FlowKt__MigrationKt {
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'combineLatest' is 'combine'", replaceWith = @ReplaceWith(expression = "this.combine(other, transform)", imports = {}))
-    public static final Flow combineLatest(Flow flow, Flow flow2, Function3 function3) {
+    public static final <T1, T2, R> Flow<R> combineLatest(Flow<? extends T1> flow, Flow<? extends T2> flow2, Function3<? super T1, ? super T2, ? super Continuation<? super R>, ? extends Object> function3) {
         return FlowKt.combine(flow, flow2, function3);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { e -> if (predicate(e)) emit(fallback) else throw e }'", replaceWith = @ReplaceWith(expression = "catch { e -> if (predicate(e)) emit(fallback) else throw e }", imports = {}))
-    public static final Flow onErrorReturn(Flow flow, Object obj, Function1 function1) {
-        return FlowKt.m2098catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, obj, null));
+    public static final <T> Flow<T> onErrorReturn(Flow<? extends T> flow, T t, Function1<? super Throwable, Boolean> function1) {
+        return FlowKt.m2098catch(flow, new FlowKt__MigrationKt$onErrorReturn$2(function1, t, null));
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow has less verbose 'scan' shortcut", replaceWith = @ReplaceWith(expression = "scan(initial, operation)", imports = {}))
-    public static final Flow scanFold(Flow flow, Object obj, Function3 function3) {
+    public static final <T, R> Flow<R> scanFold(Flow<? extends T> flow, R r, @BuilderInference Function3<? super R, ? super T, ? super Continuation<? super R>, ? extends Object> function3) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use launchIn with onEach, onCompletion and catch operators instead")
-    public static final void subscribe(Flow flow, Function2 function2, Function2 function22) {
+    public static final <T> void subscribe(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Unit>, ? extends Object> function2, Function2<? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function22) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'combineLatest' is 'combine'", replaceWith = @ReplaceWith(expression = "combine(this, other, other2, transform)", imports = {}))
-    public static final Flow combineLatest(Flow flow, Flow flow2, Flow flow3, Function4 function4) {
+    public static final <T1, T2, T3, R> Flow<R> combineLatest(Flow<? extends T1> flow, Flow<? extends T2> flow2, Flow<? extends T3> flow3, Function4<? super T1, ? super T2, ? super T3, ? super Continuation<? super R>, ? extends Object> function4) {
         return new FlowKt__MigrationKt$combineLatest$$inlined$combine$1(new Flow[]{flow, flow2, flow3}, function4);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'combineLatest' is 'combine'", replaceWith = @ReplaceWith(expression = "combine(this, other, other2, other3, transform)", imports = {}))
-    public static final Flow combineLatest(Flow flow, Flow flow2, Flow flow3, Flow flow4, Function5 function5) {
+    public static final <T1, T2, T3, T4, R> Flow<R> combineLatest(Flow<? extends T1> flow, Flow<? extends T2> flow2, Flow<? extends T3> flow3, Flow<? extends T4> flow4, Function5<? super T1, ? super T2, ? super T3, ? super T4, ? super Continuation<? super R>, ? extends Object> function5) {
         return new FlowKt__MigrationKt$combineLatest$$inlined$combine$2(new Flow[]{flow, flow2, flow3, flow4}, function5);
     }
 
@@ -59,135 +62,135 @@ public final /* synthetic */ class FlowKt__MigrationKt {
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'combineLatest' is 'combine'", replaceWith = @ReplaceWith(expression = "combine(this, other, other2, other3, transform)", imports = {}))
-    public static final Flow combineLatest(Flow flow, Flow flow2, Flow flow3, Flow flow4, Flow flow5, Function6 function6) {
+    public static final <T1, T2, T3, T4, T5, R> Flow<R> combineLatest(Flow<? extends T1> flow, Flow<? extends T2> flow2, Flow<? extends T3> flow3, Flow<? extends T4> flow4, Flow<? extends T5> flow5, Function6<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super Continuation<? super R>, ? extends Object> function6) {
         return new FlowKt__MigrationKt$combineLatest$$inlined$combine$3(new Flow[]{flow, flow2, flow3, flow4, flow5}, function6);
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'compose' is 'let'", replaceWith = @ReplaceWith(expression = "let(transformer)", imports = {}))
-    public static final Flow compose(Flow flow, Function1 function1) {
+    public static final <T, R> Flow<R> compose(Flow<? extends T> flow, Function1<? super Flow<? extends T>, ? extends Flow<? extends R>> function1) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'concatMap' is 'flatMapConcat'", replaceWith = @ReplaceWith(expression = "flatMapConcat(mapper)", imports = {}))
-    public static final Flow concatMap(Flow flow, Function1 function1) {
+    public static final <T, R> Flow<R> concatMap(Flow<? extends T> flow, Function1<? super T, ? extends Flow<? extends R>> function1) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'concatWith' is 'onCompletion'. Use 'onCompletion { emit(value) }'", replaceWith = @ReplaceWith(expression = "onCompletion { emit(value) }", imports = {}))
-    public static final Flow concatWith(Flow flow, Object obj) {
+    public static final <T> Flow<T> concatWith(Flow<? extends T> flow, T t) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
-    public static final Flow delayEach(Flow flow, long j) {
+    public static final <T> Flow<T> delayEach(Flow<? extends T> flow, long j) {
         return FlowKt.onEach(flow, new FlowKt__MigrationKt$delayEach$1(j, null));
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onStart { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onStart { delay(timeMillis) }", imports = {}))
-    public static final Flow delayFlow(Flow flow, long j) {
+    public static final <T> Flow<T> delayFlow(Flow<? extends T> flow, long j) {
         return FlowKt.onStart(flow, new FlowKt__MigrationKt$delayFlow$1(j, null));
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue is named flatMapConcat", replaceWith = @ReplaceWith(expression = "flatMapConcat(mapper)", imports = {}))
-    public static final Flow flatMap(Flow flow, Function2 function2) {
+    public static final <T, R> Flow<R> flatMap(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'forEach' is 'collect'", replaceWith = @ReplaceWith(expression = "collect(block)", imports = {}))
-    public static final void forEach(Flow flow, Function2 function2) {
+    public static final <T> void forEach(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Unit>, ? extends Object> function2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Collect flow in the desired context instead")
-    public static final Flow observeOn(Flow flow, CoroutineContext coroutineContext) {
+    public static final <T> Flow<T> observeOn(Flow<? extends T> flow, CoroutineContext coroutineContext) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { emitAll(fallback) }'", replaceWith = @ReplaceWith(expression = "catch { emitAll(fallback) }", imports = {}))
-    public static final Flow onErrorResume(Flow flow, Flow flow2) {
+    public static final <T> Flow<T> onErrorResume(Flow<? extends T> flow, Flow<? extends T> flow2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { emitAll(fallback) }'", replaceWith = @ReplaceWith(expression = "catch { emitAll(fallback) }", imports = {}))
-    public static final Flow onErrorResumeNext(Flow flow, Flow flow2) {
+    public static final <T> Flow<T> onErrorResumeNext(Flow<? extends T> flow, Flow<? extends T> flow2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'onErrorXxx' is 'catch'. Use 'catch { emit(fallback) }'", replaceWith = @ReplaceWith(expression = "catch { emit(fallback) }", imports = {}))
-    public static final Flow onErrorReturn(Flow flow, Object obj) {
+    public static final <T> Flow<T> onErrorReturn(Flow<? extends T> flow, T t) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Collect flow in the desired context instead")
-    public static final Flow publishOn(Flow flow, CoroutineContext coroutineContext) {
+    public static final <T> Flow<T> publishOn(Flow<? extends T> flow, CoroutineContext coroutineContext) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'skip' is 'drop'", replaceWith = @ReplaceWith(expression = "drop(count)", imports = {}))
-    public static final Flow skip(Flow flow, int i) {
+    public static final <T> Flow<T> skip(Flow<? extends T> flow, int i) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'startWith' is 'onStart'. Use 'onStart { emit(value) }'", replaceWith = @ReplaceWith(expression = "onStart { emit(value) }", imports = {}))
-    public static final Flow startWith(Flow flow, Object obj) {
+    public static final <T> Flow<T> startWith(Flow<? extends T> flow, T t) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use launchIn with onEach, onCompletion and catch operators instead")
-    public static final void subscribe(Flow flow, Function2 function2) {
+    public static final <T> void subscribe(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Unit>, ? extends Object> function2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use flowOn instead")
-    public static final Flow subscribeOn(Flow flow, CoroutineContext coroutineContext) {
+    public static final <T> Flow<T> subscribeOn(Flow<? extends T> flow, CoroutineContext coroutineContext) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogues of 'switchMap' are 'transformLatest', 'flatMapLatest' and 'mapLatest'", replaceWith = @ReplaceWith(expression = "this.flatMapLatest(transform)", imports = {}))
-    public static final Flow switchMap(Flow flow, Function2 function2) {
+    public static final <T, R> Flow<R> switchMap(Flow<? extends T> flow, Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
         return FlowKt.transformLatest(flow, new FlowKt__MigrationKt$switchMap$$inlined$flatMapLatest$1(function2, null));
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'concatWith' is 'onCompletion'. Use 'onCompletion { emitAll(other) }'", replaceWith = @ReplaceWith(expression = "onCompletion { emitAll(other) }", imports = {}))
-    public static final Flow concatWith(Flow flow, Flow flow2) {
+    public static final <T> Flow<T> concatWith(Flow<? extends T> flow, Flow<? extends T> flow2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'startWith' is 'onStart'. Use 'onStart { emitAll(other) }'", replaceWith = @ReplaceWith(expression = "onStart { emitAll(other) }", imports = {}))
-    public static final Flow startWith(Flow flow, Flow flow2) {
+    public static final <T> Flow<T> startWith(Flow<? extends T> flow, Flow<? extends T> flow2) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'flatten' is 'flattenConcat'", replaceWith = @ReplaceWith(expression = "flattenConcat()", imports = {}))
-    public static final Flow flatten(Flow flow) {
+    public static final <T> Flow<T> flatten(Flow<? extends Flow<? extends T>> flow) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Flow analogue of 'merge' is 'flattenConcat'", replaceWith = @ReplaceWith(expression = "flattenConcat()", imports = {}))
-    public static final Flow merge(Flow flow) {
+    public static final <T> Flow<T> merge(Flow<? extends Flow<? extends T>> flow) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use launchIn with onEach, onCompletion and catch operators instead")
-    public static final void subscribe(Flow flow) {
+    public static final <T> void subscribe(Flow<? extends T> flow) {
         noImpl$FlowKt__MigrationKt();
         throw null;
     }

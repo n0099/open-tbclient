@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IAlertManager;
-import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.AdOperator;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,64 +19,148 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class p81 {
     public static /* synthetic */ Interceptable $ic;
-    public static p81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public te1 a;
+    public final NadExpressNaBaseView a;
+    public final Context b;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            re1 b2 = re1.b();
-            this.a = b2;
-            b2.a(new IAlertManager_AlertManager_Provider());
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-562568605, "Lcom/baidu/tieba/p81$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-562568605, "Lcom/baidu/tieba/p81$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdOperator.TYPE.values().length];
+            a = iArr;
+            try {
+                iArr[AdOperator.TYPE.DOWNLOAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdOperator.TYPE.CHECK.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015808, "Lcom/baidu/tieba/p81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015808, "Lcom/baidu/tieba/p81;");
-                return;
-            }
-        }
-        b = new p81();
-    }
-
-    public p81() {
+    public p81(NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nadExpressNaBaseView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
+        this.a = nadExpressNaBaseView;
+        this.b = nadExpressNaBaseView.getContext();
     }
 
-    public static p81 a() {
-        InterceptResult invokeV;
+    public final boolean a(AdBaseModel adBaseModel, int i) {
+        InterceptResult invokeLI;
+        AdOperator adOperator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i)) == null) {
+            if (adBaseModel == null || (adOperator = adBaseModel.h) == null) {
+                return false;
+            }
+            int i2 = a.a[adOperator.a.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2 || i != 2) {
+                    return false;
+                }
+                return true;
+            }
+            dq0 dq0Var = adBaseModel.i;
+            if (dq0Var != null && dq0Var.k) {
+                if (i != 3) {
+                    return false;
+                }
+                return true;
+            } else if (i != 1) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return (p81) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
+    public final void b(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
-            ((IAlertManager) this.a.get()).onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
+        if ((interceptable != null && interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) != null) || view2 == null) {
+            return;
         }
+        f41.a(view2.getContext(), view2, f);
+    }
+
+    public o81 c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        AdOperator adOperator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
+            o81 operateBar = this.a.getOperateBar();
+            if (!o81.d(adBaseModel) || (adOperator = adBaseModel.h) == null) {
+                return null;
+            }
+            if (operateBar != null && a(adBaseModel, operateBar.a)) {
+                return operateBar;
+            }
+            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091620);
+            relativeLayout.removeAllViews();
+            AdOperator.TYPE type = adOperator.a;
+            AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
+            if (type == type2) {
+                kp0 kp0Var = adBaseModel.l;
+                if (kp0Var == null || !kp0Var.e) {
+                    return null;
+                }
+                int i = R.layout.obfuscated_res_0x7f0d0617;
+                cq0 cq0Var = adBaseModel.p;
+                if (cq0Var != null && cq0Var.b(type2) != 0) {
+                    i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
+                }
+                dq0 dq0Var = adBaseModel.i;
+                if (dq0Var != null && dq0Var.k) {
+                    View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
+                    b(inflate.findViewById(R.id.obfuscated_res_0x7f09161f), 6.0f);
+                    return new q81(3, inflate);
+                }
+                View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0619, (ViewGroup) relativeLayout, true);
+                b(inflate2.findViewById(R.id.obfuscated_res_0x7f09161f), 6.0f);
+                return new s81(1, inflate2);
+            }
+            AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
+            if (type != type3) {
+                return null;
+            }
+            int i2 = R.layout.obfuscated_res_0x7f0d0618;
+            cq0 cq0Var2 = adBaseModel.p;
+            if (cq0Var2 != null && cq0Var2.b(type3) != 0) {
+                i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
+            }
+            View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
+            b(inflate3.findViewById(R.id.obfuscated_res_0x7f09161e), 6.0f);
+            return new r81(2, inflate3);
+        }
+        return (o81) invokeL.objValue;
     }
 }

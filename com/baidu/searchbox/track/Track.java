@@ -1,6 +1,8 @@
 package com.baidu.searchbox.track;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
@@ -23,12 +25,12 @@ public class Track {
     public transient /* synthetic */ FieldHolder $fh;
     public Object mLockListener;
     public Object mLockTrackUI;
-    public EvictingDeque mTrackUIDeque;
-    public LinkedList mTrackUIListeners;
+    public EvictingDeque<TrackUI> mTrackUIDeque;
+    public LinkedList<OnTrackUIListener> mTrackUIListeners;
 
     /* renamed from: com.baidu.searchbox.track.Track$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -39,7 +41,7 @@ public class Track {
     }
 
     /* loaded from: classes2.dex */
-    public final class TrackCreator {
+    public static final class TrackCreator {
         public static /* synthetic */ Interceptable $ic;
         public static final Track mTrace;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,14 +93,14 @@ public class Track {
         this.mLockTrackUI = new Object();
         this.mLockListener = new Object();
         this.mTrackUIDeque = EvictingDeque.create(20);
-        this.mTrackUIListeners = new LinkedList();
+        this.mTrackUIListeners = new LinkedList<>();
     }
 
     public /* synthetic */ Track(AnonymousClass1 anonymousClass1) {
         this();
     }
 
-    public void addTrackUI(TrackUI trackUI) {
+    public void addTrackUI(@NonNull TrackUI trackUI) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, trackUI) == null) {
             if (trackUI != null) {
@@ -111,7 +113,7 @@ public class Track {
         }
     }
 
-    public void addTrackUIListener(OnTrackUIListener onTrackUIListener) {
+    public void addTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onTrackUIListener) == null) {
             synchronized (this.mLockListener) {
@@ -122,7 +124,7 @@ public class Track {
         }
     }
 
-    public void removeTrackUIListener(OnTrackUIListener onTrackUIListener) {
+    public void removeTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onTrackUIListener) == null) {
             synchronized (this.mLockListener) {
@@ -131,7 +133,7 @@ public class Track {
         }
     }
 
-    public void setOnFragmentTraceListener(OnFragmentTraceListener onFragmentTraceListener) {
+    public void setOnFragmentTraceListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onFragmentTraceListener) == null) {
             TraceManager.getInstance().setOnFragmentListener(onFragmentTraceListener);
@@ -165,33 +167,34 @@ public class Track {
         return (Track) invokeV.objValue;
     }
 
-    public LinkedList getAllTrackUIs() {
+    public LinkedList<TrackUI> getAllTrackUIs() {
         InterceptResult invokeV;
-        LinkedList linkedList;
+        LinkedList<TrackUI> linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this.mLockTrackUI) {
-                linkedList = new LinkedList(this.mTrackUIDeque.getElements());
+                linkedList = new LinkedList<>(this.mTrackUIDeque.getElements());
             }
             return linkedList;
         }
         return (LinkedList) invokeV.objValue;
     }
 
+    @Nullable
     public TrackUI getLastTrackUI() {
         InterceptResult invokeV;
-        TrackUI trackUI;
+        TrackUI peekLast;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this.mLockTrackUI) {
-                trackUI = (TrackUI) this.mTrackUIDeque.peekLast();
+                peekLast = this.mTrackUIDeque.peekLast();
             }
-            return trackUI;
+            return peekLast;
         }
         return (TrackUI) invokeV.objValue;
     }
 
-    public LinkedList getTrackUIListeners() {
+    public LinkedList<OnTrackUIListener> getTrackUIListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

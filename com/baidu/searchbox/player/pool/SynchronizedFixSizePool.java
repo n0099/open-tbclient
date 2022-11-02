@@ -1,13 +1,15 @@
 package com.baidu.searchbox.player.pool;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class SynchronizedFixSizePool extends FixSizePool {
+public abstract class SynchronizedFixSizePool<T extends IPoolItem> extends FixSizePool<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mLock;
@@ -35,27 +37,34 @@ public abstract class SynchronizedFixSizePool extends FixSizePool {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.pool.FixSizePool, com.baidu.searchbox.player.pool.IPool
-    public IPoolItem acquire() {
+    @NonNull
+    public T acquire() {
         InterceptResult invokeV;
-        IPoolItem acquire;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this.mLock) {
-                acquire = super.acquire();
+                t = (T) super.acquire();
             }
-            return acquire;
+            return t;
         }
-        return (IPoolItem) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.player.pool.FixSizePool, com.baidu.searchbox.player.pool.IPool
-    public void release(IPoolItem iPoolItem) {
+    @Override // com.baidu.searchbox.player.pool.FixSizePool
+    public void release(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iPoolItem) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             synchronized (this.mLock) {
-                super.release(iPoolItem);
+                super.release((SynchronizedFixSizePool<T>) t);
             }
         }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.player.pool.SynchronizedFixSizePool<T extends com.baidu.searchbox.player.pool.IPoolItem> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.searchbox.player.pool.FixSizePool, com.baidu.searchbox.player.pool.IPool
+    public /* bridge */ /* synthetic */ void release(@NonNull Object obj) {
+        release((SynchronizedFixSizePool<T>) ((IPoolItem) obj));
     }
 }

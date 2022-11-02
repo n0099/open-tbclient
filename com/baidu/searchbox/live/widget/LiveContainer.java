@@ -27,6 +27,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
@@ -53,6 +54,7 @@ public class LiveContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveContainer(Context context) {
         this(context, null, 0, 6, null);
         Interceptable interceptable = $ic;
@@ -74,6 +76,7 @@ public class LiveContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveContainer(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0, 4, null);
         Interceptable interceptable = $ic;
@@ -123,7 +126,7 @@ public class LiveContainer extends FrameLayout {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0014\u0018\u0000 $2\u00020\u00012\u00020\u0002:\u0001$B\u0007¢\u0006\u0004\b#\u0010\fJ\u0017\u0010\u0006\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\r\u0010\t\u001a\u00020\b¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u000b\u001a\u00020\u0005¢\u0006\u0004\b\u000b\u0010\fJ\u001a\u0010\u000f\u001a\u00020\b2\b\u0010\u000e\u001a\u0004\u0018\u00010\rH\u0096\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\r\u0010\u0012\u001a\u00020\u0011¢\u0006\u0004\b\u0012\u0010\u0013J\r\u0010\u0014\u001a\u00020\u0003¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0016\u001a\u00020\u0011H\u0016¢\u0006\u0004\b\u0016\u0010\u0013J\r\u0010\u0017\u001a\u00020\b¢\u0006\u0004\b\u0017\u0010\nJ\r\u0010\u0018\u001a\u00020\b¢\u0006\u0004\b\u0018\u0010\nJ\r\u0010\u0019\u001a\u00020\b¢\u0006\u0004\b\u0019\u0010\nJ\r\u0010\u001a\u001a\u00020\b¢\u0006\u0004\b\u001a\u0010\nJ\r\u0010\u001b\u001a\u00020\b¢\u0006\u0004\b\u001b\u0010\nJ\r\u0010\u001c\u001a\u00020\b¢\u0006\u0004\b\u001c\u0010\nJ\r\u0010\u001d\u001a\u00020\b¢\u0006\u0004\b\u001d\u0010\nJ\r\u0010\u001e\u001a\u00020\b¢\u0006\u0004\b\u001e\u0010\nJ\r\u0010\u001f\u001a\u00020\b¢\u0006\u0004\b\u001f\u0010\nJ\r\u0010 \u001a\u00020\b¢\u0006\u0004\b \u0010\nJ\r\u0010!\u001a\u00020\b¢\u0006\u0004\b!\u0010\nJ\u000f\u0010\"\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\"\u0010\u0015¨\u0006%"}, d2 = {"Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "Lcom/baidu/live/arch/frame/State;", "Lcom/baidu/searchbox/live/interfaces/mix/BaseItemModel;", "", ILiveNPSPlugin.PARAMS_ROOM_ID, "", "bindJumpNewLiveRoomId", "(Ljava/lang/String;)V", "", MediaLivePlayLogger.KEY_CAN_PRE_PLAY, "()Z", "clearIntroduceTips", "()V", "", ImageViewerConfig.FROM_OTHER, "equals", "(Ljava/lang/Object;)Z", "", "getIntroduceTipsStatus", "()I", "getJumpNewLiveRoomId", "()Ljava/lang/String;", TTDownloadField.TT_HASHCODE, "isAudioLive", "isConsultLive", "isFullTemplate", "isHLReplay", "isInValid", "isMediaBusiness", "isMediaLive", "isNewMediaLive", "isStarVertical", "isVideoLand", "isYYLive", "toString", "<init>", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class LiveItemModel extends BaseItemModel implements State {
+    public static final class LiveItemModel extends BaseItemModel implements State {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Companion Companion;
         public static final String KEY = "LiveItemModel";
@@ -147,7 +150,7 @@ public class LiveContainer extends FrameLayout {
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel$Companion;", "", "KEY", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class Companion {
+        public static final class Companion {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -440,7 +443,7 @@ public class LiveContainer extends FrameLayout {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/live/widget/LiveContainer$LiveRuntimeStatus;", "Lcom/baidu/searchbox/live/interfaces/mix/BaseRuntimeStatus;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class LiveRuntimeStatus extends BaseRuntimeStatus {
+    public static final class LiveRuntimeStatus extends BaseRuntimeStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -461,7 +464,7 @@ public class LiveContainer extends FrameLayout {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "Lcom/baidu/searchbox/live/interfaces/mix/BasePlaySourceInfo;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class PlaySourceInfo extends BasePlaySourceInfo {
+    public static final class PlaySourceInfo extends BasePlaySourceInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -481,6 +484,7 @@ public class LiveContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public LiveContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;

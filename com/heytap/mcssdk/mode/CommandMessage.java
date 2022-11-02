@@ -97,7 +97,7 @@ public class CommandMessage extends Message {
         this.mResponseCode = -2;
     }
 
-    public static List parseToList(String str) {
+    public static List<String> parseToList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -119,13 +119,13 @@ public class CommandMessage extends Message {
         return (List) invokeL.objValue;
     }
 
-    public static String parseToString(List list) {
+    public static <T> String parseToString(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Object obj : list) {
-                sb.append(obj);
+            for (T t : list) {
+                sb.append(t);
                 sb.append("&");
             }
             return sb.toString();
@@ -133,7 +133,7 @@ public class CommandMessage extends Message {
         return (String) invokeL.objValue;
     }
 
-    public static List parseToSubscribeResultList(String str, String str2, String str3, String str4) {
+    public static List<SubscribeResult> parseToSubscribeResultList(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;

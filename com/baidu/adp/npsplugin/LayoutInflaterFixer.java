@@ -2,8 +2,11 @@ package com.baidu.adp.npsplugin;
 
 import android.os.Build;
 import android.view.LayoutInflater;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x91;
+import com.baidu.tieba.pa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,13 +24,13 @@ public class LayoutInflaterFixer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class PrivateMap extends HashMap {
+    public static class PrivateMap extends HashMap<String, Constructor<? extends View>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List excludeClasses;
+        public final List<String> excludeClasses;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PrivateMap(List list, Map map) {
+        public PrivateMap(List<String> list, @NonNull Map<? extends String, ? extends Constructor<? extends View>> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -51,7 +54,8 @@ public class LayoutInflaterFixer {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
-        public Constructor get(Object obj) {
+        @Nullable
+        public Constructor<? extends View> get(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -75,8 +79,8 @@ public class LayoutInflaterFixer {
             ArrayList arrayList = new ArrayList();
             arrayList.add("androidx.recyclerview");
             try {
-                Field b = x91.b(LayoutInflater.class, "sConstructorMap");
-                x91.h(b);
+                Field b = pa1.b(LayoutInflater.class, "sConstructorMap");
+                pa1.h(b);
                 Object obj = b.get(null);
                 if (obj instanceof Map) {
                     b.set(null, new PrivateMap(arrayList, (Map) obj));

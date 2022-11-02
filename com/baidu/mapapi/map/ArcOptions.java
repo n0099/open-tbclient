@@ -58,15 +58,87 @@ public final class ArcOptions extends OverlayOptions {
         this.b = true;
     }
 
+    public int getColor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public LatLng getEndPoint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public Bundle getExtraInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public LatLng getMiddlePoint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public LatLng getStartPoint() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public int getWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getZIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Arc arc = new Arc();
-            arc.A = this.b;
-            arc.z = this.a;
-            arc.B = this.c;
+            arc.H = this.b;
+            arc.G = this.a;
+            arc.I = this.c;
             arc.a = this.e;
             arc.b = this.f;
             arc.c = this.g;
@@ -95,72 +167,6 @@ public final class ArcOptions extends OverlayOptions {
             return this;
         }
         return (ArcOptions) invokeL.objValue;
-    }
-
-    public int getColor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public LatLng getEndPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (LatLng) invokeV.objValue;
-    }
-
-    public Bundle getExtraInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (Bundle) invokeV.objValue;
-    }
-
-    public LatLng getMiddlePoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (LatLng) invokeV.objValue;
-    }
-
-    public LatLng getStartPoint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (LatLng) invokeV.objValue;
-    }
-
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public int getZIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, latLng, latLng2, latLng3)) == null) {
-            if (latLng == null || latLng2 == null || latLng3 == null) {
-                throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be null");
-            }
-            if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
-                throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
-            }
-            this.g = latLng;
-            this.h = latLng2;
-            this.i = latLng3;
-            return this;
-        }
-        return (ArcOptions) invokeLLL.objValue;
     }
 
     public ArcOptions visible(boolean z) {
@@ -193,5 +199,23 @@ public final class ArcOptions extends OverlayOptions {
             return this;
         }
         return (ArcOptions) invokeI.objValue;
+    }
+
+    public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, latLng, latLng2, latLng3)) == null) {
+            if (latLng != null && latLng2 != null && latLng3 != null) {
+                if (latLng != latLng2 && latLng != latLng3 && latLng2 != latLng3) {
+                    this.g = latLng;
+                    this.h = latLng2;
+                    this.i = latLng3;
+                    return this;
+                }
+                throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
+            }
+            throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be null");
+        }
+        return (ArcOptions) invokeLLL.objValue;
     }
 }

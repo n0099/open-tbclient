@@ -1,5 +1,6 @@
 package com.facebook.drawee.drawable;
 
+import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,6 +39,7 @@ public class DrawableProperties {
         this.mFilterBitmap = -1;
     }
 
+    @SuppressLint({"Range"})
     public void applyTo(Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;

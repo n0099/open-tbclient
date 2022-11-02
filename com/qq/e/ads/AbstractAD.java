@@ -19,10 +19,10 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 /* loaded from: classes8.dex */
-public abstract class AbstractAD {
+public abstract class AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public T a;
     public final Handler b;
     public volatile boolean c;
     public volatile boolean d;
@@ -53,7 +53,7 @@ public abstract class AbstractAD {
         }
     }
 
-    public abstract Object a(Context context, POFactory pOFactory, String str, String str2, String str3);
+    public abstract T a(Context context, POFactory pOFactory, String str, String str2, String str3);
 
     public final void a(int i) {
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public abstract class AbstractAD {
         }
     }
 
-    public abstract void a(Object obj);
+    public abstract void a(T t);
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
@@ -231,12 +231,12 @@ public abstract class AbstractAD {
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             try {
                                                 if (this.a != null) {
-                                                    this.b.e.a = this.b.e.a(this.b.a, this.a, this.b.b, this.b.c, this.b.d);
+                                                    this.b.e.a = (T) this.b.e.a(this.b.a, this.a, this.b.b, this.b.c, this.b.d);
                                                     this.b.e.c = true;
                                                     if (this.b.e.a == null) {
                                                         this.b.e.a(ErrorCode.POFACTORY_GET_INTERFACE_ERROR);
                                                     } else {
-                                                        this.b.e.a(this.b.e.a);
+                                                        this.b.e.a((AbstractAD) this.b.e.a);
                                                     }
                                                 } else {
                                                     this.b.e.c = true;

@@ -22,9 +22,11 @@ public class AsyncHttpClient {
     public ExecutorService c;
 
     /* loaded from: classes2.dex */
-    public abstract class a implements Runnable {
+    public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void a();
 
         public a() {
             Interceptable interceptable = $ic;
@@ -40,18 +42,16 @@ public class AsyncHttpClient {
             }
         }
 
-        public /* synthetic */ a(com.baidu.mapapi.http.a aVar) {
-            this();
-        }
-
-        public abstract void a();
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 a();
             }
+        }
+
+        public /* synthetic */ a(com.baidu.mapapi.http.a aVar) {
+            this();
         }
     }
 
@@ -91,23 +91,27 @@ public class AsyncHttpClient {
         this.c = Executors.newCachedThreadPool();
     }
 
-    public void get(String str, HttpClient.ProtoResultCallback protoResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, protoResultCallback) == null) {
-            if (str == null) {
-                throw new IllegalArgumentException("URI cannot be null");
-            }
-            this.c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
-        }
-    }
-
     public boolean isAuthorized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int permissionCheck = PermissionCheck.permissionCheck();
-            return permissionCheck == 0 || permissionCheck == 602 || permissionCheck == 601;
+            if (permissionCheck != 0 && permissionCheck != 602 && permissionCheck != 601) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
+    }
+
+    public void get(String str, HttpClient.ProtoResultCallback protoResultCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, protoResultCallback) == null) {
+            if (str != null) {
+                this.c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+                return;
+            }
+            throw new IllegalArgumentException("URI cannot be null");
+        }
     }
 }

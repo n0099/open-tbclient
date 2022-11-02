@@ -1,67 +1,63 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class o5a {
+public class o5a implements a8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public e5a c;
+    public AbsViewEventHandler d;
 
-    public static e5a a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
+    @Override // com.baidu.tieba.a8a
+    public boolean b(DialogInterface dialogInterface) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new e5a(productInfo, 4);
-            }
-            productInfo.destAmount = i;
-            return new e5a(productInfo);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) {
+            return false;
         }
-        return (e5a) invokeIL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
+    public o5a(int i, int i2, e5a e5aVar, AbsViewEventHandler absViewEventHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), e5aVar, absViewEventHandler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return revenue.getAppPayService();
         }
-        return (IAppPayService) invokeII.objValue;
+        RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = e5aVar;
+        this.d = absViewEventHandler;
     }
 
-    public static IMiddlePayService c(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.a8a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(i, i2);
-            if (middleRevenue == null) {
-                RLog.error("CommonUtils", "getMiddlePayService null iRevenue", new Object[0]);
-                return null;
-            }
-            return middleRevenue.getMiddlePayService();
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
+            this.c.c(cancelType, this.d);
+            d6a.a(this.a, this.b, cancelType);
         }
-        return (IMiddlePayService) invokeII.objValue;
     }
 }

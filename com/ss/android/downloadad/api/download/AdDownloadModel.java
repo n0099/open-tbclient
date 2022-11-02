@@ -22,8 +22,8 @@ public class AdDownloadModel implements DownloadModel {
     public String mAppIcon;
     public String mAppName;
     public boolean mAutoInstallWithoutNotification;
-    public List mBackupUrls;
-    public List mClickTrackUrl;
+    public List<String> mBackupUrls;
+    public List<String> mClickTrackUrl;
     public DeepLink mDeepLink;
     public boolean mDistinctDir;
     public JSONObject mDownloadSettings;
@@ -34,7 +34,7 @@ public class AdDownloadModel implements DownloadModel {
     public String mFileName;
     public String mFilePath;
     public IDownloadFileUriProvider mFileUriProvider;
-    public Map mHeaders;
+    public Map<String, String> mHeaders;
     public long mId;
     public boolean mIndependentProcess;
     @Deprecated
@@ -65,7 +65,7 @@ public class AdDownloadModel implements DownloadModel {
     }
 
     /* loaded from: classes8.dex */
-    public final class Builder {
+    public static final class Builder {
         public AdDownloadModel model = new AdDownloadModel();
 
         public AdDownloadModel build() {
@@ -97,12 +97,12 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setBackupUrls(List list) {
+        public Builder setBackupUrls(List<String> list) {
             this.model.mBackupUrls = list;
             return this;
         }
 
-        public Builder setClickTrackUrl(List list) {
+        public Builder setClickTrackUrl(List<String> list) {
             this.model.mClickTrackUrl = list;
             return this;
         }
@@ -167,7 +167,7 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setHeaders(Map map) {
+        public Builder setHeaders(Map<String, String> map) {
             this.model.mHeaders = map;
             return this;
         }
@@ -300,12 +300,12 @@ public class AdDownloadModel implements DownloadModel {
     }
 
     @Override // com.ss.android.download.api.download.DownloadModel
-    public List getBackupUrls() {
+    public List<String> getBackupUrls() {
         return this.mBackupUrls;
     }
 
     @Override // com.ss.android.download.api.download.DownloadModel
-    public List getClickTrackUrl() {
+    public List<String> getClickTrackUrl() {
         return this.mClickTrackUrl;
     }
 
@@ -365,7 +365,7 @@ public class AdDownloadModel implements DownloadModel {
     }
 
     @Override // com.ss.android.download.api.download.DownloadModel
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         return this.mHeaders;
     }
 
@@ -617,12 +617,12 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public AdDownloadModel setBackupUrls(List list) {
+    public AdDownloadModel setBackupUrls(List<String> list) {
         this.mBackupUrls = list;
         return this;
     }
 
-    public AdDownloadModel setClickTrackUrl(List list) {
+    public AdDownloadModel setClickTrackUrl(List<String> list) {
         this.mClickTrackUrl = list;
         return this;
     }
@@ -664,7 +664,7 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public AdDownloadModel setHeaders(Map map) {
+    public AdDownloadModel setHeaders(Map<String, String> map) {
         this.mHeaders = map;
         return this;
     }
@@ -875,7 +875,7 @@ public class AdDownloadModel implements DownloadModel {
             if (this.mHeaders != null && !this.mHeaders.isEmpty()) {
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                for (Map.Entry entry : this.mHeaders.entrySet()) {
+                for (Map.Entry<String, String> entry : this.mHeaders.entrySet()) {
                     jSONArray3.put(entry.getKey());
                     jSONArray4.put(entry.getKey());
                 }

@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public final class u3 implements Iterable, Comparable {
+public final class u3 implements Iterable<t3>, Comparable<u3> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final t3[] a;
     public final int b;
     public long c;
-    public a d;
+    public a<t3> d;
 
     /* loaded from: classes6.dex */
-    public class a implements Iterable {
+    public static class a<T> implements Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Object[] a;
+        public final T[] a;
         public b b;
         public b c;
 
-        public a(Object[] objArr) {
+        public a(T[] tArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {objArr};
+                Object[] objArr = {tArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,11 +45,11 @@ public final class u3 implements Iterable, Comparable {
                     return;
                 }
             }
-            this.a = objArr;
+            this.a = tArr;
         }
 
         @Override // java.lang.Iterable
-        public Iterator iterator() {
+        public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -78,26 +78,26 @@ public final class u3 implements Iterable, Comparable {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Iterator, Iterable {
+    public static class b<T> implements Iterator<T>, Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Object[] a;
+        public final T[] a;
         public int b;
         public boolean c;
 
         @Override // java.lang.Iterable
-        public Iterator iterator() {
+        public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (Iterator) invokeV.objValue;
         }
 
-        public b(Object[] objArr) {
+        public b(T[] tArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {objArr};
+                Object[] objArr = {tArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,7 +108,7 @@ public final class u3 implements Iterable, Comparable {
                 }
             }
             this.c = true;
-            this.a = objArr;
+            this.a = tArr;
         }
 
         @Override // java.util.Iterator
@@ -136,22 +136,22 @@ public final class u3 implements Iterable, Comparable {
         }
 
         @Override // java.util.Iterator
-        public Object next() {
+        public T next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 int i = this.b;
-                Object[] objArr = this.a;
-                if (i < objArr.length) {
+                T[] tArr = this.a;
+                if (i < tArr.length) {
                     if (this.c) {
                         this.b = i + 1;
-                        return objArr[i];
+                        return tArr[i];
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
                 throw new NoSuchElementException(String.valueOf(this.b));
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
@@ -228,12 +228,12 @@ public final class u3 implements Iterable, Comparable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<t3> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.d == null) {
-                this.d = new a(this.a);
+                this.d = new a<>(this.a);
             }
             return this.d.iterator();
         }

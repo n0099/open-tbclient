@@ -19,7 +19,7 @@ import kotlin.Metadata;
 public final class PagerCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray cache;
+    public SparseArray<List<PagerController.PagerHolder>> cache;
 
     public PagerCache() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class PagerCache {
                 return;
             }
         }
-        this.cache = new SparseArray();
+        this.cache = new SparseArray<>();
     }
 
     public final void clear() {
@@ -44,7 +44,7 @@ public final class PagerCache {
         }
     }
 
-    public final SparseArray getCache() {
+    public final SparseArray<List<PagerController.PagerHolder>> getCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -57,9 +57,9 @@ public final class PagerCache {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List list = (List) this.cache.get(i);
+            List<PagerController.PagerHolder> list = this.cache.get(i);
             if (list != null && list.size() > 0) {
-                PagerController.PagerHolder pagerHolder = (PagerController.PagerHolder) list.get(0);
+                PagerController.PagerHolder pagerHolder = list.get(0);
                 ListLogKt.log(MixTagConstants.MIX_PAGER, "cache hit type " + i + WebvttCueParser.CHAR_SPACE + pagerHolder);
                 list.remove(pagerHolder);
                 return pagerHolder;
@@ -73,9 +73,9 @@ public final class PagerCache {
     public final void put(int i, PagerController.PagerHolder pagerHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, pagerHolder) == null) {
-            List list = (List) this.cache.get(i);
+            List<PagerController.PagerHolder> list = this.cache.get(i);
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
                 this.cache.put(i, list);
             }
             if (list.size() >= 2) {
@@ -86,7 +86,7 @@ public final class PagerCache {
         }
     }
 
-    public final void setCache(SparseArray sparseArray) {
+    public final void setCache(SparseArray<List<PagerController.PagerHolder>> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, sparseArray) == null) {
             this.cache = sparseArray;

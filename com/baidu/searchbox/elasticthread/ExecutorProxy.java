@@ -1,5 +1,6 @@
 package com.baidu.searchbox.elasticthread;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,11 +14,11 @@ public abstract class ExecutorProxy implements Executor {
     public String mDefaultTaskName;
 
     @Override // java.util.concurrent.Executor
-    public abstract void execute(Runnable runnable);
+    public abstract void execute(@NonNull Runnable runnable);
 
-    public abstract void execute(Runnable runnable, String str);
+    public abstract void execute(@NonNull Runnable runnable, @NonNull String str);
 
-    public abstract void execute(Runnable runnable, String str, int i);
+    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i);
 
     public ExecutorProxy(String str, int i) {
         Interceptable interceptable = $ic;

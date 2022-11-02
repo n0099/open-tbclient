@@ -28,7 +28,7 @@ public class h {
                     c = bw.a(2, context);
                 }
                 jSONObject.put(Config.CUID_SEC, c);
-                jSONObject.put("w", bw.c(context));
+                jSONObject.put(Config.DEVICE_WIDTH, bw.c(context));
                 jSONObject.put("h", bw.d(context));
                 jSONObject.put("ly", z.c);
                 jSONObject.put("pv", "35");

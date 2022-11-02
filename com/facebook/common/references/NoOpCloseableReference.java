@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class NoOpCloseableReference extends CloseableReference {
+public class NoOpCloseableReference<T> extends CloseableReference<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
-    public CloseableReference clone() {
+    public CloseableReference<T> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (CloseableReference) invokeV.objValue;
@@ -29,13 +29,13 @@ public class NoOpCloseableReference extends CloseableReference {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoOpCloseableReference(Object obj, ResourceReleaser resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
-        super(obj, resourceReleaser, leakHandler, th);
+    public NoOpCloseableReference(T t, ResourceReleaser<T> resourceReleaser, CloseableReference.LeakHandler leakHandler, @Nullable Throwable th) {
+        super(t, resourceReleaser, leakHandler, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, resourceReleaser, leakHandler, th};
+            Object[] objArr = {t, resourceReleaser, leakHandler, th};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

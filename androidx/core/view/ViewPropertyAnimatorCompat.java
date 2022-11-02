@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -66,6 +67,7 @@ public final class ViewPropertyAnimatorCompat {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
+        @SuppressLint({"WrongConstant"})
         public void onAnimationEnd(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -713,6 +715,7 @@ public final class ViewPropertyAnimatorCompat {
         }
     }
 
+    @SuppressLint({"WrongConstant"})
     public ViewPropertyAnimatorCompat withLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

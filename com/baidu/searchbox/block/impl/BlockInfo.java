@@ -3,6 +3,7 @@ package com.baidu.searchbox.block.impl;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
+import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ public class BlockInfo {
     public String mLogId;
     public String mStackTrace;
     public String mTimeStamp;
-    public LinkedList mTrackUIs;
+    public LinkedList<TrackUI> mTrackUIs;
     public String mType;
 
     public BlockInfo(String str, String str2) {
@@ -76,7 +77,7 @@ public class BlockInfo {
         return (String) invokeV.objValue;
     }
 
-    public LinkedList getTrackUIs() {
+    public LinkedList<TrackUI> getTrackUIs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -122,7 +123,7 @@ public class BlockInfo {
         }
     }
 
-    public void setTrackUIs(LinkedList linkedList) {
+    public void setTrackUIs(LinkedList<TrackUI> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, linkedList) == null) {
             this.mTrackUIs = linkedList;

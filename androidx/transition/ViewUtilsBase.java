@@ -1,9 +1,12 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,6 +43,7 @@ public class ViewUtilsBase {
         }
     }
 
+    @SuppressLint({"PrivateApi"})
     private void fetchSetFrame() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && !sSetFrameFetched) {
@@ -54,18 +58,18 @@ public class ViewUtilsBase {
         }
     }
 
-    public void clearNonTransitionAlpha(View view2) {
+    public void clearNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getVisibility() == 0) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091dae, null);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df7, null);
         }
     }
 
-    public float getTransitionAlpha(View view2) {
+    public float getTransitionAlpha(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091dae);
+            Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df7);
             if (f != null) {
                 return view2.getAlpha() / f.floatValue();
             }
@@ -74,14 +78,14 @@ public class ViewUtilsBase {
         return invokeL.floatValue;
     }
 
-    public void saveNonTransitionAlpha(View view2) {
+    public void saveNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091dae) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091dae, Float.valueOf(view2.getAlpha()));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df7) == null) {
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df7, Float.valueOf(view2.getAlpha()));
         }
     }
 
-    public void setAnimationMatrix(View view2, Matrix matrix) {
+    public void setAnimationMatrix(@NonNull View view2, @Nullable Matrix matrix) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, matrix) == null) {
@@ -124,7 +128,7 @@ public class ViewUtilsBase {
         }
     }
 
-    public void setLeftTopRightBottom(View view2, int i, int i2, int i3, int i4) {
+    public void setLeftTopRightBottom(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             fetchSetFrame();
@@ -140,10 +144,10 @@ public class ViewUtilsBase {
         }
     }
 
-    public void setTransitionAlpha(View view2, float f) {
+    public void setTransitionAlpha(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, view2, f) == null) {
-            Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091dae);
+            Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df7);
             if (f2 != null) {
                 view2.setAlpha(f2.floatValue() * f);
             } else {
@@ -152,7 +156,7 @@ public class ViewUtilsBase {
         }
     }
 
-    public void setTransitionVisibility(View view2, int i) {
+    public void setTransitionVisibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, view2, i) == null) {
             if (!sViewFlagsFieldFetched) {
@@ -175,7 +179,7 @@ public class ViewUtilsBase {
         }
     }
 
-    public void transformMatrixToGlobal(View view2, Matrix matrix) {
+    public void transformMatrixToGlobal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, view2, matrix) == null) {
             ViewParent parent = view2.getParent();
@@ -192,7 +196,7 @@ public class ViewUtilsBase {
         }
     }
 
-    public void transformMatrixToLocal(View view2, Matrix matrix) {
+    public void transformMatrixToLocal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, matrix) == null) {
             ViewParent parent = view2.getParent();

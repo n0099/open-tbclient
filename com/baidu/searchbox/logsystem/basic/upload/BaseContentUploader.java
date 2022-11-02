@@ -1,6 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -30,7 +32,7 @@ public abstract class BaseContentUploader {
     public static final int TAG_ERRNO_NO_ERROR = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract ResponseEntity uploadDataRequestSync(String str, File file, Map map);
+    public abstract ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map);
 
     public BaseContentUploader() {
         Interceptable interceptable = $ic;
@@ -65,7 +67,7 @@ public abstract class BaseContentUploader {
         return (String) invokeV.objValue;
     }
 
-    public ResponseEntity uploadSync(File file) {
+    public ResponseEntity uploadSync(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {

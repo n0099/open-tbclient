@@ -2,31 +2,33 @@ package com.kwad.sdk.core.webview;
 
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ad;
 import com.kwad.sdk.widget.e;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public WebView Fv;
     public ViewGroup Gl;
     public e agd;
+    @Nullable
     public ad age;
     public boolean agf = true;
     public boolean agg = true;
-    public List agh = null;
+    public List<AdTemplate> agh = null;
+    @Nullable
     public JSONObject mReportExtData;
     public int mScreenOrientation;
 
     public final AdTemplate getAdTemplate() {
-        List list = this.agh;
+        List<AdTemplate> list = this.agh;
         if (list == null || list.size() == 0) {
             return null;
         }
-        return (AdTemplate) this.agh.get(0);
+        return this.agh.get(0);
     }
 
     public final void setAdTemplate(AdTemplate adTemplate) {
@@ -35,21 +37,20 @@ public final class b {
         arrayList.add(adTemplate);
     }
 
-    public final void setAdTemplateList(List list) {
+    public final void setAdTemplateList(List<AdTemplate> list) {
         ArrayList arrayList = new ArrayList(list.size());
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            arrayList.add((AdTemplate) it.next());
+        for (AdTemplate adTemplate : list) {
+            arrayList.add(adTemplate);
         }
         this.agh = arrayList;
     }
 
-    public final List wg() {
+    public final List<AdTemplate> wg() {
         return this.agh;
     }
 
     public final boolean wh() {
-        List list = this.agh;
+        List<AdTemplate> list = this.agh;
         return list == null || list.size() == 0;
     }
 }

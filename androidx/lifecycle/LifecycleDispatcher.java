@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,6 +20,7 @@ public class LifecycleDispatcher {
     public static AtomicBoolean sInitialized;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public static class DispatcherActivityCallback extends EmptyActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;

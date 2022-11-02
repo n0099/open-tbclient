@@ -27,7 +27,7 @@ public class GetHotWordsModel extends FaceBaseModel {
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List list);
+        void onSuccess(List<String> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

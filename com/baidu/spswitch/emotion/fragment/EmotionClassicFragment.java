@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ public class EmotionClassicFragment extends EmotionBaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPRESSION_LAYOUT_HEIGHT = 260;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mBagList;
+    public List<String> mBagList;
     public BDEmotionBagVerticalLayout mEmotionBagLayout;
 
     public EmotionClassicFragment() {
@@ -55,7 +56,8 @@ public class EmotionClassicFragment extends EmotionBaseFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {

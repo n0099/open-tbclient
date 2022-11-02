@@ -68,12 +68,12 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         this.durationUs = C.TIME_UNSET;
     }
 
-    public static HashMap readAmfEcmaArray(ParsableByteArray parsableByteArray) {
+    public static HashMap<String, Object> readAmfEcmaArray(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableByteArray)) == null) {
             int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
-            HashMap hashMap = new HashMap(readUnsignedIntToInt);
+            HashMap<String, Object> hashMap = new HashMap<>(readUnsignedIntToInt);
             for (int i = 0; i < readUnsignedIntToInt; i++) {
                 hashMap.put(readAmfString(parsableByteArray), readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
             }
@@ -115,11 +115,11 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         return (Double) invokeL.objValue;
     }
 
-    public static HashMap readAmfObject(ParsableByteArray parsableByteArray) {
+    public static HashMap<String, Object> readAmfObject(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, parsableByteArray)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, Object> hashMap = new HashMap<>();
             while (true) {
                 String readAmfString = readAmfString(parsableByteArray);
                 int readAmfType = readAmfType(parsableByteArray);
@@ -133,12 +133,12 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         }
     }
 
-    public static ArrayList readAmfStrictArray(ParsableByteArray parsableByteArray) {
+    public static ArrayList<Object> readAmfStrictArray(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) == null) {
             int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
-            ArrayList arrayList = new ArrayList(readUnsignedIntToInt);
+            ArrayList<Object> arrayList = new ArrayList<>(readUnsignedIntToInt);
             for (int i = 0; i < readUnsignedIntToInt; i++) {
                 arrayList.add(readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
             }
@@ -206,7 +206,7 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
                 if (!NAME_METADATA.equals(readAmfString(parsableByteArray)) || readAmfType(parsableByteArray) != 8) {
                     return;
                 }
-                HashMap readAmfEcmaArray = readAmfEcmaArray(parsableByteArray);
+                HashMap<String, Object> readAmfEcmaArray = readAmfEcmaArray(parsableByteArray);
                 if (readAmfEcmaArray.containsKey("duration")) {
                     double doubleValue = ((Double) readAmfEcmaArray.get("duration")).doubleValue();
                     if (doubleValue > 0.0d) {

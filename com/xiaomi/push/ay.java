@@ -15,7 +15,7 @@ public class ay implements au {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f124a;
+    public Class<?> f124a;
 
     /* renamed from: a  reason: collision with other field name */
     public Object f125a;
@@ -75,7 +75,7 @@ public class ay implements au {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             try {
-                Class a = v.a(context, "com.android.id.impl.IdProviderImpl");
+                Class<?> a = v.a(context, "com.android.id.impl.IdProviderImpl");
                 this.f124a = a;
                 this.f125a = a.newInstance();
                 this.f126a = this.f124a.getMethod("getUDID", Context.class);

@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,6 +66,7 @@ public final class LayoutInflaterCompat {
             return (View) invokeLLL.objValue;
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -128,7 +130,7 @@ public final class LayoutInflaterCompat {
     }
 
     @Deprecated
-    public static void setFactory(LayoutInflater layoutInflater, LayoutInflaterFactory layoutInflaterFactory) {
+    public static void setFactory(@NonNull LayoutInflater layoutInflater, @NonNull LayoutInflaterFactory layoutInflaterFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, layoutInflater, layoutInflaterFactory) == null) {
             Factory2Wrapper factory2Wrapper = null;
@@ -152,7 +154,7 @@ public final class LayoutInflaterCompat {
         }
     }
 
-    public static void setFactory2(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+    public static void setFactory2(@NonNull LayoutInflater layoutInflater, @NonNull LayoutInflater.Factory2 factory2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutInflater, factory2) == null) {
             layoutInflater.setFactory2(factory2);

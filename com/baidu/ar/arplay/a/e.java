@@ -35,8 +35,8 @@ public class e {
     public boolean cN;
     public Timer cU;
     public TimerTask cV;
-    public ConcurrentHashMap dE;
-    public Map dF;
+    public ConcurrentHashMap<String, b> dE;
+    public Map<String, Integer> dF;
     public com.baidu.ar.arplay.c.a dG;
 
     /* loaded from: classes.dex */
@@ -44,7 +44,7 @@ public class e {
     }
 
     /* loaded from: classes.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String dK;
@@ -102,7 +102,7 @@ public class e {
         }
         this.cM = 0;
         this.cN = false;
-        this.dE = new ConcurrentHashMap();
+        this.dE = new ConcurrentHashMap<>();
         this.dG = new com.baidu.ar.arplay.c.a(this) { // from class: com.baidu.ar.arplay.a.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class e {
     }
 
     private void A(String str) {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, b> concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || (concurrentHashMap = this.dE) == null || concurrentHashMap.get(str) == null) {
             return;
@@ -159,11 +159,11 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            ConcurrentHashMap concurrentHashMap = this.dE;
+            ConcurrentHashMap<String, b> concurrentHashMap = this.dE;
             if (concurrentHashMap == null || concurrentHashMap.get(str) == null) {
                 return null;
             }
-            return ((b) this.dE.get(str)).df;
+            return this.dE.get(str).df;
         }
         return (MediaPlayer) invokeL.objValue;
     }
@@ -173,7 +173,7 @@ public class e {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j)}) == null) {
             try {
                 if (this.dE.containsKey(str)) {
-                    b bVar = (b) this.dE.get(str);
+                    b bVar = this.dE.get(str);
                     if (bVar == null) {
                         return;
                     }
@@ -399,7 +399,7 @@ public class e {
         b(bVar);
         b(bVar.dg);
         com.baidu.ar.arplay.a.a.b bVar2 = bVar.dg;
-        HashMap hashMap = new HashMap();
+        HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_VIDEO));
         HashMap hashMap2 = new HashMap();
         hashMap2.put("action_id", String.valueOf(bVar2.dT));
@@ -489,7 +489,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65546, null, bVar) == null) || bVar == null) {
             return;
         }
-        HashMap hashMap = new HashMap();
+        HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", String.valueOf(bVar.dT));
         hashMap.put("target", bVar.dU);
         HashMap hashMap2 = new HashMap();
@@ -544,9 +544,9 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ConcurrentHashMap concurrentHashMap = this.dE;
+            ConcurrentHashMap<String, b> concurrentHashMap = this.dE;
             if (concurrentHashMap != null) {
-                return (b) concurrentHashMap.get(str);
+                return concurrentHashMap.get(str);
             }
             return null;
         }
@@ -571,8 +571,8 @@ public class e {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap concurrentHashMap = this.dE;
-            if (concurrentHashMap == null || (bVar = (b) concurrentHashMap.get(str)) == null) {
+            ConcurrentHashMap<String, b> concurrentHashMap = this.dE;
+            if (concurrentHashMap == null || (bVar = concurrentHashMap.get(str)) == null) {
                 return null;
             }
             return bVar.dL;
@@ -580,11 +580,11 @@ public class e {
         return (SurfaceTexture) invokeL.objValue;
     }
 
-    public int a(Map map, String str) {
+    public int a(Map<String, Integer> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, map, str)) == null) {
-            Integer num = (Integer) map.get(str);
+            Integer num = map.get(str);
             if (num == null) {
                 return 0;
             }
@@ -593,7 +593,7 @@ public class e {
         return invokeLL.intValue;
     }
 
-    public void a(com.baidu.ar.arplay.a.a.e eVar, HashMap hashMap) {
+    public void a(com.baidu.ar.arplay.a.a.e eVar, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, eVar, hashMap) == null) {
             if (eVar.aN() > 1) {
@@ -734,20 +734,20 @@ public class e {
     }
 
     public void a(a aVar, boolean z) {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, b> concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar, z) == null) || (concurrentHashMap = this.dE) == null) {
             return;
         }
-        for (Map.Entry entry : concurrentHashMap.entrySet()) {
-            a(aVar, (String) entry.getKey(), z);
+        for (Map.Entry<String, b> entry : concurrentHashMap.entrySet()) {
+            a(aVar, entry.getKey(), z);
         }
     }
 
     public void a(String str, int i) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) || (bVar = (b) this.dE.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) || (bVar = this.dE.get(str)) == null) {
             return;
         }
         bVar.dL = new SurfaceTexture(i);
@@ -760,20 +760,20 @@ public class e {
     }
 
     public void aB() {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, b> concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (concurrentHashMap = this.dE) == null) {
             return;
         }
-        for (Map.Entry entry : concurrentHashMap.entrySet()) {
+        for (Map.Entry<String, b> entry : concurrentHashMap.entrySet()) {
             if (entry != null) {
-                a((a) null, (String) entry.getKey());
-                ((b) entry.getValue()).dL = null;
-                ((b) entry.getValue()).dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                ((b) entry.getValue()).dg.dZ = "unstarted";
-                ((b) entry.getValue()).dN = false;
-                a((b) entry.getValue());
-                MediaPlayer mediaPlayer = ((b) entry.getValue()).df;
+                a((a) null, entry.getKey());
+                entry.getValue().dL = null;
+                entry.getValue().dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                entry.getValue().dg.dZ = "unstarted";
+                entry.getValue().dN = false;
+                a(entry.getValue());
+                MediaPlayer mediaPlayer = entry.getValue().df;
                 if (mediaPlayer != null) {
                     try {
                         com.baidu.ar.arplay.c.b.b(TAG, "releaseMediaPlayer");
@@ -787,7 +787,7 @@ public class e {
         this.dE.clear();
     }
 
-    public void b(com.baidu.ar.arplay.a.a.e eVar, HashMap hashMap) {
+    public void b(com.baidu.ar.arplay.a.a.e eVar, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, eVar, hashMap) == null) {
             c(1024, hashMap);
@@ -842,26 +842,26 @@ public class e {
     }
 
     public void b(a aVar, boolean z) {
-        ConcurrentHashMap concurrentHashMap;
+        ConcurrentHashMap<String, b> concurrentHashMap;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048589, this, aVar, z) == null) || (concurrentHashMap = this.dE) == null) {
             return;
         }
-        for (Map.Entry entry : concurrentHashMap.entrySet()) {
-            if (!z || (entry != null && entry.getValue() != null && ((b) entry.getValue()).dN)) {
-                b(aVar, (String) entry.getKey());
+        for (Map.Entry<String, b> entry : concurrentHashMap.entrySet()) {
+            if (!z || (entry != null && entry.getValue() != null && entry.getValue().dN)) {
+                b(aVar, entry.getKey());
             }
         }
     }
 
-    public void c(int i, HashMap hashMap) {
+    public void c(int i, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048590, this, i, hashMap) == null) {
             ARPMessage.getInstance().sendMessage(i, hashMap);
         }
     }
 
-    public void c(com.baidu.ar.arplay.a.a.e eVar, HashMap hashMap) {
+    public void c(com.baidu.ar.arplay.a.a.e eVar, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, eVar, hashMap) == null) {
             c(1026, hashMap);
@@ -894,7 +894,7 @@ public class e {
         }
     }
 
-    public void d(com.baidu.ar.arplay.a.a.e eVar, HashMap hashMap) {
+    public void d(com.baidu.ar.arplay.a.a.e eVar, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, eVar, hashMap) == null) {
             c(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES, hashMap);

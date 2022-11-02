@@ -6,9 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.tm2;
+import com.baidu.tieba.ln2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String b;
     public static final Uri c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public SQLiteDatabase a;
 
     @Override // android.content.ContentProvider
@@ -47,7 +49,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        b = tm2.c().getPackageName() + ".swan.subscribe_msg";
+        b = ln2.c().getPackageName() + ".swan.subscribe_msg";
         c = Uri.parse("content://" + b);
     }
 
@@ -74,7 +76,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 if (this.a != null) {
                     return false;
                 }
-                SQLiteOpenHelper h = SwanAppDbControl.f(tm2.c()).h();
+                SQLiteOpenHelper h = SwanAppDbControl.f(ln2.c()).h();
                 if (h == null) {
                     return true;
                 }
@@ -90,7 +92,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@Nullable Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
@@ -103,7 +105,8 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
+    @Nullable
+    public String getType(@Nullable Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -113,7 +116,8 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    @Nullable
+    public Uri insert(@Nullable Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
@@ -126,7 +130,8 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    @Nullable
+    public Cursor query(@Nullable Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -139,7 +144,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@Nullable Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {

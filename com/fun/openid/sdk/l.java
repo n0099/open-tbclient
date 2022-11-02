@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedBlockingQueue a;
+    public final LinkedBlockingQueue<IBinder> a;
     public ServiceConnection b;
 
     /* loaded from: classes7.dex */
@@ -79,7 +79,7 @@ public class l implements f {
                 return;
             }
         }
-        this.a = new LinkedBlockingQueue(1);
+        this.a = new LinkedBlockingQueue<>(1);
         this.b = new a(this);
     }
 
@@ -109,11 +109,11 @@ public class l implements f {
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
                 if (context.bindService(intent, this.b, 1)) {
                     try {
-                        IBinder iBinder = (IBinder) this.a.take();
+                        IBinder take = this.a.take();
                         Parcel obtain = Parcel.obtain();
                         Parcel obtain2 = Parcel.obtain();
                         obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);
-                        iBinder.transact(1, obtain, obtain2, 0);
+                        take.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         String readString = obtain2.readString();
                         obtain2.recycle();

@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
-public class RelationBarAdapter extends RecyclerView.Adapter {
+public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List b;
+    public List<OriForumInfo> b;
 
     public RelationBarAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter {
         this.a = context;
     }
 
-    public void setData(List list) {
+    public void setData(List<OriForumInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
             return;

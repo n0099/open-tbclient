@@ -1,8 +1,9 @@
 package com.fun.ad.sdk.internal.api;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.fr9;
+import com.baidu.tieba.os9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +18,7 @@ import java.util.List;
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fr9.a a;
+    public final os9.a a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -36,17 +37,17 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.a = new fr9.a(str, pid);
+        this.a = new os9.a(str, pid);
     }
 
-    public abstract void showInternal(Context context, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener);
+    public abstract void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener);
 
     @Override // com.fun.ad.sdk.FunNativeAd
-    public final void show(Context context, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
+    public final void show(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
             if (context != null && viewGroup != null && list != null && funAdInteractionListener != null) {
-                fr9.a aVar = this.a;
+                os9.a aVar = this.a;
                 aVar.getClass();
                 aVar.a.logEvent("ad_ldr", new s0(aVar, new Object[0], "ldr_sh_start"));
                 showInternal(context, viewGroup, list, list2, funAdInteractionListener);

@@ -96,7 +96,8 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mListenerKey = str;
     }
 
-    private void parserMsg(List list, JSONArray jSONArray, int i) {
+    /* JADX WARN: Type inference failed for: r7v2, types: [T, java.lang.Long] */
+    private void parserMsg(List<ChatMsg> list, JSONArray jSONArray, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65538, this, list, jSONArray, i) == null) {
             try {
@@ -198,7 +199,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
             LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", resultContent=" + new String(bArr));
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, false, null);
         }
     }
@@ -219,7 +220,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
             if (TextUtils.isEmpty(this.mListenerKey)) {
                 return;
             }
-            List arrayList = new ArrayList();
+            List<ChatMsg> arrayList = new ArrayList<>();
             int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
@@ -16,7 +17,7 @@ public class PlayerUbcFlowStatisticsManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float currentSpeed;
-    public final HashMap mFlowFetchers;
+    public final HashMap<String, IUbcFlow> mFlowFetchers;
     public boolean mIsShowFirstFrame;
     public long mStartLoadingTime;
     public BDVideoPlayerUbcContent mUbcContent;
@@ -46,7 +47,7 @@ public class PlayerUbcFlowStatisticsManager {
                 return;
             }
         }
-        this.mFlowFetchers = new HashMap();
+        this.mFlowFetchers = new HashMap<>();
         this.mUbcContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
         this.currentSpeed = 1.0f;
     }
@@ -71,11 +72,12 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
+    @NonNull
     public IUbcFlow getFlow(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            IUbcFlow iUbcFlow = (IUbcFlow) this.mFlowFetchers.get(str);
+            IUbcFlow iUbcFlow = this.mFlowFetchers.get(str);
             if (iUbcFlow == null) {
                 return new PlayerEmptyFlow();
             }
@@ -100,7 +102,7 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void setVideoPlayerUbcContent(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    public void setVideoPlayerUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bDVideoPlayerUbcContent) == null) {
             this.mUbcContent = bDVideoPlayerUbcContent;

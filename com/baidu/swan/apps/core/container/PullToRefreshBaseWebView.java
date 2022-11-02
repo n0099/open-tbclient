@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.core.container;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -7,9 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
-import com.baidu.tieba.fi4;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.y13;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.q23;
+import com.baidu.tieba.xi4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class PullToRefreshBaseWebView extends PullToRefreshBase {
+/* loaded from: classes3.dex */
+public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
     public a w;
     public boolean x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void b(int i, int i2, int i3, int i4);
     }
@@ -53,7 +54,7 @@ public class PullToRefreshBaseWebView extends PullToRefreshBase {
                 return;
             }
         }
-        y = wj1.a;
+        y = ok1.a;
     }
 
     public boolean N() {
@@ -109,19 +110,19 @@ public class PullToRefreshBaseWebView extends PullToRefreshBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullToRefreshBaseWebView(Context context, y13 y13Var, PullToRefreshBase.HEADERTYPE headertype) {
-        super(context, y13Var, headertype);
+    public PullToRefreshBaseWebView(Context context, q23<T> q23Var, PullToRefreshBase.HEADERTYPE headertype) {
+        super(context, q23Var, headertype);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, y13Var, headertype};
+            Object[] objArr = {context, q23Var, headertype};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (y13) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
+                super((Context) objArr2[0], (q23) objArr2[1], (PullToRefreshBase.HEADERTYPE) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -144,6 +145,7 @@ public class PullToRefreshBaseWebView extends PullToRefreshBase {
         return invokeL.booleanValue;
     }
 
+    @SuppressLint({"KotlinPropertyAccess"})
     public void setIsPreventPullToRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -159,13 +161,13 @@ public class PullToRefreshBaseWebView extends PullToRefreshBase {
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public View j(Context context, AttributeSet attributeSet) {
+    public T j(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet)) == null) {
             return getRefreshableFactory().S(context);
         }
-        return (View) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     @Override // android.view.View
@@ -191,7 +193,7 @@ public class PullToRefreshBaseWebView extends PullToRefreshBase {
             if (getScrollYValue() == 0 && this.x) {
                 return false;
             }
-            boolean a2 = fi4.a(this.p, -1);
+            boolean a2 = xi4.a(this.p, -1);
             if (y) {
                 Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
             }

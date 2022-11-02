@@ -17,6 +17,7 @@ import kotlin.Function;
 import kotlin.KotlinNothingValueException;
 import kotlin.Metadata;
 import kotlin.Pair;
+import kotlin.SinceKotlin;
 import kotlin.TuplesKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt__IterablesKt;
@@ -65,42 +66,55 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
     public static final Map<String, String> simpleNames;
     public final Class<?> jClass;
 
+    @SinceKotlin(version = "1.3")
     public static /* synthetic */ void getSealedSubclasses$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void getSupertypes$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void getTypeParameters$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void getVisibility$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isAbstract$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isCompanion$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isData$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isFinal$annotations() {
     }
 
+    @SinceKotlin(version = "1.4")
     public static /* synthetic */ void isFun$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isInner$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isOpen$annotations() {
     }
 
+    @SinceKotlin(version = "1.1")
     public static /* synthetic */ void isSealed$annotations() {
     }
 
+    @SinceKotlin(version = "1.5")
     public static /* synthetic */ void isValue$annotations() {
     }
 
@@ -301,6 +315,7 @@ public final class ClassReference implements KClass<Object>, ClassBasedDeclarati
     }
 
     @Override // kotlin.reflect.KClass
+    @SinceKotlin(version = "1.1")
     public boolean isInstance(Object obj) {
         return Companion.isInstance(obj, getJClass());
     }

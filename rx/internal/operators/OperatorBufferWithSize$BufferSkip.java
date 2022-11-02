@@ -1,22 +1,22 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.sy9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.iz9;
+import com.baidu.tieba.mz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class OperatorBufferWithSize$BufferSkip extends dy9 {
+public final class OperatorBufferWithSize$BufferSkip<T> extends mz9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int e;
     public final int f;
 
     /* loaded from: classes9.dex */
-    public final class BufferSkipProducer extends AtomicBoolean implements zx9 {
+    public final class BufferSkipProducer extends AtomicBoolean implements iz9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3428177408082367154L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class OperatorBufferWithSize$BufferSkip extends dy9 {
             this.this$0 = operatorBufferWithSize$BufferSkip;
         }
 
-        @Override // com.baidu.tieba.zx9
+        @Override // com.baidu.tieba.iz9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -49,10 +49,10 @@ public final class OperatorBufferWithSize$BufferSkip extends dy9 {
                     if (i != 0) {
                         OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = this.this$0;
                         if (get() || !compareAndSet(false, true)) {
-                            operatorBufferWithSize$BufferSkip.e(sy9.c(j, operatorBufferWithSize$BufferSkip.f));
+                            operatorBufferWithSize$BufferSkip.e(b0a.c(j, operatorBufferWithSize$BufferSkip.f));
                             return;
                         } else {
-                            operatorBufferWithSize$BufferSkip.e(sy9.a(sy9.c(j, operatorBufferWithSize$BufferSkip.e), sy9.c(operatorBufferWithSize$BufferSkip.f - operatorBufferWithSize$BufferSkip.e, j - 1)));
+                            operatorBufferWithSize$BufferSkip.e(b0a.a(b0a.c(j, operatorBufferWithSize$BufferSkip.e), b0a.c(operatorBufferWithSize$BufferSkip.f - operatorBufferWithSize$BufferSkip.e, j - 1)));
                             return;
                         }
                     }

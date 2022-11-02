@@ -14,14 +14,14 @@ import java.util.List;
 public final class HlsMasterPlaylist extends HlsPlaylist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List audios;
+    public final List<HlsUrl> audios;
     public final Format muxedAudioFormat;
-    public final List muxedCaptionFormats;
-    public final List subtitles;
-    public final List variants;
+    public final List<Format> muxedCaptionFormats;
+    public final List<HlsUrl> subtitles;
+    public final List<HlsUrl> variants;
 
     /* loaded from: classes7.dex */
-    public final class HlsUrl {
+    public static final class HlsUrl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Format format;
@@ -57,9 +57,9 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMasterPlaylist(String str, List list, List list2, List list3, List list4, Format format, List list5) {
+    public HlsMasterPlaylist(String str, List<String> list, List<HlsUrl> list2, List<HlsUrl> list3, List<HlsUrl> list4, Format format, List<Format> list5) {
         super(str, list);
-        List list6;
+        List<Format> list6;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,13 +88,13 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         this.muxedCaptionFormats = list6;
     }
 
-    public static List copyRenditionsList(List list, List list2) {
+    public static List<HlsUrl> copyRenditionsList(List<HlsUrl> list, List<String> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) {
             ArrayList arrayList = new ArrayList(list2.size());
             for (int i = 0; i < list.size(); i++) {
-                HlsUrl hlsUrl = (HlsUrl) list.get(i);
+                HlsUrl hlsUrl = list.get(i);
                 if (list2.contains(hlsUrl.url)) {
                     arrayList.add(hlsUrl);
                 }
@@ -115,7 +115,7 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         return (HlsMasterPlaylist) invokeL.objValue;
     }
 
-    public HlsMasterPlaylist copy(List list) {
+    public HlsMasterPlaylist copy(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {

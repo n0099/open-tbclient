@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.upstream.cache;
 
 import android.net.Uri;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,6 +36,7 @@ public final class CacheDataSource implements DataSource {
     public DataSource currentDataSource;
     public boolean currentRequestIgnoresCache;
     public boolean currentRequestUnbounded;
+    @Nullable
     public final EventListener eventListener;
     public int flags;
     public final boolean ignoreCacheForUnsetLengthRequests;
@@ -161,7 +163,7 @@ public final class CacheDataSource implements DataSource {
         }
     }
 
-    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i, EventListener eventListener) {
+    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i, @Nullable EventListener eventListener) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;

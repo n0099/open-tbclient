@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +29,7 @@ public class ThreadPool {
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -41,7 +42,7 @@ public class ThreadPool {
     }
 
     /* loaded from: classes8.dex */
-    public class DefaultThreadFactory implements ThreadFactory {
+    public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String namePrefix;
@@ -85,7 +86,7 @@ public class ThreadPool {
     }
 
     /* loaded from: classes8.dex */
-    public class MainThreadExecutor implements ScheduleExecutor {
+    public static class MainThreadExecutor implements ScheduleExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Handler handler;
@@ -111,7 +112,7 @@ public class ThreadPool {
         }
 
         @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
+        public void execute(@NonNull Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
                 this.handler.post(runnable);

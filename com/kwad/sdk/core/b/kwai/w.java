@@ -5,9 +5,10 @@ import com.kwad.sdk.core.response.model.CouponInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class w implements com.kwad.sdk.core.d {
-    public static void a(AdProductInfo adProductInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class w implements com.kwad.sdk.core.d<AdProductInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdProductInfo adProductInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -49,7 +50,8 @@ public final class w implements com.kwad.sdk.core.d {
         spikeInfo.parseJson(jSONObject.optJSONObject("seckillInfo"));
     }
 
-    public static JSONObject b(AdProductInfo adProductInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdProductInfo adProductInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -82,13 +84,15 @@ public final class w implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((AdProductInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdProductInfo adProductInfo, JSONObject jSONObject) {
+        a2(adProductInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((AdProductInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdProductInfo adProductInfo, JSONObject jSONObject) {
+        return b2(adProductInfo, jSONObject);
     }
 }

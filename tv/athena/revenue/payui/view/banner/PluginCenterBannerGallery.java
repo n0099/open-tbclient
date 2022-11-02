@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.SpinnerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.n6a;
+import com.baidu.tieba.w7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -23,7 +24,7 @@ import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 public final class PluginCenterBannerGallery extends AdGallery {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n6a j;
+    public w7a j;
 
     static {
         InterceptResult invokeClinit;
@@ -58,10 +59,10 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new n6a(context);
+        this.j = new w7a(context);
     }
 
-    public final void setData(List list) {
+    public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             f();
@@ -91,7 +92,7 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new n6a(context);
+        this.j = new w7a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,14 +114,14 @@ public final class PluginCenterBannerGallery extends AdGallery {
                 return;
             }
         }
-        this.j = new n6a(context);
+        this.j = new w7a(context);
     }
 
-    public final List getData() {
+    public final List<BannerConfigItem.BannerInfo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List a = this.j.a();
+            List<BannerConfigItem.BannerInfo> a = this.j.a();
             Intrinsics.checkExpressionValueIsNotNull(a, "mAdapter.data");
             return a;
         }

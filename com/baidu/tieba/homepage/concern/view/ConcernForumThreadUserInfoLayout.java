@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -16,7 +17,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a26;
+import com.baidu.tieba.k36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +74,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && !StringUtils.isNull(this.a.f.getForum_name())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), a26.g())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), k36.g())));
                 if (this.a.h != null) {
                     this.a.h.onClick(view2);
                 }
@@ -103,7 +104,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ConcernForumThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
+    public ConcernForumThreadUserInfoLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,7 +125,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConcernForumThreadUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
+    public ConcernForumThreadUserInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -175,12 +176,12 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ee, (ViewGroup) this, true);
-            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090553);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092195);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b2);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09218f);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090802);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f0, (ViewGroup) this, true);
+            this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090560);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e8);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092205);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e2);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090812);
             setGravity(16);
             d();
             this.b.setOnClickListener(this.i);

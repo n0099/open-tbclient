@@ -2,6 +2,7 @@ package com.ss.android.socialbase.appdownloader.f;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.RomTypeUtil;
@@ -236,11 +237,13 @@ public class d {
         return c;
     }
 
+    @NonNull
     public static String j() {
         String str = Build.MANUFACTURER;
         return str == null ? "" : str.trim();
     }
 
+    @NonNull
     public static String k() {
         String str = Build.DISPLAY;
         return str == null ? "" : str.trim();

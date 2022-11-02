@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TracingConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CATEGORIES_ALL = 1;
@@ -25,15 +26,15 @@ public class TracingConfig {
     public static final int RECORD_CONTINUOUSLY = 1;
     public static final int RECORD_UNTIL_FULL = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mCustomIncludedCategories;
+    public final List<String> mCustomIncludedCategories;
     public int mPredefinedCategories;
     public int mTracingMode;
 
-    /* loaded from: classes6.dex */
-    public class Builder {
+    /* loaded from: classes7.dex */
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List mCustomIncludedCategories;
+        public final List<String> mCustomIncludedCategories;
         public int mPredefinedCategories;
         public int mTracingMode;
 
@@ -55,7 +56,7 @@ public class TracingConfig {
             this.mTracingMode = 1;
         }
 
-        public Builder addCategories(Collection collection) {
+        public Builder addCategories(Collection<String> collection) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collection)) == null) {
@@ -107,16 +108,16 @@ public class TracingConfig {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface PredefinedCategories {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public @interface TracingMode {
     }
 
-    public TracingConfig(int i, List list, int i2) {
+    public TracingConfig(int i, @NonNull List<String> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +139,8 @@ public class TracingConfig {
         this.mTracingMode = i2;
     }
 
-    public List getCustomIncludedCategories() {
+    @NonNull
+    public List<String> getCustomIncludedCategories() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCustomIncludedCategories : (List) invokeV.objValue;

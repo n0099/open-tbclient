@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.interceptor;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -60,7 +62,8 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
         }
     }
 
-    public static long getRangeRightFromContentRange(String str) {
+    @IntRange(from = -1)
+    public static long getRangeRightFromContentRange(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -75,10 +78,11 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:20:? A[RETURN, SYNTHETIC] */
+    @IntRange(from = -1)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long getExactContentLengthRangeFrom0(DownloadConnection.Connected connected) {
+    public long getExactContentLengthRangeFrom0(@NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeL;
         long j;
         Interceptable interceptable = $ic;
@@ -107,6 +111,7 @@ public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.F
     }
 
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
+    @NonNull
     public DownloadConnection.Connected interceptConnect(DownloadChain downloadChain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

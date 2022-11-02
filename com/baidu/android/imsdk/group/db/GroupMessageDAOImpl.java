@@ -39,7 +39,7 @@ public class GroupMessageDAOImpl {
 
     /* renamed from: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl$4  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$group$db$GroupMessageDAOImpl$MSGTYPEEXPLAN;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* loaded from: classes.dex */
-    public class ChatMsgParse implements IResultParse {
+    public static class ChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -91,6 +91,7 @@ public class GroupMessageDAOImpl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.android.imsdk.db.IResultParse
         public ChatMsg onParse(Cursor cursor) {
             InterceptResult invokeL;
@@ -113,7 +114,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* loaded from: classes.dex */
-    public class GroupChatMsgParse implements IResultParse {
+    public static class GroupChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -137,6 +138,7 @@ public class GroupMessageDAOImpl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.android.imsdk.db.IResultParse
         public ChatMsg onParse(Cursor cursor) {
             InterceptResult invokeL;
@@ -152,7 +154,7 @@ public class GroupMessageDAOImpl {
     }
 
     /* loaded from: classes.dex */
-    public class LocalChatMsgParse implements IResultParse {
+    public static class LocalChatMsgParse implements IResultParse<ChatMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context mContext;
@@ -176,6 +178,7 @@ public class GroupMessageDAOImpl {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.android.imsdk.db.IResultParse
         public ChatMsg onParse(Cursor cursor) {
             InterceptResult invokeL;
@@ -192,7 +195,7 @@ public class GroupMessageDAOImpl {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class MSGTYPEEXPLAN {
+    public static final class MSGTYPEEXPLAN {
         public static final /* synthetic */ MSGTYPEEXPLAN[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MSGTYPEEXPLAN EQUAL;
@@ -258,7 +261,7 @@ public class GroupMessageDAOImpl {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class MessageType {
+    public static final class MessageType {
         public static final /* synthetic */ MessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MessageType DRAFT2SENDING;
@@ -367,25 +370,25 @@ public class GroupMessageDAOImpl {
         return invokeLL.booleanValue;
     }
 
-    public static ArrayList addChatMsg(Context context, String str, ArrayList arrayList) {
+    public static ArrayList<Long> addChatMsg(Context context, String str, ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeLLL;
         ContentValues constructionGroupMessageContentValues;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, arrayList)) == null) {
-            ArrayList arrayList2 = new ArrayList();
+            ArrayList<Long> arrayList2 = new ArrayList<>();
             if (context != null && arrayList != null && arrayList.size() > 0) {
                 DBOperation newDb = DBOperationFactory.getNewDb(context);
                 if (newDb != null) {
                     if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
                         ArrayList arrayList3 = new ArrayList();
-                        Iterator it = arrayList.iterator();
+                        Iterator<ChatMsg> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            ChatMsg chatMsg = (ChatMsg) it.next();
-                            if (chatMsg.getMsgType() != 1012 && chatMsg.getMsgType() != 1014 && (constructionGroupMessageContentValues = constructionGroupMessageContentValues(chatMsg)) != null) {
+                            ChatMsg next = it.next();
+                            if (next.getMsgType() != 1012 && next.getMsgType() != 1014 && (constructionGroupMessageContentValues = constructionGroupMessageContentValues(next)) != null) {
                                 arrayList3.add(constructionGroupMessageContentValues);
                             }
                         }
-                        List insert = newDb.insert(DBTableDefine.getGroupMessageTableName(str), arrayList3);
+                        List<Long> insert = newDb.insert(DBTableDefine.getGroupMessageTableName(str), arrayList3);
                         if (insert != null && insert.size() > 0) {
                             return (ArrayList) insert;
                         }
@@ -517,7 +520,7 @@ public class GroupMessageDAOImpl {
                 if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
                     return 0L;
                 }
-                arrayList = newDb.query(new IResultParse() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.2
+                arrayList = newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -536,6 +539,7 @@ public class GroupMessageDAOImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.android.imsdk.db.IResultParse
                     public Long onParse(Cursor cursor) {
                         InterceptResult invokeL;
@@ -738,7 +742,7 @@ public class GroupMessageDAOImpl {
         return invokeCommon.intValue;
     }
 
-    public static ArrayList fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
+    public static ArrayList<ChatMsg> fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
@@ -750,7 +754,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList fetchChatMsgExceptGroupSystem(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
+    public static ArrayList<ChatMsg> fetchChatMsgExceptGroupSystem(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, str, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
@@ -762,7 +766,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList fetchGroupSystemMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
+    public static ArrayList<ChatMsg> fetchGroupSystemMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{context, str, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
@@ -774,7 +778,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z, long[] jArr) {
+    public static ArrayList<ChatMsg> fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z, long[] jArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, str, chatMsg, Long.valueOf(j), Boolean.valueOf(z), jArr})) == null) {
@@ -786,7 +790,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
+    public static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {
         InterceptResult invokeCommon;
         String str2;
         String str3;
@@ -822,7 +826,7 @@ public class GroupMessageDAOImpl {
             }
             sGroupChatMsgParse.setContext(context);
             DBOperation newDb = DBOperationFactory.getNewDb(context);
-            ArrayList arrayList = null;
+            ArrayList<ChatMsg> arrayList = null;
             if (newDb != null) {
                 DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
                 if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
@@ -830,9 +834,9 @@ public class GroupMessageDAOImpl {
                 }
                 arrayList = newDb.query(sGroupChatMsgParse, "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where " + DBTableDefine.GroupMessageColumns.COLUMN_GROUPID + " = " + str + " AND status != 3 )", null, str3, strArr, null, null, str6, String.valueOf(Math.abs(j2)));
                 if (arrayList != null && arrayList.size() > 0) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<ChatMsg> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        LogUtils.e(TAG, ((ChatMsg) it.next()).toString());
+                        LogUtils.e(TAG, it.next().toString());
                     }
                     if ((z && i2 < 0) || (!z && i2 > 0)) {
                         Collections.reverse(arrayList);
@@ -844,7 +848,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList fetchLastChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
+    public static ArrayList<ChatMsg> fetchLastChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, str, chatMsg, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
@@ -853,7 +857,7 @@ public class GroupMessageDAOImpl {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public static ArrayList getFansGroupAtUnread(Context context, String str, String str2) {
+    public static ArrayList<ChatMsg> getFansGroupAtUnread(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         DBOperation newDb;
         Interceptable interceptable = $ic;
@@ -862,12 +866,12 @@ public class GroupMessageDAOImpl {
                 return null;
             }
             sGroupChatMsgParse.setContext(context);
-            ArrayList query = newDb.query(sGroupChatMsgParse, DBTableDefine.getGroupMessageTableName(str) + " where type = 40 AND is_read = 0", null, null, null, null, null, "time ASC , _id ASC", null);
+            ArrayList<ChatMsg> query = newDb.query(sGroupChatMsgParse, DBTableDefine.getGroupMessageTableName(str) + " where type = 40 AND is_read = 0", null, null, null, null, null, "time ASC , _id ASC", null);
             if (query != null && query.size() != 0) {
                 FansGroupAtMsg fansGroupAtMsg = new FansGroupAtMsg();
-                Iterator it = query.iterator();
+                Iterator<ChatMsg> it = query.iterator();
                 while (it.hasNext()) {
-                    fansGroupAtMsg.setMsgContent(((ChatMsg) it.next()).getJsonContent());
+                    fansGroupAtMsg.setMsgContent(it.next().getJsonContent());
                     if (!fansGroupAtMsg.isGroupAtUserById(str2)) {
                         it.remove();
                     }
@@ -911,7 +915,7 @@ public class GroupMessageDAOImpl {
                     return DBResponseCode.ERROR_DB_OPEN;
                 }
                 if (((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)).isExistGroupTable(context, str)) {
-                    ArrayList query = newDb.query(new IResultParse() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.1
+                    ArrayList query = newDb.query(new IResultParse<Integer>() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -930,6 +934,7 @@ public class GroupMessageDAOImpl {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Can't rename method to resolve collision */
                         @Override // com.baidu.android.imsdk.db.IResultParse
                         public Integer onParse(Cursor cursor) {
                             InterceptResult invokeL;
@@ -967,11 +972,11 @@ public class GroupMessageDAOImpl {
             } else {
                 i = DBResponseCode.ERROR_DB_OPEN;
             }
-            ArrayList fetchAllChatMsg = fetchAllChatMsg(context, valueOf, null, -1L, true);
+            ArrayList<ChatMsg> fetchAllChatMsg = fetchAllChatMsg(context, valueOf, null, -1L, true);
             if (fetchAllChatMsg == null || fetchAllChatMsg.size() == 0) {
                 return DBResponseCode.ERROR_DB_OPEN;
             }
-            if (chatMsg.getMsgId() == ((ChatMsg) fetchAllChatMsg.get(0)).getMsgId()) {
+            if (chatMsg.getMsgId() == fetchAllChatMsg.get(0).getMsgId()) {
                 ChatMessageDBManager.getInstance(context).updateChatSession(chatMsg);
             }
             return i;

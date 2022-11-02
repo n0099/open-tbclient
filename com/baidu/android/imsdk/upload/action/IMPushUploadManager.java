@@ -247,7 +247,7 @@ public class IMPushUploadManager {
         return (String[]) invokeL.objValue;
     }
 
-    public void requestUpload(Map map, byte[] bArr, String str, IMPushUploadResponseListener iMPushUploadResponseListener) {
+    public void requestUpload(Map<String, String> map, byte[] bArr, String str, IMPushUploadResponseListener iMPushUploadResponseListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, map, bArr, str, iMPushUploadResponseListener) == null) {
             String str2 = "" + ((int) ((Math.random() * 100000.0d) + 1000.0d));

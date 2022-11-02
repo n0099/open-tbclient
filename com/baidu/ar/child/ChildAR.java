@@ -318,7 +318,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     private void cO() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            a("FaceDetector", this.lE, (HashMap) null);
+            a("FaceDetector", this.lE, (HashMap<String, Object>) null);
         }
     }
 
@@ -332,7 +332,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
         a("FaceDetector", eVar);
     }
 
-    private void i(HashMap hashMap) {
+    private void i(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65557, this, hashMap) == null) && hashMap.containsKey("case_texture")) {
             String str = (String) hashMap.get("case_texture");
@@ -363,7 +363,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.c
-    public void adjust(HashMap hashMap) {
+    public void adjust(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
             super.adjust(hashMap);
@@ -371,7 +371,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.lua.LuaMsgListener
-    public List getMsgKeyListened() {
+    public List<String> getMsgKeyListened() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -383,7 +383,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.lua.LuaMsgListener
-    public void onLuaMessage(HashMap hashMap) {
+    public void onLuaMessage(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) || this.lC || hashMap == null || hashMap.keySet().size() < 1) {
             return;
@@ -415,7 +415,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             }
             a aVar = this.lz;
             if (aVar != null && !this.lC) {
-                aVar.a((a.InterfaceC0056a) null);
+                aVar.a((a.InterfaceC0057a) null);
                 this.lz.cQ();
                 this.lz = null;
             }
@@ -435,7 +435,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
             if (this.cb == null) {
@@ -444,7 +444,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
             this.bD = (String) hashMap.get("ability_name");
             this.lz = new a(this.mInputWidth, this.mInputHeight);
             this.lB = new com.baidu.ar.child.b.b();
-            this.lz.a(new a.InterfaceC0056a(this) { // from class: com.baidu.ar.child.ChildAR.2
+            this.lz.a(new a.InterfaceC0057a(this) { // from class: com.baidu.ar.child.ChildAR.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChildAR lF;
@@ -467,7 +467,7 @@ public class ChildAR extends com.baidu.ar.c implements LuaMsgListener {
                     this.lF = this;
                 }
 
-                @Override // com.baidu.ar.child.a.InterfaceC0056a
+                @Override // com.baidu.ar.child.a.InterfaceC0057a
                 public void a(long j, byte[] bArr, int i) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)}) == null) || bArr == null || bArr.length <= 0) {

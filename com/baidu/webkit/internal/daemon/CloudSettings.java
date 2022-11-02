@@ -40,7 +40,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     public static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
     public static final String LOG_TAG = "CloudSettings";
-    public static List NetRecordList;
+    public static List<a> NetRecordList;
     public static boolean mDownloading;
     public static boolean mReady;
     public static boolean mSuccessDownload;
@@ -48,12 +48,12 @@ public class CloudSettings implements INoProGuard, INetListener {
     public static String sLastGetTime;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteArrayOutputStream mData;
-    public Map mHeader;
+    public Map<String, String> mHeader;
     public int mNetres;
     public long mStartTime;
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -441,9 +441,9 @@ public class CloudSettings implements INoProGuard, INetListener {
                 Log.w(LOG_TAG, "mData==null");
                 return;
             }
-            Map map = this.mHeader;
+            Map<String, String> map = this.mHeader;
             if (map != null) {
-                String str = (String) map.get(Headers.LAST_MODIFIED);
+                String str = map.get(Headers.LAST_MODIFIED);
                 Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str)));
                 if (str != null) {
                     Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str)));

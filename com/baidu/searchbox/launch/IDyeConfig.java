@@ -1,5 +1,6 @@
 package com.baidu.searchbox.launch;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,7 @@ public interface IDyeConfig {
     String getDyeConfig();
 
     /* loaded from: classes2.dex */
-    public final class Impl {
+    public static final class Impl {
         public static /* synthetic */ Interceptable $ic;
         public static IDyeConfig sHomeSearch;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,6 +78,7 @@ public interface IDyeConfig {
             }
         }
 
+        @NonNull
         public static IDyeConfig get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

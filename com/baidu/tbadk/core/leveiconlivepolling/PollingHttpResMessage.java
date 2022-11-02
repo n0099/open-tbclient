@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tieba.gx4;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.AlaLiveInfo;
 import tbclient.Error;
 import tbclient.Loop.DataRes;
 import tbclient.Loop.IconRes;
@@ -22,11 +23,12 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes3.dex */
-public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
+public class PollingHttpResMessage extends HttpResponsedMessage implements wx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List liveFollowSecondFloor;
-    public List liveIndexSecondFloor;
+    public List<AlaLiveInfo> liveFollowSecondFloor;
+    public List<AlaLiveInfo> liveIndexSecondFloor;
+    public final List<AlaLiveInfo> livePicSecondFloor;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -54,6 +56,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
         this.mLiveRemindData = new LiveRemindData();
         this.liveFollowSecondFloor = new ArrayList();
         this.liveIndexSecondFloor = new ArrayList();
+        this.livePicSecondFloor = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,11 +95,15 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
                     this.liveIndexSecondFloor.clear();
                     this.liveIndexSecondFloor.addAll(loopResIdl.data.live_index_second_floor);
                 }
+                if (loopResIdl.data.live_pic_second_floor != null) {
+                    this.livePicSecondFloor.clear();
+                    this.livePicSecondFloor.addAll(loopResIdl.data.live_pic_second_floor);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.gx4
+    @Override // com.baidu.tieba.wx4
     public IconPopData getIconPopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,7 +113,7 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
         return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gx4
+    @Override // com.baidu.tieba.wx4
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -116,8 +123,8 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
         return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gx4
-    public List getLiveFollowSecondFloor() {
+    @Override // com.baidu.tieba.wx4
+    public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -126,8 +133,8 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gx4
-    public List getLiveIndexSecondFloor() {
+    @Override // com.baidu.tieba.wx4
+    public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -136,11 +143,21 @@ public class PollingHttpResMessage extends HttpResponsedMessage implements gx4 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gx4
-    public LiveRemindData getLiveRemindData() {
+    @Override // com.baidu.tieba.wx4
+    public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.livePicSecondFloor;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wx4
+    public LiveRemindData getLiveRemindData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mLiveRemindData;
         }
         return (LiveRemindData) invokeV.objValue;

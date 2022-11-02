@@ -17,7 +17,7 @@ public class HttpRequestPublishModule {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class ImageData {
+    public static class ImageData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;
@@ -40,7 +40,7 @@ public class HttpRequestPublishModule {
     }
 
     /* loaded from: classes2.dex */
-    public class PopInfoDaLiBao implements Jsonable {
+    public static class PopInfoDaLiBao implements Jsonable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean enabled;
@@ -277,7 +277,7 @@ public class HttpRequestPublishModule {
     }
 
     /* loaded from: classes2.dex */
-    public class VideoUploadModel {
+    public static class VideoUploadModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String coverUrl;

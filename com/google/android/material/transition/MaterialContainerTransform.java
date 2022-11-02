@@ -21,6 +21,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -69,53 +76,73 @@ public final class MaterialContainerTransform extends Transition {
     public static final int TRANSITION_DIRECTION_RETURN = 2;
     public static final String[] TRANSITION_PROPS;
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
     public int containerColor;
     public boolean drawDebugEnabled;
+    @IdRes
     public int drawingViewId;
     public boolean elevationShadowEnabled;
+    @ColorInt
     public int endContainerColor;
     public float endElevation;
+    @Nullable
     public ShapeAppearanceModel endShapeAppearanceModel;
+    @Nullable
     public View endView;
+    @IdRes
     public int endViewId;
     public int fadeMode;
+    @Nullable
     public ProgressThresholds fadeProgressThresholds;
     public int fitMode;
     public boolean holdAtEndEnabled;
+    @Nullable
     public ProgressThresholds scaleMaskProgressThresholds;
+    @Nullable
     public ProgressThresholds scaleProgressThresholds;
+    @ColorInt
     public int scrimColor;
+    @Nullable
     public ProgressThresholds shapeMaskProgressThresholds;
+    @ColorInt
     public int startContainerColor;
     public float startElevation;
+    @Nullable
     public ShapeAppearanceModel startShapeAppearanceModel;
+    @Nullable
     public View startView;
+    @IdRes
     public int startViewId;
     public int transitionDirection;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface FitMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface TransitionDirection {
     }
 
     /* loaded from: classes7.dex */
-    public class ProgressThresholds {
+    public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @FloatRange(from = 0.0d, to = 1.0d)
         public final float end;
+        @FloatRange(from = 0.0d, to = 1.0d)
         public final float start;
 
-        public ProgressThresholds(float f, float f2) {
+        public ProgressThresholds(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,6 +161,7 @@ public final class MaterialContainerTransform extends Transition {
             this.end = f2;
         }
 
+        @FloatRange(from = 0.0d, to = 1.0d)
         public float getEnd() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -143,6 +171,7 @@ public final class MaterialContainerTransform extends Transition {
             return invokeV.floatValue;
         }
 
+        @FloatRange(from = 0.0d, to = 1.0d)
         public float getStart() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -154,15 +183,19 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     /* loaded from: classes7.dex */
-    public class ProgressThresholdsGroup {
+    public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final ProgressThresholds fade;
+        @NonNull
         public final ProgressThresholds scale;
+        @NonNull
         public final ProgressThresholds scaleMask;
+        @NonNull
         public final ProgressThresholds shapeMask;
 
-        public ProgressThresholdsGroup(ProgressThresholds progressThresholds, ProgressThresholds progressThresholds2, ProgressThresholds progressThresholds3, ProgressThresholds progressThresholds4) {
+        public ProgressThresholdsGroup(@NonNull ProgressThresholds progressThresholds, @NonNull ProgressThresholds progressThresholds2, @NonNull ProgressThresholds progressThresholds3, @NonNull ProgressThresholds progressThresholds4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -185,7 +218,7 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     /* loaded from: classes7.dex */
-    public final class TransitionDrawable extends Drawable {
+    public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
         public static final int SHADOW_COLOR = 754974720;
@@ -241,7 +274,7 @@ public final class MaterialContainerTransform extends Transition {
             return invokeV.intValue;
         }
 
-        public TransitionDrawable(PathMotion pathMotion, View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f, View view3, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f2, int i, int i2, int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
+        public TransitionDrawable(PathMotion pathMotion, View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f, View view3, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f2, @ColorInt int i, @ColorInt int i2, @ColorInt int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -454,14 +487,14 @@ public final class MaterialContainerTransform extends Transition {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void setColorFilter(ColorFilter colorFilter) {
+        public void setColorFilter(@Nullable ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, colorFilter) == null) {
                 throw new UnsupportedOperationException("Setting a color filter is not supported");
             }
         }
 
-        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, int i) {
+        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLI(65543, this, canvas, rectF, path, i) == null) {
                 PointF motionPathPoint = getMotionPathPoint(rectF);
@@ -476,7 +509,7 @@ public final class MaterialContainerTransform extends Transition {
             }
         }
 
-        private void drawDebugRect(Canvas canvas, RectF rectF, int i) {
+        private void drawDebugRect(Canvas canvas, RectF rectF, @ColorInt int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(65544, this, canvas, rectF, i) == null) {
                 this.debugPaint.setColor(i);
@@ -572,7 +605,7 @@ public final class MaterialContainerTransform extends Transition {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void draw(Canvas canvas) {
+        public void draw(@NonNull Canvas canvas) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -673,6 +706,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholdsGroup) invokeZ.objValue;
     }
 
+    @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -686,7 +720,7 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues, this.endView, this.endViewId, this.endShapeAppearanceModel);
@@ -694,14 +728,14 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues, this.startView, this.startViewId, this.startShapeAppearanceModel);
         }
     }
 
-    public void setAllContainerColors(int i) {
+    public void setAllContainerColors(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.containerColor = i;
@@ -710,7 +744,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setContainerColor(int i) {
+    public void setContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
             this.containerColor = i;
@@ -724,7 +758,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setDrawingViewId(int i) {
+    public void setDrawingViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             this.drawingViewId = i;
@@ -738,7 +772,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndContainerColor(int i) {
+    public void setEndContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             this.endContainerColor = i;
@@ -752,21 +786,21 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setEndShapeAppearanceModel(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, shapeAppearanceModel) == null) {
             this.endShapeAppearanceModel = shapeAppearanceModel;
         }
     }
 
-    public void setEndView(View view2) {
+    public void setEndView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
             this.endView = view2;
         }
     }
 
-    public void setEndViewId(int i) {
+    public void setEndViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             this.endViewId = i;
@@ -780,7 +814,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setFadeProgressThresholds(ProgressThresholds progressThresholds) {
+    public void setFadeProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, progressThresholds) == null) {
             this.fadeProgressThresholds = progressThresholds;
@@ -801,35 +835,35 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setScaleMaskProgressThresholds(ProgressThresholds progressThresholds) {
+    public void setScaleMaskProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, progressThresholds) == null) {
             this.scaleMaskProgressThresholds = progressThresholds;
         }
     }
 
-    public void setScaleProgressThresholds(ProgressThresholds progressThresholds) {
+    public void setScaleProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, progressThresholds) == null) {
             this.scaleProgressThresholds = progressThresholds;
         }
     }
 
-    public void setScrimColor(int i) {
+    public void setScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
             this.scrimColor = i;
         }
     }
 
-    public void setShapeMaskProgressThresholds(ProgressThresholds progressThresholds) {
+    public void setShapeMaskProgressThresholds(@Nullable ProgressThresholds progressThresholds) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, progressThresholds) == null) {
             this.shapeMaskProgressThresholds = progressThresholds;
         }
     }
 
-    public void setStartContainerColor(int i) {
+    public void setStartContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             this.startContainerColor = i;
@@ -843,21 +877,21 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setStartShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setStartShapeAppearanceModel(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, shapeAppearanceModel) == null) {
             this.startShapeAppearanceModel = shapeAppearanceModel;
         }
     }
 
-    public void setStartView(View view2) {
+    public void setStartView(@Nullable View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048624, this, view2) == null) {
             this.startView = view2;
         }
     }
 
-    public void setStartViewId(int i) {
+    public void setStartViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.startViewId = i;
@@ -871,7 +905,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public static RectF calculateDrawableBounds(View view2, View view3, float f, float f2) {
+    public static RectF calculateDrawableBounds(View view2, @Nullable View view3, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, view3, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -885,7 +919,7 @@ public final class MaterialContainerTransform extends Transition {
         return (RectF) invokeCommon.objValue;
     }
 
-    public static ShapeAppearanceModel captureShapeAppearance(View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel captureShapeAppearance(@NonNull View view2, @NonNull RectF rectF, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view2, rectF, shapeAppearanceModel)) == null) {
@@ -894,7 +928,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ShapeAppearanceModel) invokeLLL.objValue;
     }
 
-    public static void captureValues(TransitionValues transitionValues, View view2, int i, ShapeAppearanceModel shapeAppearanceModel) {
+    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view2, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         RectF locationOnScreen;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view2, i, shapeAppearanceModel) == null) {
@@ -902,9 +936,9 @@ public final class MaterialContainerTransform extends Transition {
                 transitionValues.f1028view = TransitionUtils.findDescendantOrAncestorById(transitionValues.f1028view, i);
             } else if (view2 != null) {
                 transitionValues.f1028view = view2;
-            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09158b) instanceof View) {
-                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f09158b, null);
-                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f09158b);
+            } else if (transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0915ca) instanceof View) {
+                transitionValues.f1028view.setTag(R.id.obfuscated_res_0x7f0915ca, null);
+                transitionValues.f1028view = (View) transitionValues.f1028view.getTag(R.id.obfuscated_res_0x7f0915ca);
             }
             View view3 = transitionValues.f1028view;
             if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
@@ -931,15 +965,15 @@ public final class MaterialContainerTransform extends Transition {
         return invokeCommon.floatValue;
     }
 
-    public static ShapeAppearanceModel getShapeAppearance(View view2, ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel getShapeAppearance(@NonNull View view2, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view2, shapeAppearanceModel)) == null) {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f09158b) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f09158b);
+            if (view2.getTag(R.id.obfuscated_res_0x7f0915ca) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f0915ca);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -966,7 +1000,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholdsGroup) invokeCommon.objValue;
     }
 
-    private boolean isEntering(RectF rectF, RectF rectF2) {
+    private boolean isEntering(@NonNull RectF rectF, @NonNull RectF rectF2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, rectF, rectF2)) == null) {
@@ -989,7 +1023,8 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @Nullable
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         View view2;
         View findAncestorById;
@@ -1091,7 +1126,7 @@ public final class MaterialContainerTransform extends Transition {
                             }
 
                             @Override // com.google.android.material.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionEnd(Transition transition) {
+                            public void onTransitionEnd(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                                     this.this$0.removeListener(this);
@@ -1105,7 +1140,7 @@ public final class MaterialContainerTransform extends Transition {
                             }
 
                             @Override // com.google.android.material.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionStart(Transition transition) {
+                            public void onTransitionStart(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                                     ViewUtils.getOverlay(this.val$drawingView).add(this.val$transitionDrawable);
@@ -1126,6 +1161,7 @@ public final class MaterialContainerTransform extends Transition {
         return (Animator) invokeLLL.objValue;
     }
 
+    @ColorInt
     public int getContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1135,6 +1171,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.intValue;
     }
 
+    @IdRes
     public int getDrawingViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1144,6 +1181,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.intValue;
     }
 
+    @ColorInt
     public int getEndContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1162,6 +1200,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public ShapeAppearanceModel getEndShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1171,6 +1210,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public View getEndView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1180,6 +1220,7 @@ public final class MaterialContainerTransform extends Transition {
         return (View) invokeV.objValue;
     }
 
+    @IdRes
     public int getEndViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1198,6 +1239,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ProgressThresholds getFadeProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1216,6 +1258,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ProgressThresholds getScaleMaskProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1225,6 +1268,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholds) invokeV.objValue;
     }
 
+    @Nullable
     public ProgressThresholds getScaleProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1234,6 +1278,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholds) invokeV.objValue;
     }
 
+    @ColorInt
     public int getScrimColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1243,6 +1288,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ProgressThresholds getShapeMaskProgressThresholds() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1252,6 +1298,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholds) invokeV.objValue;
     }
 
+    @ColorInt
     public int getStartContainerColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1270,6 +1317,7 @@ public final class MaterialContainerTransform extends Transition {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public ShapeAppearanceModel getStartShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1279,6 +1327,7 @@ public final class MaterialContainerTransform extends Transition {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public View getStartView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1288,6 +1337,7 @@ public final class MaterialContainerTransform extends Transition {
         return (View) invokeV.objValue;
     }
 
+    @IdRes
     public int getStartViewId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1307,6 +1357,7 @@ public final class MaterialContainerTransform extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @Nullable
     public String[] getTransitionProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

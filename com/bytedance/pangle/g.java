@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,8 +29,8 @@ public class g {
     public static volatile g d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public final List b;
-    public final List c;
+    public final List<ZeusPluginStateListener> b;
+    public final List<ZeusPluginEventCallback> c;
     public final Handler e;
 
     public g() {
@@ -97,12 +98,12 @@ public class g {
                         if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.e)) {
                             if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
                                 str = providerInfo.processName.split(":")[1];
-                                if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str)) != null || !TextUtils.equals(str, "main") || !TextUtils.equals(providerInfo.name, MainServerManager.class.getName())) {
+                                if (Zeus.getServerManagerHashMap().get(str) != null || !TextUtils.equals(str, "main") || !TextUtils.equals(providerInfo.name, MainServerManager.class.getName())) {
                                     Zeus.getServerManagerHashMap().put(str, providerInfo);
                                 }
                             }
                             str = "main";
-                            if (((ProviderInfo) Zeus.getServerManagerHashMap().get(str)) != null) {
+                            if (Zeus.getServerManagerHashMap().get(str) != null) {
                             }
                             Zeus.getServerManagerHashMap().put(str, providerInfo);
                         }
@@ -114,7 +115,7 @@ public class g {
         }
     }
 
-    public final void a(int i, int i2, String str, int i3, Throwable th) {
+    public final void a(int i, int i2, @Nullable String str, int i3, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), th}) == null) {
             for (Object obj : c()) {

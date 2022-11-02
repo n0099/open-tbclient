@@ -44,7 +44,7 @@ public class SignStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<ForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,15 +63,15 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ForumData> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 SignData signData = null;
                 if (customMessage != null && customMessage.getData() != null) {
-                    ForumData forumData = (ForumData) customMessage.getData();
-                    String name = forumData.getName();
-                    String id = forumData.getId();
+                    ForumData data = customMessage.getData();
+                    String name = data.getName();
+                    String id = data.getId();
                     if (name != null && name.length() > 0 && id != null && id.length() > 0) {
                         Context context = TbadkCoreApplication.getInst().getContext();
                         TiebaStatic.eventStat(context, "sign_start_time", System.currentTimeMillis() + "");
@@ -84,8 +84,8 @@ public class SignStatic {
                             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                             netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, name);
                             netWork.addPostData("fid", id);
-                            if (!TextUtils.isEmpty(forumData.getFromPage())) {
-                                netWork.addPostData("sign_from", forumData.getFromPage());
+                            if (!TextUtils.isEmpty(data.getFromPage())) {
+                                netWork.addPostData("sign_from", data.getFromPage());
                             }
                             if (!TextUtils.isEmpty(TbSingleton.getInstance().getActivityId())) {
                                 netWork.addPostData("activity_id", TbSingleton.getInstance().getActivityId());
@@ -103,7 +103,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!ej.isEmpty(postNetData)) {
+                                } else if (!wi.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -134,7 +134,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class b implements UrlManager.UrlDealListener {
+    public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,7 +153,7 @@ public class SignStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -232,7 +232,7 @@ public class SignStatic {
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = ag.n().j(false)) != null) {
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = sf.n().j(false)) != null) {
                 locationLng = String.valueOf(j.getLongitude());
                 locationLat = String.valueOf(j.getLatitude());
             }

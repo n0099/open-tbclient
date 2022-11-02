@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.response.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
 import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.c;
@@ -10,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_CAN_USE_THRESHOLD = 300;
     public static final int DEFAULT_GOOD_IDC_THRESHOLD = 200;
@@ -22,7 +24,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public JSONObject mDataJsonObj;
     public JSONObject mOriginalObjData;
     public long requestInterval = 3600;
-    public List h5PreloadConfigs = new ArrayList();
+    public List<com.kwad.sdk.e.kwai.a> h5PreloadConfigs = new ArrayList();
     public TemplateConfig templateConfig = new TemplateConfig();
     public TemplateConfig splashConfig = new TemplateConfig();
     public TemplateConfigMap templateConfigMap = new TemplateConfigMap();
@@ -31,8 +33,9 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public int goodIdcThresholdMs = 200;
     public int canUseThresholdMs = 300;
 
-    /* loaded from: classes7.dex */
-    public class CouponActiveConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class CouponActiveConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 6375241669684789095L;
         public ActivityInfo activityInfo;
         public TemplateConfig couponInfoConfig;
@@ -45,8 +48,9 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         public String bottomTitle = "刷满5个视频抽红包，每个视频观看>5秒";
     }
 
-    /* loaded from: classes7.dex */
-    public class TemplateConfigMap extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class TemplateConfigMap extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig couponInfoConfig;
         public TemplateConfig couponOpenConfig;
@@ -59,7 +63,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;
@@ -79,13 +83,14 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
             this.adxConfig = optJSONObject2;
             com.kwad.sdk.core.config.b.d(optJSONObject2);
             this.appConfig = this.mDataJsonObj.optJSONObject(PrefetchEvent.EVENT_KEY_APP_CONFIG);
-            this.h5PreloadConfigs = r.a(this.mDataJsonObj.optString("h5PreloadConfigs"), new c() { // from class: com.kwad.sdk.core.response.model.SdkConfigData.1
+            this.h5PreloadConfigs = r.a(this.mDataJsonObj.optString("h5PreloadConfigs"), new c<com.kwad.sdk.e.kwai.a>() { // from class: com.kwad.sdk.core.response.model.SdkConfigData.1
                 public static com.kwad.sdk.e.kwai.a va() {
                     return new com.kwad.sdk.e.kwai.a();
                 }
 
+                /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                 @Override // com.kwad.sdk.core.c
-                public final /* synthetic */ com.kwad.sdk.core.b qt() {
+                public final /* synthetic */ com.kwad.sdk.e.kwai.a qt() {
                     return va();
                 }
             });

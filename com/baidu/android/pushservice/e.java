@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -34,6 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.callback.PushCallback;
+import com.heytap.mcssdk.mode.SubscribeResult;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
@@ -54,14 +56,14 @@ public class e {
     public static volatile int i;
     public static volatile long j;
     public static Handler k;
-    public static final ConcurrentLinkedQueue l;
+    public static final ConcurrentLinkedQueue<Runnable> l;
     public static int m;
     public static long n;
     public static ConnectivityManager.NetworkCallback o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +98,7 @@ public class e {
     }
 
     /* loaded from: classes.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -178,7 +180,7 @@ public class e {
                 return;
             }
         }
-        l = new ConcurrentLinkedQueue();
+        l = new ConcurrentLinkedQueue<>();
         m = 0;
         n = 0L;
         i = 0;
@@ -433,7 +435,7 @@ public class e {
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onGetAliases(int i2, List list) {
+                    public void onGetAliases(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
                         }
@@ -454,14 +456,14 @@ public class e {
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onGetTags(int i2, List list) {
+                    public void onGetTags(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i2, list) == null) {
                         }
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onGetUserAccounts(int i2, List list) {
+                    public void onGetUserAccounts(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048580, this, i2, list) == null) {
                         }
@@ -480,7 +482,7 @@ public class e {
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onSetAliases(int i2, List list) {
+                    public void onSetAliases(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048582, this, i2, list) == null) {
                         }
@@ -494,14 +496,14 @@ public class e {
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onSetTags(int i2, List list) {
+                    public void onSetTags(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, list) == null) {
                         }
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onSetUserAccounts(int i2, List list) {
+                    public void onSetUserAccounts(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048585, this, i2, list) == null) {
                         }
@@ -515,21 +517,21 @@ public class e {
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onUnsetAliases(int i2, List list) {
+                    public void onUnsetAliases(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048587, this, i2, list) == null) {
                         }
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onUnsetTags(int i2, List list) {
+                    public void onUnsetTags(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048588, this, i2, list) == null) {
                         }
                     }
 
                     @Override // com.heytap.mcssdk.callback.PushCallback
-                    public void onUnsetUserAccounts(int i2, List list) {
+                    public void onUnsetUserAccounts(int i2, List<SubscribeResult> list) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048589, this, i2, list) == null) {
                         }
@@ -1067,6 +1069,7 @@ public class e {
         return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) ? context == null : invokeL.booleanValue;
     }
 
+    @TargetApi(24)
     public static void o(Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65572, null, context) == null) || o == null) {
@@ -1167,6 +1170,7 @@ public class e {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(24)
     public static void v(Context context) {
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
@@ -1218,13 +1222,13 @@ public class e {
     public static void w(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65580, null, context) == null) {
-            List j2 = com.baidu.android.pushservice.b.d.j(context);
+            List<String> j2 = com.baidu.android.pushservice.b.d.j(context);
             if (j2.isEmpty()) {
                 return;
             }
             Handler handler = new Handler(context.getMainLooper());
             for (int i2 = 0; i2 < j2.size(); i2++) {
-                String str = (String) j2.get(i2);
+                String str = j2.get(i2);
                 if (m.b(context, str)) {
                     handler.postDelayed(new Runnable(str, context) { // from class: com.baidu.android.pushservice.e.5
                         public static /* synthetic */ Interceptable $ic;

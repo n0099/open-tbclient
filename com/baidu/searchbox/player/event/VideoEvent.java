@@ -1,8 +1,11 @@
 package com.baidu.searchbox.player.event;
 
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,7 +37,7 @@ public class VideoEvent implements IPoolItem {
     public transient /* synthetic */ FieldHolder $fh;
     public String action;
     public StringBuilder desc;
-    public final SparseArray eventBundle;
+    public final SparseArray<Object> eventBundle;
     public int logLevel;
     public int priority;
     public Object sender;
@@ -57,7 +60,7 @@ public class VideoEvent implements IPoolItem {
     }
 
     @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(String str) {
+    public boolean verify(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
@@ -100,6 +103,8 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
+    @NonNull
+    @PublicMethod
     public String getAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +114,8 @@ public class VideoEvent implements IPoolItem {
         return (String) invokeV.objValue;
     }
 
-    public SparseArray getBundle() {
+    @PublicMethod
+    public SparseArray<Object> getBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -127,6 +133,7 @@ public class VideoEvent implements IPoolItem {
         return invokeV.intValue;
     }
 
+    @PublicMethod(version = "11.24.0.0")
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,6 +143,8 @@ public class VideoEvent implements IPoolItem {
         return invokeV.intValue;
     }
 
+    @Nullable
+    @PublicMethod
     public Object getSender() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -145,6 +154,7 @@ public class VideoEvent implements IPoolItem {
         return invokeV.objValue;
     }
 
+    @PublicMethod
     public int getTargetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,6 +164,7 @@ public class VideoEvent implements IPoolItem {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -185,10 +196,11 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
+    @PublicMethod
     public void recycle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            sEventPool.release((IPoolItem) this);
+            sEventPool.release((VideoEventPool) this);
         }
     }
 
@@ -207,7 +219,7 @@ public class VideoEvent implements IPoolItem {
                 return;
             }
         }
-        this.eventBundle = new SparseArray(3);
+        this.eventBundle = new SparseArray<>(3);
         this.type = -1;
         this.targetType = -1;
         this.priority = 0;
@@ -215,35 +227,37 @@ public class VideoEvent implements IPoolItem {
         this.action = str;
     }
 
-    public static VideoEvent copy(VideoEvent videoEvent) {
+    @PublicMethod
+    public static VideoEvent copy(@NonNull VideoEvent videoEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, videoEvent)) == null) {
-            VideoEvent videoEvent2 = (VideoEvent) sEventPool.acquire();
-            videoEvent2.setType(videoEvent.type);
-            videoEvent2.setAction(videoEvent.action);
-            videoEvent2.setSender(videoEvent.sender);
-            videoEvent2.setTargetType(videoEvent.targetType);
-            videoEvent2.setPriority(videoEvent.priority);
-            videoEvent2.setBundle(videoEvent.eventBundle);
-            videoEvent2.setLogLevel(videoEvent.logLevel);
-            return videoEvent2;
+            VideoEvent acquire = sEventPool.acquire();
+            acquire.setType(videoEvent.type);
+            acquire.setAction(videoEvent.action);
+            acquire.setSender(videoEvent.sender);
+            acquire.setTargetType(videoEvent.targetType);
+            acquire.setPriority(videoEvent.priority);
+            acquire.setBundle(videoEvent.eventBundle);
+            acquire.setLogLevel(videoEvent.logLevel);
+            return acquire;
         }
         return (VideoEvent) invokeL.objValue;
     }
 
-    public static VideoEvent obtain(String str, int i) {
+    public static VideoEvent obtain(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            VideoEvent videoEvent = (VideoEvent) sEventPool.acquire();
-            videoEvent.setType(i);
-            videoEvent.setAction(str);
-            return videoEvent;
+            VideoEvent acquire = sEventPool.acquire();
+            acquire.setType(i);
+            acquire.setAction(str);
+            return acquire;
         }
         return (VideoEvent) invokeLI.objValue;
     }
 
+    @PublicMethod
     public int getIntExtra(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -257,6 +271,7 @@ public class VideoEvent implements IPoolItem {
         return invokeII.intValue;
     }
 
+    @PublicMethod
     public String getStringExtra(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -270,6 +285,7 @@ public class VideoEvent implements IPoolItem {
         return (String) invokeIL.objValue;
     }
 
+    @PublicMethod
     public void putExtra(int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048597, this, i, obj) == null) {
@@ -277,7 +293,7 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
-    public boolean filter(INeuron iNeuron) {
+    public boolean filter(@NonNull INeuron iNeuron) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iNeuron)) == null) {
@@ -289,6 +305,7 @@ public class VideoEvent implements IPoolItem {
         return invokeL.booleanValue;
     }
 
+    @PublicMethod
     public boolean getBooleanExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -298,6 +315,7 @@ public class VideoEvent implements IPoolItem {
         return invokeI.booleanValue;
     }
 
+    @PublicMethod
     public Object getExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -307,6 +325,7 @@ public class VideoEvent implements IPoolItem {
         return invokeI.objValue;
     }
 
+    @PublicMethod
     public float getFloatExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -316,6 +335,7 @@ public class VideoEvent implements IPoolItem {
         return invokeI.floatValue;
     }
 
+    @PublicMethod
     public int getIntExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -325,6 +345,7 @@ public class VideoEvent implements IPoolItem {
         return invokeI.intValue;
     }
 
+    @PublicMethod
     public long getLongExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -334,6 +355,7 @@ public class VideoEvent implements IPoolItem {
         return invokeI.longValue;
     }
 
+    @PublicMethod
     public String getStringExtra(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -343,14 +365,16 @@ public class VideoEvent implements IPoolItem {
         return (String) invokeI.objValue;
     }
 
-    public void setAction(String str) {
+    @PublicMethod
+    public void setAction(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.action = str;
         }
     }
 
-    public void setBundle(SparseArray sparseArray) {
+    @PublicMethod
+    public void setBundle(@NonNull SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, sparseArray) == null) {
             for (int i = 0; i < sparseArray.size(); i++) {
@@ -366,6 +390,7 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
+    @PublicMethod(version = "11.24.0.0")
     public void setPriority(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
@@ -373,13 +398,15 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
-    public void setSender(Object obj) {
+    @PublicMethod
+    public void setSender(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, obj) == null) {
             this.sender = obj;
         }
     }
 
+    @PublicMethod
     public void setTargetType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
@@ -387,6 +414,7 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
+    @PublicMethod
     public void setType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
@@ -394,6 +422,7 @@ public class VideoEvent implements IPoolItem {
         }
     }
 
+    @PublicMethod
     public boolean getBooleanExtra(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -407,6 +436,7 @@ public class VideoEvent implements IPoolItem {
         return invokeCommon.booleanValue;
     }
 
+    @PublicMethod(version = "12.2.0")
     public float getFloatExtra(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -420,6 +450,7 @@ public class VideoEvent implements IPoolItem {
         return invokeCommon.floatValue;
     }
 
+    @PublicMethod
     public long getLongExtra(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -433,6 +464,7 @@ public class VideoEvent implements IPoolItem {
         return invokeCommon.longValue;
     }
 
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

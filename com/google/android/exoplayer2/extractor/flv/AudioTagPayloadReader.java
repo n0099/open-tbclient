@@ -132,7 +132,7 @@ public final class AudioTagPayloadReader extends TagPayloadReader {
                 int bytesLeft2 = parsableByteArray.bytesLeft();
                 byte[] bArr = new byte[bytesLeft2];
                 parsableByteArray.readBytes(bArr, 0, bytesLeft2);
-                Pair parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
+                Pair<Integer, Integer> parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
                 this.output.format(Format.createAudioSampleFormat(null, "audio/mp4a-latm", null, -1, -1, ((Integer) parseAacAudioSpecificConfig.second).intValue(), ((Integer) parseAacAudioSpecificConfig.first).intValue(), Collections.singletonList(bArr), null, 0, null));
                 this.hasOutputFormat = true;
             } else if (this.audioFormat != 10 || readUnsignedByte == 1) {

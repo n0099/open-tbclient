@@ -16,24 +16,24 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableMapNotification extends AbstractObservableWithUpstream {
+public final class ObservableMapNotification<T, R> extends AbstractObservableWithUpstream<T, ObservableSource<? extends R>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable onCompleteSupplier;
-    public final Function onErrorMapper;
-    public final Function onNextMapper;
+    public final Callable<? extends ObservableSource<? extends R>> onCompleteSupplier;
+    public final Function<? super Throwable, ? extends ObservableSource<? extends R>> onErrorMapper;
+    public final Function<? super T, ? extends ObservableSource<? extends R>> onNextMapper;
 
     /* loaded from: classes8.dex */
-    public final class MapNotificationObserver implements Observer, Disposable {
+    public static final class MapNotificationObserver<T, R> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final Callable onCompleteSupplier;
-        public final Function onErrorMapper;
-        public final Function onNextMapper;
+        public final Observer<? super ObservableSource<? extends R>> actual;
+        public final Callable<? extends ObservableSource<? extends R>> onCompleteSupplier;
+        public final Function<? super Throwable, ? extends ObservableSource<? extends R>> onErrorMapper;
+        public final Function<? super T, ? extends ObservableSource<? extends R>> onNextMapper;
         public Disposable s;
 
-        public MapNotificationObserver(Observer observer, Function function, Function function2, Callable callable) {
+        public MapNotificationObserver(Observer<? super ObservableSource<? extends R>> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, Function<? super Throwable, ? extends ObservableSource<? extends R>> function2, Callable<? extends ObservableSource<? extends R>> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,11 +101,11 @@ public final class ObservableMapNotification extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 try {
-                    this.actual.onNext((ObservableSource) ObjectHelper.requireNonNull(this.onNextMapper.apply(obj), "The onNext ObservableSource returned is null"));
+                    this.actual.onNext((ObservableSource) ObjectHelper.requireNonNull(this.onNextMapper.apply(t), "The onNext ObservableSource returned is null"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.actual.onError(th);
@@ -124,7 +124,7 @@ public final class ObservableMapNotification extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMapNotification(ObservableSource observableSource, Function function, Function function2, Callable callable) {
+    public ObservableMapNotification(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, Function<? super Throwable, ? extends ObservableSource<? extends R>> function2, Callable<? extends ObservableSource<? extends R>> callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +147,7 @@ public final class ObservableMapNotification extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super ObservableSource<? extends R>> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new MapNotificationObserver(observer, this.onNextMapper, this.onErrorMapper, this.onCompleteSupplier));

@@ -1,6 +1,9 @@
 package androidx.loader.app;
 
 import android.os.Bundle;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.content.Loader;
@@ -17,19 +20,25 @@ public abstract class LoaderManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface LoaderCallbacks {
-        Loader onCreateLoader(int i, Bundle bundle);
+    public interface LoaderCallbacks<D> {
+        @NonNull
+        @MainThread
+        Loader<D> onCreateLoader(int i, @Nullable Bundle bundle);
 
-        void onLoadFinished(Loader loader, Object obj);
+        @MainThread
+        void onLoadFinished(@NonNull Loader<D> loader, D d);
 
-        void onLoaderReset(Loader loader);
+        @MainThread
+        void onLoaderReset(@NonNull Loader<D> loader);
     }
 
+    @MainThread
     public abstract void destroyLoader(int i);
 
     @Deprecated
     public abstract void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
+    @Nullable
     public abstract <D> Loader<D> getLoader(int i);
 
     public boolean hasRunningLoaders() {
@@ -41,11 +50,15 @@ public abstract class LoaderManager {
         return invokeV.booleanValue;
     }
 
-    public abstract <D> Loader<D> initLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
+    @NonNull
+    @MainThread
+    public abstract <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 
     public abstract void markForRedelivery();
 
-    public abstract <D> Loader<D> restartLoader(int i, Bundle bundle, LoaderCallbacks<D> loaderCallbacks);
+    @NonNull
+    @MainThread
+    public abstract <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 
     public LoaderManager() {
         Interceptable interceptable = $ic;
@@ -68,7 +81,8 @@ public abstract class LoaderManager {
         }
     }
 
-    public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(T t) {
+    @NonNull
+    public static <T extends LifecycleOwner & ViewModelStoreOwner> LoaderManager getInstance(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) {

@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import android.webkit.ValueCallback;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nb2 implements V8FileSystemDelegatePolicy {
+public class nb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    @V8JavascriptField
+    public String basePath;
+    @V8JavascriptField
+    public Object config;
+    @V8JavascriptField
+    public String viewMode;
 
     public nb2() {
         Interceptable interceptable = $ic;
@@ -30,14 +27,6 @@ public class nb2 implements V8FileSystemDelegatePolicy {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
-    public void loadFileFromUrl(String str, ValueCallback valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            lb2.e().g(str, valueCallback);
         }
     }
 }

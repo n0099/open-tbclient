@@ -17,26 +17,26 @@ import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableToList extends AbstractFlowableWithUpstream {
+public final class FlowableToList<T, U extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable collectionSupplier;
+    public final Callable<U> collectionSupplier;
 
     /* loaded from: classes8.dex */
-    public final class ToListSubscriber extends DeferredScalarSubscription implements FlowableSubscriber, Subscription {
+    public static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8134157938864266736L;
         public transient /* synthetic */ FieldHolder $fh;
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ToListSubscriber(Subscriber subscriber, Collection collection) {
+        public ToListSubscriber(Subscriber<? super U> subscriber, U u) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, collection};
+                Object[] objArr = {subscriber, u};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public final class FlowableToList extends AbstractFlowableWithUpstream {
                     return;
                 }
             }
-            this.value = collection;
+            this.value = u;
         }
 
         @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
@@ -77,11 +77,11 @@ public final class FlowableToList extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Collection collection;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && (collection = (Collection) this.value) != null) {
-                collection.add(obj);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && (collection = (Collection) this.value) != null) {
+                collection.add(t);
             }
         }
 
@@ -97,7 +97,7 @@ public final class FlowableToList extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableToList(Flowable flowable, Callable callable) {
+    public FlowableToList(Flowable<T> flowable, Callable<U> callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -118,7 +118,7 @@ public final class FlowableToList extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

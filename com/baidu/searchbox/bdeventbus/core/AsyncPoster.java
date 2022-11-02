@@ -18,7 +18,7 @@ public final class AsyncPoster implements Runnable, Poster {
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public BdEventBusCore bdEventBusCore;
-    public final ConcurrentLinkedQueue concurrentLinkedQueue;
+    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> concurrentLinkedQueue;
 
     public AsyncPoster(BdEventBusCore bdEventBusCore) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class AsyncPoster implements Runnable, Poster {
         Intrinsics.checkNotNullParameter(bdEventBusCore, "bdEventBusCore");
         this.bdEventBusCore = bdEventBusCore;
         this.TAG = "AsyncPoster";
-        this.concurrentLinkedQueue = new ConcurrentLinkedQueue();
+        this.concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
     }
 
     @Override // com.baidu.searchbox.bdeventbus.core.Poster
@@ -48,7 +48,7 @@ public final class AsyncPoster implements Runnable, Poster {
             Intrinsics.checkNotNullParameter(event, "event");
             Intrinsics.checkNotNullParameter(subscriptionInfo, "subscriptionInfo");
             synchronized (this) {
-                this.concurrentLinkedQueue.offer(new Pair(event, subscriptionInfo));
+                this.concurrentLinkedQueue.offer(new Pair<>(event, subscriptionInfo));
                 this.bdEventBusCore.getExecutorService$lib_bd_event_bus_release().execute(this);
                 Unit unit = Unit.INSTANCE;
             }
@@ -64,7 +64,7 @@ public final class AsyncPoster implements Runnable, Poster {
         return (BdEventBusCore) invokeV.objValue;
     }
 
-    public final ConcurrentLinkedQueue getConcurrentLinkedQueue() {
+    public final ConcurrentLinkedQueue<Pair<Object, SubscriptionInfo>> getConcurrentLinkedQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -84,10 +84,10 @@ public final class AsyncPoster implements Runnable, Poster {
 
     @Override // java.lang.Runnable
     public void run() {
-        Pair pair;
+        Pair<Object, SubscriptionInfo> poll;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (pair = (Pair) this.concurrentLinkedQueue.poll()) != null) {
-            ((SubscriptionInfo) pair.getSecond()).getAction().call(pair.getFirst());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (poll = this.concurrentLinkedQueue.poll()) != null) {
+            poll.getSecond().getAction().call(poll.getFirst());
         }
     }
 

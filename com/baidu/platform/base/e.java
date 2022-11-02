@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapsdkplatform.comapi.util.AlgorithmUtil;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,6 +24,8 @@ public abstract class e {
     public com.baidu.platform.util.a a;
     public boolean b;
     public boolean c;
+
+    public abstract String a(com.baidu.platform.domain.c cVar);
 
     public e() {
         Interceptable interceptable = $ic;
@@ -50,7 +52,10 @@ public abstract class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SearchType.h == searchType ? a(str) : str;
+            if (SearchType.h == searchType) {
+                return a(str);
+            }
+            return str;
         }
         return (String) invokeLL.objValue;
     }
@@ -77,12 +82,24 @@ public abstract class e {
     private boolean b(SearchType searchType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.h == searchType : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) {
+            if (SearchType.h == searchType) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
     }
 
     public final String a(PlanNode planNode) {
         InterceptResult invokeL;
-        StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, planNode)) == null) {
             if (planNode == null) {
@@ -93,22 +110,12 @@ public abstract class e {
             if (location != null) {
                 String str2 = str + "\"type\":1,";
                 Point ll2point = CoordUtil.ll2point(location);
-                sb = new StringBuilder();
-                sb.append(str2);
-                sb.append("\"xy\":\"");
-                sb.append(ll2point.x);
-                sb.append(",");
-                sb.append(ll2point.y);
-            } else if (planNode.getName() == null) {
-                return str;
+                return str2 + "\"xy\":\"" + ll2point.x + "," + ll2point.y + "\"}";
+            } else if (planNode.getName() != null) {
+                return (str + "\"type\":2,") + "\"keyword\":\"" + planNode.getName() + "\"}";
             } else {
-                sb = new StringBuilder();
-                sb.append(str + "\"type\":2,");
-                sb.append("\"keyword\":\"");
-                sb.append(planNode.getName());
+                return str;
             }
-            sb.append("\"}");
-            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -142,15 +149,6 @@ public abstract class e {
             return a + "?" + str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public abstract String a(com.baidu.platform.domain.c cVar);
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
     }
 
     public void b(boolean z) {

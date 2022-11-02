@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.ui;
 
+import android.annotation.SuppressLint;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -153,6 +154,7 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"SetTextI18n"})
     private void updateAndPost() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {

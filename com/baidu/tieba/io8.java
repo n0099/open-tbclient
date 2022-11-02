@@ -1,300 +1,141 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class io8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public String i;
 
-    public io8() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947860343, "Lcom/baidu/tieba/io8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = -1;
-        this.g = true;
-        this.h = false;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.b != -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b88));
-            y(401);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947860343, "Lcom/baidu/tieba/io8;");
         }
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.h) {
-                return m();
-            }
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static nf5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
             try {
-                jSONObject.put("status", this.b);
-                jSONObject.put("message", this.c);
-                if (StringHelper.isJSONObject(this.d)) {
-                    jSONObject.put("data", new JSONObject(this.d));
-                } else if (StringHelper.isJSONArray(this.d)) {
-                    jSONObject.put("data", new JSONArray(this.d));
-                } else {
-                    jSONObject.put("data", this.d);
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
+                nf5 nf5Var = new nf5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(nf5Var);
+                return nf5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+        return (nf5) invokeIL.objValue;
     }
 
-    public final String m() {
-        InterceptResult invokeV;
+    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "{\"status\":\"" + this.b + "\",\"message\":\"" + this.c + "\",\"data\":" + this.d + "}";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i2);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
-        return (String) invokeV.objValue;
+        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public void n(boolean z) {
+    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            u(str);
-            y(401);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
+            h(i2, cls2, false, false);
+            c(i2, i, str, cls, false, true, true, false);
         }
     }
 
-    public void r(boolean z) {
+    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
+        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public void s(boolean z) {
+    public static of5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true);
         }
+        return (of5) invokeCommon.objValue;
     }
 
-    public void t(String str) {
+    public static of5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
+            of5 of5Var = new of5(i);
+            of5Var.setResponsedClass(cls);
+            of5Var.h(z);
+            of5Var.f(dupLicateMode);
+            of5Var.setRetry(a);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(of5Var);
+            of5Var.setNeedEncrypt(z2);
+            return of5Var;
         }
+        return (of5) invokeCommon.objValue;
     }
 
-    public void u(String str) {
+    public static of5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && ej.isEmpty(this.c)) {
-            this.c = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2);
         }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048600, this, i) == null) && this.b == -1) {
-            x(i);
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            this.b = i;
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 301) {
-                        if (i != 201) {
-                            if (i == 202) {
-                                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10c9));
-                                return;
-                            }
-                            return;
-                        }
-                        u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10ca));
-                        return;
-                    }
-                    u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cb));
-                    return;
-                }
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cd));
-                return;
-            }
-            u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10cc));
-        }
+        return (of5) invokeCommon.objValue;
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.task.MessageTask;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public interface ha {
-    LinkedList e(int i, BdUniqueId bdUniqueId);
+public interface ha<M extends Message<?>, T extends MessageTask> {
+    LinkedList<M> e(int i, BdUniqueId bdUniqueId);
 
-    void f(Message message, MessageTask messageTask);
+    void f(M m, T t);
 
     void h(int i, BdUniqueId bdUniqueId);
 }

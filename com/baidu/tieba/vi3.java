@@ -1,25 +1,67 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
-public class vi3 implements n94 {
+public abstract class vi3<OuT> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public final yi3<OuT> a;
+    public OuT b;
 
-    public vi3() {
+    public abstract void c();
+
+    /* loaded from: classes6.dex */
+    public static class a extends vi3<OuT> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CountDownLatch c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yi3 yi3Var, CountDownLatch countDownLatch) {
+            super(yi3Var, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yi3Var, countDownLatch};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((yi3) objArr2[0], (a) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = countDownLatch;
+        }
+
+        @Override // com.baidu.tieba.vi3
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.countDown();
+            }
+        }
+    }
+
+    public vi3(yi3<OuT> yi3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yi3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,42 +71,60 @@ public class vi3 implements n94 {
                 return;
             }
         }
-        this.a = null;
+        this.b = null;
+        this.a = yi3Var;
     }
 
-    @Override // com.baidu.tieba.n94
-    public void a(BaseMenuView baseMenuView) {
+    public static <OuT> OuT b(yi3<OuT> yi3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yi3Var)) == null) {
+            return (OuT) a(Looper.getMainLooper(), yi3Var);
         }
-        if (tm2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
-        }
+        return (OuT) invokeL.objValue;
     }
 
-    public final void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+    public /* synthetic */ vi3(yi3 yi3Var, a aVar) {
+        this(yi3Var);
     }
 
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public static <OuT> OuT a(Looper looper, yi3<OuT> yi3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, yi3Var)) == null) {
+            if (yi3Var == null) {
+                return null;
+            }
+            if (looper != null && Thread.currentThread() != looper.getThread()) {
+                CountDownLatch countDownLatch = new CountDownLatch(1);
+                a aVar = new a(yi3Var, countDownLatch);
+                new Handler(looper).post(aVar);
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e12.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
+                    e.printStackTrace();
+                }
+                return aVar.b;
+            }
+            return yi3Var.create();
+        }
+        return (OuT) invokeLL.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                try {
+                    this.b = this.a.create();
+                } catch (Exception e) {
+                    e12.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
+                }
+            } finally {
+                c();
+            }
         }
     }
 }

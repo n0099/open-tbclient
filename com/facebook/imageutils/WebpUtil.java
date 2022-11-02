@@ -119,19 +119,19 @@ public class WebpUtil {
         return invokeL.intValue;
     }
 
-    public static Pair getVP8XDimension(InputStream inputStream) throws IOException {
+    public static Pair<Integer, Integer> getVP8XDimension(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, inputStream)) == null) {
             inputStream.skip(8L);
-            return new Pair(Integer.valueOf(read3Bytes(inputStream) + 1), Integer.valueOf(read3Bytes(inputStream) + 1));
+            return new Pair<>(Integer.valueOf(read3Bytes(inputStream) + 1), Integer.valueOf(read3Bytes(inputStream) + 1));
         }
         return (Pair) invokeL.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     @Nullable
-    public static Pair getSize(InputStream inputStream) {
+    public static Pair<Integer, Integer> getSize(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
@@ -167,7 +167,7 @@ public class WebpUtil {
                 inputStream.read(bArr);
                 String header = getHeader(bArr);
                 if (VP8_HEADER.equals(header)) {
-                    Pair vP8Dimension = getVP8Dimension(inputStream);
+                    Pair<Integer, Integer> vP8Dimension = getVP8Dimension(inputStream);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -177,7 +177,7 @@ public class WebpUtil {
                     }
                     return vP8Dimension;
                 } else if (VP8L_HEADER.equals(header)) {
-                    Pair vP8LDimension = getVP8LDimension(inputStream);
+                    Pair<Integer, Integer> vP8LDimension = getVP8LDimension(inputStream);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -187,7 +187,7 @@ public class WebpUtil {
                     }
                     return vP8LDimension;
                 } else if (VP8X_HEADER.equals(header)) {
-                    Pair vP8XDimension = getVP8XDimension(inputStream);
+                    Pair<Integer, Integer> vP8XDimension = getVP8XDimension(inputStream);
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -216,7 +216,7 @@ public class WebpUtil {
     }
 
     @Nullable
-    public static Pair getVP8Dimension(InputStream inputStream) throws IOException {
+    public static Pair<Integer, Integer> getVP8Dimension(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) {
@@ -225,7 +225,7 @@ public class WebpUtil {
             short s2 = getShort(inputStream);
             short s3 = getShort(inputStream);
             if (s == 157 && s2 == 1 && s3 == 42) {
-                return new Pair(Integer.valueOf(get2BytesAsInt(inputStream)), Integer.valueOf(get2BytesAsInt(inputStream)));
+                return new Pair<>(Integer.valueOf(get2BytesAsInt(inputStream)), Integer.valueOf(get2BytesAsInt(inputStream)));
             }
             return null;
         }
@@ -233,7 +233,7 @@ public class WebpUtil {
     }
 
     @Nullable
-    public static Pair getVP8LDimension(InputStream inputStream) throws IOException {
+    public static Pair<Integer, Integer> getVP8LDimension(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, inputStream)) == null) {
@@ -242,7 +242,7 @@ public class WebpUtil {
                 return null;
             }
             int read = ((byte) inputStream.read()) & 255;
-            return new Pair(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
+            return new Pair<>(Integer.valueOf(((((byte) inputStream.read()) & 255) | ((read & 63) << 8)) + 1), Integer.valueOf(((((((byte) inputStream.read()) & 255) & 15) << 10) | ((((byte) inputStream.read()) & 255) << 2) | ((read & 192) >> 6)) + 1));
         }
         return (Pair) invokeL.objValue;
     }

@@ -18,10 +18,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedReserveWrapData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveFeedReserveWrapData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public LiveFeedReserveHeaderInfo headerInfo;
-    public List roomInfos;
+    public List<LiveRoomEntity> roomInfos;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -46,7 +46,7 @@ public class LiveFeedReserveWrapData implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedReserveWrapData.1
+        CREATOR = new Parcelable.Creator<LiveFeedReserveWrapData>() { // from class: com.baidu.live.business.model.data.LiveFeedReserveWrapData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +65,7 @@ public class LiveFeedReserveWrapData implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveWrapData createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -76,6 +77,7 @@ public class LiveFeedReserveWrapData implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveWrapData[] newArray(int i) {
                 InterceptResult invokeI;
@@ -104,7 +106,7 @@ public class LiveFeedReserveWrapData implements Parcelable {
 
     public boolean isValid() {
         InterceptResult invokeV;
-        List list;
+        List<LiveRoomEntity> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LiveFeedReserveHeaderInfo liveFeedReserveHeaderInfo = this.headerInfo;

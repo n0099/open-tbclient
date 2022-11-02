@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class SocketMessage extends Message {
+public class SocketMessage extends Message<byte[]> {
     public static /* synthetic */ Interceptable $ic = null;
     public static String GLOBAL_ENCODE_NAME = "toByteArray";
     public transient /* synthetic */ FieldHolder $fh;

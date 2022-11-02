@@ -1,6 +1,12 @@
 package androidx.core.graphics;
 
 import android.graphics.Color;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -81,7 +87,8 @@ public final class ColorUtils {
         return (double[]) invokeV.objValue;
     }
 
-    public static int HSLToColor(float[] fArr) {
+    @ColorInt
+    public static int HSLToColor(@NonNull float[] fArr) {
         InterceptResult invokeL;
         int round;
         int round2;
@@ -137,7 +144,8 @@ public final class ColorUtils {
         return invokeL.intValue;
     }
 
-    public static int LABToColor(double d, double d2, double d3) {
+    @ColorInt
+    public static int LABToColor(@FloatRange(from = 0.0d, to = 100.0d) double d, @FloatRange(from = -128.0d, to = 127.0d) double d2, @FloatRange(from = -128.0d, to = 127.0d) double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
@@ -148,7 +156,7 @@ public final class ColorUtils {
         return invokeCommon.intValue;
     }
 
-    public static void LABToXYZ(double d, double d2, double d3, double[] dArr) {
+    public static void LABToXYZ(@FloatRange(from = 0.0d, to = 100.0d) double d, @FloatRange(from = -128.0d, to = 127.0d) double d2, @FloatRange(from = -128.0d, to = 127.0d) double d3, @NonNull double[] dArr) {
         double d4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), dArr}) == null) {
@@ -174,7 +182,7 @@ public final class ColorUtils {
         }
     }
 
-    public static void RGBToHSL(int i, int i2, int i3, float[] fArr) {
+    public static void RGBToHSL(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull float[] fArr) {
         float f;
         float abs;
         Interceptable interceptable = $ic;
@@ -209,7 +217,7 @@ public final class ColorUtils {
         }
     }
 
-    public static void RGBToLAB(int i, int i2, int i3, double[] dArr) {
+    public static void RGBToLAB(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), dArr}) == null) {
             RGBToXYZ(i, i2, i3, dArr);
@@ -217,7 +225,7 @@ public final class ColorUtils {
         }
     }
 
-    public static void RGBToXYZ(int i, int i2, int i3, double[] dArr) {
+    public static void RGBToXYZ(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull double[] dArr) {
         double pow;
         double pow2;
         double pow3;
@@ -251,7 +259,8 @@ public final class ColorUtils {
         }
     }
 
-    public static int XYZToColor(double d, double d2, double d3) {
+    @ColorInt
+    public static int XYZToColor(@FloatRange(from = 0.0d, to = 95.047d) double d, @FloatRange(from = 0.0d, to = 100.0d) double d2, @FloatRange(from = 0.0d, to = 108.883d) double d3) {
         InterceptResult invokeCommon;
         double d4;
         double d5;
@@ -281,7 +290,7 @@ public final class ColorUtils {
         return invokeCommon.intValue;
     }
 
-    public static void XYZToLAB(double d, double d2, double d3, double[] dArr) {
+    public static void XYZToLAB(@FloatRange(from = 0.0d, to = 95.047d) double d, @FloatRange(from = 0.0d, to = 100.0d) double d2, @FloatRange(from = 0.0d, to = 108.883d) double d3, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), dArr}) == null) {
             if (dArr.length == 3) {
@@ -297,7 +306,8 @@ public final class ColorUtils {
         }
     }
 
-    public static int blendARGB(int i, int i2, float f) {
+    @ColorInt
+    public static int blendARGB(@ColorInt int i, @ColorInt int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
@@ -307,7 +317,7 @@ public final class ColorUtils {
         return invokeCommon.intValue;
     }
 
-    public static int calculateMinimumAlpha(int i, int i2, float f) {
+    public static int calculateMinimumAlpha(@ColorInt int i, @ColorInt int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
@@ -333,7 +343,7 @@ public final class ColorUtils {
         return invokeCommon.intValue;
     }
 
-    public static void blendHSL(float[] fArr, float[] fArr2, float f, float[] fArr3) {
+    public static void blendHSL(@NonNull float[] fArr, @NonNull float[] fArr2, @FloatRange(from = 0.0d, to = 1.0d) float f, @NonNull float[] fArr3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{fArr, fArr2, Float.valueOf(f), fArr3}) == null) {
             if (fArr3.length == 3) {
@@ -347,7 +357,7 @@ public final class ColorUtils {
         }
     }
 
-    public static void blendLAB(double[] dArr, double[] dArr2, double d, double[] dArr3) {
+    public static void blendLAB(@NonNull double[] dArr, @NonNull double[] dArr2, @FloatRange(from = 0.0d, to = 1.0d) double d, @NonNull double[] dArr3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{dArr, dArr2, Double.valueOf(d), dArr3}) == null) {
             if (dArr3.length == 3) {
@@ -361,7 +371,7 @@ public final class ColorUtils {
         }
     }
 
-    public static double calculateContrast(int i, int i2) {
+    public static double calculateContrast(@ColorInt int i, @ColorInt int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65549, null, i, i2)) == null) {
@@ -378,7 +388,7 @@ public final class ColorUtils {
         return invokeII.doubleValue;
     }
 
-    public static int compositeColors(int i, int i2) {
+    public static int compositeColors(@ColorInt int i, @ColorInt int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65557, null, i, i2)) == null) {
@@ -390,7 +400,8 @@ public final class ColorUtils {
         return invokeII.intValue;
     }
 
-    public static double calculateLuminance(int i) {
+    @FloatRange(from = 0.0d, to = 1.0d)
+    public static double calculateLuminance(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
@@ -401,6 +412,7 @@ public final class ColorUtils {
         return invokeI.doubleValue;
     }
 
+    @VisibleForTesting
     public static float circularInterpolate(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -417,21 +429,21 @@ public final class ColorUtils {
         return invokeCommon.floatValue;
     }
 
-    public static void colorToHSL(int i, float[] fArr) {
+    public static void colorToHSL(@ColorInt int i, @NonNull float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65553, null, i, fArr) == null) {
             RGBToHSL(Color.red(i), Color.green(i), Color.blue(i), fArr);
         }
     }
 
-    public static void colorToLAB(int i, double[] dArr) {
+    public static void colorToLAB(@ColorInt int i, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65554, null, i, dArr) == null) {
             RGBToLAB(Color.red(i), Color.green(i), Color.blue(i), dArr);
         }
     }
 
-    public static void colorToXYZ(int i, double[] dArr) {
+    public static void colorToXYZ(@ColorInt int i, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65555, null, i, dArr) == null) {
             RGBToXYZ(Color.red(i), Color.green(i), Color.blue(i), dArr);
@@ -447,7 +459,8 @@ public final class ColorUtils {
         return invokeII.intValue;
     }
 
-    public static int setAlphaComponent(int i, int i2) {
+    @ColorInt
+    public static int setAlphaComponent(@ColorInt int i, @IntRange(from = 0, to = 255) int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65565, null, i, i2)) == null) {
@@ -459,7 +472,9 @@ public final class ColorUtils {
         return invokeII.intValue;
     }
 
-    public static Color compositeColors(Color color, Color color2) {
+    @NonNull
+    @RequiresApi(26)
+    public static Color compositeColors(@NonNull Color color, @NonNull Color color2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, color, color2)) == null) {
@@ -499,7 +514,7 @@ public final class ColorUtils {
         return invokeCommon.intValue;
     }
 
-    public static double distanceEuclidean(double[] dArr, double[] dArr2) {
+    public static double distanceEuclidean(@NonNull double[] dArr, @NonNull double[] dArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, dArr, dArr2)) == null) {

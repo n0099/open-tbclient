@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,15 +20,15 @@ import java.security.MessageDigest;
 /* loaded from: classes7.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
-    public static final LruCache RESOURCE_CLASS_BYTES;
+    public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool arrayPool;
-    public final Class decodedResourceClass;
+    public final Class<?> decodedResourceClass;
     public final int height;
     public final Options options;
     public final Key signature;
     public final Key sourceKey;
-    public final Transformation transformation;
+    public final Transformation<?> transformation;
     public final int width;
 
     static {
@@ -43,10 +44,10 @@ public final class ResourceCacheKey implements Key {
                 return;
             }
         }
-        RESOURCE_CLASS_BYTES = new LruCache(50L);
+        RESOURCE_CLASS_BYTES = new LruCache<>(50L);
     }
 
-    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation transformation, Class cls, Options options) {
+    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +76,7 @@ public final class ResourceCacheKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            byte[] bArr = (byte[]) RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
+            byte[] bArr = RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
             if (bArr == null) {
                 byte[] bytes = this.decodedResourceClass.getName().getBytes(Key.CHARSET);
                 RESOURCE_CLASS_BYTES.put(this.decodedResourceClass, bytes);
@@ -104,7 +105,7 @@ public final class ResourceCacheKey implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             byte[] bArr = (byte[]) this.arrayPool.getExact(8, byte[].class);
@@ -112,7 +113,7 @@ public final class ResourceCacheKey implements Key {
             this.signature.updateDiskCacheKey(messageDigest);
             this.sourceKey.updateDiskCacheKey(messageDigest);
             messageDigest.update(bArr);
-            Transformation transformation = this.transformation;
+            Transformation<?> transformation = this.transformation;
             if (transformation != null) {
                 transformation.updateDiskCacheKey(messageDigest);
             }
@@ -128,7 +129,7 @@ public final class ResourceCacheKey implements Key {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (((((this.sourceKey.hashCode() * 31) + this.signature.hashCode()) * 31) + this.width) * 31) + this.height;
-            Transformation transformation = this.transformation;
+            Transformation<?> transformation = this.transformation;
             if (transformation != null) {
                 hashCode = (hashCode * 31) + transformation.hashCode();
             }

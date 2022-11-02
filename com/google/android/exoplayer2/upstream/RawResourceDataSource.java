@@ -23,13 +23,13 @@ public final class RawResourceDataSource implements DataSource {
     public AssetFileDescriptor assetFileDescriptor;
     public long bytesRemaining;
     public InputStream inputStream;
-    public final TransferListener listener;
+    public final TransferListener<? super RawResourceDataSource> listener;
     public boolean opened;
     public final Resources resources;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public class RawResourceDataSourceException extends IOException {
+    public static class RawResourceDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,7 +95,7 @@ public final class RawResourceDataSource implements DataSource {
         }
     }
 
-    public RawResourceDataSource(Context context, TransferListener transferListener) {
+    public RawResourceDataSource(Context context, TransferListener<? super RawResourceDataSource> transferListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public final class RawResourceDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener transferListener = this.listener;
+                            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferEnd(this);
                             }
@@ -167,7 +167,7 @@ public final class RawResourceDataSource implements DataSource {
                         this.assetFileDescriptor = null;
                         if (this.opened) {
                             this.opened = false;
-                            TransferListener transferListener2 = this.listener;
+                            TransferListener<? super RawResourceDataSource> transferListener2 = this.listener;
                             if (transferListener2 != null) {
                                 transferListener2.onTransferEnd(this);
                             }
@@ -180,7 +180,7 @@ public final class RawResourceDataSource implements DataSource {
                     this.assetFileDescriptor = null;
                     if (this.opened) {
                         this.opened = false;
-                        TransferListener transferListener3 = this.listener;
+                        TransferListener<? super RawResourceDataSource> transferListener3 = this.listener;
                         if (transferListener3 != null) {
                             transferListener3.onTransferEnd(this);
                         }
@@ -226,7 +226,7 @@ public final class RawResourceDataSource implements DataSource {
                                 this.bytesRemaining = j;
                             }
                             this.opened = true;
-                            TransferListener transferListener = this.listener;
+                            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
                             if (transferListener != null) {
                                 transferListener.onTransferStart(this, dataSpec);
                             }
@@ -275,7 +275,7 @@ public final class RawResourceDataSource implements DataSource {
             if (j2 != -1) {
                 this.bytesRemaining = j2 - read;
             }
-            TransferListener transferListener = this.listener;
+            TransferListener<? super RawResourceDataSource> transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }

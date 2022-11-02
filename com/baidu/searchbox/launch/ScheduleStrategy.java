@@ -40,7 +40,7 @@ public class ScheduleStrategy {
     public static final String LOW_DEVICE_STICKINESS_KEY = "low_device_stickiness";
     public static final String MID_DEVICE_STICKINESS_KEY = "mid_device_stickiness";
     public static final String TAG = "ScheduleStrategy";
-    public static Map businessPrivateThresholds;
+    public static Map<String, Double> businessPrivateThresholds;
     public static double commonStickinessThreshold;
     public static double deviceScore;
     public static double dynamicScore;
@@ -58,7 +58,7 @@ public class ScheduleStrategy {
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class ScheduleStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class DeviceType {
+    public static final class DeviceType {
         public static final /* synthetic */ DeviceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DeviceType HIGH;
@@ -288,7 +288,7 @@ public class ScheduleStrategy {
                 }
                 isLoadPrivateStickiness = true;
             }
-            if (businessPrivateThresholds.containsKey(str) && (d = (Double) businessPrivateThresholds.get(str)) != null && d.doubleValue() >= 0.0d) {
+            if (businessPrivateThresholds.containsKey(str) && (d = businessPrivateThresholds.get(str)) != null && d.doubleValue() >= 0.0d) {
                 if (DEBUG) {
                     Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d);
                 }

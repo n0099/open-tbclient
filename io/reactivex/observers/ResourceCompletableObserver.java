@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.CompletableObserver;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
@@ -18,7 +19,7 @@ public abstract class ResourceCompletableObserver implements CompletableObserver
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ListCompositeDisposable resources;
-    public final AtomicReference s;
+    public final AtomicReference<Disposable> s;
 
     public void onStart() {
         Interceptable interceptable = $ic;
@@ -39,7 +40,7 @@ public abstract class ResourceCompletableObserver implements CompletableObserver
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
         this.resources = new ListCompositeDisposable();
     }
 
@@ -56,12 +57,12 @@ public abstract class ResourceCompletableObserver implements CompletableObserver
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return DisposableHelper.isDisposed((Disposable) this.s.get());
+            return DisposableHelper.isDisposed(this.s.get());
         }
         return invokeV.booleanValue;
     }
 
-    public final void add(Disposable disposable) {
+    public final void add(@NonNull Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, disposable) == null) {
             ObjectHelper.requireNonNull(disposable, "resource is null");
@@ -70,7 +71,7 @@ public abstract class ResourceCompletableObserver implements CompletableObserver
     }
 
     @Override // io.reactivex.CompletableObserver
-    public final void onSubscribe(Disposable disposable) {
+    public final void onSubscribe(@NonNull Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && EndConsumerHelper.setOnce(this.s, disposable, ResourceCompletableObserver.class)) {
             onStart();

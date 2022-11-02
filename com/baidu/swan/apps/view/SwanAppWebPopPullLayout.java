@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -7,10 +8,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,12 +28,13 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewDragHelper a;
     public final int b;
+    @Nullable
     public c c;
     public b d;
     public View e;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -166,7 +170,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        f = wj1.a;
+        f = ok1.a;
     }
 
     @Override // android.view.View
@@ -264,7 +268,8 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
@@ -282,7 +287,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setCallback(c cVar) {
+    public void setCallback(@Nullable c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.c = cVar;

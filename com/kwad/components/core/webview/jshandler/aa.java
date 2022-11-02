@@ -1,5 +1,7 @@
 package com.kwad.components.core.webview.jshandler;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +17,7 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c Lb;
 
     /* loaded from: classes7.dex */
-    public final class a implements com.kwad.sdk.core.b {
+    public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String MJ;
@@ -35,7 +37,7 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(JSONObject jSONObject) {
+        public final void parseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             }
@@ -79,7 +81,7 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             this.Lb = cVar;
@@ -87,6 +89,7 @@ public final class aa implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

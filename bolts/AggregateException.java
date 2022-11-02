@@ -18,13 +18,13 @@ public class AggregateException extends Exception {
     public static final String DEFAULT_MESSAGE = "There were multiple errors.";
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List innerThrowables;
+    public List<Throwable> innerThrowables;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public AggregateException(String str, List list) {
+    public AggregateException(String str, List<? extends Throwable> list) {
         super(str, r0);
         Throwable th;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class AggregateException extends Exception {
             }
         }
         if (list != null && list.size() > 0) {
-            th = (Throwable) list.get(0);
+            th = list.get(0);
         } else {
             th = null;
         }
@@ -73,7 +73,7 @@ public class AggregateException extends Exception {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AggregateException(List list) {
+    public AggregateException(List<? extends Throwable> list) {
         this(DEFAULT_MESSAGE, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,13 +116,13 @@ public class AggregateException extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List list = this.innerThrowables;
+            List<Throwable> list = this.innerThrowables;
             return (Throwable[]) list.toArray(new Throwable[list.size()]);
         }
         return (Throwable[]) invokeV.objValue;
     }
 
-    public List getInnerThrowables() {
+    public List<Throwable> getInnerThrowables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -132,7 +132,7 @@ public class AggregateException extends Exception {
     }
 
     @Deprecated
-    public List getErrors() {
+    public List<Exception> getErrors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

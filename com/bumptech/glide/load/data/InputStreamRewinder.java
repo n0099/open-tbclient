@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.data;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,14 +13,14 @@ import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class InputStreamRewinder implements DataRewinder {
+public final class InputStreamRewinder implements DataRewinder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARK_READ_LIMIT = 5242880;
     public transient /* synthetic */ FieldHolder $fh;
     public final RecyclableBufferedInputStream bufferedStream;
 
     /* loaded from: classes7.dex */
-    public final class Factory implements DataRewinder.Factory {
+    public static final class Factory implements DataRewinder.Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ArrayPool byteArrayPool;
@@ -44,7 +45,8 @@ public final class InputStreamRewinder implements DataRewinder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        public DataRewinder build(InputStream inputStream) {
+        @NonNull
+        public DataRewinder<InputStream> build(InputStream inputStream) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
@@ -54,7 +56,8 @@ public final class InputStreamRewinder implements DataRewinder {
         }
 
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        public Class getDataClass() {
+        @NonNull
+        public Class<InputStream> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -100,7 +103,9 @@ public final class InputStreamRewinder implements DataRewinder {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.DataRewinder
+    @NonNull
     public InputStream rewindAndGet() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

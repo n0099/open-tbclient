@@ -23,17 +23,17 @@ public class EasterEggStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.easterEgg.EasterEggStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0221a implements MessageQueue.IdleHandler {
+        public class C0248a implements MessageQueue.IdleHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0221a(a aVar) {
+            public C0248a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,10 +87,10 @@ public class EasterEggStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Looper.myQueue().addIdleHandler(new C0221a(this));
+                Looper.myQueue().addIdleHandler(new C0248a(this));
             }
         }
     }

@@ -1,5 +1,7 @@
 package androidx.activity;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +17,7 @@ public abstract class OnBackPressedCallback {
     public CopyOnWriteArrayList<Cancellable> mCancellables;
     public boolean mEnabled;
 
+    @MainThread
     public abstract void handleOnBackPressed();
 
     public OnBackPressedCallback(boolean z) {
@@ -36,20 +39,21 @@ public abstract class OnBackPressedCallback {
         this.mEnabled = z;
     }
 
-    public void addCancellable(Cancellable cancellable) {
+    public void addCancellable(@NonNull Cancellable cancellable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancellable) == null) {
             this.mCancellables.add(cancellable);
         }
     }
 
-    public void removeCancellable(Cancellable cancellable) {
+    public void removeCancellable(@NonNull Cancellable cancellable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cancellable) == null) {
             this.mCancellables.remove(cancellable);
         }
     }
 
+    @MainThread
     public final void setEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -57,6 +61,7 @@ public abstract class OnBackPressedCallback {
         }
     }
 
+    @MainThread
     public final boolean isEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,6 +71,7 @@ public abstract class OnBackPressedCallback {
         return invokeV.booleanValue;
     }
 
+    @MainThread
     public final void remove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

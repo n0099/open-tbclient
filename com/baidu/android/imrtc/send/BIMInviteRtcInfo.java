@@ -3,6 +3,7 @@ package com.baidu.android.imrtc.send;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
@@ -23,18 +24,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR;
     public static final String TAG = "IMInviteRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public List mInviteUsers;
+    public List<BIMInviteUser> mInviteUsers;
     public int mMediaType;
     public int mRtcRoomType;
 
     /* loaded from: classes.dex */
-    public class BIMInviteUser implements Parcelable {
+    public static class BIMInviteUser implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<BIMInviteUser> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public long appId;
         public String appVersion;
@@ -65,7 +66,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
+            CREATOR = new Parcelable.Creator<BIMInviteUser>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,6 +85,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public BIMInviteUser createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -95,6 +97,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public BIMInviteUser[] newArray(int i) {
                     InterceptResult invokeI;
@@ -169,7 +172,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
+        CREATOR = new Parcelable.Creator<BIMInviteRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,6 +191,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMInviteRtcInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -199,6 +203,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMInviteRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
@@ -211,7 +216,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         };
     }
 
-    public List getBIMInviteUsers() {
+    public List<BIMInviteUser> getBIMInviteUsers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -304,7 +309,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 
-    public void setBIMInviteUsers(List list) {
+    public void setBIMInviteUsers(@NonNull List<BIMInviteUser> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.mInviteUsers.clear();
@@ -327,6 +332,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         JSONArray optJSONArray;
@@ -362,6 +368,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -22,9 +22,9 @@ public class fj {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static Hashtable a;
+        public static Hashtable<Integer, Long> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class fj {
                     return;
                 }
             }
-            a = new Hashtable();
+            a = new Hashtable<>();
         }
     }
 
@@ -116,7 +116,7 @@ public class fj {
                 if (a.a.containsKey(Integer.valueOf(i4))) {
                     fa m330a = fh.m328a().m330a();
                     m330a.a(i2);
-                    m330a.b((int) (currentTimeMillis - ((Long) a.a.get(Integer.valueOf(i4))).longValue()));
+                    m330a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
                     m330a.b(str);
                     if (i3 > -1) {
                         m330a.c(i3);

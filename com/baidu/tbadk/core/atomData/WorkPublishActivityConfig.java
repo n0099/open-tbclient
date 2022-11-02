@@ -51,7 +51,7 @@ public final class WorkPublishActivityConfig extends IntentConfig {
     }
 
     /* loaded from: classes3.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -23,8 +23,8 @@ public class bk {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference b;
-    public WeakReference c;
+    public WeakReference<WebView> b;
+    public WeakReference<Activity> c;
     public JSONObject d;
     public boolean e;
     public boolean f;
@@ -152,7 +152,7 @@ public class bk {
             String a3 = bi.a(a2);
             String b = bi.b(jSONArray222);
             String f = bi.f(webView);
-            Map g = bi.g(webView);
+            Map<String, String> g = bi.g(webView);
             Context applicationContext = activity.getApplicationContext();
             long currentTimeMillis = System.currentTimeMillis();
             if (a(this.d, activity.getClass().getName(), str4, a3, b)) {
@@ -168,8 +168,8 @@ public class bk {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, webView, z)) == null) {
-            WeakReference weakReference = this.b;
-            if (weakReference != null && ((WebView) weakReference.get()) == webView && this.e != z) {
+            WeakReference<WebView> weakReference = this.b;
+            if (weakReference != null && weakReference.get() == webView && this.e != z) {
                 return true;
             }
             return false;
@@ -295,10 +295,10 @@ public class bk {
             }
         }
         if (activity != null) {
-            this.c = new WeakReference(activity);
+            this.c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.b = new WeakReference(webView);
+            this.b = new WeakReference<>(webView);
         }
         this.e = z;
         String a2 = a();
@@ -328,7 +328,7 @@ public class bk {
     @JavascriptInterface
     public void setEventToNative(String str) {
         Activity activity;
-        WeakReference weakReference;
+        WeakReference<WebView> weakReference;
         WebView webView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -340,8 +340,8 @@ public class bk {
                 bg c2 = bg.c();
                 c2.a("setEventToNative: " + str);
             }
-            WeakReference weakReference2 = this.c;
-            if (weakReference2 == null || (activity = (Activity) weakReference2.get()) == null || (weakReference = this.b) == null || (webView = (WebView) weakReference.get()) == null) {
+            WeakReference<Activity> weakReference2 = this.c;
+            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.b) == null || (webView = weakReference.get()) == null) {
                 return;
             }
             a(str, activity, webView);

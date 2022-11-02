@@ -67,12 +67,12 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
         return (String) invokeV.objValue;
     }
 
-    public static Object get(String str, Object obj) {
+    public static <T> T get(String str, T t) {
         InterceptResult invokeLL;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
-            String simpleName = obj.getClass().getSimpleName();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, t)) == null) {
+            String simpleName = t.getClass().getSimpleName();
             try {
                 int hashCode = simpleName.hashCode();
                 if (hashCode != -672261858) {
@@ -104,21 +104,21 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                     if (c2 != 1) {
                         if (c2 != 2) {
                             if (c2 != 3) {
-                                return b.getString(str, (String) obj);
+                                return (T) b.getString(str, (String) t);
                             }
-                            return Integer.valueOf(b.getInt(str, ((Integer) obj).intValue()));
+                            return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
                         }
-                        return Float.valueOf(b.getFloat(str, ((Float) obj).floatValue()));
+                        return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
                     }
-                    return Long.valueOf(b.getLong(str, ((Long) obj).longValue()));
+                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
                 }
-                return Boolean.valueOf(b.getBoolean(str, ((Boolean) obj).booleanValue()));
+                return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static boolean put(String str, Object obj) {

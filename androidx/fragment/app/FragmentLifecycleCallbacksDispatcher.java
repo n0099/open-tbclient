@@ -3,6 +3,8 @@ package androidx.fragment.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,17 +18,20 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class FragmentLifecycleCallbacksDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final FragmentManager mFragmentManager;
+    @NonNull
     public final CopyOnWriteArrayList<FragmentLifecycleCallbacksHolder> mLifecycleCallbacks;
 
     /* loaded from: classes.dex */
     public static final class FragmentLifecycleCallbacksHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final FragmentManager.FragmentLifecycleCallbacks mCallback;
         public final boolean mRecursive;
 
-        public FragmentLifecycleCallbacksHolder(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
+        public FragmentLifecycleCallbacksHolder(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +51,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public FragmentLifecycleCallbacksDispatcher(FragmentManager fragmentManager) {
+    public FragmentLifecycleCallbacksDispatcher(@NonNull FragmentManager fragmentManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +70,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         this.mFragmentManager = fragmentManager;
     }
 
-    public void unregisterFragmentLifecycleCallbacks(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
+    public void unregisterFragmentLifecycleCallbacks(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fragmentLifecycleCallbacks) == null) {
             synchronized (this.mLifecycleCallbacks) {
@@ -85,7 +90,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentActivityCreated(Fragment fragment, Bundle bundle, boolean z) {
+    public void dispatchOnFragmentActivityCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, fragment, bundle, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -102,7 +107,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentAttached(Fragment fragment, Context context, boolean z) {
+    public void dispatchOnFragmentAttached(@NonNull Fragment fragment, @NonNull Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment, context, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -119,7 +124,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentCreated(Fragment fragment, Bundle bundle, boolean z) {
+    public void dispatchOnFragmentCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, fragment, bundle, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -136,7 +141,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentPreAttached(Fragment fragment, Context context, boolean z) {
+    public void dispatchOnFragmentPreAttached(@NonNull Fragment fragment, @NonNull Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048582, this, fragment, context, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -153,7 +158,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentPreCreated(Fragment fragment, Bundle bundle, boolean z) {
+    public void dispatchOnFragmentPreCreated(@NonNull Fragment fragment, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, fragment, bundle, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -170,7 +175,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentSaveInstanceState(Fragment fragment, Bundle bundle, boolean z) {
+    public void dispatchOnFragmentSaveInstanceState(@NonNull Fragment fragment, @NonNull Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048585, this, fragment, bundle, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -187,7 +192,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentDestroyed(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentDestroyed(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -204,7 +209,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentDetached(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentDetached(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -221,7 +226,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentPaused(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentPaused(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -238,7 +243,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentResumed(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentResumed(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -255,7 +260,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentStarted(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentStarted(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -272,7 +277,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentStopped(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentStopped(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -289,7 +294,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentViewDestroyed(Fragment fragment, boolean z) {
+    public void dispatchOnFragmentViewDestroyed(@NonNull Fragment fragment, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048589, this, fragment, z) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -306,7 +311,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentViewCreated(Fragment fragment, View view2, Bundle bundle, boolean z) {
+    public void dispatchOnFragmentViewCreated(@NonNull Fragment fragment, @NonNull View view2, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fragment, view2, bundle, Boolean.valueOf(z)}) == null) {
             Fragment parent = this.mFragmentManager.getParent();
@@ -323,7 +328,7 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void registerFragmentLifecycleCallbacks(FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
+    public void registerFragmentLifecycleCallbacks(@NonNull FragmentManager.FragmentLifecycleCallbacks fragmentLifecycleCallbacks, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048590, this, fragmentLifecycleCallbacks, z) == null) {
             this.mLifecycleCallbacks.add(new FragmentLifecycleCallbacksHolder(fragmentLifecycleCallbacks, z));

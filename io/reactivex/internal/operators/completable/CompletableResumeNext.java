@@ -17,7 +17,7 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 public final class CompletableResumeNext extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function errorMapper;
+    public final Function<? super Throwable, ? extends CompletableSource> errorMapper;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
@@ -110,14 +110,14 @@ public final class CompletableResumeNext extends Completable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) this.this$0.errorMapper.apply(th);
-                    if (completableSource == null) {
+                    CompletableSource apply = this.this$0.errorMapper.apply(th);
+                    if (apply == null) {
                         NullPointerException nullPointerException = new NullPointerException("The CompletableConsumable returned is null");
                         nullPointerException.initCause(th);
                         this.s.onError(nullPointerException);
                         return;
                     }
-                    completableSource.subscribe(new OnErrorObserver(this));
+                    apply.subscribe(new OnErrorObserver(this));
                 } catch (Throwable th2) {
                     Exceptions.throwIfFatal(th2);
                     this.s.onError(new CompositeException(th2, th));
@@ -134,7 +134,7 @@ public final class CompletableResumeNext extends Completable {
         }
     }
 
-    public CompletableResumeNext(CompletableSource completableSource, Function function) {
+    public CompletableResumeNext(CompletableSource completableSource, Function<? super Throwable, ? extends CompletableSource> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

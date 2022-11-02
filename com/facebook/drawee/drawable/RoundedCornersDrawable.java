@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
@@ -26,6 +27,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public transient /* synthetic */ FieldHolder $fh;
     public int mBorderColor;
     public final Path mBorderPath;
+    @VisibleForTesting
     public final float[] mBorderRadii;
     public float mBorderWidth;
     public final RectF mBounds;
@@ -36,17 +38,19 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public boolean mIsCircle;
     public int mOverlayColor;
     public float mPadding;
+    @VisibleForTesting
     public final Paint mPaint;
     public boolean mPaintFilterBitmap;
     public final Path mPath;
     public final float[] mRadii;
     public boolean mScaleDownInsideBorders;
     public final RectF mTempRectangle;
+    @VisibleForTesting
     public Type mType;
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +83,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Type {
+    public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type CLIPPING;

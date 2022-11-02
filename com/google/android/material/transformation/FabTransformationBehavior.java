@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Rect;
@@ -18,6 +19,9 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
@@ -59,10 +63,11 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public abstract FabTransformationSpec onCreateMotionSpec(Context context, boolean z);
 
     /* loaded from: classes7.dex */
-    public class FabTransformationSpec {
+    public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Positioning positioning;
+        @Nullable
         public MotionSpec timings;
 
         public FabTransformationSpec() {
@@ -124,11 +129,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         this.tmpArray = new int[2];
     }
 
-    private ViewGroup calculateChildContentContainer(View view2) {
+    @Nullable
+    private ViewGroup calculateChildContentContainer(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091589);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0915c8);
             if (findViewById != null) {
                 return toViewGroupOrNull(findViewById);
             }
@@ -140,7 +146,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return (ViewGroup) invokeL.objValue;
     }
 
-    private void calculateChildVisibleBoundsAtEndOfExpansion(View view2, FabTransformationSpec fabTransformationSpec, MotionTiming motionTiming, MotionTiming motionTiming2, float f, float f2, float f3, float f4, RectF rectF) {
+    private void calculateChildVisibleBoundsAtEndOfExpansion(@NonNull View view2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, @NonNull MotionTiming motionTiming2, float f, float f2, float f3, float f4, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{view2, fabTransformationSpec, motionTiming, motionTiming2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), rectF}) == null) {
             float calculateValueOfAnimationAtEndOfExpansion = calculateValueOfAnimationAtEndOfExpansion(fabTransformationSpec, motionTiming, f, f3);
@@ -157,7 +163,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void calculateDependencyWindowBounds(View view2, RectF rectF) {
+    private void calculateDependencyWindowBounds(@NonNull View view2, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, rectF) == null) {
             calculateWindowBounds(view2, rectF);
@@ -165,7 +171,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private Pair calculateMotionTiming(float f, float f2, boolean z, FabTransformationSpec fabTransformationSpec) {
+    @NonNull
+    private Pair<MotionTiming, MotionTiming> calculateMotionTiming(float f, float f2, boolean z, @NonNull FabTransformationSpec fabTransformationSpec) {
         InterceptResult invokeCommon;
         MotionTiming timing;
         MotionTiming timing2;
@@ -184,12 +191,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 timing = fabTransformationSpec.timings.getTiming("translationXLinear");
                 timing2 = fabTransformationSpec.timings.getTiming("translationYLinear");
             }
-            return new Pair(timing, timing2);
+            return new Pair<>(timing, timing2);
         }
         return (Pair) invokeCommon.objValue;
     }
 
-    private float calculateRevealCenterX(View view2, View view3, Positioning positioning) {
+    private float calculateRevealCenterX(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, view2, view3, positioning)) == null) {
@@ -203,7 +210,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeLLL.floatValue;
     }
 
-    private float calculateRevealCenterY(View view2, View view3, Positioning positioning) {
+    private float calculateRevealCenterY(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, view2, view3, positioning)) == null) {
@@ -217,7 +224,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeLLL.floatValue;
     }
 
-    private float calculateTranslationX(View view2, View view3, Positioning positioning) {
+    private float calculateTranslationX(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         float centerX;
         float centerX2;
@@ -251,7 +258,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeLLL.floatValue;
     }
 
-    private float calculateTranslationY(View view2, View view3, Positioning positioning) {
+    private float calculateTranslationY(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         float centerY;
         float centerY2;
@@ -286,7 +293,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @Override // com.google.android.material.transformation.ExpandableBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean layoutDependsOn(CoordinatorLayout coordinatorLayout, View view2, View view3) {
+    @CallSuper
+    public boolean layoutDependsOn(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull View view3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view2, view3)) == null) {
@@ -305,7 +313,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeLLL.booleanValue;
     }
 
-    private float calculateValueOfAnimationAtEndOfExpansion(FabTransformationSpec fabTransformationSpec, MotionTiming motionTiming, float f, float f2) {
+    private float calculateValueOfAnimationAtEndOfExpansion(@NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{fabTransformationSpec, motionTiming, Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -317,7 +325,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeCommon.floatValue;
     }
 
-    private void calculateWindowBounds(View view2, RectF rectF) {
+    private void calculateWindowBounds(@NonNull View view2, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, this, view2, rectF) == null) {
             rectF.set(0.0f, 0.0f, view2.getWidth(), view2.getHeight());
@@ -328,7 +336,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createChildrenFadeAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2) {
+    private void createChildrenFadeAnimation(View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ViewGroup calculateChildContentContainer;
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
@@ -350,7 +358,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         list.add(ofFloat);
     }
 
-    private void createColorAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2) {
+    private void createColorAnimation(@NonNull View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofInt;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65549, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) != null) || !(view3 instanceof CircularRevealWidget)) {
@@ -372,7 +380,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         list.add(ofInt);
     }
 
-    private void createElevationAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2) {
+    @TargetApi(21)
+    private void createElevationAnimation(View view2, @NonNull View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) {
@@ -390,7 +399,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createIconFadeAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2) {
+    private void createIconFadeAnimation(View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofInt;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view3 instanceof CircularRevealWidget) && (view2 instanceof ImageView)) {
@@ -489,12 +498,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createDependencyTranslationAnimation(View view2, View view3, boolean z, FabTransformationSpec fabTransformationSpec, List list) {
+    private void createDependencyTranslationAnimation(@NonNull View view2, @NonNull View view3, boolean z, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{view2, view3, Boolean.valueOf(z), fabTransformationSpec, list}) == null) {
             float calculateTranslationX = calculateTranslationX(view2, view3, fabTransformationSpec.positioning);
             float calculateTranslationY = calculateTranslationY(view2, view3, fabTransformationSpec.positioning);
-            Pair calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
+            Pair<MotionTiming, MotionTiming> calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
             MotionTiming motionTiming = (MotionTiming) calculateMotionTiming.first;
             MotionTiming motionTiming2 = (MotionTiming) calculateMotionTiming.second;
             Property property = View.TRANSLATION_X;
@@ -518,7 +527,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createExpansionAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, float f, float f2, List list, List list2) {
+    private void createExpansionAnimation(@NonNull View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, float f, float f2, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
         Animator animator;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65552, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, Float.valueOf(f), Float.valueOf(f2), list, list2}) != null) || !(view3 instanceof CircularRevealWidget)) {
@@ -588,7 +597,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         list2.add(CircularRevealCompat.createCircularRevealListener(circularRevealWidget));
     }
 
-    private void createPostFillRadialExpansion(View view2, long j, long j2, long j3, int i, int i2, float f, List list) {
+    private void createPostFillRadialExpansion(View view2, long j, long j2, long j3, int i, int i2, float f, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), list}) == null) && Build.VERSION.SDK_INT >= 21) {
             long j4 = j + j2;
@@ -601,7 +610,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createPreFillRadialExpansion(View view2, long j, int i, int i2, float f, List list) {
+    private void createPreFillRadialExpansion(View view2, long j, int i, int i2, float f, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), list}) == null) && Build.VERSION.SDK_INT >= 21 && j > 0) {
             Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view2, i, i2, f, f);
@@ -611,14 +620,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createTranslationAnimation(View view2, View view3, boolean z, boolean z2, FabTransformationSpec fabTransformationSpec, List list, List list2, RectF rectF) {
+    private void createTranslationAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2, @NonNull RectF rectF) {
         ObjectAnimator ofFloat;
         ObjectAnimator ofFloat2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2, rectF}) == null) {
             float calculateTranslationX = calculateTranslationX(view2, view3, fabTransformationSpec.positioning);
             float calculateTranslationY = calculateTranslationY(view2, view3, fabTransformationSpec.positioning);
-            Pair calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
+            Pair<MotionTiming, MotionTiming> calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
             MotionTiming motionTiming = (MotionTiming) calculateMotionTiming.first;
             MotionTiming motionTiming2 = (MotionTiming) calculateMotionTiming.second;
             if (z) {
@@ -640,7 +649,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private int getBackgroundTint(View view2) {
+    private int getBackgroundTint(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, view2)) == null) {
@@ -653,6 +662,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return invokeL.intValue;
     }
 
+    @Nullable
     private ViewGroup toViewGroupOrNull(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -666,7 +676,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+    @CallSuper
+    public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutParams) == null) && layoutParams.dodgeInsetEdges == 0) {
             layoutParams.dodgeInsetEdges = 80;
@@ -674,7 +685,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior
-    public AnimatorSet onCreateExpandedStateChangeAnimation(View view2, View view3, boolean z, boolean z2) {
+    @NonNull
+    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -750,7 +762,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             });
             int size = arrayList2.size();
             for (int i = 0; i < size; i++) {
-                animatorSet.addListener((Animator.AnimatorListener) arrayList2.get(i));
+                animatorSet.addListener(arrayList2.get(i));
             }
             return animatorSet;
         }

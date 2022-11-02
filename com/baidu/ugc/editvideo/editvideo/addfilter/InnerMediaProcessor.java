@@ -2,8 +2,8 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai9;
-import com.baidu.tieba.sh9;
+import com.baidu.tieba.bj9;
+import com.baidu.tieba.jj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,7 +134,7 @@ public class InnerMediaProcessor extends Thread {
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            sh9.l(str, str2);
+            bj9.l(str, str2);
         }
     }
 
@@ -177,7 +177,7 @@ public class InnerMediaProcessor extends Thread {
             try {
                 extractDecodeEditEncodeMux();
                 if (isUnInterrupted()) {
-                    ai9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                    jj9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;
@@ -211,7 +211,7 @@ public class InnerMediaProcessor extends Thread {
                 }
             } catch (Exception unused) {
                 if (this.mListener != null) {
-                    ai9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                    jj9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;

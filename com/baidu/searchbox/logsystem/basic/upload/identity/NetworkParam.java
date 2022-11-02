@@ -27,7 +27,7 @@ public class NetworkParam {
     public static final String NET_TYPE_ID_DISCONNECT = "5_0";
     public static String TAG = null;
     public static final int UNKOWN_NET_TYPE = 5;
-    public static HashMap netType2Id;
+    public static HashMap<String, Integer> netType2Id;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
@@ -46,7 +46,7 @@ public class NetworkParam {
         }
         DEBUG = AppConfig.isDebug();
         TAG = "networkparam";
-        HashMap hashMap = new HashMap();
+        HashMap<String, Integer> hashMap = new HashMap<>();
         netType2Id = hashMap;
         hashMap.put("WIFI", 1);
         netType2Id.put("3GNET", 21);
@@ -75,11 +75,11 @@ public class NetworkParam {
             int subType = connectManager.getSubType();
             if (!TextUtils.isEmpty(netType)) {
                 netType = netType.toUpperCase();
-                int i = (Integer) netType2Id.get(netType);
-                if (i == null) {
-                    i = 5;
+                Integer num = netType2Id.get(netType);
+                if (num == null) {
+                    num = 5;
                 }
-                str = i + "_" + subType;
+                str = num + "_" + subType;
             } else {
                 str = ((Object) 5) + "_" + subType;
             }

@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
 public interface u {
 
     /* loaded from: classes8.dex */
-    public class a implements u {
+    public static class a implements u {
         @Override // com.ss.android.socialbase.downloader.downloader.u
         public com.ss.android.socialbase.downloader.exception.g a(Throwable th, String str) {
             return null;

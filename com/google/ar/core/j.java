@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public final class j extends LinkedHashMap {
+public final class j extends LinkedHashMap<Long, AugmentedFace> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,7 @@ public final class j extends LinkedHashMap {
     }
 
     @Override // java.util.LinkedHashMap
-    public final boolean removeEldestEntry(Map.Entry entry) {
+    public final boolean removeEldestEntry(Map.Entry<Long, AugmentedFace> entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {

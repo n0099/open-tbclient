@@ -11,7 +11,7 @@ public interface p5 {
     Texture load(String str);
 
     /* loaded from: classes5.dex */
-    public class a implements p5 {
+    public static class a implements p5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final n1 a;

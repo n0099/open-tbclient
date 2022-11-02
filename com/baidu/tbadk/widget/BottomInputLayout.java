@@ -4,10 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.ni;
+import com.baidu.tieba.vj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +54,7 @@ public class BottomInputLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomInputLayout(Context context, AttributeSet attributeSet) {
+    public BottomInputLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,7 +78,7 @@ public class BottomInputLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomInputLayout(Context context, AttributeSet attributeSet, int i) {
+    public BottomInputLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -104,7 +105,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.d = (int) getResources().getDimension(R.dimen.tbds117);
-            this.e = vi.b(context);
+            this.e = ni.b(context);
         }
     }
 
@@ -114,7 +115,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (this.f && (motionEvent.getAction() & 255) == 0) {
-                wi5.c();
+                vj5.c();
             }
             return super.dispatchTouchEvent(motionEvent);
         }

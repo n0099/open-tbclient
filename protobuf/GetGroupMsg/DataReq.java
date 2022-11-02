@@ -55,17 +55,17 @@ public final class DataReq extends Message {
     public final Integer width;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataReq> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String gettype;
-        public List groupMids;
+        public List<GroupLastId> groupMids;
         public Integer height;
         public String max_time;
         public String min_time;
@@ -208,7 +208,7 @@ public final class DataReq extends Message {
             } else {
                 this.pushTimes = str;
             }
-            List list = builder.groupMids;
+            List<GroupLastId> list = builder.groupMids;
             if (list == null) {
                 this.groupMids = DEFAULT_GROUPMIDS;
             } else {

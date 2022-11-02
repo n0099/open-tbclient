@@ -19,7 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ChatUser> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int mAccountType;
     public int mAttrBlack;
@@ -80,7 +80,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
+        CREATOR = new Parcelable.Creator<ChatUser>() { // from class: com.baidu.android.imsdk.chatuser.ChatUser.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,6 +99,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatUser createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -110,6 +111,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChatUser[] newArray(int i) {
                 InterceptResult invokeI;

@@ -1,66 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class m04 implements rk1 {
+import java.util.ArrayDeque;
+/* loaded from: classes5.dex */
+public class m04 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile m04 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918840, "Lcom/baidu/tieba/m04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947918840, "Lcom/baidu/tieba/m04;");
+                return;
+            }
+        }
+        boolean z = ok1.a;
+    }
 
     public m04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayDeque();
     }
 
-    @Override // com.baidu.tieba.rk1
-    public List a(j43 j43Var) {
-        InterceptResult invokeL;
+    public static m04 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, j43Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new cz3(j43Var));
-            arrayList.add(new dz3(j43Var));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (m04.class) {
+                    if (a == null) {
+                        a = new m04();
+                    }
+                }
+            }
+            return a;
         }
-        return (List) invokeL.objValue;
+        return (m04) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rk1
-    public List c(j43 j43Var) {
+    public DuMixGameSurfaceView a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j43Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new v34(j43Var));
-            arrayList.add(new u34(j43Var));
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new DuMixGameSurfaceView(context);
         }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rk1
-    public List b(j43 j43Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j43Var)) == null) {
-            return Arrays.asList(new pz3(j43Var), new ey3(j43Var), new ny3(j43Var), new az3(j43Var));
-        }
-        return (List) invokeL.objValue;
+        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

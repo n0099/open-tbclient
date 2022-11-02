@@ -1,8 +1,11 @@
 package com.baidu.lbsapi.auth;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +25,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,24 +62,70 @@ public class b {
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:25:0x009f A[LOOP:0: B:25:0x009f->B:34:0x00bf, LOOP_START, PHI: r1 
+      PHI: (r1v3 int) = (r1v2 int), (r1v4 int) binds: [B:24:0x009d, B:34:0x00bf] A[DONT_GENERATE, DONT_INLINE]] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
+        StringBuilder sb;
+        String certificateException;
         String str2;
+        PackageInfo packageInfo;
+        Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             try {
-                str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray())));
-            } catch (PackageManager.NameNotFoundException | CertificateException unused) {
+            } catch (PackageManager.NameNotFoundException e) {
+                sb = new StringBuilder();
+                sb.append("getFingerPrint：");
+                certificateException = e.toString();
+                sb.append(certificateException);
+                com.baidu.lbsapi.auth.a.a(sb.toString());
                 str2 = "";
-            }
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < str2.length(); i++) {
-                stringBuffer.append(str2.charAt(i));
-                if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
-                    stringBuffer.append(":");
+                StringBuffer stringBuffer = new StringBuffer();
+                if (str2 != null) {
                 }
+                return stringBuffer.toString();
+            } catch (CertificateException e2) {
+                sb = new StringBuilder();
+                sb.append("getFingerPrint：");
+                certificateException = e2.toString();
+                sb.append(certificateException);
+                com.baidu.lbsapi.auth.a.a(sb.toString());
+                str2 = "";
+                StringBuffer stringBuffer2 = new StringBuffer();
+                if (str2 != null) {
+                }
+                return stringBuffer2.toString();
             }
-            return stringBuffer.toString();
+            if (Build.VERSION.SDK_INT >= 28) {
+                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo;
+                if (signingInfo != null) {
+                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getSigningCertificateHistory();
+                    str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[0].toByteArray())));
+                    StringBuffer stringBuffer22 = new StringBuffer();
+                    if (str2 != null) {
+                        for (int i = 0; i < str2.length(); i++) {
+                            stringBuffer22.append(str2.charAt(i));
+                            if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
+                                stringBuffer22.append(":");
+                            }
+                        }
+                    }
+                    return stringBuffer22.toString();
+                }
+                packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            } else {
+                packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            }
+            signatureArr = packageInfo.signatures;
+            str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[0].toByteArray())));
+            StringBuffer stringBuffer222 = new StringBuffer();
+            if (str2 != null) {
+            }
+            return stringBuffer222.toString();
         }
         return (String) invokeLL.objValue;
     }
@@ -87,7 +136,8 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x509Certificate)) == null) {
             try {
                 return a.a(a(x509Certificate.getEncoded()));
-            } catch (CertificateEncodingException unused) {
+            } catch (CertificateEncodingException e) {
+                com.baidu.lbsapi.auth.a.a("getFingerprintAs：" + e.toString());
                 return null;
             }
         }
@@ -100,7 +150,8 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             try {
                 return MessageDigest.getInstance("SHA1").digest(bArr);
-            } catch (NoSuchAlgorithmException unused) {
+            } catch (NoSuchAlgorithmException e) {
+                com.baidu.lbsapi.auth.a.a("generateSHA1：" + e.toString());
                 return null;
             }
         }
@@ -129,44 +180,85 @@ public class b {
         return (String[]) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00bb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String[] b(Context context, String str) {
         InterceptResult invokeLL;
         String[] strArr;
+        StringBuilder sb;
+        String certificateException;
         int i;
+        PackageInfo packageInfo;
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             String[] strArr2 = null;
             try {
-                signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;
-            } catch (PackageManager.NameNotFoundException | CertificateException unused) {
+            } catch (PackageManager.NameNotFoundException e) {
+                e = e;
+                strArr = null;
+            } catch (CertificateException e2) {
+                e = e2;
+                strArr = null;
             }
-            if (signatureArr != null && signatureArr.length > 0) {
-                strArr = new String[signatureArr.length];
-                for (int i2 = 0; i2 < signatureArr.length; i2++) {
-                    try {
-                        strArr[i2] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i2].toByteArray())));
-                    } catch (PackageManager.NameNotFoundException | CertificateException unused2) {
-                    }
-                }
-                if (strArr != null && strArr.length > 0) {
-                    strArr2 = new String[strArr.length];
-                    for (i = 0; i < strArr.length; i++) {
-                        StringBuffer stringBuffer = new StringBuffer();
-                        for (int i3 = 0; i3 < strArr[i].length(); i3++) {
-                            stringBuffer.append(strArr[i].charAt(i3));
-                            if (i3 > 0 && i3 % 2 == 1 && i3 < strArr[i].length() - 1) {
-                                stringBuffer.append(":");
+            if (Build.VERSION.SDK_INT >= 28) {
+                SigningInfo signingInfo = context.getPackageManager().getPackageInfo(str, 134217728).signingInfo;
+                if (signingInfo != null) {
+                    signatureArr = signingInfo.hasMultipleSigners() ? context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getApkContentsSigners() : context.getPackageManager().getPackageInfo(str, 134217728).signingInfo.getSigningCertificateHistory();
+                    if (signatureArr != null || signatureArr.length <= 0) {
+                        strArr = null;
+                    } else {
+                        strArr = new String[signatureArr.length];
+                        for (int i2 = 0; i2 < signatureArr.length; i2++) {
+                            try {
+                                strArr[i2] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i2].toByteArray())));
+                            } catch (PackageManager.NameNotFoundException e3) {
+                                e = e3;
+                                sb = new StringBuilder();
+                                sb.append("getFingerPrint：");
+                                certificateException = e.toString();
+                                sb.append(certificateException);
+                                com.baidu.lbsapi.auth.a.a(sb.toString());
+                                if (strArr != null) {
+                                }
+                                return strArr2;
+                            } catch (CertificateException e4) {
+                                e = e4;
+                                sb = new StringBuilder();
+                                sb.append("getFingerPrint：");
+                                certificateException = e.toString();
+                                sb.append(certificateException);
+                                com.baidu.lbsapi.auth.a.a(sb.toString());
+                                if (strArr != null) {
+                                }
+                                return strArr2;
                             }
                         }
-                        strArr2[i] = stringBuffer.toString();
                     }
+                    if (strArr != null && strArr.length > 0) {
+                        strArr2 = new String[strArr.length];
+                        for (i = 0; i < strArr.length; i++) {
+                            StringBuffer stringBuffer = new StringBuffer();
+                            for (int i3 = 0; i3 < strArr[i].length(); i3++) {
+                                stringBuffer.append(strArr[i].charAt(i3));
+                                if (i3 > 0 && i3 % 2 == 1 && i3 < strArr[i].length() - 1) {
+                                    stringBuffer.append(":");
+                                }
+                            }
+                            strArr2[i] = stringBuffer.toString();
+                        }
+                    }
+                    return strArr2;
                 }
-                return strArr2;
+                packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            } else {
+                packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            }
+            signatureArr = packageInfo.signatures;
+            if (signatureArr != null) {
             }
             strArr = null;
             if (strArr != null) {

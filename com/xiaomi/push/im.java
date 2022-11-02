@@ -18,7 +18,7 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class im implements iu, Serializable, Cloneable {
+public class im implements iu<im, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -50,7 +50,7 @@ public class im implements iu, Serializable, Cloneable {
     public BitSet f722a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f723a;
+    public Map<String, String> f723a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f724a;
@@ -521,9 +521,9 @@ public class im implements iu, Serializable, Cloneable {
             if (this.f723a != null && j()) {
                 jfVar.a(j);
                 jfVar.a(new je(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f723a.size()));
-                for (Map.Entry entry : this.f723a.entrySet()) {
-                    jfVar.a((String) entry.getKey());
-                    jfVar.a((String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.f723a.entrySet()) {
+                    jfVar.a(entry.getKey());
+                    jfVar.a(entry.getValue());
                 }
                 jfVar.d();
                 jfVar.b();
@@ -758,7 +758,7 @@ public class im implements iu, Serializable, Cloneable {
             if (j()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("params:");
-                Map map = this.f723a;
+                Map<String, String> map = this.f723a;
                 if (map == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

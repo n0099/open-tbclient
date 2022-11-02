@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class c implements g {
-    public static final ArrayList e;
+    public static final ArrayList<String> e;
     public final String a;
     public final long b;
-    public List c;
+    public List<com.ss.android.socialbase.downloader.model.c> c;
     public int g;
     public long h;
     public boolean i;
     public boolean j;
     public g k;
-    public Map f = null;
+    public Map<String, String> f = null;
     public final Object d = new Object();
 
     public boolean a(int i) {
@@ -27,7 +27,7 @@ public class c implements g {
     }
 
     static {
-        ArrayList arrayList = new ArrayList(6);
+        ArrayList<String> arrayList = new ArrayList<>(6);
         e = arrayList;
         arrayList.add("Content-Length");
         e.add("Content-Range");
@@ -73,35 +73,35 @@ public class c implements g {
         return this.j;
     }
 
-    public List h() {
+    public List<com.ss.android.socialbase.downloader.model.c> h() {
         return this.c;
     }
 
-    public Map i() {
+    public Map<String, String> i() {
         return this.f;
     }
 
-    public c(String str, List list, long j) {
+    public c(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) {
         this.a = str;
         this.c = list;
         this.b = j;
     }
 
-    private void a(g gVar, Map map) {
+    private void a(g gVar, Map<String, String> map) {
         if (gVar != null && map != null) {
-            Iterator it = e.iterator();
+            Iterator<String> it = e.iterator();
             while (it.hasNext()) {
-                String str = (String) it.next();
-                map.put(str, gVar.a(str));
+                String next = it.next();
+                map.put(next, gVar.a(next));
             }
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public String a(String str) {
-        Map map = this.f;
+        Map<String, String> map = this.f;
         if (map != null) {
-            return (String) map.get(str);
+            return map.get(str);
         }
         g gVar = this.k;
         if (gVar != null) {

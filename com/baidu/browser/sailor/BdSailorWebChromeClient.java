@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.MutableContextWrapper;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -97,7 +98,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return (View) invokeL.objValue;
     }
 
-    public void getVisitedHistory(BdSailorWebView bdSailorWebView, ValueCallback valueCallback) {
+    public void getVisitedHistory(BdSailorWebView bdSailorWebView, ValueCallback<String[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bdSailorWebView, valueCallback) == null) {
         }
@@ -285,7 +286,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    public boolean onShowFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public boolean onShowFileChooser(BdSailorWebView bdSailorWebView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, bdSailorWebView, valueCallback, fileChooserParams)) == null) {
@@ -299,7 +300,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback) {
+    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback<Uri> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, bdSailorWebView, valueCallback) == null) {
             Activity activityFromContext = getActivityFromContext(bdSailorWebView);
@@ -311,7 +312,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         }
     }
 
-    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, String str) {
+    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback<Uri> valueCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048607, this, bdSailorWebView, valueCallback, str) == null) {
             Activity activityFromContext = getActivityFromContext(bdSailorWebView);
@@ -323,7 +324,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
         }
     }
 
-    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback valueCallback, String str, String str2) {
+    public void openFileChooser(BdSailorWebView bdSailorWebView, ValueCallback<Uri> valueCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048608, this, bdSailorWebView, valueCallback, str, str2) == null) {
             Activity activityFromContext = getActivityFromContext(bdSailorWebView);

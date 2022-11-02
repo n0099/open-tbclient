@@ -621,7 +621,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(Context context, Uri uri, Map map) {
+    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048607, this, context, uri, map) == null) {
             CyberLog.d("MediaPlayerImpl", "setDataSource uri:" + uri);
@@ -669,7 +669,7 @@ public class k extends PlayerProvider implements MediaPlayer.OnBufferingUpdateLi
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(String str, Map map) {
+    public void setDataSource(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048610, this, str, map) == null) {
             CyberLog.d("MediaPlayerImpl", "setDataSource:" + str);

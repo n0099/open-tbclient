@@ -1,5 +1,6 @@
 package com.google.android.material.slider;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,6 +31,7 @@ public final class BasicLabelFormatter implements LabelFormatter {
     }
 
     @Override // com.google.android.material.slider.LabelFormatter
+    @NonNull
     public String getFormattedValue(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;

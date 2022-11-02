@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.Settings;
@@ -53,6 +54,7 @@ public class bn {
         return (bn) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,6 +72,7 @@ public class bn {
         return invokeV.intValue;
     }
 
+    @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
     public Uri m644a() {
         InterceptResult invokeV;

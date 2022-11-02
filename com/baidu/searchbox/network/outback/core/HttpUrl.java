@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,28 +45,34 @@ public final class HttpUrl {
     public static final String QUERY_ENCODE_SET = " \"'<>#";
     public static final String USERNAME_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final String fragment;
     public final String host;
     public final String password;
-    public final List pathSegments;
+    public final List<String> pathSegments;
     public final int port;
-    public final List queryNamesAndValues;
+    @Nullable
+    public final List<String> queryNamesAndValues;
     public final String scheme;
     public final String url;
     public final String username;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public String encodedFragment;
         public String encodedPassword;
-        public final List encodedPathSegments;
-        public List encodedQueryNamesAndValues;
+        public final List<String> encodedPathSegments;
+        @Nullable
+        public List<String> encodedQueryNamesAndValues;
         public String encodedUsername;
+        @Nullable
         public String host;
         public int port;
+        @Nullable
         public String scheme;
 
         public Builder() {
@@ -92,9 +99,9 @@ public final class HttpUrl {
         private void pop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-                List list = this.encodedPathSegments;
-                if (((String) list.remove(list.size() - 1)).isEmpty() && !this.encodedPathSegments.isEmpty()) {
-                    List list2 = this.encodedPathSegments;
+                List<String> list = this.encodedPathSegments;
+                if (list.remove(list.size() - 1).isEmpty() && !this.encodedPathSegments.isEmpty()) {
+                    List<String> list2 = this.encodedPathSegments;
                     list2.set(list2.size() - 1, "");
                     return;
                 }
@@ -229,7 +236,7 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder encodedFragment(String str) {
+        public Builder encodedFragment(@Nullable String str) {
             InterceptResult invokeL;
             String str2;
             Interceptable interceptable = $ic;
@@ -258,9 +265,9 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder encodedQuery(String str) {
+        public Builder encodedQuery(@Nullable String str) {
             InterceptResult invokeL;
-            List list;
+            List<String> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
                 if (str != null) {
@@ -287,7 +294,7 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder fragment(String str) {
+        public Builder fragment(@Nullable String str) {
             InterceptResult invokeL;
             String str2;
             Interceptable interceptable = $ic;
@@ -316,9 +323,9 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder query(String str) {
+        public Builder query(@Nullable String str) {
             InterceptResult invokeL;
-            List list;
+            List<String> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
                 if (str != null) {
@@ -499,9 +506,9 @@ public final class HttpUrl {
                     pop();
                     return;
                 }
-                List list = this.encodedPathSegments;
-                if (((String) list.get(list.size() - 1)).isEmpty()) {
-                    List list2 = this.encodedPathSegments;
+                List<String> list = this.encodedPathSegments;
+                if (list.get(list.size() - 1).isEmpty()) {
+                    List<String> list2 = this.encodedPathSegments;
                     list2.set(list2.size() - 1, canonicalize);
                 } else {
                     this.encodedPathSegments.add(canonicalize);
@@ -542,15 +549,15 @@ public final class HttpUrl {
                 if (r0 != r1) goto L17
                 goto L22
             L17:
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L2d
             L22:
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 r0.clear()
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 r0.add(r2)
                 goto L45
             L2d:
@@ -619,7 +626,7 @@ public final class HttpUrl {
             return invokeLII.intValue;
         }
 
-        public Builder addEncodedQueryParameter(String str, String str2) {
+        public Builder addEncodedQueryParameter(String str, @Nullable String str2) {
             InterceptResult invokeLL;
             String str3;
             Interceptable interceptable = $ic;
@@ -629,7 +636,7 @@ public final class HttpUrl {
                         this.encodedQueryNamesAndValues = new ArrayList();
                     }
                     this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, " \"'<>#&=", true, false, true, true));
-                    List list = this.encodedQueryNamesAndValues;
+                    List<String> list = this.encodedQueryNamesAndValues;
                     if (str2 != null) {
                         str3 = HttpUrl.canonicalize(str2, " \"'<>#&=", true, false, true, true);
                     } else {
@@ -643,7 +650,7 @@ public final class HttpUrl {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder addQueryParameter(String str, String str2) {
+        public Builder addQueryParameter(String str, @Nullable String str2) {
             InterceptResult invokeLL;
             String str3;
             Interceptable interceptable = $ic;
@@ -653,7 +660,7 @@ public final class HttpUrl {
                         this.encodedQueryNamesAndValues = new ArrayList();
                     }
                     this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true));
-                    List list = this.encodedQueryNamesAndValues;
+                    List<String> list = this.encodedQueryNamesAndValues;
                     if (str2 != null) {
                         str3 = HttpUrl.canonicalize(str2, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true);
                     } else {
@@ -729,7 +736,7 @@ public final class HttpUrl {
             return invokeV.intValue;
         }
 
-        public Builder parse(HttpUrl httpUrl, String str) {
+        public Builder parse(@Nullable HttpUrl httpUrl, String str) {
             InterceptResult invokeLL;
             int schemeDelimiterOffset;
             int delimiterOffset;
@@ -844,13 +851,13 @@ public final class HttpUrl {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 int size = this.encodedPathSegments.size();
                 for (int i = 0; i < size; i++) {
-                    this.encodedPathSegments.set(i, HttpUrl.canonicalize((String) this.encodedPathSegments.get(i), "[]", true, true, false, true));
+                    this.encodedPathSegments.set(i, HttpUrl.canonicalize(this.encodedPathSegments.get(i), "[]", true, true, false, true));
                 }
-                List list = this.encodedQueryNamesAndValues;
+                List<String> list = this.encodedQueryNamesAndValues;
                 if (list != null) {
                     int size2 = list.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        String str = (String) this.encodedQueryNamesAndValues.get(i2);
+                        String str = this.encodedQueryNamesAndValues.get(i2);
                         if (str != null) {
                             this.encodedQueryNamesAndValues.set(i2, HttpUrl.canonicalize(str, "\\^`{|}", true, true, true, true));
                         }
@@ -884,7 +891,7 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setEncodedQueryParameter(String str, String str2) {
+        public Builder setEncodedQueryParameter(String str, @Nullable String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, str, str2)) == null) {
@@ -895,7 +902,7 @@ public final class HttpUrl {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setQueryParameter(String str, String str2) {
+        public Builder setQueryParameter(String str, @Nullable String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
@@ -987,6 +994,7 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String encodedQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1015,7 +1023,7 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
-    public Set queryParameterNames() {
+    public Set<String> queryParameterNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -1051,7 +1059,7 @@ public final class HttpUrl {
     }
 
     public HttpUrl(Builder builder) {
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1072,7 +1080,7 @@ public final class HttpUrl {
         this.host = builder.host;
         this.port = builder.effectivePort();
         this.pathSegments = percentDecode(builder.encodedPathSegments, false);
-        List list2 = builder.encodedQueryNamesAndValues;
+        List<String> list2 = builder.encodedQueryNamesAndValues;
         if (list2 != null) {
             list = percentDecode(list2, true);
         } else {
@@ -1194,6 +1202,7 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
+    @Nullable
     public static HttpUrl parse(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1207,7 +1216,7 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
@@ -1219,6 +1228,7 @@ public final class HttpUrl {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public Builder newBuilder(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1236,9 +1246,9 @@ public final class HttpUrl {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list != null) {
-                return (String) list.get(i * 2);
+                return list.get(i * 2);
             }
             throw new IndexOutOfBoundsException("no query exists");
         }
@@ -1249,15 +1259,16 @@ public final class HttpUrl {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list != null) {
-                return (String) list.get((i * 2) + 1);
+                return list.get((i * 2) + 1);
             }
             throw new IndexOutOfBoundsException("no query exists");
         }
         return (String) invokeI.objValue;
     }
 
+    @Nullable
     public HttpUrl resolve(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1271,6 +1282,7 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
+    @Nullable
     public static HttpUrl get(URI uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1280,6 +1292,7 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
+    @Nullable
     public static HttpUrl get(URL url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1289,13 +1302,13 @@ public final class HttpUrl {
         return (HttpUrl) invokeL.objValue;
     }
 
-    public static void namesAndValuesToQueryString(StringBuilder sb, List list) {
+    public static void namesAndValuesToQueryString(StringBuilder sb, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, sb, list) == null) {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                String str = (String) list.get(i);
-                String str2 = (String) list.get(i + 1);
+                String str = list.get(i);
+                String str2 = list.get(i + 1);
                 if (i > 0) {
                     sb.append('&');
                 }
@@ -1308,7 +1321,7 @@ public final class HttpUrl {
         }
     }
 
-    private List percentDecode(List list, boolean z) {
+    private List<String> percentDecode(List<String> list, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
@@ -1316,7 +1329,7 @@ public final class HttpUrl {
             int size = list.size();
             ArrayList arrayList = new ArrayList(size);
             for (int i = 0; i < size; i++) {
-                String str2 = (String) list.get(i);
+                String str2 = list.get(i);
                 if (str2 != null) {
                     str = percentDecode(str2, z);
                 } else {
@@ -1329,13 +1342,13 @@ public final class HttpUrl {
         return (List) invokeLZ.objValue;
     }
 
-    public static void pathSegmentsToString(StringBuilder sb, List list) {
+    public static void pathSegmentsToString(StringBuilder sb, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, sb, list) == null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 sb.append(WebvttCueParser.CHAR_SLASH);
-                sb.append((String) list.get(i));
+                sb.append(list.get(i));
             }
         }
     }
@@ -1411,7 +1424,7 @@ public final class HttpUrl {
         return invokeLII.booleanValue;
     }
 
-    public static List queryStringToNamesAndValues(String str) {
+    public static List<String> queryStringToNamesAndValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
@@ -1437,7 +1450,7 @@ public final class HttpUrl {
         return (List) invokeL.objValue;
     }
 
-    public List queryParameterValues(String str) {
+    public List<String> queryParameterValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -1456,6 +1469,7 @@ public final class HttpUrl {
         return (List) invokeL.objValue;
     }
 
+    @Nullable
     public String encodedFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1468,6 +1482,7 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String fragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1513,7 +1528,7 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
-    public List pathSegments() {
+    public List<String> pathSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -1540,6 +1555,7 @@ public final class HttpUrl {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String query() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1558,7 +1574,7 @@ public final class HttpUrl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list != null) {
                 return list.size() / 2;
             }
@@ -1616,7 +1632,7 @@ public final class HttpUrl {
         return (String) invokeV.objValue;
     }
 
-    public List encodedPathSegments() {
+    public List<String> encodedPathSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1660,18 +1676,19 @@ public final class HttpUrl {
         return (Builder) invokeV.objValue;
     }
 
+    @Nullable
     public String queryParameter(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list == null) {
                 return null;
             }
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (str.equals(this.queryNamesAndValues.get(i))) {
-                    return (String) this.queryNamesAndValues.get(i + 1);
+                    return this.queryNamesAndValues.get(i + 1);
                 }
             }
             return null;

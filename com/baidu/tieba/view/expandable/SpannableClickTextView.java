@@ -23,7 +23,7 @@ public class SpannableClickTextView extends TextView {
     public boolean a;
 
     /* loaded from: classes6.dex */
-    public class a extends LinkMovementMethod {
+    public static class a extends LinkMovementMethod {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,104 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.ad.FrsADFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class rj6 {
     public static /* synthetic */ Interceptable $ic;
+    public static rj6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsADFragment a;
-    public BdTypeRecyclerView b;
-    public uj6 c;
-    public rh6 d;
-    public List e;
+    public final SparseArray<String> a;
 
-    public rj6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123595, "Lcom/baidu/tieba/rj6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948123595, "Lcom/baidu/tieba/rj6;");
+                return;
+            }
+        }
+        b = new rj6();
+    }
+
+    public rj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.a = frsADFragment;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.a = new SparseArray<>();
     }
 
-    public final void a() {
+    public static rj6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new uj6(this.a.getPageContext(), tj6.h, this.a.getUniqueId());
-            this.d = new rh6(this.a.getPageContext(), sh6.b);
-            this.e.add(this.c);
-            this.e.add(this.d);
-            e();
-            this.b.a(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (rj6) invokeV.objValue;
     }
 
-    public void b() {
+    public boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (rn rnVar : this.e) {
-                if (rnVar instanceof kh6) {
-                    ((kh6) rnVar).v();
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
             }
+            return !TextUtils.isEmpty(this.a.get(i));
         }
+        return invokeI.booleanValue;
     }
 
-    public void d(ArrayList arrayList) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
-            return;
-        }
-        for (rn rnVar : this.e) {
-            if (rnVar instanceof kh6) {
-                ((kh6) rnVar).C(this.a.getTbPageTag());
-            }
-        }
-    }
-
-    public void f(oo ooVar) {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ooVar) == null) && (list = this.e) != null && list.size() != 0) {
-            for (rn rnVar : this.e) {
-                if (rnVar != null && (rnVar instanceof kh6)) {
-                    rnVar.setOnAdapterItemClickListener(ooVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.put(i, "1");
         }
     }
 }

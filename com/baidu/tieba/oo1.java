@@ -1,48 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.os.Message;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpRequest;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface oo1 {
-    void a(SwanJSVersionUpdateEvent swanJSVersionUpdateEvent);
+    @Nullable
+    String A();
 
-    void b(String str, boolean z);
+    String B();
 
-    /* loaded from: classes5.dex */
-    public class a implements oo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    String C();
 
-        @Override // com.baidu.tieba.oo1
-        public void a(SwanJSVersionUpdateEvent swanJSVersionUpdateEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, swanJSVersionUpdateEvent) == null) {
-            }
-        }
+    String D();
 
-        @Override // com.baidu.tieba.oo1
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            }
-        }
+    long E();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    HttpRequest F(Context context, Map<String, String> map);
+
+    String G();
+
+    String H();
+
+    String I();
+
+    boolean J();
+
+    String K();
+
+    String L();
+
+    HttpRequest M(Context context, Map<String, String> map);
+
+    boolean N();
+
+    String O();
+
+    HttpRequest a(Context context, Map<String, String> map);
+
+    String b();
+
+    String c();
+
+    void d();
+
+    String e();
+
+    String f();
+
+    HttpRequest g(Context context, Map<String, String> map);
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    String j();
+
+    void k();
+
+    String l();
+
+    String m(String str);
+
+    String n();
+
+    HttpRequest o(Context context, Map<String, String> map);
+
+    String p();
+
+    String q();
+
+    int r();
+
+    HttpRequest s(Context context, Map<String, String> map);
+
+    String t();
+
+    HttpRequest u(Context context, Map<String, String> map);
+
+    String v();
+
+    String w();
+
+    void x(Message message, er2 er2Var);
+
+    String y();
+
+    String z(Context context);
 }

@@ -9,6 +9,8 @@ public abstract class FileTileProvider implements TileProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract Tile getTile(int i, int i2, int i3);
+
     public FileTileProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,6 +24,4 @@ public abstract class FileTileProvider implements TileProvider {
             }
         }
     }
-
-    public abstract Tile getTile(int i, int i2, int i3);
 }

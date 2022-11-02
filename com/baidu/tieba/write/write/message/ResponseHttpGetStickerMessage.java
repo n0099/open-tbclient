@@ -16,7 +16,7 @@ import tbclient.GetSticker.GetStickerResIdl;
 public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mUrlList;
+    public List<String> mUrlList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetStickerMessage() {
@@ -36,7 +36,7 @@ public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List getUrlList() {
+    public List<String> getUrlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

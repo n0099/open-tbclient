@@ -50,27 +50,27 @@ public final class ImShareThreadInfo extends Message {
     public final List<Voice> voiceInfo;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<ImShareThreadInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public User author;
         public SimpleForum forumInfo;
         public Long id;
         public Integer isShareThread;
-        public List media;
+        public List<Media> media;
         public OriginThreadInfo originThreadInfo;
-        public List richAbstract;
-        public List richTitle;
+        public List<PbContent> richAbstract;
+        public List<PbContent> richTitle;
         public Integer threadType;
         public String title;
         public VideoInfo videoInfo;
-        public List voiceInfo;
+        public List<Voice> voiceInfo;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -193,13 +193,13 @@ public final class ImShareThreadInfo extends Message {
             } else {
                 this.title = str;
             }
-            List list = builder.richTitle;
+            List<PbContent> list = builder.richTitle;
             if (list == null) {
                 this.richTitle = DEFAULT_RICHTITLE;
             } else {
                 this.richTitle = Message.immutableCopyOf(list);
             }
-            List list2 = builder.richAbstract;
+            List<PbContent> list2 = builder.richAbstract;
             if (list2 == null) {
                 this.richAbstract = DEFAULT_RICHABSTRACT;
             } else {
@@ -214,13 +214,13 @@ public final class ImShareThreadInfo extends Message {
             }
             this.originThreadInfo = builder.originThreadInfo;
             this.videoInfo = builder.videoInfo;
-            List list3 = builder.voiceInfo;
+            List<Voice> list3 = builder.voiceInfo;
             if (list3 == null) {
                 this.voiceInfo = DEFAULT_VOICEINFO;
             } else {
                 this.voiceInfo = Message.immutableCopyOf(list3);
             }
-            List list4 = builder.media;
+            List<Media> list4 = builder.media;
             if (list4 == null) {
                 this.media = DEFAULT_MEDIA;
                 return;

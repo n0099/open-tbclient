@@ -31,7 +31,7 @@ public final class WireFormat {
 
     /* renamed from: com.google.protobuf.WireFormat$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -56,7 +56,7 @@ public final class WireFormat {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public class FieldType {
+    public static class FieldType {
         public static final /* synthetic */ FieldType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FieldType BOOL;
@@ -326,7 +326,7 @@ public final class WireFormat {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class JavaType {
+    public static final class JavaType {
         public static final /* synthetic */ JavaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final JavaType BOOLEAN;

@@ -22,14 +22,14 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class l extends AsyncTask {
+public class l extends AsyncTask<String, Void, List<String>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a wP;
 
     /* loaded from: classes.dex */
     public interface a {
-        void onPerformanceRequestFinished(List list);
+        void onPerformanceRequestFinished(List<String> list);
     }
 
     public l(a aVar) {
@@ -50,7 +50,7 @@ public class l extends AsyncTask {
         this.wP = aVar;
     }
 
-    private List aL(String str) {
+    private List<String> aL(String str) {
         InterceptResult invokeL;
         int length;
         Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class l extends AsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.AsyncTask
     /* renamed from: a */
-    public List doInBackground(String... strArr) {
+    public List<String> doInBackground(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -127,7 +127,7 @@ public class l extends AsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.AsyncTask
     /* renamed from: k */
-    public void onPostExecute(List list) {
+    public void onPostExecute(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             super.onPostExecute(list);

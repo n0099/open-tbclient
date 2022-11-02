@@ -3,9 +3,11 @@ package com.baidu.nadcore.crius.uiwidget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vj0;
+import com.baidu.tieba.uj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +18,10 @@ public class ApkDownloadView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public vj0 b;
+    public uj0 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApkDownloadView(Context context) {
+    public ApkDownloadView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,7 +42,7 @@ public class ApkDownloadView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApkDownloadView(Context context, AttributeSet attributeSet) {
+    public ApkDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +64,7 @@ public class ApkDownloadView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ApkDownloadView(Context context, AttributeSet attributeSet, int i) {
+    public ApkDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -83,13 +85,13 @@ public class ApkDownloadView extends FrameLayout {
         this.a = 0;
     }
 
-    public vj0 getRealDownloadView() {
+    public uj0 getRealDownloadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (vj0) invokeV.objValue;
+        return (uj0) invokeV.objValue;
     }
 
     @Override // android.view.View

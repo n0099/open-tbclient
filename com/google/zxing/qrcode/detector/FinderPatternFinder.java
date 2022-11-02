@@ -28,18 +28,18 @@ public class FinderPatternFinder {
     public final int[] crossCheckStateCount;
     public boolean hasSkipped;
     public final BitMatrix image;
-    public final List possibleCenters;
+    public final List<FinderPattern> possibleCenters;
     public final ResultPointCallback resultPointCallback;
 
     /* renamed from: com.google.zxing.qrcode.detector.FinderPatternFinder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class CenterComparator implements Serializable, Comparator {
+    public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
@@ -90,7 +90,7 @@ public class FinderPatternFinder {
     }
 
     /* loaded from: classes7.dex */
-    public final class FurthestFromAverageComparator implements Serializable, Comparator {
+    public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
@@ -662,7 +662,7 @@ public class FinderPatternFinder {
         return (BitMatrix) invokeV.objValue;
     }
 
-    public final List getPossibleCenters() {
+    public final List<FinderPattern> getPossibleCenters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -722,7 +722,7 @@ public class FinderPatternFinder {
                     float max = Math.max(0.2f * f5, sqrt);
                     int i = 0;
                     while (i < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
-                        if (Math.abs(((FinderPattern) this.possibleCenters.get(i)).getEstimatedModuleSize() - f5) > max) {
+                        if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f5) > max) {
                             this.possibleCenters.remove(i);
                             i--;
                         }
@@ -734,17 +734,17 @@ public class FinderPatternFinder {
                         f2 += finderPattern2.getEstimatedModuleSize();
                     }
                     Collections.sort(this.possibleCenters, new CenterComparator(f2 / this.possibleCenters.size(), null));
-                    List list = this.possibleCenters;
+                    List<FinderPattern> list = this.possibleCenters;
                     list.subList(3, list.size()).clear();
                 }
-                return new FinderPattern[]{(FinderPattern) this.possibleCenters.get(0), (FinderPattern) this.possibleCenters.get(1), (FinderPattern) this.possibleCenters.get(2)};
+                return new FinderPattern[]{this.possibleCenters.get(0), this.possibleCenters.get(1), this.possibleCenters.get(2)};
             }
             throw NotFoundException.getNotFoundInstance();
         }
         return (FinderPattern[]) invokeV.objValue;
     }
 
-    public final FinderPatternInfo find(Map map) throws NotFoundException {
+    public final FinderPatternInfo find(Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeL;
         boolean z;
         boolean z2;
@@ -857,7 +857,7 @@ public class FinderPatternFinder {
                         if (i5 >= this.possibleCenters.size()) {
                             break;
                         }
-                        FinderPattern finderPattern = (FinderPattern) this.possibleCenters.get(i5);
+                        FinderPattern finderPattern = this.possibleCenters.get(i5);
                         if (finderPattern.aboutEquals(f, crossCheckVertical, crossCheckHorizontal)) {
                             this.possibleCenters.set(i5, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f));
                             z2 = true;

@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Service;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
@@ -28,8 +29,9 @@ public class XMJobService extends Service {
     /* renamed from: a  reason: collision with other field name */
     public IBinder f839a;
 
+    @TargetApi(21)
     /* loaded from: classes8.dex */
-    public class a extends JobService {
+    public static class a extends JobService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Binder a;
@@ -39,13 +41,13 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class HandlerC0705a extends Handler {
+        public static class HandlerC0716a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public JobService a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0705a(JobService jobService) {
+            public HandlerC0716a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -110,7 +112,7 @@ public class XMJobService extends Service {
                 intent.setPackage(getPackageName());
                 startService(intent);
                 if (this.f840a == null) {
-                    this.f840a = new HandlerC0705a(this);
+                    this.f840a = new HandlerC0716a(this);
                 }
                 Handler handler = this.f840a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));

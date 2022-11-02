@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,18 +30,23 @@ public final class RewardActionBarControl {
     public Context mContext;
     public Handler mHandler;
     public k nM;
+    @Nullable
     public c rA;
+    @Nullable
     public d rB;
+    @Nullable
     public e rC;
+    @NonNull
     public a rD;
     public final long rE;
     public boolean rF;
     public b rw;
+    @Nullable
     public f rz;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class ShowActionBarResult {
+    public static final class ShowActionBarResult {
         public static final /* synthetic */ ShowActionBarResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ShowActionBarResult SHOW_H5_FAILURE;
@@ -115,10 +123,10 @@ public final class RewardActionBarControl {
     }
 
     /* loaded from: classes7.dex */
-    public final class a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
+    public static class a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List rK;
+        public List<com.kwad.components.ad.reward.presenter.platdetail.actionbar.a> rK;
         public ShowActionBarResult rL;
 
         public a() {
@@ -353,6 +361,7 @@ public final class RewardActionBarControl {
         }
     }
 
+    @MainThread
     public final void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
@@ -360,20 +369,22 @@ public final class RewardActionBarControl {
         }
     }
 
-    public final void a(c cVar) {
+    @MainThread
+    public final void a(@Nullable c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.rA = cVar;
         }
     }
 
-    public final void a(d dVar) {
+    public final void a(@Nullable d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             this.rB = dVar;
         }
     }
 
+    @MainThread
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
@@ -407,6 +418,7 @@ public final class RewardActionBarControl {
         }
     }
 
+    @Nullable
     public final ShowActionBarResult hx() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

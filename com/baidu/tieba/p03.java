@@ -1,32 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.graphics.Color;
+import android.app.ActivityManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.i43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.TimeoutException;
 /* loaded from: classes5.dex */
-public final class p03 {
+public final class p03 extends hp2<p03> implements o03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List b;
-    public static final List c;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public final q03 b;
+    public final String c;
+    public final Set<xi3<i43.a>> d;
+    public final Set<xi3<p03>> e;
+    public final Set<String> f;
+    public final Set<Integer> g;
+    public Exception h;
+    public long i;
+    public boolean j;
+    public final Runnable k;
+
+    public p03 Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this : (p03) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p03 a;
+
+        public a(p03 p03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p03Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.a.b) {
+                this.a.b.b0(this.a, this.a.W());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,154 +95,424 @@ public final class p03 {
                 return;
             }
         }
-        a = wj1.a;
-        b = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"title", "image", "emoji", "video", "friends", "target"});
-        c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"image", "emoji"});
+        l = ok1.a;
     }
 
-    public static final PublishParams a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
-        float f;
-        int i2;
-        int i3;
-        int i4;
+    public Exception N() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
+    public boolean P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.h != null) {
+                return true;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
-            ArrayList arrayList = new ArrayList(c);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                arrayList.clear();
-                int length = optJSONArray.length();
-                for (int i5 = 0; i5 < length; i5++) {
-                    try {
-                        String string = optJSONArray.getString(i5);
-                        if (b.contains(string)) {
-                            arrayList.add(string);
-                        }
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.i < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aj3
+    public /* bridge */ /* synthetic */ aj3 a() {
+        Y();
+        return this;
+    }
+
+    public p03 call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return call(o03.n0);
+        }
+        return (p03) invokeV.objValue;
+    }
+
+    public p03(@NonNull q03 q03Var, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q03Var, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new HashSet();
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
+        this.h = null;
+        this.i = 0L;
+        this.j = false;
+        this.k = new a(this);
+        this.b = q03Var;
+        if (TextUtils.isEmpty(str)) {
+            str2 = UUID.randomUUID().toString();
+        } else {
+            str2 = str;
+        }
+        this.c = str2;
+        if (l) {
+            U("IpcSession", "host=" + q03Var + " id=" + str + " mId=" + this.c);
+        }
+    }
+
+    public p03 F(xi3<p03> xi3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xi3Var)) == null) {
+            H(this.e, xi3Var);
+            return this;
+        }
+        return (p03) invokeL.objValue;
+    }
+
+    public p03 G(xi3<i43.a> xi3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xi3Var)) == null) {
+            H(this.d, xi3Var);
+            return this;
+        }
+        return (p03) invokeL.objValue;
+    }
+
+    public p03 I(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            synchronized (this.b) {
+                this.g.add(Integer.valueOf(i));
+                Y();
+            }
+            return this;
+        }
+        return (p03) invokeI.objValue;
+    }
+
+    public p03 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this.b) {
+                this.f.add(str);
+                Y();
+            }
+            return this;
+        }
+        return (p03) invokeL.objValue;
+    }
+
+    public p03 K(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            synchronized (this.b) {
+                this.j = z;
+                Y();
+            }
+            return this;
+        }
+        return (p03) invokeZ.objValue;
+    }
+
+    public final void T(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && l) {
+            Log.i("IpcSession", SwanAppProcessInfo.current() + " >> " + str);
+        }
+    }
+
+    public static String O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                ActivityManager activityManager = (ActivityManager) AppRuntime.getAppContext().getSystemService("activity");
+                if (activityManager == null) {
+                    return "ActivityManager=null";
+                }
+                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
+                if (runningAppProcesses == null) {
+                    return "RunningAppProcessInfoList=null";
+                }
+                StringBuilder sb = new StringBuilder();
+                String str = "";
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null) {
+                        sb.append(str);
+                        sb.append(runningAppProcessInfo.processName);
+                        str = ",";
                     }
                 }
+                return sb.toString();
+            } catch (Exception e) {
+                return e.toString();
             }
-            if (arrayList.isEmpty() && a) {
-                Log.d("PublishParams", "展示列表为空");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final <CallBackT> p03 H(@NonNull Set<CallBackT> set, CallBackT callbackt) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
+            synchronized (this.b) {
+                if (Z() && callbackt != null) {
+                    set.add(callbackt);
+                }
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("imageConf");
-            if (optJSONObject != null) {
-                double d = 1.0f;
-                i = Math.min(9, optJSONObject.optInt("maxNum", 9));
-                f = (float) Math.min(d, jSONObject.optDouble("ratio", d));
+            return this;
+        }
+        return (p03) invokeLL.objValue;
+    }
+
+    public final void U(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            T(str + ": " + str2);
+        }
+    }
+
+    public final w03 L() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Bundle D = D();
+            D.putString("ipc_session_id", this.c);
+            D.putLong("ipc_session_timeout", this.i);
+            D.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
+            D.putString("ipc_topic", this.b.X(this));
+            w03 w03Var = new w03(V(), D);
+            w03Var.p(true);
+            if (SwanAppProcessInfo.current().isSwanService && !this.j) {
+                z = false;
             } else {
-                i = 9;
-                f = 1.0f;
+                z = true;
             }
-            Application context = tm2.c();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f1319);
-            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f131a), 20, null, 4, null);
-            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f131b), 4, null, 4, null);
-            String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f0112), 4, null, 4, null);
-            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f131c), 8, null, 4, null);
-            String c2 = c(jSONObject, "navBarTextStyle", "");
-            if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
-                c2 = "black";
-            }
-            int parseColor = Color.parseColor(c2);
-            try {
-                i2 = Color.parseColor(c(jSONObject, "navBarBackgroundColor", "#FFFFFF"));
-            } catch (Exception e6) {
-                if (a) {
-                    e6.printStackTrace();
+            w03Var.f(z);
+            for (Integer num : this.g) {
+                int intValue = num.intValue();
+                if (SwanAppProcessInfo.checkProcessId(intValue)) {
+                    w03Var.a(intValue);
                 }
-                i2 = -1;
             }
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060aab);
-            try {
-                i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
-            } catch (Exception e7) {
-                if (a) {
-                    e7.printStackTrace();
+            for (String str : this.f) {
+                if (!TextUtils.isEmpty(str)) {
+                    w03Var.c(str);
                 }
-                i3 = color;
             }
-            try {
-                i4 = Color.parseColor(c(jSONObject, "cancelColor", "#000000"));
-            } catch (Exception e8) {
-                if (a) {
-                    e8.printStackTrace();
-                }
-                i4 = -16777216;
+            if (l) {
+                U("createMsg", "msgCooker=" + w03Var + " bundle=" + D);
             }
-            return new PublishParams(b2, e2, e5, parseColor, i2, e3, i3, e4, i4, jSONObject.optString("targetText", ""), jSONObject.optString("emojiPath", ""), jSONObject.optString("cb"), i, f, arrayList, null, null, 98304, null);
+            return w03Var;
         }
-        return (PublishParams) invokeL.objValue;
+        return (w03) invokeV.objValue;
     }
 
-    public static final String b(Context context, JSONObject obj, String key, int i) {
-        InterceptResult invokeLLLI;
+    public p03 M(Exception exc) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, obj, key, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (StringsKt__StringsJVMKt.isBlank(optString)) {
-                String string = context.getString(i);
-                Intrinsics.checkNotNullExpressionValue(string, "context.getString(defaultStrRes)");
-                return string;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, exc)) == null) {
+            synchronized (this.b) {
+                if (!R()) {
+                    d43.M().removeCallbacks(this.k);
+                    this.i = -1L;
+                    this.h = exc;
+                    this.d.clear();
+                    for (xi3<p03> xi3Var : this.e) {
+                        xi3Var.a(this);
+                    }
+                    this.e.clear();
+                    this.j = false;
+                    this.f.clear();
+                    this.g.clear();
+                    b();
+                }
             }
-            return optString;
+            return this;
         }
-        return (String) invokeLLLI.objValue;
+        return (p03) invokeL.objValue;
     }
 
-    public static final String c(JSONObject obj, String key, String str) {
-        InterceptResult invokeLLL;
+    public long S(long j) {
+        InterceptResult invokeJ;
+        long j2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, key, str)) == null) {
-            Intrinsics.checkNotNullParameter(obj, "obj");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(str, "default");
-            String optString = obj.optString(key);
-            Intrinsics.checkNotNullExpressionValue(optString, "obj.optString(key)");
-            if (!StringsKt__StringsJVMKt.isBlank(optString)) {
-                return optString;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
+            synchronized (this.b) {
+                if (Z()) {
+                    this.i = Math.max(Math.max(j, o03.n0), this.i);
+                    Handler M = d43.M();
+                    if (this.i > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (z) {
+                        M.removeCallbacks(this.k);
+                        M.postDelayed(this.k, this.i);
+                    }
+                }
+                j2 = this.i;
+            }
+            return j2;
+        }
+        return invokeJ.longValue;
+    }
+
+    public final int V() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            boolean z = SwanAppProcessInfo.current().isSwanService;
+            if (z) {
+                i = 111;
+            } else {
+                i = 11;
+            }
+            if (l) {
+                U("msgType", "service=" + z + " msgType=" + i);
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.hp2
+    public synchronized String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            synchronized (this) {
+                str = "IpcSession: id=" + this.c + " timeout=" + this.i;
             }
             return str;
         }
-        return (String) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static final String d(String s, int i, String substitue) {
-        InterceptResult invokeLIL;
+    public Exception W() {
+        InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, s, i, substitue)) == null) {
-            Intrinsics.checkNotNullParameter(s, "s");
-            Intrinsics.checkNotNullParameter(substitue, "substitue");
-            if (s.length() <= i) {
-                return s;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (l) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
             }
-            StringBuilder sb = new StringBuilder();
-            String substring = s.substring(0, i - 1);
-            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-            sb.append(substring);
-            sb.append(substitue);
-            return sb.toString();
+            TimeoutException timeoutException = new TimeoutException("#ipcHttpTimeout session=" + this + " processList=" + O());
+            if (l) {
+                Log.d("IpcSession", "#newIpcTimeoutException 耗时(ms): " + ((System.nanoTime() - j) / 1000000.0d));
+            }
+            return timeoutException;
         }
-        return (String) invokeLIL.objValue;
+        return (Exception) invokeV.objValue;
     }
 
-    public static /* synthetic */ String e(String str, int i, String str2, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
-            str2 = StringHelper.STRING_MORE;
+    public boolean Z() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            synchronized (this.b) {
+                if (!R() && !P() && !TextUtils.isEmpty(this.c)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (l) {
+                    U("valid", z + " isFinished=" + R() + " hasException=" + this.h + " id=" + this.c);
+                }
+            }
+            return z;
         }
-        return d(str, i, str2);
+        return invokeV.booleanValue;
+    }
+
+    public boolean X(i43.a aVar) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVar)) == null) {
+            synchronized (this.b) {
+                if (Z() && !this.d.isEmpty() && aVar != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    for (xi3<i43.a> xi3Var : this.d) {
+                        xi3Var.a(aVar);
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public p03 call(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
+            synchronized (this.b) {
+                if (l) {
+                    U(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
+                }
+                if (Z()) {
+                    long S = S(j);
+                    if (l) {
+                        U(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + S);
+                    }
+                    u03.e().h(L());
+                    b();
+                } else {
+                    this.b.b0(this, new IllegalStateException("invalid session call"));
+                }
+                Y();
+            }
+            return this;
+        }
+        return (p03) invokeJ.objValue;
     }
 }

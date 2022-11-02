@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.view.commonBtn;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -9,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -204,13 +205,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public final Drawable b(int i) {
@@ -295,7 +296,7 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void h(int i) {
+    public void h(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.h != i) {
             this.h = i;

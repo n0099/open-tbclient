@@ -61,7 +61,7 @@ public class ActLog {
     public static volatile boolean isWriteFailLog = false;
     public static volatile boolean isWriteSucLog = false;
     public static volatile boolean logEnable = false;
-    public static ConcurrentHashMap logWriters = null;
+    public static ConcurrentHashMap<String, LogWriter> logWriters = null;
     public static volatile ActLogListener mActLogListener = null;
     public static Context mContext = null;
     public static String mLogNamePre = "hdstatis";
@@ -86,14 +86,14 @@ public class ActLog {
     }
 
     /* loaded from: classes8.dex */
-    public class LogWriter {
+    public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile AtomicInteger bufferCount;
         public String dateString;
         public String fileNameTemplate;
-        public ConcurrentLinkedQueue logBuffer;
+        public ConcurrentLinkedQueue<String> logBuffer;
         public FileWriter logWriter;
         public String pid;
         public volatile AtomicBoolean writing;
@@ -114,7 +114,7 @@ public class ActLog {
                 }
             }
             this.pid = String.valueOf(Process.myPid());
-            this.logBuffer = new ConcurrentLinkedQueue();
+            this.logBuffer = new ConcurrentLinkedQueue<>();
             this.writing = new AtomicBoolean(false);
             this.bufferCount = new AtomicInteger(0);
             this.fileNameTemplate = str;
@@ -131,15 +131,15 @@ public class ActLog {
             if (!this.writing.compareAndSet(false, true)) {
                 return;
             }
-            String str2 = (String) this.logBuffer.poll();
+            String poll = this.logBuffer.poll();
             FileWriter fileWriter = getFileWriter();
-            while (str2 != null && fileWriter != null) {
+            while (poll != null && fileWriter != null) {
                 this.bufferCount.decrementAndGet();
                 try {
-                    fileWriter.write(str2);
+                    fileWriter.write(poll);
                     fileWriter.write("\n");
                     fileWriter.flush();
-                    str2 = (String) this.logBuffer.poll();
+                    poll = this.logBuffer.poll();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -220,7 +220,7 @@ public class ActLog {
         countLength = new AtomicLong(0L);
         initActLog = false;
         logEnable = true;
-        logWriters = new ConcurrentHashMap(3);
+        logWriters = new ConcurrentHashMap<>(3);
         isDelete = new AtomicBoolean(false);
         isWriteSucLog = false;
         isWriteFailLog = false;
@@ -482,7 +482,7 @@ public class ActLog {
             for (File file : listFiles) {
                 arrayList.add(file);
             }
-            Collections.sort(arrayList, new Comparator() { // from class: com.yy.hiidostatis.inner.util.log.ActLog.1
+            Collections.sort(arrayList, new Comparator<File>() { // from class: com.yy.hiidostatis.inner.util.log.ActLog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -555,12 +555,12 @@ public class ActLog {
             if (str == null) {
                 str = "";
             }
-            LogWriter logWriter = (LogWriter) logWriters.get(str);
+            LogWriter logWriter = logWriters.get(str);
             if (logWriter != null) {
                 return logWriter;
             }
             synchronized ("ActLog") {
-                LogWriter logWriter2 = (LogWriter) logWriters.get(str);
+                LogWriter logWriter2 = logWriters.get(str);
                 if (logWriter2 != null) {
                     return logWriter2;
                 }
@@ -889,12 +889,12 @@ public class ActLog {
                     try {
                         long currentTimeMillis = System.currentTimeMillis();
                         String formatDate = Util.formatDate("yyyyMMddHHmmss", currentTimeMillis);
-                        Map parseParams = Util.parseParams(this.val$content);
+                        Map<String, String> parseParams = Util.parseParams(this.val$content);
                         String formatDate2 = Util.formatDate("HH:mm:ss", System.currentTimeMillis());
-                        String str8 = (String) parseParams.get(BaseStatisContent.GUID);
-                        String str9 = (String) parseParams.get("act");
+                        String str8 = parseParams.get(BaseStatisContent.GUID);
+                        String str9 = parseParams.get("act");
                         parseParams.clear();
-                        String appkey = ActLog.getAppkey((String) parseParams.get("appkey"));
+                        String appkey = ActLog.getAppkey(parseParams.get("appkey"));
                         FloatingService.INSTANCT.addLog(formatDate2, appkey, this.val$type, str8, str9);
                         Object[] objArr = new Object[9];
                         objArr[0] = Long.valueOf(currentTimeMillis);
@@ -1065,10 +1065,10 @@ public class ActLog {
                             str8 = (str8 + "\n" + InetAddress.getByName(this.val$host).getHostAddress()) + "\n" + TextUtils.join(" ", InetAddress.getAllByName(this.val$host));
                         }
                         String formatDate = Util.formatDate("yyyyMMddHHmmss", System.currentTimeMillis());
-                        Map parseParams = Util.parseParams(this.val$content);
-                        String str9 = (String) parseParams.get(BaseStatisContent.GUID);
-                        String str10 = (String) parseParams.get("act");
-                        String str11 = (String) parseParams.get("appkey");
+                        Map<String, String> parseParams = Util.parseParams(this.val$content);
+                        String str9 = parseParams.get(BaseStatisContent.GUID);
+                        String str10 = parseParams.get("act");
+                        String str11 = parseParams.get("appkey");
                         parseParams.clear();
                         String appkey = ActLog.getAppkey(str11);
                         Object[] objArr = new Object[9];
@@ -1149,14 +1149,14 @@ public class ActLog {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         String formatDate = Util.formatDate("yyyyMMddHHmmss", System.currentTimeMillis());
-                        Map parseParams = Util.parseParams(this.val$content);
+                        Map<String, String> parseParams = Util.parseParams(this.val$content);
                         parseParams.clear();
-                        String appkey = ActLog.getAppkey((String) parseParams.get("appkey"));
+                        String appkey = ActLog.getAppkey(parseParams.get("appkey"));
                         Object[] objArr = new Object[6];
                         objArr[0] = formatDate;
-                        objArr[1] = (String) parseParams.get(BaseStatisContent.GUID);
+                        objArr[1] = parseParams.get(BaseStatisContent.GUID);
                         objArr[2] = appkey;
-                        objArr[3] = (String) parseParams.get("act");
+                        objArr[3] = parseParams.get("act");
                         String str5 = "-";
                         if (this.val$smkdata == null) {
                             str4 = "-";

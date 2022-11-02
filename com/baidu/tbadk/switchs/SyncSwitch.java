@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.oh;
-import com.baidu.tieba.si;
+import com.baidu.tieba.gh;
+import com.baidu.tieba.ki;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,7 +85,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(si.class);
+            SwitchManager.getInstance().registerSwitch(ki.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -107,7 +107,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(oh.class);
+            SwitchManager.getInstance().registerSwitch(gh.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -136,6 +136,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(ImageAddRequestLayoutSwitch.class);
             SwitchManager.getInstance().registerSwitch(CheckIsQuestionThreadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunSdkInitSwitch.class);
+            SwitchManager.getInstance().registerSwitch(GifLibrarySwitch.class);
         }
     }
 }

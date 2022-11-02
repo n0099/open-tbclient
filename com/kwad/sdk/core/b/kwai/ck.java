@@ -2,9 +2,10 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class ck implements com.kwad.sdk.core.d {
-    public static void a(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class ck implements com.kwad.sdk.core.d<AdInfo.H5Config> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(AdInfo.H5Config h5Config, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -17,7 +18,8 @@ public final class ck implements com.kwad.sdk.core.d {
         }
     }
 
-    public static JSONObject b(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(AdInfo.H5Config h5Config, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -40,13 +42,15 @@ public final class ck implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((AdInfo.H5Config) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+        a2(h5Config, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((AdInfo.H5Config) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(AdInfo.H5Config h5Config, JSONObject jSONObject) {
+        return b2(h5Config, jSONObject);
     }
 }

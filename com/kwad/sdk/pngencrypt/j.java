@@ -13,7 +13,7 @@ public final class j extends DeflatedChunksSet {
 
     /* renamed from: com.kwad.sdk.pngencrypt.j$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] akM;
 
         static {

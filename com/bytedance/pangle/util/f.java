@@ -89,7 +89,7 @@ public final class f {
         if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists()) {
             if (Build.VERSION.SDK_INT >= 26) {
                 try {
-                    Files.walkFileTree(Paths.get(file.getAbsolutePath(), new String[0]), new SimpleFileVisitor() { // from class: com.bytedance.pangle.util.g.1
+                    Files.walkFileTree(Paths.get(file.getAbsolutePath(), new String[0]), new SimpleFileVisitor<Path>() { // from class: com.bytedance.pangle.util.g.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

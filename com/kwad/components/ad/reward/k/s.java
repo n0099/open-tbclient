@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,13 +36,15 @@ public final class s extends d implements View.OnClickListener {
     public ViewGroup pV;
     public DialogFragment vf;
     public TextView vg;
-    public View vi;
+
+    /* renamed from: vi  reason: collision with root package name */
+    public View f1083vi;
     public View vj;
     public LayoutInflater wi;
     public ViewGroup wj;
     public ImageView wk;
 
-    public s(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
+    public s(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +64,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0463, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d046e, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -72,8 +75,8 @@ public final class s extends d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
             SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060783));
-            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060783));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060784));
+            ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060784));
             StyleSpan styleSpan = new StyleSpan(1);
             int length = spannableString.length();
             spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);
@@ -87,15 +90,15 @@ public final class s extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c3);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c5);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c1);
-            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c4);
-            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c2);
-            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911b5);
-            this.vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911c0);
-            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911bf);
-            this.vi.setOnClickListener(this);
+            this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fd);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ff);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fb);
+            this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fe);
+            this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fc);
+            this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ef);
+            this.f1083vi = this.pV.findViewById(R.id.obfuscated_res_0x7f0911fa);
+            this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f0911f9);
+            this.f1083vi.setOnClickListener(this);
             this.vj.setOnClickListener(this);
             this.it.setOnClickListener(this);
             this.eQ.setOnClickListener(this);
@@ -127,7 +130,7 @@ public final class s extends d implements View.OnClickListener {
         l.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.equals(this.vi)) {
+            if (view2.equals(this.f1083vi)) {
                 this.vf.dismiss();
                 l.a aVar2 = this.nf;
                 if (aVar2 != null) {

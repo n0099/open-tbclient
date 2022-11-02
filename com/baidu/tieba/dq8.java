@@ -1,49 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
 /* loaded from: classes3.dex */
 public class dq8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947713310, "Lcom/baidu/tieba/dq8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947713310, "Lcom/baidu/tieba/dq8;");
-        }
-    }
-
-    public static void a(MainTabActivity mainTabActivity, Intent intent) {
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, mainTabActivity, intent) != null) || a || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            if (!str.contains("pageType=")) {
+                str = UrlUtils.appendParam(str, "pageType", str2);
+            }
+            if (!str.contains("noshare=")) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_SHARE, "1");
+            }
+            if (!str.contains("nonavigationbar=")) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR, "1");
+            }
+            if (!str.contains(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL)) {
+                str = UrlUtils.appendParam(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN, "1");
+            }
+            if (!str.contains("themeId=") && !StringUtils.isNull(str3)) {
+                str = UrlUtils.appendParam(str, "themeId", str3);
+            }
+            if (!str.contains("decoratorId=") && !StringUtils.isNull(str4)) {
+                return UrlUtils.appendParam(str, "decoratorId", str4);
+            }
+            return str;
         }
-        String action = intent.getAction();
-        Set<String> categories = intent.getCategories();
-        if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
-            a = true;
-        }
+        return (String) invokeLLLL.objValue;
     }
 }

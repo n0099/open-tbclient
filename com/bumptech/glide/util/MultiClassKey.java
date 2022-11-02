@@ -1,5 +1,7 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,9 +12,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MultiClassKey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class first;
-    public Class second;
-    public Class third;
+    public Class<?> first;
+    public Class<?> second;
+    public Class<?> third;
 
     public MultiClassKey() {
         Interceptable interceptable = $ic;
@@ -34,7 +36,7 @@ public class MultiClassKey {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = ((this.first.hashCode() * 31) + this.second.hashCode()) * 31;
-            Class cls = this.third;
+            Class<?> cls = this.third;
             if (cls != null) {
                 i = cls.hashCode();
             } else {
@@ -45,7 +47,7 @@ public class MultiClassKey {
         return invokeV.intValue;
     }
 
-    public MultiClassKey(Class cls, Class cls2) {
+    public MultiClassKey(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +65,7 @@ public class MultiClassKey {
         set(cls, cls2);
     }
 
-    public MultiClassKey(Class cls, Class cls2, Class cls3) {
+    public MultiClassKey(@NonNull Class<?> cls, @NonNull Class<?> cls2, @Nullable Class<?> cls3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,14 +102,14 @@ public class MultiClassKey {
         return invokeL.booleanValue;
     }
 
-    public void set(Class cls, Class cls2) {
+    public void set(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2) == null) {
             set(cls, cls2, null);
         }
     }
 
-    public void set(Class cls, Class cls2, Class cls3) {
+    public void set(@NonNull Class<?> cls, @NonNull Class<?> cls2, @Nullable Class<?> cls3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, cls, cls2, cls3) == null) {
             this.first = cls;

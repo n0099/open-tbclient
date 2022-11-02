@@ -30,7 +30,7 @@ public class f8 {
     public static boolean f;
     public static boolean g;
     public static boolean h;
-    public static final HashSet i;
+    public static final HashSet<String> i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -82,7 +82,7 @@ public class f8 {
             d = false;
             h = false;
         }
-        i = new HashSet();
+        i = new HashSet<>();
     }
 
     public f8() {

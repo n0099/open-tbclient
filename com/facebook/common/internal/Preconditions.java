@@ -80,16 +80,16 @@ public final class Preconditions {
         throw new IllegalArgumentException();
     }
 
-    public static Object checkNotNull(Object obj) {
+    public static <T> T checkNotNull(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, t)) == null) {
+            if (t != null) {
+                return t;
             }
             throw null;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public static void checkState(boolean z) {
@@ -117,16 +117,16 @@ public final class Preconditions {
         return invokeII.intValue;
     }
 
-    public static Object checkNotNull(Object obj, @Nullable Object obj2) {
+    public static <T> T checkNotNull(T t, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, obj2)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
             }
-            throw new NullPointerException(String.valueOf(obj2));
+            throw new NullPointerException(String.valueOf(obj));
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static int checkPositionIndex(int i, int i2) {
@@ -166,16 +166,16 @@ public final class Preconditions {
         return invokeIIL.intValue;
     }
 
-    public static Object checkNotNull(Object obj, @Nullable String str, @Nullable Object... objArr) {
+    public static <T> T checkNotNull(T t, @Nullable String str, @Nullable Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, objArr)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, t, str, objArr)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException(format(str, objArr));
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     public static int checkPositionIndex(int i, int i2, @Nullable String str) {

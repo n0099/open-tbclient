@@ -10,9 +10,9 @@ import java.util.Collection;
 public class ForwardingImagePerfDataListener implements ImagePerfDataListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection mListeners;
+    public final Collection<ImagePerfDataListener> mListeners;
 
-    public ForwardingImagePerfDataListener(Collection collection) {
+    public ForwardingImagePerfDataListener(Collection<ImagePerfDataListener> collection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

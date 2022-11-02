@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.ala.data.AlaLiveInfoData;
-import com.baidu.ala.data.AlaUserInfoData;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zy5 {
+public class zy5 extends ia5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaUserInfoData a;
-    public fz5 b;
-    public nz5 c;
-    public List d;
-    public List e;
-    public boolean f;
-    public final xy5 g;
-    public oz5 h;
+    public AlaGameFrsLiveTabVideoFragment c;
+
+    @Override // com.baidu.tieba.ia5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public zy5() {
         Interceptable interceptable = $ic;
@@ -39,83 +41,58 @@ public class zy5 {
                 return;
             }
         }
-        this.f = false;
-        this.a = new AlaUserInfoData();
-        this.b = new fz5();
-        this.c = new nz5();
-        this.g = new xy5();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
+        this.c = new AlaGameFrsLiveTabVideoFragment();
+        b().a = this.c;
     }
 
-    public xy5 a() {
+    @Override // com.baidu.tieba.ia5
+    public ja5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            ja5 ja5Var = new ja5();
+            ja5Var.e = 3;
+            ja5Var.b = R.string.obfuscated_res_0x7f0f0226;
+            ja5Var.i = ja5.k;
+            return ja5Var;
         }
-        return (xy5) invokeV.objValue;
+        return (ja5) invokeV.objValue;
     }
 
-    public AlaUserInfoData b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ia5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (AlaUserInfoData) invokeV.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void g(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-            JSONObject optJSONObject = jSONObject2.optJSONObject("user_info");
-            if (optJSONObject != null) {
-                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
-            }
-            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
-            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                mz5 mz5Var = new mz5();
-                mz5Var.a(optJSONArray.getJSONObject(i));
-                this.e.add(mz5Var);
-            }
-            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
-            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
-                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
-                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                this.d.add(alaLiveInfoData);
-            }
-            this.b.a(jSONObject2.optJSONObject("media"));
-            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
-            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
-            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
-            if (optJSONObject2 != null) {
-                oz5 oz5Var = new oz5();
-                this.h = oz5Var;
-                oz5Var.a(optJSONObject2);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.t1(str);
         }
     }
 
-    public void e(boolean z) {
+    public void h(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f = z;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.u1(str);
+        }
+    }
+
+    public void i(boolean z) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alaGameFrsLiveTabVideoFragment = this.c) != null) {
+            alaGameFrsLiveTabVideoFragment.v1(z);
         }
     }
 }

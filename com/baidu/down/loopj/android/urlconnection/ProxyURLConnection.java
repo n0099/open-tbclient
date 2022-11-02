@@ -25,7 +25,6 @@ import java.net.URL;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HostnameVerifier;
@@ -95,7 +94,7 @@ public class ProxyURLConnection {
         this.mUsingDNSProxy = z;
     }
 
-    private boolean addContentBody(HttpURLConnection httpURLConnection, List list) throws IOException {
+    private boolean addContentBody(HttpURLConnection httpURLConnection, List<NameValuePair> list) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, httpURLConnection, list)) == null) {
@@ -116,14 +115,12 @@ public class ProxyURLConnection {
         return invokeLL.booleanValue;
     }
 
-    private String obtainParams(List list, boolean z) {
+    private String obtainParams(List<NameValuePair> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, this, list, z)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                NameValuePair nameValuePair = (NameValuePair) it.next();
+            for (NameValuePair nameValuePair : list) {
                 stringBuffer.append('&');
                 String name = nameValuePair.getName();
                 if (z) {
@@ -278,7 +275,7 @@ public class ProxyURLConnection {
         }
     }
 
-    public HttpURLConnection getHttpURLConnection(String str, Map map) throws IOException {
+    public HttpURLConnection getHttpURLConnection(String str, Map<String, String> map) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, map)) == null) {
@@ -287,7 +284,7 @@ public class ProxyURLConnection {
         return (HttpURLConnection) invokeLL.objValue;
     }
 
-    public HttpURLConnection getHttpURLConnection(String str, Map map, String str2, List list, boolean z, boolean z2) throws IOException {
+    public HttpURLConnection getHttpURLConnection(String str, Map<String, String> map, String str2, List<NameValuePair> list, boolean z, boolean z2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, str2, list, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -302,7 +299,7 @@ public class ProxyURLConnection {
             httpURLConnection.setInstanceFollowRedirects(this.mFollowRedirects);
             if (map != null) {
                 for (String str3 : map.keySet()) {
-                    httpURLConnection.addRequestProperty(str3, (String) map.get(str3));
+                    httpURLConnection.addRequestProperty(str3, map.get(str3));
                 }
             }
             if (httpURLConnection instanceof HttpsURLConnection) {
@@ -411,7 +408,7 @@ public class ProxyURLConnection {
         return (HttpURLConnection) invokeCommon.objValue;
     }
 
-    public HttpURLConnection getHttpURLConnection(String str, Map map, boolean z) throws IOException {
+    public HttpURLConnection getHttpURLConnection(String str, Map<String, String> map, boolean z) throws IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
@@ -420,7 +417,7 @@ public class ProxyURLConnection {
         return (HttpURLConnection) invokeLLZ.objValue;
     }
 
-    public HttpURLConnection getHttpURLConnection(String str, Map map, boolean z, boolean z2) throws IOException {
+    public HttpURLConnection getHttpURLConnection(String str, Map<String, String> map, boolean z, boolean z2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, map, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {

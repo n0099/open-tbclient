@@ -40,9 +40,10 @@ public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda imple
         return regex$splitToSequence$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((Regex$splitToSequence$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(SequenceScope<? super String> sequenceScope, Continuation<? super Unit> continuation) {
+        return ((Regex$splitToSequence$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0072 A[RETURN] */

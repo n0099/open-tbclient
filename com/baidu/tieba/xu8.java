@@ -1,79 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public int b;
 
-    public static String a(r9 r9Var, String str) {
-        InterceptResult invokeLL;
+    public xu8(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return r9Var.getString(R.string.obfuscated_res_0x7f0f0eac);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.a = tbPageContext;
     }
 
-    public static String b(r9 r9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String content;
-        String string;
+    public final boolean a(DressItemData dressItemData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 32) {
-                                if (msgType != 33) {
-                                    content = "";
-                                } else {
-                                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f09eb);
-                                }
-                            } else {
-                                content = r9Var.getString(R.string.obfuscated_res_0x7f0f09f0);
-                            }
-                        }
-                    } else {
-                        content = r9Var.getString(R.string.obfuscated_res_0x7f0f15b8);
-                    }
-                } else {
-                    content = a(r9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f45);
-                    } else {
-                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f43) + content;
-                }
-                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
+            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
+                return true;
             }
-            content = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f42);
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void b(DressItemData dressItemData, boolean z) {
+        String string;
+        String str;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
+            return;
+        }
+        boolean a = hu8.a(dressItemData);
+        if (!a) {
+            a = a(dressItemData);
+        }
+        if (a) {
+            this.b = dressItemData.getPropsId();
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
+            httpMessage.setExtra(Integer.valueOf(this.b));
+            httpMessage.addParam("bcode", String.valueOf(this.b));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        } else if (dressItemData.getFreeUserLevel() == 100) {
+            if (dressItemData.getActivityFinish() == 0) {
+                hu8.b(this.a, 5, dressItemData.getActivityUrl());
+            }
+        } else {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f030a);
+                i = 9;
+            } else {
+                if (dressItemData.getFreeUserLevel() > 1) {
+                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0310), Integer.valueOf(dressItemData.getFreeUserLevel()));
+                } else {
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f030c);
+                }
+                str = string;
+                i = 0;
+            }
+            if (z) {
+                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+            } else {
+                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+            }
+            hu8.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+        }
     }
 }

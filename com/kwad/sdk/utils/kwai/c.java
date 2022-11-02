@@ -1,6 +1,7 @@
 package com.kwad.sdk.utils.kwai;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.utils.kwai.a;
 import java.io.File;
@@ -28,7 +29,7 @@ public final class c {
     public static final byte[] apy = new byte[0];
     public static final int apz;
     public final String apC;
-    public final Map apD;
+    public final Map<String, b> apD;
     public FileChannel apF;
     public FileChannel apG;
     public RandomAccessFile apH;
@@ -47,16 +48,16 @@ public final class c {
     public int apX;
     public final String name;
     public final d apE = com.kwad.sdk.utils.kwai.d.aqi;
-    public final Map apO = new HashMap();
+    public final Map<String, a.b> apO = new HashMap();
     public boolean apP = false;
-    public final ArrayList apW = new ArrayList();
+    public final ArrayList<e> apW = new ArrayList<>();
     public boolean apY = true;
     public final Executor apZ = new f();
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static int aqb = 11;
-        public static final C0615c aqc = new C0615c(11);
+        public static final C0626c aqc = new C0626c(11);
         public final String apC;
         public int apX = 0;
         public b[] aqd;
@@ -78,44 +79,44 @@ public final class c {
 
         public final c Bq() {
             String str = this.apC + this.name;
-            c ei = C0615c.ei(str);
+            c ei = C0626c.ei(str);
             if (ei == null) {
                 synchronized (a.class) {
-                    ei = C0615c.ei(str);
+                    ei = C0626c.ei(str);
                     if (ei == null) {
                         ei = new c(this.apC, this.name, this.aqd, this.apX);
-                        C0615c.b(str, ei);
+                        C0626c.b(str, ei);
                     }
                 }
             }
-            Integer num = (Integer) C0615c.aqh.get(str);
+            Integer num = C0626c.aqh.get(str);
             if (num != null) {
-                C0615c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
+                C0626c.aqh.put(str, Integer.valueOf(num.intValue() + 1));
             } else {
-                C0615c.aqh.put(str, 1);
+                C0626c.aqh.put(str, 1);
             }
             return ei;
         }
     }
 
     /* loaded from: classes8.dex */
-    public interface b {
+    public interface b<T> {
         String Br();
 
-        byte[] f(Object obj);
+        byte[] f(T t);
 
-        Object g(byte[] bArr, int i, int i2);
+        T g(byte[] bArr, int i, int i2);
     }
 
     /* renamed from: com.kwad.sdk.utils.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0615c {
-        public static Map aqe;
-        public static List aqf;
+    public static class C0626c {
+        public static Map<String, c> aqe;
+        public static List<String> aqf;
         public static int aqg;
-        public static Map aqh;
+        public static Map<String, Integer> aqh;
 
-        public C0615c(int i) {
+        public C0626c(int i) {
             int size = getSize(i);
             aqe = new ConcurrentHashMap(size);
             aqh = new HashMap(size);
@@ -136,12 +137,12 @@ public final class c {
             aqf.add(str);
             aqe.put(str, cVar);
             if (aqe.size() > aqg) {
-                Integer num = (Integer) aqh.get((String) aqf.get(0));
+                Integer num = aqh.get(aqf.get(0));
                 if (num != null && num.intValue() != 2) {
                     bP(aqg + 1);
                     return;
                 }
-                c cVar2 = (c) aqe.get(aqf.get(0));
+                c cVar2 = aqe.get(aqf.get(0));
                 if (cVar2 != null) {
                     cVar2.release();
                 }
@@ -163,7 +164,7 @@ public final class c {
             if (aqf == null) {
                 aqf = new CopyOnWriteArrayList();
             }
-            c cVar = (c) aqe.get(str);
+            c cVar = aqe.get(str);
             if (cVar != null) {
                 aqf.remove(str);
                 aqf.add(str);
@@ -177,11 +178,11 @@ public final class c {
         }
 
         public static void remove(String str) {
-            List list = aqf;
+            List<String> list = aqf;
             if (list != null) {
                 list.remove(str);
             }
-            Map map = aqe;
+            Map<String, c> map = aqe;
             if (map != null) {
                 map.remove(str);
             }
@@ -198,7 +199,7 @@ public final class c {
     }
 
     /* loaded from: classes8.dex */
-    public final class e implements Comparable {
+    public static class e implements Comparable<e> {
         public int end;
         public int start;
 
@@ -450,7 +451,7 @@ public final class c {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int Bc() {
-        Map map;
+        Map<String, a.b> map;
         a.b cVar;
         com.kwad.sdk.utils.kwai.b bVar = this.apL;
         bVar.position = 12;
@@ -489,7 +490,7 @@ public final class c {
                         } else if (b3 == 7) {
                             Object string2 = z ? bVar.getString(i5) : bVar.getBytes(i5);
                             map = this.apO;
-                            cVar = new a.C0614a(i, i4 + 2, string2, i5, z);
+                            cVar = new a.C0625a(i, i4 + 2, string2, i5, z);
                         } else if (z) {
                             String string3 = bVar.getString(i5);
                             map = this.apO;
@@ -497,7 +498,7 @@ public final class c {
                         } else {
                             int i6 = bVar.get() & 255;
                             String string4 = bVar.getString(i6);
-                            b bVar2 = (b) this.apD.get(string4);
+                            b bVar2 = this.apD.get(string4);
                             int i7 = i5 - (i6 + 1);
                             if (i7 < 0) {
                                 throw new Exception("parse dara failed");
@@ -700,15 +701,15 @@ public final class c {
     }
 
     private void Bo() {
-        ArrayList arrayList = this.apW;
+        ArrayList<e> arrayList = this.apW;
         if (arrayList == null) {
             return;
         }
         int size = arrayList.size() - 1;
-        e eVar = (e) this.apW.get(size);
+        e eVar = this.apW.get(size);
         while (size > 0) {
             size--;
-            e eVar2 = (e) this.apW.get(size);
+            e eVar2 = this.apW.get(size);
             if (eVar.start == eVar2.end) {
                 eVar2.end = eVar.end;
                 this.apW.remove(size + 1);
@@ -719,7 +720,7 @@ public final class c {
 
     private void Bp() {
         this.apV = 0;
-        ArrayList arrayList = this.apW;
+        ArrayList<e> arrayList = this.apW;
         if (arrayList != null) {
             arrayList.clear();
         }
@@ -773,7 +774,7 @@ public final class c {
             if (ab != null) {
                 int i = ab[0] & 255;
                 String str = new String(ab, 1, i, com.kwad.sdk.utils.kwai.b.UTF_8);
-                b bVar = (b) this.apD.get(str);
+                b bVar = this.apD.get(str);
                 if (bVar != null) {
                     int i2 = i + 1;
                     return bVar.g(ab, i2, ab.length - i2);
@@ -867,7 +868,7 @@ public final class c {
     }
 
     private void a(int i, int[] iArr) {
-        Map map = this.apO;
+        Map<String, a.b> map = this.apO;
         if (map == null) {
             return;
         }
@@ -919,7 +920,7 @@ public final class c {
         }
     }
 
-    private synchronized void a(String str, Object obj, b bVar) {
+    private synchronized <T> void a(String str, T t, b<T> bVar) {
         eg(str);
         if (bVar == null) {
             IllegalArgumentException illegalArgumentException = new IllegalArgumentException("Encoder is null");
@@ -938,13 +939,13 @@ public final class c {
                 }
                 b(illegalArgumentException2);
                 return;
-            } else if (obj == null) {
+            } else if (t == null) {
                 remove(str);
                 return;
             } else {
                 byte[] bArr = null;
                 try {
-                    bArr = bVar.f(obj);
+                    bArr = bVar.f(t);
                 } catch (Exception e2) {
                     b(e2);
                 }
@@ -957,7 +958,7 @@ public final class c {
                 bVar2.b((byte) ed);
                 bVar2.ec(Br);
                 bVar2.n(bArr);
-                a(str, obj, bVar2.apw, (a.h) this.apO.get(str), (byte) 8);
+                a(str, t, bVar2.apw, (a.h) this.apO.get(str), (byte) 8);
                 return;
             }
         }
@@ -983,12 +984,12 @@ public final class c {
                 str2 = obj;
                 length = bArr.length;
             }
-            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0614a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
+            this.apO.put(str, b2 == 6 ? new a.i(this.apQ, a2, (String) str2, length, z) : b2 == 7 ? new a.C0625a(this.apQ, a2, str2, length, z) : new a.h(this.apQ, a2, str2, length, z));
             Bk();
         }
     }
 
-    private void a(String str, Object obj, byte[] bArr, a.j jVar) {
+    private void a(String str, Object obj, byte[] bArr, @NonNull a.j jVar) {
         int a2 = a(str, bArr, jVar.AW());
         if (a2 != 0) {
             String str2 = jVar.apu ? (String) jVar.value : null;
@@ -1039,7 +1040,7 @@ public final class c {
             }
             n(str, ed2);
             o(str2, ed);
-            Map map = this.apO;
+            Map<String, a.b> map = this.apO;
             int i2 = this.apQ;
             map.put(str, new a.i(i2, i2 + i, str2, ed, false));
             Bk();
@@ -1147,33 +1148,33 @@ public final class c {
         mappedByteBuffer.limit(mappedByteBuffer.capacity());
     }
 
-    private synchronized void a(Map map, Map map2) {
+    private synchronized void a(Map<String, Object> map, Map<Class, b> map2) {
         if (map == null) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
-            String str = (String) entry.getKey();
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
             Object value = entry.getValue();
-            if (str != null && !str.isEmpty()) {
+            if (key != null && !key.isEmpty()) {
                 if (value instanceof String) {
-                    putString(str, (String) value);
+                    putString(key, (String) value);
                 } else if (value instanceof Boolean) {
-                    putBoolean(str, ((Boolean) value).booleanValue());
+                    putBoolean(key, ((Boolean) value).booleanValue());
                 } else if (value instanceof Integer) {
-                    putInt(str, ((Integer) value).intValue());
+                    putInt(key, ((Integer) value).intValue());
                 } else if (value instanceof Long) {
-                    putLong(str, ((Long) value).longValue());
+                    putLong(key, ((Long) value).longValue());
                 } else if (value instanceof Float) {
-                    putFloat(str, ((Float) value).floatValue());
+                    putFloat(key, ((Float) value).floatValue());
                 } else if (value instanceof Double) {
-                    putDouble(str, ((Double) value).doubleValue());
+                    putDouble(key, ((Double) value).doubleValue());
                 } else if (value instanceof Set) {
                     Set set = (Set) value;
                     if (!set.isEmpty() && (set.iterator().next() instanceof String)) {
-                        putStringSet(str, (Set) value);
+                        putStringSet(key, (Set) value);
                     }
                 } else if (value instanceof byte[]) {
-                    b(str, (byte[]) value);
+                    b(key, (byte[]) value);
                 } else {
                     c(new Exception("missing encoders"));
                 }
@@ -1211,9 +1212,9 @@ public final class c {
         }
     }
 
-    private byte[] a(a.C0614a c0614a) {
+    private byte[] a(a.C0625a c0625a) {
         try {
-            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0614a.value));
+            byte[] ab = h.ab(new File(this.apC + this.name, (String) c0625a.value));
             return ab != null ? ab : apy;
         } catch (Exception e2) {
             b(e2);
@@ -1272,7 +1273,7 @@ public final class c {
         if (bArr == null) {
             remove(str);
         } else {
-            a(str, bArr, bArr, (a.C0614a) this.apO.get(str), (byte) 7);
+            a(str, bArr, bArr, (a.C0625a) this.apO.get(str), (byte) 7);
         }
     }
 
@@ -1334,13 +1335,13 @@ public final class c {
 
     private void bN(int i) {
         int i2;
-        ArrayList arrayList = this.apW;
+        ArrayList<e> arrayList = this.apW;
         if (arrayList == null || this.apL == null) {
             return;
         }
         Collections.sort(arrayList);
         Bo();
-        e eVar = (e) this.apW.get(0);
+        e eVar = this.apW.get(0);
         int i3 = eVar.start;
         int i4 = this.apM;
         int i5 = i4 - this.apV;
@@ -1353,12 +1354,12 @@ public final class c {
         }
         int size = this.apW.size();
         int i9 = size - 1;
-        int i10 = this.apM - ((e) this.apW.get(i9)).end;
+        int i10 = this.apM - this.apW.get(i9).end;
         int[] iArr = new int[(i10 > 0 ? size : i9) << 1];
         int i11 = eVar.start;
         int i12 = eVar.end;
         for (int i13 = 1; i13 < size; i13++) {
-            e eVar2 = (e) this.apW.get(i13);
+            e eVar2 = this.apW.get(i13);
             int i14 = eVar2.start - i12;
             byte[] bArr = this.apL.apw;
             System.arraycopy(bArr, i12, bArr, i11, i14);
@@ -1579,11 +1580,11 @@ public final class c {
         Bd();
     }
 
-    private synchronized void putStringSet(String str, Set set) {
+    private synchronized void putStringSet(String str, Set<String> set) {
         if (set == null) {
             remove(str);
         } else {
-            a(str, set, g.aqr);
+            a(str, (String) set, (b<String>) g.aqr);
         }
     }
 
@@ -1642,7 +1643,7 @@ public final class c {
 
     private void v(int i, int i2) {
         this.apV += i2 - i;
-        ArrayList arrayList = this.apW;
+        ArrayList<e> arrayList = this.apW;
         if (arrayList != null) {
             arrayList.add(new e(i, i2));
         }
@@ -1652,7 +1653,7 @@ public final class c {
         return this.apO.containsKey(str);
     }
 
-    public final synchronized Map getAll() {
+    public final synchronized Map<String, Object> getAll() {
         Object valueOf;
         a.j jVar;
         int size = this.apO.size();
@@ -1660,28 +1661,28 @@ public final class c {
             return new HashMap();
         }
         HashMap hashMap = new HashMap(((size * 4) / 3) + 1);
-        for (Map.Entry entry : this.apO.entrySet()) {
-            String str = (String) entry.getKey();
-            a.b bVar = (a.b) entry.getValue();
+        for (Map.Entry<String, a.b> entry : this.apO.entrySet()) {
+            String key = entry.getKey();
+            a.b value = entry.getValue();
             Object obj = null;
-            switch (bVar.AW()) {
+            switch (value.AW()) {
                 case 1:
-                    valueOf = Boolean.valueOf(((a.c) bVar).value);
+                    valueOf = Boolean.valueOf(((a.c) value).value);
                     break;
                 case 2:
-                    valueOf = Integer.valueOf(((a.f) bVar).value);
+                    valueOf = Integer.valueOf(((a.f) value).value);
                     break;
                 case 3:
-                    valueOf = Float.valueOf(((a.e) bVar).value);
+                    valueOf = Float.valueOf(((a.e) value).value);
                     break;
                 case 4:
-                    valueOf = Long.valueOf(((a.g) bVar).value);
+                    valueOf = Long.valueOf(((a.g) value).value);
                     break;
                 case 5:
-                    valueOf = Double.valueOf(((a.d) bVar).value);
+                    valueOf = Double.valueOf(((a.d) value).value);
                     break;
                 case 6:
-                    a.i iVar = (a.i) bVar;
+                    a.i iVar = (a.i) value;
                     boolean z = iVar.apu;
                     jVar = iVar;
                     if (z) {
@@ -1691,31 +1692,31 @@ public final class c {
                     valueOf = jVar.value;
                     break;
                 case 7:
-                    a.C0614a c0614a = (a.C0614a) bVar;
-                    boolean z2 = c0614a.apu;
-                    jVar = c0614a;
+                    a.C0625a c0625a = (a.C0625a) value;
+                    boolean z2 = c0625a.apu;
+                    jVar = c0625a;
                     if (z2) {
-                        valueOf = a(c0614a);
+                        valueOf = a(c0625a);
                         break;
                     }
                     valueOf = jVar.value;
                     break;
                 case 8:
-                    a.h hVar = (a.h) bVar;
+                    a.h hVar = (a.h) value;
                     if (hVar.apu) {
                         valueOf = a(hVar);
                         break;
                     } else {
-                        jVar = (a.h) bVar;
+                        jVar = (a.h) value;
                         valueOf = jVar.value;
                         break;
                     }
                 default:
                     continue;
-                    hashMap.put(str, obj);
+                    hashMap.put(key, obj);
             }
             obj = valueOf;
-            hashMap.put(str, obj);
+            hashMap.put(key, obj);
         }
         return hashMap;
     }
@@ -1755,8 +1756,8 @@ public final class c {
         return str2;
     }
 
-    public final void putAll(Map map) {
-        a(map, (Map) null);
+    public final void putAll(Map<String, Object> map) {
+        a(map, (Map<Class, b>) null);
     }
 
     public final synchronized void putBoolean(String str, boolean z) {
@@ -1878,12 +1879,12 @@ public final class c {
         this.apG = null;
         this.apJ = null;
         this.apK = null;
-        C0615c c0615c = a.aqc;
-        C0615c.remove(this.apC + this.name);
+        C0626c c0626c = a.aqc;
+        C0626c.remove(this.apC + this.name);
     }
 
     public final synchronized void remove(String str) {
-        a.b bVar = (a.b) this.apO.get(str);
+        a.b bVar = this.apO.get(str);
         if (bVar != null) {
             this.apO.remove(str);
             byte AW = bVar.AW();

@@ -45,14 +45,25 @@ import com.baidu.sapi2.dto.SetPopularPortraitDTO;
 import com.baidu.sapi2.dto.SetPortraitDTO;
 import com.baidu.sapi2.enums.PortraitCategory;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.sapi2.result.DynamicPwdLoginResult;
+import com.baidu.sapi2.result.FaceLoginStatusResult;
+import com.baidu.sapi2.result.GetCaptchaResult;
+import com.baidu.sapi2.result.GetDynamicPwdResult;
+import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.result.OAuthResult;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.result.QrAppLoginResult;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.interfaces.ISAccountService;
+import com.baidu.sapi2.share.GetOnlineRequestShareModel;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
+import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiCoreUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -135,7 +146,7 @@ public final class SapiAccountService implements ISAccountService {
         return (String) invokeZ.objValue;
     }
 
-    public void getCaptcha(SapiCallback sapiCallback) {
+    public void getCaptcha(SapiCallback<GetCaptchaResult> sapiCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, sapiCallback) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").getCaptcha(sapiCallback);
@@ -331,14 +342,14 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void checkFaceLoginStatus(SapiCallback sapiCallback, String str) {
+    public void checkFaceLoginStatus(SapiCallback<FaceLoginStatusResult> sapiCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sapiCallback, str) == null) {
             this.sapiAccountRepository.checkFaceLoginStatus(sapiCallback, str);
         }
     }
 
-    public void checkUserFaceId(SapiCallback sapiCallback, String str) {
+    public void checkUserFaceId(SapiCallback<CheckUserFaceIdResult> sapiCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, sapiCallback, str) == null) {
             this.sapiAccountRepository.checkUserFaceId(sapiCallback, str, null);
@@ -353,7 +364,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     @Deprecated
-    public void getDynamicPwd(SapiCallback sapiCallback, String str) {
+    public void getDynamicPwd(SapiCallback<GetDynamicPwdResult> sapiCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048608, this, sapiCallback, str) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(sapiCallback, str);
@@ -381,7 +392,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void getQrCodeImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
+    public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048623, this, sapiCallback, getQrCodeImageDTO) == null) {
             QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeImage(sapiCallback, getQrCodeImageDTO);
@@ -402,7 +413,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public boolean isStokenExist(SapiAccount sapiAccount, List list) {
+    public boolean isStokenExist(SapiAccount sapiAccount, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, sapiAccount, list)) == null) {
@@ -412,7 +423,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     @Deprecated
-    public void oauth(SapiCallback sapiCallback, String str) {
+    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048646, this, sapiCallback, str) == null) {
             this.sapiAccountRepository.oauth(sapiCallback, str, null, null);
@@ -723,7 +734,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void checkUserFaceId(SapiCallback sapiCallback, String str, Map map) {
+    public void checkUserFaceId(SapiCallback<CheckUserFaceIdResult> sapiCallback, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, sapiCallback, str, map) == null) {
             this.sapiAccountRepository.checkUserFaceId(sapiCallback, str, map);
@@ -733,18 +744,18 @@ public final class SapiAccountService implements ISAccountService {
     public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, dynamicPwdLoginCallback, str, str2) == null) {
-            dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, (Map) null);
+            dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, (Map<String, String>) null);
         }
     }
 
-    public void extendSysWebViewMethodCheck(SapiCallback sapiCallback, String str, String str2) {
+    public void extendSysWebViewMethodCheck(SapiCallback<SapiResult> sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, sapiCallback, str, str2) == null) {
             this.sapiAccountRepository.extendSysWebViewMethodCheck(sapiCallback, str, str2);
         }
     }
 
-    public boolean fastRegDynamicPwdLogin(SapiCallBack sapiCallBack, String str, String str2) {
+    public boolean fastRegDynamicPwdLogin(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, sapiCallBack, str, str2)) == null) {
@@ -774,7 +785,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void getOnlineAppShareModel(List list, String str, GetOnlineAppCallback getOnlineAppCallback) {
+    public void getOnlineAppShareModel(List<GetOnlineRequestShareModel> list, String str, GetOnlineAppCallback getOnlineAppCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048618, this, list, str, getOnlineAppCallback) == null) {
             this.sapiAccountRepository.getOnlineAppShareModel(list, str, getOnlineAppCallback);
@@ -788,7 +799,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public Map getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List list) {
+    public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048630, this, getTplStokenCallback, str, list)) == null) {
@@ -804,14 +815,14 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void oauth(SapiCallback sapiCallback, String str, String str2) {
+    public void oauth(SapiCallback<OAuthResult> sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048647, this, sapiCallback, str, str2) == null) {
             this.sapiAccountRepository.oauth(sapiCallback, str, str2, null);
         }
     }
 
-    public void qrAppLogin(SapiCallback sapiCallback, String str, String str2) {
+    public void qrAppLogin(SapiCallback<QrAppLoginResult> sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048652, this, sapiCallback, str, str2) == null) {
             QrCodeService.getInstance(this.configuration, "9.6.3.3").qrAppLogin(sapiCallback, str, str2);
@@ -828,42 +839,42 @@ public final class SapiAccountService implements ISAccountService {
         return invokeLLL.booleanValue;
     }
 
-    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map map) {
+    public void dynamicPwdLogin(DynamicPwdLoginCallback dynamicPwdLoginCallback, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, dynamicPwdLoginCallback, str, str2, map) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(dynamicPwdLoginCallback, str, str2, map);
         }
     }
 
-    public void faceLoginSwitch(SapiCallback sapiCallback, String str, boolean z, String str2) {
+    public void faceLoginSwitch(SapiCallback<SapiResult> sapiCallback, String str, boolean z, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{sapiCallback, str, Boolean.valueOf(z), str2}) == null) {
             this.sapiAccountRepository.faceLoginSwitch(sapiCallback, str, z, str2);
         }
     }
 
-    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map map) {
+    public void getDynamicPwd(GetDynamicPwdCallback getDynamicPwdCallback, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048607, this, getDynamicPwdCallback, str, str2, map) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").getDynamicPwd(getDynamicPwdCallback, str, str2, map);
         }
     }
 
-    public void getQrCodeLoginWithEncuidImage(SapiCallback sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
+    public void getQrCodeLoginWithEncuidImage(SapiCallback<GetQrCodeImageResult> sapiCallback, GetQrCodeImageDTO getQrCodeImageDTO, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048624, this, sapiCallback, getQrCodeImageDTO, str, str2) == null) {
             QrCodeService.getInstance(this.configuration, "9.6.3.3").getQrCodeLoginWithEnuidImage(sapiCallback, getQrCodeImageDTO, str, str2);
         }
     }
 
-    public void getShareV3App(String str, List list, String str2, GetShareV3AppCallback getShareV3AppCallback) {
+    public void getShareV3App(String str, List<String> list, String str2, GetShareV3AppCallback getShareV3AppCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048628, this, str, list, str2, getShareV3AppCallback) == null) {
             this.sapiAccountRepository.getShareV3App(str, list, str2, getShareV3AppCallback);
         }
     }
 
-    public Map getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List list, boolean z) {
+    public Map<String, String> getTplStoken(GetTplStokenCallback getTplStokenCallback, String str, List<String> list, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{getTplStokenCallback, str, list, Boolean.valueOf(z)})) == null) {
@@ -886,7 +897,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void oauthWithScope(SapiCallback sapiCallback, String str, String str2, String str3) {
+    public void oauthWithScope(SapiCallback<OAuthResult> sapiCallback, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048649, this, sapiCallback, str, str2, str3) == null) {
             this.sapiAccountRepository.oauth(sapiCallback, str, str2, str3);
@@ -912,7 +923,7 @@ public final class SapiAccountService implements ISAccountService {
         }
     }
 
-    public void oauthAccessToken(SapiCallback sapiCallback, String str, String str2, boolean z) {
+    public void oauthAccessToken(SapiCallback<OAuthResult> sapiCallback, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{sapiCallback, str, str2, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && sapiCallback != null) {
             if (z) {
@@ -924,7 +935,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     @Deprecated
-    public void dynamicPwdLogin(SapiCallback sapiCallback, String str, String str2) {
+    public void dynamicPwdLogin(SapiCallback<DynamicPwdLoginResult> sapiCallback, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sapiCallback, str, str2) == null) {
             EnhancedService.getInstance(this.configuration, "9.6.3.3").dynamicPwdLogin(sapiCallback, str, str2, (Map) null);
@@ -939,7 +950,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     @Deprecated
-    public boolean dynamicPwdLogin(SapiCallBack sapiCallBack, String str, String str2) {
+    public boolean dynamicPwdLogin(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, sapiCallBack, str, str2)) == null) {
@@ -1117,7 +1128,7 @@ public final class SapiAccountService implements ISAccountService {
     }
 
     @Deprecated
-    public boolean getDynamicPwd(SapiCallBack sapiCallBack, String str) {
+    public boolean getDynamicPwd(SapiCallBack<SapiResponse> sapiCallBack, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, sapiCallBack, str)) == null) {
@@ -1126,7 +1137,7 @@ public final class SapiAccountService implements ISAccountService {
         return invokeLL.booleanValue;
     }
 
-    public boolean isStokenExist(String str, List list) {
+    public boolean isStokenExist(String str, List<String> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, str, list)) == null) {
@@ -1213,7 +1224,7 @@ public final class SapiAccountService implements ISAccountService {
                     public void onSuccess(GetTplStokenResult getTplStokenResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) {
-                            SapiAccountService.asyncStoken2Web(this.val$context, (String) getTplStokenResult.tplStokenMap.get("pp"));
+                            SapiAccountService.asyncStoken2Web(this.val$context, getTplStokenResult.tplStokenMap.get("pp"));
                         }
                     }
                 }, str, arrayList);

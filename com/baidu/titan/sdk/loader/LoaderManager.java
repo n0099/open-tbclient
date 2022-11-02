@@ -43,7 +43,7 @@ public class LoaderManager {
     public static final String TAG = "LoaderManager";
     public static LoaderManager sInstance;
     public final Context mContext;
-    public volatile Future mLoadFuture;
+    public volatile Future<Integer> mLoadFuture;
     public volatile int mLoadState = -1;
     public PatchInstallInfo mPatchInstallInfo;
 
@@ -189,8 +189,9 @@ public class LoaderManager {
                 if (!z && createFromPatch.bootLoadSyncPolicy != 0) {
                     setInterceptorDelegate(PatchClassInfo.createFromPatch(patchInstallInfo.getPatchFile()));
                     ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
-                    this.mLoadFuture = newSingleThreadExecutor.submit(new Callable() { // from class: com.baidu.titan.sdk.loader.LoaderManager.1
+                    this.mLoadFuture = newSingleThreadExecutor.submit(new Callable<Integer>() { // from class: com.baidu.titan.sdk.loader.LoaderManager.1
                         /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Can't rename method to resolve collision */
                         @Override // java.util.concurrent.Callable
                         public Integer call() throws Exception {
                             int loadPatch = LoaderManager.this.loadPatch(false, patchInstallInfo);
@@ -257,9 +258,9 @@ public class LoaderManager {
                 return false;
             }
         };
-        Iterator it = patchClassInfo.instantClassNames.iterator();
+        Iterator<String> it = patchClassInfo.instantClassNames.iterator();
         while (it.hasNext()) {
-            String str = (String) it.next();
+            String next = it.next();
             InterceptableDelegate interceptableDelegate = new InterceptableDelegate() { // from class: com.baidu.titan.sdk.loader.LoaderManager.3
                 @Override // com.baidu.titan.sdk.runtime.InterceptableDelegate
                 public boolean waitLoad() {
@@ -268,7 +269,7 @@ public class LoaderManager {
                 }
             };
             try {
-                Field declaredField = Class.forName(str).getDeclaredField("$ic");
+                Field declaredField = Class.forName(next).getDeclaredField("$ic");
                 declaredField.setAccessible(true);
                 declaredField.set(null, interceptableDelegate);
             } catch (ClassNotFoundException e) {

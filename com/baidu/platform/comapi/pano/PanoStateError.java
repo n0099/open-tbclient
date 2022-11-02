@@ -61,12 +61,18 @@ public final class PanoStateError {
     public static PanoStateError valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PanoStateError) Enum.valueOf(PanoStateError.class, str) : (PanoStateError) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PanoStateError) Enum.valueOf(PanoStateError.class, str);
+        }
+        return (PanoStateError) invokeL.objValue;
     }
 
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) e.clone() : (PanoStateError[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PanoStateError[]) e.clone();
+        }
+        return (PanoStateError[]) invokeV.objValue;
     }
 }

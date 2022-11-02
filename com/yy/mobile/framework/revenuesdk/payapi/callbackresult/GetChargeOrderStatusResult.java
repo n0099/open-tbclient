@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,8 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import java.util.ArrayList;
 import java.util.List;
+@Keep
 /* loaded from: classes8.dex */
 public class GetChargeOrderStatusResult {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +21,7 @@ public class GetChargeOrderStatusResult {
     public int currencyType;
     public String expand;
     public boolean finish;
-    public List giftbags;
+    public List<GiftBagsInfo> giftbags;
     public int hasGotSalePromotion;
     public String message;
     public int status;
@@ -102,7 +105,7 @@ public class GetChargeOrderStatusResult {
         return invokeV.booleanValue;
     }
 
-    public GetChargeOrderStatusResult(String str, int i, String str2, int i2, int i3, long j, long j2, boolean z, List list) {
+    public GetChargeOrderStatusResult(String str, int i, String str2, int i2, int i3, long j, long j2, boolean z, List<GiftBagsInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

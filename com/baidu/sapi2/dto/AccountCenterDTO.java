@@ -24,7 +24,7 @@ public class AccountCenterDTO extends SapiWebDTO {
     public boolean handleLogin;
     public boolean isBoldTitle;
     public boolean logoutAfterBdussInvalid;
-    public List paramsList;
+    public List<PassNameValuePair> paramsList;
     public String refer;
 
     static {

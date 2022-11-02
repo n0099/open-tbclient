@@ -5,7 +5,7 @@ import java.util.Iterator;
 public interface dd {
     String b(String str);
 
-    Iterator b();
+    Iterator<String> b();
 
     boolean c(String str);
 

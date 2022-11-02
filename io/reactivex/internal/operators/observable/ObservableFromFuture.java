@@ -12,14 +12,14 @@ import io.reactivex.internal.observers.DeferredScalarDisposable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class ObservableFromFuture extends Observable {
+public final class ObservableFromFuture<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Future future;
+    public final Future<? extends T> future;
     public final long timeout;
     public final TimeUnit unit;
 
-    public ObservableFromFuture(Future future, long j, TimeUnit timeUnit) {
+    public ObservableFromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,9 +39,11 @@ public final class ObservableFromFuture extends Observable {
         this.unit = timeUnit;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: io.reactivex.internal.observers.DeferredScalarDisposable */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
-        Object obj;
+    public void subscribeActual(Observer<? super T> observer) {
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             DeferredScalarDisposable deferredScalarDisposable = new DeferredScalarDisposable(observer);
@@ -49,11 +51,11 @@ public final class ObservableFromFuture extends Observable {
             if (!deferredScalarDisposable.isDisposed()) {
                 try {
                     if (this.unit != null) {
-                        obj = this.future.get(this.timeout, this.unit);
+                        t = this.future.get(this.timeout, this.unit);
                     } else {
-                        obj = this.future.get();
+                        t = this.future.get();
                     }
-                    deferredScalarDisposable.complete(ObjectHelper.requireNonNull(obj, "Future returned null"));
+                    deferredScalarDisposable.complete(ObjectHelper.requireNonNull(t, "Future returned null"));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     if (!deferredScalarDisposable.isDisposed()) {

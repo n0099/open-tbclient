@@ -14,7 +14,7 @@ import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class TiffUtil {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public static final int TIFF_BYTE_ORDER_BIG_END = 1296891946;
     public static final int TIFF_BYTE_ORDER_LITTLE_END = 1229531648;
     public static final int TIFF_TAG_ORIENTATION = 274;
@@ -23,7 +23,7 @@ public class TiffUtil {
 
     /* renamed from: com.facebook.imageutils.TiffUtil$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -44,7 +44,7 @@ public class TiffUtil {
     }
 
     /* loaded from: classes7.dex */
-    public class TiffHeader {
+    public static class TiffHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int byteOrder;

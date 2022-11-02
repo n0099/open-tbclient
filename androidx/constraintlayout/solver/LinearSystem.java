@@ -262,13 +262,13 @@ public class LinearSystem {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, type, str)) == null) {
-            SolverVariable solverVariable = (SolverVariable) this.mCache.solverVariablePool.acquire();
-            if (solverVariable == null) {
-                solverVariable = new SolverVariable(type, str);
-                solverVariable.setType(type, str);
+            SolverVariable acquire = this.mCache.solverVariablePool.acquire();
+            if (acquire == null) {
+                acquire = new SolverVariable(type, str);
+                acquire.setType(type, str);
             } else {
-                solverVariable.reset();
-                solverVariable.setType(type, str);
+                acquire.reset();
+                acquire.setType(type, str);
             }
             int i = this.mPoolVariablesCount;
             int i2 = POOL_SIZE;
@@ -280,8 +280,8 @@ public class LinearSystem {
             SolverVariable[] solverVariableArr = this.mPoolVariables;
             int i4 = this.mPoolVariablesCount;
             this.mPoolVariablesCount = i4 + 1;
-            solverVariableArr[i4] = solverVariable;
-            return solverVariable;
+            solverVariableArr[i4] = acquire;
+            return acquire;
         }
         return (SolverVariable) invokeLL.objValue;
     }
@@ -763,28 +763,28 @@ public class LinearSystem {
 
     public ArrayRow createRow() {
         InterceptResult invokeV;
-        ArrayRow arrayRow;
+        ArrayRow acquire;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             if (OPTIMIZED_ENGINE) {
-                arrayRow = (ArrayRow) this.mCache.optimizedArrayRowPool.acquire();
-                if (arrayRow == null) {
-                    arrayRow = new ValuesRow(this, this.mCache);
+                acquire = this.mCache.optimizedArrayRowPool.acquire();
+                if (acquire == null) {
+                    acquire = new ValuesRow(this, this.mCache);
                     OPTIMIZED_ARRAY_ROW_CREATION++;
                 } else {
-                    arrayRow.reset();
+                    acquire.reset();
                 }
             } else {
-                arrayRow = (ArrayRow) this.mCache.arrayRowPool.acquire();
-                if (arrayRow == null) {
-                    arrayRow = new ArrayRow(this.mCache);
+                acquire = this.mCache.arrayRowPool.acquire();
+                if (acquire == null) {
+                    acquire = new ArrayRow(this.mCache);
                     ARRAY_ROW_CREATION++;
                 } else {
-                    arrayRow.reset();
+                    acquire.reset();
                 }
             }
             SolverVariable.increaseErrorId();
-            return arrayRow;
+            return acquire;
         }
         return (ArrayRow) invokeV.objValue;
     }

@@ -10,13 +10,13 @@ public interface h2 extends Application {
 
     Context getContext();
 
-    b7 getExecutedRunnables();
+    b7<Runnable> getExecutedRunnables();
 
     t2 getInput();
 
-    h8 getLifecycleListeners();
+    h8<h1> getLifecycleListeners();
 
-    b7 getRunnables();
+    b7<Runnable> getRunnables();
 
     WindowManager getWindowManager();
 }

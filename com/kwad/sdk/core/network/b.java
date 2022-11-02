@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.internal.api.SceneImpl;
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b implements g {
-    public final Map mHeader = new HashMap();
+    public final Map<String, String> mHeader = new HashMap();
     public final JSONObject mBodyParams = new JSONObject();
 
     public b() {
@@ -61,12 +62,12 @@ public abstract class b implements g {
     }
 
     @Override // com.kwad.sdk.core.network.g
-    public Map getBodyMap() {
+    public Map<String, String> getBodyMap() {
         return null;
     }
 
     @Override // com.kwad.sdk.core.network.g
-    public Map getHeader() {
+    public Map<String, String> getHeader() {
         return this.mHeader;
     }
 
@@ -75,6 +76,7 @@ public abstract class b implements g {
     }
 
     @Override // com.kwad.sdk.core.network.g
+    @Nullable
     public SceneImpl getScene() {
         return null;
     }
@@ -110,7 +112,7 @@ public abstract class b implements g {
         r.putValue(this.mBodyParams, str, str2);
     }
 
-    public void putBody(String str, List list) {
+    public void putBody(String str, List<? extends com.kwad.sdk.core.b> list) {
         r.putValue(this.mBodyParams, str, list);
     }
 

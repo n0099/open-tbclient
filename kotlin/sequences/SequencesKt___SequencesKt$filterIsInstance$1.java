@@ -14,13 +14,17 @@ public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda i
         super(1);
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return Boolean.valueOf(invoke(obj));
+    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+        return Boolean.valueOf(invoke2(obj));
     }
 
+    /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.functions.Function1
-    public final boolean invoke(Object obj) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Boolean invoke2(Object obj) {
         Intrinsics.reifiedOperationMarker(3, "R");
         return obj instanceof Object;
     }

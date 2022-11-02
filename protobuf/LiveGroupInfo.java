@@ -112,20 +112,20 @@ public final class LiveGroupInfo extends Message {
     public final String streamId;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<LiveGroupInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Long authorId;
         public String authorName;
         public Photo avatar;
         public String background;
-        public List backgrounds;
+        public List<Photo> backgrounds;
         public Integer createTime;
         public Integer deviceId;
         public Integer flag;
@@ -462,7 +462,7 @@ public final class LiveGroupInfo extends Message {
             } else {
                 this.signature = str12;
             }
-            List list = builder.backgrounds;
+            List<Photo> list = builder.backgrounds;
             if (list == null) {
                 this.backgrounds = DEFAULT_BACKGROUNDS;
             } else {

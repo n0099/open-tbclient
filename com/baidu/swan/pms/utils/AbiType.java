@@ -1,8 +1,11 @@
 package com.baidu.swan.pms.utils;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
@@ -33,9 +36,9 @@ public final class AbiType {
     public static final AbiType X86;
     public static final AbiType X86_64;
     public static AbiType sCurrent;
-    public static Map sIndex;
+    public static Map<String, AbiType> sIndex;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List compatible;
+    public final List<AbiType> compatible;
     public final String id;
 
     static {
@@ -89,6 +92,7 @@ public final class AbiType {
         this.compatible.addAll(Arrays.asList(abiTypeArr));
     }
 
+    @NonNull
     public static AbiType currentAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,7 +114,7 @@ public final class AbiType {
         return (AbiType[]) invokeV.objValue;
     }
 
-    public List getCompatible() {
+    public List<AbiType> getCompatible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -155,7 +159,7 @@ public final class AbiType {
         return invokeL.booleanValue;
     }
 
-    public static AbiType findById(String str, AbiType abiType) {
+    public static AbiType findById(String str, @Nullable AbiType abiType) {
         InterceptResult invokeLL;
         AbiType[] values;
         Interceptable interceptable = $ic;
@@ -167,7 +171,7 @@ public final class AbiType {
                     }
                 }
             }
-            AbiType abiType3 = (AbiType) sIndex.get(str);
+            AbiType abiType3 = sIndex.get(str);
             if (abiType3 != null) {
                 return abiType3;
             }
@@ -176,6 +180,7 @@ public final class AbiType {
         return (AbiType) invokeLL.objValue;
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
     public static String getRuntimeAbiTypeStr() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,6 +223,7 @@ public final class AbiType {
     }
 
     @Override // java.lang.Enum
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

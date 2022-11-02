@@ -16,20 +16,20 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCountSingle extends Single implements FuseToFlowable {
+public final class FlowableCountSingle<T> extends Single<Long> implements FuseToFlowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Flowable source;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class CountSubscriber implements FlowableSubscriber, Disposable {
+    public static final class CountSubscriber implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super Long> actual;
         public long count;
         public Subscription s;
 
-        public CountSubscriber(SingleObserver singleObserver) {
+        public CountSubscriber(SingleObserver<? super Long> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public final class FlowableCountSingle extends Single implements FuseToFlowable 
         }
     }
 
-    public FlowableCountSingle(Flowable flowable) {
+    public FlowableCountSingle(Flowable<T> flowable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,7 +125,7 @@ public final class FlowableCountSingle extends Single implements FuseToFlowable 
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Long> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe((FlowableSubscriber) new CountSubscriber(singleObserver));
@@ -133,7 +133,7 @@ public final class FlowableCountSingle extends Single implements FuseToFlowable 
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<Long> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

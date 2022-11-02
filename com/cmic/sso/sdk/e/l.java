@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.e;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -11,6 +12,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @SuppressLint({"PackageManagerGetSignatures"})
     public static byte[] a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

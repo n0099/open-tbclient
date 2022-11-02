@@ -1,6 +1,7 @@
 package com.baidu.ar.plugin;
 
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -45,7 +46,7 @@ public abstract class PackageParser {
 
     public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i);
 
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet hashSet);
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet);
 
     public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i);
 
@@ -75,7 +76,7 @@ public abstract class PackageParser {
 
     public abstract void parsePackage(File file, int i);
 
-    public abstract List readIntentFilterFromComponent(Object obj);
+    public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj);
 
     public abstract String readNameFromComponent(Object obj);
 

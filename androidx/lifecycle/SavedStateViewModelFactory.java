@@ -1,7 +1,10 @@
 package androidx.lifecycle;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.savedstate.SavedStateRegistry;
 import androidx.savedstate.SavedStateRegistryOwner;
@@ -46,7 +49,7 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SavedStateViewModelFactory(Application application, SavedStateRegistryOwner savedStateRegistryOwner) {
+    public SavedStateViewModelFactory(@NonNull Application application, @NonNull SavedStateRegistryOwner savedStateRegistryOwner) {
         this(application, savedStateRegistryOwner, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +69,8 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
         }
     }
 
-    public SavedStateViewModelFactory(Application application, SavedStateRegistryOwner savedStateRegistryOwner, Bundle bundle) {
+    @SuppressLint({"LambdaLast"})
+    public SavedStateViewModelFactory(@NonNull Application application, @NonNull SavedStateRegistryOwner savedStateRegistryOwner, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +108,8 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory, androidx.lifecycle.ViewModelProvider.Factory
-    public <T extends ViewModel> T create(Class<T> cls) {
+    @NonNull
+    public <T extends ViewModel> T create(@NonNull Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -118,7 +123,7 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.OnRequeryFactory
-    public void onRequery(ViewModel viewModel) {
+    public void onRequery(@NonNull ViewModel viewModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewModel) == null) {
             SavedStateHandleController.attachHandleIfNeeded(viewModel, this.mSavedStateRegistry, this.mLifecycle);
@@ -126,7 +131,8 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.KeyedFactory
-    public <T extends ViewModel> T create(String str, Class<T> cls) {
+    @NonNull
+    public <T extends ViewModel> T create(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Constructor findMatchingConstructor;
         T t;

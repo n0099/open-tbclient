@@ -1,5 +1,8 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,17 +29,17 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
+public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic;
     public static final EngineResourceFactory DEFAULT_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
     public final GlideExecutor animationExecutor;
     public final ResourceCallbacksAndExecutors cbs;
     public DataSource dataSource;
-    public DecodeJob decodeJob;
+    public DecodeJob<R> decodeJob;
     public final GlideExecutor diskCacheExecutor;
     public final EngineJobListener engineJobListener;
-    public EngineResource engineResource;
+    public EngineResource<?> engineResource;
     public final EngineResourceFactory engineResourceFactory;
     public GlideException exception;
     public boolean hasLoadFailed;
@@ -47,8 +50,8 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
     public Key key;
     public boolean onlyRetrieveFromCache;
     public final AtomicInteger pendingCallbacks;
-    public final Pools.Pool pool;
-    public Resource resource;
+    public final Pools.Pool<EngineJob<?>> pool;
+    public Resource<?> resource;
     public final EngineResource.ResourceListener resourceListener;
     public final GlideExecutor sourceExecutor;
     public final GlideExecutor sourceUnlimitedExecutor;
@@ -142,8 +145,9 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class EngineResourceFactory {
+    public static class EngineResourceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,18 +165,18 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
             }
         }
 
-        public EngineResource build(Resource resource, boolean z, Key key, EngineResource.ResourceListener resourceListener) {
+        public <R> EngineResource<R> build(Resource<R> resource, boolean z, Key key, EngineResource.ResourceListener resourceListener) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{resource, Boolean.valueOf(z), key, resourceListener})) == null) {
-                return new EngineResource(resource, z, true, key, resourceListener);
+                return new EngineResource<>(resource, z, true, key, resourceListener);
             }
             return (EngineResource) invokeCommon.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public final class ResourceCallbackAndExecutor {
+    public static final class ResourceCallbackAndExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ResourceCallback cb;
@@ -220,10 +224,10 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
     }
 
     /* loaded from: classes7.dex */
-    public final class ResourceCallbacksAndExecutors implements Iterable {
+    public static final class ResourceCallbacksAndExecutors implements Iterable<ResourceCallbackAndExecutor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List callbacksAndExecutors;
+        public final List<ResourceCallbackAndExecutor> callbacksAndExecutors;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public ResourceCallbacksAndExecutors() {
@@ -269,7 +273,8 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
 
         @Override // java.lang.Iterable
-        public Iterator iterator() {
+        @NonNull
+        public Iterator<ResourceCallbackAndExecutor> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -287,7 +292,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
             return invokeV.intValue;
         }
 
-        public ResourceCallbacksAndExecutors(List list) {
+        public ResourceCallbacksAndExecutors(List<ResourceCallbackAndExecutor> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -392,6 +397,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
     }
 
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
+    @NonNull
     public StateVerifier getVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -424,7 +430,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool pool) {
+    public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool<EngineJob<?>> pool) {
         this(glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, resourceListener, pool, DEFAULT_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -444,7 +450,8 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
-    public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool pool, EngineResourceFactory engineResourceFactory) {
+    @VisibleForTesting
+    public EngineJob(GlideExecutor glideExecutor, GlideExecutor glideExecutor2, GlideExecutor glideExecutor3, GlideExecutor glideExecutor4, EngineJobListener engineJobListener, EngineResource.ResourceListener resourceListener, Pools.Pool<EngineJob<?>> pool, EngineResourceFactory engineResourceFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -499,7 +506,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
 
     public void decrementPendingCallbacks() {
         boolean z;
-        EngineResource engineResource;
+        EngineResource<?> engineResource;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
@@ -548,6 +555,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
+    @GuardedBy("this")
     public void callCallbackOnLoadFailed(ResourceCallback resourceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resourceCallback) == null) {
@@ -559,6 +567,7 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
+    @GuardedBy("this")
     public void callCallbackOnResourceReady(ResourceCallback resourceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resourceCallback) == null) {
@@ -594,14 +603,14 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
     }
 
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
-    public void reschedule(DecodeJob decodeJob) {
+    public void reschedule(DecodeJob<?> decodeJob) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, decodeJob) == null) {
             getActiveSourceExecutor().execute(decodeJob);
         }
     }
 
-    public synchronized void start(DecodeJob decodeJob) {
+    public synchronized void start(DecodeJob<R> decodeJob) {
         GlideExecutor activeSourceExecutor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, decodeJob) == null) {
@@ -617,7 +626,8 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
-    public synchronized EngineJob init(Key key, boolean z, boolean z2, boolean z3, boolean z4) {
+    @VisibleForTesting
+    public synchronized EngineJob<R> init(Key key, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{key, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
@@ -647,10 +657,10 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
                         ResourceCallbacksAndExecutors copy = this.cbs.copy();
                         incrementPendingCallbacks(copy.size() + 1);
                         this.engineJobListener.onEngineJobComplete(this, key, null);
-                        Iterator it = copy.iterator();
+                        Iterator<ResourceCallbackAndExecutor> it = copy.iterator();
                         while (it.hasNext()) {
-                            ResourceCallbackAndExecutor resourceCallbackAndExecutor = (ResourceCallbackAndExecutor) it.next();
-                            resourceCallbackAndExecutor.executor.execute(new CallLoadFailed(this, resourceCallbackAndExecutor.cb));
+                            ResourceCallbackAndExecutor next = it.next();
+                            next.executor.execute(new CallLoadFailed(this, next.cb));
                         }
                         decrementPendingCallbacks();
                         return;
@@ -678,10 +688,10 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
                         ResourceCallbacksAndExecutors copy = this.cbs.copy();
                         incrementPendingCallbacks(copy.size() + 1);
                         this.engineJobListener.onEngineJobComplete(this, this.key, this.engineResource);
-                        Iterator it = copy.iterator();
+                        Iterator<ResourceCallbackAndExecutor> it = copy.iterator();
                         while (it.hasNext()) {
-                            ResourceCallbackAndExecutor resourceCallbackAndExecutor = (ResourceCallbackAndExecutor) it.next();
-                            resourceCallbackAndExecutor.executor.execute(new CallResourceReady(this, resourceCallbackAndExecutor.cb));
+                            ResourceCallbackAndExecutor next = it.next();
+                            next.executor.execute(new CallResourceReady(this, next.cb));
                         }
                         decrementPendingCallbacks();
                         return;
@@ -694,8 +704,10 @@ public class EngineJob implements DecodeJob.Callback, FactoryPools.Poolable {
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.bumptech.glide.load.engine.Resource<R> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bumptech.glide.load.engine.DecodeJob.Callback
-    public void onResourceReady(Resource resource, DataSource dataSource, boolean z) {
+    public void onResourceReady(Resource<R> resource, DataSource dataSource, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048588, this, resource, dataSource, z) == null) {
             synchronized (this) {

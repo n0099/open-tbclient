@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,13 +15,13 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 /* loaded from: classes7.dex */
-public class BitmapResource implements Resource, Initializable {
+public class BitmapResource implements Resource<Bitmap>, Initializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap bitmap;
     public final BitmapPool bitmapPool;
 
-    public BitmapResource(Bitmap bitmap, BitmapPool bitmapPool) {
+    public BitmapResource(@NonNull Bitmap bitmap, @NonNull BitmapPool bitmapPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +40,8 @@ public class BitmapResource implements Resource, Initializable {
         this.bitmapPool = (BitmapPool) Preconditions.checkNotNull(bitmapPool, "BitmapPool must not be null");
     }
 
-    public static BitmapResource obtain(Bitmap bitmap, BitmapPool bitmapPool) {
+    @Nullable
+    public static BitmapResource obtain(@Nullable Bitmap bitmap, @NonNull BitmapPool bitmapPool) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmapPool)) == null) {
@@ -51,7 +54,9 @@ public class BitmapResource implements Resource, Initializable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.engine.Resource
+    @NonNull
     public Bitmap get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +67,8 @@ public class BitmapResource implements Resource, Initializable {
     }
 
     @Override // com.bumptech.glide.load.engine.Resource
-    public Class getResourceClass() {
+    @NonNull
+    public Class<Bitmap> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class b {
-    public final ArrayList a;
-    public final LinkedList b;
+    public final ArrayList<com.meizu.cloud.pushsdk.c.a.a> a;
+    public final LinkedList<Long> b;
 
-    public b(ArrayList arrayList, LinkedList linkedList) {
+    public b(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList, LinkedList<Long> linkedList) {
         this.a = arrayList;
         this.b = linkedList;
     }
 
-    public ArrayList a() {
+    public ArrayList<com.meizu.cloud.pushsdk.c.a.a> a() {
         return this.a;
     }
 
-    public LinkedList b() {
+    public LinkedList<Long> b() {
         return this.b;
     }
 }

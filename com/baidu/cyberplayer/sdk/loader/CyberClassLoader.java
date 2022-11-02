@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.loader;
 import android.os.Build;
 import android.util.AndroidRuntimeException;
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +21,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+@Keep
 /* loaded from: classes2.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +30,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +43,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* loaded from: classes2.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +53,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
                 List list = (List) CyberClassLoader.b(obj, "nativeLibraryDirectories").get(obj);
                 list.add(0, file);
-                Method b = CyberClassLoader.b(obj, "makePathElements", List.class, File.class, List.class);
+                Method b = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class, File.class, List.class});
                 ArrayList arrayList = new ArrayList();
                 list.addAll((List) CyberClassLoader.b(obj, "systemNativeLibraryDirectories").get(obj));
                 Object[] objArr = {list, null, arrayList};
@@ -63,7 +65,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* loaded from: classes2.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,7 +75,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
                 Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
                 List list = (List) CyberClassLoader.b(obj, "nativeLibraryDirectories").get(obj);
                 list.add(0, file);
-                Method b = CyberClassLoader.b(obj, "makePathElements", List.class);
+                Method b = CyberClassLoader.b(obj, "makePathElements", (Class<?>[]) new Class[]{List.class});
                 list.addAll((List) CyberClassLoader.b(obj, "systemNativeLibraryDirectories").get(obj));
                 Object[] objArr = {list};
                 Field b2 = CyberClassLoader.b(obj, "nativeLibraryPathElements");
@@ -84,7 +86,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     /* loaded from: classes2.dex */
-    public final class d {
+    public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -310,7 +312,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         return (Field) invokeLL.objValue;
     }
 
-    public static Method b(Object obj, String str, Class... clsArr) throws NoSuchMethodException {
+    public static Method b(Object obj, String str, Class<?>... clsArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, obj, str, clsArr)) == null) {
@@ -342,7 +344,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public Class loadClass(String str) throws ClassNotFoundException {
+    public Class<?> loadClass(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {

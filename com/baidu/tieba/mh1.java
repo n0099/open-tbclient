@@ -1,289 +1,204 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import org.json.JSONArray;
+import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mh1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile mh1 b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 120;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public mh1(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947972563, "Lcom/baidu/tieba/mh1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947972563, "Lcom/baidu/tieba/mh1;");
+        }
+    }
+
+    public mh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.a = context;
-    }
-
-    public static mh1 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
-                synchronized (mh1.class) {
-                    if (b == null) {
-                        b = new mh1(context);
-                    }
-                }
-            }
-            return b;
-        }
-        return (mh1) invokeL.objValue;
-    }
-
-    public String b(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String d = new gi1(this.a, null).d(jSONObject, j);
-                        if (!TextUtils.isEmpty(d)) {
-                            return d;
-                        }
-                    }
-                } catch (Throwable th) {
-                    wi1.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public String e(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String i = new gi1(this.a, null).i(jSONObject, j);
-                        if (!TextUtils.isEmpty(i)) {
-                            return i;
-                        }
-                    }
-                } catch (Throwable th) {
-                    wi1.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("1");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    kh1.f(this.a).C("k_retry_code_cm", optJSONArray.toString());
-                } else {
-                    kh1.f(this.a).C("k_retry_code_cm", "");
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("2");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    kh1.f(this.a).C("k_retry_code_cu", optJSONArray2.toString());
-                } else {
-                    kh1.f(this.a).C("k_retry_code_cu", "");
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("3");
-                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                    kh1.f(this.a).C("k_retry_code_ct", optJSONArray3.toString());
-                    return;
-                } else {
-                    kh1.f(this.a).C("k_retry_code_ct", "");
-                    return;
-                }
-            }
-            kh1.f(this.a).C("k_retry_code_cm", "");
-            kh1.f(this.a).C("k_retry_code_cu", "");
-            kh1.f(this.a).C("k_retry_code_ct", "");
         }
     }
 
-    public synchronized boolean d() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final JSONObject a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        char c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                try {
-                    if (f()) {
-                        return true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            switch (str.hashCode()) {
+                case -1472943047:
+                    if (str.equals("click_float_lottie")) {
+                        c = 7;
+                        break;
                     }
-                    gi1 gi1Var = new gi1(this.a, null);
-                    String b2 = gi1Var.b();
-                    if (TextUtils.isEmpty(b2)) {
-                        for (int i = 0; i < 3; i++) {
-                            b2 = gi1Var.b();
-                            if (!TextUtils.isEmpty(b2)) {
-                                break;
-                            }
-                        }
+                    c = 65535;
+                    break;
+                case -1340273551:
+                    if (str.equals("wifi_tip")) {
+                        c = 5;
+                        break;
                     }
-                    if (TextUtils.isEmpty(b2)) {
-                        return false;
+                    c = 65535;
+                    break;
+                case -1152479161:
+                    if (str.equals("ad_logo")) {
+                        c = 0;
+                        break;
                     }
-                    JSONObject jSONObject = new JSONObject(b2);
-                    int optInt = jSONObject.optInt("0", -1);
-                    if (optInt == 2) {
-                        kh1.f(this.a).S(false);
+                    c = 65535;
+                    break;
+                case -264975480:
+                    if (str.equals("bd_logo")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3327403:
+                    if (str.equals("logo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3532159:
+                    if (str.equals(FreeSpaceBox.TYPE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 31392744:
+                    if (str.equals("download_desc")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 102727412:
+                    if (str.equals("label")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
+                        break;
                     } else {
-                        kh1.f(this.a).S(true);
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
                     }
-                    if (optInt == 1 || optInt == 3) {
-                        return true;
+                case 1:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + a + "\"}";
+                        break;
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("1");
-                    if (optJSONObject == null) {
-                        return false;
+                case 2:
+                    str2 = "{\"l_gravity\": 9,\"margin\": \"0_20_15_0\"}";
+                    break;
+                case 3:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"15_20_0_0\"}";
+                    break;
+                case 4:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 15) + "\"}";
+                        break;
                     }
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
-                    if (optJSONObject2 != null) {
-                        String optString = optJSONObject2.optString("app_id");
-                        String optString2 = optJSONObject2.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            th1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
-                        }
-                        int optInt2 = optJSONObject2.optInt("status", -1);
-                        if (optInt2 == 1) {
-                            kh1.f(this.a).l(true);
-                        } else if (optInt2 == 2) {
-                            kh1.f(this.a).l(false);
-                        }
-                        kh1.f(this.a).Y(optJSONObject2.toString());
+                case 5:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"14_14_0_0\"}";
+                    break;
+                case 6:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
                     }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
-                    if (optJSONObject3 != null) {
-                        String optString3 = optJSONObject3.optString("app_id");
-                        String optString4 = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                        if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                            th1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
-                        }
-                        int optInt3 = optJSONObject3.optInt("status", -1);
-                        if (optInt3 == 1) {
-                            kh1.f(this.a).w(true);
-                        } else if (optInt3 == 2) {
-                            kh1.f(this.a).w(false);
-                        }
-                        kh1.f(this.a).s(optJSONObject3.toString());
+                case 7:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";
+                        break;
+                    } else {
+                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 39) + "\"}";
+                        break;
                     }
-                    JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
-                    if (optJSONObject4 != null) {
-                        String optString5 = optJSONObject4.optString("app_id");
-                        String optString6 = optJSONObject4.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                        if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            th1.k("cu", optString5, optString6);
-                        }
-                        int optInt4 = optJSONObject4.optInt("status", -1);
-                        if (optInt4 == 1) {
-                            kh1.f(this.a).D(true);
-                        } else if (optInt4 == 2) {
-                            kh1.f(this.a).D(false);
-                        }
-                        kh1.f(this.a).M(optJSONObject4.toString());
-                    }
-                    JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
-                    if (optJSONObject5 != null) {
-                        String optString7 = optJSONObject5.optString(GameGuideConfigInfo.KEY_APP_KEY, "");
-                        String optString8 = optJSONObject5.optString("secret_key", "");
-                        if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                            jh1.b = optString7;
-                            jh1.c = optString8;
-                            kh1.f(this.a).H(optString7, optString8);
-                        }
-                    }
-                    kh1.f(this.a).Q(optJSONObject.optString("encrypt_key", ""));
-                    JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
-                    if (optJSONObject6 != null) {
-                        kh1.f(this.a).I("1".equals(optJSONObject6.optString("1", "1")));
-                        kh1.f(this.a).y(optJSONObject6.optInt("2"));
-                        kh1.f(this.a).N("1".equals(optJSONObject6.optString("3", "0")));
-                        c(optJSONObject6.optJSONObject("4"));
-                    }
-                    kh1.f(this.a).j(jSONObject.optLong("3", 300L) * 1000);
-                    kh1.f(this.a).P(System.currentTimeMillis());
-                    return true;
-                } catch (Throwable th) {
-                    wi1.d(th);
-                    return false;
-                }
+                default:
+                    str2 = "";
+                    break;
+            }
+            try {
+                return new JSONObject(str2);
+            } catch (Throwable unused) {
+                return null;
             }
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeLZ.objValue;
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    public JSONObject b(JSONObject jSONObject, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                if (System.currentTimeMillis() - kh1.f(this.a).i0() > kh1.f(this.a).E()) {
-                    return false;
-                }
-                String o0 = kh1.f(this.a).o0();
-                String O = kh1.f(this.a).O();
-                String f0 = kh1.f(this.a).f0();
-                if (TextUtils.isEmpty(o0) && TextUtils.isEmpty(O) && TextUtils.isEmpty(f0)) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(o0)) {
-                    JSONObject jSONObject = new JSONObject(o0);
-                    String string = jSONObject.getString("app_id");
-                    String string2 = jSONObject.getString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        th1.k(FunAdSdk.PLATFORM_CM, string, string2);
-                    }
-                }
-                if (!TextUtils.isEmpty(O)) {
-                    JSONObject jSONObject2 = new JSONObject(O);
-                    String string3 = jSONObject2.getString("app_id");
-                    String string4 = jSONObject2.getString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
-                        th1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
-                    }
-                }
-                if (!TextUtils.isEmpty(f0)) {
-                    JSONObject jSONObject3 = new JSONObject(f0);
-                    String optString = jSONObject3.optString("app_id");
-                    String optString2 = jSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        th1.k("cu", optString, optString2);
-                        return true;
-                    }
-                    return true;
-                }
-                return true;
-            } catch (Throwable th) {
-                wi1.d(th);
-                return false;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, z)) == null) {
+            JSONObject jSONObject2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            if (jSONObject != null) {
+                if (z) {
+                    str2 = str + "_f";
+                } else {
+                    str2 = str;
+                }
+                jSONObject2 = jSONObject.optJSONObject(str2);
+            }
+            if (jSONObject2 != null && !jSONObject2.isNull("l_gravity")) {
+                return jSONObject2;
+            }
+            return a(str, z);
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeLLZ.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes3.dex */
 public class GamePlayServiceData {
     public static /* synthetic */ Interceptable $ic;

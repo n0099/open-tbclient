@@ -7,6 +7,7 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,6 +46,7 @@ public abstract class RenderScriptBlurFilter {
         return invokeV.booleanValue;
     }
 
+    @RequiresApi(17)
     public static void blurBitmap(Bitmap bitmap, Bitmap bitmap2, Context context, int i) {
         boolean z;
         Interceptable interceptable = $ic;

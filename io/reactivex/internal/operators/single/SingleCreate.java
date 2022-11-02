@@ -18,19 +18,19 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleCreate extends Single {
+public final class SingleCreate<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleOnSubscribe source;
+    public final SingleOnSubscribe<T> source;
 
     /* loaded from: classes8.dex */
-    public final class Emitter extends AtomicReference implements SingleEmitter, Disposable {
+    public static final class Emitter<T> extends AtomicReference<Disposable> implements SingleEmitter<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2467358622224974244L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super T> actual;
 
-        public Emitter(SingleObserver singleObserver) {
+        public Emitter(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,31 +85,31 @@ public final class SingleCreate extends Single {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleEmitter
-        public void onSuccess(Object obj) {
-            Disposable disposable;
+        public void onSuccess(T t) {
+            Disposable andSet;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                Object obj2 = get();
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj2 != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
-                        if (obj == null) {
+                        if (t == null) {
                             this.actual.onError(new NullPointerException("onSuccess called with null. Null values are generally not allowed in 2.x operators and sources."));
                         } else {
-                            this.actual.onSuccess(obj);
+                            this.actual.onSuccess(t);
                         }
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     } catch (Throwable th) {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                         throw th;
                     }
@@ -120,20 +120,20 @@ public final class SingleCreate extends Single {
         @Override // io.reactivex.SingleEmitter
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, th)) == null) {
                 if (th == null) {
                     th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
                 }
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
                         this.actual.onError(th);
                     } finally {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     }
                 }
@@ -143,7 +143,7 @@ public final class SingleCreate extends Single {
         }
     }
 
-    public SingleCreate(SingleOnSubscribe singleOnSubscribe) {
+    public SingleCreate(SingleOnSubscribe<T> singleOnSubscribe) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public final class SingleCreate extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             Emitter emitter = new Emitter(singleObserver);

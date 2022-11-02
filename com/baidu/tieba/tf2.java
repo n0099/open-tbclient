@@ -2,26 +2,31 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.nf2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class tf2 {
+public class tf2<T extends nf2> extends pe2<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class a implements Comparator {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -33,100 +38,227 @@ public class tf2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 0;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
+        public static a d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                return Long.compare(file.lastModified(), file2.lastModified());
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return a(0, "");
             }
-            return invokeLL.intValue;
+            return (a) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static a a(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+                a aVar = new a();
+                aVar.a = i;
+                aVar.b = str;
+                return aVar;
+            }
+            return (a) invokeIL.objValue;
+        }
+
+        public static a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return a(1, str);
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public static void a() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            String y = wf2.y(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(y)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179209, "Lcom/baidu/tieba/tf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179209, "Lcom/baidu/tieba/tf2;");
                 return;
             }
-            File file = new File(y);
-            if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null) {
+        }
+        b = ok1.a;
+    }
+
+    @Override // com.baidu.tieba.pe2
+    public File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new File(super.a(), "remote");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            k("0");
+            j(0L);
+        }
+    }
+
+    @NonNull
+    public ExtensionCore f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            long g = g();
+            extensionCore.extensionCoreVersionCode = g;
+            extensionCore.extensionCoreVersionName = h();
+            extensionCore.extensionCorePath = b(g).getPath();
+            extensionCore.extensionCoreType = 1;
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return sc3.a().getLong(this.a.b(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return sc3.a().getString(this.a.e(), "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tf2(@NonNull T t) {
+        super(t);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((nf2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
-                    File file3 = new File(str);
-                    if (file3.exists() && file3.isDirectory()) {
-                        String str2 = y + File.separator + "swangame/anonymous/sandbox";
-                        if (!file3.renameTo(new File(str2))) {
-                            wf2.e(str, str2);
-                            wf2.j(str);
-                        }
-                    }
-                }
-            }
         }
     }
 
-    public static void b() {
-        File[] d;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (d = um2.m().d()) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        for (File file : d) {
-            String name = file.getName();
-            if (name.startsWith("aigame_storage_") && !name.endsWith("_anonymous.xml")) {
-                arrayList.add(file);
-            }
-        }
-        Collections.sort(arrayList, new a());
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            File file2 = (File) it.next();
-            String absolutePath = file2.getAbsolutePath();
-            int lastIndexOf = absolutePath.lastIndexOf("_");
-            String str = absolutePath.substring(0, lastIndexOf) + "_anonymous.xml";
-            if (!absolutePath.equals(str)) {
-                File file3 = new File(str);
-                if (file3.exists()) {
-                    qj4.L(file3);
-                }
-                if (!file2.renameTo(file3)) {
-                    qj4.f(file2, file3);
-                    qj4.L(file2);
-                }
-            }
+        ik4.k(str);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            sc3.a().putLong(this.a.b(), j);
         }
     }
 
-    public static void c() {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !ac3.a().getBoolean("swan_game_data_migration", true)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            sc3.a().putString(this.a.e(), str);
         }
-        ac3.a().putBoolean("swan_game_data_migration", false);
-        if (pm2.a) {
-            Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
+    }
+
+    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/kf2;>(TT;)Ljava/lang/Exception; */
+    public Exception e(@NonNull kf2 kf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, kf2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote");
+            }
+            if (TextUtils.isEmpty(kf2Var.c)) {
+                if (b) {
+                    Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
+                }
+                return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
+            }
+            a i = i(kf2Var);
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i);
+            }
+            d(kf2Var.c);
+            if (i.c()) {
+                return null;
+            }
+            return new Exception("ExtCore-RemoteControl doUpdate: failed by " + i.toString());
         }
-        a();
-        if (pm2.a) {
-            Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
+        return (Exception) invokeL.objValue;
+    }
+
+    public final a i(@NonNull kf2 kf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, kf2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + kf2Var.a + " ,filePath: " + kf2Var.c + " ,sign:" + kf2Var.d);
+            }
+            long j = kf2Var.b;
+            if (j == 0) {
+                return a.b("invalid version code : " + kf2Var.a);
+            } else if (!rh3.a(new File(kf2Var.c), kf2Var.d)) {
+                return a.b("sign failed.");
+            } else {
+                if (!ik4.U(kf2Var.c, b(j).getPath())) {
+                    return a.b("unzip bundle failed.");
+                }
+                vf2.b(a(), g(), j);
+                j(j);
+                k(kf2Var.a);
+                if (b) {
+                    Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
+                }
+                return a.d();
+            }
         }
-        b();
-        if (pm2.a) {
-            Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
-        }
+        return (a) invokeL.objValue;
     }
 }

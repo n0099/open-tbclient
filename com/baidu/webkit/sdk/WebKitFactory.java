@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
@@ -45,7 +46,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -72,7 +73,7 @@ public final class WebKitFactory {
     public static DelayedInitTask mDelayedInitTask = null;
     public static int mInitWebkitType = 0;
     public static JsUploadTask mJavaScriptInterface = null;
-    public static ArrayList mListenerLst = null;
+    public static ArrayList<IForceInitZeusListener> mListenerLst = null;
     public static FileLock mLock = null;
     public static String sAppId = null;
     public static String sAppVersion = null;
@@ -97,7 +98,7 @@ public final class WebKitFactory {
     public static String sSearchId = null;
     public static int sStartUpFreq = -1;
     public static String sStatisticsSessionId = null;
-    public static HashMap sUploadParams = null;
+    public static HashMap<String, String> sUploadParams = null;
     public static volatile boolean sUserPrivacyConfirm = true;
     public static WebKitClient sWebKitClient = null;
     public static String sZID = null;
@@ -105,8 +106,8 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class DelayedInitTask extends Thread {
+    /* loaded from: classes7.dex */
+    public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean mResult;
@@ -298,16 +299,18 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface IForceInitZeusListener {
+        @Keep
         void onForceInitZeusFinish(boolean z);
 
+        @Keep
         void onForceInitZeusStart();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class SwitchState {
+    /* loaded from: classes7.dex */
+    public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchState Invalid;
@@ -367,7 +370,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -470,7 +473,7 @@ public final class WebKitFactory {
         if (interceptable == null || interceptable.invokeL(65543, null, iForceInitZeusListener) == null) {
             synchronized (sForceInitLock) {
                 if (mListenerLst == null) {
-                    mListenerLst = new ArrayList();
+                    mListenerLst = new ArrayList<>();
                 }
                 mListenerLst.add(iForceInitZeusListener);
             }
@@ -481,7 +484,7 @@ public final class WebKitFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
             if (sUploadParams == null) {
-                sUploadParams = new HashMap();
+                sUploadParams = new HashMap<>();
             }
             if (sUploadParams.containsKey(str)) {
                 sUploadParams.remove(str);
@@ -884,7 +887,7 @@ public final class WebKitFactory {
         return invokeV.intValue;
     }
 
-    public static HashMap getStatisticParams() {
+    public static HashMap<String, String> getStatisticParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) ? sUploadParams : (HashMap) invokeV.objValue;
@@ -1252,7 +1255,7 @@ public final class WebKitFactory {
         JsUploadTask.setCpuType(str);
     }
 
-    public static void setCrashCallback(Context context, Class cls) {
+    public static void setCrashCallback(Context context, Class<? extends Object> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65612, null, context, cls) == null) {
             Log.v("BR", "--WebKitFactory.java--setCrashCallback----".concat(String.valueOf(cls)));

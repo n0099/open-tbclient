@@ -1,5 +1,6 @@
 package com.tencent.open;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -49,9 +50,9 @@ public class TDialog extends b {
     public static /* synthetic */ Interceptable $ic;
     public static final FrameLayout.LayoutParams c;
     public static Toast d;
-    public static WeakReference f;
+    public static WeakReference<ProgressDialog> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference e;
+    public WeakReference<Context> e;
     public String g;
     public OnTimeListener h;
     public IUiListener i;
@@ -263,12 +264,12 @@ public class TDialog extends b {
     }
 
     /* loaded from: classes8.dex */
-    public class OnTimeListener extends DefaultUiListener {
+    public static class OnTimeListener extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public WeakReference c;
+        public WeakReference<Context> c;
         public String d;
         public IUiListener e;
 
@@ -287,7 +288,7 @@ public class TDialog extends b {
                     return;
                 }
             }
-            this.c = new WeakReference(context);
+            this.c = new WeakReference<>(context);
             this.d = str;
             this.a = str2;
             this.b = str3;
@@ -457,7 +458,7 @@ public class TDialog extends b {
         }
         this.m = false;
         this.n = null;
-        this.e = new WeakReference(context);
+        this.e = new WeakReference<>(context);
         this.g = str2;
         this.h = new OnTimeListener(context, str, str2, qQToken.getAppId(), iUiListener);
         this.l = new THandler(this, this.h, context.getMainLooper());
@@ -514,12 +515,12 @@ public class TDialog extends b {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            new TextView((Context) this.e.get()).setText("test");
+            new TextView(this.e.get()).setText("test");
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            com.tencent.open.b.b bVar = new com.tencent.open.b.b((Context) this.e.get());
+            com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.e.get());
             this.k = bVar;
             bVar.setLayoutParams(layoutParams);
-            FrameLayout frameLayout = new FrameLayout((Context) this.e.get());
+            FrameLayout frameLayout = new FrameLayout(this.e.get());
             this.j = frameLayout;
             layoutParams.gravity = 17;
             frameLayout.setLayoutParams(layoutParams);
@@ -528,6 +529,7 @@ public class TDialog extends b {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -548,10 +550,10 @@ public class TDialog extends b {
             settings.setSupportZoom(true);
             settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
             settings.setJavaScriptEnabled(true);
-            WeakReference weakReference = this.e;
+            WeakReference<Context> weakReference = this.e;
             if (weakReference != null && weakReference.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(((Context) this.e.get()).getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+                settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new JsListener(), "sdk_js_if");
@@ -603,21 +605,21 @@ public class TDialog extends b {
                 String string = d2.getString("msg");
                 if (i == 1) {
                     if (f != null && f.get() != null) {
-                        ((ProgressDialog) f.get()).setMessage(string);
-                        if (!((ProgressDialog) f.get()).isShowing()) {
-                            ((ProgressDialog) f.get()).show();
+                        f.get().setMessage(string);
+                        if (!f.get().isShowing()) {
+                            f.get().show();
                         }
                     }
                     ProgressDialog progressDialog = new ProgressDialog(context);
                     progressDialog.setMessage(string);
-                    f = new WeakReference(progressDialog);
+                    f = new WeakReference<>(progressDialog);
                     progressDialog.show();
                 } else if (i == 0) {
                     if (f == null) {
                         return;
                     }
-                    if (f.get() != null && ((ProgressDialog) f.get()).isShowing()) {
-                        ((ProgressDialog) f.get()).dismiss();
+                    if (f.get() != null && f.get().isShowing()) {
+                        f.get().dismiss();
                         f = null;
                     }
                 }

@@ -127,7 +127,7 @@ public final class DataMatrixWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
         InterceptResult invokeCommon;
         Dimension dimension;
         Interceptable interceptable = $ic;

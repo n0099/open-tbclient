@@ -26,7 +26,7 @@ public final class SchemeTimeCostMoniter {
     public TimeCostMonitor mTimeCostMoniter;
 
     /* loaded from: classes2.dex */
-    public class SchemeTimeCostMoniterHolder {
+    public static class SchemeTimeCostMoniterHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SchemeTimeCostMoniter sInstance;
         public transient /* synthetic */ FieldHolder $fh;

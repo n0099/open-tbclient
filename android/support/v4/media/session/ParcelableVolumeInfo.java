@@ -1,5 +1,6 @@
 package android.support.v4.media.session;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,10 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public class ParcelableVolumeInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ParcelableVolumeInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int audioStream;
     public int controlType;
@@ -44,7 +46,7 @@ public class ParcelableVolumeInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.session.ParcelableVolumeInfo.1
+        CREATOR = new Parcelable.Creator<ParcelableVolumeInfo>() { // from class: android.support.v4.media.session.ParcelableVolumeInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +65,7 @@ public class ParcelableVolumeInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ParcelableVolumeInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +77,7 @@ public class ParcelableVolumeInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ParcelableVolumeInfo[] newArray(int i) {
                 InterceptResult invokeI;

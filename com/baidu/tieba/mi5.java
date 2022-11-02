@@ -1,126 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class mi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ii5 a;
-        public oh5 b;
-
-        public a(ii5 ii5Var, oh5 oh5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ii5Var, oh5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
-            this.a = ii5Var;
-            this.b = oh5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Object doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    if (this.a == null) {
-                        return null;
-                    }
-                    return this.a.doInBackground();
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    return null;
-                }
-            }
-            return invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Object obj) {
-            oh5 oh5Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (oh5Var = this.b) != null) {
-                oh5Var.onReturnDataInUI(obj);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973648, "Lcom/baidu/tieba/mi5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947973648, "Lcom/baidu/tieba/mi5;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
-    }
-
-    public static void a() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BdAsyncTask.removeAllTask(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf > 0 && indexOf < 20) {
+                return true;
+            }
+            int indexOf2 = str.indexOf("tiebapic");
+            if (indexOf2 <= 0 || indexOf2 >= 20) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b(ii5 ii5Var, oh5 oh5Var) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, ii5Var, oh5Var) == null) && ii5Var != null) {
-            a aVar = new a(ii5Var, oh5Var);
-            aVar.setParallel(b);
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c();
         }
+        return invokeV.booleanValue;
     }
 
-    public static void c(ii5 ii5Var, oh5 oh5Var) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, ii5Var, oh5Var) == null) && ii5Var != null) {
-            a aVar = new a(ii5Var, oh5Var);
-            aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!FileHelper.checkSD() || !ec.c()) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.android.imrtc.send;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -17,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMAnswerRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BIMAnswerRtcInfo> CREATOR;
     public static final String TAG = "IMAnswerRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public String mAnswerDeviceInfo;
@@ -37,7 +38,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.send.BIMAnswerRtcInfo.1
+        CREATOR = new Parcelable.Creator<BIMAnswerRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMAnswerRtcInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,6 +57,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMAnswerRtcInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -67,6 +69,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMAnswerRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
@@ -186,6 +189,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -205,6 +209,7 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

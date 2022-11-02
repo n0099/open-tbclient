@@ -63,6 +63,7 @@ public final class CoroutineContextKt {
         return str + '#' + coroutineId.getId();
     }
 
+    @ExperimentalCoroutinesApi
     public static final CoroutineContext newCoroutineContext(CoroutineScope coroutineScope, CoroutineContext coroutineContext) {
         CoroutineContext coroutineContext2;
         CoroutineContext plus = coroutineScope.getCoroutineContext().plus(coroutineContext);
@@ -77,7 +78,7 @@ public final class CoroutineContextKt {
         return coroutineContext2;
     }
 
-    public static final Object withCoroutineContext(CoroutineContext coroutineContext, Object obj, Function0 function0) {
+    public static final <T> T withCoroutineContext(CoroutineContext coroutineContext, Object obj, Function0<? extends T> function0) {
         Object updateThreadContext = ThreadContextKt.updateThreadContext(coroutineContext, obj);
         try {
             return function0.invoke();

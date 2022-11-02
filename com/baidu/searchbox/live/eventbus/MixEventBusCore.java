@@ -173,19 +173,19 @@ public class MixEventBusCore implements IActionHandler {
         }
     }
 
-    public synchronized void post(ConcurrentHashMap concurrentHashMap, Object obj) {
+    public synchronized void post(ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> concurrentHashMap, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, concurrentHashMap, obj) == null) {
             synchronized (this) {
                 if (obj != null && concurrentHashMap != null) {
                     if (!concurrentHashMap.isEmpty()) {
-                        for (Map.Entry entry : concurrentHashMap.entrySet()) {
+                        for (Map.Entry<Object, CopyOnWriteArrayList<EventPoster>> entry : concurrentHashMap.entrySet()) {
                             if (entry != null && entry.getValue() != null) {
-                                Iterator it = ((CopyOnWriteArrayList) entry.getValue()).iterator();
+                                Iterator<EventPoster> it = entry.getValue().iterator();
                                 while (it.hasNext()) {
-                                    EventPoster eventPoster = (EventPoster) it.next();
-                                    if (eventPoster.isSupport(obj)) {
-                                        eventPoster.call(obj);
+                                    EventPoster next = it.next();
+                                    if (next.isSupport(obj)) {
+                                        next.call(obj);
                                     }
                                 }
                             }
@@ -196,21 +196,21 @@ public class MixEventBusCore implements IActionHandler {
         }
     }
 
-    public synchronized void unRegister(ConcurrentHashMap concurrentHashMap, Object obj) {
+    public synchronized void unRegister(ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> concurrentHashMap, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, concurrentHashMap, obj) == null) {
             synchronized (this) {
                 if (obj != null && concurrentHashMap != null) {
                     if (!concurrentHashMap.isEmpty() && concurrentHashMap.containsKey(obj)) {
-                        CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) concurrentHashMap.remove(obj);
-                        if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                            Iterator it = copyOnWriteArrayList.iterator();
+                        CopyOnWriteArrayList<EventPoster> remove = concurrentHashMap.remove(obj);
+                        if (remove != null && remove.size() > 0) {
+                            Iterator<EventPoster> it = remove.iterator();
                             while (it.hasNext()) {
-                                ((EventPoster) it.next()).clear();
+                                it.next().clear();
                             }
                         }
-                        if (copyOnWriteArrayList != null) {
-                            copyOnWriteArrayList.clear();
+                        if (remove != null) {
+                            remove.clear();
                         }
                     }
                 }
@@ -218,17 +218,17 @@ public class MixEventBusCore implements IActionHandler {
         }
     }
 
-    public synchronized void register(ConcurrentHashMap concurrentHashMap, Object obj, Class cls, int i, EventAction eventAction) {
+    public synchronized void register(ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> concurrentHashMap, Object obj, Class<?> cls, int i, EventAction eventAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{concurrentHashMap, obj, cls, Integer.valueOf(i), eventAction}) == null) {
             synchronized (this) {
                 if (obj != null && cls != null && eventAction != null && concurrentHashMap != null) {
-                    CopyOnWriteArrayList copyOnWriteArrayList = null;
+                    CopyOnWriteArrayList<EventPoster> copyOnWriteArrayList = null;
                     if (concurrentHashMap.containsKey(obj)) {
-                        copyOnWriteArrayList = (CopyOnWriteArrayList) concurrentHashMap.get(obj);
+                        copyOnWriteArrayList = concurrentHashMap.get(obj);
                     }
                     if (copyOnWriteArrayList == null) {
-                        copyOnWriteArrayList = new CopyOnWriteArrayList();
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                         concurrentHashMap.put(obj, copyOnWriteArrayList);
                     }
                     copyOnWriteArrayList.add(new EventPoster(i, cls, eventAction, this));

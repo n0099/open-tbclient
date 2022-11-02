@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCallback;
-    public WeakReference mCallbackHandlerWeakRef;
+    public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = wj1.a;
+        DEBUG = ok1.a;
     }
 
     public NetworkBroadcastReceiver(CallbackHandler callbackHandler, String str) {
@@ -55,7 +55,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.mCallbackHandlerWeakRef = new WeakReference(callbackHandler);
+        this.mCallbackHandlerWeakRef = new WeakReference<>(callbackHandler);
         this.mCallback = str;
     }
 
@@ -68,13 +68,13 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
         if (DEBUG) {
             Log.d("NetworkBroadcast", "——> onReceive: ");
         }
-        SwanAppNetworkUtils.k(context, (CallbackHandler) this.mCallbackHandlerWeakRef.get(), this.mCallback);
+        SwanAppNetworkUtils.k(context, this.mCallbackHandlerWeakRef.get(), this.mCallback);
     }
 
     public void updateCallback(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
-            this.mCallbackHandlerWeakRef = new WeakReference(callbackHandler);
+            this.mCallbackHandlerWeakRef = new WeakReference<>(callbackHandler);
             this.mCallback = str;
         }
     }

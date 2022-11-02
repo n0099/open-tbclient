@@ -22,7 +22,7 @@ public abstract class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
@@ -49,7 +49,7 @@ public abstract class g {
     }
 
     /* loaded from: classes7.dex */
-    public final class b implements j {
+    public static class b implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

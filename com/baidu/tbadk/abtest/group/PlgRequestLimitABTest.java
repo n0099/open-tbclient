@@ -20,7 +20,7 @@ public class PlgRequestLimitABTest extends AbsGroupUbsABTest {
     public static final String TYPE_C = "xuzhang_eshow_max_c";
     public static final String TYPE_ONLINE = "xuzhang_eshow_max_online";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -40,7 +40,7 @@ public class PlgRequestLimitABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -82,7 +82,7 @@ public class PlgRequestLimitABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(4);
+        ArrayList<String> arrayList = new ArrayList<>(4);
         this.mABTestList = arrayList;
         arrayList.add(TYPE_A);
         this.mABTestList.add(TYPE_B);

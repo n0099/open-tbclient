@@ -1,11 +1,43 @@
 package com.baidu.tieba;
 
-import javax.crypto.ShortBufferException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.math.BigInteger;
 /* loaded from: classes4.dex */
-public interface i00 {
-    int a(int i);
+public class i00 {
+    public static /* synthetic */ Interceptable $ic;
+    public static byte[] a;
+    public static byte[] b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int a(byte[] bArr, int i, int i2);
+    public static byte[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
+            }
+            byte[] byteArray = new BigInteger(h00.c).modPow(new BigInteger(h00.d), new BigInteger(h00.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 
-    void b(byte[] bArr, int i, int i2) throws ShortBufferException;
+    public static byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
+            }
+            byte[] byteArray = new BigInteger(h00.a).modPow(new BigInteger(h00.b), new BigInteger(h00.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 }

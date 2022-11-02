@@ -2,6 +2,9 @@ package com.baidu.searchbox.bddownload;
 
 import android.net.Uri;
 import android.util.SparseArray;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.IdentifiedTask;
@@ -22,39 +25,48 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public class DownloadTask extends IdentifiedTask implements Comparable {
+public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean autoCallbackToUIThread;
+    @Nullable
     public final Integer connectionCount;
+    @NonNull
     public final File directoryFile;
     public final boolean filenameFromResponse;
+    @NonNull
     public final DownloadStrategy.FilenameHolder filenameHolder;
     public final int flushBufferSize;
-    public final Map headerMapFields;
+    public final Map<String, List<String>> headerMapFields;
     public final int id;
+    @Nullable
     public BreakpointInfo info;
+    @Nullable
     public final Boolean isPreAllocateLength;
-    public volatile SparseArray keyTagMap;
+    public volatile SparseArray<Object> keyTagMap;
     public final AtomicLong lastCallbackProcessTimestamp;
     public volatile DownloadListener listener;
     public final int minIntervalMillisCallbackProcess;
     public final boolean passIfAlreadyCompleted;
     public final PriorityStrategy.Priority priority;
+    @NonNull
     public final File providedPathFile;
     public final int readBufferSize;
+    @Nullable
     public String redirectLocation;
     public SpeedCalculator speedCalculator;
     public final int syncBufferIntervalMills;
     public final int syncBufferSize;
     public Object tag;
+    @Nullable
     public File targetFile;
     public final Uri uri;
+    @NonNull
     public final String url;
     public final boolean wifiRequired;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
         public static final int DEFAULT_FLUSH_BUFFER_SIZE = 16384;
@@ -69,7 +81,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         public Integer connectionCount;
         public String filename;
         public int flushBufferSize;
-        public volatile Map headerMapFields;
+        public volatile Map<String, List<String>> headerMapFields;
         public Boolean isFilenameFromResponse;
         public Boolean isPreAllocateLength;
         public boolean isWifiRequired;
@@ -79,10 +91,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         public int readBufferSize;
         public int syncBufferIntervalMillis;
         public int syncBufferSize;
+        @NonNull
         public final Uri uri;
+        @NonNull
         public final String url;
 
-        public Builder(String str, Uri uri) {
+        public Builder(@NonNull String str, @NonNull Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +127,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             }
         }
 
-        public Builder(String str, File file) {
+        public Builder(@NonNull String str, @NonNull File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +156,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Builder(String str, String str2, String str3) {
+        public Builder(@NonNull String str, @NonNull String str2, @Nullable String str3) {
             this(str, Uri.fromFile(new File(str2)));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -174,9 +188,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
                     if (this.headerMapFields == null) {
                         this.headerMapFields = new HashMap();
                     }
-                    List list = (List) this.headerMapFields.get(str);
+                    List<String> list = this.headerMapFields.get(str);
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                         this.headerMapFields.put(str, list);
                     }
                     list.add(str2);
@@ -203,7 +217,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setConnectionCount(int i) {
+        public Builder setConnectionCount(@IntRange(from = 1) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -223,7 +237,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setFilenameFromResponse(Boolean bool) {
+        public Builder setFilenameFromResponse(@Nullable Boolean bool) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bool)) == null) {
@@ -249,7 +263,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setHeaderMapFields(Map map) {
+        public Builder setHeaderMapFields(Map<String, List<String>> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, map)) == null) {
@@ -350,13 +364,17 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class MockTaskForCompare extends IdentifiedTask {
+    public static class MockTaskForCompare extends IdentifiedTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final String filename;
         public final int id;
+        @NonNull
         public final File parentFile;
+        @NonNull
         public final File providedPathFile;
+        @NonNull
         public final String url;
 
         public MockTaskForCompare(int i) {
@@ -382,7 +400,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             this.parentFile = file;
         }
 
-        public MockTaskForCompare(int i, DownloadTask downloadTask) {
+        public MockTaskForCompare(int i, @NonNull DownloadTask downloadTask) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -405,6 +423,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+        @Nullable
         public String getFilename() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -425,6 +444,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+        @NonNull
         public File getParentFile() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -435,6 +455,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+        @NonNull
         public File getProvidedPathFile() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -445,6 +466,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+        @NonNull
         public String getUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -456,7 +478,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     /* loaded from: classes2.dex */
-    public class TaskHideWrapper {
+    public static class TaskHideWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -483,7 +505,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
             return invokeL.longValue;
         }
 
-        public static void setBreakpointInfo(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+        public static void setBreakpointInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, null, downloadTask, breakpointInfo) == null) {
                 downloadTask.setBreakpointInfo(breakpointInfo);
@@ -505,7 +527,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
     }
 
-    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i, int i2, int i3, int i4, boolean z, int i5, Map map, String str2, boolean z2, boolean z3, Boolean bool, Integer num, Boolean bool2) {
+    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i, int i2, int i3, int i4, boolean z, int i5, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
         Boolean bool3;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -612,7 +634,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(DownloadTask downloadTask) {
+    public int compareTo(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
@@ -668,6 +690,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return invokeI.objValue;
     }
 
+    @NonNull
     public MockTaskForCompare mock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -688,14 +711,14 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
     }
 
-    public void replaceListener(DownloadListener downloadListener) {
+    public void replaceListener(@NonNull DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, downloadListener) == null) {
             this.listener = downloadListener;
         }
     }
 
-    public void setBreakpointInfo(BreakpointInfo breakpointInfo) {
+    public void setBreakpointInfo(@NonNull BreakpointInfo breakpointInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, breakpointInfo) == null) {
             this.info = breakpointInfo;
@@ -709,7 +732,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         }
     }
 
-    public void setRedirectLocation(String str) {
+    public void setRedirectLocation(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.redirectLocation = str;
@@ -757,7 +780,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
                 if (this.keyTagMap == null) {
                     synchronized (this) {
                         if (this.keyTagMap == null) {
-                            this.keyTagMap = new SparseArray();
+                            this.keyTagMap = new SparseArray<>();
                         }
                     }
                 }
@@ -788,6 +811,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -805,6 +829,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+    @Nullable
     public String getFilename() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -832,7 +857,8 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return invokeV.intValue;
     }
 
-    public Map getHeaderMapFields() {
+    @Nullable
+    public Map<String, List<String>> getHeaderMapFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -851,6 +877,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public BreakpointInfo getInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -905,6 +932,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+    @NonNull
     public File getParentFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -924,6 +952,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+    @NonNull
     public File getProvidedPathFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -942,6 +971,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getRedirectLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -951,6 +981,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public Integer getSetConnectionCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -960,6 +991,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
         return (Integer) invokeV.objValue;
     }
 
+    @Nullable
     public Boolean getSetPreAllocateLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1006,6 +1038,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.IdentifiedTask
+    @NonNull
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

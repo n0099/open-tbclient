@@ -14,7 +14,7 @@ import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class MaybeToPublisher implements Function {
+public final class MaybeToPublisher implements Function<MaybeSource<Object>, Publisher<Object>> {
     public static final /* synthetic */ MaybeToPublisher[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeToPublisher INSTANCE;
@@ -38,7 +38,7 @@ public final class MaybeToPublisher implements Function {
         $VALUES = new MaybeToPublisher[]{maybeToPublisher};
     }
 
-    public static Function instance() {
+    public static <T> Function<MaybeSource<T>, Publisher<T>> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -86,7 +86,7 @@ public final class MaybeToPublisher implements Function {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.functions.Function
-    public Publisher apply(MaybeSource maybeSource) throws Exception {
+    public Publisher<Object> apply(MaybeSource<Object> maybeSource) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeSource)) == null) {

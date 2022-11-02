@@ -112,7 +112,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
         HeadImageView f = f();
         f.setIsRound(false);
-        f.L(metaData.getAvater(), 12, false);
+        f.K(metaData.getAvater(), 12, false);
         if (h()) {
             f.setTag(metaData);
             f.setOnClickListener(this.j);
@@ -212,13 +212,13 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
     }
 
-    public ArrayList getDataList() {
+    public ArrayList<AtSelectData> getDataList() {
         InterceptResult invokeV;
         Object tag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int childCount = this.c.getChildCount();
-            ArrayList arrayList = new ArrayList();
+            ArrayList<AtSelectData> arrayList = new ArrayList<>();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.c.getChildAt(i);
                 if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof MetaData)) {

@@ -24,6 +24,7 @@ public class WebRtcClassLoader {
         }
     }
 
+    @CalledByNative
     public static Object getClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

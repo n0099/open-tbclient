@@ -1,37 +1,158 @@
 package com.baidu.tieba;
 
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.do9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTImage;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class go9 {
+public class go9 extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qo9 b;
+    public final do9 c;
 
-    public static RippedAd a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public go9(qo9 qo9Var, String str, Ssp.Pid pid, do9 do9Var) {
+        super(str, pid);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("appname");
-                str3 = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                str = optJSONObject.optString("pkgurl");
-            } else {
-                str = null;
-                str2 = null;
-                str3 = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qo9Var, str, pid, do9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            RippedAd.Builder builder = new RippedAd.Builder();
-            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
-            return builder.build();
         }
-        return (RippedAd) invokeL.objValue;
+        this.b = qo9Var;
+        this.c = do9Var;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ChannelNativeAds.createCsj(this.b.a);
+        }
+        return (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ((TTNativeAd) this.b.a).getDescription();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
+            if (icon == null) {
+                return null;
+            }
+            return icon.getImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String source = ((TTNativeAd) this.b.a).getSource();
+            if (TextUtils.isEmpty(source)) {
+                return ((TTNativeAd) this.b.a).getTitle();
+            }
+            return source;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ((TTNativeAd) this.b.a).getAdView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
+            if (imageList != null && !imageList.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (TTImage tTImage : imageList) {
+                    arrayList.add(tTImage.getImageUrl());
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
+            if (interactionType != 2 && interactionType != 3) {
+                if (interactionType != 4) {
+                    if (interactionType != 5) {
+                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                    }
+                    return FunNativeAd.InteractionType.TYPE_DIAL;
+                }
+                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+            }
+            return FunNativeAd.InteractionType.TYPE_BROWSE;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            do9 do9Var = this.c;
+            qo9 qo9Var = this.b;
+            do9Var.g(context, qo9Var, this.mSid, viewGroup, list, list2, new do9.b(do9Var, qo9Var), funAdInteractionListener);
+        }
     }
 }

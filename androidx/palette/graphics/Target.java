@@ -1,5 +1,7 @@
 package androidx.palette.graphics;
 
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -66,6 +68,7 @@ public final class Target {
             this.mTarget = new Target();
         }
 
+        @NonNull
         public Target build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -75,7 +78,7 @@ public final class Target {
             return (Target) invokeV.objValue;
         }
 
-        public Builder(Target target) {
+        public Builder(@NonNull Target target) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,6 +96,7 @@ public final class Target {
             this.mTarget = new Target(target);
         }
 
+        @NonNull
         public Builder setExclusive(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -103,7 +107,8 @@ public final class Target {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setLightnessWeight(float f) {
+        @NonNull
+        public Builder setLightnessWeight(@FloatRange(from = 0.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
@@ -113,7 +118,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMaximumLightness(float f) {
+        @NonNull
+        public Builder setMaximumLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
@@ -123,7 +129,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMaximumSaturation(float f) {
+        @NonNull
+        public Builder setMaximumSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
@@ -133,7 +140,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMinimumLightness(float f) {
+        @NonNull
+        public Builder setMinimumLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
@@ -143,7 +151,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setMinimumSaturation(float f) {
+        @NonNull
+        public Builder setMinimumSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
@@ -153,7 +162,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setPopulationWeight(float f) {
+        @NonNull
+        public Builder setPopulationWeight(@FloatRange(from = 0.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
@@ -163,7 +173,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setSaturationWeight(float f) {
+        @NonNull
+        public Builder setSaturationWeight(@FloatRange(from = 0.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
@@ -173,7 +184,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setTargetLightness(float f) {
+        @NonNull
+        public Builder setTargetLightness(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
@@ -183,7 +195,8 @@ public final class Target {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setTargetSaturation(float f) {
+        @NonNull
+        public Builder setTargetSaturation(@FloatRange(from = 0.0d, to = 1.0d) float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
@@ -279,7 +292,7 @@ public final class Target {
         }
     }
 
-    public Target(Target target) {
+    public Target(@NonNull Target target) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -382,6 +395,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMaximumLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -391,6 +405,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMaximumSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -400,6 +415,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMinimumLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -409,6 +425,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getMinimumSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -436,6 +453,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getTargetLightness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -445,6 +463,7 @@ public final class Target {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getTargetSaturation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

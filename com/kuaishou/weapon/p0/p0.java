@@ -240,7 +240,7 @@ public class p0 {
         return (JSONObject) invokeL.objValue;
     }
 
-    public boolean a(Class cls, String str, Class... clsArr) {
+    public boolean a(Class cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, cls, str, clsArr)) == null) {
@@ -385,7 +385,7 @@ public class p0 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Set e() {
+    public Set<String> e() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
@@ -439,7 +439,7 @@ public class p0 {
         return (Set) invokeV.objValue;
     }
 
-    public Set f() {
+    public Set<String> f() {
         Set keySet;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -463,7 +463,7 @@ public class p0 {
         return (Set) invokeV.objValue;
     }
 
-    public Set g() {
+    public Set<String> g() {
         Set keySet;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

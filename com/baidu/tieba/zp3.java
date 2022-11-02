@@ -1,76 +1,124 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.request.ImageRequest;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class zp3 implements aj4 {
+public final class zp3 implements RequestListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public r82 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948367596, "Lcom/baidu/tieba/zp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948367596, "Lcom/baidu/tieba/zp3;");
-                return;
-            }
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerEvent(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
         }
-        a = wj1.a;
     }
 
-    public zp3() {
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithCancellation(String str, String str2, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithSuccess(String str, String str2, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerStart(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onUltimateProducerReached(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public boolean requiresExtraMap(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public zp3(r82 r82Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = r82Var;
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestCancellation(String str) {
+        r82 r82Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (r82Var = this.a) != null) {
+            r82Var.onCancel(str);
         }
     }
 
-    @Override // com.baidu.tieba.aj4
-    public boolean a(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
+        r82 r82Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
-            }
-            eq3 eq3Var = new eq3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", si4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", si4.g().o(AppRuntime.getApplication()));
-            dq3.d().g(hashMap, jSONArray.toString().getBytes(), null, eq3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + eq3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + eq3Var.b);
-            }
-            int i = eq3Var.a;
-            if (i != 1 && i != 2 && i != 4) {
-                return true;
-            }
-            lj4.a();
-            return false;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) && (r82Var = this.a) != null) {
+            r82Var.c(imageRequest, th);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
+        r82 r82Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) && (r82Var = this.a) != null) {
+            r82Var.a(imageRequest);
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
+        r82 r82Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) && (r82Var = this.a) != null) {
+            r82Var.b(imageRequest);
+        }
     }
 }

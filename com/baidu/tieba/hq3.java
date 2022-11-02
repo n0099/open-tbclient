@@ -1,102 +1,50 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class hq3 {
+public class hq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        lg4 a();
-
-        void b(boolean z, o92 o92Var);
-
-        boolean c();
-
-        Bitmap d();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947832319, "Lcom/baidu/tieba/hq3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947832319, "Lcom/baidu/tieba/hq3;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public final class a implements o92 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.o92
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.o92
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static void a() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && ProcessUtils.isMainProcess() && !tm2.w0().d()) {
-            synchronized (SwanAppInitHelper.class) {
-                if (SwanAppInitHelper.isDelayInit()) {
-                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
-                }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (!SwanAppInitHelper.entranceOK()) {
+                Log.w("SwanAppLaunchHelper", "entrance not open");
+                w33.g(AppRuntime.getAppContext(), "not support for this android version").G();
+            } else if (TextUtils.isEmpty(str)) {
+                w33.g(AppRuntime.getAppContext(), "url is empty").G();
+            } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
+                b(str);
+            } else if (str.startsWith("bdswan")) {
+                b(str.replace("bdswan", SchemeConfig.getSchemeHead()));
+            } else if (!str.startsWith("https") && !str.startsWith("http")) {
+                w33.g(AppRuntime.getAppContext(), "not support this uri").G();
+            } else {
+                c(str);
             }
-            q92 q92Var = new q92();
-            q92Var.a = "by_silent";
-            tm2.w0().b(q92Var, new a());
         }
     }
 
-    public static b b() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return gt5.a();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), Uri.parse(str));
         }
-        return (b) invokeV.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            gq3.e(str);
+        }
     }
 }

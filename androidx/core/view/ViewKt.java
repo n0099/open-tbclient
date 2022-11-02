@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
@@ -16,6 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.Unit;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
@@ -276,7 +279,7 @@ public final class ViewKt {
         }
     }
 
-    public static final void setPadding(View view2, int i) {
+    public static final void setPadding(View view2, @Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65556, null, view2, i) == null) {
             view2.setPadding(i, i, i, i);
@@ -309,6 +312,7 @@ public final class ViewKt {
         }
     }
 
+    @JvmName(name = "updateLayoutParamsTyped")
     public static final /* synthetic */ <T extends ViewGroup.LayoutParams> void updateLayoutParamsTyped(View view2, Function1<? super T, Unit> function1) {
         ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         Intrinsics.reifiedOperationMarker(1, ExifInterface.GPS_DIRECTION_TRUE);
@@ -511,6 +515,7 @@ public final class ViewKt {
         return (Runnable) invokeCommon.objValue;
     }
 
+    @RequiresApi(16)
     public static final Runnable postOnAnimationDelayed(View view2, long j, final Function0<Unit> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -552,14 +557,15 @@ public final class ViewKt {
         return (Runnable) invokeCommon.objValue;
     }
 
-    public static final void updatePadding(View view2, int i, int i2, int i3, int i4) {
+    public static final void updatePadding(View view2, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             view2.setPadding(i, i2, i3, i4);
         }
     }
 
-    public static final void updatePaddingRelative(View view2, int i, int i2, int i3, int i4) {
+    @RequiresApi(17)
+    public static final void updatePaddingRelative(View view2, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             view2.setPaddingRelative(i, i2, i3, i4);

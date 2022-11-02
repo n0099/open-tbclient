@@ -16,7 +16,7 @@ import tbclient.GetOfficialSwitch.GetOfficialSwitchResIdl;
 public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList official_list;
+    public ArrayList<OfficialAccountPushInfo> official_list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfficialAccountPushHttpResponseMessage(int i) {
@@ -61,7 +61,7 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
         }
         DataRes dataRes = getOfficialSwitchResIdl.data;
         if (dataRes != null && dataRes.official_list != null) {
-            this.official_list = new ArrayList();
+            this.official_list = new ArrayList<>();
             for (int i2 = 0; i2 < getOfficialSwitchResIdl.data.official_list.size(); i2++) {
                 OfficialAccountPushInfo officialAccountPushInfo = new OfficialAccountPushInfo();
                 officialAccountPushInfo.parser(getOfficialSwitchResIdl.data.official_list.get(i2));
@@ -70,7 +70,7 @@ public class OfficialAccountPushHttpResponseMessage extends TbHttpResponsedMessa
         }
     }
 
-    public ArrayList getList() {
+    public ArrayList<OfficialAccountPushInfo> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

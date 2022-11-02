@@ -33,7 +33,7 @@ public class LokiService extends Service {
     }
 
     /* loaded from: classes2.dex */
-    public final class Constant {
+    public static final class Constant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOG_BASIC_DATA = "logbasicdata";
         public static final String LOG_BASIC_DATA_FILE = "logbasicdatafile";

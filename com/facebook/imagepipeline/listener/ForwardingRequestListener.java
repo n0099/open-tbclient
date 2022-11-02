@@ -11,7 +11,6 @@ import com.facebook.common.logging.FLog;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,9 +20,9 @@ public class ForwardingRequestListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingRequestListener";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mRequestListeners;
+    public final List<RequestListener> mRequestListeners;
 
-    public ForwardingRequestListener(Set set) {
+    public ForwardingRequestListener(Set<RequestListener> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,9 +38,7 @@ public class ForwardingRequestListener implements RequestListener {
             }
         }
         this.mRequestListeners = new ArrayList(set.size());
-        Iterator it = set.iterator();
-        while (it.hasNext()) {
-            RequestListener requestListener = (RequestListener) it.next();
+        for (RequestListener requestListener : set) {
             if (requestListener != null) {
                 this.mRequestListeners.add(requestListener);
             }
@@ -85,7 +82,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onProducerStart(str, str2);
+                    this.mRequestListeners.get(i).onProducerStart(str, str2);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerStart", e);
                 }
@@ -107,7 +104,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onRequestCancellation(str);
+                    this.mRequestListeners.get(i).onRequestCancellation(str);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestCancellation", e);
                 }
@@ -122,7 +119,7 @@ public class ForwardingRequestListener implements RequestListener {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
-                if (((RequestListener) this.mRequestListeners.get(i)).requiresExtraMap(str)) {
+                if (this.mRequestListeners.get(i).requiresExtraMap(str)) {
                     return true;
                 }
             }
@@ -132,13 +129,13 @@ public class ForwardingRequestListener implements RequestListener {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map map) {
+    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest, encodedImage, th, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
+                    this.mRequestListeners.get(i).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
@@ -147,13 +144,13 @@ public class ForwardingRequestListener implements RequestListener {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithFailure(String str, String str2, Throwable th, @Nullable Map map) {
+    public void onProducerFinishWithFailure(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, th, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onProducerFinishWithFailure(str, str2, th, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithFailure(str, str2, th, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
@@ -168,7 +165,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onProducerEvent(str, str2, str3);
+                    this.mRequestListeners.get(i).onProducerEvent(str, str2, str3);
                 } catch (Exception e) {
                     onException("InternalListener exception in onIntermediateChunkStart", e);
                 }
@@ -177,13 +174,13 @@ public class ForwardingRequestListener implements RequestListener {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithCancellation(String str, String str2, @Nullable Map map) {
+    public void onProducerFinishWithCancellation(String str, String str2, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onProducerFinishWithCancellation(str, str2, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithCancellation(str, str2, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithCancellation", e);
                 }
@@ -192,13 +189,13 @@ public class ForwardingRequestListener implements RequestListener {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithSuccess(String str, String str2, @Nullable Map map) {
+    public void onProducerFinishWithSuccess(String str, String str2, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onProducerFinishWithSuccess(str, str2, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithSuccess(str, str2, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }
@@ -213,7 +210,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onRequestSuccess(imageRequest, str, z);
+                    this.mRequestListeners.get(i).onRequestSuccess(imageRequest, str, z);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestSuccess", e);
                 }
@@ -228,7 +225,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onUltimateProducerReached(str, str2, z);
+                    this.mRequestListeners.get(i).onUltimateProducerReached(str, str2, z);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }
@@ -243,7 +240,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onRequestFailure(imageRequest, str, th, z);
+                    this.mRequestListeners.get(i).onRequestFailure(imageRequest, str, th, z);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestFailure", e);
                 }
@@ -258,7 +255,7 @@ public class ForwardingRequestListener implements RequestListener {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener) this.mRequestListeners.get(i)).onRequestStart(imageRequest, obj, str, z);
+                    this.mRequestListeners.get(i).onRequestStart(imageRequest, obj, str, z);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestStart", e);
                 }

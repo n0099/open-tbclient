@@ -15,9 +15,9 @@ public class RegisterIntentConfigHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final RegisterIntentConfigHelper inst;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap mActicyConfig;
+    public final HashMap<Class<?>, Class<?>> mActicyConfig;
 
-    public void logStaticRegister(Class cls, Class cls2) {
+    public void logStaticRegister(Class<?> cls, Class<?> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, cls, cls2) == null) {
         }
@@ -52,7 +52,7 @@ public class RegisterIntentConfigHelper {
                 return;
             }
         }
-        this.mActicyConfig = new HashMap();
+        this.mActicyConfig = new HashMap<>();
     }
 
     public static final RegisterIntentConfigHelper getInst() {
@@ -73,7 +73,7 @@ public class RegisterIntentConfigHelper {
         return invokeV.intValue;
     }
 
-    public void RegisterIntent(Class cls, Class cls2) {
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
             if (!this.mActicyConfig.containsKey(cls)) {
@@ -85,7 +85,7 @@ public class RegisterIntentConfigHelper {
         }
     }
 
-    public void RegisterOrUpdateIntent(Class cls, Class cls2) {
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, cls2) == null) {
             logStaticRegister(cls, cls2);
@@ -93,7 +93,7 @@ public class RegisterIntentConfigHelper {
         }
     }
 
-    public boolean appResponseToIntentClass(Class cls) {
+    public boolean appResponseToIntentClass(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
@@ -105,13 +105,13 @@ public class RegisterIntentConfigHelper {
         return invokeL.booleanValue;
     }
 
-    public Class getIntentClass(Class cls) {
+    public Class<?> getIntentClass(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
-            HashMap hashMap = this.mActicyConfig;
+            HashMap<Class<?>, Class<?>> hashMap = this.mActicyConfig;
             if (hashMap != null) {
-                return (Class) hashMap.get(cls);
+                return hashMap.get(cls);
             }
             return null;
         }

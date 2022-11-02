@@ -16,7 +16,7 @@ public class ResourceRecycler {
     public boolean isRecycling;
 
     /* loaded from: classes7.dex */
-    public final class ResourceRecyclerCallback implements Handler.Callback {
+    public static final class ResourceRecyclerCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RECYCLE_RESOURCE = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class ResourceRecycler {
         this.handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
     }
 
-    public synchronized void recycle(Resource resource, boolean z) {
+    public synchronized void recycle(Resource<?> resource, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, resource, z) == null) {
             synchronized (this) {

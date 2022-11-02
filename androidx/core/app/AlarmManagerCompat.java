@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +28,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setAlarmClock(AlarmManager alarmManager, long j, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
+    public static void setAlarmClock(@NonNull AlarmManager alarmManager, long j, @NonNull PendingIntent pendingIntent, @NonNull PendingIntent pendingIntent2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{alarmManager, Long.valueOf(j), pendingIntent, pendingIntent2}) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -38,7 +39,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setAndAllowWhileIdle(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{alarmManager, Integer.valueOf(i), Long.valueOf(j), pendingIntent}) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
@@ -49,7 +50,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setExact(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setExact(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{alarmManager, Integer.valueOf(i), Long.valueOf(j), pendingIntent}) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
@@ -60,7 +61,7 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setExactAndAllowWhileIdle(AlarmManager alarmManager, int i, long j, PendingIntent pendingIntent) {
+    public static void setExactAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{alarmManager, Integer.valueOf(i), Long.valueOf(j), pendingIntent}) == null) {
             if (Build.VERSION.SDK_INT >= 23) {

@@ -17,27 +17,27 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
+public final class MaybeTakeUntilPublisher<T, U> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher other;
+    public final Publisher<U> other;
 
     /* loaded from: classes8.dex */
-    public final class TakeUntilMainMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2187421758664251153L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
-        public final TakeUntilOtherMaybeObserver other;
+        public final MaybeObserver<? super T> actual;
+        public final TakeUntilOtherMaybeObserver<U> other;
 
         /* loaded from: classes8.dex */
-        public final class TakeUntilOtherMaybeObserver extends AtomicReference implements FlowableSubscriber {
+        public static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<Subscription> implements FlowableSubscriber<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1266041316834525931L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final TakeUntilMainMaybeObserver parent;
+            public final TakeUntilMainMaybeObserver<?, U> parent;
 
-            public TakeUntilOtherMaybeObserver(TakeUntilMainMaybeObserver takeUntilMainMaybeObserver) {
+            public TakeUntilOtherMaybeObserver(TakeUntilMainMaybeObserver<?, U> takeUntilMainMaybeObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
             }
         }
 
-        public TakeUntilMainMaybeObserver(MaybeObserver maybeObserver) {
+        public TakeUntilMainMaybeObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
                 }
             }
             this.actual = maybeObserver;
-            this.other = new TakeUntilOtherMaybeObserver(this);
+            this.other = new TakeUntilOtherMaybeObserver<>(this);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -121,7 +121,7 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -166,12 +166,12 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 SubscriptionHelper.cancel(this.other);
                 if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
-                    this.actual.onSuccess(obj);
+                    this.actual.onSuccess(t);
                 }
             }
         }
@@ -189,7 +189,7 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeTakeUntilPublisher(MaybeSource maybeSource, Publisher publisher) {
+    public MaybeTakeUntilPublisher(MaybeSource<T> maybeSource, Publisher<U> publisher) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -210,7 +210,7 @@ public final class MaybeTakeUntilPublisher extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(maybeObserver);

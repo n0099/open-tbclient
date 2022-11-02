@@ -16,28 +16,28 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamMaybeSource;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstreamMaybeSource {
+public final class MaybeSwitchIfEmptySingle<T> extends Single<T> implements HasUpstreamMaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource other;
-    public final MaybeSource source;
+    public final SingleSource<? extends T> other;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SwitchIfEmptyMaybeObserver extends AtomicReference implements MaybeObserver, Disposable {
+    public static final class SwitchIfEmptyMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4603919676453758899L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final SingleSource other;
+        public final SingleObserver<? super T> actual;
+        public final SingleSource<? extends T> other;
 
         /* loaded from: classes8.dex */
-        public final class OtherSingleObserver implements SingleObserver {
+        public static final class OtherSingleObserver<T> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SingleObserver actual;
-            public final AtomicReference parent;
+            public final SingleObserver<? super T> actual;
+            public final AtomicReference<Disposable> parent;
 
-            public OtherSingleObserver(SingleObserver singleObserver, AtomicReference atomicReference) {
+            public OtherSingleObserver(SingleObserver<? super T> singleObserver, AtomicReference<Disposable> atomicReference) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,15 +73,15 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(T t) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    this.actual.onSuccess(obj);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                    this.actual.onSuccess(t);
                 }
             }
         }
 
-        public SwitchIfEmptyMaybeObserver(SingleObserver singleObserver, SingleSource singleSource) {
+        public SwitchIfEmptyMaybeObserver(SingleObserver<? super T> singleObserver, SingleSource<? extends T> singleSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -122,7 +122,7 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
         public void onComplete() {
             Disposable disposable;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (disposable = (Disposable) get()) != DisposableHelper.DISPOSED && compareAndSet(disposable, null)) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (disposable = get()) != DisposableHelper.DISPOSED && compareAndSet(disposable, null)) {
                 this.other.subscribe(new OtherSingleObserver(this.actual, this));
             }
         }
@@ -144,15 +144,15 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onSuccess(t);
             }
         }
     }
 
-    public MaybeSwitchIfEmptySingle(MaybeSource maybeSource, SingleSource singleSource) {
+    public MaybeSwitchIfEmptySingle(MaybeSource<T> maybeSource, SingleSource<? extends T> singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,7 +172,7 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamMaybeSource
-    public MaybeSource source() {
+    public MaybeSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -182,7 +182,7 @@ public final class MaybeSwitchIfEmptySingle extends Single implements HasUpstrea
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new SwitchIfEmptyMaybeObserver(singleObserver, this.other));

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.eu;
 import com.xiaomi.push.service.XMJobService;
+@TargetApi(21)
 /* loaded from: classes8.dex */
 public class ew implements eu.a {
     public static /* synthetic */ Interceptable $ic;

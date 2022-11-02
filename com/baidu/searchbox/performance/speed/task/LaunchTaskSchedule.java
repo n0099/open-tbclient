@@ -1,10 +1,12 @@
 package com.baidu.searchbox.performance.speed.task;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
 import com.baidu.searchbox.performance.speed.SpeedRuntime;
-import com.baidu.tieba.hc;
+import com.baidu.tieba.gc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +16,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+@MainThread
 /* loaded from: classes2.dex */
 public class LaunchTaskSchedule {
     public static /* synthetic */ Interceptable $ic;
     public static LaunchTaskSchedule sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set historyLifecycle;
-    public HashSet mChangeToSyncTaskSet;
+    public final Set<Integer> historyLifecycle;
+    public HashSet<String> mChangeToSyncTaskSet;
     public int mProcessType;
     public BaseTaskPool mTaskPool;
 
@@ -38,7 +41,7 @@ public class LaunchTaskSchedule {
             }
         }
         this.historyLifecycle = new HashSet();
-        this.mChangeToSyncTaskSet = new HashSet();
+        this.mChangeToSyncTaskSet = new HashSet<>();
     }
 
     public static LaunchTaskSchedule getInstance() {
@@ -135,7 +138,7 @@ public class LaunchTaskSchedule {
         }
         for (LaunchTask launchTask : taskList) {
             if ((launchTask.getProcess() & this.mProcessType) != 0) {
-                hc.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
+                gc.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LaunchTaskSchedule this$0;
@@ -198,7 +201,7 @@ public class LaunchTaskSchedule {
         }
     }
 
-    public void init(int i, BaseTaskPool baseTaskPool, HashSet hashSet) {
+    public void init(int i, @NonNull BaseTaskPool baseTaskPool, HashSet<String> hashSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, baseTaskPool, hashSet) == null) {
             this.mProcessType = i;

@@ -13,13 +13,14 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj6;
-import com.baidu.tieba.di6;
+import com.baidu.tieba.mk6;
+import com.baidu.tieba.nj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +35,7 @@ import tbclient.FrsTabInfo;
 public class FrsTabSortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<di6> A;
+    public List<nj6> A;
     public List<Float> B;
     public GestureDetector C;
     public GestureDetector.SimpleOnGestureListener D;
@@ -244,7 +245,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* loaded from: classes4.dex */
-    public class d implements Comparator {
+    public class d implements Comparator<FrsTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabSortSwitchButton a;
@@ -347,7 +348,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FrsTabSortSwitchButton(Context context, AttributeSet attributeSet) {
+    public FrsTabSortSwitchButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -370,7 +371,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     public final void A(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cj6.FrsTabSortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mk6.FrsTabSortSwitchButton);
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -385,7 +386,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsTabSortSwitchButton(Context context, AttributeSet attributeSet, int i) {
+    public FrsTabSortSwitchButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -430,11 +431,11 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            di6 di6Var = (di6) ListUtils.getItem(this.A, i);
-            if (di6Var == null) {
+            nj6 nj6Var = (nj6) ListUtils.getItem(this.A, i);
+            if (nj6Var == null) {
                 return -1;
             }
-            return di6Var.b;
+            return nj6Var.b;
         }
         return invokeI.intValue;
     }
@@ -472,24 +473,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
                 return true;
             }
             for (int i = 0; i < size; i++) {
-                di6 di6Var = this.A.get(i);
+                nj6 nj6Var = this.A.get(i);
                 FrsTabInfo frsTabInfo = list.get(i);
-                if (frsTabInfo.tab_id.intValue() != di6Var.b) {
+                if (frsTabInfo.tab_id.intValue() != nj6Var.b) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 2 && !di6Var.a.equals(this.l)) {
+                if (frsTabInfo.tab_id.intValue() == 2 && !nj6Var.a.equals(this.l)) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 3 && !di6Var.a.equals(this.m)) {
+                if (frsTabInfo.tab_id.intValue() == 3 && !nj6Var.a.equals(this.m)) {
                     return true;
                 }
                 if (frsTabInfo.tab_id.intValue() != 2 && frsTabInfo.tab_id.intValue() != 3) {
                     String str = frsTabInfo.tab_name;
                     if (str != null && str.length() > 5) {
-                        if (!di6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
+                        if (!nj6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
                             return true;
                         }
-                    } else if (!di6Var.a.equals(frsTabInfo.tab_name)) {
+                    } else if (!nj6Var.a.equals(frsTabInfo.tab_name)) {
                         return true;
                     }
                 }
@@ -511,30 +512,30 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         }
         setVisibility(0);
         for (int i = 0; i < list.size(); i++) {
-            di6 di6Var = new di6();
-            di6Var.b = list.get(i).tab_id.intValue();
+            nj6 nj6Var = new nj6();
+            nj6Var.b = list.get(i).tab_id.intValue();
             if (list.get(i).tab_id.intValue() == 2) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    di6Var.a = "最热";
+                    nj6Var.a = "最热";
                 } else {
-                    di6Var.a = this.l;
+                    nj6Var.a = this.l;
                 }
             } else if (list.get(i).tab_id.intValue() == 3) {
                 if (list.get(i).tab_type.intValue() == 16) {
-                    di6Var.a = "最新";
+                    nj6Var.a = "最新";
                 } else {
-                    di6Var.a = this.m;
+                    nj6Var.a = this.m;
                 }
             } else {
                 String str = list.get(i).tab_name;
-                di6Var.a = str;
+                nj6Var.a = str;
                 if (str == null) {
-                    di6Var.a = "";
+                    nj6Var.a = "";
                 } else if (str.length() > 5) {
-                    di6Var.a = di6Var.a.substring(0, 5);
+                    nj6Var.a = nj6Var.a.substring(0, 5);
                 }
             }
-            this.A.add(di6Var);
+            this.A.add(nj6Var);
         }
         requestLayout();
     }
@@ -605,10 +606,10 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    di6 di6Var = (di6) ListUtils.getItem(this.A, i3);
-                    if (di6Var != null) {
+                    nj6 nj6Var = (nj6) ListUtils.getItem(this.A, i3);
+                    if (nj6Var != null) {
                         Paint paint = this.p;
-                        String str = di6Var.a;
+                        String str = nj6Var.a;
                         if (str == null) {
                             str = "";
                         }
@@ -829,8 +830,8 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             this.B = new ArrayList();
             this.u = 0;
             this.C = new GestureDetector(context, this.D);
-            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f101a);
-            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f113f);
+            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f1035);
+            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f115b);
             z();
         }
     }

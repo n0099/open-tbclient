@@ -1,5 +1,6 @@
 package com.baidu.sapi2.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
@@ -155,6 +156,7 @@ public class ImageClipActivity extends Activity {
         }
     }
 
+    @TargetApi(12)
     private Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -270,6 +272,7 @@ public class ImageClipActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(3)
     public void a() {
         Bitmap a;
         Interceptable interceptable = $ic;
@@ -280,7 +283,7 @@ public class ImageClipActivity extends Activity {
                 a = ZoomImageView.getInstance().a();
             }
             if (a != null && !a.isRecycled()) {
-                new AsyncTask(this) { // from class: com.baidu.sapi2.activity.ImageClipActivity.3
+                new AsyncTask<Bitmap, Void, byte[]>(this) { // from class: com.baidu.sapi2.activity.ImageClipActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ImageClipActivity a;
@@ -383,7 +386,7 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04f6);
+            setContentView(R.layout.obfuscated_res_0x7f0d0506);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -391,8 +394,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091cc3);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091cc1);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091d0c);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091d0a);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -403,9 +406,9 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.E = ClipBoxView.G;
                 clipBoxView2.F = false;
             }
-            setPendingTransition(R.anim.obfuscated_res_0x7f01011c, R.anim.obfuscated_res_0x7f01011b, R.anim.obfuscated_res_0x7f01011a, R.anim.obfuscated_res_0x7f01011d);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091fb7);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f0904a3);
+            setPendingTransition(R.anim.obfuscated_res_0x7f01011d, R.anim.obfuscated_res_0x7f01011c, R.anim.obfuscated_res_0x7f01011b, R.anim.obfuscated_res_0x7f01011e);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092002);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f0904b0);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {
@@ -478,6 +481,7 @@ public class ImageClipActivity extends Activity {
         }
     }
 
+    @TargetApi(19)
     private void b(Intent intent) {
         String[] split;
         Interceptable interceptable = $ic;

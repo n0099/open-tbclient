@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class da implements Comparable {
+public class da implements Comparable<da> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -23,7 +23,7 @@ public class da implements Comparable {
     public String f200a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final LinkedList f201a;
+    public final LinkedList<cq> f201a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public da() {
@@ -80,7 +80,7 @@ public class da implements Comparable {
                 return;
             }
         }
-        this.f201a = new LinkedList();
+        this.f201a = new LinkedList<>();
         this.f199a = 0L;
         this.f200a = str;
         this.a = i;
@@ -130,9 +130,9 @@ public class da implements Comparable {
                 jSONObject.put("wt", this.a);
                 jSONObject.put("host", this.f200a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.f201a.iterator();
+                Iterator<cq> it = this.f201a.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(((cq) it.next()).m241a());
+                    jSONArray.put(it.next().m241a());
                 }
                 jSONObject.put("ah", jSONArray);
             }
@@ -152,13 +152,13 @@ public class da implements Comparable {
                         this.a += cqVar.a();
                     } else {
                         int i = 0;
-                        for (int size = this.f201a.size() - 1; size >= 0 && ((cq) this.f201a.get(size)).a() < 0; size--) {
+                        for (int size = this.f201a.size() - 1; size >= 0 && this.f201a.get(size).a() < 0; size--) {
                             i++;
                         }
                         this.a += a * i;
                     }
                     if (this.f201a.size() > 30) {
-                        this.a -= ((cq) this.f201a.remove()).a();
+                        this.a -= this.f201a.remove().a();
                     }
                 }
             }

@@ -1,11 +1,14 @@
 package com.baidu.searchbox.util;
 
-import com.baidu.tieba.ej8;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tieba.ok8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class SwanDataRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +28,12 @@ public class SwanDataRuntime {
         }
     }
 
+    @Inject
     public static ISwanData getISwanData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ej8.a();
+            return ok8.a();
         }
         return (ISwanData) invokeV.objValue;
     }

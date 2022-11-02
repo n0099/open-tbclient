@@ -1,5 +1,7 @@
 package io.reactivex;
+
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public interface FlowableOnSubscribe {
-    void subscribe(FlowableEmitter flowableEmitter) throws Exception;
+public interface FlowableOnSubscribe<T> {
+    void subscribe(@NonNull FlowableEmitter<T> flowableEmitter) throws Exception;
 }

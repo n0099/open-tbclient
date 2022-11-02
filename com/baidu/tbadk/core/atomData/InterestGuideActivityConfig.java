@@ -87,7 +87,7 @@ public class InterestGuideActivityConfig extends IntentConfig {
         }
     }
 
-    public void setOnlyShowInterestedForum(boolean z, ArrayList arrayList) {
+    public void setOnlyShowInterestedForum(boolean z, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, arrayList) == null) {
             getIntent().putExtra(KEY_ONLY_SHOW_INTERESTED_FORUM, z);

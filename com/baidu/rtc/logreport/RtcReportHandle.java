@@ -50,11 +50,11 @@ public class RtcReportHandle {
     public static boolean mIsEnablePushQualityMonitor;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppId;
-    public WeakReference mContext;
+    public WeakReference<Context> mContext;
     public final CpuMonitor mCpuMonitor;
     public final ErrorInfoReport mErrorInfoReport;
     public String mFeedId;
-    public ConcurrentHashMap mHUDStatisticsMap;
+    public ConcurrentHashMap<BigInteger, HUDStatistics> mHUDStatisticsMap;
     public String mHandleId;
     public Handler mHandler;
     public final HandlerThread mHandlerThread;
@@ -173,7 +173,7 @@ public class RtcReportHandle {
         this.mContext = null;
         this.mIsDeviceInfoReporting = false;
         this.mQualityMonitorEnv = "online";
-        this.mHUDStatisticsMap = new ConcurrentHashMap();
+        this.mHUDStatisticsMap = new ConcurrentHashMap<>();
         this.mPublisherHandle = new BigInteger("0");
         this.mUserId = -1L;
         this.reportDeviceInfoRun = new Runnable(this) { // from class: com.baidu.rtc.logreport.RtcReportHandle.1
@@ -210,7 +210,7 @@ public class RtcReportHandle {
                 }
             }
         };
-        this.mContext = new WeakReference(context);
+        this.mContext = new WeakReference<>(context);
         this.mCpuMonitor = new CpuMonitor(context);
         HandlerThread handlerThread = new HandlerThread("" + RtcReportHandle.class.getSimpleName());
         this.mHandlerThread = handlerThread;
@@ -245,7 +245,7 @@ public class RtcReportHandle {
             if (bigInteger == null) {
                 return null;
             }
-            return (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger);
+            return this.mHUDStatisticsMap.get(bigInteger);
         }
         return (HUDStatistics) invokeL.objValue;
     }
@@ -308,7 +308,7 @@ public class RtcReportHandle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             HashMap hashMap = new HashMap();
-            HUDStatistics hUDStatistics2 = (HUDStatistics) this.mHUDStatisticsMap.get(this.mPublisherHandle);
+            HUDStatistics hUDStatistics2 = this.mHUDStatisticsMap.get(this.mPublisherHandle);
             if (hUDStatistics2 == null) {
                 z = false;
             } else {
@@ -351,7 +351,7 @@ public class RtcReportHandle {
                 if (mIsEnablePullQualityMonitor) {
                     JSONArray jSONArray = new JSONArray();
                     for (BigInteger bigInteger : this.mHUDStatisticsMap.keySet()) {
-                        if (bigInteger != this.mPublisherHandle && (hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger)) != null) {
+                        if (bigInteger != this.mPublisherHandle && (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) != null) {
                             HashMap hashMap2 = new HashMap();
                             hUDStatistics.getStatsRecvInfo(hashMap2);
                             if (hashMap2.size() != 0) {
@@ -387,7 +387,7 @@ public class RtcReportHandle {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65551, this) == null) && mIsEnablePullQualityMonitor) {
             for (BigInteger bigInteger : this.mHUDStatisticsMap.keySet()) {
-                if (bigInteger != this.mPublisherHandle && (hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger)) != null) {
+                if (bigInteger != this.mPublisherHandle && (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         JSONObject jSONObject2 = new JSONObject();
@@ -397,7 +397,7 @@ public class RtcReportHandle {
                         JSONArray jSONArray2 = new JSONArray();
                         HashMap hashMap = new HashMap();
                         hUDStatistics.getSlIStuckData(hashMap);
-                        ArrayList arrayList = (ArrayList) hashMap.get("aStuck");
+                        ArrayList<Long> arrayList = hashMap.get("aStuck");
                         if (arrayList.size() == 0) {
                             jSONArray.put(0);
                         } else {
@@ -405,7 +405,7 @@ public class RtcReportHandle {
                                 jSONArray.put(arrayList.get(i));
                             }
                         }
-                        ArrayList arrayList2 = (ArrayList) hashMap.get("vStuck");
+                        ArrayList<Long> arrayList2 = hashMap.get("vStuck");
                         if (arrayList2.size() == 0) {
                             jSONArray2.put(0);
                         } else {
@@ -454,7 +454,7 @@ public class RtcReportHandle {
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bigInteger, i)) == null) {
-            if (bigInteger == null || (hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger)) == null) {
+            if (bigInteger == null || (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) == null) {
                 return StringUtil.NULL_STRING;
             }
             return hUDStatistics.statsString(i);
@@ -477,7 +477,7 @@ public class RtcReportHandle {
             if (bigInteger == null) {
                 return null;
             }
-            HUDStatistics hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger);
+            HUDStatistics hUDStatistics = this.mHUDStatisticsMap.get(bigInteger);
             if (hUDStatistics != null) {
                 hUDStatistics.updateEncoderStatistics(statsReportArr);
             }
@@ -494,7 +494,7 @@ public class RtcReportHandle {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
-                jSONObject2.put("networkType", RtcLogReport.getNetworkType((Context) this.mContext.get()));
+                jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
                 jSONObject2.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
@@ -514,7 +514,7 @@ public class RtcReportHandle {
     public void onFfDelayChange(BigInteger bigInteger) {
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bigInteger) == null) && mIsEnablePullQualityMonitor && (hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger)) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bigInteger) == null) && mIsEnablePullQualityMonitor && (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) != null) {
             hUDStatistics.setFirstFrameTime(System.currentTimeMillis());
             reportSLIFfDelay(this.mUserId, hUDStatistics.getFirstFrameTime() - hUDStatistics.getRequestSubscribeTime());
         }
@@ -525,7 +525,7 @@ public class RtcReportHandle {
         if ((interceptable != null && interceptable.invokeLLL(1048580, this, statsReportArr, bigInteger, statsEventsType) != null) || bigInteger == null) {
             return;
         }
-        HUDStatistics hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger);
+        HUDStatistics hUDStatistics = this.mHUDStatisticsMap.get(bigInteger);
         if (hUDStatistics != null) {
             hUDStatistics.updateEncoderStatistics(statsReportArr);
         }
@@ -605,7 +605,7 @@ public class RtcReportHandle {
             if (bigInteger == null) {
                 return false;
             }
-            HUDStatistics hUDStatistics = (HUDStatistics) this.mHUDStatisticsMap.get(bigInteger);
+            HUDStatistics hUDStatistics = this.mHUDStatisticsMap.get(bigInteger);
             if (hUDStatistics != null) {
                 if ((hUDStatistics.hasVideo() && hUDStatistics.getVideoRecvBitrateTracker().getBytesDelta() == 0) || (hUDStatistics.hasAudio() && hUDStatistics.getAudioRecvBitrateTracker().getBytesDelta() == 0)) {
                     Logging.d(TAG, "No streaming date received in current period, hasVideo: " + hUDStatistics.hasVideo() + " hasAudio: " + hUDStatistics.hasAudio());

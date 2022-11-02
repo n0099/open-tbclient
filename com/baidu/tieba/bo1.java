@@ -2,23 +2,47 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.ug2;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
 public interface bo1 {
-    boolean a(Activity activity);
 
-    void b(Context context);
+    /* loaded from: classes3.dex */
+    public interface a {
+        void onFinish();
+    }
 
-    void c(String str);
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z);
 
-    void d(CallbackHandler callbackHandler);
+        void b(Exception exc);
+    }
 
-    void e(m33 m33Var);
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(boolean z);
 
-    String f(Context context);
+        void b();
+    }
 
-    void g(m33 m33Var);
+    void a(a aVar);
 
-    void h(Activity activity, String str, String str2, tg2 tg2Var, ug2.b bVar);
+    void b(Activity activity, Bundle bundle, qk1 qk1Var);
+
+    void c(sk1 sk1Var);
+
+    String d(@NonNull Context context);
+
+    boolean e(Context context);
+
+    String f(@NonNull Context context);
+
+    void g(c cVar);
+
+    String h(Context context);
+
+    String i(@NonNull Context context);
+
+    void j(qk1 qk1Var);
 }

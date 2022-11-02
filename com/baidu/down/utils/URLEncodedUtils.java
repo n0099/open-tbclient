@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Iterator;
 import java.util.List;
 @Deprecated
 /* loaded from: classes2.dex */
@@ -85,15 +84,13 @@ public class URLEncodedUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static String format(List list, String str) {
+    public static String format(List<? extends NameValuePair> list, String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                NameValuePair nameValuePair = (NameValuePair) it.next();
+            for (NameValuePair nameValuePair : list) {
                 String encode = encode(nameValuePair.getName(), str);
                 String value = nameValuePair.getValue();
                 if (value != null) {

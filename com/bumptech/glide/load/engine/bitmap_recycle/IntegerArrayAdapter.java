@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class IntegerArrayAdapter implements ArrayAdapterInterface {
+public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IntegerArrayPool";
     public transient /* synthetic */ FieldHolder $fh;

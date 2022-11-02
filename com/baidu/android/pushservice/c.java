@@ -22,7 +22,7 @@ public class c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(int i, List list);
+        void a(int i, List<String> list);
     }
 
     public c(Context context) {
@@ -89,7 +89,7 @@ public class c {
             }
 
             @Override // com.baidu.android.pushservice.httpapi.g.a
-            public void a(List list) {
+            public void a(List<String> list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
                     if (this.b.c != null) {
@@ -134,7 +134,7 @@ public class c {
             }
 
             @Override // com.baidu.android.pushservice.httpapi.j.a
-            public void a(int i, List list) {
+            public void a(int i, List<String> list) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, list) == null) {
                     this.a.a(i, list);

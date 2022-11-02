@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class d implements Parcelable.Creator {
+public final class d implements Parcelable.Creator<Poi> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +28,16 @@ public final class d implements Parcelable.Creator {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
     public Poi createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new Poi(parcel.readString(), parcel.readString(), parcel.readDouble()) : (Poi) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new Poi(parcel.readString(), parcel.readString(), parcel.readDouble(), parcel.readString(), parcel.readString()) : (Poi) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
     public Poi[] newArray(int i) {
         InterceptResult invokeI;

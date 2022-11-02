@@ -4,10 +4,13 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
+import kotlin.SinceKotlin;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.internal.LowPriorityInOverloadResolution;
 import kotlin.jvm.JvmClassMappingKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.KTypeBase;
@@ -39,9 +42,13 @@ public final class TypesJVMKt {
         }
     }
 
+    @LowPriorityInOverloadResolution
+    @SinceKotlin(version = "1.4")
+    @ExperimentalStdlibApi
     public static /* synthetic */ void getJavaType$annotations(KType kType) {
     }
 
+    @ExperimentalStdlibApi
     public static /* synthetic */ void getJavaType$annotations(KTypeProjection kTypeProjection) {
     }
 
@@ -54,6 +61,7 @@ public final class TypesJVMKt {
         return computeJavaType$default(javaType, false, 1, null);
     }
 
+    @ExperimentalStdlibApi
     public static final Type computeJavaType(KType kType, boolean z) {
         Class javaClass;
         int i;
@@ -68,7 +76,7 @@ public final class TypesJVMKt {
             } else {
                 javaClass = JvmClassMappingKt.getJavaClass(kClass);
             }
-            List arguments = kType.getArguments();
+            List<KTypeProjection> arguments = kType.getArguments();
             if (arguments.isEmpty()) {
                 return javaClass;
             }
@@ -102,6 +110,7 @@ public final class TypesJVMKt {
         throw new UnsupportedOperationException("Unsupported type classifier: " + kType);
     }
 
+    @ExperimentalStdlibApi
     public static final Type createPossiblyInnerType(Class<?> cls, List<KTypeProjection> list) {
         Class<?> declaringClass = cls.getDeclaringClass();
         if (declaringClass != null) {

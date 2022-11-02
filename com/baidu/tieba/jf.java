@@ -1,19 +1,120 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tieba.kf;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface jf {
-    Object a(String str, String str2);
+public abstract class jf {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int DEF_CRASHTIME_LIMIT = 10;
+    public static final int OFF_TYPE = 0;
+    public static final int ON_TYPE = 1;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int mDefaultType;
+    public String[] mKey;
+    public int mMaxCrashTimes;
+    public String mName;
+    public int mOffType;
+    public kf.a mSwitchListener;
 
-    void b(String str);
+    public abstract void changeSettingByType(int i);
 
-    df c();
+    public abstract String[] getCrashKeys();
 
-    void d(String str, String str2);
+    public abstract int getDefaultType();
 
-    kf.b e(String str, String str2);
+    public abstract int getMaxCrashTimes();
 
-    void f(String str, String str2, Object obj, long j);
+    public abstract String getName();
 
-    void g(String str);
+    public abstract int getOffType();
+
+    public String[] getSwitchLibs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements kf.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jf a;
+
+        public a(jf jfVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jfVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jfVar;
+        }
+
+        @Override // com.baidu.tieba.kf.a
+        public void a(String str, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.a.changeSettingByType(i);
+            }
+        }
+    }
+
+    public jf() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mDefaultType = 0;
+        this.mOffType = 1;
+        this.mMaxCrashTimes = 10;
+        this.mSwitchListener = new a(this);
+        initData();
+        addToManager();
+    }
+
+    public void addToManager() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            kf kfVar = new kf(this.mName, this.mDefaultType, this.mSwitchListener);
+            kfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+            kfVar.j(getSwitchLibs());
+            SwitchManager.getInstance().addSwitchData(kfVar);
+        }
+    }
+
+    public void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mName = getName();
+            this.mKey = getCrashKeys();
+            this.mDefaultType = getDefaultType();
+            this.mOffType = getOffType();
+            this.mMaxCrashTimes = getMaxCrashTimes();
+        }
+    }
 }

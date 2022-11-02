@@ -1,25 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface af9 {
-    void a(DownloadException downloadException);
+public class af9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(DownloadException downloadException);
+    public abstract String a();
 
-    void onConnectCanceled();
+    public abstract void b();
 
-    void onConnected(long j, long j2, boolean z);
-
-    void onConnecting();
-
-    void onDownloadCanceled();
-
-    void onDownloadCompleted(String str);
-
-    void onDownloadPaused();
-
-    void onDownloadProgress(long j, long j2, int i);
-
-    void onStarted();
+    public abstract void c();
 }

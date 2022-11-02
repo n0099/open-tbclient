@@ -14,12 +14,12 @@ public class ListMultipartUploadsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String bucketName;
-    public List commonPrefixes;
+    public List<String> commonPrefixes;
     public String delimiter;
     public boolean isTruncated;
     public String keyMarker;
     public int maxUploads;
-    public List multipartUploads;
+    public List<MultipartUploadSummary> multipartUploads;
     public String nextKeyMarker;
     public String prefix;
 
@@ -46,7 +46,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         return (String) invokeV.objValue;
     }
 
-    public List getCommonPrefixes() {
+    public List<String> getCommonPrefixes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -82,7 +82,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         return invokeV.intValue;
     }
 
-    public List getMultipartUploads() {
+    public List<MultipartUploadSummary> getMultipartUploads() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -128,7 +128,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         }
     }
 
-    public void setCommonPrefixes(List list) {
+    public void setCommonPrefixes(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.commonPrefixes = list;
@@ -156,7 +156,7 @@ public class ListMultipartUploadsResponse extends BosResponse {
         }
     }
 
-    public void setMultipartUploads(List list) {
+    public void setMultipartUploads(List<MultipartUploadSummary> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.multipartUploads = list;

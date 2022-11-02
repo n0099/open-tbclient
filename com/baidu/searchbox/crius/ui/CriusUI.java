@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.crius.CriusNode;
@@ -15,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class CriusUI implements RenderImplInterface {
+public abstract class CriusUI<T extends View> implements RenderImplInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CriusUI";
     public transient /* synthetic */ FieldHolder $fh;
-    public View mView;
+    public T mView;
     public CriusData renderObject;
 
-    public abstract View createView(Context context);
+    public abstract T createView(Context context);
 
     @Override // com.baidu.searchbox.crius.ui.RenderImplInterface
     public void insertChild(CriusData criusData, int i) {
@@ -79,13 +80,13 @@ public abstract class CriusUI implements RenderImplInterface {
         }
     }
 
-    public View getView() {
+    public T getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mView;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public void setViewLp() {
@@ -97,13 +98,14 @@ public abstract class CriusUI implements RenderImplInterface {
         }
     }
 
+    @Nullable
     public View getChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = this.mView;
-            if (view2 instanceof ViewGroup) {
-                return ((ViewGroup) view2).getChildAt(i);
+            T t = this.mView;
+            if (t instanceof ViewGroup) {
+                return ((ViewGroup) t).getChildAt(i);
             }
             return null;
         }

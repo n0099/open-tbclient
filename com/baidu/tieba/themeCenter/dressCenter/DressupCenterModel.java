@@ -7,9 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.cu8;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.hv8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.kv8;
+import com.baidu.tieba.lv8;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,19 +19,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class DressupCenterModel extends BdBaseModel {
+public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public cu8 b;
-    public List c;
+    public List<kv8> a;
+    public lv8 b;
+    public List<hv8> c;
     public b d;
     public boolean e;
-    public qb f;
+    public pb f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List list, cu8 cu8Var, List list2);
+        void a(int i, String str, List<hv8> list, lv8 lv8Var, List<kv8> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -43,7 +45,7 @@ public class DressupCenterModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DressupCenterModel a;
@@ -70,8 +72,8 @@ public class DressupCenterModel extends BdBaseModel {
             this.a = dressupCenterModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -162,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zm8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            zm8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            io8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            io8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

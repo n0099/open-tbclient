@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.notify;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,6 +49,7 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo, com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

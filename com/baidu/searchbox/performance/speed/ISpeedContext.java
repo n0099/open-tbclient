@@ -123,7 +123,7 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-        public void launchData(HashMap hashMap) {
+        public void launchData(HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
             }
@@ -173,7 +173,7 @@ public interface ISpeedContext {
 
     boolean isSplashActivity(Activity activity);
 
-    void launchData(HashMap hashMap);
+    void launchData(HashMap<String, String> hashMap);
 
     void launchTime(boolean z, long j);
 }

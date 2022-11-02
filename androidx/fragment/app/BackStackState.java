@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class BackStackState implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;

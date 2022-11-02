@@ -21,22 +21,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableCache extends AbstractObservableWithUpstream {
+public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean once;
-    public final CacheState state;
+    public final CacheState<T> state;
 
     /* loaded from: classes8.dex */
-    public final class CacheState extends LinkedArrayList implements Observer {
+    public static final class CacheState<T> extends LinkedArrayList implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final ReplayDisposable[] EMPTY;
         public static final ReplayDisposable[] TERMINATED;
         public transient /* synthetic */ FieldHolder $fh;
         public final SequentialDisposable connection;
         public volatile boolean isConnected;
-        public final AtomicReference observers;
-        public final Observable source;
+        public final AtomicReference<ReplayDisposable<T>[]> observers;
+        public final Observable<? extends T> source;
         public boolean sourceDone;
 
         static {
@@ -65,7 +65,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CacheState(Observable observable, int i) {
+        public CacheState(Observable<? extends T> observable, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,18 +83,18 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
                 }
             }
             this.source = observable;
-            this.observers = new AtomicReference(EMPTY);
+            this.observers = new AtomicReference<>(EMPTY);
             this.connection = new SequentialDisposable();
         }
 
-        public boolean addChild(ReplayDisposable replayDisposable) {
-            ReplayDisposable[] replayDisposableArr;
-            ReplayDisposable[] replayDisposableArr2;
+        public boolean addChild(ReplayDisposable<T> replayDisposable) {
+            ReplayDisposable<T>[] replayDisposableArr;
+            ReplayDisposable<T>[] replayDisposableArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, replayDisposable)) == null) {
                 do {
-                    replayDisposableArr = (ReplayDisposable[]) this.observers.get();
+                    replayDisposableArr = this.observers.get();
                     if (replayDisposableArr == TERMINATED) {
                         return false;
                     }
@@ -109,11 +109,11 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.sourceDone) {
-                add(NotificationLite.next(obj));
-                for (ReplayDisposable replayDisposable : (ReplayDisposable[]) this.observers.get()) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.sourceDone) {
+                add(NotificationLite.next(t));
+                for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                     replayDisposable.replay();
                 }
             }
@@ -134,7 +134,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
                 this.sourceDone = true;
                 add(NotificationLite.complete());
                 this.connection.dispose();
-                for (ReplayDisposable replayDisposable : (ReplayDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(TERMINATED)) {
                     replayDisposable.replay();
                 }
             }
@@ -147,19 +147,21 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
                 this.sourceDone = true;
                 add(NotificationLite.error(th));
                 this.connection.dispose();
-                for (ReplayDisposable replayDisposable : (ReplayDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(TERMINATED)) {
                     replayDisposable.replay();
                 }
             }
         }
 
-        public void removeChild(ReplayDisposable replayDisposable) {
-            ReplayDisposable[] replayDisposableArr;
+        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.observable.ObservableCache$ReplayDisposable<T>[]> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void removeChild(ReplayDisposable<T> replayDisposable) {
+            ReplayDisposable<T>[] replayDisposableArr;
             ReplayDisposable[] replayDisposableArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, replayDisposable) == null) {
                 do {
-                    replayDisposableArr = (ReplayDisposable[]) this.observers.get();
+                    replayDisposableArr = this.observers.get();
                     int length = replayDisposableArr.length;
                     if (length == 0) {
                         return;
@@ -193,18 +195,18 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplayDisposable extends AtomicInteger implements Disposable {
+    public static final class ReplayDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7058506693698832024L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
-        public final Observer child;
+        public final Observer<? super T> child;
         public Object[] currentBuffer;
         public int currentIndexInBuffer;
         public int index;
-        public final CacheState state;
+        public final CacheState<T> state;
 
-        public ReplayDisposable(Observer observer, CacheState cacheState) {
+        public ReplayDisposable(Observer<? super T> observer, CacheState<T> cacheState) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,7 +249,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Observer observer = this.child;
+            Observer<? super T> observer = this.child;
             int i = 1;
             while (!this.cancelled) {
                 int size = this.state.size();
@@ -290,7 +292,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableCache(Observable observable, CacheState cacheState) {
+    public ObservableCache(Observable<T> observable, CacheState<T> cacheState) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -311,7 +313,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
         this.once = new AtomicBoolean();
     }
 
-    public static Observable from(Observable observable) {
+    public static <T> Observable<T> from(Observable<T> observable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, observable)) == null) {
@@ -320,7 +322,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
         return (Observable) invokeL.objValue;
     }
 
-    public static Observable from(Observable observable, int i) {
+    public static <T> Observable<T> from(Observable<T> observable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observable, i)) == null) {
@@ -343,7 +345,7 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (((ReplayDisposable[]) this.state.observers.get()).length != 0) {
+            if (this.state.observers.get().length != 0) {
                 return true;
             }
             return false;
@@ -361,10 +363,10 @@ public final class ObservableCache extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, observer) == null) {
-            ReplayDisposable replayDisposable = new ReplayDisposable(observer, this.state);
+            ReplayDisposable<T> replayDisposable = new ReplayDisposable<>(observer, this.state);
             observer.onSubscribe(replayDisposable);
             this.state.addChild(replayDisposable);
             if (!this.once.get() && this.once.compareAndSet(false, true)) {

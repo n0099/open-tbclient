@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2;
 
+import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.media.PlaybackParams;
 import android.os.Handler;
@@ -9,6 +10,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.TextureView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +27,7 @@ import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
@@ -33,6 +36,7 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public class SimpleExoPlayer implements ExoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
@@ -46,24 +50,24 @@ public class SimpleExoPlayer implements ExoPlayer {
     public int audioSessionId;
     public float audioVolume;
     public final ComponentListener componentListener;
-    public final CopyOnWriteArraySet metadataOutputs;
+    public final CopyOnWriteArraySet<MetadataOutput> metadataOutputs;
     public boolean ownsSurface;
     public final ExoPlayer player;
     public final Renderer[] renderers;
     public Surface surface;
     public SurfaceHolder surfaceHolder;
-    public final CopyOnWriteArraySet textOutputs;
+    public final CopyOnWriteArraySet<TextOutput> textOutputs;
     public TextureView textureView;
     public VideoRendererEventListener videoDebugListener;
     public DecoderCounters videoDecoderCounters;
     public Format videoFormat;
-    public final CopyOnWriteArraySet videoListeners;
+    public final CopyOnWriteArraySet<VideoListener> videoListeners;
     public final int videoRendererCount;
     public int videoScalingMode;
 
     /* renamed from: com.google.android.exoplayer2.SimpleExoPlayer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -170,7 +174,7 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.text.TextOutput
-        public void onCues(List list) {
+        public void onCues(List<Cue> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
                 Iterator it = this.this$0.textOutputs.iterator();
@@ -348,9 +352,9 @@ public class SimpleExoPlayer implements ExoPlayer {
             }
         }
         this.componentListener = new ComponentListener(this, null);
-        this.videoListeners = new CopyOnWriteArraySet();
-        this.textOutputs = new CopyOnWriteArraySet();
-        this.metadataOutputs = new CopyOnWriteArraySet();
+        this.videoListeners = new CopyOnWriteArraySet<>();
+        this.textOutputs = new CopyOnWriteArraySet<>();
+        this.metadataOutputs = new CopyOnWriteArraySet<>();
         if (Looper.myLooper() != null) {
             mainLooper = Looper.myLooper();
         } else {
@@ -590,8 +594,9 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
+    @TargetApi(23)
     @Deprecated
-    public void setPlaybackParams(PlaybackParams playbackParams) {
+    public void setPlaybackParams(@Nullable PlaybackParams playbackParams) {
         PlaybackParameters playbackParameters;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048644, this, playbackParams) == null) {

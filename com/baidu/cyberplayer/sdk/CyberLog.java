@@ -51,6 +51,7 @@ public class CyberLog {
         }
     }
 
+    @Keep
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 3) {
@@ -59,6 +60,7 @@ public class CyberLog {
         Log.i("duplayer-" + str, str2);
     }
 
+    @Keep
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 6) {
@@ -67,6 +69,7 @@ public class CyberLog {
         Log.e("duplayer-" + str, str2);
     }
 
+    @Keep
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) || 7 - a > 6) {
@@ -75,12 +78,14 @@ public class CyberLog {
         Log.e("duplayer-" + str, str2, th);
     }
 
+    @Keep
     public static int getLogLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a : invokeV.intValue;
     }
 
+    @Keep
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - a > 4) {
@@ -89,6 +94,7 @@ public class CyberLog {
         Log.i("duplayer-" + str, str2);
     }
 
+    @Keep
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - a > 2) {
@@ -97,6 +103,7 @@ public class CyberLog {
         Log.v("duplayer-" + str, str2);
     }
 
+    @Keep
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - a > 5) {

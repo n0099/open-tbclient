@@ -12,10 +12,10 @@ import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class d extends RecyclerView.Adapter {
+public abstract class d extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List GT;
+    public List<Presenter> GT;
 
     public d() {
         Interceptable interceptable = $ic;

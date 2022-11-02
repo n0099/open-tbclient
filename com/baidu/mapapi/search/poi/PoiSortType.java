@@ -57,12 +57,18 @@ public final class PoiSortType {
     public static PoiSortType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (PoiSortType) Enum.valueOf(PoiSortType.class, str) : (PoiSortType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (PoiSortType) Enum.valueOf(PoiSortType.class, str);
+        }
+        return (PoiSortType) invokeL.objValue;
     }
 
     public static PoiSortType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PoiSortType[]) a.clone() : (PoiSortType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (PoiSortType[]) a.clone();
+        }
+        return (PoiSortType[]) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.tencent.open;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -341,6 +342,7 @@ public class SocialApiIml extends BaseApi {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     public void writeEncryToken(Context context) {
         String str;
         Interceptable interceptable = $ic;

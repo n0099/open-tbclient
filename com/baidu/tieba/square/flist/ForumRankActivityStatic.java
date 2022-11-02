@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.io8;
 import com.baidu.tieba.square.forumlist.SquareForumListActivity;
 import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
 import com.baidu.tieba.square.square.BarFolderFirstDirActivity;
 import com.baidu.tieba.square.square.SquareActivity;
-import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class ForumRankActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<ForumListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,12 +56,12 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ForumListActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((ForumListActivityConfig) customMessage.getData()).startActivity(ForumListActivity.class);
+                    customMessage.getData().startActivity(ForumListActivity.class);
                 }
                 return null;
             }
@@ -70,7 +70,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class b implements CustomMessageTask.CustomRunnable {
+    public static class b implements CustomMessageTask.CustomRunnable<ForumRankActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,12 +89,12 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ForumRankActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((ForumRankActivityConfig) customMessage.getData()).startActivity(ForumRankActivity.class);
+                    customMessage.getData().startActivity(ForumRankActivity.class);
                 }
                 return null;
             }
@@ -103,7 +103,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class c implements CustomMessageTask.CustomRunnable {
+    public static class c implements CustomMessageTask.CustomRunnable<SingleSquareActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,12 +122,12 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<SingleSquareActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((SingleSquareActivityConfig) customMessage.getData()).startActivity(SquareActivity.class);
+                    customMessage.getData().startActivity(SquareActivity.class);
                 }
                 return null;
             }
@@ -136,7 +136,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class d implements CustomMessageTask.CustomRunnable {
+    public static class d implements CustomMessageTask.CustomRunnable<BarFolderFirstDirActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,12 +155,12 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<BarFolderFirstDirActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((BarFolderFirstDirActivityConfig) customMessage.getData()).startActivity(BarFolderFirstDirActivity.class);
+                    customMessage.getData().startActivity(BarFolderFirstDirActivity.class);
                 }
                 return null;
             }
@@ -169,7 +169,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class e implements CustomMessageTask.CustomRunnable {
+    public static class e implements CustomMessageTask.CustomRunnable<SquareForumListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -188,12 +188,12 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<SquareForumListActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((SquareForumListActivityConfig) customMessage.getData()).startActivity(SquareForumListActivity.class);
+                    customMessage.getData().startActivity(SquareForumListActivity.class);
                 }
                 return null;
             }
@@ -202,7 +202,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class f implements UrlManager.UrlDealListener {
+    public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -221,7 +221,7 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext tbPageContext, String[] strArr) {
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
@@ -246,7 +246,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public final class g implements UrlManager.UrlSchemaHandler {
+    public static class g implements UrlManager.UrlSchemaHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -265,7 +265,7 @@ public class ForumRankActivityStatic {
         }
 
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlSchemaHandler
-        public void deal(TbPageContext tbPageContext, Map map) {
+        public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, map) == null) && tbPageContext != null) {
                 new SingleSquareActivityConfig(tbPageContext.getPageActivity()).start();
@@ -302,8 +302,8 @@ public class ForumRankActivityStatic {
         CustomMessageTask customMessageTask5 = new CustomMessageTask(2902029, new e());
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
-        zm8.h(309097, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, zm8.a("c/f/forumsquare/getForumsFromForumClass", 309097));
+        io8.h(309097, SquareForumListResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, io8.a("c/f/forumsquare/getForumsFromForumClass", 309097));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

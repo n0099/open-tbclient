@@ -10,13 +10,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.ne5;
-import com.baidu.tieba.oe5;
+import com.baidu.tieba.jf5;
+import com.baidu.tieba.kf5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public oe5 d;
+    public kf5 d;
     public float e;
     public float f;
     public boolean g;
@@ -76,9 +77,9 @@ public class SusPendedView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.j = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SusPendedView susPendedView = this.a;
-                susPendedView.l = 1.0f - (susPendedView.j / fj.i(this.a.getContext()));
+                susPendedView.l = 1.0f - (susPendedView.j / xi.j(this.a.getContext()));
                 if (this.a.j != 0) {
-                    if (this.a.j == fj.i(this.a.getContext())) {
+                    if (this.a.j == xi.j(this.a.getContext())) {
                         this.a.l = 0.0f;
                         this.a.f();
                     }
@@ -126,7 +127,7 @@ public class SusPendedView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SusPendedView(Context context, AttributeSet attributeSet) {
+    public SusPendedView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -147,7 +148,7 @@ public class SusPendedView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SusPendedView(Context context, AttributeSet attributeSet, int i) {
+    public SusPendedView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -167,9 +168,9 @@ public class SusPendedView extends LinearLayout {
         }
         this.l = 0.0f;
         this.m = true;
-        this.k = (fj.i(context) / 3) - fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds153);
-        this.j = fj.i(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(fj.i(context), 0);
+        this.k = (xi.j(context) / 3) - xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds153);
+        this.j = xi.j(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(xi.j(context), 0);
         this.i = ofInt;
         ofInt.setDuration(300L);
         this.i.setInterpolator(new LinearInterpolator());
@@ -190,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(oe5 oe5Var) {
+    public void setContentViewTop(kf5 kf5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, oe5Var) == null) {
-            this.d = oe5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, kf5Var) == null) {
+            this.d = kf5Var;
         }
     }
 
@@ -229,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            oe5 oe5Var = this.d;
-            if (oe5Var == null) {
+            kf5 kf5Var = this.d;
+            if (kf5Var == null) {
                 return false;
             }
-            return oe5Var.s();
+            return kf5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -294,7 +295,7 @@ public class SusPendedView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h = true;
-            this.i.setIntValues(0, fj.i(getContext()));
+            this.i.setIntValues(0, xi.j(getContext()));
             this.i.start();
         }
     }
@@ -334,7 +335,7 @@ public class SusPendedView extends LinearLayout {
                             if (this.e == 0.0f && d()) {
                                 this.e = motionEvent.getRawY();
                             }
-                            this.l = 1.0f - ((this.f - this.e) / fj.i(getContext()));
+                            this.l = 1.0f - ((this.f - this.e) / xi.j(getContext()));
                         }
                     }
                     if (this.f > this.e && d()) {
@@ -349,7 +350,7 @@ public class SusPendedView extends LinearLayout {
                     }
                     this.h = z2;
                     if (z2) {
-                        this.i.setIntValues((int) (this.f - this.e), fj.i(getContext()));
+                        this.i.setIntValues((int) (this.f - this.e), xi.j(getContext()));
                         this.i.start();
                     } else {
                         this.l = 1.0f;
@@ -402,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    oe5 oe5Var = this.d;
-                    if (oe5Var instanceof ne5) {
-                        ((ne5) oe5Var).E(f - f2);
+                    kf5 kf5Var = this.d;
+                    if (kf5Var instanceof jf5) {
+                        ((jf5) kf5Var).E(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

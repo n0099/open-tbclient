@@ -10,7 +10,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static Map a;
+    public static Map<Long, c> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static synchronized void a(long j) {
@@ -25,15 +25,15 @@ public class b {
     }
 
     public static void a(Intent intent) {
-        Map map;
+        Map<Long, c> map;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, intent) == null) && intent.hasExtra("bd.cross.request.COMMAND_TYPE") && TextUtils.equals(intent.getStringExtra("bd.cross.request.COMMAND_TYPE"), "bd.cross.command.MESSAGE_ACK")) {
             long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
             if (longExtra == 0 || (map = a) == null || !map.containsKey(Long.valueOf(longExtra))) {
                 return;
             }
-            ((c) a.get(Long.valueOf(longExtra))).a(intent);
-            Map map2 = a;
+            a.get(Long.valueOf(longExtra)).a(intent);
+            Map<Long, c> map2 = a;
             map2.remove(map2.get(Long.valueOf(longExtra)));
         }
     }
@@ -46,7 +46,7 @@ public class b {
                     a = Collections.synchronizedMap(new HashMap());
                 }
                 if (a.containsKey(Long.valueOf(cVar.a()))) {
-                    ((c) a.remove(cVar)).a();
+                    a.remove(cVar).a();
                 }
                 a.put(Long.valueOf(cVar.a()), cVar);
             }

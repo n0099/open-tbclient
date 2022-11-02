@@ -23,7 +23,7 @@ import com.baidu.live.recmore.ILiveRecMoreFeedView;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.dc0;
+import com.baidu.tieba.cc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public final class LiveRecMoreFeedView implements ILiveRecMoreFeedView {
                 return;
             }
         }
-        dc0 a = dc0.a();
+        cc0 a = cc0.a();
         Intrinsics.checkExpressionValueIsNotNull(a, "BdUniqueId.gen()");
         this.bdUniqueId = a.b();
     }

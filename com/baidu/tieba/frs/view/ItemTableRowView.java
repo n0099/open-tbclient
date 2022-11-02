@@ -7,12 +7,13 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,13 +65,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,7 +96,7 @@ public class ItemTableRowView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ItemTableRowView(Context context, AttributeSet attributeSet) {
+    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +117,7 @@ public class ItemTableRowView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemTableRowView(Context context, AttributeSet attributeSet, int i) {
+    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

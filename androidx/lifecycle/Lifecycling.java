@@ -1,5 +1,8 @@
 package androidx.lifecycle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,6 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class Lifecycling {
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,6 +77,7 @@ public class Lifecycling {
         return (GeneratedAdapter) invokeLL.objValue;
     }
 
+    @Nullable
     public static Constructor<? extends GeneratedAdapter> generatedConstructor(Class<?> cls) {
         String str;
         InterceptResult invokeL;
@@ -107,6 +112,7 @@ public class Lifecycling {
         return (Constructor) invokeL.objValue;
     }
 
+    @NonNull
     public static LifecycleEventObserver lifecycleEventObserver(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -192,6 +198,7 @@ public class Lifecycling {
         return (String) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
     public static GenericLifecycleObserver getCallback(Object obj) {
         InterceptResult invokeL;
@@ -221,7 +228,7 @@ public class Lifecycling {
                 }
 
                 @Override // androidx.lifecycle.LifecycleEventObserver
-                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) {
                         this.val$observer.onStateChanged(lifecycleOwner, event);

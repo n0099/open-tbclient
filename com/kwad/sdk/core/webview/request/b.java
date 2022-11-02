@@ -2,25 +2,30 @@ package com.kwad.sdk.core.webview.request;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.g;
 import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.core.network.n;
 import com.kwad.sdk.core.webview.a.b;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(WebCardGetDataResponse webCardGetDataResponse);
+        @MainThread
+        void a(@NonNull WebCardGetDataResponse webCardGetDataResponse);
 
+        @MainThread
         void onError(int i, String str);
     }
 
-    public final void a(final b.a aVar, final a aVar2) {
-        new m() { // from class: com.kwad.sdk.core.webview.request.b.1
+    public final void a(final b.a aVar, @NonNull final a aVar2) {
+        new m<com.kwad.sdk.core.webview.request.a, WebCardGetDataResponse>() { // from class: com.kwad.sdk.core.webview.request.b.1
+            @NonNull
             public static WebCardGetDataResponse cK(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 WebCardGetDataResponse webCardGetDataResponse = new WebCardGetDataResponse();
@@ -31,22 +36,25 @@ public final class b {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.a
+            @NonNull
             /* renamed from: wk */
             public com.kwad.sdk.core.webview.request.a createRequest() {
                 b.a aVar3 = aVar;
                 return new com.kwad.sdk.core.webview.request.a(aVar3.url, aVar3.method, aVar3.params);
             }
 
+            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
             @Override // com.kwad.sdk.core.network.m
-            public final /* synthetic */ BaseResultData parseData(String str) {
+            @NonNull
+            public final /* synthetic */ WebCardGetDataResponse parseData(String str) {
                 return cK(str);
             }
-        }.request(new n() { // from class: com.kwad.sdk.core.webview.request.b.2
+        }.request(new n<com.kwad.sdk.core.webview.request.a, WebCardGetDataResponse>() { // from class: com.kwad.sdk.core.webview.request.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
             /* renamed from: a */
-            public void onStartRequest(com.kwad.sdk.core.webview.request.a aVar3) {
+            public void onStartRequest(@NonNull com.kwad.sdk.core.webview.request.a aVar3) {
                 super.onStartRequest(aVar3);
                 com.kwad.sdk.core.e.b.d("WebCardGetDataRequestManager", "onStartRequest");
                 b.mHandler.post(new Runnable() { // from class: com.kwad.sdk.core.webview.request.b.2.1
@@ -56,7 +64,7 @@ public final class b {
                 });
             }
 
-            private void b(final WebCardGetDataResponse webCardGetDataResponse) {
+            private void b(@NonNull final WebCardGetDataResponse webCardGetDataResponse) {
                 com.kwad.sdk.core.e.b.d("WebCardGetDataRequestManager", "onSuccess");
                 b.mHandler.post(new Runnable() { // from class: com.kwad.sdk.core.webview.request.b.2.2
                     @Override // java.lang.Runnable
@@ -78,12 +86,12 @@ public final class b {
             }
 
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onError(g gVar, int i, String str) {
+            public final /* synthetic */ void onError(@NonNull g gVar, int i, String str) {
                 i(i, str);
             }
 
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onSuccess(g gVar, BaseResultData baseResultData) {
+            public final /* synthetic */ void onSuccess(@NonNull g gVar, @NonNull BaseResultData baseResultData) {
                 b((WebCardGetDataResponse) baseResultData);
             }
         });

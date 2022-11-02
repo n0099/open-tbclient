@@ -15,7 +15,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class FaceType {
+    public static final class FaceType {
         public static final /* synthetic */ FaceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FaceType CERT;
@@ -91,7 +91,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ImageType {
+    public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImageType BASE64;
@@ -161,7 +161,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class LivenessControl {
+    public static final class LivenessControl {
         public static final /* synthetic */ LivenessControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LivenessControl HIGH;
@@ -234,7 +234,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class QualityControl {
+    public static final class QualityControl {
         public static final /* synthetic */ QualityControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QualityControl HIGH;
@@ -307,7 +307,7 @@ public class FaceEnum {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SpoofingControl {
+    public static final class SpoofingControl {
         public static final /* synthetic */ SpoofingControl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SpoofingControl HIGH;

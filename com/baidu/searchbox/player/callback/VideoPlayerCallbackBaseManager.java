@@ -2,6 +2,7 @@ package com.baidu.searchbox.player.callback;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
@@ -32,6 +33,7 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
+    @PublicMethod
     public IVideoPlayerCallback getVideoPlayerCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,6 +165,7 @@ public class VideoPlayerCallbackBaseManager {
         }
     }
 
+    @PublicMethod
     public void setVideoPlayerCallback(IVideoPlayerCallback iVideoPlayerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, iVideoPlayerCallback) == null) {

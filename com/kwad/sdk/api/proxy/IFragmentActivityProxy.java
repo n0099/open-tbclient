@@ -1,14 +1,17 @@
 package com.kwad.sdk.api.proxy;
 
+import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 @KsAdSdkDynamicApi
+@Keep
 /* loaded from: classes7.dex */
 public abstract class IFragmentActivityProxy extends IActivityProxy {
     public BaseProxyFragmentActivity mProxyFragmentActivity;
 
     @KsAdSdkDynamicApi
+    @Keep
     public final KsFragmentManager getSupportFragmentManager() {
         return this.mProxyFragmentActivity.getSupportFragmentManager2();
     }

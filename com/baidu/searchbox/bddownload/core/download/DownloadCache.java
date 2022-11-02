@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.download;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -32,7 +33,7 @@ public class DownloadCache {
     public volatile boolean userCanceled;
 
     /* loaded from: classes2.dex */
-    public class PreError extends DownloadCache {
+    public static class PreError extends DownloadCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,6 +75,7 @@ public class DownloadCache {
         this.outputStream = null;
     }
 
+    @NonNull
     public MultiPointOutputStream getOutputStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,7 +196,7 @@ public class DownloadCache {
         }
     }
 
-    public DownloadCache(MultiPointOutputStream multiPointOutputStream) {
+    public DownloadCache(@NonNull MultiPointOutputStream multiPointOutputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

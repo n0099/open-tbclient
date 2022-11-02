@@ -4,6 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,15 +16,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public ImageView CO;
+    @Nullable
     public ImageView CP;
-    public InterfaceC0572a CQ;
+    @Nullable
+    public InterfaceC0583a CQ;
+    @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0572a {
+    public interface InterfaceC0583a {
         void r(View view2);
 
         void s(View view2);
@@ -46,7 +52,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910df);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091119);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -57,19 +63,19 @@ public final class a implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910dc);
-            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910dd);
-            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910de);
+            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091116);
+            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091117);
+            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091118);
             this.CP = imageView;
             imageView.setOnClickListener(this);
             this.CO.setOnClickListener(this);
         }
     }
 
-    public final void a(InterfaceC0572a interfaceC0572a) {
+    public final void a(@Nullable InterfaceC0583a interfaceC0583a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0572a) == null) {
-            this.CQ = interfaceC0572a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0583a) == null) {
+            this.CQ = interfaceC0583a;
         }
     }
 
@@ -82,6 +88,7 @@ public final class a implements View.OnClickListener {
         textView.setText(bVar.getTitle());
     }
 
+    @MainThread
     public final void ag(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
@@ -91,6 +98,7 @@ public final class a implements View.OnClickListener {
         imageView.setVisibility(z ? 0 : 8);
     }
 
+    @MainThread
     public final void ah(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;

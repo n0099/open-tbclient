@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
-public class d implements Serializable, Comparable {
+public class d implements Serializable, Comparable<d> {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
     public static final d b;

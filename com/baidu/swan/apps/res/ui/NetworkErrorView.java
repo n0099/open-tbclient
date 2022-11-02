@@ -19,7 +19,7 @@ public class NetworkErrorView extends CommonEmptyView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
@@ -165,8 +165,8 @@ public class NetworkErrorView extends CommonEmptyView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setVisibility(0);
-            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f1340));
-            setIcon(R.drawable.obfuscated_res_0x7f0811b3);
+            setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f135e));
+            setIcon(R.drawable.obfuscated_res_0x7f0811cf);
         }
     }
 

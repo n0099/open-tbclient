@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class NavigationBarActivity extends BaseActivity {
+public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -28,7 +28,7 @@ public class NavigationBarActivity extends BaseActivity {
     public RelativeLayout d;
     public RelativeLayout e;
 
-    public boolean y1() {
+    public boolean x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -98,7 +98,7 @@ public class NavigationBarActivity extends BaseActivity {
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            zp4 layoutMode = getLayoutMode();
+            qq4 layoutMode = getLayoutMode();
             boolean z = true;
             if (i != 1) {
                 z = false;
@@ -113,7 +113,7 @@ public class NavigationBarActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            y1();
+            x1();
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;
             relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
@@ -126,12 +126,12 @@ public class NavigationBarActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.obfuscated_res_0x7f0d0637);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091649);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09164e);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d064b);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091688);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09168d);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            if (y1()) {
-                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0916cf)).inflate();
+            if (x1()) {
+                this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09170f)).inflate();
             }
         }
     }
@@ -141,10 +141,10 @@ public class NavigationBarActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            if (y1()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916ce);
+            if (x1()) {
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09170e);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0916cf);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09170f);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;

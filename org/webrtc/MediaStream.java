@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStream";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List audioTracks;
+    public final List<AudioTrack> audioTracks;
     public long nativeStream;
-    public final List preservedVideoTracks;
-    public final List videoTracks;
+    public final List<VideoTrack> preservedVideoTracks;
+    public final List<VideoTrack> videoTracks;
 
     public static native boolean nativeAddAudioTrackToNativeStream(long j, long j2);
 
@@ -31,6 +31,7 @@ public class MediaStream {
 
     public static native boolean nativeRemoveVideoTrack(long j, long j2);
 
+    @CalledByNative
     public MediaStream(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,14 +81,14 @@ public class MediaStream {
         return invokeV.longValue;
     }
 
-    public static void removeMediaStreamTrack(List list, long j) {
+    public static void removeMediaStreamTrack(List<? extends MediaStreamTrack> list, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65543, null, list, j) == null) {
-            Iterator it = list.iterator();
+            Iterator<? extends MediaStreamTrack> it = list.iterator();
             while (it.hasNext()) {
-                MediaStreamTrack mediaStreamTrack = (MediaStreamTrack) it.next();
-                if (mediaStreamTrack.getNativeMediaStreamTrack() == j) {
-                    mediaStreamTrack.dispose();
+                MediaStreamTrack next = it.next();
+                if (next.getNativeMediaStreamTrack() == j) {
+                    next.dispose();
                     it.remove();
                     return;
                 }
@@ -96,6 +97,7 @@ public class MediaStream {
         }
     }
 
+    @CalledByNative
     public void addNativeAudioTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -103,6 +105,7 @@ public class MediaStream {
         }
     }
 
+    @CalledByNative
     public void addNativeVideoTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -138,6 +141,7 @@ public class MediaStream {
         return invokeL.booleanValue;
     }
 
+    @CalledByNative
     public void removeAudioTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
@@ -156,6 +160,7 @@ public class MediaStream {
         return invokeL.booleanValue;
     }
 
+    @CalledByNative
     public void removeVideoTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
@@ -189,22 +194,23 @@ public class MediaStream {
         return invokeL.booleanValue;
     }
 
+    @CalledByNative
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             checkMediaStreamExists();
             while (!this.audioTracks.isEmpty()) {
-                AudioTrack audioTrack = (AudioTrack) this.audioTracks.get(0);
+                AudioTrack audioTrack = this.audioTracks.get(0);
                 removeTrack(audioTrack);
                 audioTrack.dispose();
             }
             while (!this.videoTracks.isEmpty()) {
-                VideoTrack videoTrack = (VideoTrack) this.videoTracks.get(0);
+                VideoTrack videoTrack = this.videoTracks.get(0);
                 removeTrack(videoTrack);
                 videoTrack.dispose();
             }
             while (!this.preservedVideoTracks.isEmpty()) {
-                removeTrack((VideoTrack) this.preservedVideoTracks.get(0));
+                removeTrack(this.preservedVideoTracks.get(0));
             }
             JniCommon.nativeReleaseRef(this.nativeStream);
             this.nativeStream = 0L;

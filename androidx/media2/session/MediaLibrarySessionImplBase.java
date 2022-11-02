@@ -7,6 +7,8 @@ import android.os.RemoteException;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -31,6 +33,7 @@ import java.util.concurrent.Executor;
 public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public final ArrayMap<MediaSession.ControllerCb, Set<String>> mSubscriptions;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,7 +84,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaSessionImplBase
-    public void dispatchRemoteControllerTaskWithoutReturn(MediaSessionImplBase.RemoteControllerTask remoteControllerTask) {
+    public void dispatchRemoteControllerTaskWithoutReturn(@NonNull MediaSessionImplBase.RemoteControllerTask remoteControllerTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteControllerTask) == null) {
             super.dispatchRemoteControllerTaskWithoutReturn(remoteControllerTask);
@@ -97,7 +100,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
-    public boolean isConnected(MediaSession.ControllerInfo controllerInfo) {
+    public boolean isConnected(@NonNull MediaSession.ControllerInfo controllerInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, controllerInfo)) == null) {
@@ -175,7 +178,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifyChildrenChanged(String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+    public void notifyChildrenChanged(@NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048589, this, str, i, libraryParams) == null) {
             dispatchRemoteControllerTaskWithoutReturn(new MediaSessionImplBase.RemoteControllerTask(this, str, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.1
@@ -219,7 +222,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onSearchOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, MediaLibraryService.LibraryParams libraryParams) {
+    public int onSearchOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, controllerInfo, str, libraryParams)) == null) {
@@ -257,6 +260,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public List<MediaSession.ControllerInfo> getConnectedControllers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -273,6 +277,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.media2.session.MediaSessionImplBase, androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public MediaLibraryService.MediaLibrarySession getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -309,7 +314,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetItemOnExecutor(MediaSession.ControllerInfo controllerInfo, String str) {
+    public LibraryResult onGetItemOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, controllerInfo, str)) == null) {
@@ -319,7 +324,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetLibraryRootOnExecutor(MediaSession.ControllerInfo controllerInfo, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult onGetLibraryRootOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, controllerInfo, libraryParams)) == null) {
@@ -329,7 +334,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onUnsubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str) {
+    public int onUnsubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, controllerInfo, str)) == null) {
@@ -343,7 +348,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifyChildrenChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+    public void notifyChildrenChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048588, this, controllerInfo, str, i, libraryParams) == null) {
             dispatchRemoteControllerTaskWithoutReturn(controllerInfo, new MediaSessionImplBase.RemoteControllerTask(this, str, controllerInfo, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.2
@@ -397,7 +402,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public void notifySearchResultChanged(MediaSession.ControllerInfo controllerInfo, String str, int i, MediaLibraryService.LibraryParams libraryParams) {
+    public void notifySearchResultChanged(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, MediaLibraryService.LibraryParams libraryParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048590, this, controllerInfo, str, i, libraryParams) == null) {
             dispatchRemoteControllerTaskWithoutReturn(controllerInfo, new MediaSessionImplBase.RemoteControllerTask(this, str, i, libraryParams) { // from class: androidx.media2.session.MediaLibrarySessionImplBase.3
@@ -441,7 +446,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetChildrenOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult onGetChildrenOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -451,7 +456,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public LibraryResult onGetSearchResultOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
+    public LibraryResult onGetSearchResultOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, int i, int i2, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{controllerInfo, str, Integer.valueOf(i), Integer.valueOf(i2), libraryParams})) == null) {
@@ -461,7 +466,7 @@ public class MediaLibrarySessionImplBase extends MediaSessionImplBase implements
     }
 
     @Override // androidx.media2.session.MediaLibraryService.MediaLibrarySession.MediaLibrarySessionImpl
-    public int onSubscribeOnExecutor(MediaSession.ControllerInfo controllerInfo, String str, MediaLibraryService.LibraryParams libraryParams) {
+    public int onSubscribeOnExecutor(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull String str, MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, controllerInfo, str, libraryParams)) == null) {

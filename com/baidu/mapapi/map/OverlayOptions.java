@@ -10,6 +10,15 @@ public abstract class OverlayOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public Overlay a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (Overlay) invokeV.objValue;
+    }
+
     public OverlayOptions() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,14 +31,5 @@ public abstract class OverlayOptions {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public Overlay a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (Overlay) invokeV.objValue;
     }
 }

@@ -1,7 +1,10 @@
 package androidx.core.content.pm;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PermissionInfo;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +18,14 @@ public final class PermissionInfoCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface Protection {
     }
 
+    @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface ProtectionFlags {
     }
@@ -38,7 +44,8 @@ public final class PermissionInfoCompat {
         }
     }
 
-    public static int getProtection(PermissionInfo permissionInfo) {
+    @SuppressLint({"WrongConstant"})
+    public static int getProtection(@NonNull PermissionInfo permissionInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, permissionInfo)) == null) {
@@ -50,7 +57,8 @@ public final class PermissionInfoCompat {
         return invokeL.intValue;
     }
 
-    public static int getProtectionFlags(PermissionInfo permissionInfo) {
+    @SuppressLint({"WrongConstant"})
+    public static int getProtectionFlags(@NonNull PermissionInfo permissionInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, permissionInfo)) == null) {

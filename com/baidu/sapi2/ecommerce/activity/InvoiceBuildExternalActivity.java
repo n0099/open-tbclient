@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -85,7 +86,7 @@ public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     }
 
     @Override // com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity
-    public void loadInvoiceUrl(List list) {
+    public void loadInvoiceUrl(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             String stringExtra = getIntent().getStringExtra("extra_external_url");

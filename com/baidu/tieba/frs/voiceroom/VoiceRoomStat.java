@@ -43,7 +43,7 @@ public final class VoiceRoomStat {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0004\b\u0082\u0001\u0018\u0000 \u000e2\b\u0012\u0004\u0012\u00020\u00000\u0001:\u0001\u000eB\u0015\b\u0002\u0012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\u0002\u0010\u0005J\u000e\u0010\t\u001a\u00020\u00042\u0006\u0010\n\u001a\u00020\u000bR\u0019\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\n\n\u0002\u0010\b\u001a\u0004\b\u0006\u0010\u0007j\u0002\b\fj\u0002\b\r¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/frs/voiceroom/VoiceRoomStat$PageType;", "", "pageArray", "", "", "(Ljava/lang/String;I[Ljava/lang/String;)V", "getPageArray", "()[Ljava/lang/String;", "[Ljava/lang/String;", "getPage", "index", "", "ROOM_LIST_EVENT", "START_ROOM_EVENT", "Companion", "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes4.dex */
-    public final class PageType {
+    public static final class PageType {
         public static final /* synthetic */ PageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final a Companion;
@@ -70,7 +70,7 @@ public final class VoiceRoomStat {
         }
 
         /* loaded from: classes4.dex */
-        public final class a {
+        public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,7 +155,7 @@ public final class VoiceRoomStat {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0015\b\u0002\u0012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\u0002\u0010\u0005J\u000e\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tR\u0016\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0006j\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\r¨\u0006\u000e"}, d2 = {"Lcom/baidu/tieba/frs/voiceroom/VoiceRoomStat$StatType;", "", "urlKeyArray", "", "", "(Ljava/lang/String;I[Ljava/lang/String;)V", "[Ljava/lang/String;", "getUrlKey", "index", "", "PAGE_ENTER", "ITEM_EXPOSE", "ITEM_CLICK", "START_VOICE_ROOM", "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes4.dex */
-    public final class StatType {
+    public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final StatType ITEM_CLICK;

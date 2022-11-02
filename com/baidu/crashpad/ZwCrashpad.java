@@ -1,5 +1,6 @@
 package com.baidu.crashpad;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
@@ -437,6 +438,7 @@ public class ZwCrashpad {
      */
     /* JADX WARN: Removed duplicated region for block: B:25:0x007e  */
     /* JADX WARN: Removed duplicated region for block: B:96:0x0181 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -588,6 +590,7 @@ public class ZwCrashpad {
      */
     /* JADX WARN: Removed duplicated region for block: B:107:0x019c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:48:0x0102  */
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

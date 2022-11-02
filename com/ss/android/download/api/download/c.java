@@ -51,7 +51,7 @@ public class c implements DownloadEventConfig {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public String a;
         public boolean b;
         public String c;

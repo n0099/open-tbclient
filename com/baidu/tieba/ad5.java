@@ -1,89 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class ad5 {
+public abstract class ad5<T> extends bd5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String b;
+    public Class<T> c;
 
-    public abstract int b();
-
-    public abstract boolean c();
-
-    public ad5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad5(int i, String str, Class<T> cls) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ux4.k().h("page_stay_duration_switch", false);
+        this.b = str;
+        this.c = cls;
     }
 
-    public boolean a(cd5 cd5Var) {
-        InterceptResult invokeL;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cd5Var)) == null) {
-            if (cd5Var != null && !cd5Var.p()) {
-                if (cd5Var.a) {
-                    cd5Var.x(bd5.b(cd5Var.h(), 6));
-                } else {
-                    if (b() > dd5.b().c()) {
-                        b = dd5.b().c();
-                    } else {
-                        b = b();
-                    }
-                    if (b > 5) {
-                        b = 5;
-                    }
-                    cd5Var.x(bd5.b(cd5Var.h(), b));
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.a;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                e(false);
-                return false;
-            } else if (!dd5.b().f()) {
-                e(false);
-                return false;
-            } else {
-                e(true);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.c.newInstance();
+            } catch (ExceptionInInitializerError e) {
+                e.printStackTrace();
+                return null;
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return null;
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+                return null;
             }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
-            ux4.k().u("page_stay_duration_switch", true);
-            this.a = z;
-        }
+        return (T) invokeV.objValue;
     }
 }

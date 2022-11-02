@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.FormBody;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +17,13 @@ public class PutFormRequest extends Request {
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.PutFormRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class PutFormRequestBuilder extends Request.Builder {
+    public static class PutFormRequestBuilder extends Request.Builder<PutFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public FormBody.Builder bodyBuilder;
@@ -48,13 +49,13 @@ public class PutFormRequest extends Request {
             this.bodyBuilder = new FormBody.Builder();
         }
 
-        public PutFormRequestBuilder params(Map map) {
+        public PutFormRequestBuilder params(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
                 this.bodyBuilder = new FormBody.Builder();
                 for (String str : map.keySet()) {
-                    this.bodyBuilder.add(str, (String) map.get(str));
+                    this.bodyBuilder.add(str, map.get(str));
                 }
                 return this;
             }
@@ -62,7 +63,7 @@ public class PutFormRequest extends Request {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PutFormRequestBuilder(Map map) {
+        public PutFormRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -92,12 +93,12 @@ public class PutFormRequest extends Request {
             return (PutFormRequestBuilder) invokeLL.objValue;
         }
 
-        public PutFormRequestBuilder addParams(Map map) {
+        public PutFormRequestBuilder addParams(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
                 for (String str : map.keySet()) {
-                    addParam(str, (String) map.get(str));
+                    addParam(str, map.get(str));
                 }
                 return this;
             }
@@ -110,7 +111,7 @@ public class PutFormRequest extends Request {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new PutFormRequest((PutFormRequestBuilder) put(this.bodyBuilder.build()), null);
+                return new PutFormRequest(put(this.bodyBuilder.build()), null);
             }
             return (PutFormRequest) invokeV.objValue;
         }

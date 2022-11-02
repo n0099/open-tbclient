@@ -1,5 +1,6 @@
 package androidx.recyclerview.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Rect;
@@ -9,6 +10,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +49,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     public boolean mLaidOutInvalidFullSpan;
     public boolean mLastLayoutFromEnd;
     public boolean mLastLayoutRTL;
+    @NonNull
     public final LayoutState mLayoutState;
     public LazySpanLookup mLazySpanLookup;
     public int mOrientation;
@@ -52,9 +57,11 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     public int mPendingScrollPosition;
     public int mPendingScrollPositionOffset;
     public int[] mPrefetchDistances;
+    @NonNull
     public OrientationHelper mPrimaryOrientation;
     public BitSet mRemainingSpans;
     public boolean mReverseLayout;
+    @NonNull
     public OrientationHelper mSecondaryOrientation;
     public boolean mShouldReverseLayout;
     public int mSizePerSpan;
@@ -71,6 +78,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         public int[] mData;
         public List<FullSpanItem> mFullSpanItems;
 
+        @SuppressLint({"BanParcelableUsage"})
         /* loaded from: classes.dex */
         public static class FullSpanItem implements Parcelable {
             public static /* synthetic */ Interceptable $ic;
@@ -728,6 +736,8 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
         }
     }
 
+    @SuppressLint({"BanParcelableUsage"})
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
@@ -2810,7 +2820,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /* JADX DEBUG: Multi-variable search result rejected for r16v0, resolved type: androidx.recyclerview.widget.StaggeredGridLayoutManager */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v0 */
-    /* JADX WARN: Type inference failed for: r9v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r9v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r9v7 */
     private int fill(RecyclerView.Recycler recycler, LayoutState layoutState, RecyclerView.State state) {
         InterceptResult invokeLLL;
@@ -3604,6 +3614,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void collectAdjacentPrefetchPositions(int i, int i2, RecyclerView.State state, RecyclerView.LayoutManager.LayoutPrefetchRegistry layoutPrefetchRegistry) {
         int endLine;
         int i3;
@@ -3645,6 +3656,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
+    @Nullable
     public View onFocusSearchFailed(View view2, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         InterceptResult invokeLILL;
         View findContainingItemView;

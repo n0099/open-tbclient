@@ -32,7 +32,7 @@ public final class RequestMethod {
 
     /* renamed from: com.baidu.searchbox.network.outback.core.RequestMethod$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$network$outback$core$RequestMethod;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

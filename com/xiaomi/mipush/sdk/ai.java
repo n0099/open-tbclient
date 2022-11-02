@@ -28,24 +28,24 @@ public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Cif a(Context context, iu iuVar, hj hjVar) {
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, iuVar, hjVar)) == null) ? a(context, iuVar, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m131a(context).m132a()) : (Cif) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hjVar)) == null) ? a(context, t, hjVar, !hjVar.equals(hj.a), context.getPackageName(), b.m131a(context).m132a()) : (Cif) invokeLLL.objValue;
     }
 
-    public static Cif a(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2) {
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, iuVar, hjVar, z, str, str2, true) : (Cif) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, true) : (Cif) invokeCommon.objValue;
     }
 
-    public static Cif a(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2, boolean z2) {
+    public static <T extends iu<T, ?>> Cif a(Context context, T t, hj hjVar, boolean z, String str, String str2, boolean z2) {
         InterceptResult invokeCommon;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
-            byte[] a = it.a(iuVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
+            byte[] a = it.a(t);
             if (a != null) {
                 Cif cif = new Cif();
                 if (z) {
@@ -143,9 +143,9 @@ public class ai {
         return (iu) invokeLZ.objValue;
     }
 
-    public static Cif b(Context context, iu iuVar, hj hjVar, boolean z, String str, String str2) {
+    public static <T extends iu<T, ?>> Cif b(Context context, T t, hj hjVar, boolean z, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, iuVar, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, iuVar, hjVar, z, str, str2, false) : (Cif) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, t, hjVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hjVar, z, str, str2, false) : (Cif) invokeCommon.objValue;
     }
 }

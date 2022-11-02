@@ -5,7 +5,7 @@ import com.kwad.sdk.collector.model.a;
 import java.util.Set;
 /* loaded from: classes7.dex */
 public class AnalyseTaskNative extends NativeObject implements a {
-    public AnalyseTaskNative(AppRunningInfoNative appRunningInfoNative, Set set, long j) {
+    public AnalyseTaskNative(AppRunningInfoNative appRunningInfoNative, Set<String> set, long j) {
         String[] strArr = new String[set.size()];
         set.toArray(strArr);
         this.mPtr = AppStatusNative.nativeCreateAnalyseTask(appRunningInfoNative.mPtr, strArr, j);

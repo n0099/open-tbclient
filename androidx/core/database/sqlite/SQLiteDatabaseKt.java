@@ -25,9 +25,9 @@ public final class SQLiteDatabaseKt {
                 sQLiteDatabase.beginTransactionNonExclusive();
             }
             try {
-                T t = (T) function1.invoke(sQLiteDatabase);
+                T invoke = function1.invoke(sQLiteDatabase);
                 sQLiteDatabase.setTransactionSuccessful();
-                return t;
+                return invoke;
             } finally {
                 InlineMarker.finallyStart(1);
                 sQLiteDatabase.endTransaction();

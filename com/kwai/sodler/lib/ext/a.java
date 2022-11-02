@@ -1,5 +1,6 @@
 package com.kwai.sodler.lib.ext;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,6 +27,7 @@ public final class a {
         }
     }
 
+    @Nullable
     public static b n(f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -38,7 +40,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, aVar) == null) || (n = n(fVar)) == null) {
             return;
         }
-        n.a(fVar, aVar);
+        n.a((b) fVar, (f) aVar);
     }
 
     public final void c(f fVar, PluginError pluginError) {
@@ -47,7 +49,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pluginError) == null) || (n = n(fVar)) == null) {
             return;
         }
-        n.a(fVar, pluginError);
+        n.a((b) fVar, pluginError);
     }
 
     public final void o(f fVar) {

@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.interfaces;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import java.lang.annotation.Retention;
@@ -25,23 +27,24 @@ public interface INeuron {
 
     int getExpectOrder();
 
+    @Nullable
     int[] getSubscribeEvent();
 
     int getType();
 
-    void onControlEventNotify(VideoEvent videoEvent);
+    void onControlEventNotify(@NonNull VideoEvent videoEvent);
 
-    void onInteractiveEventNotify(VideoEvent videoEvent);
+    void onInteractiveEventNotify(@NonNull VideoEvent videoEvent);
 
-    void onLayerEventNotify(VideoEvent videoEvent);
+    void onLayerEventNotify(@NonNull VideoEvent videoEvent);
 
-    void onPlayerEventNotify(VideoEvent videoEvent);
+    void onPlayerEventNotify(@NonNull VideoEvent videoEvent);
 
     void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2);
 
-    void onSystemEventNotify(VideoEvent videoEvent);
+    void onSystemEventNotify(@NonNull VideoEvent videoEvent);
 
-    void onVideoEventNotify(VideoEvent videoEvent);
+    void onVideoEventNotify(@NonNull VideoEvent videoEvent);
 
     void sendEvent(VideoEvent videoEvent);
 }

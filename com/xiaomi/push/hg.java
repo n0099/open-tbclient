@@ -20,7 +20,7 @@ public class hg {
     public final Context f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f467a;
+    public Map<String, hh> f467a;
 
     public hg(Context context) {
         Interceptable interceptable = $ic;
@@ -82,11 +82,11 @@ public class hg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hh hhVar = (hh) this.f467a.get("UPLOADER_PUSH_CHANNEL");
+            hh hhVar = this.f467a.get("UPLOADER_PUSH_CHANNEL");
             if (hhVar != null) {
                 return hhVar;
             }
-            hh hhVar2 = (hh) this.f467a.get("UPLOADER_HTTP");
+            hh hhVar2 = this.f467a.get("UPLOADER_HTTP");
             if (hhVar2 != null) {
                 return hhVar2;
             }
@@ -96,7 +96,7 @@ public class hg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map m395a() {
+    public Map<String, hh> m395a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f467a : (Map) invokeV.objValue;

@@ -28,14 +28,14 @@ public final class ChannelKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object collect(Publisher publisher, Function1 function1, Continuation continuation) {
+    public static final <T> Object collect(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
         ChannelKt$collect$1 channelKt$collect$1;
         int i;
         ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
         Throwable th;
-        Function1 function12;
-        Publisher publisher2;
+        Function1<? super T, Unit> function12;
+        Publisher<T> publisher2;
         ChannelIterator channelIterator;
         Object obj;
         ChannelKt$collect$1 channelKt$collect$12;
@@ -56,8 +56,8 @@ public final class ChannelKt {
                         Throwable th2 = (Throwable) channelKt$collect$1.L$4;
                         receiveChannel = (ReceiveChannel) channelKt$collect$1.L$3;
                         ReceiveChannel receiveChannel5 = (ReceiveChannel) channelKt$collect$1.L$2;
-                        Function1 function13 = (Function1) channelKt$collect$1.L$1;
-                        Publisher publisher3 = (Publisher) channelKt$collect$1.L$0;
+                        Function1<? super T, Unit> function13 = (Function1) channelKt$collect$1.L$1;
+                        Publisher<T> publisher3 = (Publisher) channelKt$collect$1.L$0;
                         try {
                             ResultKt.throwOnFailure(obj2);
                             ChannelKt$collect$1 channelKt$collect$13 = channelKt$collect$1;
@@ -68,7 +68,7 @@ public final class ChannelKt {
                             obj = coroutine_suspended;
                             channelKt$collect$12 = channelKt$collect$13;
                             if (!((Boolean) obj2).booleanValue()) {
-                                function13.invoke(channelIterator.next());
+                                function13.invoke((Object) channelIterator.next());
                                 function12 = function13;
                                 receiveChannel2 = receiveChannel6;
                                 channelKt$collect$12.L$0 = publisher2;
@@ -156,14 +156,14 @@ public final class ChannelKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object consumeEach(Publisher publisher, Function1 function1, Continuation continuation) {
+    public static final <T> Object consumeEach(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
         ChannelKt$consumeEach$1 channelKt$consumeEach$1;
         int i;
         ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
         Throwable th;
-        Function1 function12;
-        Publisher publisher2;
+        Function1<? super T, Unit> function12;
+        Publisher<T> publisher2;
         ChannelIterator channelIterator;
         Object obj;
         ChannelKt$consumeEach$1 channelKt$consumeEach$12;
@@ -184,8 +184,8 @@ public final class ChannelKt {
                         Throwable th2 = (Throwable) channelKt$consumeEach$1.L$4;
                         receiveChannel = (ReceiveChannel) channelKt$consumeEach$1.L$3;
                         ReceiveChannel receiveChannel5 = (ReceiveChannel) channelKt$consumeEach$1.L$2;
-                        Function1 function13 = (Function1) channelKt$consumeEach$1.L$1;
-                        Publisher publisher3 = (Publisher) channelKt$consumeEach$1.L$0;
+                        Function1<? super T, Unit> function13 = (Function1) channelKt$consumeEach$1.L$1;
+                        Publisher<T> publisher3 = (Publisher) channelKt$consumeEach$1.L$0;
                         try {
                             ResultKt.throwOnFailure(obj2);
                             ChannelKt$consumeEach$1 channelKt$consumeEach$13 = channelKt$consumeEach$1;
@@ -196,7 +196,7 @@ public final class ChannelKt {
                             obj = coroutine_suspended;
                             channelKt$consumeEach$12 = channelKt$consumeEach$13;
                             if (!((Boolean) obj2).booleanValue()) {
-                                function13.invoke(channelIterator.next());
+                                function13.invoke((Object) channelIterator.next());
                                 function12 = function13;
                                 receiveChannel2 = receiveChannel6;
                                 channelKt$consumeEach$12.L$0 = publisher2;
@@ -321,7 +321,7 @@ public final class ChannelKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Transforming publisher to channel is deprecated, use asFlow() instead")
-    public static final ReceiveChannel openSubscription(Publisher publisher, int i) {
+    public static final <T> ReceiveChannel<T> openSubscription(Publisher<T> publisher, int i) {
         SubscriptionChannel subscriptionChannel = new SubscriptionChannel(i);
         publisher.subscribe(subscriptionChannel);
         return subscriptionChannel;

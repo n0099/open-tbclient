@@ -1,5 +1,6 @@
 package com.baidu.tbadk.util;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +12,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.sc;
-import com.baidu.tieba.vh5;
+import com.baidu.tieba.rc;
+import com.baidu.tieba.si5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AppLaunchInfoFetcher {
@@ -29,12 +29,12 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(vh5 vh5Var);
+        void onFinish(si5 si5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class Type {
+    public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Type ACTIVITY;
@@ -110,7 +110,7 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, message)) == null) {
             if (message != null && (obj = message.obj) != null) {
-                Object d = sc.d(obj, IntentData.KEY);
+                Object d = rc.d(obj, IntentData.KEY);
                 if (d instanceof Intent) {
                     return (Intent) d;
                 }
@@ -120,7 +120,8 @@ public class AppLaunchInfoFetcher {
         return (Intent) invokeL.objValue;
     }
 
-    public static vh5 b(Context context) {
+    @TargetApi(23)
+    public static si5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -128,14 +129,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new vh5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new si5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (vh5) invokeL.objValue;
+        return (si5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -161,11 +162,11 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static vh5 c() {
+    public static si5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Object d = sc.d(Looper.myQueue(), "mMessages");
+            Object d = rc.d(Looper.myQueue(), "mMessages");
             if (d instanceof Message) {
                 Message message = (Message) d;
                 int i = 0;
@@ -174,12 +175,12 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new vh5(Type.ACTIVITY, a2);
+                        return new si5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new vh5(d2, null);
+                        return new si5(d2, null);
                     }
-                    Object d3 = sc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    Object d3 = rc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
                         message = (Message) d3;
                     } else {
@@ -189,28 +190,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (vh5) invokeV.objValue;
+        return (si5) invokeV.objValue;
     }
 
-    public static void e(Context context, List list) {
-        vh5 vh5Var;
+    public static void e(Context context, List<a> list) {
+        si5 si5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    vh5Var = b(context);
+                    si5Var = b(context);
                 } else {
-                    vh5Var = null;
+                    si5Var = null;
                 }
-                if (vh5Var == null) {
-                    vh5Var = c();
+                if (si5Var == null) {
+                    si5Var = c();
                 }
-                if (vh5Var == null) {
-                    vh5Var = new vh5(Type.UNKNOWN, null);
+                if (si5Var == null) {
+                    si5Var = new si5(Type.UNKNOWN, null);
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    ((a) it.next()).onFinish(vh5Var);
+                for (a aVar : list) {
+                    aVar.onFinish(si5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

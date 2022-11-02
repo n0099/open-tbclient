@@ -5,17 +5,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
-import com.baidu.tieba.nb0;
+import com.baidu.tieba.mb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
+public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb0 a;
+    public mb0 a;
     public int b;
     public int c;
 
@@ -40,9 +40,9 @@ public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nb0 nb0Var = this.a;
-            if (nb0Var != null) {
-                return nb0Var.a();
+            mb0 mb0Var = this.a;
+            if (mb0Var != null) {
+                return mb0Var.a();
             }
             return 0;
         }
@@ -72,10 +72,10 @@ public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
         this.c = 0;
     }
 
-    public void F(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public void F(CoordinatorLayout coordinatorLayout, V v, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, view2, i) == null) {
-            coordinatorLayout.C(view2, i);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, v, i) == null) {
+            coordinatorLayout.C(v, i);
         }
     }
 
@@ -83,9 +83,9 @@ public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            nb0 nb0Var = this.a;
-            if (nb0Var != null) {
-                return nb0Var.d(i);
+            mb0 mb0Var = this.a;
+            if (mb0Var != null) {
+                return mb0Var.d(i);
             }
             this.b = i;
             return false;
@@ -94,13 +94,13 @@ public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
     }
 
     @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
-    public boolean l(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public boolean l(CoordinatorLayout coordinatorLayout, V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, view2, i)) == null) {
-            F(coordinatorLayout, view2, i);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
+            F(coordinatorLayout, v, i);
             if (this.a == null) {
-                this.a = new nb0(view2);
+                this.a = new mb0(v);
             }
             this.a.b();
             int i2 = this.b;

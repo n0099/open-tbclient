@@ -22,7 +22,7 @@ public interface Files {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class FileType {
+    public static final class FileType {
         public static final /* synthetic */ FileType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FileType Absolute;

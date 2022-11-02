@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -312,6 +313,7 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(21)
     public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -322,6 +324,7 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(15)
     public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -412,6 +415,7 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(21)
     public Drawable getDrawableForDensity(int i, int i2, Resources.Theme theme) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -476,6 +480,7 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(15)
     public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {

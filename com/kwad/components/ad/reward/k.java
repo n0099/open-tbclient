@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +31,6 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -37,24 +39,32 @@ import org.json.JSONObject;
 public final class k extends com.kwad.components.core.g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public com.kwad.components.ad.reward.j.a eF;
     public boolean mA;
+    @NonNull
     public com.kwad.components.ad.reward.d.a mAdOpenInteractionListener;
+    @NonNull
     public com.kwad.components.ad.reward.d.c mAdRewardStepListener;
+    @NonNull
     public AdTemplate mAdTemplate;
+    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
     public boolean mB;
     public boolean mC;
     public l mCloseDialog;
     public boolean mD;
-    public List mE;
+    public List<Integer> mE;
     public boolean mF;
+    @Nullable
     public PlayableSource mG;
     public boolean mH;
     public Handler mHandler;
-    public List mI;
+    public List<DialogInterface.OnDismissListener> mI;
     public boolean mJ;
+    @Nullable
     public com.kwad.components.ad.reward.i.a.a mK;
+    @Nullable
     public com.kwad.components.ad.reward.i.kwai.a mL;
     public int mM;
     public int mN;
@@ -63,31 +73,46 @@ public final class k extends com.kwad.components.core.g.a {
     public long mPageEnterTime;
     public boolean mQ;
     public boolean mR;
+    @Nullable
     public JSONObject mReportExtData;
     public boolean mRewardVerifyCalled;
+    @NonNull
     public AdBaseFrameLayout mRootContainer;
     public boolean mS;
     public int mScreenOrientation;
     public boolean mT;
     public boolean mU;
     public boolean mV;
+    @NonNull
     public KsVideoPlayConfig mVideoPlayConfig;
+    @Nullable
     public com.kwad.components.ad.reward.h.kwai.b mW;
+    @Nullable
     public com.kwad.components.ad.reward.h.kwai.b mX;
     public DetailVideoView mj;
+    @Nullable
     public com.kwad.components.core.playable.a mk;
+    @NonNull
     public RewardActionBarControl ml;
+    @Nullable
     public m mm;
+    @Nullable
     public com.kwad.components.ad.i.b mn;
+    @Nullable
     public com.kwad.components.ad.i.a mo;
+    @Nullable
     public h mp;
-    public Set mq;
-    public Set mr;
+    public Set<com.kwad.components.ad.reward.d.e> mq;
+    public Set<com.kwad.components.ad.reward.d.d> mr;
+    @Nullable
     public com.kwad.components.ad.reward.g.c ms;
+    @Nullable
     public com.kwad.components.core.webview.b.d.a mt;
+    @Nullable
     public e.a mu;
+    @Nullable
     public e.b mv;
-    public Set mw;
+    public Set<com.kwad.components.core.webview.b.d.b> mw;
     public boolean mx;
     public boolean my;
     public boolean mz;
@@ -135,14 +160,13 @@ public final class k extends com.kwad.components.core.g.a {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, adInfo)) == null) ? Math.min(com.kwad.sdk.core.response.a.a.T(adInfo), j) : invokeJL.longValue;
     }
 
-    public static com.kwad.components.ad.reward.c.b a(List list, long j) {
+    @Nullable
+    public static com.kwad.components.ad.reward.c.b a(List<com.kwad.components.ad.reward.c.b> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, list, j)) == null) {
             if (j >= 0 && list != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    com.kwad.components.ad.reward.c.b bVar = (com.kwad.components.ad.reward.c.b) it.next();
+                for (com.kwad.components.ad.reward.c.b bVar : list) {
                     if (com.kwad.sdk.core.response.a.d.ca(bVar.getAdTemplate()) == j) {
                         return bVar;
                     }
@@ -465,7 +489,7 @@ public final class k extends com.kwad.components.core.g.a {
             if (hVar != null) {
                 hVar.release();
             }
-            Set set = this.mr;
+            Set<com.kwad.components.ad.reward.d.d> set = this.mr;
             if (set != null) {
                 set.clear();
             }
@@ -580,7 +604,7 @@ public final class k extends com.kwad.components.core.g.a {
     public final void a(Context context, int i, int i2, long j, boolean z, com.kwad.sdk.core.report.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), fVar}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0566a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b(this, i, fVar) { // from class: com.kwad.components.ad.reward.k.2
+            com.kwad.components.core.c.a.a.a(new a.C0577a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b(this, i, fVar) { // from class: com.kwad.components.ad.reward.k.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int gB;
@@ -625,6 +649,7 @@ public final class k extends com.kwad.components.core.g.a {
         }
     }
 
+    @MainThread
     public final void a(com.kwad.components.ad.reward.d.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
@@ -639,21 +664,21 @@ public final class k extends com.kwad.components.core.g.a {
         }
     }
 
-    public final void a(com.kwad.components.ad.reward.h.kwai.b bVar) {
+    public final void a(@Nullable com.kwad.components.ad.reward.h.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
             this.mW = bVar;
         }
     }
 
-    public final void a(e.a aVar) {
+    public final void a(@Nullable e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
             this.mu = aVar;
         }
     }
 
-    public final void a(e.b bVar) {
+    public final void a(@Nullable e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
             this.mv = bVar;
@@ -731,6 +756,7 @@ public final class k extends com.kwad.components.core.g.a {
         }
     }
 
+    @MainThread
     public final void b(com.kwad.components.ad.reward.d.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
@@ -738,7 +764,7 @@ public final class k extends com.kwad.components.core.g.a {
         }
     }
 
-    public final void b(com.kwad.components.ad.reward.h.kwai.b bVar) {
+    public final void b(@Nullable com.kwad.components.ad.reward.h.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bVar) == null) {
             this.mX = bVar;
@@ -797,7 +823,7 @@ public final class k extends com.kwad.components.core.g.a {
         }
     }
 
-    public final void d(PlayableSource playableSource) {
+    public final void d(@Nullable PlayableSource playableSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, playableSource) == null) {
             this.mG = playableSource;
@@ -810,12 +836,14 @@ public final class k extends com.kwad.components.core.g.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.mH : invokeV.booleanValue;
     }
 
+    @Nullable
     public final e.a fB() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mu : (e.a) invokeV.objValue;
     }
 
+    @Nullable
     public final e.b fC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -828,12 +856,14 @@ public final class k extends com.kwad.components.core.g.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mR : invokeV.booleanValue;
     }
 
+    @Nullable
     public final com.kwad.components.ad.reward.h.kwai.b fE() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mW : (com.kwad.components.ad.reward.h.kwai.b) invokeV.objValue;
     }
 
+    @Nullable
     public final com.kwad.components.ad.reward.h.kwai.b fF() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -923,6 +953,7 @@ public final class k extends com.kwad.components.core.g.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mB : invokeV.booleanValue;
     }
 
+    @Nullable
     public final PlayableSource fz() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -14,6 +14,14 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.AttrRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AlertController;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,7 +47,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         public final int mTheme;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             this(context, AlertDialog.resolveDialogTheme(context, 0));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,7 +67,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             }
         }
 
-        public Builder(Context context, int i) {
+        public Builder(@NonNull Context context, @StyleRes int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,6 +86,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             this.mTheme = i;
         }
 
+        @NonNull
         public AlertDialog create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,6 +108,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (AlertDialog) invokeV.objValue;
         }
 
+        @NonNull
         public Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -131,7 +141,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setItems(int i, DialogInterface.OnClickListener onClickListener) {
+        public Builder setItems(@ArrayRes int i, DialogInterface.OnClickListener onClickListener) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, onClickListener)) == null) {
@@ -143,7 +153,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeIL.objValue;
         }
 
-        public Builder setNegativeButton(int i, DialogInterface.OnClickListener onClickListener) {
+        public Builder setNegativeButton(@StringRes int i, DialogInterface.OnClickListener onClickListener) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i, onClickListener)) == null) {
@@ -155,7 +165,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeIL.objValue;
         }
 
-        public Builder setNeutralButton(int i, DialogInterface.OnClickListener onClickListener) {
+        public Builder setNeutralButton(@StringRes int i, DialogInterface.OnClickListener onClickListener) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, onClickListener)) == null) {
@@ -167,7 +177,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeIL.objValue;
         }
 
-        public Builder setPositiveButton(int i, DialogInterface.OnClickListener onClickListener) {
+        public Builder setPositiveButton(@StringRes int i, DialogInterface.OnClickListener onClickListener) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, onClickListener)) == null) {
@@ -189,7 +199,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setCustomTitle(View view2) {
+        public Builder setCustomTitle(@Nullable View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
@@ -199,7 +209,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIcon(int i) {
+        public Builder setIcon(@DrawableRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -209,7 +219,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setIconAttribute(int i) {
+        public Builder setIconAttribute(@AttrRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
@@ -232,7 +242,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setMessage(int i) {
+        public Builder setMessage(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -313,6 +323,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeL.objValue;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public Builder setRecycleOnMeasureEnabled(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -323,7 +334,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setTitle(int i) {
+        public Builder setTitle(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
@@ -360,7 +371,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeLLL.objValue;
         }
 
-        public Builder setMultiChoiceItems(int i, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
+        public Builder setMultiChoiceItems(@ArrayRes int i, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048590, this, i, zArr, onMultiChoiceClickListener)) == null) {
@@ -375,7 +386,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeILL.objValue;
         }
 
-        public Builder setSingleChoiceItems(int i, int i2, DialogInterface.OnClickListener onClickListener) {
+        public Builder setSingleChoiceItems(@ArrayRes int i, int i2, DialogInterface.OnClickListener onClickListener) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048607, this, i, i2, onClickListener)) == null) {
@@ -390,7 +401,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeIIL.objValue;
         }
 
-        public Builder setIcon(Drawable drawable) {
+        public Builder setIcon(@Nullable Drawable drawable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, drawable)) == null) {
@@ -400,7 +411,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMessage(CharSequence charSequence) {
+        public Builder setMessage(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charSequence)) == null) {
@@ -410,7 +421,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTitle(CharSequence charSequence) {
+        public Builder setTitle(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, charSequence)) == null) {
@@ -553,6 +564,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeLIL.objValue;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         @Deprecated
         public Builder setView(View view2, int i, int i2, int i3, int i4) {
             InterceptResult invokeCommon;
@@ -573,7 +585,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AlertDialog(Context context) {
+    public AlertDialog(@NonNull Context context) {
         this(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -594,7 +606,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlertDialog(Context context, int i) {
+    public AlertDialog(@NonNull Context context, @StyleRes int i) {
         super(context, resolveDialogTheme(context, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -616,7 +628,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AlertDialog(Context context, boolean z, DialogInterface.OnCancelListener onCancelListener) {
+    public AlertDialog(@NonNull Context context, boolean z, @Nullable DialogInterface.OnCancelListener onCancelListener) {
         this(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -638,7 +650,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         setOnCancelListener(onCancelListener);
     }
 
-    public static int resolveDialogTheme(Context context, int i) {
+    public static int resolveDialogTheme(@NonNull Context context, @StyleRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
@@ -696,6 +708,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setButtonPanelLayoutHint(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

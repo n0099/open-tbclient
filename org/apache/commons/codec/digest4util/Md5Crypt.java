@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,6 +92,7 @@ public class Md5Crypt {
         return (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static String md5Crypt(byte[] bArr, String str, String str2) {
         InterceptResult invokeLLL;
         String group;

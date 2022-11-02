@@ -16,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes.dex */
-public class CompressBitmapTask extends AsyncTask {
+public class CompressBitmapTask extends AsyncTask<Uri, Integer, ByteArrayOutputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;

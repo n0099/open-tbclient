@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AdapterViewHolder extends TypeAdapter.ViewHolder {
+public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public T a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdapterViewHolder(View view2) {
-        super(view2);
+    public AdapterViewHolder(T t) {
+        super(t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,15 +31,15 @@ public class AdapterViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2;
+        this.a = t;
     }
 
-    public View a() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 }

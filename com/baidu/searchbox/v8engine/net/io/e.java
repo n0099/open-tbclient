@@ -1,5 +1,6 @@
 package com.baidu.searchbox.v8engine.net.io;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,6 +47,7 @@ public final class e {
         return (e) invokeV.objValue;
     }
 
+    @Nullable
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

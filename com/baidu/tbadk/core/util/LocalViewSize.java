@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class LocalViewSize {
     }
 
     /* loaded from: classes3.dex */
-    public class ImageSize implements Serializable {
+    public static class ImageSize implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;
@@ -98,11 +98,11 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k = fj.k(this.mContext);
-            if (k >= 1080) {
+            int l = xi.l(this.mContext);
+            if (l >= 1080) {
                 return 1080;
             }
-            if (k >= 720 && k < 1080) {
+            if (l >= 720 && l < 1080) {
                 return 720;
             }
             return 480;
@@ -115,8 +115,8 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ImageSize imageSize = new ImageSize();
-            imageSize.height = fj.i(this.mContext);
-            imageSize.width = fj.k(this.mContext);
+            imageSize.height = xi.j(this.mContext);
+            imageSize.width = xi.l(this.mContext);
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -244,16 +244,16 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int k = fj.k(this.mContext);
+            int l = xi.l(this.mContext);
             int i = 240;
-            if (k < 240) {
-                i = k / 3;
-            } else if (k <= 320) {
+            if (l < 240) {
+                i = l / 3;
+            } else if (l <= 320) {
                 i = 80;
-            } else if (k <= 480) {
+            } else if (l <= 480) {
                 i = 160;
-            } else if (k > 720) {
-                i = k / 3;
+            } else if (l > 720) {
+                i = l / 3;
             }
             ImageSize imageSize = new ImageSize();
             imageSize.height = i;

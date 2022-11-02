@@ -42,10 +42,10 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public boolean o;
 
     /* loaded from: classes2.dex */
-    public class a extends Handler {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<j> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(j jVar, Looper looper) {
@@ -65,14 +65,14 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     return;
                 }
             }
-            this.a = new WeakReference(jVar);
+            this.a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                j jVar = (j) this.a.get();
+                j jVar = this.a.get();
                 if (jVar == null) {
                     CyberLog.e("MediaPlayerAsync", "EventHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                     return;
@@ -139,10 +139,10 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     /* loaded from: classes2.dex */
-    public class b extends Handler {
+    public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference a;
+        public final WeakReference<j> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, Looper looper) {
@@ -162,7 +162,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
                     return;
                 }
             }
-            this.a = new WeakReference(jVar);
+            this.a = new WeakReference<>(jVar);
         }
 
         @Override // android.os.Handler
@@ -170,7 +170,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                j jVar = (j) this.a.get();
+                j jVar = this.a.get();
                 if (jVar == null || (jVar.a == null && message.what != 8)) {
                     CyberLog.e("MediaPlayerAsync", "RequestHandler,MediaPlayerImpl went away with unhandled events msg.what:" + message.what);
                     return;
@@ -381,11 +381,11 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         return (PlayerProvider) invokeV.objValue;
     }
 
-    private ArrayList a(Object... objArr) {
+    private ArrayList<Object> a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, objArr)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Object> arrayList = new ArrayList<>();
             for (Object obj : objArr) {
                 arrayList.add(obj);
             }
@@ -810,7 +810,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(Context context, Uri uri, Map map) {
+    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048604, this, context, uri, map) == null) {
             a(13, -1, -1, a(context, uri, map));
@@ -834,7 +834,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
-    public void setDataSource(String str, Map map) {
+    public void setDataSource(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048607, this, str, map) == null) {
             a(15, -1, -1, a(str, map));

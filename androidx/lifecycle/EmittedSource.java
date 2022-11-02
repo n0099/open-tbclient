@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,6 +54,7 @@ public final class EmittedSource implements DisposableHandle {
 
     /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: androidx.lifecycle.LiveData<?>, androidx.lifecycle.LiveData<S> */
     /* JADX INFO: Access modifiers changed from: private */
+    @MainThread
     public final void removeSource() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && !this.disposed) {

@@ -19,7 +19,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lkotlin/UByte;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Function1 {
+public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Function1<UByte, Long> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ InetSocketAddress $address;
     public final /* synthetic */ byte[] $buf;
@@ -51,9 +51,11 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
         this.$size = i;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return m56invoke7apg3OU(((UByte) obj).m765unboximpl());
+    public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
+        return m56invoke7apg3OU(uByte.m765unboximpl());
     }
 
     /* renamed from: invoke-7apg3OU  reason: not valid java name */

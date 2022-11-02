@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Pair;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -30,16 +33,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
-public class RangeDateSelector implements DateSelector {
+public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RangeDateSelector> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String invalidRangeEndError;
     public String invalidRangeStartError;
+    @Nullable
     public Long proposedTextEnd;
+    @Nullable
     public Long proposedTextStart;
+    @Nullable
     public Long selectedEndItem;
+    @Nullable
     public Long selectedStartItem;
 
     private boolean isValidRange(long j, long j2) {
@@ -62,7 +70,7 @@ public class RangeDateSelector implements DateSelector {
     public int getDefaultTitleResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0b3e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0b4a : invokeV.intValue;
     }
 
     static {
@@ -78,7 +86,7 @@ public class RangeDateSelector implements DateSelector {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.RangeDateSelector.3
+        CREATOR = new Parcelable.Creator<RangeDateSelector>() { // from class: com.google.android.material.datepicker.RangeDateSelector.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,8 +105,10 @@ public class RangeDateSelector implements DateSelector {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public RangeDateSelector createFromParcel(Parcel parcel) {
+            @NonNull
+            public RangeDateSelector createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -111,7 +121,9 @@ public class RangeDateSelector implements DateSelector {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public RangeDateSelector[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -144,7 +156,8 @@ public class RangeDateSelector implements DateSelector {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public Collection getSelectedDays() {
+    @NonNull
+    public Collection<Long> getSelectedDays() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -163,12 +176,14 @@ public class RangeDateSelector implements DateSelector {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.material.datepicker.DateSelector
-    public Pair getSelection() {
+    @NonNull
+    public Pair<Long, Long> getSelection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new Pair(this.selectedStartItem, this.selectedEndItem);
+            return new Pair<>(this.selectedStartItem, this.selectedEndItem);
         }
         return (Pair) invokeV.objValue;
     }
@@ -187,7 +202,7 @@ public class RangeDateSelector implements DateSelector {
         return invokeV.booleanValue;
     }
 
-    private void setInvalidRange(TextInputLayout textInputLayout, TextInputLayout textInputLayout2) {
+    private void setInvalidRange(@NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, textInputLayout, textInputLayout2) == null) {
             textInputLayout.setError(this.invalidRangeStartError);
@@ -196,7 +211,7 @@ public class RangeDateSelector implements DateSelector {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeValue(this.selectedStartItem);
@@ -204,7 +219,7 @@ public class RangeDateSelector implements DateSelector {
         }
     }
 
-    private void clearInvalidRange(TextInputLayout textInputLayout, TextInputLayout textInputLayout2) {
+    private void clearInvalidRange(@NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, textInputLayout, textInputLayout2) == null) {
             if (textInputLayout.getError() != null && this.invalidRangeStartError.contentEquals(textInputLayout.getError())) {
@@ -217,7 +232,7 @@ public class RangeDateSelector implements DateSelector {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateIfValidTextProposal(TextInputLayout textInputLayout, TextInputLayout textInputLayout2, OnSelectionChangedListener onSelectionChangedListener) {
+    public void updateIfValidTextProposal(@NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2, @NonNull OnSelectionChangedListener<Pair<Long, Long>> onSelectionChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, this, textInputLayout, textInputLayout2, onSelectionChangedListener) == null) {
             Long l = this.proposedTextStart;
@@ -238,7 +253,7 @@ public class RangeDateSelector implements DateSelector {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public int getDefaultThemeResId(Context context) {
+    public int getDefaultThemeResId(@NonNull Context context) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -272,7 +287,8 @@ public class RangeDateSelector implements DateSelector {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public Collection getSelectedRanges() {
+    @NonNull
+    public Collection<Pair<Long, Long>> getSelectedRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -287,43 +303,44 @@ public class RangeDateSelector implements DateSelector {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public String getSelectionDisplayString(Context context) {
+    @NonNull
+    public String getSelectionDisplayString(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             Resources resources = context.getResources();
             if (this.selectedStartItem == null && this.selectedEndItem == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b3f);
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b4b);
             }
             Long l = this.selectedEndItem;
             if (l == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b3c, DateStrings.getDateString(this.selectedStartItem.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b48, DateStrings.getDateString(this.selectedStartItem.longValue()));
             }
             Long l2 = this.selectedStartItem;
             if (l2 == null) {
-                return resources.getString(R.string.obfuscated_res_0x7f0f0b3b, DateStrings.getDateString(l.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0b47, DateStrings.getDateString(l.longValue()));
             }
-            Pair dateRangeString = DateStrings.getDateRangeString(l2, l);
-            return resources.getString(R.string.obfuscated_res_0x7f0f0b3d, dateRangeString.first, dateRangeString.second);
+            Pair<String, String> dateRangeString = DateStrings.getDateRangeString(l2, l);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0b49, dateRangeString.first, dateRangeString.second);
         }
         return (String) invokeL.objValue;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public View onCreateTextInputView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle, CalendarConstraints calendarConstraints, OnSelectionChangedListener onSelectionChangedListener) {
+    public View onCreateTextInputView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle, CalendarConstraints calendarConstraints, @NonNull OnSelectionChangedListener<Pair<Long, Long>> onSelectionChangedListener) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, layoutInflater, viewGroup, bundle, calendarConstraints, onSelectionChangedListener)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05c4, viewGroup, false);
-            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091593);
-            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091592);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05d4, viewGroup, false);
+            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915d2);
+            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915d1);
             EditText editText = textInputLayout.getEditText();
             EditText editText2 = textInputLayout2.getEditText();
             if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
                 editText.setInputType(17);
                 editText2.setInputType(17);
             }
-            this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0b38);
+            this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0b44);
             SimpleDateFormat textInputFormat = UtcDates.getTextInputFormat();
             Long l = this.selectedStartItem;
             if (l != null) {
@@ -379,7 +396,7 @@ public class RangeDateSelector implements DateSelector {
                 }
 
                 @Override // com.google.android.material.datepicker.DateFormatTextWatcher
-                public void onValidDate(Long l3) {
+                public void onValidDate(@Nullable Long l3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3) == null) {
                         this.this$0.proposedTextStart = l3;
@@ -430,7 +447,7 @@ public class RangeDateSelector implements DateSelector {
                 }
 
                 @Override // com.google.android.material.datepicker.DateFormatTextWatcher
-                public void onValidDate(Long l3) {
+                public void onValidDate(@Nullable Long l3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l3) == null) {
                         this.this$0.proposedTextEnd = l3;
@@ -446,27 +463,27 @@ public class RangeDateSelector implements DateSelector {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.datepicker.DateSelector
-    public void setSelection(Pair pair) {
+    public void setSelection(@NonNull Pair<Long, Long> pair) {
         Long valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, pair) == null) {
-            F f = pair.first;
-            if (f != 0 && pair.second != 0) {
-                Preconditions.checkArgument(isValidRange(((Long) f).longValue(), ((Long) pair.second).longValue()));
+            Long l = pair.first;
+            if (l != null && pair.second != null) {
+                Preconditions.checkArgument(isValidRange(l.longValue(), pair.second.longValue()));
             }
-            F f2 = pair.first;
-            Long l = null;
-            if (f2 == 0) {
+            Long l2 = pair.first;
+            Long l3 = null;
+            if (l2 == null) {
                 valueOf = null;
             } else {
-                valueOf = Long.valueOf(UtcDates.canonicalYearMonthDay(((Long) f2).longValue()));
+                valueOf = Long.valueOf(UtcDates.canonicalYearMonthDay(l2.longValue()));
             }
             this.selectedStartItem = valueOf;
-            S s = pair.second;
-            if (s != 0) {
-                l = Long.valueOf(UtcDates.canonicalYearMonthDay(((Long) s).longValue()));
+            Long l4 = pair.second;
+            if (l4 != null) {
+                l3 = Long.valueOf(UtcDates.canonicalYearMonthDay(l4.longValue()));
             }
-            this.selectedEndItem = l;
+            this.selectedEndItem = l3;
         }
     }
 }

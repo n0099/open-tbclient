@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap a;
+    public ConcurrentHashMap<String, Object> a;
 
     public a(int i) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap(i);
+        this.a = new ConcurrentHashMap<>(i);
     }
 
     public com.cmic.sso.sdk.d.a a() {
@@ -56,7 +56,7 @@ public class a {
                 return aVar;
             }
             c.a("UmcConfigBean为空", "请核查");
-            return new a.C0503a().a();
+            return new a.C0514a().a();
         }
         return (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }

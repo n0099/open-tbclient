@@ -1,5 +1,8 @@
 package com.kwad.sdk.api.core.lifecycle;
 
+import androidx.annotation.Keep;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -7,6 +10,7 @@ import androidx.lifecycle.LifecycleOwner;
 public class KsLifecycle {
     public Lifecycle mBase;
 
+    @Keep
     /* loaded from: classes7.dex */
     public enum KsLifeEvent {
         ON_CREATE(Lifecycle.Event.ON_CREATE),
@@ -33,6 +37,7 @@ public class KsLifecycle {
             return null;
         }
 
+        @Keep
         public final Lifecycle.Event getReal() {
             return this.mRealValue;
         }
@@ -62,7 +67,7 @@ public class KsLifecycle {
             return null;
         }
 
-        public final boolean isAtLeast(KsLifeState ksLifeState) {
+        public final boolean isAtLeast(@NonNull KsLifeState ksLifeState) {
             return compareTo(ksLifeState) >= 0;
         }
     }
@@ -71,7 +76,8 @@ public class KsLifecycle {
         this.mBase = lifecycle;
     }
 
-    public void addObserver(final KsLifecycleObserver ksLifecycleObserver) {
+    @MainThread
+    public void addObserver(@NonNull final KsLifecycleObserver ksLifecycleObserver) {
         if (ksLifecycleObserver instanceof KsGenericLifecycleObserver) {
             GenericLifecycleObserver genericLifecycleObserver = new GenericLifecycleObserver() { // from class: com.kwad.sdk.api.core.lifecycle.KsLifecycle.1
                 @Override // androidx.lifecycle.LifecycleEventObserver
@@ -84,11 +90,13 @@ public class KsLifecycle {
         }
     }
 
+    @MainThread
     public KsLifeState getCurrentState() {
         return KsLifeState.createFrom(this.mBase.getCurrentState());
     }
 
-    public void removeObserver(KsLifecycleObserver ksLifecycleObserver) {
+    @MainThread
+    public void removeObserver(@NonNull KsLifecycleObserver ksLifecycleObserver) {
         this.mBase.removeObserver(ksLifecycleObserver.getBase());
     }
 }

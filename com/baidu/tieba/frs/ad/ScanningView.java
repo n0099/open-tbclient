@@ -12,9 +12,11 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj6;
+import com.baidu.tieba.mk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,7 +72,7 @@ public class ScanningView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScanningView(Context context) {
+    public ScanningView(@NonNull Context context) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,7 +93,7 @@ public class ScanningView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScanningView(Context context, AttributeSet attributeSet) {
+    public ScanningView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,7 +114,7 @@ public class ScanningView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScanningView(Context context, AttributeSet attributeSet, int i) {
+    public ScanningView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +135,7 @@ public class ScanningView extends View {
         this.j = R.drawable.obfuscated_res_0x7f08058b;
         this.k = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cj6.ScanningView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mk6.ScanningView);
             this.j = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f08058b);
             this.k = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();

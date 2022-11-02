@@ -29,7 +29,7 @@ public final class BIMLogPb {
 
     /* renamed from: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -104,10 +104,10 @@ public final class BIMLogPb {
     }
 
     /* loaded from: classes.dex */
-    public final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
+    public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
-        public static Parser PARSER = null;
+        public static Parser<LogRequest> PARSER = null;
         public static final int PAYLOAD_FIELD_NUMBER = 6;
         public static final int REQUEST_TIMESTAMP_MS_FIELD_NUMBER = 4;
         public static final int SERVICE_NAME_FIELD_NUMBER = 2;
@@ -136,9 +136,9 @@ public final class BIMLogPb {
         }
 
         /* loaded from: classes.dex */
-        public final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
+        public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic = null;
-            public static Parser PARSER = null;
+            public static Parser<AuthInfo> PARSER = null;
             public static final int TOKEN_FIELD_NUMBER = 1;
             public static final AuthInfo defaultInstance;
             public static final long serialVersionUID = 0;
@@ -149,7 +149,7 @@ public final class BIMLogPb {
             public Object token_;
 
             /* loaded from: classes.dex */
-            public final class Builder extends GeneratedMessageLite.Builder implements AuthInfoOrBuilder {
+            public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public int bitField0_;
@@ -381,18 +381,18 @@ public final class BIMLogPb {
                         AuthInfo authInfo = null;
                         try {
                             try {
-                                AuthInfo authInfo2 = (AuthInfo) AuthInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                                if (authInfo2 != null) {
-                                    mergeFrom(authInfo2);
+                                AuthInfo parsePartialFrom = AuthInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                                if (parsePartialFrom != null) {
+                                    mergeFrom(parsePartialFrom);
                                 }
                                 return this;
                             } catch (InvalidProtocolBufferException e) {
-                                AuthInfo authInfo3 = (AuthInfo) e.getUnfinishedMessage();
+                                AuthInfo authInfo2 = (AuthInfo) e.getUnfinishedMessage();
                                 try {
                                     throw e;
                                 } catch (Throwable th) {
                                     th = th;
-                                    authInfo = authInfo3;
+                                    authInfo = authInfo2;
                                     if (authInfo != null) {
                                     }
                                     throw th;
@@ -423,7 +423,7 @@ public final class BIMLogPb {
                         return;
                     }
                 }
-                PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.AuthInfo.1
+                PARSER = new AbstractParser<AuthInfo>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.AuthInfo.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -494,7 +494,7 @@ public final class BIMLogPb {
             }
 
             @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-            public Parser getParserForType() {
+            public Parser<AuthInfo> getParserForType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -700,7 +700,7 @@ public final class BIMLogPb {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, inputStream, extensionRegistryLite)) == null) {
-                    return (AuthInfo) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                    return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
                 }
                 return (AuthInfo) invokeLL.objValue;
             }
@@ -709,7 +709,7 @@ public final class BIMLogPb {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, byteString, extensionRegistryLite)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(byteString, extensionRegistryLite);
+                    return PARSER.parseFrom(byteString, extensionRegistryLite);
                 }
                 return (AuthInfo) invokeLL.objValue;
             }
@@ -746,7 +746,7 @@ public final class BIMLogPb {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, inputStream)) == null) {
-                    return (AuthInfo) PARSER.parseDelimitedFrom(inputStream);
+                    return PARSER.parseDelimitedFrom(inputStream);
                 }
                 return (AuthInfo) invokeL.objValue;
             }
@@ -755,7 +755,7 @@ public final class BIMLogPb {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, byteString)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(byteString);
+                    return PARSER.parseFrom(byteString);
                 }
                 return (AuthInfo) invokeL.objValue;
             }
@@ -775,7 +775,7 @@ public final class BIMLogPb {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, codedInputStream)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(codedInputStream);
+                    return PARSER.parseFrom(codedInputStream);
                 }
                 return (AuthInfo) invokeL.objValue;
             }
@@ -784,7 +784,7 @@ public final class BIMLogPb {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, codedInputStream, extensionRegistryLite)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                    return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
                 }
                 return (AuthInfo) invokeLL.objValue;
             }
@@ -793,7 +793,7 @@ public final class BIMLogPb {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(inputStream);
+                    return PARSER.parseFrom(inputStream);
                 }
                 return (AuthInfo) invokeL.objValue;
             }
@@ -802,7 +802,7 @@ public final class BIMLogPb {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                    return PARSER.parseFrom(inputStream, extensionRegistryLite);
                 }
                 return (AuthInfo) invokeLL.objValue;
             }
@@ -811,7 +811,7 @@ public final class BIMLogPb {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(bArr);
+                    return PARSER.parseFrom(bArr);
                 }
                 return (AuthInfo) invokeL.objValue;
             }
@@ -820,14 +820,14 @@ public final class BIMLogPb {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, bArr, extensionRegistryLite)) == null) {
-                    return (AuthInfo) PARSER.parseFrom(bArr, extensionRegistryLite);
+                    return PARSER.parseFrom(bArr, extensionRegistryLite);
                 }
                 return (AuthInfo) invokeLL.objValue;
             }
         }
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements LogRequestOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public AuthInfo authInfo_;
@@ -1297,18 +1297,18 @@ public final class BIMLogPb {
                     LogRequest logRequest = null;
                     try {
                         try {
-                            LogRequest logRequest2 = (LogRequest) LogRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (logRequest2 != null) {
-                                mergeFrom(logRequest2);
+                            LogRequest parsePartialFrom = LogRequest.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            LogRequest logRequest3 = (LogRequest) e.getUnfinishedMessage();
+                            LogRequest logRequest2 = (LogRequest) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                logRequest = logRequest3;
+                                logRequest = logRequest2;
                                 if (logRequest != null) {
                                 }
                                 throw th;
@@ -1456,7 +1456,7 @@ public final class BIMLogPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.1
+            PARSER = new AbstractParser<LogRequest>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogRequest.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1542,7 +1542,7 @@ public final class BIMLogPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<LogRequest> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1890,7 +1890,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, inputStream, extensionRegistryLite)) == null) {
-                return (LogRequest) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (LogRequest) invokeLL.objValue;
         }
@@ -1899,7 +1899,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, byteString, extensionRegistryLite)) == null) {
-                return (LogRequest) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (LogRequest) invokeLL.objValue;
         }
@@ -1936,7 +1936,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, inputStream)) == null) {
-                return (LogRequest) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (LogRequest) invokeL.objValue;
         }
@@ -1945,7 +1945,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, byteString)) == null) {
-                return (LogRequest) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (LogRequest) invokeL.objValue;
         }
@@ -1954,7 +1954,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, codedInputStream)) == null) {
-                return (LogRequest) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (LogRequest) invokeL.objValue;
         }
@@ -1963,7 +1963,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (LogRequest) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (LogRequest) invokeLL.objValue;
         }
@@ -1972,7 +1972,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, inputStream)) == null) {
-                return (LogRequest) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (LogRequest) invokeL.objValue;
         }
@@ -1981,7 +1981,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, inputStream, extensionRegistryLite)) == null) {
-                return (LogRequest) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (LogRequest) invokeLL.objValue;
         }
@@ -1990,7 +1990,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-                return (LogRequest) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (LogRequest) invokeL.objValue;
         }
@@ -1999,7 +1999,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, bArr, extensionRegistryLite)) == null) {
-                return (LogRequest) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (LogRequest) invokeLL.objValue;
         }
@@ -2066,11 +2066,11 @@ public final class BIMLogPb {
     }
 
     /* loaded from: classes.dex */
-    public final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
+    public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
         public static final int ERROR_MSG_FIELD_NUMBER = 2;
-        public static Parser PARSER = null;
+        public static Parser<LogResponse> PARSER = null;
         public static final int PING_INTERVAL_MS_FIELD_NUMBER = 3;
         public static final LogResponse defaultInstance;
         public static final long serialVersionUID = 0;
@@ -2083,7 +2083,7 @@ public final class BIMLogPb {
         public long pingIntervalMs_;
 
         /* loaded from: classes.dex */
-        public final class Builder extends GeneratedMessageLite.Builder implements LogResponseOrBuilder {
+        public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int bitField0_;
@@ -2378,18 +2378,18 @@ public final class BIMLogPb {
                     LogResponse logResponse = null;
                     try {
                         try {
-                            LogResponse logResponse2 = (LogResponse) LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                            if (logResponse2 != null) {
-                                mergeFrom(logResponse2);
+                            LogResponse parsePartialFrom = LogResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                            if (parsePartialFrom != null) {
+                                mergeFrom(parsePartialFrom);
                             }
                             return this;
                         } catch (InvalidProtocolBufferException e) {
-                            LogResponse logResponse3 = (LogResponse) e.getUnfinishedMessage();
+                            LogResponse logResponse2 = (LogResponse) e.getUnfinishedMessage();
                             try {
                                 throw e;
                             } catch (Throwable th) {
                                 th = th;
-                                logResponse = logResponse3;
+                                logResponse = logResponse2;
                                 if (logResponse != null) {
                                 }
                                 throw th;
@@ -2470,7 +2470,7 @@ public final class BIMLogPb {
                     return;
                 }
             }
-            PARSER = new AbstractParser() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogResponse.1
+            PARSER = new AbstractParser<LogResponse>() { // from class: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb.LogResponse.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2588,7 +2588,7 @@ public final class BIMLogPb {
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser getParserForType() {
+        public Parser<LogResponse> getParserForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -2801,7 +2801,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, inputStream, extensionRegistryLite)) == null) {
-                return (LogResponse) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
             }
             return (LogResponse) invokeLL.objValue;
         }
@@ -2810,7 +2810,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, byteString, extensionRegistryLite)) == null) {
-                return (LogResponse) PARSER.parseFrom(byteString, extensionRegistryLite);
+                return PARSER.parseFrom(byteString, extensionRegistryLite);
             }
             return (LogResponse) invokeLL.objValue;
         }
@@ -2847,7 +2847,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, inputStream)) == null) {
-                return (LogResponse) PARSER.parseDelimitedFrom(inputStream);
+                return PARSER.parseDelimitedFrom(inputStream);
             }
             return (LogResponse) invokeL.objValue;
         }
@@ -2856,7 +2856,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteString)) == null) {
-                return (LogResponse) PARSER.parseFrom(byteString);
+                return PARSER.parseFrom(byteString);
             }
             return (LogResponse) invokeL.objValue;
         }
@@ -2865,7 +2865,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, codedInputStream)) == null) {
-                return (LogResponse) PARSER.parseFrom(codedInputStream);
+                return PARSER.parseFrom(codedInputStream);
             }
             return (LogResponse) invokeL.objValue;
         }
@@ -2874,7 +2874,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, codedInputStream, extensionRegistryLite)) == null) {
-                return (LogResponse) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+                return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
             }
             return (LogResponse) invokeLL.objValue;
         }
@@ -2883,7 +2883,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, inputStream)) == null) {
-                return (LogResponse) PARSER.parseFrom(inputStream);
+                return PARSER.parseFrom(inputStream);
             }
             return (LogResponse) invokeL.objValue;
         }
@@ -2892,7 +2892,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, inputStream, extensionRegistryLite)) == null) {
-                return (LogResponse) PARSER.parseFrom(inputStream, extensionRegistryLite);
+                return PARSER.parseFrom(inputStream, extensionRegistryLite);
             }
             return (LogResponse) invokeLL.objValue;
         }
@@ -2901,7 +2901,7 @@ public final class BIMLogPb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, bArr)) == null) {
-                return (LogResponse) PARSER.parseFrom(bArr);
+                return PARSER.parseFrom(bArr);
             }
             return (LogResponse) invokeL.objValue;
         }
@@ -2910,7 +2910,7 @@ public final class BIMLogPb {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, bArr, extensionRegistryLite)) == null) {
-                return (LogResponse) PARSER.parseFrom(bArr, extensionRegistryLite);
+                return PARSER.parseFrom(bArr, extensionRegistryLite);
             }
             return (LogResponse) invokeLL.objValue;
         }

@@ -22,16 +22,16 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
 public final class SchedulerPoolFactory {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Map POOLS;
+    public static final Map<ScheduledThreadPoolExecutor, Object> POOLS;
     public static final boolean PURGE_ENABLED;
     public static final String PURGE_ENABLED_KEY = "rx2.purge-enabled";
     public static final int PURGE_PERIOD_SECONDS;
     public static final String PURGE_PERIOD_SECONDS_KEY = "rx2.purge-period-seconds";
-    public static final AtomicReference PURGE_THREAD;
+    public static final AtomicReference<ScheduledExecutorService> PURGE_THREAD;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class PurgeProperties {
+    public static final class PurgeProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean purgeEnable;
@@ -74,7 +74,7 @@ public final class SchedulerPoolFactory {
     }
 
     /* loaded from: classes8.dex */
-    public final class ScheduledTask implements Runnable {
+    public static final class ScheduledTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +122,7 @@ public final class SchedulerPoolFactory {
                 return;
             }
         }
-        PURGE_THREAD = new AtomicReference();
+        PURGE_THREAD = new AtomicReference<>();
         POOLS = new ConcurrentHashMap();
         Properties properties = System.getProperties();
         PurgeProperties purgeProperties = new PurgeProperties();
@@ -151,9 +151,9 @@ public final class SchedulerPoolFactory {
     public static void shutdown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ScheduledExecutorService scheduledExecutorService = (ScheduledExecutorService) PURGE_THREAD.getAndSet(null);
-            if (scheduledExecutorService != null) {
-                scheduledExecutorService.shutdownNow();
+            ScheduledExecutorService andSet = PURGE_THREAD.getAndSet(null);
+            if (andSet != null) {
+                andSet.shutdownNow();
             }
             POOLS.clear();
         }
@@ -190,7 +190,7 @@ public final class SchedulerPoolFactory {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = (ScheduledExecutorService) PURGE_THREAD.get();
+            ScheduledExecutorService scheduledExecutorService = PURGE_THREAD.get();
             if (scheduledExecutorService != null) {
                 return;
             }

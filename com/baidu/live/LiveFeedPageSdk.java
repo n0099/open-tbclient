@@ -5,16 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.eu9;
-import com.baidu.tieba.lb0;
-import com.baidu.tieba.vc0;
-import com.baidu.tieba.zb0;
+import com.baidu.tieba.kb0;
+import com.baidu.tieba.nv9;
+import com.baidu.tieba.uc0;
+import com.baidu.tieba.yb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +65,7 @@ public class LiveFeedPageSdk {
     }
 
     /* loaded from: classes2.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final LiveFeedPageSdk INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,6 +166,7 @@ public class LiveFeedPageSdk {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public ILiveFeedPageInvoke getInvoker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +203,7 @@ public class LiveFeedPageSdk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return eu9.a(context);
+            return nv9.a(context);
         }
         return (String) invokeL.objValue;
     }
@@ -216,7 +218,7 @@ public class LiveFeedPageSdk {
     public void initNetWork(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            zb0.b(iNetWork);
+            yb0.b(iNetWork);
         }
     }
 
@@ -236,15 +238,15 @@ public class LiveFeedPageSdk {
 
     public void startLiveSearchActivity(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, context) == null) && lb0.a() != null) {
-            lb0.a().a(context, "");
+        if ((interceptable == null || interceptable.invokeL(1048591, this, context) == null) && kb0.a() != null) {
+            kb0.a().a(context, "");
         }
     }
 
     public void updateUiMode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            vc0.f().u(str);
+            uc0.f().u(str);
         }
     }
 
@@ -259,7 +261,7 @@ public class LiveFeedPageSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             this.mHost = str;
-            vc0.f().s(str, str2);
+            uc0.f().s(str, str2);
         }
     }
 

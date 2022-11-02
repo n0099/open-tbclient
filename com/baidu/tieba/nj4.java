@@ -1,134 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
-    public static String f() {
-        InterceptResult invokeV;
+    public nj4(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "Android" : (String) invokeV.objValue;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            DisplayMetrics c = c();
-            if (c != null) {
-                return c.densityDpi;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeV.intValue;
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    public static int b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            DisplayMetrics c = c();
-            if (c != null) {
-                return c.heightPixels;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static DisplayMetrics c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null) {
-                return null;
-            }
-            return appContext.getResources().getDisplayMetrics();
-        }
-        return (DisplayMetrics) invokeV.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            DisplayMetrics c = c();
-            if (c != null) {
-                return c.widthPixels;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
-            }
-            return str.replace("_", "-");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String e() {
+    public boolean c() {
         InterceptResult invokeV;
-        NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
-            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
-                return "no";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i == this.c) {
+                return true;
             }
-            if (activeNetworkInfo.getType() == 1) {
-                return "WiFi";
-            }
-            if (activeNetworkInfo.getType() != 0) {
-                return "unknown";
-            }
-            int subtype = activeNetworkInfo.getSubtype();
-            if (subtype != 20) {
-                switch (subtype) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return "2G";
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return "3G";
-                    case 13:
-                        return "4G";
-                    default:
-                        return "unknown";
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = this.d;
+                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
+                    return true;
                 }
+                long j2 = this.d;
+                if (j2 == 0) {
+                    this.d = currentTimeMillis;
+                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
+                    this.d = currentTimeMillis;
+                    this.e = 0;
+                }
+                this.e++;
             }
-            return "5G";
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

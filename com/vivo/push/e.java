@@ -41,7 +41,7 @@ public final class e {
     public com.vivo.push.util.b j;
     public String k;
     public String l;
-    public SparseArray m;
+    public SparseArray<a> m;
     public int n;
     public Boolean o;
     public Long p;
@@ -50,7 +50,7 @@ public final class e {
     public int s;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IPushActionListener a;
@@ -149,7 +149,7 @@ public final class e {
         this.f = -1L;
         this.g = -1L;
         this.i = true;
-        this.m = new SparseArray();
+        this.m = new SparseArray<>();
         this.n = 0;
         this.r = new d();
     }
@@ -181,7 +181,7 @@ public final class e {
                 if (str != null) {
                     try {
                         int parseInt = Integer.parseInt(str);
-                        a aVar = (a) this.m.get(parseInt);
+                        a aVar = this.m.get(parseInt);
                         this.m.delete(parseInt);
                         return aVar;
                     } catch (Exception unused) {
@@ -394,7 +394,7 @@ public final class e {
         return invokeJ.booleanValue;
     }
 
-    public final void c(List list) {
+    public final void c(List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, list) == null) && list.contains(this.l)) {
             m();
@@ -592,7 +592,7 @@ public final class e {
         }
     }
 
-    public final void b(List list) {
+    public final void b(List<String> list) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
@@ -606,9 +606,8 @@ public final class e {
                 } else {
                     jSONObject = new JSONObject(b);
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    jSONObject.remove((String) it.next());
+                for (String str : list) {
+                    jSONObject.remove(str);
                 }
                 String jSONObject2 = jSONObject.toString();
                 if (TextUtils.isEmpty(jSONObject2)) {
@@ -769,7 +768,7 @@ public final class e {
         }
     }
 
-    public final void a(ArrayList arrayList, IPushActionListener iPushActionListener) {
+    public final void a(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList, iPushActionListener) == null) {
             Context context = this.h;
@@ -810,9 +809,9 @@ public final class e {
                             a(a2, 20004);
                             return;
                         }
-                        Iterator it = arrayList.iterator();
+                        Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            if (((String) it.next()).length() > 70) {
+                            if (it.next().length() > 70) {
                                 a(a2, 20003);
                                 return;
                             }
@@ -830,7 +829,7 @@ public final class e {
         }
     }
 
-    public final void b(ArrayList arrayList, IPushActionListener iPushActionListener) {
+    public final void b(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, arrayList, iPushActionListener) == null) {
             Context context = this.h;
@@ -870,9 +869,9 @@ public final class e {
                         a(a2, 20004);
                         return;
                     } else {
-                        Iterator it = arrayList.iterator();
+                        Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            if (((String) it.next()).length() > 70) {
+                            if (it.next().length() > 70) {
                                 a(a2, 20003);
                                 return;
                             }
@@ -890,7 +889,7 @@ public final class e {
         }
     }
 
-    public final void a(List list) {
+    public final void a(List<String> list) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
@@ -904,9 +903,8 @@ public final class e {
                 } else {
                     jSONObject = new JSONObject(b);
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    jSONObject.put((String) it.next(), System.currentTimeMillis());
+                for (String str : list) {
+                    jSONObject.put(str, System.currentTimeMillis());
                 }
                 String jSONObject2 = jSONObject.toString();
                 if (TextUtils.isEmpty(jSONObject2)) {
@@ -928,7 +926,7 @@ public final class e {
         }
     }
 
-    public final List c() {
+    public final List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {

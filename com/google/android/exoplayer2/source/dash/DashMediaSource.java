@@ -23,11 +23,9 @@ import com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener;
 import com.google.android.exoplayer2.source.MediaPeriod;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.dash.DashChunkSource;
-import com.google.android.exoplayer2.source.dash.manifest.AdaptationSet;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifest;
 import com.google.android.exoplayer2.source.dash.manifest.DashManifestParser;
 import com.google.android.exoplayer2.source.dash.manifest.Period;
-import com.google.android.exoplayer2.source.dash.manifest.Representation;
 import com.google.android.exoplayer2.source.dash.manifest.UtcTimingElement;
 import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
@@ -68,18 +66,18 @@ public final class DashMediaSource implements MediaSource {
     public final DataSource.Factory manifestDataSourceFactory;
     public long manifestLoadEndTimestamp;
     public long manifestLoadStartTimestamp;
-    public final ParsingLoadable.Parser manifestParser;
+    public final ParsingLoadable.Parser<? extends DashManifest> manifestParser;
     public Uri manifestUri;
     public final Object manifestUriLock;
     public final int minLoadableRetryCount;
-    public final SparseArray periodsById;
+    public final SparseArray<DashMediaPeriod> periodsById;
     public final Runnable refreshManifestRunnable;
     public final boolean sideloadedManifest;
     public final Runnable simulateManifestRefreshRunnable;
     public MediaSource.Listener sourceListener;
 
     /* loaded from: classes7.dex */
-    public final class DashTimeline extends Timeline {
+    public static final class DashTimeline extends Timeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int firstPeriodId;
@@ -151,7 +149,7 @@ public final class DashMediaSource implements MediaSource {
                 if (adaptationSetIndex == -1) {
                     return j2;
                 }
-                DashSegmentIndex index = ((Representation) ((AdaptationSet) period.adaptationSets.get(adaptationSetIndex)).representations.get(0)).getIndex();
+                DashSegmentIndex index = period.adaptationSets.get(adaptationSetIndex).representations.get(0).getIndex();
                 if (index != null && index.getSegmentCount(periodDurationUs) != 0) {
                     return (j2 + index.getTimeUs(index.getSegmentNum(j3, periodDurationUs))) - j3;
                 }
@@ -223,7 +221,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class Iso8601Parser implements ParsingLoadable.Parser {
+    public static final class Iso8601Parser implements ParsingLoadable.Parser<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,6 +240,7 @@ public final class DashMediaSource implements MediaSource {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
         public Long parse(Uri uri, InputStream inputStream) throws IOException {
             InterceptResult invokeLL;
@@ -261,7 +260,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class ManifestCallback implements Loader.Callback {
+    public final class ManifestCallback implements Loader.Callback<ParsingLoadable<DashManifest>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DashMediaSource this$0;
@@ -286,7 +285,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCanceled(ParsingLoadable parsingLoadable, long j, long j2, boolean z) {
+        public void onLoadCanceled(ParsingLoadable<DashManifest> parsingLoadable, long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
                 this.this$0.onLoadCanceled(parsingLoadable, j, j2);
@@ -295,7 +294,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public int onLoadError(ParsingLoadable parsingLoadable, long j, long j2, IOException iOException) {
+        public int onLoadError(ParsingLoadable<DashManifest> parsingLoadable, long j, long j2, IOException iOException) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
@@ -306,7 +305,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCompleted(ParsingLoadable parsingLoadable, long j, long j2) {
+        public void onLoadCompleted(ParsingLoadable<DashManifest> parsingLoadable, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 this.this$0.onManifestLoadCompleted(parsingLoadable, j, j2);
@@ -315,7 +314,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class PeriodSeekInfo {
+    public static final class PeriodSeekInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long availableEndTimeUs;
@@ -355,7 +354,7 @@ public final class DashMediaSource implements MediaSource {
                 boolean z2 = false;
                 long j3 = 0;
                 while (i3 < size) {
-                    DashSegmentIndex index = ((Representation) ((AdaptationSet) period.adaptationSets.get(i3)).representations.get(i2)).getIndex();
+                    DashSegmentIndex index = period.adaptationSets.get(i3).representations.get(i2).getIndex();
                     if (index == null) {
                         return new PeriodSeekInfo(true, 0L, j);
                     }
@@ -387,7 +386,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class UtcTimestampCallback implements Loader.Callback {
+    public final class UtcTimestampCallback implements Loader.Callback<ParsingLoadable<Long>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DashMediaSource this$0;
@@ -412,7 +411,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCanceled(ParsingLoadable parsingLoadable, long j, long j2, boolean z) {
+        public void onLoadCanceled(ParsingLoadable<Long> parsingLoadable, long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
                 this.this$0.onLoadCanceled(parsingLoadable, j, j2);
@@ -421,7 +420,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public int onLoadError(ParsingLoadable parsingLoadable, long j, long j2, IOException iOException) {
+        public int onLoadError(ParsingLoadable<Long> parsingLoadable, long j, long j2, IOException iOException) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
@@ -432,7 +431,7 @@ public final class DashMediaSource implements MediaSource {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCompleted(ParsingLoadable parsingLoadable, long j, long j2) {
+        public void onLoadCompleted(ParsingLoadable<Long> parsingLoadable, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 this.this$0.onUtcTimestampLoadCompleted(parsingLoadable, j, j2);
@@ -441,7 +440,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class XsDateTimeParser implements ParsingLoadable.Parser {
+    public static final class XsDateTimeParser implements ParsingLoadable.Parser<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -460,6 +459,7 @@ public final class DashMediaSource implements MediaSource {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.google.android.exoplayer2.upstream.ParsingLoadable.Parser
         public Long parse(Uri uri, InputStream inputStream) throws IOException {
             InterceptResult invokeLL;
@@ -562,7 +562,7 @@ public final class DashMediaSource implements MediaSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DashMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser parser, DashChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+    public DashMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends DashManifest> parser, DashChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
         this(null, uri, factory, parser, factory2, i, j, handler, adaptiveMediaSourceEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -582,7 +582,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    public DashMediaSource(DashManifest dashManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser parser, DashChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+    public DashMediaSource(DashManifest dashManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends DashManifest> parser, DashChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -613,7 +613,7 @@ public final class DashMediaSource implements MediaSource {
         this.sideloadedManifest = z;
         this.eventDispatcher = new AdaptiveMediaSourceEventListener.EventDispatcher(handler, adaptiveMediaSourceEventListener);
         this.manifestUriLock = new Object();
-        this.periodsById = new SparseArray();
+        this.periodsById = new SparseArray<>();
         if (this.sideloadedManifest) {
             Assertions.checkState(!dashManifest.dynamic);
             this.manifestCallback = null;
@@ -776,7 +776,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    private void resolveUtcTimingElementHttp(UtcTimingElement utcTimingElement, ParsingLoadable.Parser parser) {
+    private void resolveUtcTimingElementHttp(UtcTimingElement utcTimingElement, ParsingLoadable.Parser<Long> parser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, this, utcTimingElement, parser) == null) {
             startLoading(new ParsingLoadable(this.dataSource, Uri.parse(utcTimingElement.value), 5, parser), new UtcTimestampCallback(), 1);
@@ -793,7 +793,7 @@ public final class DashMediaSource implements MediaSource {
             for (int i = 0; i < this.periodsById.size(); i++) {
                 int keyAt = this.periodsById.keyAt(i);
                 if (keyAt >= this.firstPeriodId) {
-                    ((DashMediaPeriod) this.periodsById.valueAt(i)).updateManifest(this.manifest, keyAt - this.firstPeriodId);
+                    this.periodsById.valueAt(i).updateManifest(this.manifest, keyAt - this.firstPeriodId);
                 }
             }
             int periodCount = this.manifest.getPeriodCount() - 1;
@@ -919,7 +919,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    private void startLoading(ParsingLoadable parsingLoadable, Loader.Callback callback, int i) {
+    private <T> void startLoading(ParsingLoadable<T> parsingLoadable, Loader.Callback<ParsingLoadable<T>> callback, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65553, this, parsingLoadable, callback, i) == null) {
             this.eventDispatcher.loadStarted(parsingLoadable.dataSpec, parsingLoadable.type, this.loader.startLoading(parsingLoadable, callback, i));
@@ -939,47 +939,47 @@ public final class DashMediaSource implements MediaSource {
         return (MediaPeriod) invokeLL.objValue;
     }
 
-    public void onLoadCanceled(ParsingLoadable parsingLoadable, long j, long j2) {
+    public void onLoadCanceled(ParsingLoadable<?> parsingLoadable, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.eventDispatcher.loadCanceled(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
         }
     }
 
-    public void onUtcTimestampLoadCompleted(ParsingLoadable parsingLoadable, long j, long j2) {
+    public void onUtcTimestampLoadCompleted(ParsingLoadable<Long> parsingLoadable, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
-            onUtcTimestampResolved(((Long) parsingLoadable.getResult()).longValue() - j);
+            onUtcTimestampResolved(parsingLoadable.getResult().longValue() - j);
         }
     }
 
-    public void onManifestLoadCompleted(ParsingLoadable parsingLoadable, long j, long j2) {
+    public void onManifestLoadCompleted(ParsingLoadable<DashManifest> parsingLoadable, long j, long j2) {
         int periodCount;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
-            DashManifest dashManifest = (DashManifest) parsingLoadable.getResult();
-            DashManifest dashManifest2 = this.manifest;
+            DashManifest result = parsingLoadable.getResult();
+            DashManifest dashManifest = this.manifest;
             int i = 0;
-            if (dashManifest2 == null) {
+            if (dashManifest == null) {
                 periodCount = 0;
             } else {
-                periodCount = dashManifest2.getPeriodCount();
+                periodCount = dashManifest.getPeriodCount();
             }
-            long j3 = dashManifest.getPeriod(0).startMs;
+            long j3 = result.getPeriod(0).startMs;
             while (i < periodCount && this.manifest.getPeriod(i).startMs < j3) {
                 i++;
             }
-            if (periodCount - i > dashManifest.getPeriodCount()) {
+            if (periodCount - i > result.getPeriodCount()) {
                 Log.w(TAG, "Out of sync manifest");
                 scheduleManifestRefresh();
                 return;
             }
-            this.manifest = dashManifest;
+            this.manifest = result;
             this.manifestLoadStartTimestamp = j - j2;
             this.manifestLoadEndTimestamp = j;
-            if (dashManifest.location != null) {
+            if (result.location != null) {
                 synchronized (this.manifestUriLock) {
                     if (parsingLoadable.dataSpec.uri == this.manifestUri) {
                         this.manifestUri = this.manifest.location;
@@ -1001,7 +1001,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    public int onManifestLoadError(ParsingLoadable parsingLoadable, long j, long j2, IOException iOException) {
+    public int onManifestLoadError(ParsingLoadable<DashManifest> parsingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
@@ -1015,7 +1015,7 @@ public final class DashMediaSource implements MediaSource {
         return invokeCommon.intValue;
     }
 
-    public int onUtcTimestampLoadError(ParsingLoadable parsingLoadable, long j, long j2, IOException iOException) {
+    public int onUtcTimestampLoadError(ParsingLoadable<Long> parsingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {

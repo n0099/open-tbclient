@@ -77,18 +77,18 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                     jsonReader.nextNull();
                     return null;
                 }
-                T t = (T) this.constructor.construct();
+                T construct = this.constructor.construct();
                 try {
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         BoundField boundField = this.boundFields.get(jsonReader.nextName());
                         if (boundField != null && boundField.deserialized) {
-                            boundField.read(jsonReader, t);
+                            boundField.read(jsonReader, construct);
                         }
                         jsonReader.skipValue();
                     }
                     jsonReader.endObject();
-                    return t;
+                    return construct;
                 } catch (IllegalAccessException e) {
                     throw new AssertionError(e);
                 } catch (IllegalStateException e2) {

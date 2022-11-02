@@ -17,14 +17,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public class o4 extends u1 {
+public class o4 extends u1<b> {
     public static /* synthetic */ Interceptable $ic;
     public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
     public final j7 d;
     public final j7 e;
     public final j7 f;
-    public final b7 g;
+    public final b7<a> g;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class o4 extends u1 {
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
         public String b;
-        public b7 c;
+        public b7<Integer> c;
         public int d;
         public boolean e;
         public boolean f;
@@ -68,7 +68,7 @@ public class o4 extends u1 {
                 }
             }
             this.a = str;
-            this.c = new b7(200);
+            this.c = new b7<>(200);
             this.d = 0;
             new g4("");
             this.b = "default";
@@ -76,7 +76,7 @@ public class o4 extends u1 {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends u1.a {
+    public static class b extends u1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean c;
@@ -117,7 +117,7 @@ public class o4 extends u1 {
         this.d = new j7(300);
         this.e = new j7(300);
         this.f = new j7(200);
-        this.g = new b7(10);
+        this.g = new b7<>(10);
     }
 
     public final int j(String str, int i) {
@@ -203,7 +203,7 @@ public class o4 extends u1 {
                                 j7Var.a(parseFloat);
                             }
                         } else if (charAt == 'f') {
-                            b7 b7Var = aVar.c;
+                            b7<Integer> b7Var = aVar.c;
                             int i5 = 1;
                             while (i5 < split.length - 2) {
                                 String[] split2 = split[1].split("/");
@@ -267,12 +267,12 @@ public class o4 extends u1 {
             bufferedReader.close();
             int i8 = 0;
             while (true) {
-                b7 b7Var2 = this.g;
+                b7<a> b7Var2 = this.g;
                 i = b7Var2.b;
                 if (i8 >= i) {
                     break;
                 }
-                if (((a) b7Var2.get(i8)).d < 1) {
+                if (b7Var2.get(i8).d < 1) {
                     this.g.i(i8);
                     i8--;
                 }
@@ -285,8 +285,8 @@ public class o4 extends u1 {
             int i9 = 0;
             int i10 = 0;
             while (i9 < i) {
-                a aVar2 = (a) this.g.get(i9);
-                b7 b7Var3 = aVar2.c;
+                a aVar2 = this.g.get(i9);
+                b7<Integer> b7Var3 = aVar2.c;
                 int i11 = b7Var3.b;
                 int i12 = aVar2.d;
                 boolean z2 = aVar2.e;
@@ -308,7 +308,7 @@ public class o4 extends u1 {
                 int i16 = 0;
                 while (i15 < i11) {
                     int i17 = i15 + 1;
-                    int intValue = ((Integer) b7Var3.get(i15)).intValue() * 3;
+                    int intValue = b7Var3.get(i15).intValue() * 3;
                     int i18 = i16 + 1;
                     int i19 = i;
                     int i20 = i11;
@@ -321,7 +321,7 @@ public class o4 extends u1 {
                     fArr[i22] = this.d.c(i21 + 1);
                     if (z2) {
                         int i25 = i17 + 1;
-                        int intValue2 = ((Integer) b7Var3.get(i17)).intValue() * 3;
+                        int intValue2 = b7Var3.get(i17).intValue() * 3;
                         int i26 = i24 + 1;
                         int i27 = intValue2 + 1;
                         fArr[i24] = this.e.c(intValue2);
@@ -333,7 +333,7 @@ public class o4 extends u1 {
                     }
                     if (z3) {
                         int i29 = i17 + 1;
-                        int intValue3 = ((Integer) b7Var3.get(i17)).intValue() * 2;
+                        int intValue3 = b7Var3.get(i17).intValue() * 2;
                         int i30 = i24 + 1;
                         int i31 = intValue3 + 1;
                         fArr[i24] = this.f.c(intValue3);
@@ -420,7 +420,7 @@ public class o4 extends u1 {
             if (j7Var4.b > 0) {
                 j7Var4.b();
             }
-            b7 b7Var5 = this.g;
+            b7<a> b7Var5 = this.g;
             if (b7Var5.b > 0) {
                 b7Var5.clear();
             }
@@ -433,16 +433,16 @@ public class o4 extends u1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            b7.b it = this.g.iterator();
+            b7.b<a> it = this.g.iterator();
             while (it.hasNext()) {
-                a aVar = (a) it.next();
-                if (aVar.a.equals(str)) {
-                    return aVar;
+                a next = it.next();
+                if (next.a.equals(str)) {
+                    return next;
                 }
             }
-            a aVar2 = new a(this, str);
-            this.g.a(aVar2);
-            return aVar2;
+            a aVar = new a(this, str);
+            this.g.a(aVar);
+            return aVar;
         }
         return (a) invokeL.objValue;
     }

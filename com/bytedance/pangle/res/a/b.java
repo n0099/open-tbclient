@@ -28,7 +28,7 @@ public final class b {
     public int o;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] a;

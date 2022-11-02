@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
 import com.baidu.tieba.ga;
-import com.baidu.tieba.o90;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.yv4;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.n90;
+import com.baidu.tieba.vw4;
+import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,8 +68,8 @@ public class InitDebugTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(zv4.class.getName());
-            arrayList.add(yv4.class.getName());
+            arrayList.add(ww4.class.getName());
+            arrayList.add(vw4.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             ga.a().c(arrayList);
         }
@@ -85,13 +85,13 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            o90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            n90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 
     private void initUETool() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && ux4.k().h("key_ue_tool_switch", false)) {
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && ky4.k().h("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

@@ -2,6 +2,7 @@ package com.kwad.components.offline.api.tk;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +21,13 @@ public final class TkLoggerReporter {
 
     /* renamed from: com.kwad.components.offline.api.tk.TkLoggerReporter$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final TkLoggerReporter sInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,8 +96,8 @@ public final class TkLoggerReporter {
     private void reportEvent(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, jSONObject) == null) {
-            if (!jSONObject.has("ratio")) {
-                r.putValue(jSONObject, "ratio", getSamplingRate());
+            if (!jSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_RATION)) {
+                r.putValue(jSONObject, MapBundleKey.OfflineMapKey.OFFLINE_RATION, getSamplingRate());
             }
             OfflineHostProvider.getApi().loggerReporter().reportEvent(getSamplingRate(), str, BusinessType.TACHIKOMA, str2, jSONObject);
         }

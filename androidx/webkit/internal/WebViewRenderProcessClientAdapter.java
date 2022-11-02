@@ -1,6 +1,8 @@
 package androidx.webkit.internal;
 
 import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.webkit.WebViewRenderProcess;
 import androidx.webkit.WebViewRenderProcessClient;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,6 +41,7 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
     }
 
     @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final String[] getSupportedFeatures() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,7 +80,8 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
     }
 
     @Override // org.chromium.support_lib_boundary.WebViewRendererClientBoundaryInterface
-    public final void onRendererResponsive(WebView webView, InvocationHandler invocationHandler) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public final void onRendererResponsive(@NonNull WebView webView, @NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, invocationHandler) == null) {
             WebViewRenderProcessImpl forInvocationHandler = WebViewRenderProcessImpl.forInvocationHandler(invocationHandler);
@@ -128,7 +132,8 @@ public class WebViewRenderProcessClientAdapter implements WebViewRendererClientB
     }
 
     @Override // org.chromium.support_lib_boundary.WebViewRendererClientBoundaryInterface
-    public final void onRendererUnresponsive(WebView webView, InvocationHandler invocationHandler) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public final void onRendererUnresponsive(@NonNull WebView webView, @NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, invocationHandler) == null) {
             WebViewRenderProcessImpl forInvocationHandler = WebViewRenderProcessImpl.forInvocationHandler(invocationHandler);

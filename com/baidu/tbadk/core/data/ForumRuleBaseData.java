@@ -18,13 +18,13 @@ import org.json.JSONObject;
 public class ForumRuleBaseData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List list;
-    public List pbDataList;
+    public List<ForumRuleItemData> list;
+    public List<ForumRuleItemPbData> pbDataList;
     public String preface;
     public String title;
 
     /* loaded from: classes3.dex */
-    public class ForumRuleItemData implements Serializable {
+    public static class ForumRuleItemData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
@@ -111,7 +111,7 @@ public class ForumRuleBaseData implements Serializable {
     }
 
     /* loaded from: classes3.dex */
-    public class ForumRuleItemPbContentData implements Serializable {
+    public static class ForumRuleItemPbContentData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String href;
@@ -135,10 +135,10 @@ public class ForumRuleBaseData implements Serializable {
     }
 
     /* loaded from: classes3.dex */
-    public class ForumRuleItemPbData implements Serializable {
+    public static class ForumRuleItemPbData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List mContent;
+        public List<ForumRuleItemPbContentData> mContent;
         public String status;
         public String title;
 
@@ -171,7 +171,7 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    public List getList() {
+    public List<ForumRuleItemData> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -180,7 +180,7 @@ public class ForumRuleBaseData implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public List getPbDataList() {
+    public List<ForumRuleItemPbData> getPbDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -252,14 +252,14 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    public void setList(List list) {
+    public void setList(List<ForumRuleItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.list = list;
         }
     }
 
-    public void setPbDataList(List list) {
+    public void setPbDataList(List<ForumRuleItemPbData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.pbDataList = list;

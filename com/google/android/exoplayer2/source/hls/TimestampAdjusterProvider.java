@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.TimestampAdjuster;
 public final class TimestampAdjusterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray timestampAdjusters;
+    public final SparseArray<TimestampAdjuster> timestampAdjusters;
 
     public TimestampAdjusterProvider() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public final class TimestampAdjusterProvider {
                 return;
             }
         }
-        this.timestampAdjusters = new SparseArray();
+        this.timestampAdjusters = new SparseArray<>();
     }
 
     public void reset() {
@@ -41,7 +41,7 @@ public final class TimestampAdjusterProvider {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            TimestampAdjuster timestampAdjuster = (TimestampAdjuster) this.timestampAdjusters.get(i);
+            TimestampAdjuster timestampAdjuster = this.timestampAdjusters.get(i);
             if (timestampAdjuster == null) {
                 TimestampAdjuster timestampAdjuster2 = new TimestampAdjuster(Long.MAX_VALUE);
                 this.timestampAdjusters.put(i, timestampAdjuster2);

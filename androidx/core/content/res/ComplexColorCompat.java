@@ -7,6 +7,11 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
@@ -17,6 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class ComplexColorCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,7 +32,7 @@ public final class ComplexColorCompat {
     public final ColorStateList mColorStateList;
     public final Shader mShader;
 
-    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, int i) {
+    public ComplexColorCompat(Shader shader, ColorStateList colorStateList, @ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +52,8 @@ public final class ComplexColorCompat {
         this.mColor = i;
     }
 
-    public static ComplexColorCompat createFromXml(Resources resources, int i, Resources.Theme theme) throws IOException, XmlPullParserException {
+    @NonNull
+    public static ComplexColorCompat createFromXml(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;
@@ -83,7 +90,7 @@ public final class ComplexColorCompat {
         return (ComplexColorCompat) invokeLIL.objValue;
     }
 
-    public static ComplexColorCompat from(int i) {
+    public static ComplexColorCompat from(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
@@ -109,14 +116,14 @@ public final class ComplexColorCompat {
         return invokeL.booleanValue;
     }
 
-    public void setColor(int i) {
+    public void setColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.mColor = i;
         }
     }
 
-    public static ComplexColorCompat from(ColorStateList colorStateList) {
+    public static ComplexColorCompat from(@NonNull ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, colorStateList)) == null) {
@@ -125,7 +132,7 @@ public final class ComplexColorCompat {
         return (ComplexColorCompat) invokeL.objValue;
     }
 
-    public static ComplexColorCompat from(Shader shader) {
+    public static ComplexColorCompat from(@NonNull Shader shader) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shader)) == null) {
@@ -134,7 +141,8 @@ public final class ComplexColorCompat {
         return (ComplexColorCompat) invokeL.objValue;
     }
 
-    public static ComplexColorCompat inflate(Resources resources, int i, Resources.Theme theme) {
+    @Nullable
+    public static ComplexColorCompat inflate(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, resources, i, theme)) == null) {
@@ -148,6 +156,7 @@ public final class ComplexColorCompat {
         return (ComplexColorCompat) invokeLIL.objValue;
     }
 
+    @ColorInt
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,6 +166,7 @@ public final class ComplexColorCompat {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Shader getShader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

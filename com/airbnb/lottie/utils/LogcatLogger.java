@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class LogcatLogger implements LottieLogger {
-    public static final Set loggedMessages = new HashSet();
+    public static final Set<String> loggedMessages = new HashSet();
 
     @Override // com.airbnb.lottie.LottieLogger
     public void debug(String str) {

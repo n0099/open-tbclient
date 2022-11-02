@@ -1,83 +1,86 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(StatisticItem statisticItem, of7 of7Var) {
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, statisticItem, of7Var) == null) {
-            int i = 5;
-            String str = "";
-            if (of7Var != null) {
-                YyExtData g = of7Var.g();
-                if (g != null) {
-                    if (g.isYyGame) {
-                        i = 3;
-                    } else {
-                        i = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
                     }
-                    str = TiebaStatic.YYValues.YY_LIVE;
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
                 }
-                if (!TextUtils.isEmpty(of7Var.e())) {
-                    statisticItem.param("obj_param1", of7Var.e());
-                }
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, i);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
-        }
-    }
-
-    public static void b(StatisticItem statisticItem, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65537, null, statisticItem, str, str2, str3, str4) == null) && statisticItem != null) {
-            if (!TextUtils.isEmpty(str)) {
-                statisticItem.param("fid", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statisticItem.param("fname", str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statisticItem.param("uid", str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                statisticItem.param("tid", str4);
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-    }
-
-    public static void c(int i, String str, String str2, String str3, String str4, of7 of7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4, of7Var}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15008");
-            statisticItem.param("obj_locate", i);
-            b(statisticItem, str, str2, str3, str4);
-            if (of7Var != null) {
-                a(statisticItem, of7Var);
-                TiebaStaticHelper.addYYParam(statisticItem, of7Var.g());
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(String str, String str2, String str3, String str4, of7 of7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, of7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15007");
-            b(statisticItem, str, str2, str3, str4);
-            if (of7Var != null) {
-                a(statisticItem, of7Var);
-                TiebaStaticHelper.addYYParam(statisticItem, of7Var.g());
-            }
-            TiebaStatic.log(statisticItem);
-        }
+        return (a) invokeL.objValue;
     }
 }

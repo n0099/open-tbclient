@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentHashMap a;
+    public static ConcurrentHashMap<String, TokenListener> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class e {
                 return;
             }
         }
-        a = new ConcurrentHashMap(16);
+        a = new ConcurrentHashMap<>(16);
     }
 
     public static boolean a() {
@@ -66,7 +66,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return (TokenListener) a.get(str);
+            return a.get(str);
         }
         return (TokenListener) invokeL.objValue;
     }

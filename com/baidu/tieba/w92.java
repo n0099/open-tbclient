@@ -1,23 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.im2;
-import com.baidu.tieba.jo2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w92 {
+public class w92 implements v92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static Boolean b;
-    public static int c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final p92 b;
+
+    @Override // com.baidu.tieba.v92
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,150 +40,62 @@ public class w92 {
                 return;
             }
         }
-        a = wj1.a;
-        tm2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
+        c = ok1.a;
     }
 
-    public static boolean d() {
+    @Override // com.baidu.tieba.v92
+    public p92 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (p92) invokeV.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public w92(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == 2) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = i >= 20 ? Math.min(i, 300) : 20;
+        this.b = new s92(10);
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v92
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == 1) {
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("LocalLruStrategy", "prelink url - " + str3);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = false;
-            if (!ga2.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
-                return false;
-            } else if (!tm2.F0().j(1)) {
-                return false;
-            } else {
-                String c0 = ga2.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && lz2.Y()) {
-                    return true;
-                } else {
-                    if (c != 0) {
-                        z = true;
-                    }
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
+            q92 a = this.b.a(str2, str3);
+            boolean z = true;
+            if (a == null) {
+                if (c) {
+                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
                 }
+                return true;
             }
+            if (System.currentTimeMillis() - a.b < this.a * 1000) {
+                z = false;
+            }
+            if (c) {
+                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
+            }
+            return z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(b43 b43Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, b43Var)) == null) {
-            if (b43Var == null || !d()) {
-                return 0;
-            }
-            return "na".equals(b43Var.r) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
-            }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(zo2.U().f(str));
-            if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
-            }
-            return b2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean h(m33 m33Var) {
-        InterceptResult invokeL;
-        jo2.a W;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, m33Var)) == null) {
-            if (m33Var == null || !m33Var.E()) {
-                return false;
-            }
-            if (lz2.B(m33Var.W())) {
-                str = im2.b.g().getPath() + File.separator;
-            } else {
-                str = im2.e.i(W.H(), W.v1()).getPath() + File.separator;
-            }
-            if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            zo2.U().K(str);
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

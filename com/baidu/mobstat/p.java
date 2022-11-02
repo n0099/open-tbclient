@@ -36,11 +36,11 @@ public class p extends j {
         }
     }
 
-    private ArrayList a(Cursor cursor) {
+    private ArrayList<i> a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<i> arrayList = new ArrayList<>();
             if (cursor == null) {
                 return arrayList;
             }
@@ -72,12 +72,12 @@ public class p extends j {
     }
 
     @Override // com.baidu.mobstat.j
-    public ArrayList a(int i, int i2) {
+    public ArrayList<i> a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
             Cursor a = a("time", i, i2);
-            ArrayList a2 = a(a);
+            ArrayList<i> a2 = a(a);
             if (a != null) {
                 a.close();
             }

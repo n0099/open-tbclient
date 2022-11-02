@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback {
+public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<SsChunkSource>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIALIZATION_VECTOR_SIZE = 8;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     public SsManifest manifest;
     public final LoaderErrorThrower manifestLoaderErrorThrower;
     public final int minLoadableRetryCount;
-    public ChunkSampleStream[] sampleStreams;
+    public ChunkSampleStream<SsChunkSource>[] sampleStreams;
     public CompositeSequenceableLoader sequenceableLoader;
     public final TrackEncryptionBox[] trackEncryptionBoxes;
     public final TrackGroupArray trackGroups;
@@ -84,17 +84,17 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
             this.trackEncryptionBoxes = null;
         }
         this.manifest = ssManifest;
-        ChunkSampleStream[] newSampleStreamArray = newSampleStreamArray(0);
+        ChunkSampleStream<SsChunkSource>[] newSampleStreamArray = newSampleStreamArray(0);
         this.sampleStreams = newSampleStreamArray;
         this.sequenceableLoader = new CompositeSequenceableLoader(newSampleStreamArray);
     }
 
-    private ChunkSampleStream buildSampleStream(TrackSelection trackSelection, long j) {
+    private ChunkSampleStream<SsChunkSource> buildSampleStream(TrackSelection trackSelection, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, this, trackSelection, j)) == null) {
             int indexOf = this.trackGroups.indexOf(trackSelection.getTrackGroup());
-            return new ChunkSampleStream(this.manifest.streamElements[indexOf].type, null, this.chunkSourceFactory.createChunkSource(this.manifestLoaderErrorThrower, this.manifest, indexOf, trackSelection, this.trackEncryptionBoxes), this, this.allocator, j, this.minLoadableRetryCount, this.eventDispatcher);
+            return new ChunkSampleStream<>(this.manifest.streamElements[indexOf].type, null, this.chunkSourceFactory.createChunkSource(this.manifestLoaderErrorThrower, this.manifest, indexOf, trackSelection, this.trackEncryptionBoxes), this, this.allocator, j, this.minLoadableRetryCount, this.eventDispatcher);
         }
         return (ChunkSampleStream) invokeLJ.objValue;
     }
@@ -138,7 +138,7 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
         return (byte[]) invokeL.objValue;
     }
 
-    public static ChunkSampleStream[] newSampleStreamArray(int i) {
+    public static ChunkSampleStream<SsChunkSource>[] newSampleStreamArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
@@ -162,7 +162,7 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
+            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
                 chunkSampleStream.seekToUs(j);
             }
             return j;
@@ -174,8 +174,8 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, ssManifest) == null) {
             this.manifest = ssManifest;
-            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
-                ((SsChunkSource) chunkSampleStream.getChunkSource()).updateManifest(ssManifest);
+            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
+                chunkSampleStream.getChunkSource().updateManifest(ssManifest);
             }
             this.callback.onContinueLoadingRequested(this);
         }
@@ -231,7 +231,7 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (ChunkSampleStream chunkSampleStream : this.sampleStreams) {
+            for (ChunkSampleStream<SsChunkSource> chunkSampleStream : this.sampleStreams) {
                 chunkSampleStream.release();
             }
         }
@@ -239,7 +239,7 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.source.SequenceableLoader.Callback
-    public void onContinueLoadingRequested(ChunkSampleStream chunkSampleStream) {
+    public void onContinueLoadingRequested(ChunkSampleStream<SsChunkSource> chunkSampleStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, chunkSampleStream) == null) {
             this.callback.onContinueLoadingRequested(this);
@@ -272,13 +272,13 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
                     }
                 }
                 if (sampleStreamArr[i] == null && trackSelectionArr[i] != null) {
-                    ChunkSampleStream buildSampleStream = buildSampleStream(trackSelectionArr[i], j);
+                    ChunkSampleStream<SsChunkSource> buildSampleStream = buildSampleStream(trackSelectionArr[i], j);
                     arrayList.add(buildSampleStream);
                     sampleStreamArr[i] = buildSampleStream;
                     zArr2[i] = true;
                 }
             }
-            ChunkSampleStream[] newSampleStreamArray = newSampleStreamArray(arrayList.size());
+            ChunkSampleStream<SsChunkSource>[] newSampleStreamArray = newSampleStreamArray(arrayList.size());
             this.sampleStreams = newSampleStreamArray;
             arrayList.toArray(newSampleStreamArray);
             this.sequenceableLoader = new CompositeSequenceableLoader(this.sampleStreams);

@@ -2,6 +2,8 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
@@ -9,14 +11,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class TipsConfigItem extends b {
+/* loaded from: classes8.dex */
+public final class TipsConfigItem extends b<TipConfigData> {
 
-    /* loaded from: classes7.dex */
-    public class TipConfigData implements com.kwad.sdk.core.b, Serializable {
+    /* loaded from: classes8.dex */
+    public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 268961350883157950L;
         public String tipInfo;
-        public transient Map tipMap = new HashMap();
+        public transient Map<String, String> tipMap = new HashMap();
         public int tipShowSwitch;
 
         private void genTipMap(JSONObject jSONObject) {
@@ -27,6 +29,7 @@ public final class TipsConfigItem extends b {
             }
         }
 
+        @Nullable
         public String getTipInfoData() {
             return this.tipInfo;
         }
@@ -36,7 +39,7 @@ public final class TipsConfigItem extends b {
         }
 
         public String getTips(String str) {
-            return (String) this.tipMap.get(str);
+            return this.tipMap.get(str);
         }
 
         public boolean isShowTips() {
@@ -44,7 +47,7 @@ public final class TipsConfigItem extends b {
         }
 
         @Override // com.kwad.sdk.core.b
-        public void parseJson(JSONObject jSONObject) {
+        public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
@@ -82,20 +85,20 @@ public final class TipsConfigItem extends b {
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void a(SharedPreferences sharedPreferences) {
-        TipConfigData tipConfigData = (TipConfigData) getValue();
-        if (tipConfigData == null) {
-            tipConfigData = new TipConfigData();
+    public final void a(@NonNull SharedPreferences sharedPreferences) {
+        TipConfigData value = getValue();
+        if (value == null) {
+            value = new TipConfigData();
         }
-        tipConfigData.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-        tipConfigData.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-        setValue(tipConfigData);
+        value.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+        value.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+        setValue(value);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public final void b(SharedPreferences.Editor editor) {
-        editor.putInt("tipsSwitch", ((TipConfigData) getValue()).getTipShowSwitch());
-        editor.putString("tipsInfo", ((TipConfigData) getValue()).getTipInfoData() != null ? ((TipConfigData) getValue()).getTipInfoData() : "");
+    public final void b(@NonNull SharedPreferences.Editor editor) {
+        editor.putInt("tipsSwitch", getValue().getTipShowSwitch());
+        editor.putString("tipsInfo", getValue().getTipInfoData() != null ? getValue().getTipInfoData() : "");
     }
 
     @Override // com.kwad.sdk.core.config.item.b

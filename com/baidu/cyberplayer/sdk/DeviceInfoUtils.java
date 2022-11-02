@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+@Keep
+/* loaded from: classes2.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -93,7 +93,7 @@ public class DeviceInfoUtils {
             if (registerReceiver != null) {
                 strArr[0] = String.valueOf(registerReceiver.getIntExtra("health", 1));
                 strArr[1] = String.valueOf(registerReceiver.getIntExtra("status", 1));
-                strArr[2] = String.valueOf(registerReceiver.getIntExtra(PollingModel.LEVEL, 0));
+                strArr[2] = String.valueOf(registerReceiver.getIntExtra("level", 0));
                 strArr[3] = String.valueOf(registerReceiver.getIntExtra("scale", 0));
                 strArr[4] = String.valueOf(registerReceiver.getIntExtra("voltage", 0));
                 strArr[5] = String.valueOf(registerReceiver.getIntExtra("temperature", 0));
@@ -111,7 +111,7 @@ public class DeviceInfoUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
-                return String.valueOf(registerReceiver.getIntExtra(PollingModel.LEVEL, 0));
+                return String.valueOf(registerReceiver.getIntExtra("level", 0));
             }
             return null;
         }

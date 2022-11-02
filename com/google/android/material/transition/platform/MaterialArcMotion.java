@@ -3,11 +3,14 @@ package com.google.android.material.transition.platform;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.transition.PathMotion;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public final class MaterialArcMotion extends PathMotion {
     public static /* synthetic */ Interceptable $ic;
@@ -40,6 +43,7 @@ public final class MaterialArcMotion extends PathMotion {
     }
 
     @Override // android.transition.PathMotion
+    @NonNull
     public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

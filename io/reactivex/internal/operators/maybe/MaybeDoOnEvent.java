@@ -14,20 +14,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.BiConsumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class MaybeDoOnEvent extends AbstractMaybeWithUpstream {
+public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiConsumer onEvent;
+    public final BiConsumer<? super T, ? super Throwable> onEvent;
 
     /* loaded from: classes8.dex */
-    public final class DoOnEventMaybeObserver implements MaybeObserver, Disposable {
+    public static final class DoOnEventMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
-        public final BiConsumer onEvent;
+        public final BiConsumer<? super T, ? super Throwable> onEvent;
 
-        public DoOnEventMaybeObserver(MaybeObserver maybeObserver, BiConsumer biConsumer) {
+        public DoOnEventMaybeObserver(MaybeObserver<? super T> maybeObserver, BiConsumer<? super T, ? super Throwable> biConsumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,13 +105,13 @@ public final class MaybeDoOnEvent extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 try {
-                    this.onEvent.accept(obj, null);
-                    this.actual.onSuccess(obj);
+                    this.onEvent.accept(t, null);
+                    this.actual.onSuccess(t);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     this.actual.onError(th);
@@ -121,7 +121,7 @@ public final class MaybeDoOnEvent extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDoOnEvent(MaybeSource maybeSource, BiConsumer biConsumer) {
+    public MaybeDoOnEvent(MaybeSource<T> maybeSource, BiConsumer<? super T, ? super Throwable> biConsumer) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,7 +142,7 @@ public final class MaybeDoOnEvent extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DoOnEventMaybeObserver(maybeObserver, this.onEvent));

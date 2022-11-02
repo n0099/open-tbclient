@@ -1,128 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
-import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class d89 {
+public class d89 extends e89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
-    public VideoCategoryClassData c;
-    public BdUniqueId d;
 
-    public d89(BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d89(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull l69 l69Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, l69Var, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, l69Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (l69) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new VideoCategoryClassData();
-        this.d = bdUniqueId;
     }
 
-    public VideoCategoryClassData a(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.e89, com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void M(@NonNull List<m69<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            this.c.setFirstClass((String) this.a.get(i));
-            this.c.setSecondClass((String) ((List) this.b.get(i)).get(i2));
-            this.c.getTags().clear();
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(p79.i(this.a));
+            super.M(list);
         }
-        return (VideoCategoryClassData) invokeII.objValue;
     }
 
-    public List b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e89, com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            super.O(editorTools);
+            p65 n = editorTools.n(15);
+            if (n instanceof c49) {
+                ((c49) n).n(false);
+            }
         }
-        return (List) invokeV.objValue;
     }
 
-    public List c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e89, com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void P(@NonNull NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f28));
         }
-        return (List) invokeV.objValue;
     }
 
-    public ArrayList d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void U(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.getTags();
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.K.B(true);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
-            getSelectClassReqMessage.setTag(this.d);
-            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
+            do8.l(this);
         }
     }
 
-    public void f() {
+    @Override // com.baidu.tieba.z79, com.baidu.tieba.a89
+    public void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
-            getSelectTagReqMessage.setTag(this.d);
-            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
-            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
-            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
+            super.c0();
+            do8.v(this.p);
         }
     }
 
-    public void g(List list) {
+    @Override // com.baidu.tieba.z79, com.baidu.tieba.a89, com.baidu.tieba.o69
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.a.clear();
-            this.a.addAll(list);
-        }
-    }
-
-    public void h(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-        }
-    }
-
-    public void i(VideoCategoryClassData videoCategoryClassData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
-            this.c = videoCategoryClassData;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.j();
+            do8.v(null);
         }
     }
 }

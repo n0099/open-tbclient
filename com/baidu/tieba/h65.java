@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h65 extends w55 {
+public class h65 extends p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h65(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f054c), 10, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0420), 33, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,12 +30,11 @@ public class h65 extends w55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809be;
-        this.e = R.drawable.obfuscated_res_0x7f0809bf;
-        this.h = R.drawable.obfuscated_res_0x7f080915;
-        this.i = false;
-        this.j = true;
+        this.d = R.drawable.icon_pure_post_more_goods64;
+        this.h = R.drawable.icon_pure_post_more_goods64;
         this.k = false;
-        this.p = new int[]{14};
+        this.i = false;
+        this.j = false;
+        this.p = new int[]{59};
     }
 }

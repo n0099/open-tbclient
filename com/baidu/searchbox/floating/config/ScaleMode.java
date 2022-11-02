@@ -42,6 +42,7 @@ public abstract class ScaleMode {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(r9, r10, null);
@@ -84,11 +85,11 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair scale(int i, int i2) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-                    return new Pair(Integer.valueOf(i), Integer.valueOf(i2));
+                    return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
                 }
                 return (Pair) invokeII.objValue;
             }
@@ -98,6 +99,7 @@ public abstract class ScaleMode {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(r9, r10, null);
@@ -140,11 +142,11 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair scale(int i, int i2) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-                    return new Pair(Integer.valueOf((int) (i * 1.25d)), Integer.valueOf((int) (i2 * 1.25d)));
+                    return new Pair<>(Integer.valueOf((int) (i * 1.25d)), Integer.valueOf((int) (i2 * 1.25d)));
                 }
                 return (Pair) invokeII.objValue;
             }
@@ -154,6 +156,7 @@ public abstract class ScaleMode {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
+            /* JADX DEBUG: Incorrect args count in method signature: ()V */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(r9, r10, null);
@@ -196,11 +199,11 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair scale(int i, int i2) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-                    return new Pair(Integer.valueOf((int) (i * 1.5d)), Integer.valueOf((int) (i2 * 1.5d)));
+                    return new Pair<>(Integer.valueOf((int) (i * 1.5d)), Integer.valueOf((int) (i2 * 1.5d)));
                 }
                 return (Pair) invokeII.objValue;
             }
@@ -225,7 +228,7 @@ public abstract class ScaleMode {
 
     public abstract ScaleMode pre();
 
-    public abstract Pair scale(int i, int i2);
+    public abstract Pair<Integer, Integer> scale(int i, int i2);
 
     public ScaleMode(String str, int i) {
         Interceptable interceptable = $ic;

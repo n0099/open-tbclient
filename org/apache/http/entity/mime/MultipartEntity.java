@@ -18,7 +18,7 @@ import java.util.Random;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MultipartEntity implements HttpEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;
@@ -157,9 +157,9 @@ public class MultipartEntity implements HttpEntity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Iterator it = this.multipart.getBodyParts().iterator();
+            Iterator<FormBodyPart> it = this.multipart.getBodyParts().iterator();
             while (it.hasNext()) {
-                if (((FormBodyPart) it.next()).getBody().getContentLength() < 0) {
+                if (it.next().getBody().getContentLength() < 0) {
                     return false;
                 }
             }

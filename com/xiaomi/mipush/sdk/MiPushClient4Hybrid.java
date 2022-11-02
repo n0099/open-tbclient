@@ -26,7 +26,6 @@ import com.xiaomi.push.ik;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import com.xiaomi.push.it;
-import com.xiaomi.push.iu;
 import com.xiaomi.push.service.bd;
 import com.xiaomi.push.service.br;
 import java.util.ArrayList;
@@ -36,13 +35,13 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class MiPushClient4Hybrid {
     public static /* synthetic */ Interceptable $ic;
-    public static Map dataMap;
+    public static Map<String, b.a> dataMap;
     public static MiPushCallback sCallback;
-    public static Map sRegisterTimeMap;
+    public static Map<String, Long> sRegisterTimeMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class MiPushCallback {
+    public static class MiPushCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -122,7 +121,7 @@ public class MiPushClient4Hybrid {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, miPushMessage, z)) == null) {
-            String str = miPushMessage.getExtra() == null ? "" : (String) miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS);
+            String str = miPushMessage.getExtra() == null ? "" : miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_DEVICE_STATUS);
             int intValue = TextUtils.isEmpty(str) ? 0 : Integer.valueOf(str).intValue();
             if (!z) {
                 intValue = (intValue & (-4)) + h.a.c.a();
@@ -143,7 +142,7 @@ public class MiPushClient4Hybrid {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, ikVar) == null) {
             String c = ikVar.c();
-            if (ikVar.a() == 0 && (aVar = (b.a) dataMap.get(c)) != null) {
+            if (ikVar.a() == 0 && (aVar = dataMap.get(c)) != null) {
                 aVar.a(ikVar.f701e, ikVar.f702f);
                 b.m131a(context).a(c, aVar);
             }
@@ -200,7 +199,7 @@ public class MiPushClient4Hybrid {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - (sRegisterTimeMap.get(str) != null ? ((Long) sRegisterTimeMap.get(str)).longValue() : 0L)) < 5000) {
+            if (Math.abs(currentTimeMillis - (sRegisterTimeMap.get(str) != null ? sRegisterTimeMap.get(str).longValue() : 0L)) < 5000) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("MiPushClient4Hybrid  Could not send register message within 5s repeatedly.");
                 return;
             }
@@ -236,14 +235,14 @@ public class MiPushClient4Hybrid {
             iiVar2.d(context.getPackageName());
             iiVar2.a(it.a(ijVar));
             iiVar2.a(bd.a());
-            ao.a(context).a(iiVar2, hj.i, (hw) null);
+            ao.a(context).a((ao) iiVar2, hj.i, (hw) null);
         }
     }
 
     public static void removeDuplicateCache(Context context, MiPushMessage miPushMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, miPushMessage) == null) {
-            String str = miPushMessage.getExtra() != null ? (String) miPushMessage.getExtra().get("jobkey") : null;
+            String str = miPushMessage.getExtra() != null ? miPushMessage.getExtra().get("jobkey") : null;
             if (TextUtils.isEmpty(str)) {
                 str = miPushMessage.getMessageId();
             }
@@ -263,12 +262,12 @@ public class MiPushClient4Hybrid {
                 hz hzVar = new hz();
                 hzVar.b(b.m131a(context).m132a());
                 hzVar.a(miPushMessage.getMessageId());
-                hzVar.a(Long.valueOf((String) miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_MESSAGE_TS)).longValue());
+                hzVar.a(Long.valueOf(miPushMessage.getExtra().get(Constants.EXTRA_KEY_HYBRID_MESSAGE_TS)).longValue());
                 hzVar.a(getDeviceStatus(miPushMessage, z));
                 if (!TextUtils.isEmpty(miPushMessage.getTopic())) {
                     hzVar.c(miPushMessage.getTopic());
                 }
-                ao.a(context).a((iu) hzVar, hj.f, false, br.a(PushMessageHelper.generateMessage(miPushMessage)));
+                ao.a(context).a((ao) hzVar, hj.f, false, br.a(PushMessageHelper.generateMessage(miPushMessage)));
                 com.xiaomi.channel.commonutils.logger.b.b("MiPushClient4Hybrid ack mina message, messageId is " + miPushMessage.getMessageId());
             } finally {
                 try {
@@ -325,12 +324,12 @@ public class MiPushClient4Hybrid {
             iiVar.d(context.getPackageName());
             iiVar.a(it.a(ipVar));
             iiVar.a(bd.a());
-            ao.a(context).a(iiVar, hj.i, (hw) null);
+            ao.a(context).a((ao) iiVar, hj.i, (hw) null);
             b.m131a(context).b(str);
         }
     }
 
-    public static void uploadClearMessageData(Context context, LinkedList linkedList) {
+    public static void uploadClearMessageData(Context context, LinkedList<? extends Object> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, context, linkedList) == null) {
             com.xiaomi.push.service.al.a(context, linkedList);

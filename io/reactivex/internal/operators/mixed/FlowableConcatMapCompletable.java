@@ -12,6 +12,7 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.exceptions.MissingBackpressureException;
@@ -28,17 +29,18 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableConcatMapCompletable extends Completable {
+public final class FlowableConcatMapCompletable<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ErrorMode errorMode;
-    public final Function mapper;
+    public final Function<? super T, ? extends CompletableSource> mapper;
     public final int prefetch;
-    public final Flowable source;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ConcatMapCompletableObserver extends AtomicInteger implements FlowableSubscriber, Disposable {
+    public static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3610901111000061034L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,19 +52,19 @@ public final class FlowableConcatMapCompletable extends Completable {
         public final ErrorMode errorMode;
         public final AtomicThrowable errors;
         public final ConcatMapInnerObserver inner;
-        public final Function mapper;
+        public final Function<? super T, ? extends CompletableSource> mapper;
         public final int prefetch;
-        public final SimplePlainQueue queue;
+        public final SimplePlainQueue<T> queue;
         public Subscription upstream;
 
         /* loaded from: classes8.dex */
-        public final class ConcatMapInnerObserver extends AtomicReference implements CompletableObserver {
+        public static final class ConcatMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 5638352172918776687L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final ConcatMapCompletableObserver parent;
+            public final ConcatMapCompletableObserver<?> parent;
 
-            public ConcatMapInnerObserver(ConcatMapCompletableObserver concatMapCompletableObserver) {
+            public ConcatMapInnerObserver(ConcatMapCompletableObserver<?> concatMapCompletableObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +114,7 @@ public final class FlowableConcatMapCompletable extends Completable {
             }
         }
 
-        public ConcatMapCompletableObserver(CompletableObserver completableObserver, Function function, ErrorMode errorMode, int i) {
+        public ConcatMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,7 +192,7 @@ public final class FlowableConcatMapCompletable extends Completable {
                         return;
                     }
                     boolean z2 = this.done;
-                    Object poll = this.queue.poll();
+                    T poll = this.queue.poll();
                     if (poll == null) {
                         z = true;
                     } else {
@@ -286,10 +288,10 @@ public final class FlowableConcatMapCompletable extends Completable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-                if (this.queue.offer(obj)) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                if (this.queue.offer(t)) {
                     drain();
                     return;
                 }
@@ -309,7 +311,7 @@ public final class FlowableConcatMapCompletable extends Completable {
         }
     }
 
-    public FlowableConcatMapCompletable(Flowable flowable, Function function, ErrorMode errorMode, int i) {
+    public FlowableConcatMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

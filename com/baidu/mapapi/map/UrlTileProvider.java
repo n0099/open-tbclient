@@ -9,6 +9,8 @@ public abstract class UrlTileProvider implements TileProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract String getTileUrl();
+
     public UrlTileProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -22,6 +24,4 @@ public abstract class UrlTileProvider implements TileProvider {
             }
         }
     }
-
-    public abstract String getTileUrl();
 }

@@ -23,7 +23,7 @@ import java.lang.reflect.Constructor;
 /* loaded from: classes7.dex */
 public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final Constructor FLAC_EXTRACTOR_CONSTRUCTOR;
+    public static final Constructor<? extends Extractor> FLAC_EXTRACTOR_CONSTRUCTOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int fragmentedMp4Flags;
     public int matroskaFlags;
@@ -33,7 +33,7 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public int tsMode;
 
     static {
-        Constructor constructor;
+        Constructor<? extends Extractor> constructor;
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(863795288, "Lcom/google/android/exoplayer2/extractor/DefaultExtractorsFactory;")) != null) {
@@ -97,7 +97,7 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
                 extractorArr[10] = new WavExtractor();
                 if (FLAC_EXTRACTOR_CONSTRUCTOR != null) {
                     try {
-                        extractorArr[11] = (Extractor) FLAC_EXTRACTOR_CONSTRUCTOR.newInstance(new Object[0]);
+                        extractorArr[11] = FLAC_EXTRACTOR_CONSTRUCTOR.newInstance(new Object[0]);
                     } catch (Exception e) {
                         throw new IllegalStateException("Unexpected error creating FLAC extractor", e);
                     }

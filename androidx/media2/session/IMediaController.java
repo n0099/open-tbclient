@@ -55,7 +55,7 @@ public interface IMediaController extends IInterface {
 
     void onSessionResult(int i, ParcelImpl parcelImpl) throws RemoteException;
 
-    void onSetCustomLayout(int i, List list) throws RemoteException;
+    void onSetCustomLayout(int i, List<ParcelImpl> list) throws RemoteException;
 
     void onShuffleModeChanged(int i, int i2, int i3, int i4, int i5) throws RemoteException;
 
@@ -63,7 +63,7 @@ public interface IMediaController extends IInterface {
 
     void onTrackDeselected(int i, ParcelImpl parcelImpl) throws RemoteException;
 
-    void onTrackInfoChanged(int i, List list, ParcelImpl parcelImpl, ParcelImpl parcelImpl2, ParcelImpl parcelImpl3, ParcelImpl parcelImpl4) throws RemoteException;
+    void onTrackInfoChanged(int i, List<ParcelImpl> list, ParcelImpl parcelImpl, ParcelImpl parcelImpl2, ParcelImpl parcelImpl3, ParcelImpl parcelImpl4) throws RemoteException;
 
     void onTrackSelected(int i, ParcelImpl parcelImpl) throws RemoteException;
 

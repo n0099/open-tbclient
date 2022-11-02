@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
+import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 import java.util.Map;
@@ -19,13 +21,13 @@ public class EngineKey implements Key {
     public final int height;
     public final Object model;
     public final Options options;
-    public final Class resourceClass;
+    public final Class<?> resourceClass;
     public final Key signature;
-    public final Class transcodeClass;
-    public final Map transformations;
+    public final Class<?> transcodeClass;
+    public final Map<Class<?>, Transformation<?>> transformations;
     public final int width;
 
-    public EngineKey(Object obj, Key key, int i, int i2, Map map, Class cls, Class cls2, Options options) {
+    public EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +106,7 @@ public class EngineKey implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             throw new UnsupportedOperationException();

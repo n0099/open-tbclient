@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.q53;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class lm1 implements yo1 {
+import java.io.File;
+/* loaded from: classes5.dex */
+public class lm1 implements qo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yo1
-    public String getAppName() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qo1
+    public boolean a(Activity activity, String str, q53.b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "baiduboxapp" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qo1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 
     public lm1() {
@@ -32,33 +53,32 @@ public class lm1 implements yo1 {
         }
     }
 
-    @Override // com.baidu.tieba.yo1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qo1
+    public boolean c(Activity activity, Uri uri, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return sn3.e().d();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
+            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
+                if (lg3.i()) {
+                    uri = bi3.a(activity, new File(uri.getPath()));
+                }
+                d(activity, uri, str);
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yo1
-    public String b() {
-        InterceptResult invokeV;
+    public final void d(Activity activity, Uri uri, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return sn3.e().b();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.addFlags(1);
+            intent.setDataAndType(uri, str);
+            ng3.f(activity, intent);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yo1
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return sn3.e().f();
-        }
-        return (String) invokeV.objValue;
     }
 }

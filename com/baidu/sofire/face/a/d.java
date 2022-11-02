@@ -1,5 +1,6 @@
 package com.baidu.sofire.face.a;
 
+import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class d implements Comparator {
+public class d implements Comparator<Map.Entry<String, ImageInfo>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,12 +29,13 @@ public class d implements Comparator {
         }
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // java.util.Comparator
-    public int compare(Object obj, Object obj2) {
+    public int compare(Map.Entry<String, ImageInfo> entry, Map.Entry<String, ImageInfo> entry2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-            return Float.valueOf(((String) ((Map.Entry) obj2).getKey()).split("_")[2]).compareTo(Float.valueOf(((String) ((Map.Entry) obj).getKey()).split("_")[2]));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+            return Float.valueOf(entry2.getKey().split("_")[2]).compareTo(Float.valueOf(entry.getKey().split("_")[2]));
         }
         return invokeLL.intValue;
     }

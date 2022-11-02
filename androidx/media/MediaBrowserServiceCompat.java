@@ -1,5 +1,6 @@
 package androidx.media;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,10 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.os.ResultReceiver;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.app.BundleCompat;
 import androidx.core.util.Pair;
@@ -47,13 +52,18 @@ public abstract class MediaBrowserServiceCompat extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final float EPSILON = 1.0E-5f;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String KEY_MEDIA_ITEM = "media_item";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String KEY_SEARCH_RESULTS = "search_results";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int RESULT_ERROR = -1;
     public static final int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED = 2;
     public static final int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED = 4;
     public static final int RESULT_FLAG_OPTION_NOT_HANDLED = 1;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int RESULT_OK = 0;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final int RESULT_PROGRESS_UPDATE = 1;
     public static final String SERVICE_INTERFACE = "android.media.browse.MediaBrowserService";
     public static final String TAG = "MBServiceCompat";
@@ -91,7 +101,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
         void onConnectFailed() throws RemoteException;
 
-        void onLoadChildren(String str, List list, Bundle bundle, Bundle bundle2) throws RemoteException;
+        void onLoadChildren(String str, List<MediaBrowserCompat.MediaItem> list, Bundle bundle, Bundle bundle2) throws RemoteException;
     }
 
     @Override // android.app.Service
@@ -101,22 +111,26 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public abstract BrowserRoot onGetRoot(String str, int i, Bundle bundle);
+    @Nullable
+    public abstract BrowserRoot onGetRoot(@NonNull String str, int i, @Nullable Bundle bundle);
 
-    public abstract void onLoadChildren(String str, Result<List<MediaBrowserCompat.MediaItem>> result);
+    public abstract void onLoadChildren(@NonNull String str, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onSubscribe(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, str, bundle) == null) {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void onUnsubscribe(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi21 implements MediaBrowserServiceImpl {
         public static /* synthetic */ Interceptable $ic;
@@ -152,6 +166,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
             }
 
             @Override // android.service.media.MediaBrowserService
+            @SuppressLint({"SyntheticAccessor"})
             public MediaBrowserService.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
                 InterceptResult invokeLIL;
                 Bundle bundle2;
@@ -553,6 +568,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi23 extends MediaBrowserServiceImplApi21 {
         public static /* synthetic */ Interceptable $ic;
@@ -689,6 +705,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi26 extends MediaBrowserServiceImplApi23 {
         public static /* synthetic */ Interceptable $ic;
@@ -884,7 +901,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         public final Bundle mExtras;
         public final String mRootId;
 
-        public BrowserRoot(String str, Bundle bundle) {
+        public BrowserRoot(@NonNull String str, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1005,6 +1022,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(28)
     /* loaded from: classes.dex */
     public class MediaBrowserServiceImplApi28 extends MediaBrowserServiceImplApi26 {
         public static /* synthetic */ Interceptable $ic;
@@ -1178,7 +1196,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void notifyChildrenChanged(MediaSessionManager.RemoteUserInfo remoteUserInfo, String str, Bundle bundle) {
+        public void notifyChildrenChanged(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull String str, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, remoteUserInfo, str, bundle) == null) {
                 this.this$0.mHandler.post(new Runnable(this, remoteUserInfo, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.3
@@ -1228,7 +1246,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         @Override // androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void notifyChildrenChanged(String str, Bundle bundle) {
+        public void notifyChildrenChanged(@NonNull String str, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
                 this.this$0.mHandler.post(new Runnable(this, str, bundle) { // from class: androidx.media.MediaBrowserServiceCompat.MediaBrowserServiceImplBase.2
@@ -1425,6 +1443,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class ResultWrapper<T> {
         public static /* synthetic */ Interceptable $ic;
@@ -2217,6 +2236,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
     public final MediaSessionManager.RemoteUserInfo getCurrentBrowserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2226,6 +2246,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         return (MediaSessionManager.RemoteUserInfo) invokeV.objValue;
     }
 
+    @Nullable
     public MediaSessionCompat.Token getSessionToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2395,6 +2416,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         return (List) invokeLL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void attachToBaseContext(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
@@ -2402,7 +2424,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public void notifyChildrenChanged(String str) {
+    public void notifyChildrenChanged(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             if (str != null) {
@@ -2455,7 +2477,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         return invokeLI.booleanValue;
     }
 
-    public void notifyChildrenChanged(String str, Bundle bundle) {
+    public void notifyChildrenChanged(@NonNull String str, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, bundle) == null) {
             if (str != null) {
@@ -2469,7 +2491,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public void onLoadItem(String str, Result<MediaBrowserCompat.MediaItem> result) {
+    public void onLoadItem(String str, @NonNull Result<MediaBrowserCompat.MediaItem> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, result) == null) {
             result.setFlags(2);
@@ -2477,7 +2499,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public void notifyChildrenChanged(MediaSessionManager.RemoteUserInfo remoteUserInfo, String str, Bundle bundle) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void notifyChildrenChanged(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, @NonNull String str, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, remoteUserInfo, str, bundle) == null) {
             if (remoteUserInfo != null) {
@@ -2550,14 +2573,14 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public void onCustomAction(String str, Bundle bundle, Result<Bundle> result) {
+    public void onCustomAction(@NonNull String str, Bundle bundle, @NonNull Result<Bundle> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, str, bundle, result) == null) {
             result.sendError(null);
         }
     }
 
-    public void onLoadChildren(String str, Result<List<MediaBrowserCompat.MediaItem>> result, Bundle bundle) {
+    public void onLoadChildren(@NonNull String str, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, str, result, bundle) == null) {
             result.setFlags(1);
@@ -2565,7 +2588,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
-    public void onSearch(String str, Bundle bundle, Result<List<MediaBrowserCompat.MediaItem>> result) {
+    public void onSearch(@NonNull String str, Bundle bundle, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, str, bundle, result) == null) {
             result.setFlags(4);

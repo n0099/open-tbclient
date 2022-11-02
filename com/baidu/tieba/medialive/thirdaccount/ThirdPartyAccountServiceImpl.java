@@ -36,7 +36,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements SapiCallback {
+    public class a implements SapiCallback<OAuthResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback a;

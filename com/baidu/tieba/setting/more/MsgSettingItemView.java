@@ -1,5 +1,6 @@
 package com.baidu.tieba.setting.more;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -12,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,12 +74,12 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a6, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e6d);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091e6b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b6, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb7);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb8);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091eb6);
             this.c = bdSwitchView;
-            fj.b(context, bdSwitchView, 10, 10, 10, 10);
+            xi.b(context, bdSwitchView, 10, 10, 10, 10);
         }
     }
 
@@ -128,7 +129,8 @@ public class MsgSettingItemView extends LinearLayout {
         return (BdSwitchView) invokeV.objValue;
     }
 
-    public void c(TbPageContext tbPageContext, int i) {
+    @SuppressLint({"ResourceAsColor"})
+    public void c(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);

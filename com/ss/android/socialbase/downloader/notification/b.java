@@ -18,9 +18,9 @@ public class b {
     public static volatile b c;
     public static final Object e = new Object();
     public final long a = 1000;
-    public final Map b = new HashMap();
-    public final Set d = new HashSet();
-    public final SparseArray f = new SparseArray();
+    public final Map<Integer, Long> b = new HashMap();
+    public final Set<String> d = new HashSet();
+    public final SparseArray<a> f = new SparseArray<>();
 
     public static boolean b(int i) {
         return i == 1 || i == 3;
@@ -37,8 +37,8 @@ public class b {
         return c;
     }
 
-    public SparseArray b() {
-        SparseArray sparseArray;
+    public SparseArray<a> b() {
+        SparseArray<a> sparseArray;
         synchronized (this.f) {
             sparseArray = this.f;
         }
@@ -73,7 +73,7 @@ public class b {
             return null;
         }
         synchronized (this.f) {
-            aVar = (a) this.f.get(i);
+            aVar = this.f.get(i);
             if (aVar != null) {
                 this.f.remove(i);
                 com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i);
@@ -88,7 +88,7 @@ public class b {
             return null;
         }
         synchronized (this.f) {
-            aVar = (a) this.f.get(i);
+            aVar = this.f.get(i);
         }
         return aVar;
     }
@@ -105,7 +105,7 @@ public class b {
         if (N != null && i != 0 && notification != null) {
             if (i2 == 4) {
                 synchronized (this.b) {
-                    Long l = (Long) this.b.get(Integer.valueOf(i));
+                    Long l = this.b.get(Integer.valueOf(i));
                     long currentTimeMillis = System.currentTimeMillis();
                     if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
                         return;

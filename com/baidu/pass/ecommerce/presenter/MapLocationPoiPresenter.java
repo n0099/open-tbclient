@@ -18,6 +18,7 @@ import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.pass.ecommerce.callback.GetLocationCallback;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
+import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
@@ -32,7 +33,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class MapLocationPoiPresenter extends BasePresenter implements GetLocationCallback {
+public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements GetLocationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GET_LOCATION_CODE = 1001;
     public static final String KEY_BDSTOKEN = "bdstoken";
@@ -43,8 +44,8 @@ public class MapLocationPoiPresenter extends BasePresenter implements GetLocatio
     public static final String TAG = "MapLocationPoiPresenter";
     public static final int USER_SEARCH_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List addrListByUserInput;
-    public List addrListByUserMapChoice;
+    public List<JSONObject> addrListByUserInput;
+    public List<JSONObject> addrListByUserMapChoice;
     public String bdSTokenFromAddrEdit;
     public String currentUniqueTag;
     public boolean hasNextPageByUserInput;
@@ -91,9 +92,9 @@ public class MapLocationPoiPresenter extends BasePresenter implements GetLocatio
             }
             this.paramsMap = createParamsByRegionInfo(reverseGeoCodeResult);
             String str = null;
-            List poiList = reverseGeoCodeResult.getPoiList();
+            List<PoiInfo> poiList = reverseGeoCodeResult.getPoiList();
             if (poiList != null && poiList.size() > 0) {
-                str = ((PoiInfo) poiList.get(0)).getName();
+                str = poiList.get(0).getName();
             }
             if (TextUtils.isEmpty(str)) {
                 str = reverseGeoCodeResult.getAddress();
@@ -531,7 +532,7 @@ public class MapLocationPoiPresenter extends BasePresenter implements GetLocatio
         }
     }
 
-    public List getAddrList4AdapterShow() {
+    public List<JSONObject> getAddrList4AdapterShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -543,7 +544,7 @@ public class MapLocationPoiPresenter extends BasePresenter implements GetLocatio
         return (List) invokeV.objValue;
     }
 
-    public List getAddrListByUserInput() {
+    public List<JSONObject> getAddrListByUserInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -552,7 +553,7 @@ public class MapLocationPoiPresenter extends BasePresenter implements GetLocatio
         return (List) invokeV.objValue;
     }
 
-    public List getAddrListByUserMapChoice() {
+    public List<JSONObject> getAddrListByUserMapChoice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

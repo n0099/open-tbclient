@@ -1,6 +1,7 @@
 package com.google.android.gms.common;
 
 import android.content.Intent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class GooglePlayServicesRepairableException extends UserRecoverableExcept
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GooglePlayServicesRepairableException(int i, String str, Intent intent) {
+    public GooglePlayServicesRepairableException(int i, @NonNull String str, @NonNull Intent intent) {
         super(str, intent);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

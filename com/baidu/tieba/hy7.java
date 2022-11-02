@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hy7 {
+public abstract class hy7<D extends IBaseDialogData> implements my7<D> {
     public static /* synthetic */ Interceptable $ic;
-    public static hy7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public kf a;
-    public kf b;
+    public TbPageContext<?> a;
+    public ViewGroup b;
 
-    public hy7() {
+    public hy7(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,103 +32,27 @@ public class hy7 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
+        this.a = tbPageContext;
+        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(c(), (ViewGroup) null, false);
+        a();
     }
 
-    public static synchronized hy7 b() {
+    public TbPageContext<?> d() {
         InterceptResult invokeV;
-        hy7 hy7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (hy7.class) {
-                if (c == null) {
-                    c = new hy7();
-                }
-                hy7Var = c;
-            }
-            return hy7Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (hy7) invokeV.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.my7
+    public ViewGroup getViewGroup() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                ou4.f();
-                this.a = ou4.d("tb.pb_mark");
-            }
-            if (this.b == null) {
-                ou4.f();
-                this.b = ou4.d("tb.pb_normal");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        kf.b h;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (z) {
-                kf kfVar = this.a;
-                if (kfVar != null && str != null) {
-                    h = kfVar.h(str);
-                }
-                h = null;
-            } else {
-                kf kfVar2 = this.b;
-                if (kfVar2 != null && str != null) {
-                    h = kfVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (obj = h.b) == null) {
-                return null;
-            }
-            return (byte[]) obj;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                kf kfVar = this.a;
-                if (kfVar != null && str != null) {
-                    kfVar.i(str, new byte[0], 0L);
-                    return;
-                }
-                return;
-            }
-            kf kfVar2 = this.b;
-            if (kfVar2 != null && str != null) {
-                kfVar2.i(str, new byte[0], 0L);
-            }
-        }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
-        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

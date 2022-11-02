@@ -1,104 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class e76 {
+public final class e76 extends y66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final e76 a;
-    public static final Pools.SimplePool b;
-    public static final Pools.SimplePool c;
-    public static final Pools.SimplePool d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<Integer> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947687301, "Lcom/baidu/tieba/e76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947687301, "Lcom/baidu/tieba/e76;");
-                return;
-            }
-        }
-        a = new e76();
-        b = new Pools.SimplePool(200);
-        c = new Pools.SimplePool(200);
-        d = new Pools.SimplePool(1000);
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e76() {
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new LinkedHashSet();
     }
 
-    public final PointF b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y66
+    public boolean b(h66 item, k86 timer, b66 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF pointF = (PointF) c.acquire();
-            if (pointF == null) {
-                return new PointF();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            i66 e = item.e();
+            if ((!this.b.isEmpty()) && !this.b.contains(Integer.valueOf(c(e)))) {
+                return true;
             }
-            return pointF;
+            return false;
         }
-        return (PointF) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final RectF c() {
-        InterceptResult invokeV;
+    public final int c(i66 i66Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF rectF = (RectF) b.acquire();
-            if (rectF == null) {
-                return new RectF();
-            }
-            return rectF;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i66Var)) == null) {
+            return i66Var.m() & 16777215;
         }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final x46 a(y46 data, DanmakuPlayer player) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(player, "player");
-            x46 x46Var = (x46) d.acquire();
-            if (x46Var == null) {
-                x46Var = null;
-            } else {
-                x46Var.l(data);
-                x46Var.p(player.m().w());
-            }
-            if (x46Var == null) {
-                return new x46(data, player);
-            }
-            return x46Var;
-        }
-        return (x46) invokeLL.objValue;
+        return invokeL.intValue;
     }
 }

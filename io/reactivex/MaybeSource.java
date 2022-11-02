@@ -1,5 +1,7 @@
 package io.reactivex;
+
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public interface MaybeSource {
-    void subscribe(MaybeObserver maybeObserver);
+public interface MaybeSource<T> {
+    void subscribe(@NonNull MaybeObserver<? super T> maybeObserver);
 }

@@ -225,7 +225,7 @@ public final class Utils {
         }
     }
 
-    public static boolean isEmpty(Collection collection) {
+    public static <T> boolean isEmpty(Collection<T> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) {
@@ -249,11 +249,11 @@ public final class Utils {
         return invokeL.booleanValue;
     }
 
-    public static boolean isEmpty(Object[] objArr) {
+    public static <T> boolean isEmpty(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, objArr)) == null) {
-            if (objArr != null && objArr.length != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
                 return false;
             }
             return true;

@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HttpDNSInfo implements Comparable {
+public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_IP_AVAILABLE = 2;
     public static final int STATUS_IP_INAVAILABLE = 3;
@@ -23,7 +23,7 @@ public class HttpDNSInfo implements Comparable {
     public String mCNDIp;
     public long mDownloadBytes;
     public long mDownloadTimes;
-    public List mHttpConnectTime;
+    public List<Long> mHttpConnectTime;
     public int mIsWorking;
     public int mStatus;
     public int mTestSpeedThread;

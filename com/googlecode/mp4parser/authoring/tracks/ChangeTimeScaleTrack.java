@@ -11,13 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 /* loaded from: classes7.dex */
@@ -25,7 +26,7 @@ public class ChangeTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
-    public List ctts;
+    public List<CompositionTimeToSample.Entry> ctts;
     public long[] decodingTimes;
     public Track source;
     public long timeScale;
@@ -47,7 +48,7 @@ public class ChangeTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -91,7 +92,7 @@ public class ChangeTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -121,7 +122,7 @@ public class ChangeTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -218,15 +219,13 @@ public class ChangeTimeScaleTrack implements Track {
         }
     }
 
-    public static List adjustCtts(List list, double d) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Double.valueOf(d)})) == null) {
             if (list != null) {
                 ArrayList arrayList = new ArrayList(list.size());
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) it.next();
+                for (CompositionTimeToSample.Entry entry : list) {
                     arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), (int) Math.round(entry.getOffset() * d)));
                 }
                 return arrayList;

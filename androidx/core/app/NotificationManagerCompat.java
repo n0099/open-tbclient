@@ -22,6 +22,9 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -63,10 +66,13 @@ public final class NotificationManagerCompat {
     public static final int SIDE_CHANNEL_RETRY_BASE_INTERVAL_MS = 1000;
     public static final int SIDE_CHANNEL_RETRY_MAX_COUNT = 6;
     public static final String TAG = "NotifManCompat";
+    @GuardedBy("sEnabledNotificationListenersLock")
     public static Set<String> sEnabledNotificationListenerPackages;
+    @GuardedBy("sEnabledNotificationListenersLock")
     public static String sEnabledNotificationListeners;
     public static final Object sEnabledNotificationListenersLock;
     public static final Object sLock;
+    @GuardedBy("sLock")
     public static SideChannelManager sSideChannelManager;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
@@ -437,6 +443,7 @@ public final class NotificationManagerCompat {
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -485,6 +492,7 @@ public final class NotificationManagerCompat {
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -559,7 +567,8 @@ public final class NotificationManagerCompat {
         this.mNotificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
-    public NotificationChannelGroup getNotificationChannelGroup(String str) {
+    @Nullable
+    public NotificationChannelGroup getNotificationChannelGroup(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -579,7 +588,8 @@ public final class NotificationManagerCompat {
         return (NotificationChannelGroup) invokeL.objValue;
     }
 
-    public static NotificationManagerCompat from(Context context) {
+    @NonNull
+    public static NotificationManagerCompat from(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -620,49 +630,50 @@ public final class NotificationManagerCompat {
         }
     }
 
-    public void createNotificationChannel(NotificationChannel notificationChannel) {
+    public void createNotificationChannel(@NonNull NotificationChannel notificationChannel) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, notificationChannel) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannel(notificationChannel);
         }
     }
 
-    public void createNotificationChannelGroup(NotificationChannelGroup notificationChannelGroup) {
+    public void createNotificationChannelGroup(@NonNull NotificationChannelGroup notificationChannelGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, notificationChannelGroup) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannelGroup(notificationChannelGroup);
         }
     }
 
-    public void createNotificationChannelGroups(List<NotificationChannelGroup> list) {
+    public void createNotificationChannelGroups(@NonNull List<NotificationChannelGroup> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannelGroups(list);
         }
     }
 
-    public void createNotificationChannels(List<NotificationChannel> list) {
+    public void createNotificationChannels(@NonNull List<NotificationChannel> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.createNotificationChannels(list);
         }
     }
 
-    public void deleteNotificationChannel(String str) {
+    public void deleteNotificationChannel(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.deleteNotificationChannel(str);
         }
     }
 
-    public void deleteNotificationChannelGroup(String str) {
+    public void deleteNotificationChannelGroup(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && Build.VERSION.SDK_INT >= 26) {
             this.mNotificationManager.deleteNotificationChannelGroup(str);
         }
     }
 
-    public NotificationChannel getNotificationChannel(String str) {
+    @Nullable
+    public NotificationChannel getNotificationChannel(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
@@ -674,7 +685,8 @@ public final class NotificationManagerCompat {
         return (NotificationChannel) invokeL.objValue;
     }
 
-    public static Set<String> getEnabledListenerPackages(Context context) {
+    @NonNull
+    public static Set<String> getEnabledListenerPackages(@NonNull Context context) {
         InterceptResult invokeL;
         Set<String> set;
         Interceptable interceptable = $ic;
@@ -730,7 +742,7 @@ public final class NotificationManagerCompat {
         return invokeV.booleanValue;
     }
 
-    public void cancel(String str, int i) {
+    public void cancel(@Nullable String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
             this.mNotificationManager.cancel(str, i);
@@ -740,7 +752,7 @@ public final class NotificationManagerCompat {
         }
     }
 
-    public void notify(int i, Notification notification) {
+    public void notify(int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048591, this, i, notification) == null) {
             notify(null, i, notification);
@@ -769,6 +781,7 @@ public final class NotificationManagerCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public List<NotificationChannelGroup> getNotificationChannelGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -781,6 +794,7 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public List<NotificationChannel> getNotificationChannels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -793,7 +807,7 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
-    public void notify(String str, int i, Notification notification) {
+    public void notify(@Nullable String str, int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, notification) == null) {
             if (useSideChannelForNotification(notification)) {

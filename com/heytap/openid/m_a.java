@@ -3,6 +3,7 @@ package com.heytap.openid;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,24 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public interface m_a extends IInterface {
 
+    @Keep
     /* renamed from: com.heytap.openid.m_a$m_a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public abstract class AbstractBinderC0511m_a extends Binder implements m_a {
+    public static abstract class AbstractBinderC0522m_a extends Binder implements m_a {
         public static /* synthetic */ Interceptable $ic;
+        @Keep
         public static final String m_a;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* renamed from: com.heytap.openid.m_a$m_a$m_a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0512m_a implements m_a {
+        public static class C0523m_a implements m_a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder m_a;
 
-            public C0512m_a(IBinder iBinder) {
+            public C0523m_a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,9 +52,11 @@ public interface m_a extends IInterface {
             }
 
             @Override // android.os.IInterface
+            @Keep
             public native IBinder asBinder();
 
             @Override // com.heytap.openid.m_a
+            @Keep
             public native String m_a(String str, String str2, String str3);
         }
 
@@ -68,8 +76,10 @@ public interface m_a extends IInterface {
             m_a = com.heytap.openid.sdk.m_a.m_a("Y29tLmhleXRhcC5vcGVuaWQuSU9wZW5JRA==");
         }
 
+        @Keep
         public static native m_a m_a(IBinder iBinder);
     }
 
+    @Keep
     String m_a(String str, String str2, String str3);
 }

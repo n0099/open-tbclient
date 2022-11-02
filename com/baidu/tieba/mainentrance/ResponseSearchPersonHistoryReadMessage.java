@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ResponseSearchPersonHistoryReadMessage extends CustomResponsedMessage {
+public class ResponseSearchPersonHistoryReadMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList datas;
+    public final ArrayList<String> datas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSearchPersonHistoryReadMessage() {
@@ -28,6 +28,6 @@ public class ResponseSearchPersonHistoryReadMessage extends CustomResponsedMessa
                 return;
             }
         }
-        this.datas = new ArrayList(10);
+        this.datas = new ArrayList<>(10);
     }
 }

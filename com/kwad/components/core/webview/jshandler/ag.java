@@ -3,12 +3,15 @@ package com.kwad.components.core.webview.jshandler;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class ag implements com.kwad.sdk.core.webview.kwai.a {
@@ -19,8 +22,9 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.b MW;
     public b MY;
 
+    @KsJson
     /* loaded from: classes7.dex */
-    public class a extends com.kwad.sdk.core.response.kwai.a {
+    public static class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int gJ;
@@ -42,6 +46,7 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
 
     /* loaded from: classes7.dex */
     public interface b {
+        @MainThread
         void al(int i);
     }
 
@@ -69,7 +74,7 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             try {
@@ -119,6 +124,7 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

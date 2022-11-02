@@ -2,6 +2,7 @@ package com.baidu.adp.framework.task;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,12 +19,12 @@ public class SocketMessageTask extends MessageTask {
     public boolean a;
     public boolean b;
     public boolean c;
-    public Class d;
+    public Class<? extends SocketResponsedMessage> d;
     public DupLicateMode e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class DupLicateMode {
+    public static final class DupLicateMode {
         public static final /* synthetic */ DupLicateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DupLicateMode NONE;
@@ -161,7 +162,7 @@ public class SocketMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public Class getResponsedClass() {
+    public Class<? extends SocketResponsedMessage> getResponsedClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -198,7 +199,7 @@ public class SocketMessageTask extends MessageTask {
         }
     }
 
-    public void setResponsedClass(Class cls) {
+    public void setResponsedClass(Class<? extends SocketResponsedMessage> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cls) == null) {
             this.d = cls;

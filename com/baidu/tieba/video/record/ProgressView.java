@@ -33,7 +33,7 @@ public class ProgressView extends View {
     public Paint g;
     public float h;
     public float i;
-    public LinkedList j;
+    public LinkedList<Integer> j;
     public float k;
     public volatile State l;
     public boolean m;
@@ -53,7 +53,7 @@ public class ProgressView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class State {
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State DELETE;
@@ -166,7 +166,7 @@ public class ProgressView extends View {
                 return;
             }
         }
-        this.j = new LinkedList();
+        this.j = new LinkedList<>();
         this.k = 0.0f;
         this.l = State.PAUSE;
         this.m = true;
@@ -199,7 +199,7 @@ public class ProgressView extends View {
                 return;
             }
         }
-        this.j = new LinkedList();
+        this.j = new LinkedList<>();
         this.k = 0.0f;
         this.l = State.PAUSE;
         this.m = true;
@@ -232,7 +232,7 @@ public class ProgressView extends View {
                 return;
             }
         }
-        this.j = new LinkedList();
+        this.j = new LinkedList<>();
         this.k = 0.0f;
         this.l = State.PAUSE;
         this.m = true;
@@ -310,16 +310,16 @@ public class ProgressView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList linkedList = this.j;
+            LinkedList<Integer> linkedList = this.j;
             if (linkedList != null && !linkedList.isEmpty()) {
-                return ((Integer) this.j.getLast()).intValue();
+                return this.j.getLast().intValue();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    public LinkedList getTimeList() {
+    public LinkedList<Integer> getTimeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -336,7 +336,7 @@ public class ProgressView extends View {
     }
 
     public void setCurrentState(State state) {
-        LinkedList linkedList;
+        LinkedList<Integer> linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
             this.l = state;
@@ -363,7 +363,7 @@ public class ProgressView extends View {
         }
     }
 
-    public void setTimeList(LinkedList linkedList) {
+    public void setTimeList(LinkedList<Integer> linkedList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, linkedList) == null) && linkedList != null && linkedList.size() > 0) {
             this.j = linkedList;
@@ -387,11 +387,11 @@ public class ProgressView extends View {
             long currentTimeMillis = System.currentTimeMillis();
             this.n = 0.0f;
             if (!this.j.isEmpty()) {
-                Iterator it = this.j.iterator();
+                Iterator<Integer> it = this.j.iterator();
                 long j2 = 0;
                 while (it.hasNext()) {
                     this.s = j2;
-                    long intValue = ((Integer) it.next()).intValue();
+                    long intValue = it.next().intValue();
                     this.t = intValue;
                     float f = this.n;
                     float f2 = (((float) (intValue - j2)) * this.k) + f;
@@ -405,7 +405,7 @@ public class ProgressView extends View {
                     canvas.drawRect(f4, 0.0f, this.n, (float) (this.u - 1), this.e);
                     j2 = intValue;
                 }
-                if (((Integer) this.j.getLast()).intValue() <= 3000.0f) {
+                if (this.j.getLast().intValue() <= 3000.0f) {
                     float f5 = this.k;
                     canvas.drawRect(f5 * 3000.0f, 0.0f, (f5 * 3000.0f) + this.h, (float) (this.u - 1), this.d);
                 }

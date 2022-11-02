@@ -1,5 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -38,13 +40,13 @@ public class SapiSystemBarTintManager {
 
     /* renamed from: com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class SystemBarConfig {
+    public static class SystemBarConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String g = "status_bar_height";
         public static final String h = "navigation_bar_height";
@@ -93,6 +95,7 @@ public class SapiSystemBarTintManager {
             this(activity, z, z2);
         }
 
+        @SuppressLint({"NewApi"})
         private float a(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -109,6 +112,7 @@ public class SapiSystemBarTintManager {
             return invokeL.floatValue;
         }
 
+        @TargetApi(14)
         private int a(Context context) {
             InterceptResult invokeL;
             String str;
@@ -128,6 +132,7 @@ public class SapiSystemBarTintManager {
             return invokeL.intValue;
         }
 
+        @TargetApi(14)
         private int b(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -154,6 +159,7 @@ public class SapiSystemBarTintManager {
             return invokeLL.intValue;
         }
 
+        @TargetApi(14)
         private boolean c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -248,6 +254,7 @@ public class SapiSystemBarTintManager {
         }
     }
 
+    @TargetApi(19)
     public SapiSystemBarTintManager(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

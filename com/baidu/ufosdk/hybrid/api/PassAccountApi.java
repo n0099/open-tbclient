@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class PassAccountApi implements IBridgeApi {
     public static /* synthetic */ Interceptable $ic;
-    public static Class a;
+    public static Class<?> a;
     public static Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +24,7 @@ public class PassAccountApi implements IBridgeApi {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements b {
+    public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

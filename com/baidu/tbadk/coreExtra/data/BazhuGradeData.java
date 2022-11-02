@@ -2,8 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.qr4;
+import com.baidu.tieba.hs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
 /* loaded from: classes3.dex */
-public class BazhuGradeData extends qr4 implements Serializable {
+public class BazhuGradeData extends hs4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -54,7 +53,7 @@ public class BazhuGradeData extends qr4 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qr4
+    @Override // com.baidu.tieba.hs4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
@@ -62,7 +61,7 @@ public class BazhuGradeData extends qr4 implements Serializable {
         }
         try {
             this.mDesc = jSONObject.optString("desc", "");
-            this.mLevel = jSONObject.optString(PollingModel.LEVEL, "");
+            this.mLevel = jSONObject.optString("level", "");
         } catch (Exception e) {
             BdLog.detailException(e);
         }

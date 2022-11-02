@@ -11,13 +11,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.ag;
-import com.baidu.tieba.oo8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.rb;
+import com.baidu.tieba.sf;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.xp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,24 +26,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LocationModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
     public d b;
     public r9 c;
-    public sb d;
+    public rb d;
     public CustomMessageListener e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(LocationData locationData);
 
         void onFail(String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void a();
 
@@ -60,8 +60,8 @@ public class LocationModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends sb {
+    /* loaded from: classes6.dex */
+    public class a extends rb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocationModel a;
@@ -106,7 +106,7 @@ public class LocationModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class LocationModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof ResponsedSelectLocation)) {
                 return;
@@ -170,13 +170,13 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
         }
-        ag.n().g(LocationModel.class);
+        sf.n().g(LocationModel.class);
     }
 
     public static void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            zm8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            io8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -223,7 +223,7 @@ public class LocationModel extends BdBaseModel {
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = oo8.a().b();
+            LocationData b2 = xp8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -235,8 +235,8 @@ public class LocationModel extends BdBaseModel {
     public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            oo8.a().e(z);
-            ux4.k().u("no_longer_show_address", oo8.a().c());
+            xp8.a().e(z);
+            ky4.k().u("no_longer_show_address", xp8.a().c());
         }
     }
 
@@ -256,7 +256,7 @@ public class LocationModel extends BdBaseModel {
             while (i < size) {
                 String str = null;
                 if (poi_info.get(i) != null) {
-                    str = ((LocationData.NearByAddressData) poi_info.get(i)).getName();
+                    str = poi_info.get(i).getName();
                 }
                 if (StringUtils.isNull(str)) {
                     poi_info.remove(i);
@@ -267,8 +267,8 @@ public class LocationModel extends BdBaseModel {
             }
             if (StringUtils.isNull(locationData.getFormatted_address())) {
                 if (poi_info.size() >= 1) {
-                    locationData.setFormatted_address(((LocationData.NearByAddressData) poi_info.get(0)).getName());
-                    locationData.setSn(((LocationData.NearByAddressData) poi_info.get(0)).getSn());
+                    locationData.setFormatted_address(poi_info.get(0).getName());
+                    locationData.setSn(poi_info.get(0).getSn());
                     return;
                 }
                 return;
@@ -294,8 +294,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             C(locationData);
-            oo8.a().f(System.currentTimeMillis());
-            oo8.a().d(locationData);
+            xp8.a().f(System.currentTimeMillis());
+            xp8.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class LaunchSpeedReadUtil {
@@ -53,19 +52,17 @@ public class LaunchSpeedReadUtil {
         }
     }
 
-    private float calculateAve(List list) {
+    private float calculateAve(List<DBItemModel.LaunchTimeItemModel> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, list)) == null) {
             if (list == null || list.size() < 8) {
                 return -1.0f;
             }
-            long j = ((DBItemModel.LaunchTimeItemModel) list.get(0)).launchTime;
-            Iterator it = list.iterator();
+            long j = list.get(0).launchTime;
             long j2 = 0;
             long j3 = j;
-            while (it.hasNext()) {
-                DBItemModel.LaunchTimeItemModel launchTimeItemModel = (DBItemModel.LaunchTimeItemModel) it.next();
+            for (DBItemModel.LaunchTimeItemModel launchTimeItemModel : list) {
                 if (DEBUG) {
                     Log.d(TAG, "Launch Time: " + launchTimeItemModel.launchTime);
                 }
@@ -88,7 +85,7 @@ public class LaunchSpeedReadUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            List queryLast = LaunchTimeSQLiteOpenHelper.getInstance(context).queryLast(50);
+            List<DBItemModel.LaunchTimeItemModel> queryLast = LaunchTimeSQLiteOpenHelper.getInstance(context).queryLast(50);
             if (queryLast == null) {
                 if (DEBUG) {
                     Log.d(TAG, "launchTimeItems null");

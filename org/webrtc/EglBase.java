@@ -3,7 +3,7 @@ package org.webrtc;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import com.baidu.webkit.internal.monitor.MonitorType;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface EglBase {
     public static final int EGL_OPENGL_ES2_BIT = 4;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -14,7 +14,7 @@ public interface EglBase {
     public static final int[] CONFIG_PIXEL_RGBA_BUFFER = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12339, 1, 12344};
     public static final int[] CONFIG_RECORDABLE = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344};
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Context {
         long getNativeEglContext();
     }

@@ -336,7 +336,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                         e0 e0Var = this.D;
                         FeedbackBrowserActivity.b bVar = (FeedbackBrowserActivity.b) fVar;
                         String str2 = str + "?os=" + b.e((Context) bVar.a) + "&appid=" + e0Var.b + "&devid=" + e0Var.c + "&clientid=" + e0Var.a + "&appvn=" + c.b() + "&pkgname=" + c.a() + "&sdkvn=4.1.9.1&baiducuid=" + b.f() + "&nettype=" + p1.b((Context) bVar.a) + "&channel_id=" + b.h() + "&nightMode=" + (this.b ? 1 : 0) + "&digital=" + (((Context) bVar.a).getSharedPreferences("feedback_switch_prefs", 0).getBoolean("ab_dg_h", false) ? 1 : 0);
-                        WebView webView = (WebView) bVar.b.get();
+                        WebView webView = bVar.b.get();
                         if (webView != null) {
                             webView.loadUrl(str2);
                             return;
@@ -346,7 +346,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                         f fVar2 = this.f;
                         if (fVar2 != null) {
                             String str3 = this.F;
-                            WebView webView2 = (WebView) ((FeedbackBrowserActivity.b) fVar2).b.get();
+                            WebView webView2 = ((FeedbackBrowserActivity.b) fVar2).b.get();
                             if (webView2 != null) {
                                 webView2.loadUrl(str3);
                                 return;
@@ -429,7 +429,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             this.I = aVar;
             registerReceiver(aVar, new IntentFilter("com.baidu.ufosdk.ACTION_SIGN"));
             setContentView(R.layout.ufo_webload_layout);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c80);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc8);
             this.m = relativeLayout;
             boolean z2 = this.b;
             int i10 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
@@ -518,7 +518,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
                 i8 = R.drawable.bottom_back_button;
             }
             imageView2.setBackgroundResource(i8);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
             this.o = frameLayout;
             frameLayout.post(new l(this));
             this.v.setOnClickListener(this);

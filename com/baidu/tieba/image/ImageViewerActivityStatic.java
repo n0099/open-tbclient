@@ -20,7 +20,7 @@ public class ImageViewerActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<ImageViewerConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,20 +39,20 @@ public class ImageViewerActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ImageViewerConfig imageViewerConfig = (ImageViewerConfig) customMessage.getData();
-                    Intent intent = imageViewerConfig.getIntent();
+                    ImageViewerConfig data = customMessage.getData();
+                    Intent intent = data.getIntent();
                     if (ImageViewerConfig.DATA_VALID.equals(intent.getStringExtra(ImageViewerConfig.IS_DATA_VALID))) {
                         intent.putExtra(ImageViewerConfig.KEY_PROFILE_VIRTUAL_IMAGE_INFO, ProfileVirtualImageInfo.getInstance());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010000));
                         if (ImageViewerConfig.START_ACTIVITY_NORMAL.equals(intent.getStringExtra(ImageViewerConfig.START_ACTIVITY_TYPE))) {
-                            imageViewerConfig.startActivityForRemote(ImageViewerActivity.class);
+                            data.startActivityForRemote(ImageViewerActivity.class);
                         } else {
-                            imageViewerConfig.startActivityForResultForRemote(14001, ImageViewerActivity.class);
+                            data.startActivityForResultForRemote(14001, ImageViewerActivity.class);
                         }
                     }
                 }

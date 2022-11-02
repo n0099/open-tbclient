@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +31,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxContentView(Context context) {
+    public KsRefluxContentView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +52,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxContentView(Context context, AttributeSet attributeSet) {
+    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +74,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxContentView(Context context, AttributeSet attributeSet, int i) {
+    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,7 +96,8 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsRefluxContentView(Context context, AttributeSet attributeSet, int i, int i2) {
+    @RequiresApi(api = 21)
+    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,7 +118,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         L(context);
     }
 
-    private void L(Context context) {
+    private void L(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.kE = new GestureDetector(context, this);

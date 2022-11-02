@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.model.QuickSearchModel;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.zp4;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.t35;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class QuickSearchActivity extends BaseActivity {
+public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public QuickSearchModel a;
@@ -80,7 +80,7 @@ public class QuickSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    xi.z(this.a.getPageContext().getPageActivity(), this.a.d);
                     return false;
                 }
                 return false;
@@ -119,7 +119,7 @@ public class QuickSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    xi.z(this.a.getPageContext().getPageActivity(), this.a.d);
                     return false;
                 }
                 return false;
@@ -157,7 +157,7 @@ public class QuickSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.d.hasFocus()) {
-                    fj.x(this.a.getPageContext().getPageActivity(), this.a.d);
+                    xi.z(this.a.getPageContext().getPageActivity(), this.a.d);
                 }
                 this.a.closeActivity();
             }
@@ -192,7 +192,7 @@ public class QuickSearchActivity extends BaseActivity {
         public void onFocusChange(View view2, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) && !z) {
-                fj.x(this.a.getPageContext().getPageActivity(), view2);
+                xi.z(this.a.getPageContext().getPageActivity(), view2);
             }
         }
     }
@@ -284,7 +284,7 @@ public class QuickSearchActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
                 if (charSequence.toString().trim().length() != 0) {
-                    this.a.F1(charSequence.toString());
+                    this.a.E1(charSequence.toString());
                     return;
                 }
                 this.a.f.setVisibility(8);
@@ -297,7 +297,7 @@ public class QuickSearchActivity extends BaseActivity {
     public class g extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List a;
+        public List<t35> a;
         public final /* synthetic */ QuickSearchActivity b;
 
         @Override // android.widget.Adapter
@@ -333,19 +333,19 @@ public class QuickSearchActivity extends BaseActivity {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public b35 getItem(int i) {
+        public t35 getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 if (this.a != null && i >= 0 && i < getCount()) {
-                    return (b35) this.a.get(i);
+                    return this.a.get(i);
                 }
                 return null;
             }
-            return (b35) invokeI.objValue;
+            return (t35) invokeI.objValue;
         }
 
-        public void b(List list) {
+        public void b(List<t35> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a = list;
@@ -357,7 +357,7 @@ public class QuickSearchActivity extends BaseActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List list = this.a;
+                List<t35> list = this.a;
                 if (list != null) {
                     return list.size();
                 }
@@ -372,17 +372,17 @@ public class QuickSearchActivity extends BaseActivity {
             h hVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-                zp4 layoutMode = this.b.getLayoutMode();
+                qq4 layoutMode = this.b.getLayoutMode();
                 TbadkCoreApplication.getInst().getSkinType();
-                b35 item = getItem(i);
+                t35 item = getItem(i);
                 if (item == null) {
                     return null;
                 }
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0763, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null);
                     hVar = new h(this.b, null);
-                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b3b);
-                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b3c);
+                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b7f);
+                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b80);
                     view2.setTag(hVar);
                 } else {
                     hVar = (h) view2.getTag();
@@ -392,7 +392,7 @@ public class QuickSearchActivity extends BaseActivity {
                 if (item.e() != null) {
                     hVar.b.setText(item.e());
                 }
-                hVar.a.L(item.g(), 12, false);
+                hVar.a.K(item.g(), 12, false);
                 return view2;
             }
             return (View) invokeILL.objValue;
@@ -449,12 +449,12 @@ public class QuickSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            fj.x(getPageContext().getPageActivity(), this.d);
+            xi.z(getPageContext().getPageActivity(), this.d);
             this.a = null;
         }
     }
 
-    public final void G1(boolean z) {
+    public final void F1(boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -491,7 +491,7 @@ public class QuickSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0762);
+            setContentView(R.layout.obfuscated_res_0x7f0d0777);
             QuickSearchModel quickSearchModel = new QuickSearchModel(this);
             this.a = quickSearchModel;
             quickSearchModel.setUniqueId(getUniqueId());
@@ -499,20 +499,20 @@ public class QuickSearchActivity extends BaseActivity {
         }
     }
 
-    public final void E1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0764, (View.OnClickListener) null);
-            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b3a);
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0779, (View.OnClickListener) null);
+            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b7e);
             this.d = editText;
             editText.addTextChangedListener(new f(this, null));
             this.d.setOnFocusChangeListener(new d(this));
             this.d.requestFocus();
-            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b38);
-            fj.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
+            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091b7c);
+            xi.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
             this.e.setOnClickListener(new e(this));
         }
     }
@@ -520,10 +520,10 @@ public class QuickSearchActivity extends BaseActivity {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b3d);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b81);
             adjustResizeForSoftInput();
-            E1();
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b3e);
+            D1();
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091b82);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.g.addHeaderView(textView);
@@ -532,35 +532,35 @@ public class QuickSearchActivity extends BaseActivity {
             this.h = gVar;
             this.g.setAdapter((ListAdapter) gVar);
             this.g.setOnItemClickListener(this);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b39);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b7d);
             this.b.setOnTouchListener(new b(this));
         }
     }
 
-    public final void F1(String str) {
+    public final void E1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            List z = this.a.z(str);
+            List<t35> z = this.a.z(str);
             if (z.size() > 0) {
-                G1(true);
+                F1(true);
                 this.h.b(z);
                 this.h.notifyDataSetChanged();
                 this.g.setSelection(0);
                 return;
             }
-            G1(false);
+            F1(false);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             int headerViewsCount = this.g.getHeaderViewsCount();
             if (headerViewsCount > 0) {
                 i -= headerViewsCount;
             }
-            b35 item = this.h.getItem(i);
+            t35 item = this.h.getItem(i);
             if (item != null && item.d() > 0) {
                 if (item.h() == 1) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.d(), item.e(), item.g(), 0, 4)));

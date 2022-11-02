@@ -15,11 +15,11 @@ import java.util.ListIterator;
 import java.util.RandomAccess;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class VolatileSizeArrayList extends AtomicInteger implements List, RandomAccess {
+public final class VolatileSizeArrayList<T> extends AtomicInteger implements List<T>, RandomAccess {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3972397474470203923L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList list;
+    public final ArrayList<T> list;
 
     public VolatileSizeArrayList() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
                 return;
             }
         }
-        this.list = new ArrayList();
+        this.list = new ArrayList<>();
     }
 
     @Override // java.util.List, java.util.Collection
@@ -70,7 +70,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -80,7 +80,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List
-    public ListIterator listIterator() {
+    public ListIterator<T> listIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -134,20 +134,20 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
                 return;
             }
         }
-        this.list = new ArrayList(i);
+        this.list = new ArrayList<>(i);
     }
 
     @Override // java.util.List
-    public void add(int i, Object obj) {
+    public void add(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-            this.list.add(i, obj);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
+            this.list.add(i, t);
             lazySet(this.list.size());
         }
     }
 
     @Override // java.util.List
-    public boolean addAll(int i, Collection collection) {
+    public boolean addAll(int i, Collection<? extends T> collection) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, collection)) == null) {
@@ -159,17 +159,17 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List
-    public Object set(int i, Object obj) {
+    public T set(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, obj)) == null) {
-            return this.list.set(i, obj);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, t)) == null) {
+            return this.list.set(i, t);
         }
-        return invokeIL.objValue;
+        return (T) invokeIL.objValue;
     }
 
     @Override // java.util.List
-    public List subList(int i, int i2) {
+    public List<T> subList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
@@ -179,11 +179,11 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean add(Object obj) {
+    public boolean add(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            boolean add = this.list.add(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            boolean add = this.list.add(t);
             lazySet(this.list.size());
             return add;
         }
@@ -191,7 +191,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean addAll(Collection collection) {
+    public boolean addAll(Collection<? extends T> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
@@ -213,7 +213,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean containsAll(Collection collection) {
+    public boolean containsAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, collection)) == null) {
@@ -236,13 +236,13 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List
-    public Object get(int i) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             return this.list.get(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     @Override // java.util.List
@@ -266,7 +266,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List
-    public ListIterator listIterator(int i) {
+    public ListIterator<T> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
@@ -276,19 +276,19 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List
-    public Object remove(int i) {
+    public T remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            Object remove = this.list.remove(i);
+            T remove = this.list.remove(i);
             lazySet(this.list.size());
             return remove;
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean removeAll(Collection collection) {
+    public boolean removeAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, collection)) == null) {
@@ -300,7 +300,7 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection
-    public boolean retainAll(Collection collection) {
+    public boolean retainAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, collection)) == null) {
@@ -312,13 +312,13 @@ public final class VolatileSizeArrayList extends AtomicInteger implements List, 
     }
 
     @Override // java.util.List, java.util.Collection
-    public Object[] toArray(Object[] objArr) {
+    public <E> E[] toArray(E[] eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, objArr)) == null) {
-            return this.list.toArray(objArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, eArr)) == null) {
+            return (E[]) this.list.toArray(eArr);
         }
-        return (Object[]) invokeL.objValue;
+        return (E[]) ((Object[]) invokeL.objValue);
     }
 
     @Override // java.util.List, java.util.Collection

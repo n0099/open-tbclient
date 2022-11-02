@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.im2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,73 +11,45 @@ public class f12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static im2.g a(jo2 jo2Var) {
-        InterceptResult invokeL;
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jo2Var)) == null) {
-            File e = e();
-            im2.M(b(), e, jo2Var);
-            im2.g gVar = new im2.g();
-            File file = new File(e, "app.json");
-            SwanAppConfigData b = y33.b(e.getAbsolutePath());
-            gVar.a = e.getPath() + File.separator;
-            gVar.b = b;
-            m02.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new File(an2.q(), "sConsole-core");
         }
-        return (im2.g) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public static File b() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(c(), "wireless_debug.aiapps");
+            return sc3.a().getLong("get_app_console_core_code", -1L);
         }
-        return (File) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static File c() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
+            return sc3.a().getString("get_app_console_core", "-1");
         }
         return (String) invokeV.objValue;
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e("-1", -1L);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void e(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            sc3.a().putString("get_app_console_core", str);
+            sc3.a().putLong("get_app_console_core_code", j);
+        }
     }
 }

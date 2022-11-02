@@ -23,7 +23,7 @@ public class BceServiceException extends BceClientException {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class ErrorType {
+    public static final class ErrorType {
         public static final /* synthetic */ ErrorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ErrorType Client;

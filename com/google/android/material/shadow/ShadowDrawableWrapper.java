@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -33,11 +34,14 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     public static final float SHADOW_TOP_SCALE = 0.25f;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean addPaddingForCorners;
+    @NonNull
     public final RectF contentBounds;
     public float cornerRadius;
+    @NonNull
     public final Paint cornerShadowPaint;
     public Path cornerShadowPath;
     public boolean dirty;
+    @NonNull
     public final Paint edgeShadowPaint;
     public float maxShadowSize;
     public boolean printedShadowClipWarning;
@@ -143,9 +147,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071e);
-        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071d);
-        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071c);
+        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071f);
+        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071e);
+        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06071d);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);
@@ -157,7 +161,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         setShadowSize(f2, f3);
     }
 
-    private void buildComponents(Rect rect) {
+    private void buildComponents(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, rect) == null) {
             float f = this.rawMaxShadowSize;
@@ -171,7 +175,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public boolean getPadding(Rect rect) {
+    public boolean getPadding(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, rect)) == null) {
@@ -237,7 +241,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         return invokeCommon.floatValue;
     }
 
-    private void drawShadow(Canvas canvas) {
+    private void drawShadow(@NonNull Canvas canvas) {
         boolean z;
         boolean z2;
         int i;
@@ -344,7 +348,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             if (this.dirty) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MemoryChangedMessage extends CustomResponsedMessage {
+public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenterPojo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_DELETE = 2;
     public static final int TYPE_INSERT_OR_UPDATE = 1;

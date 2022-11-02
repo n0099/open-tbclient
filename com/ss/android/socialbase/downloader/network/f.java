@@ -1,8 +1,9 @@
 package com.ss.android.socialbase.downloader.network;
 
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 /* loaded from: classes8.dex */
 public interface f {
-    List a(String str) throws UnknownHostException;
+    List<InetAddress> a(String str) throws UnknownHostException;
 }

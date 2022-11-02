@@ -1,6 +1,7 @@
 package androidx.core.animation;
 
 import android.animation.Animator;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
@@ -60,6 +61,7 @@ public final class AnimatorKt {
         return animatorKt$addListener$listener$1;
     }
 
+    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener addPauseListener(Animator animator, Function1<? super Animator, Unit> function1, Function1<? super Animator, Unit> function12) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -195,6 +197,7 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener doOnPause(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -305,6 +308,7 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLL.objValue;
     }
 
+    @RequiresApi(19)
     public static final Animator.AnimatorPauseListener doOnResume(Animator animator, final Function1<? super Animator, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

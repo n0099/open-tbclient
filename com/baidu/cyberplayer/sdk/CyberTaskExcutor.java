@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class CyberTaskExcutor {
     public static /* synthetic */ Interceptable $ic;
     public static CyberTaskExcutor a;
@@ -23,8 +23,8 @@ public final class CyberTaskExcutor {
     public ExecutorService e;
     public ExecutorService f;
 
-    /* loaded from: classes.dex */
-    public class a implements ThreadFactory {
+    /* loaded from: classes2.dex */
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
@@ -93,6 +93,7 @@ public final class CyberTaskExcutor {
         ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
     }
 
+    @Keep
     public static synchronized CyberTaskExcutor getInstance() {
         InterceptResult invokeV;
         CyberTaskExcutor cyberTaskExcutor;
@@ -109,6 +110,7 @@ public final class CyberTaskExcutor {
         return (CyberTaskExcutor) invokeV.objValue;
     }
 
+    @Keep
     public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
@@ -116,6 +118,7 @@ public final class CyberTaskExcutor {
         }
     }
 
+    @Keep
     public void executeSingleThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {

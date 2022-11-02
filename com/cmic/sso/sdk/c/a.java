@@ -60,20 +60,20 @@ public class a {
 
     public c a(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
         InterceptResult invokeLLL;
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
-            Map b = bVar.b();
-            if (TextUtils.isEmpty(this.a) && (list = (List) b.get("pplocation")) != null && list.size() > 0) {
-                this.a = (String) list.get(0);
+            Map<String, List<String>> b = bVar.b();
+            if (TextUtils.isEmpty(this.a) && (list = b.get("pplocation")) != null && list.size() > 0) {
+                this.a = list.get(0);
             }
             q.b(aVar, String.valueOf(bVar.a()));
-            List list2 = (List) b.get("Location");
+            List<String> list2 = b.get("Location");
             if (list2 == null || list2.isEmpty()) {
-                list2 = (List) b.get("Location".toLowerCase());
+                list2 = b.get("Location".toLowerCase());
             }
             if (list2 != null && list2.size() > 0) {
-                String str = (String) list2.get(0);
+                String str = list2.get(0);
                 this.b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b2 = aVar.b("operatortype", "0");

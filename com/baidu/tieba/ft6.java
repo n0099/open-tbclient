@@ -1,92 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 /* loaded from: classes4.dex */
-public class ft6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ft6 {
+    void d(int i, @NonNull String str);
 
-    /* loaded from: classes4.dex */
-    public final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qh6 a;
+    void g(boolean z);
 
-        public a(qh6 qh6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qh6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qh6Var;
-        }
+    void h(View.OnClickListener onClickListener);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.M0();
-            }
-        }
-    }
+    void i(long j, long j2);
 
-    public static void a(ResponsedMessage responsedMessage, qh6 qh6Var, FrsViewData frsViewData) {
-        List list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, qh6Var, frsViewData) != null) || frsViewData == null || qh6Var == null || !(responsedMessage instanceof DownloadMessage) || (list = (List) ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
-        }
-        boolean z = false;
-        Iterator it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (((DownloadData) it.next()).getStatus() == 0) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            hh.a().postDelayed(new a(qh6Var), TimeUnit.SECONDS.toMillis(2L));
-        }
-    }
+    void j(@Nullable String str, @NonNull String str2);
 
-    public static void b(qh6 qh6Var) {
-        HashMap<Integer, ThreadData> h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, qh6Var) == null) && qh6Var != null && qh6Var.Y() != null && (h = qh6Var.Y().h()) != null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-                ThreadData value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
-                }
-            }
-            af8.n().w(arrayList);
-        }
-    }
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

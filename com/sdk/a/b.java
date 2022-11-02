@@ -1,5 +1,6 @@
 package com.sdk.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -14,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+@SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;

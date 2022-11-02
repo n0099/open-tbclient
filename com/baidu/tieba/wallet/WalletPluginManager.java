@@ -2,6 +2,7 @@ package com.baidu.tieba.wallet;
 
 import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,7 +10,7 @@ import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.tieba.bq4;
+import com.baidu.tieba.sq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ public class WalletPluginManager {
     public IWalletPlugin mIWalletPlugin;
 
     /* loaded from: classes6.dex */
-    public class SingletonHolder {
+    public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -389,7 +390,7 @@ public class WalletPluginManager {
         }
     }
 
-    public void doBindCard(Context context, Map map) {
+    public void doBindCard(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, map) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
@@ -744,7 +745,7 @@ public class WalletPluginManager {
         }
     }
 
-    public String doAliPayWithCallback(Activity activity, String str, boolean z, Function1 function1) {
+    public String doAliPayWithCallback(Activity activity, String str, boolean z, @Nullable Function1<String, Void> function1) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, Boolean.valueOf(z), function1})) == null) {
@@ -813,7 +814,7 @@ public class WalletPluginManager {
         return (String) invokeCommon.objValue;
     }
 
-    public void doBaiduLBSPay(Activity activity, Map map, String str, BdUniqueId bdUniqueId) {
+    public void doBaiduLBSPay(Activity activity, Map<String, String> map, String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, activity, map, str, bdUniqueId) == null) {
             IWalletPlugin iWalletPlugin = this.mIWalletPlugin;
@@ -877,7 +878,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iInvokeCallback) == null) {
-            if (bq4.c().contains("Host") && bq4.c().contains("-Wallet")) {
+            if (sq4.c().contains("Host") && sq4.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;

@@ -86,10 +86,10 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
             }
             objectMetadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date(Headers.LAST_MODIFIED));
             objectMetadata.setBceContentSha256(bceHttpResponse.getHeader(Headers.BCE_CONTENT_SHA256));
-            for (Map.Entry entry : bceHttpResponse.getHeaders().entrySet()) {
-                String str = (String) entry.getKey();
-                if (str.startsWith(Headers.BCE_USER_METADATA_PREFIX)) {
-                    objectMetadata.addUserMetadata(URLDecoder.decode(str.substring(11), "UTF-8"), URLDecoder.decode((String) entry.getValue(), "UTF-8"));
+            for (Map.Entry<String, String> entry : bceHttpResponse.getHeaders().entrySet()) {
+                String key = entry.getKey();
+                if (key.startsWith(Headers.BCE_USER_METADATA_PREFIX)) {
+                    objectMetadata.addUserMetadata(URLDecoder.decode(key.substring(11), "UTF-8"), URLDecoder.decode(entry.getValue(), "UTF-8"));
                 }
             }
             InputStream content = bceHttpResponse.getContent();

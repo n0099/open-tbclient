@@ -1,42 +1,45 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.agent.provider.ProcessDelegateBaseProvider;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uj3 extends ProviderDelegation {
+public class uj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public uj3() {
+    public static void a(@NonNull tj3 tj3Var, @NonNull ku2 ku2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, tj3Var, ku2Var) == null) {
+            tj3Var.f(ku2Var.d());
+            tj3Var.g(ku2Var.e());
+            if (ku2Var.g()) {
+                tj3Var.a(1);
+            } else {
+                tj3Var.e(1);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static FrameLayout.LayoutParams b(@NonNull lq1 lq1Var, @NonNull ku2 ku2Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString(TiebaStatic.LogFields.RESULT, nj3.x(((ProcessDelegateBaseProvider) getAgent()).getContext()));
-            return bundle2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, lq1Var, ku2Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ku2Var.f(), ku2Var.c());
+            int i2 = 0;
+            if (ku2Var.g()) {
+                i2 = lq1Var.getWebViewScrollX();
+                i = lq1Var.getWebViewScrollY();
+            } else {
+                i = 0;
+            }
+            layoutParams.leftMargin = ku2Var.d() + i2;
+            layoutParams.topMargin = ku2Var.e() + i;
+            return layoutParams;
         }
-        return (Bundle) invokeL.objValue;
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

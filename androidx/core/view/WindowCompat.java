@@ -3,6 +3,8 @@ package androidx.core.view;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +32,8 @@ public final class WindowCompat {
         }
     }
 
-    public static <T extends View> T requireViewById(Window window, int i) {
+    @NonNull
+    public static <T extends View> T requireViewById(@NonNull Window window, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, window, i)) == null) {

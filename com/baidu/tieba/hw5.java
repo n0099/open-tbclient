@@ -1,135 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hw5 extends rn {
+public class hw5 extends z26<mx5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public rw5 b;
-    public boolean c;
-    public pw5 d;
-    public int e;
-    public int f;
+    public TextView i;
+    public ImageView j;
+    public View k;
+    public View l;
+
+    @Override // com.baidu.tieba.z26
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0863 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), jw5.c);
+    public hw5(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = tbPageContext;
+        this.k = k();
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f0923d3);
+        this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f091035);
+        this.l = k().findViewById(R.id.obfuscated_res_0x7f090e77);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new pw5(this.a, this.c);
-            return new AlaSubListLiveDoubleViewHolder(this.d);
-        }
-        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void w(rw5 rw5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rw5Var) == null) {
-            this.b = rw5Var;
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void s(jw5 jw5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jw5Var) != null) || jw5Var == null) {
-            return;
-        }
-        int i = this.f;
-        if (i == 1) {
-            if (jw5Var.a != null) {
-                rv5 b = rv5.b();
-                rv5 b2 = rv5.b();
-                int i2 = this.e;
-                tt5 tt5Var = jw5Var.a;
-                b.a(b2.d(i2, "c12117", tt5Var.a, tt5Var.b, tt5Var.getThreadData()));
-            }
-            if (jw5Var.b != null) {
-                rv5 b3 = rv5.b();
-                rv5 b4 = rv5.b();
-                int i3 = this.e;
-                tt5 tt5Var2 = jw5Var.b;
-                b3.a(b4.d(i3, "c12117", tt5Var2.a, tt5Var2.b, tt5Var2.getThreadData()));
-            }
-        } else if (i == 2) {
-            tt5 tt5Var3 = jw5Var.a;
-            if (tt5Var3 != null && tt5Var3.getThreadData() != null && jw5Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = jw5Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", jw5Var.a.b));
-            }
-            tt5 tt5Var4 = jw5Var.b;
-            if (tt5Var4 != null && tt5Var4.getThreadData() != null && jw5Var.b.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData2 = jw5Var.b.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", jw5Var.b.b));
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
+            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jw5 jw5Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.z26
+    /* renamed from: r */
+    public void l(mx5 mx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jw5Var, alaSubListLiveDoubleViewHolder})) == null) {
-            s(jw5Var);
-            alaSubListLiveDoubleViewHolder.a.l(jw5Var);
-            alaSubListLiveDoubleViewHolder.a.s(this.b);
-            return alaSubListLiveDoubleViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048580, this, mx5Var) == null) {
+            if (mx5Var.a == 1) {
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a44));
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                return;
+            }
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a43));
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
-        return (View) invokeCommon.objValue;
     }
 }

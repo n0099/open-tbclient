@@ -1,77 +1,106 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class yv1 extends wv1 {
+public class yv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, rv1> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yv1(j43 j43Var) {
-        super(j43Var, "/swanAPI/camera/remove");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((j43) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948343509, "Lcom/baidu/tieba/yv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948343509, "Lcom/baidu/tieba/yv1;");
                 return;
             }
         }
+        b = ok1.a;
     }
 
-    public cz1 m(UnitedSchemeEntity unitedSchemeEntity) {
+    public yv1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public synchronized void a(BasePendingOperation basePendingOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.getType()).b(basePendingOperation);
+            }
+        }
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, rv1> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, rv1> entry : this.a.entrySet()) {
+                    entry.getValue().a();
+                }
+            }
+        }
+    }
+
+    public final rv1 c(BasePendingOperation.OperationType operationType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String l = l(unitedSchemeEntity);
-            if (wj1.a) {
-                Log.d("CameraRemoveAction", "parseData:" + l);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                rv1 a = vv1.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
             }
-            return new gw1(l);
+            return this.a.get(operationType.name());
         }
-        return (cz1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            lz1 lz1Var = (lz1) zz1.a(m(unitedSchemeEntity));
-            if (lz1Var != null) {
-                dz1 B = lz1Var.B();
-                if (!B.a()) {
-                    m02.c("CameraRemoveAction", "remove camera fail: " + B.b);
-                }
-                k(unitedSchemeEntity, callbackHandler, true);
-                return true;
-            }
-            k(unitedSchemeEntity, callbackHandler, false);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+        return (rv1) invokeL.objValue;
     }
 }

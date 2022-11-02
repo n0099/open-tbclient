@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.ok6;
+import com.baidu.tieba.yl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage {
+public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<yl6, GeneralTabListResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,8 +35,9 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
-    public Class getProtobufResponseIdlClass() {
+    public Class<GeneralTabListResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -50,9 +51,9 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            ok6 ok6Var = new ok6();
+            yl6 yl6Var = new yl6();
             GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-            ok6Var.a(generalTabListResIdl.data);
+            yl6Var.a(generalTabListResIdl.data);
             Error error = generalTabListResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -61,7 +62,7 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
                 }
                 setErrorString(generalTabListResIdl.error.usermsg);
             }
-            setData(ok6Var);
+            setData(yl6Var);
         }
     }
 }

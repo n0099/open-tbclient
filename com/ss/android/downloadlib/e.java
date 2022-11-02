@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.i;
 import com.ss.android.download.api.config.k;
@@ -16,7 +17,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes8.dex */
 public class e implements com.ss.android.download.api.a {
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(final com.ss.android.download.api.config.b bVar) {
+    public com.ss.android.download.api.a a(@NonNull final com.ss.android.download.api.config.b bVar) {
         j.a(bVar);
         com.ss.android.socialbase.downloader.a.a.a().a(new a.c() { // from class: com.ss.android.downloadlib.e.1
         });
@@ -24,31 +25,31 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(com.ss.android.download.api.config.f fVar) {
+    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.f fVar) {
         j.a(fVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(com.ss.android.download.api.config.g gVar) {
+    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.config.g gVar) {
         j.a(gVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(h hVar) {
+    public com.ss.android.download.api.a a(@NonNull h hVar) {
         j.a(hVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(i iVar) {
+    public com.ss.android.download.api.a a(@NonNull i iVar) {
         j.a(iVar);
         return this;
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(k kVar) {
+    public com.ss.android.download.api.a a(@NonNull k kVar) {
         j.a(kVar);
         return this;
     }
@@ -60,7 +61,7 @@ public class e implements com.ss.android.download.api.a {
     }
 
     @Override // com.ss.android.download.api.a
-    public com.ss.android.download.api.a a(com.ss.android.download.api.model.a aVar) {
+    public com.ss.android.download.api.a a(@NonNull com.ss.android.download.api.model.a aVar) {
         j.a(aVar);
         return this;
     }

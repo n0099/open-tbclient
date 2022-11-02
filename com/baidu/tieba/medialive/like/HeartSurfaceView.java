@@ -42,11 +42,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public Random f;
     public int g;
     public int h;
-    public List i;
+    public List<Pair<PointF, PointF>> i;
     public PointF j;
     public PointF k;
     public volatile int l;
-    public ArrayList m;
+    public ArrayList<Bitmap> m;
     public e n;
     public float o;
     public float p;
@@ -86,7 +86,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* loaded from: classes5.dex */
-    public class g {
+    public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
@@ -516,7 +516,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* loaded from: classes5.dex */
-    public class d extends f {
+    public static class d extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float h;
@@ -584,7 +584,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* loaded from: classes5.dex */
-    public abstract class f {
+    public static abstract class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -685,7 +685,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* loaded from: classes5.dex */
-    public class i extends f {
+    public static class i extends f {
         public static /* synthetic */ Interceptable $ic = null;
         public static float m = 1.0f;
         public transient /* synthetic */ FieldHolder $fh;
@@ -808,7 +808,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* loaded from: classes5.dex */
-    public class j extends f {
+    public static class j extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float h;
@@ -1118,12 +1118,12 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     public final boolean q() {
         InterceptResult invokeV;
-        List list;
+        List<Pair<PointF, PointF>> list;
         PointF pointF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.e && this.j != null && this.k != null && (list = this.i) != null) {
-                Pair pair = (Pair) list.get(this.f.nextInt(list.size()));
+                Pair<PointF, PointF> pair = list.get(this.f.nextInt(list.size()));
                 PointF pointF2 = (PointF) pair.first;
                 PointF pointF3 = (PointF) pair.second;
                 float nextFloat = this.f.nextFloat();
@@ -1137,8 +1137,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 } else {
                     pointF = new PointF(f3, this.k.y * ((nextFloat * this.o) + this.p));
                 }
-                ArrayList arrayList = this.m;
-                return o((Bitmap) arrayList.get(this.f.nextInt(arrayList.size())), pointF2, pointF3, pointF);
+                ArrayList<Bitmap> arrayList = this.m;
+                return o(arrayList.get(this.f.nextInt(arrayList.size())), pointF2, pointF3, pointF);
             }
             return false;
         }
@@ -1148,13 +1148,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     public void setUpResNormalMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(r(R.drawable.obfuscated_res_0x7f080d53));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d54));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d55));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d56));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080d57));
+            arrayList.add(r(R.drawable.obfuscated_res_0x7f080d6d));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080d6e));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080d6f));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080d70));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080d71));
         }
     }
 
@@ -1218,13 +1218,13 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.f = new Random();
             this.d = true;
             this.e = false;
-            ArrayList arrayList = new ArrayList();
+            ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(s(R.drawable.obfuscated_res_0x7f080d53));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d54));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d55));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d56));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080d57));
+            arrayList.add(s(R.drawable.obfuscated_res_0x7f080d6d));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080d6e));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080d6f));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080d70));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080d71));
         }
     }
 }

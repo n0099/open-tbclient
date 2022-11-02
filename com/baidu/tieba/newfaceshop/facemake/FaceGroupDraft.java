@@ -1,6 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.face.data.FaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ public class FaceGroupDraft implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public String mFailMsg;
     public int mForumId;
-    public List mList;
+    public List<FaceData> mList;
     public String mName;
 
     public FaceGroupDraft() {
@@ -49,7 +50,7 @@ public class FaceGroupDraft implements Serializable {
         return invokeV.intValue;
     }
 
-    public List getList() {
+    public List<FaceData> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -81,7 +82,7 @@ public class FaceGroupDraft implements Serializable {
         }
     }
 
-    public void setList(List list) {
+    public void setList(List<FaceData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.mList = list;

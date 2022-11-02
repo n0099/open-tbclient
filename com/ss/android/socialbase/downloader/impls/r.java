@@ -20,14 +20,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class r implements Handler.Callback, a.InterfaceC0666a {
+public class r implements Handler.Callback, a.InterfaceC0677a {
     public static volatile r a;
     public static b i;
     public final boolean e;
     public long f;
     public ConnectivityManager h;
     public final Handler c = new Handler(Looper.getMainLooper(), this);
-    public final SparseArray d = new SparseArray();
+    public final SparseArray<a> d = new SparseArray<>();
     public int g = 0;
     public final Context b = com.ss.android.socialbase.downloader.downloader.c.N();
 
@@ -66,7 +66,7 @@ public class r implements Handler.Callback, a.InterfaceC0666a {
             return;
         }
         synchronized (this.d) {
-            a aVar = (a) this.d.get(i2);
+            a aVar = this.d.get(i2);
             if (aVar == null) {
                 return;
             }
@@ -270,10 +270,10 @@ public class r implements Handler.Callback, a.InterfaceC0666a {
     }
 
     private a b(int i2) {
-        a aVar = (a) this.d.get(i2);
+        a aVar = this.d.get(i2);
         if (aVar == null) {
             synchronized (this.d) {
-                aVar = (a) this.d.get(i2);
+                aVar = this.d.get(i2);
                 if (aVar == null) {
                     aVar = d(i2);
                 }
@@ -455,12 +455,12 @@ public class r implements Handler.Callback, a.InterfaceC0666a {
         a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
     public void b() {
         a(4, false);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
     public void c() {
         a(3, false);
     }
@@ -485,7 +485,7 @@ public class r implements Handler.Callback, a.InterfaceC0666a {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public final int a;
         public final int b;
         public final int c;

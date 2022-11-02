@@ -9,7 +9,7 @@ public interface j3 {
     a a(int i, int i2);
 
     /* loaded from: classes4.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;

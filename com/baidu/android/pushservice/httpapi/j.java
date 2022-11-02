@@ -23,11 +23,11 @@ public class j extends com.baidu.android.pushservice.g.c {
     public Context a;
     public a b;
     public String c;
-    public List d;
+    public List<String> d;
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(int i, List list);
+        void a(int i, List<String> list);
     }
 
     public j(Context context, String str, a aVar) {
@@ -82,7 +82,7 @@ public class j extends com.baidu.android.pushservice.g.c {
         InputStream inputStream;
         Closeable closeable;
         String string;
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
@@ -98,7 +98,7 @@ public class j extends com.baidu.android.pushservice.g.c {
                 if (!PushSocket.isIPv4Reachable()) {
                     str = "https://[240c:4006::6666]/v6/0025?type=ipv4,ipv6&dn=" + this.c;
                 }
-                com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(this.a, str, "GET", (HashMap) null, (String) null, "httpsdns.baidu.com");
+                com.baidu.android.pushservice.d.b a2 = com.baidu.android.pushservice.d.c.a(this.a, str, "GET", (HashMap<String, String>) null, (String) null, "httpsdns.baidu.com");
                 int b = a2.b();
                 inputStream = a2.a();
                 try {

@@ -9,7 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.sina.weibo.sdk.utils.ResourceManager;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ResourceUtils {
     public static /* synthetic */ Interceptable $ic;

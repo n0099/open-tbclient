@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
@@ -41,13 +42,13 @@ public class OneKeyLoginView extends LinearLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0137a extends OneKeyLoginCallback {
+        public class C0145a extends OneKeyLoginCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0137a(a aVar, long j) {
+            public C0145a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +141,7 @@ public class OneKeyLoginView extends LinearLayout {
                         Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                         return;
                     }
-                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0137a(this, System.currentTimeMillis()));
+                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0145a(this, System.currentTimeMillis()));
                     return;
                 }
                 Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");
@@ -170,7 +171,7 @@ public class OneKeyLoginView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginView(Context context, AttributeSet attributeSet) {
+    public OneKeyLoginView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -191,7 +192,7 @@ public class OneKeyLoginView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OneKeyLoginView(Context context, AttributeSet attributeSet, int i) {
+    public OneKeyLoginView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -216,10 +217,10 @@ public class OneKeyLoginView extends LinearLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d5, this);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e5, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d99);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091de3);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091de2);
             this.c = textView;
             textView.setOnClickListener(new a(this));
         }

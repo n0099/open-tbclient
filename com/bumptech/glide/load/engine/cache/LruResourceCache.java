@@ -1,5 +1,8 @@
 package com.bumptech.glide.load.engine.cache;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +14,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
 /* loaded from: classes7.dex */
-public class LruResourceCache extends LruCache implements MemoryCache {
+public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MemoryCache.ResourceRemovedListener listener;
@@ -38,12 +41,12 @@ public class LruResourceCache extends LruCache implements MemoryCache {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.util.LruCache
-    public int getSize(Resource resource) {
+    public int getSize(@Nullable Resource<?> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resource)) == null) {
             if (resource == null) {
-                return super.getSize((Object) null);
+                return super.getSize((LruResourceCache) null);
             }
             return resource.getSize();
         }
@@ -51,12 +54,13 @@ public class LruResourceCache extends LruCache implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public /* bridge */ /* synthetic */ Resource remove(Key key) {
-        return (Resource) super.remove((Object) key);
+    @Nullable
+    public /* bridge */ /* synthetic */ Resource remove(@NonNull Key key) {
+        return (Resource) super.remove((LruResourceCache) key);
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void setResourceRemovedListener(MemoryCache.ResourceRemovedListener resourceRemovedListener) {
+    public void setResourceRemovedListener(@NonNull MemoryCache.ResourceRemovedListener resourceRemovedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, resourceRemovedListener) == null) {
             this.listener = resourceRemovedListener;
@@ -64,6 +68,7 @@ public class LruResourceCache extends LruCache implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
+    @SuppressLint({"InlinedApi"})
     public void trimMemory(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -77,7 +82,7 @@ public class LruResourceCache extends LruCache implements MemoryCache {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.util.LruCache
-    public void onItemEvicted(Key key, Resource resource) {
+    public void onItemEvicted(@NonNull Key key, @Nullable Resource<?> resource) {
         MemoryCache.ResourceRemovedListener resourceRemovedListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, resource) == null) && (resourceRemovedListener = this.listener) != null && resource != null) {
@@ -86,7 +91,8 @@ public class LruResourceCache extends LruCache implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public /* bridge */ /* synthetic */ Resource put(Key key, Resource resource) {
-        return (Resource) super.put((Object) key, (Object) resource);
+    @Nullable
+    public /* bridge */ /* synthetic */ Resource put(@NonNull Key key, @Nullable Resource resource) {
+        return (Resource) super.put((LruResourceCache) key, (Key) resource);
     }
 }

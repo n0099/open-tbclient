@@ -14,10 +14,10 @@ import java.util.List;
 public final class HevcConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List initializationData;
+    public final List<byte[]> initializationData;
     public final int nalUnitLengthFieldLength;
 
-    public HevcConfig(List list, int i) {
+    public HevcConfig(List<byte[]> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

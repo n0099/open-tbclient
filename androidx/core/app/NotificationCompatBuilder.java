@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.widget.RemoteViews;
+import androidx.annotation.RestrictTo;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class NotificationCompatBuilder implements NotificationBuilderWithBuilderAccessor {
     public static /* synthetic */ Interceptable $ic;

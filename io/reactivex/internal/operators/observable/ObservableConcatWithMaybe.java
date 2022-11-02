@@ -15,21 +15,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstream {
+public final class ObservableConcatWithMaybe<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource other;
+    public final MaybeSource<? extends T> other;
 
     /* loaded from: classes8.dex */
-    public final class ConcatWithObserver extends AtomicReference implements Observer, MaybeObserver, Disposable {
+    public static final class ConcatWithObserver<T> extends AtomicReference<Disposable> implements Observer<T>, MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1953724749712440952L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public boolean inMaybe;
-        public MaybeSource other;
+        public MaybeSource<? extends T> other;
 
-        public ConcatWithObserver(Observer observer, MaybeSource maybeSource) {
+        public ConcatWithObserver(Observer<? super T> observer, MaybeSource<? extends T> maybeSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +61,7 @@ public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstr
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -76,7 +76,7 @@ public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstr
                 }
                 this.inMaybe = true;
                 DisposableHelper.replace(this, null);
-                MaybeSource maybeSource = this.other;
+                MaybeSource<? extends T> maybeSource = this.other;
                 this.other = null;
                 maybeSource.subscribe(this);
             }
@@ -91,10 +91,10 @@ public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -107,17 +107,17 @@ public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstr
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                this.actual.onNext(t);
                 this.actual.onComplete();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableConcatWithMaybe(Observable observable, MaybeSource maybeSource) {
+    public ObservableConcatWithMaybe(Observable<T> observable, MaybeSource<? extends T> maybeSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,7 +138,7 @@ public final class ObservableConcatWithMaybe extends AbstractObservableWithUpstr
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ConcatWithObserver(observer, this.other));

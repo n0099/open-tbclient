@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zzc {
     public static /* synthetic */ Interceptable $ic;

@@ -10,6 +10,8 @@ public class UsbAbTestConst {
     public static final String KEY_AD_RETARGET_NOTIFICATION_REMIND = "12_28_notification_remind_ad";
     public static final String KEY_AD_RETARGET_TIPS_REMIND = "12_28_tips_remind_ad";
     public static final String KEY_AGREE_NUMBER_CAN_CLICK = "12_27_agree_number_can_a";
+    public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_A = "12_30_picture_recommend_live_a";
+    public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_B = "12_30_picture_recommend_live_b";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_EXIT_REMIND_TIP = "12_28_exit_remind_ad";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";

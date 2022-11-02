@@ -1,92 +1,282 @@
 package com.baidu.platform.core.d;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
-import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mobstat.Config;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.PoiDetailInfo;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
+import com.baidu.mapapi.search.poi.PoiDetailResult;
+import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
+import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.p0.i1;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.List;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.platform.base.e {
-    public static /* synthetic */ Interceptable $ic;
+public class d extends com.baidu.platform.base.d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "d";
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean c;
 
-    public d(DrivingRoutePlanOption drivingRoutePlanOption) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2056793276, "Lcom/baidu/platform/core/d/d;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2056793276, "Lcom/baidu/platform/core/d/d;");
+        }
+    }
+
+    public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drivingRoutePlanOption};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a(drivingRoutePlanOption);
+        this.c = false;
     }
 
-    private void a(DrivingRoutePlanOption drivingRoutePlanOption) {
-        PlanNode planNode;
+    private LatLng a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, drivingRoutePlanOption) == null) {
-            this.a.a("qt", "cars");
-            this.a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-            this.a.a("ie", IMAudioTransRequest.CHARSET);
-            this.a.a("lrn", PayUVEventType.PAY_WALLET_BANNER_SHOW);
-            this.a.a("version", "6");
-            this.a.a("extinfo", "32");
-            this.a.a("mrs", "1");
-            this.a.a("rp_format", "json");
-            this.a.a("rp_filter", "mobile");
-            this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-            this.a.a("sn", a(drivingRoutePlanOption.mFrom));
-            this.a.a("en", a(drivingRoutePlanOption.mTo));
-            String str = drivingRoutePlanOption.mCityName;
-            if (str != null) {
-                this.a.a("c", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            PlanNode planNode2 = drivingRoutePlanOption.mFrom;
-            if (planNode2 != null) {
-                this.a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
+            double optDouble = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
+            double optDouble2 = jSONObject.optDouble(SuggestAddrField.KEY_LNG);
+            if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                return CoordTrans.baiduToGcj(new LatLng(optDouble, optDouble2));
             }
-            PlanNode planNode3 = drivingRoutePlanOption.mTo;
-            if (planNode3 != null) {
-                this.a.a("ec", planNode3.getCity());
-            }
-            List list = drivingRoutePlanOption.mWayPoints;
-            String str2 = new String();
-            String str3 = new String();
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (((PlanNode) list.get(i)) != null) {
-                        str2 = str2 + a(planNode);
-                        str3 = str3 + planNode.getCity();
-                        if (i != list.size() - 1) {
-                            str3 = str3 + "|";
-                            str2 = str2 + "|";
-                        }
-                    }
+            return new LatLng(optDouble, optDouble2);
+        }
+        return (LatLng) invokeL.objValue;
+    }
+
+    private boolean a(String str, SearchResult searchResult) {
+        InterceptResult invokeLL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, searchResult)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray(TiebaStatic.LogFields.RESULT)) == null || optJSONArray.length() == 0) {
+                    return false;
                 }
-                this.a.a(i1.q, str2);
-                this.a.a("wpc", str3);
+                if (this.c) {
+                    return a(optJSONArray, (PoiDetailSearchResult) searchResult);
+                }
+                return a(optJSONArray, (PoiDetailResult) searchResult);
+            } catch (JSONException e) {
+                Log.e(b, "Parse detail search result error", e);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private boolean a(JSONArray jSONArray, PoiDetailResult poiDetailResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, poiDetailResult)) == null) {
+            JSONObject jSONObject = (JSONObject) jSONArray.opt(0);
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return false;
+            }
+            poiDetailResult.setName(jSONObject.optString("name"));
+            poiDetailResult.setLocation(a(jSONObject.optJSONObject("location")));
+            poiDetailResult.setAddress(jSONObject.optString("address"));
+            poiDetailResult.setTelephone(jSONObject.optString("telephone"));
+            poiDetailResult.setUid(jSONObject.optString("uid"));
+            JSONObject optJSONObject = jSONObject.optJSONObject("detail_info");
+            if (optJSONObject != null && optJSONObject.length() != 0) {
+                poiDetailResult.setTag(optJSONObject.optString("tag"));
+                poiDetailResult.setDetailUrl(optJSONObject.optString("detail_url"));
+                poiDetailResult.setType(optJSONObject.optString("type"));
+                poiDetailResult.setPrice(optJSONObject.optDouble("price", 0.0d));
+                poiDetailResult.setOverallRating(optJSONObject.optDouble("overall_rating", 0.0d));
+                poiDetailResult.setTasteRating(optJSONObject.optDouble("taste_rating", 0.0d));
+                poiDetailResult.setServiceRating(optJSONObject.optDouble("service_rating", 0.0d));
+                poiDetailResult.setEnvironmentRating(optJSONObject.optDouble("environment_rating", 0.0d));
+                poiDetailResult.setFacilityRating(optJSONObject.optDouble("facility_rating", 0.0d));
+                poiDetailResult.setHygieneRating(optJSONObject.optDouble("hygiene_rating", 0.0d));
+                poiDetailResult.setTechnologyRating(optJSONObject.optDouble("technology_rating", 0.0d));
+                poiDetailResult.setImageNum(optJSONObject.optInt("image_num"));
+                poiDetailResult.setGrouponNum(optJSONObject.optInt("groupon_num", 0));
+                poiDetailResult.setCommentNum(optJSONObject.optInt("comment_num", 0));
+                poiDetailResult.setDiscountNum(optJSONObject.optInt("discount_num", 0));
+                poiDetailResult.setFavoriteNum(optJSONObject.optInt("favorite_num", 0));
+                poiDetailResult.setCheckinNum(optJSONObject.optInt("checkin_num", 0));
+                poiDetailResult.setShopHours(optJSONObject.optString("shop_hours"));
+            }
+            poiDetailResult.error = SearchResult.ERRORNO.NO_ERROR;
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    private boolean a(JSONArray jSONArray, PoiDetailSearchResult poiDetailSearchResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONArray, poiDetailSearchResult)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
+                if (jSONObject != null && jSONObject.length() != 0) {
+                    PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
+                    poiDetailInfo.setName(jSONObject.optString("name"));
+                    poiDetailInfo.setLocation(a(jSONObject.optJSONObject("location")));
+                    poiDetailInfo.setAddress(jSONObject.optString("address"));
+                    poiDetailInfo.setAdCode(jSONObject.optInt("adcode"));
+                    poiDetailInfo.setProvince(jSONObject.optString("province"));
+                    poiDetailInfo.setCity(jSONObject.optString("city"));
+                    poiDetailInfo.setArea(jSONObject.optString("area"));
+                    poiDetailInfo.setTelephone(jSONObject.optString("telephone"));
+                    poiDetailInfo.setUid(jSONObject.optString("uid"));
+                    poiDetailInfo.setStreetId(jSONObject.optString("setStreetId"));
+                    poiDetailInfo.setDetail(jSONObject.optString("detail"));
+                    JSONObject optJSONObject = jSONObject.optJSONObject("detail_info");
+                    if (optJSONObject != null && optJSONObject.length() != 0) {
+                        poiDetailInfo.setDistance(optJSONObject.optInt("distance", 0));
+                        poiDetailInfo.setType(optJSONObject.optString("type"));
+                        poiDetailInfo.setTag(optJSONObject.optString("tag"));
+                        poiDetailInfo.setDetailUrl(optJSONObject.optString("detail_url"));
+                        poiDetailInfo.setPrice(optJSONObject.optDouble("price", 0.0d));
+                        poiDetailInfo.setShopHours(optJSONObject.optString("shop_hours"));
+                        poiDetailInfo.setOverallRating(optJSONObject.optDouble("overall_rating", 0.0d));
+                        poiDetailInfo.setTasteRating(optJSONObject.optDouble("taste_rating", 0.0d));
+                        poiDetailInfo.setServiceRating(optJSONObject.optDouble("service_rating", 0.0d));
+                        poiDetailInfo.setEnvironmentRating(optJSONObject.optDouble("environment_rating", 0.0d));
+                        poiDetailInfo.setFacilityRating(optJSONObject.optDouble("facility_rating", 0.0d));
+                        poiDetailInfo.setHygieneRating(optJSONObject.optDouble("hygiene_rating", 0.0d));
+                        poiDetailInfo.setTechnologyRating(optJSONObject.optDouble("technology_rating", 0.0d));
+                        poiDetailInfo.setImageNum(optJSONObject.optInt("image_num"));
+                        poiDetailInfo.setGrouponNum(optJSONObject.optInt("groupon_num", 0));
+                        poiDetailInfo.setCommentNum(optJSONObject.optInt("comment_num", 0));
+                        poiDetailInfo.setDiscountNum(optJSONObject.optInt("discount_num", 0));
+                        poiDetailInfo.setFavoriteNum(optJSONObject.optInt("favorite_num", 0));
+                        poiDetailInfo.setCheckinNum(optJSONObject.optInt("checkin_num", 0));
+                    }
+                    arrayList.add(poiDetailInfo);
+                }
+            }
+            poiDetailSearchResult.setPoiDetailInfoList(arrayList);
+            poiDetailSearchResult.error = SearchResult.ERRORNO.NO_ERROR;
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.platform.base.d
+    public SearchResult a(String str) {
+        InterceptResult invokeL;
+        SearchResult poiDetailResult;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.c) {
+                poiDetailResult = new PoiDetailSearchResult();
+            } else {
+                poiDetailResult = new PoiDetailResult();
+            }
+            if (str != null && !str.isEmpty()) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.length() == 0) {
+                        poiDetailResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                        return poiDetailResult;
+                    } else if (!jSONObject.has("SDK_InnerError")) {
+                        if (!a(str, poiDetailResult)) {
+                            poiDetailResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                        }
+                        return poiDetailResult;
+                    } else {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                        if (optJSONObject != null && optJSONObject.length() != 0) {
+                            if (optJSONObject.has("PermissionCheckError")) {
+                                poiDetailResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                                return poiDetailResult;
+                            }
+                            if (optJSONObject.has("httpStateError")) {
+                                String optString = optJSONObject.optString("httpStateError");
+                                char c = 65535;
+                                int hashCode = optString.hashCode();
+                                if (hashCode != -879828873) {
+                                    if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
+                                        c = 1;
+                                    }
+                                } else if (optString.equals("NETWORK_ERROR")) {
+                                    c = 0;
+                                }
+                                if (c != 0) {
+                                    if (c != 1) {
+                                        poiDetailResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                                    } else {
+                                        poiDetailResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
+                                    }
+                                } else {
+                                    poiDetailResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
+                                }
+                            }
+                            return poiDetailResult;
+                        }
+                        poiDetailResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                        return poiDetailResult;
+                    }
+                } catch (JSONException e) {
+                    Log.e(b, "Parse detail search result failed", e);
+                    poiDetailResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    return poiDetailResult;
+                }
+            }
+            poiDetailResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+            return poiDetailResult;
+        }
+        return (SearchResult) invokeL.objValue;
+    }
+
+    @Override // com.baidu.platform.base.d
+    public void a(SearchResult searchResult, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
+            if (this.c) {
+                ((OnGetPoiSearchResultListener) obj).onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
+            } else {
+                ((OnGetPoiSearchResultListener) obj).onGetPoiDetailResult((PoiDetailResult) searchResult);
             }
         }
     }
 
-    @Override // com.baidu.platform.base.e
-    public String a(com.baidu.platform.domain.c cVar) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.i() : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.c = z;
+        }
     }
 }

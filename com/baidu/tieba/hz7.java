@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
+    public TbPageContext a;
 
-    public hz7(r9 r9Var, NavigationBarCoverTip navigationBarCoverTip) {
+    public hz7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, navigationBarCoverTip};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,48 +36,80 @@ public class hz7 {
                 return;
             }
         }
-        this.a = r9Var;
-        this.b = navigationBarCoverTip;
-        b();
+        this.a = tbPageContext;
     }
 
-    public void a(String str) {
+    public final void a(PbModel pbModel, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.b == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
             return;
         }
-        if (!ej.isEmpty(str) && this.d <= 0) {
-            this.b.setVisibility(0);
-            this.d++;
-            this.c.setText(str);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            this.b.removeAllViews();
-            this.b.addView(this.c);
-            this.b.l(this.a.getPageActivity(), 5000);
-            return;
+        StatisticItem statisticItem = new StatisticItem("c13719");
+        statisticItem.param("fid", pbModel.G.m());
+        statisticItem.param("tid", pbModel.G.S());
+        statisticItem.param("obj_type", i);
+        if (pbModel.R1() == 5) {
+            statisticItem.param("obj_source", 1);
+        } else if (pbModel.R1() == 7) {
+            statisticItem.param("obj_source", 2);
+        } else {
+            statisticItem.param("obj_source", 3);
         }
-        c();
-        this.b.setVisibility(8);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
     }
 
-    public final void b() {
+    public boolean b(PbModel pbModel) {
+        InterceptResult invokeL;
+        dx7 dx7Var;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new TextView(this.a.getPageActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-            this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-            this.c.setGravity(19);
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
+            int i = 0;
+            if (this.a.getPageActivity() != null && pbModel != null && (dx7Var = pbModel.G) != null) {
+                if ("3".equals(dx7Var.i0)) {
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f13a7));
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    return true;
+                }
+                String q = ky4.k().q("key_pb_back_sid1", "");
+                String q2 = ky4.k().q("key_pb_back_sid2", "");
+                if (!TextUtils.isEmpty(q) && UbsABTestDataManager.getInstance().getABTestSwitchData(q) != null) {
+                    str = "1";
+                } else if (!TextUtils.isEmpty(q2) && UbsABTestDataManager.getInstance().getABTestSwitchData(q2) != null) {
+                    str = "2";
+                } else {
+                    str = null;
+                }
+                if (str == null && (str2 = pbModel.G.h0) != null) {
+                    str = str2;
+                }
+                if (str == null) {
+                    return false;
+                }
+                if (str.equals("1")) {
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg2.setSubTab(1, null);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    a(pbModel, 1);
+                    return true;
+                } else if (str.equals("2")) {
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
+                    createNormalCfg3.setSubTab(0, pbModel.G.i0);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    if ("游戏".equals(pbModel.G.i0)) {
+                        i = 2;
+                    } else if ("数码".equals(pbModel.G.i0)) {
+                        i = 3;
+                    }
+                    a(pbModel, i);
+                    return true;
+                }
+            }
+            return false;
         }
-    }
-
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
-            navigationBarCoverTip.i();
-        }
+        return invokeL.booleanValue;
     }
 }

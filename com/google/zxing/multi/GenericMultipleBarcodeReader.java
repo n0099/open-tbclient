@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.Reader;
 import com.google.zxing.ReaderException;
@@ -52,7 +53,7 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         return (Result[]) invokeL.objValue;
     }
 
-    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map map, List list, int i, int i2, int i3) {
+    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, List<Result> list, int i, int i2, int i3) {
         boolean z;
         float f;
         float f2;
@@ -64,10 +65,10 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         }
         try {
             Result decode = this.delegate.decode(binaryBitmap, map);
-            Iterator it = list.iterator();
+            Iterator<Result> it = list.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    if (((Result) it.next()).getText().equals(decode.getText())) {
+                    if (it.next().getText().equals(decode.getText())) {
                         z = true;
                         break;
                     }
@@ -157,7 +158,7 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
     }
 
     @Override // com.google.zxing.multi.MultipleBarcodeReader
-    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+    public Result[] decodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, binaryBitmap, map)) == null) {

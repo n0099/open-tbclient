@@ -1,79 +1,82 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class aq7 extends Animation {
+public class aq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public int b;
-    public int c;
-    public FrameLayout.LayoutParams d;
+    public ImageView b;
+    public Context c;
+    public TextView d;
 
-    public aq7(View view2, int i, int i2) {
+    public aq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        if (view2 == null) {
-            return;
-        }
-        this.a = view2;
-        if (view2.getVisibility() == 8 && i2 > 0) {
-            this.b = i2;
-        } else {
-            this.b = this.a.getMeasuredHeight();
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-        this.d = layoutParams;
-        this.c = i;
-        if (i == 0) {
-            layoutParams.bottomMargin = -this.b;
-        } else {
-            layoutParams.bottomMargin = 0;
         }
     }
 
-    @Override // android.view.animation.Animation
-    public void applyTransformation(float f, Transformation transformation) {
+    public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-            super.applyTransformation(f, transformation);
-            if (f < 1.0f) {
-                if (this.c == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.d;
-                    int i = this.b;
-                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
-                } else {
-                    this.d.bottomMargin = -((int) (this.b * f));
-                }
-                this.a.requestLayout();
-            } else if (this.c == 0) {
-                this.d.bottomMargin = 0;
-                this.a.requestLayout();
-                this.b = this.a.getMeasuredHeight();
-            } else {
-                this.d.bottomMargin = -this.b;
-                this.a.setVisibility(8);
-                this.a.requestLayout();
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            qq4 layoutMode = tbPageContext.getLayoutMode();
+            boolean z = true;
+            if (skinType != 1) {
+                z = false;
             }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
         }
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f13b7), Integer.valueOf(i)));
+        }
+    }
+
+    public View b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.c = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0872, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09210a);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092109);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
     }
 }

@@ -1,75 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ro6 extends vw4 {
+public class ro6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public List<wn> d;
+    public boolean e;
+    public int f;
 
-    @Override // com.baidu.tieba.vw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro6(tw4 tw4Var) {
-        super(tw4Var);
+    public ro6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @ww4(isAsync = false, value = "isGameInstall")
-    private JSONObject isGameInstall(JSONObject jSONObject) {
+    public int a(List<wn> list) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
             }
-            JSONObject jSONObject2 = new JSONObject();
-            String optString = jSONObject.optString("packagename");
-            try {
-                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
-                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
-                    jSONObject2.put("isInstall", true);
-                } else {
-                    jSONObject2.put("isInstall", false);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                try {
-                    jSONObject2.put("isInstall", false);
-                } catch (JSONException unused) {
-                    BdLog.e(e.getMessage());
-                }
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
             }
-            return jSONObject2;
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                wn wnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        wn wnVar2 = this.d.get(i2);
+                        if (wnVar != null && (wnVar instanceof qo6) && wnVar2 != null && (wnVar2 instanceof qo6)) {
+                            ThreadData threadData = ((qo6) wnVar).getThreadData();
+                            ThreadData threadData2 = ((qo6) wnVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, wnVar);
+                }
+            }
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

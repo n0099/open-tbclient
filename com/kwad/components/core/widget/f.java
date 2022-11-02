@@ -1,6 +1,7 @@
 package com.kwad.components.core.widget;
 
 import android.graphics.Color;
+import androidx.annotation.ColorInt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
+    @ColorInt
     public static final int PD;
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
     public int PE;
 
     static {

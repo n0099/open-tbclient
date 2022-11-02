@@ -54,7 +54,7 @@ public interface TTNativeExpressAd extends TTClientBidding {
 
     int getInteractionType();
 
-    Map getMediaExtraInfo();
+    Map<String, Object> getMediaExtraInfo();
 
     void render();
 

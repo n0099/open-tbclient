@@ -19,13 +19,17 @@ public final class CollectionsKt__CollectionsKt$binarySearchBy$1 extends Lambda 
         this.$key = comparable;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
+    public /* bridge */ /* synthetic */ Integer invoke(Object obj) {
         return Integer.valueOf(invoke((CollectionsKt__CollectionsKt$binarySearchBy$1) obj));
     }
 
+    /* JADX DEBUG: Return type fixed from 'int' to match base method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    /* JADX WARN: Type inference failed for: r2v3, types: [int, java.lang.Integer] */
     @Override // kotlin.jvm.functions.Function1
-    public final int invoke(T t) {
+    public final Integer invoke(T t) {
         return ComparisonsKt__ComparisonsKt.compareValues((Comparable) this.$selector.invoke(t), this.$key);
     }
 }

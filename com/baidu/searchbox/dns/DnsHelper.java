@@ -50,8 +50,8 @@ public class DnsHelper {
             if (this.j) {
                 return b.getParseResult(str);
             }
-            Map h = com.baidu.searchbox.dns.b.b.h(str);
-            List a = com.baidu.searchbox.dns.b.b.a(h);
+            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
+            List<String> a = com.baidu.searchbox.dns.b.b.a(h);
             if (com.baidu.searchbox.dns.b.b.b(h)) {
                 i = 5;
             } else {
@@ -70,8 +70,8 @@ public class DnsHelper {
             if (this.j) {
                 return b.b(str, true);
             }
-            Map h = com.baidu.searchbox.dns.b.b.h(str);
-            List a = com.baidu.searchbox.dns.b.b.a(h);
+            Map<String, List<String>> h = com.baidu.searchbox.dns.b.b.h(str);
+            List<String> a = com.baidu.searchbox.dns.b.b.a(h);
             if (com.baidu.searchbox.dns.b.b.b(h)) {
                 i = 5;
             }
@@ -116,7 +116,7 @@ public class DnsHelper {
         }
     }
 
-    public List getIpList(String str) {
+    public List<String> getIpList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -132,7 +132,7 @@ public class DnsHelper {
         return (List) invokeL.objValue;
     }
 
-    public List getIpListForceHttp(String str) {
+    public List<String> getIpListForceHttp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -148,7 +148,7 @@ public class DnsHelper {
         return (List) invokeL.objValue;
     }
 
-    public List getIpListOnlyCache(String str) {
+    public List<String> getIpListOnlyCache(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

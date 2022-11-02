@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -32,6 +34,7 @@ public class DurationStatPlugin extends AbsPlugin {
     public BDVideoPlayerUbcContent mUBCContent;
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -138,10 +141,10 @@ public class DurationStatPlugin extends AbsPlugin {
 
     private void uploadDurationSlot() {
         Flow flow;
-        HashMap slotMaps;
+        HashMap<String, Slot> slotMaps;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && (flow = this.mFlow) != null && (slotMaps = flow.getSlotMaps()) != null) {
-            Slot slot = (Slot) slotMaps.get("PlayerDurationPause_P" + this.durationSlotIndex);
+            Slot slot = slotMaps.get("PlayerDurationPause_P" + this.durationSlotIndex);
             if (slot != null && slot.getStart() > 0 && System.currentTimeMillis() - slot.getStart() > 500) {
                 UBCManager uBCManager = UBC_MANAGER;
                 Flow flow2 = this.mFlow;
@@ -153,7 +156,7 @@ public class DurationStatPlugin extends AbsPlugin {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(VideoEvent videoEvent) {
+    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {

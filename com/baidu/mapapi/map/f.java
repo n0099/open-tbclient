@@ -1,54 +1,71 @@
 package com.baidu.mapapi.map;
 
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.locks.Lock;
 /* loaded from: classes2.dex */
-public /* synthetic */ class f {
+public class f implements com.baidu.mapsdkplatform.comapi.map.m {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ int[] a;
-    public static final /* synthetic */ int[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ BaiduMap a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-961215029, "Lcom/baidu/mapapi/map/f;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-961215029, "Lcom/baidu/mapapi/map/f;");
+    public f(BaiduMap baiduMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.aa.values().length];
-        b = iArr;
-        try {
-            iArr[com.baidu.mapsdkplatform.comapi.map.aa.b.ordinal()] = 1;
-        } catch (NoSuchFieldError unused) {
+        this.a = baiduMap;
+    }
+
+    @Override // com.baidu.mapsdkplatform.comapi.map.m
+    public Bundle a(int i, int i2) {
+        InterceptResult invokeII;
+        Lock lock;
+        Lock lock2;
+        HeatMap heatMap;
+        BaiduMap.OnHeatMapDrawFrameCallBack onHeatMapDrawFrameCallBack;
+        HeatMap heatMap2;
+        BaiduMap.OnHeatMapDrawFrameCallBack onHeatMapDrawFrameCallBack2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeII = interceptable.invokeII(1048576, this, i, i2)) != null) {
+            return (Bundle) invokeII.objValue;
         }
+        lock = this.a.L;
+        lock.lock();
         try {
-            b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
-        } catch (NoSuchFieldError unused2) {
-        }
-        int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];
-        a = iArr2;
-        try {
-            iArr2[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
-        } catch (NoSuchFieldError unused3) {
-        }
-        try {
-            a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
-        } catch (NoSuchFieldError unused4) {
-        }
-        try {
-            a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
-        } catch (NoSuchFieldError unused5) {
+            heatMap = this.a.K;
+            if (heatMap == null) {
+                return null;
+            }
+            onHeatMapDrawFrameCallBack = this.a.H;
+            if (onHeatMapDrawFrameCallBack != null) {
+                onHeatMapDrawFrameCallBack2 = this.a.H;
+                onHeatMapDrawFrameCallBack2.frameIndex(i);
+            }
+            heatMap2 = this.a.K;
+            HeatMapData data = heatMap2.getData(i, i2);
+            if (data == null) {
+                return null;
+            }
+            return data.toBundle();
+        } finally {
+            lock2 = this.a.L;
+            lock2.unlock();
         }
     }
 }

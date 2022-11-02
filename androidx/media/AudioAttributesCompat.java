@@ -3,6 +3,9 @@ package androidx.media;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.util.SparseIntArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesImpl;
 import androidx.media.AudioAttributesImplApi21;
@@ -64,14 +67,17 @@ public class AudioAttributesCompat implements VersionedParcelable {
     public static final int USAGE_VOICE_COMMUNICATION_SIGNALLING = 3;
     public static boolean sForceLegacyBehavior;
     public transient /* synthetic */ FieldHolder $fh;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImpl mImpl;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface AttributeContentType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface AttributeUsage {
     }
@@ -236,6 +242,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         SDK_USAGES = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16};
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -322,6 +329,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public Object unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -349,6 +357,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
         this.mImpl = audioAttributesImpl;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static void setForceLegacyBehavior(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
@@ -476,7 +485,8 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return (String) invokeI.objValue;
     }
 
-    public static AudioAttributesCompat wrap(Object obj) {
+    @Nullable
+    public static AudioAttributesCompat wrap(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {

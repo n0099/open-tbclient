@@ -1,53 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class kd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kd3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-665019823, "Lcom/baidu/tieba/kd3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-665019823, "Lcom/baidu/tieba/kd3$b;");
-                    return;
-                }
-            }
-            a = new kd3(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -62,105 +29,68 @@ public class kd3 {
                 return;
             }
         }
-        boolean z = wj1.a;
+        a = ok1.a;
     }
 
-    public kd3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static int b() {
+    public static JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                Resources system = Resources.getSystem();
-                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
-                if (identifier != 0) {
-                    return system.getInteger(identifier);
-                }
-                return 255;
-            } catch (Exception unused) {
-                return 255;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public static kd3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
-        }
-        return (kd3) invokeV.objValue;
-    }
-
-    public /* synthetic */ kd3(a aVar) {
-        this();
-    }
-
-    public static float d(Context context) {
-        int i;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
+                jSONObject.put("abTestSwitch", a());
+            } catch (JSONException e) {
                 e.printStackTrace();
-                i = 0;
             }
-            return i * (1.0f / b());
+            return jSONObject;
         }
-        return invokeL.floatValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public float a(Activity activity) {
-        InterceptResult invokeL;
+    public static synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    return d(activity);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (kd3.class) {
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
                 }
-                return f;
+                b = null;
             }
-            return -1.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    public void e(Activity activity, float f) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) && activity != null) {
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = f;
-            activity.getWindow().setAttributes(attributes);
         }
     }
 
-    public void f(Activity activity, boolean z) {
-        Window window;
+    public static synchronized JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) != null) || activity == null || (window = activity.getWindow()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (kd3.class) {
+                if (b != null) {
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
+                    }
+                    return b;
+                }
+                JSONObject rawSwitch = ln2.g0().getRawSwitch();
+                if (rawSwitch == null) {
+                    b = new JSONObject();
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
+                    }
+                    return b;
+                }
+                Iterator<String> keys = rawSwitch.keys();
+                while (keys.hasNext()) {
+                    if (!keys.next().startsWith("swanswitch")) {
+                        keys.remove();
+                    }
+                }
+                b = rawSwitch;
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
+                }
+                return b;
+            }
         }
-        if (z) {
-            window.addFlags(128);
-        } else {
-            window.clearFlags(128);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

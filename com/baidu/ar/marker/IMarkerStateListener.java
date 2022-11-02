@@ -7,7 +7,7 @@ public interface IMarkerStateListener {
 
     void onError(int i, String str);
 
-    void onLocationResult(boolean z, List list);
+    void onLocationResult(boolean z, List<com.baidu.ar.marker.a.a> list);
 
     void onSessionCreated(boolean z, String str);
 }

@@ -1,27 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes6.dex */
 public interface uh7 {
-    void c(BdUniqueId bdUniqueId);
+    void a(ICardInfo iCardInfo);
 
-    void e();
+    uh7 b(String str, int i);
 
-    void f();
+    uh7 c(String str, long j);
 
-    void g();
-
-    void h();
-
-    void setAfterClickSchemeListener(yg7 yg7Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    uh7 d(String str, String str2);
 }

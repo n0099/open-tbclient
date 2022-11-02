@@ -15,23 +15,23 @@ import io.reactivex.functions.BiPredicate;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class ObservableRetryBiPredicate extends AbstractObservableWithUpstream {
+public final class ObservableRetryBiPredicate<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate predicate;
+    public final BiPredicate<? super Integer, ? super Throwable> predicate;
 
     /* loaded from: classes8.dex */
-    public final class RetryBiObserver extends AtomicInteger implements Observer {
+    public static final class RetryBiObserver<T> extends AtomicInteger implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final BiPredicate predicate;
+        public final Observer<? super T> actual;
+        public final BiPredicate<? super Integer, ? super Throwable> predicate;
         public int retries;
         public final SequentialDisposable sa;
-        public final ObservableSource source;
+        public final ObservableSource<? extends T> source;
 
-        public RetryBiObserver(Observer observer, BiPredicate biPredicate, SequentialDisposable sequentialDisposable, ObservableSource observableSource) {
+        public RetryBiObserver(Observer<? super T> observer, BiPredicate<? super Integer, ? super Throwable> biPredicate, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public final class ObservableRetryBiPredicate extends AbstractObservableWithUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 try {
-                    BiPredicate biPredicate = this.predicate;
+                    BiPredicate<? super Integer, ? super Throwable> biPredicate = this.predicate;
                     int i = this.retries + 1;
                     this.retries = i;
                     if (!biPredicate.test(Integer.valueOf(i), th)) {
@@ -95,10 +95,10 @@ public final class ObservableRetryBiPredicate extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -112,7 +112,7 @@ public final class ObservableRetryBiPredicate extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRetryBiPredicate(Observable observable, BiPredicate biPredicate) {
+    public ObservableRetryBiPredicate(Observable<T> observable, BiPredicate<? super Integer, ? super Throwable> biPredicate) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class ObservableRetryBiPredicate extends AbstractObservableWithUpst
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();

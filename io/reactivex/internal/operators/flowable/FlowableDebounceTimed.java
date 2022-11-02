@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
+public final class FlowableDebounceTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
@@ -31,21 +31,21 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class DebounceEmitter extends AtomicReference implements Runnable, Disposable {
+    public static final class DebounceEmitter<T> extends AtomicReference<Disposable> implements Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6812032969491025141L;
         public transient /* synthetic */ FieldHolder $fh;
         public final long idx;
         public final AtomicBoolean once;
-        public final DebounceTimedSubscriber parent;
-        public final Object value;
+        public final DebounceTimedSubscriber<T> parent;
+        public final T value;
 
-        public DebounceEmitter(Object obj, long j, DebounceTimedSubscriber debounceTimedSubscriber) {
+        public DebounceEmitter(T t, long j, DebounceTimedSubscriber<T> debounceTimedSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, Long.valueOf(j), debounceTimedSubscriber};
+                Object[] objArr = {t, Long.valueOf(j), debounceTimedSubscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
                 }
             }
             this.once = new AtomicBoolean();
-            this.value = obj;
+            this.value = t;
             this.idx = j;
             this.parent = debounceTimedSubscriber;
         }
@@ -106,11 +106,11 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class DebounceTimedSubscriber extends AtomicLong implements FlowableSubscriber, Subscription {
+    public static final class DebounceTimedSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9102637559663639004L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public boolean done;
         public volatile long index;
         public Subscription s;
@@ -119,7 +119,7 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,11 +168,11 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
             this.worker.dispose();
         }
 
-        public void emit(long j, Object obj, DebounceEmitter debounceEmitter) {
+        public void emit(long j, T t, DebounceEmitter<T> debounceEmitter) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), obj, debounceEmitter}) == null) && j == this.index) {
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), t, debounceEmitter}) == null) && j == this.index) {
                 if (get() != 0) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                     BackpressureHelper.produced(this, 1L);
                     debounceEmitter.dispose();
                     return;
@@ -219,9 +219,9 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             long j = this.index + 1;
@@ -230,14 +230,14 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
             if (disposable != null) {
                 disposable.dispose();
             }
-            DebounceEmitter debounceEmitter = new DebounceEmitter(obj, j, this);
+            DebounceEmitter debounceEmitter = new DebounceEmitter(t, j, this);
             this.timer = debounceEmitter;
             debounceEmitter.setResource(this.worker.schedule(debounceEmitter, this.timeout, this.unit));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDebounceTimed(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableDebounceTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -260,7 +260,7 @@ public final class FlowableDebounceTimed extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new DebounceTimedSubscriber(new SerializedSubscriber(subscriber), this.timeout, this.unit, this.scheduler.createWorker()));

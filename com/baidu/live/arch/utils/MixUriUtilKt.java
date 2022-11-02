@@ -29,7 +29,7 @@ public final class MixUriUtilKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String addParam(String str, Map map) {
+    public static final String addParam(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
@@ -109,7 +109,7 @@ public final class MixUriUtilKt {
         return (String) invokeL.objValue;
     }
 
-    public static final String mapToString(Map map) {
+    public static final String mapToString(Map<String, String> map) {
         InterceptResult invokeL;
         boolean z;
         String encode;
@@ -129,7 +129,7 @@ public final class MixUriUtilKt {
                 if (z) {
                     sb.append("&");
                 }
-                String str3 = (String) map.get(str2);
+                String str3 = map.get(str2);
                 if (str2 == null) {
                     encode = "";
                 } else {
@@ -154,7 +154,7 @@ public final class MixUriUtilKt {
         return (String) invokeL.objValue;
     }
 
-    public static final Map stringToMap(String str) {
+    public static final Map<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public final class MixUriUtilKt {
         return (Map) invokeL.objValue;
     }
 
-    public static final Map paramsJsonToMap(JSONObject jSONObject) {
+    public static final Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public final class MixUriUtilKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final String setSchemeParam(String str, List list, boolean z) {
+    public static final String setSchemeParam(String str, List<Pair<String, String>> list, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
         boolean z3;
@@ -274,7 +274,7 @@ public final class MixUriUtilKt {
         return (String) invokeLLZ.objValue;
     }
 
-    public static final Uri setUriParam(Uri uri, List list, boolean z) {
+    public static final Uri setUriParam(Uri uri, List<Pair<String, String>> list, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
         boolean z3;
@@ -293,7 +293,7 @@ public final class MixUriUtilKt {
                     Intrinsics.checkExpressionValueIsNotNull(srcPrama, "srcPrama");
                     Set<String> mutableSet = CollectionsKt___CollectionsKt.toMutableSet(srcPrama);
                     Uri.Builder clearQuery = uri.buildUpon().clearQuery();
-                    Iterator it = list.iterator();
+                    Iterator<T> it = list.iterator();
                     while (it.hasNext()) {
                         Pair pair = (Pair) it.next();
                         if (((CharSequence) pair.getFirst()).length() == 0) {

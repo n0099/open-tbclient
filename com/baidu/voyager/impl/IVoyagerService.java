@@ -15,16 +15,16 @@ import com.baidu.voyager.impl.IVoyagerCallback;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface IVoyagerService extends IInterface {
-    void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException;
+    void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException;
 
-    void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
+    void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
 
     void uploadZipFile(String str, String str2, int i, int i2, String str3) throws RemoteException;
 
     void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IVoyagerService {
+    public static abstract class Stub extends Binder implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerService";
         public static final int TRANSACTION_uploadFileList = 2;
@@ -41,7 +41,7 @@ public interface IVoyagerService extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IVoyagerService {
+        public static class Proxy implements IVoyagerService {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public interface IVoyagerService extends IInterface {
             }
 
             @Override // com.baidu.voyager.impl.IVoyagerService
-            public void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException {
+            public void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
                     Parcel obtain = Parcel.obtain();
@@ -118,7 +118,7 @@ public interface IVoyagerService extends IInterface {
             }
 
             @Override // com.baidu.voyager.impl.IVoyagerService
-            public void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+            public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
                 IBinder iBinder;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
@@ -308,7 +308,7 @@ public interface IVoyagerService extends IInterface {
     }
 
     /* loaded from: classes6.dex */
-    public class Default implements IVoyagerService {
+    public static class Default implements IVoyagerService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,14 +323,14 @@ public interface IVoyagerService extends IInterface {
         }
 
         @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadFileList(List list, String str, long j, int i, int i2, String str2) throws RemoteException {
+        public void uploadFileList(List<String> list, String str, long j, int i, int i2, String str2) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
             }
         }
 
         @Override // com.baidu.voyager.impl.IVoyagerService
-        public void uploadFileListWithCallback(List list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
+        public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
             }

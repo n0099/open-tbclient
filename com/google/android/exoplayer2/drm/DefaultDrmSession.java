@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.drm;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.media.NotProvisionedException;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -17,13 +19,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.drm.DefaultDrmSessionManager;
 import com.google.android.exoplayer2.drm.DrmSession;
+import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.drm.ExoMediaDrm;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+@TargetApi(18)
 /* loaded from: classes7.dex */
-public class DefaultDrmSession implements DrmSession {
+public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LICENSE_DURATION_TO_RENEW = 60;
     public static final int MSG_KEYS = 1;
@@ -36,30 +40,31 @@ public class DefaultDrmSession implements DrmSession {
     public final byte[] initData;
     public final int initialDrmRequestRetryCount;
     public DrmSession.DrmSessionException lastException;
-    public ExoMediaCrypto mediaCrypto;
-    public final ExoMediaDrm mediaDrm;
+    public T mediaCrypto;
+    public final ExoMediaDrm<T> mediaDrm;
     public final String mimeType;
     public final int mode;
     public byte[] offlineLicenseKeySetId;
     public int openCount;
-    public final HashMap optionalKeyRequestParameters;
-    public PostRequestHandler postRequestHandler;
-    public final PostResponseHandler postResponseHandler;
-    public final ProvisioningManager provisioningManager;
+    public final HashMap<String, String> optionalKeyRequestParameters;
+    public DefaultDrmSession<T>.PostRequestHandler postRequestHandler;
+    public final DefaultDrmSession<T>.PostResponseHandler postResponseHandler;
+    public final ProvisioningManager<T> provisioningManager;
     public HandlerThread requestHandlerThread;
     public byte[] sessionId;
     public int state;
     public final UUID uuid;
 
     /* loaded from: classes7.dex */
-    public interface ProvisioningManager {
+    public interface ProvisioningManager<T extends ExoMediaCrypto> {
         void onProvisionCompleted();
 
         void onProvisionError(Exception exc);
 
-        void provisionRequired(DefaultDrmSession defaultDrmSession);
+        void provisionRequired(DefaultDrmSession<T> defaultDrmSession);
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes7.dex */
     public class PostRequestHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -153,6 +158,7 @@ public class DefaultDrmSession implements DrmSession {
         }
     }
 
+    @SuppressLint({"HandlerLeak"})
     /* loaded from: classes7.dex */
     public class PostResponseHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
@@ -197,7 +203,7 @@ public class DefaultDrmSession implements DrmSession {
         }
     }
 
-    public DefaultDrmSession(UUID uuid, ExoMediaDrm exoMediaDrm, ProvisioningManager provisioningManager, byte[] bArr, String str, int i, byte[] bArr2, HashMap hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i2) {
+    public DefaultDrmSession(UUID uuid, ExoMediaDrm<T> exoMediaDrm, ProvisioningManager<T> provisioningManager, byte[] bArr, String str, int i, byte[] bArr2, HashMap<String, String> hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -410,7 +416,7 @@ public class DefaultDrmSession implements DrmSession {
             if (!C.WIDEVINE_UUID.equals(this.uuid)) {
                 return Long.MAX_VALUE;
             }
-            Pair licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(this);
+            Pair<Long, Long> licenseDurationRemainingSec = WidevineUtil.getLicenseDurationRemainingSec(this);
             return Math.min(((Long) licenseDurationRemainingSec.first).longValue(), ((Long) licenseDurationRemainingSec.second).longValue());
         }
         return invokeV.longValue;
@@ -505,13 +511,13 @@ public class DefaultDrmSession implements DrmSession {
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public final ExoMediaCrypto getMediaCrypto() {
+    public final T getMediaCrypto() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mediaCrypto;
         }
-        return (ExoMediaCrypto) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
@@ -549,7 +555,7 @@ public class DefaultDrmSession implements DrmSession {
     }
 
     @Override // com.google.android.exoplayer2.drm.DrmSession
-    public Map queryKeyStatus() {
+    public Map<String, String> queryKeyStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {

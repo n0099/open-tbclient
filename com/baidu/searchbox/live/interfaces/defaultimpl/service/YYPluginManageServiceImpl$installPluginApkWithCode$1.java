@@ -12,7 +12,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\b\u0010\u0005\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0006\u001a\u00020\u0003H\n¢\u0006\u0002\b\u0007"}, d2 = {"<anonymous>", "", "n", "", "url", "main", "pkgName", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class YYPluginManageServiceImpl$installPluginApkWithCode$1 extends Lambda implements Function4 {
+public final class YYPluginManageServiceImpl$installPluginApkWithCode$1 extends Lambda implements Function4<String, String, String, String, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Ref.ObjectRef $iconUrl;
@@ -44,9 +44,11 @@ public final class YYPluginManageServiceImpl$installPluginApkWithCode$1 extends 
         this.$packageName = objectRef4;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function4
-    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2, Object obj3, Object obj4) {
-        invoke((String) obj, (String) obj2, (String) obj3, (String) obj4);
+    public /* bridge */ /* synthetic */ Unit invoke(String str, String str2, String str3, String str4) {
+        invoke2(str, str2, str3, str4);
         return Unit.INSTANCE;
     }
 
@@ -55,7 +57,8 @@ public final class YYPluginManageServiceImpl$installPluginApkWithCode$1 extends 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.lang.String */
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void invoke(String str, String str2, String str3, String str4) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final void invoke2(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
             this.$name.element = str;

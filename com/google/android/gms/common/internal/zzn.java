@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,8 +19,11 @@ public final class zzn {
     public static /* synthetic */ Interceptable $ic;
     public static final Uri zza;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final String zzb;
+    @Nullable
     public final String zzc;
+    @Nullable
     public final ComponentName zzd;
     public final int zze;
     public final boolean zzf;
@@ -30,12 +34,14 @@ public final class zzn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zze : invokeV.intValue;
     }
 
+    @Nullable
     public final ComponentName zzb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.zzd : (ComponentName) invokeV.objValue;
     }
 
+    @Nullable
     public final String zzd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,7 +141,7 @@ public final class zzn {
         this.zzf = z;
     }
 
-    public final boolean equals(Object obj) {
+    public final boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {

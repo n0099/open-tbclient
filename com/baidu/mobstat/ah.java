@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -231,6 +232,7 @@ public class ah {
         return invokeL.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static void b(Activity activity) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;

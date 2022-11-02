@@ -19,7 +19,7 @@ public class DnsInfo {
     public CmdInfo cmd;
     public long endTime;
     public String host;
-    public LinkedList ips;
+    public LinkedList<String> ips;
     public int nt;
     public long probeTime;
     public int source;
@@ -28,7 +28,7 @@ public class DnsInfo {
     public String uip;
 
     /* renamed from: view  reason: collision with root package name */
-    public String f1087view;
+    public String f1090view;
 
     public DnsInfo() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class DnsInfo {
                 return;
             }
         }
-        this.ips = new LinkedList();
+        this.ips = new LinkedList<>();
         this.source = 0;
         this.status = 0;
     }
@@ -75,7 +75,7 @@ public class DnsInfo {
         return (String) invokeV.objValue;
     }
 
-    public LinkedList getIps() {
+    public LinkedList<String> getIps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -142,7 +142,7 @@ public class DnsInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f1087view;
+            return this.f1090view;
         }
         return (String) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class DnsInfo {
         if (interceptable == null || interceptable.invokeL(1048576, this, dnsInfo) == null) {
             this.host = dnsInfo.getHost();
             this.uip = dnsInfo.getUip();
-            this.f1087view = dnsInfo.getView();
+            this.f1090view = dnsInfo.getView();
             this.ttl = dnsInfo.getTtl();
             this.probeTime = dnsInfo.getProbeTime();
             this.endTime = dnsInfo.getEndTime();
@@ -204,11 +204,11 @@ public class DnsInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList linkedList = this.ips;
+            LinkedList<String> linkedList = this.ips;
             if (linkedList != null && !linkedList.isEmpty()) {
                 String str = "";
                 for (int i = 0; i < this.ips.size(); i++) {
-                    str = str + ((String) this.ips.get(i));
+                    str = str + this.ips.get(i);
                     if (i != this.ips.size() - 1) {
                         str = str + ",";
                     }
@@ -250,7 +250,7 @@ public class DnsInfo {
         }
     }
 
-    public void setIps(LinkedList linkedList) {
+    public void setIps(LinkedList<String> linkedList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048595, this, linkedList) != null) || linkedList == null) {
             return;
@@ -296,7 +296,7 @@ public class DnsInfo {
     public void setView(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f1087view = str;
+            this.f1090view = str;
         }
     }
 
@@ -307,7 +307,7 @@ public class DnsInfo {
             for (String str2 : str.split(",")) {
                 if (str2 != null) {
                     if (this.ips == null) {
-                        this.ips = new LinkedList();
+                        this.ips = new LinkedList<>();
                     }
                     this.ips.add(str2);
                 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.depend.aa;
 import com.ss.android.socialbase.downloader.depend.ab;
 import com.ss.android.socialbase.downloader.depend.af;
@@ -15,6 +16,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,8 +42,8 @@ public class c {
     public static final int O;
     public static int P;
     public static boolean Q;
-    public static final List R;
-    public static final List S;
+    public static final List<com.ss.android.socialbase.downloader.depend.k> R;
+    public static final List<ab> S;
     public static int T;
     public static boolean U;
     public static boolean V;
@@ -74,10 +76,10 @@ public class c {
     public static volatile DownloadReceiver x;
     public static volatile s y;
     public static volatile q z;
-    public static volatile List C = new ArrayList();
+    public static volatile List<ak> C = new ArrayList();
     public static volatile boolean D = false;
     public static volatile OkHttpClient E = null;
-    public static final List I = new ArrayList();
+    public static final List<com.ss.android.socialbase.downloader.depend.m> I = new ArrayList();
     public static boolean J = false;
     public static final int L = Runtime.getRuntime().availableProcessors() + 1;
     public static final int M = (Runtime.getRuntime().availableProcessors() * 2) + 1;
@@ -87,13 +89,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public interface InterfaceC0685a {
+        public interface InterfaceC0696a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0685a interfaceC0685a);
+        t a(InterfaceC0696a interfaceC0696a);
 
         m b();
     }
@@ -110,7 +112,7 @@ public class c {
         Y = false;
     }
 
-    public static List A() {
+    public static List<com.ss.android.socialbase.downloader.depend.m> A() {
         return I;
     }
 
@@ -140,6 +142,7 @@ public class c {
         return T;
     }
 
+    @NonNull
     public static JSONObject E() {
         return (B == null || B.a() == null) ? com.ss.android.socialbase.downloader.constants.e.i : B.a();
     }
@@ -227,6 +230,7 @@ public class c {
         return z2;
     }
 
+    @NonNull
     public static com.ss.android.socialbase.downloader.d.c P() {
         if (X == null) {
             X = new com.ss.android.socialbase.downloader.d.c() { // from class: com.ss.android.socialbase.downloader.downloader.c.3
@@ -294,11 +298,11 @@ public class c {
         return B2.a(str, str2);
     }
 
-    public static com.ss.android.socialbase.downloader.network.g a(String str, List list) throws Exception {
+    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
         return a(str, list, 0, false, null);
     }
 
-    public static com.ss.android.socialbase.downloader.network.g a(String str, List list, int i2, boolean z2, DownloadInfo downloadInfo) throws Exception {
+    public static com.ss.android.socialbase.downloader.network.g a(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws Exception {
         com.ss.android.socialbase.downloader.network.g b2;
         Exception e2 = null;
         for (int i3 : a(i2)) {
@@ -321,7 +325,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.ss.android.socialbase.downloader.network.i a(int i2, String str, String str2, List list, int i3, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
+    public static com.ss.android.socialbase.downloader.network.i a(int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
         IDownloadHttpService d2 = i3 == 1 ? d() : h();
         if (d2 == null) {
             throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i3));
@@ -365,12 +369,12 @@ public class c {
         }
     }
 
-    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, String str2, List list, int i3, boolean z3, DownloadInfo downloadInfo) throws Exception {
-        List list2;
+    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, String str2, List<com.ss.android.socialbase.downloader.model.c> list, int i3, boolean z3, DownloadInfo downloadInfo) throws Exception {
+        List<com.ss.android.socialbase.downloader.model.c> list2;
         int i4;
         com.ss.android.socialbase.downloader.network.i a2;
         if (!TextUtils.isEmpty(str2)) {
-            List arrayList = list == null ? new ArrayList() : list;
+            List<com.ss.android.socialbase.downloader.model.c> arrayList = list == null ? new ArrayList<>() : list;
             arrayList.add(new com.ss.android.socialbase.downloader.model.c("ss_d_request_host_ip_114", str2));
             list2 = arrayList;
             i4 = 1;
@@ -403,7 +407,7 @@ public class c {
         throw exc;
     }
 
-    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, List list) throws Exception {
+    public static com.ss.android.socialbase.downloader.network.i a(boolean z2, int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
         return a(z2, i2, str, null, list, 0, false, null);
     }
 
@@ -631,7 +635,7 @@ public class c {
         }
     }
 
-    public static void a(List list) {
+    public static void a(List<com.ss.android.socialbase.downloader.depend.m> list) {
         if (I.isEmpty()) {
             synchronized (I) {
                 I.addAll(list);
@@ -657,7 +661,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.ss.android.socialbase.downloader.network.g b(String str, List list, int i2, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
+    public static com.ss.android.socialbase.downloader.network.g b(String str, List<com.ss.android.socialbase.downloader.model.c> list, int i2, boolean z2, DownloadInfo downloadInfo) throws BaseException, IOException {
         com.ss.android.socialbase.downloader.network.h f2 = i2 == 1 ? f() : i();
         if (f2 == null) {
             throw new BaseException(1022, new IOException("httpService not exist, netLib = " + i2));
@@ -944,8 +948,8 @@ public class c {
         }
     }
 
-    public static List e() {
-        List list;
+    public static List<ak> e() {
+        List<ak> list;
         synchronized (C) {
             list = C;
         }
@@ -1112,7 +1116,7 @@ public class c {
                 if (G == null) {
                     G = new com.ss.android.socialbase.downloader.network.f() { // from class: com.ss.android.socialbase.downloader.downloader.c.2
                         @Override // com.ss.android.socialbase.downloader.network.f
-                        public List a(String str) throws UnknownHostException {
+                        public List<InetAddress> a(String str) throws UnknownHostException {
                             return Dns.SYSTEM.lookup(str);
                         }
                     };

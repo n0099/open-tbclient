@@ -5,6 +5,7 @@ import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.searchbox.floating.animator.FloatViewAnimator;
+import com.baidu.searchbox.floating.config.ScaleMode;
 import com.baidu.searchbox.floating.listener.FloatViewListener;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,13 +40,13 @@ public interface IFloating {
 
     void setLocation(int i, int i2);
 
-    void setScaleMode(Pair pair);
+    void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair);
 
     void startForeground(Notification notification);
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class DefaultImpls {
+    public static final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

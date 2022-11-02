@@ -72,13 +72,13 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str2 = HonorSSOLoginActivity.o;
                 Log.i(str2, "silentSignIn onFail :" + exc.getMessage());
                 HonorSSOLoginActivity honorSSOLoginActivity = this.a;
-                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1094));
+                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f10af));
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements OnSuccessListener {
+    public class b implements OnSuccessListener<SignInAccountInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HonorSSOLoginActivity a;
@@ -153,7 +153,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10a8);
+            setTitleText(R.string.obfuscated_res_0x7f0f10c3);
             try {
                 e();
             } catch (Exception e) {
@@ -196,7 +196,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f10a0));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f10bb));
             } else if (this.sapiWebView == null) {
             } else {
                 SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -215,7 +215,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str = o;
                 Log.i(str, "doFrontLogin Exception: " + e.getMessage());
                 e.printStackTrace();
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1094));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f10af));
             }
         }
     }
@@ -254,12 +254,12 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                     b(signInAccountInfo.getAuthorizationCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1094));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f10af));
                 String str3 = o;
                 Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f10a0));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f10bb));
         }
     }
 }

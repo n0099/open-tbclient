@@ -15,6 +15,10 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
     public SearchType a;
 
+    public abstract SearchResult a(String str);
+
+    public abstract void a(SearchResult searchResult, Object obj);
+
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -29,15 +33,14 @@ public abstract class d {
         }
     }
 
-    public abstract SearchResult a(String str);
-
     public SearchType a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (SearchType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (SearchType) invokeV.objValue;
     }
-
-    public abstract void a(SearchResult searchResult, Object obj);
 
     public void a(SearchType searchType) {
         Interceptable interceptable = $ic;
@@ -48,31 +51,53 @@ public abstract class d {
 
     public boolean a(String str, SearchResult searchResult, boolean z) {
         InterceptResult invokeLLZ;
-        SearchResult.ERRORNO errorno;
+        int optInt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, str, searchResult, z)) == null) {
             if (str != null) {
                 try {
                     if (str.length() > 0) {
-                        int optInt = new JSONObject(str).optInt(z ? "status" : "status_sp");
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (z) {
+                            optInt = jSONObject.optInt("status");
+                        } else {
+                            optInt = jSONObject.optInt("status_sp");
+                        }
                         if (optInt != 0) {
-                            if (optInt != 200 && optInt != 230) {
-                                switch (optInt) {
-                                    case 104:
-                                    case 105:
-                                    case 106:
-                                    case 107:
-                                    case 108:
-                                        errorno = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
-                                        break;
-                                    default:
-                                        errorno = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                                        break;
+                            if (optInt != 2) {
+                                if (optInt != 200 && optInt != 230) {
+                                    if (optInt != 10 && optInt != 11) {
+                                        if (optInt != 40) {
+                                            if (optInt != 41 && optInt != 44) {
+                                                if (optInt != 45) {
+                                                    switch (optInt) {
+                                                        case 104:
+                                                        case 105:
+                                                        case 106:
+                                                        case 107:
+                                                        case 108:
+                                                            searchResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                                                            break;
+                                                        default:
+                                                            searchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                                                            break;
+                                                    }
+                                                }
+                                            } else {
+                                                searchResult.error = SearchResult.ERRORNO.NO_DATA_FOR_LATLNG;
+                                            }
+                                        } else {
+                                            searchResult.error = SearchResult.ERRORNO.INVALID_DISTRICT_ID;
+                                        }
+                                    } else {
+                                        searchResult.error = SearchResult.ERRORNO.PARAMER_ERROR;
+                                    }
+                                } else {
+                                    searchResult.error = SearchResult.ERRORNO.KEY_ERROR;
                                 }
-                            } else {
-                                errorno = SearchResult.ERRORNO.KEY_ERROR;
+                                return true;
                             }
-                            searchResult.error = errorno;
+                            searchResult.error = SearchResult.ERRORNO.NO_ADVANCED_PERMISSION;
                             return true;
                         }
                         return false;

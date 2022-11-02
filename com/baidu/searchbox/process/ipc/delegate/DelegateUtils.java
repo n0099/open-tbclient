@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.agent.provider.MainProcessDelegateProvider;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.xx9;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tieba.gz9;
+import com.baidu.tieba.mz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +101,7 @@ public final class DelegateUtils implements DelegateDef {
         }
     }
 
-    public static void callOnMainWithActivity(Activity activity, Class cls, Class cls2, Bundle bundle, DelegateListener delegateListener) {
+    public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, activity, cls, cls2, bundle, delegateListener) == null) {
             if (cls2 == null) {
@@ -170,14 +175,15 @@ public final class DelegateUtils implements DelegateDef {
         }
     }
 
-    public static void callOnMainWithActivity(Activity activity, Class cls, Class cls2, DelegateListener delegateListener) {
+    public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @NonNull DelegateListener delegateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, cls, cls2, delegateListener) == null) {
             callOnMainWithActivity(activity, cls, cls2, null, delegateListener);
         }
     }
 
-    public static DelegateResult callOnMainWithContentProvider(Context context, Class cls, Bundle bundle) {
+    @NonNull
+    public static DelegateResult callOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, cls, bundle)) == null) {
@@ -199,18 +205,19 @@ public final class DelegateUtils implements DelegateDef {
         return (DelegateResult) invokeLLL.objValue;
     }
 
-    public static void callOnMainWithContentProviderASync(Class cls, Bundle bundle, DelegateListener delegateListener) {
+    public static void callOnMainWithContentProviderASync(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, cls, bundle, delegateListener) == null) {
             notifyResult(delegateListener, new DelegateResult(1, cls, bundle).addDesc("agent is not implement"));
         }
     }
 
-    public static xx9 safeCallOnMainWithContentProvider(Context context, Class cls, Bundle bundle) {
+    @NonNull
+    public static gz9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) {
-            return xx9.a(new xx9.a(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+            return gz9.a(new gz9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context val$context;
@@ -238,16 +245,16 @@ public final class DelegateUtils implements DelegateDef {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
-                public void call(dy9 dy9Var) {
+                @Override // com.baidu.tieba.gz9.a, com.baidu.tieba.uz9
+                public void call(mz9<? super DelegateResult> mz9Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dy9Var) == null) {
-                        dy9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
-                        dy9Var.onCompleted();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, mz9Var) == null) {
+                        mz9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
+                        mz9Var.onCompleted();
                     }
                 }
             });
         }
-        return (xx9) invokeLLL.objValue;
+        return (gz9) invokeLLL.objValue;
     }
 }

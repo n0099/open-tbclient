@@ -30,7 +30,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMDelFansGroupMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mBuids;
+    public ArrayList<String> mBuids;
     public String mGroupId;
     public String mKey;
 
@@ -103,9 +103,9 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
                         if (delGroupMember > 0) {
                             ArrayList arrayList2 = new ArrayList();
                             arrayList2.add(this.this$0.mGroupId);
-                            ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(this.this$0.mContext, arrayList2);
+                            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(this.this$0.mContext, arrayList2);
                             if (groupInfo != null && groupInfo.size() > 0) {
-                                GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, ((GroupInfo) groupInfo.get(0)).getNum() - delGroupMember);
+                                GroupInfoDAOImpl.modifyGroupMemberNumber(this.this$0.mContext, this.this$0.mGroupId, groupInfo.get(0).getNum() - delGroupMember);
                             }
                         }
                     }
@@ -123,7 +123,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList arrayList, String str2) {
+    public IMDelFansGroupMemberRequest(Context context, String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,9 +154,9 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
             sb.append("&group_id=");
             sb.append(this.mGroupId);
             JSONArray jSONArray = new JSONArray();
-            Iterator it = this.mBuids.iterator();
+            Iterator<String> it = this.mBuids.iterator();
             while (it.hasNext()) {
-                jSONArray.put(Utility.transBDUID((String) it.next()));
+                jSONArray.put(Utility.transBDUID(it.next()));
             }
             sb.append("&members=");
             sb.append(jSONArray.toString());
@@ -170,7 +170,7 @@ public class IMDelFansGroupMemberRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);

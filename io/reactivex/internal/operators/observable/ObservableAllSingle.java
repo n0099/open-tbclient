@@ -18,22 +18,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableAllSingle extends Single implements FuseToObservable {
+public final class ObservableAllSingle<T> extends Single<Boolean> implements FuseToObservable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
-    public final ObservableSource source;
+    public final Predicate<? super T> predicate;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class AllObserver implements Observer, Disposable {
+    public static final class AllObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super Boolean> actual;
         public boolean done;
-        public final Predicate predicate;
+        public final Predicate<? super T> predicate;
         public Disposable s;
 
-        public AllObserver(SingleObserver singleObserver, Predicate predicate) {
+        public AllObserver(SingleObserver<? super Boolean> singleObserver, Predicate<? super T> predicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,13 +103,13 @@ public final class ObservableAllSingle extends Single implements FuseToObservabl
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
             try {
-                if (!this.predicate.test(obj)) {
+                if (!this.predicate.test(t)) {
                     this.done = true;
                     this.s.dispose();
                     this.actual.onSuccess(Boolean.FALSE);
@@ -122,7 +122,7 @@ public final class ObservableAllSingle extends Single implements FuseToObservabl
         }
     }
 
-    public ObservableAllSingle(ObservableSource observableSource, Predicate predicate) {
+    public ObservableAllSingle(ObservableSource<T> observableSource, Predicate<? super T> predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public final class ObservableAllSingle extends Single implements FuseToObservabl
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable fuseToObservable() {
+    public Observable<Boolean> fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -152,7 +152,7 @@ public final class ObservableAllSingle extends Single implements FuseToObservabl
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super Boolean> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             this.source.subscribe(new AllObserver(singleObserver, this.predicate));

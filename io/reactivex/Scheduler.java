@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -25,6 +26,7 @@ public abstract class Scheduler {
     public static final long CLOCK_DRIFT_TOLERANCE_NANOSECONDS;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @NonNull
     public abstract Worker createWorker();
 
     public void shutdown() {
@@ -40,25 +42,28 @@ public abstract class Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class Worker implements Disposable {
+    public static abstract class Worker implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit);
+        @NonNull
+        public abstract Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit);
 
         /* loaded from: classes8.dex */
         public final class PeriodicTask implements Runnable, SchedulerRunnableIntrospection {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long count;
+            @NonNull
             public final Runnable decoratedRun;
             public long lastNowNanoseconds;
             public final long periodInNanoseconds;
+            @NonNull
             public final SequentialDisposable sd;
             public long startInNanoseconds;
             public final /* synthetic */ Worker this$0;
 
-            public PeriodicTask(Worker worker, long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
+            public PeriodicTask(Worker worker, @NonNull long j, Runnable runnable, @NonNull long j2, SequentialDisposable sequentialDisposable, long j3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +144,7 @@ public abstract class Scheduler {
             }
         }
 
-        public long now(TimeUnit timeUnit) {
+        public long now(@NonNull TimeUnit timeUnit) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, timeUnit)) == null) {
@@ -148,7 +153,8 @@ public abstract class Scheduler {
             return invokeL.longValue;
         }
 
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
@@ -157,7 +163,8 @@ public abstract class Scheduler {
             return (Disposable) invokeL.objValue;
         }
 
-        public Disposable schedulePeriodically(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedulePeriodically(@NonNull Runnable runnable, long j, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
@@ -178,7 +185,7 @@ public abstract class Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class DisposeTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
+    public static final class DisposeTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Runnable decoratedRun;
@@ -255,14 +262,16 @@ public abstract class Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public class PeriodicDirectTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
+    public static class PeriodicDirectTask implements Disposable, Runnable, SchedulerRunnableIntrospection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public volatile boolean disposed;
         public final Runnable run;
+        @NonNull
         public final Worker worker;
 
-        public PeriodicDirectTask(Runnable runnable, Worker worker) {
+        public PeriodicDirectTask(@NonNull Runnable runnable, @NonNull Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -364,7 +373,7 @@ public abstract class Scheduler {
         return invokeV.longValue;
     }
 
-    public long now(TimeUnit timeUnit) {
+    public long now(@NonNull TimeUnit timeUnit) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, timeUnit)) == null) {
@@ -373,7 +382,8 @@ public abstract class Scheduler {
         return invokeL.longValue;
     }
 
-    public Disposable scheduleDirect(Runnable runnable) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
@@ -382,16 +392,18 @@ public abstract class Scheduler {
         return (Disposable) invokeL.objValue;
     }
 
-    public Scheduler when(Function function) {
+    @NonNull
+    public <S extends Scheduler & Disposable> S when(@NonNull Function<Flowable<Flowable<Completable>>, Completable> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, function)) == null) {
             return new SchedulerWhen(function, this);
         }
-        return (Scheduler) invokeL.objValue;
+        return (S) ((Scheduler) invokeL.objValue);
     }
 
-    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -403,7 +415,8 @@ public abstract class Scheduler {
         return (Disposable) invokeCommon.objValue;
     }
 
-    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {

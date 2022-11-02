@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.util;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -258,6 +260,7 @@ public final class Util {
         return (File) invokeLL.objValue;
     }
 
+    @TargetApi(16)
     public static void getDisplaySizeV16(Display display, Point point) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65562, null, display, point) == null) {
@@ -265,6 +268,7 @@ public final class Util {
         }
     }
 
+    @TargetApi(17)
     public static void getDisplaySizeV17(Display display, Point point) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, null, display, point) == null) {
@@ -272,6 +276,7 @@ public final class Util {
         }
     }
 
+    @TargetApi(23)
     public static void getDisplaySizeV23(Display display, Point point) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65564, null, display, point) == null) {
@@ -310,12 +315,12 @@ public final class Util {
         return invokeII.intValue;
     }
 
-    public static int binarySearchCeil(List list, Object obj, boolean z, boolean z2) {
+    public static <T> int binarySearchCeil(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, obj, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Collections.binarySearch(list, obj);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Collections.binarySearch(list, t);
             if (binarySearch < 0) {
                 i = ~binarySearch;
             } else {
@@ -325,7 +330,7 @@ public final class Util {
                     if (binarySearch >= size) {
                         break;
                     }
-                } while (((Comparable) list.get(binarySearch)).compareTo(obj) == 0);
+                } while (list.get(binarySearch).compareTo(t) == 0);
                 if (z) {
                     i = binarySearch - 1;
                 } else {
@@ -340,12 +345,12 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static int binarySearchFloor(List list, Object obj, boolean z, boolean z2) {
+    public static <T> int binarySearchFloor(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, obj, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Collections.binarySearch(list, obj);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Collections.binarySearch(list, t);
             if (binarySearch < 0) {
                 i = -(binarySearch + 2);
             } else {
@@ -354,7 +359,7 @@ public final class Util {
                     if (binarySearch < 0) {
                         break;
                     }
-                } while (((Comparable) list.get(binarySearch)).compareTo(obj) == 0);
+                } while (list.get(binarySearch).compareTo(t) == 0);
                 if (z) {
                     i = binarySearch + 1;
                 } else {
@@ -577,7 +582,7 @@ public final class Util {
                 }
 
                 @Override // java.util.concurrent.ThreadFactory
-                public Thread newThread(Runnable runnable) {
+                public Thread newThread(@NonNull Runnable runnable) {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, runnable)) == null) {
@@ -621,14 +626,14 @@ public final class Util {
         }
     }
 
-    public static void sneakyThrowInternal(Throwable th) throws Throwable {
+    public static <T extends Throwable> void sneakyThrowInternal(Throwable th) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65590, null, th) == null) {
             throw th;
         }
     }
 
-    public static int[] toArray(List list) {
+    public static int[] toArray(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, list)) == null) {
@@ -638,7 +643,7 @@ public final class Util {
             int size = list.size();
             int[] iArr = new int[size];
             for (int i = 0; i < size; i++) {
-                iArr[i] = ((Integer) list.get(i)).intValue();
+                iArr[i] = list.get(i).intValue();
             }
             return iArr;
         }
@@ -901,7 +906,7 @@ public final class Util {
         return (String) invokeCommon.objValue;
     }
 
-    public static long[] scaleLargeTimestamps(List list, long j, long j2) {
+    public static long[] scaleLargeTimestamps(List<Long> list, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
@@ -912,19 +917,19 @@ public final class Util {
             if (i2 >= 0 && j2 % j == 0) {
                 long j3 = j2 / j;
                 while (i < size) {
-                    jArr[i] = ((Long) list.get(i)).longValue() / j3;
+                    jArr[i] = list.get(i).longValue() / j3;
                     i++;
                 }
             } else if (i2 < 0 && j % j2 == 0) {
                 long j4 = j / j2;
                 while (i < size) {
-                    jArr[i] = ((Long) list.get(i)).longValue() * j4;
+                    jArr[i] = list.get(i).longValue() * j4;
                     i++;
                 }
             } else {
                 double d = j / j2;
                 while (i < size) {
-                    jArr[i] = (long) (((Long) list.get(i)).longValue() * d);
+                    jArr[i] = (long) (list.get(i).longValue() * d);
                     i++;
                 }
             }
@@ -975,6 +980,7 @@ public final class Util {
         return (String) invokeLL.objValue;
     }
 
+    @TargetApi(23)
     public static boolean maybeRequestReadExternalStoragePermission(Activity activity, Uri... uriArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

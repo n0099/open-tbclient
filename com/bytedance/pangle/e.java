@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.ContextThemeWrapper;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,6 +96,7 @@ public class e extends ContextThemeWrapper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 23)
     public e(Context context, Resources.Theme theme) {
         super(context, theme);
         Interceptable interceptable = $ic;

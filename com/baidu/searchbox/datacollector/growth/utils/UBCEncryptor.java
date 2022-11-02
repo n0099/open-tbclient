@@ -37,7 +37,7 @@ public class UBCEncryptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class MixedEncryptedResult {
+    public static class MixedEncryptedResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String encryptedAESKeys;

@@ -40,12 +40,12 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     public final Context mContext;
     @Nullable
     public String mCorruptedLib;
-    public final Map mLibsBeingLoaded;
+    public final Map<String, Object> mLibsBeingLoaded;
 
     public abstract Unpacker makeUnpacker() throws IOException;
 
     /* loaded from: classes7.dex */
-    public class Dso {
+    public static class Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String hash;
@@ -72,7 +72,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class DsoManifest {
+    public static final class DsoManifest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Dso[] dsos;
@@ -136,7 +136,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class InputDso implements Closeable {
+    public static final class InputDso implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final InputStream content;
@@ -171,7 +171,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public abstract class InputDsoIterator implements Closeable {
+    public static abstract class InputDsoIterator implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +202,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     /* loaded from: classes7.dex */
-    public abstract class Unpacker implements Closeable {
+    public static abstract class Unpacker implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

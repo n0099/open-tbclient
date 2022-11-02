@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmojionUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList emojionlist;
+    public static ArrayList<Integer> emojionlist;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +28,7 @@ public class EmojionUtils {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         emojionlist = arrayList;
         arrayList.add(128515);
         emojionlist.add(128522);

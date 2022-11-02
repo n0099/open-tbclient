@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import org.json.JSONArray;
@@ -26,7 +25,7 @@ public class SdkConfigOptions {
     public LivenessConfigOption livenessConfigOption;
 
     /* loaded from: classes2.dex */
-    public class LivenessConfigOption {
+    public static class LivenessConfigOption {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String A = "recog_upload_portrait_count";
         public static final String B = "white_bg_illum_thr";
@@ -67,7 +66,7 @@ public class SdkConfigOptions {
         public static final String z = "recog_time_interval";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public List action;
+        public List<Integer> action;
         public String b;
         public String c;
         public String d;
@@ -76,7 +75,7 @@ public class SdkConfigOptions {
         public String g;
         public String h;
         public String i;
-        public List illumList;
+        public List<Integer> illumList;
         public String j;
         public String k;
         public boolean mCloseFace;
@@ -116,7 +115,7 @@ public class SdkConfigOptions {
             this.action = new ArrayList();
         }
 
-        public static void a(JSONArray jSONArray, List list) {
+        public static void a(JSONArray jSONArray, List<Integer> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(65537, null, jSONArray, list) == null) && jSONArray != null) {
                 int length = jSONArray.length();
@@ -128,13 +127,12 @@ public class SdkConfigOptions {
             }
         }
 
-        public static void a(JSONObject jSONObject, String str, List list) throws JSONException {
+        public static void a(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65538, null, jSONObject, str, list) == null) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    jSONArray.put(((Integer) it.next()).intValue());
+                for (Integer num : list) {
+                    jSONArray.put(num.intValue());
                 }
                 jSONObject.put(str, jSONArray);
             }
@@ -174,12 +172,12 @@ public class SdkConfigOptions {
             return (LivenessConfigOption) invokeL.objValue;
         }
 
-        public List getABtestIllumList() {
+        public List<Integer> getABtestIllumList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List asList = Arrays.asList(6, 8, 10);
-                List list = this.illumList;
+                List<Integer> asList = Arrays.asList(6, 8, 10);
+                List<Integer> list = this.illumList;
                 if (list != null && !list.isEmpty()) {
                     return this.illumList;
                 }

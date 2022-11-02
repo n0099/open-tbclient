@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import android.annotation.SuppressLint;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +8,9 @@ import android.os.Parcelable;
 import android.util.Size;
 import android.util.SizeF;
 import android.util.SparseArray;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.savedstate.SavedStateRegistry;
 import com.baidu.android.imsdk.internal.Constants;
@@ -198,6 +202,7 @@ public final class SavedStateHandle {
             }
 
             @Override // androidx.savedstate.SavedStateRegistry.SavedStateProvider
+            @NonNull
             public Bundle saveState() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -220,7 +225,7 @@ public final class SavedStateHandle {
         this.mRegular = new HashMap();
     }
 
-    public SavedStateHandle(Map<String, Object> map) {
+    public SavedStateHandle(@NonNull Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,6 +265,7 @@ public final class SavedStateHandle {
             }
 
             @Override // androidx.savedstate.SavedStateRegistry.SavedStateProvider
+            @NonNull
             public Bundle saveState() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -295,7 +301,7 @@ public final class SavedStateHandle {
         throw new IllegalArgumentException("Can't put value with type " + obj.getClass() + " into saved state");
     }
 
-    public static SavedStateHandle createHandle(Bundle bundle, Bundle bundle2) {
+    public static SavedStateHandle createHandle(@Nullable Bundle bundle, @Nullable Bundle bundle2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bundle, bundle2)) == null) {
@@ -324,7 +330,8 @@ public final class SavedStateHandle {
         return (SavedStateHandle) invokeLL.objValue;
     }
 
-    private <T> MutableLiveData<T> getLiveDataInternal(String str, boolean z, T t) {
+    @NonNull
+    private <T> MutableLiveData<T> getLiveDataInternal(@NonNull String str, boolean z, @Nullable T t) {
         InterceptResult invokeCommon;
         SavingStateLiveData<?> savingStateLiveData;
         Interceptable interceptable = $ic;
@@ -346,7 +353,8 @@ public final class SavedStateHandle {
         return (MutableLiveData) invokeCommon.objValue;
     }
 
-    public boolean contains(String str) {
+    @MainThread
+    public boolean contains(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -355,7 +363,9 @@ public final class SavedStateHandle {
         return invokeL.booleanValue;
     }
 
-    public <T> T get(String str) {
+    @Nullable
+    @MainThread
+    public <T> T get(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -364,7 +374,9 @@ public final class SavedStateHandle {
         return (T) invokeL.objValue;
     }
 
-    public <T> MutableLiveData<T> getLiveData(String str) {
+    @NonNull
+    @MainThread
+    public <T> MutableLiveData<T> getLiveData(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -373,7 +385,9 @@ public final class SavedStateHandle {
         return (MutableLiveData) invokeL.objValue;
     }
 
-    public <T> T remove(String str) {
+    @Nullable
+    @MainThread
+    public <T> T remove(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -387,7 +401,9 @@ public final class SavedStateHandle {
         return (T) invokeL.objValue;
     }
 
-    public <T> MutableLiveData<T> getLiveData(String str, T t) {
+    @NonNull
+    @MainThread
+    public <T> MutableLiveData<T> getLiveData(@NonNull String str, @SuppressLint({"UnknownNullness"}) T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, t)) == null) {
@@ -396,7 +412,8 @@ public final class SavedStateHandle {
         return (MutableLiveData) invokeLL.objValue;
     }
 
-    public <T> void set(String str, T t) {
+    @MainThread
+    public <T> void set(@NonNull String str, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, t) == null) {
             validateValue(t);
@@ -409,6 +426,8 @@ public final class SavedStateHandle {
         }
     }
 
+    @NonNull
+    @MainThread
     public Set<String> keys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -418,6 +437,7 @@ public final class SavedStateHandle {
         return (Set) invokeV.objValue;
     }
 
+    @NonNull
     public SavedStateRegistry.SavedStateProvider savedStateProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -3,6 +3,8 @@ package com.baidu.searchbox.logsystem.basic.upload;
 import android.text.TextUtils;
 import android.util.JsonWriter;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -61,7 +63,7 @@ public final class ContentUtil {
         }
     }
 
-    public static void createAperfInfo(LogObject logObject, String str, JsonWriter jsonWriter) {
+    public static void createAperfInfo(@NonNull LogObject logObject, @NonNull String str, @NonNull JsonWriter jsonWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, logObject, str, jsonWriter) == null) {
             try {
@@ -156,10 +158,11 @@ public final class ContentUtil {
 
     /* JADX WARN: Removed duplicated region for block: B:67:0x018e A[Catch: IOException -> 0x01b8, TryCatch #1 {IOException -> 0x01b8, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0033, B:13:0x005b, B:14:0x0066, B:17:0x007b, B:19:0x0081, B:21:0x0098, B:24:0x00a0, B:26:0x00a6, B:27:0x00ad, B:29:0x00b3, B:31:0x00bb, B:33:0x00c9, B:34:0x00cb, B:35:0x00ce, B:37:0x00dc, B:41:0x00e4, B:43:0x00e9, B:44:0x00ec, B:46:0x0122, B:47:0x0137, B:48:0x0142, B:49:0x014a, B:51:0x0150, B:53:0x015c, B:55:0x0162, B:65:0x0185, B:67:0x018e, B:68:0x0195, B:70:0x019b, B:61:0x0175, B:63:0x0179, B:71:0x01a2, B:20:0x0091), top: B:83:0x0008 }] */
     /* JADX WARN: Removed duplicated region for block: B:70:0x019b A[Catch: IOException -> 0x01b8, TryCatch #1 {IOException -> 0x01b8, blocks: (B:5:0x0008, B:7:0x000e, B:11:0x0033, B:13:0x005b, B:14:0x0066, B:17:0x007b, B:19:0x0081, B:21:0x0098, B:24:0x00a0, B:26:0x00a6, B:27:0x00ad, B:29:0x00b3, B:31:0x00bb, B:33:0x00c9, B:34:0x00cb, B:35:0x00ce, B:37:0x00dc, B:41:0x00e4, B:43:0x00e9, B:44:0x00ec, B:46:0x0122, B:47:0x0137, B:48:0x0142, B:49:0x014a, B:51:0x0150, B:53:0x015c, B:55:0x0162, B:65:0x0185, B:67:0x018e, B:68:0x0195, B:70:0x019b, B:61:0x0175, B:63:0x0179, B:71:0x01a2, B:20:0x0091), top: B:83:0x0008 }] */
+    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void createCrashInfo(LogObject logObject, List list, JsonWriter jsonWriter) {
+    public static void createCrashInfo(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull JsonWriter jsonWriter) {
         String str;
         String str2;
         String str3;
@@ -195,11 +198,9 @@ public final class ContentUtil {
                     }
                     if (logObject.mLogType == LogType.NATIVE_CRASH && list != null && list.size() > 0) {
                         int i = 0;
-                        Iterator it = list.iterator();
                         File file = null;
                         File file2 = null;
-                        while (it.hasNext()) {
-                            LogFile logFile = (LogFile) it.next();
+                        for (LogFile logFile : list) {
                             if (logFile != null) {
                                 if (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.MIND_BDMP_PREFIX)) {
                                     file = logFile.mFile;
@@ -289,7 +290,7 @@ public final class ContentUtil {
         }
     }
 
-    public static void createTraceUI(String str, JsonWriter jsonWriter) {
+    public static void createTraceUI(@NonNull String str, @NonNull JsonWriter jsonWriter) {
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, jsonWriter) == null) {
@@ -387,7 +388,7 @@ public final class ContentUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void gzipContent(File file, File file2) {
+    public static void gzipContent(@NonNull File file, @NonNull File file2) {
         File file3;
         GZIPOutputStream gZIPOutputStream;
         GZIPOutputStream gZIPOutputStream2;
@@ -572,7 +573,7 @@ public final class ContentUtil {
         }
     }
 
-    public static void createUBCContentInfo(LogObject logObject, List list, String str, File file) {
+    public static void createUBCContentInfo(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull String str, @NonNull File file) {
         JsonWriter jsonWriter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logObject, list, str, file) == null) {

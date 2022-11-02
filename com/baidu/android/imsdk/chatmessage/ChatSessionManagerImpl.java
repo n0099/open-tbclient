@@ -42,7 +42,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,8 +62,8 @@ public class ChatSessionManagerImpl {
     public static volatile ChatSessionManagerImpl mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Dispatcher.MsgListener dialogSyncListener;
-    public ArrayList mChatRecordChangeListener;
-    public List mDialogSyncListeners;
+    public ArrayList<IChatSessionChangeListener> mChatRecordChangeListener;
+    public List<IDialogSyncListener> mDialogSyncListeners;
     public ISyncDialogListener syncDialogListener;
 
     public ChatSessionManagerImpl() {
@@ -80,7 +80,7 @@ public class ChatSessionManagerImpl {
             }
         }
         this.mDialogSyncListeners = new LinkedList();
-        this.mChatRecordChangeListener = new ArrayList();
+        this.mChatRecordChangeListener = new ArrayList<>();
         this.syncDialogListener = new ISyncDialogListener(this) { // from class: com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +105,11 @@ public class ChatSessionManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.ISyncDialogListener
-            public void onSyncDialogResult(int i3, String str, long j, List list) {
+            public void onSyncDialogResult(int i3, String str, long j, List<DialogRecord> list) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), str, Long.valueOf(j), list}) == null) && i3 == 0 && list != null) {
                     LinkedList linkedList = new LinkedList();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        DialogRecord dialogRecord = (DialogRecord) it.next();
+                    for (DialogRecord dialogRecord : list) {
                         if (dialogRecord.getCategory() == 1) {
                             DialogRecord dialogRecord2 = DialogRecordDBManager.getInstance(ChatSessionManagerImpl.mContext).getDialogRecord(dialogRecord.getCategory(), dialogRecord.getContacter());
                             LogUtils.i(ChatSessionManagerImpl.TAG, " onSyncDialogResult " + dialogRecord.getContacter() + " mmd: " + dialogRecord2);
@@ -141,7 +139,7 @@ public class ChatSessionManagerImpl {
             public final /* synthetic */ ChatSessionManagerImpl this$0;
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i3, ArrayList arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
                 }
@@ -290,17 +288,17 @@ public class ChatSessionManagerImpl {
         });
     }
 
-    public ArrayList getAllClassType() {
+    public ArrayList<SessionClass> getAllClassType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList allClassType = ChatMessageDBManager.getInstance(mContext).getAllClassType();
+            ArrayList<SessionClass> allClassType = ChatMessageDBManager.getInstance(mContext).getAllClassType();
             if (allClassType != null && allClassType.size() > 0) {
-                Iterator it = allClassType.iterator();
+                Iterator<SessionClass> it = allClassType.iterator();
                 while (it.hasNext()) {
-                    SessionClass sessionClass = (SessionClass) it.next();
-                    sessionClass.setUnread(ChatMessageDBManager.getInstance(mContext).getNewMsgCountOfClass(sessionClass.getType()));
-                    LogUtils.d(TAG, " class session is " + sessionClass.getType() + " " + sessionClass.getTitle() + " " + sessionClass.getUnread());
+                    SessionClass next = it.next();
+                    next.setUnread(ChatMessageDBManager.getInstance(mContext).getNewMsgCountOfClass(next.getType()));
+                    LogUtils.d(TAG, " class session is " + next.getType() + " " + next.getTitle() + " " + next.getUnread());
                 }
             }
             return allClassType;
@@ -326,7 +324,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                c80.g(mContext).f(mContext, creatMethodIntent);
+                b80.g(mContext).f(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -334,7 +332,7 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public List getGroupSession() {
+    public List<ChatSession> getGroupSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -359,34 +357,34 @@ public class ChatSessionManagerImpl {
     public void onSyncComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            Iterator it = this.mChatRecordChangeListener.iterator();
+            Iterator<IChatSessionChangeListener> it = this.mChatRecordChangeListener.iterator();
             while (it.hasNext()) {
-                IChatSessionChangeListener iChatSessionChangeListener = (IChatSessionChangeListener) it.next();
-                if (iChatSessionChangeListener == null) {
+                IChatSessionChangeListener next = it.next();
+                if (next == null) {
                     it.remove();
                 } else {
-                    iChatSessionChangeListener.onChatSessionUpdate(null, false);
+                    next.onChatSessionUpdate(null, false);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void doSessionChangeListenerNotify(int i, ChatSession chatSession, ArrayList arrayList) {
+    public void doSessionChangeListenerNotify(int i, ChatSession chatSession, ArrayList<IChatSessionChangeListener> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, chatSession, arrayList) == null) {
-            Iterator it = arrayList.iterator();
+            Iterator<IChatSessionChangeListener> it = arrayList.iterator();
             while (it.hasNext()) {
-                IChatSessionChangeListener iChatSessionChangeListener = (IChatSessionChangeListener) it.next();
-                if (iChatSessionChangeListener == null) {
+                IChatSessionChangeListener next = it.next();
+                if (next == null) {
                     it.remove();
                 } else {
                     boolean z = true;
                     if (IMConfigInternal.getInstance().getProductLine(mContext) != 4 || chatSession.getCategory() == 1) {
                         if (i == 2) {
-                            iChatSessionChangeListener.onChatRecordDelete(chatSession.getCategory(), chatSession.getContacter());
+                            next.onChatRecordDelete(chatSession.getCategory(), chatSession.getContacter());
                         } else if (i == 1) {
-                            LogUtils.d(TAG, "triggerChatSessionChange-> listener = " + iChatSessionChangeListener.getClass().getSimpleName());
+                            LogUtils.d(TAG, "triggerChatSessionChange-> listener = " + next.getClass().getSimpleName());
                             try {
                                 if (1 == chatSession.getCategory()) {
                                     int state = SyncGroupMessageService.getInstance().getState(mContext);
@@ -396,8 +394,8 @@ public class ChatSessionManagerImpl {
                                     long contacter = chatSession.getContacter();
                                     ArrayList arrayList2 = new ArrayList();
                                     arrayList2.add(String.valueOf(contacter));
-                                    ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList2);
-                                    if (groupInfo != null && groupInfo.size() > 0 && ((GroupInfo) groupInfo.get(0)).getType() == 2) {
+                                    ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList2);
+                                    if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2) {
                                         chatSession.setChatType(4);
                                     }
                                     LogUtils.d(TAG, "FXF triggerChatSessionChange " + state + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
@@ -406,13 +404,13 @@ public class ChatSessionManagerImpl {
                                     sb.append("FXF triggerChatSessionChange lastmsg is: ");
                                     sb.append(lastMsg);
                                     LogUtils.d(TAG, sb.toString());
-                                    iChatSessionChangeListener.onChatSessionUpdate(chatSession.m27clone(), z);
+                                    next.onChatSessionUpdate(chatSession.m27clone(), z);
                                 } else {
                                     int state2 = SyncAllMessage.getInstance(mContext).getState();
                                     if (state2 != 0) {
                                         z = false;
                                     }
-                                    iChatSessionChangeListener.onChatSessionUpdate(chatSession.m27clone(), z);
+                                    next.onChatSessionUpdate(chatSession.m27clone(), z);
                                     LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                                 }
                             } catch (CloneNotSupportedException e) {
@@ -551,10 +549,10 @@ public class ChatSessionManagerImpl {
             if (chatSession.getChatType() == 3 || chatSession.getChatType() == 4 || chatSession.getChatType() == 57) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(String.valueOf(chatSession.getContacter()));
-                ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+                ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
                 if (groupInfo != null && groupInfo.size() > 0) {
-                    LogUtils.d(TAG, "set session name as " + ((GroupInfo) groupInfo.get(0)).getGroupName());
-                    GroupInfo groupInfo2 = (GroupInfo) groupInfo.get(0);
+                    LogUtils.d(TAG, "set session name as " + groupInfo.get(0).getGroupName());
+                    GroupInfo groupInfo2 = groupInfo.get(0);
                     if (groupInfo2.getType() == 2) {
                         chatSession.setChatType(4);
                         if (TextUtils.isEmpty(chatSession.getName())) {
@@ -568,7 +566,7 @@ public class ChatSessionManagerImpl {
                     } else if (groupInfo2.getType() == 3) {
                         chatSession.setChatType(57);
                         if (chatSession.getNewMsgSum() > 0) {
-                            ArrayList fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(mContext, groupInfo2.getGroupId(), AccountManager.getUid(mContext));
+                            ArrayList<ChatMsg> fansGroupAtUnread = GroupMessageDAOImpl.getFansGroupAtUnread(mContext, groupInfo2.getGroupId(), AccountManager.getUid(mContext));
                             if (fansGroupAtUnread != null) {
                                 chatSession.setNewFansAtMsgSum(fansGroupAtUnread.size());
                                 return;
@@ -635,8 +633,8 @@ public class ChatSessionManagerImpl {
             if (i == 1) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(String.valueOf(j));
-                ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
-                if (groupInfo != null && groupInfo.size() > 0 && ((GroupInfo) groupInfo.get(0)).getType() == 2 && chatRecord != null) {
+                ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+                if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2 && chatRecord != null) {
                     chatRecord.setChatType(4);
                 }
             }
@@ -651,10 +649,10 @@ public class ChatSessionManagerImpl {
             long createChatSession = ChatMessageDBManager.getInstance(mContext).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j, i5, j2, str5, str6, str7);
             LogUtils.i(TAG, "createChatSession result : " + createChatSession + " chatType: " + i + "  name:" + str);
             if (createChatSession > 0) {
-                ArrayList fetchMessageSync = ChatMsgManagerImpl.getInstance(mContext).fetchMessageSync(chatObject.getCategory(), chatObject.getContacter(), 50, (ChatMsg) null);
+                ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(mContext).fetchMessageSync(chatObject.getCategory(), chatObject.getContacter(), 50, (ChatMsg) null);
                 if (fetchMessageSync != null && fetchMessageSync.size() != 0) {
                     for (int i6 = 0; i6 < fetchMessageSync.size(); i6++) {
-                        ((ChatMsg) fetchMessageSync.get(i6)).setChatType(i);
+                        fetchMessageSync.get(i6).setChatType(i);
                     }
                     ChatMsgManagerImpl.getInstance(mContext).broadcastMessage(fetchMessageSync, true);
                     return;
@@ -677,8 +675,8 @@ public class ChatSessionManagerImpl {
             if (i == 1) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(String.valueOf(j));
-                ArrayList groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
-                if (groupInfo != null && groupInfo.size() > 0 && ((GroupInfo) groupInfo.get(0)).getType() == 2 && chatRecord != null) {
+                ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+                if (groupInfo != null && groupInfo.size() > 0 && groupInfo.get(0).getType() == 2 && chatRecord != null) {
                     chatRecord.setChatType(4);
                 }
             }
@@ -687,7 +685,7 @@ public class ChatSessionManagerImpl {
         return (ChatSession) invokeCommon.objValue;
     }
 
-    public ArrayList getChatRecords(long j, long j2, List list) {
+    public ArrayList<ChatSession> getChatRecords(long j, long j2, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list})) == null) {
@@ -696,16 +694,16 @@ public class ChatSessionManagerImpl {
                 LogUtils.d(TAG, "getChatRecords CRM_ZHIDAID_NOT_SET");
                 return null;
             }
-            ArrayList chatRecords = ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, paid, list);
+            ArrayList<ChatSession> chatRecords = ChatMessageDBManager.getInstance(mContext).getChatRecords(j, j2, paid, list);
             if (chatRecords != null && chatRecords.size() > 0) {
                 LogUtils.d(TAG, "getChatRecords :" + chatRecords.size());
-                Iterator it = chatRecords.iterator();
+                Iterator<ChatSession> it = chatRecords.iterator();
                 while (it.hasNext()) {
-                    ChatSession chatSession = (ChatSession) it.next();
-                    updateGroupChatSession(chatSession);
-                    String lastMsg = chatSession.getLastMsg();
-                    updateUnsupportDesc(chatSession, lastMsg);
-                    updatePADesc(chatSession, lastMsg);
+                    ChatSession next = it.next();
+                    updateGroupChatSession(next);
+                    String lastMsg = next.getLastMsg();
+                    updateUnsupportDesc(next, lastMsg);
+                    updatePADesc(next, lastMsg);
                 }
             }
             return chatRecords;
@@ -777,7 +775,7 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public ArrayList getChatRecords(long j, long j2) {
+    public ArrayList<ChatSession> getChatRecords(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
@@ -827,7 +825,7 @@ public class ChatSessionManagerImpl {
         notifySessionChange(i, chatSession);
     }
 
-    public ArrayList getChatRecordsByClass(long j, long j2, List list) {
+    public ArrayList<ChatSession> getChatRecordsByClass(long j, long j2, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list})) == null) {
@@ -928,7 +926,7 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void onMediaGetChatSessionRequest(int i, boolean z, int i2, int i3, Map map, Map map2, Map map3, String str) {
+    public void onMediaGetChatSessionRequest(int i, boolean z, int i2, int i3, Map<Long, ChatSession> map, Map<Long, ChatSession> map2, Map<String, ChatSession> map3, String str) {
         IMediaGetChatSessionListener iMediaGetChatSessionListener;
         ArrayList arrayList;
         ArrayList arrayList2;
@@ -994,7 +992,7 @@ public class ChatSessionManagerImpl {
         }
     }
 
-    public void onSyncDialogResult(int i, String str, String str2, long j, List list) {
+    public void onSyncDialogResult(int i, String str, String str2, long j, List<DialogRecord> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), list}) == null) {
             IMListener removeListener = ListenerManager.getInstance().removeListener(str2);

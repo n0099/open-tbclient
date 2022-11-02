@@ -8,5 +8,5 @@ import kotlin.Metadata;
 public interface ILiveYuYinEntry {
     void startYuYinCreateLiveRoomActivity(Context context, String str);
 
-    void startYuYinLiveActivity(Context context, String str, String str2, Map map);
+    void startYuYinLiveActivity(Context context, String str, String str2, Map<String, ? extends Object> map);
 }

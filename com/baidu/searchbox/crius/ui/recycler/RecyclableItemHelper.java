@@ -1,6 +1,7 @@
 package com.baidu.searchbox.crius.ui.recycler;
 
 import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.searchbox.crius.parser.CriusData;
@@ -19,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class RecyclableItemHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List renderList;
+    public final List<CriusData> renderList;
 
     public RecyclableItemHelper() {
         Interceptable interceptable = $ic;
@@ -71,16 +72,16 @@ public final class RecyclableItemHelper {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return (CriusData) this.renderList.get(i);
+            return this.renderList.get(i);
         }
         return (CriusData) invokeI.objValue;
     }
 
-    public final CriusUI getItemUI(int i) {
+    public final CriusUI<View> getItemUI(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            CriusUI ui = ((CriusData) this.renderList.get(i)).getUI();
+            CriusUI<View> ui = this.renderList.get(i).getUI();
             Intrinsics.checkNotNullExpressionValue(ui, "renderList[viewType].ui");
             return ui;
         }

@@ -1,5 +1,6 @@
 package androidx.core.text;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.Layout;
 import android.text.PrecomputedText;
@@ -11,6 +12,13 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.MetricAffectingSpan;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.UiThread;
 import androidx.core.os.TraceCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
@@ -33,12 +41,18 @@ import java.util.concurrent.FutureTask;
 public class PrecomputedTextCompat implements Spannable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char LINE_FEED = '\n';
+    @NonNull
+    @GuardedBy("sLock")
     public static Executor sExecutor;
     public static final Object sLock;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final int[] mParagraphEnds;
+    @NonNull
     public final Params mParams;
+    @NonNull
     public final Spannable mText;
+    @Nullable
     public final PrecomputedText mWrapped;
 
     /* loaded from: classes.dex */
@@ -47,7 +61,9 @@ public class PrecomputedTextCompat implements Spannable {
         public transient /* synthetic */ FieldHolder $fh;
         public final int mBreakStrategy;
         public final int mHyphenationFrequency;
+        @NonNull
         public final TextPaint mPaint;
+        @Nullable
         public final TextDirectionHeuristic mTextDir;
         public final PrecomputedText.Params mWrapped;
 
@@ -57,10 +73,11 @@ public class PrecomputedTextCompat implements Spannable {
             public transient /* synthetic */ FieldHolder $fh;
             public int mBreakStrategy;
             public int mHyphenationFrequency;
+            @NonNull
             public final TextPaint mPaint;
             public TextDirectionHeuristic mTextDir;
 
-            public Builder(TextPaint textPaint) {
+            public Builder(@NonNull TextPaint textPaint) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,6 +107,7 @@ public class PrecomputedTextCompat implements Spannable {
                 }
             }
 
+            @NonNull
             public Params build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -99,6 +117,7 @@ public class PrecomputedTextCompat implements Spannable {
                 return (Params) invokeV.objValue;
             }
 
+            @RequiresApi(23)
             public Builder setBreakStrategy(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
@@ -109,6 +128,7 @@ public class PrecomputedTextCompat implements Spannable {
                 return (Builder) invokeI.objValue;
             }
 
+            @RequiresApi(23)
             public Builder setHyphenationFrequency(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
@@ -119,7 +139,8 @@ public class PrecomputedTextCompat implements Spannable {
                 return (Builder) invokeI.objValue;
             }
 
-            public Builder setTextDirection(TextDirectionHeuristic textDirectionHeuristic) {
+            @RequiresApi(18)
+            public Builder setTextDirection(@NonNull TextDirectionHeuristic textDirectionHeuristic) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, textDirectionHeuristic)) == null) {
@@ -130,7 +151,8 @@ public class PrecomputedTextCompat implements Spannable {
             }
         }
 
-        public Params(PrecomputedText.Params params) {
+        @RequiresApi(28)
+        public Params(@NonNull PrecomputedText.Params params) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +174,8 @@ public class PrecomputedTextCompat implements Spannable {
             this.mWrapped = Build.VERSION.SDK_INT < 29 ? null : params;
         }
 
-        public Params(TextPaint textPaint, TextDirectionHeuristic textDirectionHeuristic, int i, int i2) {
+        @SuppressLint({"NewApi"})
+        public Params(@NonNull TextPaint textPaint, @NonNull TextDirectionHeuristic textDirectionHeuristic, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +201,7 @@ public class PrecomputedTextCompat implements Spannable {
             this.mHyphenationFrequency = i2;
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -200,7 +223,8 @@ public class PrecomputedTextCompat implements Spannable {
             return invokeL.booleanValue;
         }
 
-        public boolean equalsWithoutTextDirection(Params params) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public boolean equalsWithoutTextDirection(@NonNull Params params) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params)) == null) {
@@ -232,6 +256,7 @@ public class PrecomputedTextCompat implements Spannable {
             return invokeL.booleanValue;
         }
 
+        @RequiresApi(23)
         public int getBreakStrategy() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -241,6 +266,7 @@ public class PrecomputedTextCompat implements Spannable {
             return invokeV.intValue;
         }
 
+        @RequiresApi(23)
         public int getHyphenationFrequency() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -250,6 +276,8 @@ public class PrecomputedTextCompat implements Spannable {
             return invokeV.intValue;
         }
 
+        @Nullable
+        @RequiresApi(18)
         public TextDirectionHeuristic getTextDirection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -259,6 +287,7 @@ public class PrecomputedTextCompat implements Spannable {
             return (TextDirectionHeuristic) invokeV.objValue;
         }
 
+        @NonNull
         public TextPaint getTextPaint() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -334,7 +363,7 @@ public class PrecomputedTextCompat implements Spannable {
             public Params mParams;
             public CharSequence mText;
 
-            public PrecomputedTextCallback(Params params, CharSequence charSequence) {
+            public PrecomputedTextCallback(@NonNull Params params, @NonNull CharSequence charSequence) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -367,7 +396,7 @@ public class PrecomputedTextCompat implements Spannable {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PrecomputedTextFutureTask(Params params, CharSequence charSequence) {
+        public PrecomputedTextFutureTask(@NonNull Params params, @NonNull CharSequence charSequence) {
             super(new PrecomputedTextCallback(params, charSequence));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -403,6 +432,8 @@ public class PrecomputedTextCompat implements Spannable {
         sLock = new Object();
     }
 
+    @IntRange(from = 0)
+    @SuppressLint({"NewApi"})
     public int getParagraphCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,6 +446,7 @@ public class PrecomputedTextCompat implements Spannable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Params getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -424,6 +456,9 @@ public class PrecomputedTextCompat implements Spannable {
         return (Params) invokeV.objValue;
     }
 
+    @Nullable
+    @RequiresApi(28)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PrecomputedText getPrecomputedText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -448,6 +483,7 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // java.lang.CharSequence
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -457,7 +493,8 @@ public class PrecomputedTextCompat implements Spannable {
         return (String) invokeV.objValue;
     }
 
-    public PrecomputedTextCompat(PrecomputedText precomputedText, Params params) {
+    @RequiresApi(28)
+    public PrecomputedTextCompat(@NonNull PrecomputedText precomputedText, @NonNull Params params) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -478,7 +515,7 @@ public class PrecomputedTextCompat implements Spannable {
         this.mWrapped = Build.VERSION.SDK_INT < 29 ? null : precomputedText;
     }
 
-    public PrecomputedTextCompat(CharSequence charSequence, Params params, int[] iArr) {
+    public PrecomputedTextCompat(@NonNull CharSequence charSequence, @NonNull Params params, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -499,7 +536,8 @@ public class PrecomputedTextCompat implements Spannable {
         this.mWrapped = null;
     }
 
-    public static Future<PrecomputedTextCompat> getTextFuture(CharSequence charSequence, Params params, Executor executor) {
+    @UiThread
+    public static Future<PrecomputedTextCompat> getTextFuture(@NonNull CharSequence charSequence, @NonNull Params params, @Nullable Executor executor) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence, params, executor)) == null) {
@@ -518,7 +556,8 @@ public class PrecomputedTextCompat implements Spannable {
         return (Future) invokeLLL.objValue;
     }
 
-    public static PrecomputedTextCompat create(CharSequence charSequence, Params params) {
+    @SuppressLint({"NewApi"})
+    public static PrecomputedTextCompat create(@NonNull CharSequence charSequence, @NonNull Params params) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, charSequence, params)) == null) {
@@ -568,7 +607,9 @@ public class PrecomputedTextCompat implements Spannable {
         return invokeI.charValue;
     }
 
-    public int getParagraphEnd(int i) {
+    @IntRange(from = 0)
+    @SuppressLint({"NewApi"})
+    public int getParagraphEnd(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -581,7 +622,9 @@ public class PrecomputedTextCompat implements Spannable {
         return invokeI.intValue;
     }
 
-    public int getParagraphStart(int i) {
+    @IntRange(from = 0)
+    @SuppressLint({"NewApi"})
+    public int getParagraphStart(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -628,6 +671,7 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // android.text.Spannable
+    @SuppressLint({"NewApi"})
     public void removeSpan(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
@@ -645,6 +689,7 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // android.text.Spanned
+    @SuppressLint({"NewApi"})
     public <T> T[] getSpans(int i, int i2, Class<T> cls) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
@@ -668,6 +713,7 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // android.text.Spannable
+    @SuppressLint({"NewApi"})
     public void setSpan(Object obj, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048589, this, obj, i, i2, i3) == null) {

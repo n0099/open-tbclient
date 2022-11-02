@@ -47,14 +47,14 @@ public class f3 extends b1 implements t2 {
     public SensorEventListener K;
     public SensorEventListener L;
     public SensorEventListener M;
-    public final ArrayList N;
+    public final ArrayList<View.OnGenericMotionListener> N;
     public final v2 O;
     public boolean P;
-    public a8 f;
-    public a8 g;
-    public ArrayList h;
-    public ArrayList i;
-    public ArrayList j;
+    public a8<d> f;
+    public a8<f> g;
+    public ArrayList<View.OnKeyListener> h;
+    public ArrayList<d> i;
+    public ArrayList<f> j;
     public int[] k;
     public int[] l;
     public int[] m;
@@ -80,7 +80,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends a8 {
+    public class a extends a8<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends a8 {
+    public class b extends a8<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,7 +158,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -312,7 +312,7 @@ public class f3 extends b1 implements t2 {
     }
 
     /* loaded from: classes4.dex */
-    public class f {
+    public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -356,9 +356,9 @@ public class f3 extends b1 implements t2 {
         }
         this.f = new a(this, 16, 1000);
         this.g = new b(this, 16, 1000);
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new ArrayList();
+        this.h = new ArrayList<>();
+        this.i = new ArrayList<>();
+        this.j = new ArrayList<>();
         this.k = new int[20];
         this.l = new int[20];
         this.m = new int[20];
@@ -378,7 +378,7 @@ public class f3 extends b1 implements t2 {
         this.D = new float[3];
         this.E = new float[3];
         this.F = false;
-        this.N = new ArrayList();
+        this.N = new ArrayList<>();
         this.P = true;
         if (obj instanceof View) {
             View view2 = (View) obj;
@@ -499,7 +499,7 @@ public class f3 extends b1 implements t2 {
                     g1 g1Var = this.G;
                     int size = this.i.size();
                     for (int i3 = 0; i3 < size; i3++) {
-                        d dVar = (d) this.i.get(i3);
+                        d dVar = this.i.get(i3);
                         long j = dVar.a;
                         int i4 = dVar.b;
                         if (i4 != 0) {
@@ -519,7 +519,7 @@ public class f3 extends b1 implements t2 {
                     }
                     int size2 = this.j.size();
                     for (int i5 = 0; i5 < size2; i5++) {
-                        f fVar = (f) this.j.get(i5);
+                        f fVar = this.j.get(i5);
                         long j2 = fVar.a;
                         int i6 = fVar.b;
                         if (i6 != 0) {
@@ -548,7 +548,7 @@ public class f3 extends b1 implements t2 {
                 } else {
                     int size3 = this.j.size();
                     for (int i7 = 0; i7 < size3; i7++) {
-                        f fVar2 = (f) this.j.get(i7);
+                        f fVar2 = this.j.get(i7);
                         if (fVar2.b == 0) {
                             this.F = true;
                         }
@@ -786,7 +786,7 @@ public class f3 extends b1 implements t2 {
             }
             int size = this.N.size();
             for (int i = 0; i < size; i++) {
-                if (((View.OnGenericMotionListener) this.N.get(i)).onGenericMotion(view2, motionEvent)) {
+                if (this.N.get(i).onGenericMotion(view2, motionEvent)) {
                     return true;
                 }
             }
@@ -802,7 +802,7 @@ public class f3 extends b1 implements t2 {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, view2, i, keyEvent)) == null) {
             int size = this.h.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (((View.OnKeyListener) this.h.get(i2)).onKey(view2, i, keyEvent)) {
+                if (this.h.get(i2).onKey(view2, i, keyEvent)) {
                     return true;
                 }
             }
@@ -813,12 +813,12 @@ public class f3 extends b1 implements t2 {
                 if (keyEvent.getKeyCode() == 0 && keyEvent.getAction() == 2) {
                     String characters = keyEvent.getCharacters();
                     for (int i3 = 0; i3 < characters.length(); i3++) {
-                        d dVar = (d) this.f.e();
-                        dVar.a = System.nanoTime();
-                        dVar.c = 0;
-                        dVar.d = characters.charAt(i3);
-                        dVar.b = 2;
-                        this.i.add(dVar);
+                        d e2 = this.f.e();
+                        e2.a = System.nanoTime();
+                        e2.c = 0;
+                        e2.d = characters.charAt(i3);
+                        e2.b = 2;
+                        this.i.add(e2);
                     }
                     return false;
                 }
@@ -831,22 +831,22 @@ public class f3 extends b1 implements t2 {
                     if (action != 0) {
                         if (action == 1) {
                             long nanoTime = System.nanoTime();
-                            d dVar2 = (d) this.f.e();
-                            dVar2.a = nanoTime;
-                            dVar2.d = (char) 0;
-                            dVar2.c = keyEvent.getKeyCode();
-                            dVar2.b = 1;
+                            d e3 = this.f.e();
+                            e3.a = nanoTime;
+                            e3.d = (char) 0;
+                            e3.c = keyEvent.getKeyCode();
+                            e3.b = 1;
                             if (i == 4 && keyEvent.isAltPressed()) {
-                                dVar2.c = 255;
+                                e3.c = 255;
                                 i = 255;
                             }
-                            this.i.add(dVar2);
-                            d dVar3 = (d) this.f.e();
-                            dVar3.a = nanoTime;
-                            dVar3.d = unicodeChar;
-                            dVar3.c = 0;
-                            dVar3.b = 2;
-                            this.i.add(dVar3);
+                            this.i.add(e3);
+                            d e4 = this.f.e();
+                            e4.a = nanoTime;
+                            e4.d = unicodeChar;
+                            e4.c = 0;
+                            e4.b = 2;
+                            this.i.add(e4);
                             if (i == 255) {
                                 if (this.a[255]) {
                                     this.d--;
@@ -858,19 +858,19 @@ public class f3 extends b1 implements t2 {
                             }
                         }
                     } else {
-                        d dVar4 = (d) this.f.e();
-                        dVar4.a = System.nanoTime();
-                        dVar4.d = (char) 0;
-                        dVar4.c = keyEvent.getKeyCode();
-                        dVar4.b = 0;
+                        d e5 = this.f.e();
+                        e5.a = System.nanoTime();
+                        e5.d = (char) 0;
+                        e5.c = keyEvent.getKeyCode();
+                        e5.b = 0;
                         if (i == 4 && keyEvent.isAltPressed()) {
-                            dVar4.c = 255;
+                            e5.c = 255;
                             i = 255;
                         }
-                        this.i.add(dVar4);
-                        if (!this.a[dVar4.c]) {
+                        this.i.add(e5);
+                        if (!this.a[e5.c]) {
                             this.d++;
-                            this.a[dVar4.c] = true;
+                            this.a[e5.c] = true;
                         }
                     }
                     this.x.getGraphics().c();

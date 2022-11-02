@@ -1,7 +1,11 @@
 package com.google.android.material.slider;
-/* loaded from: classes7.dex */
-public interface BaseOnSliderTouchListener {
-    void onStartTrackingTouch(Object obj);
 
-    void onStopTrackingTouch(Object obj);
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+/* loaded from: classes7.dex */
+public interface BaseOnSliderTouchListener<S> {
+    void onStartTrackingTouch(@NonNull S s);
+
+    void onStopTrackingTouch(@NonNull S s);
 }

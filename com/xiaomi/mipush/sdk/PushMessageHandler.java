@@ -30,11 +30,11 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
 public class PushMessageHandler extends BaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static List a;
+    public static List<MiPushClient.ICallbackResult> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f47a;
-    public static List b;
+    public static List<MiPushClient.MiPushClientCallback> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -143,7 +143,7 @@ public class PushMessageHandler extends BaseService {
                         MiPushClient.TokenResult tokenResult = new MiPushClient.TokenResult();
                         if (miPushCommandMessage != null && miPushCommandMessage.getCommandArguments() != null && miPushCommandMessage.getCommandArguments().size() > 0) {
                             tokenResult.setResultCode(miPushCommandMessage.getResultCode());
-                            tokenResult.setToken((String) miPushCommandMessage.getCommandArguments().get(0));
+                            tokenResult.setToken(miPushCommandMessage.getCommandArguments().get(0));
                         }
                         iCallbackResult.onResult(tokenResult);
                     }
@@ -176,23 +176,23 @@ public class PushMessageHandler extends BaseService {
                 String command = miPushCommandMessage.getCommand();
                 String str = null;
                 if (ey.a.f334a.equals(command)) {
-                    List commandArguments = miPushCommandMessage.getCommandArguments();
+                    List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     if (commandArguments != null && !commandArguments.isEmpty()) {
-                        str = (String) commandArguments.get(0);
+                        str = commandArguments.get(0);
                     }
                     a(miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
                 } else if (ey.c.f334a.equals(command) || ey.d.f334a.equals(command) || ey.i.f334a.equals(command)) {
                     a(context, miPushCommandMessage.getCategory(), command, miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), miPushCommandMessage.getCommandArguments());
                 } else if (ey.g.f334a.equals(command)) {
-                    List commandArguments2 = miPushCommandMessage.getCommandArguments();
+                    List<String> commandArguments2 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments2 != null && !commandArguments2.isEmpty()) {
-                        str = (String) commandArguments2.get(0);
+                        str = commandArguments2.get(0);
                     }
                     a(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
                 } else if (ey.h.f334a.equals(command)) {
-                    List commandArguments3 = miPushCommandMessage.getCommandArguments();
+                    List<String> commandArguments3 = miPushCommandMessage.getCommandArguments();
                     if (commandArguments3 != null && !commandArguments3.isEmpty()) {
-                        str = (String) commandArguments3.get(0);
+                        str = commandArguments3.get(0);
                     }
                     b(context, miPushCommandMessage.getCategory(), miPushCommandMessage.getResultCode(), miPushCommandMessage.getReason(), str);
                 }
@@ -213,7 +213,7 @@ public class PushMessageHandler extends BaseService {
         }
     }
 
-    public static void a(Context context, String str, String str2, long j, String str3, List list) {
+    public static void a(Context context, String str, String str2, long j, String str3, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, str2, Long.valueOf(j), str3, list}) == null) {
             synchronized (b) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class e implements Parcelable.Creator {
+public final class e implements Parcelable.Creator<PoiIndoorResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,10 @@ public final class e implements Parcelable.Creator {
     public PoiIndoorResult createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new PoiIndoorResult(parcel) : (PoiIndoorResult) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new PoiIndoorResult(parcel);
+        }
+        return (PoiIndoorResult) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,6 +45,9 @@ public final class e implements Parcelable.Creator {
     public PoiIndoorResult[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PoiIndoorResult[i] : (PoiIndoorResult[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new PoiIndoorResult[i];
+        }
+        return (PoiIndoorResult[]) invokeI.objValue;
     }
 }

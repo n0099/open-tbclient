@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.r45;
-import com.baidu.tieba.rq7;
-import com.baidu.tieba.sq7;
-import com.baidu.tieba.w37;
-import com.baidu.tieba.xx;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.as7;
+import com.baidu.tieba.bs7;
+import com.baidu.tieba.g57;
+import com.baidu.tieba.k55;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.sx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements sx, rx<bs7>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public rq7 j;
-    public sq7 k;
+    public as7 j;
+    public bs7 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -66,20 +67,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
+    @Override // com.baidu.tieba.rx
     /* renamed from: d */
-    public void a(sq7 sq7Var) {
+    public void a(bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sq7Var) == null) {
-            this.k = sq7Var;
-            rq7 rq7Var = this.j;
-            if (rq7Var != null) {
-                rq7Var.B(sq7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bs7Var) == null) {
+            this.k = bs7Var;
+            as7 as7Var = this.j;
+            if (as7Var != null) {
+                as7Var.B(bs7Var.a);
             }
-            this.i.setData(sq7Var.b);
-            if (sq7Var.c) {
+            this.i.setData(bs7Var.b);
+            if (bs7Var.c) {
                 this.d.setVisibility(0);
-                w37.q();
+                g57.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -89,14 +90,14 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091661 && getContext() != null && this.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0916a0 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            w37.j();
+            g57.j();
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NearbyForumFriendCardView(Context context, AttributeSet attributeSet) {
+    public NearbyForumFriendCardView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -117,7 +118,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NearbyForumFriendCardView(Context context, AttributeSet attributeSet, int i) {
+    public NearbyForumFriendCardView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new rq7(context, r45.l, 1);
+            this.j = new as7(context, k55.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.a(linkedList);
@@ -152,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            sq7 sq7Var = this.k;
-            if (sq7Var != null) {
-                sq7Var.a = z;
+            bs7 bs7Var = this.k;
+            if (bs7Var != null) {
+                bs7Var.a = z;
             }
-            rq7 rq7Var = this.j;
-            if (rq7Var != null) {
-                rq7Var.B(z);
+            as7 as7Var = this.j;
+            if (as7Var != null) {
+                as7Var.B(z);
             }
         }
     }
@@ -166,17 +167,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0630, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0644, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923bc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923bb);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100f);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091661);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09165f);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09165e);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091293);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb8);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092411);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092410);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091049);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0916a0);
+            this.g = findViewById(R.id.obfuscated_res_0x7f09169e);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09169d);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0912ce);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bff);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -184,22 +185,22 @@ public class NearbyForumFriendCardView extends LinearLayout implements yx, xx, V
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            nv4 d = nv4.d(this.c);
+            kw4 d = kw4.d(this.c);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
             d.A(R.string.F_X02);
-            nv4 d2 = nv4.d(this.e);
+            kw4 d2 = kw4.d(this.e);
             d2.v(R.color.CAM_X0109);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096d, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            nv4 d3 = nv4.d(this.h);
+            kw4 d3 = kw4.d(this.h);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

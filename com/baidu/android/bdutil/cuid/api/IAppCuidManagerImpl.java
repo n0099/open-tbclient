@@ -2,11 +2,15 @@ package com.baidu.android.bdutil.cuid.api;
 
 import com.baidu.android.bdutil.cuid.sdk.IAppCuidManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes.dex */
 public class IAppCuidManagerImpl implements IAppCuidManager {
     public static /* synthetic */ Interceptable $ic;

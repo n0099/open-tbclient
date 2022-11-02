@@ -30,7 +30,7 @@ public final class LaunchStaticAutoGenerateUrlCollectorImpl implements ICmdRoute
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map getCmdRouterMap() {
+    public Map<String, String> getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -46,7 +46,7 @@ public final class LaunchStaticAutoGenerateUrlCollectorImpl implements ICmdRoute
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map getConfigRouterMap() {
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

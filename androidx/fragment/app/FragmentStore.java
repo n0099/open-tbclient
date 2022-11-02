@@ -3,6 +3,9 @@ package androidx.fragment.app;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -60,6 +63,7 @@ public class FragmentStore {
         return invokeV.intValue;
     }
 
+    @NonNull
     public List<Fragment> getFragments() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -83,7 +87,7 @@ public class FragmentStore {
         }
     }
 
-    public void addFragment(Fragment fragment) {
+    public void addFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fragment) == null) {
             if (!this.mAdded.contains(fragment)) {
@@ -97,7 +101,8 @@ public class FragmentStore {
         }
     }
 
-    public Fragment findFragmentByWho(String str) {
+    @Nullable
+    public Fragment findFragmentByWho(@NonNull String str) {
         InterceptResult invokeL;
         Fragment findFragmentByWho;
         Interceptable interceptable = $ic;
@@ -112,7 +117,7 @@ public class FragmentStore {
         return (Fragment) invokeL.objValue;
     }
 
-    public Fragment findFragmentUnder(Fragment fragment) {
+    public Fragment findFragmentUnder(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, fragment)) == null) {
@@ -131,7 +136,7 @@ public class FragmentStore {
         return (Fragment) invokeL.objValue;
     }
 
-    public boolean containsActiveFragment(String str) {
+    public boolean containsActiveFragment(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -140,7 +145,8 @@ public class FragmentStore {
         return invokeL.booleanValue;
     }
 
-    public Fragment findActiveFragment(String str) {
+    @Nullable
+    public Fragment findActiveFragment(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
@@ -153,7 +159,8 @@ public class FragmentStore {
         return (Fragment) invokeL.objValue;
     }
 
-    public FragmentStateManager getFragmentStateManager(String str) {
+    @Nullable
+    public FragmentStateManager getFragmentStateManager(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -162,14 +169,14 @@ public class FragmentStore {
         return (FragmentStateManager) invokeL.objValue;
     }
 
-    public void makeActive(FragmentStateManager fragmentStateManager) {
+    public void makeActive(@NonNull FragmentStateManager fragmentStateManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, fragmentStateManager) == null) {
             this.mActive.put(fragmentStateManager.getFragment().mWho, fragmentStateManager);
         }
     }
 
-    public void removeFragment(Fragment fragment) {
+    public void removeFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, fragment) == null) {
             synchronized (this.mAdded) {
@@ -197,7 +204,8 @@ public class FragmentStore {
         }
     }
 
-    public Fragment findFragmentById(int i) {
+    @Nullable
+    public Fragment findFragmentById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -220,7 +228,8 @@ public class FragmentStore {
         return (Fragment) invokeI.objValue;
     }
 
-    public Fragment findFragmentByTag(String str) {
+    @Nullable
+    public Fragment findFragmentByTag(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
@@ -248,7 +257,7 @@ public class FragmentStore {
         return (Fragment) invokeL.objValue;
     }
 
-    public void makeInactive(FragmentStateManager fragmentStateManager) {
+    public void makeInactive(@NonNull FragmentStateManager fragmentStateManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fragmentStateManager) == null) {
             Fragment fragment = fragmentStateManager.getFragment();
@@ -269,7 +278,7 @@ public class FragmentStore {
         }
     }
 
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dump(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, fileDescriptor, printWriter, strArr) == null) {
             String str2 = str + "    ";
@@ -302,6 +311,7 @@ public class FragmentStore {
         }
     }
 
+    @NonNull
     public List<Fragment> getActiveFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +329,7 @@ public class FragmentStore {
         return (List) invokeV.objValue;
     }
 
-    public void restoreAddedFragments(List<String> list) {
+    public void restoreAddedFragments(@Nullable List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.mAdded.clear();
@@ -339,6 +349,7 @@ public class FragmentStore {
         }
     }
 
+    @NonNull
     public ArrayList<FragmentState> saveActiveFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -359,6 +370,7 @@ public class FragmentStore {
         return (ArrayList) invokeV.objValue;
     }
 
+    @Nullable
     public ArrayList<String> saveAddedFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

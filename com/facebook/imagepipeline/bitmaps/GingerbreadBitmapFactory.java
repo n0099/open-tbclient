@@ -27,7 +27,7 @@ public class GingerbreadBitmapFactory extends PlatformBitmapFactory {
     }
 
     @Override // com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory
-    public CloseableReference createBitmapInternal(int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {

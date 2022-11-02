@@ -41,7 +41,7 @@ public class QrLoginUtils implements NoProguard {
             if (SapiContext.getInstance().getCurrentAccount() == null) {
                 return "-1";
             }
-            return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode((String) SapiUtils.urlParamsToMap(str).get("appName")));
+            return String.format(SapiContext.getInstance().getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
         }
         return (String) invokeL.objValue;
     }

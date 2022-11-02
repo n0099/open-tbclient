@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareLoginModel;
 import com.baidu.sapi2.share.ShareResultCallback;
@@ -38,7 +40,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public String b;
     public String c;
     public String d;
-    public ArrayList e;
+    public ArrayList<PassNameValuePair> e;
     public String f;
     public boolean g;
 
@@ -144,7 +146,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);

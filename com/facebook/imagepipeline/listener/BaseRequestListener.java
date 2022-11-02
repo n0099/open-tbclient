@@ -17,7 +17,7 @@ public class BaseRequestListener implements RequestListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map map) {
+    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, imageRequest, encodedImage, th, map) == null) {
         }
@@ -31,21 +31,21 @@ public class BaseRequestListener implements RequestListener {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithCancellation(String str, String str2, @Nullable Map map) {
+    public void onProducerFinishWithCancellation(String str, String str2, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, map) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithFailure(String str, String str2, Throwable th, @Nullable Map map) {
+    public void onProducerFinishWithFailure(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, th, map) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithSuccess(String str, String str2, @Nullable Map map) {
+    public void onProducerFinishWithSuccess(String str, String str2, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, map) == null) {
         }

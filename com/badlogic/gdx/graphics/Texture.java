@@ -27,13 +27,13 @@ import java.util.Map;
 public class Texture extends p3 {
     public static /* synthetic */ Interceptable $ic;
     public static n1 j;
-    public static final Map k;
+    public static final Map<Application, b7<Texture>> k;
     public transient /* synthetic */ FieldHolder $fh;
     public TextureData i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TextureFilter {
+    public static final class TextureFilter {
         public static final /* synthetic */ TextureFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TextureFilter Linear;
@@ -134,7 +134,7 @@ public class Texture extends p3 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TextureWrap {
+    public static final class TextureWrap {
         public static final /* synthetic */ TextureWrap[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TextureWrap ClampToEdge;
@@ -213,7 +213,7 @@ public class Texture extends p3 {
     }
 
     /* loaded from: classes.dex */
-    public final class a implements l1.a {
+    public static class a implements l1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -431,9 +431,9 @@ public class Texture extends p3 {
     public static void s(Application application, Texture texture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, application, texture) == null) {
-            b7 b7Var = (b7) k.get(application);
+            b7<Texture> b7Var = k.get(application);
             if (b7Var == null) {
-                b7Var = new b7();
+                b7Var = new b7<>();
             }
             b7Var.a(texture);
             k.put(application, b7Var);
@@ -454,7 +454,7 @@ public class Texture extends p3 {
             StringBuilder sb = new StringBuilder();
             sb.append("Managed textures/app: { ");
             for (Application application : k.keySet()) {
-                sb.append(((b7) k.get(application)).b);
+                sb.append(k.get(application).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -464,41 +464,41 @@ public class Texture extends p3 {
     }
 
     public static void y(Application application) {
-        b7 b7Var;
+        b7<Texture> b7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, application) != null) || (b7Var = (b7) k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65544, null, application) != null) || (b7Var = k.get(application)) == null) {
             return;
         }
         n1 n1Var = j;
         if (n1Var == null) {
             for (int i = 0; i < b7Var.b; i++) {
-                ((Texture) b7Var.get(i)).B();
+                b7Var.get(i).B();
             }
             return;
         }
         n1Var.h();
-        b7 b7Var2 = new b7(b7Var);
-        b7.b it = b7Var2.iterator();
+        b7<? extends Texture> b7Var2 = new b7<>(b7Var);
+        b7.b<? extends Texture> it = b7Var2.iterator();
         while (it.hasNext()) {
-            Texture texture = (Texture) it.next();
-            String m = j.m(texture);
+            Texture next = it.next();
+            String m = j.m(next);
             if (m == null) {
-                texture.B();
+                next.B();
             } else {
                 int q = j.q(m);
                 j.A(m, 0);
-                texture.b = 0;
+                next.b = 0;
                 d2.b bVar = new d2.b();
-                bVar.e = texture.w();
-                bVar.f = texture.h();
-                bVar.g = texture.f();
-                bVar.h = texture.j();
-                bVar.i = texture.k();
-                bVar.c = texture.i.f();
-                bVar.d = texture;
+                bVar.e = next.w();
+                bVar.f = next.h();
+                bVar.g = next.f();
+                bVar.h = next.j();
+                bVar.i = next.k();
+                bVar.c = next.i.f();
+                bVar.d = next;
                 bVar.a = new a(q);
                 j.C(m);
-                texture.b = f1.e.a();
+                next.b = f1.e.a();
                 j.w(m, Texture.class, bVar);
             }
         }
@@ -514,7 +514,7 @@ public class Texture extends p3 {
         }
         delete();
         if (this.i.a() && k.get(f1.a) != null) {
-            ((b7) k.get(f1.a)).j(this, true);
+            k.get(f1.a).j(this, true);
         }
     }
 }

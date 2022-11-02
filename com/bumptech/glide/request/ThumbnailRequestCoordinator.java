@@ -1,5 +1,7 @@
 package com.bumptech.glide.request;
 
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +15,18 @@ public class ThumbnailRequestCoordinator implements RequestCoordinator, Request 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Request full;
+    @GuardedBy("requestLock")
     public RequestCoordinator.RequestState fullState;
+    @GuardedBy("requestLock")
     public boolean isRunningDuringBegin;
+    @Nullable
     public final RequestCoordinator parent;
     public final Object requestLock;
     public volatile Request thumb;
+    @GuardedBy("requestLock")
     public RequestCoordinator.RequestState thumbState;
 
-    public ThumbnailRequestCoordinator(Object obj, RequestCoordinator requestCoordinator) {
+    public ThumbnailRequestCoordinator(Object obj, @Nullable RequestCoordinator requestCoordinator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,6 +48,7 @@ public class ThumbnailRequestCoordinator implements RequestCoordinator, Request 
         this.parent = requestCoordinator;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyCleared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,6 +62,7 @@ public class ThumbnailRequestCoordinator implements RequestCoordinator, Request 
         return invokeV.booleanValue;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanNotifyStatusChanged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,6 +76,7 @@ public class ThumbnailRequestCoordinator implements RequestCoordinator, Request 
         return invokeV.booleanValue;
     }
 
+    @GuardedBy("requestLock")
     private boolean parentCanSetImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

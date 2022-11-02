@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class DirectIPv4Header$headerLength$2 extends Lambda implements Function1 {
+public final class DirectIPv4Header$headerLength$2 extends Lambda implements Function1<Integer, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ byte[] $buffer;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,10 @@ public final class DirectIPv4Header$headerLength$2 extends Lambda implements Fun
         return (Integer) invokeI.objValue;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke(((Number) obj).intValue());
+    public /* bridge */ /* synthetic */ Integer invoke(Integer num) {
+        return invoke(num.intValue());
     }
 }

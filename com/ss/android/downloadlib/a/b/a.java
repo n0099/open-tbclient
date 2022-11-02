@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.mobstat.Config;
 import com.ss.android.downloadlib.a.b.c;
 import com.ss.android.downloadlib.addownload.j;
 import java.util.ArrayList;
@@ -26,16 +27,16 @@ public class a {
     public boolean h = true;
     public boolean i = false;
     public volatile boolean j = false;
-    public final List l = new ArrayList();
-    public final List b = new ArrayList();
+    public final List<Pair<b, d>> l = new ArrayList();
+    public final List<InterfaceC0661a> b = new ArrayList();
     public final ServiceConnection m = new ServiceConnection() { // from class: com.ss.android.downloadlib.a.b.a.1
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             synchronized (a.this.c) {
                 a.this.a(false);
                 a.this.a = null;
-                for (InterfaceC0650a interfaceC0650a : a.this.b) {
-                    interfaceC0650a.b();
+                for (InterfaceC0661a interfaceC0661a : a.this.b) {
+                    interfaceC0661a.b();
                 }
             }
         }
@@ -46,8 +47,8 @@ public class a {
                 a.this.a(false);
                 a.this.a = c.a.a(iBinder);
                 a.this.c();
-                for (InterfaceC0650a interfaceC0650a : a.this.b) {
-                    interfaceC0650a.a();
+                for (InterfaceC0661a interfaceC0661a : a.this.b) {
+                    interfaceC0661a.a();
                 }
             }
         }
@@ -57,7 +58,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0650a {
+    public interface InterfaceC0661a {
         void a();
 
         void b();
@@ -84,7 +85,7 @@ public class a {
     }
 
     public void c() {
-        for (Pair pair : this.l) {
+        for (Pair<b, d> pair : this.l) {
             try {
                 this.a.a((b) pair.first, (d) pair.second);
             } catch (RemoteException e2) {
@@ -147,7 +148,7 @@ public class a {
             String optString = i.optString("s");
             d = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("q"), optString);
             e = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("u"), optString);
-            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("w"), optString);
+            f = com.ss.android.socialbase.appdownloader.f.c.a(i.optString(Config.DEVICE_WIDTH), optString);
         }
         this.i = z;
         if (context != null) {

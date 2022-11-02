@@ -99,7 +99,7 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public Map getMediaLivePlayConfig(String str, Map map) {
+    public Map<String, Object> getMediaLivePlayConfig(String str, Map<String, ? extends Object> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, map)) == null) {
@@ -109,7 +109,7 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public boolean isPluginLoaded(String str, Map map) {
+    public boolean isPluginLoaded(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, map)) == null) {
@@ -213,7 +213,7 @@ public final class PluginInvokeServiceImpl implements PluginInvokeService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.mix.PluginInvokeService
-    public void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map map, PluginLoadCallback pluginLoadCallback) {
+    public void loadPlugin(Context context, String str, String str2, boolean z, boolean z2, Map<String, String> map, PluginLoadCallback pluginLoadCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), map, pluginLoadCallback}) == null) {
             LiveNPSPluginManager.getInstance().loadPlugin(null, str, str2, z, map, pluginLoadCallback);

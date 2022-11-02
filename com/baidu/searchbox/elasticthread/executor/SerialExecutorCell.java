@@ -101,7 +101,7 @@ public class SerialExecutorCell extends BaseExecutorCell {
                 if (this.mWorkingTasks.isEmpty()) {
                     return null;
                 }
-                return (ElasticTask) this.mWorkingTasks.get(0);
+                return this.mWorkingTasks.get(0);
             }
         }
         return (ElasticTask) invokeV.objValue;

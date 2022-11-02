@@ -16,11 +16,26 @@ public final class MapBaseIndoorMapInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public ArrayList c;
+    public ArrayList<String> c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;");
+        }
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SwitchFloorError {
+    public static final class SwitchFloorError {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchFloorError FLOOR_INFO_ERROR;
         public static final SwitchFloorError FLOOR_OVERLFLOW;
@@ -74,28 +89,19 @@ public final class MapBaseIndoorMapInfo {
         public static SwitchFloorError valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SwitchFloorError) Enum.valueOf(SwitchFloorError.class, str) : (SwitchFloorError) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (SwitchFloorError) Enum.valueOf(SwitchFloorError.class, str);
+            }
+            return (SwitchFloorError) invokeL.objValue;
         }
 
         public static SwitchFloorError[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) a.clone() : (SwitchFloorError[]) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(2115653467, "Lcom/baidu/mapapi/map/MapBaseIndoorMapInfo;");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (SwitchFloorError[]) a.clone();
+            }
+            return (SwitchFloorError[]) invokeV.objValue;
         }
     }
 
@@ -111,6 +117,33 @@ public final class MapBaseIndoorMapInfo {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public String getCurFloor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> getFloors() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String getID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
@@ -133,7 +166,7 @@ public final class MapBaseIndoorMapInfo {
         this.c = mapBaseIndoorMapInfo.c;
     }
 
-    public MapBaseIndoorMapInfo(String str, String str2, ArrayList arrayList) {
+    public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,23 +184,5 @@ public final class MapBaseIndoorMapInfo {
         this.a = str;
         this.b = str2;
         this.c = arrayList;
-    }
-
-    public String getCurFloor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public ArrayList getFloors() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public String getID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

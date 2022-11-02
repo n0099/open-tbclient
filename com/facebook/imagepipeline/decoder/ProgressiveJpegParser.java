@@ -206,7 +206,7 @@ public class ProgressiveJpegParser {
             if (this.mParserState == 6 || encodedImage.getSize() <= this.mBytesParsed) {
                 return false;
             }
-            PooledByteArrayBufferedInputStream pooledByteArrayBufferedInputStream = new PooledByteArrayBufferedInputStream(encodedImage.getInputStream(), (byte[]) this.mByteArrayPool.get(16384), this.mByteArrayPool);
+            PooledByteArrayBufferedInputStream pooledByteArrayBufferedInputStream = new PooledByteArrayBufferedInputStream(encodedImage.getInputStream(), this.mByteArrayPool.get(16384), this.mByteArrayPool);
             try {
                 StreamUtil.skip(pooledByteArrayBufferedInputStream, this.mBytesParsed);
                 return doParseMoreData(pooledByteArrayBufferedInputStream);

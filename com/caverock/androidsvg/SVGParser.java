@@ -9,6 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
@@ -20,9 +21,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.nk9;
-import com.baidu.tieba.ok9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.wl9;
+import com.baidu.tieba.xl9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,12 +113,12 @@ public class SVGParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class SVGAttr {
+    public static final class SVGAttr {
         public static final /* synthetic */ SVGAttr[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVGAttr CLASS;
         public static final SVGAttr UNSUPPORTED;
-        public static final Map cache;
+        public static final Map<String, SVGAttr> cache;
         public static final SVGAttr clip;
         public static final SVGAttr clipPathUnits;
         public static final SVGAttr clip_path;
@@ -175,7 +176,7 @@ public class SVGParser {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f1066rx;
+        public static final SVGAttr f1067rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -282,7 +283,7 @@ public class SVGParser {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f1066rx = new SVGAttr("rx", 56);
+            f1067rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -319,7 +320,7 @@ public class SVGParser {
             visibility = new SVGAttr("visibility", 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1066rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1067rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
             for (SVGAttr sVGAttr2 : values()) {
                 if (sVGAttr2 == CLASS) {
@@ -353,7 +354,7 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                SVGAttr sVGAttr = (SVGAttr) cache.get(str);
+                SVGAttr sVGAttr = cache.get(str);
                 if (sVGAttr != null) {
                     return sVGAttr;
                 }
@@ -383,13 +384,13 @@ public class SVGParser {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class SVGElem {
+    public static final class SVGElem {
         public static final /* synthetic */ SVGElem[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SVGElem SWITCH;
         public static final SVGElem UNSUPPORTED;
         public static final SVGElem a;
-        public static final Map cache;
+        public static final Map<String, SVGElem> cache;
         public static final SVGElem circle;
         public static final SVGElem clipPath;
         public static final SVGElem defs;
@@ -420,7 +421,7 @@ public class SVGParser {
         public static final SVGElem use;
 
         /* renamed from: view  reason: collision with root package name */
-        public static final SVGElem f1067view;
+        public static final SVGElem f1068view;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -467,10 +468,10 @@ public class SVGParser {
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
             use = new SVGElem(TbConfig.ST_TYPE_USE, 29);
-            f1067view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
+            f1068view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1067view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1068view, sVGElem};
             cache = new HashMap();
             for (SVGElem sVGElem2 : values()) {
                 if (sVGElem2 == SWITCH) {
@@ -504,7 +505,7 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                SVGElem sVGElem = (SVGElem) cache.get(str);
+                SVGElem sVGElem = cache.get(str);
                 if (sVGElem != null) {
                     return sVGElem;
                 }
@@ -533,7 +534,7 @@ public class SVGParser {
     }
 
     /* loaded from: classes7.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -591,7 +592,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                b[SVGAttr.f1066rx.ordinal()] = 10;
+                b[SVGAttr.f1067rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
@@ -1021,7 +1022,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused116) {
             }
             try {
-                a[SVGElem.f1067view.ordinal()] = 28;
+                a[SVGElem.f1068view.ordinal()] = 28;
             } catch (NoSuchFieldError unused117) {
             }
             try {
@@ -1040,9 +1041,9 @@ public class SVGParser {
     }
 
     /* loaded from: classes7.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map a;
+        public static final Map<String, PreserveAspectRatio.Alignment> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1076,16 +1077,16 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                return (PreserveAspectRatio.Alignment) a.get(str);
+                return a.get(str);
             }
             return (PreserveAspectRatio.Alignment) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map a;
+        public static final Map<String, Integer> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1258,16 +1259,16 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                return (Integer) a.get(str);
+                return a.get(str);
             }
             return (Integer) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map a;
+        public static final Map<String, SVG.o> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1300,16 +1301,16 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                return (SVG.o) a.get(str);
+                return a.get(str);
             }
             return (SVG.o) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
-        public static final Map a;
+        public static final Map<String, Integer> a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1346,7 +1347,7 @@ public class SVGParser {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                return (Integer) a.get(str);
+                return a.get(str);
             }
             return (Integer) invokeL.objValue;
         }
@@ -1433,13 +1434,13 @@ public class SVGParser {
     }
 
     /* loaded from: classes7.dex */
-    public class g {
+    public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public int c;
-        public ok9 d;
+        public xl9 d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1470,7 +1471,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new ok9();
+            this.d = new xl9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -2071,7 +2072,7 @@ public class SVGParser {
         this.i = null;
     }
 
-    public static Set A0(String str) {
+    public static Set<String> A0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
@@ -2341,7 +2342,7 @@ public class SVGParser {
         return (SVG.c) invokeL.objValue;
     }
 
-    public static List p0(String str) throws SVGParseException {
+    public static List<SVG.o> p0(String str) throws SVGParseException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, str)) == null) {
@@ -2398,7 +2399,7 @@ public class SVGParser {
                     c2 = 65535;
                     break;
                 case 466743410:
-                    if (str.equals("visible")) {
+                    if (str.equals(MapBundleKey.MapObjKey.OBJ_SL_VISI)) {
                         c2 = 0;
                         break;
                     }
@@ -2658,7 +2659,7 @@ public class SVGParser {
         return (SVG.f) invokeL.objValue;
     }
 
-    public static List i0(String str) {
+    public static List<String> i0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
@@ -2683,7 +2684,7 @@ public class SVGParser {
         return (List) invokeL.objValue;
     }
 
-    public static Set z0(String str) {
+    public static Set<String> z0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
@@ -2981,7 +2982,7 @@ public class SVGParser {
         }
     }
 
-    public final Map x0(g gVar) {
+    public final Map<String, String> x0(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, gVar)) == null) {
@@ -3259,7 +3260,7 @@ public class SVGParser {
         return (SVG) invokeLZ.objValue;
     }
 
-    public static Set F0(String str) {
+    public static Set<String> F0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
@@ -3661,7 +3662,7 @@ public class SVGParser {
             if (size == 0) {
                 l0Var = null;
             } else {
-                l0Var = (SVG.l0) f0Var.i.get(size - 1);
+                l0Var = f0Var.i.get(size - 1);
             }
             if (l0Var instanceof SVG.a1) {
                 StringBuilder sb = new StringBuilder();
@@ -3859,7 +3860,7 @@ public class SVGParser {
                     h0(style, str2);
                     return;
                 case 61:
-                    List i0 = i0(str2);
+                    List<String> i0 = i0(str2);
                     style.o = i0;
                     if (i0 != null) {
                         style.a |= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
@@ -3954,7 +3955,7 @@ public class SVGParser {
                 case 74:
                     if (str2.indexOf(124) < 0) {
                         if ("|visible|hidden|collapse|".contains('|' + str2 + '|')) {
-                            style.B = Boolean.valueOf(str2.equals("visible"));
+                            style.B = Boolean.valueOf(str2.equals(MapBundleKey.MapObjKey.OBJ_SL_VISI));
                             style.a |= 33554432;
                             return;
                         }
@@ -4060,7 +4061,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                nk9 b2 = nk9.b(str, 1, str.length());
+                wl9 b2 = wl9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4583,7 +4584,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new ok9().b(str, i, i2);
+            float b2 = new xl9().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }
@@ -4884,18 +4885,18 @@ public class SVGParser {
         }
     }
 
-    public final void r(String str, Map map) {
+    public final void r(String str, Map<String, String> map) {
         String str2;
         String b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048637, this, str, map) == null) && str.equals("xml-stylesheet") && SVG.g() != null) {
-            if (((String) map.get("type")) != null && !"text/css".equals(map.get("type"))) {
+            if (map.get("type") != null && !"text/css".equals(map.get("type"))) {
                 return;
             }
-            if ((((String) map.get("alternate")) != null && !"no".equals(map.get("alternate"))) || (str2 = (String) map.get(NativeConstants.HREF)) == null || (b2 = SVG.g().b(str2)) == null) {
+            if ((map.get("alternate") != null && !"no".equals(map.get("alternate"))) || (str2 = map.get(NativeConstants.HREF)) == null || (b2 = SVG.g().b(str2)) == null) {
                 return;
             }
-            String str3 = (String) map.get("media");
+            String str3 = map.get("media");
             if (str3 != null && !"all".equals(str3.trim())) {
                 b2 = "@media " + str3 + " { " + b2 + "}";
             }
@@ -5091,7 +5092,7 @@ public class SVGParser {
                         e0Var.j(A0(trim));
                         break;
                     case 25:
-                        List i0 = i0(trim);
+                        List<String> i0 = i0(trim);
                         if (i0 != null) {
                             hashSet = new HashSet(i0);
                         } else {

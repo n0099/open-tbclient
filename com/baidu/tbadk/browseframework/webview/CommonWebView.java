@@ -1,5 +1,6 @@
 package com.baidu.tbadk.browseframework.webview;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,17 +17,18 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.hp4;
-import com.baidu.tieba.jh;
-import com.baidu.tieba.zo4;
+import com.baidu.tieba.bh;
+import com.baidu.tieba.mp8;
+import com.baidu.tieba.op8;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,9 +50,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public do8 m;
+    public mp8 m;
     public CommonTbJsBridge n;
-    public fo8 o;
+    public op8 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -95,7 +97,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements fo8 {
+    public class a implements op8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -118,15 +120,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.fo8
+        @Override // com.baidu.tieba.op8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                do8 do8Var = commonWebView.m;
-                if (do8Var != null) {
-                    return do8Var.b(commonWebView.getWebView(), str, jsPromptResult);
+                mp8 mp8Var = commonWebView.m;
+                if (mp8Var != null) {
+                    return mp8Var.b(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -167,7 +169,7 @@ public class CommonWebView extends WebView {
                     return true;
                 }
                 try {
-                    zo4.l(this.a.a, str);
+                    rp4.l(this.a.a, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -226,7 +228,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                hp4.a("BaseWebView", webView);
+                yp4.a("BaseWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -267,6 +269,7 @@ public class CommonWebView extends WebView {
         }
 
         @Override // android.webkit.WebViewClient
+        @SuppressLint({"Override"})
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, sslErrorHandler, sslError) == null) {
@@ -335,7 +338,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && jh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
                     return super.onJsAlert(webView, str, str2, jsResult);
                 }
                 return true;
@@ -348,7 +351,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && jh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
                     return super.onJsBeforeUnload(webView, str, str2, jsResult);
                 }
                 return true;
@@ -361,7 +364,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-                if ((this.a.getContext() instanceof Activity) && jh.e((Activity) this.a.getContext())) {
+                if ((this.a.getContext() instanceof Activity) && bh.e((Activity) this.a.getContext())) {
                     return super.onJsConfirm(webView, str, str2, jsResult);
                 }
                 return true;
@@ -451,6 +454,7 @@ public class CommonWebView extends WebView {
         k();
     }
 
+    @RequiresApi(api = 21)
     public final void setAcceptThirdPartyCookies(boolean z) {
         CookieManager cookieManager;
         Interceptable interceptable = $ic;
@@ -482,10 +486,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(fo8 fo8Var) {
+    public void setOnJsPromptCallback(op8 op8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fo8Var) == null) {
-            this.o = fo8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, op8Var) == null) {
+            this.o = op8Var;
         }
     }
 
@@ -600,10 +604,10 @@ public class CommonWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            zo4.a(getSettings());
+            rp4.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new do8();
+            this.m = new mp8();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -611,7 +615,7 @@ public class CommonWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            zo4.g(getContext());
+            rp4.g(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

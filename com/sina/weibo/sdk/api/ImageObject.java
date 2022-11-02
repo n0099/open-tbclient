@@ -19,7 +19,7 @@ import java.io.IOException;
 /* loaded from: classes8.dex */
 public class ImageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ImageObject> CREATOR;
     public static final int DATA_SIZE = 2097152;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] imageData;
@@ -72,7 +72,7 @@ public class ImageObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.ImageObject.1
+        CREATOR = new Parcelable.Creator<ImageObject>() { // from class: com.sina.weibo.sdk.api.ImageObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,6 +91,7 @@ public class ImageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -102,6 +103,7 @@ public class ImageObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ImageObject[] newArray(int i) {
                 InterceptResult invokeI;

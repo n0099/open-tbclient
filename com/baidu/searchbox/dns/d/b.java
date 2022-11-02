@@ -16,18 +16,18 @@ import java.util.HashMap;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap I;
+    public HashMap<String, com.baidu.searchbox.dns.d.a> I;
     public final Object J;
 
     /* renamed from: com.baidu.searchbox.dns.d.b$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static b K;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class b {
             }
         }
         this.J = new Object();
-        this.I = new HashMap(10);
+        this.I = new HashMap<>(10);
     }
 
     public static b o() {
@@ -85,7 +85,7 @@ public class b {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (!TextUtils.isEmpty(str)) {
                 synchronized (this.J) {
-                    if (((com.baidu.searchbox.dns.d.a) this.I.get(str)) == null) {
+                    if (this.I.get(str) == null) {
                         if (DnsUtil.DEBUG) {
                             Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
                         }

@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class PinYinUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static Comparator pyComparator;
+    public static Comparator<PinYinObject> pyComparator;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -38,7 +38,7 @@ public class PinYinUtils {
                 return;
             }
         }
-        pyComparator = new Comparator() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
+        pyComparator = new Comparator<PinYinObject>() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,16 +87,16 @@ public class PinYinUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ArrayList arrayList = HanziToPinyin.getInstance().get(str);
+            ArrayList<HanziToPinyin.Token> arrayList = HanziToPinyin.getInstance().get(str);
             StringBuilder sb = new StringBuilder();
             if (arrayList != null && arrayList.size() > 0) {
-                Iterator it = arrayList.iterator();
+                Iterator<HanziToPinyin.Token> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    HanziToPinyin.Token token = (HanziToPinyin.Token) it.next();
-                    if (2 == token.type) {
-                        sb.append(token.target);
+                    HanziToPinyin.Token next = it.next();
+                    if (2 == next.type) {
+                        sb.append(next.target);
                     } else {
-                        sb.append(token.source);
+                        sb.append(next.source);
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class PinYinUtils {
         return (String) invokeL.objValue;
     }
 
-    public static void sortByPinYin(List list) {
+    public static void sortByPinYin(List<? extends PinYinObject> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) != null) || list == null) {
             return;

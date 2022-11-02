@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class a implements a.InterfaceC0090a {
+public class a implements a.InterfaceC0091a {
     public static /* synthetic */ Interceptable $ic;
     public static ClassLoader m;
     public static a n;
@@ -40,8 +40,8 @@ public class a implements a.InterfaceC0090a {
     public String g;
     public boolean h;
     public volatile int i;
-    public Map j;
-    public ArrayList k;
+    public Map<String, String> j;
+    public ArrayList<String> k;
     public CyberPlayerManager.InstallListener2 l;
     public long o;
     public long p;
@@ -357,7 +357,7 @@ public class a implements a.InterfaceC0090a {
         return invokeI.longValue;
     }
 
-    public synchronized void a(String str, int i, Map map, CyberPlayerManager.InstallListener2 installListener2) {
+    public synchronized void a(String str, int i, Map<String, String> map, CyberPlayerManager.InstallListener2 installListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, map, installListener2) == null) {
             synchronized (this) {
@@ -389,14 +389,14 @@ public class a implements a.InterfaceC0090a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2}) == null) {
@@ -410,7 +410,7 @@ public class a implements a.InterfaceC0090a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -424,8 +424,8 @@ public class a implements a.InterfaceC0090a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0090a
-    public void a(String str, long j, ArrayList arrayList) {
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0091a
+    public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {
             this.k = arrayList;

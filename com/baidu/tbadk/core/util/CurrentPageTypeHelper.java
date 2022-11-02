@@ -17,7 +17,7 @@ public class CurrentPageTypeHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class PageType {
+    public static final class PageType {
         public static final /* synthetic */ PageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PageType FLUTTER;

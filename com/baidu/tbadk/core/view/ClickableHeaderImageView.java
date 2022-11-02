@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.pp4;
+import com.baidu.tieba.gq4;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData T0;
-    public boolean U0;
-    public View.OnClickListener V0;
-    public pp4 W0;
-    public View.OnClickListener X0;
+    public ThreadData S0;
+    public boolean T0;
+    public View.OnClickListener U0;
+    public gq4 V0;
+    public View.OnClickListener W0;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -59,28 +59,28 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pp4 pp4Var = this.a.W0;
-                if ((pp4Var != null && pp4Var.a(view2)) || this.a.T0 == null) {
+                gq4 gq4Var = this.a.V0;
+                if ((gq4Var != null && gq4Var.a(view2)) || this.a.S0 == null) {
                     return;
                 }
-                if (this.a.U0) {
-                    author = this.a.T0.getTopAgreePost().s();
+                if (this.a.T0) {
+                    author = this.a.S0.getTopAgreePost().s();
                 } else {
-                    author = this.a.T0.getAuthor();
+                    author = this.a.S0.getAuthor();
                 }
                 if (author != null && !StringUtils.isNull(author.getName_show()) && !StringUtils.isNull(author.getUserId())) {
-                    long g = eh.g(author.getUserId(), 0L);
-                    if (g == eh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    long g = wg.g(author.getUserId(), 0L);
+                    if (g == wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                         z = true;
                     } else {
                         z = false;
                     }
                     PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g, z, author.isBigV());
-                    createNormalConfig.setSourceTid(this.a.T0.getTid());
-                    createNormalConfig.setSourceNid(this.a.T0.getNid());
+                    createNormalConfig.setSourceTid(this.a.S0.getTid());
+                    createNormalConfig.setSourceNid(this.a.S0.getNid());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.a.V0 != null) {
-                        this.a.V0.onClick(view2);
+                    if (this.a.U0 != null) {
+                        this.a.U0.onClick(view2);
                     }
                 }
             }
@@ -105,8 +105,8 @@ public class ClickableHeaderImageView extends HeadImageView {
                 return;
             }
         }
-        this.X0 = new a(this);
-        w();
+        this.W0 = new a(this);
+        v();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,14 +128,14 @@ public class ClickableHeaderImageView extends HeadImageView {
                 return;
             }
         }
-        this.X0 = new a(this);
-        w();
+        this.W0 = new a(this);
+        v();
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.V0 = onClickListener;
+            this.U0 = onClickListener;
         }
     }
 
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(pp4 pp4Var) {
+    public void setOnInterceptClickEventListener(gq4 gq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pp4Var) == null) {
-            this.W0 = pp4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gq4Var) == null) {
+            this.V0 = gq4Var;
         }
     }
 
@@ -174,35 +174,35 @@ public class ClickableHeaderImageView extends HeadImageView {
         MetaData author;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{threadData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && threadData != null && threadData.getAuthor() != null) {
-            this.T0 = threadData;
-            this.U0 = z2;
+            this.S0 = threadData;
+            this.T0 = z2;
             if (z2) {
                 author = threadData.getTopAgreePost().s();
             } else {
                 author = threadData.getAuthor();
             }
-            setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11e1));
+            setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f11ff));
             setUserId(author.getUserId());
             setUserName(author.getUserName());
-            if (threadData.getThreadAlaInfo() != null && (this.T0.getThreadType() == 49 || this.T0.getThreadType() == 69)) {
+            if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
                 setUrl(threadData.getAuthor().getAvater());
-                L(threadData.getAuthor().getAvater(), 28, false);
+                K(threadData.getAuthor().getAvater(), 28, false);
             } else {
                 setUrl(author.getAvater());
                 if (!StringUtils.isNull(author.getAvater()) && author.getAvater().contains("http")) {
-                    L(author.getAvater(), 10, false);
+                    K(author.getAvater(), 10, false);
                 } else {
-                    L(author.getAvater(), 28, false);
+                    K(author.getAvater(), 28, false);
                 }
             }
             UtilHelper.showHeadImageViewBigV(this, author);
         }
     }
 
-    public void w() {
+    public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setOnClickListener(this.X0);
+            setOnClickListener(this.W0);
             setDefaultResource(17170445);
             setPlaceHolder(1);
         }

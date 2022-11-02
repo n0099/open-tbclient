@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class AuthWidgetCallback {
+public abstract class AuthWidgetCallback<R extends SapiResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void onFailure(SapiResult sapiResult);
+    public abstract void onFailure(R r);
 
     public abstract void onSuccess(String str);
 

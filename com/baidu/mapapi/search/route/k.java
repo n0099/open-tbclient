@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class k implements Parcelable.Creator {
+public final class k implements Parcelable.Creator<MassTransitRouteLine.TransitStep.TrafficCondition> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,10 @@ public final class k implements Parcelable.Creator {
     public MassTransitRouteLine.TransitStep.TrafficCondition createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new MassTransitRouteLine.TransitStep.TrafficCondition(parcel) : (MassTransitRouteLine.TransitStep.TrafficCondition) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
+            return new MassTransitRouteLine.TransitStep.TrafficCondition(parcel);
+        }
+        return (MassTransitRouteLine.TransitStep.TrafficCondition) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,6 +46,9 @@ public final class k implements Parcelable.Creator {
     public MassTransitRouteLine.TransitStep.TrafficCondition[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MassTransitRouteLine.TransitStep.TrafficCondition[i] : (MassTransitRouteLine.TransitStep.TrafficCondition[]) invokeI.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new MassTransitRouteLine.TransitStep.TrafficCondition[i];
+        }
+        return (MassTransitRouteLine.TransitStep.TrafficCondition[]) invokeI.objValue;
     }
 }

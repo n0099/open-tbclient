@@ -1,76 +1,93 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.container.BaseNativeBrowserContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e61 extends WebChromeClient {
+public class e61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final BaseNativeBrowserContainer b;
+    public a a;
+    public d61 b;
+    public int c;
 
-    public e61(Context context, BaseNativeBrowserContainer baseNativeBrowserContainer) {
+    /* loaded from: classes3.dex */
+    public interface a {
+        String a();
+    }
+
+    public e61(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baseNativeBrowserContainer};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = baseNativeBrowserContainer;
+        this.c = 0;
+        this.c = i;
     }
 
-    public final Activity a(WebView webView) {
-        InterceptResult invokeL;
+    public void a(d61 d61Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
-            if (webView == null) {
-                return null;
-            }
-            if (webView.getContext() instanceof Activity) {
-                return (Activity) webView.getContext();
-            }
-            if (!(webView.getContext() instanceof MutableContextWrapper) || !(((MutableContextWrapper) webView.getContext()).getBaseContext() instanceof Activity)) {
-                return null;
-            }
-            return (Activity) ((MutableContextWrapper) webView.getContext()).getBaseContext();
+        if (interceptable == null || interceptable.invokeL(1048576, this, d61Var) == null) {
+            this.b = d61Var;
         }
-        return (Activity) invokeL.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        InterceptResult invokeLLL;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, valueCallback, fileChooserParams)) == null) {
-            this.b.t0();
-            Activity a = a(webView);
-            if (a != null && Build.VERSION.SDK_INT >= 21) {
-                return r41.h(a, valueCallback, fileChooserParams);
-            }
-            valueCallback.onReceiveValue(null);
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void getPerformanceTiming(String str) {
+        d61 d61Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (d61Var = this.b) != null) {
+            d61Var.b(str);
+        }
+    }
+
+    @JavascriptInterface
+    public String getSysHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a aVar = this.a;
+            if (aVar == null) {
+                return "";
+            }
+            String a2 = aVar.a();
+            if (TextUtils.isEmpty(a2)) {
+                return "";
+            }
+            return a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JavascriptInterface
+    public int pageType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
     }
 }

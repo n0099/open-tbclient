@@ -178,6 +178,23 @@ public class RequsetNetworkUtils extends BaseUtils {
         return (NetworkInfo) invokeL.objValue;
     }
 
+    public static String getWifiIp(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            try {
+                if (context.checkCallingOrSelfPermission(h.d) != 0) {
+                    return "nonWifiIp";
+                }
+                int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
+                return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
+            } catch (Exception unused) {
+                return "nonWifiIp";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static String getMobileType(Context context) {
         InterceptResult invokeL;
         String str;
@@ -217,23 +234,6 @@ public class RequsetNetworkUtils extends BaseUtils {
                 return str + "-" + networkType;
             }
             return "unKnow";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getWifiIp(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            try {
-                if (context.checkCallingOrSelfPermission(h.d) != 0) {
-                    return "nonWifiIp";
-                }
-                int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
-                return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
-            } catch (Exception unused) {
-                return "nonWifiIp";
-            }
         }
         return (String) invokeL.objValue;
     }

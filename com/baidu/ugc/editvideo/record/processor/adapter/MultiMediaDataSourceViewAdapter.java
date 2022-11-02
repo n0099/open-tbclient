@@ -8,12 +8,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tieba.fg0;
-import com.baidu.tieba.ih9;
-import com.baidu.tieba.kg0;
-import com.baidu.tieba.ld9;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.jg0;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.ue9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +54,6 @@ import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -69,9 +69,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public Context mContext;
     public IMultiMediaDataSource mDataSource;
     public String mEditTrackType;
-    public List mIEffectProcessorList;
+    public List<IEffectProcessor> mIEffectProcessorList;
     public MultiMediaPreGlRenderer mInnerRenderer;
-    public List mMediaRenderers;
+    public List<IMediaRenderer> mMediaRenderers;
     public boolean mSeeking;
     public int mSurfaceHeight;
     public int mSurfaceWidth;
@@ -79,7 +79,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public int mUpdateTextureId;
     public OnDrawUpdateTextureListener mUpdateTextureListener;
     public int mUpdateTextureMode;
-    public kg0 mVlogEditCore;
+    public jg0 mVlogEditCore;
     public OnMultiMediaDataTextureListener onMultiMediaDataTextureListener;
 
     /* loaded from: classes6.dex */
@@ -148,7 +148,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         multiMediaPreGlRenderer.setCompat(z);
     }
 
-    public static void buildDefault(List list, List list2) {
+    public static void buildDefault(List<IEffectProcessor> list, List<IMediaRenderer> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, list, list2) == null) {
             InputProcessor inputProcessor = new InputProcessor();
@@ -184,17 +184,15 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? TextUtils.equals(this.mEditTrackType, FaceItem.DIR_STICKER) || TextUtils.equals(this.mEditTrackType, SubtitleLog.TAG) || TextUtils.equals(this.mEditTrackType, "text") || TextUtils.equals(this.mEditTrackType, "cover_sticker") : invokeV.booleanValue;
     }
 
-    private void onSubtitleAndStickerChanged(List list) {
+    private void onSubtitleAndStickerChanged(List<IMediaRenderer> list) {
         MediaTrack subtitleAndStickerTrack;
         int indexOf;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65543, this, list) == null) || (indexOf = this.mDataSource.getUpdateMediaTracks().indexOf((subtitleAndStickerTrack = MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mDataSource.getUpdateMediaTracks())))) < 0) {
             return;
         }
-        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) this.mDataSource.getMultiMediaDataTrack().get(indexOf);
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            IMediaRenderer iMediaRenderer = (IMediaRenderer) it.next();
+        MultiMediaDataTrack multiMediaDataTrack = this.mDataSource.getMultiMediaDataTrack().get(indexOf);
+        for (IMediaRenderer iMediaRenderer : list) {
             if (iMediaRenderer instanceof MultiMediaStickerRenderer) {
                 ((MultiMediaStickerRenderer) iMediaRenderer).setData(subtitleAndStickerTrack, multiMediaDataTrack);
                 return;
@@ -227,7 +225,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void addCoverStickerData(MultiMediaData multiMediaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, multiMediaData) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, multiMediaData) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.1
@@ -272,9 +270,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public void addCoverStickerDataList(List list) {
+    public void addCoverStickerDataList(List<MultiMediaData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable(this, list) { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.2
@@ -318,7 +316,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         onFrameAvailable(null);
     }
 
-    public void buildProcessorsAndRenderers(List list, List list2, boolean z) {
+    public void buildProcessorsAndRenderers(List<IEffectProcessor> list, List<IMediaRenderer> list2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, list, list2, z) == null) {
             this.mAutoChange = z;
@@ -342,7 +340,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void cancelStickerSelected() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -403,14 +401,14 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                 }
             }
         } catch (Exception e) {
-            ih9.g(e);
+            ri9.g(e);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void deleteCoverStickerData(MultiMediaData multiMediaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, multiMediaData) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, multiMediaData) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.4
@@ -457,7 +455,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void deleteStickerData(MultiMediaData multiMediaData, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, multiMediaData, str) == null) || TextUtils.isEmpty(str) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, multiMediaData, str) == null) || TextUtils.isEmpty(str) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -470,11 +468,11 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public List getCoverStickerDataList() {
+    public List<MultiMediaData> getCoverStickerDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (nh9.e(this.mMediaRenderers)) {
+            if (wi9.e(this.mMediaRenderers)) {
                 return new ArrayList(1);
             }
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -516,7 +514,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnPreRunnableTask
-    public LinkedList getRunOnDrawList() {
+    public LinkedList<Runnable> getRunOnDrawList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -535,7 +533,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         OnMediaPreviewTouchEventListener onMediaPreviewTouchEventListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (!TextUtils.isEmpty(this.mEditTrackType) && isStickerLayer() && !nh9.e(this.mMediaRenderers)) {
+            if (!TextUtils.isEmpty(this.mEditTrackType) && isStickerLayer() && !wi9.e(this.mMediaRenderers)) {
                 for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
                     if (TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
                         if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
@@ -554,7 +552,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public fg0 getVlogCore() {
+    public eg0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -564,7 +562,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             }
             return null;
         }
-        return (fg0) invokeV.objValue;
+        return (eg0) invokeV.objValue;
     }
 
     public boolean handleTouchEvent() {
@@ -576,7 +574,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void moveBoundsCheckEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -590,11 +588,11 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnMultiMediaCaptureCallback
     public void needDrawEffect(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || nh9.e(this.mIEffectProcessorList)) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || wi9.e(this.mIEffectProcessorList)) {
             return;
         }
         for (int i = 0; i < this.mIEffectProcessorList.size(); i++) {
-            IEffectProcessor iEffectProcessor = (IEffectProcessor) this.mIEffectProcessorList.get(i);
+            IEffectProcessor iEffectProcessor = this.mIEffectProcessorList.get(i);
             if (iEffectProcessor instanceof MiniVideoEffectProcessor) {
                 ((MiniVideoEffectProcessor) iEffectProcessor).needDrawEffect(z);
                 return;
@@ -605,7 +603,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void notifyStickerDataChange(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, str) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -616,7 +614,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         }
     }
 
-    public void onChangeProcessorsAndRenderers(List list, List list2) {
+    public void onChangeProcessorsAndRenderers(List<IEffectProcessor> list, List<IMediaRenderer> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048594, this, list, list2) == null) && this.mAutoChange) {
             onSubtitleAndStickerChanged(list2);
@@ -624,7 +622,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver
-    public void onChanged(List list) {
+    public void onChanged(List<MediaTrack> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
             if (this.mCompat) {
@@ -664,7 +662,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                         }
                     });
                 }
-            } else if (!nh9.e(this.mIEffectProcessorList)) {
+            } else if (!wi9.e(this.mIEffectProcessorList)) {
                 for (IEffectProcessor iEffectProcessor : this.mIEffectProcessorList) {
                     if (iEffectProcessor instanceof AEffectProcessor) {
                         ((AEffectProcessor) iEffectProcessor).updateMediaTracks(list);
@@ -675,7 +673,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver
-    public void onChanged(Map map, List list) {
+    public void onChanged(Map<String, ShaderConfig> map, List<MediaTrack> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, map, list) == null) {
             if (this.mCompat) {
@@ -717,7 +715,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                         }
                     });
                 }
-            } else if (!nh9.e(this.mIEffectProcessorList)) {
+            } else if (!wi9.e(this.mIEffectProcessorList)) {
                 for (IEffectProcessor iEffectProcessor : this.mIEffectProcessorList) {
                     if (iEffectProcessor instanceof AEffectProcessor) {
                         ((AEffectProcessor) iEffectProcessor).changeEffect(map, list);
@@ -834,7 +832,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (!TextUtils.isEmpty(this.mEditTrackType) && !nh9.e(this.mMediaRenderers) && isStickerLayer()) {
+            if (!TextUtils.isEmpty(this.mEditTrackType) && !wi9.e(this.mMediaRenderers) && isStickerLayer()) {
                 for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
                     if (TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
                         if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
@@ -860,7 +858,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             return;
         }
         if (isStickerLayer()) {
-            if (nh9.e(this.mMediaRenderers)) {
+            if (wi9.e(this.mMediaRenderers)) {
                 return;
             }
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -899,7 +897,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     public void onTouchUp(float f, float f2) {
         OnMediaPreviewTouchEventListener onMediaPreviewTouchEventListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || TextUtils.isEmpty(this.mEditTrackType) || !isStickerLayer() || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || TextUtils.isEmpty(this.mEditTrackType) || !isStickerLayer() || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -929,7 +927,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void replaceCoverStickerData(MultiMediaData multiMediaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, multiMediaData) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048610, this, multiMediaData) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         runOnDraw(new Runnable(this, multiMediaData) { // from class: com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter.3
@@ -984,7 +982,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setCurrentStickerData(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048612, this, i, str) == null) || TextUtils.isEmpty(str) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeIL(1048612, this, i, str) == null) || TextUtils.isEmpty(str) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1018,7 +1016,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     public void setOnChangeCoverStickerListener(OnChangeStickerListener onChangeStickerListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, onChangeStickerListener) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048615, this, onChangeStickerListener) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1031,7 +1029,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
 
     public void setOnChangeStickerListener(OnChangeStickerListener onChangeStickerListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, onChangeStickerListener) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, onChangeStickerListener) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1050,9 +1048,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             if (onDrawUpdateTextureListener == null || !this.mCompat) {
                 return;
             }
-            kg0 kg0Var = new kg0();
-            this.mVlogEditCore = kg0Var;
-            kg0Var.j(ld9.c().getContext());
+            jg0 jg0Var = new jg0();
+            this.mVlogEditCore = jg0Var;
+            jg0Var.j(ue9.c().getContext());
             onDrawUpdateTextureListener.setVlogCore(this.mVlogEditCore);
         }
     }
@@ -1060,7 +1058,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerDeleteButton(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048618, this, str, str2) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048618, this, str, str2) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1074,7 +1072,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerEditButton(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048619, this, str, str2) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048619, this, str, str2) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1088,7 +1086,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerMaxScale(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048620, this, f) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeF(1048620, this, f) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1102,7 +1100,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerMinScale(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048621, this, f) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeF(1048621, this, f) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1116,7 +1114,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
     public void setStickerRotationButton(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048622, this, str, str2) == null) || nh9.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048622, this, str, str2) == null) || wi9.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1132,7 +1130,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
             this.mEditTrackType = str;
-            if (nh9.e(this.mMediaRenderers)) {
+            if (wi9.e(this.mMediaRenderers)) {
                 return;
             }
             for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
@@ -1166,12 +1164,12 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVlogCore(fg0 fg0Var) {
+    public void setVlogCore(eg0 eg0Var) {
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048626, this, fg0Var) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, eg0Var) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
             return;
         }
-        onDrawUpdateTextureListener.setVlogCore(fg0Var);
+        onDrawUpdateTextureListener.setVlogCore(eg0Var);
     }
 }

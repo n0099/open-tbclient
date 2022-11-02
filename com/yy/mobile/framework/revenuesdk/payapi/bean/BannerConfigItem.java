@@ -1,21 +1,24 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+@Keep
 /* loaded from: classes8.dex */
 public class BannerConfigItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int autoPlayTime;
-    public List bannerInfoList;
+    public List<BannerInfo> bannerInfoList;
     public int type;
 
+    @Keep
     /* loaded from: classes8.dex */
-    public class BannerInfo {
+    public static class BannerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String id;

@@ -11,7 +11,7 @@ import kotlinx.coroutines.channels.ProducerScope;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$fixedPeriodTicker$3", f = "Delay.kt", i = {0, 1, 2}, l = {Cea708Decoder.COMMAND_DF5, 159, 160}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "$this$produce"}, s = {"L$0", "L$0", "L$0"})
 /* loaded from: classes8.dex */
-public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda implements Function2 {
+public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ long $delayMillis;
     public final /* synthetic */ long $initialDelayMillis;
     public Object L$0;
@@ -26,15 +26,16 @@ public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda imp
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         FlowKt__DelayKt$fixedPeriodTicker$3 flowKt__DelayKt$fixedPeriodTicker$3 = new FlowKt__DelayKt$fixedPeriodTicker$3(this.$initialDelayMillis, this.$delayMillis, continuation);
         flowKt__DelayKt$fixedPeriodTicker$3.p$ = (ProducerScope) obj;
         return flowKt__DelayKt$fixedPeriodTicker$3;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((FlowKt__DelayKt$fixedPeriodTicker$3) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(ProducerScope<? super Unit> producerScope, Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$fixedPeriodTicker$3) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor

@@ -27,7 +27,7 @@ public class FreeBox implements Box {
     public ByteBuffer data;
     public long offset;
     public Container parent;
-    public List replacers;
+    public List<Box> replacers;
 
     static {
         InterceptResult invokeClinit;

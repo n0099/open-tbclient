@@ -19,13 +19,13 @@ public class c {
 
     /* renamed from: com.baidu.ar.c.c$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static c iB;
         public transient /* synthetic */ FieldHolder $fh;

@@ -5,8 +5,10 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,10 +47,10 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] q = fj.q(activity);
+            int[] s = xi.s(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
-                iArr[0] = q[0];
-                iArr[1] = q[1];
+                iArr[0] = s[0];
+                iArr[1] = s[1];
             }
             return iArr;
         }
@@ -68,14 +70,14 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int s = fj.s(activity);
+            int u = xi.u(activity);
             if (MenuKeyUtils.hasSmartBar()) {
-                i = fj.d(activity, 48.0f);
+                i = xi.d(activity, 48.0f);
             } else {
                 i = 0;
             }
             if (!UtilHelper.canUseStyleImmersiveSticky()) {
-                i2 = s;
+                i2 = u;
             }
             rect.bottom -= i;
             rect.top += i2;
@@ -84,7 +86,7 @@ public class ViewCommonUtil {
         return (Rect) invokeL.objValue;
     }
 
-    public static void setViewMargin(View view2, int i, int i2, int i3, int i4) {
+    public static void setViewMargin(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
@@ -106,7 +108,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewMarginByDimen(View view2, int i, int i2, int i3, int i4) {
+    public static void setViewMarginByDimen(@NonNull View view2, @DimenRes int i, @DimenRes int i2, @DimenRes int i3, @DimenRes int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i != -1) {
@@ -125,7 +127,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewPadding(View view2, int i, int i2, int i3, int i4) {
+    public static void setViewPadding(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (i == -1) {
@@ -144,7 +146,7 @@ public class ViewCommonUtil {
         }
     }
 
-    public static void setViewWidthHeight(View view2, int i, int i2) {
+    public static void setViewWidthHeight(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65542, null, view2, i, i2) == null) {
             ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();

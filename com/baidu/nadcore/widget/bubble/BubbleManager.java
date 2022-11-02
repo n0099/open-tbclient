@@ -1,10 +1,10 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import com.baidu.tieba.a71;
-import com.baidu.tieba.c71;
-import com.baidu.tieba.xj0;
-import com.baidu.tieba.z61;
+import com.baidu.tieba.r71;
+import com.baidu.tieba.s71;
+import com.baidu.tieba.u71;
+import com.baidu.tieba.wj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BubbleManager extends c71 implements View.OnClickListener {
+public class BubbleManager extends u71 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class BubbleManager extends c71 implements View.OnClickListener {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BubbleStyle {
+    public static final class BubbleStyle {
         public static final /* synthetic */ BubbleStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BubbleStyle TextOnly;
@@ -97,20 +97,20 @@ public class BubbleManager extends c71 implements View.OnClickListener {
         }
     }
 
-    public static Object t(Class cls) {
+    public static <T> T t(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls != a71.class && cls != z61.class) {
+            if (cls != s71.class && cls != r71.class) {
                 return null;
             }
             try {
                 return cls.newInstance();
             } catch (Exception e) {
-                xj0.b("BubbleManager", "", e);
+                wj0.b("BubbleManager", "", e);
                 return null;
             }
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

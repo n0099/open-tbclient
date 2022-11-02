@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public class MessageConfigFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static ConcurrentHashMap caches;
+    public static ConcurrentHashMap<String, MessageConfig> caches;
     public static MessageConfig mainConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class MessageConfigFactory {
                 return;
             }
         }
-        caches = new ConcurrentHashMap();
+        caches = new ConcurrentHashMap<>();
         mainConfig = null;
     }
 
@@ -61,12 +61,12 @@ public class MessageConfigFactory {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            MessageConfig messageConfig = (MessageConfig) caches.get(str);
+            MessageConfig messageConfig = caches.get(str);
             if (messageConfig != null) {
                 return messageConfig;
             }
             synchronized (MessageConfigFactory.class) {
-                MessageConfig messageConfig2 = (MessageConfig) caches.get(str);
+                MessageConfig messageConfig2 = caches.get(str);
                 if (messageConfig2 != null) {
                     return messageConfig2;
                 }

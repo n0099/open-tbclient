@@ -8,18 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CloseableReference mBufRef;
+    @VisibleForTesting
+    @GuardedBy("this")
+    public CloseableReference<MemoryChunk> mBufRef;
     public final int mSize;
 
-    public MemoryPooledByteBuffer(CloseableReference closeableReference, int i) {
+    public MemoryPooledByteBuffer(CloseableReference<MemoryChunk> closeableReference, int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -36,7 +42,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
             }
         }
         Preconditions.checkNotNull(closeableReference);
-        if (i >= 0 && i <= ((MemoryChunk) closeableReference.get()).getSize()) {
+        if (i >= 0 && i <= closeableReference.get().getSize()) {
             z = true;
         } else {
             z = false;
@@ -76,14 +82,16 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                byteBuffer = ((MemoryChunk) this.mBufRef.get()).getByteBuffer();
+                byteBuffer = this.mBufRef.get().getByteBuffer();
             }
             return byteBuffer;
         }
         return (ByteBuffer) invokeV.objValue;
     }
 
-    public CloseableReference getCloseableReference() {
+    @VisibleForTesting
+    @GuardedBy("this")
+    public CloseableReference<MemoryChunk> getCloseableReference() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -100,7 +108,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 ensureValid();
-                nativePtr = ((MemoryChunk) this.mBufRef.get()).getNativePtr();
+                nativePtr = this.mBufRef.get().getNativePtr();
             }
             return nativePtr;
         }
@@ -156,7 +164,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
                     z2 = false;
                 }
                 Preconditions.checkArgument(z2);
-                read = ((MemoryChunk) this.mBufRef.get()).read(i);
+                read = this.mBufRef.get().read(i);
             }
             return read;
         }
@@ -178,7 +186,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
                     z = false;
                 }
                 Preconditions.checkArgument(z);
-                read = ((MemoryChunk) this.mBufRef.get()).read(i, bArr, i2, i3);
+                read = this.mBufRef.get().read(i, bArr, i2, i3);
             }
             return read;
         }

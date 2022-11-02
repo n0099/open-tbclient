@@ -15,9 +15,19 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class IndoorRouteResult extends SearchResult {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<IndoorRouteResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<IndoorRouteLine> a;
+
+    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,6 +59,15 @@ public class IndoorRouteResult extends SearchResult {
         }
     }
 
+    public List<IndoorRouteLine> getRouteLines() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public IndoorRouteResult(Parcel parcel) {
         super(parcel);
@@ -70,23 +89,7 @@ public class IndoorRouteResult extends SearchResult {
         this.a = parcel.createTypedArrayList(IndoorRouteLine.CREATOR);
     }
 
-    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List getRouteLines() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void setRouteLines(List list) {
+    public void setRouteLines(List<IndoorRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a = list;

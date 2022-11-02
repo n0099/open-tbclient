@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
 import androidx.transition.Visibility;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +34,8 @@ public final class Hold extends Visibility {
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @NonNull
+    public Animator onAppear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
@@ -42,7 +45,8 @@ public final class Hold extends Visibility {
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @NonNull
+    public Animator onDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {

@@ -123,7 +123,7 @@ public final class HlsMediaChunk extends MediaChunk {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMediaChunk(HlsExtractorFactory hlsExtractorFactory, DataSource dataSource, DataSpec dataSpec, DataSpec dataSpec2, HlsMasterPlaylist.HlsUrl hlsUrl, List list, int i, Object obj, long j, long j2, int i2, int i3, boolean z, TimestampAdjuster timestampAdjuster, HlsMediaChunk hlsMediaChunk, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
+    public HlsMediaChunk(HlsExtractorFactory hlsExtractorFactory, DataSource dataSource, DataSpec dataSpec, DataSpec dataSpec2, HlsMasterPlaylist.HlsUrl hlsUrl, List<Format> list, int i, Object obj, long j, long j2, int i2, int i3, boolean z, TimestampAdjuster timestampAdjuster, HlsMediaChunk hlsMediaChunk, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
         super(buildDataSource(dataSource, bArr, bArr2), dataSpec, hlsUrl.format, i, obj, j, j2, i2);
         DataSpec dataSpec3;
         Extractor extractor;
@@ -172,7 +172,7 @@ public final class HlsMediaChunk extends MediaChunk {
             dataSpec3 = dataSpec;
             extractor = null;
         }
-        Pair createExtractor = hlsExtractorFactory.createExtractor(extractor, dataSpec3.uri, this.trackFormat, list, drmInitData, timestampAdjuster);
+        Pair<Extractor, Boolean> createExtractor = hlsExtractorFactory.createExtractor(extractor, dataSpec3.uri, this.trackFormat, list, drmInitData, timestampAdjuster);
         this.extractor = (Extractor) createExtractor.first;
         this.isPackedAudioExtractor = ((Boolean) createExtractor.second).booleanValue();
         if (this.extractor == extractor) {

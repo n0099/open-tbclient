@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.index;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
+import tbclient.DoDailyTask.ButtonItem;
 import tbclient.DoDailyTask.DataRes;
 import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
@@ -17,7 +19,7 @@ import tbclient.Error;
 public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List buttonItems;
+    public List<ButtonItem> buttonItems;
     public String content;
     public int isFinished;
     public int needDialog;
@@ -48,6 +50,7 @@ public class DoDailyTaskSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

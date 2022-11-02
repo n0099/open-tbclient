@@ -1,49 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.l74;
 /* loaded from: classes5.dex */
-public class m74 extends l74 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errCode;
-    @V8JavascriptField
-    public String errMsg;
+public interface m74 extends k74 {
+    void d(t74 t74Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m74(String str, String str2, String str3) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.errCode = str2;
-        this.errMsg = str3;
-    }
+    void m(boolean z);
 
-    @Override // com.baidu.tieba.l74
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
+    void t(l74.b bVar);
+
+    void update();
 }

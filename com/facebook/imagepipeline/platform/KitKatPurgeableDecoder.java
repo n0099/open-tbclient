@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.platform;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.exifinterface.media.ExifInterface;
@@ -9,17 +10,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
+import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
+@ThreadSafe
+@TargetApi(19)
 /* loaded from: classes7.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FlexByteArrayPool mFlexByteArrayPool;
 
+    @DoNotStrip
     public KitKatPurgeableDecoder(FlexByteArrayPool flexByteArrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,26 +54,26 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeByteArrayAsPurgeable(CloseableReference closeableReference, BitmapFactory.Options options) {
+    public Bitmap decodeByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, BitmapFactory.Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, closeableReference, options)) == null) {
-            PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) closeableReference.get();
+            PooledByteBuffer pooledByteBuffer = closeableReference.get();
             int size = pooledByteBuffer.size();
-            CloseableReference closeableReference2 = this.mFlexByteArrayPool.get(size);
+            CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(size);
             try {
-                byte[] bArr = (byte[]) closeableReference2.get();
+                byte[] bArr = closeableReference2.get();
                 pooledByteBuffer.read(0, bArr, 0, size);
                 return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr, 0, size, options), "BitmapFactory returned null");
             } finally {
-                CloseableReference.closeSafely(closeableReference2);
+                CloseableReference.closeSafely((CloseableReference<?>) closeableReference2);
             }
         }
         return (Bitmap) invokeLL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference closeableReference, int i, BitmapFactory.Options options) {
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         byte[] bArr;
         boolean z;
@@ -77,7 +84,7 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
             } else {
                 bArr = DalvikPurgeableDecoder.EOI;
             }
-            PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) closeableReference.get();
+            PooledByteBuffer pooledByteBuffer = closeableReference.get();
             if (i <= pooledByteBuffer.size()) {
                 z = true;
             } else {
@@ -85,9 +92,9 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
             }
             Preconditions.checkArgument(z);
             int i2 = i + 2;
-            CloseableReference closeableReference2 = this.mFlexByteArrayPool.get(i2);
+            CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(i2);
             try {
-                byte[] bArr2 = (byte[]) closeableReference2.get();
+                byte[] bArr2 = closeableReference2.get();
                 pooledByteBuffer.read(0, bArr2, 0, i);
                 if (bArr != null) {
                     putEOI(bArr2, i);
@@ -95,7 +102,7 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
                 }
                 return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i, options), "BitmapFactory returned null");
             } finally {
-                CloseableReference.closeSafely(closeableReference2);
+                CloseableReference.closeSafely((CloseableReference<?>) closeableReference2);
             }
         }
         return (Bitmap) invokeLIL.objValue;

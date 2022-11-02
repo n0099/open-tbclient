@@ -37,7 +37,7 @@ public class MaskView extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

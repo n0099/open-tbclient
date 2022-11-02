@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,6 +34,7 @@ public class FloatingStatPlugin extends AbsPlugin {
     public BDVideoPlayerUbcContent mUBCContent;
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
+    @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +73,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         this.mUBCContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
     }
 
-    private void onFloatingClick(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingClick(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -84,7 +87,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingDismiss(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingDismiss(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -98,7 +101,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingScale(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Boolean bool) {
+    private void onFloatingScale(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Boolean bool) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDVideoPlayerUbcContent, bool) == null) {
@@ -118,7 +121,7 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onFloatingShow(BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
+    private void onFloatingShow(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, bDVideoPlayerUbcContent) == null) {
             try {
@@ -146,7 +149,7 @@ public class FloatingStatPlugin extends AbsPlugin {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
-    public void onVideoEventNotify(VideoEvent videoEvent) {
+    public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
         char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) {

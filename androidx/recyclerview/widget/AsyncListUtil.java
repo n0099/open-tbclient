@@ -3,6 +3,10 @@ package androidx.recyclerview.widget;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
@@ -42,8 +46,10 @@ public class AsyncListUtil<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract void fillData(T[] tArr, int i, int i2);
+        @WorkerThread
+        public abstract void fillData(@NonNull T[] tArr, int i, int i2);
 
+        @WorkerThread
         public int getMaxCachedTiles() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -53,12 +59,14 @@ public class AsyncListUtil<T> {
             return invokeV.intValue;
         }
 
-        public void recycleData(T[] tArr, int i) {
+        @WorkerThread
+        public void recycleData(@NonNull T[] tArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tArr, i) == null) {
             }
         }
 
+        @WorkerThread
         public abstract int refreshData();
 
         public DataCallback() {
@@ -84,10 +92,13 @@ public class AsyncListUtil<T> {
         public static final int HINT_SCROLL_NONE = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract void getItemRangeInto(int[] iArr);
+        @UiThread
+        public abstract void getItemRangeInto(@NonNull int[] iArr);
 
+        @UiThread
         public abstract void onDataRefresh();
 
+        @UiThread
         public abstract void onItemLoaded(int i);
 
         public ViewCallback() {
@@ -104,7 +115,8 @@ public class AsyncListUtil<T> {
             }
         }
 
-        public void extendRangeInto(int[] iArr, int[] iArr2, int i) {
+        @UiThread
+        public void extendRangeInto(@NonNull int[] iArr, @NonNull int[] iArr2, int i) {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, iArr, iArr2, i) == null) {
@@ -126,7 +138,7 @@ public class AsyncListUtil<T> {
         }
     }
 
-    public AsyncListUtil(Class<T> cls, int i, DataCallback<T> dataCallback, ViewCallback viewCallback) {
+    public AsyncListUtil(@NonNull Class<T> cls, int i, @NonNull DataCallback<T> dataCallback, @NonNull ViewCallback viewCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -490,6 +502,7 @@ public class AsyncListUtil<T> {
         }
     }
 
+    @Nullable
     public T getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

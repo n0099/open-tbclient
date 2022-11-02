@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class DeleteRequest extends HttpCommonRequest {
+public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class DeleteRequestBuilder extends HttpCommonRequestBuilder {
+    public static class DeleteRequestBuilder extends HttpCommonRequestBuilder<DeleteRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

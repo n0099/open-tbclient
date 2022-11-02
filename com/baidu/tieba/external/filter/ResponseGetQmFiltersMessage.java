@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseGetQmFiltersMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mQmFilterItems;
+    public List<QmFilterItem> mQmFilterItems;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetQmFiltersMessage() {
@@ -37,7 +37,7 @@ public class ResponseGetQmFiltersMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getFilterItems() {
+    public List<QmFilterItem> getFilterItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

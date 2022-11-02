@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class ReplyMeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
     public b b;
-    public qb c;
+    public pb c;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -54,7 +54,7 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyMeModel a;
@@ -83,11 +83,11 @@ public class ReplyMeModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:37:0x00cf  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00e1  */
-        @Override // com.baidu.tieba.qb
+        @Override // com.baidu.tieba.pb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMessage(ResponsedMessage responsedMessage) {
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             long forumId;
             long postState;
             long quoteId;
@@ -101,12 +101,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c68);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c7f);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c68);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c7f);
                 }
             } else {
                 if (z) {
@@ -143,10 +143,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13fc);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f141a);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1407);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1425);
                             return;
                         } else {
                             return;
@@ -177,8 +177,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        zm8.f(303010, CheckPostResponseMessage.class, false);
-        zm8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        io8.f(303010, CheckPostResponseMessage.class, false);
+        io8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     public void B() {
@@ -229,7 +229,7 @@ public class ReplyMeModel extends BdBaseModel {
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(eh.g(str2, 0L));
+            checkPostRequestMessage.setTid(wg.g(str2, 0L));
             checkPostRequestMessage.setTag(this.a.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;

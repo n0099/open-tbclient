@@ -3,6 +3,7 @@ package kotlin.random;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.bdtask.model.response.NextActive;
 import kotlin.Metadata;
+import kotlin.SinceKotlin;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.IntRange;
 import kotlin.ranges.LongRange;
@@ -13,6 +14,7 @@ public final class RandomKt {
         return (i >>> (32 - i2)) & ((-i2) >> 31);
     }
 
+    @SinceKotlin(version = "1.3")
     public static final Random Random(int i) {
         return new XorWowRandom(i, i >> 31);
     }
@@ -21,6 +23,7 @@ public final class RandomKt {
         return 31 - Integer.numberOfLeadingZeros(i);
     }
 
+    @SinceKotlin(version = "1.3")
     public static final Random Random(long j) {
         return new XorWowRandom((int) j, (int) (j >> 32));
     }
@@ -70,6 +73,7 @@ public final class RandomKt {
         throw new IllegalArgumentException(boundsErrorMessage(Long.valueOf(j), Long.valueOf(j2)).toString());
     }
 
+    @SinceKotlin(version = "1.3")
     public static final int nextInt(Random nextInt, IntRange range) {
         Intrinsics.checkNotNullParameter(nextInt, "$this$nextInt");
         Intrinsics.checkNotNullParameter(range, "range");
@@ -85,6 +89,7 @@ public final class RandomKt {
         throw new IllegalArgumentException("Cannot get random in empty range: " + range);
     }
 
+    @SinceKotlin(version = "1.3")
     public static final long nextLong(Random nextLong, LongRange range) {
         Intrinsics.checkNotNullParameter(nextLong, "$this$nextLong");
         Intrinsics.checkNotNullParameter(range, "range");

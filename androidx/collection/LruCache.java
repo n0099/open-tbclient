@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +25,8 @@ public class LruCache<K, V> {
     public int putCount;
     public int size;
 
-    public V create(K k) {
+    @Nullable
+    public V create(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
@@ -32,13 +35,13 @@ public class LruCache<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public void entryRemoved(boolean z, K k, V v, V v2) {
+    public void entryRemoved(boolean z, @NonNull K k, @NonNull V v, @Nullable V v2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
         }
     }
 
-    public int sizeOf(K k, V v) {
+    public int sizeOf(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
@@ -194,7 +197,8 @@ public class LruCache<K, V> {
         return (Map) invokeV.objValue;
     }
 
-    public final V get(K k) {
+    @Nullable
+    public final V get(@NonNull K k) {
         InterceptResult invokeL;
         V put;
         Interceptable interceptable = $ic;
@@ -265,7 +269,8 @@ public class LruCache<K, V> {
         }
     }
 
-    public final V put(K k, V v) {
+    @Nullable
+    public final V put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         V put;
         Interceptable interceptable = $ic;
@@ -290,7 +295,8 @@ public class LruCache<K, V> {
         return (V) invokeLL.objValue;
     }
 
-    public final V remove(K k) {
+    @Nullable
+    public final V remove(@NonNull K k) {
         InterceptResult invokeL;
         V remove;
         Interceptable interceptable = $ic;

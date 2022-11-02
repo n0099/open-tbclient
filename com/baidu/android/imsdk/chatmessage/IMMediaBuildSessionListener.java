@@ -33,24 +33,24 @@ public class IMMediaBuildSessionListener implements IMListener {
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger count;
     public Context mContext;
-    public BIMValueCallBack mGetGroupInfoListener;
+    public BIMValueCallBack<ArrayList<GroupInfo>> mGetGroupInfoListener;
     public IGetPaInfosListener mGetPaInfosListener;
     public IGetUserIdentityListener mGetUserIdentityListener;
     public boolean mHasMore;
     public IMediaGetChatSessionListener mListener;
     public int mNewNum;
     public int mResultCode;
-    public List mResultList;
+    public List<ChatSession> mResultList;
     public int mTopHasMore;
 
     /* loaded from: classes.dex */
-    public class GetGroupInfoListener implements BIMValueCallBack {
+    public class GetGroupInfoListener implements BIMValueCallBack<ArrayList<GroupInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map mGroupMap;
+        public Map<String, ChatSession> mGroupMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetGroupInfoListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
+        public GetGroupInfoListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<String, ChatSession> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,9 +83,9 @@ public class IMMediaBuildSessionListener implements IMListener {
                 if (chatSession.getLastMsgUid() > 0) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(String.valueOf(chatSession.getLastMsgUid()));
-                    ArrayList groupMember = GroupInfoDAOImpl.getGroupMember(this.this$0.mContext, groupInfo.getGroupId(), arrayList, 1);
+                    ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(this.this$0.mContext, groupInfo.getGroupId(), arrayList, 1);
                     if (groupMember != null && groupMember.size() > 0) {
-                        chatSession.setLastMsgName(((GroupMember) groupMember.get(0)).getShowName());
+                        chatSession.setLastMsgName(groupMember.get(0).getShowName());
                     }
                 }
             }
@@ -93,16 +93,16 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-        public void onResult(int i, String str, ArrayList arrayList) {
+        public void onResult(int i, String str, ArrayList<GroupInfo> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList) == null) {
                 if (i == 0 && arrayList != null && this.mGroupMap != null) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<GroupInfo> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        GroupInfo groupInfo = (GroupInfo) it.next();
-                        ChatSession chatSession = (ChatSession) this.mGroupMap.get(groupInfo.getGroupId());
+                        GroupInfo next = it.next();
+                        ChatSession chatSession = this.mGroupMap.get(next.getGroupId());
                         if (chatSession != null) {
-                            updateChatSessionByGroupInfo(chatSession, groupInfo);
+                            updateChatSessionByGroupInfo(chatSession, next);
                             this.this$0.mResultList.add(chatSession);
                         }
                     }
@@ -116,10 +116,10 @@ public class IMMediaBuildSessionListener implements IMListener {
     public class GetPaInfosListener implements IGetPaInfosListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map mPaMap;
+        public Map<Long, ChatSession> mPaMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetPaInfosListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
+        public GetPaInfosListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<Long, ChatSession> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,16 +168,16 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
 
         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-        public void onResult(int i, String str, ArrayList arrayList) {
+        public void onResult(int i, String str, ArrayList<PaInfo> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
                 if (i == 0 && arrayList != null && this.mPaMap != null) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<PaInfo> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        PaInfo paInfo = (PaInfo) it.next();
-                        ChatSession chatSession = (ChatSession) this.mPaMap.get(Long.valueOf(paInfo.getPaId()));
+                        PaInfo next = it.next();
+                        ChatSession chatSession = this.mPaMap.get(Long.valueOf(next.getPaId()));
                         if (chatSession != null) {
-                            updateChatSessionByPaInfo((ChatSession) this.mPaMap.get(Long.valueOf(paInfo.getPaId())), paInfo);
+                            updateChatSessionByPaInfo(this.mPaMap.get(Long.valueOf(next.getPaId())), next);
                             this.this$0.mResultList.add(chatSession);
                         }
                     }
@@ -191,10 +191,10 @@ public class IMMediaBuildSessionListener implements IMListener {
     public class GetUserIdentityListener implements IGetUserIdentityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map mUserMap;
+        public Map<Long, ChatSession> mUserMap;
         public final /* synthetic */ IMMediaBuildSessionListener this$0;
 
-        public GetUserIdentityListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map map) {
+        public GetUserIdentityListener(IMMediaBuildSessionListener iMMediaBuildSessionListener, Map<Long, ChatSession> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,14 +242,12 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
 
         @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-        public void onGetUserIdentityResult(int i, List list) {
+        public void onGetUserIdentityResult(int i, List<ChatUser> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
                 if (i == 0 && list != null && this.mUserMap != null) {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        ChatUser chatUser = (ChatUser) it.next();
-                        ChatSession chatSession = (ChatSession) this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
+                    for (ChatUser chatUser : list) {
+                        ChatSession chatSession = this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
                         if (chatSession != null) {
                             updateChatSessionByChatUser(chatSession, chatUser);
                             this.this$0.mResultList.add(chatSession);
@@ -292,7 +290,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         this.mTopHasMore = i2;
     }
 
-    public BIMValueCallBack getGroupInfoListener(Map map) {
+    public BIMValueCallBack<ArrayList<GroupInfo>> getGroupInfoListener(Map<String, ChatSession> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
@@ -305,7 +303,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         return (BIMValueCallBack) invokeL.objValue;
     }
 
-    public IGetPaInfosListener getPaInfosListener(Map map) {
+    public IGetPaInfosListener getPaInfosListener(Map<Long, ChatSession> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
@@ -318,7 +316,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         return (IGetPaInfosListener) invokeL.objValue;
     }
 
-    public IGetUserIdentityListener getUserIdentityListener(Map map) {
+    public IGetUserIdentityListener getUserIdentityListener(Map<Long, ChatSession> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {

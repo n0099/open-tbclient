@@ -1,13 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,27 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class ud2 extends yd2 {
+public class ud2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile ud2 e;
-    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<String> a;
+    public final Map<String, a<Boolean>> b;
+    public final Map<String, a<b>> c;
+    public a<Exception> d;
 
     /* loaded from: classes6.dex */
-    public class a extends ProviderDelegation {
+    public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
+        public Set<xi3<T>> a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -47,79 +38,73 @@ public class ud2 extends yd2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashSet();
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.clear();
+            }
+        }
+
+        public void a(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+                for (xi3<T> xi3Var : this.a) {
+                    xi3Var.a(t);
                 }
             }
         }
 
-        public final yd2 d() {
-            InterceptResult invokeV;
+        public void c(xi3<T> xi3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return vd2.f(e());
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi3Var) == null) && xi3Var != null) {
+                this.a.add(xi3Var);
             }
-            return (yd2) invokeV.objValue;
-        }
-
-        public final ExtensionCore c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (d() == null) {
-                    return null;
-                }
-                ExtensionCore d = d().d();
-                if (!d.isAvailable()) {
-                    d().h();
-                    return d().d();
-                }
-                return d;
-            }
-            return (ExtensionCore) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", c());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends ProviderDelegation {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final long b;
 
-        public b() {
+        public b(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = j;
+            this.b = j2;
+            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", ud2.f);
-                m02.k("ExtCore-AppsManager", "is extension file exists : " + ud2.f);
-                return bundle2;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b > 0) {
+                    return true;
+                }
+                return false;
             }
-            return (Bundle) invokeL.objValue;
+            return invokeV.booleanValue;
         }
     }
 
@@ -136,41 +121,19 @@ public class ud2 extends yd2 {
                 return;
             }
         }
-        d = wj1.a;
-        f = m();
+        boolean z = ok1.a;
     }
 
-    public static ud2 k() {
+    public HashSet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (ud2.class) {
-                    if (e == null) {
-                        e = new ud2();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashSet<>(this.a);
         }
-        return (ud2) invokeV.objValue;
+        return (HashSet) invokeV.objValue;
     }
 
-    public static ze2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (j()) {
-                return new ze2();
-            }
-            return new af2();
-        }
-        return (ze2) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ud2() {
-        super(l(), new cf2());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,85 +141,96 @@ public class ud2 extends yd2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((ye2) objArr[0], (bf2) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashSet();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new a<>();
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    public static <T> a<T> i(Map<String, a<T>> map, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                m02.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
-                return f;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
+            a<T> aVar = map.get(str);
+            if (aVar == null) {
+                a<T> aVar2 = new a<>();
+                map.put(str, aVar2);
+                return aVar2;
             }
-            b03 c = zz2.c(b.class, null);
-            boolean z = true;
-            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
-                z = false;
-            }
-            m02.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
-            return z;
+            return aVar;
         }
-        return invokeV.booleanValue;
+        return (a) invokeLL.objValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
-        boolean z;
+    public void c(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            te2 te2Var = new te2();
-            if (xf3.a(AppRuntime.getAppContext(), te2Var.d()) && xf3.a(AppRuntime.getAppContext(), te2Var.a())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            m02.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
-            return z;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            a i = i(this.b, str);
+            i.a(Boolean.valueOf(z));
+            i.b();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yd2
-    public String b(int i) {
-        InterceptResult invokeI;
+    public void d(String str, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 1) {
-                return de2.b().getPath();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
+            if (bVar == null || bVar.a()) {
+                i(this.c, str).a(bVar);
             }
-            return null;
         }
-        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.yd2
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
+    public ud2 h(String str, xi3<Boolean> xi3Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                extensionCore = d();
-            } else {
-                Bundle bundle = zz2.c(a.class, null).a;
-                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (d) {
-                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
-                }
-            }
-            if (extensionCore != null && lz2.Y() && extensionCore.extensionCoreVersionCode < 4294967297L) {
-                return lz2.a(extensionCore);
-            }
-            return extensionCore;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, xi3Var)) == null) {
+            g(this.b, str, xi3Var);
+            return this;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (ud2) invokeLL.objValue;
+    }
+
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.d.a(exc);
+            this.d.b();
+        }
+    }
+
+    public ud2 e(xi3<Exception> xi3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, xi3Var)) == null) {
+            this.d.c(xi3Var);
+            return this;
+        }
+        return (ud2) invokeL.objValue;
+    }
+
+    public ud2 f(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+            this.a.addAll(Arrays.asList(strArr));
+            return this;
+        }
+        return (ud2) invokeL.objValue;
+    }
+
+    public final <T> ud2 g(Map<String, a<T>> map, String str, xi3<T> xi3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, xi3Var)) == null) {
+            f(str);
+            i(map, str).c(xi3Var);
+            return this;
+        }
+        return (ud2) invokeLLL.objValue;
     }
 }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
@@ -34,6 +35,7 @@ import java.io.Serializable;
 import java.util.List;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
+@Keep
 /* loaded from: classes7.dex */
 public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     public static /* synthetic */ Interceptable $ic = null;
@@ -81,7 +83,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     private com.kwad.components.core.page.widget.a buildDialog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0575a(this) { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.4
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? new com.kwad.components.core.page.widget.a(getActivity(), new a.InterfaceC0586a(this) { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdWebViewVideoActivityProxy FE;
@@ -104,7 +106,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
                 this.FE = this;
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0575a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0586a
             public final void a(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
@@ -113,7 +115,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
                 }
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0575a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0586a
             public final void b(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
@@ -122,7 +124,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
                 }
             }
 
-            @Override // com.kwad.components.core.page.widget.a.InterfaceC0575a
+            @Override // com.kwad.components.core.page.widget.a.InterfaceC0586a
             public final void c(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
@@ -134,17 +136,17 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C0566a getAdClickConfig(boolean z) {
+    public a.C0577a getAdClickConfig(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65544, this, z)) == null) ? new a.C0566a(getActivity()).aj(z).ak(false).L(this.mAdTemplate).am(false) : (a.C0566a) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65544, this, z)) == null) ? new a.C0577a(getActivity()).aj(z).ak(false).L(this.mAdTemplate).am(false) : (a.C0577a) invokeZ.objValue;
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091235);
-            this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091234);
+            this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09126f);
+            this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09126e);
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
             if (com.kwad.sdk.core.response.a.a.am(bQ)) {
                 this.mWebDownloadContainer.setVisibility(0);
@@ -261,11 +263,11 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
             } else {
                 this.mWebDownloadContainer.setVisibility(8);
             }
-            List list = this.mAdTemplate.adInfoList;
+            List<AdInfo> list = this.mAdTemplate.adInfoList;
             String bl = (list == null || list.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) ? "详情页面" : com.kwad.sdk.core.response.a.a.bl(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
-            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910df));
+            com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091119));
             this.mTitleBarHelper = aVar;
-            aVar.a(new a.InterfaceC0572a(this) { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
+            aVar.a(new a.InterfaceC0583a(this) { // from class: com.kwad.components.core.page.AdWebViewVideoActivityProxy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdWebViewVideoActivityProxy FE;
@@ -288,7 +290,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
                     this.FE = this;
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
                 public final void r(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -296,7 +298,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
                     }
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
                 public final void s(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
@@ -310,7 +312,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
             b M = b.M(this.mAdTemplate);
             this.mFragment = M;
             M.setApkDownloadHelper(this.mApkDownloadHelper);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f091133, this.mFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09116d, this.mFragment).commitAllowingStateLoss();
         }
     }
 
@@ -394,7 +396,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.components.core.i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d03fd);
+            setContentView(R.layout.obfuscated_res_0x7f0d0408);
             Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
             showingAdWebViewVideoActivity = true;
             if (!(serializableExtra instanceof AdTemplate)) {

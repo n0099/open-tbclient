@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.event;
 
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -144,7 +146,9 @@ public class LayerEvent extends VideoEvent {
         }
     }
 
-    public static VideoEvent obtainEvent(String str) {
+    @NonNull
+    @PublicMethod
+    public static VideoEvent obtainEvent(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {

@@ -20,14 +20,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.e57;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.dn4;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.i57;
-import com.baidu.tieba.lm4;
 import com.baidu.tieba.n9;
+import com.baidu.tieba.o67;
+import com.baidu.tieba.s67;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity implements e57 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements o67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -52,11 +53,11 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a024" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
@@ -84,12 +85,12 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
         }
 
         @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap hashMap) {
+        public void a(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID) instanceof String)) {
                 String str = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID);
                 if (!StringUtils.isNull(str)) {
-                    this.a.e = eh.g(str, -1L);
+                    this.a.e = wg.g(str, -1L);
                 }
             }
         }
@@ -115,7 +116,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.f) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             } else {
@@ -127,7 +128,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
             TopicDetailView topicDetailView = this.b;
             if (topicDetailView != null && topicDetailView.getEditor() != null) {
@@ -139,35 +140,16 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
             TiebaStatic.log(new StatisticItem("c13350").param("topic_id", this.e));
         }
     }
 
-    public void A1(long j) {
+    @Override // com.baidu.tieba.o67
+    public void K0(int i, boolean z, List<wn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.c + 1;
-            this.c = j2;
-            this.d = j;
-            this.a.F(this.e, j2, j);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            super.onChangeSkinType(i);
-            this.b.x();
-        }
-    }
-
-    @Override // com.baidu.tieba.e57
-    public void L0(int i, boolean z, List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.b.setNextData(i, z, list);
         }
     }
@@ -175,7 +157,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             TopicDetailView topicDetailView = this.b;
             if (topicDetailView != null && topicDetailView.getEditor() != null) {
@@ -184,12 +166,12 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
         }
     }
 
-    @Override // com.baidu.tieba.e57
+    @Override // com.baidu.tieba.o67
     public void a() {
         int i;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -206,7 +188,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
                     if (StringUtils.isNull(decode)) {
                         return;
                     }
-                    z1(decode);
+                    y1(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -218,7 +200,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.e = eh.g(substring, -1L);
+                        this.e = wg.g(substring, -1L);
                     }
                 }
             } else {
@@ -244,7 +226,7 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.f) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
@@ -252,10 +234,29 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.b.x();
+        }
+    }
+
+    public void z1(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            long j2 = this.c + 1;
+            this.c = j2;
+            this.d = j;
+            this.a.F(this.e, j2, j);
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             this.a = new TopicDetailModel(getPageContext());
             TopicDetailView topicDetailView = new TopicDetailView(getPageContext(), this, bundle);
@@ -275,42 +276,42 @@ public class TopicDetailActivity extends BaseActivity implements e57 {
         }
     }
 
-    @Override // com.baidu.tieba.e57
-    public void u(int i, i57 i57Var) {
+    @Override // com.baidu.tieba.o67
+    public void u(int i, s67 s67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i, i57Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, s67Var) == null) {
             this.b.r();
-            if (i == 0 && i57Var != null && !ListUtils.isEmpty(i57Var.f)) {
+            if (i == 0 && s67Var != null && !ListUtils.isEmpty(s67Var.f)) {
                 this.b.s();
-                this.b.setData(i57Var);
+                this.b.setData(s67Var);
                 return;
             }
             this.b.B(true);
         }
     }
 
-    public final void z1(String str) {
+    public final void y1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             if (str.startsWith("//")) {
                 str = str.substring(2);
             }
-            Map paramPair = UrlManager.getParamPair(str);
+            Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                lm4.b(statisticItem, paramPair);
-                statisticItem.param("obj_locate", (String) paramPair.get("obj_locate"));
+                dn4.b(statisticItem, paramPair);
+                statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
-                statisticItem.param("tid", (String) paramPair.get("tid"));
-                statisticItem.param("obj_source", (String) paramPair.get("obj_source"));
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, (String) paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
+                statisticItem.param("tid", paramPair.get("tid"));
+                statisticItem.param("obj_source", paramPair.get("obj_source"));
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
                 statisticItem.param(TiebaStatic.Params.OBJ_TO, 3);
-                statisticItem.param("obj_id", (String) paramPair.get(TiebaStatic.Params.BDID));
+                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!ej.isEmpty((String) paramPair.get("ext_log"))) {
+                if (!wi.isEmpty(paramPair.get("ext_log"))) {
                     try {
-                        JSONObject jSONObject = new JSONObject((String) paramPair.get("ext_log"));
+                        JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
                         while (keys.hasNext()) {
                             String next = keys.next();

@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
 public final class c implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<c> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String apC;
     public boolean avS;
@@ -48,7 +48,7 @@ public final class c implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.kwai.filedownloader.c.c.1
+        CREATOR = new Parcelable.Creator<c>() { // from class: com.kwai.filedownloader.c.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,13 +78,15 @@ public final class c implements Parcelable {
                 return (interceptable2 == null || (invokeI = interceptable2.invokeI(65538, null, i)) == null) ? new c[i] : (c[]) invokeI.objValue;
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ Object createFromParcel(Parcel parcel) {
+            public final /* synthetic */ c createFromParcel(Parcel parcel) {
                 return c(parcel);
             }
 
+            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ Object[] newArray(int i) {
+            public final /* synthetic */ c[] newArray(int i) {
                 return cx(i);
             }
         };

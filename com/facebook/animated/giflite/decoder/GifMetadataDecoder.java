@@ -31,7 +31,7 @@ public class GifMetadataDecoder {
     public final byte[] block;
     public int mCurrentOffset;
     public boolean mDecoded;
-    public final List mFrameControls;
+    public final List<int[]> mFrameControls;
     public final InputStream mInputStream;
     public int mLoopCount;
     @Nullable
@@ -134,7 +134,7 @@ public class GifMetadataDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (this.mDecoded) {
-                return ((int[]) this.mFrameControls.get(i))[0];
+                return this.mFrameControls.get(i)[0];
             }
             throw new IllegalStateException("getFrameDisposal called before decode");
         }
@@ -149,7 +149,7 @@ public class GifMetadataDecoder {
                 if (i >= getFrameCount()) {
                     return 1;
                 }
-                return ((int[]) this.mFrameControls.get(i))[1];
+                return this.mFrameControls.get(i)[1];
             }
             throw new IllegalStateException("getFrameDurationMs called before decode");
         }

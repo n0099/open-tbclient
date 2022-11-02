@@ -6,6 +6,7 @@ import android.webkit.WebMessagePort;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,6 +43,7 @@ public class WebkitToCompatConverter {
         this.mImpl = webkitToCompatConverterBoundaryInterface;
     }
 
+    @RequiresApi(27)
     public SafeBrowsingResponse convertSafeBrowsingResponse(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -51,6 +53,7 @@ public class WebkitToCompatConverter {
         return (SafeBrowsingResponse) invokeL.objValue;
     }
 
+    @RequiresApi(24)
     public ServiceWorkerWebSettings convertServiceWorkerSettings(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -69,6 +72,7 @@ public class WebkitToCompatConverter {
         return (WebSettingsAdapter) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public WebMessagePort convertWebMessagePort(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -78,6 +82,7 @@ public class WebkitToCompatConverter {
         return (WebMessagePort) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public WebResourceError convertWebResourceError(InvocationHandler invocationHandler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

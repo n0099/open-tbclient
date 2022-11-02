@@ -2,6 +2,7 @@ package com.baidu.searchbox.cloudcontrol.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +14,11 @@ import org.json.JSONObject;
 public class CloudControlData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mCheckDatas;
+    public HashMap<String, Object> mCheckDatas;
     public CloudControlErrorBean mCloudControlErrorBean;
     public CloudControlUBCData mCloudControlUBCData;
-    public HashMap mDataInterceptors;
-    public HashMap mIsForceDispatchs;
+    public HashMap<String, IProcessorDataInterceptor> mDataInterceptors;
+    public HashMap<String, Boolean> mIsForceDispatchs;
     public JSONObject mOptionsData;
     public JSONObject mServiceDatas;
 
@@ -35,12 +36,12 @@ public class CloudControlData {
         }
     }
 
-    public HashMap getCheckDatas() {
+    public HashMap<String, Object> getCheckDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.mCheckDatas == null) {
-                this.mCheckDatas = new HashMap();
+                this.mCheckDatas = new HashMap<>();
             }
             return this.mCheckDatas;
         }
@@ -68,25 +69,25 @@ public class CloudControlData {
         return (CloudControlUBCData) invokeV.objValue;
     }
 
-    public HashMap getDataInterceptors() {
+    public HashMap<String, IProcessorDataInterceptor> getDataInterceptors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = this.mDataInterceptors;
+            HashMap<String, IProcessorDataInterceptor> hashMap = this.mDataInterceptors;
             if (hashMap == null) {
-                return new HashMap();
+                return new HashMap<>();
             }
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
     }
 
-    public HashMap getIsForceDispatchs() {
+    public HashMap<String, Boolean> getIsForceDispatchs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mIsForceDispatchs == null) {
-                this.mIsForceDispatchs = new HashMap();
+                this.mIsForceDispatchs = new HashMap<>();
             }
             return this.mIsForceDispatchs;
         }
@@ -129,7 +130,7 @@ public class CloudControlData {
         this.mServiceDatas = jSONObject;
     }
 
-    public void setCheckDatas(HashMap hashMap) {
+    public void setCheckDatas(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
             this.mCheckDatas = hashMap;
@@ -150,14 +151,14 @@ public class CloudControlData {
         }
     }
 
-    public void setDataInterceptor(HashMap hashMap) {
+    public void setDataInterceptor(HashMap<String, IProcessorDataInterceptor> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) {
             this.mDataInterceptors = hashMap;
         }
     }
 
-    public void setIsForceDispatchs(HashMap hashMap) {
+    public void setIsForceDispatchs(HashMap<String, Boolean> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
             this.mIsForceDispatchs = hashMap;

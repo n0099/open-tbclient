@@ -38,7 +38,7 @@ public class GetCertStatusResult extends SapiResult {
     public String status;
 
     /* loaded from: classes2.dex */
-    public class GuarderInfo {
+    public static class GuarderInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String certCode;

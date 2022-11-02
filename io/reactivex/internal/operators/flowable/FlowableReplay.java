@@ -39,41 +39,41 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableReplay extends ConnectableFlowable implements HasUpstreamPublisher, Disposable {
+public final class FlowableReplay<T> extends ConnectableFlowable<T> implements HasUpstreamPublisher<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public static final Callable DEFAULT_UNBOUNDED_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable bufferFactory;
-    public final AtomicReference current;
-    public final Publisher onSubscribe;
-    public final Flowable source;
+    public final Callable<? extends ReplayBuffer<T>> bufferFactory;
+    public final AtomicReference<ReplaySubscriber<T>> current;
+    public final Publisher<T> onSubscribe;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public interface ReplayBuffer {
+    public interface ReplayBuffer<T> {
         void complete();
 
         void error(Throwable th);
 
-        void next(Object obj);
+        void next(T t);
 
-        void replay(InnerSubscription innerSubscription);
+        void replay(InnerSubscription<T> innerSubscription);
     }
 
     /* loaded from: classes8.dex */
-    public final class MulticastFlowable extends Flowable {
+    public static final class MulticastFlowable<R, U> extends Flowable<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable connectableFactory;
-        public final Function selector;
+        public final Callable<? extends ConnectableFlowable<U>> connectableFactory;
+        public final Function<? super Flowable<U>, ? extends Publisher<R>> selector;
 
         /* loaded from: classes8.dex */
-        public final class DisposableConsumer implements Consumer {
+        public final class DisposableConsumer implements Consumer<Disposable> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final SubscriberResourceWrapper srw;
+            public final SubscriberResourceWrapper<R> srw;
             public final /* synthetic */ MulticastFlowable this$0;
 
-            public DisposableConsumer(MulticastFlowable multicastFlowable, SubscriberResourceWrapper subscriberResourceWrapper) {
+            public DisposableConsumer(MulticastFlowable multicastFlowable, SubscriberResourceWrapper<R> subscriberResourceWrapper) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
         }
 
-        public MulticastFlowable(Callable callable, Function function) {
+        public MulticastFlowable(Callable<? extends ConnectableFlowable<U>> callable, Function<? super Flowable<U>, ? extends Publisher<R>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.Flowable
-        public void subscribeActual(Subscriber subscriber) {
+        public void subscribeActual(Subscriber<? super R> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
                 try {
@@ -145,7 +145,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public class BoundedReplayBuffer extends AtomicReference implements ReplayBuffer {
+    public static class BoundedReplayBuffer<T> extends AtomicReference<Node> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2346567790059478686L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return (Node) get();
+                return get();
             }
             return (Node) invokeV.objValue;
         }
@@ -239,7 +239,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         public final void removeFirst() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                Node node = (Node) ((Node) get()).get();
+                Node node = get().get();
                 if (node != null) {
                     this.size--;
                     setFirst(node);
@@ -252,7 +252,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         public final void trimHead() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-                Node node = (Node) get();
+                Node node = get();
                 if (node.value != null) {
                     Node node2 = new Node(null, 0L);
                     node2.lazySet(node.get());
@@ -290,10 +290,10 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.ReplayBuffer
-        public final void next(Object obj) {
+        public final void next(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-                Object enterTransform = enterTransform(NotificationLite.next(obj));
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+                Object enterTransform = enterTransform(NotificationLite.next(t));
                 long j = this.index + 1;
                 this.index = j;
                 addLast(new Node(enterTransform, j));
@@ -304,9 +304,9 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         public final void removeSome(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-                Node node = (Node) get();
+                Node node = get();
                 while (i > 0) {
-                    node = (Node) node.get();
+                    node = node.get();
                     i--;
                     this.size--;
                 }
@@ -321,16 +321,16 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
         }
 
-        public final void collect(Collection collection) {
+        public final void collect(Collection<? super T> collection) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
                 Node head = getHead();
                 while (true) {
-                    head = (Node) head.get();
+                    head = head.get();
                     if (head != null) {
                         Object leaveTransform = leaveTransform(head.value);
                         if (!NotificationLite.isComplete(leaveTransform) && !NotificationLite.isError(leaveTransform)) {
-                            collection.add(NotificationLite.getValue(leaveTransform));
+                            collection.add((Object) NotificationLite.getValue(leaveTransform));
                         } else {
                             return;
                         }
@@ -342,7 +342,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.ReplayBuffer
-        public final void replay(InnerSubscription innerSubscription) {
+        public final void replay(InnerSubscription<T> innerSubscription) {
             boolean z;
             Node node;
             Interceptable interceptable = $ic;
@@ -367,7 +367,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                             BackpressureHelper.add(innerSubscription.totalRequested, node2.index);
                         }
                         long j2 = 0;
-                        while (j != 0 && (node = (Node) node2.get()) != null) {
+                        while (j != 0 && (node = node2.get()) != null) {
                             Object leaveTransform = leaveTransform(node.value);
                             try {
                                 if (NotificationLite.accept(leaveTransform, innerSubscription.child)) {
@@ -411,13 +411,13 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class ConnectableFlowableReplay extends ConnectableFlowable {
+    public static final class ConnectableFlowableReplay<T> extends ConnectableFlowable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConnectableFlowable cf;
-        public final Flowable observable;
+        public final ConnectableFlowable<T> cf;
+        public final Flowable<T> observable;
 
-        public ConnectableFlowableReplay(ConnectableFlowable connectableFlowable, Flowable flowable) {
+        public ConnectableFlowableReplay(ConnectableFlowable<T> connectableFlowable, Flowable<T> flowable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -437,7 +437,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.flowables.ConnectableFlowable
-        public void connect(Consumer consumer) {
+        public void connect(Consumer<? super Disposable> consumer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
                 this.cf.connect(consumer);
@@ -445,7 +445,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.Flowable
-        public void subscribeActual(Subscriber subscriber) {
+        public void subscribeActual(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriber) == null) {
                 this.observable.subscribe(subscriber);
@@ -454,7 +454,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class DefaultUnboundedFactory implements Callable {
+    public static final class DefaultUnboundedFactory implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -484,19 +484,19 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class InnerSubscription extends AtomicLong implements Subscription, Disposable {
+    public static final class InnerSubscription<T> extends AtomicLong implements Subscription, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long CANCELLED = Long.MIN_VALUE;
         public static final long serialVersionUID = -4453897557930727610L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber child;
+        public final Subscriber<? super T> child;
         public boolean emitting;
         public Object index;
         public boolean missed;
-        public final ReplaySubscriber parent;
+        public final ReplaySubscriber<T> parent;
         public final AtomicLong totalRequested;
 
-        public InnerSubscription(ReplaySubscriber replaySubscriber, Subscriber subscriber) {
+        public InnerSubscription(ReplaySubscriber<T> replaySubscriber, Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -533,13 +533,13 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
         }
 
-        public Object index() {
+        public <U> U index() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.index;
+                return (U) this.index;
             }
-            return invokeV.objValue;
+            return (U) invokeV.objValue;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -576,7 +576,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class Node extends AtomicReference {
+    public static final class Node extends AtomicReference<Node> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 245354315435971818L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -604,7 +604,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplayBufferTask implements Callable {
+    public static final class ReplayBufferTask<T> implements Callable<ReplayBuffer<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -629,7 +629,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ReplayBuffer call() {
+        public ReplayBuffer<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -640,13 +640,13 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplayPublisher implements Publisher {
+    public static final class ReplayPublisher<T> implements Publisher<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable bufferFactory;
-        public final AtomicReference curr;
+        public final Callable<? extends ReplayBuffer<T>> bufferFactory;
+        public final AtomicReference<ReplaySubscriber<T>> curr;
 
-        public ReplayPublisher(AtomicReference atomicReference, Callable callable) {
+        public ReplayPublisher(AtomicReference<ReplaySubscriber<T>> atomicReference, Callable<? extends ReplayBuffer<T>> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -666,17 +666,17 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // org.reactivestreams.Publisher
-        public void subscribe(Subscriber subscriber) {
-            ReplaySubscriber replaySubscriber;
+        public void subscribe(Subscriber<? super T> subscriber) {
+            ReplaySubscriber<T> replaySubscriber;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
                 while (true) {
-                    replaySubscriber = (ReplaySubscriber) this.curr.get();
+                    replaySubscriber = this.curr.get();
                     if (replaySubscriber != null) {
                         break;
                     }
                     try {
-                        ReplaySubscriber replaySubscriber2 = new ReplaySubscriber((ReplayBuffer) this.bufferFactory.call());
+                        ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.bufferFactory.call());
                         if (this.curr.compareAndSet(null, replaySubscriber2)) {
                             replaySubscriber = replaySubscriber2;
                             break;
@@ -687,7 +687,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                         return;
                     }
                 }
-                InnerSubscription innerSubscription = new InnerSubscription(replaySubscriber, subscriber);
+                InnerSubscription<T> innerSubscription = new InnerSubscription<>(replaySubscriber, subscriber);
                 subscriber.onSubscribe(innerSubscription);
                 replaySubscriber.add(innerSubscription);
                 if (innerSubscription.isDisposed()) {
@@ -701,19 +701,19 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplaySubscriber extends AtomicReference implements FlowableSubscriber, Disposable {
+    public static final class ReplaySubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerSubscription[] EMPTY;
         public static final InnerSubscription[] TERMINATED;
         public static final long serialVersionUID = 7224554242710036740L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ReplayBuffer buffer;
+        public final ReplayBuffer<T> buffer;
         public boolean done;
         public final AtomicInteger management;
         public long maxChildRequested;
         public long maxUpstreamRequested;
         public final AtomicBoolean shouldConnect;
-        public final AtomicReference subscribers;
+        public final AtomicReference<InnerSubscription<T>[]> subscribers;
 
         static {
             InterceptResult invokeClinit;
@@ -754,7 +754,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             return invokeV.booleanValue;
         }
 
-        public ReplaySubscriber(ReplayBuffer replayBuffer) {
+        public ReplaySubscriber(ReplayBuffer<T> replayBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -771,17 +771,19 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
             this.buffer = replayBuffer;
             this.management = new AtomicInteger();
-            this.subscribers = new AtomicReference(EMPTY);
+            this.subscribers = new AtomicReference<>(EMPTY);
             this.shouldConnect = new AtomicBoolean();
         }
 
-        public void remove(InnerSubscription innerSubscription) {
-            InnerSubscription[] innerSubscriptionArr;
+        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.flowable.FlowableReplay$InnerSubscription<T>[]> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void remove(InnerSubscription<T> innerSubscription) {
+            InnerSubscription<T>[] innerSubscriptionArr;
             InnerSubscription[] innerSubscriptionArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, innerSubscription) == null) {
                 do {
-                    innerSubscriptionArr = (InnerSubscription[]) this.subscribers.get();
+                    innerSubscriptionArr = this.subscribers.get();
                     int length = innerSubscriptionArr.length;
                     if (length == 0) {
                         return;
@@ -813,15 +815,15 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
         }
 
-        public boolean add(InnerSubscription innerSubscription) {
+        public boolean add(InnerSubscription<T> innerSubscription) {
             InterceptResult invokeL;
-            InnerSubscription[] innerSubscriptionArr;
-            InnerSubscription[] innerSubscriptionArr2;
+            InnerSubscription<T>[] innerSubscriptionArr;
+            InnerSubscription<T>[] innerSubscriptionArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerSubscription)) == null) {
                 if (innerSubscription != null) {
                     do {
-                        innerSubscriptionArr = (InnerSubscription[]) this.subscribers.get();
+                        innerSubscriptionArr = this.subscribers.get();
                         if (innerSubscriptionArr == TERMINATED) {
                             return false;
                         }
@@ -844,7 +846,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                 if (!this.done) {
                     this.done = true;
                     this.buffer.error(th);
-                    for (InnerSubscription innerSubscription : (InnerSubscription[]) this.subscribers.getAndSet(TERMINATED)) {
+                    for (InnerSubscription<T> innerSubscription : this.subscribers.getAndSet(TERMINATED)) {
                         this.buffer.replay(innerSubscription);
                     }
                     return;
@@ -860,14 +862,14 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             }
             int i = 1;
             while (!isDisposed()) {
-                InnerSubscription[] innerSubscriptionArr = (InnerSubscription[]) this.subscribers.get();
+                InnerSubscription<T>[] innerSubscriptionArr = this.subscribers.get();
                 long j = this.maxChildRequested;
                 long j2 = j;
-                for (InnerSubscription innerSubscription : innerSubscriptionArr) {
+                for (InnerSubscription<T> innerSubscription : innerSubscriptionArr) {
                     j2 = Math.max(j2, innerSubscription.totalRequested.get());
                 }
                 long j3 = this.maxUpstreamRequested;
-                Subscription subscription = (Subscription) get();
+                Subscription subscription = get();
                 long j4 = j2 - j;
                 if (j4 != 0) {
                     this.maxChildRequested = j2;
@@ -902,18 +904,18 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.done) {
                 this.done = true;
                 this.buffer.complete();
-                for (InnerSubscription innerSubscription : (InnerSubscription[]) this.subscribers.getAndSet(TERMINATED)) {
+                for (InnerSubscription<T> innerSubscription : this.subscribers.getAndSet(TERMINATED)) {
                     this.buffer.replay(innerSubscription);
                 }
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, obj) == null) && !this.done) {
-                this.buffer.next(obj);
-                for (InnerSubscription innerSubscription : (InnerSubscription[]) this.subscribers.get()) {
+            if ((interceptable == null || interceptable.invokeL(1048582, this, t) == null) && !this.done) {
+                this.buffer.next(t);
+                for (InnerSubscription<T> innerSubscription : this.subscribers.get()) {
                     this.buffer.replay(innerSubscription);
                 }
             }
@@ -924,7 +926,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, subscription) == null) && SubscriptionHelper.setOnce(this, subscription)) {
                 manageRequests();
-                for (InnerSubscription innerSubscription : (InnerSubscription[]) this.subscribers.get()) {
+                for (InnerSubscription<T> innerSubscription : this.subscribers.get()) {
                     this.buffer.replay(innerSubscription);
                 }
             }
@@ -932,7 +934,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class ScheduledReplayBufferTask implements Callable {
+    public static final class ScheduledReplayBufferTask<T> implements Callable<ReplayBuffer<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -963,7 +965,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
-        public ReplayBuffer call() {
+        public ReplayBuffer<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -974,7 +976,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class SizeAndTimeBoundReplayBuffer extends BoundedReplayBuffer {
+    public static final class SizeAndTimeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3457957419649567404L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1031,18 +1033,18 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node2 = (Node) get();
-                Object obj = node2.get();
+                Node node2 = get();
+                Node node3 = node2.get();
                 while (true) {
-                    Node node3 = (Node) obj;
+                    Node node4 = node3;
                     node = node2;
-                    node2 = node3;
+                    node2 = node4;
                     if (node2 != null) {
                         Timed timed = (Timed) node2.value;
                         if (NotificationLite.isComplete(timed.value()) || NotificationLite.isError(timed.value()) || timed.time() > now) {
                             break;
                         }
-                        obj = node2.get();
+                        node3 = node2.get();
                     } else {
                         break;
                     }
@@ -1058,8 +1060,8 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node2 = (Node) get();
-                Node node3 = (Node) node2.get();
+                Node node2 = get();
+                Node node3 = node2.get();
                 int i = 0;
                 while (true) {
                     Node node4 = node3;
@@ -1070,13 +1072,13 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                         if (i2 > this.limit) {
                             i++;
                             this.size = i2 - 1;
-                            node3 = (Node) node2.get();
+                            node3 = node2.get();
                         } else if (((Timed) node2.value).time() > now) {
                             break;
                         } else {
                             i++;
                             this.size--;
-                            node3 = (Node) node2.get();
+                            node3 = node2.get();
                         }
                     } else {
                         break;
@@ -1102,8 +1104,8 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node = (Node) get();
-                Node node2 = (Node) node.get();
+                Node node = get();
+                Node node2 = node.get();
                 int i = 0;
                 while (true) {
                     Node node3 = node2;
@@ -1114,14 +1116,14 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                     }
                     i++;
                     this.size--;
-                    node2 = (Node) node.get();
+                    node2 = node.get();
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class SizeBoundReplayBuffer extends BoundedReplayBuffer {
+    public static final class SizeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5898283885385201806L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1155,7 +1157,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     /* loaded from: classes8.dex */
-    public final class UnboundedReplayBuffer extends ArrayList implements ReplayBuffer {
+    public static final class UnboundedReplayBuffer<T> extends ArrayList<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7063189396499112664L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1200,16 +1202,16 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.ReplayBuffer
-        public void next(Object obj) {
+        public void next(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                add(NotificationLite.next(obj));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                add(NotificationLite.next(t));
                 this.size++;
             }
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.ReplayBuffer
-        public void replay(InnerSubscription innerSubscription) {
+        public void replay(InnerSubscription<T> innerSubscription) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, innerSubscription) == null) {
@@ -1219,7 +1221,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
                         return;
                     }
                     innerSubscription.emitting = true;
-                    Subscriber subscriber = innerSubscription.child;
+                    Subscriber<? super T> subscriber = innerSubscription.child;
                     while (!innerSubscription.isDisposed()) {
                         int i2 = this.size;
                         Integer num = (Integer) innerSubscription.index();
@@ -1298,8 +1300,8 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Disposable disposable = (Disposable) this.current.get();
-            if (disposable != null && !disposable.isDisposed()) {
+            ReplaySubscriber<T> replaySubscriber = this.current.get();
+            if (replaySubscriber != null && !replaySubscriber.isDisposed()) {
                 return false;
             }
             return true;
@@ -1308,7 +1310,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamPublisher
-    public Publisher source() {
+    public Publisher<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1317,7 +1319,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (Publisher) invokeV.objValue;
     }
 
-    public FlowableReplay(Publisher publisher, Flowable flowable, AtomicReference atomicReference, Callable callable) {
+    public FlowableReplay(Publisher<T> publisher, Flowable<T> flowable, AtomicReference<ReplaySubscriber<T>> atomicReference, Callable<? extends ReplayBuffer<T>> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1338,7 +1340,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         this.bufferFactory = callable;
     }
 
-    public static ConnectableFlowable create(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1347,7 +1349,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (ConnectableFlowable) invokeCommon.objValue;
     }
 
-    public static ConnectableFlowable create(Flowable flowable, int i) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, flowable, i)) == null) {
@@ -1359,7 +1361,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (ConnectableFlowable) invokeLI.objValue;
     }
 
-    public static Flowable multicastSelector(Callable callable, Function function) {
+    public static <U, R> Flowable<R> multicastSelector(Callable<? extends ConnectableFlowable<U>> callable, Function<? super Flowable<U>, ? extends Publisher<R>> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, callable, function)) == null) {
@@ -1368,7 +1370,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (Flowable) invokeLL.objValue;
     }
 
-    public static ConnectableFlowable observeOn(ConnectableFlowable connectableFlowable, Scheduler scheduler) {
+    public static <T> ConnectableFlowable<T> observeOn(ConnectableFlowable<T> connectableFlowable, Scheduler scheduler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, connectableFlowable, scheduler)) == null) {
@@ -1377,7 +1379,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (ConnectableFlowable) invokeLL.objValue;
     }
 
-    public static ConnectableFlowable create(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) {
@@ -1386,7 +1388,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (ConnectableFlowable) invokeCommon.objValue;
     }
 
-    public static ConnectableFlowable create(Flowable flowable, Callable callable) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, Callable<? extends ReplayBuffer<T>> callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, flowable, callable)) == null) {
@@ -1396,7 +1398,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
         return (ConnectableFlowable) invokeLL.objValue;
     }
 
-    public static ConnectableFlowable createFrom(Flowable flowable) {
+    public static <T> ConnectableFlowable<T> createFrom(Flowable<? extends T> flowable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, flowable)) == null) {
@@ -1406,7 +1408,7 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, subscriber) == null) {
             this.onSubscribe.subscribe(subscriber);
@@ -1414,18 +1416,18 @@ public final class FlowableReplay extends ConnectableFlowable implements HasUpst
     }
 
     @Override // io.reactivex.flowables.ConnectableFlowable
-    public void connect(Consumer consumer) {
-        ReplaySubscriber replaySubscriber;
+    public void connect(Consumer<? super Disposable> consumer) {
+        ReplaySubscriber<T> replaySubscriber;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
             while (true) {
-                replaySubscriber = (ReplaySubscriber) this.current.get();
+                replaySubscriber = this.current.get();
                 if (replaySubscriber != null && !replaySubscriber.isDisposed()) {
                     break;
                 }
                 try {
-                    ReplaySubscriber replaySubscriber2 = new ReplaySubscriber((ReplayBuffer) this.bufferFactory.call());
+                    ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.bufferFactory.call());
                     if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                         replaySubscriber = replaySubscriber2;
                         break;

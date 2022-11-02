@@ -2,6 +2,7 @@ package com.baidu.searchbox.taskmanager;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.async.appcreate.InitAbi64WebViewCompatTask;
 import com.baidu.searchbox.task.async.appcreate.InitAccountChangeTask;
 import com.baidu.searchbox.task.async.appcreate.InitArTask;
@@ -98,7 +99,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List viewOnActivity() {
+    public List<LaunchTask> viewOnActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -111,7 +112,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List onAppCreateFirst(int i) {
+    public List<LaunchTask> onAppCreateFirst(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -144,7 +145,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List onPrivacyPolicyGranted(int i) {
+    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -178,7 +179,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List onAppCreateSecond(int i) {
+    public List<LaunchTask> onAppCreateSecond(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -222,7 +223,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List viewOnAppCreateView() {
+    public List<LaunchTask> viewOnAppCreateView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

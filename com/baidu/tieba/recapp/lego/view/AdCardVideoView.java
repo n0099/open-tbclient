@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.fe8;
-import com.baidu.tieba.fr4;
-import com.baidu.tieba.nf8;
+import com.baidu.tieba.lf8;
 import com.baidu.tieba.pf8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
+import com.baidu.tieba.wr4;
+import com.baidu.tieba.xg8;
+import com.baidu.tieba.zg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class AdCardVideoView extends AdCardBaseView implements fe8 {
+public class AdCardVideoView extends AdCardBaseView implements pf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView b0;
@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0176 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0178 : invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
@@ -69,7 +69,7 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int jump2DownloadDetailPage = this.a.b0.jump2DownloadDetailPage();
-                HashMap M = this.a.M("video");
+                HashMap<String, Object> M = this.a.M("video");
                 if (this.a.k != null) {
                     this.a.k.a(jump2DownloadDetailPage, M);
                 }
@@ -78,7 +78,7 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdCardVideoView(TbPageContext tbPageContext, int i) {
+    public AdCardVideoView(TbPageContext<?> tbPageContext, int i) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,22 +131,22 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fe8
-    public be8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.pf8
+    public lf8 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b0;
         }
-        return (be8) invokeV.objValue;
+        return (lf8) invokeV.objValue;
     }
 
     public boolean q0(AdCard adCard) {
         InterceptResult invokeL;
-        nf8 nf8Var;
+        xg8 xg8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (nf8Var = adCard.verticalVideoStyle) == null || !nf8Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (xg8Var = adCard.verticalVideoStyle) == null || !xg8Var.a()) {
                 return false;
             }
             return true;
@@ -175,10 +175,10 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
                 } else {
                     str = advertAppInfo.j;
                 }
-                fr4 fr4Var = advertAppInfo.i;
-                if (fr4Var != null) {
-                    i = fr4Var.b;
-                    str = fr4Var.a;
+                wr4 wr4Var = advertAppInfo.i;
+                if (wr4Var != null) {
+                    i = wr4Var.b;
+                    str = wr4Var.a;
                 }
                 this.b0.setStatisticInfo(advertAppInfo, i, str);
             }
@@ -192,11 +192,11 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.d0 = i;
-                this.e0 = pf8.b(i);
+                this.e0 = zg8.b(i);
             } else {
                 int i2 = this.B;
                 this.d0 = i2;
-                this.e0 = pf8.a(i2);
+                this.e0 = zg8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
             layoutParams.height = this.e0;
@@ -204,11 +204,11 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
             if (adCard.goodsStyle == 14 && !q0(adCard)) {
                 int i3 = this.B / 2;
                 this.f0 = i3;
-                this.g0 = pf8.b(i3);
+                this.g0 = zg8.b(i3);
             } else {
                 int i4 = this.B;
                 this.f0 = i4;
-                this.g0 = pf8.a(i4);
+                this.g0 = zg8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.f0;
@@ -227,6 +227,6 @@ public class AdCardVideoView extends AdCardBaseView implements fe8 {
         XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view2;
         xfremodeRoundLayout.setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
         xfremodeRoundLayout.setLayerType(2, null);
-        this.b0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f09014b);
+        this.b0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f090153);
     }
 }

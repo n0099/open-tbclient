@@ -2,9 +2,10 @@ package tv.athena.revenue.payui.view.adapter;
 
 import android.graphics.Rect;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tieba.p5a;
+import com.baidu.tieba.y6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +44,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         boolean z;
         int i;
         Interceptable interceptable = $ic;
@@ -62,7 +63,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
                 rect.left = 0;
                 rect.right = 0;
                 if (z) {
-                    i2 = p5a.a(2.0f);
+                    i2 = y6a.a(2.0f);
                 }
                 rect.top = i2;
             } else if (childAdapterPosition < i4) {
@@ -80,7 +81,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
                 rect.left = (i3 * i9) / i8;
                 rect.right = i9 - (((i3 + 1) * i9) / i8);
                 if (z) {
-                    i = p5a.a(2.0f);
+                    i = y6a.a(2.0f);
                 } else {
                     i = this.b;
                 }

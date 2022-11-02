@@ -1,11 +1,13 @@
 package com.google.android.gms.common;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
+import com.google.android.gms.common.internal.ShowFirstParty;
 import javax.annotation.Nullable;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class GoogleSignatureVerifier {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +30,7 @@ public class GoogleSignatureVerifier {
     public final Context zzb;
     public volatile String zzc;
 
-    public GoogleSignatureVerifier(Context context) {
+    public GoogleSignatureVerifier(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +48,8 @@ public class GoogleSignatureVerifier {
         this.zzb = context.getApplicationContext();
     }
 
-    public boolean isGooglePublicSignedPackage(PackageInfo packageInfo) {
+    @KeepForSdk
+    public boolean isGooglePublicSignedPackage(@NonNull PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, packageInfo)) == null) {
@@ -63,6 +70,8 @@ public class GoogleSignatureVerifier {
         return invokeL.booleanValue;
     }
 
+    @ShowFirstParty
+    @KeepForSdk
     public boolean isUidGoogleSigned(int i) {
         InterceptResult invokeI;
         zzw zzc;
@@ -94,7 +103,9 @@ public class GoogleSignatureVerifier {
         return invokeI.booleanValue;
     }
 
-    public static GoogleSignatureVerifier getInstance(Context context) {
+    @NonNull
+    @KeepForSdk
+    public static GoogleSignatureVerifier getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -110,7 +121,9 @@ public class GoogleSignatureVerifier {
         return (GoogleSignatureVerifier) invokeL.objValue;
     }
 
-    public boolean isPackageGoogleSigned(String str) {
+    @ShowFirstParty
+    @KeepForSdk
+    public boolean isPackageGoogleSigned(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -145,7 +158,7 @@ public class GoogleSignatureVerifier {
         return (zzi) invokeLL.objValue;
     }
 
-    public static final boolean zzb(PackageInfo packageInfo, boolean z) {
+    public static final boolean zzb(@NonNull PackageInfo packageInfo, boolean z) {
         InterceptResult invokeLZ;
         zzi zza2;
         Interceptable interceptable = $ic;
@@ -165,6 +178,7 @@ public class GoogleSignatureVerifier {
         return invokeLZ.booleanValue;
     }
 
+    @SuppressLint({"PackageManagerGetSignatures"})
     private final zzw zzc(String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         String str2;

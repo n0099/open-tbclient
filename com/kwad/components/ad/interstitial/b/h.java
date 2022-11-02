@@ -4,6 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,21 +36,24 @@ import org.json.JSONObject;
 public final class h extends b implements com.kwad.sdk.widget.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List bv;
+    public List<Integer> bv;
+    @NonNull
     public KsAdVideoPlayConfig cN;
     public KSFrameLayout dN;
 
     /* renamed from: do  reason: not valid java name */
     public ImageView f7do;
     public com.kwad.sdk.core.video.videoview.a dp;
+    @Nullable
     public boolean ds;
-    public final a.InterfaceC0577a du;
+    public final a.InterfaceC0588a du;
     public KSFrameLayout gS;
     public c gh;
     public com.kwad.components.core.video.d hz;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
+    @NonNull
     public Context mContext;
 
     public h() {
@@ -65,7 +70,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             }
         }
         this.ds = false;
-        this.du = new a.InterfaceC0577a(this) { // from class: com.kwad.components.ad.interstitial.b.h.3
+        this.du = new a.InterfaceC0588a(this) { // from class: com.kwad.components.ad.interstitial.b.h.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h hA;
@@ -89,7 +94,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             }
 
             /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
-            @Override // com.kwad.components.core.video.a.InterfaceC0577a
+            @Override // com.kwad.components.core.video.a.InterfaceC0588a
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
@@ -111,7 +116,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                         bVar.gL = aVar;
                         bVar.gJ = i4;
                         bVar.abH = ag.cB(this.hA.getContext()) ? 2 : 1;
-                        com.kwad.components.core.c.a.a.a(new a.C0566a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                        com.kwad.components.core.c.a.a.a(new a.C0577a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass3 hB;
@@ -150,7 +155,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                     bVar2.gL = aVar;
                     bVar2.gJ = i4;
                     bVar2.abH = ag.cB(this.hA.getContext()) ? 2 : 1;
-                    com.kwad.components.core.c.a.a.a(new a.C0566a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar2).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                    com.kwad.components.core.c.a.a.a(new a.C0577a(com.kwad.sdk.b.kwai.a.x(this.hA.dp)).L(this.hA.mAdTemplate).b(this.hA.mApkDownloadHelper).ae(i5).aj(z).al(true).a(bVar2).a(new a.b(this) { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass3 hB;
@@ -197,13 +202,13 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65542, this, j) == null) {
             int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-            List list = this.bv;
+            List<Integer> list = this.bv;
             if (list == null || list.isEmpty()) {
                 return;
             }
-            Iterator it = this.bv.iterator();
+            Iterator<Integer> it = this.bv.iterator();
             while (it.hasNext()) {
-                if (ceil >= ((Integer) it.next()).intValue()) {
+                if (ceil >= it.next().intValue()) {
                     com.kwad.sdk.core.report.a.b(this.mAdTemplate, ceil, (JSONObject) null);
                     it.remove();
                     return;
@@ -240,7 +245,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             if (TextUtils.isEmpty(A)) {
                 return;
             }
-            this.dp.a(new b.a(this.mAdTemplate).bk(A).bl(com.kwad.sdk.core.response.a.f.b(com.kwad.sdk.core.response.a.d.bR(this.mAdTemplate))).a(this.mAdTemplate.mVideoPlayerStatus).b(new com.kwad.sdk.contentalliance.kwai.kwai.a(this.mAdTemplate, System.currentTimeMillis())).rC(), (Map) null);
+            this.dp.a(new b.a(this.mAdTemplate).bk(A).bl(com.kwad.sdk.core.response.a.f.b(com.kwad.sdk.core.response.a.d.bR(this.mAdTemplate))).a(this.mAdTemplate.mVideoPlayerStatus).b(new com.kwad.sdk.contentalliance.kwai.kwai.a(this.mAdTemplate, System.currentTimeMillis())).rC(), (Map<String, String>) null);
             this.dp.setVideoSoundEnable(this.ds);
             this.hz.setVideoPlayCallback(new d.a(this) { // from class: com.kwad.components.ad.interstitial.b.h.1
                 public static /* synthetic */ Interceptable $ic;
@@ -399,7 +404,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             this.mAdTemplate = adTemplate;
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
             this.mAdInfo = bQ;
-            List aF = com.kwad.sdk.core.response.a.a.aF(bQ);
+            List<Integer> aF = com.kwad.sdk.core.response.a.a.aF(bQ);
             this.bv = aF;
             com.kwad.sdk.core.video.videoview.a aVar = this.gh.dp;
             this.dp = aVar;
@@ -437,9 +442,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09107c);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091209);
-            this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091219);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0910b6);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091243);
+            this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091253);
             this.dN.setVisibility(4);
             this.mContext = getContext();
         }

@@ -7,7 +7,7 @@ public class e {
     public int d = 10;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public long a;
         public long b;
         public a c;

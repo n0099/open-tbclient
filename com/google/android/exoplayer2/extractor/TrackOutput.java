@@ -21,7 +21,7 @@ public interface TrackOutput {
     void sampleMetadata(long j, int i, int i2, int i3, CryptoData cryptoData);
 
     /* loaded from: classes7.dex */
-    public final class CryptoData {
+    public static final class CryptoData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int clearBlocks;

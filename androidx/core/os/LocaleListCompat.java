@@ -2,6 +2,11 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.LocaleList;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.Size;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -36,6 +41,7 @@ public final class LocaleListCompat {
         sEmptyLocaleList = create(new Locale[0]);
     }
 
+    @NonNull
     public static LocaleListCompat getEmptyLocaleList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,6 +69,7 @@ public final class LocaleListCompat {
         return invokeV.booleanValue;
     }
 
+    @IntRange(from = 0)
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,6 +79,7 @@ public final class LocaleListCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String toLanguageTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,6 +98,7 @@ public final class LocaleListCompat {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public Object unwrap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,7 +126,8 @@ public final class LocaleListCompat {
         this.mImpl = localeListInterface;
     }
 
-    public static LocaleListCompat create(Locale... localeArr) {
+    @NonNull
+    public static LocaleListCompat create(@NonNull Locale... localeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, localeArr)) == null) {
@@ -129,7 +139,9 @@ public final class LocaleListCompat {
         return (LocaleListCompat) invokeL.objValue;
     }
 
-    public static LocaleListCompat wrap(LocaleList localeList) {
+    @NonNull
+    @RequiresApi(24)
+    public static LocaleListCompat wrap(@NonNull LocaleList localeList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, localeList)) == null) {
@@ -159,7 +171,8 @@ public final class LocaleListCompat {
         return (Locale) invokeI.objValue;
     }
 
-    public Locale getFirstMatch(String[] strArr) {
+    @Nullable
+    public Locale getFirstMatch(@NonNull String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
@@ -168,6 +181,7 @@ public final class LocaleListCompat {
         return (Locale) invokeL.objValue;
     }
 
+    @IntRange(from = -1)
     public int indexOf(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -211,7 +225,8 @@ public final class LocaleListCompat {
         return (Locale) invokeL.objValue;
     }
 
-    public static LocaleListCompat forLanguageTags(String str) {
+    @NonNull
+    public static LocaleListCompat forLanguageTags(@Nullable String str) {
         InterceptResult invokeL;
         Locale forLanguageTagCompat;
         Interceptable interceptable = $ic;
@@ -235,6 +250,8 @@ public final class LocaleListCompat {
         return (LocaleListCompat) invokeL.objValue;
     }
 
+    @NonNull
+    @Size(min = 1)
     public static LocaleListCompat getAdjustedDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -247,6 +264,8 @@ public final class LocaleListCompat {
         return (LocaleListCompat) invokeV.objValue;
     }
 
+    @NonNull
+    @Size(min = 1)
     public static LocaleListCompat getDefault() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -259,6 +278,7 @@ public final class LocaleListCompat {
         return (LocaleListCompat) invokeV.objValue;
     }
 
+    @RequiresApi(24)
     @Deprecated
     public static LocaleListCompat wrap(Object obj) {
         InterceptResult invokeL;

@@ -14,7 +14,7 @@ import kotlin.jvm.internal.InlineMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__ZipKt$combine$5$2"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2", f = "Zip.kt", i = {0, 0}, l = {251}, m = "invokeSuspend", n = {"$receiver", AdvanceSetting.NETWORK_TYPE}, s = {"L$0", "L$1"})
 /* loaded from: classes8.dex */
-public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 extends SuspendLambda implements Function3 {
+public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
     public Object L$0;
     public Object L$1;
     public Object L$2;
@@ -29,16 +29,17 @@ public final class FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 ex
         this.this$0 = flowKt__MigrationKt$combine$$inlined$unsafeFlow$2;
     }
 
-    public final Continuation create(FlowCollector flowCollector, Object[] objArr, Continuation continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, T[] tArr, Continuation<? super Unit> continuation) {
         FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 flowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2 = new FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2(continuation, this.this$0);
         flowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2.p$ = flowCollector;
-        flowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2.p$0 = objArr;
+        flowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2.p$0 = tArr;
         return flowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function3
-    public final Object invoke(Object obj, Object obj2, Object obj3) {
-        return ((FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2) create((FlowCollector) obj, (Object[]) obj2, (Continuation) obj3)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
+        return ((FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$lambda$2) create((FlowCollector) obj, (Object[]) obj2, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

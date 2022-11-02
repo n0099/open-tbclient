@@ -19,7 +19,7 @@ import java.util.List;
 public final class a implements IDiffDevOAuth {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List c;
+    public List<OAuthListener> c;
     public d d;
     public OAuthListener e;
     public Handler handler;

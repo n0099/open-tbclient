@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.cache;
 /* loaded from: classes7.dex */
-public interface MemoryCacheTracker {
-    void onCacheHit(Object obj);
+public interface MemoryCacheTracker<K> {
+    void onCacheHit(K k);
 
-    void onCacheMiss(Object obj);
+    void onCacheMiss(K k);
 
-    void onCachePut(Object obj);
+    void onCachePut(K k);
 }

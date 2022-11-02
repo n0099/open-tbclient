@@ -2,6 +2,7 @@ package com.airbnb.lottie.animation.content;
 
 import android.graphics.Path;
 import android.graphics.PointF;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
@@ -17,23 +18,25 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     public static final float POLYGON_MAGIC_NUMBER = 0.25f;
     public static final float POLYSTAR_MAGIC_NUMBER = 0.47829f;
     public final boolean hidden;
-    public final BaseKeyframeAnimation innerRadiusAnimation;
-    public final BaseKeyframeAnimation innerRoundednessAnimation;
+    @Nullable
+    public final BaseKeyframeAnimation<?, Float> innerRadiusAnimation;
+    @Nullable
+    public final BaseKeyframeAnimation<?, Float> innerRoundednessAnimation;
     public boolean isPathValid;
     public final LottieDrawable lottieDrawable;
     public final String name;
-    public final BaseKeyframeAnimation outerRadiusAnimation;
-    public final BaseKeyframeAnimation outerRoundednessAnimation;
-    public final BaseKeyframeAnimation pointsAnimation;
-    public final BaseKeyframeAnimation positionAnimation;
-    public final BaseKeyframeAnimation rotationAnimation;
+    public final BaseKeyframeAnimation<?, Float> outerRadiusAnimation;
+    public final BaseKeyframeAnimation<?, Float> outerRoundednessAnimation;
+    public final BaseKeyframeAnimation<?, Float> pointsAnimation;
+    public final BaseKeyframeAnimation<?, PointF> positionAnimation;
+    public final BaseKeyframeAnimation<?, Float> rotationAnimation;
     public final PolystarShape.Type type;
     public final Path path = new Path();
     public CompoundTrimPathContent trimPaths = new CompoundTrimPathContent();
 
     /* renamed from: com.airbnb.lottie.animation.content.PolystarContent$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type;
 
         static {
@@ -93,17 +96,17 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         double d2;
         double d3;
         int i;
-        int floor = (int) Math.floor(((Float) this.pointsAnimation.getValue()).floatValue());
-        BaseKeyframeAnimation baseKeyframeAnimation = this.rotationAnimation;
+        int floor = (int) Math.floor(this.pointsAnimation.getValue().floatValue());
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation = this.rotationAnimation;
         if (baseKeyframeAnimation == null) {
             floatValue = 0.0d;
         } else {
-            floatValue = ((Float) baseKeyframeAnimation.getValue()).floatValue();
+            floatValue = baseKeyframeAnimation.getValue().floatValue();
         }
         double radians = Math.toRadians(floatValue - 90.0d);
         double d4 = floor;
-        float floatValue2 = ((Float) this.outerRoundednessAnimation.getValue()).floatValue() / 100.0f;
-        float floatValue3 = ((Float) this.outerRadiusAnimation.getValue()).floatValue();
+        float floatValue2 = this.outerRoundednessAnimation.getValue().floatValue() / 100.0f;
+        float floatValue3 = this.outerRadiusAnimation.getValue().floatValue();
         double d5 = floatValue3;
         float cos = (float) (Math.cos(radians) * d5);
         float sin = (float) (Math.sin(radians) * d5);
@@ -141,8 +144,8 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
             d5 = d2;
             d6 = d3;
         }
-        PointF pointF = (PointF) this.positionAnimation.getValue();
-        this.path.offset(pointF.x, pointF.y);
+        PointF value = this.positionAnimation.getValue();
+        this.path.offset(value.x, value.y);
         this.path.close();
     }
 
@@ -168,12 +171,12 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         float f14;
         float f15;
         float f16;
-        float floatValue2 = ((Float) this.pointsAnimation.getValue()).floatValue();
-        BaseKeyframeAnimation baseKeyframeAnimation = this.rotationAnimation;
+        float floatValue2 = this.pointsAnimation.getValue().floatValue();
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation = this.rotationAnimation;
         if (baseKeyframeAnimation == null) {
             floatValue = 0.0d;
         } else {
-            floatValue = ((Float) baseKeyframeAnimation.getValue()).floatValue();
+            floatValue = baseKeyframeAnimation.getValue().floatValue();
         }
         double radians = Math.toRadians(floatValue - 90.0d);
         double d4 = floatValue2;
@@ -184,17 +187,17 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         if (i2 != 0) {
             radians += (1.0f - f19) * f18;
         }
-        float floatValue3 = ((Float) this.outerRadiusAnimation.getValue()).floatValue();
-        float floatValue4 = ((Float) this.innerRadiusAnimation.getValue()).floatValue();
-        BaseKeyframeAnimation baseKeyframeAnimation2 = this.innerRoundednessAnimation;
+        float floatValue3 = this.outerRadiusAnimation.getValue().floatValue();
+        float floatValue4 = this.innerRadiusAnimation.getValue().floatValue();
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2 = this.innerRoundednessAnimation;
         if (baseKeyframeAnimation2 != null) {
-            f = ((Float) baseKeyframeAnimation2.getValue()).floatValue() / 100.0f;
+            f = baseKeyframeAnimation2.getValue().floatValue() / 100.0f;
         } else {
             f = 0.0f;
         }
-        BaseKeyframeAnimation baseKeyframeAnimation3 = this.outerRoundednessAnimation;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation3 = this.outerRoundednessAnimation;
         if (baseKeyframeAnimation3 != null) {
-            f2 = ((Float) baseKeyframeAnimation3.getValue()).floatValue() / 100.0f;
+            f2 = baseKeyframeAnimation3.getValue().floatValue() / 100.0f;
         } else {
             f2 = 0.0f;
         }
@@ -312,8 +315,8 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
                 f17 = f7;
                 ceil = d9;
             } else {
-                PointF pointF = (PointF) this.positionAnimation.getValue();
-                this.path.offset(pointF.x, pointF.y);
+                PointF value = this.positionAnimation.getValue();
+                this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
             }
@@ -336,22 +339,22 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
-        BaseKeyframeAnimation baseKeyframeAnimation;
-        BaseKeyframeAnimation baseKeyframeAnimation2;
-        if (obj == LottieProperty.POLYSTAR_POINTS) {
+    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation;
+        BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2;
+        if (t == LottieProperty.POLYSTAR_POINTS) {
             this.pointsAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POLYSTAR_ROTATION) {
+        } else if (t == LottieProperty.POLYSTAR_ROTATION) {
             this.rotationAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POSITION) {
+        } else if (t == LottieProperty.POSITION) {
             this.positionAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POLYSTAR_INNER_RADIUS && (baseKeyframeAnimation2 = this.innerRadiusAnimation) != null) {
+        } else if (t == LottieProperty.POLYSTAR_INNER_RADIUS && (baseKeyframeAnimation2 = this.innerRadiusAnimation) != null) {
             baseKeyframeAnimation2.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POLYSTAR_OUTER_RADIUS) {
+        } else if (t == LottieProperty.POLYSTAR_OUTER_RADIUS) {
             this.outerRadiusAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POLYSTAR_INNER_ROUNDEDNESS && (baseKeyframeAnimation = this.innerRoundednessAnimation) != null) {
+        } else if (t == LottieProperty.POLYSTAR_INNER_ROUNDEDNESS && (baseKeyframeAnimation = this.innerRoundednessAnimation) != null) {
             baseKeyframeAnimation.setValueCallback(lottieValueCallback);
-        } else if (obj == LottieProperty.POLYSTAR_OUTER_ROUNDEDNESS) {
+        } else if (t == LottieProperty.POLYSTAR_OUTER_ROUNDEDNESS) {
             this.outerRoundednessAnimation.setValueCallback(lottieValueCallback);
         }
     }
@@ -381,14 +384,14 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
         MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
-    public void setContents(List list, List list2) {
+    public void setContents(List<Content> list, List<Content> list2) {
         for (int i = 0; i < list.size(); i++) {
-            Content content = (Content) list.get(i);
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

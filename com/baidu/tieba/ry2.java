@@ -1,23 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ry2 {
+public class ry2 implements py2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public qy2 a;
+    public long b;
+    public long c;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry2 a;
+
+        public a(ry2 ry2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry2Var;
+        }
+
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.a.j()) {
+                    this.a.k();
+                    return true;
+                }
+                this.a.l();
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,98 +73,123 @@ public class ry2 {
                 return;
             }
         }
-        a = wj1.a;
+        d = ok1.a;
     }
 
-    public static void a(SwanAppConfigData swanAppConfigData) {
+    public ry2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
-            return;
-        }
-        List<gz2> e = swanAppConfigData.e();
-        if (e != null && !e.isEmpty()) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            b(e, jSONObject, jSONObject2);
-            if (be2.k()) {
-                boolean z = false;
-                for (gz2 gz2Var : e) {
-                    String h = be2.h(gz2Var.a);
-                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
-                        gz2Var.e = h;
-                        c(jSONObject, jSONObject2, gz2Var);
-                        z = true;
-                        m02.i("Module-Plugin", "use debug dependencies，name=" + gz2Var.a + " path=" + gz2Var.e);
-                    } else {
-                        m02.o("Module-Plugin", "debug dependencies not exist，name=" + gz2Var.a + " path=" + gz2Var.e);
-                    }
-                }
-                if (!z) {
-                    e33.g(AppRuntime.getAppContext(), "no debug dependency").G();
-                    m02.c("Module-Plugin", "no debug dependency");
-                }
-            }
-            String jSONObject3 = jSONObject.toString();
-            String jSONObject4 = jSONObject2.toString();
-            kz2.c("dependenciesPath", jSONObject3);
-            kz2.c("dependenciesConfig", jSONObject4);
-            return;
-        }
-        kz2.c("dependenciesPath", null);
-        kz2.c("dependenciesConfig", null);
-        if (a) {
-            ez2.b("this swan app not apply on someone dynamic lib");
-        }
-    }
-
-    public static void b(List list, JSONObject jSONObject, JSONObject jSONObject2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
-            return;
-        }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            gz2 gz2Var = (gz2) it.next();
-            if (gz2Var != null) {
-                if (gz2Var.g) {
-                    c(jSONObject, jSONObject2, gz2Var);
-                } else {
-                    nc4 q = jb4.i().q(gz2Var.a, gz2Var.h, gz2Var.i);
-                    if (q == null) {
-                        ez2.a(Log.getStackTraceString(new Throwable(gz2Var.a + " query db fail")));
-                    } else {
-                        File t = im2.t(gz2Var.a, String.valueOf(q.i));
-                        if (t != null && t.exists()) {
-                            gz2Var.e = t.getAbsolutePath();
-                            c(jSONObject, jSONObject2, gz2Var);
-                        } else {
-                            ez2.a(Log.getStackTraceString(new Throwable(gz2Var.a + " local file not exist")));
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static void c(JSONObject jSONObject, JSONObject jSONObject2, gz2 gz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, gz2Var) == null) {
-            String str = gz2Var.e;
-            String str2 = gz2Var.f;
-            if (a) {
-                ez2.b("apply dep path, name = " + gz2Var.a + "; inline = " + gz2Var.g + "; path = " + str + "; config = " + str2);
-            }
-            if (TextUtils.isEmpty(str)) {
-                ez2.b(Log.getStackTraceString(new Throwable(gz2Var.a + " path is empty")));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            mg3.f(jSONObject, gz2Var.a, str);
-            if (!TextUtils.isEmpty(gz2Var.f)) {
-                File file = new File(str, str2);
-                if (file.exists() && file.isFile()) {
-                    mg3.f(jSONObject2, gz2Var.a, mg3.d(qj4.E(file)));
-                }
+        }
+        if (j()) {
+            this.a = new qy2();
+        }
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!d) {
+                return false;
             }
+            return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
+            qy2 qy2Var = this.a;
+            if (qy2Var != null) {
+                qy2Var.c();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.py2
+    public void a(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            qy2Var.f(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.py2
+    public void c(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            qy2Var.h(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.py2
+    public void d(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            qy2Var.i(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.py2
+    public void e(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048579, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            qy2Var.g(j - this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qx2
+    public void end(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            this.c = j;
+            qy2Var.l(this.b, j);
+            this.a.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.py2
+    public void f(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && d && view2 != null) {
+            view2.setOnLongClickListener(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.qx2
+    public void start(long j) {
+        qy2 qy2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && j() && (qy2Var = this.a) != null) {
+            this.b = j;
+            qy2Var.e();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
+            if (this.a == null) {
+                this.a = new qy2();
+            }
+            this.a.k();
         }
     }
 }

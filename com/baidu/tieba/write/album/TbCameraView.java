@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,12 +61,6 @@ public class TbCameraView extends TextureView {
     /* loaded from: classes6.dex */
     public interface h {
         void a();
-    }
-
-    public void setStorePath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-        }
     }
 
     /* loaded from: classes6.dex */
@@ -286,30 +280,16 @@ public class TbCameraView extends TextureView {
         }
     }
 
-    public void setOnGotPictureListener(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hVar) == null) {
-            this.e = hVar;
-        }
-    }
-
     public void setOnOpenCameraFailedListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
             this.n = eVar;
-        }
-    }
-
-    public void setOnPreviewSizeChangedListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            this.l = fVar;
         }
     }
 
     public void setOnRequestPermissionListener(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, gVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, gVar) == null) {
             this.m = gVar;
         }
     }
@@ -328,7 +308,7 @@ public class TbCameraView extends TextureView {
         return invokeL.floatValue;
     }
 
-    public Camera.Size l(List list, int i, int i2) {
+    public Camera.Size l(List<Camera.Size> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i, i2)) == null) {
@@ -338,7 +318,7 @@ public class TbCameraView extends TextureView {
             int i3 = 0;
             int i4 = 0;
             for (int i5 = 0; i5 < list.size(); i5++) {
-                Camera.Size size = (Camera.Size) list.get(i5);
+                Camera.Size size = list.get(i5);
                 if (size != null) {
                     int abs = Math.abs(size.width - i) + Math.abs(size.height - i2);
                     if (i5 == 0) {
@@ -350,7 +330,7 @@ public class TbCameraView extends TextureView {
                     }
                 }
             }
-            return (Camera.Size) list.get(i3);
+            return list.get(i3);
         }
         return (Camera.Size) invokeLII.objValue;
     }
@@ -466,7 +446,7 @@ public class TbCameraView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            hh.a().removeCallbacks(this.t);
+            zg.a().removeCallbacks(this.t);
         }
     }
 

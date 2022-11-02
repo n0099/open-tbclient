@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,6 +26,7 @@ public final class a {
     public View BA;
     public Runnable BB;
     public boolean BC;
+    @Nullable
     public Animator eY;
     public View un;
     public Button uo;
@@ -186,9 +188,9 @@ public final class a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09114e);
-            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091150);
-            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09114f);
+            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091188);
+            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09118a);
+            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f091189);
         }
     }
 

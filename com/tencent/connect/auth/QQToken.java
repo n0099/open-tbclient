@@ -1,5 +1,6 @@
 package com.tencent.connect.auth;
 
+import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -97,6 +98,7 @@ public class QQToken {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(11)
     public static synchronized SharedPreferences a() {
         InterceptResult invokeV;
         SharedPreferences sharedPreferences;

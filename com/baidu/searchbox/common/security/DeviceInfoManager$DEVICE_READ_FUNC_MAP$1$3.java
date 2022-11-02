@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u0005H\n¢\u0006\u0002\b\u0007"}, d2 = {"<anonymous>", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "context", "Landroid/content/Context;", "scene", "", "purpose", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class DeviceInfoManager$DEVICE_READ_FUNC_MAP$1$3 extends Lambda implements Function3 {
+public final class DeviceInfoManager$DEVICE_READ_FUNC_MAP$1$3 extends Lambda implements Function3<Context, String, String, DeviceIdBag> {
     public static /* synthetic */ Interceptable $ic;
     public static final DeviceInfoManager$DEVICE_READ_FUNC_MAP$1$3 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;

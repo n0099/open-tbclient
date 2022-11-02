@@ -1,102 +1,53 @@
 package com.baidu.tieba;
 
-import android.net.http.Headers;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.network.http.BdHttpCancelException;
 import com.baidu.adp.lib.network.http.IHttpNet;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.outback.manager.HttpManager;
-import com.baidu.searchbox.network.outback.request.PostFormRequest;
-import com.baidu.searchbox.network.outback.request.RequestCall;
-import com.baidu.searchbox.network.outback.statistics.RequestCallException;
-import com.baidu.searchbox.network.outback.support.request.HttpRequestCompat;
-import com.baidu.searchbox.network.outback.support.request.PostBodyRequest;
-import com.baidu.searchbox.network.outback.support.request.PostMultiPartFormRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.ProtocolException;
+import java.net.Proxy;
+import java.net.SocketException;
 import java.net.URL;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
 public class gg implements IHttpNet {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ig a;
-    public Request.Builder b;
-    public RequestCall c;
-    public Response d;
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void connect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public URL d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (URL) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void disconnect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void e(URL url) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, url) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void g(URL url, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, url, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-        }
-    }
+    public final ag a;
+    public HttpURLConnection b;
+    public final IHttpNet.HttpNetType c;
 
     /* loaded from: classes4.dex */
-    public class a extends RequestBody {
+    public class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gg a;
+        public final /* synthetic */ HttpsURLConnection a;
 
-        public a(gg ggVar) {
+        public a(gg ggVar, HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ggVar};
+                Object[] objArr = {ggVar, httpsURLConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -106,103 +57,30 @@ public class gg implements IHttpNet {
                     return;
                 }
             }
-            this.a = ggVar;
+            this.a = httpsURLConnection;
         }
 
-        @Override // com.baidu.searchbox.network.outback.core.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return MediaType.parse("multipart/form-data; boundary=--------7da3d81520810*");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.core.RequestBody
-        public void writeTo(OutputStream outputStream) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream) == null) {
-                DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-                if (this.a.a.b().j() != null) {
-                    Iterator it = this.a.a.b().j().iterator();
-                    while (it.hasNext()) {
-                        BasicNameValuePair basicNameValuePair = (BasicNameValuePair) it.next();
-                        if (basicNameValuePair != null) {
-                            String name = basicNameValuePair.getName();
-                            String value = basicNameValuePair.getValue();
-                            if (value != null && name != null) {
-                                dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
-                                byte[] bytes = value.getBytes("UTF-8");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
-                                dataOutputStream.writeBytes("\r\n");
-                                dataOutputStream.write(bytes);
-                                dataOutputStream.writeBytes("\r\n");
-                            }
-                        }
-                    }
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                String requestProperty = this.a.getRequestProperty("Host");
+                if (requestProperty == null) {
+                    requestProperty = this.a.getURL().getHost();
                 }
-                if (this.a.a.b().g != null) {
-                    for (Map.Entry entry : this.a.a.b().g.entrySet()) {
-                        String str = (String) entry.getKey();
-                        byte[] bArr = (byte[]) entry.getValue();
-                        if (bArr != null) {
-                            dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"file\"\r\n");
-                            dataOutputStream.writeBytes("\r\n");
-                            dataOutputStream.write(bArr);
-                            dataOutputStream.writeBytes("\r\n");
-                        }
-                    }
-                }
-                dataOutputStream.writeBytes("----------7da3d81520810*--\r\n");
-                dataOutputStream.flush();
+                return HttpsURLConnection.getDefaultHostnameVerifier().verify(requestProperty, sSLSession);
             }
+            return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(252025167, "Lcom/baidu/tieba/gg$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(252025167, "Lcom/baidu/tieba/gg$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[IHttpNet.HttpNetType.values().length];
-            a = iArr;
-            try {
-                iArr[IHttpNet.HttpNetType.GET.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[IHttpNet.HttpNetType.POST_FORM.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[IHttpNet.HttpNetType.POST_BYTE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public gg(ig igVar, IHttpNet.HttpNetType httpNetType) {
+    public gg(ag agVar, IHttpNet.HttpNetType httpNetType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {igVar, httpNetType};
+            Object[] objArr = {agVar, httpNetType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -212,58 +90,97 @@ public class gg implements IHttpNet {
                 return;
             }
         }
-        this.a = igVar;
-        int i3 = b.a[httpNetType.ordinal()];
-        if (i3 != 1) {
-            if (i3 != 2) {
-                if (i3 == 3) {
-                    if (((dg) ServiceManager.getService(dg.a)).netBdABTest()) {
-                        this.b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postRequest();
-                        return;
-                    } else {
-                        this.b = new HttpRequestCompat(HttpManager.getDefault(BdBaseApplication.getInst())).postMultiPartRequest();
-                        return;
+        this.a = agVar;
+        this.c = httpNetType;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void g(URL url, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, url, z) == null) {
+            try {
+                if (this.b == null) {
+                    this.b = (HttpURLConnection) url.openConnection();
+                }
+                if (z && url.getProtocol().equals("https")) {
+                    HttpsURLConnection httpsURLConnection = (HttpsURLConnection) this.b;
+                    httpsURLConnection.setSSLSocketFactory(new fg(httpsURLConnection));
+                    httpsURLConnection.setHostnameVerifier(new a(this, httpsURLConnection));
+                    this.b = httpsURLConnection;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void a(URL url, int i, int i2) throws SocketException, ProtocolException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048576, this, url, i, i2) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection != null) {
+                if (this.c == IHttpNet.HttpNetType.GET) {
+                    httpURLConnection.setRequestMethod("GET");
+                } else {
+                    httpURLConnection.setRequestMethod("POST");
+                    this.b.setDoOutput(true);
+                    this.b.setDoInput(true);
+                    IHttpNet.HttpNetType httpNetType = this.c;
+                    if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
+                        this.b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    } else if (httpNetType == IHttpNet.HttpNetType.POST_BYTE) {
+                        this.b.setRequestProperty("Content-Type", "multipart/form-data; boundary=--------7da3d81520810*");
                     }
                 }
+                this.b.setConnectTimeout(i);
+                this.b.setReadTimeout(i2);
                 return;
             }
-            this.b = HttpManager.getDefault(BdBaseApplication.getInst()).postFormRequest();
-            return;
-        }
-        this.b = HttpManager.getDefault(BdBaseApplication.getInst()).getRequest();
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void a(URL url, int i, int i2) {
-        Request.Builder builder;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, url, i, i2) == null) && (builder = this.b) != null && url != null) {
-            builder.url(url.toString()).connectionTimeout(i * 2).readTimeout(i2 * 2).requestSubFrom(8927);
+            throw new SocketException("network not available.");
         }
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public Map b() {
+    public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Response response = this.d;
-            if (response != null && response.headers() != null) {
-                return this.d.headers().toMultimap();
-            }
-            return null;
+            return this.b.getHeaderFields();
         }
         return (Map) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public void f() {
-        Request.Builder builder;
+    public void connect() throws IOException {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (builder = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (httpURLConnection = this.b) == null) {
             return;
         }
-        builder.addHeaders(this.a.b().g());
+        httpURLConnection.connect();
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public URL d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return null;
+            }
+            return httpURLConnection.getURL();
+        }
+        return (URL) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void disconnect() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            vg.f(this.b);
+        }
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
@@ -271,11 +188,11 @@ public class gg implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Response response = this.d;
-            if (response != null && response.headers() != null) {
-                return this.d.headers().get(Headers.CONTENT_ENCODING);
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return "";
             }
-            return "";
+            return httpURLConnection.getContentEncoding();
         }
         return (String) invokeV.objValue;
     }
@@ -285,74 +202,13 @@ public class gg implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            Response response = this.d;
-            if (response != null && response.body() != null) {
-                return this.d.body().contentLength();
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return 0L;
             }
-            return 0L;
+            return httpURLConnection.getContentLength();
         }
         return invokeV.longValue;
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public int getResponseCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Response response = this.d;
-            if (response == null) {
-                return 0;
-            }
-            return response.code();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Request.Builder builder = this.b;
-            if (builder == null) {
-                return 0;
-            }
-            if (builder instanceof PostFormRequest.PostFormRequestBuilder) {
-                ((PostFormRequest.PostFormRequestBuilder) builder).params(this.a.b().i());
-            } else if (builder instanceof PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) {
-                ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) builder).addParams(this.a.b().i());
-                if (this.a.b().g != null) {
-                    for (Map.Entry entry : this.a.b().g.entrySet()) {
-                        String str = (String) entry.getKey();
-                        byte[] bArr = (byte[]) entry.getValue();
-                        if (bArr != null) {
-                            ((PostMultiPartFormRequest.PostMultiPartFormRequestBuilder) this.b).addBytes(str, "file", "application/octet-stream", bArr);
-                        }
-                    }
-                }
-            } else if (builder instanceof PostBodyRequest.PostBodyRequestBuilder) {
-                ((PostBodyRequest.PostBodyRequestBuilder) builder).requestBody(new a(this));
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.adp.lib.network.http.IHttpNet
-    public byte[] execute() throws RequestCallException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            RequestCall makeRequestCall = this.b.build().makeRequestCall();
-            this.c = makeRequestCall;
-            Response executeSync = makeRequestCall.executeSync();
-            this.d = executeSync;
-            if (executeSync != null && executeSync.body() != null) {
-                return this.d.body().bytes();
-            }
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.lib.network.http.IHttpNet
@@ -360,12 +216,207 @@ public class gg implements IHttpNet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Response response = this.d;
-            if (response != null && response.body() != null && this.d.body().contentType() != null) {
-                return this.d.body().contentType().toString();
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return "";
             }
-            return "";
+            return httpURLConnection.getContentType();
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public int getResponseCode() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            HttpURLConnection httpURLConnection = this.b;
+            if (httpURLConnection == null) {
+                return 0;
+            }
+            return httpURLConnection.getResponseCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public int c() throws IOException {
+        InterceptResult invokeV;
+        DataOutputStream dataOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                return 0;
+            }
+            IHttpNet.HttpNetType httpNetType = this.c;
+            if (httpNetType == IHttpNet.HttpNetType.POST_FORM) {
+                String sb = i().toString();
+                dataOutputStream = new DataOutputStream(this.b.getOutputStream());
+                try {
+                    dataOutputStream.writeBytes(sb);
+                    dataOutputStream.flush();
+                    vg.d(dataOutputStream);
+                    return sb.length();
+                } finally {
+                }
+            } else if (httpNetType != IHttpNet.HttpNetType.POST_BYTE) {
+                return 0;
+            } else {
+                dataOutputStream = new DataOutputStream(this.b.getOutputStream());
+                try {
+                    if (this.a.b().j() != null) {
+                        Iterator<BasicNameValuePair> it = this.a.b().j().iterator();
+                        while (it.hasNext()) {
+                            BasicNameValuePair next = it.next();
+                            if (next != null) {
+                                String name = next.getName();
+                                String value = next.getValue();
+                                if (value != null && name != null) {
+                                    dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
+                                    byte[] bytes = value.getBytes("UTF-8");
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
+                                    dataOutputStream.writeBytes("\r\n");
+                                    dataOutputStream.write(bytes);
+                                    dataOutputStream.writeBytes("\r\n");
+                                }
+                            }
+                        }
+                    }
+                    if (this.a.b().g != null) {
+                        for (Map.Entry<String, byte[]> entry : this.a.b().g.entrySet()) {
+                            String key = entry.getKey();
+                            byte[] value2 = entry.getValue();
+                            if (value2 != null) {
+                                dataOutputStream.writeBytes("----------7da3d81520810*\r\n");
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
+                                dataOutputStream.writeBytes("\r\n");
+                                dataOutputStream.write(value2);
+                                dataOutputStream.writeBytes("\r\n");
+                            }
+                        }
+                    }
+                    dataOutputStream.writeBytes("----------7da3d81520810*--\r\n");
+                    dataOutputStream.flush();
+                    return dataOutputStream.size();
+                } finally {
+                }
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void e(URL url) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, url) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+            return;
+        }
+        try {
+            String curMobileProxyHost = BdNetTypeUtil.curMobileProxyHost();
+            if (curMobileProxyHost != null && curMobileProxyHost.length() > 0) {
+                if (BdNetTypeUtil.isWap(curMobileProxyHost) && BdNetTypeUtil.isSupportWap()) {
+                    StringBuilder sb = new StringBuilder(80);
+                    sb.append("http://");
+                    sb.append(curMobileProxyHost);
+                    String file = url.getFile();
+                    if (file != null && file.startsWith("?")) {
+                        sb.append("/");
+                    }
+                    sb.append(file);
+                    this.b = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                    this.a.b().a("X-Online-Host", url.getHost());
+                    return;
+                }
+                this.b = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(curMobileProxyHost, BdNetTypeUtil.curMobileProxyPort())));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public byte[] execute() throws IOException {
+        InterceptResult invokeV;
+        int read;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.b == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+            try {
+                byte[] bArr = new byte[1024];
+                InputStream inputStream = this.b.getInputStream();
+                while (!this.a.c().a && (read = inputStream.read(bArr)) != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                if (!this.a.c().a) {
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    vg.d(byteArrayOutputStream);
+                    vg.c(inputStream);
+                    return byteArray;
+                }
+                throw new BdHttpCancelException();
+            } catch (Throwable th) {
+                vg.d(byteArrayOutputStream);
+                vg.c(null);
+                throw th;
+            }
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.b != null && this.a.b().g() != null) {
+            for (Map.Entry<String, String> entry : this.a.b().g().entrySet()) {
+                this.b.addRequestProperty(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.http.IHttpNet
+    public void h() throws IOException {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (httpURLConnection = this.b) == null || !lg.c(httpURLConnection.getContentType())) {
+            return;
+        }
+        this.b.disconnect();
+        this.b.connect();
+        if (!this.a.c().a) {
+            return;
+        }
+        throw new BdHttpCancelException();
+    }
+
+    public final StringBuilder i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder(1024);
+            LinkedList<BasicNameValuePair> j = this.a.b().j();
+            if (j == null) {
+                return sb;
+            }
+            int i = 0;
+            Iterator<BasicNameValuePair> it = j.iterator();
+            while (it.hasNext()) {
+                BasicNameValuePair next = it.next();
+                if (next != null) {
+                    String name = next.getName();
+                    String value = next.getValue();
+                    if (i != 0) {
+                        sb.append("&");
+                    }
+                    sb.append(name + "=");
+                    sb.append(wi.getUrlEncode(value));
+                    i++;
+                }
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeV.objValue;
     }
 }

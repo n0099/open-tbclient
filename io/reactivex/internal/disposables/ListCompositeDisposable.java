@@ -12,7 +12,6 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -20,7 +19,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean disposed;
-    public List resources;
+    public List<Disposable> resources;
 
     public ListCompositeDisposable() {
         Interceptable interceptable = $ic;
@@ -45,7 +44,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
             if (this.disposed) {
                 return;
             }
-            List list = this.resources;
+            List<Disposable> list = this.resources;
             this.resources = null;
             dispose(list);
         }
@@ -62,7 +61,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
                 return;
             }
             this.disposed = true;
-            List list = this.resources;
+            List<Disposable> list = this.resources;
             this.resources = null;
             dispose(list);
         }
@@ -78,7 +77,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
         return invokeV.booleanValue;
     }
 
-    public ListCompositeDisposable(Iterable iterable) {
+    public ListCompositeDisposable(Iterable<? extends Disposable> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,9 +94,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
         }
         ObjectHelper.requireNonNull(iterable, "resources is null");
         this.resources = new LinkedList();
-        Iterator it = iterable.iterator();
-        while (it.hasNext()) {
-            Disposable disposable = (Disposable) it.next();
+        for (Disposable disposable : iterable) {
             ObjectHelper.requireNonNull(disposable, "Disposable item is null");
             this.resources.add(disposable);
         }
@@ -132,16 +129,15 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
         return invokeL.booleanValue;
     }
 
-    public void dispose(List list) {
+    public void dispose(List<Disposable> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
             return;
         }
         ArrayList arrayList = null;
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
+        for (Disposable disposable : list) {
             try {
-                ((Disposable) it.next()).dispose();
+                disposable.dispose();
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 if (arrayList == null) {
@@ -219,7 +215,7 @@ public final class ListCompositeDisposable implements Disposable, DisposableCont
                 if (this.disposed) {
                     return false;
                 }
-                List list = this.resources;
+                List<Disposable> list = this.resources;
                 if (list != null && list.remove(disposable)) {
                     return true;
                 }

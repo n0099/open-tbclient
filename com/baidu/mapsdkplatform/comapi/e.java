@@ -1,22 +1,15 @@
 package com.baidu.mapsdkplatform.comapi;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.NetworkUtil;
-import com.baidu.mapsdkplatform.comapi.util.i;
+import com.baidu.mapsdkplatform.comapi.NativeLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class e extends BroadcastReceiver {
+public /* synthetic */ class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final /* synthetic */ int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,41 +25,27 @@ public class e extends BroadcastReceiver {
                 return;
             }
         }
-        a = e.class.getSimpleName();
-    }
-
-    public e() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        int[] iArr = new int[NativeLoader.a.values().length];
+        a = iArr;
+        try {
+            iArr[NativeLoader.a.c.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentNetMode = NetworkUtil.getCurrentNetMode(context);
-            String e = i.e();
-            if (e == null || e.equals(currentNetMode)) {
-                return;
-            }
-            i.a(currentNetMode);
+        try {
+            a[NativeLoader.a.b.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) {
-            a(context);
-            NetworkUtil.updateNetworkProxy(context);
+        try {
+            a[NativeLoader.a.a.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            a[NativeLoader.a.e.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            a[NativeLoader.a.d.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
         }
     }
 }

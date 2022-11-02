@@ -19,14 +19,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class SingleZipArray extends Single {
+public final class SingleZipArray<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource[] sources;
-    public final Function zipper;
+    public final SingleSource<? extends T>[] sources;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleZipArray this$0;
@@ -49,29 +49,30 @@ public final class SingleZipArray extends Single {
             this.this$0 = singleZipArray;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{obj}), "The zipper returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{t}), "The zipper returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipCoordinator extends AtomicInteger implements Disposable {
+    public static final class ZipCoordinator<T, R> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5556924161382950569L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public final ZipSingleObserver[] observers;
+        public final SingleObserver<? super R> actual;
+        public final ZipSingleObserver<T>[] observers;
         public final Object[] values;
-        public final Function zipper;
+        public final Function<? super Object[], ? extends R> zipper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ZipCoordinator(SingleObserver singleObserver, int i, Function function) {
+        public ZipCoordinator(SingleObserver<? super R> singleObserver, int i, Function<? super Object[], ? extends R> function) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,9 +91,9 @@ public final class SingleZipArray extends Single {
             }
             this.actual = singleObserver;
             this.zipper = function;
-            ZipSingleObserver[] zipSingleObserverArr = new ZipSingleObserver[i];
+            ZipSingleObserver<T>[] zipSingleObserverArr = new ZipSingleObserver[i];
             for (int i4 = 0; i4 < i; i4++) {
-                zipSingleObserverArr[i4] = new ZipSingleObserver(this, i4);
+                zipSingleObserverArr[i4] = new ZipSingleObserver<>(this, i4);
             }
             this.observers = zipSingleObserverArr;
             this.values = new Object[i];
@@ -103,7 +104,7 @@ public final class SingleZipArray extends Single {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (getAndSet(0) > 0) {
-                    for (ZipSingleObserver zipSingleObserver : this.observers) {
+                    for (ZipSingleObserver<T> zipSingleObserver : this.observers) {
                         zipSingleObserver.dispose();
                     }
                 }
@@ -126,7 +127,7 @@ public final class SingleZipArray extends Single {
         public void disposeExcept(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                ZipSingleObserver[] zipSingleObserverArr = this.observers;
+                ZipSingleObserver<T>[] zipSingleObserverArr = this.observers;
                 int length = zipSingleObserverArr.length;
                 for (int i2 = 0; i2 < i; i2++) {
                     zipSingleObserverArr[i2].dispose();
@@ -154,10 +155,11 @@ public final class SingleZipArray extends Single {
             }
         }
 
-        public void innerSuccess(Object obj, int i) {
+        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: ? super java.lang.Object[] */
+        public void innerSuccess(T t, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048579, this, obj, i) == null) {
-                this.values[i] = obj;
+            if (interceptable == null || interceptable.invokeLI(1048579, this, t, i) == null) {
+                this.values[i] = t;
                 if (decrementAndGet() == 0) {
                     try {
                         this.actual.onSuccess(ObjectHelper.requireNonNull(this.zipper.apply(this.values), "The zipper returned a null value"));
@@ -171,14 +173,14 @@ public final class SingleZipArray extends Single {
     }
 
     /* loaded from: classes8.dex */
-    public final class ZipSingleObserver extends AtomicReference implements SingleObserver {
+    public static final class ZipSingleObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3323743579927613702L;
         public transient /* synthetic */ FieldHolder $fh;
         public final int index;
-        public final ZipCoordinator parent;
+        public final ZipCoordinator<T, ?> parent;
 
-        public ZipSingleObserver(ZipCoordinator zipCoordinator, int i) {
+        public ZipSingleObserver(ZipCoordinator<T, ?> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -221,15 +223,15 @@ public final class SingleZipArray extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.parent.innerSuccess(obj, this.index);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                this.parent.innerSuccess(t, this.index);
             }
         }
     }
 
-    public SingleZipArray(SingleSource[] singleSourceArr, Function function) {
+    public SingleZipArray(SingleSource<? extends T>[] singleSourceArr, Function<? super Object[], ? extends R> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,10 +251,10 @@ public final class SingleZipArray extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super R> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
-            SingleSource[] singleSourceArr = this.sources;
+            SingleSource<? extends T>[] singleSourceArr = this.sources;
             int length = singleSourceArr.length;
             if (length == 1) {
                 singleSourceArr[0].subscribe(new SingleMap.MapSingleObserver(singleObserver, new SingletonArrayFunc(this)));
@@ -261,7 +263,7 @@ public final class SingleZipArray extends Single {
             ZipCoordinator zipCoordinator = new ZipCoordinator(singleObserver, length, this.zipper);
             singleObserver.onSubscribe(zipCoordinator);
             for (int i = 0; i < length && !zipCoordinator.isDisposed(); i++) {
-                SingleSource singleSource = singleSourceArr[i];
+                SingleSource<? extends T> singleSource = singleSourceArr[i];
                 if (singleSource == null) {
                     zipCoordinator.innerError(new NullPointerException("One of the sources is null"), i);
                     return;

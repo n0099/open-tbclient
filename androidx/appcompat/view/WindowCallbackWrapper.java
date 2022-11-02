@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class WindowCallbackWrapper implements Window.Callback {
     public static /* synthetic */ Interceptable $ic;
@@ -134,6 +137,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(26)
     public void onPointerCaptureChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
@@ -142,6 +146,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(23)
     public boolean onSearchRequested(SearchEvent searchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -259,6 +264,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(23)
     public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -279,6 +285,7 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
+    @RequiresApi(24)
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i) == null) {

@@ -1,10 +1,11 @@
 package com.kwad.sdk.crash.report.request;
 
 import com.kwad.sdk.core.network.d;
+import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends d {
-    public a(List list) {
+    public a(List<ReportEvent> list) {
         putBody("eventList", list);
     }
 

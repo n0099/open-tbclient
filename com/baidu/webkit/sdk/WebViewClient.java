@@ -24,7 +24,7 @@ import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_AUTHENTICATION = -4;
@@ -47,11 +47,11 @@ public class WebViewClient {
     public static final String SCHEMA_HTTPS = "https://";
     public static final String TAG = "WebViewClient";
     public transient /* synthetic */ FieldHolder $fh;
-    public List mUrlHandlers;
+    public List<g> mUrlHandlers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class InteractionType {
+    /* loaded from: classes7.dex */
+    public static final class InteractionType {
         public static final /* synthetic */ InteractionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InteractionType CONTENT_CHANGE;
@@ -113,8 +113,8 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class SecurityInfo {
+    /* loaded from: classes7.dex */
+    public static class SecurityInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WebSiteInfo info;
@@ -164,8 +164,8 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class SecurityLevel {
+    /* loaded from: classes7.dex */
+    public static final class SecurityLevel {
         public static final /* synthetic */ SecurityLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SecurityLevel DANGEROUS;
@@ -235,8 +235,8 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class WebSiteInfo {
+    /* loaded from: classes7.dex */
+    public static class WebSiteInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -276,8 +276,8 @@ public class WebViewClient {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
-    public final class WebSiteType {
+    /* loaded from: classes7.dex */
+    public static final class WebSiteType {
         public static final /* synthetic */ WebSiteType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final WebSiteType BANK;
@@ -347,7 +347,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }

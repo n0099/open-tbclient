@@ -9,6 +9,9 @@ import android.os.Build;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBarDrawerToggleHoneycomb;
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.appcompat.widget.Toolbar;
@@ -45,13 +48,14 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
         boolean isNavigationVisible();
 
-        void setActionBarDescription(int i);
+        void setActionBarDescription(@StringRes int i);
 
-        void setActionBarUpIndicator(Drawable drawable, int i);
+        void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
     }
 
     /* loaded from: classes.dex */
     public interface DelegateProvider {
+        @Nullable
         Delegate getDrawerToggleDelegate();
     }
 
@@ -223,7 +227,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(int i) {
+        public void setActionBarDescription(@StringRes int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                 if (i == 0) {
@@ -235,7 +239,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarUpIndicator(Drawable drawable, int i) {
+        public void setActionBarUpIndicator(Drawable drawable, @StringRes int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) {
                 this.mToolbar.setNavigationIcon(drawable);
@@ -244,7 +248,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    public ActionBarDrawerToggle(Activity activity, Toolbar toolbar, DrawerLayout drawerLayout, DrawerArrowDrawable drawerArrowDrawable, int i, int i2) {
+    public ActionBarDrawerToggle(Activity activity, Toolbar toolbar, DrawerLayout drawerLayout, DrawerArrowDrawable drawerArrowDrawable, @StringRes int i, @StringRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -320,7 +324,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, int i, int i2) {
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @StringRes int i, @StringRes int i2) {
         this(activity, null, drawerLayout, null, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -341,7 +345,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar, int i, int i2) {
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, Toolbar toolbar, @StringRes int i, @StringRes int i2) {
         this(activity, toolbar, drawerLayout, null, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -425,7 +429,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    public void setDrawerArrowDrawable(DrawerArrowDrawable drawerArrowDrawable) {
+    public void setDrawerArrowDrawable(@NonNull DrawerArrowDrawable drawerArrowDrawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, drawerArrowDrawable) == null) {
             this.mSlider = drawerArrowDrawable;
@@ -463,6 +467,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
+    @NonNull
     public DrawerArrowDrawable getDrawerArrowDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

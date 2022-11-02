@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util.tbselector.selector;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.widget.TextView;
+import androidx.annotation.ColorRes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ColorSelector implements ISelector {
+public class ColorSelector implements ISelector<ColorStateList, TextView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HINT_TEXT_COLOR = 2;
     public static final int TEXT_COLOR = 1;
@@ -59,6 +60,7 @@ public class ColorSelector implements ISelector {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
     public ColorStateList build() {
         InterceptResult invokeV;
@@ -119,7 +121,7 @@ public class ColorSelector implements ISelector {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public ColorSelector defaultColor(int i) {
+    public ColorSelector defaultColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -142,7 +144,7 @@ public class ColorSelector implements ISelector {
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector disabledColor(int i) {
+    public ColorSelector disabledColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -153,7 +155,7 @@ public class ColorSelector implements ISelector {
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector focusedColor(int i) {
+    public ColorSelector focusedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -164,7 +166,7 @@ public class ColorSelector implements ISelector {
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector pressedColor(int i) {
+    public ColorSelector pressedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -175,7 +177,7 @@ public class ColorSelector implements ISelector {
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector selectedColor(int i) {
+    public ColorSelector selectedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -278,7 +280,7 @@ public class ColorSelector implements ISelector {
         return (ColorSelector) invokeL.objValue;
     }
 
-    public ColorSelector selectorColor(int i, int i2) {
+    public ColorSelector selectorColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {

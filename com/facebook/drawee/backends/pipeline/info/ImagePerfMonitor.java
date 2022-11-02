@@ -8,13 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
+import com.facebook.common.references.CloseableReference;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
 import com.facebook.drawee.backends.pipeline.info.internal.ImagePerfControllerListener2;
 import com.facebook.drawee.backends.pipeline.info.internal.ImagePerfImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.internal.ImagePerfRequestListener;
 import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.listener.ForwardingRequestListener;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.List;
@@ -24,7 +28,7 @@ import javax.annotation.Nullable;
 public class ImagePerfMonitor implements ImagePerfNotifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Supplier mAsyncLogging;
+    public final Supplier<Boolean> mAsyncLogging;
     public boolean mEnabled;
     @Nullable
     public ForwardingRequestListener mForwardingRequestListener;
@@ -35,14 +39,14 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
     @Nullable
     public ImagePerfControllerListener2 mImagePerfControllerListener2;
     @Nullable
-    public List mImagePerfDataListeners;
+    public List<ImagePerfDataListener> mImagePerfDataListeners;
     @Nullable
     public ImagePerfRequestListener mImagePerfRequestListener;
     public final ImagePerfState mImagePerfState;
     public final MonotonicClock mMonotonicClock;
     public final PipelineDraweeController mPipelineDraweeController;
 
-    public ImagePerfMonitor(MonotonicClock monotonicClock, PipelineDraweeController pipelineDraweeController, Supplier supplier) {
+    public ImagePerfMonitor(MonotonicClock monotonicClock, PipelineDraweeController pipelineDraweeController, Supplier<Boolean> supplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +103,7 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
     }
 
     public void removeImagePerfDataListener(ImagePerfDataListener imagePerfDataListener) {
-        List list;
+        List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, imagePerfDataListener) != null) || (list = this.mImagePerfDataListeners) == null) {
             return;
@@ -107,10 +111,10 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
         list.remove(imagePerfDataListener);
     }
 
-    public void updateImageRequestData(AbstractDraweeControllerBuilder abstractDraweeControllerBuilder) {
+    public void updateImageRequestData(AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> abstractDraweeControllerBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, abstractDraweeControllerBuilder) == null) {
-            this.mImagePerfState.setControllerImageRequests((ImageRequest) abstractDraweeControllerBuilder.getImageRequest(), (ImageRequest) abstractDraweeControllerBuilder.getLowResImageRequest(), (ImageRequest[]) abstractDraweeControllerBuilder.getFirstAvailableImageRequests());
+            this.mImagePerfState.setControllerImageRequests(abstractDraweeControllerBuilder.getImageRequest(), abstractDraweeControllerBuilder.getLowResImageRequest(), abstractDraweeControllerBuilder.getFirstAvailableImageRequests());
         }
     }
 
@@ -125,7 +129,7 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
     }
 
     public void clearImagePerfDataListeners() {
-        List list;
+        List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.mImagePerfDataListeners) != null) {
             list.clear();
@@ -143,7 +147,7 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImagePerfNotifier
     public void notifyListenersOfVisibilityStateUpdate(ImagePerfState imagePerfState, int i) {
-        List list;
+        List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, imagePerfState, i) == null) && this.mEnabled && (list = this.mImagePerfDataListeners) != null && !list.isEmpty()) {
             ImagePerfData snapshot = imagePerfState.snapshot();
@@ -155,7 +159,7 @@ public class ImagePerfMonitor implements ImagePerfNotifier {
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImagePerfNotifier
     public void notifyStatusUpdated(ImagePerfState imagePerfState, int i) {
-        List list;
+        List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, imagePerfState, i) == null) {
             imagePerfState.setImageLoadStatus(i);

@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.InvokeSchemeInfo;
@@ -292,6 +293,7 @@ public final class UnitedSchemeUtility {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public static JSONObject optParamsAsJo(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -342,37 +344,37 @@ public final class UnitedSchemeUtility {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14eb);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1509);
                                         case 402:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e8);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1506);
                                         case 403:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e9);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1507);
                                         default:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14f0);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150e);
                                     }
                                 }
-                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ea);
+                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1508);
                             }
-                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ec);
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150a);
                         }
-                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ef);
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150d);
                     }
-                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14f0);
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150e);
                 }
-                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ed);
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150b);
             }
-            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f14ee);
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f150c);
         }
         return (String) invokeI.objValue;
     }
 
-    public static HashMap getParams(String str) {
+    public static HashMap<String, String> getParams(String str) {
         InterceptResult invokeL;
         String substring;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             updateCurrentLongestScheme(str);
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             if (TextUtils.isEmpty(str)) {
                 return hashMap;
             }

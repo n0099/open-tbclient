@@ -1,73 +1,20 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class pj {
-    public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-    public static Field b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 3;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // android.os.Handler
-        public void dispatchMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                try {
-                    super.dispatchMessage(message);
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.handleMessage(message);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -82,31 +29,44 @@ public class pj {
                 return;
             }
         }
-        try {
-            if (Build.VERSION.SDK_INT < 28) {
-                Field declaredField = Toast.class.getDeclaredField("mTN");
-                a = declaredField;
-                declaredField.setAccessible(true);
-                Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                b = declaredField2;
-                declaredField2.setAccessible(true);
+        c = new String[]{"meizu"};
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = Build.BRAND;
+            if (str == null) {
+                return false;
             }
-        } catch (Exception unused) {
+            String lowerCase = str.toLowerCase();
+            int i = 0;
+            while (true) {
+                String[] strArr = c;
+                if (i >= strArr.length) {
+                    return false;
+                }
+                if (strArr[i].equals(lowerCase)) {
+                    return true;
+                }
+                i++;
+            }
+        } else {
+            return invokeV.booleanValue;
         }
     }
 
-    public static void a(Toast toast) {
-        Object obj;
-        Handler handler;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || b == null || (obj = a.get(toast)) == null || (handler = (Handler) b.get(obj)) == null) {
-                    return;
-                }
-                b.set(obj, new a(handler));
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return "";
             }
+            return app.getString(i);
         }
+        return (String) invokeI.objValue;
     }
 }

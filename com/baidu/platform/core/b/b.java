@@ -1,161 +1,216 @@
 package com.baidu.platform.core.b;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.geocode.GeoCodeResult;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.mapapi.search.district.DistrictResult;
+import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
+import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.platform.base.d {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "b";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
     public String c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2056852920, "Lcom/baidu/platform/core/b/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2056852920, "Lcom/baidu/platform/core/b/b;");
-        }
-    }
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = null;
     }
 
-    private LatLng a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            double optDouble = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
-            double optDouble2 = jSONObject.optDouble(SuggestAddrField.KEY_LNG);
-            return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(new LatLng(optDouble, optDouble2)) : new LatLng(optDouble, optDouble2);
-        }
-        return (LatLng) invokeL.objValue;
-    }
-
-    private boolean a(String str, GeoCodeResult geoCodeResult) {
+    private boolean a(String str, DistrictResult districtResult) {
         InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, geoCodeResult)) == null) {
-            if (TextUtils.isEmpty(str) || geoCodeResult == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, districtResult)) == null) {
+            if (str == null || "".equals(str) || districtResult == null) {
                 return false;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("status");
-                if (optInt != 0) {
-                    geoCodeResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                JSONObject optJSONObject2 = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("city_result");
+                if (optJSONObject2 == null || optJSONObject3 == null) {
                     return false;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
-                if (optJSONObject == null) {
-                    geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                if (optJSONObject2.optInt("error") != 0 || (optJSONObject = optJSONObject3.optJSONObject("content")) == null) {
                     return false;
                 }
-                geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-                geoCodeResult.setAddress(this.c);
-                geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
-                geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
-                geoCodeResult.setLevel(optJSONObject.optString(PollingModel.LEVEL));
-                geoCodeResult.error = SearchResult.ERRORNO.NO_ERROR;
-                return true;
+                JSONObject optJSONObject4 = optJSONObject.optJSONObject("sgeo");
+                if (optJSONObject4 != null && (optJSONArray = optJSONObject4.optJSONArray("geo_elements")) != null && optJSONArray.length() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
+                        if (optJSONObject5 != null && (optJSONArray2 = optJSONObject5.optJSONArray(Config.EVENT_HEAT_POINT)) != null && (length = optJSONArray2.length()) > 0) {
+                            ArrayList arrayList2 = new ArrayList();
+                            int i2 = 0;
+                            int i3 = 0;
+                            for (int i4 = 0; i4 < length; i4++) {
+                                int optInt = optJSONArray2.optInt(i4);
+                                if (i4 % 2 == 0) {
+                                    i3 += optInt;
+                                } else {
+                                    i2 += optInt;
+                                    arrayList2.add(CoordUtil.mc2ll(new GeoPoint(i2, i3)));
+                                }
+                            }
+                            arrayList.add(arrayList2);
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        districtResult.setPolylines(arrayList);
+                        districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
+                        districtResult.setCityCode(optJSONObject.optInt("code"));
+                        districtResult.setCityName(optJSONObject.optString("cname"));
+                        districtResult.error = SearchResult.ERRORNO.NO_ERROR;
+                        return true;
+                    }
+                }
+                districtResult.setCityName(optJSONObject.optString("uid"));
+                this.c = optJSONObject.optString("cname");
+                districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString(MapBundleKey.MapObjKey.OBJ_GEO)));
+                districtResult.setCityCode(optJSONObject.optInt("code"));
+                return false;
             } catch (JSONException e) {
-                geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                Log.e(b, "Parse GeoCodeResult catch JSONException", e);
-                return true;
+                e.printStackTrace();
+                return false;
             }
         }
         return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0073, code lost:
-        if (r7.equals("NETWORK_ERROR") != false) goto L33;
-     */
-    @Override // com.baidu.platform.base.d
+    /* JADX WARN: Removed duplicated region for block: B:26:0x004e  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0081  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public SearchResult a(String str) {
-        InterceptResult invokeL;
-        SearchResult.ERRORNO errorno;
-        JSONObject jSONObject;
-        char c;
+    private boolean b(String str, DistrictResult districtResult) {
+        InterceptResult invokeLL;
+        List<List<LatLng>> decodeLocationList2D;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            GeoCodeResult geoCodeResult = new GeoCodeResult();
-            if (str != null && !str.equals("")) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, districtResult)) == null) {
+            if (str != null && !str.equals("") && districtResult != null) {
                 try {
-                    jSONObject = new JSONObject(str);
-                    c = 0;
-                } catch (JSONException e) {
-                    Log.e(b, "JSONException caught", e);
-                }
-                if (!jSONObject.has("SDK_InnerError")) {
-                    if (!a(str, geoCodeResult, false) && !a(str, geoCodeResult)) {
-                        geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    JSONObject jSONObject = new JSONObject(str);
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("content");
+                    if (optJSONObject == null || optJSONObject2 == null || optJSONObject.optInt("error") != 0) {
+                        return false;
                     }
-                    return geoCodeResult;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
-                if (optJSONObject.has("PermissionCheckError")) {
-                    errorno = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
-                    geoCodeResult.error = errorno;
-                    return geoCodeResult;
-                } else if (optJSONObject.has("httpStateError")) {
-                    String optString = optJSONObject.optString("httpStateError");
-                    int hashCode = optString.hashCode();
-                    if (hashCode != -879828873) {
-                        if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
-                            c = 1;
+                    ArrayList arrayList = new ArrayList();
+                    if (this.c != null) {
+                        try {
+                            decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString(MapBundleKey.MapObjKey.OBJ_GEO));
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        c = 65535;
+                        if (decodeLocationList2D != null) {
+                            for (List<LatLng> list : decodeLocationList2D) {
+                                ArrayList arrayList2 = new ArrayList();
+                                for (LatLng latLng : list) {
+                                    arrayList2.add(latLng);
+                                }
+                                arrayList.add(arrayList2);
+                            }
+                        }
+                        if (arrayList.size() > 0) {
+                            districtResult.setPolylines(arrayList);
+                        }
+                        districtResult.setCityName(this.c);
+                        districtResult.error = SearchResult.ERRORNO.NO_ERROR;
+                        this.c = null;
+                        return true;
                     }
-                    geoCodeResult.error = c != 0 ? c != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
-                    return geoCodeResult;
+                    decodeLocationList2D = null;
+                    if (decodeLocationList2D != null) {
+                    }
+                    if (arrayList.size() > 0) {
+                    }
+                    districtResult.setCityName(this.c);
+                    districtResult.error = SearchResult.ERRORNO.NO_ERROR;
+                    this.c = null;
+                    return true;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
-            errorno = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            geoCodeResult.error = errorno;
-            return geoCodeResult;
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.platform.base.d
+    public SearchResult a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            DistrictResult districtResult = new DistrictResult();
+            if (str != null && !str.equals("")) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("SDK_InnerError")) {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                        if (optJSONObject.has("PermissionCheckError")) {
+                            districtResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                            return districtResult;
+                        } else if (optJSONObject.has("httpStateError")) {
+                            String optString = optJSONObject.optString("httpStateError");
+                            if (optString.equals("NETWORK_ERROR")) {
+                                districtResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
+                            } else if (optString.equals("REQUEST_ERROR")) {
+                                districtResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
+                            } else {
+                                districtResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
+                            }
+                            return districtResult;
+                        }
+                    }
+                    if (!a(str, districtResult, false)) {
+                        if (!this.b) {
+                            if (!a(str, districtResult)) {
+                                districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                            }
+                        } else {
+                            b(str, districtResult);
+                        }
+                    }
+                    return districtResult;
+                } catch (Exception unused) {
+                    districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                    return districtResult;
+                }
+            }
+            districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+            return districtResult;
         }
         return (SearchResult) invokeL.objValue;
     }
@@ -163,15 +218,15 @@ public class b extends com.baidu.platform.base.d {
     @Override // com.baidu.platform.base.d
     public void a(SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetGeoCoderResultListener)) {
-            ((OnGetGeoCoderResultListener) obj).onGetGeoCodeResult((GeoCodeResult) searchResult);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetDistricSearchResultListener)) {
+            ((OnGetDistricSearchResultListener) obj).onGetDistrictResult((DistrictResult) searchResult);
         }
     }
 
-    public void b(String str) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

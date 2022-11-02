@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface CapturerObserver {
     void onCapturerStarted(boolean z);
 

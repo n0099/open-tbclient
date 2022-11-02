@@ -1,20 +1,21 @@
 package com.baidu.pass.ecommerce.common.adapter;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
+public abstract class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int position;
-    public Object t;
+    public T t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseRecyclerViewHolder(View view2) {
+    public BaseRecyclerViewHolder(@NonNull View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -33,11 +34,11 @@ public abstract class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public void bindData2View(int i, Object obj) {
+    public void bindData2View(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
             this.position = i;
-            this.t = obj;
+            this.t = t;
         }
     }
 }

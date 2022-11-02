@@ -4,6 +4,10 @@ import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RequiresPermission;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -108,7 +112,7 @@ public class FingerprintManagerCompat {
         public final Mac mMac;
         public final Signature mSignature;
 
-        public CryptoObject(Signature signature) {
+        public CryptoObject(@NonNull Signature signature) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +132,7 @@ public class FingerprintManagerCompat {
             this.mMac = null;
         }
 
-        public CryptoObject(Cipher cipher) {
+        public CryptoObject(@NonNull Cipher cipher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +152,7 @@ public class FingerprintManagerCompat {
             this.mMac = null;
         }
 
-        public CryptoObject(Mac mac) {
+        public CryptoObject(@NonNull Mac mac) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,6 +172,7 @@ public class FingerprintManagerCompat {
             this.mSignature = null;
         }
 
+        @Nullable
         public Cipher getCipher() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -177,6 +182,7 @@ public class FingerprintManagerCompat {
             return (Cipher) invokeV.objValue;
         }
 
+        @Nullable
         public Mac getMac() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -186,6 +192,7 @@ public class FingerprintManagerCompat {
             return (Mac) invokeV.objValue;
         }
 
+        @Nullable
         public Signature getSignature() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -214,7 +221,8 @@ public class FingerprintManagerCompat {
         this.mContext = context;
     }
 
-    public static FingerprintManagerCompat from(Context context) {
+    @NonNull
+    public static FingerprintManagerCompat from(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -223,6 +231,7 @@ public class FingerprintManagerCompat {
         return (FingerprintManagerCompat) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public static FingerprintManager.AuthenticationCallback wrapCallback(AuthenticationCallback authenticationCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -286,7 +295,9 @@ public class FingerprintManagerCompat {
         return (FingerprintManager.AuthenticationCallback) invokeL.objValue;
     }
 
-    public static FingerprintManager getFingerprintManagerOrNull(Context context) {
+    @Nullable
+    @RequiresApi(23)
+    public static FingerprintManager getFingerprintManagerOrNull(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
@@ -302,6 +313,7 @@ public class FingerprintManagerCompat {
         return (FingerprintManager) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public static CryptoObject unwrapCryptoObject(FingerprintManager.CryptoObject cryptoObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -323,6 +335,7 @@ public class FingerprintManagerCompat {
         return (CryptoObject) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -344,7 +357,8 @@ public class FingerprintManagerCompat {
         return (FingerprintManager.CryptoObject) invokeL.objValue;
     }
 
-    public void authenticate(CryptoObject cryptoObject, int i, CancellationSignal cancellationSignal, AuthenticationCallback authenticationCallback, Handler handler) {
+    @RequiresPermission("android.permission.USE_FINGERPRINT")
+    public void authenticate(@Nullable CryptoObject cryptoObject, int i, @Nullable CancellationSignal cancellationSignal, @NonNull AuthenticationCallback authenticationCallback, @Nullable Handler handler) {
         FingerprintManager fingerprintManagerOrNull;
         android.os.CancellationSignal cancellationSignal2;
         Interceptable interceptable = $ic;
@@ -358,6 +372,7 @@ public class FingerprintManagerCompat {
         }
     }
 
+    @RequiresPermission("android.permission.USE_FINGERPRINT")
     public boolean hasEnrolledFingerprints() {
         InterceptResult invokeV;
         FingerprintManager fingerprintManagerOrNull;
@@ -371,6 +386,7 @@ public class FingerprintManagerCompat {
         return invokeV.booleanValue;
     }
 
+    @RequiresPermission("android.permission.USE_FINGERPRINT")
     public boolean isHardwareDetected() {
         InterceptResult invokeV;
         FingerprintManager fingerprintManagerOrNull;

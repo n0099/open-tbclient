@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,8 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public AgreeData b;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public long e;
 
     public hn8() {
         Interceptable interceptable = $ic;
@@ -26,7 +27,10 @@ public class hn8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
+        this.a = false;
+        this.b = false;
+        this.c = 0;
+        this.d = "";
+        this.e = 0L;
     }
 }

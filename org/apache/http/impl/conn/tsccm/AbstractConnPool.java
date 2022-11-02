@@ -17,16 +17,16 @@ import org.apache.http.conn.OperatedClientConnection;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.impl.conn.IdleConnectionHandler;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractConnPool implements RefQueueHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IdleConnectionHandler idleConnHandler;
     public volatile boolean isShutDown;
-    public Set issuedConnections;
+    public Set<BasicPoolEntryRef> issuedConnections;
     public int numConnections;
     public final Lock poolLock;
-    public ReferenceQueue refQueue;
+    public ReferenceQueue<Object> refQueue;
 
     public abstract void deleteClosedConnections();
 

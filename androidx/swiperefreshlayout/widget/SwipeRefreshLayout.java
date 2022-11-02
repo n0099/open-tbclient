@@ -15,6 +15,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild;
@@ -38,7 +44,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     public static final int ANIMATE_TO_START_DURATION = 200;
     public static final int ANIMATE_TO_TRIGGER_DURATION = 200;
     public static final int CIRCLE_BG_LIGHT = -328966;
+    @VisibleForTesting
     public static final int CIRCLE_DIAMETER = 40;
+    @VisibleForTesting
     public static final int CIRCLE_DIAMETER_LARGE = 56;
     public static final float DECELERATE_INTERPOLATION_FACTOR = 2.0f;
     public static final int DEFAULT = 1;
@@ -97,7 +105,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
     /* loaded from: classes.dex */
     public interface OnChildScrollUpCallback {
-        boolean canChildScrollUp(SwipeRefreshLayout swipeRefreshLayout, View view2);
+        boolean canChildScrollUp(@NonNull SwipeRefreshLayout swipeRefreshLayout, @Nullable View view2);
     }
 
     /* loaded from: classes.dex */
@@ -152,7 +160,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwipeRefreshLayout(Context context) {
+    public SwipeRefreshLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -322,7 +330,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwipeRefreshLayout(Context context, AttributeSet attributeSet) {
+    public SwipeRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -817,14 +825,14 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Deprecated
-    public void setColorScheme(int... iArr) {
+    public void setColorScheme(@ColorRes int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, iArr) == null) {
             setColorSchemeResources(iArr);
         }
     }
 
-    public void setColorSchemeColors(int... iArr) {
+    public void setColorSchemeColors(@ColorInt int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, iArr) == null) {
             ensureTarget();
@@ -832,7 +840,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    public void setColorSchemeResources(int... iArr) {
+    public void setColorSchemeResources(@ColorRes int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, iArr) == null) {
             Context context = getContext();
@@ -870,14 +878,14 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    public void setOnChildScrollUpCallback(OnChildScrollUpCallback onChildScrollUpCallback) {
+    public void setOnChildScrollUpCallback(@Nullable OnChildScrollUpCallback onChildScrollUpCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, onChildScrollUpCallback) == null) {
             this.mChildScrollUpCallback = onChildScrollUpCallback;
         }
     }
 
-    public void setOnRefreshListener(OnRefreshListener onRefreshListener) {
+    public void setOnRefreshListener(@Nullable OnRefreshListener onRefreshListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, onRefreshListener) == null) {
             this.mListener = onRefreshListener;
@@ -892,21 +900,21 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    public void setProgressBackgroundColorSchemeColor(int i) {
+    public void setProgressBackgroundColorSchemeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.mCircleView.setBackgroundColor(i);
         }
     }
 
-    public void setProgressBackgroundColorSchemeResource(int i) {
+    public void setProgressBackgroundColorSchemeResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i));
         }
     }
 
-    public void setSlingshotDistance(int i) {
+    public void setSlingshotDistance(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             this.mCustomSlingshotDistance = i;

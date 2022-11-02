@@ -1,26 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import com.baidu.sapi2.views.logindialog.view.AgreementView;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ql3 {
+public class ql3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public boolean c;
-    public String d;
-    public int e;
-    public String f;
-    public String g;
+
+    /* loaded from: classes5.dex */
+    public class a implements yi3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ ql3 b;
+
+        public a(ql3 ql3Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql3Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ql3Var;
+            this.a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yi3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b.c(this.a);
+            }
+            return (Bundle) invokeV.objValue;
+        }
+    }
 
     public ql3() {
         Interceptable interceptable = $ic;
@@ -36,158 +68,42 @@ public class ql3 {
         }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public Bundle c(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                        c = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            pl3 pl3Var = new pl3();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return bundle2;
+                        }
+                        bundle2.putString(TiebaStatic.LogFields.RESULT, pl3Var.getCookie(string));
+                        return bundle2;
                     }
-                    c = 65535;
-                } else {
-                    if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                        c = 0;
-                    }
-                    c = 65535;
+                    pl3Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                    return bundle2;
                 }
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 2;
-                }
-                c = 65535;
+                bundle2.putBoolean(TiebaStatic.LogFields.RESULT, pl3Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        this.g = "";
-                    } else {
-                        this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007f);
-                    }
-                } else {
-                    this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007e);
-                }
-            } else {
-                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007d);
-            }
-            return this.g;
+            bundle2.putBoolean(TiebaStatic.LogFields.RESULT, pl3Var.shouldAcceptCookie(string, bundle.getString("param2")));
+            return bundle2;
         }
-        return (String) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        char c;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        this.f = "https://wap.cmpassport.com/resources/html/contract.html";
-                    }
-                } else {
-                    this.f = AgreementView.s;
-                }
-            } else {
-                this.f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
-            }
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            return (Bundle) vi3.b(new a(this, bundle));
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-        }
+        return (Bundle) invokeL.objValue;
     }
 }

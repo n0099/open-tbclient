@@ -1,5 +1,6 @@
 package com.badlogic.gdx.backends.android;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -48,6 +49,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(17)
 /* loaded from: classes.dex */
 public class AndroidDaydream extends DreamService implements h2 {
     public static /* synthetic */ Interceptable $ic;
@@ -55,17 +57,17 @@ public class AndroidDaydream extends DreamService implements h2 {
     public d1 applicationLogger;
     public k2 audio;
     public l2 clipboard;
-    public final b7 executedRunnables;
+    public final b7<Runnable> executedRunnables;
     public o2 files;
     public boolean firstResume;
     public r2 graphics;
     public Handler handler;
     public t2 input;
-    public final h8 lifecycleListeners;
+    public final h8<h1> lifecycleListeners;
     public c1 listener;
     public int logLevel;
     public x2 net;
-    public final b7 runnables;
+    public final b7<Runnable> runnables;
 
     @Override // com.baidu.tieba.h2
     public Context getContext() {
@@ -249,7 +251,7 @@ public class AndroidDaydream extends DreamService implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getExecutedRunnables() {
+    public b7<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -296,7 +298,7 @@ public class AndroidDaydream extends DreamService implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public h8 getLifecycleListeners() {
+    public h8<h1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -333,7 +335,7 @@ public class AndroidDaydream extends DreamService implements h2 {
     }
 
     @Override // com.baidu.tieba.h2
-    public b7 getRunnables() {
+    public b7<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
@@ -383,9 +385,9 @@ public class AndroidDaydream extends DreamService implements h2 {
             }
         }
         this.firstResume = true;
-        this.runnables = new b7();
-        this.executedRunnables = new b7();
-        this.lifecycleListeners = new h8(h1.class);
+        this.runnables = new b7<>();
+        this.executedRunnables = new b7<>();
+        this.lifecycleListeners = new h8<>(h1.class);
         this.logLevel = 2;
     }
 

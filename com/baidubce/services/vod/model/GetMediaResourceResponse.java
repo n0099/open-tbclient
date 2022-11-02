@@ -22,11 +22,11 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
     public VodError error;
     public String mediaId;
     public MediaMeta meta;
-    public List playableUrlList;
+    public List<PlayableUrl> playableUrlList;
     public String publishTime;
     public String source;
     public String status;
-    public List thumbnailList;
+    public List<String> thumbnailList;
     public String transcodingPresetGroupName;
 
     public GetMediaResourceResponse() {
@@ -91,7 +91,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         return (MediaMeta) invokeV.objValue;
     }
 
-    public List getPlayableUrlList() {
+    public List<PlayableUrl> getPlayableUrlList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -127,7 +127,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         return (String) invokeV.objValue;
     }
 
-    public List getThumbnailList() {
+    public List<String> getThumbnailList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -216,7 +216,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         }
     }
 
-    public void setPlayableUrlList(List list) {
+    public void setPlayableUrlList(List<PlayableUrl> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             this.playableUrlList = list;
@@ -244,7 +244,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         }
     }
 
-    public void setThumbnailList(List list) {
+    public void setThumbnailList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
             this.thumbnailList = list;

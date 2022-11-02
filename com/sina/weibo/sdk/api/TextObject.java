@@ -14,7 +14,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 /* loaded from: classes8.dex */
 public class TextObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<TextObject> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String text;
 
@@ -65,7 +65,7 @@ public class TextObject extends BaseMediaObject {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.api.TextObject.1
+        CREATOR = new Parcelable.Creator<TextObject>() { // from class: com.sina.weibo.sdk.api.TextObject.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,6 +84,7 @@ public class TextObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TextObject createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -95,6 +96,7 @@ public class TextObject extends BaseMediaObject {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public TextObject[] newArray(int i) {
                 InterceptResult invokeI;

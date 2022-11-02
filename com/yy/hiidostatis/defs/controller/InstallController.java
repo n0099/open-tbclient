@@ -21,7 +21,7 @@ public class InstallController {
     public IStatisAPI statisAPI;
 
     /* loaded from: classes8.dex */
-    public class InstUtil {
+    public static class InstUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_VERSIONNAME = "";
         public static final int INVALID_VERSIONNO = -1;
@@ -34,7 +34,7 @@ public class InstallController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes8.dex */
-        public class InstInfo {
+        public static class InstInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public boolean isReport;

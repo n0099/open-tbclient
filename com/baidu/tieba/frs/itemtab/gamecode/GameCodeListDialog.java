@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.zp6;
+import com.baidu.tieba.ir6;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
 public class GameCodeListDialog extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -71,10 +72,10 @@ public class GameCodeListDialog extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921640 && this.a.a != null) {
-                this.a.a.b((zp6) customResponsedMessage.getData());
+                this.a.a.b((ir6) customResponsedMessage.getData());
             }
         }
     }
@@ -108,7 +109,7 @@ public class GameCodeListDialog extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921642) {
                 this.a.c();
@@ -244,7 +245,7 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        i = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
+        i = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds161);
     }
 
     public void b() {
@@ -311,7 +312,7 @@ public class GameCodeListDialog extends FrameLayout {
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.b.setOnClickListener(new c(this));
         addView(this.b);
-        GameCodeListView gameCodeListView = new GameCodeListView(context, fj.i(context) - i);
+        GameCodeListView gameCodeListView = new GameCodeListView(context, xi.j(context) - i);
         this.a = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
@@ -328,7 +329,7 @@ public class GameCodeListDialog extends FrameLayout {
         this.f.setAnimationListener(new e(this));
     }
 
-    public void setData(List list) {
+    public void setData(List<GameCodeList> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.a.setData(list);

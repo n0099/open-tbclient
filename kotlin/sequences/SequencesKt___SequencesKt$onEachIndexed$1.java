@@ -15,9 +15,10 @@ public final class SequencesKt___SequencesKt$onEachIndexed$1 extends Lambda impl
         this.$action = function2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        return invoke(((Number) obj).intValue(), (int) obj2);
+    public /* bridge */ /* synthetic */ Object invoke(Integer num, Object obj) {
+        return invoke(num.intValue(), (int) obj);
     }
 
     public final T invoke(int i, T t) {

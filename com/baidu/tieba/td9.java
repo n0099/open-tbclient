@@ -6,17 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class td9 {
+public final class td9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public String e;
-    public String f;
-    public String g;
+    public sd9 a;
 
     public td9() {
         Interceptable interceptable = $ic;
@@ -28,29 +23,55 @@ public class td9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new sd9();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = 0.0f;
-            this.e = "";
-            this.f = "";
-            this.g = "";
-        }
-    }
-
-    public String toString() {
+    public final List<com.baidu.ubs.analytics.a.n> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "sft : " + this.a + ", bft : " + this.b + ", fc : " + this.c + ", time : " + this.d + ", cpu : " + this.e + ", mem : " + this.f + ", gpu : " + this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.c();
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.a(str);
+        }
+    }
+
+    public final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.b(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.a(str);
+        }
+    }
+
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.e(nVar);
+        }
+    }
+
+    public final void f(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
+            this.a.d(nVar);
+        }
     }
 }

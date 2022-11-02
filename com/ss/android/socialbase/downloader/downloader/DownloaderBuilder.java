@@ -34,7 +34,7 @@ public class DownloaderBuilder {
     public ExecutorService okHttpDispatcherExecutor;
     public u ttNetHandler;
     public int writeBufferSize;
-    public List downloadCompleteHandlers = new ArrayList();
+    public List<com.ss.android.socialbase.downloader.depend.m> downloadCompleteHandlers = new ArrayList();
     public boolean needAutoRefreshUnSuccessTask = true;
     public int downloadExpSwitch = 1056964607;
 
@@ -216,7 +216,7 @@ public class DownloaderBuilder {
         return this.downloadCache;
     }
 
-    public List getDownloadCompleteHandlers() {
+    public List<com.ss.android.socialbase.downloader.depend.m> getDownloadCompleteHandlers() {
         return this.downloadCompleteHandlers;
     }
 

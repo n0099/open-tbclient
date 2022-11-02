@@ -9,6 +9,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +53,8 @@ public class BdViewOpUtils {
         return invokeV.intValue;
     }
 
-    public static ViewGroup getDecorView(Activity activity) {
+    @Nullable
+    public static ViewGroup getDecorView(@Nullable Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
@@ -76,7 +78,7 @@ public class BdViewOpUtils {
         return invokeL.intValue;
     }
 
-    public static int getSystemUiVisibility(Activity activity) {
+    public static int getSystemUiVisibility(@Nullable Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, activity)) == null) {
@@ -148,7 +150,7 @@ public class BdViewOpUtils {
         return invokeL.booleanValue;
     }
 
-    public static void restoreSystemUiVisibility(Activity activity) {
+    public static void restoreSystemUiVisibility(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65555, null, activity) != null) || !hasPermanentMenuKey(activity)) {
             return;
@@ -358,7 +360,7 @@ public class BdViewOpUtils {
         return invokeL.booleanValue;
     }
 
-    public static void saveSystemUiVisibility(Activity activity) {
+    public static void saveSystemUiVisibility(@Nullable Activity activity) {
         ViewGroup decorView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65557, null, activity) == null) && activity != null && activity.getIntent() != null && (decorView = getDecorView(activity)) != null) {

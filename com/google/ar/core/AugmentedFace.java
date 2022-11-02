@@ -27,7 +27,7 @@ public class AugmentedFace extends TrackableBase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class RegionType {
+    public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RegionType FOREHEAD_LEFT;

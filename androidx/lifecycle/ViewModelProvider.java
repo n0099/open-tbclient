@@ -1,6 +1,8 @@
 package androidx.lifecycle;
 
 import android.app.Application;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +20,8 @@ public class ViewModelProvider {
 
     /* loaded from: classes.dex */
     public interface Factory {
-        ViewModel create(Class cls);
+        @NonNull
+        <T extends ViewModel> T create(@NonNull Class<T> cls);
     }
 
     /* loaded from: classes.dex */
@@ -28,7 +31,7 @@ public class ViewModelProvider {
         public transient /* synthetic */ FieldHolder $fh;
         public Application mApplication;
 
-        public AndroidViewModelFactory(Application application) {
+        public AndroidViewModelFactory(@NonNull Application application) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +49,8 @@ public class ViewModelProvider {
             this.mApplication = application;
         }
 
-        public static AndroidViewModelFactory getInstance(Application application) {
+        @NonNull
+        public static AndroidViewModelFactory getInstance(@NonNull Application application) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, application)) == null) {
@@ -59,7 +63,8 @@ public class ViewModelProvider {
         }
 
         @Override // androidx.lifecycle.ViewModelProvider.NewInstanceFactory, androidx.lifecycle.ViewModelProvider.Factory
-        public <T extends ViewModel> T create(Class<T> cls) {
+        @NonNull
+        public <T extends ViewModel> T create(@NonNull Class<T> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -87,7 +92,8 @@ public class ViewModelProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract <T extends ViewModel> T create(String str, Class<T> cls);
+        @NonNull
+        public abstract <T extends ViewModel> T create(@NonNull String str, @NonNull Class<T> cls);
 
         public KeyedFactory() {
             Interceptable interceptable = $ic;
@@ -103,7 +109,8 @@ public class ViewModelProvider {
             }
         }
 
-        public <T extends ViewModel> T create(Class<T> cls) {
+        @NonNull
+        public <T extends ViewModel> T create(@NonNull Class<T> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -133,6 +140,7 @@ public class ViewModelProvider {
             }
         }
 
+        @NonNull
         public static NewInstanceFactory getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -146,7 +154,8 @@ public class ViewModelProvider {
         }
 
         @Override // androidx.lifecycle.ViewModelProvider.Factory
-        public <T extends ViewModel> T create(Class<T> cls) {
+        @NonNull
+        public <T extends ViewModel> T create(@NonNull Class<T> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
@@ -167,7 +176,7 @@ public class ViewModelProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onRequery(ViewModel viewModel) {
+        public void onRequery(@NonNull ViewModel viewModel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, viewModel) == null) {
             }
@@ -188,7 +197,7 @@ public class ViewModelProvider {
         }
     }
 
-    public ViewModelProvider(ViewModelStore viewModelStore, Factory factory) {
+    public ViewModelProvider(@NonNull ViewModelStore viewModelStore, @NonNull Factory factory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,7 +216,9 @@ public class ViewModelProvider {
         this.mViewModelStore = viewModelStore;
     }
 
-    public <T extends ViewModel> T get(String str, Class<T> cls) {
+    @NonNull
+    @MainThread
+    public <T extends ViewModel> T get(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         T t;
         Interceptable interceptable = $ic;
@@ -236,7 +247,7 @@ public class ViewModelProvider {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ViewModelProvider(ViewModelStoreOwner viewModelStoreOwner) {
+    public ViewModelProvider(@NonNull ViewModelStoreOwner viewModelStoreOwner) {
         this(r0, r8);
         Factory newInstanceFactory;
         Interceptable interceptable = $ic;
@@ -264,7 +275,7 @@ public class ViewModelProvider {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ViewModelProvider(ViewModelStoreOwner viewModelStoreOwner, Factory factory) {
+    public ViewModelProvider(@NonNull ViewModelStoreOwner viewModelStoreOwner, @NonNull Factory factory) {
         this(viewModelStoreOwner.getViewModelStore(), factory);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -284,7 +295,9 @@ public class ViewModelProvider {
         }
     }
 
-    public <T extends ViewModel> T get(Class<T> cls) {
+    @NonNull
+    @MainThread
+    public <T extends ViewModel> T get(@NonNull Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {

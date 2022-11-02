@@ -16,7 +16,7 @@ public class g {
     public String method;
     public Charset rb;
     public h rc;
-    public Map rd;
+    public Map<String, String> rd;
     public k re;
     public StringBuilder rf;
     public URL url;

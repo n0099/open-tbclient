@@ -1,5 +1,6 @@
 package com.baidu.tbadk.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -13,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -386,10 +387,11 @@ public class ProgressButton extends View {
         }
     }
 
+    @SuppressLint({"CustomViewStyleable"})
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.TBProgressButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.TBProgressButton);
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);
@@ -406,7 +408,7 @@ public class ProgressButton extends View {
             this.g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.h));
             this.d = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.n = fj.f(getContext(), R.dimen.L_X02);
+            this.n = xi.g(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.i = paint;
             paint.setColor(this.b);

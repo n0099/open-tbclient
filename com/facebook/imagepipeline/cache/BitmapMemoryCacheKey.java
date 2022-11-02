@@ -17,6 +17,8 @@ import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
+@Immutable
 /* loaded from: classes7.dex */
 public class BitmapMemoryCacheKey implements CacheKey {
     public static /* synthetic */ Interceptable $ic;

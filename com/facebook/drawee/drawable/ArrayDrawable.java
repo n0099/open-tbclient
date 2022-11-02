@@ -1,5 +1,6 @@
 package com.facebook.drawee.drawable;
 
+import android.annotation.TargetApi;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
@@ -595,6 +596,7 @@ public class ArrayDrawable extends Drawable implements Drawable.Callback, Transf
     }
 
     @Override // android.graphics.drawable.Drawable
+    @TargetApi(21)
     public void setHotspot(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {

@@ -6,10 +6,11 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +50,7 @@ public class BottomShadowLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BottomShadowLinearLayout(Context context, AttributeSet attributeSet) {
+    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +71,7 @@ public class BottomShadowLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomShadowLinearLayout(Context context, AttributeSet attributeSet, int i) {
+    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -106,8 +107,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
             this.f.setAntiAlias(true);
             this.f.setStyle(Paint.Style.FILL);
             this.f.setDither(true);
-            this.c = fj.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = fj.f(context, R.dimen.obfuscated_res_0x7f070287);
+            this.c = xi.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.d = xi.g(context, R.dimen.obfuscated_res_0x7f070287);
             setLayerType(1, this.e);
             b();
         }

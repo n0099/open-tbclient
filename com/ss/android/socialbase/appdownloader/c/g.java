@@ -6,5 +6,5 @@ import java.util.List;
 public interface g {
     void a(DownloadInfo downloadInfo, boolean z);
 
-    void a(List list);
+    void a(List<DownloadInfo> list);
 }

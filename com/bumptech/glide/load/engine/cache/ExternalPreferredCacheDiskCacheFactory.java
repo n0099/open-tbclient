@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.cache;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,6 +83,7 @@ public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFa
                 this.val$diskCacheName = str;
             }
 
+            @Nullable
             private File getInternalCacheDirectory() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -17,6 +18,8 @@ import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -440,6 +443,7 @@ public class ChangeBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @Nullable
     public String[] getTransitionProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,6 +454,7 @@ public class ChangeBounds extends Transition {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public ChangeBounds(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -517,7 +522,7 @@ public class ChangeBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -525,7 +530,7 @@ public class ChangeBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -540,7 +545,8 @@ public class ChangeBounds extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @Nullable
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         int i;
         View view2;
@@ -755,7 +761,7 @@ public class ChangeBounds extends Transition {
                                     }
 
                                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                                    public void onTransitionCancel(Transition transition) {
+                                    public void onTransitionCancel(@NonNull Transition transition) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                                             ViewGroupUtils.suppressLayout(this.val$parent, false);
@@ -764,7 +770,7 @@ public class ChangeBounds extends Transition {
                                     }
 
                                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                                    public void onTransitionEnd(Transition transition) {
+                                    public void onTransitionEnd(@NonNull Transition transition) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                                             if (!this.mCanceled) {
@@ -775,7 +781,7 @@ public class ChangeBounds extends Transition {
                                     }
 
                                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                                    public void onTransitionPause(Transition transition) {
+                                    public void onTransitionPause(@NonNull Transition transition) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition) == null) {
                                             ViewGroupUtils.suppressLayout(this.val$parent, false);
@@ -783,7 +789,7 @@ public class ChangeBounds extends Transition {
                                     }
 
                                     @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                                    public void onTransitionResume(Transition transition) {
+                                    public void onTransitionResume(@NonNull Transition transition) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition) == null) {
                                             ViewGroupUtils.suppressLayout(this.val$parent, true);

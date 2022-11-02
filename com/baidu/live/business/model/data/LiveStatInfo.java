@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveStatInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveStatInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isYY;
     public String sid;
@@ -48,7 +48,7 @@ public class LiveStatInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveStatInfo.1
+        CREATOR = new Parcelable.Creator<LiveStatInfo>() { // from class: com.baidu.live.business.model.data.LiveStatInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,6 +67,7 @@ public class LiveStatInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveStatInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -78,6 +79,7 @@ public class LiveStatInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveStatInfo[] newArray(int i) {
                 InterceptResult invokeI;

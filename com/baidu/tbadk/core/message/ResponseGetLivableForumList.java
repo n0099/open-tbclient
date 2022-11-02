@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +21,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean available;
-    public ArrayList data;
+    public ArrayList<ForumData> data;
     public boolean hasMore;
     public int minLevel;
     public String tips;
@@ -42,10 +43,11 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
             }
         }
         this.available = false;
-        this.data = new ArrayList();
+        this.data = new ArrayList<>();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -76,7 +78,7 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public ArrayList getData() {
+    public ArrayList<ForumData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -141,18 +143,18 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<ForumRalatedInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null) {
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i) != null) {
                     ForumData forumData = new ForumData();
-                    forumData.setCurScore(((ForumRalatedInfo) list.get(i)).curScore.intValue());
-                    forumData.setImage_url(((ForumRalatedInfo) list.get(i)).avatar);
-                    forumData.setLevelupScore(((ForumRalatedInfo) list.get(i)).leftScore.intValue());
-                    forumData.setUser_level(((ForumRalatedInfo) list.get(i)).level.intValue());
-                    forumData.setName(((ForumRalatedInfo) list.get(i)).name);
-                    forumData.setId(((ForumRalatedInfo) list.get(i)).forumId.toString());
+                    forumData.setCurScore(list.get(i).curScore.intValue());
+                    forumData.setImage_url(list.get(i).avatar);
+                    forumData.setLevelupScore(list.get(i).leftScore.intValue());
+                    forumData.setUser_level(list.get(i).level.intValue());
+                    forumData.setName(list.get(i).name);
+                    forumData.setId(list.get(i).forumId.toString());
                     this.data.add(forumData);
                 }
             }

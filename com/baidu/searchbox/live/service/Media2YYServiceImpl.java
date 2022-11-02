@@ -34,7 +34,7 @@ public final class Media2YYServiceImpl implements Media2YYService {
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.Media2YYService
-    public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2) {
+    public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, ? extends Object> map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             LiveYYPluginManager.getInstance().startPayment(context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2);

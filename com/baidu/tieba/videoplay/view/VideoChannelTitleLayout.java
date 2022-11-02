@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,8 +96,8 @@ public class VideoChannelTitleLayout extends ViewGroup {
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i <= 0) {
             return;
         }
-        int f = fj.f(getContext(), R.dimen.tbds8);
-        int f2 = fj.f(getContext(), R.dimen.M_W_X001);
+        int g = xi.g(getContext(), R.dimen.tbds8);
+        int g2 = xi.g(getContext(), R.dimen.M_W_X001);
         ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
         View childAt = getChildAt(1);
         CharSequence text = expandableTextView.getContentView().getText();
@@ -106,20 +106,20 @@ public class VideoChannelTitleLayout extends ViewGroup {
         if (lineCount < 3) {
             int i3 = lineCount - 1;
             StaticLayout staticLayout3 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i3), staticLayout2.getLineEnd(i3)), expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + f2 + childAt.getMeasuredWidth() <= i) {
-                this.a = staticLayout2.getLineTop(i3) + (i3 * f);
-                this.b = ((int) staticLayout2.getLineRight(i3)) + f2;
+            if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + g2 + childAt.getMeasuredWidth() <= i) {
+                this.a = staticLayout2.getLineTop(i3) + (i3 * g);
+                this.b = ((int) staticLayout2.getLineRight(i3)) + g2;
                 return;
             }
-            this.a = staticLayout2.getHeight() + ((lineCount + 1) * f);
+            this.a = staticLayout2.getHeight() + ((lineCount + 1) * g);
             this.b = 0;
             return;
         }
         if (lineCount == 3) {
             int i4 = lineCount - 1;
             StaticLayout staticLayout4 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i4), staticLayout2.getLineEnd(i4)), expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + f2 + childAt.getMeasuredWidth() <= i) {
-                this.a = staticLayout2.getLineTop(i4) + (lineCount * f);
+            if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + g2 + childAt.getMeasuredWidth() <= i) {
+                this.a = staticLayout2.getLineTop(i4) + (lineCount * g);
                 this.b = (int) staticLayout2.getLineRight(i4);
                 return;
             }
@@ -141,7 +141,7 @@ public class VideoChannelTitleLayout extends ViewGroup {
         expandableTextView.getContentView().setText(spannableStringBuilder);
         StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         this.b = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
-        this.a = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * f);
+        this.a = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * g);
     }
 
     @Override // android.view.ViewGroup, android.view.View

@@ -145,7 +145,7 @@ public class RequestQueue implements RequestFeeder {
         }
     }
 
-    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, webAddress, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
@@ -154,7 +154,7 @@ public class RequestQueue implements RequestFeeder {
         return (RequestHandle) invokeCommon.objValue;
     }
 
-    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, webAddress, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {
@@ -163,7 +163,7 @@ public class RequestQueue implements RequestFeeder {
         return (RequestHandle) invokeCommon.objValue;
     }
 
-    public RequestHandle queueRequest(String str, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, map, eventHandler, inputStream, Integer.valueOf(i)})) == null) {

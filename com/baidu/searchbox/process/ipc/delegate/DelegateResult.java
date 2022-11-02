@@ -2,9 +2,12 @@ package com.baidu.searchbox.process.ipc.delegate;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,14 +17,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DelegateResult implements DelegateDef.ResultCode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class mDelegation;
+    public final Class<? extends Delegation> mDelegation;
     public StringBuilder mDesc;
     public final Bundle mParams;
     public final Bundle mResult;
     public final int mResultCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i, Class cls) {
+    public DelegateResult(int i, Class<? extends ActivityDelegation> cls) {
         this(i, cls, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +45,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i, Class cls, Bundle bundle) {
+    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
         this(i, cls, bundle, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +65,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
         }
     }
 
-    public DelegateResult(int i, Class cls, Bundle bundle, Bundle bundle2) {
+    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +110,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
         return invokeV.booleanValue;
     }
 
-    public static void putAll(Bundle bundle, Bundle bundle2) {
+    public static void putAll(@Nullable Bundle bundle, @NonNull Bundle bundle2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, bundle2) == null) && bundle != null) {
             bundle2.putAll(bundle);

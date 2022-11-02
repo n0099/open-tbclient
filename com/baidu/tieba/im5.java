@@ -1,21 +1,65 @@
 package com.baidu.tieba;
 
+import android.content.res.TypedArray;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class im5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long[] a;
-    public static final String[] b;
-    public static final String[] c;
-    public static final String[] d;
+    public static final float K;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public boolean G;
+    public int H;
+    public int I;
+    public TbImageView.h J;
+    public float a;
+    public boolean b;
+    public float c;
+    public int d;
+    public int e;
+    public float f;
+    public boolean g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public int p;
+    public ImageView.ScaleType q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public int z;
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,159 +74,344 @@ public class im5 {
                 return;
             }
         }
-        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
-        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
-        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
-        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
-        new SimpleDateFormat("yyyy年M月d日 EEEEE");
+        K = xi.i(TbadkCoreApplication.getInst());
     }
 
-    public static final String a(int i) {
-        InterceptResult invokeI;
-        String str;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i == 10) {
-                return "初十";
-            }
-            if (i == 20) {
-                return "二十";
-            }
-            if (i == 30) {
-                return "三十";
-            }
-            int i2 = i / 10;
-            if (i2 == 0) {
-                str = "初";
-            } else {
-                str = "";
-            }
-            if (i2 == 1) {
-                str = "十";
-            }
-            if (i2 == 2) {
-                str = "廿";
-            }
-            if (i2 == 3) {
-                str = "三";
-            }
-            switch (i % 10) {
-                case 1:
-                    return str + "一";
-                case 2:
-                    return str + "二";
-                case 3:
-                    return str + "三";
-                case 4:
-                    return str + "四";
-                case 5:
-                    return str + "五";
-                case 6:
-                    return str + "六";
-                case 7:
-                    return str + "七";
-                case 8:
-                    return str + "八";
-                case 9:
-                    return str + "九";
-                default:
-                    return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.G;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.r = true;
+        }
+    }
+
+    public im5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeI.objValue;
+        this.a = 0.0f;
+        this.b = true;
+        this.c = 0.0f;
+        this.d = 0;
+        this.e = 0;
+        this.f = 15.0f;
+        this.g = false;
+        this.h = -1;
+        this.i = -1;
+        this.j = -16777216;
+        this.k = 200;
+        this.l = 200;
+        this.m = 0;
+        this.n = 0;
+        this.o = false;
+        this.p = -9989158;
+        this.q = ImageView.ScaleType.CENTER_CROP;
+        this.r = false;
+        this.u = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701be);
+        this.v = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.w = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+        this.x = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004);
+        this.y = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        this.z = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006);
+        this.A = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.B = 0;
+        this.C = -1;
+        this.D = -1;
+        this.E = -1;
+        this.F = 0;
+        this.G = false;
     }
 
-    public static ArrayList b(int i) {
-        InterceptResult invokeI;
+    public im5(im5 im5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 1; i2 <= i; i2++) {
-                arrayList.add(a(i2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {im5Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return arrayList;
         }
-        return (ArrayList) invokeI.objValue;
+        this.a = 0.0f;
+        this.b = true;
+        this.c = 0.0f;
+        this.d = 0;
+        this.e = 0;
+        this.f = 15.0f;
+        this.g = false;
+        this.h = -1;
+        this.i = -1;
+        this.j = -16777216;
+        this.k = 200;
+        this.l = 200;
+        this.m = 0;
+        this.n = 0;
+        this.o = false;
+        this.p = -9989158;
+        this.q = ImageView.ScaleType.CENTER_CROP;
+        this.r = false;
+        this.u = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701be);
+        this.v = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.w = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+        this.x = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004);
+        this.y = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        this.z = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006);
+        this.A = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.B = 0;
+        this.C = -1;
+        this.D = -1;
+        this.E = -1;
+        this.F = 0;
+        this.G = false;
+        if (im5Var != null) {
+            a(im5Var);
+        }
     }
 
-    public static final int f(int i) {
-        InterceptResult invokeI;
+    public void a(im5 im5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (g(i) != 0) {
-                if ((a[i - 1900] & 65536) != 0) {
-                    return 30;
+        if (interceptable == null || interceptable.invokeL(1048576, this, im5Var) == null) {
+            this.a = im5Var.a;
+            this.c = im5Var.c;
+            this.d = im5Var.d;
+            this.e = im5Var.e;
+            this.f = im5Var.f;
+            this.h = im5Var.h;
+            this.i = im5Var.i;
+            this.j = im5Var.j;
+            this.k = im5Var.k;
+            this.l = im5Var.l;
+            this.m = im5Var.m;
+            this.n = im5Var.n;
+            this.o = im5Var.o;
+            this.s = im5Var.s;
+            this.p = im5Var.p;
+            this.r = im5Var.r;
+            this.t = im5Var.t;
+            this.u = im5Var.u;
+            this.v = im5Var.v;
+            this.A = im5Var.A;
+            this.B = im5Var.B;
+            this.C = im5Var.C;
+            this.D = im5Var.e;
+            this.E = im5Var.E;
+            this.x = im5Var.x;
+            this.y = im5Var.y;
+            this.z = im5Var.z;
+            this.G = im5Var.G;
+        }
+    }
+
+    public void b(TypedArray typedArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typedArray) == null) {
+            this.e = typedArray.getDimensionPixelSize(7, 0);
+            this.b = typedArray.getBoolean(3, true);
+            this.d = typedArray.getDimensionPixelSize(11, 0);
+            this.a = typedArray.getFloat(9, 1.12f);
+            this.f = typedArray.getDimensionPixelSize(12, (int) this.f);
+            this.j = typedArray.getColor(10, this.j);
+            this.k = typedArray.getDimensionPixelSize(6, this.k);
+            this.l = typedArray.getDimensionPixelSize(5, this.l);
+            this.m = typedArray.getResourceId(0, 0);
+            this.h = typedArray.getDimensionPixelSize(2, this.h);
+            this.i = typedArray.getDimensionPixelSize(1, this.i);
+            this.n = typedArray.getResourceId(13, 0);
+            this.o = typedArray.getBoolean(8, false);
+            this.D = this.e;
+        }
+    }
+
+    public int[] e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i, i2, i3, i4)) == null) {
+            int[] n = xi.n(i, i2, i3, i4);
+            if (n == null) {
+                return null;
+            }
+            int[] iArr = {n[0], n[1]};
+            int i5 = iArr[0];
+            int i6 = iArr[1];
+            if (this.t && i3 > i5) {
+                float f = K;
+                if (f > 1.0f) {
+                    float f2 = i5;
+                    float f3 = i3;
+                    if (f2 * f <= f3) {
+                        float f4 = f3 * 0.68f;
+                        if (f2 * f > f4) {
+                            i3 = (int) f4;
+                        } else {
+                            i3 = (int) (f2 * f);
+                        }
+                    }
+                    if (iArr[0] > 0) {
+                        i6 = (iArr[1] * i3) / iArr[0];
+                    }
+                    i5 = i3;
                 }
-                return 29;
             }
-            return 0;
+            return new int[]{i5, i6};
         }
-        return invokeI.intValue;
+        return (int[]) invokeIIII.objValue;
     }
 
-    public static final int g(int i) {
-        InterceptResult invokeI;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return (int) (a[i - 1900] & 15);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.w = i;
         }
-        return invokeI.intValue;
     }
 
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int i2 = i - 4;
-            sb.append(c[i2 % 10]);
-            sb.append(d[i2 % 12]);
-            sb.append("年");
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.m = i;
         }
-        return (String) invokeI.objValue;
     }
 
-    public static ArrayList d(int i) {
-        InterceptResult invokeI;
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 1; i2 < b.length; i2++) {
-                arrayList.add(b[i2] + "月");
-            }
-            if (g(i) != 0) {
-                int g = g(i);
-                arrayList.add(g, "闰" + b[g(i)] + "月");
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.F = i;
         }
-        return (ArrayList) invokeI.objValue;
     }
 
-    public static ArrayList e(int i, int i2) {
-        InterceptResult invokeII;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            while (i < i2) {
-                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
-                i++;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.E = i;
         }
-        return (ArrayList) invokeII.objValue;
     }
 
-    public static final int h(int i, int i2) {
-        InterceptResult invokeII;
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
-            if (((65536 >> i2) & a[i - 1900]) == 0) {
-                return 29;
-            }
-            return 30;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.t = z;
         }
-        return invokeII.intValue;
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.C = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.D = i;
+        }
+    }
+
+    public void n(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            this.a = f;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.A = i;
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.G = z;
+        }
+    }
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.B = i;
+        }
+    }
+
+    public void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            this.h = i;
+            this.i = i2;
+        }
+    }
+
+    public void o(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.a = f2;
+            this.c = f;
+        }
+    }
+
+    public void r(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            this.u = i;
+            this.v = i2;
+        }
     }
 }

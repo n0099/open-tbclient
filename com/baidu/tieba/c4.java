@@ -22,23 +22,23 @@ import java.util.Comparator;
 public class c4 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y7 a;
-    public final b7 b;
+    public final y7<Texture> a;
+    public final b7<a> b;
 
     /* loaded from: classes3.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final b7 a;
-        public final b7 b;
+        public final b7<p> a;
+        public final b7<q> b;
 
         /* loaded from: classes3.dex */
-        public interface o {
-            void a(Object obj);
+        public interface o<T> {
+            void a(T t);
         }
 
         /* loaded from: classes3.dex */
-        public class a implements o {
+        public class a implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -74,7 +74,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements o {
+        public class b implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -113,12 +113,12 @@ public class c4 implements i7 {
 
         /* renamed from: com.baidu.tieba.c4$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0208c implements o {
+        public class C0222c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0208c(c cVar, String[] strArr) {
+            public C0222c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class d implements o {
+        public class d implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -199,7 +199,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class e implements Comparator {
+        public class e implements Comparator<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -242,7 +242,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class f implements o {
+        public class f implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -278,7 +278,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class g implements o {
+        public class g implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -313,7 +313,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class h implements o {
+        public class h implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -350,7 +350,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class i implements o {
+        public class i implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -390,7 +390,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class j implements o {
+        public class j implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -425,7 +425,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class k implements o {
+        public class k implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -461,7 +461,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class l implements o {
+        public class l implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -497,7 +497,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class m implements o {
+        public class m implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -535,7 +535,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class n implements o {
+        public class n implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
@@ -571,7 +571,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class p {
+        public static class p {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public k3 a;
@@ -610,7 +610,7 @@ public class c4 implements i7 {
         }
 
         /* loaded from: classes3.dex */
-        public class q {
+        public static class q {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public p a;
@@ -662,8 +662,8 @@ public class c4 implements i7 {
                     return;
                 }
             }
-            this.a = new b7();
-            this.b = new b7();
+            this.a = new b7<>();
+            this.b = new b7<>();
             b(k3Var, k3Var2, z);
         }
 
@@ -700,7 +700,7 @@ public class c4 implements i7 {
             }
         }
 
-        public b7 a() {
+        public b7<p> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -728,7 +728,7 @@ public class c4 implements i7 {
                 x7Var2.i("offset", new n(this, strArr));
                 x7Var2.i("orig", new a(this, strArr));
                 x7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                x7Var2.i("rotate", new C0208c(this, strArr));
+                x7Var2.i("rotate", new C0222c(this, strArr));
                 x7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(k3Var.m()), 1024);
                 try {
@@ -826,7 +826,7 @@ public class c4 implements i7 {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends d4 {
+    public static class a extends d4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int h;
@@ -973,7 +973,7 @@ public class c4 implements i7 {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends b4 {
+    public static class b extends b4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a t;
@@ -1238,23 +1238,23 @@ public class c4 implements i7 {
                 return;
             }
         }
-        this.a = new y7(4);
-        this.b = new b7();
+        this.a = new y7<>(4);
+        this.b = new b7<>();
     }
 
     @Override // com.baidu.tieba.i7
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y7.a it = this.a.iterator();
+            y7.a<Texture> it = this.a.iterator();
             while (it.hasNext()) {
-                ((Texture) it.next()).dispose();
+                it.next().dispose();
             }
             this.a.b(0);
         }
     }
 
-    public b7 g() {
+    public b7<a> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1278,8 +1278,8 @@ public class c4 implements i7 {
                 return;
             }
         }
-        this.a = new y7(4);
-        this.b = new b7();
+        this.a = new y7<>(4);
+        this.b = new b7<>();
         h(cVar);
     }
 
@@ -1289,8 +1289,8 @@ public class c4 implements i7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             int i = this.b.b;
             for (int i2 = 0; i2 < i; i2++) {
-                if (((a) this.b.get(i2)).i.equals(str)) {
-                    return i((a) this.b.get(i2));
+                if (this.b.get(i2).i.equals(str)) {
+                    return i(this.b.get(i2));
                 }
             }
             return null;
@@ -1304,8 +1304,8 @@ public class c4 implements i7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             int i = this.b.b;
             for (int i2 = 0; i2 < i; i2++) {
-                if (((a) this.b.get(i2)).i.equals(str)) {
-                    return (a) this.b.get(i2);
+                if (this.b.get(i2).i.equals(str)) {
+                    return this.b.get(i2);
                 }
             }
             return null;
@@ -1319,46 +1319,46 @@ public class c4 implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             this.a.c(cVar.a.b);
-            b7.b it = cVar.a.iterator();
+            b7.b<c.p> it = cVar.a.iterator();
             while (it.hasNext()) {
-                c.p pVar = (c.p) it.next();
-                if (pVar.b == null) {
-                    pVar.b = new Texture(pVar.a, pVar.f, pVar.e);
+                c.p next = it.next();
+                if (next.b == null) {
+                    next.b = new Texture(next.a, next.f, next.e);
                 }
-                pVar.b.l(pVar.g, pVar.h);
-                pVar.b.m(pVar.i, pVar.j);
-                this.a.add(pVar.b);
+                next.b.l(next.g, next.h);
+                next.b.m(next.i, next.j);
+                this.a.add(next.b);
             }
             this.b.e(cVar.b.b);
-            b7.b it2 = cVar.b.iterator();
+            b7.b<c.q> it2 = cVar.b.iterator();
             while (it2.hasNext()) {
-                c.q qVar = (c.q) it2.next();
-                Texture texture = qVar.a.b;
-                int i3 = qVar.c;
-                int i4 = qVar.d;
-                if (qVar.l) {
-                    i = qVar.f;
+                c.q next2 = it2.next();
+                Texture texture = next2.a.b;
+                int i3 = next2.c;
+                int i4 = next2.d;
+                if (next2.l) {
+                    i = next2.f;
                 } else {
-                    i = qVar.e;
+                    i = next2.e;
                 }
                 int i5 = i;
-                if (qVar.l) {
-                    i2 = qVar.e;
+                if (next2.l) {
+                    i2 = next2.e;
                 } else {
-                    i2 = qVar.f;
+                    i2 = next2.f;
                 }
                 a aVar = new a(texture, i3, i4, i5, i2);
-                aVar.h = qVar.m;
-                aVar.i = qVar.b;
-                aVar.j = qVar.g;
-                aVar.k = qVar.h;
-                aVar.o = qVar.j;
-                aVar.n = qVar.i;
-                aVar.p = qVar.l;
-                aVar.q = qVar.k;
-                aVar.r = qVar.n;
-                aVar.s = qVar.o;
-                if (qVar.p) {
+                aVar.h = next2.m;
+                aVar.i = next2.b;
+                aVar.j = next2.g;
+                aVar.k = next2.h;
+                aVar.o = next2.j;
+                aVar.n = next2.i;
+                aVar.p = next2.l;
+                aVar.q = next2.k;
+                aVar.r = next2.n;
+                aVar.s = next2.o;
+                if (next2.p) {
                     aVar.a(false, true);
                 }
                 this.b.a(aVar);

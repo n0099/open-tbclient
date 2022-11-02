@@ -1,21 +1,27 @@
 package com.kwad.sdk.kwai.kwai;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ai;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.kwad.components.core.i.d {
+    @SuppressLint({"StaticFieldLeak"})
     public static a QY;
+    @Nullable
     public final DialogInterface.OnDismissListener QZ;
     public final AdTemplate mAdTemplate;
+    @Nullable
     public final DialogInterface.OnClickListener mOnClickListener;
 
-    public a(Activity activity, AdTemplate adTemplate, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnClickListener onClickListener) {
+    public a(@NonNull Activity activity, @NonNull AdTemplate adTemplate, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnClickListener onClickListener) {
         super(activity);
         this.mAdTemplate = adTemplate;
         this.QZ = onDismissListener;
@@ -30,7 +36,7 @@ public final class a extends com.kwad.components.core.i.d {
         return a(activity, re, onDismissListener, onClickListener);
     }
 
-    public static boolean a(Activity activity, AdTemplate adTemplate, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnClickListener onClickListener) {
+    public static boolean a(Activity activity, AdTemplate adTemplate, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnClickListener onClickListener) {
         if (activity != null && !activity.isFinishing() && adTemplate != null) {
             a aVar = QY;
             if (aVar != null && aVar.isShowing()) {
@@ -73,13 +79,13 @@ public final class a extends com.kwad.components.core.i.d {
 
     @Override // com.kwad.components.core.i.d
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d042c;
+        return R.layout.obfuscated_res_0x7f0d0437;
     }
 
     @Override // com.kwad.components.core.i.d
     public final void u(View view2) {
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b7)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09cf, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910b5)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910f4)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09dd, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910f2)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 a.this.dismiss();
@@ -88,7 +94,7 @@ public final class a extends com.kwad.components.core.i.d {
                 }
             }
         });
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910ba)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910f7)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 if (a.this.mOnClickListener != null) {

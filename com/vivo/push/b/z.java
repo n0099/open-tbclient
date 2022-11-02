@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public final class z extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<String> a;
 
     @Override // com.vivo.push.b.c, com.vivo.push.o
     public final String toString() {
@@ -25,7 +25,7 @@ public final class z extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public z(boolean z, String str, ArrayList arrayList) {
+    public z(boolean z, String str, ArrayList<String> arrayList) {
         super(r8, str);
         int i;
         Interceptable interceptable = $ic;

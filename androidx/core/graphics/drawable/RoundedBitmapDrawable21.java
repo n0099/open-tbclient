@@ -5,12 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.view.Gravity;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +41,7 @@ public class RoundedBitmapDrawable21 extends RoundedBitmapDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void getOutline(Outline outline) {
+    public void getOutline(@NonNull Outline outline) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, outline) == null) {
             updateDstRect();

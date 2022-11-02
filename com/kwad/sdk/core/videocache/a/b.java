@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache.a;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface b {
-    Map vZ();
+    Map<String, String> vZ();
 }

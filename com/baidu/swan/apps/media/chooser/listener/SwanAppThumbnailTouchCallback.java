@@ -4,18 +4,18 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
-import com.baidu.tieba.kr2;
+import com.baidu.tieba.cs2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kr2 a;
+    public cs2 a;
     public SwanAppThumbnailAdapter b;
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -45,12 +45,12 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
         }
     }
 
-    public SwanAppThumbnailTouchCallback(kr2 kr2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+    public SwanAppThumbnailTouchCallback(cs2 cs2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kr2Var, swanAppThumbnailAdapter};
+            Object[] objArr = {cs2Var, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,7 +60,7 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.a = kr2Var;
+        this.a = cs2Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -113,9 +113,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
                 this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            kr2 kr2Var = this.a;
-            if (kr2Var != null) {
-                kr2Var.onMove(adapterPosition, adapterPosition2);
+            cs2 cs2Var = this.a;
+            if (cs2Var != null) {
+                cs2Var.onMove(adapterPosition, adapterPosition2);
                 return true;
             }
             return true;

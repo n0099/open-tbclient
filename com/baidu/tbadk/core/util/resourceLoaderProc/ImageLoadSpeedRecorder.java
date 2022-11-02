@@ -21,13 +21,13 @@ public class ImageLoadSpeedRecorder {
     public static ImageLoadSpeedRecorder _speedRecorder;
     public transient /* synthetic */ FieldHolder $fh;
     public float mAverageSpeed;
-    public Queue mSpeedRecordQueue;
+    public Queue<LoadSpeedRecordItem> mSpeedRecordQueue;
     public BdAsyncTaskParallel mTaskParallelThree;
     public BdAsyncTaskParallel mTaskSerial;
 
     /* renamed from: com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoadSpeedRecorder$1  reason: invalid class name */
     /* loaded from: classes3.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }

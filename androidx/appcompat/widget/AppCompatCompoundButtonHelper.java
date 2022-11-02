@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -27,9 +29,10 @@ public class AppCompatCompoundButtonHelper {
     public boolean mHasButtonTint;
     public boolean mHasButtonTintMode;
     public boolean mSkipNextApply;
+    @NonNull
     public final CompoundButton mView;
 
-    public AppCompatCompoundButtonHelper(CompoundButton compoundButton) {
+    public AppCompatCompoundButtonHelper(@NonNull CompoundButton compoundButton) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +96,7 @@ public class AppCompatCompoundButtonHelper {
         }
     }
 
-    public void setSupportButtonTintMode(PorterDuff.Mode mode) {
+    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, mode) == null) {
             this.mButtonTintMode = mode;
@@ -137,7 +140,7 @@ public class AppCompatCompoundButtonHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         int resourceId;
         int resourceId2;
         Interceptable interceptable = $ic;

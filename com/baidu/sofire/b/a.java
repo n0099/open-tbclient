@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class a implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<b> a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
@@ -35,7 +35,7 @@ public class a implements Serializable {
         }
         this.a = null;
         if (activityInfoArr != null && (length = activityInfoArr.length) > 0) {
-            this.a = new ArrayList(length);
+            this.a = new ArrayList<>(length);
             for (int i3 = 0; i3 < length; i3++) {
                 if (activityInfoArr[i3] != null) {
                     b bVar = new b();
@@ -60,7 +60,7 @@ public class a implements Serializable {
         }
     }
 
-    public static ArrayList a(byte[] bArr) {
+    public static ArrayList<b> a(byte[] bArr) {
         InterceptResult invokeL;
         ObjectInputStream objectInputStream;
         ByteArrayInputStream byteArrayInputStream;
@@ -78,7 +78,7 @@ public class a implements Serializable {
                 byteArrayInputStream = null;
             }
             try {
-                ArrayList arrayList = (ArrayList) objectInputStream.readObject();
+                ArrayList<b> arrayList = (ArrayList) objectInputStream.readObject();
                 try {
                     objectInputStream.close();
                     byteArrayInputStream.close();

@@ -19,7 +19,7 @@ public final class LiveFeedFollowLivingData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int errno;
-    public List livingList;
+    public List<String> livingList;
     public String logId;
     public String msg;
 
@@ -46,7 +46,7 @@ public final class LiveFeedFollowLivingData {
         return invokeV.intValue;
     }
 
-    public final List getLivingList() {
+    public final List<String> getLivingList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -89,7 +89,7 @@ public final class LiveFeedFollowLivingData {
             for (int i = 0; i < length; i++) {
                 String optString = optJSONArray.optString(i);
                 Intrinsics.checkExpressionValueIsNotNull(optString, "roomArray.optString(i)");
-                List list = this.livingList;
+                List<String> list = this.livingList;
                 if (list != null) {
                     list.add(optString);
                 }
@@ -104,7 +104,7 @@ public final class LiveFeedFollowLivingData {
         }
     }
 
-    public final void setLivingList(List list) {
+    public final void setLivingList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.livingList = list;

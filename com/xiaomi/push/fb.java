@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class fb implements iu, Serializable, Cloneable {
+public class fb implements iu<fb, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final jc a;
 
@@ -29,7 +29,7 @@ public class fb implements iu, Serializable, Cloneable {
     public String f350a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f351a;
+    public List<fa> f351a;
 
     /* renamed from: b  reason: collision with other field name */
     public String f352b;
@@ -68,7 +68,7 @@ public class fb implements iu, Serializable, Cloneable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fb(String str, List list) {
+    public fb(String str, List<fa> list) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -320,7 +320,7 @@ public class fb implements iu, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("events:");
-            List list = this.f351a;
+            List<fa> list = this.f351a;
             if (list == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

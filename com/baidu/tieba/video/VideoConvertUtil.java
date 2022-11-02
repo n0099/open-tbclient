@@ -7,10 +7,10 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mv8;
-import com.baidu.tieba.nv8;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
+import com.baidu.tieba.vw8;
+import com.baidu.tieba.ww8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public nv8 g;
+    public ww8 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -170,7 +170,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = mv8.f;
+        String str = vw8.f;
     }
 
     private void bindService() {
@@ -264,10 +264,10 @@ public class VideoConvertUtil {
         this.h = new IntenalConvertListener(this, null);
     }
 
-    public void o(nv8 nv8Var) {
+    public void o(ww8 ww8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nv8Var) == null) {
-            this.g = nv8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ww8Var) == null) {
+            this.g = ww8Var;
         }
     }
 
@@ -283,12 +283,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            nv8 nv8Var = this.g;
-            if (nv8Var != null) {
+            ww8 ww8Var = this.g;
+            if (ww8Var != null) {
                 if (i == 0) {
-                    nv8Var.b();
+                    ww8Var.b();
                 } else {
-                    nv8Var.a(i);
+                    ww8Var.a(i);
                 }
             }
         }

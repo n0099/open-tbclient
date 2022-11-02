@@ -1,290 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.AutoChangeLineView;
+import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public class v99 extends o99 {
+public final /* synthetic */ class v99 implements AutoChangeLineView.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ v99 a = new v99();
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends sa9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public a(v99 v99Var, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v99Var, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
+    private /* synthetic */ v99() {
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ InputStream b;
-
-        public b(v99 v99Var, Map map, InputStream inputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v99Var, map, inputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = inputStream;
-        }
-
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.containsKey("Content-Length")) {
-                    try {
-                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
-                    } catch (Exception unused) {
-                    }
-                }
-                return super.contentLength();
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return MediaType.parse("application/octet-stream");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                Source source = null;
-                try {
-                    source = Okio.source(this.b);
-                    bufferedSink.writeAll(source);
-                } finally {
-                    if (source != null) {
-                        source.close();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends sa9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public c(v99 v99Var, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v99Var, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.sa9
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public v99() {
+    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
+    public final CharSequence a(TextView textView, int i, Object obj) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
+            String str = (String) obj;
+            SelectTagView.d(textView, i, str);
+            return str;
         }
-    }
-
-    @Override // com.baidu.tieba.o99
-    public sa9 j(String str, InputStream inputStream, Map map) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
-            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
-            postRequest.requestFrom(3);
-            postRequest.url(str);
-            for (Map.Entry entry : map.entrySet()) {
-                postRequest.addHeader((String) entry.getKey(), (String) entry.getValue());
-            }
-            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            postRequest.requestBody(new b(this, map, inputStream));
-            return new c(this, postRequest.build().executeSync());
-        }
-        return (sa9) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o99
-    public sa9 k(String str, byte[] bArr, Map map) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
-            postByteRequest.requestFrom(3);
-            postByteRequest.url(str);
-            for (Map.Entry entry : map.entrySet()) {
-                postByteRequest.addHeader((String) entry.getKey(), (String) entry.getValue());
-            }
-            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            return new a(this, postByteRequest.content(bArr).build().executeSync());
-        }
-        return (sa9) invokeLLL.objValue;
+        return (CharSequence) invokeLIL.objValue;
     }
 }

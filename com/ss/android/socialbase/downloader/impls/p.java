@@ -49,7 +49,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List d() {
+    public List<DownloadInfo> d() {
         com.ss.android.socialbase.downloader.downloader.j jVar = this.b;
         if (jVar != null) {
             return jVar.b();
@@ -88,7 +88,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List a(String str) {
+    public List<DownloadInfo> a(String str) {
         a aVar = this.a;
         if (aVar != null) {
             return aVar.a(str);
@@ -97,7 +97,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List b(String str) {
+    public List<DownloadInfo> b(String str) {
         com.ss.android.socialbase.downloader.downloader.j jVar = this.b;
         if (jVar != null) {
             return jVar.b(str);
@@ -106,7 +106,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List c(String str) {
+    public List<DownloadInfo> c(String str) {
         com.ss.android.socialbase.downloader.downloader.j jVar = this.b;
         if (jVar != null) {
             return jVar.c(str);
@@ -115,7 +115,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List d(String str) {
+    public List<DownloadInfo> d(String str) {
         com.ss.android.socialbase.downloader.downloader.j jVar = this.b;
         if (jVar != null) {
             return jVar.d(str);
@@ -134,7 +134,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
         if (chunkCount <= 1) {
             return b.getCurBytes();
         }
-        List c = this.b.c(i);
+        List<com.ss.android.socialbase.downloader.model.b> c = this.b.c(i);
         if (c == null || c.size() != chunkCount) {
             return 0L;
         }
@@ -170,7 +170,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List i(int i) {
+    public List<com.ss.android.socialbase.downloader.model.b> i(int i) {
         return this.b.c(i);
     }
 
@@ -301,7 +301,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List e(String str) {
+    public List<DownloadInfo> e(String str) {
         a aVar = this.a;
         if (aVar != null) {
             return aVar.b(str);
@@ -321,7 +321,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void b(int i, List list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         this.b.b(i, list);
     }
 
@@ -397,7 +397,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void a(int i, List list) {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         this.b.a(i, list);
     }
 
@@ -447,7 +447,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void b(List list) {
+    public void b(List<String> list) {
         a aVar = this.a;
         if (aVar != null) {
             aVar.b(list);
@@ -469,7 +469,7 @@ public class p implements com.ss.android.socialbase.downloader.downloader.m {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void a(List list) {
+    public void a(List<String> list) {
         a aVar = this.a;
         if (aVar != null) {
             aVar.a(list);

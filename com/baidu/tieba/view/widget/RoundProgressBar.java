@@ -11,7 +11,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.np5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class RoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.RoundProgressBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.RoundProgressBar);
         this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.CAM_X0607));
         this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.CAM_X0302));
         this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.CAM_X0201));

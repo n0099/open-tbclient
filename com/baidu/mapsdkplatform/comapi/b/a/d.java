@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.b.a;
 
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.mapsdkplatform.comapi.util.h;
+import com.baidu.mapsdkplatform.comapi.util.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,34 +38,38 @@ public class d implements Runnable {
         File[] listFiles;
         String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || h.a().b() == null) {
-            return;
-        }
-        str = c.a;
-        File file = new File(str);
-        if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
-            return;
-        }
-        try {
-            Arrays.sort(listFiles, new e());
-        } catch (Exception unused) {
-        }
-        int length = listFiles.length;
-        if (length > 10) {
-            length = 10;
-        }
-        for (int i = 0; i < length; i++) {
-            File file2 = listFiles[i];
-            if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
-                String name = file2.getName();
-                str2 = c.b;
-                if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
-                    this.a.a(file2);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && g.a().b() != null) {
+            str = c.a;
+            File file = new File(str);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                try {
+                    Arrays.sort(listFiles, new e());
+                } catch (Exception unused) {
+                }
+                int length = listFiles.length;
+                if (length > 10) {
+                    length = 10;
+                }
+                for (int i = 0; i < length; i++) {
+                    File file2 = listFiles[i];
+                    if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
+                        String name = file2.getName();
+                        str2 = c.b;
+                        if (name.contains(str2)) {
+                            if (!file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION)) {
+                                if (file2.getName().endsWith(".zip") && file2.exists()) {
+                                    this.a.a(file2);
+                                }
+                            } else {
+                                this.a.a(file2);
+                            }
+                        }
+                    }
+                }
+                if (listFiles.length > 10) {
+                    this.a.a(listFiles);
                 }
             }
-        }
-        if (listFiles.length > 10) {
-            this.a.a(listFiles);
         }
     }
 }

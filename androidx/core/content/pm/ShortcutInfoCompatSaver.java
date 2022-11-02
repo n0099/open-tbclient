@@ -1,5 +1,8 @@
 package androidx.core.content.pm;
 
+import androidx.annotation.AnyThread;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,17 +11,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class ShortcutInfoCompatSaver<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @AnyThread
     public abstract T addShortcuts(List<ShortcutInfoCompat> list);
 
+    @AnyThread
     public abstract T removeAllShortcuts();
 
+    @AnyThread
     public abstract T removeShortcuts(List<String> list);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static class NoopImpl extends ShortcutInfoCompatSaver<Void> {
         public static /* synthetic */ Interceptable $ic;
@@ -98,6 +106,7 @@ public abstract class ShortcutInfoCompatSaver<T> {
         }
     }
 
+    @WorkerThread
     public List<ShortcutInfoCompat> getShortcuts() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

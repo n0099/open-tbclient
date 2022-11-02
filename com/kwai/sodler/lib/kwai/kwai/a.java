@@ -20,7 +20,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class a extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public static a axB;
-    public static List axC;
+    public static List<ClassLoader> axC;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseDexClassLoader axA;
 
@@ -70,7 +70,7 @@ public final class a extends PathClassLoader {
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public final Class findClass(String str) {
+    public final Class<?> findClass(String str) {
         InterceptResult invokeL;
         Class<?> loadClass;
         Class<?> loadClass2;
@@ -129,14 +129,14 @@ public final class a extends PathClassLoader {
     }
 
     @Override // java.lang.ClassLoader
-    public final Enumeration getResources(String str) {
+    public final Enumeration<URL> getResources(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.axA.getResources(str) : (Enumeration) invokeL.objValue;
     }
 
     @Override // java.lang.ClassLoader
-    public final Class loadClass(String str) {
+    public final Class<?> loadClass(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? findClass(str) : (Class) invokeL.objValue;

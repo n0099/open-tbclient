@@ -2,6 +2,8 @@ package com.kwai.sodler.lib;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,6 +53,7 @@ public final class c implements com.kwai.sodler.lib.a.c {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.axg.getAbsolutePath() : (String) invokeV.objValue;
     }
 
+    @Nullable
     private String a(com.kwai.sodler.lib.a.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -253,7 +256,7 @@ public final class c implements com.kwai.sodler.lib.a.c {
     }
 
     @Override // com.kwai.sodler.lib.a.c
-    public final String eP(String str) {
+    public final String eP(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {

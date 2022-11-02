@@ -20,6 +20,8 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import android.view.InflateException;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.view.InputDeviceCompat;
@@ -36,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AnimatorInflaterCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -474,7 +477,7 @@ public class AnimatorInflaterCompat {
         return invokeLLLL.intValue;
     }
 
-    public static Animator loadAnimator(Context context, int i) throws Resources.NotFoundException {
+    public static Animator loadAnimator(Context context, @AnimatorRes int i) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
@@ -486,7 +489,7 @@ public class AnimatorInflaterCompat {
         return (Animator) invokeLI.objValue;
     }
 
-    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, int i) throws Resources.NotFoundException {
+    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i) throws Resources.NotFoundException {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65547, null, context, resources, theme, i)) == null) {
@@ -495,7 +498,7 @@ public class AnimatorInflaterCompat {
         return (Animator) invokeLLLI.objValue;
     }
 
-    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, int i, float f) throws Resources.NotFoundException {
+    public static Animator loadAnimator(Context context, Resources resources, Resources.Theme theme, @AnimatorRes int i, float f) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, resources, theme, Integer.valueOf(i), Float.valueOf(f)})) == null) {

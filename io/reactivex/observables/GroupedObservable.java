@@ -6,18 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
+import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public abstract class GroupedObservable extends Observable {
+public abstract class GroupedObservable<K, T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object key;
+    public final K key;
 
-    public GroupedObservable(Object obj) {
+    public GroupedObservable(@Nullable K k) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {k};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +28,16 @@ public abstract class GroupedObservable extends Observable {
                 return;
             }
         }
-        this.key = obj;
+        this.key = k;
     }
 
-    public Object getKey() {
+    @Nullable
+    public K getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.key;
         }
-        return invokeV.objValue;
+        return (K) invokeV.objValue;
     }
 }

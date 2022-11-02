@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
-public abstract class BaseConsumer implements Consumer {
+public abstract class BaseConsumer<T> implements Consumer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsFinished;
@@ -55,7 +57,7 @@ public abstract class BaseConsumer implements Consumer {
 
     public abstract void onFailureImpl(Throwable th);
 
-    public abstract void onNewResultImpl(Object obj, int i);
+    public abstract void onNewResultImpl(T t, int i);
 
     public void onProgressUpdateImpl(float f) {
         Interceptable interceptable = $ic;
@@ -149,16 +151,16 @@ public abstract class BaseConsumer implements Consumer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Consumer
-    public synchronized void onNewResult(@Nullable Object obj, int i) {
+    public synchronized void onNewResult(@Nullable T t, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, obj, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, t, i) == null) {
             synchronized (this) {
                 if (this.mIsFinished) {
                     return;
                 }
                 this.mIsFinished = isLast(i);
                 try {
-                    onNewResultImpl(obj, i);
+                    onNewResultImpl(t, i);
                 } catch (Exception e) {
                     onUnhandledException(e);
                 }

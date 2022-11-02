@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@NotProguard
 /* loaded from: classes2.dex */
 public class V8EngineConfiguration {
     public static /* synthetic */ Interceptable $ic;
@@ -26,8 +27,8 @@ public class V8EngineConfiguration {
     public Object mMainGlobalObject;
     public Object mOpenGlobalObject;
     public String mUserAgent;
-    public List mV8EngineConsoles;
-    public List mV8StatusListeners;
+    public List<V8Engine.V8EngineConsole> mV8EngineConsoles;
+    public List<V8Engine.V8StatusListener> mV8StatusListeners;
     public V8ThreadDelegatePolicy mV8ThreadDelegatePolicy;
 
     @Deprecated
@@ -37,7 +38,7 @@ public class V8EngineConfiguration {
     }
 
     /* loaded from: classes2.dex */
-    public class CacheInfo {
+    public static class CacheInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cached;
@@ -64,13 +65,13 @@ public class V8EngineConfiguration {
     }
 
     /* loaded from: classes2.dex */
-    public class CodeCacheSetting {
+    public static class CodeCacheSetting {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long diskCodeCacheSizeThreshold;
         public String id;
         public int maxCount;
-        public ArrayList pathList;
+        public ArrayList<String> pathList;
         public int sizeLimit;
 
         public CodeCacheSetting() {
@@ -188,7 +189,7 @@ public class V8EngineConfiguration {
         return (String) invokeV.objValue;
     }
 
-    public List getV8EngineConsoles() {
+    public List<V8Engine.V8EngineConsole> getV8EngineConsoles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -197,7 +198,7 @@ public class V8EngineConfiguration {
         return (List) invokeV.objValue;
     }
 
-    public List getV8StatusListeners() {
+    public List<V8Engine.V8StatusListener> getV8StatusListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -294,7 +295,7 @@ public class V8EngineConfiguration {
         }
     }
 
-    public void setV8EngineConsoles(List list) {
+    public void setV8EngineConsoles(List<V8Engine.V8EngineConsole> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, list) == null) {
             this.mV8EngineConsoles = list;

@@ -3,8 +3,11 @@ package com.kwad.sdk.core.report;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.AppConfig;
 import com.kwad.sdk.core.network.BaseResultData;
+import com.kwad.sdk.core.network.g;
+import com.kwad.sdk.core.report.c;
 import com.kwad.sdk.core.response.model.BatchReportResult;
 import com.kwad.sdk.service.ServiceProvider;
 import java.util.ArrayList;
@@ -13,11 +16,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public abstract class b {
+/* loaded from: classes8.dex */
+public abstract class b<T extends c, R extends com.kwad.sdk.core.network.g> {
     public static ExecutorService ZI;
     public static volatile Handler mHandler;
-    public c ZL;
+    public T ZL;
     public Context mContext;
     public volatile long ZG = AppConfig.TIMESTAMP_AVAILABLE_DURATION;
     public j ZH = new l();
@@ -42,8 +45,9 @@ public abstract class b {
         mHandler.sendMessageDelayed(obtain, j);
     }
 
-    private void c(final i iVar) {
-        new com.kwad.sdk.core.network.m() { // from class: com.kwad.sdk.core.report.b.4
+    private void c(@NonNull final i<T> iVar) {
+        new com.kwad.sdk.core.network.m<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.4
+            @NonNull
             public static BatchReportResult cq(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 BatchReportResult batchReportResult = new BatchReportResult();
@@ -51,11 +55,14 @@ public abstract class b {
                 return batchReportResult;
             }
 
+            /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.kwad.sdk.core.report.b */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // com.kwad.sdk.core.network.a
-            public final com.kwad.sdk.core.network.g createRequest() {
+            @NonNull
+            public final R createRequest() {
                 c us = iVar.us();
                 b.this.ZL = us;
-                return b.this.a(us);
+                return (R) b.this.a((b) us);
             }
 
             @Override // com.kwad.sdk.core.network.m
@@ -68,27 +75,32 @@ public abstract class b {
                 return b.ZI;
             }
 
+            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
             @Override // com.kwad.sdk.core.network.m
-            public final /* synthetic */ BaseResultData parseData(String str) {
+            @NonNull
+            public final /* synthetic */ BatchReportResult parseData(String str) {
                 return cq(str);
             }
-        }.request(new com.kwad.sdk.core.network.n() { // from class: com.kwad.sdk.core.report.b.5
-            private void a(BatchReportResult batchReportResult) {
+        }.request(new com.kwad.sdk.core.network.n<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.5
+            private void a(@NonNull BatchReportResult batchReportResult) {
                 com.kwad.sdk.core.e.b.d("BaseBatchReporter", "立即上报 onSuccess action= " + b.this.ZL + " result " + batchReportResult.getResult());
             }
 
+            /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.kwad.sdk.core.report.b */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final void onError(com.kwad.sdk.core.network.g gVar, int i, String str) {
-                b.this.a(new i() { // from class: com.kwad.sdk.core.report.b.5.1
+            public final void onError(@NonNull R r, int i, String str) {
+                b.this.a((i) new i<T>() { // from class: com.kwad.sdk.core.report.b.5.1
                     @Override // com.kwad.sdk.core.report.i
-                    public final c us() {
-                        return b.this.ZL;
+                    @NonNull
+                    public final T us() {
+                        return (T) b.this.ZL;
                     }
                 });
             }
 
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onSuccess(com.kwad.sdk.core.network.g gVar, BaseResultData baseResultData) {
+            public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
                 a((BatchReportResult) baseResultData);
             }
         });
@@ -119,17 +131,17 @@ public abstract class b {
         this.ZG = j < 60 ? 60000L : j * 1000;
     }
 
-    public com.kwad.sdk.core.network.g a(c cVar) {
+    public R a(T t) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(cVar);
+        arrayList.add(t);
         return o(arrayList);
     }
 
-    public Runnable a(Context context, j jVar, AtomicInteger atomicInteger) {
+    public Runnable a(Context context, j<T> jVar, AtomicInteger atomicInteger) {
         return new v(context, jVar, this, atomicInteger);
     }
 
-    public final void a(final i iVar) {
+    public final void a(@NonNull final i<T> iVar) {
         ZI.execute(new Runnable() { // from class: com.kwad.sdk.core.report.b.1
             @Override // java.lang.Runnable
             public final void run() {
@@ -152,12 +164,13 @@ public abstract class b {
         this.ZH = jVar;
     }
 
-    public final void a(final List list, final AtomicBoolean atomicBoolean) {
+    public final void a(final List<T> list, final AtomicBoolean atomicBoolean) {
         if (list == null || list.size() <= 0) {
             return;
         }
         this.ZJ.getAndIncrement();
-        new com.kwad.sdk.core.network.m() { // from class: com.kwad.sdk.core.report.b.2
+        new com.kwad.sdk.core.network.m<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.2
+            @NonNull
             public static BatchReportResult cq(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 BatchReportResult batchReportResult = new BatchReportResult();
@@ -166,8 +179,9 @@ public abstract class b {
             }
 
             @Override // com.kwad.sdk.core.network.a
-            public final com.kwad.sdk.core.network.g createRequest() {
-                return b.this.o(list);
+            @NonNull
+            public final R createRequest() {
+                return (R) b.this.o(list);
             }
 
             @Override // com.kwad.sdk.core.network.m
@@ -180,12 +194,14 @@ public abstract class b {
                 return b.ZI;
             }
 
+            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
             @Override // com.kwad.sdk.core.network.m
-            public final /* synthetic */ BaseResultData parseData(String str) {
+            @NonNull
+            public final /* synthetic */ BatchReportResult parseData(String str) {
                 return cq(str);
             }
-        }.request(new com.kwad.sdk.core.network.n() { // from class: com.kwad.sdk.core.report.b.3
-            private void a(BatchReportResult batchReportResult) {
+        }.request(new com.kwad.sdk.core.network.n<R, BatchReportResult>() { // from class: com.kwad.sdk.core.report.b.3
+            private void a(@NonNull BatchReportResult batchReportResult) {
                 b.this.ZH.q(list);
                 if (b.this.ZJ.decrementAndGet() == 0 && atomicBoolean.get()) {
                     b.this.up();
@@ -196,7 +212,7 @@ public abstract class b {
             }
 
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final void onError(com.kwad.sdk.core.network.g gVar, int i, String str) {
+            public final void onError(@NonNull R r, int i, String str) {
                 atomicBoolean.set(true);
                 if (b.this.ZJ.decrementAndGet() == 0) {
                     b.this.up();
@@ -204,13 +220,13 @@ public abstract class b {
             }
 
             @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-            public final /* synthetic */ void onSuccess(com.kwad.sdk.core.network.g gVar, BaseResultData baseResultData) {
+            public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
                 a((BatchReportResult) baseResultData);
             }
         });
     }
 
-    public final void b(i iVar) {
+    public final void b(@NonNull i<T> iVar) {
         c(iVar);
     }
 
@@ -221,7 +237,7 @@ public abstract class b {
         }
     }
 
-    public abstract com.kwad.sdk.core.network.g o(List list);
+    public abstract R o(List<T> list);
 
     public final void uo() {
         E(0L);

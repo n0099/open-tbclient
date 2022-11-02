@@ -1,6 +1,8 @@
 package com.google.android.gms.common.internal;
 
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +10,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @KeepForSdk
     /* loaded from: classes7.dex */
-    public final class ToStringHelper {
+    public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List zza;
+        public final List<String> zza;
         public final Object zzb;
 
         public /* synthetic */ ToStringHelper(Object obj, zzah zzahVar) {
@@ -30,11 +35,13 @@ public final class Objects {
             this.zza = new ArrayList();
         }
 
-        public ToStringHelper add(String str, Object obj) {
+        @NonNull
+        @KeepForSdk
+        public ToStringHelper add(@NonNull String str, @Nullable Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-                List list = this.zza;
+                List<String> list = this.zza;
                 Preconditions.checkNotNull(str);
                 String valueOf = String.valueOf(obj);
                 StringBuilder sb = new StringBuilder(str.length() + 1 + String.valueOf(valueOf).length());
@@ -47,6 +54,8 @@ public final class Objects {
             return (ToStringHelper) invokeLL.objValue;
         }
 
+        @NonNull
+        @KeepForSdk
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -56,7 +65,7 @@ public final class Objects {
                 sb.append('{');
                 int size = this.zza.size();
                 for (int i = 0; i < size; i++) {
-                    sb.append((String) this.zza.get(i));
+                    sb.append(this.zza.get(i));
                     if (i < size - 1) {
                         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     }
@@ -84,7 +93,8 @@ public final class Objects {
         throw new AssertionError("Uninstantiable");
     }
 
-    public static boolean checkBundlesEquality(Bundle bundle, Bundle bundle2) {
+    @KeepForSdk
+    public static boolean checkBundlesEquality(@NonNull Bundle bundle, @NonNull Bundle bundle2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, bundle2)) == null) {
@@ -111,7 +121,8 @@ public final class Objects {
         return invokeLL.booleanValue;
     }
 
-    public static boolean equal(Object obj, Object obj2) {
+    @KeepForSdk
+    public static boolean equal(@Nullable Object obj, @Nullable Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
@@ -123,7 +134,8 @@ public final class Objects {
         return invokeLL.booleanValue;
     }
 
-    public static int hashCode(Object... objArr) {
+    @KeepForSdk
+    public static int hashCode(@NonNull Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, objArr)) == null) {
@@ -132,7 +144,9 @@ public final class Objects {
         return invokeL.intValue;
     }
 
-    public static ToStringHelper toStringHelper(Object obj) {
+    @NonNull
+    @KeepForSdk
+    public static ToStringHelper toStringHelper(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {

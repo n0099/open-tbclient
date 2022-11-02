@@ -66,7 +66,7 @@ public class CloudControlManager {
         return (CloudControlManager) invokeV.objValue;
     }
 
-    public HashMap getProcessors() {
+    public HashMap<String, ICloudControlProcessor> getProcessors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -91,7 +91,7 @@ public class CloudControlManager {
         }
     }
 
-    public void fetchCloudControl(String str, ArrayList arrayList) {
+    public void fetchCloudControl(String str, ArrayList<CloudControlRequestInfo> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, arrayList) == null) {
             if (!TextUtils.equals(str, "0") && !TextUtils.equals(str, "1")) {
@@ -187,14 +187,14 @@ public class CloudControlManager {
         return invokeLLL.booleanValue;
     }
 
-    public ArrayList getPostData(String str) {
+    public ArrayList<CloudControlRequestInfo> getPostData(String str) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            HashMap processors = this.mProcessors.getProcessors();
+            ArrayList<CloudControlRequestInfo> arrayList = new ArrayList<>();
+            HashMap<String, ICloudControlProcessor> processors = this.mProcessors.getProcessors();
             try {
                 jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
             } catch (JSONException e) {
@@ -206,25 +206,25 @@ public class CloudControlManager {
             if (jSONObject != null && jSONObject.length() == 0) {
                 return arrayList;
             }
-            for (Map.Entry entry : processors.entrySet()) {
-                String str2 = (String) entry.getKey();
+            for (Map.Entry<String, ICloudControlProcessor> entry : processors.entrySet()) {
+                String key = entry.getKey();
                 if (jSONObject != null) {
-                    jSONObject2 = jSONObject.optJSONObject(str2);
+                    jSONObject2 = jSONObject.optJSONObject(key);
                 } else {
                     jSONObject2 = null;
                 }
-                CloudControlRequestInfo postData = ((ICloudControlProcessor) entry.getValue()).getPostData(str, isDegradeTime(), jSONObject2);
+                CloudControlRequestInfo postData = entry.getValue().getPostData(str, isDegradeTime(), jSONObject2);
                 if (AppConfig.isDebug()) {
                     if (postData != null) {
                         try {
-                            if (!this.mProcessors.containKey(str2)) {
-                                throw new Exception(str2 + " service is not register");
+                            if (!this.mProcessors.containKey(key)) {
+                                throw new Exception(key + " service is not register");
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                     } else {
-                        throw new Exception(str2 + " service get post data is error ");
+                        throw new Exception(key + " service get post data is error ");
                     }
                 }
                 arrayList.add(postData);

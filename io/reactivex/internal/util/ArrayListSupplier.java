@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class ArrayListSupplier implements Callable, Function {
+public final class ArrayListSupplier implements Callable<List<Object>>, Function<Object, List<Object>> {
     public static final /* synthetic */ ArrayListSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final ArrayListSupplier INSTANCE;
@@ -39,7 +39,7 @@ public final class ArrayListSupplier implements Callable, Function {
         $VALUES = new ArrayListSupplier[]{arrayListSupplier};
     }
 
-    public static Callable asCallable() {
+    public static <T> Callable<List<T>> asCallable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -48,7 +48,7 @@ public final class ArrayListSupplier implements Callable, Function {
         return (Callable) invokeV.objValue;
     }
 
-    public static Function asFunction() {
+    public static <T, O> Function<O, List<T>> asFunction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -96,7 +96,7 @@ public final class ArrayListSupplier implements Callable, Function {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.functions.Function
-    public List apply(Object obj) throws Exception {
+    public List<Object> apply(Object obj) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -107,7 +107,7 @@ public final class ArrayListSupplier implements Callable, Function {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Callable
-    public List call() throws Exception {
+    public List<Object> call() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

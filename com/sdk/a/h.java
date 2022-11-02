@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.a.g;
+import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class h implements Serializable {
+public class h<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.a.h";
     public static final Boolean b;
@@ -25,11 +26,11 @@ public class h implements Serializable {
     public String c;
     public String d;
     public String e;
-    public TreeMap f;
-    public ArrayList g;
-    public HashMap h;
+    public TreeMap<String, Object> f;
+    public ArrayList<File> g;
+    public HashMap<String, Object> h;
     public int i;
-    public com.sdk.e.b j;
+    public com.sdk.e.b<T> j;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +48,7 @@ public class h implements Serializable {
         b = Boolean.valueOf(com.sdk.f.g.b);
     }
 
-    public String a(TreeMap treeMap) {
+    public String a(TreeMap<String, Object> treeMap) {
         InterceptResult invokeL;
         StringBuilder sb;
         Interceptable interceptable = $ic;
@@ -55,22 +56,22 @@ public class h implements Serializable {
             if (treeMap != null) {
                 try {
                     sb = new StringBuilder();
-                    for (Map.Entry entry : treeMap.entrySet()) {
-                        String str = (String) entry.getKey();
+                    for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
+                        String key = entry.getKey();
                         Object value = entry.getValue();
-                        if (value != null && com.sdk.n.a.b(str).booleanValue()) {
+                        if (value != null && com.sdk.n.a.b(key).booleanValue()) {
                             String encode = URLEncoder.encode(value.toString(), "UTF-8");
                             if (com.sdk.f.g.e) {
-                                if (!"sign".equals(str) && !"unikey".equals(str)) {
-                                    sb.append(str);
+                                if (!"sign".equals(key) && !"unikey".equals(key)) {
+                                    sb.append(key);
                                     sb.append("=");
                                     encode = com.sdk.q.d.b(encode);
                                     sb.append(encode);
                                     sb.append("&");
                                 }
-                                sb.append(str);
+                                sb.append(key);
                             } else {
-                                sb.append(str);
+                                sb.append(key);
                             }
                             sb.append("=");
                             sb.append(encode);

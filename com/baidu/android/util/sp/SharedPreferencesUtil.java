@@ -1,5 +1,6 @@
 package com.baidu.android.util.sp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
@@ -21,7 +22,7 @@ public final class SharedPreferencesUtil {
     public static final String DISCOVERY_HOME_SHARED_PREFERENCE = "discovery_home_share_preference";
     public static final String STRONG_CARD_SHARED_PREFRENCE = "strong_shared_prefrence";
     public static final String WEAK_CARD_SHARED_PREFRENCE = "weak_shared_prefrence";
-    public static HashMap mPrefrencesUtil;
+    public static HashMap<String, SharedPreferencesUtil> mPrefrencesUtil;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences.Editor mEditor;
     public SharedPreferences mSharedPreferences;
@@ -39,7 +40,7 @@ public final class SharedPreferencesUtil {
                 return;
             }
         }
-        mPrefrencesUtil = new HashMap();
+        mPrefrencesUtil = new HashMap<>();
     }
 
     public void commitPreference() {
@@ -49,7 +50,7 @@ public final class SharedPreferencesUtil {
         }
     }
 
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -58,6 +59,7 @@ public final class SharedPreferencesUtil {
         return (Map) invokeV.objValue;
     }
 
+    @SuppressLint({"CommitPrefEdits"})
     public SharedPreferencesUtil(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,10 +84,10 @@ public final class SharedPreferencesUtil {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i)) == null) {
-            SharedPreferencesUtil sharedPreferencesUtil = (SharedPreferencesUtil) mPrefrencesUtil.get(str);
+            SharedPreferencesUtil sharedPreferencesUtil = mPrefrencesUtil.get(str);
             if (sharedPreferencesUtil == null) {
                 synchronized (SharedPreferencesUtil.class) {
-                    sharedPreferencesUtil = (SharedPreferencesUtil) mPrefrencesUtil.get(str);
+                    sharedPreferencesUtil = mPrefrencesUtil.get(str);
                     if (sharedPreferencesUtil == null) {
                         sharedPreferencesUtil = new SharedPreferencesUtil(context, str, i);
                         mPrefrencesUtil.put(str, sharedPreferencesUtil);

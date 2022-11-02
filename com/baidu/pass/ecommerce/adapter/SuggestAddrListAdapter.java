@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class SuggestAddrListAdapter extends CommonAdapter {
+public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
@@ -31,7 +31,7 @@ public class SuggestAddrListAdapter extends CommonAdapter {
     }
 
     /* loaded from: classes2.dex */
-    public class AddrListItemViewHolder extends ViewHolder {
+    public class AddrListItemViewHolder extends ViewHolder<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View bottomLine;

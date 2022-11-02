@@ -9,6 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
+import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
+@UpdateAction(action = DiskDirToolListener.DISK_DIR_TOOL_ACTION, module = "disk_dir")
 /* loaded from: classes2.dex */
 public class DiskDirToolListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,7 +52,6 @@ public class DiskDirToolListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -59,7 +60,7 @@ public class DiskDirToolListener extends JSONObjectCommandListener {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             try {
                 String localVersion = getLocalVersion(context, str, str2);
-                if (actionData == null || actionData.version == null || TextUtils.equals(actionData.version, localVersion) || (jSONObject = (JSONObject) actionData.data) == null) {
+                if (actionData == null || actionData.version == null || TextUtils.equals(actionData.version, localVersion) || (jSONObject = actionData.data) == null) {
                     return false;
                 }
                 PreferenceUtils.setString(DISK_DIR_TOOL_VERSION, actionData.version);

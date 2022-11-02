@@ -5,6 +5,7 @@ import android.text.Selection;
 import android.text.Spannable;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -68,7 +69,7 @@ public class BdLinkTouchDecorHelper {
         }
     }
 
-    public void clearSpanState(TextView textView) {
+    public void clearSpanState(@Nullable TextView textView) {
         ITouchableSpan iTouchableSpan;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, textView) == null) && (iTouchableSpan = this.mTouchableSpan) != null && textView != null) {

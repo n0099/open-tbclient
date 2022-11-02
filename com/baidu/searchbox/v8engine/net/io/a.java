@@ -1,5 +1,6 @@
 package com.baidu.searchbox.v8engine.net.io;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,6 +19,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public e a;
     public long b;
 

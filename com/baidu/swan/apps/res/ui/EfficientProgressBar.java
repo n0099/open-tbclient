@@ -1,5 +1,7 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -184,6 +186,8 @@ public class EfficientProgressBar extends View {
         }
     }
 
+    @SuppressLint({"ObsoleteSdkInt"})
+    @TargetApi(11)
     public final void e() {
         float f;
         Interceptable interceptable = $ic;

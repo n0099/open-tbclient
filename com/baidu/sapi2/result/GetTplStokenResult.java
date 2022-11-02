@@ -22,11 +22,11 @@ public class GetTplStokenResult extends SapiResult {
     public static final String ERROR_MSG_BDUSS_NOT_EXIST = "bduss 本地不存在";
     public transient /* synthetic */ FieldHolder $fh;
     public FailureType failureType;
-    public Map tplStokenMap;
+    public Map<String, String> tplStokenMap;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class FailureType {
+    public static final class FailureType {
         public static final /* synthetic */ FailureType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FailureType BDUSS_EXPIRED;

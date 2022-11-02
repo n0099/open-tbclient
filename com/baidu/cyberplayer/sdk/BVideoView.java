@@ -32,6 +32,7 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+@Keep
 /* loaded from: classes.dex */
 public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +49,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     public Context b;
     public CyberPlayer c;
     public Uri d;
-    public Map e;
+    public Map<String, String> e;
     public int f;
     public int g;
     public int h;
@@ -56,7 +57,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     public int j;
     public int k;
     public int l;
-    public HashMap m;
+    public HashMap<String, String> m;
     public CyberPlayerManager.HttpDNS n;
     public boolean o;
     public CyberPlayerManager.OnPreparedListener p;
@@ -69,7 +70,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     public CyberPlayerManager.OnMediaSourceChangedListener w;
     public e x;
     public a y;
-    public ArrayList z;
+    public ArrayList<ICyberVideoView.OnSnapShotCompleteListener> z;
 
     static {
         InterceptResult invokeClinit;
@@ -131,7 +132,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         this.j = 0;
         this.k = 0;
         this.l = 0;
-        this.m = new HashMap();
+        this.m = new HashMap<>();
         this.o = true;
         this.A = 0;
         this.D = 1.0f;
@@ -299,7 +300,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         };
         this.b = context.getApplicationContext();
         this.y = new a();
-        this.z = new ArrayList();
+        this.z = new ArrayList<>();
         reset();
         a();
     }
@@ -397,7 +398,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             this.c.setOnMediaSourceChangedListener(this);
             if (this.m != null) {
                 for (String str : this.m.keySet()) {
-                    this.c.setOption(str, (String) this.m.get(str));
+                    this.c.setOption(str, this.m.get(str));
                 }
             }
             if (this.F != null) {
@@ -432,16 +433,16 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     private void c() {
-        ArrayList b;
+        ArrayList<a.C0089a> b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.c == null || (b = this.y.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0088a c0088a = (a.C0088a) b.get(i);
-            if (c0088a != null && c0088a.a() != null) {
-                this.c.setExternalInfo(c0088a.a(), c0088a.b());
+            a.C0089a c0089a = b.get(i);
+            if (c0089a != null && c0089a.a() != null) {
+                this.c.setExternalInfo(c0089a.a(), c0089a.b());
             }
         }
     }
@@ -486,8 +487,8 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     public void changeProxyDynamic(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.c != null && TextUtils.isEmpty(o.c())) {
-            HashMap hashMap = this.m;
-            String str2 = hashMap != null ? (String) hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
+            HashMap<String, String> hashMap = this.m;
+            String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
@@ -499,7 +500,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                 this.c.changeProxyDynamic(str, true);
             }
             this.c.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
-            HashMap hashMap2 = this.m;
+            HashMap<String, String> hashMap2 = this.m;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
@@ -512,7 +513,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             CyberLog.i(a, "destory called");
             d();
-            HashMap hashMap = this.m;
+            HashMap<String, String> hashMap = this.m;
             if (hashMap != null) {
                 hashMap.clear();
                 this.m = null;
@@ -527,7 +528,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                     this.z.clear();
                 }
             }
-            Map map = this.e;
+            Map<String, String> map = this.e;
             if (map != null) {
                 map.clear();
                 this.e = null;
@@ -849,7 +850,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
             if (eVar != null) {
                 eVar.b();
             }
-            HashMap hashMap = this.m;
+            HashMap<String, String> hashMap = this.m;
             if (hashMap != null) {
                 hashMap.clear();
             }
@@ -1017,7 +1018,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                 CyberLog.i(a, "Do not set option when the video player playing");
                 return;
             }
-            HashMap hashMap = this.m;
+            HashMap<String, String> hashMap = this.m;
             if (hashMap != null) {
                 hashMap.put(str, str2);
             }
@@ -1105,7 +1106,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map map) {
+    public void setVideoURI(Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048624, this, uri, map) == null) {
             this.d = uri;
@@ -1156,7 +1157,7 @@ public class BVideoView extends GLSurfaceView implements CyberPlayerManager.OnBu
                 this.i = 0;
                 this.j = 0;
             }
-            HashMap hashMap = this.m;
+            HashMap<String, String> hashMap = this.m;
             if (hashMap != null) {
                 hashMap.clear();
             }

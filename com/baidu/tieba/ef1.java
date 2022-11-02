@@ -1,141 +1,183 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ef1 extends df1 {
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class ef1 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Uri b;
+    public int c;
+    public String[] d;
+    public HashMap<String, String> e;
+    public boolean f;
+    public ef1 g;
+    public boolean h;
+    public JSONObject i;
+    public String j;
 
-    @Override // com.baidu.tieba.df1
-    public int delete(int i, Uri uri, String str, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732313, "Lcom/baidu/tieba/ef1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947732313, "Lcom/baidu/tieba/ef1;");
+                return;
+            }
         }
-        return invokeCommon.intValue;
+        String str = af1.b() + "://";
     }
 
-    @Override // com.baidu.tieba.df1
-    public String getType(int i, Uri uri) {
-        InterceptResult invokeIL;
+    public ef1(Uri uri, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
-            return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeIL.objValue;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.a = str;
+        this.b = uri;
+        this.d = hf1.c(uri);
+        this.e = hf1.b(uri.toString());
     }
 
-    @Override // com.baidu.tieba.df1
-    public Uri insert(int i, Uri uri, ContentValues contentValues) {
-        InterceptResult invokeILL;
+    public ef1(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
-            return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str, strArr, hashMap};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return (Uri) invokeILL.objValue;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.b = uri;
+        this.a = str;
+        this.d = strArr;
+        this.e = hashMap;
     }
 
-    @Override // com.baidu.tieba.df1
-    public boolean j() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public ef1 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Uri uri = this.b;
+            ef1 ef1Var = new ef1(uri, this.a, hf1.c(uri), (HashMap) this.e.clone());
+            ef1Var.g = this;
+            ef1Var.h = this.h;
+            ef1Var.j = this.j;
+            return ef1Var;
+        }
+        return (ef1) invokeV.objValue;
+    }
+
+    public HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.df1
-    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeCommon;
+    public String b() {
+        InterceptResult invokeV;
+        String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ef1() {
-        super(0, 100);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri uri = this.b;
+            if (uri != null) {
+                if (hf1.d(uri) && (path = this.b.getPath()) != null && path.length() > 1) {
+                    return this.b.getPath().substring(1);
+                }
+                return this.b.getHost() + this.b.getPath();
             }
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df1
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public String d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
-            if ("_get_service_handler".equals(str)) {
-                return we1.a();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (this.d != null) {
+                if (z) {
+                    this.c++;
+                }
+                int i = this.c;
+                String[] strArr = this.d;
+                if (i < strArr.length) {
+                    return strArr[i];
+                }
+                return null;
             }
             return null;
         }
-        return (Bundle) invokeLLL.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.df1
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) {
-            return "_get_service_handler".equals(str);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.df1
-    public void e(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, uri, i) != null) || i == 3) {
-            return;
-        }
-        super.e(uri, i);
-    }
-
-    @Override // com.baidu.tieba.df1
-    public void f(UriMatcher uriMatcher, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
-            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
         }
     }
 
-    @Override // com.baidu.tieba.df1
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
+    public void f(String str, String str2) {
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
-            if (i == 1) {
-                return new xe1(we1.a());
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (uri = this.b) != null && str != null && str2 != null) {
+            Uri parse = Uri.parse(uri.toString().replace(str, str2));
+            this.b = parse;
+            this.d = hf1.c(parse);
         }
-        return (Cursor) invokeCommon.objValue;
     }
 }

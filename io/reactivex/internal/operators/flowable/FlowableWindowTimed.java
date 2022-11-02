@@ -17,6 +17,7 @@ import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
+import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.queue.MpscLinkedQueue;
 import io.reactivex.internal.subscribers.QueueDrainSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
+public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -41,7 +42,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class WindowExactBoundedSubscriber extends QueueDrainSubscriber implements Subscription {
+    public static final class WindowExactBoundedSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -55,17 +56,17 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         public final SequentialDisposable timer;
         public final long timespan;
         public final TimeUnit unit;
-        public UnicastProcessor window;
+        public UnicastProcessor<T> window;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
-        public final class ConsumerIndexHolder implements Runnable {
+        public static final class ConsumerIndexHolder implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long index;
-            public final WindowExactBoundedSubscriber parent;
+            public final WindowExactBoundedSubscriber<?> parent;
 
-            public ConsumerIndexHolder(long j, WindowExactBoundedSubscriber windowExactBoundedSubscriber) {
+            public ConsumerIndexHolder(long j, WindowExactBoundedSubscriber<?> windowExactBoundedSubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +89,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    WindowExactBoundedSubscriber windowExactBoundedSubscriber = this.parent;
+                    WindowExactBoundedSubscriber<?> windowExactBoundedSubscriber = this.parent;
                     if (!windowExactBoundedSubscriber.cancelled) {
                         windowExactBoundedSubscriber.queue.offer(this);
                     } else {
@@ -103,7 +104,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactBoundedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
+        public WindowExactBoundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -193,13 +194,13 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
-                Subscriber subscriber = this.actual;
-                UnicastProcessor unicastProcessor = this.window;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super V> subscriber = this.actual;
+                UnicastProcessor<T> unicastProcessor = this.window;
                 int i = 1;
                 while (!this.terminated) {
                     boolean z2 = this.done;
-                    Object poll = simplePlainQueue.poll();
+                    Object poll = simpleQueue.poll();
                     if (poll == null) {
                         z = true;
                     } else {
@@ -208,7 +209,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                     boolean z3 = poll instanceof ConsumerIndexHolder;
                     if (z2 && (z || z3)) {
                         this.window = null;
-                        simplePlainQueue.clear();
+                        simpleQueue.clear();
                         Throwable th = this.error;
                         if (th != null) {
                             unicastProcessor.onError(th);
@@ -255,14 +256,14 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                                 unicastProcessor.onComplete();
                                 long requested2 = requested();
                                 if (requested2 != 0) {
-                                    UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                                    UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                                     this.window = create;
                                     this.actual.onNext(create);
                                     if (requested2 != Long.MAX_VALUE) {
                                         produced(1L);
                                     }
                                     if (this.restartTimerOnMaxSize) {
-                                        ((Disposable) this.timer.get()).dispose();
+                                        this.timer.get().dispose();
                                         Scheduler.Worker worker = this.worker;
                                         ConsumerIndexHolder consumerIndexHolder2 = new ConsumerIndexHolder(this.producerIndex, this);
                                         long j2 = this.timespan;
@@ -284,20 +285,20 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                     }
                 }
                 this.s.cancel();
-                simplePlainQueue.clear();
+                simpleQueue.clear();
                 dispose();
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.terminated) {
+            if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || this.terminated) {
                 return;
             }
             if (fastEnter()) {
-                UnicastProcessor unicastProcessor = this.window;
-                unicastProcessor.onNext(obj);
+                UnicastProcessor<T> unicastProcessor = this.window;
+                unicastProcessor.onNext(t);
                 long j = this.count + 1;
                 if (j >= this.maxSize) {
                     this.producerIndex++;
@@ -305,14 +306,14 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                     unicastProcessor.onComplete();
                     long requested = requested();
                     if (requested != 0) {
-                        UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                        UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                         this.window = create;
                         this.actual.onNext(create);
                         if (requested != Long.MAX_VALUE) {
                             produced(1L);
                         }
                         if (this.restartTimerOnMaxSize) {
-                            ((Disposable) this.timer.get()).dispose();
+                            this.timer.get().dispose();
                             Scheduler.Worker worker = this.worker;
                             ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
                             long j2 = this.timespan;
@@ -332,7 +333,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(obj));
+                this.queue.offer(NotificationLite.next(t));
                 if (!enter()) {
                     return;
                 }
@@ -346,12 +347,12 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048582, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
-                Subscriber subscriber = this.actual;
+                Subscriber<? super V> subscriber = this.actual;
                 subscriber.onSubscribe(this);
                 if (this.cancelled) {
                     return;
                 }
-                UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                 this.window = create;
                 long requested = requested();
                 if (requested != 0) {
@@ -383,7 +384,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowSkipSubscriber extends QueueDrainSubscriber implements Subscription, Runnable {
+    public static final class WindowSkipSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -392,17 +393,17 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         public final long timeskip;
         public final long timespan;
         public final TimeUnit unit;
-        public final List windows;
+        public final List<UnicastProcessor<T>> windows;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
         public final class Completion implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final UnicastProcessor processor;
+            public final UnicastProcessor<T> processor;
             public final /* synthetic */ WindowSkipSubscriber this$0;
 
-            public Completion(WindowSkipSubscriber windowSkipSubscriber, UnicastProcessor unicastProcessor) {
+            public Completion(WindowSkipSubscriber windowSkipSubscriber, UnicastProcessor<T> unicastProcessor) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -431,13 +432,13 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         }
 
         /* loaded from: classes8.dex */
-        public final class SubjectWork {
+        public static final class SubjectWork<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final boolean open;
-            public final UnicastProcessor w;
+            public final UnicastProcessor<T> w;
 
-            public SubjectWork(UnicastProcessor unicastProcessor, boolean z) {
+            public SubjectWork(UnicastProcessor<T> unicastProcessor, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -458,7 +459,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipSubscriber(Subscriber subscriber, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
+        public WindowSkipSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -526,7 +527,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void complete(UnicastProcessor unicastProcessor) {
+        public void complete(UnicastProcessor<T> unicastProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unicastProcessor) == null) {
                 this.queue.offer(new SubjectWork(unicastProcessor, false));
@@ -562,28 +563,28 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
-                Subscriber subscriber = this.actual;
-                List<UnicastProcessor> list = this.windows;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super V> subscriber = this.actual;
+                List<UnicastProcessor<T>> list = this.windows;
                 int i = 1;
                 while (!this.terminated) {
                     boolean z2 = this.done;
-                    Object poll = simplePlainQueue.poll();
-                    if (poll == null) {
+                    T t = (T) simpleQueue.poll();
+                    if (t == null) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    boolean z3 = poll instanceof SubjectWork;
+                    boolean z3 = t instanceof SubjectWork;
                     if (z2 && (z || z3)) {
-                        simplePlainQueue.clear();
+                        simpleQueue.clear();
                         Throwable th = this.error;
                         if (th != null) {
-                            for (UnicastProcessor unicastProcessor : list) {
+                            for (UnicastProcessor<T> unicastProcessor : list) {
                                 unicastProcessor.onError(th);
                             }
                         } else {
-                            for (UnicastProcessor unicastProcessor2 : list) {
+                            for (UnicastProcessor<T> unicastProcessor2 : list) {
                                 unicastProcessor2.onComplete();
                             }
                         }
@@ -596,12 +597,12 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                             return;
                         }
                     } else if (z3) {
-                        SubjectWork subjectWork = (SubjectWork) poll;
+                        SubjectWork subjectWork = (SubjectWork) t;
                         if (subjectWork.open) {
                             if (!this.cancelled) {
                                 long requested = requested();
                                 if (requested != 0) {
-                                    UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                                    UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                                     list.add(create);
                                     subscriber.onNext(create);
                                     if (requested != Long.MAX_VALUE) {
@@ -620,31 +621,31 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                             }
                         }
                     } else {
-                        for (UnicastProcessor unicastProcessor3 : list) {
-                            unicastProcessor3.onNext(poll);
+                        for (UnicastProcessor<T> unicastProcessor3 : list) {
+                            unicastProcessor3.onNext(t);
                         }
                     }
                 }
                 this.s.cancel();
                 dispose();
-                simplePlainQueue.clear();
+                simpleQueue.clear();
                 list.clear();
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 if (fastEnter()) {
-                    for (UnicastProcessor unicastProcessor : this.windows) {
-                        unicastProcessor.onNext(obj);
+                    for (UnicastProcessor<T> unicastProcessor : this.windows) {
+                        unicastProcessor.onNext(t);
                     }
                     if (leave(-1) == 0) {
                         return;
                     }
                 } else {
-                    this.queue.offer(obj);
+                    this.queue.offer(t);
                     if (!enter()) {
                         return;
                     }
@@ -664,7 +665,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                 }
                 long requested = requested();
                 if (requested != 0) {
-                    UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                    UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                     this.windows.add(create);
                     this.actual.onNext(create);
                     if (requested != Long.MAX_VALUE) {
@@ -684,7 +685,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowExactUnboundedSubscriber extends QueueDrainSubscriber implements FlowableSubscriber, Subscription, Runnable {
+    public static final class WindowExactUnboundedSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public static final Object NEXT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -695,7 +696,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         public final SequentialDisposable timer;
         public final long timespan;
         public final TimeUnit unit;
-        public UnicastProcessor window;
+        public UnicastProcessor<T> window;
 
         static {
             InterceptResult invokeClinit;
@@ -757,7 +758,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactUnboundedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+        public WindowExactUnboundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -782,6 +783,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             this.bufferSize = i;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: io.reactivex.processors.UnicastProcessor */
         /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
             r10.window = null;
             r0.clear();
@@ -803,20 +805,21 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         /* JADX WARN: Code restructure failed: missing block: B:52:?, code lost:
             return;
          */
+        /* JADX WARN: Multi-variable type inference failed */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drainLoop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
-                Subscriber subscriber = this.actual;
-                UnicastProcessor unicastProcessor = this.window;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super V> subscriber = this.actual;
+                UnicastProcessor<T> unicastProcessor = this.window;
                 int i = 1;
                 while (true) {
                     boolean z = this.terminated;
                     boolean z2 = this.done;
-                    Object poll = simplePlainQueue.poll();
+                    Object poll = simpleQueue.poll();
                     if (!z2 || (poll != null && poll != NEXT)) {
                         if (poll == null) {
                             i = leave(-i);
@@ -826,7 +829,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
                         } else if (poll == NEXT) {
                             unicastProcessor.onComplete();
                             if (!z) {
-                                unicastProcessor = UnicastProcessor.create(this.bufferSize);
+                                unicastProcessor = (UnicastProcessor<T>) UnicastProcessor.create(this.bufferSize);
                                 this.window = unicastProcessor;
                                 long requested = requested();
                                 if (requested != 0) {
@@ -876,18 +879,18 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.terminated) {
+            if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || this.terminated) {
                 return;
             }
             if (fastEnter()) {
-                this.window.onNext(obj);
+                this.window.onNext(t);
                 if (leave(-1) == 0) {
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(obj));
+                this.queue.offer(NotificationLite.next(t));
                 if (!enter()) {
                     return;
                 }
@@ -901,7 +904,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
             if ((interceptable == null || interceptable.invokeL(1048582, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.window = UnicastProcessor.create(this.bufferSize);
-                Subscriber subscriber = this.actual;
+                Subscriber<? super V> subscriber = this.actual;
                 subscriber.onSubscribe(this);
                 long requested = requested();
                 if (requested != 0) {
@@ -929,7 +932,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowTimed(Flowable flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
+    public FlowableWindowTimed(Flowable<T> flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -956,7 +959,7 @@ public final class FlowableWindowTimed extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Flowable<T>> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);

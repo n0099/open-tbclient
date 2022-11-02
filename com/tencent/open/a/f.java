@@ -136,14 +136,14 @@ public class f extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized List a(String str) {
+    public synchronized List<Serializable> a(String str) {
         InterceptResult invokeL;
         ObjectInputStream objectInputStream;
         Serializable serializable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                List synchronizedList = Collections.synchronizedList(new ArrayList());
+                List<Serializable> synchronizedList = Collections.synchronizedList(new ArrayList());
                 if (TextUtils.isEmpty(str)) {
                     return synchronizedList;
                 }
@@ -267,7 +267,7 @@ public class f extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(String str, List list) {
+    public synchronized void a(String str, List<Serializable> list) {
         ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) == null) {
@@ -291,7 +291,7 @@ public class f extends SQLiteOpenHelper {
                 try {
                     ContentValues contentValues = new ContentValues();
                     for (int i = 0; i < size; i++) {
-                        Serializable serializable = (Serializable) list.get(i);
+                        Serializable serializable = list.get(i);
                         if (serializable != null) {
                             contentValues.put("type", str);
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);

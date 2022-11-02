@@ -24,7 +24,7 @@ public final class CompletableCreate extends Completable {
     public final CompletableOnSubscribe source;
 
     /* loaded from: classes8.dex */
-    public final class Emitter extends AtomicReference implements CompletableEmitter, Disposable {
+    public static final class Emitter extends AtomicReference<Disposable> implements CompletableEmitter, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2467358622224974244L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,24 +85,24 @@ public final class CompletableCreate extends Completable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableEmitter
         public void onComplete() {
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
                         this.actual.onComplete();
                     } finally {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     }
                 }
@@ -112,20 +112,20 @@ public final class CompletableCreate extends Completable {
         @Override // io.reactivex.CompletableEmitter
         public boolean tryOnError(Throwable th) {
             InterceptResult invokeL;
-            Disposable disposable;
+            Disposable andSet;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, th)) == null) {
                 if (th == null) {
                     th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
                 }
-                Object obj = get();
+                Disposable disposable = get();
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (obj != disposableHelper && (disposable = (Disposable) getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
+                if (disposable != disposableHelper && (andSet = getAndSet(disposableHelper)) != DisposableHelper.DISPOSED) {
                     try {
                         this.actual.onError(th);
                     } finally {
-                        if (disposable != null) {
-                            disposable.dispose();
+                        if (andSet != null) {
+                            andSet.dispose();
                         }
                     }
                 }

@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -20,12 +21,12 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public int hostTab;
     public String mRedPotNum;
-    public List serviceAreaListData;
-    public ArrayList tabs;
+    public List<Map<String, Object>> serviceAreaListData;
+    public ArrayList<String> tabs;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class FromType {
+    public static final class FromType {
         public static final /* synthetic */ FromType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FromType BAR;
@@ -159,7 +160,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         return invokeV.intValue;
     }
 
-    public List getServiceAreaListData() {
+    public List<Map<String, Object>> getServiceAreaListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -168,7 +169,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         return (List) invokeV.objValue;
     }
 
-    public void setForumTabs(ArrayList arrayList) {
+    public void setForumTabs(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
             this.tabs = arrayList;
@@ -189,7 +190,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         }
     }
 
-    public void setServiceAreaListData(List list) {
+    public void setServiceAreaListData(List<Map<String, Object>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.serviceAreaListData = list;

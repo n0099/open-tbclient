@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
+public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
@@ -31,14 +31,14 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class SampleTimedEmitLast extends SampleTimedSubscriber {
+    public static final class SampleTimedEmitLast<T> extends SampleTimedSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,13 +83,13 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class SampleTimedNoLast extends SampleTimedSubscriber {
+    public static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedNoLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -127,11 +127,11 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class SampleTimedSubscriber extends AtomicReference implements FlowableSubscriber, Subscription, Runnable {
+    public static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final long period;
         public final AtomicLong requested;
         public Subscription s;
@@ -141,7 +141,7 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
 
         public abstract void complete();
 
-        public SampleTimedSubscriber(Subscriber subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,7 +190,7 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
         }
 
         public void emit() {
-            Object andSet;
+            T andSet;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (andSet = getAndSet(null)) != null) {
                 if (this.requested.get() != 0) {
@@ -213,10 +213,10 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                lazySet(t);
             }
         }
 
@@ -244,7 +244,7 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSampleTimed(Flowable flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public FlowableSampleTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -268,7 +268,7 @@ public final class FlowableSampleTimed extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);

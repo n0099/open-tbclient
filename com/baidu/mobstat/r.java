@@ -96,21 +96,21 @@ public class r {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        String str;
+        String next;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            Iterator it = c(context, y.f).iterator();
+            Iterator<String> it = c(context, y.f).iterator();
             while (true) {
                 int i = 0;
                 while (it.hasNext()) {
-                    str = (String) it.next();
-                    String a2 = bn.a(context, str);
+                    next = it.next();
+                    String a2 = bn.a(context, next);
                     if (TextUtils.isEmpty(a2)) {
-                        bn.b(context, str);
+                        bn.b(context, next);
                     } else if (d(context, a2)) {
                         break;
                     } else {
-                        a(context, a2, str);
+                        a(context, a2, next);
                         i++;
                         if (i >= 5) {
                             return;
@@ -118,7 +118,7 @@ public class r {
                     }
                 }
                 return;
-                bn.b(context, str);
+                bn.b(context, next);
             }
         }
     }
@@ -265,11 +265,11 @@ public class r {
         }
     }
 
-    private ArrayList c(Context context, String str) {
+    private ArrayList<String> c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, context, str)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (context == null) {
                 return arrayList;
             }
@@ -320,7 +320,7 @@ public class r {
                 }
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        Arrays.sort(strArr, new Comparator(this) { // from class: com.baidu.mobstat.r.3
+                        Arrays.sort(strArr, new Comparator<String>(this) { // from class: com.baidu.mobstat.r.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ r a;

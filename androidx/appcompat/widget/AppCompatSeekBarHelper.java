@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -53,7 +54,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         this.mView = seekBar;
     }
 
-    public void setTickMark(Drawable drawable) {
+    public void setTickMark(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, drawable) == null) {
             Drawable drawable2 = this.mTickMark;
@@ -130,6 +131,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
+    @Nullable
     public Drawable getTickMark() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,6 +141,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getTickMarkTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,6 +151,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public PorterDuff.Mode getTickMarkTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,7 +195,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    public void setTickMarkTintList(ColorStateList colorStateList) {
+    public void setTickMarkTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList) == null) {
             this.mTickMarkTintList = colorStateList;
@@ -200,7 +204,7 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         }
     }
 
-    public void setTickMarkTintMode(PorterDuff.Mode mode) {
+    public void setTickMarkTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, mode) == null) {
             this.mTickMarkTintMode = mode;

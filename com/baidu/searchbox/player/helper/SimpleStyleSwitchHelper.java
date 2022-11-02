@@ -2,6 +2,8 @@ package com.baidu.searchbox.player.helper;
 
 import android.app.Activity;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.UniversalPlayer;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
@@ -18,7 +20,7 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
     public ViewGroup mOriginPlayerContainer;
     public final UniversalPlayer mPlayer;
 
-    public SimpleStyleSwitchHelper(UniversalPlayer universalPlayer) {
+    public SimpleStyleSwitchHelper(@NonNull UniversalPlayer universalPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +38,7 @@ public class SimpleStyleSwitchHelper implements IPlayerStyleSwitchHelper {
         this.mPlayer = universalPlayer;
     }
 
-    private void setKeepScreenOn(Activity activity) {
+    private void setKeepScreenOn(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, activity) == null) && activity != null) {
             activity.getWindow().addFlags(128);

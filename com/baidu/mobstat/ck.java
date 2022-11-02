@@ -331,7 +331,7 @@ public class ck extends cj {
     }
 
     @Override // com.baidu.mobstat.cj
-    public List c(ByteBuffer byteBuffer) throws cq, cn {
+    public List<cw> c(ByteBuffer byteBuffer) throws cq, cn {
         LinkedList linkedList;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -382,7 +382,7 @@ public class ck extends cj {
     }
 
     @Override // com.baidu.mobstat.cj
-    public List a(ByteBuffer byteBuffer, boolean z) {
+    public List<cw> a(ByteBuffer byteBuffer, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, byteBuffer, z)) == null) {

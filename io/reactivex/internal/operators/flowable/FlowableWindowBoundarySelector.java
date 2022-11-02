@@ -10,11 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
+import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.queue.MpscLinkedQueue;
 import io.reactivex.internal.subscribers.QueueDrainSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -31,22 +33,22 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUpstream {
+public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final Function close;
-    public final Publisher open;
+    public final Function<? super B, ? extends Publisher<V>> close;
+    public final Publisher<B> open;
 
     /* loaded from: classes8.dex */
-    public final class OperatorWindowBoundaryCloseSubscriber extends DisposableSubscriber {
+    public static final class OperatorWindowBoundaryCloseSubscriber<T, V> extends DisposableSubscriber<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean done;
-        public final WindowBoundaryMainSubscriber parent;
-        public final UnicastProcessor w;
+        public final WindowBoundaryMainSubscriber<T, ?, V> parent;
+        public final UnicastProcessor<T> w;
 
-        public OperatorWindowBoundaryCloseSubscriber(WindowBoundaryMainSubscriber windowBoundaryMainSubscriber, UnicastProcessor unicastProcessor) {
+        public OperatorWindowBoundaryCloseSubscriber(WindowBoundaryMainSubscriber<T, ?, V> windowBoundaryMainSubscriber, UnicastProcessor<T> unicastProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,9 +91,9 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(V v) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v) == null) {
                 cancel();
                 onComplete();
             }
@@ -99,12 +101,12 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public final class OperatorWindowBoundaryOpenSubscriber extends DisposableSubscriber {
+    public static final class OperatorWindowBoundaryOpenSubscriber<T, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WindowBoundaryMainSubscriber parent;
+        public final WindowBoundaryMainSubscriber<T, B, ?> parent;
 
-        public OperatorWindowBoundaryOpenSubscriber(WindowBoundaryMainSubscriber windowBoundaryMainSubscriber) {
+        public OperatorWindowBoundaryOpenSubscriber(WindowBoundaryMainSubscriber<T, B, ?> windowBoundaryMainSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,10 +133,10 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.parent.open(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+                this.parent.open(b);
             }
         }
 
@@ -148,20 +150,20 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowBoundaryMainSubscriber extends QueueDrainSubscriber implements Subscription {
+    public static final class WindowBoundaryMainSubscriber<T, B, V> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference boundary;
+        public final AtomicReference<Disposable> boundary;
         public final int bufferSize;
-        public final Function close;
-        public final Publisher open;
+        public final Function<? super B, ? extends Publisher<V>> close;
+        public final Publisher<B> open;
         public final CompositeDisposable resources;
         public Subscription s;
         public final AtomicLong windows;
-        public final List ws;
+        public final List<UnicastProcessor<T>> ws;
 
         @Override // io.reactivex.internal.subscribers.QueueDrainSubscriber, io.reactivex.internal.util.QueueDrain
-        public boolean accept(Subscriber subscriber, Object obj) {
+        public boolean accept(Subscriber<? super Flowable<T>> subscriber, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subscriber, obj)) == null) {
@@ -171,7 +173,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowBoundaryMainSubscriber(Subscriber subscriber, Publisher publisher, Function function, int i) {
+        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -189,7 +191,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                     return;
                 }
             }
-            this.boundary = new AtomicReference();
+            this.boundary = new AtomicReference<>();
             this.windows = new AtomicLong();
             this.open = publisher;
             this.close = function;
@@ -215,7 +217,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
             }
         }
 
-        public void close(OperatorWindowBoundaryCloseSubscriber operatorWindowBoundaryCloseSubscriber) {
+        public void close(OperatorWindowBoundaryCloseSubscriber<T, V> operatorWindowBoundaryCloseSubscriber) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operatorWindowBoundaryCloseSubscriber) == null) {
                 this.resources.delete(operatorWindowBoundaryCloseSubscriber);
@@ -236,10 +238,10 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
             }
         }
 
-        public void open(Object obj) {
+        public void open(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-                this.queue.offer(new WindowOperation(null, obj));
+            if (interceptable == null || interceptable.invokeL(1048586, this, b) == null) {
+                this.queue.offer(new WindowOperation(null, b));
                 if (enter()) {
                     drainLoop();
                 }
@@ -254,17 +256,18 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: B, ? super B */
         public void drainLoop() {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                SimplePlainQueue simplePlainQueue = this.queue;
-                Subscriber subscriber = this.actual;
-                List<UnicastProcessor> list = this.ws;
+                SimpleQueue simpleQueue = this.queue;
+                Subscriber<? super V> subscriber = this.actual;
+                List<UnicastProcessor<T>> list = this.ws;
                 int i = 1;
                 while (true) {
                     boolean z2 = this.done;
-                    Object poll = simplePlainQueue.poll();
+                    Object poll = simpleQueue.poll();
                     if (poll == null) {
                         z = true;
                     } else {
@@ -274,11 +277,11 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                         dispose();
                         Throwable th = this.error;
                         if (th != null) {
-                            for (UnicastProcessor unicastProcessor : list) {
+                            for (UnicastProcessor<T> unicastProcessor : list) {
                                 unicastProcessor.onError(th);
                             }
                         } else {
-                            for (UnicastProcessor unicastProcessor2 : list) {
+                            for (UnicastProcessor<T> unicastProcessor2 : list) {
                                 unicastProcessor2.onComplete();
                             }
                         }
@@ -291,7 +294,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                         }
                     } else if (poll instanceof WindowOperation) {
                         WindowOperation windowOperation = (WindowOperation) poll;
-                        UnicastProcessor unicastProcessor3 = windowOperation.w;
+                        UnicastProcessor<T> unicastProcessor3 = windowOperation.w;
                         if (unicastProcessor3 != null) {
                             if (list.remove(unicastProcessor3)) {
                                 windowOperation.w.onComplete();
@@ -303,7 +306,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                                 continue;
                             }
                         } else if (!this.cancelled) {
-                            UnicastProcessor create = UnicastProcessor.create(this.bufferSize);
+                            UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize);
                             long requested = requested();
                             if (requested != 0) {
                                 list.add(create);
@@ -312,7 +315,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                                     produced(1L);
                                 }
                                 try {
-                                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.close.apply(windowOperation.open), "The publisher supplied is null");
+                                    Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.close.apply((B) windowOperation.open), "The publisher supplied is null");
                                     OperatorWindowBoundaryCloseSubscriber operatorWindowBoundaryCloseSubscriber = new OperatorWindowBoundaryCloseSubscriber(this, create);
                                     if (this.resources.add(operatorWindowBoundaryCloseSubscriber)) {
                                         this.windows.getAndIncrement();
@@ -328,8 +331,8 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                             }
                         }
                     } else {
-                        for (UnicastProcessor unicastProcessor4 : list) {
-                            unicastProcessor4.onNext(NotificationLite.getValue(poll));
+                        for (UnicastProcessor<T> unicastProcessor4 : list) {
+                            unicastProcessor4.onNext((T) NotificationLite.getValue(poll));
                         }
                     }
                 }
@@ -391,20 +394,20 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) != null) || this.done) {
                 return;
             }
             if (fastEnter()) {
-                for (UnicastProcessor unicastProcessor : this.ws) {
-                    unicastProcessor.onNext(obj);
+                for (UnicastProcessor<T> unicastProcessor : this.ws) {
+                    unicastProcessor.onNext(t);
                 }
                 if (leave(-1) == 0) {
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(obj));
+                this.queue.offer(NotificationLite.next(t));
                 if (!enter()) {
                     return;
                 }
@@ -414,18 +417,18 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowOperation {
+    public static final class WindowOperation<T, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Object open;
-        public final UnicastProcessor w;
+        public final B open;
+        public final UnicastProcessor<T> w;
 
-        public WindowOperation(UnicastProcessor unicastProcessor, Object obj) {
+        public WindowOperation(UnicastProcessor<T> unicastProcessor, B b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {unicastProcessor, obj};
+                Object[] objArr = {unicastProcessor, b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -436,12 +439,12 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
                 }
             }
             this.w = unicastProcessor;
-            this.open = obj;
+            this.open = b;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowBoundarySelector(Flowable flowable, Publisher publisher, Function function, int i) {
+    public FlowableWindowBoundarySelector(Flowable<T> flowable, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -464,7 +467,7 @@ public final class FlowableWindowBoundarySelector extends AbstractFlowableWithUp
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Flowable<T>> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new WindowBoundaryMainSubscriber(new SerializedSubscriber(subscriber), this.open, this.close, this.bufferSize));

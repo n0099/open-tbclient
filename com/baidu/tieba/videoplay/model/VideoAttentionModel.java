@@ -17,6 +17,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,11 +45,11 @@ public class VideoAttentionModel extends BdBaseModel {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(List list, boolean z);
+        void a(List<VideoItemData> list, boolean z);
 
-        void b(List list);
+        void b(List<VideoItemData> list);
 
-        void c(List list, String str, boolean z);
+        void c(List<VideoAttentionPersonListData> list, String str, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -114,8 +116,8 @@ public class VideoAttentionModel extends BdBaseModel {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.a.f)));
                 }
                 if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0) {
-                    List arrayList = new ArrayList();
-                    List arrayList2 = new ArrayList();
+                    List<VideoItemData> arrayList = new ArrayList<>();
+                    List<VideoAttentionPersonListData> arrayList2 = new ArrayList<>();
                     if (httpResponsedMessage instanceof VideoAttentionHttpResponseMessage) {
                         VideoAttentionHttpResponseMessage videoAttentionHttpResponseMessage = (VideoAttentionHttpResponseMessage) httpResponsedMessage;
                         arrayList = videoAttentionHttpResponseMessage.getVideoItemDatas();
@@ -173,7 +175,7 @@ public class VideoAttentionModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;

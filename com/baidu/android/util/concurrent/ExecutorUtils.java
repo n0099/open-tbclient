@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ public class ExecutorUtils {
     }
 
     @Deprecated
-    public static void postOnComputation(Runnable runnable, String str) {
+    public static void postOnComputation(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, runnable, str) == null) {
             ExecutorUtilsExt.postOnElastic(runnable, str, 2);
@@ -58,7 +59,7 @@ public class ExecutorUtils {
     }
 
     @Deprecated
-    public static void postOnIO(Runnable runnable, String str) {
+    public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, runnable, str) == null) {
             ExecutorUtilsExt.postOnElastic(runnable, str, 2);

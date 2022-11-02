@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +24,7 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class DpSessionDatasUploader {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
     public static volatile DpSessionDatasUploader a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,6 +120,7 @@ public final class DpSessionDatasUploader {
         return (byte[]) invokeLZ.objValue;
     }
 
+    @Keep
     public static DpSessionDatasUploader getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -277,6 +280,7 @@ public final class DpSessionDatasUploader {
         return i == 200;
     }
 
+    @Keep
     public void upload(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && com.baidu.cyberplayer.sdk.c.a().b()) {
@@ -318,6 +322,7 @@ public final class DpSessionDatasUploader {
         }
     }
 
+    @Keep
     public void upload(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(1048580, this, str, str2, i) == null) && com.baidu.cyberplayer.sdk.c.a().b()) {

@@ -7,13 +7,15 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.op0;
+import com.baidu.tieba.cq0;
+import com.baidu.tieba.dq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +29,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public TextView k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(Context context) {
+    public SimpleFeedAdInfoView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,11 +54,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fb);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0915fc);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fd);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09163a);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f09163b);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09163c);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080ddb);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080df5);
         }
     }
 
@@ -74,7 +76,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(Context context, AttributeSet attributeSet) {
+    public SimpleFeedAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,7 +97,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleFeedAdInfoView(Context context, AttributeSet attributeSet, int i) {
+    public SimpleFeedAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -120,43 +122,43 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.i;
             if (textView != null) {
-                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060266));
+                textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060267));
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f0602b1), PorterDuff.Mode.SRC_ATOP);
+                appCompatRatingBar.getProgressDrawable().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f0602b2), PorterDuff.Mode.SRC_ATOP);
             }
             TextView textView2 = this.k;
             if (textView2 != null) {
-                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060289));
+                textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06028a));
             }
             TextView textView3 = this.a;
             if (textView3 != null) {
-                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060289));
+                textView3.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06028a));
             }
             TextView textView4 = this.b;
             if (textView4 != null) {
-                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060289));
+                textView4.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06028a));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060289));
+                textView5.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06028a));
             }
             TextView textView6 = this.d;
             if (textView6 != null) {
-                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060289));
+                textView6.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06028a));
             }
         }
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(op0 op0Var) {
+    public void setAdInfo(dq0 dq0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, op0Var) == null) {
-            super.setAdInfo(op0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dq0Var) == null) {
+            super.setAdInfo(dq0Var);
             if (this.i != null) {
-                if (!TextUtils.isEmpty(op0Var.c)) {
-                    this.i.setText(op0Var.c);
+                if (!TextUtils.isEmpty(dq0Var.c)) {
+                    this.i.setText(dq0Var.c);
                     this.i.setVisibility(0);
                 } else {
                     this.i.setVisibility(8);
@@ -164,7 +166,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.k;
             if (textView != null) {
-                double d = op0Var.e;
+                double d = dq0Var.e;
                 if (d != -1.0d) {
                     textView.setText(String.valueOf(d));
                     this.k.setVisibility(0);
@@ -174,7 +176,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                double d2 = op0Var.e;
+                double d2 = dq0Var.e;
                 if (d2 != -1.0d) {
                     appCompatRatingBar.setRating((float) d2);
                     this.j.setVisibility(0);
@@ -186,15 +188,15 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        op0 op0Var;
-        np0.a aVar;
+        dq0 dq0Var;
+        cq0.a aVar;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) && adBaseModel != null && (op0Var = adBaseModel.i) != null) {
-            setAdInfo(op0Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) && adBaseModel != null && (dq0Var = adBaseModel.i) != null) {
+            setAdInfo(dq0Var);
             c();
-            np0 np0Var = adBaseModel.p;
-            if (np0Var != null && (aVar = np0Var.j) != null && (i = aVar.h) != 0) {
+            cq0 cq0Var = adBaseModel.p;
+            if (cq0Var != null && (aVar = cq0Var.j) != null && (i = aVar.h) != 0) {
                 setRatingBarViewLP(i);
             }
         }

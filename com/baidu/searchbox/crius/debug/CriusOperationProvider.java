@@ -9,8 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.android.ActivityUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.crius.util.CriusAbTestManager;
+import com.baidu.searchbox.debug.annotation.DebugInfoProvider;
 import com.baidu.searchbox.debug.data.CheckItemInfo;
 import com.baidu.searchbox.debug.data.DebugDataGroupProvider;
+import com.baidu.searchbox.debug.data.DebugItemInfo;
 import com.baidu.searchbox.debug.data.TextItemInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,6 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@DebugInfoProvider(enable = false, type = "Debug_Fetures")
 /* loaded from: classes2.dex */
 public class CriusOperationProvider extends DebugDataGroupProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -185,7 +188,7 @@ public class CriusOperationProvider extends DebugDataGroupProvider {
         };
     }
 
-    private List getGCommunityOperationInfo() {
+    private List<DebugItemInfo> getGCommunityOperationInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
@@ -200,7 +203,7 @@ public class CriusOperationProvider extends DebugDataGroupProvider {
     }
 
     @Override // com.baidu.searchbox.debug.data.DebugDataGroupProvider
-    public List getChildItemList() {
+    public List<DebugItemInfo> getChildItemList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

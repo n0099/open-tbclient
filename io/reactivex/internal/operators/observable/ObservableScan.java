@@ -15,22 +15,22 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableScan extends AbstractObservableWithUpstream {
+public final class ObservableScan<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction accumulator;
+    public final BiFunction<T, T, T> accumulator;
 
     /* loaded from: classes8.dex */
-    public final class ScanObserver implements Observer, Disposable {
+    public static final class ScanObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BiFunction accumulator;
-        public final Observer actual;
+        public final BiFunction<T, T, T> accumulator;
+        public final Observer<? super T> actual;
         public boolean done;
         public Disposable s;
-        public Object value;
+        public T value;
 
-        public ScanObserver(Observer observer, BiFunction biFunction) {
+        public ScanObserver(Observer<? super T> observer, BiFunction<T, T, T> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,23 +99,24 @@ public final class ObservableScan extends AbstractObservableWithUpstream {
             }
         }
 
+        /* JADX WARN: Type inference failed for: r5v3, types: [T, java.lang.Object] */
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
                 return;
             }
-            Observer observer = this.actual;
-            Object obj2 = this.value;
-            if (obj2 == null) {
-                this.value = obj;
-                observer.onNext(obj);
+            Observer<? super T> observer = this.actual;
+            T t2 = this.value;
+            if (t2 == null) {
+                this.value = t;
+                observer.onNext(t);
                 return;
             }
             try {
-                Object requireNonNull = ObjectHelper.requireNonNull(this.accumulator.apply(obj2, obj), "The value returned by the accumulator is null");
-                this.value = requireNonNull;
-                observer.onNext(requireNonNull);
+                ?? r5 = (T) ObjectHelper.requireNonNull(this.accumulator.apply(t2, t), "The value returned by the accumulator is null");
+                this.value = r5;
+                observer.onNext(r5);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 this.s.dispose();
@@ -125,7 +126,7 @@ public final class ObservableScan extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableScan(ObservableSource observableSource, BiFunction biFunction) {
+    public ObservableScan(ObservableSource<T> observableSource, BiFunction<T, T, T> biFunction) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,7 +147,7 @@ public final class ObservableScan extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new ScanObserver(observer, this.accumulator));

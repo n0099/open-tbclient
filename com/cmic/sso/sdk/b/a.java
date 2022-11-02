@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.b;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -27,7 +28,7 @@ public class a {
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0504a c;
+    public C0515a c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,13 +47,13 @@ public class a {
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0504a {
+    public static class C0515a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0504a() {
+        public C0515a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,17 +108,17 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public C0504a b() {
+    public C0515a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C0504a c0504a = this.c;
-            if (c0504a == null) {
-                return new C0504a();
+            C0515a c0515a = this.c;
+            if (c0515a == null) {
+                return new C0515a();
             }
-            return c0504a;
+            return c0515a;
         }
-        return (C0504a) invokeV.objValue;
+        return (C0515a) invokeV.objValue;
     }
 
     private void a(Context context, boolean z) {
@@ -230,6 +231,7 @@ public class a {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     private int c(Context context) {
         InterceptResult invokeL;
         TelephonyManager telephonyManager;
@@ -312,7 +314,7 @@ public class a {
             if (currentTimeMillis < 5000 && currentTimeMillis > 0) {
                 return;
             }
-            this.c = new C0504a();
+            this.c = new C0515a();
             if (!z2) {
                 return;
             }
@@ -321,8 +323,8 @@ public class a {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                 if (this.c.b == 0 || this.c.b == 1) {
                     if (this.c.a == -1) {
-                        C0504a c0504a = this.c;
-                        c0504a.a = c0504a.b;
+                        C0515a c0515a = this.c;
+                        c0515a.a = c0515a.b;
                     }
                     this.c.b = -1;
                 }

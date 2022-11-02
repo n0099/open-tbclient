@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.c;
 
+import androidx.annotation.WorkerThread;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -16,7 +17,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.g
-    public void a(List list) {
+    public void a(List<DownloadInfo> list) {
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.k
@@ -55,6 +56,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
         }, 5000L);
     }
 
+    @WorkerThread
     public void a(DownloadInfo downloadInfo, int i, boolean z) {
         int i2;
         com.ss.android.downloadlib.addownload.b.f.a().b();

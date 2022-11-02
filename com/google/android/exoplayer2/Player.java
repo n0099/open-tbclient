@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,6 +70,7 @@ public interface Player {
 
     int getCurrentAdIndexInAdGroup();
 
+    @Nullable
     Object getCurrentManifest();
 
     int getCurrentPeriodIndex();
@@ -125,7 +127,7 @@ public interface Player {
 
     void setPlayWhenReady(boolean z);
 
-    void setPlaybackParameters(PlaybackParameters playbackParameters);
+    void setPlaybackParameters(@Nullable PlaybackParameters playbackParameters);
 
     void setRepeatMode(int i);
 
@@ -134,7 +136,7 @@ public interface Player {
     void stop();
 
     /* loaded from: classes7.dex */
-    public abstract class DefaultEventListener implements EventListener {
+    public static abstract class DefaultEventListener implements EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

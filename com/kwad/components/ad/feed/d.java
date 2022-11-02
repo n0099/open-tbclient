@@ -3,6 +3,8 @@ package com.kwad.components.ad.feed;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,11 +34,12 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
     public boolean cM;
     public KsAdVideoPlayConfig cN;
     public AdInfo mAdInfo;
+    @NonNull
     public AdTemplate mAdTemplate;
     public int mWidth;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int cS;
@@ -83,7 +86,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         void aZ();
     }
 
-    public d(AdTemplate adTemplate, int i, boolean z) {
+    public d(@NonNull AdTemplate adTemplate, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,6 +109,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         this.mWidth = i;
     }
 
+    @Nullable
     private com.kwad.components.core.widget.b F(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -138,7 +142,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
         if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar, z) == null) || bVar == null) {
             return;
         }
-        bVar.setInnerAdInteractionListener(new b.InterfaceC0590b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
+        bVar.setInnerAdInteractionListener(new b.InterfaceC0601b(this, z, bVar) { // from class: com.kwad.components.ad.feed.d.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d cP;
@@ -165,7 +169,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 this.cR = bVar;
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0590b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0601b
             public final void onAdClicked() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.cP.cJ == null) {
@@ -174,7 +178,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 this.cP.cJ.onAdClicked();
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0590b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0601b
             public final void onAdShow() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -195,7 +199,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0590b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0601b
             public final void onDislikeClicked() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.cP.cJ == null) {
@@ -211,7 +215,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0590b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0601b
             public final void onDownloadTipsDialogDismiss() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || this.cP.cJ == null) {
@@ -223,7 +227,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0590b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0601b
             public final void onDownloadTipsDialogShow() {
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeV(1048580, this) == null) || this.cP.cJ == null) {
@@ -322,7 +326,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
                     });
                     return this.cL;
                 }
-                bVar2.c(this.mAdTemplate);
+                bVar2.c((com.kwad.components.core.widget.b) this.mAdTemplate);
                 com.kwad.components.core.widget.b bVar3 = this.cL;
                 if (bVar3 instanceof com.kwad.components.ad.feed.a.c) {
                     ((com.kwad.components.ad.feed.a.c) bVar3).a(this.cN);
@@ -371,7 +375,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
             }
             com.kwad.components.core.widget.b bVar3 = this.cK;
             if (bVar3 != null) {
-                bVar3.c(this.mAdTemplate);
+                bVar3.c((com.kwad.components.core.widget.b) this.mAdTemplate);
                 com.kwad.components.core.widget.b bVar4 = this.cK;
                 if (bVar4 instanceof com.kwad.components.ad.feed.a.c) {
                     ((com.kwad.components.ad.feed.a.c) bVar4).a(this.cN);
@@ -429,7 +433,7 @@ public final class d extends AbstractKsFeedAd implements com.kwad.components.cor
     }
 
     @Override // com.kwad.sdk.api.KsFeedAd
-    public final void setVideoPlayConfig(KsAdVideoPlayConfig ksAdVideoPlayConfig) {
+    public final void setVideoPlayConfig(@Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         AdTemplate adTemplate;
         int i;
         Interceptable interceptable = $ic;

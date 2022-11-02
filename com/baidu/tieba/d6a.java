@@ -1,28 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes3.dex */
 public class d6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Empty";
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                u6a.b(i, i2, PayUIEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                u6a.b(i, i2, PayUIEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
             }
-            String[] split = str.split("\\?");
-            if (split.length > 0) {
-                return split[0];
-            }
-            return V8ExceptionInfo.V8_EXCEPTION_ERROR;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void b(int i, int i2, CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                u6a.b(i, i2, PayUIEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                u6a.b(i, i2, PayUIEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
+            }
+        }
     }
 }

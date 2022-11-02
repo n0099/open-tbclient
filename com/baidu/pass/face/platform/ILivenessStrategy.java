@@ -14,7 +14,7 @@ public interface ILivenessStrategy {
 
     void setISecurityCallback(ISecurityCallback iSecurityCallback);
 
-    void setLivenessStrategyConfig(List list, Rect rect, Rect rect2, ILivenessStrategyCallback iLivenessStrategyCallback);
+    void setLivenessStrategyConfig(List<LivenessTypeEnum> list, Rect rect, Rect rect2, ILivenessStrategyCallback iLivenessStrategyCallback);
 
     void setLivenessStrategySoundEnable(boolean z);
 

@@ -64,7 +64,7 @@ public class c implements f, Runnable {
     public com.ss.android.socialbase.downloader.network.g y;
     public w z;
     public volatile boolean d = false;
-    public final ArrayList f = new ArrayList();
+    public final ArrayList<b> f = new ArrayList<>();
     public volatile com.ss.android.socialbase.downloader.constants.h n = com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_NONE;
     public volatile int B = 5;
     public boolean C = false;
@@ -245,7 +245,7 @@ public class c implements f, Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int a(long j, List list) {
+    private int a(long j, List<com.ss.android.socialbase.downloader.model.b> list) {
         int i;
         int a2;
         if (C()) {
@@ -573,7 +573,7 @@ public class c implements f, Runnable {
             return false;
         }
         JSONObject d = com.ss.android.socialbase.downloader.g.a.a(this.p.getId()).d("segment_config");
-        List n = this.o.n(this.p.getId());
+        List<com.ss.android.socialbase.downloader.f.i> n = this.o.n(this.p.getId());
         if (this.p.getCurBytes() > 0) {
             if (n == null || n.isEmpty()) {
                 return false;
@@ -779,7 +779,7 @@ public class c implements f, Runnable {
         z = true;
         if (z && bVar.f()) {
             for (int i2 = 1; i2 < bVar.g().size(); i2++) {
-                com.ss.android.socialbase.downloader.model.b bVar4 = (com.ss.android.socialbase.downloader.model.b) bVar.g().get(i2);
+                com.ss.android.socialbase.downloader.model.b bVar4 = bVar.g().get(i2);
                 if (bVar4 != null) {
                     String str2 = a;
                     com.ss.android.socialbase.downloader.c.a.b(str2, "check can checkUnCompletedChunk -- chunkIndex:" + bVar4.s() + " currentOffset:" + bVar4.n() + "  startOffset:" + bVar4.l() + " contentLen:" + bVar4.q());
@@ -801,8 +801,8 @@ public class c implements f, Runnable {
         return bVar2;
     }
 
-    private List a(com.ss.android.socialbase.downloader.model.b bVar) {
-        List a2 = com.ss.android.socialbase.downloader.i.f.a(this.p.getExtraHeaders(), this.p.geteTag(), bVar);
+    private List<com.ss.android.socialbase.downloader.model.c> a(com.ss.android.socialbase.downloader.model.b bVar) {
+        List<com.ss.android.socialbase.downloader.model.c> a2 = com.ss.android.socialbase.downloader.i.f.a(this.p.getExtraHeaders(), this.p.geteTag(), bVar);
         if (this.p.isExpiredRedownload() && this.F && this.p.getLastModified() != null) {
             a2.add(new com.ss.android.socialbase.downloader.model.c("if-modified-since", this.p.getLastModified()));
             a2.add(new com.ss.android.socialbase.downloader.model.c("download-tc21-1-15", "download-tc21-1-15"));
@@ -812,7 +812,7 @@ public class c implements f, Runnable {
         return a2;
     }
 
-    private void a(int i, List list) throws BaseException {
+    private void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws BaseException {
         if (list.size() == i) {
             a(list, this.p.getTotalBytes());
             return;
@@ -877,7 +877,7 @@ public class c implements f, Runnable {
         throw new com.ss.android.socialbase.downloader.exception.i(str2);
     }
 
-    private void a(String str, List list) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
+    private void a(String str, List<com.ss.android.socialbase.downloader.model.c> list) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
         i iVar;
         boolean z;
         if (this.x != null) {
@@ -937,7 +937,7 @@ public class c implements f, Runnable {
         }
     }
 
-    private void a(String str, List list, long j) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
+    private void a(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
         b(str, list, j);
         com.ss.android.socialbase.downloader.network.g gVar = this.y;
         if (gVar != null) {
@@ -954,7 +954,7 @@ public class c implements f, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list) {
+    public void a(List<String> list) {
         boolean z;
         if (list != null && !list.isEmpty()) {
             DownloadInfo downloadInfo = this.p;
@@ -971,11 +971,9 @@ public class c implements f, Runnable {
         }
     }
 
-    private void a(List list, long j) throws BaseException {
+    private void a(List<com.ss.android.socialbase.downloader.model.b> list, long j) throws BaseException {
         long p;
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
+        for (com.ss.android.socialbase.downloader.model.b bVar : list) {
             if (bVar != null) {
                 if (bVar.p() == 0) {
                     p = j - bVar.n();
@@ -998,15 +996,15 @@ public class c implements f, Runnable {
         }
         if (com.ss.android.socialbase.downloader.i.a.a(64)) {
             ArrayList arrayList = new ArrayList(this.f.size());
-            Iterator it2 = this.f.iterator();
-            while (it2.hasNext()) {
-                b bVar2 = (b) it2.next();
+            Iterator<b> it = this.f.iterator();
+            while (it.hasNext()) {
+                b next = it.next();
                 if (this.n == com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_CANCELED) {
-                    bVar2.b();
+                    next.b();
                 } else if (this.n == com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_PAUSE) {
-                    bVar2.a();
+                    next.a();
                 } else {
-                    arrayList.add(bVar2);
+                    arrayList.add(next);
                 }
             }
             try {
@@ -1034,15 +1032,15 @@ public class c implements f, Runnable {
             }
         }
         ArrayList arrayList2 = new ArrayList(this.f.size());
-        Iterator it3 = this.f.iterator();
-        while (it3.hasNext()) {
-            b bVar3 = (b) it3.next();
+        Iterator<b> it2 = this.f.iterator();
+        while (it2.hasNext()) {
+            b next2 = it2.next();
             if (this.n == com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_CANCELED) {
-                bVar3.b();
+                next2.b();
             } else if (this.n == com.ss.android.socialbase.downloader.constants.h.RUN_STATUS_PAUSE) {
-                bVar3.a();
+                next2.a();
             } else {
-                arrayList2.add(Executors.callable(bVar3));
+                arrayList2.add(Executors.callable(next2));
             }
         }
         if (v()) {
@@ -1068,7 +1066,7 @@ public class c implements f, Runnable {
         return false;
     }
 
-    private void b(String str, List list, long j) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
+    private void b(String str, List<com.ss.android.socialbase.downloader.model.c> list, long j) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
         com.ss.android.socialbase.downloader.network.a.c a2;
         boolean z = true;
         if (this.p.getChunkCount() == 1 && (a2 = com.ss.android.socialbase.downloader.network.a.a.a().a(str, list)) != null) {
@@ -1299,7 +1297,7 @@ public class c implements f, Runnable {
 
     private void l() {
         boolean z;
-        List c;
+        List<com.ss.android.socialbase.downloader.model.b> c;
         long j;
         boolean z2;
         try {
@@ -1412,7 +1410,7 @@ public class c implements f, Runnable {
                     j = 0;
                 }
                 com.ss.android.socialbase.downloader.model.b a2 = a(this.p, j);
-                List a3 = a(a2);
+                List<com.ss.android.socialbase.downloader.model.c> a3 = a(a2);
                 com.ss.android.socialbase.downloader.i.f.a(a3, this.p);
                 com.ss.android.socialbase.downloader.i.f.b(a3, this.p);
                 this.p.setPreconnectLevel(0);
@@ -1498,7 +1496,7 @@ public class c implements f, Runnable {
             if (this.z != null && !this.p.isForbiddenRetryed()) {
                 com.ss.android.socialbase.downloader.depend.b bVar = new com.ss.android.socialbase.downloader.depend.b() { // from class: com.ss.android.socialbase.downloader.h.c.1
                     @Override // com.ss.android.socialbase.downloader.depend.b, com.ss.android.socialbase.downloader.depend.v
-                    public void a(List list) {
+                    public void a(List<String> list) {
                         super.a(list);
                         c.this.a(list);
                     }
@@ -1629,10 +1627,10 @@ public class c implements f, Runnable {
         if (this.p.getChunkCount() < 2) {
             return null;
         }
-        List c = this.o.c(this.p.getId());
+        List<com.ss.android.socialbase.downloader.model.b> c = this.o.c(this.p.getId());
         if (c != null && !c.isEmpty()) {
             for (int i2 = 0; i2 < c.size(); i2++) {
-                com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) c.get(i2);
+                com.ss.android.socialbase.downloader.model.b bVar = c.get(i2);
                 if (bVar != null && (a2 = a(bVar, i)) != null) {
                     return a2;
                 }

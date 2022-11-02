@@ -14,12 +14,12 @@ import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes2.dex */
-public class PostFormRequest extends HttpParaRequest {
+public class PostFormRequest extends HttpParaRequest<PostFormRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class PostFormRequestBuilder extends HttpRequestParasBuilder {
+    public static class PostFormRequestBuilder extends HttpRequestParasBuilder<PostFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,11 +132,11 @@ public class PostFormRequest extends HttpParaRequest {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap linkedHashMap = this.params;
+            LinkedHashMap<String, String> linkedHashMap = this.params;
             if (linkedHashMap != null && !linkedHashMap.isEmpty()) {
                 FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry entry : this.params.entrySet()) {
-                    builder.add((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.params.entrySet()) {
+                    builder.add(entry.getKey(), entry.getValue());
                 }
                 return builder.build();
             }

@@ -1,6 +1,7 @@
 package com.google.android.gms.common.stats;
 
 import android.content.ComponentName;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class LoggingConstants {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
+    @KeepForSdk
     @Deprecated
     public static final String EXTRA_WAKE_LOCK_KEY = "WAKE_LOCK_KEY";
+    @NonNull
     public static final ComponentName zza;
     public transient /* synthetic */ FieldHolder $fh;
 

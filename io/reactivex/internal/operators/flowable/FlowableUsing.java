@@ -21,31 +21,31 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableUsing extends Flowable {
+public final class FlowableUsing<T, D> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer disposer;
+    public final Consumer<? super D> disposer;
     public final boolean eager;
-    public final Callable resourceSupplier;
-    public final Function sourceSupplier;
+    public final Callable<? extends D> resourceSupplier;
+    public final Function<? super D, ? extends Publisher<? extends T>> sourceSupplier;
 
     /* loaded from: classes8.dex */
-    public final class UsingSubscriber extends AtomicBoolean implements FlowableSubscriber, Subscription {
+    public static final class UsingSubscriber<T, D> extends AtomicBoolean implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5904473792286235046L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final Consumer disposer;
+        public final Subscriber<? super T> actual;
+        public final Consumer<? super D> disposer;
         public final boolean eager;
-        public final Object resource;
+        public final D resource;
         public Subscription s;
 
-        public UsingSubscriber(Subscriber subscriber, Object obj, Consumer consumer, boolean z) {
+        public UsingSubscriber(Subscriber<? super T> subscriber, D d, Consumer<? super D> consumer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, obj, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class FlowableUsing extends Flowable {
                 }
             }
             this.actual = subscriber;
-            this.resource = obj;
+            this.resource = d;
             this.disposer = consumer;
             this.eager = z;
         }
@@ -70,11 +70,12 @@ public final class FlowableUsing extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: D, ? super D */
         public void disposeAfter() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
                 try {
-                    this.disposer.accept(this.resource);
+                    this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -82,6 +83,7 @@ public final class FlowableUsing extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: D, ? super D */
         @Override // org.reactivestreams.Subscriber
         public void onComplete() {
             Interceptable interceptable = $ic;
@@ -89,7 +91,7 @@ public final class FlowableUsing extends Flowable {
                 if (this.eager) {
                     if (compareAndSet(false, true)) {
                         try {
-                            this.disposer.accept(this.resource);
+                            this.disposer.accept((D) this.resource);
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             this.actual.onError(th);
@@ -106,6 +108,7 @@ public final class FlowableUsing extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r4v1. Raw type applied. Possible types: D, ? super D */
         @Override // org.reactivestreams.Subscriber
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -114,7 +117,7 @@ public final class FlowableUsing extends Flowable {
                     Throwable th2 = null;
                     if (compareAndSet(false, true)) {
                         try {
-                            this.disposer.accept(this.resource);
+                            this.disposer.accept((D) this.resource);
                         } catch (Throwable th3) {
                             th2 = th3;
                             Exceptions.throwIfFatal(th2);
@@ -136,10 +139,10 @@ public final class FlowableUsing extends Flowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -161,7 +164,7 @@ public final class FlowableUsing extends Flowable {
         }
     }
 
-    public FlowableUsing(Callable callable, Function function, Consumer consumer, boolean z) {
+    public FlowableUsing(Callable<? extends D> callable, Function<? super D, ? extends Publisher<? extends T>> function, Consumer<? super D> consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,11 +186,11 @@ public final class FlowableUsing extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {
-                Object call = this.resourceSupplier.call();
+                D call = this.resourceSupplier.call();
                 try {
                     ((Publisher) ObjectHelper.requireNonNull(this.sourceSupplier.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(subscriber, call, this.disposer, this.eager));
                 } catch (Throwable th) {

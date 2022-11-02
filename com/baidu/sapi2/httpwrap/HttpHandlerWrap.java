@@ -111,7 +111,7 @@ public class HttpHandlerWrap {
         this.executCallbackInChildThread = z;
     }
 
-    public void onSuccess(int i, String str, HashMap hashMap) {
+    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, hashMap) == null) {
             onSuccess(i, str);

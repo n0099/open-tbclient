@@ -2,6 +2,8 @@ package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -76,7 +78,7 @@ public class DefaultContentUploader extends BaseContentUploader {
     /* JADX WARN: Type inference failed for: r13v18 */
     /* JADX WARN: Type inference failed for: r13v3 */
     /* JADX WARN: Type inference failed for: r13v6, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map<java.lang.String, java.lang.String>, java.util.Map, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r14v37 */
     /* JADX WARN: Type inference failed for: r14v38 */
     /* JADX WARN: Type inference failed for: r14v39 */
@@ -100,7 +102,7 @@ public class DefaultContentUploader extends BaseContentUploader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ResponseEntity uploadDataRequestSync(String str, File file, Map map) {
+    public ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map) {
         InterceptResult invokeLLL;
         InputStream inputStream;
         FileInputStream fileInputStream;

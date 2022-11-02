@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wg8;
+import com.baidu.tieba.gi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,7 +62,7 @@ public class SettingTextImageView extends FrameLayout {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, wg8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, gi8.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -131,11 +131,11 @@ public class SettingTextImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b8, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e14);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07cd, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092152);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e43);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
         }
     }
 
@@ -143,9 +143,9 @@ public class SettingTextImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             if (z) {
-                this.d.L(str, 26, false);
+                this.d.K(str, 26, false);
             } else {
-                this.d.L(str, 12, false);
+                this.d.K(str, 12, false);
             }
         }
     }

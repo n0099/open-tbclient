@@ -2,10 +2,12 @@ package com.bytedance.pangle.receiver;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public abstract class PluginBroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;

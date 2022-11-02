@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -77,7 +79,7 @@ public class Util {
     }
 
     /* loaded from: classes2.dex */
-    public class EmptyLogger implements Logger {
+    public static class EmptyLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -170,7 +172,7 @@ public class Util {
         return (Logger) invokeV.objValue;
     }
 
-    public static void addDefaultUserAgent(DownloadConnection downloadConnection) {
+    public static void addDefaultUserAgent(@NonNull DownloadConnection downloadConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, downloadConnection) == null) {
             downloadConnection.addHeader("User-Agent", "BdDownload/");
@@ -195,7 +197,7 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static long getFreeSpaceBytes(StatFs statFs) {
+    public static long getFreeSpaceBytes(@NonNull StatFs statFs) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, statFs)) == null) {
@@ -207,6 +209,7 @@ public class Util {
         return invokeL.longValue;
     }
 
+    @NonNull
     public static File getParentFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -220,7 +223,7 @@ public class Util {
         return (File) invokeL.objValue;
     }
 
-    public static void inspectUserHeader(Map map) throws IOException {
+    public static void inspectUserHeader(@NonNull Map<String, List<String>> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, map) == null) {
             if (!map.containsKey(IF_MATCH) && !map.containsKey("Range")) {
@@ -230,7 +233,7 @@ public class Util {
         }
     }
 
-    public static boolean isEmpty(CharSequence charSequence) {
+    public static boolean isEmpty(@Nullable CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, charSequence)) == null) {
@@ -242,7 +245,7 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean isInvalidUrl(String str) {
+    public static boolean isInvalidUrl(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
@@ -288,7 +291,7 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean isUriContentScheme(Uri uri) {
+    public static boolean isUriContentScheme(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, uri)) == null) {
@@ -297,7 +300,7 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean isUriFileScheme(Uri uri) {
+    public static boolean isUriFileScheme(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, uri)) == null) {
@@ -306,26 +309,26 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static void setLogger(Logger logger2) {
+    public static void setLogger(@Nullable Logger logger2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65569, null, logger2) == null) {
             logger = logger2;
         }
     }
 
-    public static void addRequestHeaderFields(Map map, DownloadConnection downloadConnection) {
+    public static void addRequestHeaderFields(@NonNull Map<String, List<String>> map, @NonNull DownloadConnection downloadConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, map, downloadConnection) == null) {
-            for (Map.Entry entry : map.entrySet()) {
-                String str = (String) entry.getKey();
-                for (String str2 : (List) entry.getValue()) {
-                    downloadConnection.addHeader(str, str2);
+            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+                String key = entry.getKey();
+                for (String str : entry.getValue()) {
+                    downloadConnection.addHeader(key, str);
                 }
             }
         }
     }
 
-    public static void addUserRequestHeaderField(Map map, DownloadConnection downloadConnection) throws IOException {
+    public static void addUserRequestHeaderField(@NonNull Map<String, List<String>> map, @NonNull DownloadConnection downloadConnection) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, downloadConnection) == null) {
             inspectUserHeader(map);
@@ -387,7 +390,7 @@ public class Util {
                 }
 
                 @Override // java.util.concurrent.ThreadFactory
-                public Thread newThread(Runnable runnable) {
+                public Thread newThread(@NonNull Runnable runnable) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
@@ -414,7 +417,7 @@ public class Util {
         }
     }
 
-    public static void assembleBlock(DownloadTask downloadTask, BreakpointInfo breakpointInfo, long j, boolean z) {
+    public static void assembleBlock(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
@@ -440,6 +443,7 @@ public class Util {
         }
     }
 
+    @NonNull
     public static DownloadConnection.Factory createDefaultConnectionFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -466,6 +470,7 @@ public class Util {
         return (DownloadConnection.Factory) invokeV.objValue;
     }
 
+    @NonNull
     public static DownloadConnection.Factory createHttpManagerConnectionFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -492,6 +497,7 @@ public class Util {
         return (DownloadConnection.Factory) invokeV.objValue;
     }
 
+    @NonNull
     public static DownloadStore createDefaultDatabase(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -505,7 +511,8 @@ public class Util {
         return (DownloadStore) invokeL.objValue;
     }
 
-    public static DownloadStore createRemitDatabase(DownloadStore downloadStore) {
+    @NonNull
+    public static DownloadStore createRemitDatabase(@NonNull DownloadStore downloadStore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, downloadStore)) == null) {
@@ -519,7 +526,8 @@ public class Util {
         return (DownloadStore) invokeL.objValue;
     }
 
-    public static String getFilenameFromContentUri(Uri uri) {
+    @Nullable
+    public static String getFilenameFromContentUri(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
@@ -537,7 +545,7 @@ public class Util {
         return (String) invokeL.objValue;
     }
 
-    public static long getSizeFromContentUri(Uri uri) {
+    public static long getSizeFromContentUri(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
@@ -555,7 +563,7 @@ public class Util {
         return invokeL.longValue;
     }
 
-    public static long parseContentLength(String str) {
+    public static long parseContentLength(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
@@ -620,6 +628,7 @@ public class Util {
         return (String) invokeCommon.objValue;
     }
 
+    @Nullable
     public static String md5(String str) {
         InterceptResult invokeL;
         byte[] bArr;
@@ -646,7 +655,7 @@ public class Util {
         return (String) invokeL.objValue;
     }
 
-    public static long parseContentLengthFromContentRange(String str) {
+    public static long parseContentLengthFromContentRange(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {

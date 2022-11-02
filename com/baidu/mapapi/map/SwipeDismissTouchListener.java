@@ -1,11 +1,13 @@
 package com.baidu.mapapi.map;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewPropertyAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,35 +71,30 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(11)
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
             int height = this.e.getHeight();
             ValueAnimator duration = ValueAnimator.ofInt(height, 1).setDuration(this.d);
-            duration.addListener(new q(this, layoutParams, height));
-            duration.addUpdateListener(new r(this, layoutParams));
+            duration.addListener(new x(this, layoutParams, height));
+            duration.addUpdateListener(new y(this, layoutParams));
             duration.start();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x002b, code lost:
-        if (r10.m == null) goto L16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
-        r10.e.animate().translationX(0.0f).setDuration(r10.d).setListener(null);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x018f, code lost:
-        if (r10.j != false) goto L14;
-     */
     @Override // android.view.View.OnTouchListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @TargetApi(12)
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         boolean z;
         int i;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
             motionEvent.offsetLocation(this.n, 0.0f);
@@ -105,81 +102,126 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
                 this.g = this.e.getWidth();
             }
             int actionMasked = motionEvent.getActionMasked();
-            if (actionMasked == 0) {
-                this.h = motionEvent.getRawX();
-                this.i = motionEvent.getRawY();
-                if (this.f.canDismiss(this.l)) {
-                    this.o = false;
-                    VelocityTracker obtain = VelocityTracker.obtain();
-                    this.m = obtain;
-                    obtain.addMovement(motionEvent);
-                }
-                return true;
-            }
-            if (actionMasked == 1) {
-                if (this.m != null) {
-                    float rawX = motionEvent.getRawX() - this.h;
+            boolean z5 = true;
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked == 3 && this.m != null) {
+                            this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
+                            this.m.recycle();
+                            this.m = null;
+                            this.n = 0.0f;
+                            this.h = 0.0f;
+                            this.i = 0.0f;
+                            this.j = false;
+                        }
+                    } else {
+                        VelocityTracker velocityTracker = this.m;
+                        if (velocityTracker != null) {
+                            velocityTracker.addMovement(motionEvent);
+                            float rawX = motionEvent.getRawX() - this.h;
+                            float rawY = motionEvent.getRawY() - this.i;
+                            if (Math.abs(rawX) > this.a && Math.abs(rawY) < Math.abs(rawX) / 2.0f) {
+                                this.j = true;
+                                if (rawX > 0.0f) {
+                                    i3 = this.a;
+                                } else {
+                                    i3 = -this.a;
+                                }
+                                this.k = i3;
+                                this.e.getParent().requestDisallowInterceptTouchEvent(true);
+                                if (!this.o) {
+                                    this.o = true;
+                                    this.f.onNotify();
+                                }
+                                if (Math.abs(rawX) > this.g / 3) {
+                                    if (!this.p) {
+                                        this.p = true;
+                                        this.f.onNotify();
+                                    }
+                                } else {
+                                    this.p = false;
+                                }
+                                MotionEvent obtain = MotionEvent.obtain(motionEvent);
+                                obtain.setAction((motionEvent.getActionIndex() << 8) | 3);
+                                this.e.onTouchEvent(obtain);
+                                obtain.recycle();
+                            }
+                            if (this.j) {
+                                this.n = rawX;
+                                this.e.setTranslationX(rawX - this.k);
+                                return true;
+                            }
+                        }
+                    }
+                } else if (this.m != null) {
+                    float rawX2 = motionEvent.getRawX() - this.h;
                     this.m.addMovement(motionEvent);
                     this.m.computeCurrentVelocity(1000);
                     float xVelocity = this.m.getXVelocity();
                     float abs = Math.abs(xVelocity);
                     float abs2 = Math.abs(this.m.getYVelocity());
-                    if (Math.abs(rawX) > this.g / 3 && this.j) {
-                        z = rawX > 0.0f;
-                    } else if (this.b > abs || abs > this.c || abs2 >= abs || i >= 0 || !this.j) {
-                        z = false;
-                        r3 = false;
+                    if (Math.abs(rawX2) > this.g / 3 && this.j) {
+                        if (rawX2 > 0.0f) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                    } else if (this.b <= abs && abs <= this.c && abs2 < abs && i < 0 && this.j) {
+                        if (xVelocity < 0.0f) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (rawX2 < 0.0f) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        if (z2 == z3) {
+                            z4 = true;
+                        } else {
+                            z4 = false;
+                        }
+                        if (this.m.getXVelocity() <= 0.0f) {
+                            z5 = false;
+                        }
+                        boolean z6 = z5;
+                        z5 = z4;
+                        z = z6;
                     } else {
-                        r3 = ((xVelocity > 0.0f ? 1 : (xVelocity == 0.0f ? 0 : -1)) < 0) == ((rawX > 0.0f ? 1 : (rawX == 0.0f ? 0 : -1)) < 0);
-                        z = this.m.getXVelocity() > 0.0f;
+                        z = false;
+                        z5 = false;
                     }
-                    if (r3) {
-                        this.e.animate().translationX(z ? this.g : -this.g).setDuration(this.d).setListener(new p(this));
+                    if (z5) {
+                        ViewPropertyAnimator animate = this.e.animate();
+                        if (z) {
+                            i2 = this.g;
+                        } else {
+                            i2 = -this.g;
+                        }
+                        animate.translationX(i2).setDuration(this.d).setListener(new w(this));
+                    } else if (this.j) {
+                        this.e.animate().translationX(0.0f).setDuration(this.d).setListener(null);
                     }
+                    this.m.recycle();
+                    this.m = null;
+                    this.n = 0.0f;
+                    this.h = 0.0f;
+                    this.i = 0.0f;
+                    this.j = false;
                 }
                 return false;
             }
-            if (actionMasked == 2) {
-                VelocityTracker velocityTracker = this.m;
-                if (velocityTracker != null) {
-                    velocityTracker.addMovement(motionEvent);
-                    float rawX2 = motionEvent.getRawX() - this.h;
-                    float rawY = motionEvent.getRawY() - this.i;
-                    if (Math.abs(rawX2) > this.a && Math.abs(rawY) < Math.abs(rawX2) / 2.0f) {
-                        this.j = true;
-                        this.k = rawX2 > 0.0f ? this.a : -this.a;
-                        this.e.getParent().requestDisallowInterceptTouchEvent(true);
-                        if (!this.o) {
-                            this.o = true;
-                            this.f.onNotify();
-                        }
-                        if (Math.abs(rawX2) <= this.g / 3) {
-                            this.p = false;
-                        } else if (!this.p) {
-                            this.p = true;
-                            this.f.onNotify();
-                        }
-                        MotionEvent obtain2 = MotionEvent.obtain(motionEvent);
-                        obtain2.setAction((motionEvent.getActionIndex() << 8) | 3);
-                        this.e.onTouchEvent(obtain2);
-                        obtain2.recycle();
-                    }
-                    if (this.j) {
-                        this.n = rawX2;
-                        this.e.setTranslationX(rawX2 - this.k);
-                        return true;
-                    }
-                }
-            } else if (actionMasked == 3) {
+            this.h = motionEvent.getRawX();
+            this.i = motionEvent.getRawY();
+            if (this.f.canDismiss(this.l)) {
+                this.o = false;
+                VelocityTracker obtain2 = VelocityTracker.obtain();
+                this.m = obtain2;
+                obtain2.addMovement(motionEvent);
             }
-            return false;
-            this.m.recycle();
-            this.m = null;
-            this.n = 0.0f;
-            this.h = 0.0f;
-            this.i = 0.0f;
-            this.j = false;
-            return false;
+            return true;
         }
         return invokeLL.booleanValue;
     }

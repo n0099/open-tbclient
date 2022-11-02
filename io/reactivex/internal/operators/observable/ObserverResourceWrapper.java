@@ -11,14 +11,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObserverResourceWrapper extends AtomicReference implements Observer, Disposable {
+public final class ObserverResourceWrapper<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8612022020200669122L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
-    public final AtomicReference subscription;
+    public final Observer<? super T> actual;
+    public final AtomicReference<Disposable> subscription;
 
-    public ObserverResourceWrapper(Observer observer) {
+    public ObserverResourceWrapper(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +33,7 @@ public final class ObserverResourceWrapper extends AtomicReference implements Ob
                 return;
             }
         }
-        this.subscription = new AtomicReference();
+        this.subscription = new AtomicReference<>();
         this.actual = observer;
     }
 
@@ -78,10 +78,10 @@ public final class ObserverResourceWrapper extends AtomicReference implements Ob
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.actual.onNext(obj);
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.actual.onNext(t);
         }
     }
 

@@ -1,111 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
 /* loaded from: classes6.dex */
-public class w4a implements x3a {
+public class w4a {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public d5a c;
-    public PayUIKitConfig d;
 
-    public w4a(int i, int i2, d5a d5aVar, PayUIKitConfig payUIKitConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), d5aVar, payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221989, "Lcom/baidu/tieba/w4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221989, "Lcom/baidu/tieba/w4a;");
                 return;
             }
         }
-        RLog.info("PayViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = d5aVar;
-        this.d = payUIKitConfig;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, t3a t3aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, t3aVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.d, viewParams, this.c, t3aVar);
-        }
-        return (IYYPayAmountView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public IYYPayWayView e(Activity activity, IYYPayWayView.b bVar, t3a t3aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, bVar, t3aVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, this.d, t3aVar);
-        }
-        return (IYYPayWayView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public IYYPayResultView f(Activity activity, IYYPayResultView.c cVar, t3a t3aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, cVar, t3aVar)) == null) {
-            return new YYPayResultView(activity, this.d, this.c, this.a, this.b, cVar, t3aVar);
-        }
-        return (IYYPayResultView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public h6a b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.d);
-        }
-        return (h6a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public g6a c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.d);
-        }
-        return (g6a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.x3a
-    public i6a d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.d);
-        }
-        return (i6a) invokeL.objValue;
+        a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
     }
 }

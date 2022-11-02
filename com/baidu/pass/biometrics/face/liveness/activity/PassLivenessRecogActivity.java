@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -59,6 +60,7 @@ import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
+import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.sofire.ac.FH;
@@ -395,7 +397,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class f {
+    public static /* synthetic */ class f {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -506,7 +508,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     /* loaded from: classes2.dex */
-    public class g implements b.InterfaceC0119b {
+    public class g implements b.InterfaceC0122b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PassLivenessRecogActivity a;
@@ -529,7 +531,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             this.a = passLivenessRecogActivity;
         }
 
-        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC0119b
+        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC0122b
         public void a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeF(1048576, this, f) != null) {
@@ -897,6 +899,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(11)
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeF(65554, this, f2) != null) || this.u || !a(f2)) {
@@ -1178,6 +1181,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         }
     }
 
+    @TargetApi(3)
     private void a(ContrastPortraitResult contrastPortraitResult) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, this, contrastPortraitResult) == null) && this.H != null && contrastPortraitResult != null) {
@@ -1514,7 +1518,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
-            List aBtestIllumList = this.p.getABtestIllumList();
+            List<Integer> aBtestIllumList = this.p.getABtestIllumList();
             if (aBtestIllumList != null && !aBtestIllumList.isEmpty()) {
                 int illumVlaueGray = LocalConfigOptions.getInstance(this).getIllumVlaueGray();
                 if (illumVlaueGray == -1) {
@@ -1524,7 +1528,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     LocalConfigOptions.getInstance(this).setIllumValueGray(illumVlaueGray);
                 }
                 if (illumVlaueGray >= 0 && illumVlaueGray <= aBtestIllumList.size() - 1) {
-                    return ((Integer) aBtestIllumList.get(illumVlaueGray)).intValue();
+                    return aBtestIllumList.get(illumVlaueGray).intValue();
                 }
             }
             return 8;
@@ -1683,6 +1687,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         }
     }
 
+    @TargetApi(23)
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65572, this) == null) {
@@ -1730,9 +1735,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             ((ImageView) findViewById(R.id.pass_bio_liveness_recog_close)).setOnClickListener(this);
             PassFaceRecogDTO passFaceRecogDTO = this.mPassFaceRecogDTO;
             if (passFaceRecogDTO != null && passFaceRecogDTO.needAuthorizeCertInfo) {
-                this.N = (String) passFaceRecogDTO.extraParamsMap.get("yyOrderId");
+                this.N = passFaceRecogDTO.extraParamsMap.get("yyOrderId");
                 this.M = Boolean.FALSE;
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091d89)).setText(R.string.home_face_yy_title);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091dd2)).setText(R.string.home_face_yy_title);
                 this.K = (ImageView) findViewById(R.id.pass_bio_circle_image_yy_view);
                 RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.pass_bio_liveness_recog_yy_bottom);
                 this.L = relativeLayout;
@@ -1746,7 +1751,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     @Override // com.baidu.sofire.face.api.FaceProcessCallback
-    public void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap hashMap, HashMap hashMap2, int i2) {
+    public void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{faceStatusNewEnum, str, hashMap, hashMap2, Integer.valueOf(i2)}) == null) {
             Log.w("new_face", "faceStatusNewEnum " + faceStatusNewEnum + ",message = " + str);

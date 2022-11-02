@@ -21,14 +21,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes8.dex */
-public final class BlockingObservableIterable implements Iterable {
+public final class BlockingObservableIterable<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
-    public final ObservableSource source;
+    public final ObservableSource<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class BlockingObservableIterator extends AtomicReference implements Observer, Iterator, Disposable {
+    public static final class BlockingObservableIterator<T> extends AtomicReference<Disposable> implements Observer<T>, Iterator<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6695226475494099826L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class BlockingObservableIterable implements Iterable {
         public volatile boolean done;
         public Throwable error;
         public final Lock lock;
-        public final SpscLinkedArrayQueue queue;
+        public final SpscLinkedArrayQueue<T> queue;
 
         public BlockingObservableIterator(int i) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class BlockingObservableIterable implements Iterable {
                     return;
                 }
             }
-            this.queue = new SpscLinkedArrayQueue(i);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             ReentrantLock reentrantLock = new ReentrantLock();
             this.lock = reentrantLock;
             this.condition = reentrantLock.newCondition();
@@ -72,13 +72,13 @@ public final class BlockingObservableIterable implements Iterable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
-        public Object next() {
+        public T next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -87,7 +87,7 @@ public final class BlockingObservableIterable implements Iterable {
                 }
                 throw new NoSuchElementException();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.Observer
@@ -169,10 +169,10 @@ public final class BlockingObservableIterable implements Iterable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                this.queue.offer(obj);
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                this.queue.offer(t);
                 signalConsumer();
             }
         }
@@ -186,7 +186,7 @@ public final class BlockingObservableIterable implements Iterable {
         }
     }
 
-    public BlockingObservableIterable(ObservableSource observableSource, int i) {
+    public BlockingObservableIterable(ObservableSource<? extends T> observableSource, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public final class BlockingObservableIterable implements Iterable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -2,20 +2,20 @@ package com.sina.weibo.sdk.network.target;
 
 import com.sina.weibo.sdk.network.base.WbResponse;
 /* loaded from: classes8.dex */
-public interface Target {
+public interface Target<R> {
     void onError();
 
     void onFailure(Exception exc);
 
     void onRequestDone();
 
-    void onRequestSuccess(Object obj);
+    void onRequestSuccess(R r);
 
-    void onRequestSuccessBg(Object obj);
+    void onRequestSuccessBg(R r);
 
     void onStart();
 
     void onStartBg();
 
-    Object transResponse(WbResponse wbResponse) throws Exception;
+    R transResponse(WbResponse wbResponse) throws Exception;
 }

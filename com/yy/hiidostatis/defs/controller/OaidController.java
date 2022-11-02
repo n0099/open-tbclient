@@ -33,7 +33,7 @@ public final class OaidController {
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public final class OaidController {
         public transient /* synthetic */ FieldHolder $fh;
         public volatile int beginTime;
         public volatile boolean init;
-        public List listeners;
+        public List<OaidInitListener> listeners;
         public volatile String oaid;
         public final /* synthetic */ OaidController this$0;
 

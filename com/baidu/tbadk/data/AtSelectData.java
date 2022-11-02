@@ -14,7 +14,7 @@ import java.util.Objects;
 /* loaded from: classes3.dex */
 public class AtSelectData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AtSelectData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mNameShow;
     public String mPortrait;
@@ -31,7 +31,7 @@ public class AtSelectData implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<AtSelectData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

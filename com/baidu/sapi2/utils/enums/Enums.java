@@ -23,7 +23,7 @@ public class Enums {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class FingerprintAuthType {
+    public static class FingerprintAuthType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOGIN = 3;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class Enums {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class LastLoginType {
+    public static final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LastLoginType CFO;
@@ -212,7 +212,7 @@ public class Enums {
     }
 
     /* loaded from: classes2.dex */
-    public class NormalizeWay {
+    public static class NormalizeWay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NONE = 0;
         public static final int PWD = 3;
@@ -236,7 +236,7 @@ public class Enums {
     }
 
     /* loaded from: classes2.dex */
-    public class PreLoginType {
+    public static class PreLoginType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CHINA_MOBILE_OAUTH = 12;
         public static final int CHOICE_SHARE = 8;

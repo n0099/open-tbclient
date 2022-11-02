@@ -1,11 +1,16 @@
 package com.baidu.searchbox.player.helper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.BDPlayerConfig;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +44,7 @@ public class NetUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetStatus {
+    public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetStatus NET_DOWN;
@@ -137,6 +142,7 @@ public class NetUtils {
         }
     }
 
+    @PublicMethod
     public static NetStatus getNetStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -153,6 +159,9 @@ public class NetUtils {
         return (NetStatus) invokeV.objValue;
     }
 
+    @Nullable
+    @PublicMethod
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo getNetworkInfo() {
         InterceptResult invokeV;
         ConnectivityManager connectivityManager;
@@ -171,6 +180,7 @@ public class NetUtils {
         return (NetworkInfo) invokeV.objValue;
     }
 
+    @PublicMethod
     public static boolean isNet3G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,6 +194,7 @@ public class NetUtils {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public static boolean isNetDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -196,6 +207,7 @@ public class NetUtils {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public static boolean isNetWifi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,6 +221,7 @@ public class NetUtils {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public static String appendCDNStatParams(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -264,7 +277,7 @@ public class NetUtils {
         return (String) invokeLIL.objValue;
     }
 
-    public static int findParamEndIndex(String str, int i) {
+    public static int findParamEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
@@ -278,7 +291,7 @@ public class NetUtils {
         return invokeLI.intValue;
     }
 
-    public static int getNumEndIndex(String str, int i) {
+    public static int getNumEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
@@ -292,6 +305,7 @@ public class NetUtils {
         return invokeLI.intValue;
     }
 
+    @PublicMethod
     public static String getMobileNetworkType(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -390,6 +404,7 @@ public class NetUtils {
         return invokeV.intValue;
     }
 
+    @PublicMethod
     public static String getNetworkClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

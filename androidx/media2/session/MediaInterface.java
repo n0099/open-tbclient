@@ -30,35 +30,35 @@ public class MediaInterface {
 
         int getPlayerState();
 
-        ListenableFuture pause();
+        ListenableFuture<SessionPlayer.PlayerResult> pause();
 
-        ListenableFuture play();
+        ListenableFuture<SessionPlayer.PlayerResult> play();
 
-        ListenableFuture prepare();
+        ListenableFuture<SessionPlayer.PlayerResult> prepare();
 
-        ListenableFuture seekTo(long j);
+        ListenableFuture<SessionPlayer.PlayerResult> seekTo(long j);
 
-        ListenableFuture setPlaybackSpeed(float f);
+        ListenableFuture<SessionPlayer.PlayerResult> setPlaybackSpeed(float f);
     }
 
     /* loaded from: classes.dex */
     public interface SessionPlayer extends SessionPlaybackControl, SessionPlaylistControl {
-        ListenableFuture deselectTrack(SessionPlayer.TrackInfo trackInfo);
+        ListenableFuture<SessionPlayer.PlayerResult> deselectTrack(SessionPlayer.TrackInfo trackInfo);
 
         SessionPlayer.TrackInfo getSelectedTrack(int i);
 
-        List getTracks();
+        List<SessionPlayer.TrackInfo> getTracks();
 
         VideoSize getVideoSize();
 
-        ListenableFuture selectTrack(SessionPlayer.TrackInfo trackInfo);
+        ListenableFuture<SessionPlayer.PlayerResult> selectTrack(SessionPlayer.TrackInfo trackInfo);
 
-        ListenableFuture setSurface(Surface surface);
+        ListenableFuture<SessionPlayer.PlayerResult> setSurface(Surface surface);
     }
 
     /* loaded from: classes.dex */
     public interface SessionPlaylistControl {
-        ListenableFuture addPlaylistItem(int i, MediaItem mediaItem);
+        ListenableFuture<SessionPlayer.PlayerResult> addPlaylistItem(int i, MediaItem mediaItem);
 
         MediaItem getCurrentMediaItem();
 
@@ -66,7 +66,7 @@ public class MediaInterface {
 
         int getNextMediaItemIndex();
 
-        List getPlaylist();
+        List<MediaItem> getPlaylist();
 
         MediaMetadata getPlaylistMetadata();
 
@@ -76,27 +76,27 @@ public class MediaInterface {
 
         int getShuffleMode();
 
-        ListenableFuture movePlaylistItem(int i, int i2);
+        ListenableFuture<SessionPlayer.PlayerResult> movePlaylistItem(int i, int i2);
 
-        ListenableFuture removePlaylistItem(int i);
+        ListenableFuture<SessionPlayer.PlayerResult> removePlaylistItem(int i);
 
-        ListenableFuture replacePlaylistItem(int i, MediaItem mediaItem);
+        ListenableFuture<SessionPlayer.PlayerResult> replacePlaylistItem(int i, MediaItem mediaItem);
 
-        ListenableFuture setMediaItem(MediaItem mediaItem);
+        ListenableFuture<SessionPlayer.PlayerResult> setMediaItem(MediaItem mediaItem);
 
-        ListenableFuture setPlaylist(List list, MediaMetadata mediaMetadata);
+        ListenableFuture<SessionPlayer.PlayerResult> setPlaylist(List<MediaItem> list, MediaMetadata mediaMetadata);
 
-        ListenableFuture setRepeatMode(int i);
+        ListenableFuture<SessionPlayer.PlayerResult> setRepeatMode(int i);
 
-        ListenableFuture setShuffleMode(int i);
+        ListenableFuture<SessionPlayer.PlayerResult> setShuffleMode(int i);
 
-        ListenableFuture skipToNextItem();
+        ListenableFuture<SessionPlayer.PlayerResult> skipToNextItem();
 
-        ListenableFuture skipToPlaylistItem(int i);
+        ListenableFuture<SessionPlayer.PlayerResult> skipToPlaylistItem(int i);
 
-        ListenableFuture skipToPreviousItem();
+        ListenableFuture<SessionPlayer.PlayerResult> skipToPreviousItem();
 
-        ListenableFuture updatePlaylistMetadata(MediaMetadata mediaMetadata);
+        ListenableFuture<SessionPlayer.PlayerResult> updatePlaylistMetadata(MediaMetadata mediaMetadata);
     }
 
     public MediaInterface() {

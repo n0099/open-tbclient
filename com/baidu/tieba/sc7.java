@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class sc7 implements CustomMessageTask.CustomRunnable {
+public class sc7 extends nb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sc7() {
+        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,38 +29,44 @@ public class sc7 implements CustomMessageTask.CustomRunnable {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kb
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof GroupsByUidLocalMessage)) {
-                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
-                } else {
-                    str = "";
-                }
-                ou4.f();
-                byte[] bArr = (byte[]) ou4.d("tb.im_entergroup").get(ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + str);
-                ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-                if (bArr != null) {
-                    try {
-                        responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
+                return null;
+            }
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(pushResponseMessage.getNotificationData());
+                MessageManager.getInstance().sendMessage(customMessage);
+                return null;
+            }
+            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
                     }
                 }
-                return responseGroupsByUidLocalMessage;
             }
-            return null;
+            return socketResponsedMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

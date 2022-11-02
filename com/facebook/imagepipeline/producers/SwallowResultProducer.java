@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class SwallowResultProducer implements Producer {
+public class SwallowResultProducer<T> implements Producer<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Producer mInputProducer;
+    public final Producer<T> mInputProducer;
 
-    public SwallowResultProducer(Producer producer) {
+    public SwallowResultProducer(Producer<T> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,10 +29,10 @@ public class SwallowResultProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<Void> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
-            this.mInputProducer.produceResults(new DelegatingConsumer(this, consumer) { // from class: com.facebook.imagepipeline.producers.SwallowResultProducer.1
+            this.mInputProducer.produceResults(new DelegatingConsumer<T, Void>(this, consumer) { // from class: com.facebook.imagepipeline.producers.SwallowResultProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwallowResultProducer this$0;
@@ -59,9 +59,9 @@ public class SwallowResultProducer implements Producer {
                 }
 
                 @Override // com.facebook.imagepipeline.producers.BaseConsumer
-                public void onNewResultImpl(Object obj, int i) {
+                public void onNewResultImpl(T t, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, obj, i) == null) && BaseConsumer.isLast(i)) {
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, t, i) == null) && BaseConsumer.isLast(i)) {
                         getConsumer().onNewResult(null, i);
                     }
                 }

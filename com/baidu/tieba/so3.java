@@ -1,28 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class so3 {
+public class so3 implements po3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public to3 a;
+    public boolean b;
 
-    public static qq3 a() {
-        InterceptResult invokeV;
+    public so3(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new pq3();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (qq3) invokeV.objValue;
+        this.b = false;
+        c(context);
     }
 
-    public static mp3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.po3
+    public void b(int i) {
+        to3 to3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new kp3();
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (to3Var = this.a) != null && to3Var.c()) {
+            to3 to3Var2 = this.a;
+            if (to3Var2.d(to3Var2.a(), "", 0) != 0) {
+                return;
+            }
+            this.b = true;
         }
-        return (mp3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.po3
+    public void a() {
+        to3 to3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (to3Var = this.a) != null && to3Var.c()) {
+            this.b = false;
+            to3 to3Var2 = this.a;
+            to3Var2.d(to3Var2.a(), "", -1);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = to3.b(context);
+        }
     }
 }

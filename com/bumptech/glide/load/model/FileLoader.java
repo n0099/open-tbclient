@@ -2,6 +2,7 @@ package com.bumptech.glide.load.model;
 
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,24 +22,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class FileLoader implements ModelLoader {
+public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
     public transient /* synthetic */ FieldHolder $fh;
-    public final FileOpener fileOpener;
+    public final FileOpener<Data> fileOpener;
 
     /* loaded from: classes7.dex */
-    public interface FileOpener {
-        void close(Object obj) throws IOException;
+    public interface FileOpener<Data> {
+        void close(Data data) throws IOException;
 
-        Class getDataClass();
+        Class<Data> getDataClass();
 
-        Object open(File file) throws FileNotFoundException;
+        Data open(File file) throws FileNotFoundException;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(File file) {
+    public boolean handles(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
@@ -48,10 +49,10 @@ public class FileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class Factory implements ModelLoaderFactory {
+    public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final FileOpener opener;
+        public final FileOpener<Data> opener;
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         public final void teardown() {
@@ -60,7 +61,7 @@ public class FileLoader implements ModelLoader {
             }
         }
 
-        public Factory(FileOpener fileOpener) {
+        public Factory(FileOpener<Data> fileOpener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +80,8 @@ public class FileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public final ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public final ModelLoader<File, Data> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
@@ -90,13 +92,13 @@ public class FileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class FileDescriptorFactory extends Factory {
+    public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FileDescriptorFactory() {
-            super(new FileOpener() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1
+            super(new FileOpener<ParcelFileDescriptor>() { // from class: com.bumptech.glide.load.model.FileLoader.FileDescriptorFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,7 +117,7 @@ public class FileLoader implements ModelLoader {
                 }
 
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
-                public Class getDataClass() {
+                public Class<ParcelFileDescriptor> getDataClass() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -134,6 +136,7 @@ public class FileLoader implements ModelLoader {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
                     InterceptResult invokeL;
@@ -161,12 +164,12 @@ public class FileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public final class FileFetcher implements DataFetcher {
+    public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object data;
+        public Data data;
         public final File file;
-        public final FileOpener opener;
+        public final FileOpener<Data> opener;
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cancel() {
@@ -175,7 +178,7 @@ public class FileLoader implements ModelLoader {
             }
         }
 
-        public FileFetcher(File file, FileOpener fileOpener) {
+        public FileFetcher(File file, FileOpener<Data> fileOpener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,18 +199,19 @@ public class FileLoader implements ModelLoader {
 
         @Override // com.bumptech.glide.load.data.DataFetcher
         public void cleanup() {
-            Object obj;
+            Data data;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (obj = this.data) != null) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (data = this.data) != null) {
                 try {
-                    this.opener.close(obj);
+                    this.opener.close(data);
                 } catch (IOException unused) {
                 }
             }
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public Class getDataClass() {
+        @NonNull
+        public Class<Data> getDataClass() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -217,6 +221,7 @@ public class FileLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
         public DataSource getDataSource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -226,12 +231,13 @@ public class FileLoader implements ModelLoader {
             return (DataSource) invokeV.objValue;
         }
 
+        /* JADX WARN: Type inference failed for: r5v3, types: [java.lang.Object, Data] */
         @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super Data> dataCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {
                 try {
-                    Object open = this.opener.open(this.file);
+                    Data open = this.opener.open(this.file);
                     this.data = open;
                     dataCallback.onDataReady(open);
                 } catch (FileNotFoundException e) {
@@ -245,13 +251,13 @@ public class FileLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamFactory extends Factory {
+    public static class StreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StreamFactory() {
-            super(new FileOpener() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1
+            super(new FileOpener<InputStream>() { // from class: com.bumptech.glide.load.model.FileLoader.StreamFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -270,7 +276,7 @@ public class FileLoader implements ModelLoader {
                 }
 
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
-                public Class getDataClass() {
+                public Class<InputStream> getDataClass() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -289,6 +295,7 @@ public class FileLoader implements ModelLoader {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.bumptech.glide.load.model.FileLoader.FileOpener
                 public InputStream open(File file) throws FileNotFoundException {
                     InterceptResult invokeL;
@@ -315,7 +322,7 @@ public class FileLoader implements ModelLoader {
         }
     }
 
-    public FileLoader(FileOpener fileOpener) {
+    public FileLoader(FileOpener<Data> fileOpener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -335,11 +342,11 @@ public class FileLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(File file, int i, int i2, Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
+            return new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

@@ -16,7 +16,7 @@ import java.util.LinkedList;
 public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList a;
+    public LinkedList<AbsFragment> a;
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public int getPageType(int i) {
@@ -26,7 +26,7 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList linkedList) {
+    public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList<AbsFragment> linkedList) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +43,7 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        this.a = new LinkedList();
+        this.a = new LinkedList<>();
         if (!ListUtils.isEmpty(linkedList)) {
             if (!ListUtils.isEmpty(this.a)) {
                 this.a.clear();
@@ -78,7 +78,7 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (i >= 0 && i < this.a.size()) {
-                return ((AbsFragment) this.a.get(i)).getTabTitle();
+                return this.a.get(i).getTabTitle();
             }
             return "";
         }

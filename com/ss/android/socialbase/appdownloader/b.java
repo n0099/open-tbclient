@@ -9,6 +9,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.bumptech.glide.load.engine.GlideException;
@@ -33,8 +36,8 @@ public class b {
 
     /* renamed from: com.ss.android.socialbase.appdownloader.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0663b {
-        boolean a(Context context);
+    public interface InterfaceC0674b {
+        boolean a(@NonNull Context context);
     }
 
     /* loaded from: classes8.dex */
@@ -43,19 +46,19 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements a.InterfaceC0666a {
+    public static class a implements a.InterfaceC0677a {
         public final e a;
         public final int b;
         public JSONObject c;
 
-        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0663b interfaceC0663b) {
+        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0674b interfaceC0674b) {
             this.c = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
             this.b = optInt;
-            this.a = new e(context, intent, i, interfaceC0663b, optInt);
+            this.a = new e(context, intent, i, interfaceC0674b, optInt);
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
         public void b() {
             if (!this.a.i) {
                 Message obtain = Message.obtain();
@@ -66,7 +69,7 @@ public class b {
             a unused = b.c = null;
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
         public void c() {
             int optInt = this.c.optInt("time_out_second", 20);
             Message obtain = Message.obtain();
@@ -81,20 +84,21 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements Callable {
+    public static class d implements Callable<Boolean> {
         public final Context a;
-        public final InterfaceC0663b b;
+        public final InterfaceC0674b b;
         public final Handler c;
         public final long d;
 
-        public d(Handler handler, Context context, InterfaceC0663b interfaceC0663b, long j) {
+        public d(Handler handler, Context context, InterfaceC0674b interfaceC0674b, long j) {
             this.a = context;
-            this.b = interfaceC0663b;
+            this.b = interfaceC0674b;
             this.c = handler;
             this.d = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Boolean call() throws Exception {
             if (this.b != null && this.d > 0 && this.d <= 10000) {
@@ -118,22 +122,22 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class e implements h.a {
+    public static class e implements h.a {
         public static int a;
         public static int b;
         public final Context c;
         public final Intent d;
-        public final InterfaceC0663b e;
+        public final InterfaceC0674b e;
         public final Handler f;
         public final long g;
-        public Future h;
+        public Future<Boolean> h;
         public boolean i = false;
 
-        public e(Context context, Intent intent, int i, InterfaceC0663b interfaceC0663b, long j) {
+        public e(Context context, Intent intent, int i, InterfaceC0674b interfaceC0674b, long j) {
             this.c = context;
             this.d = intent;
             b = i;
-            this.e = interfaceC0663b;
+            this.e = interfaceC0674b;
             this.f = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
             this.g = j;
         }
@@ -153,7 +157,7 @@ public class b {
                     a = 2;
                     this.f.removeMessages(2);
                     this.f.removeMessages(1);
-                    Future future = this.h;
+                    Future<Boolean> future = this.h;
                     if (future != null) {
                         future.cancel(true);
                     }
@@ -185,7 +189,7 @@ public class b {
         return false;
     }
 
-    public static int a(com.ss.android.socialbase.downloader.g.a aVar) {
+    public static int a(@NonNull com.ss.android.socialbase.downloader.g.a aVar) {
         JSONObject d2 = aVar.d("download_dir");
         if (!(d2 != null ? !TextUtils.isEmpty(d2.optString("dir_name")) : false)) {
             return 5;
@@ -217,6 +221,7 @@ public class b {
         return i;
     }
 
+    @NonNull
     public static com.ss.android.socialbase.appdownloader.a a(JSONObject jSONObject, com.ss.android.socialbase.downloader.g.a aVar) {
         com.ss.android.socialbase.appdownloader.a aVar2 = new com.ss.android.socialbase.appdownloader.a();
         if (jSONObject == null) {
@@ -279,6 +284,7 @@ public class b {
         }
     }
 
+    @RequiresApi(api = 26)
     public static boolean e(Context context) {
         if (context == null) {
             return true;
@@ -394,12 +400,12 @@ public class b {
         com.ss.android.socialbase.downloader.downloader.c.P().b(i, "guide_auth_result", jSONObject);
     }
 
-    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0663b interfaceC0663b) {
+    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0674b interfaceC0674b) {
         if (c != null) {
             com.ss.android.socialbase.downloader.a.a.a().b(c);
             c = null;
         }
-        c = new a(context, intent, i, jSONObject, interfaceC0663b);
+        c = new a(context, intent, i, jSONObject, interfaceC0674b);
         com.ss.android.socialbase.downloader.a.a.a().a(c);
     }
 
@@ -453,14 +459,14 @@ public class b {
         return a(context, intent, true);
     }
 
-    public static boolean a(Context context, Intent intent, int i, JSONObject jSONObject) {
+    public static boolean a(Context context, @Nullable Intent intent, int i, JSONObject jSONObject) {
         try {
             if (com.ss.android.socialbase.appdownloader.f.d.b() && Build.VERSION.SDK_INT < 26 && !d(context)) {
                 com.ss.android.socialbase.appdownloader.a.f fVar = new com.ss.android.socialbase.appdownloader.a.f(context);
                 if (fVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0663b() { // from class: com.ss.android.socialbase.appdownloader.b.1
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0663b
-                        public boolean a(Context context2) {
+                    a(context, intent, i, jSONObject, new InterfaceC0674b() { // from class: com.ss.android.socialbase.appdownloader.b.1
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0674b
+                        public boolean a(@NonNull Context context2) {
                             return b.d(context2);
                         }
                     });
@@ -469,9 +475,9 @@ public class b {
             } else if (Build.VERSION.SDK_INT >= 26 && context.getApplicationInfo().targetSdkVersion >= 26 && !e(context)) {
                 com.ss.android.socialbase.appdownloader.a.b bVar = new com.ss.android.socialbase.appdownloader.a.b(context);
                 if (bVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0663b() { // from class: com.ss.android.socialbase.appdownloader.b.2
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0663b
-                        public boolean a(Context context2) {
+                    a(context, intent, i, jSONObject, new InterfaceC0674b() { // from class: com.ss.android.socialbase.appdownloader.b.2
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0674b
+                        public boolean a(@NonNull Context context2) {
                             return b.e(context2);
                         }
                     });
@@ -483,7 +489,7 @@ public class b {
         return false;
     }
 
-    public static boolean b(Context context, DownloadInfo downloadInfo, JSONObject jSONObject, com.ss.android.socialbase.appdownloader.a aVar) {
+    public static boolean b(Context context, @NonNull DownloadInfo downloadInfo, JSONObject jSONObject, @NonNull com.ss.android.socialbase.appdownloader.a aVar) {
         if (context != null && jSONObject != null) {
             String savePath = downloadInfo.getSavePath();
             if (TextUtils.isEmpty(savePath)) {
@@ -512,7 +518,7 @@ public class b {
         return false;
     }
 
-    public static boolean a(Context context, Intent intent, JSONObject jSONObject, int i, com.ss.android.socialbase.appdownloader.a aVar) {
+    public static boolean a(Context context, @Nullable Intent intent, JSONObject jSONObject, int i, @Nullable com.ss.android.socialbase.appdownloader.a aVar) {
         boolean z;
         if (context != null && jSONObject != null) {
             long optLong = jSONObject.optLong("jump_interval", 0L);
@@ -849,7 +855,7 @@ public class b {
         return false;
     }
 
-    public static boolean a(Context context, DownloadInfo downloadInfo, JSONObject jSONObject, com.ss.android.socialbase.appdownloader.a aVar, com.ss.android.socialbase.downloader.g.a aVar2) {
+    public static boolean a(Context context, @NonNull DownloadInfo downloadInfo, JSONObject jSONObject, @NonNull com.ss.android.socialbase.appdownloader.a aVar, com.ss.android.socialbase.downloader.g.a aVar2) {
         boolean z;
         String optString = jSONObject.optString("type");
         aVar.a = optString;
@@ -872,7 +878,7 @@ public class b {
         return true;
     }
 
-    public static boolean a(File file, DownloadInfo downloadInfo, JSONObject jSONObject) {
+    public static boolean a(File file, DownloadInfo downloadInfo, @NonNull JSONObject jSONObject) {
         String str;
         if (file == null) {
             return false;

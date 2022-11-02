@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +136,7 @@ public class t {
             w.a aVar2 = new w.a();
             aVar2.a("appid", str2).a("locale", Locale.getDefault().toString()).a(NativeConstants.COMPONENT_SYNC_TEXT_VIEW, 1);
             if (m679a(context)) {
-                aVar2.a("ab", str);
+                aVar2.a(DI.AB_NAME, str);
             }
             bVar.f = aVar2.toString();
             bVar.f933a = jVar;

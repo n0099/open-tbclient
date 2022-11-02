@@ -1,16 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class p04 implements tk1 {
+public class p04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public q04[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public q04[] touches;
 
     public p04() {
         Interceptable interceptable = $ic;
@@ -26,41 +32,12 @@ public class p04 implements tk1 {
         }
     }
 
-    @Override // com.baidu.tieba.tk1
-    public String a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ix3.g();
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tk1
-    public boolean b() {
-        InterceptResult invokeV;
-        s22 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m33.M() != null && m33.M().w0()) {
-                v22 V = zo2.U().V();
-                if (V == null || (m = V.m()) == null || !(m instanceof jz3)) {
-                    return true;
-                }
-                return ((jz3) m).D3();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tk1
-    public String c(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return ix3.d(str);
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -1,11 +1,13 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class b extends d {
+public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,8 +24,8 @@ public class b extends d {
                 return;
             }
         }
-        this.c = 6;
-        this.b = "indoorlayer";
-        this.d = 100;
+        this.c = 10;
+        this.b = MapController.HEATMAP_LAYER_TAG;
+        this.d = TiebaStatic.MAX_COST_VALUE;
     }
 }

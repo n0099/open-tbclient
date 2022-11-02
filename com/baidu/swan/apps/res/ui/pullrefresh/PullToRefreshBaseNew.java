@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -10,8 +11,8 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.y13;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class PullToRefreshBaseNew extends FrameLayout {
+public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean x;
     public transient /* synthetic */ FieldHolder $fh;
     public HEADERTYPE a;
     public float b;
     public float c;
-    public e d;
+    public e<T> d;
     public LoadingLayout e;
     public LoadingLayout f;
     public int g;
@@ -39,25 +40,25 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
     public int m;
     public ILoadingLayout$State n;
     public ILoadingLayout$State o;
-    public View p;
-    public f q;
+    public T p;
+    public PullToRefreshBaseNew<T>.f q;
     public FrameLayout r;
     public int s;
     public boolean t;
     public float u;
     public boolean v;
-    public y13 w;
+    public q23<T> w;
 
     /* loaded from: classes3.dex */
-    public interface e {
-        void a(PullToRefreshBaseNew pullToRefreshBaseNew);
+    public interface e<V extends View> {
+        void a(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
 
-        void b(PullToRefreshBaseNew pullToRefreshBaseNew);
+        void b(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
 
-        void c(PullToRefreshBaseNew pullToRefreshBaseNew);
+        void c(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
     }
 
-    public abstract View g(Context context, AttributeSet attributeSet);
+    public abstract T g(Context context, AttributeSet attributeSet);
 
     public long getSmoothScrollDuration() {
         InterceptResult invokeV;
@@ -101,7 +102,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class HEADERTYPE {
+    public static final class HEADERTYPE {
         public static final /* synthetic */ HEADERTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HEADERTYPE BIG_BG_HEADER;
@@ -267,7 +268,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class d {
+    public static /* synthetic */ class d {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -384,7 +385,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
                 return;
             }
         }
-        x = wj1.a;
+        x = ok1.a;
     }
 
     private int getScrollYValue() {
@@ -428,22 +429,22 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
         return (LoadingLayout) invokeV.objValue;
     }
 
-    public y13 getRefreshableFactory() {
+    public q23<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.w;
         }
-        return (y13) invokeV.objValue;
+        return (q23) invokeV.objValue;
     }
 
-    public View getRefreshableView() {
+    public T getRefreshableView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.p;
         }
-        return (View) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public final boolean i() {
@@ -689,7 +690,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
         }
     }
 
-    public void setOnRefreshListener(e eVar) {
+    public void setOnRefreshListener(e<T> eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, eVar) == null) {
             this.d = eVar;
@@ -728,7 +729,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            f fVar = this.q;
+            PullToRefreshBaseNew<T>.f fVar = this.q;
             if (fVar != null) {
                 fVar.a();
             }
@@ -836,10 +837,10 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
         }
     }
 
-    public void d(Context context, View view2) {
+    public void d(Context context, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, view2) == null) {
-            addView(view2, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, t) == null) {
+            addView(t, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -902,20 +903,21 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
         return (LoadingLayout) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, context, attributeSet) == null) {
             this.m = ViewConfiguration.get(context).getScaledTouchSlop();
             this.e = f(context, attributeSet);
             this.f = e(context, attributeSet);
-            View g = g(context, attributeSet);
+            T g = g(context, attributeSet);
             this.p = g;
             if (x && g == null) {
                 throw new NullPointerException("Refreshable view can not be null.");
             }
-            View view2 = this.p;
-            if (view2 != null) {
-                d(context, view2);
+            T t = this.p;
+            if (t != null) {
+                d(context, t);
             }
             c(context);
         }
@@ -924,7 +926,7 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
     @Override // android.view.ViewGroup
     public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        View view2;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, motionEvent)) == null) {
             boolean z = false;
@@ -947,8 +949,8 @@ public abstract class PullToRefreshBaseNew extends FrameLayout {
                             if (n() && p()) {
                                 z = (Math.abs(getScrollYValue()) > 0 || y > 0.5f) ? true : true;
                                 this.l = z;
-                                if (z && k() && (view2 = this.p) != null) {
-                                    view2.onTouchEvent(motionEvent);
+                                if (z && k() && (t = this.p) != null) {
+                                    t.onTouchEvent(motionEvent);
                                 }
                             } else if (l() && q()) {
                                 this.l = (Math.abs(getScrollYValue()) > 0 || y < -0.5f) ? true : true;

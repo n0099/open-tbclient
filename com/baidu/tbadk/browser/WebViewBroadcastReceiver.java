@@ -21,7 +21,7 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
     public static final String INTENT_LOCALE_RECEV_CLOSE = "recClose";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mReceiverTag;
-    public WeakReference reference;
+    public WeakReference<Activity> reference;
 
     public WebViewBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            WeakReference weakReference = this.reference;
+            WeakReference<Activity> weakReference = this.reference;
             if (weakReference != null) {
-                return (Activity) weakReference.get();
+                return weakReference.get();
             }
             return null;
         }
@@ -85,7 +85,7 @@ public class WebViewBroadcastReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) || activity == null) {
             return;
         }
-        this.reference = new WeakReference(activity);
+        this.reference = new WeakReference<>(activity);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_CLOSE_WEBVIEW);
         try {

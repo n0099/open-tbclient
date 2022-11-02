@@ -1,9 +1,11 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;

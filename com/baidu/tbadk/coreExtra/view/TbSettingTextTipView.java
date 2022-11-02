@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.gr8;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            nv4.d(this).f(R.color.CAM_X0205);
+            kw4.d(this).f(R.color.CAM_X0205);
         }
     }
 
@@ -144,13 +144,13 @@ public class TbSettingTextTipView extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int f = fj.f(this.a, R.dimen.tbds42);
-            int f2 = fj.f(this.a, R.dimen.tbds33);
-            setMainTextSize(f);
-            setTipTextSize(f2);
+            int g = xi.g(this.a, R.dimen.tbds42);
+            int g2 = xi.g(this.a, R.dimen.tbds33);
+            setMainTextSize(g);
+            setTipTextSize(g2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, fj.f(this.a, R.dimen.tbds18), 0);
+            ((LinearLayout.LayoutParams) this.e.getLayoutParams()).setMargins(0, 0, xi.g(this.a, R.dimen.tbds18), 0);
             this.c.getLayoutParams().height = -1;
             requestLayout();
         }
@@ -159,11 +159,11 @@ public class TbSettingTextTipView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) this, true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906dc);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921da);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bb);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d087b, (ViewGroup) this, true);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906ea);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092152);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09222d);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ca);
         }
     }
 
@@ -194,7 +194,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, wp8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, gr8.TbSettingView);
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);

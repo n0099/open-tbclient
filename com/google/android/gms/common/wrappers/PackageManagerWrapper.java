@@ -1,12 +1,15 @@
 package com.google.android.gms.common.wrappers;
 
+import android.annotation.TargetApi;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Binder;
 import android.os.Process;
+import androidx.annotation.NonNull;
 import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.util.PlatformVersion;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class PackageManagerWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Context zza;
 
-    public PackageManagerWrapper(Context context) {
+    public PackageManagerWrapper(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,7 +45,8 @@ public class PackageManagerWrapper {
         this.zza = context;
     }
 
-    public int checkCallingOrSelfPermission(String str) {
+    @KeepForSdk
+    public int checkCallingOrSelfPermission(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -48,7 +55,9 @@ public class PackageManagerWrapper {
         return invokeL.intValue;
     }
 
-    public CharSequence getApplicationLabel(String str) throws PackageManager.NameNotFoundException {
+    @NonNull
+    @KeepForSdk
+    public CharSequence getApplicationLabel(@NonNull String str) throws PackageManager.NameNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -57,7 +66,8 @@ public class PackageManagerWrapper {
         return (CharSequence) invokeL.objValue;
     }
 
-    public int checkPermission(String str, String str2) {
+    @KeepForSdk
+    public int checkPermission(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
@@ -66,7 +76,9 @@ public class PackageManagerWrapper {
         return invokeLL.intValue;
     }
 
-    public ApplicationInfo getApplicationInfo(String str, int i) throws PackageManager.NameNotFoundException {
+    @NonNull
+    @KeepForSdk
+    public ApplicationInfo getApplicationInfo(@NonNull String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
@@ -75,7 +87,9 @@ public class PackageManagerWrapper {
         return (ApplicationInfo) invokeLI.objValue;
     }
 
-    public PackageInfo getPackageInfo(String str, int i) throws PackageManager.NameNotFoundException {
+    @NonNull
+    @KeepForSdk
+    public PackageInfo getPackageInfo(@NonNull String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
@@ -84,7 +98,9 @@ public class PackageManagerWrapper {
         return (PackageInfo) invokeLI.objValue;
     }
 
-    public Pair getApplicationLabelAndIcon(String str) throws PackageManager.NameNotFoundException {
+    @NonNull
+    @KeepForSdk
+    public Pair<CharSequence, Drawable> getApplicationLabelAndIcon(@NonNull String str) throws PackageManager.NameNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -94,6 +110,7 @@ public class PackageManagerWrapper {
         return (Pair) invokeL.objValue;
     }
 
+    @KeepForSdk
     public boolean isCallerInstantApp() {
         InterceptResult invokeV;
         String nameForUid;
@@ -110,7 +127,8 @@ public class PackageManagerWrapper {
         return invokeV.booleanValue;
     }
 
-    public final boolean zza(int i, String str) {
+    @TargetApi(19)
+    public final boolean zza(int i, @NonNull String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, str)) == null) {

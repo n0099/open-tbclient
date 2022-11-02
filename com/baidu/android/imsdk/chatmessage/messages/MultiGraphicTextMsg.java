@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MultiGraphicTextMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Article[] mArticles;
 
@@ -35,9 +35,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
     }
 
     /* loaded from: classes.dex */
-    public class Article implements Parcelable, NoProGuard {
+    public static class Article implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Article> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mArticleUrl;
         public String mCover;
@@ -68,7 +68,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.Article.1
+            CREATOR = new Parcelable.Creator<Article>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.Article.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,6 +87,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Article createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -98,6 +99,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Article[] newArray(int i) {
                     InterceptResult invokeI;
@@ -252,7 +254,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.1
+        CREATOR = new Parcelable.Creator<MultiGraphicTextMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.MultiGraphicTextMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,6 +273,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiGraphicTextMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -282,6 +285,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public MultiGraphicTextMsg[] newArray(int i) {
                 InterceptResult invokeI;

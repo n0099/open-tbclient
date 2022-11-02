@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Stack;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadStackFactoryImpl implements ThreadStackFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
-    public class ThreadCounterImpl extends ThreadLocal implements ThreadCounter {
+    /* loaded from: classes9.dex */
+    public static class ThreadCounterImpl extends ThreadLocal implements ThreadCounter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
-        public class Counter {
+        /* loaded from: classes9.dex */
+        public static class Counter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int value;
@@ -123,8 +123,8 @@ public class ThreadStackFactoryImpl implements ThreadStackFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class ThreadStackImpl extends ThreadLocal implements ThreadStack {
+    /* loaded from: classes9.dex */
+    public static class ThreadStackImpl extends ThreadLocal implements ThreadStack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

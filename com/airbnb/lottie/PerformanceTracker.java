@@ -14,14 +14,14 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class PerformanceTracker {
     public boolean enabled = false;
-    public final Set frameListeners = new ArraySet();
-    public final Map layerRenderTimes = new HashMap();
-    public final Comparator floatComparator = new Comparator() { // from class: com.airbnb.lottie.PerformanceTracker.1
+    public final Set<FrameListener> frameListeners = new ArraySet();
+    public final Map<String, MeanCalculator> layerRenderTimes = new HashMap();
+    public final Comparator<Pair<String, Float>> floatComparator = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.PerformanceTracker.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        public int compare(Pair pair, Pair pair2) {
-            float floatValue = ((Float) pair.second).floatValue();
-            float floatValue2 = ((Float) pair2.second).floatValue();
+        public int compare(Pair<String, Float> pair, Pair<String, Float> pair2) {
+            float floatValue = pair.second.floatValue();
+            float floatValue2 = pair2.second.floatValue();
             if (floatValue2 > floatValue) {
                 return 1;
             }
@@ -53,13 +53,13 @@ public class PerformanceTracker {
         this.enabled = z;
     }
 
-    public List getSortedRenderTimes() {
+    public List<Pair<String, Float>> getSortedRenderTimes() {
         if (!this.enabled) {
             return Collections.emptyList();
         }
         ArrayList arrayList = new ArrayList(this.layerRenderTimes.size());
-        for (Map.Entry entry : this.layerRenderTimes.entrySet()) {
-            arrayList.add(new Pair(entry.getKey(), Float.valueOf(((MeanCalculator) entry.getValue()).getMean())));
+        for (Map.Entry<String, MeanCalculator> entry : this.layerRenderTimes.entrySet()) {
+            arrayList.add(new Pair(entry.getKey(), Float.valueOf(entry.getValue().getMean())));
         }
         Collections.sort(arrayList, this.floatComparator);
         return arrayList;
@@ -69,10 +69,10 @@ public class PerformanceTracker {
         if (!this.enabled) {
             return;
         }
-        List sortedRenderTimes = getSortedRenderTimes();
+        List<Pair<String, Float>> sortedRenderTimes = getSortedRenderTimes();
         Log.d(L.TAG, "Render times:");
         for (int i = 0; i < sortedRenderTimes.size(); i++) {
-            Pair pair = (Pair) sortedRenderTimes.get(i);
+            Pair<String, Float> pair = sortedRenderTimes.get(i);
             Log.d(L.TAG, String.format("\t\t%30s:%.2f", pair.first, pair.second));
         }
     }
@@ -81,7 +81,7 @@ public class PerformanceTracker {
         if (!this.enabled) {
             return;
         }
-        MeanCalculator meanCalculator = (MeanCalculator) this.layerRenderTimes.get(str);
+        MeanCalculator meanCalculator = this.layerRenderTimes.get(str);
         if (meanCalculator == null) {
             meanCalculator = new MeanCalculator();
             this.layerRenderTimes.put(str, meanCalculator);

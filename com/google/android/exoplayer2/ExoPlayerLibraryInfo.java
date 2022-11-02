@@ -18,7 +18,7 @@ public final class ExoPlayerLibraryInfo {
     public static final String VERSION = "2.6.0";
     public static final int VERSION_INT = 2006000;
     public static final String VERSION_SLASHY = "ExoPlayerLib/2.6.0";
-    public static final HashSet registeredModules;
+    public static final HashSet<String> registeredModules;
     public static String registeredModulesString;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class ExoPlayerLibraryInfo {
                 return;
             }
         }
-        registeredModules = new HashSet();
+        registeredModules = new HashSet<>();
         registeredModulesString = "goog.exo.core";
     }
 

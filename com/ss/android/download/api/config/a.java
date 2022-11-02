@@ -1,5 +1,7 @@
 package com.ss.android.download.api.config;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
@@ -23,7 +25,7 @@ public class a implements DownloadStatusChangeListener {
     }
 
     @Override // com.ss.android.download.api.download.DownloadStatusChangeListener
-    public void onDownloadStart(DownloadModel downloadModel, DownloadController downloadController) {
+    public void onDownloadStart(@NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController) {
     }
 
     @Override // com.ss.android.download.api.download.DownloadStatusChangeListener

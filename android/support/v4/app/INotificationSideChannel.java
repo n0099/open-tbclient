@@ -21,7 +21,7 @@ public interface INotificationSideChannel extends IInterface {
     void notify(String str, int i, String str2, Notification notification) throws RemoteException;
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements INotificationSideChannel {
+    public static abstract class Stub extends Binder implements INotificationSideChannel {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "android.support.v4.app.INotificationSideChannel";
         public static final int TRANSACTION_cancel = 2;
@@ -37,7 +37,7 @@ public interface INotificationSideChannel extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        public class Proxy implements INotificationSideChannel {
+        public static class Proxy implements INotificationSideChannel {
             public static /* synthetic */ Interceptable $ic;
             public static INotificationSideChannel sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public interface INotificationSideChannel extends IInterface {
     }
 
     /* loaded from: classes.dex */
-    public class Default implements INotificationSideChannel {
+    public static class Default implements INotificationSideChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

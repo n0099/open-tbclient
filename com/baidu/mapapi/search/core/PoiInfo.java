@@ -16,8 +16,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class PoiInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PoiInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
     public String address;
     public String area;
     public String city;
@@ -34,12 +35,23 @@ public class PoiInfo implements Parcelable {
     public String postCode;
     public String province;
     public String street_id;
+    public String tag;
     public POITYPE type;
     public String uid;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class POITYPE {
+    public static final class POITYPE {
         public static final /* synthetic */ POITYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final POITYPE BUS_LINE;
@@ -120,26 +132,35 @@ public class PoiInfo implements Parcelable {
         public static POITYPE valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (POITYPE) Enum.valueOf(POITYPE.class, str) : (POITYPE) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+                return (POITYPE) Enum.valueOf(POITYPE.class, str);
+            }
+            return (POITYPE) invokeL.objValue;
         }
 
         public static POITYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (POITYPE[]) $VALUES.clone() : (POITYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                return (POITYPE[]) $VALUES.clone();
+            }
+            return (POITYPE[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class ParentPoiInfo implements Parcelable {
+    public static class ParentPoiInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<ParentPoiInfo> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String parentPoiAddress;
         public String parentPoiDirection;
@@ -148,6 +169,16 @@ public class PoiInfo implements Parcelable {
         public String parentPoiName;
         public String parentPoiTag;
         public String parentPoiUid;
+
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
 
         static {
             InterceptResult invokeClinit;
@@ -162,7 +193,7 @@ public class PoiInfo implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new h();
+            CREATOR = new i();
         }
 
         public ParentPoiInfo() {
@@ -177,6 +208,69 @@ public class PoiInfo implements Parcelable {
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
+        }
+
+        public String getParentPoiAddress() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.parentPoiAddress;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getParentPoiDirection() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.parentPoiDirection;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getParentPoiDistance() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.parentPoiDistance;
+            }
+            return invokeV.intValue;
+        }
+
+        public LatLng getParentPoiLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.parentPoiLocation;
+            }
+            return (LatLng) invokeV.objValue;
+        }
+
+        public String getParentPoiName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.parentPoiName;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getParentPoiTag() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return this.parentPoiTag;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getParentPoiUid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return this.parentPoiUid;
+            }
+            return (String) invokeV.objValue;
         }
 
         public ParentPoiInfo(Parcel parcel) {
@@ -201,58 +295,6 @@ public class PoiInfo implements Parcelable {
             this.parentPoiDirection = parcel.readString();
             this.parentPoiDistance = parcel.readInt();
             this.parentPoiUid = parcel.readString();
-        }
-
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public String getParentPoiAddress() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.parentPoiAddress : (String) invokeV.objValue;
-        }
-
-        public String getParentPoiDirection() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.parentPoiDirection : (String) invokeV.objValue;
-        }
-
-        public int getParentPoiDistance() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.parentPoiDistance : invokeV.intValue;
-        }
-
-        public LatLng getParentPoiLocation() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.parentPoiLocation : (LatLng) invokeV.objValue;
-        }
-
-        public String getParentPoiName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.parentPoiName : (String) invokeV.objValue;
-        }
-
-        public String getParentPoiTag() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.parentPoiTag : (String) invokeV.objValue;
-        }
-
-        public String getParentPoiUid() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.parentPoiUid : (String) invokeV.objValue;
         }
 
         public void setParentPoiAddress(String str) {
@@ -332,7 +374,7 @@ public class PoiInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new g();
+        CREATOR = new h();
     }
 
     public PoiInfo() {
@@ -347,6 +389,186 @@ public class PoiInfo implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public int getAdCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.address;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.area;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getCity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.city;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDetail() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.detail;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDirection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.direction;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getDistance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.distance;
+        }
+        return invokeV.intValue;
+    }
+
+    public LatLng getLocation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.location;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.name;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ParentPoiInfo getParentPoi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.parentPoiInfo;
+        }
+        return (ParentPoiInfo) invokeV.objValue;
+    }
+
+    public String getPhoneNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.phoneNum;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public PoiDetailInfo getPoiDetailInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.poiDetailInfo;
+        }
+        return (PoiDetailInfo) invokeV.objValue;
+    }
+
+    public String getPostCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.postCode;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getProvince() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.province;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getStreetId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.street_id;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.tag;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public POITYPE getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.type;
+        }
+        return (POITYPE) invokeV.objValue;
+    }
+
+    public String getUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.uid;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean isHasCaterDetails() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.hasCaterDetails;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isPano() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.isPano;
+        }
+        return invokeV.booleanValue;
     }
 
     public PoiInfo(Parcel parcel) {
@@ -366,6 +588,7 @@ public class PoiInfo implements Parcelable {
         }
         this.name = parcel.readString();
         this.uid = parcel.readString();
+        this.tag = parcel.readString();
         this.address = parcel.readString();
         this.province = parcel.readString();
         this.city = parcel.readString();
@@ -384,246 +607,142 @@ public class PoiInfo implements Parcelable {
         this.parentPoiInfo = (ParentPoiInfo) parcel.readParcelable(ParentPoiInfo.class.getClassLoader());
     }
 
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public void setAdCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.a = i;
         }
-        return invokeV.intValue;
-    }
-
-    public String getAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.address : (String) invokeV.objValue;
-    }
-
-    public String getArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.area : (String) invokeV.objValue;
-    }
-
-    public String getCity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.city : (String) invokeV.objValue;
-    }
-
-    public int getDetail() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.detail : invokeV.intValue;
-    }
-
-    public String getDirection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.direction : (String) invokeV.objValue;
-    }
-
-    public int getDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.distance : invokeV.intValue;
-    }
-
-    public LatLng getLocation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.location : (LatLng) invokeV.objValue;
-    }
-
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.name : (String) invokeV.objValue;
-    }
-
-    public ParentPoiInfo getParentPoi() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.parentPoiInfo : (ParentPoiInfo) invokeV.objValue;
-    }
-
-    public String getPhoneNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.phoneNum : (String) invokeV.objValue;
-    }
-
-    public PoiDetailInfo getPoiDetailInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.poiDetailInfo : (PoiDetailInfo) invokeV.objValue;
-    }
-
-    public String getPostCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.postCode : (String) invokeV.objValue;
-    }
-
-    public String getProvince() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.province : (String) invokeV.objValue;
-    }
-
-    public String getStreetId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.street_id : (String) invokeV.objValue;
-    }
-
-    public POITYPE getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.type : (POITYPE) invokeV.objValue;
-    }
-
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.uid : (String) invokeV.objValue;
-    }
-
-    public boolean isHasCaterDetails() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.hasCaterDetails : invokeV.booleanValue;
-    }
-
-    public boolean isPano() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.isPano : invokeV.booleanValue;
     }
 
     public void setAddress(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.address = str;
         }
     }
 
     public void setArea(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.area = str;
         }
     }
 
     public void setCity(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             this.city = str;
         }
     }
 
     public void setDetail(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.detail = i;
         }
     }
 
     public void setDirection(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.direction = str;
         }
     }
 
     public void setDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.distance = i;
         }
     }
 
     public void setHasCaterDetails(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.hasCaterDetails = z;
         }
     }
 
     public void setLocation(LatLng latLng) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, latLng) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, latLng) == null) {
             this.location = latLng;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             this.name = str;
         }
     }
 
     public void setPano(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             this.isPano = z;
         }
     }
 
     public void setParentPoi(ParentPoiInfo parentPoiInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, parentPoiInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, parentPoiInfo) == null) {
             this.parentPoiInfo = parentPoiInfo;
         }
     }
 
     public void setPhoneNum(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
             this.phoneNum = str;
         }
     }
 
     public void setPoiDetailInfo(PoiDetailInfo poiDetailInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, poiDetailInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, poiDetailInfo) == null) {
             this.poiDetailInfo = poiDetailInfo;
         }
     }
 
     public void setPostCode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.postCode = str;
         }
     }
 
     public void setProvince(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.province = str;
         }
     }
 
     public void setStreetId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.street_id = str;
+        }
+    }
+
+    public void setTag(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+            this.tag = str;
         }
     }
 
     public void setType(POITYPE poitype) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, poitype) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, poitype) == null) {
             this.type = poitype;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
             this.uid = str;
         }
     }
@@ -631,7 +750,7 @@ public class PoiInfo implements Parcelable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer("PoiInfo: ");
             stringBuffer.append("name = ");
             stringBuffer.append(this.name);
@@ -664,6 +783,8 @@ public class PoiInfo implements Parcelable {
             stringBuffer.append(this.hasCaterDetails);
             stringBuffer.append("; isPano = ");
             stringBuffer.append(this.isPano);
+            stringBuffer.append("; tag = ");
+            stringBuffer.append(this.tag);
             stringBuffer.append("; poiDetailInfo = ");
             PoiDetailInfo poiDetailInfo = this.poiDetailInfo;
             if (poiDetailInfo != null) {
@@ -699,9 +820,10 @@ public class PoiInfo implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048618, this, parcel, i) == null) {
             parcel.writeString(this.name);
             parcel.writeString(this.uid);
+            parcel.writeString(this.tag);
             parcel.writeString(this.address);
             parcel.writeString(this.province);
             parcel.writeString(this.city);

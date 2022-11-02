@@ -34,7 +34,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.DeclareError;
-import org.aspectj.lang.annotation.DeclareParents;
 import org.aspectj.lang.annotation.DeclareWarning;
 import org.aspectj.lang.reflect.Advice;
 import org.aspectj.lang.reflect.AdviceKind;
@@ -42,6 +41,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.DeclareAnnotation;
 import org.aspectj.lang.reflect.DeclareErrorOrWarning;
+import org.aspectj.lang.reflect.DeclareParents;
 import org.aspectj.lang.reflect.DeclarePrecedence;
 import org.aspectj.lang.reflect.DeclareSoft;
 import org.aspectj.lang.reflect.InterTypeConstructorDeclaration;
@@ -52,13 +52,13 @@ import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.Pointcut;
-/* loaded from: classes8.dex */
-public class AjTypeImpl implements AjType {
+/* loaded from: classes9.dex */
+public class AjTypeImpl<T> implements AjType<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ajcMagic = "ajc$";
     public transient /* synthetic */ FieldHolder $fh;
     public Advice[] advice;
-    public Class clazz;
+    public Class<T> clazz;
     public Advice[] declaredAdvice;
     public InterTypeConstructorDeclaration[] declaredITDCons;
     public InterTypeFieldDeclaration[] declaredITDFields;
@@ -69,13 +69,13 @@ public class AjTypeImpl implements AjType {
     public InterTypeMethodDeclaration[] itdMethods;
     public Pointcut[] pointcuts;
 
-    private void addAnnotationStyleITDFields(List list, boolean z) {
+    private void addAnnotationStyleITDFields(List<InterTypeFieldDeclaration> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, this, list, z) == null) {
         }
     }
 
-    public AjTypeImpl(Class cls) {
+    public AjTypeImpl(Class<T> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,13 +145,13 @@ public class AjTypeImpl implements AjType {
         return (Advice[]) invokeL.objValue;
     }
 
-    private void addAnnotationStyleDeclareParents(List list) {
+    private void addAnnotationStyleDeclareParents(List<DeclareParents> list) {
         Field[] declaredFields;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
             for (Field field : this.clazz.getDeclaredFields()) {
-                if (field.isAnnotationPresent(DeclareParents.class) && field.getType().isInterface()) {
-                    list.add(new DeclareParentsImpl(((DeclareParents) field.getAnnotation(DeclareParents.class)).value(), field.getType().getName(), false, this));
+                if (field.isAnnotationPresent(org.aspectj.lang.annotation.DeclareParents.class) && field.getType().isInterface()) {
+                    list.add(new DeclareParentsImpl(((org.aspectj.lang.annotation.DeclareParents) field.getAnnotation(org.aspectj.lang.annotation.DeclareParents.class)).value(), field.getType().getName(), false, this));
                 }
             }
         }
@@ -193,13 +193,13 @@ public class AjTypeImpl implements AjType {
         return invokeL.booleanValue;
     }
 
-    private void addAnnotationStyleITDMethods(List list, boolean z) {
+    private void addAnnotationStyleITDMethods(List<InterTypeMethodDeclaration> list, boolean z) {
         Field[] declaredFields;
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65539, this, list, z) == null) && isAspect()) {
             for (Field field : this.clazz.getDeclaredFields()) {
-                if (field.getType().isInterface() && field.isAnnotationPresent(DeclareParents.class) && ((DeclareParents) field.getAnnotation(DeclareParents.class)).defaultImpl() != DeclareParents.class) {
+                if (field.getType().isInterface() && field.isAnnotationPresent(org.aspectj.lang.annotation.DeclareParents.class) && ((org.aspectj.lang.annotation.DeclareParents) field.getAnnotation(org.aspectj.lang.annotation.DeclareParents.class)).defaultImpl() != org.aspectj.lang.annotation.DeclareParents.class) {
                     for (Method method : field.getType().getDeclaredMethods()) {
                         if (Modifier.isPublic(method.getModifiers()) || !z) {
                             list.add(new InterTypeMethodDeclarationImpl(this, AjTypeSystem.getAjType(field.getType()), method, 1));
@@ -370,12 +370,12 @@ public class AjTypeImpl implements AjType {
         return (Pointcut[]) invokeV.objValue;
     }
 
-    private AjType[] toAjTypeArray(Class[] clsArr) {
+    private AjType<?>[] toAjTypeArray(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, clsArr)) == null) {
             int length = clsArr.length;
-            AjType[] ajTypeArr = new AjType[length];
+            AjType<?>[] ajTypeArr = new AjType[length];
             for (int i = 0; i < length; i++) {
                 ajTypeArr[i] = AjTypeSystem.getAjType(clsArr[i]);
             }
@@ -384,12 +384,12 @@ public class AjTypeImpl implements AjType {
         return (AjType[]) invokeL.objValue;
     }
 
-    private Class[] toClassArray(AjType[] ajTypeArr) {
+    private Class<?>[] toClassArray(AjType<?>[] ajTypeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, ajTypeArr)) == null) {
             int length = ajTypeArr.length;
-            Class[] clsArr = new Class[length];
+            Class<?>[] clsArr = new Class[length];
             for (int i = 0; i < length; i++) {
                 clsArr[i] = ajTypeArr[i].getJavaClass();
             }
@@ -429,17 +429,17 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // java.lang.reflect.AnnotatedElement
-    public Annotation getAnnotation(Class cls) {
+    public <A extends Annotation> A getAnnotation(Class<A> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
-            return this.clazz.getAnnotation(cls);
+            return (A) this.clazz.getAnnotation(cls);
         }
-        return (Annotation) invokeL.objValue;
+        return (A) invokeL.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Constructor getConstructor(AjType... ajTypeArr) throws NoSuchMethodException {
+    public Constructor getConstructor(AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ajTypeArr)) == null) {
@@ -467,7 +467,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Constructor getDeclaredConstructor(AjType... ajTypeArr) throws NoSuchMethodException {
+    public Constructor getDeclaredConstructor(AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, ajTypeArr)) == null) {
@@ -537,7 +537,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // java.lang.reflect.AnnotatedElement
-    public boolean isAnnotationPresent(Class cls) {
+    public boolean isAnnotationPresent(Class<? extends Annotation> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, cls)) == null) {
@@ -601,7 +601,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType[] getAjTypes() {
+    public AjType<?>[] getAjTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -631,7 +631,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType[] getDeclaredAjTypes() {
+    public AjType<?>[] getDeclaredAjTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -661,7 +661,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType getDeclaringType() {
+    public AjType<?> getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
@@ -695,7 +695,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType getEnclosingType() {
+    public AjType<?> getEnclosingType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
@@ -709,13 +709,13 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Object[] getEnumConstants() {
+    public T[] getEnumConstants() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.clazz.getEnumConstants();
         }
-        return (Object[]) invokeV.objValue;
+        return (T[]) ((Object[]) invokeV.objValue);
     }
 
     @Override // org.aspectj.lang.reflect.AjType
@@ -729,7 +729,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType[] getInterfaces() {
+    public AjType<?>[] getInterfaces() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
@@ -739,7 +739,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Class getJavaClass() {
+    public Class<T> getJavaClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
@@ -779,11 +779,11 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public AjType getSupertype() {
+    public AjType<? super T> getSupertype() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            Class superclass = this.clazz.getSuperclass();
+            Class<? super T> superclass = this.clazz.getSuperclass();
             if (superclass == null) {
                 return null;
             }
@@ -793,7 +793,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public TypeVariable[] getTypeParameters() {
+    public TypeVariable<Class<T>>[] getTypeParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
@@ -966,12 +966,12 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public org.aspectj.lang.reflect.DeclareParents[] getDeclareParents() {
+    public DeclareParents[] getDeclareParents() {
         InterceptResult invokeV;
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            List<DeclareParents> arrayList = new ArrayList<>();
             for (Method method : this.clazz.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(ajcDeclareParents.class)) {
                     ajcDeclareParents ajcdeclareparents = (ajcDeclareParents) method.getAnnotation(ajcDeclareParents.class);
@@ -982,11 +982,11 @@ public class AjTypeImpl implements AjType {
             if (getSupertype().isAspect()) {
                 arrayList.addAll(Arrays.asList(getSupertype().getDeclareParents()));
             }
-            org.aspectj.lang.reflect.DeclareParents[] declareParentsArr = new org.aspectj.lang.reflect.DeclareParents[arrayList.size()];
+            DeclareParents[] declareParentsArr = new DeclareParents[arrayList.size()];
             arrayList.toArray(declareParentsArr);
             return declareParentsArr;
         }
-        return (org.aspectj.lang.reflect.DeclareParents[]) invokeV.objValue;
+        return (DeclareParents[]) invokeV.objValue;
     }
 
     @Override // org.aspectj.lang.reflect.AjType
@@ -1067,7 +1067,7 @@ public class AjTypeImpl implements AjType {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (this.declaredITDMethods == null) {
-                ArrayList arrayList = new ArrayList();
+                List<InterTypeMethodDeclaration> arrayList = new ArrayList<>();
                 for (Method method : this.clazz.getDeclaredMethods()) {
                     if (method.getName().contains("ajc$interMethodDispatch1$") && method.isAnnotationPresent(ajcITD.class)) {
                         ajcITD ajcitd = (ajcITD) method.getAnnotation(ajcITD.class);
@@ -1116,7 +1116,7 @@ public class AjTypeImpl implements AjType {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             if (this.itdMethods == null) {
-                ArrayList arrayList = new ArrayList();
+                List<InterTypeMethodDeclaration> arrayList = new ArrayList<>();
                 for (Method method : this.clazz.getDeclaredMethods()) {
                     if (method.getName().contains("ajc$interMethod$") && method.isAnnotationPresent(ajcITD.class)) {
                         ajcITD ajcitd = (ajcITD) method.getAnnotation(ajcITD.class);
@@ -1246,7 +1246,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeConstructorDeclaration getDeclaredITDConstructor(AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException {
+    public InterTypeConstructorDeclaration getDeclaredITDConstructor(AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLL;
         InterTypeConstructorDeclaration[] declaredITDConstructors;
         Interceptable interceptable = $ic;
@@ -1254,7 +1254,7 @@ public class AjTypeImpl implements AjType {
             for (InterTypeConstructorDeclaration interTypeConstructorDeclaration : getDeclaredITDConstructors()) {
                 try {
                     if (interTypeConstructorDeclaration.getTargetType().equals(ajType)) {
-                        AjType[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
+                        AjType<?>[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
                             for (int i = 0; i < parameterTypes.length; i++) {
                                 if (!parameterTypes[i].equals(ajTypeArr[i])) {
@@ -1276,7 +1276,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeConstructorDeclaration getITDConstructor(AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException {
+    public InterTypeConstructorDeclaration getITDConstructor(AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLL;
         InterTypeConstructorDeclaration[] iTDConstructors;
         Interceptable interceptable = $ic;
@@ -1284,7 +1284,7 @@ public class AjTypeImpl implements AjType {
             for (InterTypeConstructorDeclaration interTypeConstructorDeclaration : getITDConstructors()) {
                 try {
                     if (interTypeConstructorDeclaration.getTargetType().equals(ajType)) {
-                        AjType[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
+                        AjType<?>[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
                             for (int i = 0; i < parameterTypes.length; i++) {
                                 if (!parameterTypes[i].equals(ajTypeArr[i])) {
@@ -1306,7 +1306,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeFieldDeclaration getDeclaredITDField(String str, AjType ajType) throws NoSuchFieldException {
+    public InterTypeFieldDeclaration getDeclaredITDField(String str, AjType<?> ajType) throws NoSuchFieldException {
         InterceptResult invokeLL;
         InterTypeFieldDeclaration[] declaredITDFields;
         Interceptable interceptable = $ic;
@@ -1328,7 +1328,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeFieldDeclaration getITDField(String str, AjType ajType) throws NoSuchFieldException {
+    public InterTypeFieldDeclaration getITDField(String str, AjType<?> ajType) throws NoSuchFieldException {
         InterceptResult invokeLL;
         InterTypeFieldDeclaration[] iTDFields;
         Interceptable interceptable = $ic;
@@ -1355,7 +1355,7 @@ public class AjTypeImpl implements AjType {
         Method[] declaredMethods;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            List<InterTypeFieldDeclaration> arrayList = new ArrayList<>();
             if (this.declaredITDFields == null) {
                 for (Method method : this.clazz.getDeclaredMethods()) {
                     if (method.isAnnotationPresent(ajcITD.class) && method.getName().contains("ajc$interFieldInit")) {
@@ -1384,7 +1384,7 @@ public class AjTypeImpl implements AjType {
         Method[] methods;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            List<InterTypeFieldDeclaration> arrayList = new ArrayList<>();
             if (this.itdFields == null) {
                 for (Method method : this.clazz.getMethods()) {
                     if (method.isAnnotationPresent(ajcITD.class)) {
@@ -1410,7 +1410,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeMethodDeclaration getDeclaredITDMethod(String str, AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException {
+    public InterTypeMethodDeclaration getDeclaredITDMethod(String str, AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         InterTypeMethodDeclaration[] declaredITDMethods;
         Interceptable interceptable = $ic;
@@ -1418,7 +1418,7 @@ public class AjTypeImpl implements AjType {
             for (InterTypeMethodDeclaration interTypeMethodDeclaration : getDeclaredITDMethods()) {
                 try {
                     if (interTypeMethodDeclaration.getName().equals(str) && interTypeMethodDeclaration.getTargetType().equals(ajType)) {
-                        AjType[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
+                        AjType<?>[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
                             for (int i = 0; i < parameterTypes.length; i++) {
                                 if (!parameterTypes[i].equals(ajTypeArr[i])) {
@@ -1438,7 +1438,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public InterTypeMethodDeclaration getITDMethod(String str, AjType ajType, AjType... ajTypeArr) throws NoSuchMethodException {
+    public InterTypeMethodDeclaration getITDMethod(String str, AjType<?> ajType, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLLL;
         InterTypeMethodDeclaration[] iTDMethods;
         Interceptable interceptable = $ic;
@@ -1446,7 +1446,7 @@ public class AjTypeImpl implements AjType {
             for (InterTypeMethodDeclaration interTypeMethodDeclaration : getITDMethods()) {
                 try {
                     if (interTypeMethodDeclaration.getName().equals(str) && interTypeMethodDeclaration.getTargetType().equals(ajType)) {
-                        AjType[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
+                        AjType<?>[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
                             for (int i = 0; i < parameterTypes.length; i++) {
                                 if (!parameterTypes[i].equals(ajTypeArr[i])) {
@@ -1466,7 +1466,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Method getDeclaredMethod(String str, AjType... ajTypeArr) throws NoSuchMethodException {
+    public Method getDeclaredMethod(String str, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, ajTypeArr)) == null) {
@@ -1480,7 +1480,7 @@ public class AjTypeImpl implements AjType {
     }
 
     @Override // org.aspectj.lang.reflect.AjType
-    public Method getMethod(String str, AjType... ajTypeArr) throws NoSuchMethodException {
+    public Method getMethod(String str, AjType<?>... ajTypeArr) throws NoSuchMethodException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048623, this, str, ajTypeArr)) == null) {

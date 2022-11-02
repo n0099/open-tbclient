@@ -22,7 +22,7 @@ public final class CompletableTimer extends Completable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TimerDisposable extends AtomicReference implements Disposable, Runnable {
+    public static final class TimerDisposable extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3167244060586201109L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class CompletableTimer extends Completable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }

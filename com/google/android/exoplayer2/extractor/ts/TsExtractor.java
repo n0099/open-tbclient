@@ -70,11 +70,11 @@ public final class TsExtractor implements Extractor {
     public ExtractorOutput output;
     public final TsPayloadReader.Factory payloadReaderFactory;
     public int remainingPmts;
-    public final List timestampAdjusters;
+    public final List<TimestampAdjuster> timestampAdjusters;
     public final SparseBooleanArray trackIds;
     public boolean tracksEnded;
     public final ParsableByteArray tsPacketBuffer;
-    public final SparseArray tsPayloadReaders;
+    public final SparseArray<TsPayloadReader> tsPayloadReaders;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes7.dex */
@@ -161,7 +161,7 @@ public final class TsExtractor implements Extractor {
         public final ParsableBitArray pmtScratch;
         public final /* synthetic */ TsExtractor this$0;
         public final SparseIntArray trackIdToPidScratch;
-        public final SparseArray trackIdToReaderScratch;
+        public final SparseArray<TsPayloadReader> trackIdToReaderScratch;
 
         @Override // com.google.android.exoplayer2.extractor.ts.SectionPayloadReader
         public void init(TimestampAdjuster timestampAdjuster, ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
@@ -187,7 +187,7 @@ public final class TsExtractor implements Extractor {
             }
             this.this$0 = tsExtractor;
             this.pmtScratch = new ParsableBitArray(new byte[5]);
-            this.trackIdToReaderScratch = new SparseArray();
+            this.trackIdToReaderScratch = new SparseArray<>();
             this.trackIdToPidScratch = new SparseIntArray();
             this.pid = i;
         }
@@ -313,12 +313,12 @@ public final class TsExtractor implements Extractor {
             for (int i4 = 0; i4 < size; i4++) {
                 int keyAt = this.trackIdToPidScratch.keyAt(i4);
                 this.this$0.trackIds.put(keyAt, true);
-                TsPayloadReader tsPayloadReader = (TsPayloadReader) this.trackIdToReaderScratch.valueAt(i4);
-                if (tsPayloadReader != null) {
-                    if (tsPayloadReader != this.this$0.id3Reader) {
-                        tsPayloadReader.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, keyAt, 8192));
+                TsPayloadReader valueAt = this.trackIdToReaderScratch.valueAt(i4);
+                if (valueAt != null) {
+                    if (valueAt != this.this$0.id3Reader) {
+                        valueAt.init(timestampAdjuster, this.this$0.output, new TsPayloadReader.TrackIdGenerator(readUnsignedShort, keyAt, 8192));
                     }
-                    this.this$0.tsPayloadReaders.put(this.trackIdToPidScratch.valueAt(i4), tsPayloadReader);
+                    this.this$0.tsPayloadReaders.put(this.trackIdToPidScratch.valueAt(i4), valueAt);
                 }
             }
             if (this.this$0.mode == 2) {
@@ -449,7 +449,7 @@ public final class TsExtractor implements Extractor {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             int size = this.timestampAdjusters.size();
             for (int i = 0; i < size; i++) {
-                ((TimestampAdjuster) this.timestampAdjusters.get(i)).reset();
+                this.timestampAdjusters.get(i).reset();
             }
             this.tsPacketBuffer.reset();
             this.continuityCounters.clear();
@@ -483,7 +483,7 @@ public final class TsExtractor implements Extractor {
         }
         this.tsPacketBuffer = new ParsableByteArray((int) BUFFER_SIZE);
         this.trackIds = new SparseBooleanArray();
-        this.tsPayloadReaders = new SparseArray();
+        this.tsPayloadReaders = new SparseArray<>();
         this.continuityCounters = new SparseIntArray();
         resetPayloadReaders();
     }
@@ -508,7 +508,7 @@ public final class TsExtractor implements Extractor {
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             this.trackIds.clear();
             this.tsPayloadReaders.clear();
-            SparseArray createInitialPayloadReaders = this.payloadReaderFactory.createInitialPayloadReaders();
+            SparseArray<TsPayloadReader> createInitialPayloadReaders = this.payloadReaderFactory.createInitialPayloadReaders();
             int size = createInitialPayloadReaders.size();
             for (int i = 0; i < size; i++) {
                 this.tsPayloadReaders.put(createInitialPayloadReaders.keyAt(i), createInitialPayloadReaders.valueAt(i));
@@ -576,7 +576,7 @@ public final class TsExtractor implements Extractor {
                 z3 = false;
             }
             if (z3) {
-                tsPayloadReader = (TsPayloadReader) this.tsPayloadReaders.get(i2);
+                tsPayloadReader = this.tsPayloadReaders.get(i2);
             } else {
                 tsPayloadReader = null;
             }

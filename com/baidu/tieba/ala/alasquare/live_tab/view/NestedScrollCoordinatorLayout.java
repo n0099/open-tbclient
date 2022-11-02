@@ -3,6 +3,9 @@ package com.baidu.tieba.ala.alasquare.live_tab.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Size;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.NestedScrollingChild;
@@ -24,7 +27,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     public a b;
 
     /* loaded from: classes3.dex */
-    public class a extends CoordinatorLayout.Behavior {
+    public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -55,10 +58,10 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, View view2, View view3, float f, float f2) {
+        public boolean onNestedPreFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, view2, view3, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, dummyview, view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 boolean dispatchNestedPreFling = ((NestedScrollCoordinatorLayout) coordinatorLayout).dispatchNestedPreFling(f, f2);
                 if (this.a == 1) {
                     return dispatchNestedPreFling;
@@ -69,9 +72,9 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View view2, View view3, int i, int i2, int[] iArr, int i3) {
+        public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view2, int i, int i2, @NonNull int[] iArr, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, view2, view3, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, dummyview, view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
                 NestedScrollCoordinatorLayout nestedScrollCoordinatorLayout = (NestedScrollCoordinatorLayout) coordinatorLayout;
                 int i4 = this.a;
                 if (i4 == 1) {
@@ -86,19 +89,19 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View view2, View view3, View view4, int i, int i2) {
+        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view2, @NonNull View view3, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, view2, view3, view4, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, dummyview, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
                 return ((NestedScrollCoordinatorLayout) coordinatorLayout).startNestedScroll(i);
             }
             return invokeCommon.booleanValue;
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, View view2, View view3, int i) {
+        public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(1048580, this, coordinatorLayout, view2, view3, i) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(1048580, this, coordinatorLayout, dummyview, view2, i) == null) {
                 ((NestedScrollCoordinatorLayout) coordinatorLayout).stopNestedScroll();
             }
         }
@@ -232,7 +235,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
+    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable @Size(2) int[] iArr, @Nullable @Size(2) int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
@@ -242,7 +245,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable @Size(2) int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {

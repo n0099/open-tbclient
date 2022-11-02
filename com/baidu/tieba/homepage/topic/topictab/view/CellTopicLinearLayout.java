@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ public class CellTopicLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
+    public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
         }
@@ -83,7 +84,7 @@ public class CellTopicLinearLayout extends LinearLayout {
         }
     }
 
-    public void setTopicOnClickListener(View.OnClickListener onClickListener) {
+    public void setTopicOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);

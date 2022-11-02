@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class YaNativeLogger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static native void createLogSnapShot(long j, long j2, String str, String str2, boolean z, boolean z2, String str3, List list);
+    public static native void createLogSnapShot(long j, long j2, String str, String str2, boolean z, boolean z2, String str3, List<String> list);
 
     public static native void flush(String str, boolean z);
 
     public static native void log(String str, String str2, String str3, String str4, String str5);
 
-    public static native void queryLogFiles(long j, long j2, String str, String str2, List list);
+    public static native void queryLogFiles(long j, long j2, String str, String str2, List<String> list);
 
     public static native void requestCleanOverQuotaLog();
 

@@ -21,7 +21,7 @@ public class a extends g {
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public CopyOnWriteArrayList a;
+    public CopyOnWriteArrayList<Throwable> a;
     public String b;
     public String c;
     public String d;
@@ -103,7 +103,7 @@ public class a extends g {
         this.v = null;
         this.w = null;
         this.x = null;
-        this.a = new CopyOnWriteArrayList();
+        this.a = new CopyOnWriteArrayList<>();
     }
 
     public void A(String str) {

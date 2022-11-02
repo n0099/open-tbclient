@@ -31,7 +31,7 @@ public abstract class cj {
 
     public abstract ByteBuffer a(cw cwVar);
 
-    public abstract List a(ByteBuffer byteBuffer, boolean z);
+    public abstract List<cw> a(ByteBuffer byteBuffer, boolean z);
 
     public abstract void a();
 
@@ -39,11 +39,11 @@ public abstract class cj {
 
     public abstract cj c();
 
-    public abstract List c(ByteBuffer byteBuffer) throws cn;
+    public abstract List<cw> c(ByteBuffer byteBuffer) throws cn;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -111,7 +111,7 @@ public abstract class cj {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public static final b b;
@@ -307,7 +307,7 @@ public abstract class cj {
         return (dd) invokeL.objValue;
     }
 
-    public List a(dd ddVar, ce.b bVar) {
+    public List<ByteBuffer> a(dd ddVar, ce.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, ddVar, bVar)) == null) {
@@ -316,7 +316,7 @@ public abstract class cj {
         return (List) invokeLL.objValue;
     }
 
-    public List a(dd ddVar, ce.b bVar, boolean z) {
+    public List<ByteBuffer> a(dd ddVar, ce.b bVar, boolean z) {
         InterceptResult invokeLLZ;
         byte[] bArr;
         int length;
@@ -334,11 +334,11 @@ public abstract class cj {
                 throw new RuntimeException("unknown role");
             }
             sb.append("\r\n");
-            Iterator b2 = ddVar.b();
+            Iterator<String> b2 = ddVar.b();
             while (b2.hasNext()) {
-                String str = (String) b2.next();
-                String b3 = ddVar.b(str);
-                sb.append(str);
+                String next = b2.next();
+                String b3 = ddVar.b(next);
+                sb.append(next);
                 sb.append(": ");
                 sb.append(b3);
                 sb.append("\r\n");

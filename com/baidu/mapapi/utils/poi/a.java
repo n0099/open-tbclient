@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class a implements a.InterfaceC0123a {
+public final class a implements a.InterfaceC0130a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
@@ -34,27 +34,25 @@ public final class a implements a.InterfaceC0123a {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0123a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0130a
     public void a(HttpClient.HttpStateError httpStateError) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
             int i = b.b[httpStateError.ordinal()];
-            if (i == 1) {
-                str = "current network is not available";
-            } else if (i != 2) {
+            if (i != 1) {
+                if (i == 2) {
+                    Log.d("baidumapsdk", "network inner error, please check network");
+                    return;
+                }
                 return;
-            } else {
-                str = "network inner error, please check network";
             }
-            Log.d("baidumapsdk", str);
+            Log.d("baidumapsdk", "current network is not available");
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0123a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0130a
     public void a(c cVar) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             if (cVar == null) {
@@ -62,27 +60,31 @@ public final class a implements a.InterfaceC0123a {
                 return;
             }
             int i = b.a[cVar.a().ordinal()];
-            if (i == 1) {
-                str = "pano uid is error, please check param poi uid";
-            } else if (i == 2) {
-                str = "pano id not found for this poi point";
-            } else if (i == 3) {
-                str = "please check ak for permission";
-            } else if (i != 4) {
-                return;
-            } else {
-                if (cVar.c() == 1) {
-                    try {
-                        BaiduMapPoiSearch.b(cVar.b(), this.a);
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            if (cVar.c() == 1) {
+                                try {
+                                    BaiduMapPoiSearch.b(cVar.b(), this.a);
+                                    return;
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return;
+                                }
+                            }
+                            Log.d("baidumapsdk", "this point do not support for pano show");
+                            return;
+                        }
                         return;
                     }
+                    Log.d("baidumapsdk", "please check ak for permission");
+                    return;
                 }
-                str = "this point do not support for pano show";
+                Log.d("baidumapsdk", "pano id not found for this poi point");
+                return;
             }
-            Log.d("baidumapsdk", str);
+            Log.d("baidumapsdk", "pano uid is error, please check param poi uid");
         }
     }
 }

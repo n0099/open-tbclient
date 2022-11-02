@@ -21,7 +21,7 @@ import com.baidu.nadcore.max.uicomponent.WebViewComponent;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go0;
+import com.baidu.tieba.vo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,16 +52,16 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void Y0(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.Y0(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05fb);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c81);
+            super.Z0(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d060b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091cc9);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.v = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
-            v1();
+            x1();
             ComponentArchManager componentArchManager = this.u;
             if (componentArchManager == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
@@ -82,21 +82,21 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            go0 go0Var = (go0) componentArchManager3.p(go0.class);
-            if (go0Var != null) {
+            vo0 vo0Var = (vo0) componentArchManager3.p(vo0.class);
+            if (vo0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                go0Var.a(str, "");
+                vo0Var.a(str, "");
             }
-            s1(false);
+            t1(false);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void a1(Intent intent) {
+    public void b1(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            super.a1(intent);
+            super.b1(intent);
             if (intent != null) {
                 ComponentArchManager componentArchManager = this.u;
                 if (componentArchManager == null) {
@@ -108,11 +108,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean j1(Bundle bundle) {
+    public boolean k1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            if (!super.j1(bundle)) {
+            if (!super.k1(bundle)) {
                 return false;
             }
             getWindow().setSoftInputMode(19);
@@ -122,7 +122,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 setCurrentActivityNoTransparent();
             } else {
                 setEnableSliding(true);
-                s1(true);
+                t1(true);
             }
             return true;
         }
@@ -145,7 +145,7 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
         return invokeIL.booleanValue;
     }
 
-    public final void v1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Lifecycle lifecycle = getLifecycle();

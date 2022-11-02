@@ -59,7 +59,7 @@ public final class MultiDetector extends Detector {
         }
     }
 
-    public DetectorResult[] detectMulti(Map map) throws NotFoundException {
+    public DetectorResult[] detectMulti(Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeL;
         ResultPointCallback resultPointCallback;
         Interceptable interceptable = $ic;

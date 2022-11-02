@@ -3,6 +3,8 @@ package com.google.android.gms.common.config;
 import android.os.Binder;
 import android.os.StrictMode;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,14 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.util.VisibleForTesting;
+@KeepForSdk
 /* loaded from: classes7.dex */
-public abstract class GservicesValue {
+public abstract class GservicesValue<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object zzc;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final String zza;
-    public final Object zzb;
-    public Object zzd;
+    @NonNull
+    public final T zzb;
+    @Nullable
+    public T zzd;
 
     static {
         InterceptResult invokeClinit;
@@ -37,12 +45,12 @@ public abstract class GservicesValue {
         zzc = new Object();
     }
 
-    public GservicesValue(String str, Object obj) {
+    public GservicesValue(@NonNull String str, @NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj};
+            Object[] objArr = {str, t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,33 +62,43 @@ public abstract class GservicesValue {
         }
         this.zzd = null;
         this.zza = str;
-        this.zzb = obj;
+        this.zzb = t;
     }
 
-    public static GservicesValue value(String str, Float f) {
+    @NonNull
+    @KeepForSdk
+    public static GservicesValue<Float> value(@NonNull String str, @NonNull Float f) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, f)) == null) ? new zzd(str, f) : (GservicesValue) invokeLL.objValue;
     }
 
-    public static GservicesValue value(String str, Integer num) {
+    @NonNull
+    @KeepForSdk
+    public static GservicesValue<Integer> value(@NonNull String str, @NonNull Integer num) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, num)) == null) ? new zzc(str, num) : (GservicesValue) invokeLL.objValue;
     }
 
-    public static GservicesValue value(String str, Long l) {
+    @NonNull
+    @KeepForSdk
+    public static GservicesValue<Long> value(@NonNull String str, @NonNull Long l) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, l)) == null) ? new zzb(str, l) : (GservicesValue) invokeLL.objValue;
     }
 
-    public static GservicesValue value(String str, String str2) {
+    @NonNull
+    @KeepForSdk
+    public static GservicesValue<String> value(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? new zze(str, str2) : (GservicesValue) invokeLL.objValue;
     }
 
+    @VisibleForTesting
+    @KeepForSdk
     public void resetOverride() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -88,8 +106,10 @@ public abstract class GservicesValue {
         }
     }
 
-    public abstract Object zza(String str);
+    @NonNull
+    public abstract T zza(@NonNull String str);
 
+    @KeepForSdk
     public static boolean isInitialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,17 +121,21 @@ public abstract class GservicesValue {
         return invokeV.booleanValue;
     }
 
+    @NonNull
+    @KeepForSdk
     @Deprecated
-    public final Object getBinderSafe() {
+    public final T getBinderSafe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return get();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public static GservicesValue value(String str, boolean z) {
+    @NonNull
+    @KeepForSdk
+    public static GservicesValue<Boolean> value(@NonNull String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
@@ -120,13 +144,15 @@ public abstract class GservicesValue {
         return (GservicesValue) invokeLZ.objValue;
     }
 
-    public final Object get() {
+    @NonNull
+    @KeepForSdk
+    public final T get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object obj = this.zzd;
-            if (obj != null) {
-                return obj;
+            T t = this.zzd;
+            if (t != null) {
+                return t;
             }
             StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
             synchronized (zzc) {
@@ -137,21 +163,23 @@ public abstract class GservicesValue {
                 return zza(this.zza);
             } catch (SecurityException unused) {
                 long clearCallingIdentity = Binder.clearCallingIdentity();
-                Object zza = zza(this.zza);
+                T zza = zza(this.zza);
                 Binder.restoreCallingIdentity(clearCallingIdentity);
                 return zza;
             } finally {
                 StrictMode.setThreadPolicy(allowThreadDiskReads);
             }
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public void override(Object obj) {
+    @VisibleForTesting
+    @KeepForSdk
+    public void override(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             Log.w("GservicesValue", "GservicesValue.override(): test should probably call initForTests() first");
-            this.zzd = obj;
+            this.zzd = t;
             synchronized (zzc) {
                 synchronized (zzc) {
                 }

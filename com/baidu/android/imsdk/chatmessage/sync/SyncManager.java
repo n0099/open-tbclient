@@ -14,7 +14,7 @@ import java.util.Iterator;
 public class SyncManager {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sSyncDone;
-    public static ArrayList sSyncStateListeners;
+    public static ArrayList<ISyncStateListener> sSyncStateListeners;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class SyncManager {
                 return;
             }
         }
-        sSyncStateListeners = new ArrayList();
+        sSyncStateListeners = new ArrayList<>();
     }
 
     public SyncManager() {
@@ -61,9 +61,9 @@ public class SyncManager {
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (SyncManager.class) {
                 sSyncDone = true;
-                Iterator it = sSyncStateListeners.iterator();
+                Iterator<ISyncStateListener> it = sSyncStateListeners.iterator();
                 while (it.hasNext()) {
-                    ((ISyncStateListener) it.next()).onSyncDone();
+                    it.next().onSyncDone();
                 }
                 sSyncStateListeners.clear();
             }

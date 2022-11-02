@@ -1,5 +1,6 @@
 package com.sina.deviceidjnisdk;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -32,6 +33,7 @@ public class DeviceInfo {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public static String getDeviceId(Context context) {
         InterceptResult invokeL;
         TelephonyManager telephonyManager;
@@ -65,6 +67,7 @@ public class DeviceInfo {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"MissingPermission"})
     public static String getImsi(Context context) {
         InterceptResult invokeL;
         String str;

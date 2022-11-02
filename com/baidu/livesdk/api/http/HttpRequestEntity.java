@@ -13,10 +13,10 @@ public class HttpRequestEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int connectTimeout;
-    public HashMap header;
+    public HashMap<String, String> header;
     public String mediaType;
     public int method;
-    public HashMap postParams;
+    public HashMap<String, String> postParams;
     public int readTimeout;
     public int retryCount;
     public String url;
@@ -44,7 +44,7 @@ public class HttpRequestEntity {
         return invokeV.intValue;
     }
 
-    public HashMap getHeader() {
+    public HashMap<String, String> getHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -71,7 +71,7 @@ public class HttpRequestEntity {
         return invokeV.intValue;
     }
 
-    public HashMap getPostParams() {
+    public HashMap<String, String> getPostParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -114,7 +114,7 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setHeader(HashMap hashMap) {
+    public void setHeader(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, hashMap) == null) {
             this.header = hashMap;
@@ -135,7 +135,7 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setPostParams(HashMap hashMap) {
+    public void setPostParams(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, hashMap) == null) {
             this.postParams = hashMap;

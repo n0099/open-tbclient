@@ -56,7 +56,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10a9);
+            setTitleText(R.string.obfuscated_res_0x7f0f10c4);
             try {
                 d();
             } catch (Exception e) {
@@ -66,7 +66,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    private void a(Task task) {
+    private void a(Task<GoogleSignInAccount> task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, task) == null) {
             try {
@@ -88,7 +88,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f1095));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f10b0));
         }
     }
 

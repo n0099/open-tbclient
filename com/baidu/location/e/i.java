@@ -19,14 +19,14 @@ public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
-    public final /* synthetic */ e b;
+    public final /* synthetic */ f b;
 
-    public i(e eVar, String str) {
+    public i(f fVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar, str};
+            Object[] objArr = {fVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,42 +36,42 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.b = eVar;
+        this.b = fVar;
         this.a = str;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:112:0x01de */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0105 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0108 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:112:0x01ce */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0102 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0105 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x01c5  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x01eb  */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x01f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x019b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:145:0x01d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:149:0x01ca A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0206 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x0190 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x01fb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x01b9  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x01d9  */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x01e7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x01f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x01de A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:146:0x0189 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x01c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x0192 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x01be A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:170:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:171:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x018b  */
-    /* JADX WARN: Type inference failed for: r12v0 */
-    /* JADX WARN: Type inference failed for: r12v1 */
-    /* JADX WARN: Type inference failed for: r12v12 */
-    /* JADX WARN: Type inference failed for: r12v13 */
-    /* JADX WARN: Type inference failed for: r12v15 */
-    /* JADX WARN: Type inference failed for: r12v16 */
-    /* JADX WARN: Type inference failed for: r12v18 */
-    /* JADX WARN: Type inference failed for: r12v19 */
-    /* JADX WARN: Type inference failed for: r12v2 */
-    /* JADX WARN: Type inference failed for: r12v21, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r12v28 */
-    /* JADX WARN: Type inference failed for: r12v29 */
-    /* JADX WARN: Type inference failed for: r12v3, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r12v5 */
-    /* JADX WARN: Type inference failed for: r12v6 */
-    /* JADX WARN: Type inference failed for: r12v7, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0184  */
+    /* JADX WARN: Type inference failed for: r13v0 */
+    /* JADX WARN: Type inference failed for: r13v1 */
+    /* JADX WARN: Type inference failed for: r13v12 */
+    /* JADX WARN: Type inference failed for: r13v13 */
+    /* JADX WARN: Type inference failed for: r13v15 */
+    /* JADX WARN: Type inference failed for: r13v16 */
+    /* JADX WARN: Type inference failed for: r13v18 */
+    /* JADX WARN: Type inference failed for: r13v19 */
+    /* JADX WARN: Type inference failed for: r13v2 */
+    /* JADX WARN: Type inference failed for: r13v21, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r13v28 */
+    /* JADX WARN: Type inference failed for: r13v29 */
+    /* JADX WARN: Type inference failed for: r13v3, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r13v5 */
+    /* JADX WARN: Type inference failed for: r13v6 */
+    /* JADX WARN: Type inference failed for: r13v7, types: [java.io.ByteArrayOutputStream] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -80,15 +80,14 @@ public class i implements Runnable {
         InputStream inputStream;
         OutputStream outputStream;
         HttpsURLConnection httpsURLConnection;
-        ?? r12;
-        ?? r122;
+        ?? r13;
+        ?? r132;
         Object obj;
         StringBuffer stringBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.a();
-            this.b.b();
-            this.b.h = this.a;
+            this.b.g = this.a;
             HttpsURLConnection httpsURLConnection2 = null;
             InputStream inputStream2 = null;
             try {
@@ -112,21 +111,21 @@ public class i implements Runnable {
             }
             try {
                 try {
-                    httpsURLConnection = (HttpsURLConnection) new URL(this.b.h).openConnection();
+                    httpsURLConnection = (HttpsURLConnection) new URL(this.b.g).openConnection();
                     try {
                         httpsURLConnection.setInstanceFollowRedirects(false);
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setDoInput(true);
-                        httpsURLConnection.setConnectTimeout(a.b);
-                        httpsURLConnection.setReadTimeout(a.c);
+                        httpsURLConnection.setConnectTimeout(a.a);
+                        httpsURLConnection.setReadTimeout(a.b);
                         httpsURLConnection.setRequestMethod("POST");
                         httpsURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpsURLConnection.setRequestProperty("Accept-Encoding", "gzip");
-                        if (k.ax != null) {
-                            httpsURLConnection.setRequestProperty("bd-loc-android", k.ax);
+                        if (k.aw != null) {
+                            httpsURLConnection.setRequestProperty("bd-loc-android", k.aw);
                         }
-                        for (Map.Entry entry : this.b.k.entrySet()) {
-                            stringBuffer.append((String) entry.getKey());
+                        for (Map.Entry<String, Object> entry : this.b.j.entrySet()) {
+                            stringBuffer.append(entry.getKey());
                             stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
                             stringBuffer.append("&");
@@ -145,116 +144,116 @@ public class i implements Runnable {
                                     if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                         inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
                                     }
-                                    r122 = new ByteArrayOutputStream();
-                                    try {
-                                        byte[] bArr = new byte[1024];
-                                        while (true) {
-                                            int read = inputStream.read(bArr);
-                                            if (read == -1) {
-                                                break;
-                                            }
-                                            r122.write(bArr, 0, read);
-                                        }
-                                        this.b.j = new String(r122.toByteArray(), IMAudioTransRequest.CHARSET);
-                                        this.b.a(true);
-                                        inputStream2 = inputStream;
-                                        r122 = r122;
-                                    } catch (Error e3) {
-                                        e = e3;
-                                        e.printStackTrace();
-                                        Log.i(a.a, "https NetworkCommunicationError!");
-                                        this.b.j = null;
-                                        this.b.a(false);
-                                        if (httpsURLConnection != null) {
-                                            httpsURLConnection.disconnect();
-                                        }
-                                        if (outputStream != null) {
-                                            try {
-                                                outputStream.close();
-                                            } catch (Exception unused) {
-                                                Log.d(a.a, "close os IOException!");
-                                            }
-                                        }
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (Exception unused2) {
-                                                Log.d(a.a, "close is IOException!");
-                                            }
-                                        }
-                                        if (r122 == 0) {
-                                            return;
-                                        }
-                                        r122.close();
-                                    } catch (Exception e4) {
-                                        e = e4;
-                                        e.printStackTrace();
-                                        Log.i(a.a, "https NetworkCommunicationException!");
-                                        this.b.j = null;
-                                        this.b.a(false);
-                                        if (httpsURLConnection != null) {
-                                            httpsURLConnection.disconnect();
-                                        }
-                                        if (outputStream != null) {
-                                            try {
-                                                outputStream.close();
-                                            } catch (Exception unused3) {
-                                                Log.d(a.a, "close os IOException!");
-                                            }
-                                        }
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (Exception unused4) {
-                                                Log.d(a.a, "close is IOException!");
-                                            }
-                                        }
-                                        if (r122 == 0) {
-                                            return;
-                                        }
-                                        r122.close();
-                                    }
-                                } catch (Error e5) {
-                                    e = e5;
-                                    r122 = 0;
-                                } catch (Exception e6) {
-                                    e = e6;
-                                    r122 = 0;
+                                    r132 = new ByteArrayOutputStream();
+                                } catch (Error e3) {
+                                    e = e3;
+                                    r132 = 0;
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    r132 = 0;
                                 } catch (Throwable th3) {
                                     th = th3;
                                     obj = null;
                                     httpsURLConnection2 = httpsURLConnection;
-                                    r12 = obj;
+                                    r13 = obj;
                                     if (httpsURLConnection2 != null) {
                                         httpsURLConnection2.disconnect();
                                     }
                                     if (outputStream != null) {
                                         try {
                                             outputStream.close();
-                                        } catch (Exception unused5) {
-                                            Log.d(a.a, "close os IOException!");
+                                        } catch (Exception unused) {
+                                            Log.d("baidu_location_service", "close os IOException!");
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception unused6) {
-                                            Log.d(a.a, "close is IOException!");
+                                        } catch (Exception unused2) {
+                                            Log.d("baidu_location_service", "close is IOException!");
                                         }
                                     }
-                                    if (r12 != 0) {
+                                    if (r13 != 0) {
                                         try {
-                                            r12.close();
-                                        } catch (Exception unused7) {
-                                            Log.d(a.a, "close baos IOException!");
+                                            r13.close();
+                                        } catch (Exception unused3) {
+                                            Log.d("baidu_location_service", "close baos IOException!");
                                         }
                                     }
                                     throw th;
                                 }
+                                try {
+                                    byte[] bArr = new byte[1024];
+                                    while (true) {
+                                        int read = inputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        r132.write(bArr, 0, read);
+                                    }
+                                    this.b.i = new String(r132.toByteArray(), IMAudioTransRequest.CHARSET);
+                                    this.b.a(true);
+                                    inputStream2 = inputStream;
+                                    r132 = r132;
+                                } catch (Error e5) {
+                                    e = e5;
+                                    e.printStackTrace();
+                                    Log.i("baidu_location_service", "https NetworkCommunicationError!");
+                                    this.b.i = null;
+                                    this.b.a(false);
+                                    if (httpsURLConnection != null) {
+                                        httpsURLConnection.disconnect();
+                                    }
+                                    if (outputStream != null) {
+                                        try {
+                                            outputStream.close();
+                                        } catch (Exception unused4) {
+                                            Log.d("baidu_location_service", "close os IOException!");
+                                        }
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception unused5) {
+                                            Log.d("baidu_location_service", "close is IOException!");
+                                        }
+                                    }
+                                    if (r132 == 0) {
+                                        return;
+                                    }
+                                    r132.close();
+                                } catch (Exception e6) {
+                                    e = e6;
+                                    e.printStackTrace();
+                                    Log.i("baidu_location_service", "https NetworkCommunicationException!");
+                                    this.b.i = null;
+                                    this.b.a(false);
+                                    if (httpsURLConnection != null) {
+                                        httpsURLConnection.disconnect();
+                                    }
+                                    if (outputStream != null) {
+                                        try {
+                                            outputStream.close();
+                                        } catch (Exception unused6) {
+                                            Log.d("baidu_location_service", "close os IOException!");
+                                        }
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (Exception unused7) {
+                                            Log.d("baidu_location_service", "close is IOException!");
+                                        }
+                                    }
+                                    if (r132 == 0) {
+                                        return;
+                                    }
+                                    r132.close();
+                                }
                             } else {
-                                this.b.j = null;
+                                this.b.i = null;
                                 this.b.a(false);
-                                r122 = 0;
+                                r132 = 0;
                             }
                             if (httpsURLConnection != null) {
                                 httpsURLConnection.disconnect();
@@ -263,27 +262,27 @@ public class i implements Runnable {
                                 try {
                                     outputStream.close();
                                 } catch (Exception unused8) {
-                                    Log.d(a.a, "close os IOException!");
+                                    Log.d("baidu_location_service", "close os IOException!");
                                 }
                             }
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
                                 } catch (Exception unused9) {
-                                    Log.d(a.a, "close is IOException!");
+                                    Log.d("baidu_location_service", "close is IOException!");
                                 }
                             }
-                            if (r122 == 0) {
+                            if (r132 == 0) {
                                 return;
                             }
                         } catch (Error e7) {
                             e = e7;
                             inputStream = null;
-                            r122 = 0;
+                            r132 = 0;
                         } catch (Exception e8) {
                             e = e8;
                             inputStream = null;
-                            r122 = 0;
+                            r132 = 0;
                         } catch (Throwable th4) {
                             th = th4;
                             inputStream = null;
@@ -293,10 +292,10 @@ public class i implements Runnable {
                         e = e9;
                         inputStream = null;
                         outputStream = null;
-                        r122 = outputStream;
+                        r132 = outputStream;
                         e.printStackTrace();
-                        Log.i(a.a, "https NetworkCommunicationError!");
-                        this.b.j = null;
+                        Log.i("baidu_location_service", "https NetworkCommunicationError!");
+                        this.b.i = null;
                         this.b.a(false);
                         if (httpsURLConnection != null) {
                         }
@@ -304,17 +303,17 @@ public class i implements Runnable {
                         }
                         if (inputStream != null) {
                         }
-                        if (r122 == 0) {
+                        if (r132 == 0) {
                         }
-                        r122.close();
+                        r132.close();
                     } catch (Exception e10) {
                         e = e10;
                         inputStream = null;
                         outputStream = null;
-                        r122 = outputStream;
+                        r132 = outputStream;
                         e.printStackTrace();
-                        Log.i(a.a, "https NetworkCommunicationException!");
-                        this.b.j = null;
+                        Log.i("baidu_location_service", "https NetworkCommunicationException!");
+                        this.b.i = null;
                         this.b.a(false);
                         if (httpsURLConnection != null) {
                         }
@@ -322,9 +321,9 @@ public class i implements Runnable {
                         }
                         if (inputStream != null) {
                         }
-                        if (r122 == 0) {
+                        if (r132 == 0) {
                         }
-                        r122.close();
+                        r132.close();
                     } catch (Throwable th5) {
                         th = th5;
                         inputStream = null;
@@ -336,10 +335,10 @@ public class i implements Runnable {
                     inputStream = null;
                     httpsURLConnection = null;
                     outputStream = httpsURLConnection;
-                    r122 = outputStream;
+                    r132 = outputStream;
                     e.printStackTrace();
-                    Log.i(a.a, "https NetworkCommunicationError!");
-                    this.b.j = null;
+                    Log.i("baidu_location_service", "https NetworkCommunicationError!");
+                    this.b.i = null;
                     this.b.a(false);
                     if (httpsURLConnection != null) {
                     }
@@ -347,18 +346,18 @@ public class i implements Runnable {
                     }
                     if (inputStream != null) {
                     }
-                    if (r122 == 0) {
+                    if (r132 == 0) {
                     }
-                    r122.close();
+                    r132.close();
                 } catch (Exception e12) {
                     e = e12;
                     inputStream = null;
                     httpsURLConnection = null;
                     outputStream = httpsURLConnection;
-                    r122 = outputStream;
+                    r132 = outputStream;
                     e.printStackTrace();
-                    Log.i(a.a, "https NetworkCommunicationException!");
-                    this.b.j = null;
+                    Log.i("baidu_location_service", "https NetworkCommunicationException!");
+                    this.b.i = null;
                     this.b.a(false);
                     if (httpsURLConnection != null) {
                     }
@@ -366,27 +365,27 @@ public class i implements Runnable {
                     }
                     if (inputStream != null) {
                     }
-                    if (r122 == 0) {
+                    if (r132 == 0) {
                     }
-                    r122.close();
+                    r132.close();
                 } catch (Throwable th6) {
                     th = th6;
                     inputStream = null;
                     outputStream = null;
-                    r12 = outputStream;
+                    r13 = outputStream;
                     if (httpsURLConnection2 != null) {
                     }
                     if (outputStream != null) {
                     }
                     if (inputStream != null) {
                     }
-                    if (r12 != 0) {
+                    if (r13 != 0) {
                     }
                     throw th;
                 }
-                r122.close();
+                r132.close();
             } catch (Exception unused10) {
-                Log.d(a.a, "close baos IOException!");
+                Log.d("baidu_location_service", "close baos IOException!");
             }
         }
     }

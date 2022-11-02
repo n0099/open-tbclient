@@ -10,6 +10,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,19 +19,19 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc5;
+import com.baidu.tieba.an8;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.enterForum.home.EnterForumDelegateStatic;
-import com.baidu.tieba.g96;
-import com.baidu.tieba.h96;
-import com.baidu.tieba.ql8;
-import com.baidu.tieba.sl8;
-import com.baidu.tieba.zo4;
+import com.baidu.tieba.qa6;
+import com.baidu.tieba.ra6;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.xc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EnterForumAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,15 +46,15 @@ public class EnterForumAdView extends FrameLayout {
     public int i;
     public boolean j;
     public boolean k;
-    public g96 l;
+    public qa6 l;
     public c m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void onBackPressed();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +87,7 @@ public class EnterForumAdView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +130,7 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumAdView(Context context) {
+    public EnterForumAdView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -152,7 +154,7 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumAdView(Context context, AttributeSet attributeSet) {
+    public EnterForumAdView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -177,17 +179,17 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     public static final void c(BdUniqueId bdUniqueId, Context context) {
-        g96 E;
+        qa6 E;
         StatisticItem i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, bdUniqueId, context) == null) && (E = EnterForumDelegateStatic.e.E()) != null) {
             String str = EnterForumDelegateStatic.e.E().a;
             if (!TextUtils.isEmpty(str)) {
                 if (context != null) {
-                    zo4.o(context, str);
+                    rp4.o(context, str);
                 }
-                if (bdUniqueId != null && (i = ql8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
-                    sl8.g().c(bdUniqueId, i);
+                if (bdUniqueId != null && (i = an8.i(true, "a025", "common_click", 3, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
+                    cn8.g().c(bdUniqueId, i);
                 }
             }
         }
@@ -207,7 +209,7 @@ public class EnterForumAdView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EnterForumAdView(Context context, AttributeSet attributeSet, int i) {
+    public EnterForumAdView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -354,41 +356,41 @@ public class EnterForumAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.f == null) {
-                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09090a);
+                TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09091a);
                 this.f = tbImageView;
                 tbImageView.setPlaceHolder(3);
                 this.f.setEvent(new b(this));
             }
-            g96 E = EnterForumDelegateStatic.e.E();
+            qa6 E = EnterForumDelegateStatic.e.E();
             if (E != null && E.a()) {
                 this.e = true;
-                this.f.L(E.c, 38, false);
+                this.f.K(E.c, 38, false);
                 invalidate();
                 if (this.g != null) {
-                    h96 h96Var = new h96();
-                    h96Var.a = true;
-                    h96Var.b = getBottom();
-                    h96Var.c = this.i;
-                    bc5 bc5Var = new bc5(16, null, null, null);
-                    bc5Var.h(h96Var);
-                    this.g.dispatchMvcEvent(bc5Var);
+                    ra6 ra6Var = new ra6();
+                    ra6Var.a = true;
+                    ra6Var.b = getBottom();
+                    ra6Var.c = this.i;
+                    xc5 xc5Var = new xc5(16, null, null, null);
+                    xc5Var.h(ra6Var);
+                    this.g.dispatchMvcEvent(xc5Var);
                 }
                 setVisibility(0);
-                if (this.l != E && (i = ql8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
-                    sl8 g = sl8.g();
+                if (this.l != E && (i = an8.i(false, "a025", "common_exp", 0, 1, true, String.valueOf(E.b), String.valueOf(E.b), 5)) != null) {
+                    cn8 g = cn8.g();
                     BdUniqueId bdUniqueId = this.h;
-                    g.d(bdUniqueId, ql8.a("" + E.b), i);
-                    sl8.g().h(this.h, false);
+                    g.d(bdUniqueId, an8.a("" + E.b), i);
+                    cn8.g().h(this.h, false);
                 }
             } else {
                 if (this.g != null) {
-                    h96 h96Var2 = new h96();
-                    h96Var2.a = false;
-                    h96Var2.b = getBottom();
-                    h96Var2.c = this.i;
-                    bc5 bc5Var2 = new bc5(16, null, null, null);
-                    bc5Var2.h(h96Var2);
-                    this.g.dispatchMvcEvent(bc5Var2);
+                    ra6 ra6Var2 = new ra6();
+                    ra6Var2.a = false;
+                    ra6Var2.b = getBottom();
+                    ra6Var2.c = this.i;
+                    xc5 xc5Var2 = new xc5(16, null, null, null);
+                    xc5Var2.h(ra6Var2);
+                    this.g.dispatchMvcEvent(xc5Var2);
                 }
                 setVisibility(8);
             }
@@ -404,13 +406,13 @@ public class EnterForumAdView extends FrameLayout {
             int i5 = -i2;
             this.a.setBounds(0, i5, getMeasuredWidth(), getResources().getDimensionPixelOffset(R.dimen.tbds260) + i5);
             if (z && EnterForumDelegateStatic.e.E() != null && this.g != null) {
-                h96 h96Var = new h96();
-                h96Var.a = true;
-                h96Var.b = i4;
-                h96Var.c = this.i;
-                bc5 bc5Var = new bc5(16, null, null, null);
-                bc5Var.h(h96Var);
-                this.g.dispatchMvcEvent(bc5Var);
+                ra6 ra6Var = new ra6();
+                ra6Var.a = true;
+                ra6Var.b = i4;
+                ra6Var.c = this.i;
+                xc5 xc5Var = new xc5(16, null, null, null);
+                xc5Var.h(ra6Var);
+                this.g.dispatchMvcEvent(xc5Var);
             }
         }
     }

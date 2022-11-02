@@ -28,8 +28,8 @@ import org.json.JSONObject;
 public final class d {
     public static SharedPreferences c;
     public static ScheduledExecutorService b = Executors.newSingleThreadScheduledExecutor(new f.a("tt_pangle_thread_pl_report"));
-    public static final List d = new ArrayList();
-    public static final Map a = new HashMap();
+    public static final List<Pair<String, JSONObject>> d = new ArrayList();
+    public static final Map<String, String> a = new HashMap();
     public static volatile boolean e = false;
 
     public static void a() {
@@ -94,7 +94,7 @@ public final class d {
         Object extra = adConfig.getExtra("plugin_update_conf");
         if (extra instanceof Integer) {
             String num = ((Integer) extra).toString();
-            Map map = a;
+            Map<String, String> map = a;
             if (num == null) {
                 num = "2";
             }
@@ -128,7 +128,7 @@ public final class d {
     }
 
     public static void c(String str, JSONObject jSONObject) {
-        d.add(new Pair(str, jSONObject));
+        d.add(new Pair<>(str, jSONObject));
     }
 
     public static void e(String str, JSONObject jSONObject) {
@@ -147,7 +147,7 @@ public final class d {
         b(str, jSONObject);
     }
 
-    public static void a(final List list) {
+    public static void a(final List<JSONObject> list) {
         if (!e) {
             if (list != null && list.isEmpty() && d.isEmpty()) {
                 return;
@@ -161,7 +161,7 @@ public final class d {
         }
     }
 
-    public static void c(List list) {
+    public static void c(List<JSONObject> list) {
         if (list == null) {
             return;
         }
@@ -174,10 +174,10 @@ public final class d {
         JSONObject jSONObject = new JSONObject();
         try {
             if (d.size() > 0) {
-                Iterator it = d.iterator();
+                Iterator<Pair<String, JSONObject>> it = d.iterator();
                 while (it.hasNext()) {
-                    Pair pair = (Pair) it.next();
-                    list.add(f((String) pair.first, (JSONObject) pair.second));
+                    Pair<String, JSONObject> next = it.next();
+                    list.add(f((String) next.first, (JSONObject) next.second));
                     it.remove();
                 }
             }

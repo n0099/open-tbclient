@@ -17,7 +17,7 @@ public class TaskSpeedStat {
     public long did;
     public String docid;
     public long endWriteTimeMillis;
-    public List mSpeedStatThreadList;
+    public List<ThreadSpeedStat> mSpeedStatThreadList;
     public boolean speedStatEnable;
     public long startTimeMillis;
     public long startWriteTimeMillis;
@@ -41,7 +41,7 @@ public class TaskSpeedStat {
         this.endWriteTimeMillis = -1L;
     }
 
-    public List getSpeedStatThreadList() {
+    public List<ThreadSpeedStat> getSpeedStatThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

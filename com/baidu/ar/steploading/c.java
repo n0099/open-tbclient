@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ImagesContract;
 import java.io.File;
 /* loaded from: classes.dex */
-public class c extends com.baidu.ar.e.a {
+public class c extends com.baidu.ar.e.a<String, Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IProgressCallback qN;
@@ -89,7 +89,7 @@ public class c extends com.baidu.ar.e.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.ar.e.a
-    public void a(String str, ICallbackWith iCallbackWith, IError iError) {
+    public void a(String str, ICallbackWith<Void> iCallbackWith, IError iError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) {
             if (TextUtils.isEmpty(str)) {

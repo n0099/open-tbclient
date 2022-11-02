@@ -1,4 +1,7 @@
 package com.airbnb.lottie.model;
+
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class Font {
     public final float ascent;

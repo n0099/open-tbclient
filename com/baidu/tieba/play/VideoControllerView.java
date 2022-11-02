@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wa8;
+import com.baidu.tieba.gc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -172,7 +172,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812a3));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812c0));
             this.b.seekTo(this.l);
             this.e = false;
             this.m.sendEmptyMessageDelayed(1, 500L);
@@ -268,7 +268,7 @@ public class VideoControllerView extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08cd, (ViewGroup) null);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e1, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }
@@ -366,9 +366,9 @@ public class VideoControllerView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             View f = f(context);
             addView(f, -1, -2);
-            this.c = (TextView) f.findViewById(R.id.obfuscated_res_0x7f09214e);
-            this.d = (TextView) f.findViewById(R.id.obfuscated_res_0x7f09214f);
-            SeekBar seekBar = (SeekBar) f.findViewById(R.id.obfuscated_res_0x7f091883);
+            this.c = (TextView) f.findViewById(R.id.obfuscated_res_0x7f0921a1);
+            this.d = (TextView) f.findViewById(R.id.obfuscated_res_0x7f0921a2);
+            SeekBar seekBar = (SeekBar) f.findViewById(R.id.obfuscated_res_0x7f0918c6);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.n);
         }
@@ -378,7 +378,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812a4));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812c1));
             this.e = true;
             SeekBar.OnSeekBarChangeListener onSeekBarChangeListener = this.j;
             if (onSeekBarChangeListener != null) {
@@ -436,8 +436,8 @@ public class VideoControllerView extends RelativeLayout {
             if (mediaPlayerControl != null && !this.e) {
                 int duration = mediaPlayerControl.getDuration();
                 MediaController.MediaPlayerControl mediaPlayerControl2 = this.b;
-                if (mediaPlayerControl2 instanceof wa8) {
-                    currentPosition = ((wa8) mediaPlayerControl2).getCurrentPositionSync();
+                if (mediaPlayerControl2 instanceof gc8) {
+                    currentPosition = ((gc8) mediaPlayerControl2).getCurrentPositionSync();
                 } else {
                     currentPosition = mediaPlayerControl2.getCurrentPosition();
                 }

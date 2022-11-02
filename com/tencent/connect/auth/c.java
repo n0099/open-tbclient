@@ -65,12 +65,12 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{activity, fragment, str, iUiListener, str2, Boolean.valueOf(z)})) == null) {
-            return a(activity, fragment, str, iUiListener, str2, z, (Map) null);
+            return a(activity, fragment, str, iUiListener, str2, z, (Map<String, Object>) null);
         }
         return invokeCommon.intValue;
     }
 
-    private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z, Map map) {
+    private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2, boolean z, Map<String, Object> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{activity, fragment, str, iUiListener, str2, Boolean.valueOf(z), map})) == null) {
@@ -125,7 +125,7 @@ public class c {
         }
     }
 
-    public int a(Activity activity, IUiListener iUiListener, Map map) {
+    public int a(Activity activity, IUiListener iUiListener, Map<String, Object> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, iUiListener, map)) == null) {

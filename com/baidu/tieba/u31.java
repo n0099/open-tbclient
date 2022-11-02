@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.PendingIntent;
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes6.dex */
 public class u31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948159958, "Lcom/baidu/tieba/u31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948159958, "Lcom/baidu/tieba/u31;");
-        }
-    }
-
-    public static boolean a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
             }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = f01.a().b("nad_permission_sp").getBoolean(str, true);
-            b(context, str);
-            return z;
+            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-        return invokeLI.booleanValue;
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
-            return;
-        }
-        f01.a().b("nad_permission_sp").e(str, false);
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

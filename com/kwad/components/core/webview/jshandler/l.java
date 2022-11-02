@@ -1,6 +1,8 @@
 package com.kwad.components.core.webview.jshandler;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,13 +25,13 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean LB;
     public final com.kwad.sdk.core.webview.b Lk;
-    public com.kwad.sdk.core.network.m fr;
+    public com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> fr;
 
     /* loaded from: classes7.dex */
-    public final class a implements com.kwad.sdk.core.b {
+    public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List LE;
+        public List<AdTemplate> LE;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,7 +48,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(JSONObject jSONObject) {
+        public final void parseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             }
@@ -98,11 +100,11 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
     private void a(com.kwad.components.core.k.kwai.b bVar, com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, bVar, cVar) == null) {
-            com.kwad.sdk.core.network.m mVar = this.fr;
+            com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> mVar = this.fr;
             if (mVar != null) {
                 mVar.cancel();
             }
-            com.kwad.sdk.core.network.m mVar2 = new com.kwad.sdk.core.network.m(this, bVar) { // from class: com.kwad.components.core.webview.jshandler.l.1
+            com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> mVar2 = new com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData>(this, bVar) { // from class: com.kwad.components.core.webview.jshandler.l.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ l LC;
@@ -130,6 +132,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.m
+                @NonNull
                 /* renamed from: ah */
                 public AdResultData parseData(String str) {
                     InterceptResult invokeL;
@@ -146,6 +149,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.a
+                @NonNull
                 /* renamed from: fe */
                 public com.kwad.components.core.k.a createRequest() {
                     InterceptResult invokeV;
@@ -154,7 +158,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
                 }
             };
             this.fr = mVar2;
-            mVar2.request(new com.kwad.sdk.core.network.n(this, cVar) { // from class: com.kwad.components.core.webview.jshandler.l.2
+            mVar2.request(new com.kwad.sdk.core.network.n<com.kwad.components.core.k.a, AdResultData>(this, cVar) { // from class: com.kwad.components.core.webview.jshandler.l.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ l LC;
@@ -179,7 +183,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
                     this.hV = cVar;
                 }
 
-                private void b(AdResultData adResultData) {
+                private void b(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, adResultData) == null) {
                         if (!adResultData.isAdResultDataEmpty()) {
@@ -266,12 +270,12 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onError(com.kwad.sdk.core.network.g gVar, int i, String str) {
+                public final /* synthetic */ void onError(@NonNull com.kwad.sdk.core.network.g gVar, int i, String str) {
                     c(i, str);
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onSuccess(com.kwad.sdk.core.network.g gVar, BaseResultData baseResultData) {
+                public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
                     b((AdResultData) baseResultData);
                 }
             });
@@ -321,7 +325,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             if (!this.LB) {
@@ -348,6 +352,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -356,7 +361,7 @@ public final class l implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void onDestroy() {
-        com.kwad.sdk.core.network.m mVar;
+        com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> mVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mVar = this.fr) == null) {
             return;

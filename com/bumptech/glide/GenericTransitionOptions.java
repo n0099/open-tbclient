@@ -1,5 +1,6 @@
 package com.bumptech.glide;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.TransitionFactory;
 import com.bumptech.glide.request.transition.ViewPropertyTransition;
 /* loaded from: classes7.dex */
-public final class GenericTransitionOptions extends TransitionOptions {
+public final class GenericTransitionOptions<TranscodeType> extends TransitionOptions<GenericTransitionOptions<TranscodeType>, TranscodeType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,38 +28,42 @@ public final class GenericTransitionOptions extends TransitionOptions {
         }
     }
 
-    public static GenericTransitionOptions withNoTransition() {
+    @NonNull
+    public static <TranscodeType> GenericTransitionOptions<TranscodeType> withNoTransition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return (GenericTransitionOptions) new GenericTransitionOptions().dontTransition();
+            return new GenericTransitionOptions().dontTransition();
         }
         return (GenericTransitionOptions) invokeV.objValue;
     }
 
-    public static GenericTransitionOptions with(int i) {
+    @NonNull
+    public static <TranscodeType> GenericTransitionOptions<TranscodeType> with(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return (GenericTransitionOptions) new GenericTransitionOptions().transition(i);
+            return new GenericTransitionOptions().transition(i);
         }
         return (GenericTransitionOptions) invokeI.objValue;
     }
 
-    public static GenericTransitionOptions with(TransitionFactory transitionFactory) {
+    @NonNull
+    public static <TranscodeType> GenericTransitionOptions<TranscodeType> with(@NonNull TransitionFactory<? super TranscodeType> transitionFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, transitionFactory)) == null) {
-            return (GenericTransitionOptions) new GenericTransitionOptions().transition(transitionFactory);
+            return new GenericTransitionOptions().transition(transitionFactory);
         }
         return (GenericTransitionOptions) invokeL.objValue;
     }
 
-    public static GenericTransitionOptions with(ViewPropertyTransition.Animator animator) {
+    @NonNull
+    public static <TranscodeType> GenericTransitionOptions<TranscodeType> with(@NonNull ViewPropertyTransition.Animator animator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, animator)) == null) {
-            return (GenericTransitionOptions) new GenericTransitionOptions().transition(animator);
+            return new GenericTransitionOptions().transition(animator);
         }
         return (GenericTransitionOptions) invokeL.objValue;
     }

@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -24,7 +25,7 @@ public final class ObservableScalarXMap {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class ScalarDisposable extends AtomicInteger implements QueueDisposable, Runnable {
+    public static final class ScalarDisposable<T> extends AtomicInteger implements QueueDisposable<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUSED = 1;
         public static final int ON_COMPLETE = 3;
@@ -32,15 +33,15 @@ public final class ObservableScalarXMap {
         public static final int START = 0;
         public static final long serialVersionUID = 3880992722410194083L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer observer;
-        public final Object value;
+        public final Observer<? super T> observer;
+        public final T value;
 
-        public ScalarDisposable(Observer observer, Object obj) {
+        public ScalarDisposable(Observer<? super T> observer, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, obj};
+                Object[] objArr = {observer, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,7 +52,7 @@ public final class ObservableScalarXMap {
                 }
             }
             this.observer = observer;
-            this.value = obj;
+            this.value = t;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -97,7 +98,8 @@ public final class ObservableScalarXMap {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -107,14 +109,14 @@ public final class ObservableScalarXMap {
                 }
                 return null;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(Object obj) {
+        public boolean offer(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
                 throw new UnsupportedOperationException("Should not be called!");
             }
             return invokeL.booleanValue;
@@ -135,20 +137,21 @@ public final class ObservableScalarXMap {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public boolean offer(Object obj, Object obj2) {
+        public boolean offer(T t, T t2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, obj, obj2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, t, t2)) == null) {
                 throw new UnsupportedOperationException("Should not be called!");
             }
             return invokeLL.booleanValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && get() == 0 && compareAndSet(0, 2)) {
-                this.observer.onNext(this.value);
+                this.observer.onNext((T) this.value);
                 if (get() == 2) {
                     lazySet(3);
                     this.observer.onComplete();
@@ -158,18 +161,18 @@ public final class ObservableScalarXMap {
     }
 
     /* loaded from: classes8.dex */
-    public final class ScalarXMapObservable extends Observable {
+    public static final class ScalarXMapObservable<T, R> extends Observable<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function mapper;
-        public final Object value;
+        public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
+        public final T value;
 
-        public ScalarXMapObservable(Object obj, Function function) {
+        public ScalarXMapObservable(T t, Function<? super T, ? extends ObservableSource<? extends R>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, function};
+                Object[] objArr = {t, function};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -179,16 +182,17 @@ public final class ObservableScalarXMap {
                     return;
                 }
             }
-            this.value = obj;
+            this.value = t;
             this.mapper = function;
         }
 
+        /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.Observable
-        public void subscribeActual(Observer observer) {
+        public void subscribeActual(Observer<? super R> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
                 try {
-                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(this.value), "The mapper returned a null ObservableSource");
+                    ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply((T) this.value), "The mapper returned a null ObservableSource");
                     if (observableSource instanceof Callable) {
                         try {
                             Object call = ((Callable) observableSource).call();
@@ -230,36 +234,36 @@ public final class ObservableScalarXMap {
         throw new IllegalStateException("No instances!");
     }
 
-    public static Observable scalarXMap(Object obj, Function function) {
+    public static <T, U> Observable<U> scalarXMap(T t, Function<? super T, ? extends ObservableSource<? extends U>> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, function)) == null) {
-            return RxJavaPlugins.onAssembly(new ScalarXMapObservable(obj, function));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, function)) == null) {
+            return RxJavaPlugins.onAssembly(new ScalarXMapObservable(t, function));
         }
         return (Observable) invokeLL.objValue;
     }
 
-    public static boolean tryScalarXMapSubscribe(ObservableSource observableSource, Observer observer, Function function) {
+    public static <T, R> boolean tryScalarXMapSubscribe(ObservableSource<T> observableSource, Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, observableSource, observer, function)) == null) {
             if (observableSource instanceof Callable) {
                 try {
-                    Object call = ((Callable) observableSource).call();
-                    if (call == null) {
+                    Object obj = (Object) ((Callable) observableSource).call();
+                    if (obj == 0) {
                         EmptyDisposable.complete(observer);
                         return true;
                     }
                     try {
-                        ObservableSource observableSource2 = (ObservableSource) ObjectHelper.requireNonNull(function.apply(call), "The mapper returned a null ObservableSource");
+                        ObservableSource observableSource2 = (ObservableSource) ObjectHelper.requireNonNull(function.apply(obj), "The mapper returned a null ObservableSource");
                         if (observableSource2 instanceof Callable) {
                             try {
-                                Object call2 = ((Callable) observableSource2).call();
-                                if (call2 == null) {
+                                Object call = ((Callable) observableSource2).call();
+                                if (call == null) {
                                     EmptyDisposable.complete(observer);
                                     return true;
                                 }
-                                ScalarDisposable scalarDisposable = new ScalarDisposable(observer, call2);
+                                ScalarDisposable scalarDisposable = new ScalarDisposable(observer, call);
                                 observer.onSubscribe(scalarDisposable);
                                 scalarDisposable.run();
                             } catch (Throwable th) {

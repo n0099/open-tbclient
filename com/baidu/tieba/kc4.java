@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class kc4 extends ic4 {
+public class kc4 extends ec4<fd4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
-    public int h;
-    public long i;
-    public String j;
-    public long k;
-    public String l;
-    public String m;
-    public String n;
 
     public kc4() {
         Interceptable interceptable = $ic;
@@ -35,58 +30,79 @@ public class kc4 extends ic4 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: g */
+    public fd4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (super.equals(obj)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                return h(cursor);
             }
-            if (obj == null || !(obj instanceof kc4)) {
-                return false;
-            }
-            kc4 kc4Var = (kc4) obj;
-            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(kc4Var.j)) {
-                if (this.g.equals(kc4Var.g) && this.i == kc4Var.i) {
-                    return true;
-                }
-                return false;
-            } else if (TextUtils.equals(this.g, kc4Var.g) && this.i == kc4Var.i && TextUtils.equals(this.j, kc4Var.j)) {
-                return true;
-            } else {
-                return false;
-            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (fd4) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ec4
+    public List<fd4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    arrayList.add(h(cursor));
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ec4
+    /* renamed from: f */
+    public ContentValues c(fd4 fd4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fd4Var)) == null) {
+            ContentValues a = super.a(fd4Var);
+            a.put("max_age", Long.valueOf(fd4Var.o));
+            a.put("token", fd4Var.p);
+            a.put("domains", fd4Var.q);
+            a.put(GameGuideConfigInfo.KEY_APP_KEY, fd4Var.r);
+            a.put("app_name", fd4Var.s);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public final fd4 h(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("max_age");
+                int columnIndex2 = cursor.getColumnIndex("token");
+                int columnIndex3 = cursor.getColumnIndex("domains");
+                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex5 = cursor.getColumnIndex("app_name");
+                fd4 fd4Var = new fd4();
+                if (b(cursor, fd4Var)) {
+                    fd4Var.o = cursor.getLong(columnIndex);
+                    fd4Var.p = cursor.getString(columnIndex2);
+                    fd4Var.q = cursor.getString(columnIndex3);
+                    fd4Var.r = cursor.getString(columnIndex4);
+                    fd4Var.s = cursor.getString(columnIndex5);
+                    return fd4Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (fd4) invokeL.objValue;
     }
 }

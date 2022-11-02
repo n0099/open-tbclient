@@ -1,5 +1,6 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     public int availableBytes;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MarkEnforcingInputStream(InputStream inputStream) {
+    public MarkEnforcingInputStream(@NonNull InputStream inputStream) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +131,7 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.support.request.body;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.FilePart;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
@@ -40,14 +41,14 @@ public final class MultipartBody extends RequestBody {
     public long contentLength;
     public final MediaType contentType;
     public final MediaType originalType;
-    public final List parts;
+    public final List<Part> parts;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String boundary;
-        public final List parts;
+        public final List<Part> parts;
         public MediaType type;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -125,7 +126,7 @@ public final class MultipartBody extends RequestBody {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder addPart(Headers headers, RequestBody requestBody) {
+        public Builder addPart(@Nullable Headers headers, RequestBody requestBody) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, headers, requestBody)) == null) {
@@ -134,7 +135,7 @@ public final class MultipartBody extends RequestBody {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder addFormDataPart(String str, String str2, RequestBody requestBody) {
+        public Builder addFormDataPart(String str, @Nullable String str2, RequestBody requestBody) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, requestBody)) == null) {
@@ -167,13 +168,14 @@ public final class MultipartBody extends RequestBody {
     }
 
     /* loaded from: classes2.dex */
-    public final class Part {
+    public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RequestBody body;
+        @Nullable
         public final Headers headers;
 
-        public Part(Headers headers, RequestBody requestBody) {
+        public Part(@Nullable Headers headers, RequestBody requestBody) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +194,7 @@ public final class MultipartBody extends RequestBody {
             this.body = requestBody;
         }
 
-        public static Part create(Headers headers, RequestBody requestBody) {
+        public static Part create(@Nullable Headers headers, RequestBody requestBody) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, headers, requestBody)) == null) {
@@ -228,7 +230,7 @@ public final class MultipartBody extends RequestBody {
             return (Part) invokeLL.objValue;
         }
 
-        public static Part createFormData(String str, String str2, RequestBody requestBody) {
+        public static Part createFormData(String str, @Nullable String str2, RequestBody requestBody) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, requestBody)) == null) {
@@ -255,6 +257,7 @@ public final class MultipartBody extends RequestBody {
             return (RequestBody) invokeV.objValue;
         }
 
+        @Nullable
         public Headers headers() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -288,7 +291,7 @@ public final class MultipartBody extends RequestBody {
         DASHDASH = new byte[]{45, 45};
     }
 
-    public MultipartBody(String str, MediaType mediaType, List list) {
+    public MultipartBody(String str, MediaType mediaType, List<Part> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -338,7 +341,7 @@ public final class MultipartBody extends RequestBody {
         return (StringBuilder) invokeLL.objValue;
     }
 
-    private long writeOrCountBytes(OutputStream outputStream, boolean z) throws IOException {
+    private long writeOrCountBytes(@Nullable OutputStream outputStream, boolean z) throws IOException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, outputStream, z)) == null) {
@@ -349,7 +352,7 @@ public final class MultipartBody extends RequestBody {
             int size = this.parts.size();
             long j = 0;
             for (int i = 0; i < size; i++) {
-                Part part = (Part) this.parts.get(i);
+                Part part = this.parts.get(i);
                 Headers headers = part.headers;
                 RequestBody requestBody = part.body;
                 bufferedOutputStream.write(DASHDASH);
@@ -437,7 +440,7 @@ public final class MultipartBody extends RequestBody {
         return (MediaType) invokeV.objValue;
     }
 
-    public List parts() {
+    public List<Part> parts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -468,7 +471,7 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (Part) this.parts.get(i);
+            return this.parts.get(i);
         }
         return (Part) invokeI.objValue;
     }

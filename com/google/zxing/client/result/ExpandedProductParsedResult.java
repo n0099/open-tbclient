@@ -25,13 +25,13 @@ public final class ExpandedProductParsedResult extends ParsedResult {
     public final String productionDate;
     public final String rawText;
     public final String sscc;
-    public final Map uncommonAIs;
+    public final Map<String, String> uncommonAIs;
     public final String weight;
     public final String weightIncrement;
     public final String weightType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExpandedProductParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, Map map) {
+    public ExpandedProductParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, Map<String, String> map) {
         super(ParsedResultType.PRODUCT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -217,7 +217,7 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         return (String) invokeV.objValue;
     }
 
-    public Map getUncommonAIs() {
+    public Map<String, String> getUncommonAIs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {

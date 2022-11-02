@@ -1,7 +1,9 @@
 package com.baidu.nps.stub.component;
 
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentValues;
 import android.content.OperationApplicationException;
@@ -122,7 +124,8 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(String str, ArrayList arrayList) throws OperationApplicationException {
+    @TargetApi(29)
+    public ContentProviderResult[] applyBatch(String str, ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, arrayList)) == null) {
@@ -206,7 +209,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(ArrayList arrayList) throws OperationApplicationException {
+    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
@@ -220,6 +223,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public Uri canonicalize(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -272,6 +276,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public Uri uncanonicalize(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -318,6 +323,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(18)
     public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, fileDescriptor, printWriter, strArr) == null) {
@@ -331,6 +337,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public AssetFileDescriptor openAssetFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -345,6 +352,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public ParcelFileDescriptor openFile(Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -373,6 +381,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(26)
     public boolean refresh(Uri uri, Bundle bundle, CancellationSignal cancellationSignal) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -387,6 +396,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(29)
     public Bundle call(String str, String str2, String str3, Bundle bundle) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -405,6 +415,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(19)
     public AssetFileDescriptor openTypedAssetFile(Uri uri, String str, Bundle bundle, CancellationSignal cancellationSignal) throws FileNotFoundException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -419,6 +430,7 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
+    @TargetApi(26)
     public Cursor query(Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -447,15 +459,15 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public ParcelFileDescriptor openPipeHelper(Uri uri, String str, Bundle bundle, Object obj, ContentProvider.PipeDataWriter pipeDataWriter) throws FileNotFoundException {
+    public <T> ParcelFileDescriptor openPipeHelper(Uri uri, String str, Bundle bundle, T t, ContentProvider.PipeDataWriter<T> pipeDataWriter) throws FileNotFoundException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048595, this, uri, str, bundle, obj, pipeDataWriter)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048595, this, uri, str, bundle, t, pipeDataWriter)) == null) {
             ContentProvider contentProvider = this.mProviderImpl;
             if (contentProvider == null) {
                 return null;
             }
-            return contentProvider.openPipeHelper(uri, str, bundle, obj, pipeDataWriter);
+            return contentProvider.openPipeHelper(uri, str, bundle, t, pipeDataWriter);
         }
         return (ParcelFileDescriptor) invokeLLLLL.objValue;
     }

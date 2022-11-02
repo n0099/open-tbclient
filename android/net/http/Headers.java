@@ -185,7 +185,7 @@ public final class Headers {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList getSetCookie() {
+    public ArrayList<String> getSetCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {

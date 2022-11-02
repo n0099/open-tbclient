@@ -3,6 +3,7 @@ package com.ss.android.socialbase.downloader.f;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.h.e;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -37,11 +38,11 @@ public class k implements f, c.a {
     public float z;
     public volatile boolean f = false;
     public volatile boolean g = false;
-    public final List h = new ArrayList();
-    public final List i = new ArrayList();
+    public final List<m> h = new ArrayList();
+    public final List<q> i = new ArrayList();
     public volatile boolean l = true;
-    public final LinkedList n = new LinkedList();
-    public final List o = new ArrayList();
+    public final LinkedList<i> n = new LinkedList<>();
+    public final List<i> o = new ArrayList();
     public final Object s = new Object();
     public volatile boolean v = false;
     public final e.b C = new e.b() { // from class: com.ss.android.socialbase.downloader.f.k.1
@@ -79,7 +80,7 @@ public class k implements f, c.a {
         }
     };
 
-    public k(DownloadInfo downloadInfo, n nVar, com.ss.android.socialbase.downloader.h.f fVar) {
+    public k(@NonNull DownloadInfo downloadInfo, @NonNull n nVar, com.ss.android.socialbase.downloader.h.f fVar) {
         this.a = downloadInfo;
         this.b = nVar;
         b bVar = new b(nVar.d(), this.b.e());
@@ -94,7 +95,7 @@ public class k implements f, c.a {
     private int a(long j) {
         int size = this.o.size();
         for (int i = 0; i < size; i++) {
-            i iVar = (i) this.o.get(i);
+            i iVar = this.o.get(i);
             if (iVar.c() == j) {
                 return i;
             }
@@ -115,7 +116,7 @@ public class k implements f, c.a {
     private int a(String str) {
         int size = this.i.size();
         for (int i = 0; i < size; i++) {
-            if (TextUtils.equals(((q) this.i.get(i)).a, str)) {
+            if (TextUtils.equals(this.i.get(i).a, str)) {
                 return i;
             }
         }
@@ -135,11 +136,11 @@ public class k implements f, c.a {
 
     private long a(int i, int i2) {
         i iVar;
-        i iVar2 = (i) this.o.get(i);
+        i iVar2 = this.o.get(i);
         long a = a(iVar2);
         int i3 = i + 1;
         if (i3 < i2) {
-            iVar = (i) this.o.get(i3);
+            iVar = this.o.get(i3);
         } else {
             iVar = null;
         }
@@ -254,11 +255,11 @@ public class k implements f, c.a {
 
     private q d(m mVar) {
         q qVar;
-        Iterator it = this.i.iterator();
+        Iterator<q> it = this.i.iterator();
         q qVar2 = null;
         while (true) {
             if (it.hasNext()) {
-                qVar = (q) it.next();
+                qVar = it.next();
                 if (qVar != mVar.b && !qVar.d()) {
                     if (qVar2 == null) {
                         qVar2 = qVar;
@@ -314,39 +315,39 @@ public class k implements f, c.a {
         }
     }
 
-    private void d(List list) {
-        i iVar = (i) list.get(0);
+    private void d(List<i> list) {
+        i iVar = list.get(0);
         long c = iVar.c();
         if (c > 0) {
             i iVar2 = new i(0L, c - 1);
             Log.w("SegmentDispatcher", "fixSegmentsLocked: first = " + iVar + ", add new first = " + iVar2);
             a(list, iVar2, true);
         }
-        Iterator it = list.iterator();
+        Iterator<i> it = list.iterator();
         if (it.hasNext()) {
-            i iVar3 = (i) it.next();
+            i next = it.next();
             while (it.hasNext()) {
-                i iVar4 = (i) it.next();
-                if (iVar3.f() < iVar4.c() - 1) {
-                    com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "fixSegment: segment = " + iVar3 + ", new end = " + (iVar4.c() - 1));
-                    iVar3.c(iVar4.c() - 1);
+                i next2 = it.next();
+                if (next.f() < next2.c() - 1) {
+                    com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "fixSegment: segment = " + next + ", new end = " + (next2.c() - 1));
+                    next.c(next2.c() - 1);
                 }
-                iVar3 = iVar4;
+                next = next2;
             }
         }
-        i iVar5 = (i) list.get(list.size() - 1);
+        i iVar3 = list.get(list.size() - 1);
         long totalBytes = this.a.getTotalBytes();
-        if (totalBytes <= 0 || (iVar5.f() != -1 && iVar5.f() < totalBytes - 1)) {
-            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "fixSegment: last segment = " + iVar5 + ", new end=-1");
-            iVar5.c(-1L);
+        if (totalBytes <= 0 || (iVar3.f() != -1 && iVar3.f() < totalBytes - 1)) {
+            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "fixSegment: last segment = " + iVar3 + ", new end=-1");
+            iVar3.c(-1L);
         }
     }
 
-    private void a(List list, i iVar, boolean z) {
+    private void a(List<i> list, i iVar, boolean z) {
         long c = iVar.c();
         int size = list.size();
         int i = 0;
-        while (i < size && c >= ((i) list.get(i)).c()) {
+        while (i < size && c >= list.get(i).c()) {
             i++;
         }
         list.add(i, iVar);
@@ -401,11 +402,11 @@ public class k implements f, c.a {
 
     private i b(m mVar, q qVar) {
         while (!this.n.isEmpty()) {
-            i iVar = (i) this.n.poll();
-            if (iVar != null) {
-                a(this.o, iVar, true);
-                if (a(iVar) > 0 || this.m <= 0) {
-                    return iVar;
+            i poll = this.n.poll();
+            if (poll != null) {
+                a(this.o, poll, true);
+                if (a(poll) > 0 || this.m <= 0) {
+                    return poll;
                 }
             }
         }
@@ -481,12 +482,12 @@ public class k implements f, c.a {
         throw new j(5, "applySegment");
     }
 
-    private void b(String str, List list) {
+    private void b(String str, List<q> list) {
         int a;
         if (this.B) {
-            Iterator it = list.iterator();
+            Iterator<q> it = list.iterator();
             while (it.hasNext()) {
-                Log.i("SegmentDispatcher", "addIpListLocked: urlRecord = " + ((q) it.next()));
+                Log.i("SegmentDispatcher", "addIpListLocked: urlRecord = " + it.next());
             }
         }
         int l = this.b.l();
@@ -497,7 +498,7 @@ public class k implements f, c.a {
         }
     }
 
-    private void b(List list) {
+    private void b(List<i> list) {
         long totalBytes = this.a.getTotalBytes();
         this.m = totalBytes;
         if (totalBytes <= 0) {
@@ -507,20 +508,19 @@ public class k implements f, c.a {
         synchronized (this) {
             this.n.clear();
             if (list != null && !list.isEmpty()) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    a((List) this.n, new i((i) it.next()), false);
+                for (i iVar : list) {
+                    a((List<i>) this.n, new i(iVar), false);
                 }
                 d(this.n);
                 c(this.n);
                 com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "initSegments: totalLength = " + this.m);
             }
-            a((List) this.n, new i(0L, -1L), false);
+            a((List<i>) this.n, new i(0L, -1L), false);
             com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "initSegments: totalLength = " + this.m);
         }
     }
 
-    private void c(List list) {
+    private void c(List<i> list) {
         long b = o.b(list);
         com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "checkDownloadBytes: getCurBytes = " + this.a.getCurBytes() + ", totalBytes = " + this.a.getTotalBytes() + ", downloadedBytes = " + b);
         if (b > this.a.getTotalBytes() && this.a.getTotalBytes() > 0) {
@@ -532,7 +532,7 @@ public class k implements f, c.a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, IF, IGET, IGET, INVOKE, IF] complete} */
-    public boolean a(List list) throws BaseException, InterruptedException {
+    public boolean a(List<i> list) throws BaseException, InterruptedException {
         try {
             f();
             b(list);
@@ -588,7 +588,7 @@ public class k implements f, c.a {
         long g = this.b.g();
         long i3 = this.b.i();
         if (i >= 0 && j > g) {
-            i iVar = (i) this.o.get(i);
+            i iVar = this.o.get(i);
             if (this.o.size() < this.h.size()) {
                 n = 2;
             } else {
@@ -670,14 +670,12 @@ public class k implements f, c.a {
         return null;
     }
 
-    private List c(String str, List list) {
+    private List<q> c(String str, List<InetAddress> list) {
         boolean z;
         if (list != null && !list.isEmpty()) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            Iterator it = list.iterator();
             int i = 0;
-            while (it.hasNext()) {
-                InetAddress inetAddress = (InetAddress) it.next();
+            for (InetAddress inetAddress : list) {
                 if (inetAddress != null) {
                     String hostAddress = inetAddress.getHostAddress();
                     if (!TextUtils.isEmpty(hostAddress)) {
@@ -754,7 +752,7 @@ public class k implements f, c.a {
             if (this.b.b()) {
                 this.p++;
             }
-            qVar = (q) this.i.get(size);
+            qVar = this.i.get(size);
         }
         return qVar;
     }
@@ -850,9 +848,9 @@ public class k implements f, c.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.network.c.a
-    public void a(String str, List list) {
+    public void a(String str, List<InetAddress> list) {
         if (!this.g && !this.f) {
-            List list2 = null;
+            List<q> list2 = null;
             try {
                 list2 = c(str, list);
             } catch (Throwable th) {
@@ -883,9 +881,9 @@ public class k implements f, c.a {
             try {
                 synchronized (this) {
                     while (!this.n.isEmpty()) {
-                        i iVar = (i) this.n.poll();
-                        if (iVar != null) {
-                            a(this.o, iVar, true);
+                        i poll = this.n.poll();
+                        if (poll != null) {
+                            a(this.o, poll, true);
                         }
                     }
                     c(this.o);
@@ -984,7 +982,7 @@ public class k implements f, c.a {
         if (r3 >= r6) goto L81;
      */
     /* JADX WARN: Code restructure failed: missing block: B:70:0x01fc, code lost:
-        r7 = (com.ss.android.socialbase.downloader.f.i) r22.o.get(r3);
+        r7 = r22.o.get(r3);
      */
     /* JADX WARN: Code restructure failed: missing block: B:71:0x020c, code lost:
         if (r7.a() > 0) goto L80;
@@ -1050,7 +1048,7 @@ public class k implements f, c.a {
             if (mVar.h() == iVar.e()) {
                 long c = iVar.c();
                 int a = a(c);
-                if (a != -1 && (iVar2 = (i) this.o.get(a)) != null) {
+                if (a != -1 && (iVar2 = this.o.get(a)) != null) {
                     if (iVar2 != iVar) {
                         if (iVar2.c() == iVar.c()) {
                             long a2 = a(iVar2);
@@ -1100,7 +1098,7 @@ public class k implements f, c.a {
                         if (i < 0) {
                             break;
                         }
-                        i iVar3 = (i) this.o.get(i);
+                        i iVar3 = this.o.get(i);
                         long f = iVar3.f();
                         if (f <= 0 || f >= j) {
                             if (a3 <= 0 && iVar3.e() > j) {
@@ -1218,8 +1216,8 @@ public class k implements f, c.a {
         ArrayList<i> arrayList = null;
         int i = 0;
         for (int i2 = 1; i2 < size; i2++) {
-            i iVar = (i) this.o.get(i);
-            i iVar2 = (i) this.o.get(i2);
+            i iVar = this.o.get(i);
+            i iVar2 = this.o.get(i2);
             if (iVar.e() > iVar2.c() && iVar2.a() <= 0 && iVar2.a == null) {
                 if (arrayList == null) {
                     arrayList = new ArrayList(1);

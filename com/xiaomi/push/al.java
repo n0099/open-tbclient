@@ -27,13 +27,13 @@ public class al {
     public Object f97a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f98a;
+    public Map<String, ScheduledFuture> f98a;
 
     /* renamed from: a  reason: collision with other field name */
     public ScheduledThreadPoolExecutor f99a;
 
     /* loaded from: classes8.dex */
-    public abstract class a implements Runnable {
+    public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +56,7 @@ public class al {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -154,7 +154,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             synchronized (this.f97a) {
-                scheduledFuture = (ScheduledFuture) this.f98a.get(aVar.mo207a());
+                scheduledFuture = this.f98a.get(aVar.mo207a());
             }
             return scheduledFuture;
         }
@@ -229,7 +229,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             synchronized (this.f97a) {
-                ScheduledFuture scheduledFuture = (ScheduledFuture) this.f98a.get(str);
+                ScheduledFuture scheduledFuture = this.f98a.get(str);
                 if (scheduledFuture == null) {
                     return false;
                 }

@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -20,6 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuPopupHelper implements MenuHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,7 +45,7 @@ public class MenuPopupHelper implements MenuHelper {
     public MenuPresenter.Callback mPresenterCallback;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
         this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -60,7 +66,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
         this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040560, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -81,7 +87,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2, boolean z, int i) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {
         this(context, menuBuilder, view2, z, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -101,7 +107,7 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view2, boolean z, int i, int i2) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,6 +162,7 @@ public class MenuPopupHelper implements MenuHelper {
         this.mPopupStyleRes = i2;
     }
 
+    @NonNull
     private MenuPopup createPopup() {
         InterceptResult invokeV;
         boolean z;
@@ -234,6 +241,7 @@ public class MenuPopupHelper implements MenuHelper {
         return (ListView) invokeV.objValue;
     }
 
+    @NonNull
     public MenuPopup getPopup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -294,7 +302,7 @@ public class MenuPopupHelper implements MenuHelper {
         return invokeV.booleanValue;
     }
 
-    public void setAnchorView(View view2) {
+    public void setAnchorView(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             this.mAnchorView = view2;
@@ -319,7 +327,7 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener) {
+    public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onDismissListener) == null) {
             this.mOnDismissListener = onDismissListener;
@@ -327,7 +335,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     @Override // androidx.appcompat.view.menu.MenuHelper
-    public void setPresenterCallback(MenuPresenter.Callback callback) {
+    public void setPresenterCallback(@Nullable MenuPresenter.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, callback) == null) {
             this.mPresenterCallback = callback;

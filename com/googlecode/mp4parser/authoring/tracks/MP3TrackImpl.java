@@ -50,7 +50,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public String lang;
     public long maxBitRate;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List samples;
+    public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -202,7 +202,7 @@ public class MP3TrackImpl extends AbstractTrack {
             double d = readSamples.sampleRate / 1152.0d;
             double size = this.samples.size() / d;
             LinkedList linkedList = new LinkedList();
-            Iterator it = this.samples.iterator();
+            Iterator<Sample> it = this.samples.iterator();
             long j = 0;
             while (true) {
                 int i = 0;
@@ -239,7 +239,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     Arrays.fill(jArr, 1152L);
                     return;
                 }
-                int size2 = (int) ((Sample) it.next()).getSize();
+                int size2 = (int) it.next().getSize();
                 j += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d) {
@@ -344,7 +344,7 @@ public class MP3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

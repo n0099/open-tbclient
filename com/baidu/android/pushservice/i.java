@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,9 +32,9 @@ public class i {
     public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger d;
-    public HashMap e;
-    public LinkedHashMap f;
-    public HashMap g;
+    public HashMap<String, String> e;
+    public LinkedHashMap<String, Integer> f;
+    public HashMap<String, TokenBindListener> g;
 
     static {
         InterceptResult invokeClinit;
@@ -182,9 +181,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, tokenBindListener) == null) {
             if (this.g == null || this.f == null || this.e == null) {
-                this.g = new HashMap();
-                this.f = new LinkedHashMap();
-                this.e = new HashMap();
+                this.g = new HashMap<>();
+                this.f = new LinkedHashMap<>();
+                this.e = new HashMap<>();
             }
             String str2 = "key" + System.currentTimeMillis() + this.d.incrementAndGet();
             this.g.put(str2, tokenBindListener);
@@ -196,8 +195,8 @@ public class i {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String str2 = (String) ((Map.Entry) this.f.entrySet().iterator().next()).getKey();
-            a(str, ((Integer) this.f.remove(str2)).intValue(), (String) this.e.remove(str2), (TokenBindListener) this.g.remove(str2));
+            String key = this.f.entrySet().iterator().next().getKey();
+            a(str, this.f.remove(key).intValue(), this.e.remove(key), this.g.remove(key));
         }
     }
 

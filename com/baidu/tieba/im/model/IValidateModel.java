@@ -8,5 +8,5 @@ import java.util.List;
 public interface IValidateModel {
     ValidateItemData convertToValidateItemData(GroupNewsPojo groupNewsPojo);
 
-    List convertToValidateItemDataList(LinkedList linkedList);
+    List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList);
 }

@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
@@ -14,14 +15,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class SafeObserver implements Observer, Disposable {
+public final class SafeObserver<T> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
+    public final Observer<? super T> actual;
     public boolean done;
     public Disposable s;
 
-    public SafeObserver(Observer observer) {
+    public SafeObserver(@NonNull Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +117,7 @@ public final class SafeObserver implements Observer, Disposable {
     }
 
     @Override // io.reactivex.Observer
-    public void onError(Throwable th) {
+    public void onError(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
             if (this.done) {
@@ -155,14 +156,14 @@ public final class SafeObserver implements Observer, Disposable {
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || this.done) {
             return;
         }
         if (this.s == null) {
             onNextNoSubscription();
-        } else if (obj == null) {
+        } else if (t == null) {
             NullPointerException nullPointerException = new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             try {
                 this.s.dispose();
@@ -173,7 +174,7 @@ public final class SafeObserver implements Observer, Disposable {
             }
         } else {
             try {
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             } catch (Throwable th2) {
                 Exceptions.throwIfFatal(th2);
                 try {
@@ -188,7 +189,7 @@ public final class SafeObserver implements Observer, Disposable {
     }
 
     @Override // io.reactivex.Observer
-    public void onSubscribe(Disposable disposable) {
+    public void onSubscribe(@NonNull Disposable disposable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
             this.s = disposable;

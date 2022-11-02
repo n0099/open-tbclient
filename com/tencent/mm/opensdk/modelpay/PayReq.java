@@ -28,7 +28,7 @@ public class PayReq extends BaseReq {
     public String timeStamp;
 
     /* loaded from: classes8.dex */
-    public class Options {
+    public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
         public transient /* synthetic */ FieldHolder $fh;

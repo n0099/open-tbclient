@@ -250,7 +250,7 @@ public class b implements SharedPreferences.Editor {
     }
 
     @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, Set set) {
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {

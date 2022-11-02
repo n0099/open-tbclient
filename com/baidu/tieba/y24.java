@@ -10,11 +10,11 @@ public class y24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String errMsg;
+    public Object data;
     @V8JavascriptField
-    public String errNo;
+    public Object header;
     @V8JavascriptField
-    public boolean result;
+    public int statusCode;
 
     public y24() {
         Interceptable interceptable = $ic;

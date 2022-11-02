@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.renderer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -52,7 +53,7 @@ public class ARPRenderer implements d, IARPRenderer {
     public int mCutSnapStartY;
     public int mCutSnapWidth;
     public String mDefaultLuaPath;
-    public final Queue mDrawQueue;
+    public final Queue<Runnable> mDrawQueue;
     public boolean mFrontCamera;
     public int mInputTexHeight;
     public int mInputTexWidth;
@@ -64,13 +65,13 @@ public class ARPRenderer implements d, IARPRenderer {
     public OnRenderFinishedListener mOnRenderFinishedListener;
     public OnRenderStartedListener mOnRenderStartedListener;
     public Object[] mPipelineLock;
-    public HashMap mPixelListenerHash;
+    public HashMap<String, List<PixelReadListener>> mPixelListenerHash;
     public int mRotation;
     public Object[] mRunnableLock;
     public TakePictureCallback mTakePictureCallback;
     public int mTotalFrameCount;
     public long mTotalFrameTimeInMS;
-    public SoftReference softContext;
+    public SoftReference<Context> softContext;
     public float[] texMatrix;
 
     static {
@@ -125,7 +126,7 @@ public class ARPRenderer implements d, IARPRenderer {
         Matrix.setIdentityM(fArr, 0);
         this.hasSetup = false;
         this.mDrawQueue = new LinkedList();
-        this.mPixelListenerHash = new HashMap();
+        this.mPixelListenerHash = new HashMap<>();
     }
 
     public static void copyNativeBytebuffer(ByteBuffer byteBuffer, byte[] bArr, int i, int i2) {
@@ -340,6 +341,7 @@ public class ARPRenderer implements d, IARPRenderer {
         return invokeV.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     private boolean prepareGLContext(EGLContext eGLContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -353,14 +355,14 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     private void runAllDrawQueue() {
-        Queue queue;
+        Queue<Runnable> queue;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65599, this) == null) || (queue = this.mDrawQueue) == null) {
             return;
         }
         synchronized (queue) {
             while (!this.mDrawQueue.isEmpty()) {
-                ((Runnable) this.mDrawQueue.poll()).run();
+                this.mDrawQueue.poll().run();
             }
         }
     }
@@ -461,16 +463,16 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
-        SoftReference softReference;
+        SoftReference<Context> softReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
-            if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || ((Context) this.softContext.get()).getAssets() == null) {
+            if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || this.softContext.get().getAssets() == null) {
                 nativeAdjustFilterWithStringParam(str, str2, str3);
                 return;
             }
             Bitmap bitmap = null;
             try {
-                bitmap = BitmapFactory.decodeStream(((Context) this.softContext.get()).getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
+                bitmap = BitmapFactory.decodeStream(this.softContext.get().getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -502,7 +504,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
     public void cancelAysncRenderTask(Runnable runnable) {
-        Queue queue;
+        Queue<Runnable> queue;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, runnable) == null) || (queue = this.mDrawQueue) == null || runnable == null) {
             return;
@@ -516,7 +518,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
     public void clearAllAsyncRenderTask() {
-        Queue queue;
+        Queue<Runnable> queue;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (queue = this.mDrawQueue) == null) {
             return;
@@ -570,7 +572,7 @@ public class ARPRenderer implements d, IARPRenderer {
         String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
         synchronized (this.mPipelineLock) {
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
-                ((List) this.mPixelListenerHash.get(pixelReadParamHash)).add(pixelReadListener);
+                this.mPixelListenerHash.get(pixelReadParamHash).add(pixelReadListener);
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -635,7 +637,7 @@ public class ARPRenderer implements d, IARPRenderer {
         String pixelReadParamHash = getPixelReadParamHash(pixelReadParams);
         synchronized (this.mPipelineLock) {
             if (this.mPixelListenerHash.containsKey(pixelReadParamHash)) {
-                List list = (List) this.mPixelListenerHash.get(pixelReadParamHash);
+                List<PixelReadListener> list = this.mPixelListenerHash.get(pixelReadParamHash);
                 if (list.size() > 1) {
                     list.remove(pixelReadListener);
                     return;
@@ -825,7 +827,7 @@ public class ARPRenderer implements d, IARPRenderer {
                 framePixels.setPixelLength(i5);
                 framePixels.setTextureID(i7);
                 framePixels.setFrameType(PixelReadParams.FrameType.values()[i6]);
-                List<PixelReadListener> list = (List) this.mPixelListenerHash.get(pixelReadParamHash);
+                List<PixelReadListener> list = this.mPixelListenerHash.get(pixelReadParamHash);
                 if (list != null) {
                     for (PixelReadListener pixelReadListener : list) {
                         if (pixelReadListener != null) {
@@ -903,7 +905,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
     public void runAsyncOnRenderContext(Runnable runnable) {
-        Queue queue;
+        Queue<Runnable> queue;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048625, this, runnable) == null) || (queue = this.mDrawQueue) == null || runnable == null) {
             return;
@@ -984,7 +986,7 @@ public class ARPRenderer implements d, IARPRenderer {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.IARPRenderer
-    public void setContext(SoftReference softReference) {
+    public void setContext(SoftReference<Context> softReference) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048633, this, softReference) == null) || softReference == null) {
             return;

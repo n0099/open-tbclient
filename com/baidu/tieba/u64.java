@@ -1,13 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.t64;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface u64 extends s64 {
-    void d(b74 b74Var);
+public class u64 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void m(boolean z);
+    public static int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f);
+        }
+        return invokeF.intValue;
+    }
 
-    void t(t64.b bVar);
-
-    void update();
+    public static float b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            return f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density;
+        }
+        return invokeF.floatValue;
+    }
 }

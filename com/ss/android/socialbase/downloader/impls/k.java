@@ -10,16 +10,16 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class k implements com.ss.android.socialbase.downloader.downloader.j {
-    public final SparseArray a = new SparseArray();
-    public final SparseArray b = new SparseArray();
-    public final SparseArray c = new SparseArray();
+    public final SparseArray<DownloadInfo> a = new SparseArray<>();
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> b = new SparseArray<>();
+    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> c = new SparseArray<>();
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void a(int i, int i2, int i3, int i4) {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void b(int i, List list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -36,7 +36,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         return false;
     }
 
-    public SparseArray a() {
+    public SparseArray<DownloadInfo> a() {
         return this.a;
     }
 
@@ -46,7 +46,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         this.b.clear();
     }
 
-    public SparseArray f() {
+    public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f() {
         return this.b;
     }
 
@@ -120,15 +120,15 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List a(String str) {
+    public synchronized List<DownloadInfo> a(String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         try {
             int size = this.a.size();
             for (int i = 0; i < size; i++) {
-                DownloadInfo downloadInfo = (DownloadInfo) this.a.valueAt(i);
-                if (str != null && str.equals(downloadInfo.getUrl())) {
-                    arrayList.add(downloadInfo);
+                DownloadInfo valueAt = this.a.valueAt(i);
+                if (str != null && str.equals(valueAt.getUrl())) {
+                    arrayList.add(valueAt);
                 }
             }
         } catch (Exception e) {
@@ -141,7 +141,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public synchronized DownloadInfo b(int i) {
         DownloadInfo downloadInfo;
         try {
-            downloadInfo = (DownloadInfo) this.a.get(i);
+            downloadInfo = this.a.get(i);
         } catch (Exception e) {
             e.printStackTrace();
             downloadInfo = null;
@@ -150,8 +150,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List c(int i) {
-        return (List) this.b.get(i);
+    public synchronized List<com.ss.android.socialbase.downloader.model.b> c(int i) {
+        return this.b.get(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -211,8 +211,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized Map l(int i) {
-        return (Map) this.c.get(i);
+    public synchronized Map<Long, com.ss.android.socialbase.downloader.f.i> l(int i) {
+        return this.c.get(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -221,8 +221,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List n(int i) {
-        Map map = (Map) this.c.get(i);
+    public synchronized List<com.ss.android.socialbase.downloader.f.i> n(int i) {
+        Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.c.get(i);
         if (map != null && !map.isEmpty()) {
             return new ArrayList(map.values());
         }
@@ -239,7 +239,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         if (r3.hasNext() == false) goto L39;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x003c, code lost:
-        r5 = (com.ss.android.socialbase.downloader.model.b) r3.next();
+        r5 = r3.next();
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0042, code lost:
         if (r5 == null) goto L38;
@@ -255,17 +255,17 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(int i, int i2, int i3, long j) {
-        List c = c(i);
+        List<com.ss.android.socialbase.downloader.model.b> c = c(i);
         if (c == null) {
             return;
         }
-        Iterator it = c.iterator();
+        Iterator<com.ss.android.socialbase.downloader.model.b> it = c.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
-            if (bVar != null && bVar.s() == i3 && !bVar.f()) {
+            com.ss.android.socialbase.downloader.model.b next = it.next();
+            if (next != null && next.s() == i3 && !next.f()) {
                 break;
             }
         }
@@ -279,31 +279,29 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(int i, int i2, long j) {
-        List c = c(i);
+        List<com.ss.android.socialbase.downloader.model.b> c = c(i);
         if (c == null) {
             return;
         }
-        Iterator it = c.iterator();
+        Iterator<com.ss.android.socialbase.downloader.model.b> it = c.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
-            if (bVar != null && bVar.s() == i2) {
+            com.ss.android.socialbase.downloader.model.b next = it.next();
+            if (next != null && next.s() == i2) {
                 break;
             }
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized void a(int i, List list) {
+    public synchronized void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         if (list == null) {
             return;
         }
         d(i);
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
+        for (com.ss.android.socialbase.downloader.model.b bVar : list) {
             if (bVar != null) {
                 a(bVar);
                 if (bVar.f()) {
@@ -318,9 +316,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         int k = bVar.k();
-        List list = (List) this.b.get(k);
+        List<com.ss.android.socialbase.downloader.model.b> list = this.b.get(k);
         if (list == null) {
-            list = new ArrayList();
+            list = new ArrayList<>();
             this.b.put(k, list);
         }
         list.add(bVar);
@@ -332,7 +330,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized boolean a(int i, Map map) {
+    public synchronized boolean a(int i, Map<Long, com.ss.android.socialbase.downloader.f.i> map) {
         this.c.put(i, map);
         return false;
     }
@@ -351,22 +349,22 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List b() {
+    public synchronized List<DownloadInfo> b() {
         if (this.a.size() == 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList(this.a.size());
         for (int i = 0; i < this.a.size(); i++) {
-            DownloadInfo downloadInfo = (DownloadInfo) this.a.valueAt(i);
-            if (downloadInfo != null) {
-                arrayList.add(downloadInfo);
+            DownloadInfo valueAt = this.a.valueAt(i);
+            if (valueAt != null) {
+                arrayList.add(valueAt);
             }
         }
         return arrayList;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List b(String str) {
+    public synchronized List<DownloadInfo> b(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -375,7 +373,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < this.a.size(); i++) {
-            DownloadInfo downloadInfo = (DownloadInfo) this.a.get(this.a.keyAt(i));
+            DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i));
             if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isFailedStatus(downloadInfo.getStatus())) {
                 arrayList.add(downloadInfo);
             }
@@ -384,7 +382,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List c(String str) {
+    public synchronized List<DownloadInfo> c(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -393,7 +391,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < this.a.size(); i++) {
-            DownloadInfo downloadInfo = (DownloadInfo) this.a.get(this.a.keyAt(i));
+            DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i));
             if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && downloadInfo.getStatus() == -3) {
                 arrayList.add(downloadInfo);
             }
@@ -402,7 +400,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public synchronized List d(String str) {
+    public synchronized List<DownloadInfo> d(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -411,7 +409,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         }
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < this.a.size(); i++) {
-            DownloadInfo downloadInfo = (DownloadInfo) this.a.get(this.a.keyAt(i));
+            DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i));
             if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isUnCompletedStatus(downloadInfo.getStatus())) {
                 arrayList.add(downloadInfo);
             }

@@ -1,7 +1,10 @@
 package com.bumptech.glide.load.model;
 
 import android.content.ContentResolver;
+import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,24 +21,25 @@ import com.bumptech.glide.load.data.StreamLocalUriFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import com.facebook.common.util.UriUtil;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class UriLoader implements ModelLoader {
+public class UriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set SCHEMES;
+    public static final Set<String> SCHEMES;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LocalUriFetcherFactory factory;
+    public final LocalUriFetcherFactory<Data> factory;
 
     /* loaded from: classes7.dex */
-    public interface LocalUriFetcherFactory {
-        DataFetcher build(Uri uri);
+    public interface LocalUriFetcherFactory<Data> {
+        DataFetcher<Data> build(Uri uri);
     }
 
     /* loaded from: classes7.dex */
-    public final class AssetFileDescriptorFactory implements ModelLoaderFactory, LocalUriFetcherFactory {
+    public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Uri, AssetFileDescriptor>, LocalUriFetcherFactory<AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ContentResolver contentResolver;
@@ -66,7 +70,7 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.UriLoader.LocalUriFetcherFactory
-        public DataFetcher build(Uri uri) {
+        public DataFetcher<AssetFileDescriptor> build(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
@@ -76,7 +80,7 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        public ModelLoader<Uri, AssetFileDescriptor> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiModelLoaderFactory)) == null) {
@@ -87,7 +91,7 @@ public class UriLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class FileDescriptorFactory implements ModelLoaderFactory, LocalUriFetcherFactory {
+    public static class FileDescriptorFactory implements ModelLoaderFactory<Uri, ParcelFileDescriptor>, LocalUriFetcherFactory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ContentResolver contentResolver;
@@ -118,7 +122,7 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.UriLoader.LocalUriFetcherFactory
-        public DataFetcher build(Uri uri) {
+        public DataFetcher<ParcelFileDescriptor> build(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
@@ -128,7 +132,8 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Uri, ParcelFileDescriptor> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiModelLoaderFactory)) == null) {
@@ -139,7 +144,7 @@ public class UriLoader implements ModelLoader {
     }
 
     /* loaded from: classes7.dex */
-    public class StreamFactory implements ModelLoaderFactory, LocalUriFetcherFactory {
+    public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream>, LocalUriFetcherFactory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ContentResolver contentResolver;
@@ -170,7 +175,7 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.UriLoader.LocalUriFetcherFactory
-        public DataFetcher build(Uri uri) {
+        public DataFetcher<InputStream> build(Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
@@ -180,7 +185,8 @@ public class UriLoader implements ModelLoader {
         }
 
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public ModelLoader build(MultiModelLoaderFactory multiModelLoaderFactory) {
+        @NonNull
+        public ModelLoader<Uri, InputStream> build(MultiModelLoaderFactory multiModelLoaderFactory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiModelLoaderFactory)) == null) {
@@ -206,7 +212,7 @@ public class UriLoader implements ModelLoader {
         SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", UriUtil.QUALIFIED_RESOURCE_SCHEME, "content")));
     }
 
-    public UriLoader(LocalUriFetcherFactory localUriFetcherFactory) {
+    public UriLoader(LocalUriFetcherFactory<Data> localUriFetcherFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +232,7 @@ public class UriLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public boolean handles(Uri uri) {
+    public boolean handles(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
@@ -237,11 +243,11 @@ public class UriLoader implements ModelLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData buildLoadData(Uri uri, int i, int i2, Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return new ModelLoader.LoadData(new ObjectKey(uri), this.factory.build(uri));
+            return new ModelLoader.LoadData<>(new ObjectKey(uri), this.factory.build(uri));
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

@@ -15,6 +15,9 @@ import android.support.v4.media.MediaBrowserCompat;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Surface;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.common.MediaItem;
 import androidx.media2.common.MediaMetadata;
@@ -48,36 +51,60 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     public static final String TAG = "MC2ImplBase";
     public static final boolean THROW_EXCEPTION_FOR_NULL_RESULT = true;
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public SessionCommandGroup mAllowedCommands;
+    @GuardedBy("mLock")
     public long mBufferedPositionMs;
+    @GuardedBy("mLock")
     public int mBufferingState;
+    @GuardedBy("mLock")
     public SessionToken mConnectedToken;
     public final Context mContext;
     public final MediaControllerStub mControllerStub;
+    @GuardedBy("mLock")
     public MediaItem mCurrentMediaItem;
+    @GuardedBy("mLock")
     public int mCurrentMediaItemIndex;
     public final IBinder.DeathRecipient mDeathRecipient;
+    @GuardedBy("mLock")
     public volatile IMediaSession mISession;
     public final MediaController mInstance;
+    @GuardedBy("mLock")
     public boolean mIsReleased;
     public final Object mLock;
+    @GuardedBy("mLock")
     public int mNextMediaItemIndex;
+    @GuardedBy("mLock")
     public MediaController.PlaybackInfo mPlaybackInfo;
+    @GuardedBy("mLock")
     public float mPlaybackSpeed;
+    @GuardedBy("mLock")
     public int mPlayerState;
+    @GuardedBy("mLock")
     public List<MediaItem> mPlaylist;
+    @GuardedBy("mLock")
     public MediaMetadata mPlaylistMetadata;
+    @GuardedBy("mLock")
     public long mPositionEventTimeMs;
+    @GuardedBy("mLock")
     public long mPositionMs;
+    @GuardedBy("mLock")
     public int mPreviousMediaItemIndex;
+    @GuardedBy("mLock")
     public int mRepeatMode;
+    @GuardedBy("mLock")
     public SparseArray<SessionPlayer.TrackInfo> mSelectedTracks;
     public final SequencedFutureManager mSequencedFutureManager;
+    @GuardedBy("mLock")
     public SessionServiceConnection mServiceConnection;
+    @GuardedBy("mLock")
     public PendingIntent mSessionActivity;
+    @GuardedBy("mLock")
     public int mShuffleMode;
     public final SessionToken mToken;
+    @GuardedBy("mLock")
     public List<SessionPlayer.TrackInfo> mTracks;
+    @GuardedBy("mLock")
     public VideoSize mVideoSize;
 
     @FunctionalInterface
@@ -87,6 +114,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    @Nullable
     public MediaBrowserCompat getBrowserCompat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +131,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
         public final Bundle mConnectionHints;
         public final /* synthetic */ MediaControllerImplBase this$0;
 
-        public SessionServiceConnection(MediaControllerImplBase mediaControllerImplBase, Bundle bundle) {
+        public SessionServiceConnection(@Nullable MediaControllerImplBase mediaControllerImplBase, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,6 +320,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    @NonNull
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -472,6 +501,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    @NonNull
     public List<SessionPlayer.TrackInfo> getTracks() {
         InterceptResult invokeV;
         List<SessionPlayer.TrackInfo> list;
@@ -486,6 +516,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    @NonNull
     public VideoSize getVideoSize() {
         InterceptResult invokeV;
         VideoSize videoSize;
@@ -544,7 +575,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -875,7 +906,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
         return (ListenableFuture) invokeV.objValue;
     }
 
-    public MediaControllerImplBase(Context context, MediaController mediaController, SessionToken sessionToken, Bundle bundle) {
+    public MediaControllerImplBase(Context context, MediaController mediaController, SessionToken sessionToken, @Nullable Bundle bundle) {
         boolean requestConnectToService;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -964,7 +995,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> addPlaylistItem(int i, String str) {
+    public ListenableFuture<SessionResult> addPlaylistItem(int i, @NonNull String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
@@ -1127,7 +1158,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -1170,7 +1201,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -1212,7 +1243,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
                         this.this$0.sendControllerResult(this.val$seq, new SessionResult(controllerCallback.onSetCustomLayout(this.this$0.mInstance, this.val$layout)));
@@ -1223,7 +1254,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> replacePlaylistItem(int i, String str) {
+    public ListenableFuture<SessionResult> replacePlaylistItem(int i, @NonNull String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048632, this, i, str)) == null) {
@@ -1266,7 +1297,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
         return (ListenableFuture) invokeIL.objValue;
     }
 
-    public void sendControllerResult(int i, SessionResult sessionResult) {
+    public void sendControllerResult(int i, @NonNull SessionResult sessionResult) {
         IMediaSession iMediaSession;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048636, this, i, sessionResult) == null) {
@@ -1285,7 +1316,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> sendCustomCommand(SessionCommand sessionCommand, Bundle bundle) {
+    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, sessionCommand, bundle)) == null) {
@@ -1329,7 +1360,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setMediaUri(Uri uri, Bundle bundle) {
+    public ListenableFuture<SessionResult> setMediaUri(@NonNull Uri uri, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048639, this, uri, bundle)) == null) {
@@ -1373,7 +1404,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setPlaylist(List<String> list, MediaMetadata mediaMetadata) {
+    public ListenableFuture<SessionResult> setPlaylist(@NonNull List<String> list, @Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, list, mediaMetadata)) == null) {
@@ -1417,7 +1448,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setRating(String str, Rating rating) {
+    public ListenableFuture<SessionResult> setRating(@NonNull String str, @NonNull Rating rating) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048642, this, str, rating)) == null) {
@@ -1610,7 +1641,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                     }
 
                     @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                    public void run(MediaController.ControllerCallback controllerCallback) {
+                    public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
                             controllerCallback.onDisconnected(this.this$0.mInstance);
@@ -1621,7 +1652,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
         }
     }
 
-    private boolean requestConnectToSession(Bundle bundle) {
+    private boolean requestConnectToSession(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, bundle)) == null) {
@@ -1637,7 +1668,8 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> deselectTrack(SessionPlayer.TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<SessionResult> deselectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, trackInfo)) == null) {
@@ -1679,6 +1711,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
+    @Nullable
     public SessionPlayer.TrackInfo getSelectedTrack(int i) {
         InterceptResult invokeI;
         SessionPlayer.TrackInfo trackInfo;
@@ -1724,7 +1757,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -1767,7 +1800,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -1814,7 +1847,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -1861,7 +1894,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
                         controllerCallback.onAllowedCommandsChanged(this.this$0.mInstance, this.val$commands);
@@ -1959,7 +1992,8 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> selectTrack(SessionPlayer.TrackInfo trackInfo) {
+    @NonNull
+    public ListenableFuture<SessionResult> selectTrack(@NonNull SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, trackInfo)) == null) {
@@ -2001,7 +2035,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setMediaItem(String str) {
+    public ListenableFuture<SessionResult> setMediaItem(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
@@ -2169,7 +2203,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> setSurface(Surface surface) {
+    public ListenableFuture<SessionResult> setSurface(@Nullable Surface surface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, surface)) == null) {
@@ -2253,7 +2287,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
     }
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
-    public ListenableFuture<SessionResult> updatePlaylistMetadata(MediaMetadata mediaMetadata) {
+    public ListenableFuture<SessionResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, mediaMetadata)) == null) {
@@ -2407,7 +2441,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2459,7 +2493,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2508,7 +2542,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2553,7 +2587,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2598,7 +2632,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2642,7 +2676,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2689,7 +2723,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
                         SessionResult onCustomCommand = controllerCallback.onCustomCommand(this.this$0.mInstance, this.val$command, this.val$args);
@@ -2739,7 +2773,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2785,7 +2819,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2829,7 +2863,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2876,7 +2910,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                 }
 
                 @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                public void run(MediaController.ControllerCallback controllerCallback) {
+                public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, controllerCallback) != null) || !this.this$0.mInstance.isConnected()) {
                         return;
@@ -2957,7 +2991,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
                                         }
 
                                         @Override // androidx.media2.session.MediaController.ControllerCallbackRunnable
-                                        public void run(MediaController.ControllerCallback controllerCallback) {
+                                        public void run(@NonNull MediaController.ControllerCallback controllerCallback) {
                                             Interceptable interceptable2 = $ic;
                                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, controllerCallback) == null) {
                                                 controllerCallback.onConnected(this.this$0.mInstance, this.val$allowedCommands);

@@ -1,6 +1,7 @@
 package androidx.webkit.internal;
 
 import android.os.Build;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.WebViewFeature;
 import com.baidu.android.imsdk.internal.Constants;
@@ -161,7 +162,7 @@ public final class WebViewFeatureInternal {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebViewFeatureInternal(String str, int i, String str2, String str3) {
+    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3) {
         this(str, i, str2, str3, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -181,7 +182,7 @@ public final class WebViewFeatureInternal {
         }
     }
 
-    public WebViewFeatureInternal(String str, int i, String str2, String str3, int i2) {
+    public WebViewFeatureInternal(@NonNull String str, @NonNull int i, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +205,7 @@ public final class WebViewFeatureInternal {
         this.mOsVersion = i2;
     }
 
-    public static WebViewFeatureInternal getFeature(String str) {
+    public static WebViewFeatureInternal getFeature(@NonNull String str) {
         InterceptResult invokeL;
         WebViewFeatureInternal[] values;
         Interceptable interceptable = $ic;

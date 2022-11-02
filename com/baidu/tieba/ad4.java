@@ -1,65 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class ad4 {
+public abstract class ad4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final og4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947611320, "Lcom/baidu/tieba/ad4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947611320, "Lcom/baidu/tieba/ad4;");
-                return;
-            }
-        }
-        a = og4.e();
-    }
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
 
     public ad4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public Integer a(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
-                try {
-                    int intValue = ((Integer) map.get("queue_priority")).intValue();
-                    if (intValue == 200 || intValue == 300) {
-                        return Integer.valueOf(intValue);
-                    }
-                } catch (Exception e) {
-                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
-                }
-            }
-            return 100;
-        }
-        return (Integer) invokeL.objValue;
+        this.a = "";
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
     }
 }

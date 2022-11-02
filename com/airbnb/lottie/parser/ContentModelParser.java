@@ -1,10 +1,10 @@
 package com.airbnb.lottie.parser;
 
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.p0.u;
@@ -12,12 +12,13 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class ContentModelParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(Config.EXCEPTION_CRASH_CHANNEL, "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("ty", "d");
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
         if (r2.equals("gs") != false) goto L24;
      */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

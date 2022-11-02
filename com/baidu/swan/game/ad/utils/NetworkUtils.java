@@ -1,5 +1,6 @@
 package com.baidu.swan.game.ad.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -23,7 +24,7 @@ public class NetworkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class NetType {
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -270,6 +271,7 @@ public class NetworkUtils {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"HardwareIds"})
     public static String e(Context context) {
         String str;
         InterceptResult invokeL;

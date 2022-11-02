@@ -30,7 +30,7 @@ public class GetChatObjectInfoForRecordManager {
     public static final int TYPE_GROUP_STAR = 4;
     public static final int TYPE_IP = 10;
     public static final int TYPE_USER = 0;
-    public static Map classFinder;
+    public static Map<Pair<Integer, Integer>, String> classFinder;
     public static String[] classNameArray;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,9 +52,9 @@ public class GetChatObjectInfoForRecordManager {
         HashMap hashMap = new HashMap();
         classFinder = hashMap;
         hashMap.put(new Pair(0, 0), classNameArray[0]);
-        classFinder.put(new Pair(1, 0), classNameArray[1]);
-        classFinder.put(new Pair(0, 1), classNameArray[2]);
-        classFinder.put(new Pair(1, 57), classNameArray[3]);
+        classFinder.put(new Pair<>(1, 0), classNameArray[1]);
+        classFinder.put(new Pair<>(0, 1), classNameArray[2]);
+        classFinder.put(new Pair<>(1, 57), classNameArray[3]);
     }
 
     public GetChatObjectInfoForRecordManager() {
@@ -151,7 +151,7 @@ public class GetChatObjectInfoForRecordManager {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2)) == null) {
-            String str = (String) classFinder.get(new Pair(Integer.valueOf(i), Integer.valueOf(i2)));
+            String str = classFinder.get(new Pair(Integer.valueOf(i), Integer.valueOf(i2)));
             String str2 = TAG;
             LogUtils.i(str2, "className : " + str);
             if (str == null) {

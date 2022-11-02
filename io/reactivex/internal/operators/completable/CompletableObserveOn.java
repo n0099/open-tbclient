@@ -21,7 +21,7 @@ public final class CompletableObserveOn extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class ObserveOnCompletableObserver extends AtomicReference implements CompletableObserver, Disposable, Runnable {
+    public static final class ObserveOnCompletableObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8571289934935992137L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public final class CompletableObserveOn extends Completable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }

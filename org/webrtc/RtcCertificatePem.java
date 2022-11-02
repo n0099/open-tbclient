@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.PeerConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RtcCertificatePem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_EXPIRY = 2592000;
@@ -18,6 +18,7 @@ public class RtcCertificatePem {
 
     public static native RtcCertificatePem nativeGenerateCertificate(PeerConnection.KeyType keyType, long j);
 
+    @CalledByNative
     public RtcCertificatePem(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,6 +47,7 @@ public class RtcCertificatePem {
         return (RtcCertificatePem) invokeV.objValue;
     }
 
+    @CalledByNative
     public String getCertificate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,6 +57,7 @@ public class RtcCertificatePem {
         return (String) invokeV.objValue;
     }
 
+    @CalledByNative
     public String getPrivateKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

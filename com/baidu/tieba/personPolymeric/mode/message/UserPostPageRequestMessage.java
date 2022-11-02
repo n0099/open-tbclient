@@ -1,14 +1,15 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.eh;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +23,10 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public Long beginThreadId;
     public int from;
+    @Nullable
     public Integer fromType;
     public boolean isHost;
     public boolean isReset;
@@ -39,10 +42,13 @@ public class UserPostPageRequestMessage extends NetMessage {
     public int scr_h;
     public int scr_w;
     public int sub_type;
+    @Nullable
     public MetaData threadAuthor;
     public User threadUser;
+    @Nullable
     public Integer type;
     public String uid;
+    @Nullable
     public Integer workTabId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,7 +77,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.uid = Long.valueOf(eh.g(this.uid, 0L));
+            builder.uid = Long.valueOf(wg.g(this.uid, 0L));
             builder.portrait = this.portrait;
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
@@ -100,7 +106,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -109,7 +115,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         return (Message) invokeZ.objValue;
     }
 
-    public void setBeginThreadId(Long l) {
+    public void setBeginThreadId(@Nullable Long l) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, l) == null) {
             this.beginThreadId = l;
@@ -130,7 +136,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setFromType(Integer num) {
+    public void setFromType(@Nullable Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
             this.fromType = num;
@@ -186,7 +192,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setThreadAuthor(MetaData metaData) {
+    public void setThreadAuthor(@Nullable MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, metaData) == null) {
             this.threadAuthor = metaData;
@@ -200,7 +206,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setType(Integer num) {
+    public void setType(@Nullable Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, num) == null) {
             this.type = num;
@@ -214,7 +220,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setWorkTabId(Integer num) {
+    public void setWorkTabId(@Nullable Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, num) == null) {
             this.workTabId = num;
@@ -299,6 +305,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public MetaData getThreadAuthor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

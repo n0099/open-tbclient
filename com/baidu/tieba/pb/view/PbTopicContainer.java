@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,10 +19,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai5;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nh5;
-import com.baidu.tieba.zo4;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +56,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<RecommendTopicData.RecommendTopicListData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
@@ -65,7 +66,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             setVisibility(0);
             removeAllViews();
             for (int i = 0; i < 3 && i < list.size(); i++) {
-                RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) list.get(i);
+                RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i);
                 if (recommendTopicListData != null) {
                     a(recommendTopicListData);
                 }
@@ -74,7 +75,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbTopicContainer(Context context, AttributeSet attributeSet) {
+    public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,16 +104,16 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
         Context context = getContext();
         TextView textView = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, fj.f(context, R.dimen.tbds72));
-        int f = fj.f(context, R.dimen.tbds22);
-        layoutParams.rightMargin = f;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, xi.g(context, R.dimen.tbds72));
+        int g = xi.g(context, R.dimen.tbds22);
+        layoutParams.rightMargin = g;
         textView.setTag(recommendTopicListData);
-        textView.setText(nh5.a(recommendTopicListData.getTopicName()));
+        textView.setText(ki5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
-        textView.setTextSize(0, fj.f(context, R.dimen.tbds33));
+        textView.setTextSize(0, xi.g(context, R.dimen.tbds33));
         textView.setGravity(17);
         textView.setOnClickListener(this);
-        textView.setPadding(f, 0, f, 0);
+        textView.setPadding(g, 0, g, 0);
         SkinManager.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
     }
@@ -124,10 +125,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !nh5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !ki5.c(tbPageContext, false, true)) {
                 if (recommendTopicListData.getIsVideoTopicInt() != 1 && NewWebHotTopicPageSwitch.isOn()) {
                     TbPageContext tbPageContext2 = this.b;
-                    ai5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
+                    xi5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
                     return;
                 }
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
@@ -135,7 +136,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
             Context context = getContext();
-            zo4.o(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            rp4.o(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 

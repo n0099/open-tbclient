@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BoundingBox implements Serializable {
@@ -568,14 +567,13 @@ public class BoundingBox implements Serializable {
         return (BoundingBox) invokeLL.objValue;
     }
 
-    public BoundingBox set(List list) {
+    public BoundingBox set(List<Vector3> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, list)) == null) {
             inf();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                ext((Vector3) it.next());
+            for (Vector3 vector3 : list) {
+                ext(vector3);
             }
             return this;
         }

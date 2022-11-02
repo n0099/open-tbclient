@@ -125,7 +125,7 @@ public class BceHttpResponse {
         return (String) invokeL.objValue;
     }
 
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

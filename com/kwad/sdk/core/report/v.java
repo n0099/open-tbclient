@@ -1,26 +1,29 @@
 package com.kwad.sdk.core.report;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import com.kwad.sdk.core.network.g;
+import com.kwad.sdk.core.report.c;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.x;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
-public final class v implements Runnable {
-    public final j ZH;
-    public final b acj;
+/* loaded from: classes8.dex */
+public final class v<T extends c, R extends com.kwad.sdk.core.network.g> implements Runnable {
+    public final j<T> ZH;
+    public final b<T, R> acj;
     public final AtomicInteger ack;
     public final Context mContext;
 
-    public v(Context context, j jVar, b bVar, AtomicInteger atomicInteger) {
+    public v(Context context, j<T> jVar, b<T, R> bVar, AtomicInteger atomicInteger) {
         this.mContext = context;
         this.ZH = jVar;
         this.acj = bVar;
         this.ack = atomicInteger;
     }
 
-    private void r(List list) {
+    private void r(@NonNull List<T> list) {
         List d = x.d(list, 200);
         int size = d.size();
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
@@ -30,7 +33,7 @@ public final class v implements Runnable {
     }
 
     private void uL() {
-        List uy = this.ZH.uy();
+        List<T> uy = this.ZH.uy();
         if (uy.isEmpty()) {
             return;
         }

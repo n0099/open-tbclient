@@ -13,14 +13,14 @@ public final class R {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class anim {
+    public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int svfade_in_center = 0x7f010132;
-        public static final int svfade_out_center = 0x7f010133;
-        public static final int svslide_in_bottom = 0x7f010134;
-        public static final int svslide_in_top = 0x7f010135;
-        public static final int svslide_out_bottom = 0x7f010136;
-        public static final int svslide_out_top = 0x7f010137;
+        public static final int svfade_in_center = 0x7f010133;
+        public static final int svfade_out_center = 0x7f010134;
+        public static final int svslide_in_bottom = 0x7f010135;
+        public static final int svslide_in_top = 0x7f010136;
+        public static final int svslide_out_bottom = 0x7f010137;
+        public static final int svslide_out_top = 0x7f010138;
         public transient /* synthetic */ FieldHolder $fh;
 
         public anim() {
@@ -39,7 +39,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class attr {
+    public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int svprogress_max = 0x7f04066e;
         public static final int svprogress_roundColor = 0x7f04066f;
@@ -64,14 +64,14 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class color {
+    public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bgColor_overlay = 0x7f060420;
-        public static final int bgColor_overlay_black = 0x7f060421;
-        public static final int bgColor_svprogressdefaultview = 0x7f060422;
-        public static final int roundColor_svprogresshuddefault = 0x7f06091a;
-        public static final int roundProgressColor_svprogresshuddefault = 0x7f06091b;
-        public static final int textColor_svprogresshuddefault_msg = 0x7f060ae9;
+        public static final int bgColor_overlay = 0x7f060421;
+        public static final int bgColor_overlay_black = 0x7f060422;
+        public static final int bgColor_svprogressdefaultview = 0x7f060423;
+        public static final int roundColor_svprogresshuddefault = 0x7f06092c;
+        public static final int roundProgressColor_svprogresshuddefault = 0x7f06092d;
+        public static final int textColor_svprogresshuddefault_msg = 0x7f060afb;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -90,7 +90,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class dimen {
+    public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int margintop_svprogresshuddefault_msg = 0x7f070422;
         public static final int padding_svprogresshuddefault = 0x7f0705ec;
@@ -117,14 +117,14 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class drawable {
+    public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int bg_overlay_gradient = 0x7f0802b9;
         public static final int bg_svprogresshuddefault = 0x7f0802e8;
-        public static final int ic_svstatus_error = 0x7f080664;
-        public static final int ic_svstatus_info = 0x7f080665;
-        public static final int ic_svstatus_loading = 0x7f080666;
-        public static final int ic_svstatus_success = 0x7f080667;
+        public static final int ic_svstatus_error = 0x7f080669;
+        public static final int ic_svstatus_info = 0x7f08066a;
+        public static final int ic_svstatus_loading = 0x7f08066b;
+        public static final int ic_svstatus_success = 0x7f08066c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -143,19 +143,19 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class id {
+    public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000a;
         public static final int STROKE = 0x7f09001c;
-        public static final int circleProgressBar = 0x7f090648;
+        public static final int circleProgressBar = 0x7f090655;
 
         /* renamed from: ivBigLoading */
-        public static final int obfuscated = 0x7f090fe2;
-        public static final int ivSmallLoading = 0x7f090fe4;
-        public static final int sv_outmost_container = 0x7f091fbd;
+        public static final int obfuscated = 0x7f09101b;
+        public static final int ivSmallLoading = 0x7f09101d;
+        public static final int sv_outmost_container = 0x7f092008;
 
         /* renamed from: tvMsg */
-        public static final int obfuscated = 0x7f092340;
+        public static final int obfuscated = 0x7f092394;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -174,7 +174,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class integer {
+    public static final class integer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int svanimation_default_duration = 0x7f0a0028;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,10 +195,10 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class layout {
+    public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int layout_svprogresshud = 0x7f0d050e;
-        public static final int view_svprogressdefault = 0x7f0d08f7;
+        public static final int layout_svprogresshud = 0x7f0d051e;
+        public static final int view_svprogressdefault = 0x7f0d090b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -217,7 +217,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class style {
+    public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: AlertActivity_AlertStyle */
@@ -240,7 +240,7 @@ public final class R {
     }
 
     /* loaded from: classes7.dex */
-    public final class styleable {
+    public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] SVCircleProgressBar;
         public static final int SVCircleProgressBar_svprogress_max = 0x00000000;

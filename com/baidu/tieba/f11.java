@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public class f11 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f11 {
+    void a();
 
-    public abstract String a();
+    <T extends f11> T b(String str, String str2);
+
+    boolean isValid();
+
+    @NonNull
+    String toString();
 }

@@ -1,0 +1,51 @@
+package com.baidu.platform.core.g;
+
+import com.baidu.mapapi.http.HttpClient;
+import com.baidu.mapapi.search.share.PoiDetailShareURLOption;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes2.dex */
+public class c extends com.baidu.platform.base.e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public c(PoiDetailShareURLOption poiDetailShareURLOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiDetailShareURLOption};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a(poiDetailShareURLOption);
+    }
+
+    @Override // com.baidu.platform.base.e
+    public String a(com.baidu.platform.domain.c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.p();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private void a(PoiDetailShareURLOption poiDetailShareURLOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, poiDetailShareURLOption) == null) {
+            this.a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
+            b(false);
+            a(false);
+        }
+    }
+}

@@ -126,7 +126,7 @@ public class SSLSocketClient {
         return invokeL.booleanValue;
     }
 
-    public static List getSubjectAltNames(X509Certificate x509Certificate, int i) {
+    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
         InterceptResult invokeLI;
         Integer num;
         String str;

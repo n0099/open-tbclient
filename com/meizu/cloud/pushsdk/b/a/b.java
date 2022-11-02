@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidubce.AbstractBceClient;
+import com.meizu.cloud.pushsdk.b.a.b;
 import com.meizu.cloud.pushsdk.b.c.b;
 import com.meizu.cloud.pushsdk.b.c.c;
 import com.meizu.cloud.pushsdk.b.c.f;
@@ -20,7 +21,7 @@ import java.util.concurrent.Executor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class b {
+public class b<T extends b> {
     public static final String a = "b";
     public static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     public static final g x = g.a("text/x-markdown; charset=utf-8");
@@ -44,13 +45,13 @@ public class b {
     public int f;
     public Object g;
     public e h;
-    public HashMap i;
-    public HashMap j;
-    public HashMap k;
-    public HashMap l;
-    public HashMap m;
-    public HashMap n;
-    public HashMap o;
+    public HashMap<String, String> i;
+    public HashMap<String, String> j;
+    public HashMap<String, String> k;
+    public HashMap<String, String> l;
+    public HashMap<String, String> m;
+    public HashMap<String, String> n;
+    public HashMap<String, File> o;
     public String p;
     public String q;
     public JSONObject r;
@@ -62,7 +63,7 @@ public class b {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$2  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] a;
 
         static {
@@ -92,7 +93,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a<T extends a> {
         public String b;
         public Object c;
         public String g;
@@ -100,9 +101,9 @@ public class b {
         public Executor j;
         public String k;
         public com.meizu.cloud.pushsdk.b.a.d a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
-        public HashMap d = new HashMap();
-        public HashMap e = new HashMap();
-        public HashMap f = new HashMap();
+        public HashMap<String, String> d = new HashMap<>();
+        public HashMap<String, String> e = new HashMap<>();
+        public HashMap<String, String> f = new HashMap<>();
         public int i = 0;
 
         public a(String str, String str2, String str3) {
@@ -118,7 +119,7 @@ public class b {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0635b {
+    public static class C0646b<T extends C0646b> {
         public int b;
         public String c;
         public Object d;
@@ -129,19 +130,19 @@ public class b {
         public Executor l;
         public String m;
         public com.meizu.cloud.pushsdk.b.a.d a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
-        public HashMap i = new HashMap();
-        public HashMap j = new HashMap();
-        public HashMap k = new HashMap();
+        public HashMap<String, String> i = new HashMap<>();
+        public HashMap<String, String> j = new HashMap<>();
+        public HashMap<String, String> k = new HashMap<>();
 
-        public C0635b(String str) {
+        public C0646b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
         }
 
-        public C0635b a(HashMap hashMap) {
+        public T a(HashMap<String, String> hashMap) {
             if (hashMap != null) {
-                for (Map.Entry entry : hashMap.entrySet()) {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     this.j.put(entry.getKey(), entry.getValue());
                 }
             }
@@ -154,32 +155,32 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class c {
+    public static class c<T extends c> {
         public String b;
         public Object c;
         public Executor j;
         public String k;
         public String l;
         public com.meizu.cloud.pushsdk.b.a.d a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
-        public HashMap d = new HashMap();
-        public HashMap e = new HashMap();
-        public HashMap f = new HashMap();
-        public HashMap g = new HashMap();
-        public HashMap h = new HashMap();
+        public HashMap<String, String> d = new HashMap<>();
+        public HashMap<String, String> e = new HashMap<>();
+        public HashMap<String, String> f = new HashMap<>();
+        public HashMap<String, String> g = new HashMap<>();
+        public HashMap<String, File> h = new HashMap<>();
         public int i = 0;
 
         public c(String str) {
             this.b = str;
         }
 
-        public c a(String str, File file) {
+        public T a(String str, File file) {
             this.h.put(str, file);
             return this;
         }
 
-        public c a(HashMap hashMap) {
+        public T a(HashMap<String, String> hashMap) {
             if (hashMap != null) {
-                for (Map.Entry entry : hashMap.entrySet()) {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     this.e.put(entry.getKey(), entry.getValue());
                 }
             }
@@ -192,7 +193,7 @@ public class b {
     }
 
     /* loaded from: classes8.dex */
-    public class d {
+    public static class d<T extends d> {
         public int b;
         public String c;
         public Object d;
@@ -205,11 +206,11 @@ public class b {
         public String g = null;
         public byte[] h = null;
         public File i = null;
-        public HashMap j = new HashMap();
-        public HashMap k = new HashMap();
-        public HashMap l = new HashMap();
-        public HashMap m = new HashMap();
-        public HashMap n = new HashMap();
+        public HashMap<String, String> j = new HashMap<>();
+        public HashMap<String, String> k = new HashMap<>();
+        public HashMap<String, String> l = new HashMap<>();
+        public HashMap<String, String> m = new HashMap<>();
+        public HashMap<String, String> n = new HashMap<>();
 
         public d(String str) {
             this.b = 1;
@@ -217,9 +218,9 @@ public class b {
             this.b = 1;
         }
 
-        public d a(HashMap hashMap) {
+        public T a(HashMap<String, String> hashMap) {
             if (hashMap != null) {
-                for (Map.Entry entry : hashMap.entrySet()) {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     this.k.put(entry.getKey(), entry.getValue());
                 }
             }
@@ -232,13 +233,13 @@ public class b {
     }
 
     public b(a aVar) {
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.k = new HashMap();
-        this.l = new HashMap();
-        this.m = new HashMap();
-        this.n = new HashMap();
-        this.o = new HashMap();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashMap<>();
+        this.l = new HashMap<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
         this.r = null;
         this.s = null;
         this.t = null;
@@ -264,14 +265,14 @@ public class b {
         this.K = aVar.k;
     }
 
-    public b(C0635b c0635b) {
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.k = new HashMap();
-        this.l = new HashMap();
-        this.m = new HashMap();
-        this.n = new HashMap();
-        this.o = new HashMap();
+    public b(C0646b c0646b) {
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashMap<>();
+        this.l = new HashMap<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
         this.r = null;
         this.s = null;
         this.t = null;
@@ -283,29 +284,29 @@ public class b {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0635b.b;
-        this.c = c0635b.a;
-        this.e = c0635b.c;
-        this.g = c0635b.d;
-        this.i = c0635b.i;
-        this.F = c0635b.e;
-        this.H = c0635b.g;
-        this.G = c0635b.f;
-        this.I = c0635b.h;
-        this.m = c0635b.j;
-        this.n = c0635b.k;
-        this.J = c0635b.l;
-        this.K = c0635b.m;
+        this.b = c0646b.b;
+        this.c = c0646b.a;
+        this.e = c0646b.c;
+        this.g = c0646b.d;
+        this.i = c0646b.i;
+        this.F = c0646b.e;
+        this.H = c0646b.g;
+        this.G = c0646b.f;
+        this.I = c0646b.h;
+        this.m = c0646b.j;
+        this.n = c0646b.k;
+        this.J = c0646b.l;
+        this.K = c0646b.m;
     }
 
     public b(c cVar) {
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.k = new HashMap();
-        this.l = new HashMap();
-        this.m = new HashMap();
-        this.n = new HashMap();
-        this.o = new HashMap();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashMap<>();
+        this.l = new HashMap<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
         this.r = null;
         this.s = null;
         this.t = null;
@@ -335,13 +336,13 @@ public class b {
     }
 
     public b(d dVar) {
-        this.i = new HashMap();
-        this.j = new HashMap();
-        this.k = new HashMap();
-        this.l = new HashMap();
-        this.m = new HashMap();
-        this.n = new HashMap();
-        this.o = new HashMap();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashMap<>();
+        this.l = new HashMap<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
         this.r = null;
         this.s = null;
         this.t = null;
@@ -380,7 +381,7 @@ public class b {
     }
 
     public com.meizu.cloud.pushsdk.b.a.c a(k kVar) {
-        com.meizu.cloud.pushsdk.b.a.c a2;
+        com.meizu.cloud.pushsdk.b.a.c<Bitmap> a2;
         int i = AnonymousClass2.a[this.h.ordinal()];
         if (i == 1) {
             try {
@@ -455,12 +456,12 @@ public class b {
 
     public String e() {
         String str = this.e;
-        for (Map.Entry entry : this.n.entrySet()) {
-            str = str.replace("{" + ((String) entry.getKey()) + "}", String.valueOf(entry.getValue()));
+        for (Map.Entry<String, String> entry : this.n.entrySet()) {
+            str = str.replace("{" + entry.getKey() + "}", String.valueOf(entry.getValue()));
         }
         f.a g = f.c(str).g();
-        for (Map.Entry entry2 : this.m.entrySet()) {
-            g.a((String) entry2.getKey(), (String) entry2.getValue());
+        for (Map.Entry<String, String> entry2 : this.m.entrySet()) {
+            g.a(entry2.getKey(), entry2.getValue());
         }
         return g.b().toString();
     }
@@ -530,14 +531,14 @@ public class b {
         }
         b.a aVar = new b.a();
         try {
-            for (Map.Entry entry : this.j.entrySet()) {
-                if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
-                    aVar.a((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : this.j.entrySet()) {
+                if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                    aVar.a(entry.getKey(), entry.getValue());
                 }
             }
-            for (Map.Entry entry2 : this.k.entrySet()) {
-                if (!TextUtils.isEmpty((CharSequence) entry2.getKey()) && !TextUtils.isEmpty((CharSequence) entry2.getValue())) {
-                    aVar.b((String) entry2.getKey(), (String) entry2.getValue());
+            for (Map.Entry<String, String> entry2 : this.k.entrySet()) {
+                if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
+                    aVar.b(entry2.getKey(), entry2.getValue());
                 }
             }
         } catch (Exception e) {
@@ -549,14 +550,14 @@ public class b {
     public j n() {
         h.a a2 = new h.a().a(h.e);
         try {
-            for (Map.Entry entry : this.l.entrySet()) {
-                a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + ((String) entry.getKey()) + "\""), j.a((g) null, (String) entry.getValue()));
+            for (Map.Entry<String, String> entry : this.l.entrySet()) {
+                a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + entry.getKey() + "\""), j.a((g) null, entry.getValue()));
             }
-            for (Map.Entry entry2 : this.o.entrySet()) {
+            for (Map.Entry<String, File> entry2 : this.o.entrySet()) {
                 if (entry2.getValue() != null) {
-                    String name = ((File) entry2.getValue()).getName();
-                    j a3 = j.a(g.a(com.meizu.cloud.pushsdk.b.i.b.a(name)), (File) entry2.getValue());
-                    a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + ((String) entry2.getKey()) + "\"; filename=\"" + name + "\""), a3);
+                    String name = entry2.getValue().getName();
+                    j a3 = j.a(g.a(com.meizu.cloud.pushsdk.b.i.b.a(name)), entry2.getValue());
+                    a2.a(com.meizu.cloud.pushsdk.b.c.c.a("Content-Disposition", "form-data; name=\"" + entry2.getKey() + "\"; filename=\"" + name + "\""), a3);
                     if (this.y != null) {
                         a2.a(this.y);
                     }
@@ -571,8 +572,8 @@ public class b {
     public com.meizu.cloud.pushsdk.b.c.c o() {
         c.a aVar = new c.a();
         try {
-            for (Map.Entry entry : this.i.entrySet()) {
-                aVar.a((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : this.i.entrySet()) {
+                aVar.a(entry.getKey(), entry.getValue());
             }
         } catch (Exception e) {
             e.printStackTrace();

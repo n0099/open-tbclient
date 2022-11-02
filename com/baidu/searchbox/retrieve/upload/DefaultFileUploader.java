@@ -1,6 +1,7 @@
 package com.baidu.searchbox.retrieve.upload;
 
-import com.baidu.tieba.ij9;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.rk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,12 +28,12 @@ public class DefaultFileUploader extends BaseFileUploader {
     }
 
     @Override // com.baidu.searchbox.retrieve.upload.BaseFileUploader
-    public ij9 uploadSync(String str, String str2, File file) {
+    public rk9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, file)) == null) {
-            return new ij9();
+            return new rk9();
         }
-        return (ij9) invokeLLL.objValue;
+        return (rk9) invokeLLL.objValue;
     }
 }

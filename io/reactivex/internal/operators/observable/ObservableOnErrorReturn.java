@@ -14,20 +14,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableOnErrorReturn extends AbstractObservableWithUpstream {
+public final class ObservableOnErrorReturn<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function valueSupplier;
+    public final Function<? super Throwable, ? extends T> valueSupplier;
 
     /* loaded from: classes8.dex */
-    public final class OnErrorReturnObserver implements Observer, Disposable {
+    public static final class OnErrorReturnObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public Disposable s;
-        public final Function valueSupplier;
+        public final Function<? super Throwable, ? extends T> valueSupplier;
 
-        public OnErrorReturnObserver(Observer observer, Function function) {
+        public OnErrorReturnObserver(Observer<? super T> observer, Function<? super Throwable, ? extends T> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +77,7 @@ public final class ObservableOnErrorReturn extends AbstractObservableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 try {
-                    Object apply = this.valueSupplier.apply(th);
+                    T apply = this.valueSupplier.apply(th);
                     if (apply == null) {
                         NullPointerException nullPointerException = new NullPointerException("The supplied value is null");
                         nullPointerException.initCause(th);
@@ -94,10 +94,10 @@ public final class ObservableOnErrorReturn extends AbstractObservableWithUpstrea
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -112,7 +112,7 @@ public final class ObservableOnErrorReturn extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableOnErrorReturn(ObservableSource observableSource, Function function) {
+    public ObservableOnErrorReturn(ObservableSource<T> observableSource, Function<? super Throwable, ? extends T> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -133,7 +133,7 @@ public final class ObservableOnErrorReturn extends AbstractObservableWithUpstrea
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new OnErrorReturnObserver(observer, this.valueSupplier));

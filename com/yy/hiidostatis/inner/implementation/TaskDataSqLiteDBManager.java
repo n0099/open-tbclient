@@ -126,7 +126,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List getVersion1(SQLiteDatabase sQLiteDatabase) {
+    private List<TaskData> getVersion1(SQLiteDatabase sQLiteDatabase) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -193,14 +193,14 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public void remove(List list) {
+    public void remove(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             try {
                 this.db.beginTransaction();
-                Iterator it = list.iterator();
+                Iterator<String> it = list.iterator();
                 while (it.hasNext()) {
-                    this.db.delete("TASK_DATA", "_DATAID = ?", new String[]{(String) it.next()});
+                    this.db.delete("TASK_DATA", "_DATAID = ?", new String[]{it.next()});
                 }
                 this.db.setTransactionSuccessful();
             } finally {
@@ -216,9 +216,9 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeL(1048587, this, taskDataSet) == null) {
             this.db.beginTransaction();
             try {
-                Iterator it = taskDataSet.iterator();
+                Iterator<TaskData> it = taskDataSet.iterator();
                 while (it.hasNext()) {
-                    this.db.execSQL("DELETE FROM TASK_DATA WHERE _DATAID = ?", new Object[]{((TaskData) it.next()).getDataId()});
+                    this.db.execSQL("DELETE FROM TASK_DATA WHERE _DATAID = ?", new Object[]{it.next().getDataId()});
                 }
                 this.db.setTransactionSuccessful();
             } finally {
@@ -227,15 +227,14 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
         }
     }
 
-    public void saveAll(Collection collection) {
+    public void saveAll(Collection<TaskData> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, collection) == null) {
             try {
                 try {
                     this.db.beginTransaction();
-                    Iterator it = collection.iterator();
-                    while (it.hasNext()) {
-                        this.db.execSQL(insertSql(), allArgs((TaskData) it.next()));
+                    for (TaskData taskData : collection) {
+                        this.db.execSQL(insertSql(), allArgs(taskData));
                     }
                     this.db.setTransactionSuccessful();
                 } catch (Exception e) {
@@ -257,11 +256,11 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ConcurrentHashMap countActRemain() {
+    public ConcurrentHashMap<String, AtomicInteger> countActRemain() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+            ConcurrentHashMap<String, AtomicInteger> concurrentHashMap = new ConcurrentHashMap<>();
             Cursor cursor = null;
             try {
                 cursor = this.db.rawQuery("select _ACT,COUNT(_ACT) from TASK_DATA group by _ACT", null);
@@ -389,7 +388,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public TaskDataSet getFirstList(int i, Collection collection) {
+    public TaskDataSet getFirstList(int i, Collection<String> collection) {
         InterceptResult invokeIL;
         TaskDataSet taskDataSet;
         Throwable th;
@@ -399,10 +398,9 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
             if (collection != null && !collection.isEmpty()) {
                 StringBuilder sb = new StringBuilder(500);
                 sb.append("(");
-                Iterator it = collection.iterator();
-                while (it.hasNext()) {
+                for (String str : collection) {
                     sb.append("'");
-                    sb.append((String) it.next());
+                    sb.append(str);
                     sb.append("'");
                     sb.append(",");
                 }
@@ -492,7 +490,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) && i == 1) {
-            List version1 = getVersion1(sQLiteDatabase);
+            List<TaskData> version1 = getVersion1(sQLiteDatabase);
             sQLiteDatabase.execSQL("drop table TASK_DATA");
             onCreate(sQLiteDatabase);
             if (!version1.isEmpty()) {

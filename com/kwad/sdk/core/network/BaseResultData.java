@@ -1,12 +1,13 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int CODE_RESULT_OK = 1;
     public static final long serialVersionUID = -8657363515914699792L;
@@ -41,7 +42,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
     }
 
     @Override // com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

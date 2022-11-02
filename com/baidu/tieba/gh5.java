@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,33 +13,157 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class gh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
+    public a b;
+    public b c;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
+    public static class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
 
-    /* loaded from: classes4.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static gh5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-775782761, "Lcom/baidu/tieba/gh5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-775782761, "Lcom/baidu/tieba/gh5$b;");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new gh5(null);
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = gh5.c(R.string.obfuscated_res_0x7f0f0c9a, new Object[0]);
+            this.e = gh5.c(R.string.obfuscated_res_0x7f0f1006, new Object[0]);
+            this.f = false;
+            this.g = xi.g(gh5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = xi.g(gh5.getContext(), R.dimen.obfuscated_res_0x7f070292);
+            this.e = gh5.c(R.string.obfuscated_res_0x7f0f1006, new Object[0]);
+            this.f = gh5.c(R.string.obfuscated_res_0x7f0f1007, new Object[0]);
+            this.g = gh5.c(R.string.obfuscated_res_0x7f0f0496, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xi.g(gh5.getContext(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = gh5.c(R.string.obfuscated_res_0x7f0f0a6f, new Object[0]);
+            this.d = gh5.c(R.string.obfuscated_res_0x7f0f0e1c, new Object[0]);
+            this.e = gh5.c(R.string.obfuscated_res_0x7f0f0a1a, new Object[0]);
+            this.f = gh5.c(R.string.obfuscated_res_0x7f0f03fc, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gh5.c(R.string.obfuscated_res_0x7f0f0a75, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
@@ -60,84 +181,21 @@ public class gh5 {
         }
     }
 
-    public static gh5 c() {
+    public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getApplicationContext();
         }
-        return (gh5) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return Build.BRAND;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) {
+            return getContext().getString(i, objArr);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return Build.DEVICE;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return hj.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ gh5(a aVar) {
-        this();
-    }
-
-    public final DisplayMetrics b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (context == null) {
-                return displayMetrics;
-            }
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
-            return displayMetrics;
-        }
-        return (DisplayMetrics) invokeL.objValue;
-    }
-
-    public String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return hj.e();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            return String.valueOf(b(context).heightPixels);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return String.valueOf(b(context).widthPixels);
-        }
-        return (String) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package org.apache.http.io;
 import java.io.IOException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface SessionOutputBuffer {
     void flush() throws IOException;
 

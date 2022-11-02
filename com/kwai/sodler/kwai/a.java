@@ -3,6 +3,7 @@ package com.kwai.sodler.kwai;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,13 +29,13 @@ public final class a {
 
     /* renamed from: com.kwai.sodler.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0628a extends b.C0629b {
+    public static class C0639a<P extends com.kwai.sodler.lib.a.a, R extends f<P>> extends b.C0640b<P, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public com.kwai.sodler.lib.ext.b axd;
-        public b axe;
+        public com.kwai.sodler.lib.ext.b<P, R> axd;
+        public b<P, R> axe;
 
-        public C0628a(com.kwai.sodler.lib.ext.b bVar, b bVar2) {
+        public C0639a(com.kwai.sodler.lib.ext.b<P, R> bVar, b<P, R> bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,66 +54,66 @@ public final class a {
             this.axe = bVar2;
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
-        public final void a(f fVar) {
-            com.kwai.sodler.lib.ext.b bVar;
+        @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+        public final void a(R r) {
+            com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || (bVar = this.axd) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, r) == null) || (bVar = this.axd) == null) {
                 return;
             }
-            bVar.a(fVar);
+            bVar.a(r);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
-        public final void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
-            com.kwai.sodler.lib.ext.b bVar;
+        @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+        public final void a(R r, P p) {
+            com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, aVar) == null) || (bVar = this.axd) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r, p) == null) || (bVar = this.axd) == null) {
                 return;
             }
-            bVar.a(fVar, aVar);
+            bVar.a((com.kwai.sodler.lib.ext.b<P, R>) r, (R) p);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
-        public final void a(f fVar, PluginError pluginError) {
+        @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+        public final void a(R r, PluginError pluginError) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, pluginError) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r, pluginError) == null) {
                 com.kwai.sodler.lib.a.e("Sodler.helper", "load failed:" + pluginError.getCode() + ":" + pluginError.getMessage());
-                com.kwai.sodler.lib.ext.b bVar = this.axd;
+                com.kwai.sodler.lib.ext.b<P, R> bVar = this.axd;
                 if (bVar != null) {
-                    bVar.a(fVar, pluginError);
+                    bVar.a((com.kwai.sodler.lib.ext.b<P, R>) r, pluginError);
                 }
-                b bVar2 = this.axe;
+                b<P, R> bVar2 = this.axe;
                 if (bVar2 != null) {
-                    bVar2.d(fVar);
+                    bVar2.d(r);
                 }
             }
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
-        public final void b(f fVar) {
-            com.kwai.sodler.lib.ext.b bVar;
+        @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+        public final void b(R r) {
+            com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) || (bVar = this.axd) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, r) == null) || (bVar = this.axd) == null) {
                 return;
             }
-            bVar.b(fVar);
+            bVar.b(r);
         }
 
-        @Override // com.kwai.sodler.lib.ext.b.C0629b, com.kwai.sodler.lib.ext.b
-        public final void c(f fVar) {
-            com.kwai.sodler.lib.ext.b bVar;
+        @Override // com.kwai.sodler.lib.ext.b.C0640b, com.kwai.sodler.lib.ext.b
+        public final void c(R r) {
+            com.kwai.sodler.lib.ext.b<P, R> bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || (bVar = this.axd) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, r) == null) || (bVar = this.axd) == null) {
                 return;
             }
-            bVar.c(fVar);
+            bVar.c(r);
         }
     }
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void d(f fVar);
+    public interface b<P extends com.kwai.sodler.lib.a.a, R extends f<P>> {
+        void d(R r);
     }
 
     static {
@@ -131,12 +132,12 @@ public final class a {
         handler = new Handler(Looper.getMainLooper());
     }
 
-    public static void a(Context context, f fVar, com.kwai.sodler.lib.ext.b bVar) {
+    public static <P extends com.kwai.sodler.lib.a.a, R extends f<P>> void a(Context context, R r, com.kwai.sodler.lib.ext.b<P, R> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, fVar, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, r, bVar) == null) {
             init(context);
-            fVar.cH(i.EU().EX().getRetryCount());
-            fVar.a(new C0628a(bVar, new b() { // from class: com.kwai.sodler.kwai.a.1
+            r.cH(i.EU().EX().getRetryCount());
+            r.a(new C0639a(bVar, new b<P, R>() { // from class: com.kwai.sodler.kwai.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,12 +155,13 @@ public final class a {
                     }
                 }
 
+                /* JADX WARN: Incorrect types in method signature: (TR;)V */
                 @Override // com.kwai.sodler.kwai.a.b
-                public final void d(f fVar2) {
+                public final void d(f fVar) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, fVar2) == null) {
-                        i.EU().l(fVar2);
-                        a.handler.postDelayed(new Runnable(this, fVar2) { // from class: com.kwai.sodler.kwai.a.1.1
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, fVar) == null) {
+                        i.EU().l(fVar);
+                        a.handler.postDelayed(new Runnable(this, fVar) { // from class: com.kwai.sodler.kwai.a.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ f axb;
@@ -170,7 +172,7 @@ public final class a {
                                 if (interceptable3 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, fVar2};
+                                    Object[] objArr = {this, fVar};
                                     interceptable3.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -181,7 +183,7 @@ public final class a {
                                     }
                                 }
                                 this.axc = this;
-                                this.axb = fVar2;
+                                this.axb = fVar;
                             }
 
                             @Override // java.lang.Runnable
@@ -191,22 +193,22 @@ public final class a {
                                     i.EU().a(this.axb, 16);
                                 }
                             }
-                        }, fVar2.Fm() instanceof PluginError.UpdateError ? 1000L : 0L);
+                        }, fVar.Fm() instanceof PluginError.UpdateError ? 1000L : 0L);
                     }
                 }
             }));
-            i.EU().a(fVar, 16);
+            i.EU().a(r, 16);
         }
     }
 
-    public static void a(Context context, com.kwai.sodler.lib.c.b bVar, b.a aVar) {
+    public static void a(Context context, @NonNull com.kwai.sodler.lib.c.b bVar, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, bVar, aVar) == null) {
             a(context, new com.kwai.sodler.lib.b.a(bVar), aVar);
         }
     }
 
-    public static void a(Context context, com.kwai.sodler.lib.c.b bVar, b.c cVar) {
+    public static void a(Context context, @NonNull com.kwai.sodler.lib.c.b bVar, b.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, bVar, cVar) == null) {
             a(context, new c(bVar), cVar);

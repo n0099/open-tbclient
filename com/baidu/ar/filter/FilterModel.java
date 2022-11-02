@@ -13,7 +13,7 @@ public class FilterModel {
     public transient /* synthetic */ FieldHolder $fh;
     public String hS;
     public String qn;
-    public List qo;
+    public List<Object> qo;
 
     public FilterModel() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class FilterModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.qn : (String) invokeV.objValue;
     }
 
-    public List getUniformList() {
+    public List<Object> getUniformList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.qo : (List) invokeV.objValue;
@@ -61,7 +61,7 @@ public class FilterModel {
         }
     }
 
-    public void setUniformList(List list) {
+    public void setUniformList(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.qo = list;

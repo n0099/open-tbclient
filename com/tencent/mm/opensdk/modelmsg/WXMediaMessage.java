@@ -35,7 +35,7 @@ public final class WXMediaMessage {
     public String title;
 
     /* loaded from: classes8.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
         public transient /* synthetic */ FieldHolder $fh;

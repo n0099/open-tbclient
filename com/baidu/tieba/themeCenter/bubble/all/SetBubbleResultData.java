@@ -18,7 +18,7 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
     public String error_msg;
 
     /* loaded from: classes6.dex */
-    public class ResultInfo extends OrmObject implements Serializable {
+    public static class ResultInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1818506758727291395L;
         public transient /* synthetic */ FieldHolder $fh;

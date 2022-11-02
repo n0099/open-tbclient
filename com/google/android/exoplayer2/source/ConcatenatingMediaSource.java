@@ -28,12 +28,12 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public final Object[] manifests;
     public final MediaSource[] mediaSources;
     public final ShuffleOrder shuffleOrder;
-    public final Map sourceIndexByMediaPeriod;
+    public final Map<MediaPeriod, Integer> sourceIndexByMediaPeriod;
     public ConcatenatedTimeline timeline;
     public final Timeline[] timelines;
 
     /* loaded from: classes7.dex */
-    public final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
+    public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean isAtomic;
@@ -475,7 +475,7 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public void releasePeriod(MediaPeriod mediaPeriod) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
-            int intValue = ((Integer) this.sourceIndexByMediaPeriod.get(mediaPeriod)).intValue();
+            int intValue = this.sourceIndexByMediaPeriod.get(mediaPeriod).intValue();
             this.sourceIndexByMediaPeriod.remove(mediaPeriod);
             this.mediaSources[intValue].releasePeriod(mediaPeriod);
         }

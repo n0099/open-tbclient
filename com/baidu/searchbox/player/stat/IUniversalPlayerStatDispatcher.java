@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatcher {
 
     /* loaded from: classes2.dex */
-    public final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
+    public static final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

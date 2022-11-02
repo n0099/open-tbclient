@@ -14,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedReserveHeaderInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveFeedReserveHeaderInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String tip;
 
@@ -41,7 +41,7 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo.1
+        CREATOR = new Parcelable.Creator<LiveFeedReserveHeaderInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,6 +60,7 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveHeaderInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -71,6 +72,7 @@ public class LiveFeedReserveHeaderInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedReserveHeaderInfo[] newArray(int i) {
                 InterceptResult invokeI;

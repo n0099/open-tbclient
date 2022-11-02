@@ -1,5 +1,6 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -42,6 +43,7 @@ public class PatternPathMotion extends PathMotion {
         this.mOriginalPatternPath = this.mPatternPath;
     }
 
+    @SuppressLint({"RestrictedApi"})
     public PatternPathMotion(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

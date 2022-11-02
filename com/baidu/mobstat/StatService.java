@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -94,6 +95,7 @@ public class StatService {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     public static void a(Context context, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, webView, webViewClient, webChromeClient, Boolean.valueOf(z)}) != null) || CooperService.instance().isCloseTrace()) {
@@ -180,7 +182,7 @@ public class StatService {
         }
     }
 
-    public static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map map) {
+    public static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i), extraInfo, map}) != null) || !a(context, "onEvent(...)") || TextUtils.isEmpty(str) || CooperService.instance().isCloseTrace()) {
             return;
@@ -195,7 +197,7 @@ public class StatService {
         BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i, extraInfo, bx.a(map), a2);
     }
 
-    public static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map map) {
+    public static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map}) != null) || !a(context, "onEventDuration(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str)) {
             return;
@@ -217,32 +219,32 @@ public class StatService {
     public static void a(Context context, String str, String str2, ExtraInfo extraInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, extraInfo) == null) {
-            a(context, str, str2, 1, extraInfo, (Map) null);
+            a(context, str, str2, 1, extraInfo, (Map<String, String>) null);
         }
     }
 
     public static void onEvent(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65565, null, context, str, str2, i) == null) {
-            a(context, str, str2, i, (ExtraInfo) null, (Map) null);
+            a(context, str, str2, i, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 
     public static void onEventDuration(Context context, String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{context, str, str2, Long.valueOf(j)}) == null) {
-            a(context, str, str2, j, (ExtraInfo) null, (Map) null);
+            a(context, str, str2, j, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 
-    public static void onEventEnd(Context context, String str, String str2, Map map) {
+    public static void onEventEnd(Context context, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65570, null, context, str, str2, map) == null) {
             a(context.getApplicationContext(), str, str2, (ExtraInfo) null, map);
         }
     }
 
-    public static void a(Context context, String str, String str2, ExtraInfo extraInfo, Map map) {
+    public static void a(Context context, String str, String str2, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLLL(65543, null, context, str, str2, extraInfo, map) != null) || !a(context, "onEventEnd(...)") || CooperService.instance().isCloseTrace() || TextUtils.isEmpty(str) || a(context)) {
             return;
@@ -250,14 +252,14 @@ public class StatService {
         BDStatCore.instance().onEventEnd(context.getApplicationContext(), str, str2, extraInfo, bx.a(map));
     }
 
-    public static void onEvent(Context context, String str, String str2, int i, Map map) {
+    public static void onEvent(Context context, String str, String str2, int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, str, str2, Integer.valueOf(i), map}) == null) {
             a(context, str, str2, i, (ExtraInfo) null, map);
         }
     }
 
-    public static void onEventDuration(Context context, String str, String str2, long j, Map map) {
+    public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65568, null, new Object[]{context, str, str2, Long.valueOf(j), map}) == null) {
             a(context, str, str2, j, (ExtraInfo) null, map);
@@ -293,7 +295,7 @@ public class StatService {
         CooperService.instance().setAppVersionName(context, str);
     }
 
-    public static void setAutoEventProperty(Context context, Map map) {
+    public static void setAutoEventProperty(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65586, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
@@ -386,7 +388,7 @@ public class StatService {
         bp.a().n(context, str);
     }
 
-    public static void setPageProperty(Context context, Map map) {
+    public static void setPageProperty(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65600, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
@@ -395,7 +397,7 @@ public class StatService {
         BDStatCore.instance().init(context);
     }
 
-    public static void setSessionProperty(Context context, Map map) {
+    public static void setSessionProperty(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65604, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
@@ -404,7 +406,7 @@ public class StatService {
         BDStatCore.instance().init(context);
     }
 
-    public static void setUserProperty(Context context, Map map) {
+    public static void setUserProperty(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65608, null, context, map) != null) || context == null || CooperService.instance().isCloseTrace() || a(context)) {
             return;
@@ -414,6 +416,7 @@ public class StatService {
         BDStatCore.instance().init(context);
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(WebView webView) {
         int i;
         Interceptable interceptable = $ic;
@@ -628,7 +631,7 @@ public class StatService {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Class cls, String str) {
+    public static boolean a(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, cls, str)) == null) {
@@ -777,7 +780,7 @@ public class StatService {
         }
     }
 
-    public static void setAttributes(View view2, Map map) {
+    public static void setAttributes(View view2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65584, null, view2, map) != null) || CooperService.instance().isCloseTrace() || view2 == null) {
             return;
@@ -801,6 +804,7 @@ public class StatService {
         BDStatCore.instance().setAutoSendLog(context, z);
     }
 
+    @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     public static void bindJSInterface(Context context, WebView webView, WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, context, webView, webViewClient) == null) {
@@ -818,7 +822,7 @@ public class StatService {
     public static void onEventEnd(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65569, null, context, str, str2) == null) {
-            a(context, str, str2, (ExtraInfo) null, (Map) null);
+            a(context, str, str2, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 

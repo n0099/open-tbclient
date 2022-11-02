@@ -42,7 +42,7 @@ public class SdkLiveInfoData {
     public UiTransParam uiTransParam;
 
     /* loaded from: classes.dex */
-    public class AlaLiveInfo {
+    public static class AlaLiveInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long audienceCount;
@@ -105,7 +105,7 @@ public class SdkLiveInfoData {
     }
 
     /* loaded from: classes.dex */
-    public class LiveAuthor {
+    public static class LiveAuthor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int gender;
@@ -154,7 +154,7 @@ public class SdkLiveInfoData {
     }
 
     /* loaded from: classes.dex */
-    public class UiTransParam {
+    public static class UiTransParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String abTag;
@@ -189,7 +189,7 @@ public class SdkLiveInfoData {
     }
 
     /* loaded from: classes.dex */
-    public class YYExt {
+    public static class YYExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int isYYGame;

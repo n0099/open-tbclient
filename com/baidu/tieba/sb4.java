@@ -1,20 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class sb4 extends mb4 {
+public abstract class sb4<T> implements vb4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.vb4
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb4
+    public void e(T t, yc4 yc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, yc4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vb4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
 
     public sb4() {
         Interceptable interceptable = $ic;
@@ -30,79 +82,25 @@ public class sb4 extends mb4 {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb4
-    /* renamed from: g */
-    public nc4 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vb4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
         }
-        return (nc4) invokeL.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mb4
-    public List e(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vb4
+    public yc4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            return new yc4(2302, "业务层默认不处理下载流");
         }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb4
-    /* renamed from: f */
-    public ContentValues c(nc4 nc4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, nc4Var)) == null) {
-            ContentValues a = super.a(nc4Var);
-            a.put("max_age", Long.valueOf(nc4Var.o));
-            a.put("token", nc4Var.p);
-            a.put("domains", nc4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, nc4Var.r);
-            a.put("app_name", nc4Var.s);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final nc4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
-                nc4 nc4Var = new nc4();
-                if (b(cursor, nc4Var)) {
-                    nc4Var.o = cursor.getLong(columnIndex);
-                    nc4Var.p = cursor.getString(columnIndex2);
-                    nc4Var.q = cursor.getString(columnIndex3);
-                    nc4Var.r = cursor.getString(columnIndex4);
-                    nc4Var.s = cursor.getString(columnIndex5);
-                    return nc4Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (nc4) invokeL.objValue;
+        return (yc4) invokeCommon.objValue;
     }
 }

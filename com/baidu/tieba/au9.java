@@ -1,174 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.internal.ImmutableList;
-import com.squareup.wire2.internal.MutableOnWriteList;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes3.dex */
-public final class au9 {
+public final class au9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ xt9 c;
 
-    public static int e(Object obj, Object obj2, Object obj3) {
-        InterceptResult invokeLLL;
+    public au9(xt9 xt9Var, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
-            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static void a(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (list != null) {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) == null) {
-                        throw new NullPointerException("Element at index " + i + " is null");
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xt9Var, context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw new NullPointerException("list == null");
         }
+        this.c = xt9Var;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public static void b(Map map) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
-            if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    if (entry.getKey() != null) {
-                        if (entry.getValue() == null) {
-                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
-                        }
-                    } else {
-                        throw new NullPointerException("map.containsKey(null)");
-                    }
-                }
-                return;
-            }
-            throw new NullPointerException("map == null");
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-    }
-
-    public static List c(String str, List list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (list != null) {
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    return new ArrayList(list);
-                }
-                return new MutableOnWriteList(list);
-            }
-            throw new NullPointerException(str + " == null");
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            xt9 xt9Var = this.c;
+            l = xt9.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
-        return (List) invokeLL.objValue;
-    }
-
-    public static Map d(String str, Map map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (map != null) {
-                return new LinkedHashMap(map);
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static boolean f(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void k(List list, ProtoAdapter protoAdapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                list.set(i, protoAdapter.redact(list.get(i)));
-            }
-        }
-    }
-
-    public static List g(String str, List list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
-            if (list != null) {
-                if (list instanceof MutableOnWriteList) {
-                    list = ((MutableOnWriteList) list).mutableList;
-                }
-                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
-                    ImmutableList immutableList = new ImmutableList(list);
-                    if (!immutableList.contains(null)) {
-                        return immutableList;
-                    }
-                    throw new IllegalArgumentException(str + ".contains(null)");
-                }
-                return list;
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static Map h(String str, Map map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
-            if (map != null) {
-                if (map.isEmpty()) {
-                    return Collections.emptyMap();
-                }
-                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
-                if (!linkedHashMap.containsKey(null)) {
-                    if (!linkedHashMap.containsValue(null)) {
-                        return Collections.unmodifiableMap(linkedHashMap);
-                    }
-                    throw new IllegalArgumentException(str + ".containsValue(null)");
-                }
-                throw new IllegalArgumentException(str + ".containsKey(null)");
-            }
-            throw new NullPointerException(str + " == null");
-        }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static List i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new MutableOnWriteList(Collections.emptyList());
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static Map j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new LinkedHashMap();
-        }
-        return (Map) invokeV.objValue;
     }
 }

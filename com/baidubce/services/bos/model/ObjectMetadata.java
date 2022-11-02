@@ -31,7 +31,7 @@ public class ObjectMetadata {
     public Date lastModified;
     public String objectType;
     public String storageClass;
-    public Map userMetadata;
+    public Map<String, String> userMetadata;
 
     public ObjectMetadata() {
         Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class ObjectMetadata {
         return (String) invokeV.objValue;
     }
 
-    public Map getUserMetadata() {
+    public Map<String, String> getUserMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -253,11 +253,11 @@ public class ObjectMetadata {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            Map map = this.userMetadata;
+            Map<String, String> map = this.userMetadata;
             if (map == null) {
                 return null;
             }
-            return (String) map.get(str);
+            return map.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -374,7 +374,7 @@ public class ObjectMetadata {
         }
     }
 
-    public void setUserMetadata(Map map) {
+    public void setUserMetadata(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, map) == null) {
             CheckUtils.isNotNull(map, "userMetadata should not be null.");

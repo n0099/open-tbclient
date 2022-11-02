@@ -25,8 +25,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public static boolean hasGlobalLifecycle;
     public transient /* synthetic */ FieldHolder $fh;
     public int mActivityCount;
-    public LinkedList mActivityStack;
-    public CopyOnWriteArrayList mCustomActivityLifeCycles;
+    public LinkedList<WeakReference<Activity>> mActivityStack;
+    public CopyOnWriteArrayList<IActivityLifecycle> mCustomActivityLifeCycles;
     public boolean mIsForeground;
 
     /* loaded from: classes2.dex */
@@ -66,7 +66,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     }
 
     /* loaded from: classes2.dex */
-    public class BackForegroundEvent {
+    public static class BackForegroundEvent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isForeground;
@@ -103,9 +103,9 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 return;
             }
         }
-        this.mActivityStack = new LinkedList();
+        this.mActivityStack = new LinkedList<>();
         this.mIsForeground = false;
-        this.mCustomActivityLifeCycles = new CopyOnWriteArrayList();
+        this.mCustomActivityLifeCycles = new CopyOnWriteArrayList<>();
     }
 
     public void finishAllActivity() {
@@ -113,8 +113,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.mActivityStack.isEmpty()) {
             for (int i = 0; i < this.mActivityStack.size(); i++) {
-                WeakReference weakReference = (WeakReference) this.mActivityStack.get(i);
-                if (weakReference != null && (activity = (Activity) weakReference.get()) != null) {
+                WeakReference<Activity> weakReference = this.mActivityStack.get(i);
+                if (weakReference != null && (activity = weakReference.get()) != null) {
                     activity.finish();
                 }
             }
@@ -126,8 +126,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (!this.mActivityStack.isEmpty() && this.mActivityStack.size() >= 2) {
-                LinkedList linkedList = this.mActivityStack;
-                return (Activity) ((WeakReference) linkedList.get(linkedList.size() - 2)).get();
+                LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
+                return linkedList.get(linkedList.size() - 2).get();
             }
             return null;
         }
@@ -145,8 +145,8 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             }
             for (int i = size - 1; i >= 0; i--) {
                 try {
-                    WeakReference weakReference = (WeakReference) this.mActivityStack.get(i);
-                    if (weakReference != null && (activity = (Activity) weakReference.get()) != null && !activity.isFinishing()) {
+                    WeakReference<Activity> weakReference = this.mActivityStack.get(i);
+                    if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
                         return activity;
                     }
                 } catch (Exception unused) {
@@ -161,12 +161,12 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            LinkedList linkedList = this.mActivityStack;
+            LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
             if (linkedList != null && !linkedList.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(PreferencesUtil.LEFT_MOUNT);
                 for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
-                    Activity activity = (Activity) ((WeakReference) this.mActivityStack.get(size)).get();
+                    Activity activity = this.mActivityStack.get(size).get();
                     if (activity != null) {
                         String simpleName = activity.getClass().getSimpleName();
                         sb.append(size + 1);
@@ -188,7 +188,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedList linkedList = this.mActivityStack;
+            LinkedList<WeakReference<Activity>> linkedList = this.mActivityStack;
             if (linkedList != null && !linkedList.isEmpty()) {
                 return this.mActivityStack.size();
             }
@@ -197,7 +197,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         return invokeV.intValue;
     }
 
-    public LinkedList getActivityStack() {
+    public LinkedList<WeakReference<Activity>> getActivityStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -208,11 +208,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
 
     public Activity getTopActivity() {
         InterceptResult invokeV;
-        WeakReference weakReference;
+        WeakReference<Activity> last;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.mActivityStack.isEmpty() && (weakReference = (WeakReference) this.mActivityStack.getLast()) != null) {
-                return (Activity) weakReference.get();
+            if (!this.mActivityStack.isEmpty() && (last = this.mActivityStack.getLast()) != null) {
+                return last.get();
             }
             return null;
         }
@@ -257,7 +257,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                 while (true) {
                     size--;
                     if (size >= 0) {
-                        Activity activity2 = (Activity) ((WeakReference) this.mActivityStack.get(size)).get();
+                        Activity activity2 = this.mActivityStack.get(size).get();
                         if (activity2 != null && activity2 == activity) {
                             break;
                         }
@@ -270,11 +270,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
                     this.mActivityStack.remove(size);
                 }
             }
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onActivityDestroyed(activity);
+                    it.next().onActivityDestroyed(activity);
                 }
             }
         }
@@ -294,24 +294,24 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
-            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
             while (it.hasNext()) {
-                ((IActivityLifecycle) it.next()).onActivityPaused(activity);
+                it.next().onActivityPaused(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, activity) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
-            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
             while (it.hasNext()) {
-                ((IActivityLifecycle) it.next()).onActivityResumed(activity);
+                it.next().onActivityResumed(activity);
             }
         }
     }
@@ -335,12 +335,12 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, activity, bundle) == null) {
-            this.mActivityStack.add(new WeakReference(activity));
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            this.mActivityStack.add(new WeakReference<>(activity));
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onActivityCreated(activity, bundle);
+                    it.next().onActivityCreated(activity, bundle);
                 }
             }
         }
@@ -348,12 +348,12 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048589, this, activity, bundle) == null) && (copyOnWriteArrayList = this.mCustomActivityLifeCycles) != null && copyOnWriteArrayList.size() > 0) {
-            Iterator it = this.mCustomActivityLifeCycles.iterator();
+            Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
             while (it.hasNext()) {
-                ((IActivityLifecycle) it.next()).onActivitySaveInstanceState(activity, bundle);
+                it.next().onActivitySaveInstanceState(activity, bundle);
             }
         }
     }
@@ -362,11 +362,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public void onActivityStarted(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onActivityStarted(activity);
+                    it.next().onActivityStarted(activity);
                 }
             }
             int i = this.mActivityCount + 1;
@@ -381,11 +381,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onActivityStopped(activity);
+                    it.next().onActivityStopped(activity);
                 }
             }
             int i = this.mActivityCount - 1;
@@ -400,11 +400,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, activity) == null) {
             this.mIsForeground = true;
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onBackgroundToForeground(activity);
+                    it.next().onBackgroundToForeground(activity);
                 }
             }
         }
@@ -414,11 +414,11 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
             this.mIsForeground = false;
-            CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+            CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
             if (copyOnWriteArrayList != null && copyOnWriteArrayList.size() > 0) {
-                Iterator it = this.mCustomActivityLifeCycles.iterator();
+                Iterator<IActivityLifecycle> it = this.mCustomActivityLifeCycles.iterator();
                 while (it.hasNext()) {
-                    ((IActivityLifecycle) it.next()).onForegroundToBackground(activity);
+                    it.next().onForegroundToBackground(activity);
                 }
             }
         }
@@ -428,7 +428,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, iActivityLifecycle) == null) && iActivityLifecycle != null && !this.mCustomActivityLifeCycles.contains(iActivityLifecycle)) {
             if (hasGlobalLifecycle && this.mCustomActivityLifeCycles.size() > 0) {
-                CopyOnWriteArrayList copyOnWriteArrayList = this.mCustomActivityLifeCycles;
+                CopyOnWriteArrayList<IActivityLifecycle> copyOnWriteArrayList = this.mCustomActivityLifeCycles;
                 copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, iActivityLifecycle);
                 return;
             }

@@ -21,8 +21,8 @@ public class gu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f449a;
-    public Map b;
+    public Map<String, Object> f449a;
+    public Map<String, Object> b;
 
     public gu() {
         Interceptable interceptable = $ic;
@@ -101,20 +101,17 @@ public class gu {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f449a.get(a(str, str2)) : invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v14, resolved type: java.lang.Object */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v8, resolved type: java.lang.Object */
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0103 */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:62:0x00fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* renamed from: a  reason: collision with other method in class */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void m377a() {
-        Map map;
-        Class<?> cls;
-        Map map2;
-        Class<?> cls2;
+        Map<String, Object> map;
+        Object obj;
+        Map<String, Object> map2;
+        Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
@@ -141,15 +138,15 @@ public class gu {
                                     String a2 = a(nextText, nextText2);
                                     if (!this.b.containsKey(a2)) {
                                         try {
-                                            Class<?> cls3 = Class.forName(nextText3);
-                                            if (gs.class.isAssignableFrom(cls3)) {
+                                            Class<?> cls = Class.forName(nextText3);
+                                            if (gs.class.isAssignableFrom(cls)) {
                                                 map2 = this.b;
-                                                cls2 = cls3.newInstance();
-                                            } else if (gl.class.isAssignableFrom(cls3)) {
+                                                obj2 = cls.newInstance();
+                                            } else if (gl.class.isAssignableFrom(cls)) {
                                                 map2 = this.b;
-                                                cls2 = cls3;
+                                                obj2 = cls;
                                             }
-                                            map2.put(a2, cls2);
+                                            map2.put(a2, obj2);
                                         } catch (ClassNotFoundException e) {
                                             e = e;
                                             e.printStackTrace();
@@ -171,15 +168,15 @@ public class gu {
                                     String a3 = a(nextText4, nextText5);
                                     if (!this.f449a.containsKey(a3)) {
                                         try {
-                                            Class<?> cls4 = Class.forName(nextText6);
-                                            if (gt.class.isAssignableFrom(cls4)) {
+                                            Class<?> cls2 = Class.forName(nextText6);
+                                            if (gt.class.isAssignableFrom(cls2)) {
                                                 map = this.f449a;
-                                                cls = cls4.newInstance();
-                                            } else if (go.class.isAssignableFrom(cls4)) {
+                                                obj = cls2.newInstance();
+                                            } else if (go.class.isAssignableFrom(cls2)) {
                                                 map = this.f449a;
-                                                cls = cls4;
+                                                obj = cls2;
                                             }
-                                            map.put(a3, cls);
+                                            map.put(a3, obj);
                                         } catch (ClassNotFoundException e2) {
                                             e = e2;
                                             e.printStackTrace();

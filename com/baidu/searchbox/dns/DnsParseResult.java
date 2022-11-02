@@ -40,11 +40,11 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
     public int k;
-    public List l;
+    public List<String> l;
     public int stackType;
     public int type;
 
-    public DnsParseResult(List list, int i, int i2, int i3) {
+    public DnsParseResult(List<String> list, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class DnsParseResult {
         this.stackType = i3;
     }
 
-    public List getIpList() {
+    public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

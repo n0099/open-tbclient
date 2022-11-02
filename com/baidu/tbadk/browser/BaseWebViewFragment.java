@@ -42,7 +42,7 @@ public class BaseWebViewFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return w1(this.a, BaseWebViewActivity.KEY_NO_MENU);
+            return x1(this.a, BaseWebViewActivity.KEY_NO_MENU);
         }
         return invokeV.booleanValue;
     }
@@ -51,7 +51,7 @@ public class BaseWebViewFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return w1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR);
+            return x1(this.a, BaseWebViewActivity.KEY_NO_NAVIGATIONBAR);
         }
         return invokeV.booleanValue;
     }
@@ -60,7 +60,7 @@ public class BaseWebViewFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return w1(this.a, BaseWebViewActivity.KEY_NO_SHARE);
+            return x1(this.a, BaseWebViewActivity.KEY_NO_SHARE);
         }
         return invokeV.booleanValue;
     }
@@ -76,7 +76,7 @@ public class BaseWebViewFragment extends BaseFragment {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return w1(str, "blank");
+            return x1(str, "blank");
         }
         return invokeL.booleanValue;
     }
@@ -110,7 +110,7 @@ public class BaseWebViewFragment extends BaseFragment {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.c, true)) {
-                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f116a);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1188);
             } else {
                 shareItem.v = this.c;
             }
@@ -170,7 +170,7 @@ public class BaseWebViewFragment extends BaseFragment {
         return (String) invokeLL.objValue;
     }
 
-    public boolean w1(String str, String str2) {
+    public boolean x1(String str, String str2) {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
+import android.annotation.TargetApi;
 import android.os.SharedMemory;
 import android.system.ErrnoException;
 import android.util.Log;
@@ -11,9 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+@TargetApi(27)
 /* loaded from: classes7.dex */
 public class AshmemMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,6 +28,7 @@ public class AshmemMemoryChunk implements MemoryChunk, Closeable {
     @Nullable
     public SharedMemory mSharedMemory;
 
+    @VisibleForTesting
     public AshmemMemoryChunk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

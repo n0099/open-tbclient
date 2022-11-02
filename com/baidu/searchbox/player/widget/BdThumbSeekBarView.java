@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -77,7 +78,7 @@ public class BdThumbSeekBarView extends View {
 
     /* renamed from: com.baidu.searchbox.player.widget.BdThumbSeekBarView$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +111,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeeBarStatus {
+    public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeeBarStatus None;
@@ -176,7 +177,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeekBarStyle {
+    public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeekBarStyle LINE;
@@ -242,7 +243,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SeekBarDirect {
+    public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SeekBarDirect Horizontal;
@@ -397,15 +398,15 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.mPaint = paint;
         paint.setAntiAlias(true);
-        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041c));
+        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041d));
         Paint paint2 = new Paint();
         this.mSeekPaint = paint2;
         paint2.setAntiAlias(true);
-        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041e));
+        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041f));
         Paint paint3 = new Paint();
         this.mBufferingPaint = paint3;
         paint3.setAntiAlias(true);
-        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041d));
+        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06041e));
         this.mMax = 100.0f;
         this.mProgress = 0.0f;
         this.mBufferingProgress = 0;
@@ -834,6 +835,7 @@ public class BdThumbSeekBarView extends View {
         if (r6 != 3) goto L23;
      */
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

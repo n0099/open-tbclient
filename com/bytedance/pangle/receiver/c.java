@@ -1,5 +1,6 @@
 package com.bytedance.pangle.receiver;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -20,16 +21,16 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static c d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map a;
-    public final Map b;
-    public final Set c;
+    public final Map<String, a> a;
+    public final Map<PluginBroadcastReceiver, BroadcastReceiver> b;
+    public final Set<Integer> c;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public final Set b;
+        public final Set<PluginBroadcastReceiver> b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,7 +49,7 @@ public final class c {
         }
 
         public final void a(Context context, Intent intent) {
-            Set set;
+            Set<PluginBroadcastReceiver> set;
             String str;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (set = this.b) != null && set.size() > 0) {
@@ -113,16 +114,16 @@ public final class c {
     }
 
     public final void a(Context context, Intent intent) {
-        a aVar;
+        a value;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getAction() != null) {
             String action = intent.getAction();
-            Map map = this.a;
+            Map<String, a> map = this.a;
             if (map != null && map.size() > 0) {
-                for (Map.Entry entry : this.a.entrySet()) {
-                    if (action.equals(entry.getKey()) && (aVar = (a) entry.getValue()) != null) {
+                for (Map.Entry<String, a> entry : this.a.entrySet()) {
+                    if (action.equals(entry.getKey()) && (value = entry.getValue()) != null) {
                         ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "action[" + action + "] match success ！ invoke onReceiver");
-                        aVar.a(context, intent);
+                        value.a(context, intent);
                     }
                 }
             }
@@ -136,7 +137,7 @@ public final class c {
             while (actionsIterator.hasNext()) {
                 String next = actionsIterator.next();
                 if (next != null) {
-                    a aVar = (a) this.a.get(next);
+                    a aVar = this.a.get(next);
                     if (aVar != null) {
                         aVar.a(pluginBroadcastReceiver);
                     } else {

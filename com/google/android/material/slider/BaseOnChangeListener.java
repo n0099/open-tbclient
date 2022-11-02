@@ -1,5 +1,9 @@
 package com.google.android.material.slider;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
-public interface BaseOnChangeListener {
-    void onValueChange(Object obj, float f, boolean z);
+public interface BaseOnChangeListener<S> {
+    void onValueChange(@NonNull S s, float f, boolean z);
 }

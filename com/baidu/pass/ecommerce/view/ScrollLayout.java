@@ -64,7 +64,7 @@ public class ScrollLayout extends FrameLayout {
 
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass3 {
+    public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class ScrollLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class InnerStatus {
+    public static final class InnerStatus {
         public static final /* synthetic */ InnerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InnerStatus EXIT;
@@ -169,7 +169,7 @@ public class ScrollLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Status {
+    public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Status EXIT;

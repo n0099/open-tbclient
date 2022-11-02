@@ -1,115 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class md4 {
     public static /* synthetic */ Interceptable $ic;
-    public static md4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public cd4 a;
 
-    public md4() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String a = nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(nk4.a(str, "cuid", pb4.b().g()), "uuid", pb4.b().e()), "ut", pb4.b().I()), "ua", nk4.b(pb4.b().h())), "host_app", pb4.b().c()), "host_app_ver", pb4.b().h()), "host_os", fk4.f()), "host_os_ver", fk4.g()), "network", fk4.e()), "sdk_ver", pb4.b().b()), "ut_score", String.valueOf(pb4.b().a()));
+            String q = pb4.b().q();
+            if (!TextUtils.isEmpty(q)) {
+                return nk4.a(a, "sid", q);
             }
+            return a;
         }
-        this.a = new cd4();
+        return (String) invokeL.objValue;
     }
 
-    public static md4 b() {
-        InterceptResult invokeV;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            md4 md4Var = b;
-            if (md4Var != null) {
-                return md4Var;
-            }
-            synchronized (md4.class) {
-                if (b == null) {
-                    b = new md4();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    if (!TextUtils.isEmpty(map.get(str2))) {
+                        str = nk4.a(str, str2, map.get(str2));
+                    }
                 }
             }
-            return b;
+            return str;
         }
-        return (md4) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public yc4 a(od4 od4Var) {
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/getopenbundleid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h() + "/fetchpkglist";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/getpkg";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/getplugin";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/updatecore";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return pb4.b().E();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, od4Var)) == null) {
-            if (od4Var == null) {
-                return null;
-            }
-            return new td4(od4Var, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return a(str);
         }
-        return (yc4) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
+    public static String j(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
+            return b(a(str), map);
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                f = this.a.f(str);
-            }
-            return f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kd4Var) == null) {
-            synchronized (this) {
-                this.a.c(kd4Var);
-            }
-        }
-    }
-
-    public synchronized void f(od4 od4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, od4Var) == null) {
-            synchronized (this) {
-                od4Var.s(false);
-                this.a.h(od4Var);
-            }
-        }
-    }
-
-    public synchronized void g(kd4 kd4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kd4Var) == null) {
-            synchronized (this) {
-                this.a.i(kd4Var);
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

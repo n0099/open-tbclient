@@ -667,24 +667,24 @@ public final class CodedInputStream {
         return (String) invokeV.objValue;
     }
 
-    public MessageLite readGroup(int i, Parser parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+    public <T extends MessageLite> T readGroup(int i, Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, parser, extensionRegistryLite)) == null) {
             int i2 = this.recursionDepth;
             if (i2 < this.recursionLimit) {
                 this.recursionDepth = i2 + 1;
-                MessageLite messageLite = (MessageLite) parser.parsePartialFrom(this, extensionRegistryLite);
+                T parsePartialFrom = parser.parsePartialFrom(this, extensionRegistryLite);
                 checkLastTagWas(WireFormat.makeTag(i, 4));
                 this.recursionDepth--;
-                return messageLite;
+                return parsePartialFrom;
             }
             throw InvalidProtocolBufferException.recursionLimitExceeded();
         }
-        return (MessageLite) invokeILL.objValue;
+        return (T) invokeILL.objValue;
     }
 
-    public MessageLite readMessage(Parser parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+    public <T extends MessageLite> T readMessage(Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, parser, extensionRegistryLite)) == null) {
@@ -692,15 +692,15 @@ public final class CodedInputStream {
             if (this.recursionDepth < this.recursionLimit) {
                 int pushLimit = pushLimit(readRawVarint32);
                 this.recursionDepth++;
-                MessageLite messageLite = (MessageLite) parser.parsePartialFrom(this, extensionRegistryLite);
+                T parsePartialFrom = parser.parsePartialFrom(this, extensionRegistryLite);
                 checkLastTagWas(0);
                 this.recursionDepth--;
                 popLimit(pushLimit);
-                return messageLite;
+                return parsePartialFrom;
             }
             throw InvalidProtocolBufferException.recursionLimitExceeded();
         }
-        return (MessageLite) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public void readMessage(MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) throws IOException {

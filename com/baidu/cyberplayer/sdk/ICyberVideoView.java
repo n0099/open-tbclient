@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
+@Keep
 /* loaded from: classes2.dex */
 public interface ICyberVideoView {
 
-    /* loaded from: classes.dex */
+    @Keep
+    /* loaded from: classes2.dex */
     public interface OnSnapShotCompleteListener {
         void onSnapShotComplete(Bitmap bitmap);
     }
@@ -79,7 +81,7 @@ public interface ICyberVideoView {
 
     void setVideoURI(Uri uri);
 
-    void setVideoURI(Uri uri, Map map);
+    void setVideoURI(Uri uri, Map<String, String> map);
 
     void start();
 

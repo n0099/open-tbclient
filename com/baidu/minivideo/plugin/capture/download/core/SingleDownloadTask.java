@@ -17,7 +17,7 @@ public class SingleDownloadTask extends DownloadTaskImpl {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public Map getHttpHeaders(ThreadRecord threadRecord) {
+    public Map<String, String> getHttpHeaders(ThreadRecord threadRecord) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadRecord)) == null) {

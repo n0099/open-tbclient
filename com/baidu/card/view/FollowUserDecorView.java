@@ -2,6 +2,7 @@ package com.baidu.card.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -12,9 +13,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.ty4;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +26,8 @@ public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId r;
-    public wz4 s;
+    public m05 s;
     public boolean t;
-    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FollowUserDecorView(Context context) {
@@ -50,7 +50,7 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FollowUserDecorView(Context context, AttributeSet attributeSet) {
+    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +71,7 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FollowUserDecorView(Context context, AttributeSet attributeSet, int i) {
+    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -96,16 +96,16 @@ public class FollowUserDecorView extends FollowUserButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.s(z);
-            if (this.t && !z) {
-                ty4 ty4Var = new ty4();
-                if (this.u) {
-                    ty4Var.i(R.drawable.obfuscated_res_0x7f080952, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    ty4Var.h(R.color.CAM_X0304);
-                    ty4Var.g(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                    ty4Var.f(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            if (!z) {
+                jz4 jz4Var = new jz4();
+                if (this.t) {
+                    jz4Var.i(R.drawable.obfuscated_res_0x7f080969, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    jz4Var.h(R.color.CAM_X0304);
+                    jz4Var.g(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                    jz4Var.f(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 }
-                ty4Var.r(R.color.CAM_X0304);
-                setConfig(ty4Var);
+                jz4Var.r(R.color.CAM_X0304);
+                setConfig(jz4Var);
             }
         }
     }
@@ -115,9 +115,9 @@ public class FollowUserDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
             if (threadData != null && threadData.getAuthor() != null) {
                 if (this.s == null) {
-                    wz4 wz4Var = new wz4(t(getContext()), this);
-                    this.s = wz4Var;
-                    wz4Var.l(this.r);
+                    m05 m05Var = new m05(t(getContext()), this);
+                    this.s = m05Var;
+                    m05Var.l(this.r);
                 }
                 setVisibility(0);
                 this.s.q(true);
@@ -132,7 +132,7 @@ public class FollowUserDecorView extends FollowUserButton {
     public void setIsShowIcon(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.u = z;
+            this.t = z;
         }
     }
 
@@ -140,24 +140,17 @@ public class FollowUserDecorView extends FollowUserButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
-            wz4 wz4Var = this.s;
-            if (wz4Var != null) {
-                wz4Var.l(bdUniqueId);
+            m05 m05Var = this.s;
+            if (m05Var != null) {
+                m05Var.l(bdUniqueId);
             }
-        }
-    }
-
-    public void setUseNewStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.t = z;
         }
     }
 
     public final TbPageContext t(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getPageContext();
             }

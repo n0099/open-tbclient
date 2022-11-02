@@ -16,6 +16,7 @@ import com.baidu.ar.record.b;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.e;
+import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +86,7 @@ public class MovieRecorder implements b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
-                    case 7000:
+                    case NodeType.E_PARTICLE /* 7000 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderInit((Surface) message.obj);
                             break;
@@ -439,7 +440,7 @@ public class MovieRecorder implements b {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeZL(1048579, this, z, obj) == null) && z) {
                         if (this.ux.ul != null) {
-                            this.ux.ul.sendMessage(this.ux.ul.obtainMessage(7000, obj));
+                            this.ux.ul.sendMessage(this.ux.ul.obtainMessage(NodeType.E_PARTICLE, obj));
                         }
                         if (this.ux.ut != null) {
                             this.ux.ut.startRecording();

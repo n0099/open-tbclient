@@ -22,6 +22,14 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.core.text.PrecomputedTextCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -56,10 +64,12 @@ public final class TextViewCompat {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface AutoSizeTextType {
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static class OreoCallback implements ActionMode.Callback {
         public static /* synthetic */ Interceptable $ic = null;
@@ -257,7 +267,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static int getAutoSizeMaxTextSize(TextView textView) {
+    public static int getAutoSizeMaxTextSize(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, textView)) == null) {
@@ -272,7 +282,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getAutoSizeMinTextSize(TextView textView) {
+    public static int getAutoSizeMinTextSize(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textView)) == null) {
@@ -287,7 +297,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getAutoSizeStepGranularity(TextView textView) {
+    public static int getAutoSizeStepGranularity(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, textView)) == null) {
@@ -302,7 +312,8 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int[] getAutoSizeTextAvailableSizes(TextView textView) {
+    @NonNull
+    public static int[] getAutoSizeTextAvailableSizes(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView)) == null) {
@@ -317,7 +328,7 @@ public final class TextViewCompat {
         return (int[]) invokeL.objValue;
     }
 
-    public static int getAutoSizeTextType(TextView textView) {
+    public static int getAutoSizeTextType(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, textView)) == null) {
@@ -332,7 +343,8 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static ColorStateList getCompoundDrawableTintList(TextView textView) {
+    @Nullable
+    public static ColorStateList getCompoundDrawableTintList(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textView)) == null) {
@@ -348,7 +360,8 @@ public final class TextViewCompat {
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode getCompoundDrawableTintMode(TextView textView) {
+    @Nullable
+    public static PorterDuff.Mode getCompoundDrawableTintMode(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, textView)) == null) {
@@ -364,7 +377,7 @@ public final class TextViewCompat {
         return (PorterDuff.Mode) invokeL.objValue;
     }
 
-    public static int getFirstBaselineToTopHeight(TextView textView) {
+    public static int getFirstBaselineToTopHeight(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, textView)) == null) {
@@ -373,7 +386,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getLastBaselineToBottomHeight(TextView textView) {
+    public static int getLastBaselineToBottomHeight(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, textView)) == null) {
@@ -382,7 +395,8 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static Drawable[] getCompoundDrawablesRelative(TextView textView) {
+    @NonNull
+    public static Drawable[] getCompoundDrawablesRelative(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, textView)) == null) {
@@ -409,7 +423,8 @@ public final class TextViewCompat {
         return (Drawable[]) invokeL.objValue;
     }
 
-    public static int getTextDirection(TextDirectionHeuristic textDirectionHeuristic) {
+    @RequiresApi(18)
+    public static int getTextDirection(@NonNull TextDirectionHeuristic textDirectionHeuristic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, textDirectionHeuristic)) == null) {
@@ -456,7 +471,7 @@ public final class TextViewCompat {
         return (Field) invokeL.objValue;
     }
 
-    public static int getMaxLines(TextView textView) {
+    public static int getMaxLines(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, textView)) == null) {
@@ -484,7 +499,7 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getMinLines(TextView textView) {
+    public static int getMinLines(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, textView)) == null) {
@@ -512,7 +527,8 @@ public final class TextViewCompat {
         return invokeL.intValue;
     }
 
-    public static PrecomputedTextCompat.Params getTextMetricsParams(TextView textView) {
+    @NonNull
+    public static PrecomputedTextCompat.Params getTextMetricsParams(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, textView)) == null) {
@@ -532,7 +548,8 @@ public final class TextViewCompat {
         return (PrecomputedTextCompat.Params) invokeL.objValue;
     }
 
-    public static TextDirectionHeuristic getTextDirectionHeuristic(TextView textView) {
+    @RequiresApi(18)
+    public static TextDirectionHeuristic getTextDirectionHeuristic(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, textView)) == null) {
@@ -587,7 +604,7 @@ public final class TextViewCompat {
         return invokeLL.intValue;
     }
 
-    public static void setLastBaselineToBottomHeight(TextView textView, int i) {
+    public static void setLastBaselineToBottomHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65564, null, textView, i) == null) {
@@ -604,7 +621,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setPrecomputedText(TextView textView, PrecomputedTextCompat precomputedTextCompat) {
+    public static void setPrecomputedText(@NonNull TextView textView, @NonNull PrecomputedTextCompat precomputedTextCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65566, null, textView, precomputedTextCompat) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
@@ -617,7 +634,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setAutoSizeTextTypeUniformWithConfiguration(TextView textView, int i, int i2, int i3, int i4) throws IllegalArgumentException {
+    public static void setAutoSizeTextTypeUniformWithConfiguration(@NonNull TextView textView, int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -628,7 +645,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, int i, int i2, int i3, int i4) {
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @DrawableRes int i, @DrawableRes int i2, @DrawableRes int i3, @DrawableRes int i4) {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -655,7 +672,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setAutoSizeTextTypeUniformWithPresetSizes(TextView textView, int[] iArr, int i) throws IllegalArgumentException {
+    public static void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull TextView textView, @NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65555, null, textView, iArr, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -666,7 +683,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setAutoSizeTextTypeWithDefaults(TextView textView, int i) {
+    public static void setAutoSizeTextTypeWithDefaults(@NonNull TextView textView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65556, null, textView, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
@@ -677,7 +694,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawableTintList(TextView textView, ColorStateList colorStateList) {
+    public static void setCompoundDrawableTintList(@NonNull TextView textView, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, textView, colorStateList) == null) {
             Preconditions.checkNotNull(textView);
@@ -689,7 +706,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawableTintMode(TextView textView, PorterDuff.Mode mode) {
+    public static void setCompoundDrawableTintMode(@NonNull TextView textView, @Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, textView, mode) == null) {
             Preconditions.checkNotNull(textView);
@@ -701,14 +718,14 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCustomSelectionActionModeCallback(TextView textView, ActionMode.Callback callback) {
+    public static void setCustomSelectionActionModeCallback(@NonNull TextView textView, @NonNull ActionMode.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65562, null, textView, callback) == null) {
             textView.setCustomSelectionActionModeCallback(wrapCustomSelectionActionModeCallback(textView, callback));
         }
     }
 
-    public static void setLineHeight(TextView textView, int i) {
+    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65565, null, textView, i) == null) {
             Preconditions.checkArgumentNonnegative(i);
@@ -719,7 +736,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setTextAppearance(TextView textView, int i) {
+    public static void setTextAppearance(@NonNull TextView textView, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65567, null, textView, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
@@ -730,7 +747,9 @@ public final class TextViewCompat {
         }
     }
 
-    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(TextView textView, ActionMode.Callback callback) {
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static ActionMode.Callback wrapCustomSelectionActionModeCallback(@NonNull TextView textView, @NonNull ActionMode.Callback callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, textView, callback)) == null) {
@@ -743,7 +762,7 @@ public final class TextViewCompat {
         return (ActionMode.Callback) invokeLL.objValue;
     }
 
-    public static void setCompoundDrawablesRelative(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+    public static void setCompoundDrawablesRelative(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
         Drawable drawable5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65559, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
@@ -770,7 +789,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(TextView textView, Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4) {
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
         Drawable drawable5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65561, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
@@ -797,7 +816,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setFirstBaselineToTopHeight(TextView textView, int i) {
+    public static void setFirstBaselineToTopHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65563, null, textView, i) == null) {
@@ -818,7 +837,7 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setTextMetricsParams(TextView textView, PrecomputedTextCompat.Params params) {
+    public static void setTextMetricsParams(@NonNull TextView textView, @NonNull PrecomputedTextCompat.Params params) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65568, null, textView, params) == null) {
             if (Build.VERSION.SDK_INT >= 18) {

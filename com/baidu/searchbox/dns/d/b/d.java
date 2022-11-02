@@ -11,7 +11,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final b ai;
         public transient /* synthetic */ FieldHolder $fh;

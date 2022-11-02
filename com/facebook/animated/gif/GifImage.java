@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.soloader.SoLoaderProxy;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
@@ -14,6 +15,9 @@ import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
 import com.facebook.imagepipeline.common.ImageDecodeOptions;
 import java.nio.ByteBuffer;
+import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,34 +25,49 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static final int LOOP_COUNT_MISSING = -1;
     public static volatile boolean sInitialized;
     public transient /* synthetic */ FieldHolder $fh;
+    @DoNotStrip
     public long mNativeContext;
 
+    @DoNotStrip
     public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer, int i, boolean z);
 
+    @DoNotStrip
     public static native GifImage nativeCreateFromFileDescriptor(int i, int i2, boolean z);
 
+    @DoNotStrip
     public static native GifImage nativeCreateFromNativeMemory(long j, int i, int i2, boolean z);
 
+    @DoNotStrip
     private native void nativeDispose();
 
+    @DoNotStrip
     private native void nativeFinalize();
 
+    @DoNotStrip
     private native int nativeGetDuration();
 
+    @DoNotStrip
     private native GifFrame nativeGetFrame(int i);
 
+    @DoNotStrip
     private native int nativeGetFrameCount();
 
+    @DoNotStrip
     private native int[] nativeGetFrameDurations();
 
+    @DoNotStrip
     private native int nativeGetHeight();
 
+    @DoNotStrip
     private native int nativeGetLoopCount();
 
+    @DoNotStrip
     private native int nativeGetSizeInBytes();
 
+    @DoNotStrip
     private native int nativeGetWidth();
 
+    @DoNotStrip
     private native boolean nativeIsAnimated();
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -61,6 +80,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return invokeV.booleanValue;
     }
 
+    @DoNotStrip
     public GifImage() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -188,6 +208,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return invokeV.booleanValue;
     }
 
+    @DoNotStrip
     public GifImage(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

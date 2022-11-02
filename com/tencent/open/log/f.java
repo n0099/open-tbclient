@@ -12,10 +12,10 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public class f implements Iterable {
+public class f implements Iterable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentLinkedQueue a;
+    public ConcurrentLinkedQueue<String> a;
     public AtomicInteger b;
 
     public f() {
@@ -33,7 +33,7 @@ public class f implements Iterable {
         }
         this.a = null;
         this.b = null;
-        this.a = new ConcurrentLinkedQueue();
+        this.a = new ConcurrentLinkedQueue<>();
         this.b = new AtomicInteger(0);
     }
 
@@ -55,7 +55,7 @@ public class f implements Iterable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,12 +82,12 @@ public class f implements Iterable {
             Writer writer = writerArr[0];
             Writer writer2 = writerArr[1];
             int length = cArr.length;
-            Iterator it = iterator();
+            Iterator<String> it = iterator();
             int i2 = length;
             int i3 = 0;
             while (it.hasNext()) {
-                String str = (String) it.next();
-                int length2 = str.length();
+                String next = it.next();
+                int length2 = next.length();
                 int i4 = 0;
                 while (length2 > 0) {
                     if (i2 > length2) {
@@ -96,7 +96,7 @@ public class f implements Iterable {
                         i = i2;
                     }
                     int i5 = i4 + i;
-                    str.getChars(i4, i5, cArr, i3);
+                    next.getChars(i4, i5, cArr, i3);
                     i2 -= i;
                     i3 += i;
                     length2 -= i;

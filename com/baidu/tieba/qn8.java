@@ -1,31 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.App;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes5.dex */
-public class qn8 extends PostData {
+public class qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo U0;
-    public boolean V0;
-    public String W0;
-    public String X0;
-    public String Y0;
-    public long Z0;
-    public int a1;
-    public boolean b1;
-    public int c1;
-    public int d1;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
     public qn8() {
         Interceptable interceptable = $ic;
@@ -40,134 +31,70 @@ public class qn8 extends PostData {
                 return;
             }
         }
-        this.V0 = false;
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public AdvertAppInfo getAdvertAppInfo() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.U0;
+            return this.d;
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int getPosition() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.U0;
-            if (advertAppInfo == null) {
-                return 0;
-            }
-            return eh.e(advertAppInfo.f, 0);
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public String k1() {
-        InterceptResult invokeV;
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.U0;
-            if (advertAppInfo == null) {
-                return "";
-            }
-            return advertAppInfo.g;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String l1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.U0;
-            if (advertAppInfo == null) {
-                return "";
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
             }
-            return advertAppInfo.a;
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String m1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.V0) {
-                return "PB_BANNER";
-            }
-            if (this.b1) {
-                return "VIDEO_PB";
-            }
-            return "PB";
+        if (starInfo.trade == null) {
+            z = false;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public AdvertAppInfo.ILegoAdvert n1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.U0;
-            if (advertAppInfo == null) {
-                return null;
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
             }
-            return advertAppInfo.h;
+            String str3 = starInfo.trade.url;
         }
-        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
-    }
-
-    public boolean o1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.U0;
-            if (advertAppInfo != null && advertAppInfo.n() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.eo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!jq4.c().g() && (advertAppInfo = this.U0) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
-                return AdvertAppInfo.x;
-            }
-            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.V0) {
-                return AdvertAppInfo.x;
-            }
-            AdvertAppInfo advertAppInfo2 = this.U0;
-            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
-                int i = advertAppInfo2.c;
-                if (i != 1001 && i != -1001) {
-                    if (n1() != null) {
-                        return AdvertAppInfo.z;
-                    }
-                    return null;
-                }
-                return AdvertAppInfo.x;
-            }
-            return AdvertAppInfo.x;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void p1(App app) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
-            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-            this.U0 = advertAppInfo;
-            advertAppInfo.s(app);
-            this.U0.j = m1();
-        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

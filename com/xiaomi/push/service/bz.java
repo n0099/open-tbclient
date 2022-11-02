@@ -80,7 +80,7 @@ public class bz {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList a(List list, String str, String str2, int i) {
+    public static ArrayList<ii> a(List<hn> list, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         int i2;
         String str3;
@@ -89,23 +89,23 @@ public class bz {
             if (list == null) {
                 str3 = "requests can not be null in TinyDataHelper.transToThriftObj().";
             } else if (list.size() != 0) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ii> arrayList = new ArrayList<>();
                 hm hmVar = new hm();
                 int i3 = 0;
                 for (int i4 = 0; i4 < list.size(); i4++) {
-                    hn hnVar = (hn) list.get(i4);
+                    hn hnVar = list.get(i4);
                     if (hnVar != null) {
                         if (hnVar.m400a() == null || !hnVar.m400a().containsKey("item_size")) {
                             i2 = 0;
                         } else {
-                            String str4 = (String) hnVar.m400a().get("item_size");
+                            String str4 = hnVar.m400a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i2 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
                                 if (hnVar.m400a().size() != 1) {
-                                    hnVar.a((Map) null);
+                                    hnVar.a((Map<String, String>) null);
                                 } else {
                                     hnVar.m400a().remove("item_size");
                                 }

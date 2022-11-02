@@ -14,7 +14,7 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class EmptyCompletableObserver extends AtomicReference implements CompletableObserver, Disposable, LambdaConsumerIntrospection {
+public final class EmptyCompletableObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7545121636549663526L;
     public transient /* synthetic */ FieldHolder $fh;

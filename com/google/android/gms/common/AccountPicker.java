@@ -3,6 +3,8 @@ package com.google.android.gms.common;
 import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,21 +34,29 @@ public final class AccountPicker {
     }
 
     /* loaded from: classes7.dex */
-    public class AccountChooserOptions {
+    public static class AccountChooserOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public Account zza;
         public boolean zzb;
-        public ArrayList zzc;
-        public ArrayList zzd;
+        @Nullable
+        public ArrayList<Account> zzc;
+        @Nullable
+        public ArrayList<String> zzd;
         public boolean zze;
+        @Nullable
         public String zzf;
+        @Nullable
         public Bundle zzg;
         public boolean zzh;
         public int zzi;
+        @Nullable
         public String zzj;
         public boolean zzk;
+        @Nullable
         public zza zzl;
+        @Nullable
         public String zzm;
         public boolean zzn;
         public boolean zzo;
@@ -66,14 +76,19 @@ public final class AccountPicker {
         }
 
         /* loaded from: classes7.dex */
-        public class Builder {
+        public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Nullable
             public Account zza;
-            public ArrayList zzb;
-            public ArrayList zzc;
+            @Nullable
+            public ArrayList<Account> zzb;
+            @Nullable
+            public ArrayList<String> zzc;
             public boolean zzd;
+            @Nullable
             public String zze;
+            @Nullable
             public Bundle zzf;
 
             public Builder() {
@@ -92,6 +107,7 @@ public final class AccountPicker {
                 this.zzd = false;
             }
 
+            @NonNull
             public Builder setAlwaysShowAccountPicker(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -102,7 +118,8 @@ public final class AccountPicker {
                 return (Builder) invokeZ.objValue;
             }
 
-            public Builder setOptionsForAddingAccount(Bundle bundle) {
+            @NonNull
+            public Builder setOptionsForAddingAccount(@Nullable Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
@@ -112,7 +129,8 @@ public final class AccountPicker {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setSelectedAccount(Account account) {
+            @NonNull
+            public Builder setSelectedAccount(@Nullable Account account) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, account)) == null) {
@@ -122,7 +140,8 @@ public final class AccountPicker {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTitleOverrideText(String str) {
+            @NonNull
+            public Builder setTitleOverrideText(@Nullable String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -132,6 +151,7 @@ public final class AccountPicker {
                 return (Builder) invokeL.objValue;
             }
 
+            @NonNull
             public AccountChooserOptions build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -159,15 +179,16 @@ public final class AccountPicker {
                 return (AccountChooserOptions) invokeV.objValue;
             }
 
-            public Builder setAllowableAccounts(List list) {
+            @NonNull
+            public Builder setAllowableAccounts(@Nullable List<Account> list) {
                 InterceptResult invokeL;
-                ArrayList arrayList;
+                ArrayList<Account> arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
                     if (list == null) {
                         arrayList = null;
                     } else {
-                        arrayList = new ArrayList(list);
+                        arrayList = new ArrayList<>(list);
                     }
                     this.zzb = arrayList;
                     return this;
@@ -175,15 +196,16 @@ public final class AccountPicker {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setAllowableAccountsTypes(List list) {
+            @NonNull
+            public Builder setAllowableAccountsTypes(@Nullable List<String> list) {
                 InterceptResult invokeL;
-                ArrayList arrayList;
+                ArrayList<String> arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
                     if (list == null) {
                         arrayList = null;
                     } else {
-                        arrayList = new ArrayList(list);
+                        arrayList = new ArrayList<>(list);
                     }
                     this.zzc = arrayList;
                     return this;
@@ -193,8 +215,9 @@ public final class AccountPicker {
         }
     }
 
+    @NonNull
     @Deprecated
-    public static Intent newChooseAccountIntent(Account account, ArrayList arrayList, String[] strArr, boolean z, String str, String str2, String[] strArr2, Bundle bundle) {
+    public static Intent newChooseAccountIntent(@Nullable Account account, @Nullable ArrayList<Account> arrayList, @Nullable String[] strArr, boolean z, @Nullable String str, @Nullable String str2, @Nullable String[] strArr2, @Nullable Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{account, arrayList, strArr, Boolean.valueOf(z), str, str2, strArr2, bundle})) == null) {
@@ -219,7 +242,8 @@ public final class AccountPicker {
         return (Intent) invokeCommon.objValue;
     }
 
-    public static Intent newChooseAccountIntent(AccountChooserOptions accountChooserOptions) {
+    @NonNull
+    public static Intent newChooseAccountIntent(@NonNull AccountChooserOptions accountChooserOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, accountChooserOptions)) == null) {

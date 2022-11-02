@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.annotation.TargetApi;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
 import android.media.MediaDataSource;
@@ -7,6 +8,10 @@ import android.media.MediaMetadataRetriever;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -25,36 +30,38 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public class VideoDecoder implements ResourceDecoder {
+public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaMetadataRetrieverFactory DEFAULT_FACTORY;
     public static final long DEFAULT_FRAME = -1;
+    @VisibleForTesting
     public static final int DEFAULT_FRAME_OPTION = 2;
-    public static final Option FRAME_OPTION;
+    public static final Option<Integer> FRAME_OPTION;
     public static final String TAG = "VideoDecoder";
-    public static final Option TARGET_FRAME;
+    public static final Option<Long> TARGET_FRAME;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
     public final MediaMetadataRetrieverFactory factory;
-    public final MediaMetadataRetrieverInitializer initializer;
+    public final MediaMetadataRetrieverInitializer<T> initializer;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public interface MediaMetadataRetrieverInitializer {
-        void initialize(MediaMetadataRetriever mediaMetadataRetriever, Object obj);
+    public interface MediaMetadataRetrieverInitializer<T> {
+        void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(Object obj, Options options) {
+    public boolean handles(@NonNull T t, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, options)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, options)) == null) {
             return true;
         }
         return invokeLL.booleanValue;
     }
 
     /* loaded from: classes7.dex */
-    public final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer {
+    public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,8 +89,9 @@ public class VideoDecoder implements ResourceDecoder {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes7.dex */
-    public final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer {
+    public static final class ByteBufferInitializer implements MediaMetadataRetrieverInitializer<ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -168,8 +176,9 @@ public class VideoDecoder implements ResourceDecoder {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class MediaMetadataRetrieverFactory {
+    public static class MediaMetadataRetrieverFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +207,7 @@ public class VideoDecoder implements ResourceDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer {
+    public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -227,7 +236,7 @@ public class VideoDecoder implements ResourceDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class VideoDecoderException extends RuntimeException {
+    public static final class VideoDecoderException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2556382523004027815L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +273,7 @@ public class VideoDecoder implements ResourceDecoder {
                 return;
             }
         }
-        TARGET_FRAME = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new Option.CacheKeyUpdater() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.1
+        TARGET_FRAME = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new Option.CacheKeyUpdater<Long>() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final ByteBuffer buffer;
@@ -287,7 +296,7 @@ public class VideoDecoder implements ResourceDecoder {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
-            public void update(byte[] bArr, Long l, MessageDigest messageDigest) {
+            public void update(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bArr, l, messageDigest) == null) {
                     messageDigest.update(bArr);
@@ -298,7 +307,7 @@ public class VideoDecoder implements ResourceDecoder {
                 }
             }
         });
-        FRAME_OPTION = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new Option.CacheKeyUpdater() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.2
+        FRAME_OPTION = Option.disk("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new Option.CacheKeyUpdater<Integer>() { // from class: com.bumptech.glide.load.resource.bitmap.VideoDecoder.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final ByteBuffer buffer;
@@ -321,7 +330,7 @@ public class VideoDecoder implements ResourceDecoder {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bumptech.glide.load.Option.CacheKeyUpdater
-            public void update(byte[] bArr, Integer num, MessageDigest messageDigest) {
+            public void update(@NonNull byte[] bArr, @NonNull Integer num, @NonNull MessageDigest messageDigest) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeLLL(1048576, this, bArr, num, messageDigest) != null) || num == null) {
                     return;
@@ -337,7 +346,7 @@ public class VideoDecoder implements ResourceDecoder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer mediaMetadataRetrieverInitializer) {
+    public VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer) {
         this(bitmapPool, mediaMetadataRetrieverInitializer, DEFAULT_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -357,7 +366,8 @@ public class VideoDecoder implements ResourceDecoder {
         }
     }
 
-    public VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer mediaMetadataRetrieverInitializer, MediaMetadataRetrieverFactory mediaMetadataRetrieverFactory) {
+    @VisibleForTesting
+    public VideoDecoder(BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer, MediaMetadataRetrieverFactory mediaMetadataRetrieverFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -377,7 +387,7 @@ public class VideoDecoder implements ResourceDecoder {
         this.factory = mediaMetadataRetrieverFactory;
     }
 
-    public static ResourceDecoder asset(BitmapPool bitmapPool) {
+    public static ResourceDecoder<AssetFileDescriptor, Bitmap> asset(BitmapPool bitmapPool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmapPool)) == null) {
@@ -386,7 +396,8 @@ public class VideoDecoder implements ResourceDecoder {
         return (ResourceDecoder) invokeL.objValue;
     }
 
-    public static ResourceDecoder byteBuffer(BitmapPool bitmapPool) {
+    @RequiresApi(api = 23)
+    public static ResourceDecoder<ByteBuffer, Bitmap> byteBuffer(BitmapPool bitmapPool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool)) == null) {
@@ -395,7 +406,7 @@ public class VideoDecoder implements ResourceDecoder {
         return (ResourceDecoder) invokeL.objValue;
     }
 
-    public static ResourceDecoder parcel(BitmapPool bitmapPool) {
+    public static ResourceDecoder<ParcelFileDescriptor, Bitmap> parcel(BitmapPool bitmapPool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bitmapPool)) == null) {
@@ -404,6 +415,7 @@ public class VideoDecoder implements ResourceDecoder {
         return (ResourceDecoder) invokeL.objValue;
     }
 
+    @Nullable
     public static Bitmap decodeFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
         InterceptResult invokeCommon;
         Bitmap bitmap;
@@ -434,6 +446,8 @@ public class VideoDecoder implements ResourceDecoder {
         return (Bitmap) invokeCommon.objValue;
     }
 
+    @Nullable
+    @TargetApi(27)
     public static Bitmap decodeScaledFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -460,10 +474,10 @@ public class VideoDecoder implements ResourceDecoder {
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(Object obj, int i, int i2, Options options) throws IOException {
+    public Resource<Bitmap> decode(@NonNull T t, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{t, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             long longValue = ((Long) options.get(TARGET_FRAME)).longValue();
             if (longValue < 0 && longValue != -1) {
                 throw new IllegalArgumentException("Requested frame must be non-negative, or DEFAULT_FRAME, given: " + longValue);
@@ -479,7 +493,7 @@ public class VideoDecoder implements ResourceDecoder {
             DownsampleStrategy downsampleStrategy2 = downsampleStrategy;
             MediaMetadataRetriever build = this.factory.build();
             try {
-                this.initializer.initialize(build, obj);
+                this.initializer.initialize(build, t);
                 Bitmap decodeFrame = decodeFrame(build, longValue, num.intValue(), i, i2, downsampleStrategy2);
                 build.release();
                 return BitmapResource.obtain(decodeFrame, this.bitmapPool);

@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class sk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public dq0 b;
+    public String c;
 
     public sk0() {
         Interceptable interceptable = $ic;
@@ -30,57 +29,26 @@ public class sk0 {
         }
     }
 
-    public final JSONObject a(Map map) {
+    public static sk0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", aj0.a().u());
-            map.put("uid", aj0.a().r());
-            map.put("cuid", aj0.a().g());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", aj0.e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            String e = qj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
+            sk0 sk0Var = new sk0();
+            sk0Var.a = jSONObject.optInt("download_state");
+            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
+            if (optJSONObject != null) {
+                try {
+                    sk0Var.b = dq0.c(optJSONObject);
+                } catch (ParseError e) {
+                    e.printStackTrace();
+                }
             }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            String h = qj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put("_os_version", h);
-            }
-            map.put("nt", String.valueOf(new iq0().c()));
-            String b = qj0.c().b(false);
-            if (!TextUtils.isEmpty(b)) {
-                map.put("imei", b);
-            }
-            String a = qj0.c().a(false);
-            if (!TextUtils.isEmpty(a)) {
-                map.put(HttpRequest.ANDROID_ID, a);
-            }
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : map.entrySet()) {
-                yz0.f(jSONObject, (String) entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+            sk0Var.c = jSONObject.optString("download_hint");
+            return sk0Var;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(Map map, lq0 lq0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, lq0Var) == null) {
-            sq0 f = sq0.f(p31.a(a(map).toString().getBytes()));
-            tq0 tq0Var = new tq0();
-            tq0Var.a("Content-Encoding", "gzip");
-            tq0Var.a("Content-Type", "application/json");
-            tq0Var.k("https://afdconf.baidu.com/afd/download");
-            tq0Var.g(3000);
-            tq0Var.i(3000);
-            tq0Var.j(3000);
-            tq0Var.f(f);
-            aq0.b().a().a(tq0Var, lq0Var);
-        }
+        return (sk0) invokeL.objValue;
     }
 }

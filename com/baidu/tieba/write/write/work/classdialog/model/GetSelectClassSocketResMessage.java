@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.write.work.classdialog.model;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VideoCategoryClassData;
@@ -20,9 +21,9 @@ import tbclient.GetWorksTags.Tag;
 public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List firstClass;
-    public List secondClass;
-    public List tags;
+    public List<String> firstClass;
+    public List<List<String>> secondClass;
+    public List<VideoCategoryClassData> tags;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSelectClassSocketResMessage() {
@@ -46,6 +47,7 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -90,7 +92,7 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List getFirstClass() {
+    public List<String> getFirstClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -99,7 +101,7 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getSecondClass() {
+    public List<List<String>> getSecondClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -108,7 +110,7 @@ public class GetSelectClassSocketResMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getTags() {
+    public List<VideoCategoryClassData> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

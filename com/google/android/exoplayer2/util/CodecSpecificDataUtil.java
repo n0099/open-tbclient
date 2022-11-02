@@ -188,7 +188,7 @@ public final class CodecSpecificDataUtil {
         return invokeL.intValue;
     }
 
-    public static Pair parseAacAudioSpecificConfig(byte[] bArr) throws ParserException {
+    public static Pair<Integer, Integer> parseAacAudioSpecificConfig(byte[] bArr) throws ParserException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
@@ -197,7 +197,7 @@ public final class CodecSpecificDataUtil {
         return (Pair) invokeL.objValue;
     }
 
-    public static Pair parseAacAudioSpecificConfig(ParsableBitArray parsableBitArray, boolean z) throws ParserException {
+    public static Pair<Integer, Integer> parseAacAudioSpecificConfig(ParsableBitArray parsableBitArray, boolean z) throws ParserException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, parsableBitArray, z)) == null) {

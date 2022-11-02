@@ -39,8 +39,8 @@ public class DataCore {
     public JSONObject j;
     public Object k;
     public boolean l;
-    public HashMap m;
-    public List n;
+    public HashMap<String, String> m;
+    public List<String> n;
     public JSONObject o;
 
     private void a(Context context, JSONObject jSONObject) {
@@ -110,7 +110,7 @@ public class DataCore {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = (String) this.m.get(Config.SESSION_JSON_PY);
+            String str = this.m.get(Config.SESSION_JSON_PY);
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -161,7 +161,7 @@ public class DataCore {
         this.h = 0;
         this.k = new Object();
         this.l = false;
-        this.m = new HashMap();
+        this.m = new HashMap<>();
         this.n = Collections.synchronizedList(new ArrayList());
         this.o = new JSONObject();
     }
@@ -796,7 +796,7 @@ public class DataCore {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = (String) this.m.get(Config.EVENT_PY);
+            String str = this.m.get(Config.EVENT_PY);
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -810,7 +810,7 @@ public class DataCore {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = (String) this.m.get(Config.PAGE_PY);
+            String str = this.m.get(Config.PAGE_PY);
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -824,9 +824,9 @@ public class DataCore {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String str = (String) this.m.get(Config.SESSION_PY);
-            String str2 = (String) this.m.get(Config.USER_PY);
-            String str3 = (String) this.m.get(Config.UID_PY);
+            String str = this.m.get(Config.SESSION_PY);
+            String str2 = this.m.get(Config.USER_PY);
+            String str3 = this.m.get(Config.UID_PY);
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -1018,7 +1018,7 @@ public class DataCore {
         }
     }
 
-    public void setPydProperty(Context context, Map map, String str, String str2) {
+    public void setPydProperty(Context context, Map<String, String> map, String str, String str2) {
         String str3;
         StringBuffer stringBuffer;
         StringBuffer stringBuffer2;
@@ -1042,22 +1042,22 @@ public class DataCore {
                         StringBuffer stringBuffer7 = new StringBuffer();
                         StringBuffer stringBuffer8 = new StringBuffer();
                         JSONObject jSONObject2 = new JSONObject();
-                        Iterator it = map.entrySet().iterator();
+                        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
                         while (true) {
                             JSONObject jSONObject3 = jSONObject2;
                             StringBuffer stringBuffer9 = stringBuffer7;
                             String str6 = "2";
                             if (it.hasNext()) {
-                                Map.Entry entry = (Map.Entry) it.next();
-                                Iterator it2 = it;
-                                String str7 = (String) entry.getKey();
-                                String str8 = (String) entry.getValue();
-                                if (!TextUtils.isEmpty(str7) && !TextUtils.isEmpty(str8)) {
+                                Map.Entry<String, String> next = it.next();
+                                Iterator<Map.Entry<String, String>> it2 = it;
+                                String key = next.getKey();
+                                String value = next.getValue();
+                                if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value)) {
                                     StringBuffer stringBuffer10 = stringBuffer8;
-                                    if (str7.length() <= 256 && str8.length() <= 256) {
+                                    if (key.length() <= 256 && value.length() <= 256) {
                                         JSONObject jSONObject4 = new JSONObject();
-                                        jSONObject4.put(str5, str7);
-                                        jSONObject4.put("v", str8);
+                                        jSONObject4.put(str5, key);
+                                        jSONObject4.put("v", value);
                                         jSONObject4.put("s", str);
                                         boolean z = false;
                                         if (this.n.size() > 0) {
@@ -1065,12 +1065,12 @@ public class DataCore {
                                             i = 0;
                                             while (i < this.n.size()) {
                                                 str4 = str6;
-                                                JSONObject jSONObject5 = new JSONObject((String) this.n.get(i));
+                                                JSONObject jSONObject5 = new JSONObject(this.n.get(i));
                                                 String optString = jSONObject5.optString(str5);
                                                 str3 = str5;
                                                 String optString2 = jSONObject5.optString("v");
                                                 String optString3 = jSONObject5.optString("s");
-                                                if (str7.equals(optString) && str8.equals(optString2) && str.equals(optString3)) {
+                                                if (key.equals(optString) && value.equals(optString2) && str.equals(optString3)) {
                                                     break;
                                                 }
                                                 i++;
@@ -1099,18 +1099,18 @@ public class DataCore {
                                         updatePropertyKey(str2, stringBuffer4, "0", i);
                                         updatePropertyKey(str2, stringBuffer5, "1", i);
                                         stringBuffer = stringBuffer3;
-                                        String str9 = str4;
-                                        updatePropertyKey(str2, stringBuffer, str9, i);
+                                        String str7 = str4;
+                                        updatePropertyKey(str2, stringBuffer, str7, i);
                                         stringBuffer2 = stringBuffer10;
                                         updatePropertyKey(str2, stringBuffer2, "3", i);
                                         stringBuffer7 = stringBuffer9;
                                         updatePropertyKey(str2, stringBuffer7, "4", i);
-                                        if (str2.equals(str9)) {
+                                        if (str2.equals(str7)) {
                                             JSONArray jSONArray = new JSONArray();
-                                            jSONArray.put(str8);
-                                            jSONArray.put(str9);
+                                            jSONArray.put(value);
+                                            jSONArray.put(str7);
                                             jSONObject = jSONObject3;
-                                            jSONObject.put(str7, jSONArray);
+                                            jSONObject.put(key, jSONArray);
                                         } else {
                                             jSONObject = jSONObject3;
                                         }

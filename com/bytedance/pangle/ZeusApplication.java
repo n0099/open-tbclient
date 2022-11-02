@@ -2,12 +2,14 @@ package com.bytedance.pangle;
 
 import android.app.Application;
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.plugin.Plugin;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusApplication extends PluginContext {
     public static /* synthetic */ Interceptable $ic;

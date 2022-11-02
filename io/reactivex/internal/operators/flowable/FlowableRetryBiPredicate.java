@@ -16,24 +16,24 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRetryBiPredicate extends AbstractFlowableWithUpstream {
+public final class FlowableRetryBiPredicate<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiPredicate predicate;
+    public final BiPredicate<? super Integer, ? super Throwable> predicate;
 
     /* loaded from: classes8.dex */
-    public final class RetryBiSubscriber extends AtomicInteger implements FlowableSubscriber {
+    public static final class RetryBiSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final BiPredicate predicate;
+        public final Subscriber<? super T> actual;
+        public final BiPredicate<? super Integer, ? super Throwable> predicate;
         public long produced;
         public int retries;
         public final SubscriptionArbiter sa;
-        public final Publisher source;
+        public final Publisher<? extends T> source;
 
-        public RetryBiSubscriber(Subscriber subscriber, BiPredicate biPredicate, SubscriptionArbiter subscriptionArbiter, Publisher publisher) {
+        public RetryBiSubscriber(Subscriber<? super T> subscriber, BiPredicate<? super Integer, ? super Throwable> biPredicate, SubscriptionArbiter subscriptionArbiter, Publisher<? extends T> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +67,7 @@ public final class FlowableRetryBiPredicate extends AbstractFlowableWithUpstream
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 try {
-                    BiPredicate biPredicate = this.predicate;
+                    BiPredicate<? super Integer, ? super Throwable> biPredicate = this.predicate;
                     int i = this.retries + 1;
                     this.retries = i;
                     if (!biPredicate.test(Integer.valueOf(i), th)) {
@@ -83,11 +83,11 @@ public final class FlowableRetryBiPredicate extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 this.produced++;
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             }
         }
 
@@ -120,7 +120,7 @@ public final class FlowableRetryBiPredicate extends AbstractFlowableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRetryBiPredicate(Flowable flowable, BiPredicate biPredicate) {
+    public FlowableRetryBiPredicate(Flowable<T> flowable, BiPredicate<? super Integer, ? super Throwable> biPredicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -141,7 +141,7 @@ public final class FlowableRetryBiPredicate extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();

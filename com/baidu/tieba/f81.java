@@ -1,19 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes4.dex */
 public interface f81 {
-    void a();
+    void a(AdBaseModel adBaseModel);
 
-    Object getRealView();
+    void b(AdBaseModel adBaseModel);
 
-    void setBtnIconNightModeEnable(boolean z);
+    void c(AdBaseModel adBaseModel);
 
-    void setBtnPlaceholder(Object obj);
+    void d(AdBaseModel adBaseModel);
 
-    void setData(zo0 zo0Var);
+    void e(AdBaseModel adBaseModel);
 
-    void setEnhanceBtnListener(d81 d81Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    void f(AdBaseModel adBaseModel, float f);
 }

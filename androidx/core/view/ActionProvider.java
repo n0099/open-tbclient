@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,6 +21,7 @@ public abstract class ActionProvider {
     public SubUiVisibilityListener mSubUiVisibilityListener;
     public VisibilityListener mVisibilityListener;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface SubUiVisibilityListener {
         void onSubUiVisibilityChanged(boolean z);
@@ -101,6 +103,7 @@ public abstract class ActionProvider {
         return (View) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, subUiVisibilityListener) == null) {
@@ -108,6 +111,7 @@ public abstract class ActionProvider {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void subUiVisibilityChanged(boolean z) {
         SubUiVisibilityListener subUiVisibilityListener;
         Interceptable interceptable = $ic;
@@ -132,6 +136,7 @@ public abstract class ActionProvider {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

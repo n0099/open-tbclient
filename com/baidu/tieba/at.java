@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class at implements gt {
+public class at<T> extends zs<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final it a;
 
     public at() {
         Interceptable interceptable = $ic;
@@ -23,25 +20,23 @@ public class at implements gt {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new it();
     }
 
-    public ht a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zs
+    public void o(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            super.o(t);
         }
-        return (ht) invokeV.objValue;
     }
 
-    public void b(BuoyViewData buoyViewData) {
+    @Override // com.baidu.tieba.zs
+    public void p(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buoyViewData) == null) {
-            this.a.o(buoyViewData);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            super.p(t);
         }
     }
 }

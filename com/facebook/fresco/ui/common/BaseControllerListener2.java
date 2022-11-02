@@ -12,7 +12,7 @@ import com.facebook.fresco.ui.common.ControllerListener2;
 import javax.annotation.Nullable;
 @Deprecated
 /* loaded from: classes7.dex */
-public class BaseControllerListener2 implements ControllerListener2 {
+public class BaseControllerListener2<INFO> implements ControllerListener2<INFO> {
     public static /* synthetic */ Interceptable $ic;
     public static final ControllerListener2 NO_OP_LISTENER;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class BaseControllerListener2 implements ControllerListener2 {
     }
 
     @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onFinalImageSet(String str, @Nullable Object obj, ControllerListener2.Extras extras) {
+    public void onFinalImageSet(String str, @Nullable INFO info, ControllerListener2.Extras extras) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, extras) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info, extras) == null) {
         }
     }
 
@@ -39,9 +39,9 @@ public class BaseControllerListener2 implements ControllerListener2 {
     }
 
     @Override // com.facebook.fresco.ui.common.ControllerListener2
-    public void onIntermediateImageSet(String str, @Nullable Object obj) {
+    public void onIntermediateImageSet(String str, @Nullable INFO info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, info) == null) {
         }
     }
 
@@ -89,7 +89,7 @@ public class BaseControllerListener2 implements ControllerListener2 {
         }
     }
 
-    public static ControllerListener2 getNoOpListener() {
+    public static <I> ControllerListener2<I> getNoOpListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

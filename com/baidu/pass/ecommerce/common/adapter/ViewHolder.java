@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class ViewHolder {
+public class ViewHolder<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View convertView;
 
-    public void bindView(Object obj) {
+    public void bindView(D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, d) == null) {
         }
     }
 
@@ -37,12 +37,12 @@ public class ViewHolder {
         this.convertView = view2;
     }
 
-    public View findViewById(int i) {
+    public <T extends View> T findViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.convertView.findViewById(i);
+            return (T) this.convertView.findViewById(i);
         }
-        return (View) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 }

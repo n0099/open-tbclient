@@ -23,6 +23,7 @@ public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public final int strideY;
     public final int width;
 
+    @CalledByNative
     public WrappedNativeI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

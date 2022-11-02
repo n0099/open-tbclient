@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface al4 {
-    boolean a(MotionEvent motionEvent);
+public class al4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
-
-    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
-
-    boolean onDoubleTap(MotionEvent motionEvent);
-
-    boolean onDown(MotionEvent motionEvent);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

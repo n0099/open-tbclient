@@ -1,6 +1,7 @@
 package com.google.android.gms.common.util;
 
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,6 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class DefaultClock implements Clock {
     public static /* synthetic */ Interceptable $ic;
@@ -45,6 +48,8 @@ public class DefaultClock implements Clock {
         }
     }
 
+    @NonNull
+    @KeepForSdk
     public static Clock getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -36,7 +36,7 @@ public class FCMPushHelper {
         }
     }
 
-    public static Map a(Context context) {
+    public static Map<String, String> a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -146,11 +146,11 @@ public class FCMPushHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? i.m155a(context, e.b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
     }
 
-    public static void notifyFCMNotificationCome(Context context, Map map) {
+    public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
         PushMessageReceiver a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, map) == null) {
-            String str = (String) map.get("pushMsg");
+            String str = map.get("pushMsg");
             if (TextUtils.isEmpty(str) || (a = i.a(context)) == null) {
                 return;
             }
@@ -158,16 +158,16 @@ public class FCMPushHelper {
         }
     }
 
-    public static Map notifyFCMPassThoughMessageCome(Context context, Map map) {
+    public static Map<String, String> notifyFCMPassThoughMessageCome(Context context, Map<String, String> map) {
         InterceptResult invokeLL;
         PushMessageReceiver a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, map)) == null) {
-            String str = (String) map.get("pushMsg");
+            String str = map.get("pushMsg");
             if (!TextUtils.isEmpty(str) && (a = i.a(context)) != null) {
                 a.onReceivePassThroughMessage(context, i.a(str));
             }
-            String str2 = (String) map.get("mipushContainer");
+            String str2 = map.get("mipushContainer");
             if (TextUtils.isEmpty(str2)) {
                 return new HashMap();
             }

@@ -1,5 +1,6 @@
 package com.baidu.pyramid.runtime.service;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public final class ServiceReference {
     public final String mName;
     public final String mNameSpace;
 
-    public ServiceReference(String str, String str2) {
+    public ServiceReference(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

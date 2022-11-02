@@ -90,7 +90,7 @@ public final class MixRoomRepository {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Map getEnterIdCallbacks() {
+    public final Map<String, List<OnMixDataLoaded<MixResult<LiveRoomEnterRespData>>>> getEnterIdCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
@@ -182,14 +182,14 @@ public final class MixRoomRepository {
                 jSONObject.put("im_uk", String.valueOf(AccountManager.getUK(MiniShellRuntime.INSTANCE.getAppContext())));
                 jSONObject.put("tags", "[\"follow\",\"others\"]");
                 putAudioExtraAppId(jSONObject);
-                roomEnterParams.addExtParams(new Pair("audio_extra", jSONObject.toString()));
+                roomEnterParams.addExtParams(new Pair<>("audio_extra", jSONObject.toString()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private final Map genRoomEnterReqParams(RoomEnterParams roomEnterParams) {
+    private final Map<String, String> genRoomEnterReqParams(RoomEnterParams roomEnterParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, roomEnterParams)) == null) {
@@ -234,11 +234,11 @@ public final class MixRoomRepository {
         return invokeV.booleanValue;
     }
 
-    public final void fetchRoomEnter(final RoomEnterParams roomEnterParams, OnMixDataLoaded onMixDataLoaded) {
+    public final void fetchRoomEnter(final RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, roomEnterParams, onMixDataLoaded) == null) {
-            List list = (List) getEnterIdCallbacks().get(roomEnterParams.getId());
+            List<OnMixDataLoaded<MixResult<LiveRoomEnterRespData>>> list = getEnterIdCallbacks().get(roomEnterParams.getId());
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
@@ -246,12 +246,12 @@ public final class MixRoomRepository {
             }
             if (onMixDataLoaded != null) {
                 if (list == null) {
-                    list = new ArrayList();
+                    list = new ArrayList<>();
                 }
                 if (list != null) {
                     list.add(onMixDataLoaded);
                 }
-                List list2 = (List) getEnterIdCallbacks().put(roomEnterParams.getId(), list);
+                getEnterIdCallbacks().put(roomEnterParams.getId(), list);
             }
             if (!z) {
                 return;
@@ -259,14 +259,14 @@ public final class MixRoomRepository {
             if (Intrinsics.areEqual(roomEnterParams.isAudio(), Boolean.TRUE)) {
                 addAudioExtraParams(roomEnterParams, roomEnterParams.getId());
             }
-            Map genRoomEnterReqParams = genRoomEnterReqParams(roomEnterParams);
+            Map<String, String> genRoomEnterReqParams = genRoomEnterReqParams(roomEnterParams);
             MixYaLogService mixYaLogService = (MixYaLogService) MixRequestServiceLocator.Companion.getGlobalService(MixYaLogService.class);
             if (mixYaLogService != null) {
                 mixYaLogService.yaLogWithStringFormat(MixYaLogConstants.ENTER_TAG_ID, "request", genRoomEnterReqParams.toString());
             }
             MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetStart();
             MediaLivePlayLogger.Companion.getInstance().logLiveRoomPageStartEnterLiveReq();
-            MixRequesterKt.fetchData(MixUrlConfigKt.getRoomEnterUrl(), genRoomEnterReqParams, new MixNetCallback(this, roomEnterParams) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomEnter$3
+            MixRequesterKt.fetchData(MixUrlConfigKt.getRoomEnterUrl(), genRoomEnterReqParams, new MixNetCallback<JSONObject>(this, roomEnterParams) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomEnter$3
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ RoomEnterParams $enterParams;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -310,9 +310,9 @@ public final class MixRoomRepository {
                         String str = null;
                         if (netResponse != null && !netResponse.isSuccessful()) {
                             enterIdCallbacks4 = this.this$0.getEnterIdCallbacks();
-                            List<OnMixDataLoaded> list3 = (List) enterIdCallbacks4.get(this.$enterParams.getId());
-                            if (list3 != null) {
-                                for (OnMixDataLoaded onMixDataLoaded2 : list3) {
+                            List<OnMixDataLoaded> list2 = (List) enterIdCallbacks4.get(this.$enterParams.getId());
+                            if (list2 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded2 : list2) {
                                     if (onMixDataLoaded2 != null) {
                                         StringBuilder sb = new StringBuilder();
                                         sb.append("errno Invalid, errno = ");
@@ -345,9 +345,9 @@ public final class MixRoomRepository {
                             }
                             mixResultStatData.responseTime = j2;
                             enterIdCallbacks2 = this.this$0.getEnterIdCallbacks();
-                            List<OnMixDataLoaded> list4 = (List) enterIdCallbacks2.get(this.$enterParams.getId());
-                            if (list4 != null) {
-                                for (OnMixDataLoaded onMixDataLoaded3 : list4) {
+                            List<OnMixDataLoaded> list3 = (List) enterIdCallbacks2.get(this.$enterParams.getId());
+                            if (list3 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded3 : list3) {
                                     if (onMixDataLoaded3 != null) {
                                         onMixDataLoaded3.onMixDataLoaded(new MixResult.MixSuccess(liveRoomEnterRespData2, mixResultStatData));
                                     }
@@ -363,9 +363,9 @@ public final class MixRoomRepository {
                                 liveRoomEnterRespData = new LiveRoomEnterRespData(jSONObject);
                             }
                             enterIdCallbacks = this.this$0.getEnterIdCallbacks();
-                            List<OnMixDataLoaded> list5 = (List) enterIdCallbacks.get(this.$enterParams.getId());
-                            if (list5 != null) {
-                                for (OnMixDataLoaded onMixDataLoaded4 : list5) {
+                            List<OnMixDataLoaded> list4 = (List) enterIdCallbacks.get(this.$enterParams.getId());
+                            if (list4 != null) {
+                                for (OnMixDataLoaded onMixDataLoaded4 : list4) {
                                     if (onMixDataLoaded4 != null) {
                                         onMixDataLoaded4.onMixDataLoaded(new MixResult.MixError(new Exception("errno Invalid, errno = " + i), Integer.valueOf(i), liveRoomEnterRespData));
                                     }
@@ -408,7 +408,7 @@ public final class MixRoomRepository {
         }
     }
 
-    public final void fetchRoomExit(RoomExitParams roomExitParams, final OnMixDataLoaded onMixDataLoaded) {
+    public final void fetchRoomExit(RoomExitParams roomExitParams, final OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, roomExitParams, onMixDataLoaded) == null) {
             if (Intrinsics.areEqual(roomExitParams.isAudio(), Boolean.TRUE)) {
@@ -419,7 +419,7 @@ public final class MixRoomRepository {
                 Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "audioExtra.toString()");
                 roomExitParams.addExtParams("audio_extra", jSONObject2);
             }
-            MixRequesterKt.fetchData$default(MixUrlConfigKt.getRoomExitUrl(), roomExitParams.toMap(), new MixNetCallback(onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomExit$1
+            MixRequesterKt.fetchData$default(MixUrlConfigKt.getRoomExitUrl(), roomExitParams.toMap(), new MixNetCallback<Integer>(onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.repository.MixRoomRepository$fetchRoomExit$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ OnMixDataLoaded $callback;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -491,6 +491,7 @@ public final class MixRoomRepository {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.searchbox.live.model.net.MixNetCallback
                 public Integer onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;

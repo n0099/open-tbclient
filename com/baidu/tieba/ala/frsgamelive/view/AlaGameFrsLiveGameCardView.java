@@ -7,27 +7,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.lx5;
-import com.baidu.tieba.p16;
-import com.baidu.tieba.qt5;
+import com.baidu.tieba.qy5;
+import com.baidu.tieba.vy5;
+import com.baidu.tieba.z26;
+import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveGameCardView extends p16 {
+public class AlaGameFrsLiveGameCardView extends z26<qy5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public lx5 j;
+    public vy5 j;
 
-    @Override // com.baidu.tieba.p16
+    @Override // com.baidu.tieba.z26
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0110 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,7 +38,7 @@ public class AlaGameFrsLiveGameCardView extends p16 {
     }
 
     /* loaded from: classes3.dex */
-    public class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
+    public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AlaGameFrsLiveGameCardView a;
@@ -66,7 +66,7 @@ public class AlaGameFrsLiveGameCardView extends p16 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaGameFrsLiveGameCardView(TbPageContext tbPageContext) {
+    public AlaGameFrsLiveGameCardView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,38 +88,38 @@ public class AlaGameFrsLiveGameCardView extends p16 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p16
+    @Override // com.baidu.tieba.z26
     /* renamed from: s */
-    public void l(gx5 gx5Var) {
+    public void l(qy5 qy5Var) {
         ThreadData threadData;
-        lx5 lx5Var;
+        vy5 vy5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, gx5Var) == null) && gx5Var != null && (threadData = gx5Var.a) != null && (lx5Var = this.j) != null) {
-            lx5Var.d(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, qy5Var) == null) && qy5Var != null && (threadData = qy5Var.a) != null && (vy5Var = this.j) != null) {
+            vy5Var.d(threadData);
         }
     }
 
-    public void t(qt5 qt5Var) {
-        lx5 lx5Var;
+    public void t(zu5 zu5Var) {
+        vy5 vy5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, qt5Var) == null) && (lx5Var = this.j) != null) {
-            lx5Var.g(qt5Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, zu5Var) == null) && (vy5Var = this.j) != null) {
+            vy5Var.g(zu5Var);
         }
     }
 
-    @Override // com.baidu.tieba.p16
-    public void m(TbPageContext tbPageContext, int i) {
-        lx5 lx5Var;
+    @Override // com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        vy5 vy5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (lx5Var = this.j) != null) {
-            lx5Var.e(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (vy5Var = this.j) != null) {
+            vy5Var.e(tbPageContext, i);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new lx5(this.i);
+            this.j = new vy5(this.i);
             ((ViewGroup) k()).addView(this.j.c());
         }
     }

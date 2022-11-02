@@ -1,12 +1,19 @@
 package com.google.android.gms.common;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.internal.ShowFirstParty;
+@ShowFirstParty
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class FirstPartyScopes {
     public static /* synthetic */ Interceptable $ic = null;
+    @NonNull
+    @KeepForSdk
     public static final String GAMES_1P = "https://www.googleapis.com/auth/games.firstparty";
     public transient /* synthetic */ FieldHolder $fh;
 

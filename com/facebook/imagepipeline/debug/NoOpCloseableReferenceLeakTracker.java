@@ -32,7 +32,7 @@ public class NoOpCloseableReferenceLeakTracker implements CloseableReferenceLeak
     }
 
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
-    public void trackCloseableReferenceLeak(SharedReference sharedReference, @Nullable Throwable th) {
+    public void trackCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sharedReference, th) == null) {
         }

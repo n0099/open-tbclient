@@ -6,15 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import org.apache.http.NameValuePair;
 import org.apache.http.entity.StringEntity;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UrlEncodedFormEntity extends StringEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UrlEncodedFormEntity(List list) throws UnsupportedEncodingException {
+    public UrlEncodedFormEntity(List<? extends NameValuePair> list) throws UnsupportedEncodingException {
         super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,7 +36,7 @@ public class UrlEncodedFormEntity extends StringEntity {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UrlEncodedFormEntity(List list, String str) throws UnsupportedEncodingException {
+    public UrlEncodedFormEntity(List<? extends NameValuePair> list, String str) throws UnsupportedEncodingException {
         super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

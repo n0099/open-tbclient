@@ -1,6 +1,7 @@
 package com.kuaishou.weapon.p0;
 
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -41,7 +42,7 @@ public class h1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -142,6 +143,7 @@ public class h1 {
         return invokeL.booleanValue;
     }
 
+    @TargetApi(22)
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -215,7 +217,7 @@ public class h1 {
         return (String) invokeL.objValue;
     }
 
-    public static Method a(Class cls, String str, Class... clsArr) {
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
@@ -240,7 +242,7 @@ public class h1 {
         return (Method) invokeLLL.objValue;
     }
 
-    public static void a(Context context, String str, Map map) {
+    public static void a(Context context, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65546, null, context, str, map) == null) || TextUtils.isEmpty(str) || i.a(context, "re_po_rt").b(f3.c1, 1) == 0) {
             return;
@@ -323,7 +325,7 @@ public class h1 {
         return (String) invokeLI.objValue;
     }
 
-    public static Method b(Class cls, String str, Class... clsArr) {
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, cls, str, clsArr)) == null) {
@@ -822,8 +824,8 @@ public class h1 {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x004b A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x004a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x004b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -915,6 +917,7 @@ public class h1 {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(23)
     public static int x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

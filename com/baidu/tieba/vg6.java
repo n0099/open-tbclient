@@ -1,75 +1,70 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchPostForum.DataRes;
-import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
-public class vg6 {
+public class vg6 extends ui6<xi6, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SearchForum a;
-    public List b;
-    public ArrayList c;
-    public String d;
 
-    public vg6(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
     }
 
-    public ArrayList a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jn
+    /* renamed from: E */
+    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new FrsEmpertyItemViewHolder(new View(this.mContext));
         }
-        return (ArrayList) invokeV.objValue;
+        return (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    public View F(int i, View view2, ViewGroup viewGroup, xi6 xi6Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xi6Var, frsEmpertyItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, xi6Var, frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.b(xi6Var.b());
+            frsEmpertyItemViewHolder.a(xi6Var.a());
+            return view2;
         }
-        this.a = dataRes.exact_match;
-        this.b = dataRes.fuzzy_match;
-        this.c = new ArrayList();
-        ug6 ug6Var = new ug6(this.d);
-        SearchForum searchForum = this.a;
-        if (searchForum != null) {
-            ug6Var.s(searchForum);
-            this.c.add(ug6Var);
-        }
-        List<SearchForum> list = this.b;
-        if (list == null) {
-            return;
-        }
-        for (SearchForum searchForum2 : list) {
-            if (searchForum2 != null) {
-                ug6 ug6Var2 = new ug6(this.d);
-                ug6Var2.s(searchForum2);
-                this.c.add(ug6Var2);
-            }
-        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ui6, com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (xi6) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 }

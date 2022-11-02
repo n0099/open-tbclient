@@ -2,6 +2,7 @@ package androidx.cardview.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public interface CardViewImpl {
     ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate);
@@ -24,7 +25,7 @@ public interface CardViewImpl {
 
     void onPreventCornerOverlapChanged(CardViewDelegate cardViewDelegate);
 
-    void setBackgroundColor(CardViewDelegate cardViewDelegate, ColorStateList colorStateList);
+    void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList);
 
     void setElevation(CardViewDelegate cardViewDelegate, float f);
 

@@ -291,7 +291,7 @@ public class ThreadPool {
         }
     }
 
-    public Future submit(Callable callable) {
+    public <T> Future<T> submit(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, callable)) == null) {
@@ -302,7 +302,7 @@ public class ThreadPool {
         return (Future) invokeL.objValue;
     }
 
-    public Future submitQueue(Callable callable) {
+    public <T> Future<T> submitQueue(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, callable)) == null) {

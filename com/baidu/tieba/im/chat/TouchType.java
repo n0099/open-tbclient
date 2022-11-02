@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
 /* loaded from: classes4.dex */
-public class TouchType extends Hashtable {
+public class TouchType extends Hashtable<Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY = 0;
     public static final long serialVersionUID = 1;
@@ -34,7 +34,7 @@ public class TouchType extends Hashtable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ((Boolean) get(0)).booleanValue();
+            return get(0).booleanValue();
         }
         return invokeV.booleanValue;
     }

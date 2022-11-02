@@ -1,9 +1,11 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d17;
-import com.baidu.tieba.y07;
+import com.baidu.tieba.h27;
+import com.baidu.tieba.m27;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,10 +16,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes4.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements y07 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements h27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mMoreTreasureTroveDataList;
+    public List<wn> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -37,8 +39,8 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // com.baidu.tieba.y07
-    public List getDataList() {
+    @Override // com.baidu.tieba.h27
+    public List<wn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -48,6 +50,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -62,7 +65,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = d17.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = m27.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }

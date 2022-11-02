@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.breakpoint;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -18,18 +20,20 @@ import java.util.List;
 public class BreakpointInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List blockInfoList;
+    public final List<BlockInfo> blockInfoList;
     public boolean chunked;
     public String etag;
     public final DownloadStrategy.FilenameHolder filenameHolder;
     public final int id;
     public String mimeType;
+    @NonNull
     public final File parentFile;
+    @Nullable
     public File targetFile;
     public final boolean taskOnlyProvidedParentPath;
     public final String url;
 
-    public BreakpointInfo(int i, String str, File file, String str2) {
+    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +62,7 @@ public class BreakpointInfo {
         this.targetFile = new File(file, str2);
     }
 
-    public BreakpointInfo(int i, String str, File file, String str2, boolean z) {
+    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +100,7 @@ public class BreakpointInfo {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (BlockInfo) this.blockInfoList.get(i);
+            return this.blockInfoList.get(i);
         }
         return (BlockInfo) invokeI.objValue;
     }
@@ -215,6 +219,7 @@ public class BreakpointInfo {
         return invokeV.intValue;
     }
 
+    @Nullable
     public String getEtag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,6 +229,7 @@ public class BreakpointInfo {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public File getFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,6 +246,7 @@ public class BreakpointInfo {
         return (File) invokeV.objValue;
     }
 
+    @Nullable
     public String getFilename() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -276,6 +283,7 @@ public class BreakpointInfo {
         return invokeV.longValue;
     }
 
+    @Nullable
     public String getMimeType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,6 +293,7 @@ public class BreakpointInfo {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public File getParentFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

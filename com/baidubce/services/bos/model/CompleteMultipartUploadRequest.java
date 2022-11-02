@@ -17,7 +17,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectMetadata objectMetadata;
-    public List partETags;
+    public List<PartETag> partETags;
 
     public CompleteMultipartUploadRequest() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         return (ObjectMetadata) invokeV.objValue;
     }
 
-    public List getPartETags() {
+    public List<PartETag> getPartETags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -54,7 +54,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CompleteMultipartUploadRequest(String str, String str2, String str3, List list) {
+    public CompleteMultipartUploadRequest(String str, String str2, String str3, List<PartETag> list) {
         this(str, str2, str3, list, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +75,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CompleteMultipartUploadRequest(String str, String str2, String str3, List list, ObjectMetadata objectMetadata) {
+    public CompleteMultipartUploadRequest(String str, String str2, String str3, List<PartETag> list, ObjectMetadata objectMetadata) {
         super(str, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -139,7 +139,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         return (CompleteMultipartUploadRequest) invokeL.objValue;
     }
 
-    public CompleteMultipartUploadRequest withPartETags(List list) {
+    public CompleteMultipartUploadRequest withPartETags(List<PartETag> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
@@ -161,14 +161,14 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         return (CompleteMultipartUploadRequest) invokeL.objValue;
     }
 
-    public void setPartETags(List list) {
+    public void setPartETags(List<PartETag> list) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             CheckUtils.isNotNull(list, "partETags should not be null.");
             for (int i = 0; i < list.size(); i++) {
-                PartETag partETag = (PartETag) list.get(i);
+                PartETag partETag = list.get(i);
                 CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i));
                 int partNumber = partETag.getPartNumber();
                 if (partNumber > 0) {
@@ -179,7 +179,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
                 CheckUtils.checkArgument(z2, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i), Integer.valueOf(partNumber));
                 CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i));
             }
-            Collections.sort(list, new Comparator(this) { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
+            Collections.sort(list, new Comparator<PartETag>(this) { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CompleteMultipartUploadRequest this$0;
@@ -216,7 +216,7 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
             int i2 = 0;
             int i3 = 0;
             while (i2 < list.size()) {
-                int partNumber2 = ((PartETag) list.get(i2)).getPartNumber();
+                int partNumber2 = list.get(i2).getPartNumber();
                 if (partNumber2 != i3) {
                     z = true;
                 } else {

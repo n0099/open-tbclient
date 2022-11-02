@@ -1,58 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.cpu.booster.utils.CpuType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.HashMap;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
 public class wn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wn3 d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
-    public boolean b;
-    public Timer c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948276301, "Lcom/baidu/tieba/wn3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948276301, "Lcom/baidu/tieba/wn3;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, byte[] bArr);
     }
 
     /* loaded from: classes6.dex */
-    public class a extends TimerTask {
+    public class a extends ResponseCallback<byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wn3 a;
+        public final /* synthetic */ b a;
 
-        public a(wn3 wn3Var) {
+        /* renamed from: com.baidu.tieba.wn3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0459a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ byte[] a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0459a(a aVar, byte[] bArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bArr};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bArr;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b.a) != null) {
+                    bVar.a(true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a(false, null);
+                }
+            }
+        }
+
+        public a(wn3 wn3Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wn3Var};
+                Object[] objArr = {wn3Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,259 +111,60 @@ public class wn3 {
                     return;
                 }
             }
-            this.a = wn3Var;
+            this.a = bVar;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
+            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
+                yg3.l(new RunnableC0459a(this, bArr), "HandshakeRequest");
             }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                yg3.l(new b(this), "HandshakeRequest");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public byte[] parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                return response.body().bytes();
+            }
+            return (byte[]) invokeLI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-312234801, "Lcom/baidu/tieba/wn3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-312234801, "Lcom/baidu/tieba/wn3$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[CpuType.values().length];
-            a = iArr;
-            try {
-                iArr[CpuType.Mtk.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[CpuType.QualComm.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[CpuType.Unknown.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public wn3(Context context) {
-        long j;
+    public wn3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        if (e) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        a(context.getApplicationContext());
-        if (e) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("CPU-Booster", "collect booster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            e = z;
-        }
-    }
-
-    public static wn3 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                synchronized (wn3.class) {
-                    if (d == null) {
-                        d = new wn3(context);
-                    }
-                }
-            }
-            return d;
-        }
-        return (wn3) invokeL.objValue;
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (e) {
-                Log.d("CPU-Booster", "cpu-booster preInit");
-            }
-            d(context);
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                return 200;
-            }
-            return Math.min(i, 5000);
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (lo3.a()) {
-                this.a.add(new yn3(context));
-                this.a.add(new ao3(context));
-            } else if (lo3.b()) {
-                this.a.add(new go3(context));
-            }
-            int i = b.a[ko3.h().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    this.a.add(new io3(context));
-                    return;
-                }
-                return;
-            }
-            this.a.add(new eo3(context));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !e) {
-            return;
-        }
-        int e2 = ko3.e();
-        StringBuilder sb = new StringBuilder(" \n\n");
-        sb.append("CPU Support Freq Info:\n");
-        for (int i = 0; i < e2; i++) {
-            co3 a2 = ko3.a(i);
-            sb.append("CPU");
-            sb.append(a2.a);
-            sb.append(":");
-            sb.append("min-");
-            sb.append(a2.b / 1000);
-            sb.append("mHz, max-");
-            sb.append(a2.c / 1000);
-            sb.append("mHz\n");
-        }
-        sb.append("\n\n");
-        sb.append("CPU Current Freq:\n");
-        for (int i2 = 0; i2 < e2; i2++) {
-            sb.append("CPU");
-            sb.append(i2);
-            sb.append(":");
-            sb.append(ko3.j(i2) / 1000);
-            sb.append("mHz");
-            sb.append("\n");
-        }
-        if (e) {
-            Log.d("CPU-Booster", sb.toString());
-        }
-    }
-
-    public synchronized void i() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "stopBooster");
-                }
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (xn3 xn3Var : this.a) {
-                    xn3Var.a();
-                }
-                this.b = false;
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "stop booster cost - " + (currentTimeMillis - j) + "ms");
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public synchronized void g() {
+    public void a(byte[] bArr, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                h(3000);
-            }
-        }
-    }
-
-    public synchronized void h(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    if (e) {
-                        Log.d("CPU-Booster", "start fail -> isEnabled - true, already start - " + this.b);
-                    }
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "startBooster");
-                }
-                this.b = true;
-                int c = c(i);
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (xn3 xn3Var : this.a) {
-                    xn3Var.b(c);
-                }
-                if (this.c == null) {
-                    Timer timer = new Timer();
-                    this.c = timer;
-                    timer.schedule(new a(this), c);
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "start booster cost - " + (currentTimeMillis - j) + "ms");
-                    f();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, bVar) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/octet-stream");
+            hashMap.put("Bdtls", "Bdtls");
+            ib4.g().postByteRequest().url(bn3.b).cookieManager(ln2.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

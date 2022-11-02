@@ -1,6 +1,7 @@
 package com.ss.android.download.api.c;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +27,7 @@ public class b {
         return "";
     }
 
+    @NonNull
     public static JSONObject a(JSONObject jSONObject) {
         return a(jSONObject, new JSONObject());
     }
@@ -45,6 +47,7 @@ public class b {
         return jSONObject2;
     }
 
+    @NonNull
     public static JSONObject a(JSONObject... jSONObjectArr) {
         JSONObject jSONObject = new JSONObject();
         if (jSONObjectArr != null && jSONObjectArr.length != 0) {

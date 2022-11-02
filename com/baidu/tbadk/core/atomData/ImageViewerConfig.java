@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,10 +17,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.ix4;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.xx4;
+import com.baidu.tieba.yh5;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,16 +90,16 @@ public class ImageViewerConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList a;
+        public ArrayList<String> a;
         public int b;
         public String c;
         public String d;
@@ -106,7 +107,7 @@ public class ImageViewerConfig extends IntentConfig {
         public boolean f;
         public String g;
         public boolean h;
-        public ConcurrentHashMap i;
+        public ConcurrentHashMap<String, ImageUrlData> i;
         public boolean j;
         public boolean k;
         public boolean l;
@@ -144,7 +145,7 @@ public class ImageViewerConfig extends IntentConfig {
             this.w = true;
         }
 
-        public Builder A(ArrayList arrayList) {
+        public Builder A(ArrayList<String> arrayList) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
@@ -314,6 +315,7 @@ public class ImageViewerConfig extends IntentConfig {
             return (Builder) invokeL.objValue;
         }
 
+        @Keep
         public void setNeedRequestAd(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
@@ -330,7 +332,7 @@ public class ImageViewerConfig extends IntentConfig {
             return (ImageViewerConfig) invokeL.objValue;
         }
 
-        public Builder y(ConcurrentHashMap concurrentHashMap) {
+        public Builder y(ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, concurrentHashMap)) == null) {
@@ -478,12 +480,12 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, ch5.c());
-        if (hx4.a() != null && hx4.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, hx4.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, yh5.c());
+        if (xx4.a() != null && xx4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, xx4.a().a);
         }
-        if (ix4.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, ix4.b().a());
+        if (yx4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, yx4.b().a());
         }
     }
 

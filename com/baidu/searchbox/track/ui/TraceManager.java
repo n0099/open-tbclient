@@ -8,6 +8,8 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -95,14 +97,14 @@ public class TraceManager {
         return invokeL.booleanValue;
     }
 
-    public void setOnFragmentListener(OnFragmentTraceListener onFragmentTraceListener) {
+    public void setOnFragmentListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onFragmentTraceListener) == null) {
             this.mOnFragmentListener = onFragmentTraceListener;
         }
     }
 
-    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2) {
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @NonNull String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, activity, str, obj, str2)) == null) {
@@ -111,7 +113,7 @@ public class TraceManager {
         return (TrackUI) invokeLLLL.objValue;
     }
 
-    private TrackUI createTraceInfo(Activity activity, String str, Object obj, String str2, String str3, String str4, String str5) {
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @Nullable String str2, @Nullable String str3, @Nullable String str4, @NonNull String str5) {
         InterceptResult invokeCommon;
         StringBuilder sb;
         String str6;
@@ -225,14 +227,14 @@ public class TraceManager {
         }
     }
 
-    public void saveTraceInfo(Activity activity, Object obj, String str, String str2, String str3, String str4) {
+    public void saveTraceInfo(@NonNull Activity activity, @Nullable Object obj, @Nullable String str, @Nullable String str2, @Nullable String str3, @NonNull String str4) {
         TrackUI createTraceInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{activity, obj, str, str2, str3, str4}) == null) && this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, null, obj, str, str2, str3, str4)) != null) {
             Track.getInstance().addTrackUI(createTraceInfo);
-            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
+            Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
             while (it.hasNext()) {
-                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
+                it.next().onAddTrackUI(createTraceInfo);
             }
         }
     }
@@ -242,14 +244,14 @@ public class TraceManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(1048581, this, activity, str, obj, str2) == null) && this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, str, obj, str2)) != null) {
             Track.getInstance().addTrackUI(createTraceInfo);
-            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
+            Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
             while (it.hasNext()) {
-                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
+                it.next().onAddTrackUI(createTraceInfo);
             }
         }
     }
 
-    public void saveTraceInfo(Activity activity, boolean z) {
+    public void saveTraceInfo(@NonNull Activity activity, boolean z) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048582, this, activity, z) != null) || !this.mIsRegistered) {
@@ -263,9 +265,9 @@ public class TraceManager {
         TrackUI createTraceInfo = createTraceInfo(activity, null, null, str);
         if (createTraceInfo != null) {
             Track.getInstance().addTrackUI(createTraceInfo);
-            Iterator it = Track.getInstance().getTrackUIListeners().iterator();
+            Iterator<Track.OnTrackUIListener> it = Track.getInstance().getTrackUIListeners().iterator();
             while (it.hasNext()) {
-                ((Track.OnTrackUIListener) it.next()).onAddTrackUI(createTraceInfo);
+                it.next().onAddTrackUI(createTraceInfo);
             }
         }
     }

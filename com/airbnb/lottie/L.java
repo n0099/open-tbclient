@@ -1,6 +1,8 @@
 package com.airbnb.lottie;
 
+import androidx.annotation.RestrictTo;
 import androidx.core.os.TraceCompat;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class L {
     public static boolean DBG = false;

@@ -21,11 +21,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class QuickReply implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<QuickReply> CREATOR;
     public static final int MENU_TYPE = 1;
     public static final String TAG = "QuickReply";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mButtonList;
+    public ArrayList<ReplyContent> mButtonList;
     public String mMenuName;
     public long mPaId;
     public String mPaName;
@@ -46,9 +46,9 @@ public class QuickReply implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public class Act implements Parcelable {
+    public static class Act implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<Act> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCallBackKey;
         public int mIsCallBack;
@@ -78,7 +78,7 @@ public class QuickReply implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
+            CREATOR = new Parcelable.Creator<Act>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.Act.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,6 +97,7 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Act createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -108,6 +109,7 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public Act[] newArray(int i) {
                     InterceptResult invokeI;
@@ -232,9 +234,9 @@ public class QuickReply implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public class ReplyContent implements Parcelable {
+    public static class ReplyContent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<ReplyContent> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public Act mAct;
         public String mName;
@@ -262,7 +264,7 @@ public class QuickReply implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
+            CREATOR = new Parcelable.Creator<ReplyContent>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.ReplyContent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -281,6 +283,7 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public ReplyContent createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -292,6 +295,7 @@ public class QuickReply implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public ReplyContent[] newArray(int i) {
                     InterceptResult invokeI;
@@ -392,7 +396,7 @@ public class QuickReply implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
+        CREATOR = new Parcelable.Creator<QuickReply>() { // from class: com.baidu.android.imsdk.pubaccount.QuickReply.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -411,6 +415,7 @@ public class QuickReply implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QuickReply createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -422,6 +427,7 @@ public class QuickReply implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public QuickReply[] newArray(int i) {
                 InterceptResult invokeI;
@@ -448,7 +454,7 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    public ArrayList getButtonList() {
+    public ArrayList<ReplyContent> getButtonList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -574,7 +580,7 @@ public class QuickReply implements Parcelable {
                 quickReply.setMenuName(jSONObject.getString("name"));
                 quickReply.setPaName(jSONObject.optString("src"));
                 JSONArray jSONArray = jSONObject.getJSONArray("button_list");
-                ArrayList arrayList = new ArrayList();
+                ArrayList<ReplyContent> arrayList = new ArrayList<>();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     ReplyContent replyContent = new ReplyContent();
@@ -600,7 +606,7 @@ public class QuickReply implements Parcelable {
         return (QuickReply) invokeL.objValue;
     }
 
-    public void setButtonList(ArrayList arrayList) {
+    public void setButtonList(ArrayList<ReplyContent> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
             this.mButtonList = arrayList;

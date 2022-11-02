@@ -40,7 +40,7 @@ public class ShareLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class GetShareListStat implements NoProguard {
+    public static class GetShareListStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ACCOUNT_APPS = "account_apps";
         public static final String KEY_ACCOUNT_SIZE = "account_size";
@@ -74,7 +74,7 @@ public class ShareLoginStat implements NoProguard {
         public static final String VALUE_SENCE_OUT = "out";
         public static final String VALUE_UNABLE = "0";
         public static String sValueSence;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -157,7 +157,7 @@ public class ShareLoginStat implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class MakeShareLoginStat implements NoProguard {
+    public static class MakeShareLoginStat implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_ERRMSG = "errorMsg";
         public static final String KEY_ERRNO = "errorNo";
@@ -178,7 +178,7 @@ public class ShareLoginStat implements NoProguard {
         public static final String VALUE_SENCE_OUT = "out";
         public static final String VALUE_UNABLE = "0";
         public static String sValueSence;
-        public static Map statExtMap;
+        public static Map<String, Object> statExtMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

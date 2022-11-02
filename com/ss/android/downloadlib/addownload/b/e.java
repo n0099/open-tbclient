@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib.addownload.b;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -96,7 +97,7 @@ public class e implements com.ss.android.downloadad.api.a.a {
     }
 
     @Override // com.ss.android.downloadad.api.a.a
-    public List n() {
+    public List<String> n() {
         return this.b.getClickTrackUrl();
     }
 
@@ -151,7 +152,7 @@ public class e implements com.ss.android.downloadad.api.a.a {
         return false;
     }
 
-    public e(long j, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
+    public e(long j, @NonNull DownloadModel downloadModel, @NonNull DownloadEventConfig downloadEventConfig, @NonNull DownloadController downloadController) {
         this.a = j;
         this.b = downloadModel;
         this.c = downloadEventConfig;

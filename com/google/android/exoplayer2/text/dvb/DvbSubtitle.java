@@ -6,13 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import java.util.List;
 /* loaded from: classes7.dex */
 public final class DvbSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List cues;
+    public final List<Cue> cues;
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public long getEventTime(int i) {
@@ -44,7 +45,7 @@ public final class DvbSubtitle implements Subtitle {
         return invokeJ.intValue;
     }
 
-    public DvbSubtitle(List list) {
+    public DvbSubtitle(List<Cue> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +64,7 @@ public final class DvbSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {

@@ -1,108 +1,76 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Paint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
 /* loaded from: classes4.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor) {
+    public static int a(float f, Paint paint, String str, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
-            try {
-                cursor.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
+            if (f != 0.0f && i != 0 && str != null && !str.isEmpty()) {
+                return Math.min((int) Math.ceil(paint.measureText(str) / f), i);
             }
+            return 0;
         }
+        return invokeCommon.intValue;
     }
 
-    public static void b(SQLiteDatabase sQLiteDatabase) {
+    public static boolean b(float f, Paint paint, String str, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
+            return c(f, paint, str, i, 5);
         }
+        return invokeCommon.booleanValue;
     }
 
-    public static void c(SQLiteStatement sQLiteStatement) {
+    public static boolean c(float f, Paint paint, String str, int i, int i2) {
+        InterceptResult invokeCommon;
+        float measureText;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) && sQLiteStatement != null) {
-            try {
-                sQLiteStatement.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            float f2 = 0.0f;
+            if (f != 0.0f && i != 0 && str != null && !str.isEmpty() && paint != null) {
+                if (!str.contains("\n")) {
+                    if (paint.measureText(str) < f * i) {
+                        return false;
+                    }
+                    return true;
+                }
+                String[] split = str.split("\n");
+                if (split.length > i) {
+                    return true;
+                }
+                int i3 = 0;
+                for (int i4 = 0; i4 < i && split.length > i4; i4++) {
+                    if (i4 < i - 1) {
+                        measureText = paint.measureText(split[i4]);
+                        int ceil = (int) Math.ceil(measureText / f);
+                        i3 += ceil;
+                        if (i3 < i2) {
+                            measureText = ceil * f;
+                        }
+                    } else {
+                        measureText = paint.measureText(split[i4]);
+                        i3++;
+                    }
+                    f2 += measureText;
+                    if (i3 >= 5) {
+                        if (f2 < f * i) {
+                            return false;
+                        }
+                        return true;
+                    }
+                }
             }
+            return false;
         }
-    }
-
-    public static void d(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-        }
-    }
-
-    public static void e(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) && inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void f(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) && outputStream != null) {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void g(Reader reader) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, reader) == null) && reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void h(Writer writer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, writer) == null) && writer != null) {
-            try {
-                writer.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return invokeCommon.booleanValue;
     }
 }

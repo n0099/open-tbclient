@@ -18,16 +18,16 @@ import io.reactivex.observers.LambdaConsumerIntrospection;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class LambdaObserver extends AtomicReference implements Observer, Disposable, LambdaConsumerIntrospection {
+public final class LambdaObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, LambdaConsumerIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7251123623727029452L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Consumer onNext;
-    public final Consumer onSubscribe;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
+    public final Consumer<? super Disposable> onSubscribe;
 
-    public LambdaObserver(Consumer consumer, Consumer consumer2, Action action, Consumer consumer3) {
+    public LambdaObserver(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Disposable> consumer3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,14 +111,14 @@ public final class LambdaObserver extends AtomicReference implements Observer, D
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && !isDisposed()) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, t) == null) && !isDisposed()) {
             try {
-                this.onNext.accept(obj);
+                this.onNext.accept(t);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                ((Disposable) get()).dispose();
+                get().dispose();
                 onError(th);
             }
         }

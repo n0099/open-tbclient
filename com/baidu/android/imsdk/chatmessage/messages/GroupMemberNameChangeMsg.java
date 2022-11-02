@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupMemberNameChangeMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public long mMemberVersion;
     public String nickname;
@@ -44,7 +44,7 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberNameChangeMsg.1
+        CREATOR = new Parcelable.Creator<GroupMemberNameChangeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberNameChangeMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +63,7 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberNameChangeMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +75,7 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberNameChangeMsg[] newArray(int i) {
                 InterceptResult invokeI;

@@ -11,6 +11,7 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
@@ -22,23 +23,23 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableFlatMapCompletable extends AbstractObservableWithUpstream {
+public final class ObservableFlatMapCompletable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function mapper;
+    public final Function<? super T, ? extends CompletableSource> mapper;
 
     /* loaded from: classes8.dex */
-    public final class FlatMapCompletableMainObserver extends BasicIntQueueDisposable implements Observer {
+    public static final class FlatMapCompletableMainObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8443155186132538303L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public Disposable d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
-        public final Function mapper;
+        public final Function<? super T, ? extends CompletableSource> mapper;
         public final CompositeDisposable set;
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -59,13 +60,14 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 return null;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
@@ -76,7 +78,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
         }
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference implements CompletableObserver, Disposable {
+        public final class InnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8606673141535671828L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +131,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return DisposableHelper.isDisposed((Disposable) get());
+                    return DisposableHelper.isDisposed(get());
                 }
                 return invokeV.booleanValue;
             }
@@ -143,7 +145,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
             }
         }
 
-        public FlatMapCompletableMainObserver(Observer observer, Function function, boolean z) {
+        public FlatMapCompletableMainObserver(Observer<? super T> observer, Function<? super T, ? extends CompletableSource> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +201,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
             }
         }
 
-        public void innerComplete(InnerObserver innerObserver) {
+        public void innerComplete(FlatMapCompletableMainObserver<T>.InnerObserver innerObserver) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, innerObserver) == null) {
                 this.set.delete(innerObserver);
@@ -216,7 +218,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
             }
         }
 
-        public void innerError(InnerObserver innerObserver, Throwable th) {
+        public void innerError(FlatMapCompletableMainObserver<T>.InnerObserver innerObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, innerObserver, th) == null) {
                 this.set.delete(innerObserver);
@@ -248,11 +250,11 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
                 try {
-                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null CompletableSource");
+                    CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                     getAndIncrement();
                     InnerObserver innerObserver = new InnerObserver(this);
                     if (!this.disposed && this.set.add(innerObserver)) {
@@ -268,7 +270,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFlatMapCompletable(ObservableSource observableSource, Function function, boolean z) {
+    public ObservableFlatMapCompletable(ObservableSource<T> observableSource, Function<? super T, ? extends CompletableSource> function, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -290,7 +292,7 @@ public final class ObservableFlatMapCompletable extends AbstractObservableWithUp
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new FlatMapCompletableMainObserver(observer, this.mapper, this.delayErrors));

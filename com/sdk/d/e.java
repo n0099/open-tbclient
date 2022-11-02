@@ -17,13 +17,13 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public abstract class e implements k {
+public abstract class e<Params, Progress, Result> implements k {
     public static /* synthetic */ Interceptable $ic;
     public static final b a;
     public static final Executor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c c;
-    public final FutureTask d;
+    public final c<Params, Result> c;
+    public final FutureTask<Result> d;
     public final AtomicBoolean e;
     public final AtomicBoolean f;
     public volatile boolean g;
@@ -31,18 +31,18 @@ public abstract class e implements k {
     public com.sdk.d.b i;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final e a;
-        public final Object[] b;
+        public final Data[] b;
 
-        public a(e eVar, Object... objArr) {
+        public a(e eVar, Data... dataArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {eVar, objArr};
+                Object[] objArr = {eVar, dataArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public abstract class e implements k {
                 }
             }
             this.a = eVar;
-            this.b = objArr;
+            this.b = dataArr;
         }
     }
 
@@ -95,18 +95,18 @@ public abstract class e implements k {
         this.d = new d(this, this.c);
     }
 
-    public final Object a(Object obj) {
+    public final Result a(Result result) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            a.obtainMessage(1, new a(this, obj)).sendToTarget();
-            return obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
+            a.obtainMessage(1, new a(this, result)).sendToTarget();
+            return result;
         }
-        return invokeL.objValue;
+        return (Result) invokeL.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class b extends Handler {
+    public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,14 +138,14 @@ public abstract class e implements k {
                                         return;
                                     } else if (objArr.length == 3) {
                                         eVar2.p = e.a.d;
-                                        com.sdk.e.b bVar = eVar2.m;
+                                        Object obj = eVar2.m;
                                         int intValue2 = ((Integer) objArr[1]).intValue();
-                                        com.sdk.g.b bVar2 = ((com.sdk.g.a) bVar).b;
+                                        com.sdk.g.b bVar = ((com.sdk.g.a) obj).b;
                                         String str = ((Object) ((String) objArr[2])) + "";
-                                        com.sdk.e.a aVar2 = bVar2.g;
-                                        if (aVar2 != null) {
+                                        com.sdk.e.a<T> aVar2 = bVar.g;
+                                        if (aVar2 != 0) {
                                             aVar2.a(intValue2, 302002, str);
-                                            bVar2.g = null;
+                                            bVar.g = null;
                                             return;
                                         }
                                         return;
@@ -174,10 +174,10 @@ public abstract class e implements k {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class c implements Callable {
+    public static abstract class c<Params, Result> implements Callable<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
+        public Params[] a;
 
         public /* synthetic */ c(com.sdk.d.c cVar) {
         }
@@ -185,7 +185,7 @@ public abstract class e implements k {
 
     public static /* synthetic */ void b(e eVar, Object obj) {
         if (!eVar.f.get()) {
-            eVar.a(obj);
+            eVar.a((e) obj);
         }
     }
 
@@ -193,10 +193,10 @@ public abstract class e implements k {
         eVar.e.get();
     }
 
-    public final void a(Object... objArr) {
+    public final void a(Progress... progressArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) && !this.e.get()) {
-            a.obtainMessage(2, new a(this, objArr)).sendToTarget();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressArr) == null) && !this.e.get()) {
+            a.obtainMessage(2, new a(this, progressArr)).sendToTarget();
         }
     }
 }

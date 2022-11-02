@@ -33,7 +33,7 @@ public final class Detector {
     public int shift;
 
     /* loaded from: classes7.dex */
-    public final class Point {
+    public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int x;

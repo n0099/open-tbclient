@@ -19,10 +19,10 @@ public class gl extends gn {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map f434a;
+    public final Map<String, String> f434a;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final a b;
@@ -197,10 +197,10 @@ public class gl extends gn {
                 sb.append(gy.a(k()));
                 sb.append("\" ");
             }
-            for (Map.Entry entry : this.f434a.entrySet()) {
-                sb.append(gy.a((String) entry.getKey()));
+            for (Map.Entry<String, String> entry : this.f434a.entrySet()) {
+                sb.append(gy.a(entry.getKey()));
                 sb.append("=\"");
-                sb.append(gy.a((String) entry.getValue()));
+                sb.append(gy.a(entry.getValue()));
                 sb.append("\" ");
             }
             if (this.a == null) {
@@ -236,7 +236,7 @@ public class gl extends gn {
         }
     }
 
-    public synchronized void a(Map map) {
+    public synchronized void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {

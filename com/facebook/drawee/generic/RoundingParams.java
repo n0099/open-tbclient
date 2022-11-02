@@ -1,5 +1,6 @@
 package com.facebook.drawee.generic;
 
+import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +30,7 @@ public class RoundingParams {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class RoundingMethod {
+    public static final class RoundingMethod {
         public static final /* synthetic */ RoundingMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RoundingMethod BITMAP_ONLY;
@@ -247,7 +248,7 @@ public class RoundingParams {
         return (RoundingParams) invokeF.objValue;
     }
 
-    public RoundingParams setBorderColor(int i) {
+    public RoundingParams setBorderColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -302,7 +303,7 @@ public class RoundingParams {
         return (RoundingParams) invokeF.objValue;
     }
 
-    public RoundingParams setOverlayColor(int i) {
+    public RoundingParams setOverlayColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
@@ -427,7 +428,7 @@ public class RoundingParams {
         return invokeV.intValue;
     }
 
-    public RoundingParams setBorder(int i, float f) {
+    public RoundingParams setBorder(@ColorInt int i, float f) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;

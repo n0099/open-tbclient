@@ -1,78 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes6.dex */
-public class tn5 extends rn {
+public final class tn5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext mPageContext;
+    public int a;
+    public int b;
+    public int c;
+    public final WheelView d;
 
-    @Override // com.baidu.tieba.rn
-    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return null;
-        }
-        return (TypeAdapter.ViewHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj, viewHolder})) == null) {
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tn5(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public tn5(WheelView wheelView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {wheelView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = wheelView;
+        this.c = i;
+        this.a = Integer.MAX_VALUE;
+        this.b = 0;
     }
 
-    public void setPageContext(TbPageContext tbPageContext) {
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            this.mPageContext = tbPageContext;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == Integer.MAX_VALUE) {
+                this.a = this.c;
+            }
+            int i = this.a;
+            int i2 = (int) (i * 0.1f);
+            this.b = i2;
+            if (i2 == 0) {
+                if (i < 0) {
+                    this.b = -1;
+                } else {
+                    this.b = 1;
+                }
+            }
+            if (Math.abs(this.a) <= 1) {
+                this.d.b();
+                this.d.getHandler().sendEmptyMessage(3000);
+                return;
+            }
+            WheelView wheelView = this.d;
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
+            if (!this.d.i()) {
+                float itemHeight = this.d.getItemHeight();
+                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
+                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
+                    WheelView wheelView2 = this.d;
+                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
+                    this.d.b();
+                    this.d.getHandler().sendEmptyMessage(3000);
+                    return;
+                }
+            }
+            this.d.getHandler().sendEmptyMessage(1000);
+            this.a -= this.b;
         }
     }
 }

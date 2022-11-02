@@ -55,7 +55,7 @@ public class WalletStaticInit {
                 }
 
                 @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-                public int deal(TbPageContext tbPageContext, String[] strArr) {
+                public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, tbPageContext, strArr)) == null) {

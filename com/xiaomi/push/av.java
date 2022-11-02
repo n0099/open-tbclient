@@ -156,7 +156,7 @@ public class av implements au, InvocationHandler {
         b(context);
     }
 
-    public static Class a(Context context, String str) {
+    public static Class<?> a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -169,15 +169,15 @@ public class av implements au, InvocationHandler {
         return (Class) invokeLL.objValue;
     }
 
-    public static Object a(Method method, Object obj, Object... objArr) {
+    public static <T> T a(Method method, Object obj, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, method, obj, objArr)) == null) {
             if (method != null) {
                 try {
-                    Object invoke = method.invoke(obj, objArr);
-                    if (invoke != null) {
-                        return invoke;
+                    T t = (T) method.invoke(obj, objArr);
+                    if (t != null) {
+                        return t;
                     }
                     return null;
                 } catch (Throwable unused) {
@@ -186,10 +186,10 @@ public class av implements au, InvocationHandler {
             }
             return null;
         }
-        return invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public static Method a(Class cls, String str, Class... clsArr) {
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, clsArr)) == null) {
@@ -220,9 +220,9 @@ public class av implements au, InvocationHandler {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            Class a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
-            Class cls = null;
-            Class cls2 = null;
+            Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
+            Class<?> cls = null;
+            Class<?> cls2 = null;
             int i = 0;
             while (true) {
                 String[][] strArr = a;
@@ -230,8 +230,8 @@ public class av implements au, InvocationHandler {
                     break;
                 }
                 String[] strArr2 = strArr[i];
-                Class a3 = a(context, strArr2[0]);
-                Class a4 = a(context, strArr2[1]);
+                Class<?> a3 = a(context, strArr2[0]);
+                Class<?> a4 = a(context, strArr2[1]);
                 if (a3 != null && a4 != null) {
                     b("found class in index " + i);
                     cls2 = a4;

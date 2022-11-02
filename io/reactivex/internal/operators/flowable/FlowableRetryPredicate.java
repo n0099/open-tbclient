@@ -16,25 +16,25 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRetryPredicate extends AbstractFlowableWithUpstream {
+public final class FlowableRetryPredicate<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long count;
-    public final Predicate predicate;
+    public final Predicate<? super Throwable> predicate;
 
     /* loaded from: classes8.dex */
-    public final class RetrySubscriber extends AtomicInteger implements FlowableSubscriber {
+    public static final class RetrySubscriber<T> extends AtomicInteger implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7098360935104053232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final Predicate predicate;
+        public final Subscriber<? super T> actual;
+        public final Predicate<? super Throwable> predicate;
         public long produced;
         public long remaining;
         public final SubscriptionArbiter sa;
-        public final Publisher source;
+        public final Publisher<? extends T> source;
 
-        public RetrySubscriber(Subscriber subscriber, long j, Predicate predicate, SubscriptionArbiter subscriptionArbiter, Publisher publisher) {
+        public RetrySubscriber(Subscriber<? super T> subscriber, long j, Predicate<? super Throwable> predicate, SubscriptionArbiter subscriptionArbiter, Publisher<? extends T> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,11 +90,11 @@ public final class FlowableRetryPredicate extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 this.produced++;
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             }
         }
 
@@ -127,7 +127,7 @@ public final class FlowableRetryPredicate extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRetryPredicate(Flowable flowable, long j, Predicate predicate) {
+    public FlowableRetryPredicate(Flowable<T> flowable, long j, Predicate<? super Throwable> predicate) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -149,7 +149,7 @@ public final class FlowableRetryPredicate extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();

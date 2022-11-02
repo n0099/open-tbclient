@@ -30,18 +30,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddrListAdapter extends CommonAdapter {
+public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public long lastClickTime;
     public EditAddressListener listener;
-    public HashMap mAddrListColorMap;
-    public HashMap mAddrListTextStyle;
+    public HashMap<PassAddrColorLocation, String> mAddrListColorMap;
+    public HashMap<PassAddrColorLocation, Boolean> mAddrListTextStyle;
     public Context mContext;
     public Drawable mEditIcon;
-    public List nuomiAddressIds;
+    public List<String> nuomiAddressIds;
 
     /* loaded from: classes2.dex */
     public interface EditAddressListener {
@@ -56,7 +56,7 @@ public class AddrListAdapter extends CommonAdapter {
     }
 
     /* loaded from: classes2.dex */
-    public class AddrListItemViewHolder extends ViewHolder implements View.OnClickListener {
+    public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject addrJsonObj;
@@ -366,14 +366,14 @@ public class AddrListAdapter extends CommonAdapter {
         }
     }
 
-    public void setNuoMiAddressIds(List list) {
+    public void setNuoMiAddressIds(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.nuomiAddressIds = list;
         }
     }
 
-    public void setItemStyle(HashMap hashMap, HashMap hashMap2) {
+    public void setItemStyle(HashMap<PassAddrColorLocation, String> hashMap, HashMap<PassAddrColorLocation, Boolean> hashMap2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, hashMap, hashMap2) == null) {
             this.mAddrListColorMap = hashMap;

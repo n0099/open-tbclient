@@ -16,13 +16,13 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToMaybe;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class MaybeIgnoreElementCompletable extends Completable implements FuseToMaybe {
+public final class MaybeIgnoreElementCompletable<T> extends Completable implements FuseToMaybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MaybeSource source;
+    public final MaybeSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class IgnoreMaybeObserver implements MaybeObserver, Disposable {
+    public static final class IgnoreMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
@@ -65,9 +65,9 @@ public final class MaybeIgnoreElementCompletable extends Completable implements 
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 this.d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
@@ -102,7 +102,7 @@ public final class MaybeIgnoreElementCompletable extends Completable implements 
         }
     }
 
-    public MaybeIgnoreElementCompletable(MaybeSource maybeSource) {
+    public MaybeIgnoreElementCompletable(MaybeSource<T> maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public final class MaybeIgnoreElementCompletable extends Completable implements 
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToMaybe
-    public Maybe fuseToMaybe() {
+    public Maybe<T> fuseToMaybe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

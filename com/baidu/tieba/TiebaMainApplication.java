@@ -35,7 +35,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            yd5.b().F(System.currentTimeMillis());
+            ue5.b().F(System.currentTimeMillis());
         }
     }
 
@@ -55,7 +55,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            yd5.b().t(currentTimeMillis);
+            ue5.b().t(currentTimeMillis);
         }
     }
 }

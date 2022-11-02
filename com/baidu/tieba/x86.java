@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.a65;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,31 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class x86 extends a65 {
+public class x86 implements wn {
     public static /* synthetic */ Interceptable $ic;
-    public static x86 b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList a;
-
-    @Override // com.baidu.tieba.a65
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.a65
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public FeatureCardTopic a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +30,7 @@ public class x86 extends a65 {
                 return;
             }
         }
-        b = new x86();
+        b = BdUniqueId.gen();
     }
 
     public x86() {
@@ -66,72 +47,33 @@ public class x86 extends a65 {
         }
     }
 
-    public static synchronized x86 e() {
-        InterceptResult invokeV;
-        x86 x86Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (x86.class) {
-                x86Var = b;
-            }
-            return x86Var;
-        }
-        return (x86) invokeV.objValue;
-    }
-
-    public boolean g() {
+    public FeatureCardTopic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList linkedList = this.a;
-            if (linkedList != null && linkedList.size() != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (FeatureCardTopic) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a65
-    public void b(a65.a aVar) {
+    @Override // com.baidu.tieba.wn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            LinkedList linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator it = this.a.iterator();
-                while (it.hasNext()) {
-                    d65 d65Var = (d65) it.next();
-                    if (aVar != null) {
-                        aVar.a(d65Var);
-                    }
-                }
-            } else if (TbFaceManager.i().m() > 0) {
-                this.a = new LinkedList();
-                w86 w86Var = new w86();
-                this.a.add(w86Var);
-                if (aVar != null) {
-                    aVar.a(w86Var);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public void b(FeatureCardTopic featureCardTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList linkedList = this.a;
-            if (linkedList != null) {
-                Iterator it = linkedList.iterator();
-                while (it.hasNext()) {
-                    if (((d65) it.next()).m(str)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) != null) || featureCardTopic == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = featureCardTopic;
+        String str = featureCardTopic.title;
+        Integer num = featureCardTopic.floor;
+        Integer num2 = featureCardTopic.type;
     }
 }

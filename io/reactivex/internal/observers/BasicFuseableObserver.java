@@ -14,12 +14,12 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public abstract class BasicFuseableObserver implements Observer, QueueDisposable {
+public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueDisposable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
+    public final Observer<? super R> actual;
     public boolean done;
-    public QueueDisposable qs;
+    public QueueDisposable<T> qs;
     public Disposable s;
     public int sourceMode;
 
@@ -38,7 +38,7 @@ public abstract class BasicFuseableObserver implements Observer, QueueDisposable
         return invokeV.booleanValue;
     }
 
-    public BasicFuseableObserver(Observer observer) {
+    public BasicFuseableObserver(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,10 +66,10 @@ public abstract class BasicFuseableObserver implements Observer, QueueDisposable
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(Object obj) {
+    public final boolean offer(R r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, r)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeL.booleanValue;
@@ -107,7 +107,7 @@ public abstract class BasicFuseableObserver implements Observer, QueueDisposable
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            QueueDisposable queueDisposable = this.qs;
+            QueueDisposable<T> queueDisposable = this.qs;
             if (queueDisposable != null && (i & 4) == 0) {
                 int requestFusion = queueDisposable.requestFusion(i);
                 if (requestFusion != 0) {
@@ -167,10 +167,10 @@ public abstract class BasicFuseableObserver implements Observer, QueueDisposable
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public final boolean offer(Object obj, Object obj2) {
+    public final boolean offer(R r, R r2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, r, r2)) == null) {
             throw new UnsupportedOperationException("Should not be called!");
         }
         return invokeLL.booleanValue;

@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.kernel;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -78,7 +80,7 @@ public class DumediaInfoConverter implements CyberPlayerManager.OnPreparedListen
         return invokeI.intValue;
     }
 
-    public DumediaInfoConverter(AbsVideoKernel absVideoKernel) {
+    public DumediaInfoConverter(@NonNull AbsVideoKernel absVideoKernel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +107,7 @@ public class DumediaInfoConverter implements CyberPlayerManager.OnPreparedListen
         }
     }
 
-    public void setPlayerCallback(IKernelPlayer iKernelPlayer) {
+    public void setPlayerCallback(@Nullable IKernelPlayer iKernelPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iKernelPlayer) == null) {
             this.mPlayerCallback = iKernelPlayer;

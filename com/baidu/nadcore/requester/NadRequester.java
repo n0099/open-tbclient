@@ -1,8 +1,10 @@
 package com.baidu.nadcore.requester;
 
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.wz0;
+import com.baidu.tieba.n01;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,18 +16,18 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
-    public static final wz0 a;
+    public static final n01 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(Error error);
+        void a(@NonNull Error error);
 
-        void b(List list);
+        void b(@NonNull List<AdBaseModel> list);
     }
 
     /* loaded from: classes2.dex */
-    public final class Error extends Exception {
+    public static final class Error extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,12 +108,12 @@ public class NadRequester {
     }
 
     /* loaded from: classes2.dex */
-    public final class a implements wz0 {
+    public static class a implements n01 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.wz0
-        public void a(RequestParameters requestParameters, b bVar) {
+        @Override // com.baidu.tieba.n01
+        public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
             }
@@ -145,17 +147,17 @@ public class NadRequester {
                 return;
             }
         }
-        wz0 wz0Var = (wz0) ServiceManager.getService(wz0.a);
-        if (wz0Var == null) {
-            wz0Var = new a();
+        n01 n01Var = (n01) ServiceManager.getService(n01.a);
+        if (n01Var == null) {
+            n01Var = new a();
         }
-        a = wz0Var;
+        a = n01Var;
     }
 
-    public static void a(RequestParameters requestParameters, b bVar) {
+    public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (aj0.a().y()) {
+            if (zi0.a().z()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

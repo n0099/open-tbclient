@@ -16,18 +16,18 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public class StrictSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4945028590049415624L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Subscriber actual;
+    public final Subscriber<? super T> actual;
     public volatile boolean done;
     public final AtomicThrowable error;
     public final AtomicBoolean once;
     public final AtomicLong requested;
-    public final AtomicReference s;
+    public final AtomicReference<Subscription> s;
 
-    public StrictSubscriber(Subscriber subscriber) {
+    public StrictSubscriber(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class StrictSubscriber extends AtomicInteger implements FlowableSubscribe
         this.actual = subscriber;
         this.error = new AtomicThrowable();
         this.requested = new AtomicLong();
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
         this.once = new AtomicBoolean();
     }
 
@@ -76,10 +76,10 @@ public class StrictSubscriber extends AtomicInteger implements FlowableSubscribe
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            HalfSerializer.onNext(this.actual, obj, this, this.error);
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            HalfSerializer.onNext(this.actual, t, this, this.error);
         }
     }
 

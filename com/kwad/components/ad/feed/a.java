@@ -1,6 +1,7 @@
 package com.kwad.components.ad.feed;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +45,7 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     }
 
     @Override // com.kwad.components.ad.a.c
-    public final void loadConfigFeedAd(KsScene ksScene, KsLoadManager.FeedAdListener feedAdListener) {
+    public final void loadConfigFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, feedAdListener) == null) {
             e.a(ksScene, feedAdListener, true);
@@ -52,7 +53,7 @@ public class a extends com.kwad.sdk.components.d implements com.kwad.components.
     }
 
     @Override // com.kwad.components.ad.a.c
-    public final void loadFeedAd(KsScene ksScene, KsLoadManager.FeedAdListener feedAdListener) {
+    public final void loadFeedAd(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, ksScene, feedAdListener) == null) {
             e.a(ksScene, feedAdListener, !com.kwad.components.ad.feed.kwai.b.be());

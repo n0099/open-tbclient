@@ -44,14 +44,14 @@ public final class DataCacheMgr {
     public NetStatusInfo mCacheNetStatusInfo;
     public int mCountFailedDns;
     public int mCountLocalDns;
-    public HashMap mDelayCacheLower;
-    public HashMap mDelayCacheUpper;
-    public HashMap mHitCacheNum;
-    public ConcurrentHashMap mHttpDNSCache;
-    public HashMap mInvokeApiNum;
-    public List mListDnsCost;
-    public ConcurrentHashMap mLocalDNSCache;
-    public ArrayList mProbeCache;
+    public HashMap<String, ArrayList<DelayTB>> mDelayCacheLower;
+    public HashMap<String, ArrayList<DelayTB>> mDelayCacheUpper;
+    public HashMap<String, Integer> mHitCacheNum;
+    public ConcurrentHashMap<String, ResultTB> mHttpDNSCache;
+    public HashMap<String, Integer> mInvokeApiNum;
+    public List<Long> mListDnsCost;
+    public ConcurrentHashMap<String, DnsInfo> mLocalDNSCache;
+    public ArrayList<ProbeTB> mProbeCache;
 
     static {
         InterceptResult invokeClinit;
@@ -124,9 +124,9 @@ public final class DataCacheMgr {
         }
     }
 
-    public ArrayList getALlProbe() {
+    public ArrayList<ProbeTB> getALlProbe() {
         InterceptResult invokeV;
-        ArrayList arrayList;
+        ArrayList<ProbeTB> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             synchronized (this.mProbeCache) {
@@ -137,7 +137,7 @@ public final class DataCacheMgr {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ConcurrentHashMap getAllLocalDNSFromCache() {
+    public ConcurrentHashMap<String, DnsInfo> getAllLocalDNSFromCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
@@ -170,9 +170,9 @@ public final class DataCacheMgr {
         return invokeV.intValue;
     }
 
-    public List getListDnsCost() {
+    public List<Long> getListDnsCost() {
         InterceptResult invokeV;
-        List list;
+        List<Long> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (this.mListDnsCost == null) {
@@ -205,7 +205,7 @@ public final class DataCacheMgr {
     public void resetListDnsCost() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            List list = this.mListDnsCost;
+            List<Long> list = this.mListDnsCost;
             if (list == null) {
                 this.mListDnsCost = new LinkedList();
                 return;
@@ -241,13 +241,13 @@ public final class DataCacheMgr {
                 return;
             }
         }
-        this.mLocalDNSCache = new ConcurrentHashMap();
-        this.mHttpDNSCache = new ConcurrentHashMap();
-        this.mProbeCache = new ArrayList();
-        this.mDelayCacheUpper = new HashMap();
-        this.mDelayCacheLower = new HashMap();
-        this.mInvokeApiNum = new HashMap();
-        this.mHitCacheNum = new HashMap();
+        this.mLocalDNSCache = new ConcurrentHashMap<>();
+        this.mHttpDNSCache = new ConcurrentHashMap<>();
+        this.mProbeCache = new ArrayList<>();
+        this.mDelayCacheUpper = new HashMap<>();
+        this.mDelayCacheLower = new HashMap<>();
+        this.mInvokeApiNum = new HashMap<>();
+        this.mHitCacheNum = new HashMap<>();
         this.mCacheNetStatusInfo = null;
         this.mCacheIdentity = null;
         this.mCountFailedDns = 0;
@@ -342,7 +342,7 @@ public final class DataCacheMgr {
             synchronized (this) {
                 i = 0;
                 if (this.mHitCacheNum.containsKey(str)) {
-                    i = ((Integer) this.mHitCacheNum.get(str)).intValue();
+                    i = this.mHitCacheNum.get(str).intValue();
                 }
             }
             return i;
@@ -358,7 +358,7 @@ public final class DataCacheMgr {
             synchronized (this) {
                 i = 0;
                 if (this.mInvokeApiNum.containsKey(str)) {
-                    i = ((Integer) this.mInvokeApiNum.get(str)).intValue();
+                    i = this.mInvokeApiNum.get(str).intValue();
                 }
             }
             return i;
@@ -405,9 +405,9 @@ public final class DataCacheMgr {
         if ((interceptable == null || interceptable.invokeL(1048576, this, delayTB) == null) && delayTB != null) {
             if (delayTB.getDelay() >= 500) {
                 synchronized (this.mDelayCacheUpper) {
-                    ArrayList arrayList = (ArrayList) this.mDelayCacheUpper.get(delayTB.getHost());
+                    ArrayList<DelayTB> arrayList = this.mDelayCacheUpper.get(delayTB.getHost());
                     if (arrayList == null) {
-                        arrayList = new ArrayList();
+                        arrayList = new ArrayList<>();
                         this.mDelayCacheUpper.put(delayTB.getHost(), arrayList);
                     }
                     arrayList.add(delayTB);
@@ -415,9 +415,9 @@ public final class DataCacheMgr {
                 return;
             }
             synchronized (this.mDelayCacheLower) {
-                ArrayList arrayList2 = (ArrayList) this.mDelayCacheLower.get(delayTB.getHost());
+                ArrayList<DelayTB> arrayList2 = this.mDelayCacheLower.get(delayTB.getHost());
                 if (arrayList2 == null) {
-                    arrayList2 = new ArrayList();
+                    arrayList2 = new ArrayList<>();
                     this.mDelayCacheLower.put(delayTB.getHost(), arrayList2);
                 }
                 arrayList2.add(delayTB);
@@ -431,7 +431,7 @@ public final class DataCacheMgr {
             synchronized (this) {
                 int i = 0;
                 if (this.mHitCacheNum.containsKey(str)) {
-                    i = ((Integer) this.mHitCacheNum.get(str)).intValue();
+                    i = this.mHitCacheNum.get(str).intValue();
                 }
                 this.mHitCacheNum.put(str, Integer.valueOf(i + 1));
             }
@@ -444,7 +444,7 @@ public final class DataCacheMgr {
             synchronized (this) {
                 int i = 0;
                 if (this.mInvokeApiNum.containsKey(str)) {
-                    i = ((Integer) this.mInvokeApiNum.get(str)).intValue();
+                    i = this.mInvokeApiNum.get(str).intValue();
                 }
                 this.mInvokeApiNum.put(str, Integer.valueOf(i + 1));
             }
@@ -460,14 +460,14 @@ public final class DataCacheMgr {
         return (String) invokeL.objValue;
     }
 
-    public ArrayList getAllDelayLower() {
+    public ArrayList<DelayTB> getAllDelayLower() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<DelayTB> arrayList = new ArrayList<>();
             synchronized (this.mDelayCacheLower) {
-                for (Map.Entry entry : this.mDelayCacheLower.entrySet()) {
-                    arrayList.addAll((ArrayList) entry.getValue());
+                for (Map.Entry<String, ArrayList<DelayTB>> entry : this.mDelayCacheLower.entrySet()) {
+                    arrayList.addAll(entry.getValue());
                 }
             }
             return arrayList;
@@ -475,14 +475,14 @@ public final class DataCacheMgr {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList getAllDelayUpper() {
+    public ArrayList<DelayTB> getAllDelayUpper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<DelayTB> arrayList = new ArrayList<>();
             synchronized (this.mDelayCacheUpper) {
-                for (Map.Entry entry : this.mDelayCacheUpper.entrySet()) {
-                    arrayList.addAll((ArrayList) entry.getValue());
+                for (Map.Entry<String, ArrayList<DelayTB>> entry : this.mDelayCacheUpper.entrySet()) {
+                    arrayList.addAll(entry.getValue());
                 }
             }
             return arrayList;
@@ -492,13 +492,13 @@ public final class DataCacheMgr {
 
     public int getHttpDNSFromCache(Context context, String str, String str2, DnsInfo dnsInfo) {
         InterceptResult invokeLLLL;
-        List resultByNetworkHost;
+        List<ResultTB> resultByNetworkHost;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048598, this, context, str, str2, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 ResultTB httpDNSFromMemCache = getHttpDNSFromMemCache(str, str2);
                 if (httpDNSFromMemCache == null && (resultByNetworkHost = DBAccessMgr.getInstance(context).getResultByNetworkHost(str, str2)) != null && !resultByNetworkHost.isEmpty()) {
-                    httpDNSFromMemCache = (ResultTB) resultByNetworkHost.get(0);
+                    httpDNSFromMemCache = resultByNetworkHost.get(0);
                 }
                 if (httpDNSFromMemCache != null) {
                     dnsInfo.setHost(httpDNSFromMemCache.getHost());
@@ -524,7 +524,7 @@ public final class DataCacheMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, str, str2)) == null) {
             try {
-                ResultTB resultTB = (ResultTB) this.mHttpDNSCache.get(str2);
+                ResultTB resultTB = this.mHttpDNSCache.get(str2);
                 if (resultTB != null) {
                     if (str.equals(resultTB.getNetwork())) {
                         return resultTB;
@@ -574,7 +574,7 @@ public final class DataCacheMgr {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 if (this.mLocalDNSCache.containsKey(str)) {
-                    DnsInfo dnsInfo2 = (DnsInfo) this.mLocalDNSCache.get(str);
+                    DnsInfo dnsInfo2 = this.mLocalDNSCache.get(str);
                     if (dnsInfo2.getEndTime() > System.currentTimeMillis()) {
                         dnsInfo.cloneDnsInfo(dnsInfo2);
                         return 0;

@@ -17,25 +17,25 @@ import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableToList extends AbstractObservableWithUpstream {
+public final class ObservableToList<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable collectionSupplier;
+    public final Callable<U> collectionSupplier;
 
     /* loaded from: classes8.dex */
-    public final class ToListObserver implements Observer, Disposable {
+    public static final class ToListObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public Collection collection;
+        public final Observer<? super U> actual;
+        public U collection;
         public Disposable s;
 
-        public ToListObserver(Observer observer, Collection collection) {
+        public ToListObserver(Observer<? super U> observer, U u) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, collection};
+                Object[] objArr = {observer, u};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
                 }
             }
             this.actual = observer;
-            this.collection = collection;
+            this.collection = u;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -71,9 +71,9 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Collection collection = this.collection;
+                U u = this.collection;
                 this.collection = null;
-                this.actual.onNext(collection);
+                this.actual.onNext(u);
                 this.actual.onComplete();
             }
         }
@@ -88,10 +88,10 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.collection.add(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.collection.add(t);
             }
         }
 
@@ -106,7 +106,7 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableToList(ObservableSource observableSource, int i) {
+    public ObservableToList(ObservableSource<T> observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +127,7 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableToList(ObservableSource observableSource, Callable callable) {
+    public ObservableToList(ObservableSource<T> observableSource, Callable<U> callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -148,7 +148,7 @@ public final class ObservableToList extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super U> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {

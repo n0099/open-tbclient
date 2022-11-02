@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.bean.Jsonable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ApsMessage implements Jsonable {
+public class ApsMessage<T extends Jsonable> implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JN_K_DATA = "data";
     public static final String JN_K_MSG = "msg";
     public static final String JN_K_STATUS = "status";
     public static final String JN_K_TYPE = "type";
     public transient /* synthetic */ FieldHolder $fh;
-    public Jsonable data;
+    public T data;
     public String msg;
     public int status;
     public int type;
@@ -45,13 +46,13 @@ public class ApsMessage implements Jsonable {
         }
     }
 
-    public Jsonable getData() {
+    public T getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.data;
         }
-        return (Jsonable) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
@@ -77,10 +78,10 @@ public class ApsMessage implements Jsonable {
         return invokeL.booleanValue;
     }
 
-    public void setData(Jsonable jsonable) {
+    public void setData(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsonable) == null) {
-            this.data = jsonable;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.data = t;
         }
     }
 
@@ -101,7 +102,7 @@ public class ApsMessage implements Jsonable {
                 jSONObject.put("status", this.status);
                 jSONObject.put("msg", this.msg);
                 jSONObject.put("type", this.type);
-                Jsonable data = getData();
+                T data = getData();
                 if (data != null) {
                     jSONObject.put("data", data.toJson());
                 }

@@ -7,7 +7,12 @@ import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import java.util.NoSuchElementException;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
+import kotlin.ExperimentalStdlibApi;
 import kotlin.Metadata;
+import kotlin.SinceKotlin;
+import kotlin.WasExperimental;
+import kotlin.internal.InlineOnly;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
 import kotlin.random.RandomKt;
@@ -67,6 +72,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "byteRangeContains")
     public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Byte byteExactOrNull = toByteExactOrNull(d);
@@ -94,6 +100,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return coerceAtMost;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final boolean contains(CharRange contains, Character ch) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         if (ch != null && contains.contains(ch.charValue())) {
@@ -106,16 +114,19 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return CharProgression.Companion.fromClosedRange(c, c2, -1);
     }
 
+    @JvmName(name = "intRangeContains")
     public static final boolean intRangeContains(ClosedRange<Integer> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Integer.valueOf(b));
     }
 
+    @JvmName(name = "longRangeContains")
     public static final boolean longRangeContains(ClosedRange<Long> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Long.valueOf(b));
     }
 
+    @SinceKotlin(version = "1.3")
     public static final char random(CharRange random, Random random2) {
         Intrinsics.checkNotNullParameter(random, "$this$random");
         Intrinsics.checkNotNullParameter(random2, "random");
@@ -126,6 +137,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         }
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character randomOrNull(CharRange randomOrNull, Random random) {
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -135,6 +148,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return Character.valueOf((char) random.nextInt(randomOrNull.getFirst(), randomOrNull.getLast() + 1));
     }
 
+    @JvmName(name = "shortRangeContains")
     public static final boolean shortRangeContains(ClosedRange<Short> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Short.valueOf(b));
@@ -167,6 +181,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "byteRangeContains")
     public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Byte byteExactOrNull = toByteExactOrNull(f);
@@ -176,6 +191,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final boolean contains(IntRange contains, Integer num) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         if (num != null && contains.contains(num.intValue())) {
@@ -184,6 +201,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @JvmName(name = "doubleRangeContains")
     public static final boolean doubleRangeContains(ClosedRange<Double> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Double.valueOf(f));
@@ -193,6 +211,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return IntProgression.Companion.fromClosedRange(b, b2, -1);
     }
 
+    @JvmName(name = "floatRangeContains")
     public static final boolean floatRangeContains(ClosedRange<Float> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Float.valueOf((float) d));
@@ -200,6 +219,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "intRangeContains")
     public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Integer intExactOrNull = toIntExactOrNull(d);
@@ -211,6 +231,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "longRangeContains")
     public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Long longExactOrNull = toLongExactOrNull(d);
@@ -220,6 +241,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final int random(IntRange random, Random random2) {
         Intrinsics.checkNotNullParameter(random, "$this$random");
         Intrinsics.checkNotNullParameter(random2, "random");
@@ -230,6 +252,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         }
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Integer randomOrNull(IntRange randomOrNull, Random random) {
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -241,6 +265,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "shortRangeContains")
     public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Short shortExactOrNull = toShortExactOrNull(d);
@@ -272,6 +297,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return new IntRange(b, b2 - 1);
     }
 
+    @JvmName(name = "byteRangeContains")
     public static final boolean byteRangeContains(ClosedRange<Byte> contains, int i) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Byte byteExactOrNull = toByteExactOrNull(i);
@@ -281,6 +307,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final boolean contains(LongRange contains, Long l) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         if (l != null && contains.contains(l.longValue())) {
@@ -295,6 +323,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "intRangeContains")
     public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Integer intExactOrNull = toIntExactOrNull(f);
@@ -306,6 +335,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "longRangeContains")
     public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Long longExactOrNull = toLongExactOrNull(f);
@@ -315,6 +345,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final long random(LongRange random, Random random2) {
         Intrinsics.checkNotNullParameter(random, "$this$random");
         Intrinsics.checkNotNullParameter(random2, "random");
@@ -325,6 +356,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         }
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Long randomOrNull(LongRange randomOrNull, Random random) {
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
         Intrinsics.checkNotNullParameter(random, "random");
@@ -336,6 +369,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
+    @JvmName(name = "shortRangeContains")
     public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Short shortExactOrNull = toShortExactOrNull(f);
@@ -370,6 +404,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return new IntRange(b, i - 1);
     }
 
+    @JvmName(name = "byteRangeContains")
     public static final boolean byteRangeContains(ClosedRange<Byte> contains, long j) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Byte byteExactOrNull = toByteExactOrNull(j);
@@ -383,6 +418,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return IntProgression.Companion.fromClosedRange(b, s, -1);
     }
 
+    @JvmName(name = "intRangeContains")
     public static final boolean intRangeContains(ClosedRange<Integer> contains, long j) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Integer intExactOrNull = toIntExactOrNull(j);
@@ -392,11 +428,13 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
+    @JvmName(name = "longRangeContains")
     public static final boolean longRangeContains(ClosedRange<Long> contains, int i) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Long.valueOf(i));
     }
 
+    @JvmName(name = "shortRangeContains")
     public static final boolean shortRangeContains(ClosedRange<Short> contains, int i) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Short shortExactOrNull = toShortExactOrNull(i);
@@ -410,6 +448,7 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return new IntRange(b, s - 1);
     }
 
+    @JvmName(name = "byteRangeContains")
     public static final boolean byteRangeContains(ClosedRange<Byte> contains, short s) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Byte byteExactOrNull = toByteExactOrNull(s);
@@ -423,16 +462,19 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return IntProgression.Companion.fromClosedRange(i, b, -1);
     }
 
+    @JvmName(name = "intRangeContains")
     public static final boolean intRangeContains(ClosedRange<Integer> contains, short s) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Integer.valueOf(s));
     }
 
+    @JvmName(name = "longRangeContains")
     public static final boolean longRangeContains(ClosedRange<Long> contains, short s) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         return contains.contains(Long.valueOf(s));
     }
 
+    @JvmName(name = "shortRangeContains")
     public static final boolean shortRangeContains(ClosedRange<Short> contains, long j) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
         Short shortExactOrNull = toShortExactOrNull(j);
@@ -504,11 +546,11 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
             return ((Number) coerceIn(Integer.valueOf(i), (ClosedFloatingPointRange<Integer>) range)).intValue();
         }
         if (!range.isEmpty()) {
-            if (i < ((Number) range.getStart()).intValue()) {
-                return ((Number) range.getStart()).intValue();
+            if (i < range.getStart().intValue()) {
+                return range.getStart().intValue();
             }
-            if (i > ((Number) range.getEndInclusive()).intValue()) {
-                return ((Number) range.getEndInclusive()).intValue();
+            if (i > range.getEndInclusive().intValue()) {
+                return range.getEndInclusive().intValue();
             }
             return i;
         }
@@ -534,11 +576,11 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
             return ((Number) coerceIn(Long.valueOf(j), (ClosedFloatingPointRange<Long>) range)).longValue();
         }
         if (!range.isEmpty()) {
-            if (j < ((Number) range.getStart()).longValue()) {
-                return ((Number) range.getStart()).longValue();
+            if (j < range.getStart().longValue()) {
+                return range.getStart().longValue();
             }
-            if (j > ((Number) range.getEndInclusive()).longValue()) {
-                return ((Number) range.getEndInclusive()).longValue();
+            if (j > range.getEndInclusive().longValue()) {
+                return range.getEndInclusive().longValue();
             }
             return j;
         }
@@ -568,15 +610,16 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return coerceIn;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <T extends Comparable<? super T>> T coerceIn(T coerceIn, ClosedFloatingPointRange<T> range) {
         Intrinsics.checkNotNullParameter(coerceIn, "$this$coerceIn");
         Intrinsics.checkNotNullParameter(range, "range");
         if (!range.isEmpty()) {
             if (range.lessThanOrEquals(coerceIn, range.getStart()) && !range.lessThanOrEquals(range.getStart(), coerceIn)) {
-                return (T) range.getStart();
+                return range.getStart();
             }
             if (range.lessThanOrEquals(range.getEndInclusive(), coerceIn) && !range.lessThanOrEquals(coerceIn, range.getEndInclusive())) {
-                return (T) range.getEndInclusive();
+                return range.getEndInclusive();
             }
             return coerceIn;
         }
@@ -591,10 +634,10 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         }
         if (!range.isEmpty()) {
             if (coerceIn.compareTo(range.getStart()) < 0) {
-                return (T) range.getStart();
+                return range.getStart();
             }
             if (coerceIn.compareTo(range.getEndInclusive()) > 0) {
-                return (T) range.getEndInclusive();
+                return range.getEndInclusive();
             }
             return coerceIn;
         }
@@ -728,10 +771,15 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return new LongRange(s, j - 1);
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final char random(CharRange charRange) {
         return random(charRange, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Character randomOrNull(CharRange charRange) {
         return randomOrNull(charRange, Random.Default);
     }
@@ -773,10 +821,15 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final int random(IntRange intRange) {
         return random(intRange, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Integer randomOrNull(IntRange intRange) {
         return randomOrNull(intRange, Random.Default);
     }
@@ -818,10 +871,15 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final long random(LongRange longRange) {
         return random(longRange, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Long randomOrNull(LongRange longRange) {
         return randomOrNull(longRange, Random.Default);
     }

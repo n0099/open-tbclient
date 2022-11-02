@@ -54,34 +54,13 @@ public class MapFragment extends Fragment {
         }
     }
 
-    public MapFragment(BaiduMapOptions baiduMapOptions) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMapOptions};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.c = baiduMapOptions;
-    }
-
     public static MapFragment newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new MapFragment() : (MapFragment) invokeV.objValue;
-    }
-
-    public static MapFragment newInstance(BaiduMapOptions baiduMapOptions) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baiduMapOptions)) == null) ? new MapFragment(baiduMapOptions) : (MapFragment) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new MapFragment();
+        }
+        return (MapFragment) invokeV.objValue;
     }
 
     public BaiduMap getBaiduMap() {
@@ -100,51 +79,10 @@ public class MapFragment extends Fragment {
     public MapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (MapView) invokeV.objValue;
-    }
-
-    @Override // android.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onActivityCreated(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    @Override // android.app.Fragment
-    public void onAttach(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            super.onAttach(activity);
-        }
-    }
-
-    @Override // android.app.Fragment, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
-            super.onConfigurationChanged(configuration);
-        }
-    }
-
-    @Override // android.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onCreate(bundle);
-        }
-    }
-
-    @Override // android.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            MapView mapView = new MapView(getActivity(), this.c);
-            this.b = mapView;
-            return mapView;
-        }
-        return (View) invokeLLL.objValue;
+        return (MapView) invokeV.objValue;
     }
 
     @Override // android.app.Fragment
@@ -191,14 +129,6 @@ public class MapFragment extends Fragment {
     }
 
     @Override // android.app.Fragment
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-        }
-    }
-
-    @Override // android.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -212,6 +142,85 @@ public class MapFragment extends Fragment {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
         }
+    }
+
+    public MapFragment(BaiduMapOptions baiduMapOptions) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMapOptions};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.c = baiduMapOptions;
+    }
+
+    public static MapFragment newInstance(BaiduMapOptions baiduMapOptions) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baiduMapOptions)) == null) {
+            return new MapFragment(baiduMapOptions);
+        }
+        return (MapFragment) invokeL.objValue;
+    }
+
+    @Override // android.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+        }
+    }
+
+    @Override // android.app.Fragment
+    public void onAttach(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            super.onAttach(activity);
+        }
+    }
+
+    @Override // android.app.Fragment, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+        }
+    }
+
+    @Override // android.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+        }
+    }
+
+    @Override // android.app.Fragment
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+        }
+    }
+
+    @Override // android.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
+            MapView mapView = new MapView(getActivity(), this.c);
+            this.b = mapView;
+            return mapView;
+        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // android.app.Fragment

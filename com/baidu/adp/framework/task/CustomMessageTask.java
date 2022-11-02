@@ -18,17 +18,17 @@ public class CustomMessageTask extends MessageTask {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isImme;
     public BdAsyncTaskParallel mBdAsyncTaskParallel;
-    public CustomRunnable mRunnable;
+    public CustomRunnable<?> mRunnable;
     public TASK_TYPE mType;
 
     /* loaded from: classes.dex */
-    public interface CustomRunnable {
-        CustomResponsedMessage run(CustomMessage customMessage);
+    public interface CustomRunnable<T> {
+        CustomResponsedMessage<?> run(CustomMessage<T> customMessage);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TASK_TYPE {
+    public static final class TASK_TYPE {
         public static final /* synthetic */ TASK_TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TASK_TYPE ASYNCHRONIZED;
@@ -93,7 +93,7 @@ public class CustomMessageTask extends MessageTask {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessageTask(int i, CustomRunnable customRunnable) {
+    public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +127,7 @@ public class CustomMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public CustomRunnable getRunnable() {
+    public CustomRunnable<?> getRunnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

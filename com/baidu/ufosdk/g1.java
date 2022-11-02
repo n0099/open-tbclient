@@ -113,7 +113,7 @@ public class g1 extends Dialog {
             setCancelable(true);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100420);
+            window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100421);
             View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.ufo_show_evaluate_dialog, null);
             this.b = inflate;
             inflate.findViewById(com.baidu.tieba.R.id.btn_dialog_close).setOnClickListener(new a(this));

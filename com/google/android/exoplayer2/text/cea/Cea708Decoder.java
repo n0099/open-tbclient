@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import com.google.android.exoplayer2.text.SubtitleInputBuffer;
@@ -117,11 +118,11 @@ public final class Cea708Decoder extends CeaDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final ParsableByteArray ccData;
     public final CueBuilder[] cueBuilders;
-    public List cues;
+    public List<Cue> cues;
     public CueBuilder currentCueBuilder;
     public DtvCcPacket currentDtvCcPacket;
     public int currentWindow;
-    public List lastCues;
+    public List<Cue> lastCues;
     public final int selectedServiceNumber;
     public final ParsableBitArray serviceBlockPacket;
 
@@ -133,7 +134,7 @@ public final class Cea708Decoder extends CeaDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class CueBuilder {
+    public static final class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BORDER_AND_EDGE_TYPE_NONE = 0;
         public static final int BORDER_AND_EDGE_TYPE_UNIFORM = 3;
@@ -182,7 +183,7 @@ public final class Cea708Decoder extends CeaDecoder {
         public int penStyleId;
         public int priority;
         public boolean relativePositioning;
-        public final List rolledUpCaptions;
+        public final List<SpannableString> rolledUpCaptions;
         public int row;
         public int rowCount;
         public boolean rowLock;
@@ -630,7 +631,7 @@ public final class Cea708Decoder extends CeaDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public final class DtvCcPacket {
+    public static final class DtvCcPacket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentIndex;
@@ -719,7 +720,7 @@ public final class Cea708Decoder extends CeaDecoder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List list = this.cues;
+            List<Cue> list = this.cues;
             this.lastCues = list;
             return new CeaSubtitle(list);
         }
@@ -768,7 +769,7 @@ public final class Cea708Decoder extends CeaDecoder {
         super.release();
     }
 
-    private List getDisplayCues() {
+    private List<Cue> getDisplayCues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {

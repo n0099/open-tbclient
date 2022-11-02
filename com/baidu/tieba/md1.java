@@ -1,121 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface md1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "splash.config");
-    public static final md1 b = new a();
-
-    String a();
-
-    int b();
-
-    int c();
-
-    JSONObject d();
-
-    String e();
-
-    int f();
-
-    String from();
-
-    int g();
-
-    int h();
+    void a(a aVar);
 
     /* loaded from: classes5.dex */
-    public final class a implements md1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public long c;
+        public long d;
+        public long e;
+        public String f;
+        public int g;
+        public List<C0347a> h;
 
-        @Override // com.baidu.tieba.md1
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
+        /* renamed from: com.baidu.tieba.md1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class C0347a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
 
-        @Override // com.baidu.tieba.md1
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 0;
+            public C0347a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
-            return invokeV.intValue;
-        }
 
-        @Override // com.baidu.tieba.md1
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
+            public static C0347a a(JSONObject jSONObject) {
+                InterceptResult invokeL;
+                String optString;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                    if (jSONObject == null) {
+                        return null;
+                    }
+                    C0347a c0347a = new C0347a();
+                    String str = "";
+                    if (jSONObject.isNull("promotionInsId")) {
+                        optString = "";
+                    } else {
+                        optString = jSONObject.optString("promotionInsId");
+                    }
+                    c0347a.a = optString;
+                    if (!jSONObject.isNull("valid")) {
+                        str = jSONObject.optString("valid");
+                    }
+                    c0347a.b = str;
+                    return c0347a;
+                }
+                return (C0347a) invokeL.objValue;
             }
-            return invokeV.intValue;
-        }
 
-        @Override // com.baidu.tieba.md1
-        public JSONObject d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return null;
+            public static JSONObject b(C0347a c0347a) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0347a)) == null) {
+                    if (c0347a == null) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("promotionInsId", c0347a.a);
+                        jSONObject.put("valid", c0347a.b);
+                    } catch (JSONException e) {
+                        dd1.d(e.getMessage());
+                    }
+                    return jSONObject;
+                }
+                return (JSONObject) invokeL.objValue;
             }
-            return (JSONObject) invokeV.objValue;
-        }
 
-        @Override // com.baidu.tieba.md1
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.md1
-        public int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return 2000;
+            public static List<C0347a> c(JSONArray jSONArray) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+                    if (jSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    try {
+                        jSONArray.get(0);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return arrayList;
+                }
+                return (List) invokeL.objValue;
             }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.md1
-        public String from() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.md1
-        public int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.md1
-        public int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
         }
 
         public a() {
@@ -128,8 +125,50 @@ public interface md1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 2;
+        }
+
+        public static JSONObject a(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+                if (aVar == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("statusCode", aVar.a);
+                    jSONObject.put("msg", aVar.b);
+                    jSONObject.put("totalAmount", aVar.c);
+                    jSONObject.put("userPayAmount", aVar.d);
+                    jSONObject.put("reduceAmount", aVar.e);
+                    jSONObject.put("overdueStatus", aVar.g);
+                    jSONObject.put("usedHostMarketingDetail", aVar.f);
+                    if (aVar.h != null && !aVar.h.isEmpty()) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (C0347a c0347a : aVar.h) {
+                            jSONArray.put(C0347a.b(c0347a));
+                        }
+                        jSONObject.put("promotionStatus", jSONArray);
+                    }
+                } catch (JSONException e) {
+                    dd1.d(e.getMessage());
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 }

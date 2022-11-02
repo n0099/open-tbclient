@@ -18,7 +18,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public final String prefix;
 
     /* loaded from: classes9.dex */
-    public final class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

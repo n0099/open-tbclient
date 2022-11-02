@@ -3,6 +3,9 @@ package androidx.core.provider;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,6 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SelfDestructiveThread {
     public static /* synthetic */ Interceptable $ic = null;
@@ -23,16 +27,19 @@ public class SelfDestructiveThread {
     public transient /* synthetic */ FieldHolder $fh;
     public Handler.Callback mCallback;
     public final int mDestructAfterMillisec;
+    @GuardedBy("mLock")
     public int mGeneration;
+    @GuardedBy("mLock")
     public Handler mHandler;
     public final Object mLock;
     public final int mPriority;
+    @GuardedBy("mLock")
     public HandlerThread mThread;
     public final String mThreadName;
 
     /* loaded from: classes.dex */
-    public interface ReplyCallback {
-        void onReply(Object obj);
+    public interface ReplyCallback<T> {
+        void onReply(T t);
     }
 
     public SelfDestructiveThread(String str, int i, int i2) {
@@ -116,6 +123,7 @@ public class SelfDestructiveThread {
         }
     }
 
+    @VisibleForTesting
     public int getGeneration() {
         InterceptResult invokeV;
         int i;
@@ -129,6 +137,7 @@ public class SelfDestructiveThread {
         return invokeV.intValue;
     }
 
+    @VisibleForTesting
     public boolean isRunning() {
         InterceptResult invokeV;
         boolean z;

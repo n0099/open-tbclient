@@ -1,62 +1,43 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.ur1;
-import com.baidu.tieba.v83;
+import com.baidu.swan.apps.SwanAppBaseActivity;
+import com.baidu.tieba.g33;
+import com.baidu.tieba.iz2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.coremedia.iso.boxes.FreeSpaceBox;
 /* loaded from: classes3.dex */
-public class dz2 extends zy2 {
+public final class dz2 implements iz2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.az2
-    public mv1 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return null;
-        }
-        return (mv1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.az2
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.az2
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public final int d;
+    public final hz2 e;
+    public final Context f;
 
     /* loaded from: classes3.dex */
-    public class a implements fi3 {
+    public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y42 a;
-        public final /* synthetic */ xy2 b;
-        public final /* synthetic */ y83 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dz2 b;
 
-        public a(dz2 dz2Var, y42 y42Var, xy2 xy2Var, y83 y83Var) {
+        public a(dz2 dz2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dz2Var, y42Var, xy2Var, y83Var};
+                Object[] objArr = {dz2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,69 +47,388 @@ public class dz2 extends zy2 {
                     return;
                 }
             }
-            this.a = y42Var;
-            this.b = xy2Var;
-            this.c = y83Var;
+            this.b = dz2Var;
+            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(p83 p83Var) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p83Var) == null) {
-                if (p83Var != null && p83Var.c() && !TextUtils.isEmpty(((v83.d) p83Var.a).a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", ((v83.d) p83Var.a).a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (wj1.a) {
-                                ez2.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                ez2.b("login failure, can't get login code");
-                this.a.a(this.b);
+            if ((interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) || !this.b.a) {
+                return;
+            }
+            if (this.b.b) {
+                dialogInterface.dismiss();
+            } else {
+                this.b.h(this.a, i, dialogInterface);
             }
         }
     }
 
-    public dz2() {
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dz2 b;
+
+        public b(dz2 dz2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dz2Var;
+            this.a = str;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) {
+                return;
+            }
+            this.b.i(this.a, i, dialogInterface);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ dz2 b;
+
+        public c(dz2 dz2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dz2Var;
+            this.a = str;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) {
+                return;
+            }
+            this.b.h(this.a, i, dialogInterface);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements DialogInterface.OnShowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dz2 a;
+
+        public d(dz2 dz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dz2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnShowListener
+        public void onShow(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.a = true;
+            this.a.j("show");
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ hz2 b;
+        public final /* synthetic */ dz2 c;
+
+        public e(dz2 dz2Var, String str, hz2 hz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz2Var, str, hz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = dz2Var;
+            this.a = str;
+            this.b = hz2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.c.p(this.a, this.b);
+            this.c.a = false;
+        }
+    }
+
+    public dz2(Context context, int i, @NonNull hz2 hz2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), hz2Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.f = context;
+        this.d = i;
+        this.e = hz2Var;
+    }
+
+    public final boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return sc3.a().getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            Context applicationContext = d43.K().getApplicationContext();
+            return applicationContext.getString(R.string.obfuscated_res_0x7f0f132c, yh3.l(applicationContext), str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return d43.K().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f132d, str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void p(String str, hz2 hz2Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, hz2Var) == null) {
+            Context context = this.f;
+            if (context != null && al4.a(context, str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.c = z;
+            if (z) {
+                hz2Var.a("permission granted successful");
+            } else {
+                hz2Var.b(1, "user denied");
             }
         }
     }
 
-    @Override // com.baidu.tieba.zy2
-    public void p(SwanAppActivity swanAppActivity, String str, wy2 wy2Var, y83 y83Var, y42 y42Var) {
+    public final void r(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, wy2Var, y83Var, y42Var) == null) {
-            xy2 xy2Var = new xy2(wy2Var.f);
-            xy2Var.a = wy2Var.e;
-            if (y83Var != null && y83Var.j.a() == 0) {
-                ez2.b("obtain user info detail, get login code");
-                ur1.d dVar = new ur1.d(wy2Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", wy2Var.a);
-                l33.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, y42Var, xy2Var, y83Var), "SwanPluginUserInfoFunPage");
+        if ((interceptable == null || interceptable.invokeLZ(1048587, this, str, z) == null) && str != null) {
+            sc3.a().putBoolean(str, z);
+        }
+    }
+
+    public final void h(String str, int i, DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, dialogInterface) == null) {
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            r(str, z);
+            if (z) {
+                j("deny_mute");
+            } else {
+                j("deny");
+            }
+            dialogInterface.dismiss();
+        }
+    }
+
+    public final void i(String str, int i, DialogInterface dialogInterface) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, dialogInterface) == null) {
+            if (i == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            r(str, z);
+            if (z) {
+                j("skip_mute");
+            } else {
+                j(FreeSpaceBox.TYPE);
+            }
+            this.b = true;
+            dialogInterface.dismiss();
+            ih3.g(this.f);
+        }
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            d43 K = d43.K();
+            String appId = K.getAppId();
+            gb3 gb3Var = new gb3();
+            gb3Var.f = appId;
+            gb3Var.a = "swan";
+            gb3Var.c = ez2.a(this.d);
+            gb3Var.g = "minipnl";
+            gb3Var.b = str;
+            gb3Var.e = ez2.b(this.c);
+            gb3Var.a("appid", appId);
+            gb3Var.a("appname", K.q().Z());
+            gb3Var.a("host", ln2.n().a());
+            ra3.onEvent(gb3Var);
+        }
+    }
+
+    public final String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            String O = d43.K().q().O();
+            return "permission/" + str + "/" + O;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final g33 o(Context context, String str, String str2, String str3, String str4, hz2 hz2Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{context, str, str2, str3, str4, hz2Var})) == null) {
+            g33.a aVar = new g33.a(context);
+            aVar.f0(str);
+            aVar.e0(str2);
+            aVar.i0(new e(this, str4, hz2Var));
+            aVar.j0(new d(this));
+            aVar.g0(new c(this, str3));
+            aVar.k0(new b(this, str3));
+            aVar.h0(new a(this, str3));
+            return aVar.c();
+        }
+        return (g33) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.iz2.a
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) {
+            if (i != this.d) {
+                this.e.b(2, "request permission fail");
+            } else if (strArr.length == 0 && iArr.length == 0) {
+                this.e.a("permission granted successful");
+            } else if (strArr.length != iArr.length) {
+                this.e.b(2, "request permission fail");
+            } else if (!(this.f instanceof SwanAppBaseActivity)) {
+                this.e.b(2, "request permission fail");
+            } else {
+                for (int i2 = 0; i2 < iArr.length; i2++) {
+                    String str = strArr[i2];
+                    if (iArr[i2] == -1) {
+                        if (!oh4.f((SwanAppBaseActivity) this.f, str)) {
+                            q(str, this.e);
+                            return;
+                        } else {
+                            this.e.b(1, "user denied");
+                            return;
+                        }
+                    }
+                }
+                this.e.a("permission granted successful");
+            }
+        }
+    }
+
+    public final void q(String str, hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hz2Var) == null) {
+            if (!(this.f instanceof SwanAppBaseActivity)) {
+                this.e.b(2, "request permission fail");
                 return;
             }
-            ez2.b("open data result failure");
-            y42Var.a(xy2Var);
+            String l = l(str);
+            if (k(l)) {
+                this.e.b(2, "request permission fail");
+                return;
+            }
+            String m = ih3.m(str);
+            if (m != null && m.trim().length() != 0) {
+                o(this.f, n(m), m(m), l, str, hz2Var).show();
+                return;
+            }
+            this.e.b(2, "request permission fail");
         }
+    }
+
+    public iz2.a s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return new cz2(this.d, this.e);
+        }
+        return (iz2.a) invokeV.objValue;
     }
 }

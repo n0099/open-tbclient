@@ -16,7 +16,7 @@ import kotlin.jvm.internal.InlineMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\u0006\u0010\u0005\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlinx/coroutines/flow/FlowCollector;", AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapLatest$1", f = "Merge.kt", i = {0, 0, 1, 1, 1, 1}, l = {190, JfifUtil.MARKER_SOI}, m = "invokeSuspend", n = {"$this$transformLatest", AdvanceSetting.NETWORK_TYPE, "$this$transformLatest", AdvanceSetting.NETWORK_TYPE, "$this$emitAll$iv", "flow$iv"}, s = {"L$0", "L$1", "L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes8.dex */
-public final class FlowKt__MergeKt$flatMapLatest$1 extends SuspendLambda implements Function3 {
+public final class FlowKt__MergeKt$flatMapLatest$1 extends SuspendLambda implements Function3<FlowCollector<? super R>, T, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $transform;
     public Object L$0;
     public Object L$1;
@@ -32,16 +32,17 @@ public final class FlowKt__MergeKt$flatMapLatest$1 extends SuspendLambda impleme
         this.$transform = function2;
     }
 
-    public final Continuation create(FlowCollector flowCollector, Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super R> flowCollector, T t, Continuation<? super Unit> continuation) {
         FlowKt__MergeKt$flatMapLatest$1 flowKt__MergeKt$flatMapLatest$1 = new FlowKt__MergeKt$flatMapLatest$1(this.$transform, continuation);
         flowKt__MergeKt$flatMapLatest$1.p$ = flowCollector;
-        flowKt__MergeKt$flatMapLatest$1.p$0 = obj;
+        flowKt__MergeKt$flatMapLatest$1.p$0 = t;
         return flowKt__MergeKt$flatMapLatest$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function3
-    public final Object invoke(Object obj, Object obj2, Object obj3) {
-        return ((FlowKt__MergeKt$flatMapLatest$1) create((FlowCollector) obj, obj2, (Continuation) obj3)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(Object obj, Object obj2, Continuation<? super Unit> continuation) {
+        return ((FlowKt__MergeKt$flatMapLatest$1) create((FlowCollector) obj, obj2, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

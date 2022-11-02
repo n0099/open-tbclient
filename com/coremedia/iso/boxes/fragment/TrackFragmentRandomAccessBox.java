@@ -42,7 +42,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_9 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<Entry> entries;
     public int lengthSizeOfSampleNum;
     public int lengthSizeOfTrafNum;
     public int lengthSizeOfTrunNum;
@@ -50,7 +50,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
     public long trackId;
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long moofOffset;
@@ -234,7 +234,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -422,7 +422,7 @@ public class TrackFragmentRandomAccessBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, list));

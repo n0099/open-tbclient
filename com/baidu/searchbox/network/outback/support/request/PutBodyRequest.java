@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,19 +9,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class PutBodyRequest extends HttpCommonRequest {
+public class PutBodyRequest extends HttpCommonRequest<PutBodyRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.network.outback.support.request.PutBodyRequest$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class PutBodyRequestBuilder extends HttpCommonRequestBuilder {
+    public static class PutBodyRequestBuilder extends HttpCommonRequestBuilder<PutBodyRequestBuilder, PutBodyRequest> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +46,7 @@ public class PutBodyRequest extends HttpCommonRequest {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public PutBodyRequestBuilder(Map map) {
+        public PutBodyRequestBuilder(Map<String, CallFactory> map) {
             super(map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {

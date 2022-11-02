@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class MetricsValue implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map extra;
+    public Map<String, String> extra;
     public int scode;
     public String topic;
     public String uri;
@@ -36,7 +36,7 @@ public class MetricsValue implements IJsonSerialize {
         }
     }
 
-    public Map getExtra() {
+    public Map<String, String> getExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class MetricsValue implements IJsonSerialize {
         return invokeV.longValue;
     }
 
-    public MetricsValue(int i, String str, String str2, long j, Map map) {
+    public MetricsValue(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class MetricsValue implements IJsonSerialize {
         this.extra = map;
     }
 
-    public void setExtra(Map map) {
+    public void setExtra(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
             this.extra = map;
@@ -151,8 +151,8 @@ public class MetricsValue implements IJsonSerialize {
                 jSONObject.put("val", this.val);
                 if (this.extra != null && !this.extra.isEmpty()) {
                     JSONObject jSONObject2 = new JSONObject();
-                    for (Map.Entry entry : this.extra.entrySet()) {
-                        jSONObject2.put(URLEncoder.encode((String) entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode((String) entry.getValue(), IMAudioTransRequest.CHARSET));
+                    for (Map.Entry<String, String> entry : this.extra.entrySet()) {
+                        jSONObject2.put(URLEncoder.encode(entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode(entry.getValue(), IMAudioTransRequest.CHARSET));
                     }
                     jSONObject.put("extra", jSONObject2);
                 } else {

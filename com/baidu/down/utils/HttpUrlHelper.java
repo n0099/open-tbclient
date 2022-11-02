@@ -25,7 +25,6 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -47,21 +46,21 @@ public final class HttpUrlHelper {
     public final String fragment;
     public final String host;
     public final String password;
-    public final List pathSegments;
+    public final List<String> pathSegments;
     public final int port;
-    public final List queryNamesAndValues;
+    public final List<String> queryNamesAndValues;
     public final String scheme;
     public final String url;
     public final String username;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String encodedFragment;
         public String encodedPassword;
-        public final List encodedPathSegments;
-        public List encodedQueryNamesAndValues;
+        public final List<String> encodedPathSegments;
+        public List<String> encodedQueryNamesAndValues;
         public String encodedUsername;
         public String host;
         public int port;
@@ -69,7 +68,7 @@ public final class HttpUrlHelper {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public final class ParseResult {
+        public static final class ParseResult {
             public static final /* synthetic */ ParseResult[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final ParseResult INVALID_HOST;
@@ -163,9 +162,9 @@ public final class HttpUrlHelper {
         private void pop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-                List list = this.encodedPathSegments;
-                if (((String) list.remove(list.size() - 1)).isEmpty() && !this.encodedPathSegments.isEmpty()) {
-                    List list2 = this.encodedPathSegments;
+                List<String> list = this.encodedPathSegments;
+                if (list.remove(list.size() - 1).isEmpty() && !this.encodedPathSegments.isEmpty()) {
+                    List<String> list2 = this.encodedPathSegments;
                     list2.set(list2.size() - 1, "");
                     return;
                 }
@@ -250,15 +249,15 @@ public final class HttpUrlHelper {
                 if (r0 != r1) goto L17
                 goto L22
             L17:
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 int r1 = r0.size()
                 int r1 = r1 - r3
                 r0.set(r1, r2)
                 goto L2d
             L22:
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 r0.clear()
-                java.util.List r0 = r10.encodedPathSegments
+                java.util.List<java.lang.String> r0 = r10.encodedPathSegments
                 r0.add(r2)
                 goto L45
             L2d:
@@ -380,9 +379,9 @@ public final class HttpUrlHelper {
                     pop();
                     return;
                 }
-                List list = this.encodedPathSegments;
-                if (((String) list.get(list.size() - 1)).isEmpty()) {
-                    List list2 = this.encodedPathSegments;
+                List<String> list = this.encodedPathSegments;
+                if (list.get(list.size() - 1).isEmpty()) {
+                    List<String> list2 = this.encodedPathSegments;
                     list2.set(list2.size() - 1, canonicalize);
                 } else {
                     this.encodedPathSegments.add(canonicalize);
@@ -618,7 +617,7 @@ public final class HttpUrlHelper {
 
         public Builder encodedQuery(String str) {
             InterceptResult invokeL;
-            List list;
+            List<String> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
                 if (str != null) {
@@ -974,13 +973,13 @@ public final class HttpUrlHelper {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 int size = this.encodedPathSegments.size();
                 for (int i = 0; i < size; i++) {
-                    this.encodedPathSegments.set(i, HttpUrlHelper.canonicalize((String) this.encodedPathSegments.get(i), "[]", true, true, false, true));
+                    this.encodedPathSegments.set(i, HttpUrlHelper.canonicalize(this.encodedPathSegments.get(i), "[]", true, true, false, true));
                 }
-                List list = this.encodedQueryNamesAndValues;
+                List<String> list = this.encodedQueryNamesAndValues;
                 if (list != null) {
                     int size2 = list.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        String str = (String) this.encodedQueryNamesAndValues.get(i2);
+                        String str = this.encodedQueryNamesAndValues.get(i2);
                         if (str != null) {
                             this.encodedQueryNamesAndValues.set(i2, HttpUrlHelper.canonicalize(str, "\\^`{|}", true, true, true, true));
                         }
@@ -1092,7 +1091,7 @@ public final class HttpUrlHelper {
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1202,7 +1201,7 @@ public final class HttpUrlHelper {
         return (String) invokeV.objValue;
     }
 
-    public Set queryParameterNames() {
+    public Set<String> queryParameterNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -1238,7 +1237,7 @@ public final class HttpUrlHelper {
     }
 
     public HttpUrlHelper(Builder builder) {
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1259,7 +1258,7 @@ public final class HttpUrlHelper {
         this.host = builder.host;
         this.port = builder.effectivePort();
         this.pathSegments = percentDecode(builder.encodedPathSegments, false);
-        List list2 = builder.encodedQueryNamesAndValues;
+        List<String> list2 = builder.encodedQueryNamesAndValues;
         if (list2 != null) {
             list = percentDecode(list2, true);
         } else {
@@ -1293,13 +1292,13 @@ public final class HttpUrlHelper {
         this(builder);
     }
 
-    public static void pathSegmentsToString(StringBuilder sb, List list) {
+    public static void pathSegmentsToString(StringBuilder sb, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, sb, list) == null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 sb.append(WebvttCueParser.CHAR_SLASH);
-                sb.append((String) list.get(i));
+                sb.append(list.get(i));
             }
         }
     }
@@ -1379,7 +1378,7 @@ public final class HttpUrlHelper {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            return (String) this.queryNamesAndValues.get(i * 2);
+            return this.queryNamesAndValues.get(i * 2);
         }
         return (String) invokeI.objValue;
     }
@@ -1388,7 +1387,7 @@ public final class HttpUrlHelper {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            return (String) this.queryNamesAndValues.get((i * 2) + 1);
+            return this.queryNamesAndValues.get((i * 2) + 1);
         }
         return (String) invokeI.objValue;
     }
@@ -1500,13 +1499,13 @@ public final class HttpUrlHelper {
         return (HttpUrlHelper) invokeL.objValue;
     }
 
-    public static void namesAndValuesToQueryString(StringBuilder sb, List list) {
+    public static void namesAndValuesToQueryString(StringBuilder sb, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, sb, list) == null) {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                String str = (String) list.get(i);
-                String str2 = (String) list.get(i + 1);
+                String str = list.get(i);
+                String str2 = list.get(i + 1);
                 if (i > 0) {
                     sb.append('&');
                 }
@@ -1519,15 +1518,13 @@ public final class HttpUrlHelper {
         }
     }
 
-    private List percentDecode(List list, boolean z) {
+    private List<String> percentDecode(List<String> list, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65554, this, list, z)) == null) {
             ArrayList arrayList = new ArrayList(list.size());
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
+            for (String str2 : list) {
                 if (str2 != null) {
                     str = percentDecode(str2, z);
                 } else {
@@ -1604,7 +1601,7 @@ public final class HttpUrlHelper {
         return invokeLII.booleanValue;
     }
 
-    public static List queryStringToNamesAndValues(String str) {
+    public static List<String> queryStringToNamesAndValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
@@ -1630,7 +1627,7 @@ public final class HttpUrlHelper {
         return (List) invokeL.objValue;
     }
 
-    public List queryParameterValues(String str) {
+    public List<String> queryParameterValues(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
@@ -1706,7 +1703,7 @@ public final class HttpUrlHelper {
         return (String) invokeV.objValue;
     }
 
-    public List pathSegments() {
+    public List<String> pathSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -1751,7 +1748,7 @@ public final class HttpUrlHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list != null) {
                 return list.size() / 2;
             }
@@ -1800,7 +1797,7 @@ public final class HttpUrlHelper {
         return (String) invokeV.objValue;
     }
 
-    public List encodedPathSegments() {
+    public List<String> encodedPathSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1848,14 +1845,14 @@ public final class HttpUrlHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            List list = this.queryNamesAndValues;
+            List<String> list = this.queryNamesAndValues;
             if (list == null) {
                 return null;
             }
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (str.equals(this.queryNamesAndValues.get(i))) {
-                    return (String) this.queryNamesAndValues.get(i + 1);
+                    return this.queryNamesAndValues.get(i + 1);
                 }
             }
             return null;

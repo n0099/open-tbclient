@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk.system;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +36,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "WebViewSystemFactoryProvider";
@@ -67,7 +68,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
         }
         this.mLock = new Object();
         if (this.mStaticWebSettings == null) {
-            this.mStaticWebSettings = new HashMap(16);
+            this.mStaticWebSettings = new HashMap<>(16);
         }
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA, WebViewFactoryProvider.SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE);
         this.mStaticWebSettings.put(WebViewFactoryProvider.SETTING_FIX_WEBVIEW_HOLES, WebViewFactoryProvider.SETTING_FIX_WEBVIEW_HOLES_VALUE);
@@ -1731,7 +1732,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void addToWebCache(String str, boolean z, boolean z2, Map map, boolean z3) {
+            public void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map, boolean z3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map, Boolean.valueOf(z3)}) == null) {
                 }
@@ -1808,7 +1809,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public HashMap getCurrentSystemInfraInfo() {
+            public HashMap<String, Long> getCurrentSystemInfraInfo() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048587, this)) == null) {
@@ -1907,14 +1908,14 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void prefetch(String str, Map map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener) {
+            public void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048598, this, str, map, mainResourcePrefetchListener) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void prefetchResource(String str, String[] strArr, Map map) {
+            public void prefetchResource(String str, String[] strArr, Map<String, String> map) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048599, this, str, strArr, map) == null) {
                 }
@@ -1998,6 +1999,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewFactoryProvider
+    @TargetApi(28)
     public final ClassLoader getWebViewClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,6 +1,7 @@
 package com.airbnb.lottie.model.content;
 
 import android.graphics.Path;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.FillContent;
@@ -9,14 +10,16 @@ import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
 /* loaded from: classes.dex */
 public class ShapeFill implements ContentModel {
+    @Nullable
     public final AnimatableColorValue color;
     public final boolean fillEnabled;
     public final Path.FillType fillType;
     public final boolean hidden;
     public final String name;
+    @Nullable
     public final AnimatableIntegerValue opacity;
 
-    public ShapeFill(String str, boolean z, Path.FillType fillType, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, boolean z2) {
+    public ShapeFill(String str, boolean z, Path.FillType fillType, @Nullable AnimatableColorValue animatableColorValue, @Nullable AnimatableIntegerValue animatableIntegerValue, boolean z2) {
         this.name = str;
         this.fillEnabled = z;
         this.fillType = fillType;
@@ -25,6 +28,7 @@ public class ShapeFill implements ContentModel {
         this.hidden = z2;
     }
 
+    @Nullable
     public AnimatableColorValue getColor() {
         return this.color;
     }
@@ -37,6 +41,7 @@ public class ShapeFill implements ContentModel {
         return this.name;
     }
 
+    @Nullable
     public AnimatableIntegerValue getOpacity() {
         return this.opacity;
     }

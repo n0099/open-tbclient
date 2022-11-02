@@ -127,7 +127,7 @@ public class TraceLog {
                         })) != null && listFiles.length > 0) {
                             arrayList.addAll(Arrays.asList(listFiles));
                         }
-                        Collections.sort(arrayList, new Comparator(this) { // from class: com.yy.hiidostatis.message.log.TraceLog.2.2
+                        Collections.sort(arrayList, new Comparator<File>(this) { // from class: com.yy.hiidostatis.message.log.TraceLog.2.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;

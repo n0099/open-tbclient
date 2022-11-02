@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.au9;
-import com.baidu.tieba.vt9;
-import com.baidu.tieba.wt9;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.jv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,9 +18,9 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes8.dex */
-public final class AudioEntity extends Message {
+public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ProtoAdapter ADAPTER;
+    public static final ProtoAdapter<AudioEntity> ADAPTER;
     public static final String DEFAULT_AUDIOKEY = "";
     public static final Integer DEFAULT_ENDFRAME;
     public static final Integer DEFAULT_STARTFRAME;
@@ -40,7 +40,7 @@ public final class AudioEntity extends Message {
     public final Integer totalTime;
 
     /* loaded from: classes8.dex */
-    public final class Builder extends Message.a {
+    public static final class Builder extends Message.a<AudioEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String audioKey;
@@ -64,6 +64,7 @@ public final class AudioEntity extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.Message.a
         public AudioEntity build() {
             InterceptResult invokeV;
@@ -126,7 +127,7 @@ public final class AudioEntity extends Message {
     }
 
     /* loaded from: classes8.dex */
-    public final class ProtoAdapter_AudioEntity extends ProtoAdapter {
+    public static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,40 +151,41 @@ public final class AudioEntity extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public AudioEntity decode(vt9 vt9Var) throws IOException {
+        public AudioEntity decode(ev9 ev9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vt9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ev9Var)) == null) {
                 Builder builder = new Builder();
-                long c = vt9Var.c();
+                long c = ev9Var.c();
                 while (true) {
-                    int f = vt9Var.f();
+                    int f = ev9Var.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = vt9Var.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(vt9Var));
+                                            FieldEncoding g = ev9Var.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(ev9Var));
                                         } else {
-                                            builder.totalTime((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                            builder.totalTime(ProtoAdapter.INT32.decode(ev9Var));
                                         }
                                     } else {
-                                        builder.startTime((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                        builder.startTime(ProtoAdapter.INT32.decode(ev9Var));
                                     }
                                 } else {
-                                    builder.endFrame((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                    builder.endFrame(ProtoAdapter.INT32.decode(ev9Var));
                                 }
                             } else {
-                                builder.startFrame((Integer) ProtoAdapter.INT32.decode(vt9Var));
+                                builder.startFrame(ProtoAdapter.INT32.decode(ev9Var));
                             }
                         } else {
-                            builder.audioKey((String) ProtoAdapter.STRING.decode(vt9Var));
+                            builder.audioKey(ProtoAdapter.STRING.decode(ev9Var));
                         }
                     } else {
-                        vt9Var.d(c);
+                        ev9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -198,39 +200,39 @@ public final class AudioEntity extends Message {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, audioEntity)) == null) {
-                Builder newBuilder = audioEntity.newBuilder();
-                newBuilder.clearUnknownFields();
-                return newBuilder.build();
+                Message.a<AudioEntity, Builder> newBuilder2 = audioEntity.newBuilder2();
+                newBuilder2.clearUnknownFields();
+                return newBuilder2.build();
             }
             return (AudioEntity) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(wt9 wt9Var, AudioEntity audioEntity) throws IOException {
+        public void encode(fv9 fv9Var, AudioEntity audioEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, wt9Var, audioEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fv9Var, audioEntity) == null) {
                 String str = audioEntity.audioKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(wt9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(fv9Var, 1, str);
                 }
                 Integer num = audioEntity.startFrame;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 2, num);
+                    ProtoAdapter.INT32.encodeWithTag(fv9Var, 2, num);
                 }
                 Integer num2 = audioEntity.endFrame;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 3, num2);
+                    ProtoAdapter.INT32.encodeWithTag(fv9Var, 3, num2);
                 }
                 Integer num3 = audioEntity.startTime;
                 if (num3 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 4, num3);
+                    ProtoAdapter.INT32.encodeWithTag(fv9Var, 4, num3);
                 }
                 Integer num4 = audioEntity.totalTime;
                 if (num4 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(wt9Var, 5, num4);
+                    ProtoAdapter.INT32.encodeWithTag(fv9Var, 5, num4);
                 }
-                wt9Var.k(audioEntity.unknownFields());
+                fv9Var.k(audioEntity.unknownFields());
             }
         }
 
@@ -303,8 +305,10 @@ public final class AudioEntity extends Message {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.opensource.svgaplayer.proto.AudioEntity$Builder' to match base method */
     @Override // com.squareup.wire2.Message
-    public Builder newBuilder() {
+    /* renamed from: newBuilder */
+    public Message.a<AudioEntity, Builder> newBuilder2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -378,7 +382,7 @@ public final class AudioEntity extends Message {
                 return false;
             }
             AudioEntity audioEntity = (AudioEntity) obj;
-            if (unknownFields().equals(audioEntity.unknownFields()) && au9.f(this.audioKey, audioEntity.audioKey) && au9.f(this.startFrame, audioEntity.startFrame) && au9.f(this.endFrame, audioEntity.endFrame) && au9.f(this.startTime, audioEntity.startTime) && au9.f(this.totalTime, audioEntity.totalTime)) {
+            if (unknownFields().equals(audioEntity.unknownFields()) && jv9.f(this.audioKey, audioEntity.audioKey) && jv9.f(this.startFrame, audioEntity.startFrame) && jv9.f(this.endFrame, audioEntity.endFrame) && jv9.f(this.startTime, audioEntity.startTime) && jv9.f(this.totalTime, audioEntity.totalTime)) {
                 return true;
             }
             return false;

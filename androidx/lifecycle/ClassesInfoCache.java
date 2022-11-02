@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -194,7 +195,7 @@ public class ClassesInfoCache {
         this.mHasLifecycleMethods = new HashMap();
     }
 
-    private CallbackInfo createInfo(Class<?> cls, Method[] methodArr) {
+    private CallbackInfo createInfo(Class<?> cls, @Nullable Method[] methodArr) {
         InterceptResult invokeLL;
         int i;
         CallbackInfo info;

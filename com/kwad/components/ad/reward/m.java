@@ -1,6 +1,7 @@
 package com.kwad.components.ad.reward;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +14,12 @@ import org.json.JSONObject;
 public final class m extends com.kwad.components.ad.i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public com.kwad.components.ad.reward.b.d nr;
-    public WeakReference ns;
+    public WeakReference<k> ns;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(k kVar, JSONObject jSONObject, String str) {
+    public m(k kVar, @Nullable JSONObject jSONObject, @Nullable String str) {
         super(jSONObject, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -35,10 +37,10 @@ public final class m extends com.kwad.components.ad.i.b {
                 return;
             }
         }
-        this.ns = new WeakReference(kVar);
+        this.ns = new WeakReference<>(kVar);
     }
 
-    public final void a(com.kwad.components.ad.reward.b.d dVar) {
+    public final void a(@Nullable com.kwad.components.ad.reward.b.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             this.nr = dVar;
@@ -114,8 +116,8 @@ public final class m extends com.kwad.components.ad.i.b {
                     }
                 }
             }));
-            WeakReference weakReference = this.ns;
-            aVar.b(new com.kwad.components.ad.reward.h.k(weakReference != null ? (k) weakReference.get() : null, -1L, this.mJsBridgeContext));
+            WeakReference<k> weakReference = this.ns;
+            aVar.b(new com.kwad.components.ad.reward.h.k(weakReference != null ? weakReference.get() : null, -1L, this.mJsBridgeContext));
         }
     }
 
@@ -123,8 +125,8 @@ public final class m extends com.kwad.components.ad.i.b {
     public final void fk() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference weakReference = this.ns;
-            com.kwad.components.ad.reward.monitor.a.a((weakReference != null ? (k) weakReference.get() : null) != null, "end_card");
+            WeakReference<k> weakReference = this.ns;
+            com.kwad.components.ad.reward.monitor.a.a((weakReference != null ? weakReference.get() : null) != null, "end_card");
         }
     }
 
@@ -132,8 +134,8 @@ public final class m extends com.kwad.components.ad.i.b {
     public final void fl() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WeakReference weakReference = this.ns;
-            com.kwad.components.ad.reward.monitor.a.a((weakReference != null ? (k) weakReference.get() : null) != null, "end_card", l(this.mAdTemplate));
+            WeakReference<k> weakReference = this.ns;
+            com.kwad.components.ad.reward.monitor.a.a((weakReference != null ? weakReference.get() : null) != null, "end_card", l(this.mAdTemplate));
         }
     }
 
@@ -141,8 +143,8 @@ public final class m extends com.kwad.components.ad.i.b {
     public final void fm() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            WeakReference weakReference = this.ns;
-            com.kwad.components.ad.reward.monitor.a.b((weakReference != null ? (k) weakReference.get() : null) != null, "end_card", l(this.mAdTemplate), System.currentTimeMillis() - getLoadTime());
+            WeakReference<k> weakReference = this.ns;
+            com.kwad.components.ad.reward.monitor.a.b((weakReference != null ? weakReference.get() : null) != null, "end_card", l(this.mAdTemplate), System.currentTimeMillis() - getLoadTime());
         }
     }
 }

@@ -59,6 +59,7 @@ import com.yy.hiidostatis.message.AppInfo;
 import com.yy.hiidostatis.message.SessionReportWrapper;
 import com.yy.hiidostatis.message.log.TraceLog;
 import com.yy.hiidostatis.message.module.sessionreport.CalAction;
+import com.yy.hiidostatis.message.module.sessionreport.EventValue;
 import com.yy.hiidostatis.message.utils.KVIO;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import com.yy.hiidostatis.provider.DefaultProviderLoader;
@@ -100,7 +101,7 @@ public class HiidoSDKNew implements HiidoApi {
     public volatile Context mContext;
     public CrashController mCrashController;
     public DeviceController mDeviceController;
-    public Map mDoShortProp;
+    public Map<String, String> mDoShortProp;
     public final Handler mHandler;
     public final Counter mHeartbeatInvoker;
     public final Counter mHeartbeatInvokerShort;
@@ -1037,7 +1038,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public boolean flushSessionAll(String str, Set set) {
+    public boolean flushSessionAll(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
@@ -1839,9 +1840,9 @@ public class HiidoSDKNew implements HiidoApi {
     public void setHeartbeatField(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048644, this, str, str2) == null) {
-            String str3 = (String) this.mDoShortProp.get("sid");
-            String str4 = (String) this.mDoShortProp.get("subsid");
-            String str5 = (String) this.mDoShortProp.get("auid");
+            String str3 = this.mDoShortProp.get("sid");
+            String str4 = this.mDoShortProp.get("subsid");
+            String str5 = this.mDoShortProp.get("auid");
             if (str2 == null) {
                 this.mDoShortProp.remove(str);
             } else {
@@ -2180,7 +2181,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void beginSession(String str, String str2, long j, Map map) {
+    public void beginSession(String str, String str2, long j, Map<String, Long> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
             this.sessionReport.beginSession(str, str2, j, map);
@@ -2188,7 +2189,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportReg(String str, String str2, String str3, Map map) {
+    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLL(1048626, this, str, str2, str3, map) != null) || !checkSDKInit()) {
             return;
@@ -2224,7 +2225,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map map, Map map2) {
+    public boolean pushToSession(String str, String str2, CalAction calAction, String str3, Number number, Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) {
@@ -2234,7 +2235,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public boolean pushToSession(String str, String str2, List list, Map map, Map map2) {
+    public boolean pushToSession(String str, String str2, List<EventValue> list, Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048605, this, str, str2, list, map, map2)) == null) {
@@ -2303,7 +2304,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048628, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) != null) || !checkSDKInit()) {
             return;
@@ -2312,7 +2313,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportSrcData(String str, int i, String str2, String str3, long j, Map map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048631, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) != null) || !checkSDKInit()) {
             return;
@@ -2422,7 +2423,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048627, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) != null) || !checkSDKInit()) {
             return;
@@ -2434,7 +2435,7 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) != null) || !checkSDKInit()) {
             return;

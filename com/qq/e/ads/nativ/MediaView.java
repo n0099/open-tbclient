@@ -1,5 +1,6 @@
 package com.qq.e.ads.nativ;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -77,6 +78,7 @@ public final class MediaView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @SuppressLint({"NewApi"})
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

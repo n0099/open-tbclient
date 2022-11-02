@@ -11,13 +11,13 @@ import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
 /* loaded from: classes8.dex */
-public final class CompletableFromSingle extends Completable {
+public final class CompletableFromSingle<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource single;
+    public final SingleSource<T> single;
 
     /* loaded from: classes8.dex */
-    public final class CompletableFromSingleObserver implements SingleObserver {
+    public static final class CompletableFromSingleObserver<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver co;
@@ -57,15 +57,15 @@ public final class CompletableFromSingle extends Completable {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 this.co.onComplete();
             }
         }
     }
 
-    public CompletableFromSingle(SingleSource singleSource) {
+    public CompletableFromSingle(SingleSource<T> singleSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

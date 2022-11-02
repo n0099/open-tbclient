@@ -23,14 +23,14 @@ public final class MergingMediaSource implements MediaSource {
     public MediaSource.Listener listener;
     public final MediaSource[] mediaSources;
     public IllegalMergeException mergeError;
-    public final ArrayList pendingTimelineSources;
+    public final ArrayList<MediaSource> pendingTimelineSources;
     public int periodCount;
     public Object primaryManifest;
     public Timeline primaryTimeline;
     public final Timeline.Window window;
 
     /* loaded from: classes7.dex */
-    public final class IllegalMergeException extends IOException {
+    public static final class IllegalMergeException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REASON_PERIOD_COUNT_MISMATCH = 1;
         public static final int REASON_WINDOWS_ARE_DYNAMIC = 0;
@@ -77,7 +77,7 @@ public final class MergingMediaSource implements MediaSource {
             }
         }
         this.mediaSources = mediaSourceArr;
-        this.pendingTimelineSources = new ArrayList(Arrays.asList(mediaSourceArr));
+        this.pendingTimelineSources = new ArrayList<>(Arrays.asList(mediaSourceArr));
         this.window = new Timeline.Window();
         this.periodCount = -1;
     }

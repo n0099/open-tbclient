@@ -132,7 +132,7 @@ public class SelectImageHelper {
         return invokeL.intValue;
     }
 
-    public static void takePhoto(TbPageContext tbPageContext) {
+    public static void takePhoto(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, tbPageContext) == null) {
             try {
@@ -153,9 +153,9 @@ public class SelectImageHelper {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c6));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c6));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -163,7 +163,7 @@ public class SelectImageHelper {
         }
     }
 
-    public static void takePhoto(TbPageContext tbPageContext, String str) {
+    public static void takePhoto(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, str) == null) {
             try {
@@ -195,9 +195,9 @@ public class SelectImageHelper {
                 }
                 if (!z) {
                     if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                        ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                        ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c6));
                     } else if (tbPageContext instanceof BaseFragmentActivity) {
-                        ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c3));
+                        ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05c6));
                     }
                 }
             } catch (Exception e) {

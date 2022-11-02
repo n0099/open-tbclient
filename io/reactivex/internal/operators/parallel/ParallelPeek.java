@@ -20,29 +20,29 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelPeek extends ParallelFlowable {
+public final class ParallelPeek<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onAfterNext;
+    public final Consumer<? super T> onAfterNext;
     public final Action onAfterTerminated;
     public final Action onCancel;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Consumer onNext;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
     public final LongConsumer onRequest;
-    public final Consumer onSubscribe;
-    public final ParallelFlowable source;
+    public final Consumer<? super Subscription> onSubscribe;
+    public final ParallelFlowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ParallelPeekSubscriber implements FlowableSubscriber, Subscription {
+    public static final class ParallelPeekSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public boolean done;
-        public final ParallelPeek parent;
+        public final ParallelPeek<T> parent;
         public Subscription s;
 
-        public ParallelPeekSubscriber(Subscriber subscriber, ParallelPeek parallelPeek) {
+        public ParallelPeekSubscriber(Subscriber<? super T> subscriber, ParallelPeek<T> parallelPeek) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,14 +122,14 @@ public final class ParallelPeek extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !this.done) {
                 try {
-                    this.parent.onNext.accept(obj);
-                    this.actual.onNext(obj);
+                    this.parent.onNext.accept(t);
+                    this.actual.onNext(t);
                     try {
-                        this.parent.onAfterNext.accept(obj);
+                        this.parent.onAfterNext.accept(t);
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         onError(th);
@@ -173,7 +173,7 @@ public final class ParallelPeek extends ParallelFlowable {
         }
     }
 
-    public ParallelPeek(ParallelFlowable parallelFlowable, Consumer consumer, Consumer consumer2, Consumer consumer3, Action action, Action action2, Consumer consumer4, LongConsumer longConsumer, Action action3) {
+    public ParallelPeek(ParallelFlowable<T> parallelFlowable, Consumer<? super T> consumer, Consumer<? super T> consumer2, Consumer<? super Throwable> consumer3, Action action, Action action2, Consumer<? super Subscription> consumer4, LongConsumer longConsumer, Action action3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,13 +210,13 @@ public final class ParallelPeek extends ParallelFlowable {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super T>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;
         }
         int length = subscriberArr.length;
-        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
         for (int i = 0; i < length; i++) {
             subscriberArr2[i] = new ParallelPeekSubscriber(subscriberArr[i], this);
         }

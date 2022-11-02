@@ -21,7 +21,7 @@ public class Property implements Serializable {
     public static final int MAX_SIZE = 30;
     public static final long serialVersionUID = -6839046473425691433L;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap mParams;
+    public LinkedHashMap<String, PropertyPair> mParams;
 
     public Property() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class Property implements Serializable {
                 return;
             }
         }
-        this.mParams = new LinkedHashMap(30);
+        this.mParams = new LinkedHashMap<>(30);
     }
 
     private boolean isOverSize() {
@@ -92,10 +92,10 @@ public class Property implements Serializable {
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, objectInputStream) == null) {
-            LinkedHashMap linkedHashMap = (LinkedHashMap) objectInputStream.readObject();
+            LinkedHashMap<String, PropertyPair> linkedHashMap = (LinkedHashMap) objectInputStream.readObject();
             this.mParams = linkedHashMap;
             if (linkedHashMap == null) {
-                this.mParams = new LinkedHashMap();
+                this.mParams = new LinkedHashMap<>();
             }
         }
     }
@@ -142,10 +142,10 @@ public class Property implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                LinkedHashMap linkedHashMap = this.mParams;
+                LinkedHashMap<String, PropertyPair> linkedHashMap = this.mParams;
                 if (linkedHashMap != null && linkedHashMap.size() != 0) {
                     if (linkedHashMap.size() == 1) {
-                        return Util.replaceEncode(((PropertyPair) linkedHashMap.values().iterator().next()).getConnectedPair(), ",");
+                        return Util.replaceEncode(linkedHashMap.values().iterator().next().getConnectedPair(), ",");
                     }
                     StringBuilder sb = new StringBuilder();
                     for (PropertyPair propertyPair : linkedHashMap.values()) {

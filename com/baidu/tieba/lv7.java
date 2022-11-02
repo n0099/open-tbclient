@@ -1,157 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.views.logindialog.view.AgreementView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.Post;
-import tbclient.User;
-/* loaded from: classes4.dex */
-public class lv7 {
+/* loaded from: classes5.dex */
+public class lv7 extends iv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public kv7 d;
-    public kv7 e;
-    public kv7 f;
-    public View g;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(String str);
+    /* loaded from: classes5.dex */
+    public class a extends OneKeyLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lv7 a;
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+            }
+        }
+
+        public a(lv7 lv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lv7Var;
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+                this.a.f();
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.b.closeLoadingDialog();
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0d32), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            }
+        }
     }
 
-    public lv7(Context context, a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lv7(TbPageContext tbPageContext, jv7 jv7Var) {
+        super(tbPageContext, jv7Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
+            Object[] objArr = {tbPageContext, jv7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (jv7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d5, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090635);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090632);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090690);
-        this.d = new kv7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090636), aVar);
-        this.e = new kv7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090637), aVar);
-        this.f = new kv7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090638), aVar);
     }
 
-    public final User a(Post post, List list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
+    @Override // com.baidu.tieba.iv7
+    public void j(kv7 kv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
-            }
-            long longValue = l.longValue();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                User user = (User) it.next();
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kv7Var) == null) {
+            this.e = kv7Var;
         }
-        return (User) invokeLL.objValue;
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iv7
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f091470) {
+                s();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09177a) {
+                t();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090172) {
+                r();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac6) {
+                u();
+            }
         }
-        return (View) invokeV.objValue;
     }
 
-    public void c() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
+            BaseActivity baseActivity = this.b;
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d29), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
-    public void d(List list, List list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size == 1) {
-                    z = this.d.update((Post) list.get(0), a((Post) list.get(0), list2));
-                    this.e.d(false);
-                    this.f.d(false);
-                } else {
-                    if (size == 2) {
-                        boolean update3 = this.d.update((Post) list.get(0), a((Post) list.get(0), list2));
-                        boolean update4 = this.e.update((Post) list.get(1), a((Post) list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update((Post) list.get(0), a((Post) list.get(0), list2));
-                        update = this.e.update((Post) list.get(1), a((Post) list.get(1), list2));
-                        update2 = this.f.update((Post) list.get(2), a((Post) list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            BaseActivity baseActivity = this.b;
+            passportSDK.loadOneKeyLogin(baseActivity, qv7.j(baseActivity, this.e.c), new a(this));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BaseActivity baseActivity = this.b;
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d2d), "http://privacy.baidu.com/mdetail?id=288", false).start();
+        }
+    }
+
+    public final void t() {
+        kv7 kv7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (kv7Var = this.e) == null) {
+            return;
+        }
+        int a2 = kv7Var.a();
+        if (a2 != 1) {
+            if (a2 != 2) {
+                if (a2 == 3) {
+                    BaseActivity baseActivity = this.b;
+                    new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0d2c), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                    return;
                 }
-                update2 = false;
-                update = false;
-                if (z) {
-                }
-                this.c.setVisibility(0);
                 return;
             }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
+            BaseActivity baseActivity2 = this.b;
+            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0d2b), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+            return;
         }
+        BaseActivity baseActivity3 = this.b;
+        new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0d2a), AgreementView.s, false).start();
     }
 }

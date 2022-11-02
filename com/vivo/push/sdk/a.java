@@ -35,7 +35,7 @@ import java.util.List;
 public final class a extends q {
     public static /* synthetic */ Interceptable $ic;
     public static a c;
-    public static final List e;
+    public static final List<Integer> e;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public String f;
@@ -237,7 +237,7 @@ public final class a extends q {
                 int d = d(intent);
                 if (d > 0) {
                     x xVar = new x(d);
-                    HashMap hashMap = new HashMap();
+                    HashMap<String, String> hashMap = new HashMap<>();
                     if (intent != null) {
                         Bundle extras = intent.getExtras();
                         long j = 404000044642424832L;

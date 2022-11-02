@@ -36,7 +36,7 @@ public class CloudLogUtil {
     public static String mSdkVersion = "";
     public static String mUid = "";
     public static volatile boolean startLogLoop;
-    public static List waitingJsonList;
+    public static List<JSONObject> waitingJsonList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

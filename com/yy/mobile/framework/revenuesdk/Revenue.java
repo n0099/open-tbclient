@@ -177,7 +177,7 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
-    public void sendData(int i, int i2, String str, ArrayList arrayList, byte[] bArr) {
+    public void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr) {
         RevenueConfig config;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, arrayList, bArr}) == null) && (config = RevenueConfigCenter.getConfig(this.mAppId, this.mUsedChannel)) != null && config.getDataSender() != null) {

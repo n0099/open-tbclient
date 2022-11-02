@@ -22,7 +22,7 @@ public final class DownloadDataConstants {
     public Context mContext;
 
     /* loaded from: classes2.dex */
-    public final class Columns implements BaseColumns {
+    public static final class Columns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLUMN_CURRENT_BYTES = "current_bytes";
         public static final String COLUMN_ETAG = "etag";

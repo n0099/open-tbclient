@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.pi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class j15 {
+public class j15 implements pi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public EmotionGroupType d;
-    public int e;
-    public int f;
+    public String d;
+    public String e;
+    public String f;
     public String g;
-    public pn h;
-    public boolean i;
-    public k15 j;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public pi7.a p;
+    public int q;
+    public String r;
 
     public j15() {
         Interceptable interceptable = $ic;
@@ -37,163 +53,138 @@ public class j15 {
         }
     }
 
-    public k15 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
-        }
-        return (k15) invokeV.objValue;
-    }
-
-    public int b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public pn c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (pn) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public EmotionGroupType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.i;
+            return !"0".equals(this.r);
         }
         return invokeV.booleanValue;
     }
 
-    public void j(boolean z) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "dynamic".equals(this.e);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pi7
+    public pi7.a getParallelCharge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (pi7.a) invokeV.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
+            }
+            if (c()) {
+                if (StringUtils.isNull(this.c) || StringUtils.isNull(this.d)) {
+                    return true;
+                }
+                return false;
+            }
+            return StringUtils.isNull(this.b);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        String lowerCase;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString("deeplink");
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString("ext_info");
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        pi7.a aVar = new pi7.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = ej.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        String str = "";
+        if (c == null) {
+            lowerCase = "";
+        } else {
+            lowerCase = c.toLowerCase();
+        }
+        sb.append(lowerCase);
+        sb.append("&OAID=");
+        if (lastCachedOid != null) {
+            str = lastCachedOid.toUpperCase();
+        }
+        sb.append(str);
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (!StringUtils.isNull(this.i)) {
+            this.i += sb2;
         }
     }
 
-    public void k(k15 k15Var) {
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, k15Var) == null) {
-            this.j = k15Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
         }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void m(pn pnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, pnVar) == null) {
-            this.h = pnVar;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void q(EmotionGroupType emotionGroupType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, emotionGroupType) == null) {
-            this.d = emotionGroupType;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.e = i;
-        }
+        return (ArrayList) invokeL.objValue;
     }
 }

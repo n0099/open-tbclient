@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a99;
+import com.baidu.tieba.ja9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.BaseChromiumApplication;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import java.util.Iterator;
 import java.util.Map;
@@ -25,9 +26,9 @@ public class ApplicationStatus {
     public static Integer b;
     public static Activity c;
     public static f d;
-    public static final Map e;
-    public static final a99 f;
-    public static final a99 g;
+    public static final Map<Activity, d> e;
+    public static final ja9<e> f;
+    public static final ja9<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -43,7 +44,7 @@ public class ApplicationStatus {
     public static native void nativeOnApplicationStateChange(int i);
 
     /* loaded from: classes6.dex */
-    public final class c implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,7 +105,7 @@ public class ApplicationStatus {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements BaseChromiumApplication.c {
+    public static class a implements BaseChromiumApplication.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,7 +135,7 @@ public class ApplicationStatus {
     }
 
     /* loaded from: classes6.dex */
-    public final class b implements Application.ActivityLifecycleCallbacks {
+    public static class b implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,11 +216,11 @@ public class ApplicationStatus {
     }
 
     /* loaded from: classes6.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public a99 b;
+        public ja9<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -235,16 +236,16 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new a99();
+            this.b = new ja9<>();
         }
 
-        public a99 a() {
+        public ja9<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.b;
             }
-            return (a99) invokeV.objValue;
+            return (ja9) invokeV.objValue;
         }
 
         public int b() {
@@ -283,8 +284,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new a99();
-        g = new a99();
+        f = new ja9<>();
+        g = new ja9<>();
     }
 
     public ApplicationStatus() {
@@ -301,6 +302,7 @@ public class ApplicationStatus {
         }
     }
 
+    @CalledByNative
     public static int getStateForApplication() {
         InterceptResult invokeV;
         int intValue;
@@ -317,6 +319,7 @@ public class ApplicationStatus {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public static void registerThreadSafeNativeApplicationStateListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
@@ -328,7 +331,7 @@ public class ApplicationStatus {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, activity)) == null) {
-            d dVar = (d) e.get(activity);
+            d dVar = e.get(activity);
             if (dVar != null) {
                 return dVar.b();
             }
@@ -394,21 +397,21 @@ public class ApplicationStatus {
                 synchronized (a) {
                     b = null;
                 }
-                d dVar = (d) e.get(activity);
+                d dVar = e.get(activity);
                 dVar.c(i);
-                Iterator it = dVar.a().iterator();
+                Iterator<e> it = dVar.a().iterator();
                 while (it.hasNext()) {
-                    ((e) it.next()).a(activity, i);
+                    it.next().a(activity, i);
                 }
-                Iterator it2 = f.iterator();
+                Iterator<e> it2 = f.iterator();
                 while (it2.hasNext()) {
-                    ((e) it2.next()).a(activity, i);
+                    it2.next().a(activity, i);
                 }
                 int stateForApplication2 = getStateForApplication();
                 if (stateForApplication2 != stateForApplication) {
-                    Iterator it3 = g.iterator();
+                    Iterator<f> it3 = g.iterator();
                     while (it3.hasNext()) {
-                        ((f) it3.next()).a(stateForApplication2);
+                        it3.next().a(stateForApplication2);
                     }
                 }
                 if (i == 6) {

@@ -21,14 +21,14 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 public class n1 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x7 a;
-    public final x7 b;
-    public final x7 c;
-    public final y7 d;
-    public final x7 e;
-    public final b7 f;
+    public final x7<Class, x7<String, a>> a;
+    public final x7<String, Class> b;
+    public final x7<String, b7<String>> c;
+    public final y7<String> d;
+    public final x7<Class, x7<String, o1>> e;
+    public final b7<j1> f;
     public final p8 g;
-    public final b7 h;
+    public final b7<m1> h;
     public k1 i;
     public int j;
     public int k;
@@ -36,7 +36,7 @@ public class n1 implements i7 {
     public s7 m;
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Object a;
@@ -145,13 +145,13 @@ public class n1 implements i7 {
                 return;
             }
         }
-        this.a = new x7();
-        this.b = new x7();
-        this.c = new x7();
-        this.d = new y7();
-        this.e = new x7();
-        this.f = new b7();
-        this.h = new b7();
+        this.a = new x7<>();
+        this.b = new x7<>();
+        this.c = new x7<>();
+        this.d = new y7<>();
+        this.e = new x7<>();
+        this.f = new b7<>();
+        this.h = new b7<>();
         this.m = new s7("AssetManager", 0);
         if (z) {
             y(v3.class, new q1(s1Var));
@@ -178,9 +178,9 @@ public class n1 implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
             synchronized (this) {
-                Class cls = (Class) this.b.c(str);
-                if (cls != null) {
-                    ((a) ((x7) this.a.c(cls)).c(str)).b = i;
+                Class c = this.b.c(str);
+                if (c != null) {
+                    this.a.c(c).c(str).b = i;
                 } else {
                     throw new GdxRuntimeException("Asset not loaded: " + str);
                 }
@@ -188,17 +188,17 @@ public class n1 implements i7 {
         }
     }
 
-    public synchronized void t(String str, b7 b7Var) {
+    public synchronized void t(String str, b7<j1> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048596, this, str, b7Var) == null) {
             synchronized (this) {
-                y7 y7Var = this.d;
-                b7.b it = b7Var.iterator();
+                y7<String> y7Var = this.d;
+                b7.b<j1> it = b7Var.iterator();
                 while (it.hasNext()) {
-                    j1 j1Var = (j1) it.next();
-                    if (!y7Var.contains(j1Var.a)) {
-                        y7Var.add(j1Var.a);
-                        u(str, j1Var);
+                    j1 next = it.next();
+                    if (!y7Var.contains(next.a)) {
+                        y7Var.add(next.a);
+                        u(str, next);
                     }
                 }
                 y7Var.b(32);
@@ -213,20 +213,20 @@ public class n1 implements i7 {
         }
     }
 
-    public synchronized Object j(String str, Class cls) {
+    public synchronized <T> T j(String str, Class<T> cls) {
         InterceptResult invokeLL;
-        Object k;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, cls)) == null) {
             synchronized (this) {
-                k = k(str, cls, true);
+                t = (T) k(str, cls, true);
             }
-            return k;
+            return t;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public synchronized void y(Class cls, o1 o1Var) {
+    public synchronized <T, P extends l1<T>> void y(Class<T> cls, o1<T, P> o1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, cls, o1Var) == null) {
             synchronized (this) {
@@ -241,19 +241,19 @@ public class n1 implements i7 {
             synchronized (this) {
                 String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
                 if (this.h.b > 0) {
-                    m1 m1Var = (m1) this.h.f();
-                    if (m1Var.b.a.equals(replace)) {
+                    m1 f = this.h.f();
+                    if (f.b.a.equals(replace)) {
                         this.m.e("Unload (from tasks): " + replace);
-                        m1Var.l = true;
-                        m1Var.e();
+                        f.l = true;
+                        f.e();
                         return;
                     }
                 }
-                Class cls = (Class) this.b.c(replace);
+                Class c = this.b.c(replace);
                 int i = 0;
                 while (true) {
                     if (i < this.f.b) {
-                        if (((j1) this.f.get(i)).a.equals(replace)) {
+                        if (this.f.get(i).a.equals(replace)) {
                             break;
                         }
                         i++;
@@ -264,36 +264,36 @@ public class n1 implements i7 {
                 }
                 if (i != -1) {
                     this.k--;
-                    j1 j1Var = (j1) this.f.i(i);
+                    j1 i2 = this.f.i(i);
                     this.m.e("Unload (from queue): " + replace);
-                    if (cls != null && j1Var.c != null && j1Var.c.a != null) {
-                        j1Var.c.a.a(this, j1Var.a, j1Var.b);
+                    if (c != null && i2.c != null && i2.c.a != null) {
+                        i2.c.a.a(this, i2.a, i2.b);
                     }
-                } else if (cls != null) {
-                    a aVar = (a) ((x7) this.a.c(cls)).c(replace);
-                    int i2 = aVar.b - 1;
-                    aVar.b = i2;
-                    if (i2 <= 0) {
+                } else if (c != null) {
+                    a c2 = this.a.c(c).c(replace);
+                    int i3 = c2.b - 1;
+                    c2.b = i3;
+                    if (i3 <= 0) {
                         this.m.e("Unload (dispose): " + replace);
-                        if (aVar.a instanceof i7) {
-                            ((i7) aVar.a).dispose();
+                        if (c2.a instanceof i7) {
+                            ((i7) c2.a).dispose();
                         }
                         this.b.k(replace);
-                        ((x7) this.a.c(cls)).k(replace);
+                        this.a.c(c).k(replace);
                     } else {
                         this.m.e("Unload (decrement): " + replace);
                     }
-                    b7 b7Var = (b7) this.c.c(replace);
-                    if (b7Var != null) {
-                        b7.b it = b7Var.iterator();
+                    b7<String> c3 = this.c.c(replace);
+                    if (c3 != null) {
+                        b7.b<String> it = c3.iterator();
                         while (it.hasNext()) {
-                            String str2 = (String) it.next();
-                            if (v(str2)) {
-                                C(str2);
+                            String next = it.next();
+                            if (v(next)) {
+                                C(next);
                             }
                         }
                     }
-                    if (aVar.b <= 0) {
+                    if (c2.b <= 0) {
                         this.c.k(replace);
                     }
                 } else {
@@ -314,10 +314,10 @@ public class n1 implements i7 {
         l1.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m1 m1Var = (m1) this.h.peek();
+            m1 peek = this.h.peek();
             try {
-                if (!m1Var.l) {
-                    if (!m1Var.update()) {
+                if (!peek.l) {
+                    if (!peek.update()) {
                         z = false;
                         if (z) {
                             return false;
@@ -327,18 +327,18 @@ public class n1 implements i7 {
                             this.l = 0;
                         }
                         this.h.pop();
-                        if (m1Var.l) {
+                        if (peek.l) {
                             return true;
                         }
-                        j1 j1Var = m1Var.b;
-                        a(j1Var.a, j1Var.b, m1Var.k);
-                        j1 j1Var2 = m1Var.b;
+                        j1 j1Var = peek.b;
+                        a(j1Var.a, j1Var.b, peek.k);
+                        j1 j1Var2 = peek.b;
                         l1 l1Var = j1Var2.c;
                         if (l1Var != null && (aVar = l1Var.a) != null) {
                             aVar.a(this, j1Var2.a, j1Var2.b);
                         }
                         long b = n8.b();
-                        this.m.a("Loaded: " + (((float) (b - m1Var.e)) / 1000000.0f) + "ms " + m1Var.b);
+                        this.m.a("Loaded: " + (((float) (b - peek.e)) / 1000000.0f) + "ms " + peek.b);
                         return true;
                     }
                 }
@@ -346,8 +346,8 @@ public class n1 implements i7 {
                 if (z) {
                 }
             } catch (RuntimeException e) {
-                m1Var.l = true;
-                B(m1Var.b, e);
+                peek.l = true;
+                B(peek.b, e);
                 throw null;
             }
         } else {
@@ -359,36 +359,36 @@ public class n1 implements i7 {
         l1.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            j1 j1Var = (j1) this.f.i(0);
-            if (v(j1Var.a)) {
-                this.m.a("Already loaded: " + j1Var);
-                a aVar2 = (a) ((x7) this.a.c((Class) this.b.c(j1Var.a))).c(j1Var.a);
-                aVar2.b = aVar2.b + 1;
-                s(j1Var.a);
-                l1 l1Var = j1Var.c;
+            j1 i = this.f.i(0);
+            if (v(i.a)) {
+                this.m.a("Already loaded: " + i);
+                a c = this.a.c(this.b.c(i.a)).c(i.a);
+                c.b = c.b + 1;
+                s(i.a);
+                l1 l1Var = i.c;
                 if (l1Var != null && (aVar = l1Var.a) != null) {
-                    aVar.a(this, j1Var.a, j1Var.b);
+                    aVar.a(this, i.a, i.b);
                 }
                 this.j++;
                 return;
             }
-            this.m.e("Loading: " + j1Var);
-            f(j1Var);
+            this.m.e("Loading: " + i);
+            f(i);
         }
     }
 
-    public void a(String str, Class cls, Object obj) {
+    public <T> void a(String str, Class<T> cls, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, cls, obj) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, cls, t) == null) {
             this.b.i(str, cls);
-            x7 x7Var = (x7) this.a.c(cls);
-            if (x7Var == null) {
-                x7Var = new x7();
-                this.a.i(cls, x7Var);
+            x7<String, a> c = this.a.c(cls);
+            if (c == null) {
+                c = new x7<>();
+                this.a.i(cls, c);
             }
             a aVar = new a();
-            aVar.a = obj;
-            x7Var.i(str, aVar);
+            aVar.a = t;
+            c.i(str, aVar);
         }
     }
 
@@ -409,20 +409,20 @@ public class n1 implements i7 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized String m(Object obj) {
+    public synchronized <T> String m(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, t)) == null) {
             synchronized (this) {
-                x7.c f = this.a.f();
+                x7.c<Class> f = this.a.f();
                 f.c();
                 while (f.hasNext()) {
-                    x7.a it = ((x7) this.a.c((Class) f.next())).iterator();
+                    x7.a<String, a> it = this.a.c(f.next()).iterator();
                     while (it.hasNext()) {
-                        x7.b bVar = (x7.b) it.next();
-                        Object obj2 = ((a) bVar.b).a;
-                        if (obj2 == obj || obj.equals(obj2)) {
-                            return (String) bVar.a;
+                        x7.b next = it.next();
+                        Object obj = ((a) next.b).a;
+                        if (obj == t || t.equals(obj)) {
+                            return (String) next.a;
                         }
                         while (it.hasNext()) {
                         }
@@ -440,9 +440,9 @@ public class n1 implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             synchronized (this) {
-                Class cls = (Class) this.b.c(str);
-                if (cls != null) {
-                    i = ((a) ((x7) this.a.c(cls)).c(str)).b;
+                Class c = this.b.c(str);
+                if (c != null) {
+                    i = this.a.c(c).c(str).b;
                 } else {
                     throw new GdxRuntimeException("Asset not loaded: " + str);
                 }
@@ -457,12 +457,12 @@ public class n1 implements i7 {
         if (interceptable == null || interceptable.invokeL(1048594, this, th) == null) {
             this.m.c("Error loading asset.", th);
             if (!this.h.isEmpty()) {
-                m1 m1Var = (m1) this.h.pop();
-                j1 j1Var = m1Var.b;
-                if (m1Var.g && m1Var.h != null) {
-                    b7.b it = m1Var.h.iterator();
+                m1 pop = this.h.pop();
+                j1 j1Var = pop.b;
+                if (pop.g && pop.h != null) {
+                    b7.b<j1> it = pop.h.iterator();
                     while (it.hasNext()) {
-                        C(((j1) it.next()).a);
+                        C(it.next().a);
                     }
                 }
                 this.h.clear();
@@ -478,16 +478,16 @@ public class n1 implements i7 {
     }
 
     public final void s(String str) {
-        b7 b7Var;
+        b7<String> c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || (b7Var = (b7) this.c.c(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, str) != null) || (c = this.c.c(str)) == null) {
             return;
         }
-        b7.b it = b7Var.iterator();
+        b7.b<String> it = c.iterator();
         while (it.hasNext()) {
-            String str2 = (String) it.next();
-            ((a) ((x7) this.a.c((Class) this.b.c(str2))).c(str2)).b++;
-            s(str2);
+            String next = it.next();
+            this.a.c(this.b.c(next)).c(next).b++;
+            s(next);
         }
     }
 
@@ -501,22 +501,22 @@ public class n1 implements i7 {
                 w7 w7Var = new w7();
                 while (this.b.a > 0) {
                     w7Var.clear();
-                    b7 d = this.b.f().d();
-                    b7.b it = d.iterator();
+                    b7<String> d = this.b.f().d();
+                    b7.b<String> it = d.iterator();
                     while (it.hasNext()) {
-                        b7 b7Var = (b7) this.c.c((String) it.next());
-                        if (b7Var != null) {
-                            b7.b it2 = b7Var.iterator();
+                        b7<String> c = this.c.c(it.next());
+                        if (c != null) {
+                            b7.b<String> it2 = c.iterator();
                             while (it2.hasNext()) {
-                                w7Var.d((String) it2.next(), 0, 1);
+                                w7Var.d(it2.next(), 0, 1);
                             }
                         }
                     }
-                    b7.b it3 = d.iterator();
+                    b7.b<String> it3 = d.iterator();
                     while (it3.hasNext()) {
-                        String str = (String) it3.next();
-                        if (w7Var.c(str, 0) == 0) {
-                            C(str);
+                        String next = it3.next();
+                        if (w7Var.c(next, 0) == 0) {
+                            C(next);
                         }
                     }
                 }
@@ -532,28 +532,28 @@ public class n1 implements i7 {
         }
     }
 
-    public synchronized Object i(String str) {
+    public synchronized <T> T i(String str) {
         InterceptResult invokeL;
-        Object l;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             synchronized (this) {
-                l = l(str, true);
+                t = (T) l(str, true);
             }
-            return l;
+            return t;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public synchronized b7 n(String str) {
+    public synchronized b7<String> n(String str) {
         InterceptResult invokeL;
-        b7 b7Var;
+        b7<String> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             synchronized (this) {
-                b7Var = (b7) this.c.c(str);
+                c = this.c.c(str);
             }
-            return b7Var;
+            return c;
         }
         return (b7) invokeL.objValue;
     }
@@ -590,15 +590,15 @@ public class n1 implements i7 {
         return invokeL.booleanValue;
     }
 
-    public synchronized Object k(String str, Class cls, boolean z) {
+    public synchronized <T> T k(String str, Class<T> cls, boolean z) {
         InterceptResult invokeLLZ;
-        a aVar;
+        a c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048587, this, str, cls, z)) == null) {
             synchronized (this) {
-                x7 x7Var = (x7) this.a.c(cls);
-                if (x7Var != null && (aVar = (a) x7Var.c(str)) != null) {
-                    return aVar.a;
+                x7<String, a> c2 = this.a.c(cls);
+                if (c2 != null && (c = c2.c(str)) != null) {
+                    return (T) c.a;
                 }
                 if (!z) {
                     return null;
@@ -606,19 +606,19 @@ public class n1 implements i7 {
                 throw new GdxRuntimeException("Asset not loaded: " + str);
             }
         }
-        return invokeLLZ.objValue;
+        return (T) invokeLLZ.objValue;
     }
 
-    public synchronized Object l(String str, boolean z) {
+    public synchronized <T> T l(String str, boolean z) {
         InterceptResult invokeLZ;
-        x7 x7Var;
-        a aVar;
+        x7<String, a> c;
+        a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             synchronized (this) {
-                Class cls = (Class) this.b.c(str);
-                if (cls != null && (x7Var = (x7) this.a.c(cls)) != null && (aVar = (a) x7Var.c(str)) != null) {
-                    return aVar.a;
+                Class c3 = this.b.c(str);
+                if (c3 != null && (c = this.a.c(c3)) != null && (c2 = c.c(str)) != null) {
+                    return (T) c2.a;
                 }
                 if (!z) {
                     return null;
@@ -626,27 +626,27 @@ public class n1 implements i7 {
                 throw new GdxRuntimeException("Asset not loaded: " + str);
             }
         }
-        return invokeLZ.objValue;
+        return (T) invokeLZ.objValue;
     }
 
-    public o1 o(Class cls, String str) {
+    public <T> o1 o(Class<T> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, cls, str)) == null) {
-            x7 x7Var = (x7) this.e.c(cls);
+            x7<String, o1> c = this.e.c(cls);
             o1 o1Var = null;
-            if (x7Var != null && x7Var.a >= 1) {
+            if (c != null && c.a >= 1) {
                 if (str == null) {
-                    return (o1) x7Var.c("");
+                    return c.c("");
                 }
                 int i = -1;
-                x7.a b = x7Var.b();
+                x7.a<String, o1> b = c.b();
                 b.c();
                 while (b.hasNext()) {
-                    x7.b bVar = (x7.b) b.next();
-                    if (((String) bVar.a).length() > i && str.endsWith((String) bVar.a)) {
-                        o1Var = (o1) bVar.b;
-                        i = ((String) bVar.a).length();
+                    x7.b next = b.next();
+                    if (((String) next.a).length() > i && str.endsWith((String) next.a)) {
+                        o1Var = (o1) next.b;
+                        i = ((String) next.a).length();
                     }
                 }
             }
@@ -659,17 +659,17 @@ public class n1 implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, str, j1Var) == null) {
             synchronized (this) {
-                b7 b7Var = (b7) this.c.c(str);
-                if (b7Var == null) {
-                    b7Var = new b7();
-                    this.c.i(str, b7Var);
+                b7<String> c = this.c.c(str);
+                if (c == null) {
+                    c = new b7<>();
+                    this.c.i(str, c);
                 }
-                b7Var.a(j1Var.a);
+                c.a(j1Var.a);
                 if (v(j1Var.a)) {
                     s7 s7Var = this.m;
                     s7Var.a("Dependency already loaded: " + j1Var);
-                    a aVar = (a) ((x7) this.a.c((Class) this.b.c(j1Var.a))).c(j1Var.a);
-                    aVar.b = aVar.b + 1;
+                    a c2 = this.a.c(this.b.c(j1Var.a)).c(j1Var.a);
+                    c2.b = c2.b + 1;
                     s(j1Var.a);
                 } else {
                     s7 s7Var2 = this.m;
@@ -713,7 +713,7 @@ public class n1 implements i7 {
         return invokeV.booleanValue;
     }
 
-    public synchronized void w(String str, Class cls, l1 l1Var) {
+    public synchronized <T> void w(String str, Class<T> cls, l1<T> l1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048601, this, str, cls, l1Var) == null) {
             synchronized (this) {
@@ -724,20 +724,20 @@ public class n1 implements i7 {
                         this.l = 0;
                     }
                     for (int i = 0; i < this.f.b; i++) {
-                        j1 j1Var = (j1) this.f.get(i);
+                        j1 j1Var = this.f.get(i);
                         if (j1Var.a.equals(str) && !j1Var.b.equals(cls)) {
                             throw new GdxRuntimeException("Asset with name '" + str + "' already in preload queue, but has different type (expected: " + u8.e(cls) + ", found: " + u8.e(j1Var.b) + SmallTailInfo.EMOTION_SUFFIX);
                         }
                     }
                     for (int i2 = 0; i2 < this.h.b; i2++) {
-                        j1 j1Var2 = ((m1) this.h.get(i2)).b;
+                        j1 j1Var2 = this.h.get(i2).b;
                         if (j1Var2.a.equals(str) && !j1Var2.b.equals(cls)) {
                             throw new GdxRuntimeException("Asset with name '" + str + "' already in task list, but has different type (expected: " + u8.e(cls) + ", found: " + u8.e(j1Var2.b) + SmallTailInfo.EMOTION_SUFFIX);
                         }
                     }
-                    Class cls2 = (Class) this.b.c(str);
-                    if (cls2 != null && !cls2.equals(cls)) {
-                        throw new GdxRuntimeException("Asset with name '" + str + "' already loaded, but has different type (expected: " + u8.e(cls) + ", found: " + u8.e(cls2) + SmallTailInfo.EMOTION_SUFFIX);
+                    Class c = this.b.c(str);
+                    if (c != null && !c.equals(cls)) {
+                        throw new GdxRuntimeException("Asset with name '" + str + "' already loaded, but has different type (expected: " + u8.e(cls) + ", found: " + u8.e(c) + SmallTailInfo.EMOTION_SUFFIX);
                     }
                     this.k++;
                     j1 j1Var3 = new j1(str, cls, l1Var);
@@ -750,7 +750,7 @@ public class n1 implements i7 {
         }
     }
 
-    public synchronized void z(Class cls, String str, o1 o1Var) {
+    public synchronized <T, P extends l1<T>> void z(Class<T> cls, String str, o1<T, P> o1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048604, this, cls, str, o1Var) == null) {
             synchronized (this) {
@@ -758,17 +758,17 @@ public class n1 implements i7 {
                     if (o1Var != null) {
                         s7 s7Var = this.m;
                         s7Var.a("Loader set: " + u8.e(cls) + LoadErrorCode.TOKEN_NEXT + u8.e(o1Var.getClass()));
-                        x7 x7Var = (x7) this.e.c(cls);
-                        if (x7Var == null) {
-                            x7 x7Var2 = this.e;
-                            x7 x7Var3 = new x7();
-                            x7Var2.i(cls, x7Var3);
-                            x7Var = x7Var3;
+                        x7<String, o1> c = this.e.c(cls);
+                        if (c == null) {
+                            x7<Class, x7<String, o1>> x7Var = this.e;
+                            x7<String, o1> x7Var2 = new x7<>();
+                            x7Var.i(cls, x7Var2);
+                            c = x7Var2;
                         }
                         if (str == null) {
                             str = "";
                         }
-                        x7Var.i(str, o1Var);
+                        c.i(str, o1Var);
                     } else {
                         throw new IllegalArgumentException("loader cannot be null.");
                     }

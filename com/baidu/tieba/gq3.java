@@ -1,6 +1,13 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +15,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gq3 extends ll1 {
+public class gq3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Response a;
+        public final /* synthetic */ String b;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = str;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                gq3.d("get launch scheme fail: network err with exception: " + exc.getMessage(), this.b, "", true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (gq3.a) {
+                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess result: " + str);
+                    Log.d("SwanAppExchanger", "startLaunchAction onSuccess status: " + i);
+                }
+                if (i == 200) {
+                    try {
+                        hq3.a(new JSONObject(str).optString("data"));
+                        return;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        gq3.d("get launch scheme fail: " + e.getMessage(), this.b, str, false);
+                        return;
+                    }
+                }
+                String f = gq3.f(this.a);
+                if (!TextUtils.isEmpty(f)) {
+                    hq3.a(f);
+                    return;
+                }
+                gq3.d("get launch scheme fail: request fail with code " + i, this.b, str, true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.StringResponseCallback, com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                this.a = response;
+                return super.parseResponse(response, i);
+            }
+            return (String) invokeLI.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,54 +113,47 @@ public class gq3 extends ll1 {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
+        b = SchemeConfig.getSchemeHead() + "://";
     }
 
-    public gq3() {
+    public static void d(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            if (z) {
+                w33.g(AppRuntime.getAppContext(), "打开失败，请检查网络设置").G();
+            }
+            xf3 xf3Var = new xf3();
+            xf3Var.k(1L);
+            xf3Var.i(12L);
+            xf3Var.f(str);
+            bg3.a().f(xf3Var);
+            if (a) {
+                Log.w("SwanAppExchanger", "open aiapp fail, url : " + str2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.in1
-    public boolean x() {
-        InterceptResult invokeV;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a && lz2.G().booleanValue()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().setHeader("Swan-Accept", "swan/json").userAgent(dg3.a()).url(str).build().executeAsyncOnUIBack(new a(str));
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.in1
-    public JSONObject getRawSwitch() {
-        InterceptResult invokeV;
+    public static String f(Response response) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (nl4.a()) {
-                    jSONObject.put("swanswitch_android_setdata", 1);
-                }
-                jSONObject.put("swanswitch_ab_inline_video", 1);
-                jSONObject.put("swanswitch_ab_inline_input", 1);
-                jSONObject.put("swanswitch_ab_inline_textarea", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) {
+            if (response == null) {
+                return null;
             }
-            return jSONObject;
+            String header = response.header("Location");
+            if (TextUtils.isEmpty(header) || !header.startsWith("baiduboxapp://")) {
+                return null;
+            }
+            return header.replace("baiduboxapp://", b);
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

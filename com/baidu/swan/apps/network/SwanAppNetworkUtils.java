@@ -6,16 +6,17 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ga2;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.vz2;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.zu2;
-import com.baidu.tieba.zz2;
+import com.baidu.tieba.n03;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.r03;
+import com.baidu.tieba.rv2;
+import com.baidu.tieba.ya2;
+import com.baidu.tieba.yh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,20 +29,20 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onResult(int i);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
-    public final class NetType {
+    /* loaded from: classes3.dex */
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -118,8 +119,8 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements vz2 {
+    /* loaded from: classes3.dex */
+    public static class a implements n03<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -143,7 +144,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vz2
+        @Override // com.baidu.tieba.n03
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -167,14 +168,14 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = wj1.a;
+        a = ok1.a;
     }
 
     public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = gh3.f(ga2.U().g0());
+            String f = yh3.f(ya2.U().g0());
             if (TextUtils.isEmpty(f)) {
                 return "";
             }
@@ -220,10 +221,10 @@ public class SwanAppNetworkUtils {
         return invokeLL.booleanValue;
     }
 
-    public static void b(b bVar) {
+    public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            zz2.a(zu2.class, null, new a(bVar));
+            r03.a(rv2.class, null, new a(bVar));
         }
     }
 

@@ -8,6 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ListAdapter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -103,8 +105,8 @@ public final class MaterialCalendarGridView extends GridView {
         }
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.obfuscated_res_0x7f0904a2);
-            setNextFocusRightId(R.id.obfuscated_res_0x7f0906cf);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f0904af);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f0906dd);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             public static /* synthetic */ Interceptable $ic;
@@ -130,7 +132,7 @@ public final class MaterialCalendarGridView extends GridView {
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
                     super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
@@ -173,7 +175,7 @@ public final class MaterialCalendarGridView extends GridView {
         return invokeIL.booleanValue;
     }
 
-    public static int horizontalMidPoint(View view2) {
+    public static int horizontalMidPoint(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
@@ -194,7 +196,7 @@ public final class MaterialCalendarGridView extends GridView {
         }
     }
 
-    public static boolean skipMonth(Long l, Long l2, Long l3, Long l4) {
+    public static boolean skipMonth(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, l, l2, l3, l4)) == null) {
@@ -218,6 +220,7 @@ public final class MaterialCalendarGridView extends GridView {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.google.android.material.datepicker.MonthAdapter' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
+    @NonNull
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         InterceptResult invokeV;
@@ -229,7 +232,7 @@ public final class MaterialCalendarGridView extends GridView {
     }
 
     @Override // android.view.View
-    public final void onDraw(Canvas canvas) {
+    public final void onDraw(@NonNull Canvas canvas) {
         int dayToPosition;
         int horizontalMidPoint;
         int dayToPosition2;
@@ -241,18 +244,18 @@ public final class MaterialCalendarGridView extends GridView {
             MaterialCalendarGridView materialCalendarGridView = this;
             super.onDraw(canvas);
             MonthAdapter adapter2 = getAdapter2();
-            DateSelector dateSelector = adapter2.dateSelector;
+            DateSelector<?> dateSelector = adapter2.dateSelector;
             CalendarStyle calendarStyle = adapter2.calendarStyle;
             Long item = adapter2.getItem(adapter2.firstPositionInMonth());
             Long item2 = adapter2.getItem(adapter2.lastPositionInMonth());
-            for (Pair pair : dateSelector.getSelectedRanges()) {
-                F f = pair.first;
-                if (f != 0) {
-                    if (pair.second == 0) {
+            for (Pair<Long, Long> pair : dateSelector.getSelectedRanges()) {
+                Long l = pair.first;
+                if (l != null) {
+                    if (pair.second == null) {
                         continue;
                     } else {
-                        long longValue = ((Long) f).longValue();
-                        long longValue2 = ((Long) pair.second).longValue();
+                        long longValue = l.longValue();
+                        long longValue2 = pair.second.longValue();
                         if (skipMonth(item, item2, Long.valueOf(longValue), Long.valueOf(longValue2))) {
                             return;
                         }

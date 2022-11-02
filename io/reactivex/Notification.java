@@ -10,12 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.util.NotificationLite;
 /* loaded from: classes8.dex */
-public final class Notification {
+public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Notification COMPLETE;
+    public static final Notification<Object> COMPLETE;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object value;
 
@@ -32,18 +34,20 @@ public final class Notification {
                 return;
             }
         }
-        COMPLETE = new Notification(null);
+        COMPLETE = new Notification<>(null);
     }
 
-    public static Notification createOnComplete() {
+    @NonNull
+    public static <T> Notification<T> createOnComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return COMPLETE;
+            return (Notification<T>) COMPLETE;
         }
         return (Notification) invokeV.objValue;
     }
 
+    @Nullable
     public Throwable getError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,17 +61,18 @@ public final class Notification {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object getValue() {
+    @Nullable
+    public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Object obj = this.value;
             if (obj != null && !NotificationLite.isError(obj)) {
-                return this.value;
+                return (T) this.value;
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -135,22 +140,24 @@ public final class Notification {
         this.value = obj;
     }
 
-    public static Notification createOnError(Throwable th) {
+    @NonNull
+    public static <T> Notification<T> createOnError(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
             ObjectHelper.requireNonNull(th, "error is null");
-            return new Notification(NotificationLite.error(th));
+            return new Notification<>(NotificationLite.error(th));
         }
         return (Notification) invokeL.objValue;
     }
 
-    public static Notification createOnNext(Object obj) {
+    @NonNull
+    public static <T> Notification<T> createOnNext(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "value is null");
-            return new Notification(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            ObjectHelper.requireNonNull(t, "value is null");
+            return new Notification<>(t);
         }
         return (Notification) invokeL.objValue;
     }

@@ -4,6 +4,12 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import androidx.annotation.CheckResult;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,13 +38,14 @@ import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.load.resource.gif.GifDrawableTransformation;
 import com.bumptech.glide.load.resource.gif.GifOptions;
+import com.bumptech.glide.request.BaseRequestOptions;
 import com.bumptech.glide.signature.EmptySignature;
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class BaseRequestOptions implements Cloneable {
+public abstract class BaseRequestOptions<T extends BaseRequestOptions<T>> implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISK_CACHE_STRATEGY = 4;
     public static final int ERROR_ID = 32;
@@ -62,9 +69,12 @@ public abstract class BaseRequestOptions implements Cloneable {
     public static final int USE_ANIMATION_POOL = 1048576;
     public static final int USE_UNLIMITED_SOURCE_GENERATORS_POOL = 262144;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public DiskCacheStrategy diskCacheStrategy;
     public int errorId;
+    @Nullable
     public Drawable errorPlaceholder;
+    @Nullable
     public Drawable fallbackDrawable;
     public int fallbackId;
     public int fields;
@@ -75,17 +85,24 @@ public abstract class BaseRequestOptions implements Cloneable {
     public boolean isTransformationAllowed;
     public boolean isTransformationRequired;
     public boolean onlyRetrieveFromCache;
+    @NonNull
     public Options options;
     public int overrideHeight;
     public int overrideWidth;
+    @Nullable
     public Drawable placeholderDrawable;
     public int placeholderId;
+    @NonNull
     public Priority priority;
-    public Class resourceClass;
+    @NonNull
+    public Class<?> resourceClass;
+    @NonNull
     public Key signature;
     public float sizeMultiplier;
+    @Nullable
     public Resources.Theme theme;
-    public Map transformations;
+    @NonNull
+    public Map<Class<?>, Transformation<?>> transformations;
     public boolean useAnimationPool;
     public boolean useUnlimitedSourceGeneratorsPool;
 
@@ -95,10 +112,10 @@ public abstract class BaseRequestOptions implements Cloneable {
         return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? (i & i2) != 0 : invokeII.booleanValue;
     }
 
-    private BaseRequestOptions self() {
+    private T self() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this : (BaseRequestOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this : (T) invokeV.objValue;
     }
 
     public BaseRequestOptions() {
@@ -137,245 +154,291 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeI.booleanValue;
     }
 
-    public BaseRequestOptions downsample(DownsampleStrategy downsampleStrategy) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<com.bumptech.glide.load.resource.bitmap.DownsampleStrategy>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T downsample(@NonNull DownsampleStrategy downsampleStrategy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, downsampleStrategy)) == null) {
             return set(DownsampleStrategy.OPTION, Preconditions.checkNotNull(downsampleStrategy));
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions encodeFormat(Bitmap.CompressFormat compressFormat) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<android.graphics.Bitmap$CompressFormat>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T encodeFormat(@NonNull Bitmap.CompressFormat compressFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, compressFormat)) == null) {
             return set(BitmapEncoder.COMPRESSION_FORMAT, Preconditions.checkNotNull(compressFormat));
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions encodeQuality(int i) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Integer>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T encodeQuality(@IntRange(from = 0, to = 100) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
             return set(BitmapEncoder.COMPRESSION_QUALITY, Integer.valueOf(i));
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions format(DecodeFormat decodeFormat) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<com.bumptech.glide.load.DecodeFormat>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T format(@NonNull DecodeFormat decodeFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, decodeFormat)) == null) {
             Preconditions.checkNotNull(decodeFormat);
-            return set(Downsampler.DECODE_FORMAT, decodeFormat).set(GifOptions.DECODE_FORMAT, decodeFormat);
+            return (T) set(Downsampler.DECODE_FORMAT, decodeFormat).set(GifOptions.DECODE_FORMAT, decodeFormat);
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions frame(long j) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Long>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T frame(@IntRange(from = 0) long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
             return set(VideoDecoder.TARGET_FRAME, Long.valueOf(j));
         }
-        return (BaseRequestOptions) invokeJ.objValue;
+        return (T) invokeJ.objValue;
     }
 
-    public BaseRequestOptions onlyRetrieveFromCache(boolean z) {
+    @NonNull
+    @CheckResult
+    public T onlyRetrieveFromCache(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048631, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().onlyRetrieveFromCache(z);
+                return (T) m75clone().onlyRetrieveFromCache(z);
             }
             this.onlyRetrieveFromCache = z;
             this.fields |= 524288;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public BaseRequestOptions optionalTransform(Transformation transformation) {
+    @NonNull
+    @CheckResult
+    public T optionalTransform(@NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, transformation)) == null) {
             return transform(transformation, false);
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions override(int i) {
+    @NonNull
+    @CheckResult
+    public T override(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048639, this, i)) == null) {
             return override(i, i);
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions skipMemoryCache(boolean z) {
+    @NonNull
+    @CheckResult
+    public T skipMemoryCache(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048648, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().skipMemoryCache(true);
+                return (T) m75clone().skipMemoryCache(true);
             }
             this.isCacheable = !z;
             this.fields |= 256;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public BaseRequestOptions theme(Resources.Theme theme) {
+    @NonNull
+    @CheckResult
+    public T theme(@Nullable Resources.Theme theme) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, theme)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().theme(theme);
+                return (T) m75clone().theme(theme);
             }
             this.theme = theme;
             this.fields |= 32768;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions timeout(int i) {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Integer>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T timeout(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048650, this, i)) == null) {
             return set(HttpGlideUrlLoader.TIMEOUT, Integer.valueOf(i));
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions transform(Transformation transformation) {
+    @NonNull
+    @CheckResult
+    public T transform(@NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, transformation)) == null) {
             return transform(transformation, true);
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
+    @NonNull
+    @CheckResult
     @Deprecated
-    public BaseRequestOptions transforms(Transformation... transformationArr) {
+    public T transforms(@NonNull Transformation<Bitmap>... transformationArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048657, this, transformationArr)) == null) {
-            return transform((Transformation) new MultiTransformation(transformationArr), true);
+            return transform((Transformation<Bitmap>) new MultiTransformation(transformationArr), true);
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions useAnimationPool(boolean z) {
+    @NonNull
+    @CheckResult
+    public T useAnimationPool(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048658, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().useAnimationPool(z);
+                return (T) m75clone().useAnimationPool(z);
             }
             this.useAnimationPool = z;
             this.fields |= 1048576;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    public BaseRequestOptions useUnlimitedSourceGeneratorsPool(boolean z) {
+    @NonNull
+    @CheckResult
+    public T useUnlimitedSourceGeneratorsPool(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048659, this, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().useUnlimitedSourceGeneratorsPool(z);
+                return (T) m75clone().useUnlimitedSourceGeneratorsPool(z);
             }
             this.useUnlimitedSourceGeneratorsPool = z;
             this.fields |= 262144;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeZ.objValue;
+        return (T) invokeZ.objValue;
     }
 
-    private BaseRequestOptions optionalScaleOnlyTransform(DownsampleStrategy downsampleStrategy, Transformation transformation) {
+    @NonNull
+    private T optionalScaleOnlyTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, downsampleStrategy, transformation)) == null) {
             return scaleOnlyTransform(downsampleStrategy, transformation, false);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    private BaseRequestOptions scaleOnlyTransform(DownsampleStrategy downsampleStrategy, Transformation transformation) {
+    @NonNull
+    private T scaleOnlyTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, downsampleStrategy, transformation)) == null) {
             return scaleOnlyTransform(downsampleStrategy, transformation, true);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public final BaseRequestOptions optionalTransform(DownsampleStrategy downsampleStrategy, Transformation transformation) {
+    @NonNull
+    public final T optionalTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().optionalTransform(downsampleStrategy, transformation);
+                return (T) m75clone().optionalTransform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation, false);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public BaseRequestOptions override(int i, int i2) {
+    @NonNull
+    @CheckResult
+    public T override(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048640, this, i, i2)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().override(i, i2);
+                return (T) m75clone().override(i, i2);
             }
             this.overrideWidth = i;
             this.overrideHeight = i2;
             this.fields |= 512;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeII.objValue;
+        return (T) invokeII.objValue;
     }
 
-    public BaseRequestOptions set(Option option, Object obj) {
+    @NonNull
+    @CheckResult
+    public <Y> T set(@NonNull Option<Y> option, @NonNull Y y) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, option, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, option, y)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().set(option, obj);
+                return (T) m75clone().set(option, y);
             }
             Preconditions.checkNotNull(option);
-            Preconditions.checkNotNull(obj);
-            this.options.set(option, obj);
+            Preconditions.checkNotNull(y);
+            this.options.set(option, y);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public final BaseRequestOptions transform(DownsampleStrategy downsampleStrategy, Transformation transformation) {
+    @NonNull
+    @CheckResult
+    public final T transform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048653, this, downsampleStrategy, transformation)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().transform(downsampleStrategy, transformation);
+                return (T) m75clone().transform(downsampleStrategy, transformation);
             }
             downsample(downsampleStrategy);
             return transform(transformation);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    private BaseRequestOptions scaleOnlyTransform(DownsampleStrategy downsampleStrategy, Transformation transformation, boolean z) {
+    @NonNull
+    private T scaleOnlyTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation, boolean z) {
         InterceptResult invokeLLZ;
-        BaseRequestOptions optionalTransform;
+        T optionalTransform;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, this, downsampleStrategy, transformation, z)) == null) {
             if (z) {
@@ -386,15 +449,17 @@ public abstract class BaseRequestOptions implements Cloneable {
             optionalTransform.isScaleOnlyOrNoTransform = true;
             return optionalTransform;
         }
-        return (BaseRequestOptions) invokeLLZ.objValue;
+        return (T) invokeLLZ.objValue;
     }
 
-    public BaseRequestOptions apply(BaseRequestOptions baseRequestOptions) {
+    @NonNull
+    @CheckResult
+    public T apply(@NonNull BaseRequestOptions<?> baseRequestOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, baseRequestOptions)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().apply(baseRequestOptions);
+                return (T) m75clone().apply(baseRequestOptions);
             }
             if (isSet(baseRequestOptions.fields, 2)) {
                 this.sizeMultiplier = baseRequestOptions.sizeMultiplier;
@@ -482,10 +547,11 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.options.putAll(baseRequestOptions.options);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions autoClone() {
+    @NonNull
+    public T autoClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -495,63 +561,78 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.isAutoCloneEnabled = true;
             return lock();
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions centerCrop() {
+    @NonNull
+    @CheckResult
+    public T centerCrop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return transform(DownsampleStrategy.CENTER_OUTSIDE, new CenterCrop());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions centerInside() {
+    @NonNull
+    @CheckResult
+    public T centerInside() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return scaleOnlyTransform(DownsampleStrategy.CENTER_INSIDE, new CenterInside());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions circleCrop() {
+    @NonNull
+    @CheckResult
+    public T circleCrop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return transform(DownsampleStrategy.CENTER_INSIDE, new CircleCrop());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions disallowHardwareConfig() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Boolean>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T disallowHardwareConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return set(Downsampler.ALLOW_HARDWARE_CONFIG, Boolean.FALSE);
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions dontAnimate() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.bumptech.glide.load.Option<java.lang.Boolean>, com.bumptech.glide.load.Option<Y> */
+    @NonNull
+    @CheckResult
+    public T dontAnimate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return set(GifOptions.DISABLE_ANIMATION, Boolean.TRUE);
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions fitCenter() {
+    @NonNull
+    @CheckResult
+    public T fitCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return scaleOnlyTransform(DownsampleStrategy.FIT_CENTER, new FitCenter());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    @NonNull
     public final DiskCacheStrategy getDiskCacheStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -570,6 +651,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public final Drawable getErrorPlaceholder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -579,6 +661,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public final Drawable getFallbackDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -606,6 +689,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public final Options getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -633,6 +717,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public final Drawable getPlaceholderDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -651,6 +736,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public final Priority getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -660,7 +746,8 @@ public abstract class BaseRequestOptions implements Cloneable {
         return (Priority) invokeV.objValue;
     }
 
-    public final Class getResourceClass() {
+    @NonNull
+    public final Class<?> getResourceClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
@@ -669,6 +756,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return (Class) invokeV.objValue;
     }
 
+    @NonNull
     public final Key getSignature() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -687,6 +775,7 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public final Resources.Theme getTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -696,7 +785,8 @@ public abstract class BaseRequestOptions implements Cloneable {
         return (Resources.Theme) invokeV.objValue;
     }
 
-    public final Map getTransformations() {
+    @NonNull
+    public final Map<Class<?>, Transformation<?>> getTransformations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
@@ -822,53 +912,63 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.booleanValue;
     }
 
-    public BaseRequestOptions lock() {
+    @NonNull
+    public T lock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             this.isLocked = true;
             return self();
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions optionalCenterCrop() {
+    @NonNull
+    @CheckResult
+    public T optionalCenterCrop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             return optionalTransform(DownsampleStrategy.CENTER_OUTSIDE, new CenterCrop());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions optionalCenterInside() {
+    @NonNull
+    @CheckResult
+    public T optionalCenterInside() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             return optionalScaleOnlyTransform(DownsampleStrategy.CENTER_INSIDE, new CenterInside());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions optionalCircleCrop() {
+    @NonNull
+    @CheckResult
+    public T optionalCircleCrop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             return optionalTransform(DownsampleStrategy.CENTER_OUTSIDE, new CircleCrop());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions optionalFitCenter() {
+    @NonNull
+    @CheckResult
+    public T optionalFitCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             return optionalScaleOnlyTransform(DownsampleStrategy.FIT_CENTER, new FitCenter());
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public final BaseRequestOptions selfOrThrowIfLocked() {
+    @NonNull
+    public final T selfOrThrowIfLocked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
@@ -877,39 +977,42 @@ public abstract class BaseRequestOptions implements Cloneable {
             }
             throw new IllegalStateException("You cannot modify locked T, consider clone()");
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @CheckResult
     /* renamed from: clone */
-    public BaseRequestOptions m75clone() {
+    public T m75clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                BaseRequestOptions baseRequestOptions = (BaseRequestOptions) super.clone();
+                T t = (T) super.clone();
                 Options options = new Options();
-                baseRequestOptions.options = options;
+                t.options = options;
                 options.putAll(this.options);
                 CachedHashCodeArrayMap cachedHashCodeArrayMap = new CachedHashCodeArrayMap();
-                baseRequestOptions.transformations = cachedHashCodeArrayMap;
+                t.transformations = cachedHashCodeArrayMap;
                 cachedHashCodeArrayMap.putAll(this.transformations);
-                baseRequestOptions.isLocked = false;
-                baseRequestOptions.isAutoCloneEnabled = false;
-                return baseRequestOptions;
+                t.isLocked = false;
+                t.isAutoCloneEnabled = false;
+                return t;
             } catch (CloneNotSupportedException e) {
                 throw new RuntimeException(e);
             }
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions dontTransform() {
+    @NonNull
+    @CheckResult
+    public T dontTransform() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().dontTransform();
+                return (T) m75clone().dontTransform();
             }
             this.transformations.clear();
             int i = this.fields & (-2049);
@@ -922,43 +1025,49 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.isScaleOnlyOrNoTransform = true;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public BaseRequestOptions decode(Class cls) {
+    @NonNull
+    @CheckResult
+    public T decode(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().decode(cls);
+                return (T) m75clone().decode(cls);
             }
             this.resourceClass = (Class) Preconditions.checkNotNull(cls);
             this.fields |= 4096;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions diskCacheStrategy(DiskCacheStrategy diskCacheStrategy) {
+    @NonNull
+    @CheckResult
+    public T diskCacheStrategy(@NonNull DiskCacheStrategy diskCacheStrategy) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, diskCacheStrategy)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().diskCacheStrategy(diskCacheStrategy);
+                return (T) m75clone().diskCacheStrategy(diskCacheStrategy);
             }
             this.diskCacheStrategy = (DiskCacheStrategy) Preconditions.checkNotNull(diskCacheStrategy);
             this.fields |= 4;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions error(int i) {
+    @NonNull
+    @CheckResult
+    public T error(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().error(i);
+                return (T) m75clone().error(i);
             }
             this.errorId = i;
             int i2 = this.fields | 32;
@@ -967,15 +1076,17 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i2 & (-17);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions fallback(int i) {
+    @NonNull
+    @CheckResult
+    public T fallback(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().fallback(i);
+                return (T) m75clone().fallback(i);
             }
             this.fallbackId = i;
             int i2 = this.fields | 16384;
@@ -984,15 +1095,17 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i2 & (-8193);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions placeholder(int i) {
+    @NonNull
+    @CheckResult
+    public T placeholder(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().placeholder(i);
+                return (T) m75clone().placeholder(i);
             }
             this.placeholderId = i;
             int i2 = this.fields | 128;
@@ -1001,43 +1114,49 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i2 & (-65);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public BaseRequestOptions priority(Priority priority) {
+    @NonNull
+    @CheckResult
+    public T priority(@NonNull Priority priority) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, priority)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().priority(priority);
+                return (T) m75clone().priority(priority);
             }
             this.priority = (Priority) Preconditions.checkNotNull(priority);
             this.fields |= 8;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions signature(Key key) {
+    @NonNull
+    @CheckResult
+    public T signature(@NonNull Key key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, key)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().signature(key);
+                return (T) m75clone().signature(key);
             }
             this.signature = (Key) Preconditions.checkNotNull(key);
             this.fields |= 1024;
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions sizeMultiplier(float f) {
+    @NonNull
+    @CheckResult
+    public T sizeMultiplier(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().sizeMultiplier(f);
+                return (T) m75clone().sizeMultiplier(f);
             }
             if (f >= 0.0f && f <= 1.0f) {
                 this.sizeMultiplier = f;
@@ -1046,7 +1165,7 @@ public abstract class BaseRequestOptions implements Cloneable {
             }
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
         }
-        return (BaseRequestOptions) invokeF.objValue;
+        return (T) invokeF.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -1065,12 +1184,14 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeL.booleanValue;
     }
 
-    public BaseRequestOptions error(Drawable drawable) {
+    @NonNull
+    @CheckResult
+    public T error(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().error(drawable);
+                return (T) m75clone().error(drawable);
             }
             this.errorPlaceholder = drawable;
             int i = this.fields | 16;
@@ -1079,15 +1200,17 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i & (-33);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions fallback(Drawable drawable) {
+    @NonNull
+    @CheckResult
+    public T fallback(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().fallback(drawable);
+                return (T) m75clone().fallback(drawable);
             }
             this.fallbackDrawable = drawable;
             int i = this.fields | 8192;
@@ -1096,15 +1219,17 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i & (-16385);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public BaseRequestOptions placeholder(Drawable drawable) {
+    @NonNull
+    @CheckResult
+    public T placeholder(@Nullable Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, drawable)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().placeholder(drawable);
+                return (T) m75clone().placeholder(drawable);
             }
             this.placeholderDrawable = drawable;
             int i = this.fields | 64;
@@ -1113,7 +1238,7 @@ public abstract class BaseRequestOptions implements Cloneable {
             this.fields = i & (-129);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public int hashCode() {
@@ -1125,30 +1250,38 @@ public abstract class BaseRequestOptions implements Cloneable {
         return invokeV.intValue;
     }
 
-    public BaseRequestOptions optionalTransform(Class cls, Transformation transformation) {
+    @NonNull
+    @CheckResult
+    public <Y> T optionalTransform(@NonNull Class<Y> cls, @NonNull Transformation<Y> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, cls, transformation)) == null) {
             return transform(cls, transformation, false);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public BaseRequestOptions transform(Class cls, Transformation transformation) {
+    @NonNull
+    @CheckResult
+    public <Y> T transform(@NonNull Class<Y> cls, @NonNull Transformation<Y> transformation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048654, this, cls, transformation)) == null) {
             return transform(cls, transformation, true);
         }
-        return (BaseRequestOptions) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public BaseRequestOptions transform(Transformation transformation, boolean z) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.bumptech.glide.load.Transformation<android.graphics.Bitmap> */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: com.bumptech.glide.load.Transformation<android.graphics.drawable.BitmapDrawable>, com.bumptech.glide.load.Transformation<Y> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @NonNull
+    public T transform(@NonNull Transformation<Bitmap> transformation, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048652, this, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().transform(transformation, z);
+                return (T) m75clone().transform(transformation, z);
             }
             DrawableTransformation drawableTransformation = new DrawableTransformation(transformation, z);
             transform(Bitmap.class, transformation, z);
@@ -1157,15 +1290,16 @@ public abstract class BaseRequestOptions implements Cloneable {
             transform(GifDrawable.class, new GifDrawableTransformation(transformation), z);
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeLZ.objValue;
+        return (T) invokeLZ.objValue;
     }
 
-    public BaseRequestOptions transform(Class cls, Transformation transformation, boolean z) {
+    @NonNull
+    public <Y> T transform(@NonNull Class<Y> cls, @NonNull Transformation<Y> transformation, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048655, this, cls, transformation, z)) == null) {
             if (this.isAutoCloneEnabled) {
-                return m75clone().transform(cls, transformation, z);
+                return (T) m75clone().transform(cls, transformation, z);
             }
             Preconditions.checkNotNull(cls);
             Preconditions.checkNotNull(transformation);
@@ -1182,21 +1316,23 @@ public abstract class BaseRequestOptions implements Cloneable {
             }
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeLLZ.objValue;
+        return (T) invokeLLZ.objValue;
     }
 
-    public BaseRequestOptions transform(Transformation... transformationArr) {
+    @NonNull
+    @CheckResult
+    public T transform(@NonNull Transformation<Bitmap>... transformationArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, transformationArr)) == null) {
             if (transformationArr.length > 1) {
-                return transform((Transformation) new MultiTransformation(transformationArr), true);
+                return transform((Transformation<Bitmap>) new MultiTransformation(transformationArr), true);
             }
             if (transformationArr.length == 1) {
                 return transform(transformationArr[0]);
             }
             return selfOrThrowIfLocked();
         }
-        return (BaseRequestOptions) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

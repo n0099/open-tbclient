@@ -34,7 +34,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     public static final String TAG = "PlayerServer-PlcyImplmnt";
     public static final int TIMER_UPDATE_WORK_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List list;
+    public List<IPlayerConfig> list;
     public HandlerThread mHandlerThread;
     public Handler mMainHandler;
     public OkHttpClient mOkHttpClient;
@@ -142,7 +142,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onRegister(IPlayerConfig iPlayerConfig) {
-        List list;
+        List<IPlayerConfig> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, iPlayerConfig) == null) && (list = this.list) != null && iPlayerConfig != null) {
             list.add(iPlayerConfig);
@@ -151,7 +151,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onUnregister(IPlayerConfig iPlayerConfig) {
-        List list;
+        List<IPlayerConfig> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65548, this, iPlayerConfig) == null) && (list = this.list) != null && iPlayerConfig != null) {
             list.remove(iPlayerConfig);

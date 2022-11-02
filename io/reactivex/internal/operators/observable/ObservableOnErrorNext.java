@@ -14,24 +14,24 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes8.dex */
-public final class ObservableOnErrorNext extends AbstractObservableWithUpstream {
+public final class ObservableOnErrorNext<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
-    public final Function nextSupplier;
+    public final Function<? super Throwable, ? extends ObservableSource<? extends T>> nextSupplier;
 
     /* loaded from: classes8.dex */
-    public final class OnErrorNextObserver implements Observer {
+    public static final class OnErrorNextObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public final boolean allowFatal;
         public final SequentialDisposable arbiter;
         public boolean done;
-        public final Function nextSupplier;
+        public final Function<? super Throwable, ? extends ObservableSource<? extends T>> nextSupplier;
         public boolean once;
 
-        public OnErrorNextObserver(Observer observer, Function function, boolean z) {
+        public OnErrorNextObserver(Observer<? super T> observer, Function<? super Throwable, ? extends ObservableSource<? extends T>> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,14 +82,14 @@ public final class ObservableOnErrorNext extends AbstractObservableWithUpstream 
                     return;
                 }
                 try {
-                    ObservableSource observableSource = (ObservableSource) this.nextSupplier.apply(th);
-                    if (observableSource == null) {
+                    ObservableSource<? extends T> apply = this.nextSupplier.apply(th);
+                    if (apply == null) {
                         NullPointerException nullPointerException = new NullPointerException("Observable is null");
                         nullPointerException.initCause(th);
                         this.actual.onError(nullPointerException);
                         return;
                     }
-                    observableSource.subscribe(this);
+                    apply.subscribe(this);
                 } catch (Throwable th2) {
                     Exceptions.throwIfFatal(th2);
                     this.actual.onError(new CompositeException(th, th2));
@@ -98,12 +98,12 @@ public final class ObservableOnErrorNext extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.done) {
                 return;
             }
-            this.actual.onNext(obj);
+            this.actual.onNext(t);
         }
 
         @Override // io.reactivex.Observer
@@ -116,7 +116,7 @@ public final class ObservableOnErrorNext extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableOnErrorNext(ObservableSource observableSource, Function function, boolean z) {
+    public ObservableOnErrorNext(ObservableSource<T> observableSource, Function<? super Throwable, ? extends ObservableSource<? extends T>> function, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -138,7 +138,7 @@ public final class ObservableOnErrorNext extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             OnErrorNextObserver onErrorNextObserver = new OnErrorNextObserver(observer, this.nextSupplier, this.allowFatal);

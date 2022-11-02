@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.ss.android.socialbase.appdownloader.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class a {
-    public static final HashMap a = new HashMap();
+    public static final HashMap<String, g.a> a = new HashMap<>();
 
     public static g.a a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -31,7 +32,7 @@ public class a {
 
     public static g.a b(String str) {
         if (a.containsKey(str)) {
-            g.a aVar = (g.a) a.get(str);
+            g.a aVar = a.get(str);
             if (aVar == null) {
                 return null;
             }
@@ -109,7 +110,7 @@ public class a {
         return false;
     }
 
-    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, g.a aVar) {
+    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull g.a aVar) {
         String g = aVar.g();
         int f = aVar.f();
         String str2 = f + "_" + g;

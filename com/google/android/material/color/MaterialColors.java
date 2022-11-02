@@ -4,6 +4,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.util.TypedValue;
 import android.view.View;
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +41,8 @@ public class MaterialColors {
         }
     }
 
-    public static int compositeARGBWithAlpha(int i, int i2) {
+    @ColorInt
+    public static int compositeARGBWithAlpha(@ColorInt int i, @IntRange(from = 0, to = 255) int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
@@ -45,7 +51,8 @@ public class MaterialColors {
         return invokeII.intValue;
     }
 
-    public static int getColor(View view2, int i) {
+    @ColorInt
+    public static int getColor(@NonNull View view2, @AttrRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i)) == null) {
@@ -54,7 +61,8 @@ public class MaterialColors {
         return invokeLI.intValue;
     }
 
-    public static int layer(int i, int i2) {
+    @ColorInt
+    public static int layer(@ColorInt int i, @ColorInt int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
@@ -63,7 +71,8 @@ public class MaterialColors {
         return invokeII.intValue;
     }
 
-    public static int getColor(Context context, int i, int i2) {
+    @ColorInt
+    public static int getColor(@NonNull Context context, @AttrRes int i, @ColorInt int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, context, i, i2)) == null) {
@@ -76,7 +85,8 @@ public class MaterialColors {
         return invokeLII.intValue;
     }
 
-    public static int layer(View view2, int i, int i2) {
+    @ColorInt
+    public static int layer(@NonNull View view2, @AttrRes int i, @AttrRes int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, view2, i, i2)) == null) {
@@ -85,7 +95,8 @@ public class MaterialColors {
         return invokeLII.intValue;
     }
 
-    public static int getColor(Context context, int i, String str) {
+    @ColorInt
+    public static int getColor(Context context, @AttrRes int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i, str)) == null) {
@@ -94,7 +105,8 @@ public class MaterialColors {
         return invokeLIL.intValue;
     }
 
-    public static int getColor(View view2, int i, int i2) {
+    @ColorInt
+    public static int getColor(@NonNull View view2, @AttrRes int i, @ColorInt int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, view2, i, i2)) == null) {
@@ -103,7 +115,8 @@ public class MaterialColors {
         return invokeLII.intValue;
     }
 
-    public static int layer(int i, int i2, float f) {
+    @ColorInt
+    public static int layer(@ColorInt int i, @ColorInt int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
@@ -112,7 +125,8 @@ public class MaterialColors {
         return invokeCommon.intValue;
     }
 
-    public static int layer(View view2, int i, int i2, float f) {
+    @ColorInt
+    public static int layer(@NonNull View view2, @AttrRes int i, @AttrRes int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {

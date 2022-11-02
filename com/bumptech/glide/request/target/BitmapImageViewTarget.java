@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class BitmapImageViewTarget extends ImageViewTarget {
+public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public class BitmapImageViewTarget extends ImageViewTarget {
     public void setResource(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-            ((ImageView) this.f1063view).setImageBitmap(bitmap);
+            ((ImageView) this.f1064view).setImageBitmap(bitmap);
         }
     }
 }

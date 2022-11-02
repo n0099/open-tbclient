@@ -1,15 +1,16 @@
 package com.kwad.sdk.f.kwai;
 
 import android.hardware.SensorEvent;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.SavedStateHandle;
 import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int sensorType = -1;
-    public List amD = new ArrayList();
+    public List<Float> amD = new ArrayList();
     public long timestamp = 0;
 
     public static e a(SensorEvent sensorEvent, long j) {
@@ -47,7 +48,7 @@ public final class e extends com.kwad.sdk.core.response.kwai.a implements com.kw
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         a(this, jSONObject);
         afterParseJson(jSONObject);
     }

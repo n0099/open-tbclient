@@ -21,6 +21,7 @@ import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
 public class WebpAnimationBackend implements AnimationBackend {
     public static /* synthetic */ Interceptable $ic;
@@ -28,6 +29,7 @@ public class WebpAnimationBackend implements AnimationBackend {
     public Rect mBounds;
     public final Rect mRenderDstRect;
     public final Rect mRenderSrcRect;
+    @GuardedBy("this")
     @Nullable
     public Bitmap mTempBitmap;
     public final WebPImage mWebPImage;

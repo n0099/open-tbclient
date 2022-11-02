@@ -18,19 +18,19 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRetryWhen extends AbstractFlowableWithUpstream {
+public final class FlowableRetryWhen<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function handler;
+    public final Function<? super Flowable<Throwable>, ? extends Publisher<?>> handler;
 
     /* loaded from: classes8.dex */
-    public final class RetryWhenSubscriber extends FlowableRepeatWhen.WhenSourceSubscriber {
+    public static final class RetryWhenSubscriber<T> extends FlowableRepeatWhen.WhenSourceSubscriber<T, Throwable> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2680129890138081029L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RetryWhenSubscriber(Subscriber subscriber, FlowableProcessor flowableProcessor, Subscription subscription) {
+        public RetryWhenSubscriber(Subscriber<? super T> subscriber, FlowableProcessor<Throwable> flowableProcessor, Subscription subscription) {
             super(subscriber, flowableProcessor, subscription);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -69,7 +69,7 @@ public final class FlowableRetryWhen extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRetryWhen(Flowable flowable, Function function) {
+    public FlowableRetryWhen(Flowable<T> flowable, Function<? super Flowable<Throwable>, ? extends Publisher<?>> function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -90,11 +90,11 @@ public final class FlowableRetryWhen extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);
-            FlowableProcessor serialized = UnicastProcessor.create(8).toSerialized();
+            FlowableProcessor<T> serialized = UnicastProcessor.create(8).toSerialized();
             try {
                 Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.handler.apply(serialized), "handler returned a null Publisher");
                 FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.source);

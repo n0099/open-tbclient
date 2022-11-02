@@ -43,7 +43,7 @@ public final class ParcelableCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) {
-                return (T) this.mCallbacks.createFromParcel(parcel, null);
+                return this.mCallbacks.createFromParcel(parcel, null);
             }
             return (T) invokeL.objValue;
         }
@@ -53,7 +53,7 @@ public final class ParcelableCompat {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                return (T[]) this.mCallbacks.newArray(i);
+                return this.mCallbacks.newArray(i);
             }
             return (T[]) ((Object[]) invokeI.objValue);
         }
@@ -63,7 +63,7 @@ public final class ParcelableCompat {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
-                return (T) this.mCallbacks.createFromParcel(parcel, classLoader);
+                return this.mCallbacks.createFromParcel(parcel, classLoader);
             }
             return (T) invokeLL.objValue;
         }

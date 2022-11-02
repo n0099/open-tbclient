@@ -24,7 +24,7 @@ public class UDPMgr {
     public static final String TAG = "UDPMgr";
     public static int currentPortCounter;
     public static final Object lock;
-    public static LinkedBlockingQueue portQueue;
+    public static LinkedBlockingQueue<Integer> portQueue;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class UDPMgr {
                 return;
             }
         }
-        portQueue = new LinkedBlockingQueue();
+        portQueue = new LinkedBlockingQueue<>();
         currentPortCounter = 0;
         lock = new Object();
     }
@@ -75,7 +75,7 @@ public class UDPMgr {
                             currentPortCounter = intValue;
                         }
                     } else {
-                        intValue = ((Integer) portQueue.poll()).intValue();
+                        intValue = portQueue.poll().intValue();
                     }
                 }
             }

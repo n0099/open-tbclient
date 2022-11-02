@@ -46,7 +46,7 @@ public class DiskCacheAdapter implements DiskCache {
     }
 
     /* loaded from: classes7.dex */
-    public final class Factory implements DiskCache.Factory {
+    public static final class Factory implements DiskCache.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

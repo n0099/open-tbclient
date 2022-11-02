@@ -2,6 +2,7 @@ package com.baidu.searchbox.v8engine.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,13 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
+@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "NetRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference mEngineWeakReference;
+    public WeakReference<V8Engine> mEngineWeakReference;
     public NetRequestSettings mNetRequestSettings;
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
@@ -100,7 +102,7 @@ public class NetRequest extends Observable {
     public void bindV8Engine(V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, v8Engine) == null) {
-            this.mEngineWeakReference = new WeakReference(v8Engine);
+            this.mEngineWeakReference = new WeakReference<>(v8Engine);
         }
     }
 
@@ -108,9 +110,9 @@ public class NetRequest extends Observable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, netRequestSettings) == null) {
             this.mNetRequestSettings = netRequestSettings;
-            WeakReference weakReference = this.mEngineWeakReference;
+            WeakReference<V8Engine> weakReference = this.mEngineWeakReference;
             if (weakReference != null && weakReference.get() != null) {
-                ((V8Engine) this.mEngineWeakReference.get()).setNetRequest(this);
+                this.mEngineWeakReference.get().setNetRequest(this);
             }
         }
     }
@@ -163,12 +165,12 @@ public class NetRequest extends Observable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netRequestParam)) == null) {
-            WeakReference weakReference = this.mEngineWeakReference;
+            WeakReference<V8Engine> weakReference = this.mEngineWeakReference;
             if (weakReference == null) {
                 Log.w(TAG, "Execute net request failed. Must call setNetRequest method of V8Engine object firstly");
                 return false;
             }
-            V8Engine v8Engine = (V8Engine) weakReference.get();
+            V8Engine v8Engine = weakReference.get();
             if (v8Engine == null) {
                 Log.w(TAG, "Execute net request failed. The bound V8Engine object has been destroyed");
                 return false;

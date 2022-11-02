@@ -15,8 +15,8 @@ public class BDHttpDnsResult {
     public transient /* synthetic */ FieldHolder $fh;
     public ResolveType a;
     public final ResolveStatus b;
-    public ArrayList c;
-    public ArrayList d;
+    public ArrayList<String> c;
+    public ArrayList<String> d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -181,7 +181,7 @@ public class BDHttpDnsResult {
         this.b = resolveStatus;
     }
 
-    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList arrayList, ArrayList arrayList2) {
+    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,7 +203,7 @@ public class BDHttpDnsResult {
         this.d = arrayList2;
     }
 
-    public ArrayList a() {
+    public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -212,7 +212,7 @@ public class BDHttpDnsResult {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList b() {
+    public ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

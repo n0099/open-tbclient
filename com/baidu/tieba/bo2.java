@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes3.dex */
 public interface bo2 {
-    boolean a(String str, String str2);
-
-    String b();
-
-    JSONObject c(String str, JSONObject jSONObject);
-
-    boolean enable();
+    void a(Context context, String str, String str2, xk1 xk1Var);
 }

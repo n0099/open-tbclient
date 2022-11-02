@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface w0 {
-    void a(x0 x0Var, Object obj);
+public interface w0<T> {
+    void a(x0<T> x0Var, T t);
 }

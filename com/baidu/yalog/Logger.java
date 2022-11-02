@@ -1,12 +1,13 @@
 package com.baidu.yalog;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASSERT = 7;
@@ -17,7 +18,7 @@ public abstract class Logger {
     public static final int WARN = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void executeRunnable(Runnable runnable);
+    public abstract void executeRunnable(@NonNull Runnable runnable);
 
     public abstract void flush(boolean z);
 

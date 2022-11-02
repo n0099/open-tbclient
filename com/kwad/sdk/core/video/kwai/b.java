@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.video.kwai;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.MediaDataSource;
 import android.media.MediaPlayer;
@@ -10,6 +11,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.kwad.sdk.service.ServiceProvider;
@@ -18,7 +20,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final MediaPlayer adE;
     public final a adF;
@@ -27,17 +29,17 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final Object adI;
     public boolean adJ;
 
-    /* loaded from: classes7.dex */
-    public final class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
-        public final WeakReference mWeakMediaPlayer;
+    /* loaded from: classes8.dex */
+    public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
+        public final WeakReference<b> mWeakMediaPlayer;
 
         public a(b bVar) {
-            this.mWeakMediaPlayer = new WeakReference(bVar);
+            this.mWeakMediaPlayer = new WeakReference<>(bVar);
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
         public final void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.notifyOnBufferingUpdate(i);
             }
@@ -45,7 +47,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public final void onCompletion(MediaPlayer mediaPlayer) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.notifyOnCompletion();
             }
@@ -53,19 +55,19 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
 
         @Override // android.media.MediaPlayer.OnErrorListener
         public final boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             return bVar != null && bVar.notifyOnError(i, i2);
         }
 
         @Override // android.media.MediaPlayer.OnInfoListener
         public final boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             return bVar != null && bVar.notifyOnInfo(i, i2);
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public final void onPrepared(MediaPlayer mediaPlayer) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.notifyOnPrepared();
             }
@@ -73,7 +75,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
 
         @Override // android.media.MediaPlayer.OnSeekCompleteListener
         public final void onSeekComplete(MediaPlayer mediaPlayer) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.notifyOnSeekComplete();
             }
@@ -81,7 +83,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
 
         @Override // android.media.MediaPlayer.OnTimedTextListener
         public final void onTimedText(MediaPlayer mediaPlayer, TimedText timedText) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.b(timedText);
             }
@@ -89,7 +91,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public final void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-            b bVar = (b) this.mWeakMediaPlayer.get();
+            b bVar = this.mWeakMediaPlayer.get();
             if (bVar != null) {
                 bVar.n(i, i2);
             }
@@ -145,7 +147,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
+    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
         if (!bVar.isNoCache) {
             setDataSource(bVar.videoUrl);
             return;
@@ -275,7 +277,8 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void setDataSource(Context context, Uri uri, Map map) {
+    @TargetApi(14)
+    public final void setDataSource(Context context, Uri uri, Map<String, String> map) {
         this.adE.setDataSource(context, uri, map);
     }
 
@@ -328,6 +331,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
+    @TargetApi(14)
     public final void setSurface(Surface surface) {
         this.adE.setSurface(surface);
     }

@@ -2,6 +2,7 @@ package com.bumptech.glide.load.resource.gif;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +16,12 @@ import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 /* loaded from: classes7.dex */
-public class GifDrawableTransformation implements Transformation {
+public class GifDrawableTransformation implements Transformation<GifDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Transformation wrapped;
+    public final Transformation<Bitmap> wrapped;
 
-    public GifDrawableTransformation(Transformation transformation) {
+    public GifDrawableTransformation(Transformation<Bitmap> transformation) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +53,7 @@ public class GifDrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, messageDigest) == null) {
             this.wrapped.updateDiskCacheKey(messageDigest);
@@ -70,17 +71,18 @@ public class GifDrawableTransformation implements Transformation {
     }
 
     @Override // com.bumptech.glide.load.Transformation
-    public Resource transform(Context context, Resource resource, int i, int i2) {
+    @NonNull
+    public Resource<GifDrawable> transform(@NonNull Context context, @NonNull Resource<GifDrawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) {
-            GifDrawable gifDrawable = (GifDrawable) resource.get();
-            BitmapResource bitmapResource = new BitmapResource(gifDrawable.getFirstFrame(), Glide.get(context).getBitmapPool());
-            Resource transform = this.wrapped.transform(context, bitmapResource, i, i2);
+            GifDrawable gifDrawable = resource.get();
+            Resource<Bitmap> bitmapResource = new BitmapResource(gifDrawable.getFirstFrame(), Glide.get(context).getBitmapPool());
+            Resource<Bitmap> transform = this.wrapped.transform(context, bitmapResource, i, i2);
             if (!bitmapResource.equals(transform)) {
                 bitmapResource.recycle();
             }
-            gifDrawable.setFrameTransformation(this.wrapped, (Bitmap) transform.get());
+            gifDrawable.setFrameTransformation(this.wrapped, transform.get());
             return resource;
         }
         return (Resource) invokeLLII.objValue;

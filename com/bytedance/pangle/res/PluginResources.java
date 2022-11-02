@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,6 +16,7 @@ import com.bytedance.pangle.util.f;
 import com.bytedance.pangle.util.i;
 import java.util.HashSet;
 import java.util.List;
+@Keep
 /* loaded from: classes7.dex */
 public class PluginResources extends Resources {
     public static /* synthetic */ Interceptable $ic;

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
 /* loaded from: classes7.dex */
-public class UnmodifiableLazyStringList extends AbstractList implements LazyStringList, RandomAccess {
+public class UnmodifiableLazyStringList extends AbstractList<String> implements LazyStringList, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LazyStringList list;
@@ -55,14 +55,14 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public ListIterator listIterator(int i) {
+    public ListIterator<String> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return new ListIterator(this, i) { // from class: com.google.protobuf.UnmodifiableLazyStringList.1
+            return new ListIterator<String>(this, i) { // from class: com.google.protobuf.UnmodifiableLazyStringList.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public ListIterator iter;
+                public ListIterator<String> iter;
                 public final /* synthetic */ UnmodifiableLazyStringList this$0;
                 public final /* synthetic */ int val$index;
 
@@ -158,7 +158,7 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
-                        return (String) this.iter.next();
+                        return this.iter.next();
                     }
                     return (String) invokeV.objValue;
                 }
@@ -169,7 +169,7 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                        return (String) this.iter.previous();
+                        return this.iter.previous();
                     }
                     return (String) invokeV.objValue;
                 }
@@ -184,13 +184,13 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return (String) this.list.get(i);
+            return this.list.get(i);
         }
         return (String) invokeI.objValue;
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public List getUnderlyingElements() {
+    public List<?> getUnderlyingElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -200,14 +200,14 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.List
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new Iterator(this) { // from class: com.google.protobuf.UnmodifiableLazyStringList.2
+            return new Iterator<String>(this) { // from class: com.google.protobuf.UnmodifiableLazyStringList.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public Iterator iter;
+                public Iterator<String> iter;
                 public final /* synthetic */ UnmodifiableLazyStringList this$0;
 
                 {
@@ -253,7 +253,7 @@ public class UnmodifiableLazyStringList extends AbstractList implements LazyStri
                     InterceptResult invokeV2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                        return (String) this.iter.next();
+                        return this.iter.next();
                     }
                     return (String) invokeV2.objValue;
                 }

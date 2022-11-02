@@ -1,94 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class se7 extends rn {
+public class se7 implements te7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public p26 b;
-    public String c;
+    public final HashMap<String, Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    public se7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        HashMap<String, Integer> hashMap = new HashMap<>(6);
+        this.a = hashMap;
+        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
     }
 
-    @Override // com.baidu.tieba.rn
-    public oo getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
-        }
-        return (oo) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: s */
-    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.te7
+    public boolean a(ChatMessage... chatMessageArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            te7 te7Var = new te7(this.a, viewGroup);
-            p26 p26Var = this.b;
-            if (p26Var != null) {
-                te7Var.n(p26Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length >= 2) {
+                ChatMessage chatMessage = chatMessageArr[0];
+                ChatMessage chatMessage2 = chatMessageArr[1];
+                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
+                    return false;
+                }
+                return this.a.containsKey(c(chatMessageArr));
             }
-            return new CardViewHolder(te7Var);
+            return false;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void u(String str) {
+    @Override // com.baidu.tieba.te7
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
+            return;
+        }
+        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+        View childAt = listView.getChildAt(lastVisiblePosition);
+        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
+        if (childAt != null && childAt2 != null) {
+            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f09214e);
+            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f09214e);
+            if (chatMessageArr != null && chatMessageArr.length > 1) {
+                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qe7 qe7Var, CardViewHolder cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qe7Var, cardViewHolder})) == null) {
-            if (qe7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                ((te7) cardViewHolder.a()).w(this.c);
-                ((te7) cardViewHolder.a()).l(qe7Var);
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
+                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
             }
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 }

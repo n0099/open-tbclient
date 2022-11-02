@@ -1,8 +1,10 @@
 package com.bumptech.glide.manager;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.os.Build;
@@ -12,10 +14,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,13 +37,13 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final RequestManagerFactory DEFAULT_FACTORY;
     public static final String FRAGMENT_INDEX_KEY = "key";
+    @VisibleForTesting
     public static final String FRAGMENT_TAG = "com.bumptech.glide.manager";
     public static final int ID_REMOVE_FRAGMENT_MANAGER = 1;
     public static final int ID_REMOVE_SUPPORT_FRAGMENT_MANAGER = 2;
@@ -49,15 +53,18 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final RequestManagerFactory factory;
     public final FrameWaiter frameWaiter;
     public final Handler handler;
-    public final Map pendingRequestManagerFragments;
-    public final Map pendingSupportRequestManagerFragments;
+    @VisibleForTesting
+    public final Map<FragmentManager, RequestManagerFragment> pendingRequestManagerFragments;
+    @VisibleForTesting
+    public final Map<androidx.fragment.app.FragmentManager, SupportRequestManagerFragment> pendingSupportRequestManagerFragments;
     public final Bundle tempBundle;
-    public final ArrayMap tempViewToFragment;
-    public final ArrayMap tempViewToSupportFragment;
+    public final ArrayMap<View, Fragment> tempViewToFragment;
+    public final ArrayMap<View, androidx.fragment.app.Fragment> tempViewToSupportFragment;
 
     /* loaded from: classes7.dex */
     public interface RequestManagerFactory {
-        RequestManager build(Glide glide, Lifecycle lifecycle, RequestManagerTreeNode requestManagerTreeNode, Context context);
+        @NonNull
+        RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
     }
 
     static {
@@ -92,7 +99,8 @@ public class RequestManagerRetriever implements Handler.Callback {
             }
 
             @Override // com.bumptech.glide.manager.RequestManagerRetriever.RequestManagerFactory
-            public RequestManager build(Glide glide, Lifecycle lifecycle, RequestManagerTreeNode requestManagerTreeNode, Context context) {
+            @NonNull
+            public RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLLLL = interceptable2.invokeLLLL(1048576, this, glide, lifecycle, requestManagerTreeNode, context)) == null) {
@@ -103,7 +111,7 @@ public class RequestManagerRetriever implements Handler.Callback {
         };
     }
 
-    public RequestManagerRetriever(RequestManagerFactory requestManagerFactory, GlideExperiments glideExperiments) {
+    public RequestManagerRetriever(@Nullable RequestManagerFactory requestManagerFactory, GlideExperiments glideExperiments) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,22 +128,24 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
         this.pendingRequestManagerFragments = new HashMap();
         this.pendingSupportRequestManagerFragments = new HashMap();
-        this.tempViewToSupportFragment = new ArrayMap();
-        this.tempViewToFragment = new ArrayMap();
+        this.tempViewToSupportFragment = new ArrayMap<>();
+        this.tempViewToFragment = new ArrayMap<>();
         this.tempBundle = new Bundle();
         this.factory = requestManagerFactory == null ? DEFAULT_FACTORY : requestManagerFactory;
         this.handler = new Handler(Looper.getMainLooper(), this);
         this.frameWaiter = buildFrameWaiter(glideExperiments);
     }
 
-    public static void assertNotDestroyed(Activity activity) {
+    @TargetApi(17)
+    public static void assertNotDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, activity) == null) && Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
             throw new IllegalArgumentException("You cannot start a load for a destroyed activity");
         }
     }
 
-    public static Activity findActivity(Context context) {
+    @Nullable
+    public static Activity findActivity(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -163,6 +173,7 @@ public class RequestManagerRetriever implements Handler.Callback {
         return invokeL.booleanValue;
     }
 
+    @NonNull
     @Deprecated
     public RequestManagerFragment getRequestManagerFragment(Activity activity) {
         InterceptResult invokeL;
@@ -173,7 +184,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManagerFragment) invokeL.objValue;
     }
 
-    public SupportRequestManagerFragment getSupportRequestManagerFragment(FragmentManager fragmentManager) {
+    @NonNull
+    public SupportRequestManagerFragment getSupportRequestManagerFragment(androidx.fragment.app.FragmentManager fragmentManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fragmentManager)) == null) {
@@ -197,7 +209,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (FrameWaiter) invokeL.objValue;
     }
 
-    private RequestManager getApplicationManager(Context context) {
+    @NonNull
+    private RequestManager getApplicationManager(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, context)) == null) {
@@ -213,7 +226,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeL.objValue;
     }
 
-    public RequestManager get(Activity activity) {
+    @NonNull
+    public RequestManager get(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
@@ -230,8 +244,9 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeL.objValue;
     }
 
+    @TargetApi(26)
     @Deprecated
-    private void findAllFragmentsWithViews(android.app.FragmentManager fragmentManager, ArrayMap arrayMap) {
+    private void findAllFragmentsWithViews(@NonNull FragmentManager fragmentManager, @NonNull ArrayMap<View, Fragment> arrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, fragmentManager, arrayMap) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
@@ -248,7 +263,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @Deprecated
-    private void findAllFragmentsWithViewsPreO(android.app.FragmentManager fragmentManager, ArrayMap arrayMap) {
+    private void findAllFragmentsWithViewsPreO(@NonNull FragmentManager fragmentManager, @NonNull ArrayMap<View, Fragment> arrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, fragmentManager, arrayMap) == null) {
             int i = 0;
@@ -274,14 +289,12 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
     }
 
-    public static void findAllSupportFragmentsWithViews(Collection collection, Map map) {
+    public static void findAllSupportFragmentsWithViews(@Nullable Collection<androidx.fragment.app.Fragment> collection, @NonNull Map<View, androidx.fragment.app.Fragment> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65543, null, collection, map) != null) || collection == null) {
             return;
         }
-        Iterator it = collection.iterator();
-        while (it.hasNext()) {
-            androidx.fragment.app.Fragment fragment = (androidx.fragment.app.Fragment) it.next();
+        for (androidx.fragment.app.Fragment fragment : collection) {
             if (fragment != null && fragment.getView() != null) {
                 map.put(fragment.getView(), fragment);
                 findAllSupportFragmentsWithViews(fragment.getChildFragmentManager().getFragments(), map);
@@ -289,8 +302,9 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
     }
 
+    @Nullable
     @Deprecated
-    private Fragment findFragment(View view2, Activity activity) {
+    private Fragment findFragment(@NonNull View view2, @NonNull Activity activity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, view2, activity)) == null) {
@@ -298,7 +312,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             findAllFragmentsWithViews(activity.getFragmentManager(), this.tempViewToFragment);
             View findViewById = activity.findViewById(16908290);
             Fragment fragment = null;
-            while (!view2.equals(findViewById) && (fragment = (Fragment) this.tempViewToFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
+            while (!view2.equals(findViewById) && (fragment = this.tempViewToFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
                 view2 = (View) view2.getParent();
             }
             this.tempViewToFragment.clear();
@@ -307,7 +321,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (Fragment) invokeLL.objValue;
     }
 
-    private androidx.fragment.app.Fragment findSupportFragment(View view2, FragmentActivity fragmentActivity) {
+    @Nullable
+    private androidx.fragment.app.Fragment findSupportFragment(@NonNull View view2, @NonNull FragmentActivity fragmentActivity) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, view2, fragmentActivity)) == null) {
@@ -315,7 +330,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             findAllSupportFragmentsWithViews(fragmentActivity.getSupportFragmentManager().getFragments(), this.tempViewToSupportFragment);
             View findViewById = fragmentActivity.findViewById(16908290);
             androidx.fragment.app.Fragment fragment = null;
-            while (!view2.equals(findViewById) && (fragment = (androidx.fragment.app.Fragment) this.tempViewToSupportFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
+            while (!view2.equals(findViewById) && (fragment = this.tempViewToSupportFragment.get(view2)) == null && (view2.getParent() instanceof View)) {
                 view2 = (View) view2.getParent();
             }
             this.tempViewToSupportFragment.clear();
@@ -324,13 +339,14 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (androidx.fragment.app.Fragment) invokeLL.objValue;
     }
 
-    private RequestManagerFragment getRequestManagerFragment(android.app.FragmentManager fragmentManager, Fragment fragment) {
+    @NonNull
+    private RequestManagerFragment getRequestManagerFragment(@NonNull FragmentManager fragmentManager, @Nullable Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, fragmentManager, fragment)) == null) {
             RequestManagerFragment requestManagerFragment = (RequestManagerFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG);
             if (requestManagerFragment == null) {
-                RequestManagerFragment requestManagerFragment2 = (RequestManagerFragment) this.pendingRequestManagerFragments.get(fragmentManager);
+                RequestManagerFragment requestManagerFragment2 = this.pendingRequestManagerFragments.get(fragmentManager);
                 if (requestManagerFragment2 == null) {
                     RequestManagerFragment requestManagerFragment3 = new RequestManagerFragment();
                     requestManagerFragment3.setParentFragmentHint(fragment);
@@ -346,13 +362,14 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManagerFragment) invokeLL.objValue;
     }
 
-    private SupportRequestManagerFragment getSupportRequestManagerFragment(FragmentManager fragmentManager, androidx.fragment.app.Fragment fragment) {
+    @NonNull
+    private SupportRequestManagerFragment getSupportRequestManagerFragment(@NonNull androidx.fragment.app.FragmentManager fragmentManager, @Nullable androidx.fragment.app.Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, fragmentManager, fragment)) == null) {
             SupportRequestManagerFragment supportRequestManagerFragment = (SupportRequestManagerFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG);
             if (supportRequestManagerFragment == null) {
-                SupportRequestManagerFragment supportRequestManagerFragment2 = (SupportRequestManagerFragment) this.pendingSupportRequestManagerFragments.get(fragmentManager);
+                SupportRequestManagerFragment supportRequestManagerFragment2 = this.pendingSupportRequestManagerFragments.get(fragmentManager);
                 if (supportRequestManagerFragment2 == null) {
                     SupportRequestManagerFragment supportRequestManagerFragment3 = new SupportRequestManagerFragment();
                     supportRequestManagerFragment3.setParentFragmentHint(fragment);
@@ -368,8 +385,9 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (SupportRequestManagerFragment) invokeLL.objValue;
     }
 
+    @NonNull
     @Deprecated
-    private RequestManager fragmentGet(Context context, android.app.FragmentManager fragmentManager, Fragment fragment, boolean z) {
+    private RequestManager fragmentGet(@NonNull Context context, @NonNull FragmentManager fragmentManager, @Nullable Fragment fragment, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{context, fragmentManager, fragment, Boolean.valueOf(z)})) == null) {
@@ -387,7 +405,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeCommon.objValue;
     }
 
-    private RequestManager supportFragmentGet(Context context, FragmentManager fragmentManager, androidx.fragment.app.Fragment fragment, boolean z) {
+    @NonNull
+    private RequestManager supportFragmentGet(@NonNull Context context, @NonNull androidx.fragment.app.FragmentManager fragmentManager, @Nullable androidx.fragment.app.Fragment fragment, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{context, fragmentManager, fragment, Boolean.valueOf(z)})) == null) {
@@ -405,8 +424,10 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeCommon.objValue;
     }
 
+    @NonNull
+    @TargetApi(17)
     @Deprecated
-    public RequestManager get(Fragment fragment) {
+    public RequestManager get(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment)) == null) {
@@ -444,10 +465,10 @@ public class RequestManagerRetriever implements Handler.Callback {
                     }
                     return z;
                 }
-                obj = (FragmentManager) message.obj;
+                obj = (androidx.fragment.app.FragmentManager) message.obj;
                 remove = this.pendingSupportRequestManagerFragments.remove(obj);
             } else {
-                obj = (android.app.FragmentManager) message.obj;
+                obj = (FragmentManager) message.obj;
                 remove = this.pendingRequestManagerFragments.remove(obj);
             }
             Object obj4 = obj;
@@ -461,7 +482,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return invokeL.booleanValue;
     }
 
-    public RequestManager get(Context context) {
+    @NonNull
+    public RequestManager get(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
@@ -487,7 +509,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeL.objValue;
     }
 
-    public RequestManager get(View view2) {
+    @NonNull
+    public RequestManager get(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
@@ -517,7 +540,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeL.objValue;
     }
 
-    public RequestManager get(androidx.fragment.app.Fragment fragment) {
+    @NonNull
+    public RequestManager get(@NonNull androidx.fragment.app.Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, fragment)) == null) {
@@ -533,7 +557,8 @@ public class RequestManagerRetriever implements Handler.Callback {
         return (RequestManager) invokeL.objValue;
     }
 
-    public RequestManager get(FragmentActivity fragmentActivity) {
+    @NonNull
+    public RequestManager get(@NonNull FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fragmentActivity)) == null) {

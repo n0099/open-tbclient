@@ -1,24 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class bx {
+public class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cx a;
-    public JSONObject b;
-    public JSONObject c;
-    public boolean d;
+    public RelativeLayout.LayoutParams a;
+    public int b;
+    public View c;
+    public ny d;
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
     public bx() {
         Interceptable interceptable = $ic;
@@ -34,50 +44,58 @@ public final class bx {
         }
     }
 
-    public final void a() {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
-        this.c = null;
+        return (View) invokeV.objValue;
     }
 
-    public final void b(String str, String str2) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            try {
-                if (this.b == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.b = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.b.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("staticWebkitInit JSON error");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public RelativeLayout.LayoutParams d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (RelativeLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public void g(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.c = view2;
         }
     }
 
-    public final void c(String str, String str2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            try {
-                if (this.c == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    this.c = jSONObject;
-                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
-                }
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                this.c.put(str, str2);
-            } catch (Exception unused) {
-                Log.e("mWebkitDownloadStatics JSON error");
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void i(RelativeLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
+            this.a = layoutParams;
+        }
+    }
+
+    public void j(ny nyVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nyVar) == null) {
+            this.d = nyVar;
         }
     }
 }

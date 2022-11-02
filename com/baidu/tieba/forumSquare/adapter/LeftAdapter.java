@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class LeftAdapter extends RecyclerView.Adapter {
+public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public b b;
-    public List c;
+    public List<String> c;
     public int d;
 
     /* loaded from: classes4.dex */
@@ -42,7 +43,7 @@ public class LeftAdapter extends RecyclerView.Adapter {
         public View b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(LeftAdapter leftAdapter, View view2) {
+        public ViewHolder(@NonNull LeftAdapter leftAdapter, View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,8 +60,8 @@ public class LeftAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092366);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923a7);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923fc);
         }
     }
 
@@ -176,7 +177,7 @@ public class LeftAdapter extends RecyclerView.Adapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.c;
+            List<String> list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -188,10 +189,10 @@ public class LeftAdapter extends RecyclerView.Adapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: h */
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, viewHolder, i) == null) {
-            String str = (String) this.c.get(i);
+            String str = this.c.get(i);
             viewHolder.itemView.setTag(Integer.valueOf(i));
             viewHolder.a.setText(str);
             if (this.d == i) {
@@ -216,17 +217,18 @@ public class LeftAdapter extends RecyclerView.Adapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @NonNull
     /* renamed from: i */
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0517, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0527, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }
 
-    public void j(int i, List list) {
+    public void j(int i, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {
             this.d = i;

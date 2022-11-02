@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 /* loaded from: classes8.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a {
+public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import android.graphics.Paint;
-import com.baidu.tieba.s46;
+import com.baidu.tieba.c66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n"}, d2 = {"<anonymous>", "Landroid/graphics/Paint;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class RenderSystem$debugPaint$2 extends Lambda implements Function0 {
+public final class RenderSystem$debugPaint$2 extends Lambda implements Function0<Paint> {
     public static /* synthetic */ Interceptable $ic;
     public static final RenderSystem$debugPaint$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,13 @@ public final class RenderSystem$debugPaint$2 extends Lambda implements Function0
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final Paint invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (s46.a()) {
+            if (c66.a()) {
                 Paint paint = new Paint();
                 paint.setStyle(Paint.Style.STROKE);
                 paint.setColor(-65536);

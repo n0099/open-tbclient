@@ -21,7 +21,7 @@ public class Mimetypes {
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";
     public static Mimetypes mimetypes;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap extensionToMimetypeMap;
+    public HashMap<String, String> extensionToMimetypeMap;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class Mimetypes {
                 return;
             }
         }
-        this.extensionToMimetypeMap = new HashMap();
+        this.extensionToMimetypeMap = new HashMap<>();
     }
 
     public static synchronized Mimetypes getInstance() {
@@ -116,7 +116,7 @@ public class Mimetypes {
             if (lastIndexOf > 0 && (i = lastIndexOf + 1) < str.length()) {
                 String lowerCase = str.substring(i).toLowerCase();
                 if (this.extensionToMimetypeMap.keySet().contains(lowerCase)) {
-                    String str2 = (String) this.extensionToMimetypeMap.get(lowerCase);
+                    String str2 = this.extensionToMimetypeMap.get(lowerCase);
                     BLog.debug("Recognised extension '" + lowerCase + "', mimetype is: '" + str2 + "'");
                     return str2;
                 }

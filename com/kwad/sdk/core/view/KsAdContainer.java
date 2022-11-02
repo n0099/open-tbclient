@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
+import androidx.annotation.MainThread;
 import com.kwad.sdk.utils.aa;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KsAdContainer extends RelativeLayout {
     public aa.a afd;
 
@@ -37,6 +38,7 @@ public class KsAdContainer extends RelativeLayout {
         return super.dispatchTouchEvent(motionEvent);
     }
 
+    @MainThread
     public aa.a getTouchCoords() {
         return this.afd;
     }

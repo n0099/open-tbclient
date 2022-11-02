@@ -15,6 +15,10 @@ import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.core.content.IntentCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -41,15 +45,22 @@ public final class ShareCompat {
     public static class IntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public ArrayList<String> mBccAddresses;
+        @Nullable
         public ArrayList<String> mCcAddresses;
+        @Nullable
         public CharSequence mChooserTitle;
+        @NonNull
         public final Context mContext;
+        @NonNull
         public final Intent mIntent;
+        @Nullable
         public ArrayList<Uri> mStreams;
+        @Nullable
         public ArrayList<String> mToAddresses;
 
-        public IntentBuilder(Context context, ComponentName componentName) {
+        public IntentBuilder(@NonNull Context context, @Nullable ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +104,7 @@ public final class ShareCompat {
             }
         }
 
-        private void combineArrayExtra(String str, String[] strArr) {
+        private void combineArrayExtra(@Nullable String str, @NonNull String[] strArr) {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, this, str, strArr) == null) {
@@ -113,7 +124,8 @@ public final class ShareCompat {
             }
         }
 
-        public static IntentBuilder from(Context context, ComponentName componentName) {
+        @NonNull
+        public static IntentBuilder from(@NonNull Context context, @Nullable ComponentName componentName) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, componentName)) == null) {
@@ -122,7 +134,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeLL.objValue;
         }
 
-        public static IntentBuilder from(Activity activity) {
+        @NonNull
+        public static IntentBuilder from(@NonNull Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
@@ -131,7 +144,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailBcc(String str) {
+        @NonNull
+        public IntentBuilder addEmailBcc(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -144,7 +158,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailCc(String str) {
+        @NonNull
+        public IntentBuilder addEmailCc(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -157,7 +172,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailTo(String str) {
+        @NonNull
+        public IntentBuilder addEmailTo(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -170,7 +186,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setChooserTitle(int i) {
+        @NonNull
+        public IntentBuilder setChooserTitle(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -179,7 +196,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeI.objValue;
         }
 
-        public IntentBuilder setEmailBcc(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailBcc(@Nullable String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, strArr)) == null) {
@@ -189,7 +207,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setEmailCc(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailCc(@Nullable String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, strArr)) == null) {
@@ -199,7 +218,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setEmailTo(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailTo(@Nullable String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, strArr)) == null) {
@@ -212,7 +232,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setHtmlText(String str) {
+        @NonNull
+        public IntentBuilder setHtmlText(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
@@ -225,7 +246,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setStream(Uri uri) {
+        @NonNull
+        public IntentBuilder setStream(@Nullable Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, uri)) == null) {
@@ -239,7 +261,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setSubject(String str) {
+        @NonNull
+        public IntentBuilder setSubject(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
@@ -249,7 +272,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setText(CharSequence charSequence) {
+        @NonNull
+        public IntentBuilder setText(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
@@ -259,7 +283,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setType(String str) {
+        @NonNull
+        public IntentBuilder setType(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
@@ -269,7 +294,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailBcc(String[] strArr) {
+        @NonNull
+        public IntentBuilder addEmailBcc(@NonNull String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
@@ -279,7 +305,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailCc(String[] strArr) {
+        @NonNull
+        public IntentBuilder addEmailCc(@NonNull String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, strArr)) == null) {
@@ -289,7 +316,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addEmailTo(String[] strArr) {
+        @NonNull
+        public IntentBuilder addEmailTo(@NonNull String[] strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
@@ -299,7 +327,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder setChooserTitle(CharSequence charSequence) {
+        @NonNull
+        public IntentBuilder setChooserTitle(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, charSequence)) == null) {
@@ -309,7 +338,8 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
-        public IntentBuilder addStream(Uri uri) {
+        @NonNull
+        public IntentBuilder addStream(@NonNull Uri uri) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, uri)) == null) {
@@ -330,6 +360,7 @@ public final class ShareCompat {
             return (IntentBuilder) invokeL.objValue;
         }
 
+        @NonNull
         public Intent createChooserIntent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -339,6 +370,7 @@ public final class ShareCompat {
             return (Intent) invokeV.objValue;
         }
 
+        @NonNull
         public Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -355,6 +387,7 @@ public final class ShareCompat {
             }
         }
 
+        @NonNull
         public Intent getIntent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -408,13 +441,18 @@ public final class ShareCompat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "IntentReader";
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final ComponentName mCallingActivity;
+        @Nullable
         public final String mCallingPackage;
+        @NonNull
         public final Context mContext;
+        @NonNull
         public final Intent mIntent;
+        @Nullable
         public ArrayList<Uri> mStreams;
 
-        public IntentReader(Context context, Intent intent) {
+        public IntentReader(@NonNull Context context, @NonNull Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -435,7 +473,8 @@ public final class ShareCompat {
             this.mCallingActivity = ShareCompat.getCallingActivity(intent);
         }
 
-        public static IntentReader from(Activity activity) {
+        @NonNull
+        public static IntentReader from(@NonNull Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
@@ -444,7 +483,8 @@ public final class ShareCompat {
             return (IntentReader) invokeL.objValue;
         }
 
-        public static IntentReader from(Context context, Intent intent) {
+        @NonNull
+        public static IntentReader from(@NonNull Context context, @NonNull Intent intent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
@@ -488,6 +528,7 @@ public final class ShareCompat {
             }
         }
 
+        @Nullable
         public ComponentName getCallingActivity() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -497,6 +538,7 @@ public final class ShareCompat {
             return (ComponentName) invokeV.objValue;
         }
 
+        @Nullable
         public Drawable getCallingActivityIcon() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -514,6 +556,7 @@ public final class ShareCompat {
             return (Drawable) invokeV.objValue;
         }
 
+        @Nullable
         public Drawable getCallingApplicationIcon() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -531,6 +574,7 @@ public final class ShareCompat {
             return (Drawable) invokeV.objValue;
         }
 
+        @Nullable
         public String getCallingPackage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -540,6 +584,7 @@ public final class ShareCompat {
             return (String) invokeV.objValue;
         }
 
+        @Nullable
         public String[] getEmailBcc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -549,6 +594,7 @@ public final class ShareCompat {
             return (String[]) invokeV.objValue;
         }
 
+        @Nullable
         public String[] getEmailCc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -558,6 +604,7 @@ public final class ShareCompat {
             return (String[]) invokeV.objValue;
         }
 
+        @Nullable
         public String[] getEmailTo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -567,6 +614,7 @@ public final class ShareCompat {
             return (String[]) invokeV.objValue;
         }
 
+        @Nullable
         public Uri getStream() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -576,6 +624,7 @@ public final class ShareCompat {
             return (Uri) invokeV.objValue;
         }
 
+        @Nullable
         public String getSubject() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -585,6 +634,7 @@ public final class ShareCompat {
             return (String) invokeV.objValue;
         }
 
+        @Nullable
         public CharSequence getText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -594,6 +644,7 @@ public final class ShareCompat {
             return (CharSequence) invokeV.objValue;
         }
 
+        @Nullable
         public String getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -634,6 +685,7 @@ public final class ShareCompat {
             return invokeV.booleanValue;
         }
 
+        @Nullable
         public CharSequence getCallingApplicationLabel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -668,6 +720,7 @@ public final class ShareCompat {
             return invokeV.intValue;
         }
 
+        @Nullable
         public String getHtmlText() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -693,6 +746,7 @@ public final class ShareCompat {
             return (String) invokeV.objValue;
         }
 
+        @Nullable
         public Uri getStream(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -727,7 +781,7 @@ public final class ShareCompat {
         }
     }
 
-    public static void configureMenuItem(Menu menu, int i, IntentBuilder intentBuilder) {
+    public static void configureMenuItem(@NonNull Menu menu, @IdRes int i, @NonNull IntentBuilder intentBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65537, null, menu, i, intentBuilder) == null) {
             MenuItem findItem = menu.findItem(i);
@@ -739,7 +793,7 @@ public final class ShareCompat {
         }
     }
 
-    public static void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
+    public static void configureMenuItem(@NonNull MenuItem menuItem, @NonNull IntentBuilder intentBuilder) {
         ShareActionProvider shareActionProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, menuItem, intentBuilder) == null) {
@@ -758,7 +812,8 @@ public final class ShareCompat {
         }
     }
 
-    public static ComponentName getCallingActivity(Activity activity) {
+    @Nullable
+    public static ComponentName getCallingActivity(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
@@ -772,7 +827,8 @@ public final class ShareCompat {
         return (ComponentName) invokeL.objValue;
     }
 
-    public static String getCallingPackage(Activity activity) {
+    @Nullable
+    public static String getCallingPackage(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
@@ -786,7 +842,8 @@ public final class ShareCompat {
         return (String) invokeL.objValue;
     }
 
-    public static ComponentName getCallingActivity(Intent intent) {
+    @Nullable
+    public static ComponentName getCallingActivity(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent)) == null) {
@@ -799,7 +856,8 @@ public final class ShareCompat {
         return (ComponentName) invokeL.objValue;
     }
 
-    public static String getCallingPackage(Intent intent) {
+    @Nullable
+    public static String getCallingPackage(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {

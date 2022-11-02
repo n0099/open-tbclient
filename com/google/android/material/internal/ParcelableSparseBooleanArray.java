@@ -3,6 +3,8 @@ package com.google.android.material.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseBooleanArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,10 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ParcelableSparseBooleanArray extends SparseBooleanArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ParcelableSparseBooleanArray> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.os.Parcelable
@@ -40,7 +43,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.internal.ParcelableSparseBooleanArray.1
+        CREATOR = new Parcelable.Creator<ParcelableSparseBooleanArray>() { // from class: com.google.android.material.internal.ParcelableSparseBooleanArray.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,8 +62,10 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ParcelableSparseBooleanArray createFromParcel(Parcel parcel) {
+            @NonNull
+            public ParcelableSparseBooleanArray createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -79,7 +84,9 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public ParcelableSparseBooleanArray[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -126,7 +133,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ParcelableSparseBooleanArray(SparseBooleanArray sparseBooleanArray) {
+    public ParcelableSparseBooleanArray(@NonNull SparseBooleanArray sparseBooleanArray) {
         super(sparseBooleanArray.size());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -149,7 +156,7 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             int[] iArr = new int[size()];

@@ -62,7 +62,7 @@ public class CloseableReferenceFactory {
             }
 
             @Override // com.facebook.common.references.CloseableReference.LeakHandler
-            public void reportLeak(SharedReference sharedReference, @Nullable Throwable th) {
+            public void reportLeak(SharedReference<Object> sharedReference, @Nullable Throwable th) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, sharedReference, th) == null) {
                     this.val$closeableReferenceLeakTracker.trackCloseableReferenceLeak(sharedReference, th);
@@ -96,20 +96,20 @@ public class CloseableReferenceFactory {
         return (String) invokeL.objValue;
     }
 
-    public CloseableReference create(Closeable closeable) {
+    public <U extends Closeable> CloseableReference<U> create(U u) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, closeable)) == null) {
-            return CloseableReference.of(closeable, this.mLeakHandler);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u)) == null) {
+            return CloseableReference.of(u, this.mLeakHandler);
         }
         return (CloseableReference) invokeL.objValue;
     }
 
-    public CloseableReference create(Object obj, ResourceReleaser resourceReleaser) {
+    public <T> CloseableReference<T> create(T t, ResourceReleaser<T> resourceReleaser) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, resourceReleaser)) == null) {
-            return CloseableReference.of(obj, resourceReleaser, this.mLeakHandler);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, resourceReleaser)) == null) {
+            return CloseableReference.of(t, resourceReleaser, this.mLeakHandler);
         }
         return (CloseableReference) invokeLL.objValue;
     }

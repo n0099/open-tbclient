@@ -5,5 +5,5 @@ import javax.annotation.Nonnull;
 /* loaded from: classes7.dex */
 public interface HasImageMetadata {
     @Nonnull
-    Map getExtras();
+    Map<String, Object> getExtras();
 }

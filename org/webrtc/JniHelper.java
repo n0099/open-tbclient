@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JniHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,6 +27,7 @@ public class JniHelper {
         }
     }
 
+    @CalledByNative
     public static Object getStringClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -36,6 +37,7 @@ public class JniHelper {
         return invokeV.objValue;
     }
 
+    @CalledByNative
     public static Object getKey(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -45,6 +47,7 @@ public class JniHelper {
         return invokeL.objValue;
     }
 
+    @CalledByNative
     public static byte[] getStringBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,6 +61,7 @@ public class JniHelper {
         return (byte[]) invokeL.objValue;
     }
 
+    @CalledByNative
     public static Object getValue(Map.Entry entry) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

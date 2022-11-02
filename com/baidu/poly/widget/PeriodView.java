@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc1;
-import com.baidu.tieba.dd1;
-import com.baidu.tieba.zb1;
+import com.baidu.tieba.rc1;
+import com.baidu.tieba.uc1;
+import com.baidu.tieba.vd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public dd1 l;
+    public vd1 l;
     public InstallmentEntity m;
     public String n;
 
@@ -120,11 +120,11 @@ public class PeriodView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             PayChannelExtInfoEntity payChannelExtInfoEntity;
-            ArrayList installmentEntities;
+            ArrayList<InstallmentEntity> installmentEntities;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null && this.a.k != null && this.a.k.getPayChannelExtInfoEntity() != null && (payChannelExtInfoEntity = this.a.k.getPayChannelExtInfoEntity()) != null && (installmentEntities = payChannelExtInfoEntity.getInstallmentEntities()) != null) {
                 for (int i = 0; i < installmentEntities.size(); i++) {
-                    InstallmentEntity installmentEntity = (InstallmentEntity) installmentEntities.get(i);
+                    InstallmentEntity installmentEntity = installmentEntities.get(i);
                     if (this.a.m == installmentEntity) {
                         installmentEntity.setIsSelected("1");
                     } else {
@@ -228,26 +228,26 @@ public class PeriodView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c78);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0918bc);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09062a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0706, (ViewGroup) this, true);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091cc0);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0918ff);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090637);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
             this.h.setOnClickListener(new b(this));
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090313);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090322);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0918bd);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f36);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090693);
-            dd1 dd1Var = new dd1(getContext());
-            this.l = dd1Var;
-            this.g.setAdapter((ListAdapter) dd1Var);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091900);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f6f);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0906a1);
+            vd1 vd1Var = new vd1(getContext());
+            this.l = vd1Var;
+            this.g.setAdapter((ListAdapter) vd1Var);
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            zb1 zb1Var = new zb1("10");
-            zb1Var.a("type", this.n);
-            cc1.e(zb1Var);
+            rc1 rc1Var = new rc1("10");
+            rc1Var.a("type", this.n);
+            uc1.e(rc1Var);
         }
     }
 

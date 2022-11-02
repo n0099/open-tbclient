@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -55,7 +56,7 @@ public class GDTNativeUnifiedVideoView extends u {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GDTNativeUnifiedVideoView(Context context, AttributeSet attributeSet) {
+    public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +77,7 @@ public class GDTNativeUnifiedVideoView extends u {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GDTNativeUnifiedVideoView(Context context, AttributeSet attributeSet, int i) {
+    public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,7 +99,7 @@ public class GDTNativeUnifiedVideoView extends u {
     }
 
     @Override // com.fun.module.gdt.u
-    public List a() {
+    public List<View> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -129,7 +130,7 @@ public class GDTNativeUnifiedVideoView extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f090105);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
         }
     }

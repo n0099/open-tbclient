@@ -6,24 +6,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class f20 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile j20 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static j20 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                a = new k20();
             }
-            return sb.toString();
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (j20) invokeV.objValue;
     }
 }

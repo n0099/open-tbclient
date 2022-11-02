@@ -16,12 +16,12 @@ public class Constant {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class AUTHORIZATION {
+    public static class AUTHORIZATION {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public class RESULT {
+        public static class RESULT {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int CANCEL = 2;
             public static final int CONFIRM = 1;
@@ -43,7 +43,7 @@ public class Constant {
         }
 
         /* loaded from: classes2.dex */
-        public class TYPE {
+        public static class TYPE {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int UPDATE_MOBILE_CONFIRM = 1;
             public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +79,12 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class BUNDLE {
+    public static class BUNDLE {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public class TYPE {
+        public static class TYPE {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int BUNDLE_TYPE_BACKUP = 4;
             public static final int BUNDLE_TYPE_DOWNLOADED = 2;
@@ -123,12 +123,12 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class EXCEPTION {
+    public static class EXCEPTION {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public class ID {
+        public static class ID {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int LOAD_COMPONENT_CLASS = 2;
             public static final int PKG_MGR_MODULE_INIT = 3;
@@ -166,12 +166,12 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class FILE {
+    public static class FILE {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public class SUFFIX {
+        public static class SUFFIX {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String APK_LIB_SUFFIX = ".so";
             public static final String APK_PATCH_SUFFIX = ".patch";
@@ -209,7 +209,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class ABI {
+    public static class ABI {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ABI_32 = 1;
         public static final int ABI_64 = 2;
@@ -232,7 +232,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class CODE {
+    public static class CODE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RET_AMBIGUOUS_PKG_NAME = 9;
         public static final int RET_AUTH_ILLEGAL = 56;
@@ -296,7 +296,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class DOWNLOAD {
+    public static class DOWNLOAD {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOWNLOAD_NORMAL = 48;
         public static final int DOWNLOAD_SILENCE = 49;
@@ -321,7 +321,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class FLAG {
+    public static class FLAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FORCE_UPDATE_ALERT = 16;
         public static final int INSTALL_LOADING = 4;
@@ -345,7 +345,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class MSG {
+    public static class MSG {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -395,7 +395,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class PLUGIN {
+    public static class PLUGIN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALLOW_BACKGROUND_CODE = 0;
         public static final int ALLOW_DIRECTLY_CODE = 1;
@@ -417,7 +417,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class STATUS {
+    public static class STATUS {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PKG_AVAILABLE = 43;
         public static final int PKG_BROKEN = 46;
@@ -444,7 +444,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class TAG {
+    public static class TAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PARAM_DOWNLOAD_TYPE = "param_download_type";
         public static final String PARAM_MULTI_BUNDLE_ENABLE = "param_multi_bundle_enable";
@@ -472,7 +472,7 @@ public class Constant {
     }
 
     /* loaded from: classes2.dex */
-    public class VERSION {
+    public static class VERSION {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_VERSION = -1;
         public transient /* synthetic */ FieldHolder $fh;

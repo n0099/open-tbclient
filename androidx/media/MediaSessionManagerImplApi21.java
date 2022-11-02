@@ -1,12 +1,15 @@
 package androidx.media;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.media.MediaSessionManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +36,7 @@ public class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
         this.mContext = context;
     }
 
-    private boolean hasMediaControlPermission(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    private boolean hasMediaControlPermission(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, remoteUserInfoImpl)) == null) {
@@ -46,7 +49,7 @@ public class MediaSessionManagerImplApi21 extends MediaSessionManagerImplBase {
     }
 
     @Override // androidx.media.MediaSessionManagerImplBase, androidx.media.MediaSessionManager.MediaSessionManagerImpl
-    public boolean isTrustedForMediaControl(MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
+    public boolean isTrustedForMediaControl(@NonNull MediaSessionManager.RemoteUserInfoImpl remoteUserInfoImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, remoteUserInfoImpl)) == null) {

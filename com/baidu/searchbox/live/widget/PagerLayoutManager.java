@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
@@ -55,7 +57,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
 
         void onPageScrolled(boolean z, int i, boolean z2, boolean z3);
 
-        void onPageSelected(PageAction pageAction, int i, View view2);
+        void onPageSelected(PageAction pageAction, int i, @Nullable View view2);
 
         void onScrollStateChanged(int i, int i2);
 
@@ -63,7 +65,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes2.dex */
-        public final class PageAction {
+        public static final class PageAction {
             public static final /* synthetic */ PageAction[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final PageAction DOWN;
@@ -180,7 +182,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
             return (OrientationHelper) invokeL.objValue;
         }
 
-        private int distanceToCenter(RecyclerView.LayoutManager layoutManager, View view2, OrientationHelper orientationHelper) {
+        private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
             InterceptResult invokeLLL;
             int end;
             Interceptable interceptable = $ic;
@@ -197,7 +199,8 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         }
 
         @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
-        public int[] calculateDistanceToFinalSnap(RecyclerView.LayoutManager layoutManager, View view2) {
+        @Nullable
+        public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
@@ -234,7 +237,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
     }
 
     /* loaded from: classes2.dex */
-    public class SimplePagerListener implements PagerListener {
+    public static class SimplePagerListener implements PagerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -260,7 +263,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
         }
 
         @Override // com.baidu.searchbox.live.widget.PagerLayoutManager.PagerListener
-        public void onPageSelected(PagerListener.PageAction pageAction, int i, View view2) {
+        public void onPageSelected(PagerListener.PageAction pageAction, int i, @Nullable View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048579, this, pageAction, i, view2) == null) {
             }
@@ -425,7 +428,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(RecyclerView recyclerView2, int i) {
+                public void onScrollStateChanged(@NonNull RecyclerView recyclerView2, int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView2, i) == null) {
                         super.onScrollStateChanged(recyclerView2, i);
@@ -434,7 +437,7 @@ public class PagerLayoutManager extends LinearLayoutManager implements View.OnTo
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrolled(RecyclerView recyclerView2, int i, int i2) {
+                public void onScrolled(@NonNull RecyclerView recyclerView2, int i, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView2, i, i2) == null) {
                         super.onScrolled(recyclerView2, i, i2);

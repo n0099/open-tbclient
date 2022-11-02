@@ -1,6 +1,17 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
+import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,61 +19,136 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class xv6 {
+public class xv6 extends a36<ij6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List b;
+    public HListView t;
+    public e87 u;
+    public FrsSchoolRecommendItemView v;
+    public List<f87> w;
+    public View.OnClickListener x;
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xv6 a;
+
+        public a(xv6 xv6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xv6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xv6Var;
         }
-    }
 
-    public xv6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
+                this.a.e().a(view2, null);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xv6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.x = new a(this);
+        HListView hListView = new HListView(getContext());
+        this.t = hListView;
+        hListView.setHeaderDividersEnabled(false);
+        this.t.setFooterDividersEnabled(false);
+        this.t.setSelector(R.drawable.obfuscated_res_0x7f080d0f);
+        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0349, (ViewGroup) null), tbPageContext, bdUniqueId);
+        e87 e87Var = new e87(getContext(), R.layout.obfuscated_res_0x7f0d0349, this.v);
+        this.u = e87Var;
+        e87Var.d(this.x);
+        this.t.setAdapter((ListAdapter) this.u);
+        this.q.addView(this.t);
+        this.p.setVisibility(8);
+        this.j.setTextSize(0, xi.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
     }
 
-    public List b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.a36, com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            super.m(tbPageContext, i);
+            if (this.t != null && this.u != null) {
+                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+                this.u.b(i);
+            }
         }
     }
 
-    public void e(List list) {
+    public final boolean u(List<f87> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
+                return true;
+            }
+            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
+                f87 f87Var = (f87) ListUtils.getItem(this.w, i);
+                f87 f87Var2 = (f87) ListUtils.getItem(list, i);
+                if ((f87Var instanceof nk6) && (f87Var2 instanceof nk6) && !((nk6) f87Var).a.getUserId().equals(((nk6) f87Var2).a.getUserId())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a36
+    /* renamed from: v */
+    public void t(ij6 ij6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ij6Var) == null) {
+            super.l(ij6Var);
+            if (ij6Var != null && !ListUtils.isEmpty(ij6Var.getDataList())) {
+                if (StringUtils.isNull(ij6Var.mGroupTitle)) {
+                    this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10e9));
+                } else {
+                    this.j.setText(ij6Var.mGroupTitle);
+                }
+                if (u(ij6Var.getDataList())) {
+                    List<f87> dataList = ij6Var.getDataList();
+                    this.w = dataList;
+                    this.u.c(dataList);
+                    this.u.notifyDataSetChanged();
+                }
+            }
         }
     }
 }

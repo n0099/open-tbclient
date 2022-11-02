@@ -1,5 +1,6 @@
 package com.kwad.sdk.utils;
 
+import androidx.annotation.RequiresApi;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -71,6 +72,7 @@ public final class l {
         com.kwad.sdk.crash.utils.b.closeQuietly(zipOutputStream);
     }
 
+    @RequiresApi(api = 19)
     public static byte[] k(byte[] bArr) {
         byte[] bArr2 = null;
         if (bArr != null) {

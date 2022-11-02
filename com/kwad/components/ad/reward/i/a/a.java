@@ -1,6 +1,7 @@
 package com.kwad.components.ad.reward.i.a;
 
 import android.content.Context;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,16 +21,16 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c uc;
-    public C0542a ud;
+    public C0553a ud;
     public final b ue;
 
     /* renamed from: com.kwad.components.ad.reward.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0542a extends com.kwad.components.ad.reward.i.b {
+    public static class C0553a extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0542a() {
+        public C0553a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +48,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     /* loaded from: classes7.dex */
-    public final class b extends com.kwad.components.ad.reward.i.b {
+    public static class b extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +78,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     /* loaded from: classes7.dex */
-    public final class c extends com.kwad.components.ad.reward.i.b {
+    public static class c extends com.kwad.components.ad.reward.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +114,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
             }
         }
         this.uc = new c();
-        this.ud = new C0542a();
+        this.ud = new C0553a();
         this.ue = new b(com.kwad.components.ad.reward.kwai.b.fX());
     }
 
@@ -192,7 +193,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     @Override // com.kwad.components.ad.reward.i.a
-    public final List ir() {
+    public final List<com.kwad.components.ad.reward.i.c> ir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -228,7 +229,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
     }
 
     @Override // com.kwad.components.ad.reward.i.b, com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             try {

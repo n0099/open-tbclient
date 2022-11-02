@@ -1,298 +1,78 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.statistics.exception.SdkException;
-import com.baidu.poly.wallet.paychannel.IChannelAuth;
-import com.baidu.poly.wallet.paychannel.IChannelPay;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.tieba.cd1;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ra1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void onError(String str);
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends ta1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(ra1 ra1Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ra1Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.ta1
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                zb1 zb1Var = new zb1("1");
-                zb1Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
-                cc1.e(zb1Var);
-                lc1.g("requestChannelList onError result=" + str);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.onError(str);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ta1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                lc1.g("requestChannelList onSuccess result=" + jSONObject.toString());
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.onSuccess(jSONObject.toString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Context b;
-        public boolean c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 1;
-            this.c = false;
-        }
-
-        public ra1 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new ra1(this, null);
-            }
-            return (ra1) invokeV.objValue;
-        }
-
-        public b e(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                this.b = context;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b f(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.a = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(int i, String str);
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ra1(b bVar) {
+    public static oa1 a(Uri uri) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        if (bVar != null) {
-            if (bVar.b != null) {
-                ab1.b(bVar.a);
-                gb1.c(fb1.d(bVar.b.getApplicationContext()));
-                pc1.b(bVar.b.getApplicationContext());
-                lc1.d = bVar.c;
-                return;
-            }
-            throw new IllegalArgumentException("context can not be null");
-        }
-        throw new IllegalArgumentException("builder can not be null");
-    }
-
-    public /* synthetic */ ra1(b bVar, qa1 qa1Var) {
-        this(bVar);
-    }
-
-    public void a(Bundle bundle, uc1 uc1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, uc1Var) == null) {
-            vc1.a(bundle, uc1Var);
-        }
-    }
-
-    public void d(Bundle bundle, d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, dVar) == null) {
-            yb1.a("1.01", System.currentTimeMillis());
-            bb1.j().f(oc1.b(pc1.a(), bundle), true, new a(this, dVar));
-        }
-    }
-
-    public void b(Context context, Bundle bundle, IChannelPay iChannelPay, IChannelAuth iChannelAuth, zc1 zc1Var, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, bundle, iChannelPay, iChannelAuth, zc1Var, cVar}) == null) {
-            if (context != null) {
-                if (bundle != null) {
-                    if (iChannelPay != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - this.a < 1000) {
-                            lc1.g("cashier pay time interval less than 1s");
-                            return;
-                        }
-                        this.a = currentTimeMillis;
-                        lc1.g("cashier pay");
-                        String str = "1";
-                        yb1.a("1", currentTimeMillis);
-                        String string = bundle.getString("chosenChannel");
-                        String string2 = bundle.getString("panelType");
-                        if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && !TextUtils.isEmpty(string)) {
-                            str = "0";
-                        } else if (!TextUtils.equals(string2, "HALF") && TextUtils.equals(string2, "FULL")) {
-                            str = "2";
-                        }
-                        zb1 zb1Var = new zb1("0");
-                        zb1Var.a("panelType", str);
-                        cc1.e(zb1Var);
-                        PolyActivity.n(context, iChannelPay, iChannelAuth, zc1Var, cVar, bundle);
-                        return;
-                    }
-                    throw new IllegalArgumentException("channelPay can not be null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            oa1 oa1Var = new oa1();
+            if (uri != null) {
+                String queryParameter = uri.getQueryParameter("downloaded_size");
+                long j2 = 0;
+                if (!TextUtils.isEmpty(queryParameter)) {
+                    j = Long.valueOf(queryParameter).longValue();
+                } else {
+                    j = 0;
                 }
-                throw new IllegalArgumentException("arguments can not be null");
-            }
-            throw new IllegalArgumentException("context can not be null");
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bc1.g().h();
-        }
-    }
-
-    public void e(int i, JSONObject jSONObject, wb1 wb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i, jSONObject, wb1Var) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (wb1Var != null) {
-                        wb1Var.a(1, "unknown command");
-                        return;
-                    }
-                    return;
+                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
+                if (!TextUtils.isEmpty(queryParameter2)) {
+                    j2 = Long.valueOf(queryParameter2).longValue();
                 }
-                eb1.f(wb1Var);
-                return;
+                oa1Var.a = j;
+                oa1Var.b = j2;
             }
-            ab1.c(jSONObject, wb1Var);
+            return oa1Var;
         }
+        return (oa1) invokeL.objValue;
     }
 
-    public void f(Activity activity, ed1 ed1Var, cd1.d dVar) {
+    public static Uri b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, ed1Var, dVar) == null) {
-            if (activity == null) {
-                lc1.d("couponEntity is null!");
-            } else if (ed1Var != null && ed1Var.b != null) {
-                cd1 cd1Var = new cd1(activity);
-                cd1Var.d(dVar);
-                cd1Var.update(ed1Var.b);
-                cd1Var.show();
-            } else {
-                lc1.d("couponEntity || couponItemList is null!");
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build();
         }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Uri c(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build();
+        }
+        return (Uri) invokeCommon.objValue;
+    }
+
+    public static Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static Uri e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build();
+        }
+        return (Uri) invokeL.objValue;
     }
 }

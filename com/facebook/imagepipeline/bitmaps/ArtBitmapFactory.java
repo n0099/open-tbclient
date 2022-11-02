@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.bitmaps;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +12,9 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.core.CloseableReferenceFactory;
 import com.facebook.imagepipeline.memory.BitmapPool;
 import com.facebook.imageutils.BitmapUtil;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+@TargetApi(21)
 /* loaded from: classes7.dex */
 public class ArtBitmapFactory extends PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -38,12 +42,12 @@ public class ArtBitmapFactory extends PlatformBitmapFactory {
     }
 
     @Override // com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory
-    public CloseableReference createBitmapInternal(int i, int i2, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
-            Bitmap bitmap = (Bitmap) this.mBitmapPool.get(BitmapUtil.getSizeInByteForBitmap(i, i2, config));
+            Bitmap bitmap = this.mBitmapPool.get(BitmapUtil.getSizeInByteForBitmap(i, i2, config));
             if (bitmap.getAllocationByteCount() >= i * i2 * BitmapUtil.getPixelSizeForBitmapConfig(config)) {
                 z = true;
             } else {

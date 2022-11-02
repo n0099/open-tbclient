@@ -11,9 +11,7 @@ public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: java.lang.Class<?> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static Object a(Object obj, String str, String str2, Object obj2, Class cls) {
+    public static Object a(Object obj, String str, String str2, Object obj2, Class<?> cls) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, obj, str, str2, obj2, cls)) == null) {
@@ -27,7 +25,7 @@ public class n {
         return invokeLLLLL.objValue;
     }
 
-    public static Object a(String str, Class[] clsArr, Object[] objArr) {
+    public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, clsArr, objArr)) == null) {
@@ -41,7 +39,7 @@ public class n {
         return invokeLLL.objValue;
     }
 
-    public static Object a(Constructor constructor, Object... objArr) {
+    public static Object a(Constructor<?> constructor, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, constructor, objArr)) == null) {
@@ -56,7 +54,7 @@ public class n {
         return invokeLL.objValue;
     }
 
-    public static Constructor a(String str, Class... clsArr) {
+    public static Constructor<?> a(String str, Class<?>... clsArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, clsArr)) == null) {

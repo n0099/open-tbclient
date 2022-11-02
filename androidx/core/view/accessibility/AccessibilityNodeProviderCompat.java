@@ -4,6 +4,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,6 +21,7 @@ public class AccessibilityNodeProviderCompat {
     public transient /* synthetic */ FieldHolder $fh;
     public final Object mProvider;
 
+    @Nullable
     public AccessibilityNodeInfoCompat createAccessibilityNodeInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -28,6 +31,7 @@ public class AccessibilityNodeProviderCompat {
         return (AccessibilityNodeInfoCompat) invokeI.objValue;
     }
 
+    @Nullable
     public List<AccessibilityNodeInfoCompat> findAccessibilityNodeInfosByText(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -37,6 +41,7 @@ public class AccessibilityNodeProviderCompat {
         return (List) invokeLI.objValue;
     }
 
+    @Nullable
     public AccessibilityNodeInfoCompat findFocus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -55,6 +60,7 @@ public class AccessibilityNodeProviderCompat {
         return invokeIIL.booleanValue;
     }
 
+    @RequiresApi(16)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi16 extends AccessibilityNodeProvider {
         public static /* synthetic */ Interceptable $ic;
@@ -123,6 +129,7 @@ public class AccessibilityNodeProviderCompat {
         }
     }
 
+    @RequiresApi(19)
     /* loaded from: classes.dex */
     public static class AccessibilityNodeProviderApi19 extends AccessibilityNodeProviderApi16 {
         public static /* synthetic */ Interceptable $ic;

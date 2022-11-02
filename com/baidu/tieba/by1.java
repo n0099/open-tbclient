@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class by1 extends sw1 {
+public class by1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
     public float b;
     public float c;
     public float d;
-    public int e;
-    public int f;
+    public boolean e;
 
     public by1() {
         Interceptable interceptable = $ic;
@@ -29,44 +27,29 @@ public class by1 extends sw1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
-            if (tw1Var.a() == 0) {
-                tw1Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(tw1Var.a());
-                tw1Var.b(canvas.save());
-            }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && this.e) {
+            lx1Var.f.quadTo(this.a, this.b, this.c, this.d);
         }
     }
 
-    @Override // com.baidu.tieba.sw1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = dh3.g((float) jSONArray.optDouble(4));
-                    this.f = dh3.g((float) jSONArray.optDouble(5));
-                }
-            } catch (Exception e) {
-                if (wj1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
+            this.a = vh3.g((float) jSONArray.optDouble(0));
+            this.b = vh3.g((float) jSONArray.optDouble(1));
+            this.c = vh3.g((float) jSONArray.optDouble(2));
+            this.d = vh3.g((float) jSONArray.optDouble(3));
+            this.e = true;
         }
     }
 }

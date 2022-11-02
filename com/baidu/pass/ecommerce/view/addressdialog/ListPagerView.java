@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,7 +53,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
 
     /* renamed from: com.baidu.pass.ecommerce.view.addressdialog.ListPagerView$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ListPagerView(Context context, int i, OnEntitySelectedListener onEntitySelectedListener) {
+    public ListPagerView(@NonNull Context context, int i, OnEntitySelectedListener onEntitySelectedListener) {
         this(context, i, false, onEntitySelectedListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,7 +114,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ListPagerView(Context context, int i, boolean z, OnEntitySelectedListener onEntitySelectedListener) {
+    public ListPagerView(@NonNull Context context, int i, boolean z, OnEntitySelectedListener onEntitySelectedListener) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -189,7 +190,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
                 changeViewStatus(ViewStatus.EMPTY, null);
                 return;
             }
-            List list = addressEntity.list;
+            List<AddressBean> list = addressEntity.list;
             if (list == null || list.isEmpty()) {
                 changeViewStatus(ViewStatus.EMPTY, null);
             }

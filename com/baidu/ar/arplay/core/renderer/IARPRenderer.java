@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.renderer;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.opengl.EGLContext;
@@ -90,7 +91,7 @@ public interface IARPRenderer {
 
     void setCaptureData(int i);
 
-    void setContext(SoftReference softReference);
+    void setContext(SoftReference<Context> softReference);
 
     void setInputMatrix(float[] fArr);
 

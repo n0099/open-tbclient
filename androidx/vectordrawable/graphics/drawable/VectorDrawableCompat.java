@@ -23,6 +23,12 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.res.ComplexColorCompat;
@@ -74,7 +80,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     /* renamed from: androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -398,6 +404,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return invokeV.floatValue;
         }
 
+        @ColorInt
         public int getFillColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -416,6 +423,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return invokeV.floatValue;
         }
 
+        @ColorInt
         public int getStrokeColor() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -613,7 +621,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65539, this, typedArray, xmlPullParser) == null) {
                 this.mThemeAttrs = null;
-                this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.ROTATION, 5, this.mRotate);
+                this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
                 this.mPivotX = typedArray.getFloat(1, this.mPivotX);
                 this.mPivotY = typedArray.getFloat(2, this.mPivotY);
                 this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.SCALE_X, 3, this.mScaleX);
@@ -1385,6 +1393,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1507,6 +1516,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
+        @NonNull
         public Drawable newDrawable(Resources resources) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1528,6 +1538,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
     }
 
+    @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
@@ -1851,6 +1862,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         return (Drawable.ConstantState) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public float getPixelSize() {
         InterceptResult invokeV;
         VPathRenderer vPathRenderer;
@@ -1900,7 +1912,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         return invokeV.booleanValue;
     }
 
-    public VectorDrawableCompat(VectorDrawableCompatState vectorDrawableCompatState) {
+    public VectorDrawableCompat(@NonNull VectorDrawableCompatState vectorDrawableCompatState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1973,7 +1985,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         return invokeCommon.booleanValue;
     }
 
-    public static VectorDrawableCompat create(Resources resources, int i, Resources.Theme theme) {
+    @Nullable
+    public static VectorDrawableCompat create(@NonNull Resources resources, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;

@@ -26,7 +26,7 @@ public class PopupEmotionManager {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup mContainerView;
     public Context mCtx;
-    public LinkedList mDelayedTaskQueue;
+    public LinkedList<DelayedTask> mDelayedTaskQueue;
     public Animation mEnterAnimation;
     public Animation mExitAnimation;
     public boolean mIsPostRunning;
@@ -44,7 +44,7 @@ public class PopupEmotionManager {
     }
 
     /* loaded from: classes2.dex */
-    public class DelayedTask {
+    public static class DelayedTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TASK_TYPE_DISMISS = 2;
         public static final int TASK_TYPE_DISMISS_WITHOUT_ANIM = 3;
@@ -75,7 +75,7 @@ public class PopupEmotionManager {
     }
 
     /* loaded from: classes2.dex */
-    public class ShowParam {
+    public static class ShowParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int anchorWidth;
@@ -146,7 +146,7 @@ public class PopupEmotionManager {
             }
         }
         this.mMainHandler = new Handler(Looper.getMainLooper());
-        this.mDelayedTaskQueue = new LinkedList();
+        this.mDelayedTaskQueue = new LinkedList<>();
         this.mCtx = context;
         this.mContainerView = SoftInputUtil.getContentView();
     }
@@ -245,12 +245,12 @@ public class PopupEmotionManager {
     public void runDelayedTaskIfNecessary() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && !this.mDelayedTaskQueue.isEmpty() && this.mDelayedTaskQueue.peek() != null) {
-            DelayedTask delayedTask = (DelayedTask) this.mDelayedTaskQueue.poll();
-            int i = delayedTask.taskType;
+            DelayedTask poll = this.mDelayedTaskQueue.poll();
+            int i = poll.taskType;
             if (i == 0) {
-                show((ShowParam) delayedTask.extra);
+                show((ShowParam) poll.extra);
             } else if (i == 1) {
-                show((ShowParam) delayedTask.extra);
+                show((ShowParam) poll.extra);
             } else if (i == 2) {
                 dismiss();
             } else if (i == 3) {

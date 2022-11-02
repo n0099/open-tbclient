@@ -11,10 +11,13 @@ import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q61;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.i71;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,10 +29,12 @@ public class ExpandIconView extends View {
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
     public float b;
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float c;
     public float d;
     public final int e;
     public final int f;
+    @NonNull
     public final Paint g;
     public final Point h;
     public final Point i;
@@ -37,6 +42,7 @@ public class ExpandIconView extends View {
     public final Point k;
     public final Point l;
     public final Path m;
+    @Nullable
     public ValueAnimator n;
 
     /* loaded from: classes2.dex */
@@ -75,7 +81,7 @@ public class ExpandIconView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExpandIconView(Context context) {
+    public ExpandIconView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,7 +115,7 @@ public class ExpandIconView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExpandIconView(Context context, AttributeSet attributeSet) {
+    public ExpandIconView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -148,7 +154,7 @@ public class ExpandIconView extends View {
     /* JADX DEBUG: Incorrect finally slice size: {[INVOKE, CONSTRUCTOR] complete}, expected: {[INVOKE] complete} */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Finally extract failed */
-    public ExpandIconView(Context context, AttributeSet attributeSet, int i) {
+    public ExpandIconView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -175,10 +181,10 @@ public class ExpandIconView extends View {
         this.k = new Point();
         this.l = new Point();
         this.m = new Path();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q61.ExpandIconView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i71.ExpandIconView, 0, 0);
         try {
-            this.e = obtainStyledAttributes.getDimensionPixelSize(2, u21.c.a(getContext(), 40.0f));
-            this.f = obtainStyledAttributes.getDimensionPixelSize(3, u21.c.a(getContext(), 2.0f));
+            this.e = obtainStyledAttributes.getDimensionPixelSize(2, m31.c.a(getContext(), 40.0f));
+            this.f = obtainStyledAttributes.getDimensionPixelSize(3, m31.c.a(getContext(), 2.0f));
             int color = obtainStyledAttributes.getColor(1, -16777216);
             long integer = obtainStyledAttributes.getInteger(0, 150);
             obtainStyledAttributes.recycle();
@@ -259,7 +265,7 @@ public class ExpandIconView extends View {
         }
     }
 
-    public final void i(Point point, double d, Point point2) {
+    public final void i(@NonNull Point point, double d, @NonNull Point point2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{point, Double.valueOf(d), point2}) == null) {
             double radians = Math.toRadians(d);
@@ -303,7 +309,7 @@ public class ExpandIconView extends View {
         }
     }
 
-    public void setFraction(float f, boolean z) {
+    public void setFraction(@FloatRange(from = -1.0d, to = 1.0d) float f, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) != null) || f < -1.0f || f > 1.0f || this.c == f) {
             return;

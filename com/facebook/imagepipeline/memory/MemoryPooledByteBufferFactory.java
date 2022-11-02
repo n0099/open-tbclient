@@ -8,11 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteStreams;
 import com.facebook.common.references.CloseableReference;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -39,6 +42,7 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
         this.mPooledByteStreams = pooledByteStreams;
     }
 
+    @VisibleForTesting
     public MemoryPooledByteBuffer newByteBuf(InputStream inputStream, MemoryPooledByteBufferOutputStream memoryPooledByteBufferOutputStream) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

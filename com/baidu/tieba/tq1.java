@@ -1,159 +1,129 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
 /* loaded from: classes6.dex */
-public class tq1 extends RequestBody {
+public class tq1 implements fq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189749, "Lcom/baidu/tieba/tq1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948189749, "Lcom/baidu/tieba/tq1;");
-                return;
-            }
-        }
-        b = wj1.a;
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fq1
+    public boolean j(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(a(this.a.getPath()));
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    public tq1(File file) {
+    public tq1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = file;
     }
 
-    public static String a(String str) {
+    @Override // com.baidu.tieba.fq1
+    public z52 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new z52();
+        }
+        return (z52) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public nq1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            String str2 = "image/jpeg";
-            if (str != null) {
-                try {
-                    try {
-                        try {
-                            try {
-                                mediaMetadataRetriever.setDataSource(str);
-                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
-                                if (extractMetadata != null) {
-                                    str2 = extractMetadata;
-                                }
-                                try {
-                                    mediaMetadataRetriever.release();
-                                } catch (Exception e) {
-                                    if (b) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                if (b) {
-                                    e2.printStackTrace();
-                                }
-                                return "image/jpeg";
-                            }
-                        } catch (Exception e3) {
-                            if (b) {
-                                e3.printStackTrace();
-                            }
-                            return "image/jpeg";
-                        }
-                    } catch (Exception e4) {
-                        if (b) {
-                            e4.printStackTrace();
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (IllegalStateException unused2) {
-                    mediaMetadataRetriever.release();
-                } catch (RuntimeException unused3) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e5) {
-                        if (b) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return str2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new SwanWebModeWidget(context);
         }
-        return (String) invokeL.objValue;
+        return (nq1) invokeL.objValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
+    @Override // com.baidu.tieba.fq1
+    public jq1 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
-                    bufferedSink.flush();
-                }
-            } finally {
-                qj4.d(source);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new b32(context);
         }
+        return (jq1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public nq1 c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return new ar1(context);
+        }
+        return (nq1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public nq1 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return new tr1(context);
+        }
+        return (nq1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public nq1 g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return new xr1(context);
+        }
+        return (nq1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public nq1 i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return new SwanAppSimpleH5Widget(context);
+        }
+        return (nq1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public kq1 e(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
+            return new SwanAppSlaveManager(context);
+        }
+        return (kq1) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq1
+    public a62 h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) {
+            return new b62().a(context, i);
+        }
+        return (a62) invokeLI.objValue;
     }
 }

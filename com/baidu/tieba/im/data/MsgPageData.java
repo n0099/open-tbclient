@@ -2,6 +2,7 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ public class MsgPageData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -7666708726763728750L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNewAdd;
-    public List mChatMessages;
+    public List<ChatMessage> mChatMessages;
     public int newAddNum;
 
     public MsgPageData() {
@@ -38,14 +39,14 @@ public class MsgPageData extends OrmObject implements Serializable {
     }
 
     public void clear() {
-        List list;
+        List<ChatMessage> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.mChatMessages) != null) {
             list.clear();
         }
     }
 
-    public List getChatMessages() {
+    public List<ChatMessage> getChatMessages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -85,7 +86,7 @@ public class MsgPageData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List list = this.mChatMessages;
+            List<ChatMessage> list = this.mChatMessages;
             if (list != null) {
                 return list.size();
             }

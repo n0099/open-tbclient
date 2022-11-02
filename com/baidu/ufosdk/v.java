@@ -1,5 +1,6 @@
 package com.baidu.ufosdk;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
@@ -119,6 +120,7 @@ public class v extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @SuppressLint({"NewApi"})
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, webResourceError) == null) {
@@ -133,6 +135,7 @@ public class v extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @SuppressLint({"NewApi"})
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

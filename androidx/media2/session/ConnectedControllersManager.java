@@ -1,6 +1,8 @@
 package androidx.media2.session;
 
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.MediaSession;
@@ -20,7 +22,9 @@ public class ConnectedControllersManager<T> {
     public static final boolean DEBUG;
     public static final String TAG = "MS2ControllerMgr";
     public transient /* synthetic */ FieldHolder $fh;
+    @GuardedBy("mLock")
     public final ArrayMap<T, MediaSession.ControllerInfo> mControllerInfoMap;
+    @GuardedBy("mLock")
     public final ArrayMap<MediaSession.ControllerInfo, ConnectedControllersManager<T>.ConnectedControllerRecord> mControllerRecords;
     public final Object mLock;
     public final MediaSession.MediaSessionImpl mSessionImpl;
@@ -142,7 +146,8 @@ public class ConnectedControllersManager<T> {
         return (MediaSession.ControllerInfo) invokeL.objValue;
     }
 
-    public final SequencedFutureManager getSequencedFutureManager(MediaSession.ControllerInfo controllerInfo) {
+    @Nullable
+    public final SequencedFutureManager getSequencedFutureManager(@Nullable MediaSession.ControllerInfo controllerInfo) {
         InterceptResult invokeL;
         ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
         Interceptable interceptable = $ic;
@@ -183,7 +188,7 @@ public class ConnectedControllersManager<T> {
         removeController(getController(t));
     }
 
-    public SequencedFutureManager getSequencedFutureManager(T t) {
+    public SequencedFutureManager getSequencedFutureManager(@Nullable T t) {
         InterceptResult invokeL;
         ConnectedControllersManager<T>.ConnectedControllerRecord connectedControllerRecord;
         Interceptable interceptable = $ic;

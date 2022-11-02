@@ -1,5 +1,6 @@
 package androidx.constraintlayout.motion.widget;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -881,7 +882,7 @@ public abstract class KeyCycleOscillator {
                     }
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c = 2;
                         break;
                     }
@@ -995,6 +996,7 @@ public abstract class KeyCycleOscillator {
         }
     }
 
+    @TargetApi(19)
     public void setup(float f) {
         int size;
         Interceptable interceptable = $ic;

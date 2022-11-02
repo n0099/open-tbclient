@@ -9,6 +9,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class DeepRecursiveKt {
     public static final Object UNDEFINED_RESULT;
 
+    @ExperimentalStdlibApi
     public static /* synthetic */ void DeepRecursiveFunctionBlock$annotations() {
     }
 
@@ -20,6 +21,8 @@ public final class DeepRecursiveKt {
         UNDEFINED_RESULT = Result.m698constructorimpl(IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED());
     }
 
+    @SinceKotlin(version = "1.4")
+    @ExperimentalStdlibApi
     public static final <T, R> R invoke(DeepRecursiveFunction<T, R> invoke, T t) {
         Intrinsics.checkNotNullParameter(invoke, "$this$invoke");
         return (R) new DeepRecursiveScopeImpl(invoke.getBlock$kotlin_stdlib(), t).runCallLoop();

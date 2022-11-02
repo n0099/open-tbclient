@@ -2,6 +2,7 @@ package com.ss.android.downloadlib.addownload;
 
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.g.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -65,7 +66,7 @@ public class a implements m.a {
         }
     }
 
-    public void a(DownloadInfo downloadInfo, long j, long j2, String str, String str2, String str3, String str4) {
+    public void a(@NonNull DownloadInfo downloadInfo, long j, long j2, String str, String str2, String str3, String str4) {
         com.ss.android.downloadlib.addownload.b.a aVar = new com.ss.android.downloadlib.addownload.b.a(downloadInfo.getId(), j, j2, str, str2, str3, str4);
         com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
         if (a2.a("back_miui_silent_install", 1) == 0 && ((com.ss.android.socialbase.appdownloader.f.d.l() || com.ss.android.socialbase.appdownloader.f.d.m()) && com.ss.android.socialbase.downloader.i.j.a(j.getContext(), "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService"))) {

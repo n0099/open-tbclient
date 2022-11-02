@@ -4,16 +4,19 @@ import android.accounts.Account;
 import android.os.Binder;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.IAccountAccessor;
 /* loaded from: classes7.dex */
 public class AccountAccessor extends IAccountAccessor.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean equals(Object obj) {
+    public final boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -23,6 +26,7 @@ public class AccountAccessor extends IAccountAccessor.Stub {
     }
 
     @Override // com.google.android.gms.common.internal.IAccountAccessor
+    @NonNull
     public final Account zzb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -32,7 +36,9 @@ public class AccountAccessor extends IAccountAccessor.Stub {
         return (Account) invokeV.objValue;
     }
 
-    public static Account getAccountBinderSafe(IAccountAccessor iAccountAccessor) {
+    @Nullable
+    @KeepForSdk
+    public static Account getAccountBinderSafe(@NonNull IAccountAccessor iAccountAccessor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iAccountAccessor)) == null) {

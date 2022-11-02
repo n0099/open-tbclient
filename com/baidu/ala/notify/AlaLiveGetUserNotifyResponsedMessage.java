@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList dataList;
+    public ArrayList<AlaLiveUserNotifyData> dataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaLiveGetUserNotifyResponsedMessage() {
@@ -35,7 +35,7 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public ArrayList getDataList() {
+    public ArrayList<AlaLiveUserNotifyData> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,7 +52,7 @@ public class AlaLiveGetUserNotifyResponsedMessage extends JsonHttpResponsedMessa
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (optJSONArray = optJSONObject.optJSONArray("notify_list")) != null) {
-                this.dataList = new ArrayList();
+                this.dataList = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     if (optJSONArray.optJSONObject(i2) != null) {
                         AlaLiveUserNotifyData alaLiveUserNotifyData = new AlaLiveUserNotifyData();

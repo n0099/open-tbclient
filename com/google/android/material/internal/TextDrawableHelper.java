@@ -3,6 +3,9 @@ package com.google.android.material.internal;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.TextPaint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +15,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TextAppearanceFontCallback;
 import java.lang.ref.WeakReference;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class TextDrawableHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public WeakReference<TextDrawableDelegate> delegate;
     public final TextAppearanceFontCallback fontCallback;
+    @Nullable
     public TextAppearance textAppearance;
     public final TextPaint textPaint;
     public float textWidth;
@@ -25,6 +31,7 @@ public class TextDrawableHelper {
 
     /* loaded from: classes7.dex */
     public interface TextDrawableDelegate {
+        @NonNull
         int[] getState();
 
         boolean onStateChange(int[] iArr);
@@ -32,7 +39,7 @@ public class TextDrawableHelper {
         void onTextSizeChange();
     }
 
-    public TextDrawableHelper(TextDrawableDelegate textDrawableDelegate) {
+    public TextDrawableHelper(@Nullable TextDrawableDelegate textDrawableDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +92,7 @@ public class TextDrawableHelper {
             }
 
             @Override // com.google.android.material.resources.TextAppearanceFontCallback
-            public void onFontRetrieved(Typeface typeface, boolean z) {
+            public void onFontRetrieved(@NonNull Typeface typeface, boolean z) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, z) == null) && !z) {
                     this.this$0.textWidthDirty = true;
@@ -101,7 +108,7 @@ public class TextDrawableHelper {
         setDelegate(textDrawableDelegate);
     }
 
-    private float calculateTextWidth(CharSequence charSequence) {
+    private float calculateTextWidth(@Nullable CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, charSequence)) == null) {
@@ -128,7 +135,7 @@ public class TextDrawableHelper {
         return invokeL.floatValue;
     }
 
-    public void setDelegate(TextDrawableDelegate textDrawableDelegate) {
+    public void setDelegate(@Nullable TextDrawableDelegate textDrawableDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, textDrawableDelegate) == null) {
             this.delegate = new WeakReference<>(textDrawableDelegate);
@@ -149,6 +156,7 @@ public class TextDrawableHelper {
         }
     }
 
+    @Nullable
     public TextAppearance getTextAppearance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,6 +166,7 @@ public class TextDrawableHelper {
         return (TextAppearance) invokeV.objValue;
     }
 
+    @NonNull
     public TextPaint getTextPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -176,7 +185,7 @@ public class TextDrawableHelper {
         return invokeV.booleanValue;
     }
 
-    public void setTextAppearance(TextAppearance textAppearance, Context context) {
+    public void setTextAppearance(@Nullable TextAppearance textAppearance, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048581, this, textAppearance, context) == null) && this.textAppearance != textAppearance) {
             this.textAppearance = textAppearance;

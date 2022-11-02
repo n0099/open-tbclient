@@ -2,8 +2,8 @@ package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ih9;
-import com.baidu.tieba.nh9;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.wi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         this.mPreProcessor = new MultiMediaPreProcessor();
     }
 
-    public LinkedList getRunOnDrawList() {
+    public LinkedList<Runnable> getRunOnDrawList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.runOnProcess : (LinkedList) invokeV.objValue;
@@ -66,8 +66,8 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            List multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
-            if ((!nh9.e(multiMediaDataTrack) && nh9.b(((MultiMediaDataTrack) multiMediaDataTrack.get(0)).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) nh9.c(((MultiMediaDataTrack) multiMediaDataTrack.get(0)).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
+            List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
+            if ((!wi9.e(multiMediaDataTrack) && wi9.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) wi9.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
                 return -1;
             }
             MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
@@ -102,7 +102,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             super.onSizeChange(i, i2);
-            ih9.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
+            ri9.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
             OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
             if (onDrawUpdateTextureListener != null) {
                 onDrawUpdateTextureListener.onSizeChange(i, i2);

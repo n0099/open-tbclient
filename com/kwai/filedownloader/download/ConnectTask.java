@@ -21,8 +21,8 @@ public final class ConnectTask {
     public final com.kwai.filedownloader.c.b auj;
     public com.kwai.filedownloader.download.a auk;
     public String aul;
-    public Map aum;
-    public List aun;
+    public Map<String, List<String>> aum;
+    public List<String> aun;
     public final String url;
 
     /* loaded from: classes8.dex */
@@ -52,7 +52,7 @@ public final class ConnectTask {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public com.kwai.filedownloader.c.b auj;
@@ -168,7 +168,7 @@ public final class ConnectTask {
 
     private void a(com.kwai.filedownloader.kwai.b bVar) {
         com.kwai.filedownloader.c.b bVar2;
-        HashMap El;
+        HashMap<String, List<String>> El;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65538, this, bVar) == null) || (bVar2 = this.auj) == null || (El = bVar2.El()) == null) {
             return;
@@ -176,12 +176,12 @@ public final class ConnectTask {
         if (com.kwai.filedownloader.e.d.awL) {
             com.kwai.filedownloader.e.d.g(this, "%d add outside header: %s", Integer.valueOf(this.aui), El);
         }
-        for (Map.Entry entry : El.entrySet()) {
-            String str = (String) entry.getKey();
-            List<String> list = (List) entry.getValue();
-            if (list != null) {
-                for (String str2 : list) {
-                    bVar.addHeader(str, str2);
+        for (Map.Entry<String, List<String>> entry : El.entrySet()) {
+            String key = entry.getKey();
+            List<String> value = entry.getValue();
+            if (value != null) {
+                for (String str : value) {
+                    bVar.addHeader(key, str);
                 }
             }
         }
@@ -238,12 +238,12 @@ public final class ConnectTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.aun;
+            List<String> list = this.aun;
             if (list == null || list.isEmpty()) {
                 return null;
             }
-            List list2 = this.aun;
-            return (String) list2.get(list2.size() - 1);
+            List<String> list2 = this.aun;
+            return list2.get(list2.size() - 1);
         }
         return (String) invokeV.objValue;
     }
@@ -254,7 +254,7 @@ public final class ConnectTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.auk : (com.kwai.filedownloader.download.a) invokeV.objValue;
     }
 
-    public final Map getRequestHeader() {
+    public final Map<String, List<String>> getRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.aum : (Map) invokeV.objValue;

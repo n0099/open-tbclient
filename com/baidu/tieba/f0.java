@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -26,14 +27,14 @@ public final class f0 {
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
-    /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements Executor {
+    /* loaded from: classes4.dex */
+    public static class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,6 +121,7 @@ public final class f0 {
         return (Executor) invokeV.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(ThreadPoolExecutor threadPoolExecutor, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65538, null, threadPoolExecutor, z) == null) && Build.VERSION.SDK_INT >= 9) {

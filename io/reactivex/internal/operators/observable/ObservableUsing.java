@@ -21,31 +21,31 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ObservableUsing extends Observable {
+public final class ObservableUsing<T, D> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer disposer;
+    public final Consumer<? super D> disposer;
     public final boolean eager;
-    public final Callable resourceSupplier;
-    public final Function sourceSupplier;
+    public final Callable<? extends D> resourceSupplier;
+    public final Function<? super D, ? extends ObservableSource<? extends T>> sourceSupplier;
 
     /* loaded from: classes8.dex */
-    public final class UsingObserver extends AtomicBoolean implements Observer, Disposable {
+    public static final class UsingObserver<T, D> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5904473792286235046L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final Consumer disposer;
+        public final Observer<? super T> actual;
+        public final Consumer<? super D> disposer;
         public final boolean eager;
-        public final Object resource;
+        public final D resource;
         public Disposable s;
 
-        public UsingObserver(Observer observer, Object obj, Consumer consumer, boolean z) {
+        public UsingObserver(Observer<? super T> observer, D d, Consumer<? super D> consumer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, obj, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {observer, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class ObservableUsing extends Observable {
                 }
             }
             this.actual = observer;
-            this.resource = obj;
+            this.resource = d;
             this.disposer = consumer;
             this.eager = z;
         }
@@ -70,11 +70,12 @@ public final class ObservableUsing extends Observable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: D, ? super D */
         public void disposeAfter() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
                 try {
-                    this.disposer.accept(this.resource);
+                    this.disposer.accept((D) this.resource);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -92,6 +93,7 @@ public final class ObservableUsing extends Observable {
             return invokeV.booleanValue;
         }
 
+        /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: D, ? super D */
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
@@ -99,7 +101,7 @@ public final class ObservableUsing extends Observable {
                 if (this.eager) {
                     if (compareAndSet(false, true)) {
                         try {
-                            this.disposer.accept(this.resource);
+                            this.disposer.accept((D) this.resource);
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             this.actual.onError(th);
@@ -116,6 +118,7 @@ public final class ObservableUsing extends Observable {
             }
         }
 
+        /* JADX DEBUG: Type inference failed for r3v2. Raw type applied. Possible types: D, ? super D */
         @Override // io.reactivex.Observer
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -123,7 +126,7 @@ public final class ObservableUsing extends Observable {
                 if (this.eager) {
                     if (compareAndSet(false, true)) {
                         try {
-                            this.disposer.accept(this.resource);
+                            this.disposer.accept((D) this.resource);
                         } catch (Throwable th2) {
                             Exceptions.throwIfFatal(th2);
                             th = new CompositeException(th, th2);
@@ -140,10 +143,10 @@ public final class ObservableUsing extends Observable {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -157,7 +160,7 @@ public final class ObservableUsing extends Observable {
         }
     }
 
-    public ObservableUsing(Callable callable, Function function, Consumer consumer, boolean z) {
+    public ObservableUsing(Callable<? extends D> callable, Function<? super D, ? extends ObservableSource<? extends T>> function, Consumer<? super D> consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,11 +182,11 @@ public final class ObservableUsing extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             try {
-                Object call = this.resourceSupplier.call();
+                D call = this.resourceSupplier.call();
                 try {
                     ((ObservableSource) ObjectHelper.requireNonNull(this.sourceSupplier.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(observer, call, this.disposer, this.eager));
                 } catch (Throwable th) {

@@ -1,66 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.q23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes6.dex */
-public class ui3 implements q23.c {
+public class ui3 implements ti3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ ui3 b;
-
-        public a(ui3 ui3Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ui3Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ui3Var;
-            this.a = viewGroup;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
-                }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
-            }
-        }
-    }
+    public final Queue<si3> a;
+    public si3 b;
 
     public ui3() {
         Interceptable interceptable = $ic;
@@ -75,52 +27,75 @@ public class ui3 implements q23.c {
                 return;
             }
         }
-        this.a = null;
+        this.a = new ArrayDeque();
     }
 
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
-        }
-    }
-
-    public final void f(q23 q23Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, q23Var) == null) {
-            Context context = q23Var.getContext();
-            if (q23Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) q23Var.getContext()).getBaseContext();
-            }
-            if (context instanceof Activity) {
-                vf3.b((Activity) context, q23Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                if (this.b != null) {
+                    return;
+                }
+                e();
             }
         }
     }
 
-    public final void d(ViewGroup viewGroup, View view2) {
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.a();
+                    this.b = null;
+                }
+                this.a.clear();
+            }
         }
-        view2.post(new a(this, viewGroup));
     }
 
-    @Override // com.baidu.tieba.q23.c
-    public void a(q23 q23Var, q23.b bVar) {
+    @Override // com.baidu.tieba.ti3
+    public void a(si3 si3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q23Var, bVar) != null) || q23Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, si3Var) == null) {
+            synchronized (this.a) {
+                if (si3Var == this.b) {
+                    e();
+                }
+            }
         }
-        f(q23Var);
-        ViewGroup viewGroup = (ViewGroup) q23Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (tm2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
+    }
+
+    public void d(si3 si3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, si3Var) == null) {
+            if (si3Var != null) {
+                synchronized (this.a) {
+                    Queue<si3> queue = this.a;
+                    si3Var.b(this);
+                    queue.offer(si3Var);
+                }
+            }
+            b();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                this.b = null;
+                if (this.a.isEmpty()) {
+                    return;
+                }
+                si3 poll = this.a.poll();
+                this.b = poll;
+                if (poll == null) {
+                    e();
+                } else {
+                    yh3.a0(poll);
+                }
             }
         }
     }

@@ -2,6 +2,7 @@ package com.bytedance.pangle.f;
 
 import android.util.ArrayMap;
 import android.util.Pair;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,13 +31,14 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+@RequiresApi(api = 21)
 /* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[][] a;
@@ -125,7 +127,7 @@ public final class b {
         }
     }
 
-    public static X509Certificate[] a(ByteBuffer byteBuffer, Map map, CertificateFactory certificateFactory) {
+    public static X509Certificate[] a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         int a2;
         Interceptable interceptable = $ic;
@@ -176,7 +178,7 @@ public final class b {
                     throw new SecurityException("No supported signatures found");
                 } else {
                     String c = f.c(i);
-                    Pair d = f.d(i);
+                    Pair<String, ? extends AlgorithmParameterSpec> d = f.d(i);
                     String str = (String) d.first;
                     AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) d.second;
                     try {
@@ -210,8 +212,8 @@ public final class b {
                                 }
                             }
                             if (arrayList.equals(arrayList2)) {
-                                byte[] bArr3 = (byte[]) map.put(Integer.valueOf(f.a(i)), bArr);
-                                if (bArr3 != null && !MessageDigest.isEqual(bArr3, bArr)) {
+                                byte[] put = map.put(Integer.valueOf(f.a(i)), bArr);
+                                if (put != null && !MessageDigest.isEqual(put, bArr)) {
                                     throw new SecurityException(f.b(a2) + " contents digest does not match the digest specified by a preceding signer");
                                 }
                                 ByteBuffer a8 = f.a(a3);

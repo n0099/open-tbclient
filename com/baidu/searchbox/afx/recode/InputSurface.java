@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.recode;
 
+import android.annotation.SuppressLint;
 import android.opengl.EGL14;
 import android.opengl.EGLConfig;
 import android.opengl.EGLContext;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
+@SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class InputSurface {
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,6 +28,7 @@ public class InputSurface {
     public EGLSurface mEGLSurface;
     public Surface mSurface;
 
+    @SuppressLint({"BDThrowableCheck"})
     public InputSurface(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,6 +55,7 @@ public class InputSurface {
         throw null;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     private void checkEglError(String str) {
         int eglGetError;
         Interceptable interceptable = $ic;
@@ -61,6 +65,7 @@ public class InputSurface {
         throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
     }
 
+    @SuppressLint({"BDThrowableCheck, InlinedApi"})
     private void eglSetup() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -92,6 +97,7 @@ public class InputSurface {
         }
     }
 
+    @SuppressLint({"InlinedApi"})
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,6 +118,7 @@ public class InputSurface {
         return (Surface) invokeV.objValue;
     }
 
+    @SuppressLint({"InlinedApi"})
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,6 +130,7 @@ public class InputSurface {
         return invokeV.intValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void makeCurrent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -135,6 +143,7 @@ public class InputSurface {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void makeUnCurrent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.util.Log;
+import com.baidu.tieba.rd2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import org.json.JSONObject;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class sd2 extends md2 {
+public class sd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final Set<String> a;
+    public static final Set<String> b;
+    public static final Set<String> c;
+    public static final Map<String, rd2> d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object c;
-    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -32,44 +35,47 @@ public class sd2 extends md2 {
                 return;
             }
         }
-        e = wj1.a;
+        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        b = new HashSet(a);
+        c = new HashSet(b);
+        d = new HashMap();
+        e = false;
     }
 
-    public sd2() {
+    public static rd2 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            c();
+            return d.get(str);
         }
-        this.d = true;
-        this.a = "message";
+        return (rd2) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.md2
-    public void m(Map map) {
+    public static rd2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            rd2.b bVar = new rd2.b();
+            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+            bVar.e(ln2.w0().a());
+            bVar.b(ln2.w0().d());
+            return bVar.a();
+        }
+        return (rd2) invokeV.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!e) {
+                for (String str : c) {
+                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
+                        d.put(str, b());
+                    }
                 }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
             }
+            e = true;
         }
     }
 }

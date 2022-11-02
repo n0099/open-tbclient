@@ -3,6 +3,8 @@ package androidx.loader.content;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContentResolverCompat;
 import androidx.core.os.CancellationSignal;
 import androidx.core.os.OperationCanceledException;
@@ -31,7 +33,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
     public Uri mUri;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CursorLoader(Context context) {
+    public CursorLoader(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +77,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CursorLoader(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public CursorLoader(@NonNull Context context, @NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -113,6 +115,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         }
     }
 
+    @Nullable
     public String[] getProjection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -122,6 +125,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         return (String[]) invokeV.objValue;
     }
 
+    @Nullable
     public String getSelection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,6 +135,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public String[] getSelectionArgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,6 +145,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         return (String[]) invokeV.objValue;
     }
 
+    @Nullable
     public String getSortOrder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,6 +155,7 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -203,35 +210,35 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         }
     }
 
-    public void setProjection(String[] strArr) {
+    public void setProjection(@Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, strArr) == null) {
             this.mProjection = strArr;
         }
     }
 
-    public void setSelection(String str) {
+    public void setSelection(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.mSelection = str;
         }
     }
 
-    public void setSelectionArgs(String[] strArr) {
+    public void setSelectionArgs(@Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, strArr) == null) {
             this.mSelectionArgs = strArr;
         }
     }
 
-    public void setSortOrder(String str) {
+    public void setSortOrder(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.mSortOrder = str;
         }
     }
 
-    public void setUri(Uri uri) {
+    public void setUri(@NonNull Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, uri) == null) {
             this.mUri = uri;

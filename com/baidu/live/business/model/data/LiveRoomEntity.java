@@ -21,11 +21,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveRoomEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveRoomEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
     public int autoPlay;
-    public List bannerList;
+    public List<LiveBannerEntity> bannerList;
     public String beginTime;
     public String belongSubTab;
     public String belongThirdTab;
@@ -56,7 +56,7 @@ public class LiveRoomEntity implements Parcelable {
     public ThirdLabelInfo thirdLabel;
     public String title;
     public String topicId;
-    public List topicRoomList;
+    public List<LiveRoomEntity> topicRoomList;
     public String videoScreen;
 
     @Override // android.os.Parcelable
@@ -82,7 +82,7 @@ public class LiveRoomEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveRoomEntity.1
+        CREATOR = new Parcelable.Creator<LiveRoomEntity>() { // from class: com.baidu.live.business.model.data.LiveRoomEntity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,6 +101,7 @@ public class LiveRoomEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveRoomEntity createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -112,6 +113,7 @@ public class LiveRoomEntity implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveRoomEntity[] newArray(int i) {
                 InterceptResult invokeI;
@@ -174,7 +176,7 @@ public class LiveRoomEntity implements Parcelable {
             if (!isTopicRoom()) {
                 return 0;
             }
-            return ((LiveRoomEntity) this.topicRoomList.get(0)).showTpl;
+            return this.topicRoomList.get(0).showTpl;
         }
         return invokeV.intValue;
     }
@@ -204,7 +206,7 @@ public class LiveRoomEntity implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List list = this.topicRoomList;
+            List<LiveRoomEntity> list = this.topicRoomList;
             if (list != null && !list.isEmpty()) {
                 return true;
             }

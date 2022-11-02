@@ -1,8 +1,11 @@
 package com.baidu.pass.ecommerce.dialog;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment;
 import com.baidu.tieba.R;
@@ -36,6 +39,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.layout_sapi_sdk_img_ocr_option_dialog : invokeV.intValue;
     }
 
+    @SuppressLint({"ValidFragment"})
     public ImgOcrOptionDialog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +75,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);

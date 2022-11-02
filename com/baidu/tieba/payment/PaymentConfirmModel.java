@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PaymentConfirmModel extends BdBaseModel {
+public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
+    public r9<T> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -46,7 +46,7 @@ public class PaymentConfirmModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public PaymentConfirmModel(r9 r9Var) {
+    public PaymentConfirmModel(r9<T> r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

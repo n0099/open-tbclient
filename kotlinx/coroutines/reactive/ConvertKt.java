@@ -13,7 +13,7 @@ import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
 public final class ConvertKt {
     @Deprecated(level = DeprecationLevel.WARNING, message = "Deprecated in the favour of consumeAsFlow()", replaceWith = @ReplaceWith(expression = "this.consumeAsFlow().asPublisher()", imports = {}))
-    public static final Publisher asPublisher(ReceiveChannel receiveChannel, CoroutineContext coroutineContext) {
+    public static final <T> Publisher<T> asPublisher(ReceiveChannel<? extends T> receiveChannel, CoroutineContext coroutineContext) {
         return PublishKt.publish(coroutineContext, new ConvertKt$asPublisher$1(receiveChannel, null));
     }
 

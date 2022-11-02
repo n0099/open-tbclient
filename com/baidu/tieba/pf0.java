@@ -1,23 +1,140 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Vector;
-import org.json.JSONArray;
+import java.io.File;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pf0 {
+public class pf0 extends sf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static JSONObject h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<Integer> a;
-    public long b;
-    public long c;
-    public Vector<Integer> d;
+    public rf0 c;
+    public WeakReference<Context> d;
+    public String e;
+    public File f;
+    public boolean g;
+
+    /* loaded from: classes5.dex */
+    public class a extends AsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pf0 a;
+
+        public a(pf0 pf0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pf0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Boolean bool) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                super.onPostExecute(bool);
+                pf0 pf0Var = this.a;
+                if (bool.booleanValue()) {
+                    i = 2;
+                } else {
+                    i = 3;
+                }
+                pf0Var.d(i);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (pf0.h == null) {
+                    pf0.h = new JSONObject();
+                }
+                if (this.a.f == null) {
+                    try {
+                        pf0.h.put("sdcardPath", StringUtil.NULL_STRING);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return Boolean.FALSE;
+                } else if (!this.a.g && this.a.m()) {
+                    try {
+                        pf0.h.put("exist", true);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    return Boolean.TRUE;
+                } else {
+                    if (!this.a.f.isDirectory()) {
+                        try {
+                            pf0.h.put("file-del", true);
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                        this.a.f.delete();
+                    }
+                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
+                    boolean a = this.a.c.a(this.a.e, file);
+                    if (a) {
+                        try {
+                            pf0.h.put("assetsToSD", true);
+                        } catch (JSONException e4) {
+                            e4.printStackTrace();
+                        }
+                        a = file.renameTo(this.a.f);
+                    }
+                    if (!a) {
+                        try {
+                            pf0.h.put("renameTo-del", true);
+                        } catch (JSONException e5) {
+                            e5.printStackTrace();
+                        }
+                        tf0.b(file);
+                        if (this.a.f.exists()) {
+                            tf0.b(this.a.f);
+                        }
+                    }
+                    try {
+                        pf0.h.put(TiebaStatic.LogFields.RESULT, a);
+                    } catch (JSONException e6) {
+                        e6.printStackTrace();
+                    }
+                    if (this.a.l()) {
+                        xf0.a("ARSourceCopyManager", "sdk exist + " + pf0.h.toString());
+                    }
+                    return Boolean.valueOf(a);
+                }
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
 
     public pf0() {
         Interceptable interceptable = $ic;
@@ -29,139 +146,88 @@ public class pf0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new Vector<>();
-        this.c = 0L;
-        this.d = new Vector<>();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.b <= 0) {
-                this.b = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i = (int) (currentTimeMillis - this.b);
-            if (i < 0) {
-                return;
-            }
-            this.a.add(Integer.valueOf(i));
-            this.b = currentTimeMillis;
         }
     }
 
-    public String a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.a.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                if (TextUtils.isEmpty(jSONArray2)) {
-                    return "";
-                }
-                return jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            Vector<Integer> vector = this.d;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.d.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.d.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                if (TextUtils.isEmpty(jSONArray2)) {
-                    return "";
-                }
-                return jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int b() {
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            WeakReference<Context> weakReference = this.d;
+            if (weakReference != null) {
+                return weakReference.get();
             }
-            int size = this.a.size();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                Integer num = this.a.get(i2);
-                if (num != null) {
-                    i += num.intValue();
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new rf0(getContext());
+            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        }
+    }
+
+    public final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ue0.m();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = this.f;
+            if (file != null && file.isDirectory() && this.f.exists()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sf0
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean m = m();
+            JSONObject jSONObject = new JSONObject();
+            h = jSONObject;
+            if (m) {
+                try {
+                    if (ve0.a) {
+                        str = "assets";
+                    } else {
+                        str = "soloader";
+                    }
+                    jSONObject.put("type", str);
+                    h.put("exist", m);
+                    h.put("path", this.f);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (l()) {
+                    xf0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
+                }
+                d(2);
+            } else if (getContext() != null) {
+                try {
+                    if (l()) {
+                        xf0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
+                    }
+                    k();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
-            float f = (i * 1.0f) / size;
-            if (f == 0.0f) {
-                return 0;
-            }
-            return Math.round(1000.0f / f);
-        }
-        return invokeV.intValue;
-    }
-
-    public void e() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.c)) < 0) {
-            return;
-        }
-        this.d.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = 0L;
-            this.c = 0L;
-            this.a.clear();
-            this.d.clear();
         }
     }
 }

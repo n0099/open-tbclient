@@ -8,6 +8,7 @@ import android.graphics.PathMeasure;
 import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.animation.Interpolator;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.view.InputDeviceCompat;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.xmlpull.v1.XmlPullParser;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class PathInterpolatorCompat implements Interpolator {
     public static /* synthetic */ Interceptable $ic = null;

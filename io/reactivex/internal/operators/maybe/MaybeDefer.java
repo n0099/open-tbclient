@@ -12,12 +12,12 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class MaybeDefer extends Maybe {
+public final class MaybeDefer<T> extends Maybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable maybeSupplier;
+    public final Callable<? extends MaybeSource<? extends T>> maybeSupplier;
 
-    public MaybeDefer(Callable callable) {
+    public MaybeDefer(Callable<? extends MaybeSource<? extends T>> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +36,7 @@ public final class MaybeDefer extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             try {

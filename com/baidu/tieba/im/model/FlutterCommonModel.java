@@ -68,7 +68,7 @@ public class FlutterCommonModel extends BdBaseModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921730 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof HashMap) && this.this$0.mCallback != null) {
                     this.this$0.mCallback.callback((HashMap) customResponsedMessage.getData());

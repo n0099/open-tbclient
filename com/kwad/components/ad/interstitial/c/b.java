@@ -1,6 +1,7 @@
 package com.kwad.components.ad.interstitial.c;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ public final class b extends com.kwad.components.core.widget.kwai.a {
     public View mRootView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(View view2, int i) {
+    public b(@NonNull View view2, int i) {
         super(view2, 100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

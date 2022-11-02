@@ -8,12 +8,12 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class a {
     public int a;
-    public final Map b;
-    public final Map c;
+    public final Map<String, c> b;
+    public final Map<String, d> c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0692a {
+    public static final class C0703a {
         public static final a a = new a();
     }
 
@@ -24,31 +24,31 @@ public class a {
     }
 
     public static a a() {
-        return C0692a.a;
+        return C0703a.a;
     }
 
     public void a(int i) {
         this.a = i;
     }
 
-    public c a(String str, List list) {
-        c cVar;
+    public c a(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
+        c remove;
         synchronized (this.b) {
-            cVar = (c) this.b.remove(str);
+            remove = this.b.remove(str);
         }
-        if (cVar != null) {
-            if (f.a(cVar.h(), list)) {
+        if (remove != null) {
+            if (f.a(remove.h(), list)) {
                 try {
-                    cVar.d();
+                    remove.d();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (cVar.f() && cVar.e()) {
-                    return cVar;
+                if (remove.f() && remove.e()) {
+                    return remove;
                 }
             }
             try {
-                cVar.c();
+                remove.c();
                 return null;
             } catch (Throwable unused) {
                 return null;
@@ -57,24 +57,24 @@ public class a {
         return null;
     }
 
-    public d b(String str, List list) {
-        d dVar;
+    public d b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
+        d remove;
         synchronized (this.c) {
-            dVar = (d) this.c.remove(str);
+            remove = this.c.remove(str);
         }
-        if (dVar != null) {
-            if (f.a(dVar.f(), list)) {
+        if (remove != null) {
+            if (f.a(remove.f(), list)) {
                 try {
-                    dVar.e();
+                    remove.e();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (dVar.h() && dVar.g()) {
-                    return dVar;
+                if (remove.h() && remove.g()) {
+                    return remove;
                 }
             }
             try {
-                dVar.d();
+                remove.d();
                 return null;
             } catch (Throwable unused) {
                 return null;
@@ -90,7 +90,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = (c) this.b.get(str);
+        c cVar = this.b.get(str);
         if (cVar == null) {
             return false;
         }

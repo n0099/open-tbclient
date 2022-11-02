@@ -9,6 +9,9 @@ import android.os.Parcelable;
 import android.util.Size;
 import android.util.SizeF;
 import android.util.SparseBooleanArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
@@ -35,6 +38,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class VersionedParcel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -357,7 +361,8 @@ public abstract class VersionedParcel {
         }
     }
 
-    public static Throwable getRootCause(Throwable th) {
+    @NonNull
+    public static Throwable getRootCause(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
@@ -853,6 +858,7 @@ public abstract class VersionedParcel {
         return (Set) invokeLI.objValue;
     }
 
+    @RequiresApi(api = 21)
     public Size readSize(Size size, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -868,6 +874,7 @@ public abstract class VersionedParcel {
         return (Size) invokeLI.objValue;
     }
 
+    @RequiresApi(api = 21)
     public SizeF readSizeF(SizeF sizeF, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -1084,6 +1091,7 @@ public abstract class VersionedParcel {
         }
     }
 
+    @RequiresApi(api = 21)
     public void writeSize(Size size, int i) {
         boolean z;
         Interceptable interceptable = $ic;
@@ -1102,6 +1110,7 @@ public abstract class VersionedParcel {
         }
     }
 
+    @RequiresApi(api = 21)
     public void writeSizeF(SizeF sizeF, int i) {
         boolean z;
         Interceptable interceptable = $ic;

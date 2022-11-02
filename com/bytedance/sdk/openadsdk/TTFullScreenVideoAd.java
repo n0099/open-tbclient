@@ -25,7 +25,7 @@ public interface TTFullScreenVideoAd extends TTClientBidding {
 
     int getInteractionType();
 
-    Map getMediaExtraInfo();
+    Map<String, Object> getMediaExtraInfo();
 
     void setDownloadListener(TTAppDownloadListener tTAppDownloadListener);
 

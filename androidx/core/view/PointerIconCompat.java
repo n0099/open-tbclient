@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.PointerIcon;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,6 +94,7 @@ public final class PointerIconCompat {
         return (PointerIconCompat) invokeLI.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public Object getPointerIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

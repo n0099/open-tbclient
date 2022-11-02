@@ -1,7 +1,9 @@
 package com.baidu.tbadk.core.tabHost;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -29,10 +32,10 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.vx4;
-import com.baidu.tieba.zp8;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.jr8;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,12 +49,12 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public FragmentTabWidget b;
-    public vx4 c;
+    public ly4 c;
     public FragmentTabSwellingView d;
     public int e;
     public b f;
     public FragmentManager g;
-    public final List h;
+    public final List<b> h;
     public ViewPager.OnPageChangeListener i;
     public CustomViewPager j;
     public a k;
@@ -78,14 +81,14 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     }
 
     /* loaded from: classes3.dex */
-    public class FragmentAdapter extends FragmentPagerAdapter {
+    public static class FragmentAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public List b;
+        public List<b> b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FragmentAdapter(FragmentManager fragmentManager, List list) {
+        public FragmentAdapter(FragmentManager fragmentManager, List<b> list) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -123,7 +126,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                return ((b) this.b.get(i)).c;
+                return this.b.get(i).c;
             }
             return (Fragment) invokeI.objValue;
         }
@@ -133,13 +136,13 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                return ((b) this.b.get(i)).c.hashCode();
+                return this.b.get(i).c.hashCode();
             }
             return invokeI.longValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public int getItemPosition(Object obj) {
+        public int getItemPosition(@NonNull Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
@@ -181,13 +184,13 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public TbFragmentTabIndicator b;
         public Fragment c;
-        public p95 d;
+        public ia5 d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -238,7 +241,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 onPageChangeListener.onPageSelected(i);
             }
             this.e = i;
-            this.f = (b) this.h.get(i);
+            this.f = this.h.get(i);
             this.b.setCurrentTab(this.e, false, true);
             ViewGroup viewGroup = (ViewGroup) this.f.c.getView();
             if (viewGroup != null && viewGroup.getChildCount() > 0) {
@@ -284,9 +287,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                     if (this.h.contains(bVar)) {
                         return;
                     }
-                    p95 p95Var = bVar.d;
-                    if (p95Var != null) {
-                        p95Var.e();
+                    ia5 ia5Var = bVar.d;
+                    if (ia5Var != null) {
+                        ia5Var.e();
                     }
                     this.b.addView(bVar.b, i);
                     if (i == -1) {
@@ -320,7 +323,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public void onTabSelectionChanged(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f = (b) this.h.get(i);
+            this.f = this.h.get(i);
             a aVar = this.k;
             if (aVar != null && !aVar.onPreTabSelectionChange(i, z)) {
                 return;
@@ -351,7 +354,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i >= 0 && i < this.h.size()) {
-                return (b) this.h.get(i);
+                return this.h.get(i);
             }
             return null;
         }
@@ -470,11 +473,11 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         }
     }
 
-    public void setTabWidgetBackgroundImageUrl(Pair pair) {
+    public void setTabWidgetBackgroundImageUrl(Pair<String, String> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, pair) == null) {
             if (this.c == null) {
-                this.c = new vx4(this, R.color.common_color_10274);
+                this.c = new ly4(this, R.color.common_color_10274);
             }
             setShouldDrawIndicatorLine(false);
             setShouldDrawTopLine(false);
@@ -510,8 +513,8 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, fragmentManager) == null) {
             this.g = fragmentManager;
-            this.b = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f092029);
-            this.d = (FragmentTabSwellingView) findViewById(R.id.obfuscated_res_0x7f092021);
+            this.b = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f092074);
+            this.d = (FragmentTabSwellingView) findViewById(R.id.obfuscated_res_0x7f09206c);
             this.b.setTabSelectionListener(this);
         }
     }
@@ -524,9 +527,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                     if (this.h.contains(bVar)) {
                         return;
                     }
-                    p95 p95Var = bVar.d;
-                    if (p95Var != null) {
-                        p95Var.e();
+                    ia5 ia5Var = bVar.d;
+                    if (ia5Var != null) {
+                        ia5Var.e();
                     }
                     this.b.c(bVar.b, i, z);
                     if (i == -1) {
@@ -569,7 +572,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 this.m.setVisibility(0);
             } else if (i == 0) {
                 layoutParams2.addRule(10, -1);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09202b);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092076);
                 layoutParams.bottomMargin = 0;
                 this.m.setVisibility(0);
             } else if (i == 2) {
@@ -578,7 +581,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 layoutParams.bottomMargin = 0;
                 this.m.setVisibility(0);
             } else if (i == 3) {
-                layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + fj.f(this.a, R.dimen.obfuscated_res_0x7f070306);
+                layoutParams2.topMargin = UtilHelper.getLightStatusBarHeight() + xi.g(this.a, R.dimen.obfuscated_res_0x7f070306);
                 this.m.setVisibility(0);
             } else if (i == 4) {
                 layoutParams.addRule(10, -1);
@@ -618,7 +621,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i = this.e;
             if (i >= 0 && i < this.h.size()) {
-                return ((b) this.h.get(this.e)).a;
+                return this.h.get(this.e).a;
             }
             return -1;
         }
@@ -675,13 +678,14 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         }
     }
 
+    @SuppressLint({"ResourceAsColor"})
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e7, (ViewGroup) this, true);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09202b);
-            this.o = findViewById(R.id.obfuscated_res_0x7f09202a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) this, true);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092076);
+            this.o = findViewById(R.id.obfuscated_res_0x7f092075);
             this.e = -1;
             this.f = null;
         }
@@ -701,7 +705,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             return;
         }
         this.e = i;
-        this.f = (b) this.h.get(i);
+        this.f = this.h.get(i);
         this.b.setCurrentTab(this.e, true, false);
         CustomViewPager customViewPager = this.j;
         if (customViewPager != null) {
@@ -716,7 +720,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             int i2 = 0;
             while (true) {
                 if (i2 < size) {
-                    if (i == ((b) this.h.get(i2)).a) {
+                    if (i == this.h.get(i2).a) {
                         break;
                     }
                     i2++;
@@ -758,8 +762,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             }
             CustomViewPager customViewPager2 = new CustomViewPager(this.a);
             this.j = customViewPager2;
-            customViewPager2.setId(R.id.obfuscated_res_0x7f09200e);
-            zp8.c(this.j, 2);
+            customViewPager2.setId(R.id.obfuscated_res_0x7f092059);
+            Log.e("tiebaTest", "R.id.tab_content = " + R.id.obfuscated_res_0x7f092059);
+            jr8.c(this.j, 2);
             d(i);
             addView(this.j);
             removeView(this.m);
@@ -805,7 +810,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             if (this.n == null) {
-                this.n = findViewById(R.id.obfuscated_res_0x7f092273);
+                this.n = findViewById(R.id.obfuscated_res_0x7f0922c6);
             }
             if (!z) {
                 this.n.setVisibility(8);
@@ -816,7 +821,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 fragmentTabWidget.setShouldDrawTopLine(false);
                 ((FrameLayout.LayoutParams) this.b.getLayoutParams()).gravity = 80;
             }
-            int d = fj.d(getContext(), 1.0f);
+            int d = xi.d(getContext(), 1.0f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.gravity = 48;
             layoutParams.height = d;
@@ -863,7 +868,8 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             }
             CustomViewPager customViewPager2 = new CustomViewPager(this.a);
             this.j = customViewPager2;
-            customViewPager2.setId(R.id.obfuscated_res_0x7f09200e);
+            customViewPager2.setId(R.id.obfuscated_res_0x7f092059);
+            Log.e("tiebaTest", "R.id.tab_content noType = " + R.id.obfuscated_res_0x7f092059);
             addView(this.j);
             removeView(this.m);
             addView(this.m);
@@ -872,18 +878,6 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.g, this.h);
             this.l = fragmentAdapter;
             this.j.setAdapter(fragmentAdapter);
-        }
-    }
-
-    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            this.b.d(i, f);
-            ViewPager.OnPageChangeListener onPageChangeListener = this.i;
-            if (onPageChangeListener != null) {
-                onPageChangeListener.onPageScrolled(i, f, i2);
-            }
         }
     }
 
@@ -905,15 +899,27 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 BdLog.e(th.getMessage());
             }
             for (b bVar : this.h) {
-                p95 p95Var = bVar.d;
-                if (p95Var != null) {
-                    p95Var.f();
+                ia5 ia5Var = bVar.d;
+                if (ia5Var != null) {
+                    ia5Var.f();
                 }
             }
             this.h.clear();
             this.f = null;
             this.e = -1;
             this.b.j();
+        }
+    }
+
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            this.b.d(i, f);
+            ViewPager.OnPageChangeListener onPageChangeListener = this.i;
+            if (onPageChangeListener != null) {
+                onPageChangeListener.onPageScrolled(i, f, i2);
+            }
         }
     }
 

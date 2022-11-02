@@ -1,5 +1,6 @@
 package androidx.viewpager2.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
@@ -15,6 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -67,22 +74,26 @@ public final class ViewPager2 extends ViewGroup {
     public final Rect mTmpContainerRect;
     public boolean mUserInputEnabled;
 
+    @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface OffscreenPageLimit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Orientation {
     }
 
     /* loaded from: classes.dex */
     public interface PageTransformer {
-        void transformPage(View view2, float f);
+        void transformPage(@NonNull View view2, float f);
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ScrollState {
     }
@@ -144,19 +155,19 @@ public final class ViewPager2 extends ViewGroup {
             return invokeV.booleanValue;
         }
 
-        public void onAttachAdapter(RecyclerView.Adapter<?> adapter) {
+        public void onAttachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, adapter) == null) {
             }
         }
 
-        public void onDetachAdapter(RecyclerView.Adapter<?> adapter) {
+        public void onDetachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, adapter) == null) {
             }
         }
 
-        public void onInitialize(CompositeOnPageChangeCallback compositeOnPageChangeCallback, RecyclerView recyclerView) {
+        public void onInitialize(@NonNull CompositeOnPageChangeCallback compositeOnPageChangeCallback, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, compositeOnPageChangeCallback, recyclerView) == null) {
             }
@@ -168,7 +179,7 @@ public final class ViewPager2 extends ViewGroup {
             }
         }
 
-        public void onLmInitializeAccessibilityNodeInfo(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onLmInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityNodeInfoCompat) == null) {
             }
@@ -180,7 +191,7 @@ public final class ViewPager2 extends ViewGroup {
             }
         }
 
-        public void onRvInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        public void onRvInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, accessibilityEvent) == null) {
             }
@@ -317,7 +328,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
-        public void onLmInitializeAccessibilityNodeInfo(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onLmInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accessibilityNodeInfoCompat) == null) && !this.this$0.isUserInputEnabled()) {
                 accessibilityNodeInfoCompat.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SCROLL_BACKWARD);
@@ -400,7 +411,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public final void onItemRangeChanged(int i, int i2, Object obj) {
+        public final void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
                 onChanged();
@@ -423,7 +434,7 @@ public final class ViewPager2 extends ViewGroup {
         public final /* synthetic */ ViewPager2 this$0;
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean requestChildRectangleOnScreen(RecyclerView recyclerView, View view2, Rect rect, boolean z, boolean z2) {
+        public boolean requestChildRectangleOnScreen(@NonNull RecyclerView recyclerView, @NonNull View view2, @NonNull Rect rect, boolean z, boolean z2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{recyclerView, view2, rect, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -454,7 +465,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.LinearLayoutManager
-        public void calculateExtraLayoutSpace(RecyclerView.State state, int[] iArr) {
+        public void calculateExtraLayoutSpace(@NonNull RecyclerView.State state, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, state, iArr) == null) {
                 int offscreenPageLimit = this.this$0.getOffscreenPageLimit();
@@ -469,7 +480,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public void onInitializeAccessibilityNodeInfo(RecyclerView.Recycler recycler, RecyclerView.State state, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(@NonNull RecyclerView.Recycler recycler, @NonNull RecyclerView.State state, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recycler, state, accessibilityNodeInfoCompat) == null) {
                 super.onInitializeAccessibilityNodeInfo(recycler, state, accessibilityNodeInfoCompat);
@@ -478,7 +489,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public boolean performAccessibilityAction(RecyclerView.Recycler recycler, RecyclerView.State state, int i, Bundle bundle) {
+        public boolean performAccessibilityAction(@NonNull RecyclerView.Recycler recycler, @NonNull RecyclerView.State state, int i, @Nullable Bundle bundle) {
             InterceptResult invokeLLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, recycler, state, i, bundle)) == null) {
@@ -502,7 +513,7 @@ public final class ViewPager2 extends ViewGroup {
             }
         }
 
-        public void onPageScrolled(int i, float f, int i2) {
+        public void onPageScrolled(int i, float f, @Px int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
             }
@@ -599,7 +610,7 @@ public final class ViewPager2 extends ViewGroup {
                 }
 
                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
+                public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
@@ -633,7 +644,7 @@ public final class ViewPager2 extends ViewGroup {
                 }
 
                 @Override // androidx.core.view.accessibility.AccessibilityViewCommand
-                public boolean perform(View view2, AccessibilityViewCommand.CommandArguments commandArguments) {
+                public boolean perform(@NonNull View view2, @Nullable AccessibilityViewCommand.CommandArguments commandArguments) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, commandArguments)) == null) {
@@ -682,7 +693,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
-        public void onAttachAdapter(RecyclerView.Adapter<?> adapter) {
+        public void onAttachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
                 updatePageAccessibilityActions();
@@ -693,7 +704,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
-        public void onDetachAdapter(RecyclerView.Adapter<?> adapter) {
+        public void onDetachAdapter(@Nullable RecyclerView.Adapter<?> adapter) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, adapter) == null) && adapter != null) {
                 adapter.unregisterAdapterDataObserver(this.mAdapterDataObserver);
@@ -712,7 +723,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
-        public void onRvInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        public void onRvInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, accessibilityEvent) == null) {
                 accessibilityEvent.setSource(this.this$0);
@@ -784,7 +795,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.AccessibilityProvider
-        public void onInitialize(CompositeOnPageChangeCallback compositeOnPageChangeCallback, RecyclerView recyclerView) {
+        public void onInitialize(@NonNull CompositeOnPageChangeCallback compositeOnPageChangeCallback, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, compositeOnPageChangeCallback, recyclerView) == null) {
                 ViewCompat.setImportantForAccessibility(recyclerView, 2);
@@ -914,6 +925,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.PagerSnapHelper, androidx.recyclerview.widget.SnapHelper
+        @Nullable
         public View findSnapView(RecyclerView.LayoutManager layoutManager) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -934,7 +946,7 @@ public final class ViewPager2 extends ViewGroup {
         public final /* synthetic */ ViewPager2 this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RecyclerViewImpl(ViewPager2 viewPager2, Context context) {
+        public RecyclerViewImpl(@NonNull ViewPager2 viewPager2, Context context) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -955,6 +967,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
+        @RequiresApi(23)
         public CharSequence getAccessibilityClassName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -968,7 +981,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // android.view.View
-        public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibilityEvent) == null) {
                 super.onInitializeAccessibilityEvent(accessibilityEvent);
@@ -992,6 +1005,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
+        @SuppressLint({"ClickableViewAccessibility"})
         public boolean onTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -1106,6 +1120,7 @@ public final class ViewPager2 extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        @RequiresApi(24)
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             Interceptable interceptable = $ic;
@@ -1204,7 +1219,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager2(Context context) {
+    public ViewPager2(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1268,7 +1283,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager2(Context context, AttributeSet attributeSet) {
+    public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1333,7 +1348,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager2(Context context, AttributeSet attributeSet, int i) {
+    public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1398,7 +1413,8 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager2(Context context, AttributeSet attributeSet, int i, int i2) {
+    @RequiresApi(21)
+    public ViewPager2(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1472,7 +1488,7 @@ public final class ViewPager2 extends ViewGroup {
                 public final /* synthetic */ ViewPager2 this$0;
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-                public void onChildViewDetachedFromWindow(View view2) {
+                public void onChildViewDetachedFromWindow(@NonNull View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                     }
@@ -1497,7 +1513,7 @@ public final class ViewPager2 extends ViewGroup {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-                public void onChildViewAttachedToWindow(View view2) {
+                public void onChildViewAttachedToWindow(@NonNull View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
@@ -1531,6 +1547,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    @RequiresApi(23)
     public CharSequence getAccessibilityClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1543,6 +1560,7 @@ public final class ViewPager2 extends ViewGroup {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public RecyclerView.Adapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1754,21 +1772,21 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    private void registerCurrentItemDataSetTracker(RecyclerView.Adapter<?> adapter) {
+    private void registerCurrentItemDataSetTracker(@Nullable RecyclerView.Adapter<?> adapter) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, adapter) == null) && adapter != null) {
             adapter.registerAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
         }
     }
 
-    private void unregisterCurrentItemDataSetTracker(RecyclerView.Adapter<?> adapter) {
+    private void unregisterCurrentItemDataSetTracker(@Nullable RecyclerView.Adapter<?> adapter) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, adapter) == null) && adapter != null) {
             adapter.unregisterAdapterDataObserver(this.mCurrentItemDataSetChangeObserver);
         }
     }
 
-    public void addItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
+    public void addItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, itemDecoration) == null) {
             this.mRecyclerView.addItemDecoration(itemDecoration);
@@ -1795,7 +1813,7 @@ public final class ViewPager2 extends ViewGroup {
         return invokeI.booleanValue;
     }
 
-    public boolean fakeDragBy(float f) {
+    public boolean fakeDragBy(@Px @SuppressLint({"SupportAnnotationUsage"}) float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
@@ -1804,6 +1822,7 @@ public final class ViewPager2 extends ViewGroup {
         return invokeF.booleanValue;
     }
 
+    @NonNull
     public RecyclerView.ItemDecoration getItemDecorationAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -1845,14 +1864,14 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    public void registerOnPageChangeCallback(OnPageChangeCallback onPageChangeCallback) {
+    public void registerOnPageChangeCallback(@NonNull OnPageChangeCallback onPageChangeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, onPageChangeCallback) == null) {
             this.mExternalPageChangeCallbacks.addOnPageChangeCallback(onPageChangeCallback);
         }
     }
 
-    public void removeItemDecoration(RecyclerView.ItemDecoration itemDecoration) {
+    public void removeItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, itemDecoration) == null) {
             this.mRecyclerView.removeItemDecoration(itemDecoration);
@@ -1866,7 +1885,7 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    public void setAdapter(RecyclerView.Adapter adapter) {
+    public void setAdapter(@Nullable RecyclerView.Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, adapter) == null) {
             RecyclerView.Adapter adapter2 = this.mRecyclerView.getAdapter();
@@ -1888,6 +1907,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     @Override // android.view.View
+    @RequiresApi(17)
     public void setLayoutDirection(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
@@ -1923,7 +1943,7 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    public void unregisterOnPageChangeCallback(OnPageChangeCallback onPageChangeCallback) {
+    public void unregisterOnPageChangeCallback(@NonNull OnPageChangeCallback onPageChangeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, onPageChangeCallback) == null) {
             this.mExternalPageChangeCallbacks.removeOnPageChangeCallback(onPageChangeCallback);
@@ -1951,6 +1971,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     @Override // android.view.View
+    @Nullable
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2002,7 +2023,7 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    public void addItemDecoration(RecyclerView.ItemDecoration itemDecoration, int i) {
+    public void addItemDecoration(@NonNull RecyclerView.ItemDecoration itemDecoration, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itemDecoration, i) == null) {
             this.mRecyclerView.addItemDecoration(itemDecoration, i);
@@ -2010,6 +2031,7 @@ public final class ViewPager2 extends ViewGroup {
     }
 
     @Override // android.view.View
+    @RequiresApi(16)
     public boolean performAccessibilityAction(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -2180,7 +2202,7 @@ public final class ViewPager2 extends ViewGroup {
         }
     }
 
-    public void setPageTransformer(PageTransformer pageTransformer) {
+    public void setPageTransformer(@Nullable PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, pageTransformer) == null) {
             if (pageTransformer != null) {

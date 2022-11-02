@@ -49,7 +49,7 @@ public class AccountCenterActivity extends SlideActiviy {
     public static final String H;
     public static final String I = "AccountCenterActivity";
     public transient /* synthetic */ FieldHolder $fh;
-    public List C;
+    public List<PassNameValuePair> C;
     public String D;
     public String E;
     public String F;
@@ -284,7 +284,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                         AccountCenterActivity accountCenterActivity = this.a;
-                        accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, (String) getTplStokenResult.tplStokenMap.get("pp"), this.a.E);
+                        accountCenterActivity.sapiWebView.loadAccountCenter(accountCenterActivity.C, getTplStokenResult.tplStokenMap.get("pp"), this.a.E);
                     }
                 }, str, arrayList);
                 return;
@@ -301,7 +301,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d0505);
+                setContentView(R.layout.obfuscated_res_0x7f0d0515);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -380,7 +380,7 @@ public class AccountCenterActivity extends SlideActiviy {
             }
             this.D = accountCenterDTO.bduss;
             this.E = accountCenterDTO.refer;
-            List list = accountCenterDTO.paramsList;
+            List<PassNameValuePair> list = accountCenterDTO.paramsList;
             this.C = list;
             this.F = accountCenterDTO.accountToolsUrl;
             if (list != null) {
@@ -899,7 +899,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f10a2);
+                setTitleText(R.string.obfuscated_res_0x7f0f10bd);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -909,16 +909,16 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060943));
-                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060943));
-                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060945));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060943));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060955));
+                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060955));
+                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060957));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060955));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060945));
-                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060942));
-                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060944));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060942));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060957));
+                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060954));
+                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060956));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060954));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11

@@ -1,5 +1,8 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.core.view.InputDeviceCompat;
@@ -85,11 +88,12 @@ public abstract class LiveData<T> {
     public class LifecycleBoundObserver extends LiveData<T>.ObserverWrapper implements LifecycleEventObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final LifecycleOwner mOwner;
         public final /* synthetic */ LiveData this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LifecycleBoundObserver(LiveData liveData, LifecycleOwner lifecycleOwner, Observer<? super T> observer) {
+        public LifecycleBoundObserver(@NonNull LiveData liveData, LifecycleOwner lifecycleOwner, Observer<? super T> observer) {
             super(liveData, observer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -143,7 +147,7 @@ public abstract class LiveData<T> {
         }
 
         @Override // androidx.lifecycle.LifecycleEventObserver
-        public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+        public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event) == null) {
                 if (this.mOwner.getLifecycle().getCurrentState() == Lifecycle.State.DESTROYED) {
@@ -249,6 +253,7 @@ public abstract class LiveData<T> {
         NOT_SET = new Object();
     }
 
+    @Nullable
     public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,7 +420,7 @@ public abstract class LiveData<T> {
         this.mVersion = 0;
     }
 
-    public void dispatchingValue(LiveData<T>.ObserverWrapper observerWrapper) {
+    public void dispatchingValue(@Nullable LiveData<T>.ObserverWrapper observerWrapper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observerWrapper) == null) {
             if (this.mDispatchingValue) {
@@ -450,7 +455,8 @@ public abstract class LiveData<T> {
         throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
     }
 
-    public void observeForever(Observer<? super T> observer) {
+    @MainThread
+    public void observeForever(@NonNull Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
             assertMainThread("observeForever");
@@ -467,7 +473,8 @@ public abstract class LiveData<T> {
         }
     }
 
-    public void removeObservers(LifecycleOwner lifecycleOwner) {
+    @MainThread
+    public void removeObservers(@NonNull LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, lifecycleOwner) == null) {
             assertMainThread("removeObservers");
@@ -496,7 +503,7 @@ public abstract class LiveData<T> {
             return;
         }
         observerWrapper.mLastVersion = i2;
-        observerWrapper.mObserver.onChanged(this.mData);
+        observerWrapper.mObserver.onChanged((Object) this.mData);
     }
 
     public void postValue(T t) {
@@ -518,7 +525,8 @@ public abstract class LiveData<T> {
         }
     }
 
-    public void removeObserver(Observer<? super T> observer) {
+    @MainThread
+    public void removeObserver(@NonNull Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, observer) == null) {
             assertMainThread("removeObserver");
@@ -531,6 +539,7 @@ public abstract class LiveData<T> {
         }
     }
 
+    @MainThread
     public void setValue(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
@@ -541,7 +550,8 @@ public abstract class LiveData<T> {
         }
     }
 
-    public void observe(LifecycleOwner lifecycleOwner, Observer<? super T> observer) {
+    @MainThread
+    public void observe(@NonNull LifecycleOwner lifecycleOwner, @NonNull Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, lifecycleOwner, observer) == null) {
             assertMainThread("observe");

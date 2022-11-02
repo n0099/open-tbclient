@@ -140,14 +140,14 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                 try {
                                     dataOutputStream = new DataOutputStream(outputStream2);
                                     try {
-                                        for (Map.Entry entry : this.this$0.getRequestParameter().entrySet()) {
+                                        for (Map.Entry<String, String> entry : this.this$0.getRequestParameter().entrySet()) {
                                             StringBuffer stringBuffer = new StringBuffer();
                                             stringBuffer.append("--");
                                             stringBuffer.append(IMAudioTransRequest.FORM_BOUNDARY);
                                             stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                            stringBuffer.append("Content-Disposition: form-data; name=\"" + ((String) entry.getKey()) + "\"" + IMAudioTransRequest.FORM_LINEEND);
+                                            stringBuffer.append("Content-Disposition: form-data; name=\"" + entry.getKey() + "\"" + IMAudioTransRequest.FORM_LINEEND);
                                             stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                            stringBuffer.append((String) entry.getValue());
+                                            stringBuffer.append(entry.getValue());
                                             stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
                                             dataOutputStream.write(stringBuffer.toString().getBytes(IMAudioTransRequest.CHARSET));
                                         }
@@ -349,12 +349,12 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         return (String) invokeL.objValue;
     }
 
-    public HashMap getRequestParameter() {
+    public HashMap<String, String> getRequestParameter() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             long appid = AccountManager.getAppid(this.mContext);
             hashMap.put("appid", String.valueOf(appid));
             hashMap.put("uk", AccountManager.getUK(this.mContext) + "");
@@ -380,13 +380,13 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMAudio Trans onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
     }
 
-    public Pair transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
@@ -402,7 +402,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                 i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
             }
-            return new Pair(Integer.valueOf(i), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

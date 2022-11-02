@@ -35,8 +35,6 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
         this.nextItem = t;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: kotlin.jvm.functions.Function1 */
-    /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v4, types: [T, java.lang.Object] */
     private final void drop() {
         Function1 function1;

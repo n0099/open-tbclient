@@ -24,13 +24,13 @@ public class ThreadPool {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class LIFOLinkedBlockingDeque extends LinkedBlockingDeque {
+    public static class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4114786347960826192L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,13 +50,13 @@ public class ThreadPool {
         }
 
         @Override // java.util.concurrent.LinkedBlockingDeque, java.util.AbstractQueue, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.Deque
-        public Object remove() {
+        public T remove() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return super.removeFirst();
+                return (T) super.removeFirst();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         public /* synthetic */ LIFOLinkedBlockingDeque(a aVar) {
@@ -64,11 +64,11 @@ public class ThreadPool {
         }
 
         @Override // java.util.concurrent.LinkedBlockingDeque, java.util.Queue, java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue, java.util.Deque
-        public boolean offer(Object obj) {
+        public boolean offer(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return super.offerFirst(obj);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return super.offerFirst(t);
             }
             return invokeL.booleanValue;
         }
@@ -76,7 +76,7 @@ public class ThreadPool {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class QueueProcessingType {
+    public static final class QueueProcessingType {
         public static final /* synthetic */ QueueProcessingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final QueueProcessingType FIFO;
@@ -141,7 +141,7 @@ public class ThreadPool {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements ThreadFactory {
+    public static class b implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger e;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public class ThreadPool {
     }
 
     /* loaded from: classes2.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final int f;
         public static final int g;

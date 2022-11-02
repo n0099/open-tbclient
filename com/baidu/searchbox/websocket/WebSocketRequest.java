@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import kotlin.Metadata;
+import kotlin.Unit;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -35,9 +36,9 @@ public final class WebSocketRequest {
     public static final String PARAM_KEY_URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
     public Integer connectionLostTimeout;
-    public Map headers;
+    public Map<String, String> headers;
     public String method;
-    public List protocols;
+    public List<String> protocols;
     public final String url;
 
     static {
@@ -58,13 +59,13 @@ public final class WebSocketRequest {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010%\n\u0002\b\f\n\u0002\u0010!\n\u0002\b\f\u0018\u0000B\u0007¢\u0006\u0004\b(\u0010)J\u001d\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\b\u001a\u00020\u0007¢\u0006\u0004\b\b\u0010\tR$\u0010\u000b\u001a\u0004\u0018\u00010\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R0\u0010\u0012\u001a\u0010\u0012\u0004\u0012\u00020\u0001\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\"\u0010\u0018\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR*\u0010\u001f\u001a\n\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R$\u0010%\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010\u0019\u001a\u0004\b&\u0010\u001b\"\u0004\b'\u0010\u001d¨\u0006*"}, d2 = {"Lcom/baidu/searchbox/websocket/WebSocketRequest$Builder;", "", "key", "value", "", "addHeader", "(Ljava/lang/String;Ljava/lang/String;)V", "Lcom/baidu/searchbox/websocket/WebSocketRequest;", "build", "()Lcom/baidu/searchbox/websocket/WebSocketRequest;", "", "connectionLostTimeout", "Ljava/lang/Integer;", "getConnectionLostTimeout", "()Ljava/lang/Integer;", "setConnectionLostTimeout", "(Ljava/lang/Integer;)V", "", "headers", "Ljava/util/Map;", "getHeaders", "()Ljava/util/Map;", "setHeaders", "(Ljava/util/Map;)V", "method", "Ljava/lang/String;", "getMethod", "()Ljava/lang/String;", "setMethod", "(Ljava/lang/String;)V", "", WebSocketRequest.PARAM_KEY_PROTOCOLS, "Ljava/util/List;", "getProtocols", "()Ljava/util/List;", "setProtocols", "(Ljava/util/List;)V", "url", "getUrl", "setUrl", "<init>", "()V", "websocket_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer connectionLostTimeout;
-        public Map headers;
+        public Map<String, String> headers;
         public String method;
-        public List protocols;
+        public List<String> protocols;
         public String url;
 
         public Builder() {
@@ -101,7 +102,7 @@ public final class WebSocketRequest {
             return (Integer) invokeV.objValue;
         }
 
-        public final Map getHeaders() {
+        public final Map<String, String> getHeaders() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -119,7 +120,7 @@ public final class WebSocketRequest {
             return (String) invokeV.objValue;
         }
 
-        public final List getProtocols() {
+        public final List<String> getProtocols() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -145,9 +146,9 @@ public final class WebSocketRequest {
                 if (this.headers == null) {
                     this.headers = new HashMap();
                 }
-                Map map = this.headers;
+                Map<String, String> map = this.headers;
                 if (map != null) {
-                    String str = (String) map.put(key, value);
+                    map.put(key, value);
                 }
             }
         }
@@ -159,7 +160,7 @@ public final class WebSocketRequest {
             }
         }
 
-        public final void setHeaders(Map map) {
+        public final void setHeaders(Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
                 this.headers = map;
@@ -174,7 +175,7 @@ public final class WebSocketRequest {
             }
         }
 
-        public final void setProtocols(List list) {
+        public final void setProtocols(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
                 this.protocols = list;
@@ -191,7 +192,7 @@ public final class WebSocketRequest {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0013\u0010\u0014J,\u0010\u0007\u001a\u00020\u00062\u0017\u0010\u0005\u001a\u0013\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001¢\u0006\u0002\b\u0004H\u0086\bø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\bJ\u0015\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\t¢\u0006\u0004\b\u000b\u0010\fR\u0016\u0010\u000e\u001a\u00020\r8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0010\u001a\u00020\r8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0010\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\r8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0011\u0010\u000fR\u0016\u0010\u0012\u001a\u00020\r8\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u000f\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006\u0015"}, d2 = {"Lcom/baidu/searchbox/websocket/WebSocketRequest$Companion;", "Lkotlin/Function1;", "Lcom/baidu/searchbox/websocket/WebSocketRequest$Builder;", "", "Lkotlin/ExtensionFunctionType;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lcom/baidu/searchbox/websocket/WebSocketRequest;", "build", "(Lkotlin/Function1;)Lcom/baidu/searchbox/websocket/WebSocketRequest;", "Lorg/json/JSONObject;", "params", "fromJSON", "(Lorg/json/JSONObject;)Lcom/baidu/searchbox/websocket/WebSocketRequest;", "", "PARAM_KEY_HEADER", "Ljava/lang/String;", "PARAM_KEY_METHOD", "PARAM_KEY_PROTOCOLS", "PARAM_KEY_URL", "<init>", "()V", "websocket_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,7 +214,7 @@ public final class WebSocketRequest {
             this();
         }
 
-        public final WebSocketRequest build(Function1 block) {
+        public final WebSocketRequest build(Function1<? super Builder, Unit> block) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, block)) == null) {
@@ -331,7 +332,7 @@ public final class WebSocketRequest {
         return (Integer) invokeV.objValue;
     }
 
-    public final Map getHeaders() {
+    public final Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -349,7 +350,7 @@ public final class WebSocketRequest {
         return (String) invokeV.objValue;
     }
 
-    public final List getProtocols() {
+    public final List<String> getProtocols() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -374,7 +375,7 @@ public final class WebSocketRequest {
         }
     }
 
-    public final void setHeaders(Map map) {
+    public final void setHeaders(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
             this.headers = map;
@@ -389,7 +390,7 @@ public final class WebSocketRequest {
         }
     }
 
-    public final void setProtocols(List list) {
+    public final void setProtocols(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.protocols = list;

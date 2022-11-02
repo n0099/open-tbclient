@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.net.Uri;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +65,9 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_INDEX = "video_index";
     public static final String VIDEO_LIST = "video_list";
     public static final String VIDEO_SHOW_INDEX = "video_show_index";
+    @Nullable
     public static PersonalPageParams bigPersonalPageParams;
+    @Nullable
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,6 +83,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public List<Map<String, Object>> dataList;
         @SerializedName("enter_type")
         public String enterType;
+        @NonNull
         @SerializedName("pageId")
         public String flutterPageId;
         public boolean hasMore;
@@ -124,6 +130,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return (List) invokeV.objValue;
         }
 
+        @NonNull
         public String getFlutterPageId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -142,6 +149,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return (String) invokeV.objValue;
         }
 
+        @NonNull
         public String getStatPageFromIdentifier() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -154,6 +162,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return (String) invokeV.objValue;
         }
 
+        @NonNull
         public String getThreadId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -163,6 +172,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return (String) invokeV.objValue;
         }
 
+        @NonNull
         public int getWorkTabId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -208,7 +218,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, int i, String str) {
+    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -231,7 +241,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, int i) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -253,7 +263,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -277,7 +287,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -304,7 +314,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -332,7 +342,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, String str, String str2) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -355,7 +365,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List list, String str, String str2, boolean z) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

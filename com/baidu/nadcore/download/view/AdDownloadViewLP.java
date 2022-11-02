@@ -13,13 +13,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.mk0;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements fl0 {
+public class AdDownloadViewLP extends View implements el0<AdDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
@@ -48,7 +50,8 @@ public class AdDownloadViewLP extends View implements fl0 {
     public float o;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fl0
+    @Override // com.baidu.tieba.el0
+    @NonNull
     public AdDownloadViewLP getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +60,7 @@ public class AdDownloadViewLP extends View implements fl0 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class State {
+    public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final State DOWNLOADING;
@@ -158,7 +161,7 @@ public class AdDownloadViewLP extends View implements fl0 {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class b {
+    public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,15 +222,15 @@ public class AdDownloadViewLP extends View implements fl0 {
         i();
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void b(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.el0
+    public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || !(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (u21.c.e(getContext()) * u21.c.h(R.dimen.obfuscated_res_0x7f07051e));
-        layoutParams.height = (int) (u21.c.c(getContext()) * u21.c.h(R.dimen.obfuscated_res_0x7f07051c));
+        layoutParams.width = (int) (m31.c.e(getContext()) * m31.c.h(R.dimen.obfuscated_res_0x7f07051e));
+        layoutParams.height = (int) (m31.c.c(getContext()) * m31.c.h(R.dimen.obfuscated_res_0x7f07051c));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);
@@ -246,7 +249,7 @@ public class AdDownloadViewLP extends View implements fl0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdDownloadViewLP(Context context, AttributeSet attributeSet) {
+    public AdDownloadViewLP(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -277,7 +280,7 @@ public class AdDownloadViewLP extends View implements fl0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdDownloadViewLP(Context context, AttributeSet attributeSet, int i) {
+    public AdDownloadViewLP(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -324,15 +327,15 @@ public class AdDownloadViewLP extends View implements fl0 {
         }
     }
 
-    @Override // com.baidu.tieba.fl0
-    public void update(String str, mk0 mk0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, mk0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, lk0Var) == null) {
             this.l = str;
-            if (mk0Var.c == AdDownloadStatus.DOWNLOADING) {
+            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
                 this.l = "已下载 : " + this.l;
             }
-            setProgress((int) mk0Var.i);
+            setProgress((int) lk0Var.i);
             postInvalidate();
         }
     }
@@ -505,7 +508,7 @@ public class AdDownloadViewLP extends View implements fl0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             o(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070553));
-            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083b));
+            m(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083c));
             n(-1);
             l(true);
             k(true);

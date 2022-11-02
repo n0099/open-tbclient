@@ -1,14 +1,18 @@
 package com.meizu.flyme.openidsdk;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class SupportInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public Boolean support;
+    @Keep
     public String version;
 
     public SupportInfo() {
@@ -25,13 +29,18 @@ public class SupportInfo {
         }
     }
 
+    @Keep
     public native boolean isCached();
 
+    @Keep
     public native boolean isSameVersion(String str);
 
+    @Keep
     public native boolean isSupport();
 
+    @Keep
     public native void setSupport(boolean z);
 
+    @Keep
     public native void setVersionName(String str);
 }

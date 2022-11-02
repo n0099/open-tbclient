@@ -12,7 +12,7 @@ import com.sdk.f.c;
 import com.sdk.f.g;
 import com.sdk.mobile.config.MobileConfig;
 /* loaded from: classes8.dex */
-public class a extends com.sdk.v.a {
+public class a<T> extends com.sdk.v.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class a extends com.sdk.v.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, com.sdk.e.a aVar) {
+    public a(Context context, com.sdk.e.a<T> aVar) {
         super(context, aVar, new MobileConfig());
         Interceptable interceptable = $ic;
         if (interceptable != null) {

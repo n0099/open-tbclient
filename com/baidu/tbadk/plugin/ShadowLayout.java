@@ -6,6 +6,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,7 +33,7 @@ public class ShadowLayout extends FrameLayout {
     public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShadowLayout(Context context) {
+    public ShadowLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +54,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShadowLayout(Context context, AttributeSet attributeSet) {
+    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +76,7 @@ public class ShadowLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShadowLayout(Context context, AttributeSet attributeSet, int i) {
+    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -131,7 +135,8 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    public ShadowLayout c(int i) {
+    @NonNull
+    public ShadowLayout c(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -141,7 +146,8 @@ public class ShadowLayout extends FrameLayout {
         return (ShadowLayout) invokeI.objValue;
     }
 
-    public ShadowLayout e(int i) {
+    @NonNull
+    public ShadowLayout e(@DimenRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -151,7 +157,8 @@ public class ShadowLayout extends FrameLayout {
         return (ShadowLayout) invokeI.objValue;
     }
 
-    public ShadowLayout f(int i) {
+    @NonNull
+    public ShadowLayout f(@DimenRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
@@ -169,7 +176,8 @@ public class ShadowLayout extends FrameLayout {
         }
     }
 
-    public ShadowLayout d(int i, int i2) {
+    @NonNull
+    public ShadowLayout d(@DimenRes int i, @DimenRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {

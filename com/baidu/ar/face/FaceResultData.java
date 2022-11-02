@@ -17,7 +17,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class FaceResultData implements Parcelable, IFaceResultData {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FaceResultData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mFrontCamera;
     public long mTimestamp;
@@ -25,13 +25,13 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     public int nO;
     public int nP;
     public float[] nQ;
-    public List nR;
-    public List nS;
+    public List<PointF> nR;
+    public List<float[]> nS;
     public int[] nT;
     public float[] nU;
     public float[] nV;
-    public List nW;
-    public List nr;
+    public List<PointF> nW;
+    public List<String[]> nr;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.ar.face.FaceResultData.1
+        CREATOR = new Parcelable.Creator<FaceResultData>() { // from class: com.baidu.ar.face.FaceResultData.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -216,7 +216,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getFacePoints() {
+    public List<PointF> getFacePoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.nR : (List) invokeV.objValue;
@@ -230,7 +230,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getHeadPoses() {
+    public List<float[]> getHeadPoses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.nS : (List) invokeV.objValue;
@@ -263,7 +263,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getNormalizedFacePoints() {
+    public List<PointF> getNormalizedFacePoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -273,7 +273,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
                 float f2 = this.nP;
                 int size = this.nR.size();
                 for (int i = 0; i < size; i++) {
-                    PointF pointF = (PointF) this.nR.get(i);
+                    PointF pointF = this.nR.get(i);
                     this.nW.add(new PointF(pointF.x / f, pointF.y / f2));
                 }
             }
@@ -283,9 +283,9 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getSingleFacePoints(int i) {
+    public List<PointF> getSingleFacePoints(int i) {
         InterceptResult invokeI;
-        List list;
+        List<PointF> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             int faceCount = getFaceCount();
@@ -300,12 +300,12 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getSingleNormalizedFacePoints(int i) {
+    public List<PointF> getSingleNormalizedFacePoints(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             int faceCount = getFaceCount();
-            List normalizedFacePoints = getNormalizedFacePoints();
+            List<PointF> normalizedFacePoints = getNormalizedFacePoints();
             if (i < 0 || i >= faceCount || normalizedFacePoints == null) {
                 return null;
             }
@@ -324,7 +324,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List getTriggers() {
+    public List<String[]> getTriggers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.nr : (List) invokeV.objValue;
@@ -377,7 +377,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     }
 
-    public void setFacePoints(List list) {
+    public void setFacePoints(List<PointF> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
             this.nR = list;
@@ -399,7 +399,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     }
 
-    public void setHeadPoses(List list) {
+    public void setHeadPoses(List<float[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
             this.nS = list;
@@ -420,7 +420,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     }
 
-    public void setTriggers(List list) {
+    public void setTriggers(List<String[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
             this.nr = list;
@@ -441,7 +441,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
             parcel.writeFloatArray(this.nU);
             parcel.writeByte(this.mFrontCamera ? (byte) 1 : (byte) 0);
             parcel.writeLong(this.mTimestamp);
-            List list2 = this.nS;
+            List<float[]> list2 = this.nS;
             if (list2 == null) {
                 parcel.writeInt(-1);
             } else {
@@ -450,7 +450,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
                     parcel.writeFloatArray(fArr);
                 }
             }
-            List list3 = this.nr;
+            List<String[]> list3 = this.nr;
             int size = list3 != null ? list3.size() : -1;
             parcel.writeInt(size);
             if (size <= 0 || (list = this.nr) == null) {

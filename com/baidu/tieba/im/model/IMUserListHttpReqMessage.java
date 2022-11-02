@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -19,7 +18,7 @@ public class IMUserListHttpReqMessage extends HttpMessage {
     public boolean hasCheckParam;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMUserListHttpReqMessage(List list) {
+    public IMUserListHttpReqMessage(List<String> list) {
         super(CmdConfigHttp.CMD_GET_USER_LIST);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,9 +37,8 @@ public class IMUserListHttpReqMessage extends HttpMessage {
         }
         JSONArray jSONArray = new JSONArray();
         if (!ListUtils.isEmpty(list)) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                jSONArray.put((String) it.next());
+            for (String str : list) {
+                jSONArray.put(str);
             }
         }
         addParam("user_list", jSONArray.toString());

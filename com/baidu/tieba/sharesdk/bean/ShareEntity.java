@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ShareEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ShareEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean canShareBySmartApp;
     public String content;
@@ -54,7 +54,7 @@ public class ShareEntity implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<ShareEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

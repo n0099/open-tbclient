@@ -1,5 +1,6 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes2.dex */
 public class CyberRTCSetting {
     public static /* synthetic */ Interceptable $ic;
@@ -32,8 +34,9 @@ public class CyberRTCSetting {
     public int VideoWidth;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    @Keep
     /* loaded from: classes2.dex */
-    public final class CyberRTCSettingType {
+    public static final class CyberRTCSettingType {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCSettingType CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
         public static final CyberRTCSettingType CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_PLAYOUT;
@@ -120,8 +123,9 @@ public class CyberRTCSetting {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    @Keep
     /* loaded from: classes2.dex */
-    public final class CyberRTCVideoRenderMode {
+    public static final class CyberRTCVideoRenderMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL;

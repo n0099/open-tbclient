@@ -35,7 +35,7 @@ public class LiveSDK {
     public Context mContext;
     public DownloadManager mDownloadManager;
     public Home mHome;
-    public Class mHttpRequestManagerClass;
+    public Class<? extends HttpRequestManager> mHttpRequestManagerClass;
     public ImageLoader mImageLoader;
     public LikeRequest mLikeRequest;
     public LikeView mLikeView;
@@ -177,7 +177,7 @@ public class LiveSDK {
         }
     }
 
-    public void setRequest(Class cls) {
+    public void setRequest(Class<? extends HttpRequestManager> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, cls) == null) {
             this.mHttpRequestManagerClass = cls;
@@ -223,7 +223,7 @@ public class LiveSDK {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (HttpRequestManager) this.mHttpRequestManagerClass.newInstance();
+            return this.mHttpRequestManagerClass.newInstance();
         }
         return (HttpRequestManager) invokeV.objValue;
     }

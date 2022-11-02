@@ -41,8 +41,8 @@ public class z implements View.OnClickListener {
             return;
         }
         this.b.a(false);
-        for (Map.Entry entry : this.b.q.entrySet()) {
-            this.b.i.drawRect(((x) entry.getValue()).a, ((x) entry.getValue()).b, ((x) entry.getValue()).c, ((x) entry.getValue()).d, this.b.j);
+        for (Map.Entry<String, x> entry : this.b.q.entrySet()) {
+            this.b.i.drawRect(entry.getValue().a, entry.getValue().b, entry.getValue().c, entry.getValue().d, this.b.j);
         }
         this.a.setClickable(false);
         ScreenCapEditActivity screenCapEditActivity = this.b;

@@ -29,22 +29,22 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.aw4;
-import com.baidu.tieba.ca7;
-import com.baidu.tieba.ep4;
-import com.baidu.tieba.f85;
-import com.baidu.tieba.gd7;
+import com.baidu.tieba.hw4;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.kv4;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.j97;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.no8;
+import com.baidu.tieba.lq4;
+import com.baidu.tieba.mb7;
+import com.baidu.tieba.qe7;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.up4;
+import com.baidu.tieba.vp4;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.z77;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.wp8;
+import com.baidu.tieba.xw4;
+import com.baidu.tieba.y85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class LaunchStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,18 +79,18 @@ public class LaunchStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                HashMap hashMap = (HashMap) customMessage.getData();
+                HashMap<String, String> data = customMessage.getData();
                 Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), FatalErrorService.class);
-                if (hashMap != null && "start".equals(hashMap.get("type"))) {
-                    intent.putExtra("uname", (String) hashMap.get("uname"));
-                    intent.putExtra("uid", (String) hashMap.get("uid"));
+                if (data != null && "start".equals(data.get("type"))) {
+                    intent.putExtra("uname", data.get("uname"));
+                    intent.putExtra("uid", data.get("uid"));
                     TbadkCoreApplication.getInst().getContext().startService(intent);
                     return null;
-                } else if (IntentConfig.STOP.equals(hashMap)) {
+                } else if (IntentConfig.STOP.equals(data)) {
                     TbadkCoreApplication.getInst().getContext().stopService(intent);
                     return null;
                 } else {
@@ -102,7 +102,7 @@ public class LaunchStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends CustomMessageListener {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,7 +128,7 @@ public class LaunchStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
                 TbadkCoreApplication.getInst().setWebviewCrashCount(TbadkCoreApplication.getInst().getWebviewCrashCount() + 1);
@@ -137,7 +137,7 @@ public class LaunchStatic {
     }
 
     /* loaded from: classes3.dex */
-    public final class c extends CustomMessageListener {
+    public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,7 +163,7 @@ public class LaunchStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
                 BdStatisticsManager.getInstance().resetSwitch((String) customResponsedMessage.getData());
@@ -187,17 +187,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        no8.a();
-        gd7.a();
-        z77.a();
+        wp8.a();
+        qe7.a();
+        j97.a();
         ImMemoryCacheRegister.l();
-        ca7.i();
-        ep4.h();
+        mb7.i();
+        vp4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        kv4.d();
-        aw4.a();
-        up4.d();
+        hw4.d();
+        xw4.a();
+        lq4.d();
         a();
     }
 
@@ -207,9 +207,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            f85.d().f();
-            zm8.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, zm8.a(TbConfig.GET_PAY_CONFIG, 303039));
+            y85.d().f();
+            io8.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, io8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

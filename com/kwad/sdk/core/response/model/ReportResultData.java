@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.response.model;
 
 import com.kwad.sdk.core.network.BaseResultData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ReportResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final int CODE_RESULT_CHEATING_FLOW = 110009;
 

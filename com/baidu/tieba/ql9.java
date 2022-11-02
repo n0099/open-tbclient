@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.content.res.AssetManager;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.Looper;
-import android.os.Message;
+import android.os.Process;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.JsonWriter;
+import androidx.annotation.NonNull;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jr9;
-import com.baidu.tieba.xl9;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,41 +21,309 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.comm.constants.Constants;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.impl.mmap.YaNativeLogger;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import org.webrtc.RtcCertificatePem;
 /* loaded from: classes5.dex */
-public final class ql9 {
+public class ql9 extends Logger {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map a;
-    public static final Handler b;
-    public static FunAdSdk.SdkInitializeCallback c;
-    public static final Handler d;
-    public static final uq9 e;
-    public static final jr9 f;
-    public static boolean g;
-    public static volatile boolean h;
+    public static final boolean b;
+    public static volatile int c;
+    public static String[] d;
+    public static Object e;
+    public static ExecutorService f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ ql9 g;
+
+        public a(ql9 ql9Var, String str, int i, String str2, String str3, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql9Var, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ql9Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.g.u(this.a, this.b, this.c, this.d, this.e, this.f);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Callable<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ long f;
+        public final /* synthetic */ ql9 g;
+
+        public b(ql9 ql9Var, String str, int i, String str2, String str3, int i2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql9Var, str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ql9Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+            this.d = str3;
+            this.e = i2;
+            this.f = j;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        public Void call() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+                return (Void) invokeV.objValue;
+            }
+            this.g.u(this.a, this.b, this.c, this.d, this.e, this.f);
+            return null;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ql9 a;
+
+        public c(ql9 ql9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ql9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.t(false);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(ql9 ql9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ql9.z();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            long min;
+            long min2;
+            long min3;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (ql9.e) {
+                String s = ql9.s();
+                boolean x = ql9.x(s);
+                ll9 c = ll9.c();
+                if (!c.m()) {
+                    if (x && c.l()) {
+                        ql9.p();
+                    }
+                    int unused = ql9.c = 2;
+                    return;
+                }
+                YaNativeLogger.a();
+                YaNativeLogger.setBaseDir(ql9.n());
+                YaNativeLogger.setProcessName(ql9.r(s));
+                if (x) {
+                    YaNativeLogger.setMainController(true);
+                } else {
+                    YaNativeLogger.setMainController(false);
+                }
+                long h = c.h() * 1024 * 1024;
+                if (h <= 0) {
+                    min = 104857600;
+                } else {
+                    min = Math.min(h, 1073741824L);
+                }
+                YaNativeLogger.setMaxSizeAllLogFile(min);
+                long d = c.d() * 1024 * 1024;
+                if (d <= 0) {
+                    min2 = 1048576;
+                } else {
+                    min2 = Math.min(d, min);
+                }
+                YaNativeLogger.setMaxSizePerLogFile(min2);
+                YaNativeLogger.setDefaultSpaceEnable(true);
+                YaNativeLogger.setDefaultLogIdEnable(true);
+                long f = c.f() * 1024 * 1024;
+                if (f <= 0) {
+                    f = DownloadManager.MIN_LEFT_SIZE;
+                }
+                YaNativeLogger.setDefaultSpaceMaxSize(f);
+                List<ol9> e = c.e();
+                if (e != null && e.size() > 0) {
+                    for (ol9 ol9Var : e) {
+                        if (ol9Var != null && !TextUtils.isEmpty(ol9Var.b())) {
+                            String b = ol9Var.b();
+                            YaNativeLogger.setSpaceEnable(b, ol9Var.c());
+                            long a = ol9Var.a() * 1024 * 1024;
+                            if (a <= 0) {
+                                a = DownloadManager.MIN_LEFT_SIZE;
+                            }
+                            YaNativeLogger.setSpaceMaxSize(b, a);
+                            long d2 = ol9Var.d() * 60 * 60 * 24;
+                            if (d2 <= 0) {
+                                d2 = IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
+                            }
+                            YaNativeLogger.setMaxAliveTimeForSpace(b, d2);
+                        }
+                    }
+                }
+                long b2 = c.b() * 1024 * 1024;
+                if (b2 <= 0) {
+                    b2 = DownloadManager.MIN_LEFT_SIZE;
+                }
+                YaNativeLogger.setDefaultLogIdMaxSize(b2);
+                Map<String, nl9> a2 = c.a();
+                if (a2 != null && a2.size() > 0) {
+                    for (String str : a2.keySet()) {
+                        if (!TextUtils.isEmpty(str) && a2.get(str) != null) {
+                            nl9 nl9Var = a2.get(str);
+                            YaNativeLogger.setLogIdEnable(str, nl9Var.b());
+                            long a3 = nl9Var.a() * 1024 * 1024;
+                            if (a3 <= 0) {
+                                a3 = DownloadManager.MIN_LEFT_SIZE;
+                            }
+                            YaNativeLogger.setLogIdMaxSize(str, a3);
+                        }
+                    }
+                }
+                long g = c.g() * 24 * 60 * 60;
+                if (g <= 0) {
+                    min3 = IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
+                } else {
+                    min3 = Math.min(g, (long) RtcCertificatePem.DEFAULT_EXPIRY);
+                }
+                YaNativeLogger.setDefaultMaxAliveTimeForSpace(min3);
+                YaNativeLogger.start();
+                int unused2 = ql9.c = 1;
+                ql9.e.notifyAll();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -67,570 +338,336 @@ public final class ql9 {
                 return;
             }
         }
-        a = new HashMap();
-        b = new a(Looper.getMainLooper());
-        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
-        handlerThread.start();
-        d = new b(handlerThread.getLooper());
-        e = new uq9();
-        f = new jr9();
+        b = AppConfig.isDebug();
+        c = 0;
+        d = new String[]{"L0", "L1", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "D", "I", ExifInterface.LONGITUDE_WEST, ExifInterface.LONGITUDE_EAST, ExifInterface.GPS_MEASUREMENT_IN_PROGRESS};
+        e = new Object();
+        f = Executors.newSingleThreadExecutor();
     }
 
-    /* loaded from: classes5.dex */
-    public final class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 200) {
-                ql9.e(false);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public final class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public final void a(pl9 pl9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pl9Var) == null) {
-                String str = FunAdSdk.getFunAdConfig().appId;
-                String str2 = null;
-                try {
-                    LogPrinter.v("Start load config from assets.", new Object[0]);
-                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
-                    InputStream open = assets.open(str + ".json");
-                    StringWriter stringWriter = new StringWriter();
-                    InputStreamReader inputStreamReader = new InputStreamReader(open);
-                    char[] cArr = new char[4096];
-                    while (true) {
-                        int read = inputStreamReader.read(cArr);
-                        if (-1 == read) {
-                            break;
-                        }
-                        stringWriter.write(cArr, 0, read);
-                    }
-                    String stringWriter2 = stringWriter.toString();
-                    LogPrinter.v("Config from assets load over.", new Object[0]);
-                    open.close();
-                    if (!TextUtils.isEmpty(stringWriter2)) {
-                        str2 = am9.a(stringWriter2, str);
-                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
-                    }
-                } catch (Exception e) {
-                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
-                }
-                if (!pl9Var.b(str2)) {
-                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
-                    if (FunAdSdk.isLogEnabled()) {
-                        throw new RuntimeException("Config from assets parsed failed");
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(Message message) {
-            Response perform;
-            Reporter a;
-            int i;
-            JSONObject jSONObject;
-            int i2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                boolean z2 = true;
-                switch (message.what) {
-                    case 100:
-                        HashMap hashMap = new HashMap();
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            HostAppInfo.fillReqParams(jSONObject2);
-                            Iterator<String> keys = jSONObject2.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                hashMap.put(next, jSONObject2.get(next));
-                            }
-                        } catch (JSONException unused) {
-                        }
-                        try {
-                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
-                        } catch (IOException e) {
-                            LogPrinter.e(e);
-                        }
-                        if (perform != null && perform.getResponseCode() == 200) {
-                            try {
-                                jSONObject = new JSONObject(perform.getContent());
-                                i2 = jSONObject.getInt(Constants.KEYS.RET);
-                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
-                            } catch (JSONException e2) {
-                                LogPrinter.e(e2);
-                                a = vq9.a();
-                                i = -1;
-                            }
-                            if (i2 == 200) {
-                                String string = jSONObject.getJSONObject("data").getString("content");
-                                try {
-                                } catch (Exception e3) {
-                                    LogPrinter.e(e3);
-                                    a = vq9.a();
-                                    i = -2;
-                                }
-                                if (new pl9().b(am9.a(string, FunAdSdk.getFunAdConfig().appId))) {
-                                    dm9.b.edit().putInt("key_cp_v", 5).putString("key_serv_las_d", string).apply();
-                                    ql9.a.clear();
-                                    dm9.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                    if (z2) {
-                                    }
-                                    ql9.c();
-                                    return;
-                                }
-                                a = vq9.a();
-                                i = -3;
-                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
-                                z2 = false;
-                                dm9.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                if (z2) {
-                                }
-                                ql9.c();
-                                return;
-                            }
-                            z2 = false;
-                            dm9.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                            if (z2) {
-                                ql9.b.sendEmptyMessage(200);
-                            }
-                            ql9.c();
-                            return;
-                        }
-                        LogPrinter.e("Pull ad config failed.", new Object[0]);
-                        z2 = false;
-                        dm9.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                        if (z2) {
-                        }
-                        ql9.c();
-                        return;
-                    case 101:
-                        a(new pl9());
-                        break;
-                    case 102:
-                        String str = null;
-                        try {
-                            str = am9.a(dm9.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
-                        } catch (Exception e4) {
-                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
-                        }
-                        if (str == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        pl9 pl9Var = new pl9();
-                        if (!z && !pl9Var.b(str)) {
-                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
-                        } else {
-                            z2 = z;
-                        }
-                        if (z2) {
-                            a(pl9Var);
-                            dm9.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
-                            break;
-                        } else {
-                            dm9.b.edit().putInt("key_cp_v", 5).apply();
-                            break;
-                        }
-                    default:
-                        return;
-                }
-                ql9.b.obtainMessage(200).sendToTarget();
-            }
-        }
-    }
-
-    public static int a(String str, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            xl9 xl9Var = e.b;
-            synchronized (xl9Var.a) {
-                Deque deque = (Deque) xl9Var.a.get(str);
-                i = 0;
-                if (deque != null) {
-                    Iterator descendingIterator = deque.descendingIterator();
-                    while (true) {
-                        if (!descendingIterator.hasNext()) {
-                            break;
-                        }
-                        xl9.c cVar = (xl9.c) descendingIterator.next();
-                        if (cVar.a().contains(pid)) {
-                            i = cVar.b();
-                            break;
-                        }
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static zl9 b(String str) {
-        InterceptResult invokeL;
-        zl9 zl9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            uq9 uq9Var = e;
-            synchronized (uq9Var) {
-                if (uq9Var.a == null) {
-                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
-                    zl9Var = null;
-                } else {
-                    zl9Var = (zl9) uq9Var.c.get(str);
-                }
-            }
-            return zl9Var;
-        }
-        return (zl9) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = dm9.b;
-            long j = 0;
-            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
-            if (j2 > 0) {
-                long currentTimeMillis = System.currentTimeMillis() - j2;
-                if (currentTimeMillis >= 0) {
-                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
-                    if (currentTimeMillis < j3) {
-                        j = j3 - currentTimeMillis;
-                    }
-                }
-            }
-            long max = Math.max(10000L, j);
-            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = d;
-            handler.removeMessages(100);
-            handler.sendEmptyMessageDelayed(100, max);
-        }
-    }
-
-    public static void d(kl9 kl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kl9Var) == null) {
-            h = true;
-            jr9 jr9Var = f;
-            synchronized (jr9Var.b) {
-                jr9Var.e = kl9Var;
-                jr9Var.d = 1;
-                while (!jr9Var.c.isEmpty()) {
-                    jr9.a aVar = (jr9.a) jr9Var.c.pollFirst();
-                    if (!jr9.f && aVar == null) {
-                        throw new AssertionError();
-                    }
-                    jr9Var.loadAd(aVar.a, aVar.b, aVar.c);
-                }
-            }
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = c;
-            if (sdkInitializeCallback != null) {
-                sdkInitializeCallback.onComplete();
-            }
-            c = null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:118:0x01f8  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x0209  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x020d  */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0238  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0110 A[Catch: all -> 0x0265, TRY_LEAVE, TryCatch #0 {, blocks: (B:38:0x00a3, B:40:0x00a7, B:42:0x00ad, B:43:0x00b5, B:62:0x0110, B:46:0x00c6, B:47:0x00d3, B:49:0x00d9, B:50:0x00e3, B:52:0x00e9, B:54:0x00f9, B:56:0x0103, B:65:0x011a, B:69:0x0122, B:73:0x0134, B:72:0x0132, B:68:0x0120), top: B:143:0x00a3 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void e(boolean z) {
-        boolean z2;
-        boolean z3;
-        Set set;
-        Set set2;
-        boolean z4;
-        char c2;
+    public static String s() {
+        InterceptResult invokeV;
         String str;
-        boolean z5;
-        boolean z6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            char c3 = 0;
-            LogPrinter.v("tryInitialize", new Object[0]);
-            if (5 == dm9.b.getInt("key_cp_v", 5)) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z2) {
-                d.obtainMessage(102).sendToTarget();
-                return;
-            }
-            c();
-            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            gl9 b2 = dm9.b();
-            ml9.a = dm9.l();
-            Object[] objArr = new Object[2];
-            if (b2 != null) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            objArr[0] = Boolean.valueOf(z3);
-            objArr[1] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
-            if (b2 == null) {
-                if (z) {
-                    d.obtainMessage(101).sendToTarget();
-                    return;
-                }
-                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                jr9 jr9Var = f;
-                synchronized (jr9Var.b) {
-                    jr9Var.d = -1;
-                    while (!jr9Var.c.isEmpty()) {
-                        jr9.a aVar = (jr9.a) jr9Var.c.pollFirst();
-                        if (!jr9.f && aVar == null) {
-                            throw new AssertionError();
-                        }
-                        aVar.c.onError(aVar.b.getSid());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) appContext.getSystemService("activity")).getRunningAppProcesses().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    ActivityManager.RunningAppProcessInfo next = it.next();
+                    if (next.pid == Process.myPid()) {
+                        str = next.processName;
+                        break;
                     }
-                }
-                return;
-            }
-            uq9 uq9Var = e;
-            synchronized (uq9Var) {
-                gl9 gl9Var = uq9Var.a;
-                if (gl9Var != null) {
-                    if (gl9Var.equals(b2)) {
-                        LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
-                    } else {
-                        gl9 gl9Var2 = uq9Var.a;
-                        if (gl9Var2.a.size() == b2.a.size()) {
-                            HashSet hashSet = new HashSet(b2.a);
-                            for (Ssp ssp : gl9Var2.a) {
-                                Iterator it = hashSet.iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        Ssp ssp2 = (Ssp) it.next();
-                                        if (ssp.type.equals(ssp2.type) && ssp.sspId.equals(ssp2.sspId)) {
-                                            it.remove();
-                                            z6 = true;
-                                            continue;
-                                            break;
-                                        }
-                                    } else {
-                                        z6 = false;
-                                        continue;
-                                        break;
-                                    }
-                                }
-                                if (!z6) {
-                                }
-                            }
-                            z5 = true;
-                            if (!z5) {
-                                LogPrinter.d("New AdConfig.ssps don't correspond to old ones, give up updating it", new Object[0]);
-                            }
-                        }
-                        z5 = false;
-                        if (!z5) {
-                        }
-                    }
-                    z4 = false;
-                }
-                gl9 gl9Var3 = uq9Var.a;
-                if (gl9Var3 == null) {
-                    set = null;
                 } else {
-                    set = gl9Var3.b;
+                    str = null;
+                    break;
                 }
-                uq9Var.a(set, b2.b, new em9(uq9Var));
-                gl9 gl9Var4 = uq9Var.a;
-                if (gl9Var4 == null) {
-                    set2 = null;
-                } else {
-                    set2 = gl9Var4.c;
-                }
-                uq9Var.a(set2, b2.c, new tq9(uq9Var));
-                uq9Var.a = b2;
-                z4 = true;
             }
-            if (!z4) {
-                LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
+            if (!TextUtils.isEmpty(str)) {
+                return str;
+            }
+            return appContext.getPackageName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ql9(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
-            }
-            HostAppInfo.updateCfgv(dm9.b.getLong("key_config_v", 0L));
-            if (!g) {
-                g = true;
-                yk9 yk9Var = yk9.a;
-                if (Looper.myLooper() == Looper.getMainLooper()) {
-                    HashMap hashMap = new HashMap();
-                    ArrayList arrayList = new ArrayList();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (Ssp ssp3 : b2.a) {
-                        if (!TextUtils.isEmpty(ssp3.sspId)) {
-                            if (funAdConfig.forbiddenPlatforms.contains(ssp3.type)) {
-                                Object[] objArr2 = new Object[1];
-                                objArr2[c3] = ssp3.type;
-                                LogPrinter.d("Ssp:%s is not initialized for type is forbidden", objArr2);
-                            } else {
-                                long currentTimeMillis2 = System.currentTimeMillis();
-                                String str2 = ssp3.type;
-                                str2.hashCode();
-                                int hashCode = str2.hashCode();
-                                if (hashCode != 3160) {
-                                    if (hashCode != 3175) {
-                                        if (hashCode != 3178) {
-                                            if (hashCode == 98810 && str2.equals(FunAdSdk.PLATFORM_CSJ)) {
-                                                c2 = 3;
-                                                if (c2 == 0) {
-                                                    if (c2 != 1) {
-                                                        if (c2 != 2) {
-                                                            if (c2 != 3) {
-                                                                str = null;
-                                                            } else {
-                                                                str = "com.fun.ad.sdk.channel.CsjModule";
-                                                            }
-                                                        } else {
-                                                            str = "com.fun.ad.sdk.channel.CMModule";
-                                                        }
-                                                    } else {
-                                                        str = "com.fun.ad.sdk.channel.CjModule";
-                                                    }
-                                                } else {
-                                                    str = "com.fun.ad.sdk.channel.BzModule";
-                                                }
-                                                if (str == null) {
-                                                    LogPrinter.d("sdk for %s init start", ssp3.type);
-                                                    ml9.f(ssp3.type, str, funAdConfig, hashMap, ssp3.sspId);
-                                                    LogPrinter.d("sdk for %s init end, used time :%s", ssp3.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                                                } else {
-                                                    arrayList.add(ssp3);
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        } else {
-                                            if (str2.equals(FunAdSdk.PLATFORM_CM)) {
-                                                c2 = 2;
-                                                if (c2 == 0) {
-                                                }
-                                                if (str == null) {
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                    } else {
-                                        if (str2.equals(FunAdSdk.PLATFORM_CJ)) {
-                                            c2 = 1;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                        c2 = 65535;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                } else {
-                                    if (str2.equals(FunAdSdk.PLATFORM_BZ)) {
-                                        c2 = 0;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                    c2 = 65535;
-                                    if (c2 == 0) {
-                                    }
-                                    if (str == null) {
-                                    }
-                                    c3 = 0;
-                                }
-                            }
-                        }
-                    }
-                    if (!arrayList.isEmpty()) {
-                        new Thread(new ll9(arrayList, funAdConfig, hashMap, currentTimeMillis, yk9Var)).start();
-                        return;
-                    } else {
-                        ml9.e(currentTimeMillis, yk9Var, funAdConfig, hashMap);
-                        return;
-                    }
-                }
-                throw new RuntimeException("Wrong thread");
             }
         }
+        this.a = str;
+        A();
+        B();
+    }
+
+    public static void q(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file != null && file.exists()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        q(file2);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            file.delete();
+        }
+    }
+
+    public static void A() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c != 0) {
+            return;
+        }
+        new Thread(new e()).start();
+    }
+
+    public static boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == 0) {
+                synchronized (e) {
+                    while (c == 0) {
+                        try {
+                            e.wait();
+                        } catch (InterruptedException unused) {
+                        }
+                    }
+                }
+            }
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ql9.e.run():void] */
+    public static /* synthetic */ boolean m() {
+        return b;
+    }
+
+    public static String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, ".yalog").getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            q(new File(n()));
+        }
+    }
+
+    public static void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65558, null) != null) || !C()) {
+            return;
+        }
+        try {
+            YaNativeLogger.requestCleanOverQuotaLog();
+        } catch (Throwable th) {
+            if (b) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            new Handler(Looper.getMainLooper()).postDelayed(new d(this), 30000L);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void executeRunnable(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            f.execute(runnable);
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void flush(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                t(true);
+            } else {
+                f.execute(new c(this));
+            }
+        }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || !C()) {
+            return;
+        }
+        try {
+            YaNativeLogger.flush(this.a, z);
+        } catch (Throwable th) {
+            if (b) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public static List<String> o(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!C()) {
+                return arrayList;
+            }
+            try {
+                YaNativeLogger.createLogSnapShot(j, j2, str, str2, z, z2, str3, arrayList);
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static String r(String str) {
+        InterceptResult invokeL;
+        String replaceAll;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "unknown";
+            }
+            if (x(str)) {
+                return "main";
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().packageName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            String str3 = str2 + ":";
+            if (str.startsWith(str3)) {
+                String substring = str.substring(str3.length());
+                if (TextUtils.equals("main", substring)) {
+                    return "_main";
+                }
+                if (!TextUtils.isEmpty(substring)) {
+                    replaceAll = substring.replaceAll("[:/]", "_");
+                } else {
+                    replaceAll = "";
+                }
+            } else {
+                replaceAll = str.replaceAll("[:/]", "_");
+            }
+            if (TextUtils.isEmpty(replaceAll)) {
+                return "unknown";
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str2 = appContext.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str2)) {
+                str2 = appContext.getPackageName();
+            }
+            if (str.startsWith(str2)) {
+                if (str.length() == str2.length() || str.charAt(str2.length()) != ':') {
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List<String> y(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!C()) {
+                return arrayList;
+            }
+            try {
+                YaNativeLogger.queryLogFiles(j, j2, str, str2, arrayList);
+            } catch (Throwable th) {
+                if (b) {
+                    th.printStackTrace();
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void log(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048579, this, str, i, str2, str3) == null) {
+            f.execute(new a(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis()));
+        }
+    }
+
+    @Override // com.baidu.yalog.Logger
+    public void logSync(String str, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, str, i, str2, str3) == null) {
+            try {
+                f.submit(new b(this, str, i, str2, str3, Process.myTid(), System.currentTimeMillis())).get();
+            } catch (Exception e2) {
+                if (b) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void u(String str, int i, String str2, String str3, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Long.valueOf(j)}) != null) || !C()) {
+            return;
+        }
+        int myPid = Process.myPid();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        StringWriter stringWriter = new StringWriter();
+        JsonWriter jsonWriter = new JsonWriter(stringWriter);
+        try {
+            jsonWriter.beginObject();
+            jsonWriter.name("pid").value(myPid);
+            jsonWriter.name("tid").value(i2);
+            jsonWriter.name("time").value(simpleDateFormat.format(Long.valueOf(j)));
+            if (!TextUtils.isEmpty(str)) {
+                jsonWriter.name("logid").value(str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jsonWriter.name("tag").value(str2);
+            }
+            if (i >= 0 && i < d.length) {
+                jsonWriter.name("level").value(d[i]);
+            } else {
+                JsonWriter name = jsonWriter.name("level");
+                name.value("L" + i);
+            }
+            jsonWriter.endObject();
+        } catch (IOException unused) {
+        }
+        YaNativeLogger.b(this.a, "main", str, stringWriter.toString(), str3);
     }
 }

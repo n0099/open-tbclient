@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,10 +18,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdResponseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AdResponseInfo> CREATOR;
     public static final String TAG = "AdResponseInfo";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mAdInstanceList;
+    public ArrayList<AdElementInfo> mAdInstanceList;
     public int mAdsNum;
     public String mErrorCode;
     public String mRequestId;
@@ -38,7 +37,7 @@ public class AdResponseInfo implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<AdResponseInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +96,7 @@ public class AdResponseInfo implements Parcelable {
         CREATOR = new a();
     }
 
-    public ArrayList getAdInstanceList() {
+    public ArrayList<AdElementInfo> getAdInstanceList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -129,7 +128,7 @@ public class AdResponseInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mAdInstanceList.size() > 0) {
-                return (AdElementInfo) this.mAdInstanceList.get(0);
+                return this.mAdInstanceList.get(0);
             }
             return null;
         }
@@ -161,7 +160,7 @@ public class AdResponseInfo implements Parcelable {
             }
         }
         this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList();
+        this.mAdInstanceList = new ArrayList<>();
         this.mAdsNum = parcel.readInt();
         this.mRequestId = parcel.readString();
         this.mErrorCode = parcel.readString();
@@ -183,7 +182,7 @@ public class AdResponseInfo implements Parcelable {
             }
         }
         this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList();
+        this.mAdInstanceList = new ArrayList<>();
         if (str == null) {
             return;
         }
@@ -192,18 +191,18 @@ public class AdResponseInfo implements Parcelable {
             this.mAdsNum = jSONObject.optInt("n", 0);
             this.mRequestId = jSONObject.optString("req_id");
             this.mErrorCode = jSONObject.optString("error_code", "");
-            JSONArray jSONArray = jSONObject.getJSONArray(LaunchStatsUtils.AD);
+            JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {
                 for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     try {
                         this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i3)));
                     } catch (Exception unused) {
-                        this.mAdInstanceList = new ArrayList();
+                        this.mAdInstanceList = new ArrayList<>();
                     }
                 }
             }
         } catch (Exception unused2) {
-            this.mAdInstanceList = new ArrayList();
+            this.mAdInstanceList = new ArrayList<>();
         }
     }
 
@@ -224,7 +223,7 @@ public class AdResponseInfo implements Parcelable {
             }
         }
         this.mAdsNum = 0;
-        this.mAdInstanceList = new ArrayList();
+        this.mAdInstanceList = new ArrayList<>();
         if (str == null) {
             return;
         }
@@ -246,7 +245,7 @@ public class AdResponseInfo implements Parcelable {
                 }
             }
         } catch (Exception unused) {
-            this.mAdInstanceList = new ArrayList();
+            this.mAdInstanceList = new ArrayList<>();
         }
     }
 

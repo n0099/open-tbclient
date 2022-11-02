@@ -10,12 +10,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,7 +78,7 @@ public class AudioCircleProgress extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AudioCircleProgress(Context context, AttributeSet attributeSet) {
+    public AudioCircleProgress(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,7 +100,7 @@ public class AudioCircleProgress extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AudioCircleProgress(Context context, AttributeSet attributeSet, int i) {
+    public AudioCircleProgress(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -213,20 +214,20 @@ public class AudioCircleProgress extends View {
         }
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
             this.j = new RectF();
             this.g = new Point();
             this.p = new ValueAnimator();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.voiceCircleProgress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.voiceCircleProgress);
             this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
             this.e = obtainStyledAttributes.getColor(2, 0);
             this.c = obtainStyledAttributes.getDimension(1, 15.0f);
             this.d = obtainStyledAttributes.getDimension(1, 15.0f);
             this.m = obtainStyledAttributes.getFloat(5, 270.0f);
             this.n = obtainStyledAttributes.getFloat(6, 360.0f);
-            this.q = fj.f(context, R.dimen.tbds25);
+            this.q = xi.g(context, R.dimen.tbds25);
             e();
         }
     }

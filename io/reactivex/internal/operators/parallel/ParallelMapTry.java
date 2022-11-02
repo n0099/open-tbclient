@@ -21,16 +21,16 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class ParallelMapTry extends ParallelFlowable {
+public final class ParallelMapTry<T, R> extends ParallelFlowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BiFunction errorHandler;
-    public final Function mapper;
-    public final ParallelFlowable source;
+    public final BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> errorHandler;
+    public final Function<? super T, ? extends R> mapper;
+    public final ParallelFlowable<T> source;
 
     /* renamed from: io.reactivex.internal.operators.parallel.ParallelMapTry$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$parallel$ParallelFailureHandling;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,16 +66,16 @@ public final class ParallelMapTry extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ParallelMapTryConditionalSubscriber implements ConditionalSubscriber, Subscription {
+    public static final class ParallelMapTryConditionalSubscriber<T, R> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super R> actual;
         public boolean done;
-        public final BiFunction errorHandler;
-        public final Function mapper;
+        public final BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> errorHandler;
+        public final Function<? super T, ? extends R> mapper;
         public Subscription s;
 
-        public ParallelMapTryConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Function function, BiFunction biFunction) {
+        public ParallelMapTryConditionalSubscriber(ConditionalSubscriber<? super R> conditionalSubscriber, Function<? super T, ? extends R> function, BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,9 +127,9 @@ public final class ParallelMapTry extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !tryOnNext(obj) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !tryOnNext(t) && !this.done) {
                 this.s.request(1L);
             }
         }
@@ -156,18 +156,18 @@ public final class ParallelMapTry extends ParallelFlowable {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
                 long j = 0;
                 do {
                     try {
-                        return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null value"));
+                        return this.actual.tryOnNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null value"));
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         try {
@@ -202,16 +202,16 @@ public final class ParallelMapTry extends ParallelFlowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class ParallelMapTrySubscriber implements ConditionalSubscriber, Subscription {
+    public static final class ParallelMapTrySubscriber<T, R> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public boolean done;
-        public final BiFunction errorHandler;
-        public final Function mapper;
+        public final BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> errorHandler;
+        public final Function<? super T, ? extends R> mapper;
         public Subscription s;
 
-        public ParallelMapTrySubscriber(Subscriber subscriber, Function function, BiFunction biFunction) {
+        public ParallelMapTrySubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends R> function, BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -263,9 +263,9 @@ public final class ParallelMapTry extends ParallelFlowable {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !tryOnNext(obj) && !this.done) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !tryOnNext(t) && !this.done) {
                 this.s.request(1L);
             }
         }
@@ -292,18 +292,18 @@ public final class ParallelMapTry extends ParallelFlowable {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
                 if (this.done) {
                     return false;
                 }
                 long j = 0;
                 do {
                     try {
-                        this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null value"));
+                        this.actual.onNext(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null value"));
                         return true;
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -338,7 +338,7 @@ public final class ParallelMapTry extends ParallelFlowable {
         }
     }
 
-    public ParallelMapTry(ParallelFlowable parallelFlowable, Function function, BiFunction biFunction) {
+    public ParallelMapTry(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends R> function, BiFunction<? super Long, ? super Throwable, ParallelFailureHandling> biFunction) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -369,15 +369,15 @@ public final class ParallelMapTry extends ParallelFlowable {
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
-    public void subscribe(Subscriber[] subscriberArr) {
+    public void subscribe(Subscriber<? super R>[] subscriberArr) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) != null) || !validate(subscriberArr)) {
             return;
         }
         int length = subscriberArr.length;
-        Subscriber[] subscriberArr2 = new Subscriber[length];
+        Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
         for (int i = 0; i < length; i++) {
-            Subscriber subscriber = subscriberArr[i];
+            Subscriber<? super R> subscriber = subscriberArr[i];
             if (subscriber instanceof ConditionalSubscriber) {
                 subscriberArr2[i] = new ParallelMapTryConditionalSubscriber((ConditionalSubscriber) subscriber, this.mapper, this.errorHandler);
             } else {

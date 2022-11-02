@@ -1,5 +1,6 @@
 package com.kwad.components.core.k.kwai;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,20 +46,22 @@ public final class b implements com.kwad.sdk.core.b {
         }
     }
 
+    @Nullable
     public final String av(String str) {
         InterceptResult invokeL;
-        Map rewardCallbackExtraData;
+        Map<String, String> rewardCallbackExtraData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             SceneImpl sceneImpl = this.HS;
             if (sceneImpl == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
                 return null;
             }
-            return (String) rewardCallbackExtraData.get(str);
+            return rewardCallbackExtraData.get(str);
         }
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     public final com.kwad.sdk.internal.api.a op() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +76,7 @@ public final class b implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
-    public final void parseJson(JSONObject jSONObject) {
+    public final void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }

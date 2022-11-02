@@ -1,6 +1,7 @@
 package androidx.core.net;
 
 import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +27,8 @@ public final class UriCompat {
         }
     }
 
-    public static String toSafeString(Uri uri) {
+    @NonNull
+    public static String toSafeString(@NonNull Uri uri) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;

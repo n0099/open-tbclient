@@ -7,14 +7,15 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.DownloadFlowView;
+import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.op4;
-import com.baidu.tieba.tv4;
-import com.baidu.tieba.uv4;
-import com.baidu.tieba.xv4;
+import com.baidu.tieba.fq4;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.uw4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,12 +27,12 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public DownloadFlowView b;
-    public List c;
-    public op4 d;
+    public DownloadFlowView<ApkDownloadInfoData> b;
+    public List<ApkDownloadInfoData> c;
+    public fq4 d;
 
     /* loaded from: classes5.dex */
-    public class a extends tv4 {
+    public class a extends qw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -54,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
-        public uv4 a() {
+        @Override // com.baidu.tieba.qw4, com.baidu.tieba.ow4
+        public rw4 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                uv4 uv4Var = new uv4();
-                uv4Var.c(R.drawable.obfuscated_res_0x7f08069e);
-                uv4Var.g(R.drawable.obfuscated_res_0x7f08069d);
-                uv4Var.d(81);
-                uv4Var.e(R.dimen.M_H_X005);
-                uv4Var.h(R.dimen.tbds10);
-                return uv4Var;
+                rw4 rw4Var = new rw4();
+                rw4Var.c(R.drawable.obfuscated_res_0x7f0806a4);
+                rw4Var.g(R.drawable.obfuscated_res_0x7f0806a3);
+                rw4Var.d(81);
+                rw4Var.e(R.dimen.M_H_X005);
+                rw4Var.h(R.dimen.tbds10);
+                return rw4Var;
             }
-            return (uv4) invokeV.objValue;
+            return (rw4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
-        public xv4 c() {
+        @Override // com.baidu.tieba.qw4, com.baidu.tieba.ow4
+        public uw4 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                xv4 xv4Var = new xv4();
-                xv4Var.a(fj.f(this.a.getContext(), R.dimen.tbds187));
-                return xv4Var;
+                uw4 uw4Var = new uw4();
+                uw4Var.a(xi.g(this.a.getContext(), R.dimen.tbds187));
+                return uw4Var;
             }
-            return (xv4) invokeV.objValue;
+            return (uw4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.tv4, com.baidu.tieba.rv4
+        @Override // com.baidu.tieba.qw4, com.baidu.tieba.ow4
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -93,7 +94,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 tbImageView.setDrawerType(1);
-                tbImageView.setRadius(fj.f(this.a.getContext(), R.dimen.obfuscated_res_0x7f070287));
+                tbImageView.setRadius(xi.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f070287));
                 return tbImageView;
             }
             return (TbImageView) invokeL.objValue;
@@ -180,7 +181,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
     }
 
     public void d(int i) {
-        DownloadFlowView downloadFlowView;
+        DownloadFlowView<ApkDownloadInfoData> downloadFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (downloadFlowView = this.b) != null) {
             downloadFlowView.r();
@@ -204,15 +205,15 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(op4 op4Var) {
+    public void setIWindowChangedListener(fq4 fq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, op4Var) == null) {
-            this.d = op4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fq4Var) == null) {
+            this.d = fq4Var;
         }
     }
 
     public void setIndicatorVisible(int i) {
-        DownloadFlowView downloadFlowView;
+        DownloadFlowView<ApkDownloadInfoData> downloadFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (downloadFlowView = this.b) != null) {
             downloadFlowView.setIndicatorVisible(i);
@@ -220,7 +221,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
     }
 
     public void setMarqueenTime(long j) {
-        DownloadFlowView downloadFlowView;
+        DownloadFlowView<ApkDownloadInfoData> downloadFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && (downloadFlowView = this.b) != null) {
             downloadFlowView.setMarqueenTime(j);
@@ -230,7 +231,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = new DownloadFlowView(getContext());
+            this.b = new DownloadFlowView<>(getContext());
             a aVar = new a(this);
             this.b.setIndicatorNoOffet(false);
             this.b.setDisableParentEvent(false);
@@ -241,7 +242,7 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void c(List list) {
+    public void c(List<ApkDownloadInfoData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.c = list;
@@ -249,18 +250,18 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            xv4 xv4Var = new xv4();
+            uw4 uw4Var = new uw4();
             if (list.size() == 1) {
-                xv4Var.a(fj.f(getContext(), R.dimen.tbds187));
+                uw4Var.a(xi.g(getContext(), R.dimen.tbds187));
             } else {
-                xv4Var.a(fj.f(getContext(), R.dimen.tbds230));
+                uw4Var.a(xi.g(getContext(), R.dimen.tbds230));
             }
-            this.b.z(xv4Var);
+            this.b.z(uw4Var);
         }
     }
 
     public void e() {
-        DownloadFlowView downloadFlowView;
+        DownloadFlowView<ApkDownloadInfoData> downloadFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (downloadFlowView = this.b) != null) {
             downloadFlowView.w();

@@ -26,9 +26,9 @@ public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap fileParams;
-    public ConcurrentHashMap urlParams;
-    public ConcurrentHashMap urlParamsWithArray;
+    public ConcurrentHashMap<String, FileWrapper> fileParams;
+    public ConcurrentHashMap<String, String> urlParams;
+    public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class RequestParams {
     }
 
     /* loaded from: classes2.dex */
-    public class FileWrapper {
+    public static class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String contentType;
@@ -106,9 +106,9 @@ public class RequestParams {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.urlParams = new ConcurrentHashMap();
-            this.fileParams = new ConcurrentHashMap();
-            this.urlParamsWithArray = new ConcurrentHashMap();
+            this.urlParams = new ConcurrentHashMap<>();
+            this.fileParams = new ConcurrentHashMap<>();
+            this.urlParamsWithArray = new ConcurrentHashMap<>();
         }
     }
 
@@ -140,7 +140,7 @@ public class RequestParams {
         put(str, str2);
     }
 
-    public RequestParams(Map map) {
+    public RequestParams(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,8 +156,8 @@ public class RequestParams {
             }
         }
         init();
-        for (Map.Entry entry : map.entrySet()) {
-            put((String) entry.getKey(), (String) entry.getValue());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            put(entry.getKey(), entry.getValue());
         }
     }
 
@@ -187,18 +187,18 @@ public class RequestParams {
         throw new IllegalArgumentException("Supplied arguments must be even");
     }
 
-    public List getParamsList() {
+    public List<BasicNameValuePair> getParamsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            for (Map.Entry entry : this.urlParams.entrySet()) {
-                linkedList.add(new BasicNameValuePair((String) entry.getKey(), (String) entry.getValue()));
+            for (Map.Entry<String, String> entry : this.urlParams.entrySet()) {
+                linkedList.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
             }
-            for (Map.Entry entry2 : this.urlParamsWithArray.entrySet()) {
-                Iterator it = ((ArrayList) entry2.getValue()).iterator();
+            for (Map.Entry<String, ArrayList<String>> entry2 : this.urlParamsWithArray.entrySet()) {
+                Iterator<String> it = entry2.getValue().iterator();
                 while (it.hasNext()) {
-                    linkedList.add(new BasicNameValuePair((String) entry2.getKey(), (String) it.next()));
+                    linkedList.add(new BasicNameValuePair(entry2.getKey(), it.next()));
                 }
             }
             return linkedList;
@@ -241,7 +241,7 @@ public class RequestParams {
         }
     }
 
-    public void put(String str, ArrayList arrayList) {
+    public void put(String str, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, arrayList) == null) && str != null && arrayList != null) {
             this.urlParamsWithArray.put(str, arrayList);
@@ -262,34 +262,34 @@ public class RequestParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : this.urlParams.entrySet()) {
+            for (Map.Entry<String, String> entry : this.urlParams.entrySet()) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
-                sb.append((String) entry.getKey());
+                sb.append(entry.getKey());
                 sb.append("=");
-                sb.append((String) entry.getValue());
+                sb.append(entry.getValue());
             }
-            for (Map.Entry entry2 : this.fileParams.entrySet()) {
+            for (Map.Entry<String, FileWrapper> entry2 : this.fileParams.entrySet()) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
-                sb.append((String) entry2.getKey());
+                sb.append(entry2.getKey());
                 sb.append("=");
                 sb.append("FILE");
             }
-            for (Map.Entry entry3 : this.urlParamsWithArray.entrySet()) {
+            for (Map.Entry<String, ArrayList<String>> entry3 : this.urlParamsWithArray.entrySet()) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
-                ArrayList arrayList = (ArrayList) entry3.getValue();
-                for (int i = 0; i < arrayList.size(); i++) {
+                ArrayList<String> value = entry3.getValue();
+                for (int i = 0; i < value.size(); i++) {
                     if (i != 0) {
                         sb.append("&");
                     }
-                    sb.append((String) entry3.getKey());
+                    sb.append(entry3.getKey());
                     sb.append("=");
-                    sb.append((String) arrayList.get(i));
+                    sb.append(value.get(i));
                 }
             }
             return sb.toString();

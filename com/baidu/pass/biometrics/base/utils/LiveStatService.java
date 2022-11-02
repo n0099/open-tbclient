@@ -30,7 +30,7 @@ public final class LiveStatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "LiveStatService";
-    public static final Map a;
+    public static final Map<String, String> a;
     public static final String b = "4854";
     public static final String c = "page";
     public static final String d = "source";
@@ -72,7 +72,7 @@ public final class LiveStatService {
         }
     }
 
-    public static void onEvent(Context context, String str, Map map) {
+    public static void onEvent(Context context, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65538, null, context, str, map) != null) || TextUtils.isEmpty(str)) {
             return;
@@ -93,8 +93,8 @@ public final class LiveStatService {
             hashMap.put("cuid", SapiUtils.getClientId(context));
             hashMap.put("v", String.valueOf(System.currentTimeMillis()));
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    if (!TextUtils.isEmpty((CharSequence) entry.getKey()) && !TextUtils.isEmpty((CharSequence) entry.getValue())) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                         hashMap.put(entry.getKey(), entry.getValue());
                     }
                 }

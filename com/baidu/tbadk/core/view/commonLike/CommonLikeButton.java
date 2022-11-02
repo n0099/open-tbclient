@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,8 +42,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
         a();
     }
 
@@ -66,8 +66,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
         a();
     }
 
@@ -90,8 +90,8 @@ public class CommonLikeButton extends AppCompatTextView {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef);
-        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a);
+        TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1);
         a();
     }
 
@@ -100,7 +100,7 @@ public class CommonLikeButton extends AppCompatTextView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, fj.f(getContext(), R.dimen.tbds34));
+            setTextSize(0, xi.g(getContext(), R.dimen.tbds34));
             setGravity(17);
         }
     }

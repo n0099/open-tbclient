@@ -203,7 +203,7 @@ public class BIMConversation implements NoProGuard {
         return invokeL.booleanValue;
     }
 
-    public void setDisturb(int i, BIMValueCallBack bIMValueCallBack) {
+    public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048604, this, i, bIMValueCallBack) == null) {
         }
@@ -232,7 +232,7 @@ public class BIMConversation implements NoProGuard {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class MSGTYPE {
+    public static final class MSGTYPE {
         public static final /* synthetic */ MSGTYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MSGTYPE ALL;

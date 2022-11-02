@@ -12,23 +12,23 @@ public final class WorkQueue {
     public static final AtomicIntegerFieldUpdater producerIndex$FU = AtomicIntegerFieldUpdater.newUpdater(WorkQueue.class, "producerIndex");
     public static final AtomicIntegerFieldUpdater consumerIndex$FU = AtomicIntegerFieldUpdater.newUpdater(WorkQueue.class, "consumerIndex");
     public static final AtomicIntegerFieldUpdater blockingTasksInBuffer$FU = AtomicIntegerFieldUpdater.newUpdater(WorkQueue.class, "blockingTasksInBuffer");
-    public final AtomicReferenceArray buffer = new AtomicReferenceArray(128);
+    public final AtomicReferenceArray<Task> buffer = new AtomicReferenceArray<>(128);
     public volatile Object lastScheduledTask = null;
     public volatile int producerIndex = 0;
     public volatile int consumerIndex = 0;
     public volatile int blockingTasksInBuffer = 0;
 
     private final Task pollBuffer() {
-        Task task;
+        Task andSet;
         while (true) {
             int i = this.consumerIndex;
             if (i - this.producerIndex == 0) {
                 return null;
             }
             int i2 = i & 127;
-            if (consumerIndex$FU.compareAndSet(this, i, i + 1) && (task = (Task) this.buffer.getAndSet(i2, null)) != null) {
-                decrementIfBlocking(task);
-                return task;
+            if (consumerIndex$FU.compareAndSet(this, i, i + 1) && (andSet = this.buffer.getAndSet(i2, null)) != null) {
+                decrementIfBlocking(andSet);
+                return andSet;
             }
         }
     }
@@ -201,13 +201,13 @@ public final class WorkQueue {
             }
         }
         int i = workQueue.producerIndex;
-        AtomicReferenceArray atomicReferenceArray = workQueue.buffer;
+        AtomicReferenceArray<Task> atomicReferenceArray = workQueue.buffer;
         for (int i2 = workQueue.consumerIndex; i2 != i; i2++) {
             int i3 = i2 & 127;
             if (workQueue.blockingTasksInBuffer == 0) {
                 break;
             }
-            Task task = (Task) atomicReferenceArray.get(i3);
+            Task task = atomicReferenceArray.get(i3);
             if (task != null) {
                 if (task.taskContext.getTaskMode() == 1) {
                     z = true;

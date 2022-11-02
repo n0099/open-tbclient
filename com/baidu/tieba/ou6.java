@@ -1,45 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
-import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class ou6 extends q16 {
+public class ou6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HListView t;
-    public u67 u;
-    public FrsSchoolRecommendItemView v;
-    public List w;
-    public View.OnClickListener x;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ou6 a;
+        public final /* synthetic */ aj6 a;
 
-        public a(ou6 ou6Var) {
+        public a(aj6 aj6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ou6Var};
+                Object[] objArr = {aj6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,106 +42,51 @@ public class ou6 extends q16 {
                     return;
                 }
             }
-            this.a = ou6Var;
+            this.a = aj6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
-                this.a.e().a(view2, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.M0();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ou6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext);
+    public static void a(ResponsedMessage<?> responsedMessage, aj6 aj6Var, FrsViewData frsViewData) {
+        List<DownloadData> data;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, aj6Var, frsViewData) != null) || frsViewData == null || aj6Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+            return;
+        }
+        boolean z = false;
+        Iterator<DownloadData> it = data.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().getStatus() == 0) {
+                z = true;
+                break;
             }
         }
-        this.x = new a(this);
-        HListView hListView = new HListView(getContext());
-        this.t = hListView;
-        hListView.setHeaderDividersEnabled(false);
-        this.t.setFooterDividersEnabled(false);
-        this.t.setSelector(R.drawable.obfuscated_res_0x7f080cf5);
-        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0347, (ViewGroup) null), tbPageContext, bdUniqueId);
-        u67 u67Var = new u67(getContext(), R.layout.obfuscated_res_0x7f0d0347, this.v);
-        this.u = u67Var;
-        u67Var.d(this.x);
-        this.t.setAdapter((ListAdapter) this.u);
-        this.q.addView(this.t);
-        this.p.setVisibility(8);
-        this.j.setTextSize(0, fj.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
-    }
-
-    @Override // com.baidu.tieba.q16, com.baidu.tieba.p16
-    public void m(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            super.m(tbPageContext, i);
-            if (this.t != null && this.u != null) {
-                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-                this.u.b(i);
-            }
+        if (z) {
+            zg.a().postDelayed(new a(aj6Var), TimeUnit.SECONDS.toMillis(2L));
         }
     }
 
-    public final boolean u(List list) {
-        InterceptResult invokeL;
+    public static void b(aj6 aj6Var) {
+        HashMap<Integer, ThreadData> h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
-                return true;
-            }
-            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
-                v67 v67Var = (v67) ListUtils.getItem(this.w, i);
-                v67 v67Var2 = (v67) ListUtils.getItem(list, i);
-                if ((v67Var instanceof dj6) && (v67Var2 instanceof dj6) && !((dj6) v67Var).a.getUserId().equals(((dj6) v67Var2).a.getUserId())) {
-                    return true;
+        if ((interceptable == null || interceptable.invokeL(65537, null, aj6Var) == null) && aj6Var != null && aj6Var.Y() != null && (h = aj6Var.Y().h()) != null) {
+            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
+            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
+                ThreadData value = entry.getValue();
+                if (value != null && (value instanceof AdvertAppInfo)) {
+                    arrayList.add((AdvertAppInfo) value);
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q16
-    /* renamed from: v */
-    public void t(yh6 yh6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yh6Var) == null) {
-            super.l(yh6Var);
-            if (yh6Var != null && !ListUtils.isEmpty(yh6Var.getDataList())) {
-                if (StringUtils.isNull(yh6Var.mGroupTitle)) {
-                    this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ce));
-                } else {
-                    this.j.setText(yh6Var.mGroupTitle);
-                }
-                if (u(yh6Var.getDataList())) {
-                    List dataList = yh6Var.getDataList();
-                    this.w = dataList;
-                    this.u.c(dataList);
-                    this.u.notifyDataSetChanged();
-                }
-            }
+            kg8.n().w(arrayList);
         }
     }
 }

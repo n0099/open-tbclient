@@ -32,11 +32,11 @@ public class NetworkClientImpl implements NetworkClient {
     public static final NetworkClient c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
-    public PriorityBlockingQueue b;
+    public PriorityBlockingQueue<Runnable> b;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,13 +68,13 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     /* loaded from: classes8.dex */
-    public class NetFutureTask extends FutureTask implements Comparable {
+    public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final NetworkClient.Priority a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NetFutureTask(Callable callable, NetworkClient.Priority priority) {
+        public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
             super(callable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,9 +94,7 @@ public class NetworkClientImpl implements NetworkClient {
             this.a = priority;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        public int compareTo(NetFutureTask netFutureTask) {
+        public int compareTo(NetFutureTask<T> netFutureTask) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, netFutureTask)) == null) {
@@ -108,10 +106,15 @@ public class NetworkClientImpl implements NetworkClient {
             return invokeL.intValue;
         }
 
+        @Override // java.lang.Comparable
+        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
+            return compareTo((NetFutureTask) ((NetFutureTask) obj));
+        }
+
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && obj.getClass() == NetFutureTask.class && compareTo((NetFutureTask) obj) == 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && obj.getClass() == NetFutureTask.class && compareTo((NetFutureTask) ((NetFutureTask) obj)) == 0 : invokeL.booleanValue;
         }
 
         public int hashCode() {
@@ -150,7 +153,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.b = new PriorityBlockingQueue(15);
+        this.b = new PriorityBlockingQueue<>(15);
         this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.b);
     }
 
@@ -200,14 +203,14 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
-    public Future submit(Request request) {
+    public Future<Response> submit(Request request) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? submit(request, NetworkClient.Priority.Mid) : (Future) invokeL.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
-    public Future submit(Request request, NetworkClient.Priority priority) {
+    public Future<Response> submit(Request request, NetworkClient.Priority priority) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
@@ -251,7 +254,7 @@ public class NetworkClientImpl implements NetworkClient {
     }
 
     /* loaded from: classes8.dex */
-    public class TaskCallable implements Callable {
+    public static class TaskCallable implements Callable<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Request a;
@@ -298,6 +301,7 @@ public class NetworkClientImpl implements NetworkClient {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
             if (r4.a.isAutoClose() != false) goto L14;
          */
@@ -344,8 +348,8 @@ public class NetworkClientImpl implements NetworkClient {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.a.getUrlWithParas()).openConnection();
-                for (Map.Entry entry : this.a.getHeaders().entrySet()) {
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : this.a.getHeaders().entrySet()) {
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
                 httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + PreferencesUtil.RIGHT_MOUNT);
                 if (this.a.getConnectionTimeOut() > 0) {

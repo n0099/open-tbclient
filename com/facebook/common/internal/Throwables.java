@@ -31,7 +31,7 @@ public final class Throwables {
         }
     }
 
-    public static List getCausalChain(Throwable th) {
+    public static List<Throwable> getCausalChain(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
@@ -91,14 +91,14 @@ public final class Throwables {
         }
     }
 
-    public static void propagateIfInstanceOf(@Nullable Throwable th, Class cls) throws Throwable {
+    public static <X extends Throwable> void propagateIfInstanceOf(@Nullable Throwable th, Class<X> cls) throws Throwable {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, th, cls) == null) && th != null && cls.isInstance(th)) {
-            throw ((Throwable) cls.cast(th));
+            throw cls.cast(th);
         }
     }
 
-    public static void propagateIfPossible(@Nullable Throwable th, Class cls) throws Throwable {
+    public static <X extends Throwable> void propagateIfPossible(@Nullable Throwable th, Class<X> cls) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, th, cls) == null) {
             propagateIfInstanceOf(th, cls);
@@ -106,7 +106,7 @@ public final class Throwables {
         }
     }
 
-    public static void propagateIfPossible(@Nullable Throwable th, Class cls, Class cls2) throws Throwable, Throwable {
+    public static <X1 extends Throwable, X2 extends Throwable> void propagateIfPossible(@Nullable Throwable th, Class<X1> cls, Class<X2> cls2) throws Throwable, Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, th, cls, cls2) == null) {
             Preconditions.checkNotNull(cls2);

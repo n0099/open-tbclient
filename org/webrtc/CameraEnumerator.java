@@ -1,14 +1,15 @@
 package org.webrtc;
 
 import java.util.List;
+import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface CameraEnumerator {
     CameraVideoCapturer createCapturer(String str, CameraVideoCapturer.CameraEventsHandler cameraEventsHandler);
 
     String[] getDeviceNames();
 
-    List getSupportedFormats(String str);
+    List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(String str);
 
     boolean isBackFacing(String str);
 

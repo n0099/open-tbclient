@@ -17,11 +17,11 @@ public class AsyncWeiboRunner {
     public Context mContext;
 
     /* loaded from: classes8.dex */
-    public class AsyncTaskResult {
+    public static class AsyncTaskResult<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeiboException error;
-        public Object result;
+        public T result;
 
         public AsyncTaskResult(WeiboException weiboException) {
             Interceptable interceptable = $ic;
@@ -41,12 +41,12 @@ public class AsyncWeiboRunner {
             this.error = weiboException;
         }
 
-        public AsyncTaskResult(Object obj) {
+        public AsyncTaskResult(T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
+                Object[] objArr = {t};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public class AsyncWeiboRunner {
                     return;
                 }
             }
-            this.result = obj;
+            this.result = t;
         }
 
         public WeiboException getError() {
@@ -68,18 +68,18 @@ public class AsyncWeiboRunner {
             return (WeiboException) invokeV.objValue;
         }
 
-        public Object getResult() {
+        public T getResult() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.result;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class RequestRunner extends AsyncTask {
+    public static class RequestRunner extends AsyncTask<Void, Void, AsyncTaskResult<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context mContext;
@@ -119,15 +119,15 @@ public class AsyncWeiboRunner {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public AsyncTaskResult doInBackground(Void... voidArr) {
+        public AsyncTaskResult<String> doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    return new AsyncTaskResult(HttpManager.openUrl(this.mContext, this.mUrl, this.mHttpMethod, this.mParams));
+                    return new AsyncTaskResult<>(HttpManager.openUrl(this.mContext, this.mUrl, this.mHttpMethod, this.mParams));
                 } catch (WeiboException e) {
                     LogUtil.e("ContentValues", e.getMessage());
-                    return new AsyncTaskResult(e);
+                    return new AsyncTaskResult<>(e);
                 }
             }
             return (AsyncTaskResult) invokeL.objValue;
@@ -135,14 +135,14 @@ public class AsyncWeiboRunner {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
-        public void onPostExecute(AsyncTaskResult asyncTaskResult) {
+        public void onPostExecute(AsyncTaskResult<String> asyncTaskResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, asyncTaskResult) == null) {
                 WeiboException error = asyncTaskResult.getError();
                 if (error != null) {
                     this.mListener.onWeiboException(error);
                 } else {
-                    this.mListener.onComplete((String) asyncTaskResult.getResult());
+                    this.mListener.onComplete(asyncTaskResult.getResult());
                 }
             }
         }

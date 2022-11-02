@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -65,7 +66,7 @@ public class FunAdNativePicView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdNativePicView(Context context, AttributeSet attributeSet) {
+    public FunAdNativePicView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,7 +87,7 @@ public class FunAdNativePicView extends FrameLayout {
         b();
     }
 
-    private void setImageData(List list) {
+    private void setImageData(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, list) == null) {
             if (ListUtils.getCount(list) != 0) {
@@ -101,7 +102,7 @@ public class FunAdNativePicView extends FrameLayout {
                 if (ListUtils.getCount(list) == 2) {
                     e((String) ListUtils.getItem(list, 0), this.b);
                     e((String) ListUtils.getItem(list, 1), this.c);
-                    this.d.G();
+                    this.d.F();
                     return;
                 } else if (ListUtils.getCount(list) >= 3) {
                     this.c.setVisibility(0);
@@ -122,31 +123,31 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035f, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.a = findViewById(R.id.obfuscated_res_0x7f090c46);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c47);
+            this.a = findViewById(R.id.obfuscated_res_0x7f090c59);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c5a);
             this.b = tbImageView;
             tbImageView.setDrawCorner(true);
             this.b.setPlaceHolder(2);
             this.b.setRadiusById(R.string.J_X12);
             this.b.setConrers(15);
             a(this.b);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c49);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c5c);
             this.c = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.c.setPlaceHolder(2);
             this.c.setRadiusById(R.string.J_X02);
             this.c.setConrers(15);
             a(this.c);
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c48);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c5b);
             this.d = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.d.setPlaceHolder(2);
             this.d.setRadiusById(R.string.J_X11);
             this.d.setConrers(15);
             a(this.d);
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c45);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c58);
             this.e = tbImageView4;
             tbImageView4.setDrawCorner(true);
             this.e.setPlaceHolder(3);
@@ -160,13 +161,13 @@ public class FunAdNativePicView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (!StringHelper.equals(str, this.e.getUrl())) {
-                this.e.G();
+                this.e.F();
             }
-            this.e.L(str, 10, false);
+            this.e.K(str, 10, false);
         }
     }
 
-    public void setFunNativeAd(List list) {
+    public void setFunNativeAd(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
@@ -193,9 +194,9 @@ public class FunAdNativePicView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, tbImageView) == null) {
             if (!StringHelper.equals(str, tbImageView.getUrl())) {
-                tbImageView.G();
+                tbImageView.F();
             }
-            tbImageView.L(str, 10, false);
+            tbImageView.K(str, 10, false);
         }
     }
 

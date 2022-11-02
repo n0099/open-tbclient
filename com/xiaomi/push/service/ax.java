@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -31,7 +32,7 @@ public class ax {
     public static Object f913a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static WeakHashMap f914a;
+    public static WeakHashMap<Integer, ax> f914a;
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f915a;
@@ -54,7 +55,7 @@ public class ax {
                 return;
             }
         }
-        f914a = new WeakHashMap();
+        f914a = new WeakHashMap<>();
     }
 
     public ax(String str) {
@@ -103,7 +104,7 @@ public class ax {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             a(context);
             int hashCode = str.hashCode();
-            ax axVar = (ax) f914a.get(Integer.valueOf(hashCode));
+            ax axVar = f914a.get(Integer.valueOf(hashCode));
             if (axVar == null) {
                 ax axVar2 = new ax(str);
                 f914a.put(Integer.valueOf(hashCode), axVar2);
@@ -114,20 +115,20 @@ public class ax {
         return (ax) invokeLL.objValue;
     }
 
-    public static Object a(Object obj) {
+    public static <T> T a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
             if (obj != null) {
                 try {
-                    return obj.getClass().getMethod("getList", new Class[0]).invoke(obj, new Object[0]);
+                    return (T) obj.getClass().getMethod("getList", new Class[0]).invoke(obj, new Object[0]);
                 } catch (Exception unused) {
                     return null;
                 }
             }
             return null;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public static Object a(List list) {
@@ -233,6 +234,7 @@ public class ax {
         return (String) invokeL.objValue;
     }
 
+    @TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
     public NotificationChannel m625a(String str) {
         InterceptResult invokeL;
@@ -288,8 +290,9 @@ public class ax {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
+    @android.annotation.TargetApi(26)
     /* renamed from: a  reason: collision with other method in class */
-    public java.util.List m629a() {
+    public java.util.List<android.app.NotificationChannel> m629a() {
         /*
             r8 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.xiaomi.push.service.ax.$ic
@@ -424,6 +427,7 @@ public class ax {
         }
     }
 
+    @TargetApi(26)
     public void a(NotificationChannel notificationChannel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, notificationChannel) == null) {
@@ -494,7 +498,7 @@ public class ax {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public List m631b() {
+    public List<StatusBarNotification> m631b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048588, this)) != null) {

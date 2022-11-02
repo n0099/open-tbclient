@@ -1,5 +1,7 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +24,7 @@ public class Call {
     public static /* synthetic */ Interceptable $ic;
     public static final Formatter METHOD_ID_FORMATTER;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mCallees;
+    public final List<Call> mCallees;
     public final int mDepth;
     public final int mEntryGlobalTime;
     public final int mEntryThreadTime;
@@ -39,10 +41,10 @@ public class Call {
     }
 
     /* loaded from: classes.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List mCallees;
+        public List<Builder> mCallees;
         public int mEntryGlobalTime;
         public int mEntryThreadTime;
         public int mExitGlobalTime;
@@ -78,7 +80,8 @@ public class Call {
             }
         }
 
-        public Call build(Stack stack) {
+        @NonNull
+        public Call build(@NonNull Stack<Long> stack) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stack)) == null) {
@@ -87,7 +90,8 @@ public class Call {
             return (Call) invokeL.objValue;
         }
 
-        public List getCallees() {
+        @Nullable
+        public List<Builder> getCallees() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -159,12 +163,12 @@ public class Call {
     }
 
     /* loaded from: classes.dex */
-    public class CallHierarchyIterator implements Iterator {
+    public static class CallHierarchyIterator implements Iterator<Call> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Stack mCallStack;
+        public final Stack<Call> mCallStack;
 
-        public CallHierarchyIterator(Call call) {
+        public CallHierarchyIterator(@NonNull Call call) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,7 +183,7 @@ public class Call {
                     return;
                 }
             }
-            Stack stack = new Stack();
+            Stack<Call> stack = new Stack<>();
             this.mCallStack = stack;
             stack.push(call);
         }
@@ -203,6 +207,7 @@ public class Call {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Call next() {
             InterceptResult invokeV;
@@ -211,11 +216,11 @@ public class Call {
                 if (this.mCallStack.isEmpty()) {
                     return null;
                 }
-                Call call = (Call) this.mCallStack.pop();
-                for (int size = call.getCallees().size() - 1; size >= 0; size--) {
-                    this.mCallStack.push(call.getCallees().get(size));
+                Call pop = this.mCallStack.pop();
+                for (int size = pop.getCallees().size() - 1; size >= 0; size--) {
+                    this.mCallStack.push(pop.getCallees().get(size));
                 }
-                return call;
+                return pop;
             }
             return (Call) invokeV.objValue;
         }
@@ -264,7 +269,8 @@ public class Call {
         };
     }
 
-    public Iterator getCallHierarchyIterator() {
+    @NonNull
+    public Iterator<Call> getCallHierarchyIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -273,7 +279,8 @@ public class Call {
         return (Iterator) invokeV.objValue;
     }
 
-    public List getCallees() {
+    @NonNull
+    public List<Call> getCallees() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -318,7 +325,7 @@ public class Call {
         return (String) invokeV.objValue;
     }
 
-    public Call(Builder builder, Stack stack) {
+    public Call(@NonNull Builder builder, @NonNull Stack<Long> stack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -355,31 +362,30 @@ public class Call {
         this.mInclusiveGlobalTimeInCallees = sumInclusiveTimes(this.mCallees, ClockType.GLOBAL);
     }
 
-    private void printCallHierarchy(StringBuilder sb, Formatter formatter) {
+    private void printCallHierarchy(@NonNull StringBuilder sb, Formatter formatter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, sb, formatter) == null) {
             sb.append(LoadErrorCode.TOKEN_NEXT);
             sb.append(formatter.format(this));
-            List callees = getCallees();
+            List<Call> callees = getCallees();
             int length = sb.length() - (sb.lastIndexOf("\n") + 1);
             for (int i = 0; i < callees.size(); i++) {
                 if (i != 0) {
                     sb.append("\n");
                     sb.append(Strings.repeat(" ", length));
                 }
-                ((Call) callees.get(i)).printCallHierarchy(sb, formatter);
+                callees.get(i).printCallHierarchy(sb, formatter);
             }
         }
     }
 
-    private long sumInclusiveTimes(List list, ClockType clockType) {
+    private long sumInclusiveTimes(@NonNull List<Call> list, ClockType clockType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, list, clockType)) == null) {
-            Iterator it = list.iterator();
             long j = 0;
-            while (it.hasNext()) {
-                j += ((Call) it.next()).getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
+            for (Call call : list) {
+                j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
             }
             return j;
         }

@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
@@ -19,7 +20,7 @@ public class AndroidCertVerifyResult {
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
     public final boolean b;
-    public final List c;
+    public final List<X509Certificate> c;
 
     public AndroidCertVerifyResult(int i) {
         Interceptable interceptable = $ic;
@@ -41,7 +42,7 @@ public class AndroidCertVerifyResult {
         this.c = Collections.emptyList();
     }
 
-    public AndroidCertVerifyResult(int i, boolean z, List list) {
+    public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,6 +62,7 @@ public class AndroidCertVerifyResult {
         this.c = new ArrayList(list);
     }
 
+    @CalledByNative
     public byte[][] getCertificateChainEncoded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +70,7 @@ public class AndroidCertVerifyResult {
             byte[][] bArr = new byte[this.c.size()];
             for (int i = 0; i < this.c.size(); i++) {
                 try {
-                    bArr[i] = ((X509Certificate) this.c.get(i)).getEncoded();
+                    bArr[i] = this.c.get(i).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -78,6 +80,7 @@ public class AndroidCertVerifyResult {
         return (byte[][]) invokeV.objValue;
     }
 
+    @CalledByNative
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,6 +90,7 @@ public class AndroidCertVerifyResult {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,150 +1,171 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
-import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class nr5 {
     public static /* synthetic */ Interceptable $ic;
     public static nr5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public final HttpMessageListener b;
+    public List<a> a;
+    public List<t35> b;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(String str);
-
-        void b(String str);
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nr5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nr5 nr5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nr5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nr5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (httpResponsedMessage instanceof SplashHttpResponse) {
-                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
-                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
-                        if (this.a.a != null) {
-                            this.a.a.b(splashHttpResponse.getResultMsg());
-                            return;
-                        }
-                        return;
-                    }
-                    BdLog.e("Response of splash has error");
-                    if (this.a.a != null) {
-                        this.a.a.a(splashHttpResponse.getResultMsg());
-                        return;
-                    }
-                    return;
-                }
-                BdLog.e("Not response of splash request");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012088, "Lcom/baidu/tieba/nr5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012088, "Lcom/baidu/tieba/nr5;");
-                return;
-            }
-        }
-        c = new nr5();
+    public interface a {
+        void p(List<t35> list);
     }
 
     public nr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
+        this.a = new ArrayList();
     }
 
-    public static nr5 d() {
+    public static synchronized nr5 d() {
         InterceptResult invokeV;
+        nr5 nr5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (nr5.class) {
+                if (c == null) {
+                    c = new nr5();
+                }
+                nr5Var = c;
+            }
+            return nr5Var;
         }
         return (nr5) invokeV.objValue;
     }
 
-    public void e(TbPageContext tbPageContext, b bVar, AdInfo adInfo) {
+    public List<t35> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
-            this.a = bVar;
-            this.b.setTag(tbPageContext.getUniqueId());
-            MessageManager.getInstance().registerListener(this.b);
-            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.p(this.b);
+            }
+        }
+    }
+
+    public void a(t35 t35Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, t35Var) == null) && this.b != null && t35Var != null) {
+            String a2 = t35Var.a();
+            if (TextUtils.isEmpty(a2)) {
+                a2 = "#";
+                t35Var.j("#");
+            }
+            String e = t35Var.e();
+            if (e == null) {
+                e = "";
+            }
+            boolean z = false;
+            boolean z2 = false;
+            for (t35 t35Var2 : this.b) {
+                if (e.equals(t35Var2.e())) {
+                    z = true;
+                }
+                if (a2.equals(t35Var2.a())) {
+                    z2 = true;
+                }
+            }
+            if (z) {
+                return;
+            }
+            if (!z2) {
+                t35 t35Var3 = new t35();
+                t35Var3.j(a2);
+                this.b.add(t35Var3);
+            }
+            this.b.add(t35Var);
+            Collections.sort(this.b, new ContactComparator());
+            e();
+        }
+    }
+
+    public void b(long j) {
+        List<t35> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<t35> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            t35 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (t35 t35Var : this.b) {
+                if (str.equals(t35Var.a())) {
+                    arrayList.add(t35Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
+            this.a.add(aVar);
+        }
+    }
+
+    public void g(List<t35> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
+        }
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
+            this.a.remove(aVar);
         }
     }
 }

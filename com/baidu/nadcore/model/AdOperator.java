@@ -21,7 +21,7 @@ public class AdOperator {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TYPE {
+    public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE CHECK;
@@ -104,7 +104,7 @@ public class AdOperator {
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;

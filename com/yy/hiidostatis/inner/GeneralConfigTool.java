@@ -99,7 +99,7 @@ public class GeneralConfigTool {
         this.URL_CONFIG_SERVER = abstractConfig.getUrlConfigServer();
     }
 
-    private void addLastModifyTimeToParams(String str, Map map) throws JSONException {
+    private void addLastModifyTimeToParams(String str, Map<String, String> map) throws JSONException {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, this, str, map) == null) && !Util.empty(str)) {
@@ -107,7 +107,7 @@ public class GeneralConfigTool {
                 String str2 = jSONObject.get(KEY_LAST_MODIFIED_TIME) + "";
                 if (!Util.empty(str2)) {
                     if (map == null) {
-                        map = new HashMap();
+                        map = new HashMap<>();
                     }
                     map.put(KEY_LAST_MODIFIED_TIME, str2);
                 }
@@ -115,7 +115,7 @@ public class GeneralConfigTool {
         }
     }
 
-    private String assblyCacheKey(String str, Map map) throws Exception {
+    private String assblyCacheKey(String str, Map<String, String> map) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, map)) == null) {
@@ -132,7 +132,7 @@ public class GeneralConfigTool {
                     String str2 = (String) it.next();
                     stringBuffer.append(str2);
                     stringBuffer.append("=");
-                    stringBuffer.append((String) map.get(str2));
+                    stringBuffer.append(map.get(str2));
                     stringBuffer.append("&");
                 }
             }
@@ -195,7 +195,7 @@ public class GeneralConfigTool {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String get(String str, Map map, Context context, boolean z) {
+    public String get(String str, Map<String, String> map, Context context, boolean z) {
         InterceptResult invokeCommon;
         String str2;
         String str3;
@@ -254,7 +254,7 @@ public class GeneralConfigTool {
         return (String) invokeCommon.objValue;
     }
 
-    public synchronized String getCache(String str, Map map, Context context, boolean z) throws Exception {
+    public synchronized String getCache(String str, Map<String, String> map, Context context, boolean z) throws Exception {
         InterceptResult invokeCommon;
         String prefString;
         Interceptable interceptable = $ic;

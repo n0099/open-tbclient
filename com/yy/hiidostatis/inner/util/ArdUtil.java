@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -142,6 +143,7 @@ public class ArdUtil {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long getTotalRxBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,6 +156,7 @@ public class ArdUtil {
         return invokeV.longValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long getTotalTxBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -633,6 +636,7 @@ public class ArdUtil {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long getUidRxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -645,6 +649,7 @@ public class ArdUtil {
         return invokeI.longValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long getUidTxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -840,6 +845,7 @@ public class ArdUtil {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static String getMacAddr2() {
         InterceptResult invokeV;
         byte[] hardwareAddress;
@@ -1177,6 +1183,7 @@ public class ArdUtil {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static long getTotalMemory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

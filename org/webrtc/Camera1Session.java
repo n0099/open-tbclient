@@ -5,7 +5,7 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nx9;
+import com.baidu.tieba.wy9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Camera1Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
@@ -45,7 +45,7 @@ public class Camera1Session implements CameraSession {
     public final SurfaceTextureHelper surfaceTextureHelper;
 
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class Camera1Session implements CameraSession {
         }
 
         public /* synthetic */ void b(final byte[] bArr) {
-            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.jw9
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.baidu.tieba.sx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public class Camera1Session implements CameraSession {
                     Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                     this.this$0.firstFrameReported = true;
                 }
-                VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.baidu.tieba.kw9
+                VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.baidu.tieba.tx9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -126,8 +126,8 @@ public class Camera1Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class SessionState {
+    /* loaded from: classes9.dex */
+    public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SessionState RUNNING;
@@ -337,7 +337,7 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            int b = nx9.b(this.applicationContext);
+            int b = wy9.b(this.applicationContext);
             if (this.info.facing == 0) {
                 b = 360 - b;
             }
@@ -356,7 +356,7 @@ public class Camera1Session implements CameraSession {
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.lw9
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.baidu.tieba.ux9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -418,7 +418,7 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65552, null, parameters, i, i2, i3)) == null) {
-            List convertFramerates = Camera1Enumerator.convertFramerates(parameters.getSupportedPreviewFpsRange());
+            List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera1Enumerator.convertFramerates(parameters.getSupportedPreviewFpsRange());
             Logging.d(TAG, "Available fps ranges: " + convertFramerates);
             CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, i3);
             Size closestSupportedSize = CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPreviewSizes()), i, i2);
@@ -474,7 +474,7 @@ public class Camera1Session implements CameraSession {
         if (this.info.facing != 1) {
             z = false;
         }
-        VideoFrame videoFrame2 = new VideoFrame(nx9.a(textureBufferImpl, z, 0), getFrameOrientation(), videoFrame.getTimestampNs());
+        VideoFrame videoFrame2 = new VideoFrame(wy9.a(textureBufferImpl, z, 0), getFrameOrientation(), videoFrame.getTimestampNs());
         this.events.onFrameCaptured(this, videoFrame2);
         videoFrame2.release();
     }

@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.audio;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ public interface AudioSink {
         void onUnderrun(int i, long j, long j2);
     }
 
-    void configure(String str, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6) throws ConfigurationException;
+    void configure(String str, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, int i6) throws ConfigurationException;
 
     void disableTunneling();
 
@@ -62,7 +63,7 @@ public interface AudioSink {
     void setVolume(float f);
 
     /* loaded from: classes7.dex */
-    public final class ConfigurationException extends Exception {
+    public static final class ConfigurationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,7 +109,7 @@ public interface AudioSink {
     }
 
     /* loaded from: classes7.dex */
-    public final class InitializationException extends Exception {
+    public static final class InitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int audioTrackState;
@@ -136,7 +137,7 @@ public interface AudioSink {
     }
 
     /* loaded from: classes7.dex */
-    public final class WriteException extends Exception {
+    public static final class WriteException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int errorCode;

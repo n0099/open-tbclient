@@ -2,6 +2,8 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,21 +12,24 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class n extends b {
+/* loaded from: classes8.dex */
+public final class n extends b<a> {
     public String VH;
 
-    /* loaded from: classes7.dex */
-    public final class a implements com.kwad.sdk.core.b {
-        public Map VI = new HashMap();
-        public List VJ = new ArrayList();
-        public List VK = new ArrayList();
-        public List VL = new ArrayList();
+    /* loaded from: classes8.dex */
+    public static final class a implements com.kwad.sdk.core.b {
+        @NonNull
+        public Map<Integer, String> VI = new HashMap();
+        @NonNull
+        public List<String> VJ = new ArrayList();
+        @NonNull
+        public List<String> VK = new ArrayList();
+        public List<String> VL = new ArrayList();
         public int VM;
         public JSONObject VN;
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(JSONObject jSONObject) {
+        public final void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }

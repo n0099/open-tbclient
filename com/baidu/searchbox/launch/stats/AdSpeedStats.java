@@ -69,7 +69,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long mAdViewEndTimeStamp;
     public boolean mBearLoadResult;
     public int mFailCount;
-    public HashMap mLaunchTaskDuration;
+    public HashMap<String, Long> mLaunchTaskDuration;
     public long mLoadBearEndTimeStamp;
     public long mLoadPrologueEndTimeStamp;
     public String mNetType;
@@ -110,7 +110,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mPlgLoadResult = false;
         this.isTimeout = false;
         this.mAdLoadCostPure = -1L;
-        this.mLaunchTaskDuration = new HashMap();
+        this.mLaunchTaskDuration = new HashMap<>();
         this.isNeedBear = true;
         this.isNeedPlg = true;
         this.mFailCount = 0;
@@ -275,7 +275,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:212:0x0389 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x038b A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x0073  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x008a  */
@@ -536,7 +536,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                                 hashMap.put(AD_TO_END_DURATION, String.valueOf(appLaunchEndTimeStamp));
                             }
                             synchronized (this.mLaunchTaskDuration) {
-                                for (Map.Entry entry : this.mLaunchTaskDuration.entrySet()) {
+                                for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                                     hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
                                 }
                             }

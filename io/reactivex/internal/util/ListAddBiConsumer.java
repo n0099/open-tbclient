@@ -13,7 +13,7 @@ import io.reactivex.functions.BiFunction;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class ListAddBiConsumer implements BiFunction {
+public final class ListAddBiConsumer implements BiFunction<List, Object, List> {
     public static final /* synthetic */ ListAddBiConsumer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final ListAddBiConsumer INSTANCE;
@@ -37,7 +37,7 @@ public final class ListAddBiConsumer implements BiFunction {
         $VALUES = new ListAddBiConsumer[]{listAddBiConsumer};
     }
 
-    public static BiFunction instance() {
+    public static <T> BiFunction<List<T>, T, List<T>> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

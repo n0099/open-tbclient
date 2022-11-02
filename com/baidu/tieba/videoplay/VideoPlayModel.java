@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.oo4;
+import com.baidu.tieba.gp4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,9 +58,9 @@ public class VideoPlayModel extends BdBaseModel {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(List list, boolean z);
+        void a(List<VideoItemData> list, boolean z);
 
-        void b(List list, boolean z);
+        void b(List<VideoItemData> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,12 +121,12 @@ public class VideoPlayModel extends BdBaseModel {
             ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
             new ArrayList();
             if (responseGetNaniVideoMessage.getError() == 0) {
-                List videoItemDatas = responseGetNaniVideoMessage.getVideoItemDatas();
+                List<VideoItemData> videoItemDatas = responseGetNaniVideoMessage.getVideoItemDatas();
                 int i = 0;
                 while (i < videoItemDatas.size()) {
-                    ((VideoItemData) videoItemDatas.get(i)).setChannelMidRequestNum(this.a.c);
+                    videoItemDatas.get(i).setChannelMidRequestNum(this.a.c);
                     i++;
-                    ((VideoItemData) videoItemDatas.get(i)).setChannelMidRequestVideoNum(i);
+                    videoItemDatas.get(i).setChannelMidRequestVideoNum(i);
                 }
                 TbSingleton.getInstance().clearVideoRecord();
                 if (this.a.b != null) {
@@ -172,13 +172,13 @@ public class VideoPlayModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                fj.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c68));
+                xi.M(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c7f));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -252,16 +252,16 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<gp4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator it = videoRecordList.iterator();
+                        Iterator<gp4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            oo4 oo4Var = (oo4) it.next();
+                            gp4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("tid", oo4Var.a());
-                            jSONObject.put("duration", oo4Var.b());
+                            jSONObject.put("tid", next.a());
+                            jSONObject.put("duration", next.b());
                             jSONArray.put(jSONObject);
                         }
                     }
@@ -299,7 +299,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", ch5.a());
+        httpMessage.addParam("app_transmit_data", yh5.a());
         sendMessage(httpMessage);
     }
 
@@ -342,7 +342,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", ch5.a());
+            httpMessage.addParam("app_transmit_data", yh5.a());
             sendMessage(httpMessage);
         }
     }

@@ -120,16 +120,16 @@ public final class NewUser extends Message {
     public final WapRn wapRn;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<NewUser> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List appraise;
+        public List<Props> appraise;
         public String bgId;
         public String billboard;
         public String card;
@@ -149,14 +149,14 @@ public final class NewUser extends Message {
         public Integer isTenyear;
         public MparrProps mParrProps;
         public Integer meizhiLevel;
-        public List noticeMask;
+        public List<NoticeMask> noticeMask;
         public String paper;
         public ParrProps parrProps;
         public ParrScores parrScores;
         public String portraitTime;
-        public List rpgoldicon;
+        public List<Rpgoldicon> rpgoldicon;
         public Integer superboy;
-        public List tbmallMonthIcon;
+        public List<TbmallMonthIcon> tbmallMonthIcon;
         public String tbscoreRepeateFinishTime;
         public Integer useSig;
         public Long userId;
@@ -409,7 +409,7 @@ public final class NewUser extends Message {
             } else {
                 this.portraitTime = str6;
             }
-            List list = builder.appraise;
+            List<Props> list = builder.appraise;
             if (list == null) {
                 this.appraise = DEFAULT_APPRAISE;
             } else {
@@ -439,13 +439,13 @@ public final class NewUser extends Message {
             } else {
                 this.isQunSpring = num13;
             }
-            List list2 = builder.noticeMask;
+            List<NoticeMask> list2 = builder.noticeMask;
             if (list2 == null) {
                 this.noticeMask = DEFAULT_NOTICEMASK;
             } else {
                 this.noticeMask = Message.immutableCopyOf(list2);
             }
-            List list3 = builder.rpgoldicon;
+            List<Rpgoldicon> list3 = builder.rpgoldicon;
             if (list3 == null) {
                 this.rpgoldicon = DEFAULT_RPGOLDICON;
             } else {
@@ -463,7 +463,7 @@ public final class NewUser extends Message {
             } else {
                 this.cdnError = str9;
             }
-            List list4 = builder.tbmallMonthIcon;
+            List<TbmallMonthIcon> list4 = builder.tbmallMonthIcon;
             if (list4 == null) {
                 this.tbmallMonthIcon = DEFAULT_TBMALLMONTHICON;
             } else {

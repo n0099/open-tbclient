@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,10 +13,11 @@ public final class RealResponseBody extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long contentLength;
+    @Nullable
     public final String contentTypeString;
     public final InputStream inputStream;
 
-    public RealResponseBody(String str, long j, InputStream inputStream) {
+    public RealResponseBody(@Nullable String str, long j, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

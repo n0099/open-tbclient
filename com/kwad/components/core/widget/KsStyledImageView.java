@@ -1,13 +1,17 @@
 package com.kwad.components.core.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.components.core.m.j;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes7.dex */
 public class KsStyledImageView extends ImageView implements e {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +38,7 @@ public class KsStyledImageView extends ImageView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsStyledImageView(Context context, AttributeSet attributeSet) {
+    public KsStyledImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +59,7 @@ public class KsStyledImageView extends ImageView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsStyledImageView(Context context, AttributeSet attributeSet, int i) {
+    public KsStyledImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +80,8 @@ public class KsStyledImageView extends ImageView implements e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsStyledImageView(Context context, AttributeSet attributeSet, int i, int i2) {
+    @RequiresApi(api = 21)
+    public KsStyledImageView(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -44,7 +44,7 @@ public class GenericDraweeHierarchyBuilder {
     @Nullable
     public ScalingUtils.ScaleType mFailureImageScaleType;
     @Nullable
-    public List mOverlays;
+    public List<Drawable> mOverlays;
     @Nullable
     public Drawable mPlaceholderImage;
     @Nullable
@@ -180,7 +180,7 @@ public class GenericDraweeHierarchyBuilder {
     }
 
     @Nullable
-    public List getOverlays() {
+    public List<Drawable> getOverlays() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -446,7 +446,7 @@ public class GenericDraweeHierarchyBuilder {
         return (GenericDraweeHierarchyBuilder) invokeL.objValue;
     }
 
-    public GenericDraweeHierarchyBuilder setOverlays(@Nullable List list) {
+    public GenericDraweeHierarchyBuilder setOverlays(@Nullable List<Drawable> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, list)) == null) {

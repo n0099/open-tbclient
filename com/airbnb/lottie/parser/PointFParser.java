@@ -4,10 +4,11 @@ import android.graphics.PointF;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
 /* loaded from: classes.dex */
-public class PointFParser implements ValueParser {
+public class PointFParser implements ValueParser<PointF> {
     public static final PointFParser INSTANCE = new PointFParser();
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
     public PointF parse(JsonReader jsonReader, float f) throws IOException {
         JsonReader.Token peek = jsonReader.peek();

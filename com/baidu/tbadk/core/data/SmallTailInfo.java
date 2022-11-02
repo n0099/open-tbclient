@@ -97,7 +97,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             try {
                 this.showColorId = Color.parseColor(getShowColorText(this.color));
             } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1393)));
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b1)));
             }
         }
     }
@@ -118,9 +118,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040c) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1394) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040e) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b2) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040c) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040e) + str;
         }
         return (String) invokeL.objValue;
     }

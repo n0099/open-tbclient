@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.t23;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,105 +13,155 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gs1 extends fs1 {
+public abstract class gs1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public hs1 b;
 
-    @Override // com.baidu.tieba.pr1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(ew1 ew1Var);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gs1(nr1 nr1Var) {
-        super(nr1Var);
+    @NonNull
+    public abstract ew1 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
+
+    @NonNull
+    public abstract ew1 e(@NonNull JSONObject jSONObject);
+
+    public abstract boolean i();
+
+    /* loaded from: classes4.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ gs1 b;
+
+        public a(gs1 gs1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gs1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.gs1.b
+        public void a(ew1 ew1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ew1Var) == null) {
+                if (gs1.c) {
+                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + ew1Var.toString());
+                }
+                this.b.b.d(this.a, ew1Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804388, "Lcom/baidu/tieba/gs1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947804388, "Lcom/baidu/tieba/gs1;");
+                return;
+            }
+        }
+        c = ok1.a;
+    }
+
+    public gs1(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nr1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    public mv1 x() {
-        InterceptResult invokeV;
+    public ew1 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull hs1 hs1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#hideLoading", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new mv1(1001, "context not support");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, hs1Var)) == null) {
+            this.b = hs1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
             }
-            v22 X = ((SwanAppActivity) context).X();
-            if (X == null) {
-                return new mv1(1001, "none fragmentManger");
+            if (i()) {
+                return h(jSONObject);
             }
-            s22 m = X.m();
-            if (!(m instanceof t23.a)) {
-                return new mv1(1001, "fragment not support");
-            }
-            if (m.getContext() == null) {
-                return new mv1(1001, "fragment has detached");
-            }
-            u23.c(m);
-            m02.i("LoadingViewApi", "hide loading success");
-            return mv1.f();
+            return g(jSONObject, str);
         }
-        return (mv1) invokeV.objValue;
+        return (ew1) invokeLLL.objValue;
     }
 
-    public mv1 y(String str) {
+    public final ew1 g(@NonNull JSONObject jSONObject, @Nullable String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
+            }
+            ew1 d = d(jSONObject, new a(this, str));
+            if (!d.h("isSync", Boolean.FALSE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+                }
+                return new ew1(1001, "make result json error");
+            }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
+            }
+            return d;
+        }
+        return (ew1) invokeLL.objValue;
+    }
+
+    public final ew1 h(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#showLoading", false);
-            if (n()) {
-                m02.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
-                return new mv1(1001, "LoadingViewApi does not supported when app is invisible.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
             }
-            Pair s = s(str);
-            mv1 mv1Var = (mv1) s.first;
-            if (!mv1Var.isSuccess()) {
-                return mv1Var;
+            ew1 e = e(jSONObject);
+            if (!e.h("isSync", Boolean.TRUE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
+                }
+                return new ew1(1001, "make result json error");
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            m02.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
-            String optString = jSONObject.optString("title");
-            if (TextUtils.isEmpty(optString)) {
-                return new mv1(202, "none title");
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
             }
-            boolean optBoolean = jSONObject.optBoolean("mask", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new mv1(1001, "context not support");
-            }
-            v22 X = ((SwanAppActivity) context).X();
-            if (X == null) {
-                return new mv1(1001, "none fragment");
-            }
-            s22 m = X.m();
-            if (!(m instanceof t23.a)) {
-                return new mv1(1001, "fragment not support");
-            }
-            t23 d = ((t23.a) m).d();
-            if (d == null) {
-                return new mv1(1001, "can't get floatLayer");
-            }
-            u23.f(d, context, optString, optBoolean);
-            m02.i("LoadingViewApi", "show loading success");
-            return mv1.f();
+            return e;
         }
-        return (mv1) invokeL.objValue;
+        return (ew1) invokeL.objValue;
     }
 }

@@ -1,6 +1,9 @@
 package com.baidu.searchbox.bddownload;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -23,6 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class BdDownload {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
     public static volatile BdDownload singleton;
     public transient /* synthetic */ FieldHolder $fh;
     public final BreakpointStore breakpointStore;
@@ -31,13 +35,15 @@ public class BdDownload {
     public final Context context;
     public final DownloadDispatcher downloadDispatcher;
     public final DownloadStrategy downloadStrategy;
+    @Nullable
     public DownloadMonitor monitor;
     public final DownloadOutputStream.Factory outputStreamFactory;
     public final ProcessFileStrategy processFileStrategy;
+    @Nullable
     public IBDDownloadStatistic statistic;
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IBDDownloadStatistic bdDownloadStatistic;
@@ -51,7 +57,7 @@ public class BdDownload {
         public DownloadOutputStream.Factory outputStreamFactory;
         public ProcessFileStrategy processFileStrategy;
 
-        public Builder(Context context) {
+        public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +226,7 @@ public class BdDownload {
         downloadDispatcher.setDownloadStore(Util.createRemitDatabase(downloadStore));
     }
 
-    public static void setSingletonInstance(BdDownload bdDownload) {
+    public static void setSingletonInstance(@NonNull BdDownload bdDownload) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bdDownload) == null) {
             if (singleton == null) {
@@ -312,6 +318,7 @@ public class BdDownload {
         return (DownloadStrategy) invokeV.objValue;
     }
 
+    @Nullable
     public DownloadMonitor getMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,14 +355,14 @@ public class BdDownload {
         return (ProcessFileStrategy) invokeV.objValue;
     }
 
-    public void setBDDownloadStatistic(IBDDownloadStatistic iBDDownloadStatistic) {
+    public void setBDDownloadStatistic(@Nullable IBDDownloadStatistic iBDDownloadStatistic) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iBDDownloadStatistic) == null) {
             this.statistic = iBDDownloadStatistic;
         }
     }
 
-    public void setMonitor(DownloadMonitor downloadMonitor) {
+    public void setMonitor(@Nullable DownloadMonitor downloadMonitor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, downloadMonitor) == null) {
             this.monitor = downloadMonitor;

@@ -23,19 +23,19 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
+public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function handler;
+    public final Function<? super Flowable<Object>, ? extends Publisher<?>> handler;
 
     /* loaded from: classes8.dex */
-    public final class RepeatWhenSubscriber extends WhenSourceSubscriber {
+    public static final class RepeatWhenSubscriber<T> extends WhenSourceSubscriber<T, Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2680129890138081029L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RepeatWhenSubscriber(Subscriber subscriber, FlowableProcessor flowableProcessor, Subscription subscription) {
+        public RepeatWhenSubscriber(Subscriber<? super T> subscriber, FlowableProcessor<Object> flowableProcessor, Subscription subscription) {
             super(subscriber, flowableProcessor, subscription);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -74,16 +74,16 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class WhenReceiver extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class WhenReceiver<T, U> extends AtomicInteger implements FlowableSubscriber<Object>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2827772011130406689L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicLong requested;
-        public final Publisher source;
-        public WhenSourceSubscriber subscriber;
-        public final AtomicReference subscription;
+        public final Publisher<T> source;
+        public WhenSourceSubscriber<T, U> subscriber;
+        public final AtomicReference<Subscription> subscription;
 
-        public WhenReceiver(Publisher publisher) {
+        public WhenReceiver(Publisher<T> publisher) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
                 }
             }
             this.source = publisher;
-            this.subscription = new AtomicReference();
+            this.subscription = new AtomicReference<>();
             this.requested = new AtomicLong();
         }
 
@@ -133,7 +133,7 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && getAndIncrement() == 0) {
-                while (!SubscriptionHelper.isCancelled((Subscription) this.subscription.get())) {
+                while (!SubscriptionHelper.isCancelled(this.subscription.get())) {
                     this.source.subscribe(this.subscriber);
                     if (decrementAndGet() == 0) {
                         return;
@@ -160,16 +160,16 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class WhenSourceSubscriber extends SubscriptionArbiter implements FlowableSubscriber {
+    public static abstract class WhenSourceSubscriber<T, U> extends SubscriptionArbiter implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5604623027276966720L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final FlowableProcessor processor;
+        public final Subscriber<? super T> actual;
+        public final FlowableProcessor<U> processor;
         public long produced;
         public final Subscription receiver;
 
-        public WhenSourceSubscriber(Subscriber subscriber, FlowableProcessor flowableProcessor, Subscription subscription) {
+        public WhenSourceSubscriber(Subscriber<? super T> subscriber, FlowableProcessor<U> flowableProcessor, Subscription subscription) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,25 +189,25 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
             this.receiver = subscription;
         }
 
-        public final void again(Object obj) {
+        public final void again(U u) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, u) == null) {
                 long j = this.produced;
                 if (j != 0) {
                     this.produced = 0L;
                     produced(j);
                 }
                 this.receiver.request(1L);
-                this.processor.onNext(obj);
+                this.processor.onNext(u);
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public final void onNext(Object obj) {
+        public final void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 this.produced++;
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             }
         }
 
@@ -230,7 +230,7 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableRepeatWhen(Flowable flowable, Function function) {
+    public FlowableRepeatWhen(Flowable<T> flowable, Function<? super Flowable<Object>, ? extends Publisher<?>> function) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -251,11 +251,11 @@ public final class FlowableRepeatWhen extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);
-            FlowableProcessor serialized = UnicastProcessor.create(8).toSerialized();
+            FlowableProcessor<T> serialized = UnicastProcessor.create(8).toSerialized();
             try {
                 Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.handler.apply(serialized), "handler returned a null Publisher");
                 WhenReceiver whenReceiver = new WhenReceiver(this.source);

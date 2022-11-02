@@ -2,6 +2,8 @@ package com.kwad.sdk.collector;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.kwad.sdk.core.network.BaseResultData;
@@ -27,28 +29,28 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     public AppStatusInfo data = new AppStatusInfo();
 
     /* loaded from: classes7.dex */
-    public class AppStatusInfo implements com.kwad.sdk.core.b, Serializable {
+    public static class AppStatusInfo implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -2403646317801179050L;
-        public ArrayList namedStrategy;
+        public ArrayList<Strategy> namedStrategy;
         public Strategy strategy;
-        public ArrayList target;
+        public ArrayList<com.kwad.sdk.collector.model.d> target;
         public UploadConfig uploadConfig;
-        public ArrayList uploadTarget;
+        public ArrayList<com.kwad.sdk.collector.model.d> uploadTarget;
 
         public AppStatusInfo() {
             this.strategy = new Strategy();
-            this.target = new ArrayList();
-            this.namedStrategy = new ArrayList();
-            this.uploadTarget = new ArrayList();
+            this.target = new ArrayList<>();
+            this.namedStrategy = new ArrayList<>();
+            this.uploadTarget = new ArrayList<>();
             this.uploadConfig = new UploadConfig();
         }
 
         private void duplicateTarget() {
-            Set targetPackages = this.strategy.getTargetPackages();
+            Set<String> targetPackages = this.strategy.getTargetPackages();
             HashSet hashSet = new HashSet();
-            Iterator it = this.namedStrategy.iterator();
+            Iterator<Strategy> it = this.namedStrategy.iterator();
             while (it.hasNext()) {
-                hashSet.addAll(((Strategy) it.next()).getTargetPackages());
+                hashSet.addAll(it.next().getTargetPackages());
             }
             targetPackages.retainAll(hashSet);
             this.strategy.removeTargetsByPackage(targetPackages);
@@ -59,7 +61,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
 
         @Override // com.kwad.sdk.core.b
-        public void parseJson(JSONObject jSONObject) {
+        public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
@@ -76,7 +78,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 JSONObject optJSONObject = jSONObject.optJSONObject("strategy");
                 JSONArray optJSONArray = jSONObject.optJSONArray("target");
                 this.strategy.parseJson(optJSONObject);
-                ArrayList d = com.kwad.sdk.collector.model.c.d(optJSONArray);
+                ArrayList<com.kwad.sdk.collector.model.d> d = com.kwad.sdk.collector.model.c.d(optJSONArray);
                 this.target = d;
                 this.strategy.setTarget(d);
                 duplicateTarget();
@@ -98,7 +100,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     /* loaded from: classes7.dex */
-    public class Strategy implements com.kwad.sdk.core.b, Serializable {
+    public static class Strategy implements com.kwad.sdk.core.b, Serializable {
         public static Strategy LOCAL_DEFAULT = null;
         public static final long serialVersionUID = -1387498537762043285L;
         public long minLaunchInterval;
@@ -106,7 +108,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         public long startTime = 86400000;
         public long historyGranularity = 60000;
         public String name = null;
-        public HashMap targetMap = new HashMap();
+        public HashMap<String, com.kwad.sdk.collector.model.d> targetMap = new HashMap<>();
         public boolean needLaunch = true;
         public long needSaveLaunchTime = -1;
 
@@ -117,8 +119,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             LOCAL_DEFAULT.setHistoryGranularity(60000L);
         }
 
-        public static ArrayList createFromJSONArray(JSONArray jSONArray) {
-            ArrayList arrayList = new ArrayList();
+        public static ArrayList<Strategy> createFromJSONArray(JSONArray jSONArray) {
+            ArrayList<Strategy> arrayList = new ArrayList<>();
             if (jSONArray != null && jSONArray.length() != 0) {
                 int length = jSONArray.length();
                 for (int i = 0; i < length; i++) {
@@ -161,11 +163,11 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             return this.startTime * 1000;
         }
 
-        public ArrayList getTarget() {
-            return new ArrayList(this.targetMap.values());
+        public ArrayList<com.kwad.sdk.collector.model.d> getTarget() {
+            return new ArrayList<>(this.targetMap.values());
         }
 
-        public Set getTargetPackages() {
+        public Set<String> getTargetPackages() {
             Collection<com.kwad.sdk.collector.model.d> values = this.targetMap.values();
             HashSet hashSet = new HashSet();
             for (com.kwad.sdk.collector.model.d dVar : values) {
@@ -179,7 +181,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
 
         @Override // com.kwad.sdk.core.b
-        public void parseJson(JSONObject jSONObject) {
+        public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
@@ -200,10 +202,9 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             }
         }
 
-        public void removeTargetsByPackage(Collection collection) {
-            Iterator it = collection.iterator();
-            while (it.hasNext()) {
-                this.targetMap.remove((String) it.next());
+        public void removeTargetsByPackage(Collection<String> collection) {
+            for (String str : collection) {
+                this.targetMap.remove(str);
             }
         }
 
@@ -227,15 +228,15 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             this.startTime = j;
         }
 
-        public void setTarget(ArrayList arrayList) {
+        public void setTarget(ArrayList<com.kwad.sdk.collector.model.d> arrayList) {
             if (arrayList == null) {
                 this.targetMap.clear();
                 return;
             }
-            Iterator it = arrayList.iterator();
+            Iterator<com.kwad.sdk.collector.model.d> it = arrayList.iterator();
             while (it.hasNext()) {
-                com.kwad.sdk.collector.model.d dVar = (com.kwad.sdk.collector.model.d) it.next();
-                this.targetMap.put(com.kwad.sdk.collector.model.c.a(dVar), dVar);
+                com.kwad.sdk.collector.model.d next = it.next();
+                this.targetMap.put(com.kwad.sdk.collector.model.c.a(next), next);
             }
         }
 
@@ -255,13 +256,13 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     /* loaded from: classes7.dex */
-    public class UploadConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    public static class UploadConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final int DEFAULT_FILE_MAX_SIZE = 102400;
         public static final long serialVersionUID = 8541150615721258815L;
         public long fileMaxSize = ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
 
         @Override // com.kwad.sdk.core.response.kwai.a
-        public void afterParseJson(JSONObject jSONObject) {
+        public void afterParseJson(@Nullable JSONObject jSONObject) {
             super.afterParseJson(jSONObject);
             if (this.fileMaxSize < 0) {
                 this.fileMaxSize = ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
@@ -269,7 +270,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
 
         @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
-        public void parseJson(JSONObject jSONObject) {
+        public void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.fileMaxSize = jSONObject.optLong("fileMaxSize");
             }
@@ -284,6 +285,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         }
     }
 
+    @NonNull
     public static AppStatusRules createFromJson(String str) {
         AppStatusRules appStatusRules = new AppStatusRules();
         if (TextUtils.isEmpty(str)) {
@@ -302,17 +304,17 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             return false;
         }
         boolean targetNotEmpty = appStatusRules.targetNotEmpty();
-        List obtainNamedStrategyList = appStatusRules.obtainNamedStrategyList();
+        List<Strategy> obtainNamedStrategyList = appStatusRules.obtainNamedStrategyList();
         return targetNotEmpty || (obtainNamedStrategyList != null && obtainNamedStrategyList.size() > 0);
     }
 
     public static boolean isUploadTargetNotEmpty(AppStatusRules appStatusRules) {
-        List uploadTargets;
+        List<com.kwad.sdk.collector.model.d> uploadTargets;
         return (appStatusRules == null || (uploadTargets = appStatusRules.getUploadTargets()) == null || uploadTargets.size() <= 0) ? false : true;
     }
 
-    public ArrayList getAllStrategy() {
-        ArrayList arrayList = new ArrayList();
+    public ArrayList<Strategy> getAllStrategy() {
+        ArrayList<Strategy> arrayList = new ArrayList<>();
         if (this.data.strategy != null) {
             arrayList.add(this.data.strategy);
         }
@@ -322,7 +324,8 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         return arrayList;
     }
 
-    public List getUploadTargets() {
+    @Nullable
+    public List<com.kwad.sdk.collector.model.d> getUploadTargets() {
         AppStatusInfo appStatusInfo = this.data;
         if (appStatusInfo == null) {
             return null;
@@ -331,10 +334,10 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     public void initStatus(Context context) {
-        Iterator it = getAllStrategy().iterator();
+        Iterator<Strategy> it = getAllStrategy().iterator();
         while (it.hasNext()) {
-            Strategy strategy = (Strategy) it.next();
-            strategy.setNeedLaunch(i.a(context, strategy));
+            Strategy next = it.next();
+            next.setNeedLaunch(i.a(context, next));
         }
     }
 
@@ -355,7 +358,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         return appStatusInfo.strategy;
     }
 
-    public List obtainNamedStrategyList() {
+    public List<Strategy> obtainNamedStrategyList() {
         AppStatusInfo appStatusInfo = this.data;
         if (appStatusInfo == null) {
             return null;
@@ -369,7 +372,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
-    public void parseJson(JSONObject jSONObject) {
+    public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
         if (jSONObject == null) {
             return;

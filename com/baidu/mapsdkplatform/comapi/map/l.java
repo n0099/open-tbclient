@@ -1,50 +1,30 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
-import android.graphics.Bitmap;
-import android.view.MotionEvent;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import javax.microedition.khronos.opengles.GL10;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public interface l {
-    void a();
+public class l extends z {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(Bitmap bitmap);
-
-    void a(MotionEvent motionEvent);
-
-    void a(GeoPoint geoPoint);
-
-    void a(ab abVar);
-
-    void a(String str);
-
-    void a(GL10 gl10, ab abVar);
-
-    void a(boolean z);
-
-    void a(boolean z, int i);
-
-    void b();
-
-    void b(GeoPoint geoPoint);
-
-    void b(ab abVar);
-
-    boolean b(String str);
-
-    void c();
-
-    void c(GeoPoint geoPoint);
-
-    void c(ab abVar);
-
-    void d();
-
-    void d(GeoPoint geoPoint);
-
-    void e();
-
-    void e(GeoPoint geoPoint);
-
-    void f();
+    public l() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = 6;
+        this.b = "tile";
+        this.d = 500;
+        this.e = 89076;
+    }
 }

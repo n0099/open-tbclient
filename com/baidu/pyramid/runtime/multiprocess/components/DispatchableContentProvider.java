@@ -17,7 +17,7 @@ import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df1;
+import com.baidu.tieba.vf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,14 +34,14 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-    public ArrayList b;
+    public ArrayList<vf1> b;
     public String c;
     public volatile boolean d;
     public final Object e;
 
     public abstract String b();
 
-    public abstract List c();
+    public abstract List<vf1> c();
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -54,7 +54,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
     }
 
     /* loaded from: classes2.dex */
-    public class a extends UriMatcher {
+    public static class a extends UriMatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -117,7 +117,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         this.e = new Object();
     }
 
-    public final df1 a(int i) {
+    public final vf1 a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -125,11 +125,11 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             int i2 = 0;
             while (i2 <= size) {
                 int i3 = (i2 + size) / 2;
-                df1 df1Var = (df1) this.b.get(i3);
-                if (i >= df1Var.h() && i <= df1Var.g()) {
-                    return df1Var;
+                vf1 vf1Var = this.b.get(i3);
+                if (i >= vf1Var.h() && i <= vf1Var.g()) {
+                    return vf1Var;
                 }
-                if (i < df1Var.h()) {
+                if (i < vf1Var.h()) {
                     size = i3 - 1;
                 } else {
                     i2 = i3 + 1;
@@ -137,13 +137,13 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (df1) invokeI.objValue;
+        return (vf1) invokeI.objValue;
     }
 
     @Override // android.content.ContentProvider
-    public ContentProviderResult[] applyBatch(ArrayList arrayList) throws OperationApplicationException {
+    public ContentProviderResult[] applyBatch(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
         InterceptResult invokeL;
-        df1 a2;
+        vf1 a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
             d();
@@ -151,10 +151,10 @@ public abstract class DispatchableContentProvider extends ContentProvider {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            Iterator it = arrayList.iterator();
+            Iterator<ContentProviderOperation> it = arrayList.iterator();
             while (it.hasNext()) {
-                ContentProviderOperation contentProviderOperation = (ContentProviderOperation) it.next();
-                Uri uri = contentProviderOperation.getUri();
+                ContentProviderOperation next = it.next();
+                Uri uri = next.getUri();
                 if (uri != null && (a2 = a(this.a.match(uri))) != null) {
                     a2.e(uri, 0);
                     ArrayList arrayList2 = (ArrayList) hashMap.get(a2);
@@ -162,12 +162,12 @@ public abstract class DispatchableContentProvider extends ContentProvider {
                         arrayList2 = new ArrayList();
                         hashMap.put(a2, arrayList2);
                     }
-                    arrayList2.add(contentProviderOperation);
+                    arrayList2.add(next);
                 }
             }
             ArrayList arrayList3 = new ArrayList();
             for (Map.Entry entry : hashMap.entrySet()) {
-                for (ContentProviderResult contentProviderResult : ((df1) entry.getKey()).a((ArrayList) entry.getValue())) {
+                for (ContentProviderResult contentProviderResult : ((vf1) entry.getKey()).a((ArrayList) entry.getValue())) {
                     arrayList3.add(contentProviderResult);
                 }
             }
@@ -186,9 +186,9 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, providerInfo) == null) {
             d();
-            Iterator it = this.b.iterator();
+            Iterator<vf1> it = this.b.iterator();
             while (it.hasNext()) {
-                ((df1) it.next()).b(this);
+                it.next().b(this);
             }
             super.attachInfo(context, providerInfo);
         }
@@ -201,7 +201,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uri, contentValuesArr)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 6);
                 return a2.c(match, uri, contentValuesArr);
@@ -218,7 +218,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, uri, contentValues)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 1);
                 return a2.insert(match, uri, contentValues);
@@ -235,7 +235,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, uri, str)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 7);
                 a2.k(match, uri, str);
@@ -253,7 +253,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, uri, str)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.m(match, uri, str);
                 throw null;
@@ -269,12 +269,12 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, bundle)) == null) {
             d();
-            Iterator it = this.b.iterator();
+            Iterator<vf1> it = this.b.iterator();
             while (it.hasNext()) {
-                df1 df1Var = (df1) it.next();
-                if (df1Var.d(str, str2, bundle)) {
-                    df1Var.e(null, 3);
-                    return df1Var.call(str, str2, bundle);
+                vf1 next = it.next();
+                if (next.d(str, str2, bundle)) {
+                    next.e(null, 3);
+                    return next.call(str, str2, bundle);
                 }
             }
             return null;
@@ -296,19 +296,19 @@ public abstract class DispatchableContentProvider extends ContentProvider {
             this.c = b;
             if (b != null) {
                 this.a = new a(-1);
-                this.b = new ArrayList();
-                List<df1> c = c();
+                this.b = new ArrayList<>();
+                List<vf1> c = c();
                 if (c != null) {
-                    for (df1 df1Var : c) {
-                        e(df1Var);
-                        this.a.b = df1Var.h();
-                        this.a.a = df1Var.g();
-                        df1Var.f(this.a, this.c);
+                    for (vf1 vf1Var : c) {
+                        e(vf1Var);
+                        this.a.b = vf1Var.h();
+                        this.a.a = vf1Var.g();
+                        vf1Var.f(this.a, this.c);
                     }
                 }
-                Iterator it = this.b.iterator();
+                Iterator<vf1> it = this.b.iterator();
                 while (it.hasNext()) {
-                    ((df1) it.next()).j();
+                    it.next().j();
                 }
                 return;
             }
@@ -323,7 +323,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, str, strArr)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 5);
                 return a2.delete(match, uri, str, strArr);
@@ -340,7 +340,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, uri, str, cancellationSignal)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 7);
                 a2.l(match, uri, str, cancellationSignal);
@@ -351,21 +351,21 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         return (AssetFileDescriptor) invokeLLL.objValue;
     }
 
-    public final void e(df1 df1Var) {
+    public final void e(vf1 vf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, df1Var) == null) {
-            if (df1Var.h() <= df1Var.g()) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, vf1Var) == null) {
+            if (vf1Var.h() <= vf1Var.g()) {
                 int size = this.b.size();
                 int i = 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    if (df1Var.h() > ((df1) this.b.get(i2)).g()) {
+                    if (vf1Var.h() > this.b.get(i2).g()) {
                         i = i2 + 1;
                     }
                 }
-                if (i < size - 1 && df1Var.g() >= ((df1) this.b.get(i)).h()) {
+                if (i < size - 1 && vf1Var.g() >= this.b.get(i).h()) {
                     throw new IllegalArgumentException();
                 }
-                this.b.add(i, df1Var);
+                this.b.add(i, vf1Var);
                 return;
             }
             throw new IllegalArgumentException();
@@ -379,7 +379,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, uri)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 4);
                 return a2.getType(match, uri);
@@ -395,9 +395,9 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
             d();
             super.onConfigurationChanged(configuration);
-            Iterator it = this.b.iterator();
+            Iterator<vf1> it = this.b.iterator();
             while (it.hasNext()) {
-                ((df1) it.next()).i(configuration);
+                it.next().i(configuration);
             }
         }
     }
@@ -409,7 +409,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048593, this, uri, strArr, str, strArr2, str2)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 0);
                 return a2.query(match, uri, strArr, str, strArr2, str2);
@@ -426,7 +426,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 0);
                 return a2.query(match, uri, strArr, str, strArr2, str2, cancellationSignal);
@@ -443,7 +443,7 @@ public abstract class DispatchableContentProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048595, this, uri, contentValues, str, strArr)) == null) {
             d();
             int match = this.a.match(uri);
-            df1 a2 = a(match);
+            vf1 a2 = a(match);
             if (a2 != null) {
                 a2.e(uri, 2);
                 return a2.update(match, uri, contentValues, str, strArr);

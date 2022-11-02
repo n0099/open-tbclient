@@ -1,49 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.xx9;
+import android.media.MediaRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.webrtc.CameraVideoCapturer;
+/* compiled from: CameraVideoCapturer.java */
 /* loaded from: classes6.dex */
-public final class xy9 implements xx9.a {
+public final /* synthetic */ class xy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xx9.a a;
-    public final xx9.b b;
 
-    public xy9(xx9.a aVar, xx9.b bVar) {
+    @Deprecated
+    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
-        this.a = aVar;
-        this.b = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx9.a, com.baidu.tieba.ly9
-    public void call(dy9 dy9Var) {
+    @Deprecated
+    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dy9Var) == null) {
-            try {
-                dy9 dy9Var2 = (dy9) e2a.n(this.b).call(dy9Var);
-                dy9Var2.d();
-                this.a.call(dy9Var2);
-            } catch (Throwable th) {
-                jy9.e(th);
-                dy9Var.onError(th);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
     }
 }

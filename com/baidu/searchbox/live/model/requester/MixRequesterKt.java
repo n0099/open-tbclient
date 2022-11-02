@@ -40,7 +40,7 @@ public final class MixRequesterKt {
     public static final String SIGN_SUFFIX2 = "CtmXzYPtdE58nCCcvqM0ectyqW3N5rfY";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String addCommonParameters(String str, boolean z, Map map) {
+    public static final String addCommonParameters(String str, boolean z, Map<String, String> map) {
         InterceptResult invokeCommon;
         String fullUrl;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public final class MixRequesterKt {
         return (String) invokeCommon.objValue;
     }
 
-    public static final Map addLiveCommonParameters(Map map, Map map2) {
+    public static final Map<String, String> addLiveCommonParameters(Map<String, String> map, Map<String, String> map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, map2)) == null) {
@@ -83,7 +83,7 @@ public final class MixRequesterKt {
         return (Map) invokeLL.objValue;
     }
 
-    public static final String genParamSign(Map map, Map map2) {
+    public static final String genParamSign(Map<String, ? extends Object> map, Map<String, ? extends Object> map2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, map, map2)) == null) {
@@ -113,7 +113,7 @@ public final class MixRequesterKt {
         return (String) invokeLL.objValue;
     }
 
-    public static final String addLiveCommonToUrl(String str, Map map) {
+    public static final String addLiveCommonToUrl(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
@@ -128,7 +128,7 @@ public final class MixRequesterKt {
         return (String) invokeLL.objValue;
     }
 
-    public static final String addQueryParamsToUrl(String str, Map map) {
+    public static final String addQueryParamsToUrl(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map)) == null) {
@@ -140,43 +140,21 @@ public final class MixRequesterKt {
         return (String) invokeLL.objValue;
     }
 
-    public static final StringBuffer addParamsToStringBuffer(StringBuffer stringBuffer, ArrayList arrayList) {
+    public static final StringBuffer addParamsToStringBuffer(StringBuffer stringBuffer, ArrayList<Map.Entry<String, String>> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, stringBuffer, arrayList)) == null) {
             if (arrayList != null && !arrayList.isEmpty()) {
-                Iterator it = arrayList.iterator();
+                Iterator<Map.Entry<String, String>> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String str = (String) entry.getKey();
-                    String str2 = (String) entry.getValue();
-                    if (str2 == null) {
-                        str2 = "";
+                    Map.Entry<String, String> next = it.next();
+                    String key = next.getKey();
+                    String value = next.getValue();
+                    if (value == null) {
+                        value = "";
                     }
-                    if (!Intrinsics.areEqual("sign", str)) {
-                        stringBuffer.append(str);
-                        stringBuffer.append("=");
-                        stringBuffer.append(str2);
-                    }
-                }
-            }
-            return stringBuffer;
-        }
-        return (StringBuffer) invokeLL.objValue;
-    }
-
-    public static final StringBuffer genParamsStringBuffer(StringBuffer stringBuffer, ArrayList arrayList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, stringBuffer, arrayList)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String str = (String) entry.getKey();
-                    Object value = entry.getValue();
-                    if (!Intrinsics.areEqual("sign", str)) {
-                        stringBuffer.append(str);
+                    if (!Intrinsics.areEqual("sign", key)) {
+                        stringBuffer.append(key);
                         stringBuffer.append("=");
                         stringBuffer.append(value);
                     }
@@ -187,37 +165,59 @@ public final class MixRequesterKt {
         return (StringBuffer) invokeLL.objValue;
     }
 
-    public static final void fetchData(String str, Map map, MixNetCallback mixNetCallback, int i, int i2, boolean z, Map map2, boolean z2) {
+    public static final StringBuffer genParamsStringBuffer(StringBuffer stringBuffer, ArrayList<Map.Entry<String, Object>> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, stringBuffer, arrayList)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                Iterator<Map.Entry<String, Object>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Map.Entry<String, Object> next = it.next();
+                    String key = next.getKey();
+                    Object value = next.getValue();
+                    if (!Intrinsics.areEqual("sign", key)) {
+                        stringBuffer.append(key);
+                        stringBuffer.append("=");
+                        stringBuffer.append(value);
+                    }
+                }
+            }
+            return stringBuffer;
+        }
+        return (StringBuffer) invokeLL.objValue;
+    }
+
+    public static final <T> void fetchData(String str, Map<String, String> map, MixNetCallback<T> mixNetCallback, int i, int i2, boolean z, Map<String, String> map2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, map, mixNetCallback, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), map2, Boolean.valueOf(z2)}) == null) {
             if (isParamSwitchOn()) {
-                Map map3 = null;
+                Map<String, Object> map3 = null;
                 if (z) {
                     MixNetwork mixNetwork = new MixNetwork();
                     mixNetwork.setUrl(addQueryParamsToUrl(str, map2));
                     mixNetwork.setExtra(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, Integer.valueOf(i)), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, Integer.valueOf(i2))));
-                    Map urlParamsFromUrl = getUrlParamsFromUrl(addLiveCommonToUrl(str, null));
+                    Map<String, String> urlParamsFromUrl = getUrlParamsFromUrl(addLiveCommonToUrl(str, null));
                     MixRequestCommonParamsService mixRequestCommonParamsService = (MixRequestCommonParamsService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestCommonParamsService.class);
                     if (mixRequestCommonParamsService != null) {
                         map3 = mixRequestCommonParamsService.getCommonParams();
                     }
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     if (urlParamsFromUrl != null) {
-                        for (Map.Entry entry : urlParamsFromUrl.entrySet()) {
-                            Object key = entry.getKey();
-                            String str2 = (String) entry.getValue();
-                            if (str2 == null) {
-                                str2 = "";
+                        for (Map.Entry<String, String> entry : urlParamsFromUrl.entrySet()) {
+                            String key = entry.getKey();
+                            String value = entry.getValue();
+                            if (value == null) {
+                                value = "";
                             }
-                            linkedHashMap.put(key, str2);
+                            linkedHashMap.put(key, value);
                         }
                     }
                     if (map3 != null) {
-                        for (Map.Entry entry2 : map3.entrySet()) {
+                        for (Map.Entry<String, Object> entry2 : map3.entrySet()) {
                             linkedHashMap.put(entry2.getKey(), entry2.getValue());
                         }
                     }
-                    for (Map.Entry entry3 : transformMap(map).entrySet()) {
+                    for (Map.Entry<String, Object> entry3 : transformMap(map).entrySet()) {
                         linkedHashMap.put(entry3.getKey(), entry3.getValue());
                     }
                     linkedHashMap.put("sign", genParamSign(map2, linkedHashMap));
@@ -227,26 +227,26 @@ public final class MixRequesterKt {
                 MixNetwork mixNetwork2 = new MixNetwork();
                 mixNetwork2.setUrl(addQueryParamsToUrl(str, map2));
                 mixNetwork2.setExtra(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, Integer.valueOf(i)), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, Integer.valueOf(i2))));
-                Map urlParamsFromUrl2 = getUrlParamsFromUrl(addCommonParameters(str, z, null));
+                Map<String, String> urlParamsFromUrl2 = getUrlParamsFromUrl(addCommonParameters(str, z, null));
                 LinkedHashMap linkedHashMap2 = new LinkedHashMap();
                 if (urlParamsFromUrl2 != null) {
-                    for (Map.Entry entry4 : urlParamsFromUrl2.entrySet()) {
-                        Object key2 = entry4.getKey();
-                        String str3 = (String) entry4.getValue();
-                        if (str3 == null) {
-                            str3 = "";
+                    for (Map.Entry<String, String> entry4 : urlParamsFromUrl2.entrySet()) {
+                        String key2 = entry4.getKey();
+                        String value2 = entry4.getValue();
+                        if (value2 == null) {
+                            value2 = "";
                         }
-                        linkedHashMap2.put(key2, str3);
+                        linkedHashMap2.put(key2, value2);
                     }
                 }
-                for (Map.Entry entry5 : transformMap(map).entrySet()) {
+                for (Map.Entry<String, Object> entry5 : transformMap(map).entrySet()) {
                     linkedHashMap2.put(entry5.getKey(), entry5.getValue());
                 }
                 mixNetwork2.post(linkedHashMap2, mixNetCallback, z2);
             } else if (z) {
                 MixNetwork mixNetwork3 = new MixNetwork();
                 String addLiveCommonToUrl = addLiveCommonToUrl(str, map2);
-                Map addLiveCommonParameters = addLiveCommonParameters(map, getUrlParamsFromUrl(addLiveCommonToUrl));
+                Map<String, String> addLiveCommonParameters = addLiveCommonParameters(map, getUrlParamsFromUrl(addLiveCommonToUrl));
                 mixNetwork3.setExtra(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, Integer.valueOf(i)), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, Integer.valueOf(i2))));
                 mixNetwork3.setUrl(addLiveCommonToUrl);
                 mixNetwork3.post(transformMap(MapsKt__MapsKt.plus(new HashMap(addLiveCommonParameters), map)), mixNetCallback, z2);
@@ -294,7 +294,7 @@ public final class MixRequesterKt {
         fetchData(str, map, mixNetCallback, i4, i5, z3, map3, z4);
     }
 
-    public static final String genSignParamsStr(Map map, Map map2, Map map3) {
+    public static final String genSignParamsStr(Map<String, String> map, Map<String, String> map2, Map<String, String> map3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, map, map2, map3)) == null) {
@@ -327,7 +327,7 @@ public final class MixRequesterKt {
         return (String) invokeLLL.objValue;
     }
 
-    public static final Map getUrlParamsFromUrl(String str) {
+    public static final Map<String, String> getUrlParamsFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
@@ -353,16 +353,16 @@ public final class MixRequesterKt {
         return invokeV.booleanValue;
     }
 
-    public static final Map transformMap(Map map) {
+    public static final Map<String, Object> transformMap(Map<String, String> map) {
         InterceptResult invokeL;
-        String str;
+        String key;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, map)) == null) {
             HashMap hashMap = new HashMap();
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    if (entry != null && (str = (String) entry.getKey()) != null) {
-                        hashMap.put(str, entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (entry != null && (key = entry.getKey()) != null) {
+                        hashMap.put(key, entry.getValue());
                     }
                 }
             }

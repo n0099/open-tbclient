@@ -26,12 +26,12 @@ public class MzPushMessage implements Serializable {
         return mzPushMessage;
     }
 
-    public static String selfDefineContentString(String str, Map map) {
+    public static String selfDefineContentString(String str, Map<String, String> map) {
         if (TextUtils.isEmpty(str)) {
             if (map != null) {
-                str = (String) map.get("sk");
+                str = map.get("sk");
                 if (TextUtils.isEmpty(str)) {
-                    str = e.a(map).toString();
+                    str = e.a((Map) map).toString();
                 }
             } else {
                 str = null;

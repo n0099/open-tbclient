@@ -12,7 +12,7 @@ import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
 /* loaded from: classes4.dex */
-public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage {
+public class GetLevelInfoReadCacheResponsedMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DataRes mResult;

@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
@@ -68,7 +71,7 @@ public abstract class a extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(Context context, AttributeSet attributeSet) {
+    public a(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,7 +92,7 @@ public abstract class a extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, AttributeSet attributeSet, int i) {
+    public a(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -114,19 +117,19 @@ public abstract class a extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-            this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091056);
-            this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091058);
-            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091059);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091055);
-            this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091057);
-            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09108c);
+            this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091090);
+            this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091092);
+            this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091093);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f09108f);
+            this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091091);
+            TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910c6);
             this.wZ = textProgressBar;
             textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
             this.wZ.setTextColor(-1);
-            this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091154);
-            this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09114e);
-            this.up = (Button) findViewById(R.id.obfuscated_res_0x7f091150);
-            this.un = findViewById(R.id.obfuscated_res_0x7f09114f);
+            this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f09118e);
+            this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f091188);
+            this.up = (Button) findViewById(R.id.obfuscated_res_0x7f09118a);
+            this.un = findViewById(R.id.obfuscated_res_0x7f091189);
             this.ux = new com.kwad.components.ad.g.a(this.BA);
         }
     }
@@ -180,7 +183,7 @@ public abstract class a extends LinearLayout {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0095: INVOKE  (r5v1 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.sf():int)] */
-    public void c(AdTemplate adTemplate) {
+    public void c(@NonNull AdTemplate adTemplate) {
         ImageView imageView;
         String bn;
         Interceptable interceptable = $ic;
@@ -267,7 +270,7 @@ public abstract class a extends LinearLayout {
                 u(d.bQ(adTemplate));
             }
             if (d.p(adTemplate)) {
-                List bH = c.bH(adTemplate);
+                List<String> bH = c.bH(adTemplate);
                 if (bH.size() > 0) {
                     this.uu.setVisibility(0);
                 } else {
@@ -284,6 +287,7 @@ public abstract class a extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.un : (View) invokeV.objValue;
     }
 
+    @LayoutRes
     public abstract int getLayoutId();
 
     public TextProgressBar getTextProgressBar() {
@@ -309,7 +313,7 @@ public abstract class a extends LinearLayout {
         }
     }
 
-    public final void u(AdInfo adInfo) {
+    public final void u(@NonNull AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adInfo) == null) {
             int i = adInfo.status;

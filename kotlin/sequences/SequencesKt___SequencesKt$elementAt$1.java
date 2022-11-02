@@ -17,9 +17,10 @@ public final class SequencesKt___SequencesKt$elementAt$1 extends Lambda implemen
         this.$index = i;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke(((Number) obj).intValue());
+    public /* bridge */ /* synthetic */ Object invoke(Integer num) {
+        return invoke(num.intValue());
     }
 
     public final T invoke(int i) {

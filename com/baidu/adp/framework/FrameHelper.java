@@ -43,7 +43,7 @@ public class FrameHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TYPE {
+    public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE CUSTOM;
@@ -109,13 +109,13 @@ public class FrameHelper {
         }
     }
 
-    public static int d(LinkedList linkedList, int i) {
+    public static <T extends ja> int d(LinkedList<T> linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
             int size = linkedList.size();
             int i2 = 0;
-            while (i2 < size && ((ja) linkedList.get(i2)).getPriority() <= i) {
+            while (i2 < size && linkedList.get(i2).getPriority() <= i) {
                 i2++;
             }
             return i2;
@@ -123,12 +123,12 @@ public class FrameHelper {
         return invokeLI.intValue;
     }
 
-    public static void insert(LinkedList linkedList, ja jaVar) {
+    public static <T extends ja> void insert(LinkedList<T> linkedList, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, linkedList, jaVar) != null) || jaVar == null || linkedList.contains(jaVar)) {
+        if ((interceptable != null && interceptable.invokeLL(65542, null, linkedList, t) != null) || t == null || linkedList.contains(t)) {
             return;
         }
-        linkedList.add(d(linkedList, jaVar.getPriority()), jaVar);
+        linkedList.add(d(linkedList, t.getPriority()), t);
     }
 
     public static TYPE e(int i) {

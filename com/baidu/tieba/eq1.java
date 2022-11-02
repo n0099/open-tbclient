@@ -1,128 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class eq1 extends j53 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public interface eq1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ mt2 b;
-        public final /* synthetic */ eq1 c;
+    void b(@NonNull Object obj);
 
-        public a(eq1 eq1Var, UnitedSchemeEntity unitedSchemeEntity, mt2 mt2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq1Var, unitedSchemeEntity, mt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = eq1Var;
-            this.a = unitedSchemeEntity;
-            this.b = mt2Var;
-        }
+    Object beginFlow(String str);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.k(this.a, this.b);
-            }
-        }
-    }
+    void c(@NonNull Object obj);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq1(j43 j43Var) {
-        super(j43Var, "/swanAPI/openAdWebPage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void d(String str, Map<String, String> map);
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("AdLandingAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String o = v63.o(unitedSchemeEntity, "params");
-            String n = v63.n(unitedSchemeEntity, "params", PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-            if (TextUtils.isEmpty(o)) {
-                m02.c("AdLanding", "adLanding: url is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (zo2.U().V() == null) {
-                m02.i("AdLandingAction", "open page failed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else {
-                mt2 d = mt2.d(o, o);
-                d.b = n;
-                if (du1.e().g()) {
-                    l(unitedSchemeEntity, d);
-                } else {
-                    k(unitedSchemeEntity, d);
-                }
-                m02.i("AdLanding", "open adLanding page finish");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
+    boolean e();
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, mt2 mt2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, mt2Var) == null) && !a32.d3("adLanding", mt2Var)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        }
-    }
+    void f(String str, JSONObject jSONObject);
 
-    public final void l(UnitedSchemeEntity unitedSchemeEntity, mt2 mt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, mt2Var) == null) {
-            du1.e().i();
-            gh3.b0(new a(this, unitedSchemeEntity, mt2Var), 200L);
-        }
-    }
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

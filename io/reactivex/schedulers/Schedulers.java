@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.schedulers.ComputationScheduler;
 import io.reactivex.internal.schedulers.ExecutorScheduler;
 import io.reactivex.internal.schedulers.IoScheduler;
@@ -22,15 +23,20 @@ import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
     public static final Scheduler COMPUTATION;
+    @NonNull
     public static final Scheduler IO;
+    @NonNull
     public static final Scheduler NEW_THREAD;
+    @NonNull
     public static final Scheduler SINGLE;
+    @NonNull
     public static final Scheduler TRAMPOLINE;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class ComputationHolder {
+    public static final class ComputationHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +73,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class ComputationTask implements Callable {
+    public static final class ComputationTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,6 +92,7 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
@@ -98,7 +105,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class IOTask implements Callable {
+    public static final class IOTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,6 +124,7 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
@@ -129,7 +137,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class IoHolder {
+    public static final class IoHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +174,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class NewThreadHolder {
+    public static final class NewThreadHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +211,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class NewThreadTask implements Callable {
+    public static final class NewThreadTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,6 +230,7 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
@@ -234,7 +243,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class SingleHolder {
+    public static final class SingleHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +280,7 @@ public final class Schedulers {
     }
 
     /* loaded from: classes8.dex */
-    public final class SingleTask implements Callable {
+    public static final class SingleTask implements Callable<Scheduler> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -290,6 +299,7 @@ public final class Schedulers {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Scheduler call() throws Exception {
             InterceptResult invokeV;
@@ -337,6 +347,7 @@ public final class Schedulers {
         throw new IllegalStateException("No instances!");
     }
 
+    @NonNull
     public static Scheduler computation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -346,6 +357,7 @@ public final class Schedulers {
         return (Scheduler) invokeV.objValue;
     }
 
+    @NonNull
     public static Scheduler io() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -355,6 +367,7 @@ public final class Schedulers {
         return (Scheduler) invokeV.objValue;
     }
 
+    @NonNull
     public static Scheduler newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -364,6 +377,7 @@ public final class Schedulers {
         return (Scheduler) invokeV.objValue;
     }
 
+    @NonNull
     public static Scheduler single() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -373,6 +387,7 @@ public final class Schedulers {
         return (Scheduler) invokeV.objValue;
     }
 
+    @NonNull
     public static Scheduler trampoline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -382,7 +397,8 @@ public final class Schedulers {
         return (Scheduler) invokeV.objValue;
     }
 
-    public static Scheduler from(Executor executor) {
+    @NonNull
+    public static Scheduler from(@NonNull Executor executor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, executor)) == null) {

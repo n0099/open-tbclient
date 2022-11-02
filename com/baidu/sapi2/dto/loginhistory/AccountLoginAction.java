@@ -72,14 +72,14 @@ public class AccountLoginAction {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static String convertActionList2Json(List list) {
+    public static String convertActionList2Json(List<AccountLoginAction> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             if (list != null && list.size() != 0) {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < list.size(); i++) {
-                    JSONObject convertAction2Json = convertAction2Json((AccountLoginAction) list.get(i));
+                    JSONObject convertAction2Json = convertAction2Json(list.get(i));
                     if (convertAction2Json != null) {
                         jSONArray.put(convertAction2Json);
                     }
@@ -108,7 +108,7 @@ public class AccountLoginAction {
         return (AccountLoginAction) invokeL.objValue;
     }
 
-    public static List convertJson2ActionList(JSONArray jSONArray) {
+    public static List<AccountLoginAction> convertJson2ActionList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONArray)) == null) {

@@ -1,32 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes4.dex */
 public interface hs3 {
-    void a(FrameLayout frameLayout);
+    void a();
 
-    void d(boolean z);
+    void b(DownloadException downloadException);
 
-    hs3 e(Context context, dr3 dr3Var);
+    void c();
 
-    void g(bs3 bs3Var);
+    void d();
 
-    int getCurrentPosition();
+    void e(long j, long j2);
 
-    int getDuration();
+    void f(long j, long j2);
 
-    void h(dr3 dr3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    void onStart();
 }

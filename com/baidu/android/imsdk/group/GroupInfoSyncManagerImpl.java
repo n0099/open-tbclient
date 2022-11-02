@@ -28,9 +28,9 @@ public class GroupInfoSyncManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_FANSGROUPLIST_STATE = "get_all_fansgrouplist_state";
     public static final String TAG_GROUPLIST_STATE = "get_all_grouplist_state";
-    public static ArrayList sUpdateAllMember;
-    public static ArrayList sUpdateGroupInfo;
-    public static HashMap sUpdateGroupMembers;
+    public static ArrayList<String> sUpdateAllMember;
+    public static ArrayList<String> sUpdateGroupInfo;
+    public static HashMap<String, ArrayList<String>> sUpdateGroupMembers;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,9 +46,9 @@ public class GroupInfoSyncManagerImpl {
                 return;
             }
         }
-        sUpdateGroupMembers = new HashMap();
-        sUpdateGroupInfo = new ArrayList();
-        sUpdateAllMember = new ArrayList();
+        sUpdateGroupMembers = new HashMap<>();
+        sUpdateGroupInfo = new ArrayList<>();
+        sUpdateAllMember = new ArrayList<>();
     }
 
     public GroupInfoSyncManagerImpl() {
@@ -72,7 +72,7 @@ public class GroupInfoSyncManagerImpl {
             if (sUpdateGroupInfo.size() > 0 || sUpdateGroupMembers.size() > 0) {
                 synchronized (sUpdateGroupMembers) {
                     for (String str : sUpdateGroupMembers.keySet()) {
-                        handleGetGroupMember(context, str, (ArrayList) sUpdateGroupMembers.remove(str));
+                        handleGetGroupMember(context, str, sUpdateGroupMembers.remove(str));
                     }
                 }
                 synchronized (sUpdateGroupInfo) {
@@ -87,7 +87,7 @@ public class GroupInfoSyncManagerImpl {
     public static void activeSyncAllMembers(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
             if (i == 3) {
                 GroupManagerImpl.getInstance(context).getFansGroupMember(str, null, true, null);
@@ -101,14 +101,14 @@ public class GroupInfoSyncManagerImpl {
 
     public static void activeSyncGroup(Context context, String str) {
         boolean z;
-        ArrayList arrayList;
+        ArrayList<String> arrayList;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             synchronized (sUpdateGroupMembers) {
                 z = true;
                 if (sUpdateGroupMembers.containsKey(str)) {
-                    arrayList = (ArrayList) sUpdateGroupMembers.remove(str);
+                    arrayList = sUpdateGroupMembers.remove(str);
                     z2 = true;
                 } else {
                     arrayList = null;
@@ -133,17 +133,17 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void addSyncGroupMemeber(String str, List list) {
+    public static void addSyncGroupMemeber(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, list) == null) {
             if (list != null) {
                 synchronized (sUpdateGroupMembers) {
                     if (sUpdateGroupMembers.containsKey(str)) {
-                        if (((ArrayList) sUpdateGroupMembers.get(str)) != null) {
-                            ((ArrayList) sUpdateGroupMembers.get(str)).addAll(list);
+                        if (sUpdateGroupMembers.get(str) != null) {
+                            sUpdateGroupMembers.get(str).addAll(list);
                         }
                     } else {
-                        ArrayList arrayList = new ArrayList();
+                        ArrayList<String> arrayList = new ArrayList<>();
                         arrayList.addAll(list);
                         sUpdateGroupMembers.put(str, arrayList);
                     }
@@ -156,23 +156,21 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void deleteSyncGroupMemeber(String str, List list) {
+    public static void deleteSyncGroupMemeber(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, str, list) == null) && list != null && list.size() != 0) {
             synchronized (sUpdateGroupMembers) {
                 if (sUpdateGroupMembers.containsKey(str)) {
-                    List list2 = (List) sUpdateGroupMembers.get(str);
-                    if (list2 != null) {
-                        Iterator it = list.iterator();
-                        while (it.hasNext()) {
-                            String str2 = (String) it.next();
-                            if (list2.contains(str2)) {
-                                list2.remove(str2);
+                    ArrayList<String> arrayList = sUpdateGroupMembers.get(str);
+                    if (arrayList != null) {
+                        for (String str2 : list) {
+                            if (arrayList.contains(str2)) {
+                                arrayList.remove(str2);
                             }
                         }
                     }
                 } else {
-                    sUpdateGroupMembers.put(str, new ArrayList());
+                    sUpdateGroupMembers.put(str, new ArrayList<>());
                 }
             }
         }
@@ -234,15 +232,15 @@ public class GroupInfoSyncManagerImpl {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis() - IMConstants.FANS_GROUP_INFO_EXPIRED_TIME;
-                        ArrayList expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(this.val$context, currentTimeMillis);
+                        ArrayList<String> expiredFansGroupInfoList = GroupInfoDAOImpl.getExpiredFansGroupInfoList(this.val$context, currentTimeMillis);
                         if (expiredFansGroupInfoList != null && expiredFansGroupInfoList.size() > 0) {
                             GroupManagerImpl.getInstance(this.val$context).getFansGroupInfo(expiredFansGroupInfoList, true, null);
                         }
-                        ArrayList expiredFansGroupMemberList = GroupInfoDAOImpl.getExpiredFansGroupMemberList(this.val$context, currentTimeMillis);
+                        ArrayList<String> expiredFansGroupMemberList = GroupInfoDAOImpl.getExpiredFansGroupMemberList(this.val$context, currentTimeMillis);
                         if (expiredFansGroupMemberList != null && expiredFansGroupMemberList.size() > 0) {
-                            Iterator it = expiredFansGroupMemberList.iterator();
+                            Iterator<String> it = expiredFansGroupMemberList.iterator();
                             while (it.hasNext()) {
-                                GroupManagerImpl.getInstance(this.val$context).getFansGroupMember((String) it.next(), null, true, null);
+                                GroupManagerImpl.getInstance(this.val$context).getFansGroupMember(it.next(), null, true, null);
                             }
                         }
                     }
@@ -251,11 +249,11 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void handleGetGroupMember(Context context, String str, ArrayList arrayList) {
+    public static void handleGetGroupMember(Context context, String str, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, arrayList) == null) {
             if ((arrayList != null && arrayList.size() > 0) || arrayList == null) {
-                GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack(str, arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.4
+                GroupManagerImpl.getInstance(context).getGroupMember(1, str, arrayList, new BIMValueCallBack<ArrayList<GroupMember>>(str, arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$groupid;
@@ -282,7 +280,7 @@ public class GroupInfoSyncManagerImpl {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    public void onResult(int i, String str2, ArrayList arrayList2) {
+                    public void onResult(int i, String str2, ArrayList<GroupMember> arrayList2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList2) == null) && i != 0) {
                             GroupInfoSyncManagerImpl.addSyncGroupMemeber(this.val$groupid, this.val$uids);
@@ -293,14 +291,14 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void handleGetGroupinfos(Context context, ArrayList arrayList) {
+    public static void handleGetGroupinfos(Context context, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65546, null, context, arrayList) == null) && arrayList != null && arrayList.size() > 0) {
             int size = arrayList.size() / 20;
             for (int i = 0; i < size; i++) {
                 LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i);
                 int i2 = i * 20;
-                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList(arrayList.subList(i2, i2 + 20)), new BIMValueCallBack(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
+                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(i2, i2 + 20)), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ArrayList val$groupids;
@@ -325,7 +323,7 @@ public class GroupInfoSyncManagerImpl {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    public void onResult(int i3, String str, ArrayList arrayList2) {
+                    public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) && i3 != 0) {
                             Iterator it = this.val$groupids.iterator();
@@ -338,7 +336,7 @@ public class GroupInfoSyncManagerImpl {
             }
             if (arrayList.size() % 20 != 0) {
                 LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos rest");
-                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList(arrayList.subList(size * 20, arrayList.size())), new BIMValueCallBack(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
+                GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(size * 20, arrayList.size())), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ArrayList val$groupids;
@@ -363,7 +361,7 @@ public class GroupInfoSyncManagerImpl {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    public void onResult(int i3, String str, ArrayList arrayList2) {
+                    public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) && i3 != 0) {
                             Iterator it = this.val$groupids.iterator();
@@ -390,7 +388,7 @@ public class GroupInfoSyncManagerImpl {
         } else {
             updateExpiredFansGroups(context);
         }
-        ArrayList starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
+        ArrayList<String> starGroupList = GroupInfoDAOImpl.getStarGroupList(context);
         if (starGroupList != null && starGroupList.size() > 0) {
             new Timer(true).schedule(new TimerTask(starGroupList, context) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.1
                 public static /* synthetic */ Interceptable $ic;

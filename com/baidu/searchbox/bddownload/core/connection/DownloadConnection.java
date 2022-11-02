@@ -1,8 +1,11 @@
 package com.baidu.searchbox.bddownload.core.connection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ProtocolException;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface DownloadConnection {
@@ -16,9 +19,11 @@ public interface DownloadConnection {
 
         int getResponseCode() throws IOException;
 
+        @Nullable
         String getResponseHeaderField(String str);
 
-        Map getResponseHeaderFields();
+        @Nullable
+        Map<String, List<String>> getResponseHeaderFields();
     }
 
     /* loaded from: classes2.dex */
@@ -30,11 +35,11 @@ public interface DownloadConnection {
 
     Connected execute() throws IOException;
 
-    Map getRequestProperties();
+    Map<String, List<String>> getRequestProperties();
 
     String getRequestProperty(String str);
 
     void release();
 
-    boolean setRequestMethod(String str) throws ProtocolException;
+    boolean setRequestMethod(@NonNull String str) throws ProtocolException;
 }

@@ -68,7 +68,7 @@ public final class SparseArrayKt {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, sparseArrayCompat, i, function0)) == null) {
             T t = sparseArrayCompat.get(i);
             if (t == null) {
-                return (T) function0.invoke();
+                return function0.invoke();
             }
             return t;
         }

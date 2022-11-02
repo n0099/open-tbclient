@@ -19,25 +19,25 @@ import java.util.Iterator;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class ObservableBuffer extends AbstractObservableWithUpstream {
+public final class ObservableBuffer<T, U extends Collection<? super T>> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable bufferSupplier;
+    public final Callable<U> bufferSupplier;
     public final int count;
     public final int skip;
 
     /* loaded from: classes8.dex */
-    public final class BufferExactObserver implements Observer, Disposable {
+    public static final class BufferExactObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public Collection buffer;
-        public final Callable bufferSupplier;
+        public final Observer<? super U> actual;
+        public U buffer;
+        public final Callable<U> bufferSupplier;
         public final int count;
         public Disposable s;
         public int size;
 
-        public BufferExactObserver(Observer observer, int i, Callable callable) {
+        public BufferExactObserver(Observer<? super U> observer, int i, Callable<U> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    this.buffer = (Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "Empty buffer supplied");
+                    this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "Empty buffer supplied");
                     return true;
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -100,12 +100,12 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
 
         @Override // io.reactivex.Observer
         public void onComplete() {
-            Collection collection;
+            U u;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (collection = this.buffer) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (u = this.buffer) != null) {
                 this.buffer = null;
-                if (!collection.isEmpty()) {
-                    this.actual.onNext(collection);
+                if (!u.isEmpty()) {
+                    this.actual.onNext(u);
                 }
                 this.actual.onComplete();
             }
@@ -121,15 +121,15 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
-            Collection collection;
+        public void onNext(T t) {
+            U u;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && (collection = this.buffer) != null) {
-                collection.add(obj);
+            if ((interceptable == null || interceptable.invokeL(1048581, this, t) == null) && (u = this.buffer) != null) {
+                u.add(t);
                 int i = this.size + 1;
                 this.size = i;
                 if (i >= this.count) {
-                    this.actual.onNext(collection);
+                    this.actual.onNext(u);
                     this.size = 0;
                     createBuffer();
                 }
@@ -147,19 +147,19 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class BufferSkipObserver extends AtomicBoolean implements Observer, Disposable {
+    public static final class BufferSkipObserver<T, U extends Collection<? super T>> extends AtomicBoolean implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8223395059921494546L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final Callable bufferSupplier;
-        public final ArrayDeque buffers;
+        public final Observer<? super U> actual;
+        public final Callable<U> bufferSupplier;
+        public final ArrayDeque<U> buffers;
         public final int count;
         public long index;
         public Disposable s;
         public final int skip;
 
-        public BufferSkipObserver(Observer observer, int i, int i2, Callable callable) {
+        public BufferSkipObserver(Observer<? super U> observer, int i, int i2, Callable<U> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
             this.count = i;
             this.skip = i2;
             this.bufferSupplier = callable;
-            this.buffers = new ArrayDeque();
+            this.buffers = new ArrayDeque<>();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -228,10 +228,12 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.ArrayDeque<U extends java.util.Collection<? super T>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 long j = this.index;
                 this.index = 1 + j;
                 if (j % this.skip == 0) {
@@ -244,13 +246,13 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
                         return;
                     }
                 }
-                Iterator it = this.buffers.iterator();
+                Iterator<U> it = this.buffers.iterator();
                 while (it.hasNext()) {
-                    Collection collection = (Collection) it.next();
-                    collection.add(obj);
-                    if (this.count <= collection.size()) {
+                    U next = it.next();
+                    next.add(t);
+                    if (this.count <= next.size()) {
                         it.remove();
-                        this.actual.onNext(collection);
+                        this.actual.onNext(next);
                     }
                 }
             }
@@ -258,7 +260,7 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableBuffer(ObservableSource observableSource, int i, int i2, Callable callable) {
+    public ObservableBuffer(ObservableSource<T> observableSource, int i, int i2, Callable<U> callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -281,7 +283,7 @@ public final class ObservableBuffer extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super U> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             int i = this.skip;

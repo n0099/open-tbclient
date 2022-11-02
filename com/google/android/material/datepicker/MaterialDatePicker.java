@@ -18,7 +18,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.DialogFragment;
@@ -42,7 +48,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 /* loaded from: classes7.dex */
-public final class MaterialDatePicker extends DialogFragment {
+public final class MaterialDatePicker<S> extends DialogFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
     public static final Object CANCEL_BUTTON_TAG;
@@ -56,42 +62,49 @@ public final class MaterialDatePicker extends DialogFragment {
     public static final String TITLE_TEXT_RES_ID_KEY = "TITLE_TEXT_RES_ID_KEY";
     public static final Object TOGGLE_BUTTON_TAG;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public MaterialShapeDrawable background;
-    public MaterialCalendar calendar;
+    public MaterialCalendar<S> calendar;
+    @Nullable
     public CalendarConstraints calendarConstraints;
     public Button confirmButton;
-    public DateSelector dateSelector;
+    @Nullable
+    public DateSelector<S> dateSelector;
     public boolean fullscreen;
     public TextView headerSelectionText;
     public CheckableImageButton headerToggleButton;
     public int inputMode;
-    public final LinkedHashSet onCancelListeners;
-    public final LinkedHashSet onDismissListeners;
-    public final LinkedHashSet onNegativeButtonClickListeners;
-    public final LinkedHashSet onPositiveButtonClickListeners;
+    public final LinkedHashSet<DialogInterface.OnCancelListener> onCancelListeners;
+    public final LinkedHashSet<DialogInterface.OnDismissListener> onDismissListeners;
+    public final LinkedHashSet<View.OnClickListener> onNegativeButtonClickListeners;
+    public final LinkedHashSet<MaterialPickerOnPositiveButtonClickListener<? super S>> onPositiveButtonClickListeners;
+    @StyleRes
     public int overrideThemeResId;
-    public PickerFragment pickerFragment;
+    public PickerFragment<S> pickerFragment;
     public CharSequence titleText;
+    @StringRes
     public int titleTextResId;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface InputMode {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder<S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CalendarConstraints calendarConstraints;
-        public final DateSelector dateSelector;
+        public final DateSelector<S> dateSelector;
         public int inputMode;
         public int overrideThemeResId;
-        public Object selection;
+        @Nullable
+        public S selection;
         public CharSequence titleText;
         public int titleTextResId;
 
-        public Builder(DateSelector dateSelector) {
+        public Builder(DateSelector<S> dateSelector) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,16 +127,19 @@ public final class MaterialDatePicker extends DialogFragment {
             this.dateSelector = dateSelector;
         }
 
-        public static Builder customDatePicker(DateSelector dateSelector) {
+        @NonNull
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        public static <S> Builder<S> customDatePicker(@NonNull DateSelector<S> dateSelector) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dateSelector)) == null) {
-                return new Builder(dateSelector);
+                return new Builder<>(dateSelector);
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setCalendarConstraints(CalendarConstraints calendarConstraints) {
+        @NonNull
+        public Builder<S> setCalendarConstraints(CalendarConstraints calendarConstraints) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, calendarConstraints)) == null) {
@@ -133,7 +149,8 @@ public final class MaterialDatePicker extends DialogFragment {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setInputMode(int i) {
+        @NonNull
+        public Builder<S> setInputMode(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -143,17 +160,19 @@ public final class MaterialDatePicker extends DialogFragment {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setSelection(Object obj) {
+        @NonNull
+        public Builder<S> setSelection(S s) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                this.selection = obj;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s)) == null) {
+                this.selection = s;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTheme(int i) {
+        @NonNull
+        public Builder<S> setTheme(@StyleRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -163,7 +182,8 @@ public final class MaterialDatePicker extends DialogFragment {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setTitleText(int i) {
+        @NonNull
+        public Builder<S> setTitleText(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
@@ -174,25 +194,28 @@ public final class MaterialDatePicker extends DialogFragment {
             return (Builder) invokeI.objValue;
         }
 
-        public static Builder datePicker() {
+        @NonNull
+        public static Builder<Long> datePicker() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return new Builder(new SingleDateSelector());
+                return new Builder<>(new SingleDateSelector());
             }
             return (Builder) invokeV.objValue;
         }
 
-        public static Builder dateRangePicker() {
+        @NonNull
+        public static Builder<Pair<Long, Long>> dateRangePicker() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return new Builder(new RangeDateSelector());
+                return new Builder<>(new RangeDateSelector());
             }
             return (Builder) invokeV.objValue;
         }
 
-        public MaterialDatePicker build() {
+        @NonNull
+        public MaterialDatePicker<S> build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -202,16 +225,17 @@ public final class MaterialDatePicker extends DialogFragment {
                 if (this.titleTextResId == 0) {
                     this.titleTextResId = this.dateSelector.getDefaultTitleResId();
                 }
-                Object obj = this.selection;
-                if (obj != null) {
-                    this.dateSelector.setSelection(obj);
+                S s = this.selection;
+                if (s != null) {
+                    this.dateSelector.setSelection(s);
                 }
                 return MaterialDatePicker.newInstance(this);
             }
             return (MaterialDatePicker) invokeV.objValue;
         }
 
-        public Builder setTitleText(CharSequence charSequence) {
+        @NonNull
+        public Builder<S> setTitleText(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, charSequence)) == null) {
@@ -264,7 +288,7 @@ public final class MaterialDatePicker extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             String headerText = getHeaderText();
-            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b2e), headerText));
+            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0b3a), headerText));
             this.headerSelectionText.setText(headerText);
         }
     }
@@ -306,13 +330,14 @@ public final class MaterialDatePicker extends DialogFragment {
         return (String) invokeV.objValue;
     }
 
-    public final Object getSelection() {
+    @Nullable
+    public final S getSelection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.dateSelector.getSelection();
         }
-        return invokeV.objValue;
+        return (S) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
@@ -337,10 +362,10 @@ public final class MaterialDatePicker extends DialogFragment {
                 return;
             }
         }
-        this.onPositiveButtonClickListeners = new LinkedHashSet();
-        this.onNegativeButtonClickListeners = new LinkedHashSet();
-        this.onCancelListeners = new LinkedHashSet();
-        this.onDismissListeners = new LinkedHashSet();
+        this.onPositiveButtonClickListeners = new LinkedHashSet<>();
+        this.onNegativeButtonClickListeners = new LinkedHashSet<>();
+        this.onCancelListeners = new LinkedHashSet<>();
+        this.onDismissListeners = new LinkedHashSet<>();
     }
 
     private int getThemeResId(Context context) {
@@ -383,7 +408,7 @@ public final class MaterialDatePicker extends DialogFragment {
         return invokeL.booleanValue;
     }
 
-    public boolean addOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener materialPickerOnPositiveButtonClickListener) {
+    public boolean addOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, materialPickerOnPositiveButtonClickListener)) == null) {
@@ -393,12 +418,12 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnCancelListener
-    public final void onCancel(DialogInterface dialogInterface) {
+    public final void onCancel(@NonNull DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dialogInterface) == null) {
-            Iterator it = this.onCancelListeners.iterator();
+            Iterator<DialogInterface.OnCancelListener> it = this.onCancelListeners.iterator();
             while (it.hasNext()) {
-                ((DialogInterface.OnCancelListener) it.next()).onCancel(dialogInterface);
+                it.next().onCancel(dialogInterface);
             }
             super.onCancel(dialogInterface);
         }
@@ -431,7 +456,7 @@ public final class MaterialDatePicker extends DialogFragment {
         return invokeL.booleanValue;
     }
 
-    public boolean removeOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener materialPickerOnPositiveButtonClickListener) {
+    public boolean removeOnPositiveButtonClickListener(MaterialPickerOnPositiveButtonClickListener<? super S> materialPickerOnPositiveButtonClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, materialPickerOnPositiveButtonClickListener)) == null) {
@@ -440,19 +465,20 @@ public final class MaterialDatePicker extends DialogFragment {
         return invokeL.booleanValue;
     }
 
+    @NonNull
     public static Drawable createHeaderToggleDrawable(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d66));
-            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d68));
+            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d80));
+            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d82));
             return stateListDrawable;
         }
         return (Drawable) invokeL.objValue;
     }
 
-    public static int getPaddedPickerWidth(Context context) {
+    public static int getPaddedPickerWidth(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -517,7 +543,7 @@ public final class MaterialDatePicker extends DialogFragment {
         }
     }
 
-    public static boolean isFullscreen(Context context) {
+    public static boolean isFullscreen(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
@@ -530,26 +556,26 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateToggleContentDescription(CheckableImageButton checkableImageButton) {
+    public void updateToggleContentDescription(@NonNull CheckableImageButton checkableImageButton) {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, this, checkableImageButton) == null) {
             if (this.headerToggleButton.isChecked()) {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b47);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b53);
             } else {
-                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b49);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b55);
             }
             this.headerToggleButton.setContentDescription(string);
         }
     }
 
     @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
-    public final void onDismiss(DialogInterface dialogInterface) {
+    public final void onDismiss(@NonNull DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, dialogInterface) == null) {
-            Iterator it = this.onDismissListeners.iterator();
+            Iterator<DialogInterface.OnDismissListener> it = this.onDismissListeners.iterator();
             while (it.hasNext()) {
-                ((DialogInterface.OnDismissListener) it.next()).onDismiss(dialogInterface);
+                it.next().onDismiss(dialogInterface);
             }
             ViewGroup viewGroup = (ViewGroup) getView();
             if (viewGroup != null) {
@@ -559,7 +585,7 @@ public final class MaterialDatePicker extends DialogFragment {
         }
     }
 
-    public static int getDialogPickerHeight(Context context) {
+    public static int getDialogPickerHeight(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
@@ -569,11 +595,12 @@ public final class MaterialDatePicker extends DialogFragment {
         return invokeL.intValue;
     }
 
-    public static MaterialDatePicker newInstance(Builder builder) {
+    @NonNull
+    public static <S> MaterialDatePicker<S> newInstance(@NonNull Builder<S> builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, builder)) == null) {
-            MaterialDatePicker materialDatePicker = new MaterialDatePicker();
+            MaterialDatePicker<S> materialDatePicker = new MaterialDatePicker<>();
             Bundle bundle = new Bundle();
             bundle.putInt(OVERRIDE_THEME_RES_ID, builder.overrideThemeResId);
             bundle.putParcelable("DATE_SELECTOR_KEY", builder.dateSelector);
@@ -588,7 +615,7 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public final void onCreate(Bundle bundle) {
+    public final void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
@@ -605,7 +632,7 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public final void onSaveInstanceState(Bundle bundle) {
+    public final void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
@@ -623,7 +650,7 @@ public final class MaterialDatePicker extends DialogFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPickerFragment() {
-        PickerFragment pickerFragment;
+        PickerFragment<S> pickerFragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             this.calendar = MaterialCalendar.newInstance(this.dateSelector, getThemeResId(requireContext()), this.calendarConstraints);
@@ -635,9 +662,9 @@ public final class MaterialDatePicker extends DialogFragment {
             this.pickerFragment = pickerFragment;
             updateHeader();
             FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-            beginTransaction.replace(R.id.obfuscated_res_0x7f091582, this.pickerFragment);
+            beginTransaction.replace(R.id.obfuscated_res_0x7f0915c1, this.pickerFragment);
             beginTransaction.commitNow();
-            this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
+            this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MaterialDatePicker this$0;
@@ -661,9 +688,9 @@ public final class MaterialDatePicker extends DialogFragment {
                 }
 
                 @Override // com.google.android.material.datepicker.OnSelectionChangedListener
-                public void onSelectionChanged(Object obj) {
+                public void onSelectionChanged(S s) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) {
+                    if (interceptable2 != null && interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s) != null) {
                         return;
                     }
                     this.this$0.updateHeader();
@@ -702,7 +729,8 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.DialogFragment
-    public final Dialog onCreateDialog(Bundle bundle) {
+    @NonNull
+    public final Dialog onCreateDialog(@Nullable Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bundle)) == null) {
@@ -721,31 +749,32 @@ public final class MaterialDatePicker extends DialogFragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @NonNull
+    public final View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.fullscreen) {
-                i = R.layout.obfuscated_res_0x7f0d05bd;
+                i = R.layout.obfuscated_res_0x7f0d05cd;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d05bc;
+                i = R.layout.obfuscated_res_0x7f0d05cc;
             }
             View inflate = layoutInflater.inflate(i, viewGroup);
             Context context = inflate.getContext();
             if (this.fullscreen) {
-                inflate.findViewById(R.id.obfuscated_res_0x7f091582).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+                inflate.findViewById(R.id.obfuscated_res_0x7f0915c1).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
             } else {
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091583);
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091582);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0915c2);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0915c1);
                 findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
                 findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
             }
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09158e);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915cd);
             this.headerSelectionText = textView;
             ViewCompat.setAccessibilityLiveRegion(textView, 1);
-            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f091590);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091594);
+            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f0915cf);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915d3);
             CharSequence charSequence = this.titleText;
             if (charSequence != null) {
                 textView2.setText(charSequence);
@@ -753,7 +782,7 @@ public final class MaterialDatePicker extends DialogFragment {
                 textView2.setText(this.titleTextResId);
             }
             initHeaderToggle(context);
-            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0906cf);
+            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0906dd);
             if (this.dateSelector.isSelectionComplete()) {
                 this.confirmButton.setEnabled(true);
             } else {
@@ -783,6 +812,8 @@ public final class MaterialDatePicker extends DialogFragment {
                     this.this$0 = this;
                 }
 
+                /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener */
+                /* JADX WARN: Multi-variable type inference failed */
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
@@ -795,7 +826,7 @@ public final class MaterialDatePicker extends DialogFragment {
                     }
                 }
             });
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904a2);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0904af);
             button.setTag(CANCEL_BUTTON_TAG);
             button.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
                 public static /* synthetic */ Interceptable $ic;

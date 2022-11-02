@@ -1,183 +1,290 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mq2 {
+public class mq2 extends b63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public int n;
-    public int o;
-    public String p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public String u;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981243, "Lcom/baidu/tieba/mq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981243, "Lcom/baidu/tieba/mq2;");
-                return;
-            }
-        }
-        v = wj1.a;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.r;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public mq2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mq2(b53 b53Var) {
+        super(b53Var, "/swanAPI/map");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        this.i = false;
-        this.j = "";
-        this.k = 0;
-        this.l = 0;
-        this.m = "";
-        this.q = false;
     }
 
-    public static mq2 b(JSONObject jSONObject, mq2 mq2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, mq2Var)) == null) {
-            mq2 mq2Var2 = new mq2();
-            if (jSONObject != null) {
-                mq2Var2.a = jSONObject.optString("audioId", mq2Var.a);
-                mq2Var2.b = jSONObject.optString("slaveId", mq2Var.b);
-                mq2Var2.c = jSONObject.optString("src", mq2Var.c);
-                if (m33.M() != null && ua3.E(mq2Var2.c)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mq2Var2.q = z;
-                mq2Var2.d = jSONObject.optString("title", mq2Var.d);
-                mq2Var2.e = jSONObject.optString("epname", mq2Var.e);
-                mq2Var2.f = jSONObject.optString("singer", mq2Var.f);
-                mq2Var2.g = jSONObject.optString("coverImgUrl", mq2Var.g);
-                mq2Var2.h = jSONObject.optString("lrcURL", mq2Var.h);
-                mq2Var2.i = jSONObject.optBoolean("showFloatView", mq2Var.i);
-                mq2Var2.j = jSONObject.optString("floatPosition", mq2Var.j);
-                mq2Var2.k = jSONObject.optInt(FetchLog.START_TIME, mq2Var.k);
-                mq2Var2.l = jSONObject.optInt(CriusAttrConstants.POSITION, mq2Var.l);
-                mq2Var2.p = jSONObject.optString("cb", mq2Var.p);
-                mq2Var2.m = jSONObject.optString("param", mq2Var.m);
-                mq2Var2.r = TextUtils.isEmpty(jSONObject.optString("src"));
-                String g0 = ga2.U().g0();
-                if (!TextUtils.isEmpty(g0)) {
-                    mq2Var2.s = g0;
-                }
-                String b = tg3.b();
-                if (!TextUtils.isEmpty(b) && tg3.c(mq2Var2.c)) {
-                    mq2Var2.t = b;
-                }
-                String j = ic3.l().j(mq2Var2.c);
-                if (!TextUtils.isEmpty(j)) {
-                    mq2Var2.u = j;
-                    if (v) {
-                        Log.d("AudioPlayerParams", "addCookiesToHeader cookie: " + j);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("MapAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b63
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, e43 e43Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, e43Var)) == null) {
+            if (b63.b) {
+                Log.d("MapAction", "handleSubAction subAction: " + str);
+            }
+            e12.i("map", "handleSubAction " + str);
+            nq2 a = nq2.a(unitedSchemeEntity, callbackHandler);
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -2079680864:
+                    if (str.equals("/swanAPI/map/translateMarker")) {
+                        c = 3;
+                        break;
                     }
-                }
+                    break;
+                case -2068557416:
+                    if (str.equals("/swanAPI/map/getCenterLocation")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case -398143716:
+                    if (str.equals("/swanAPI/map/getScale")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 51993511:
+                    if (str.equals("/swanAPI/map/openLocation")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 379323012:
+                    if (str.equals("/swanAPI/map/create")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 515840866:
+                    if (str.equals("/swanAPI/map/getRegion")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 797006348:
+                    if (str.equals("/swanAPI/map/remove")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 892770897:
+                    if (str.equals("/swanAPI/map/update")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 1007473955:
+                    if (str.equals("/swanAPI/map/includePoints")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1142165295:
+                    if (str.equals("/swanAPI/map/openWalkNavigation")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 1256916873:
+                    if (str.equals("/swanAPI/map/moveToLocation")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 1475857524:
+                    if (str.equals("/swanAPI/map/chooseLocation")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
             }
-            return mq2Var2;
+            switch (c) {
+                case 0:
+                    qq2 j = j(unitedSchemeEntity, qq2.class);
+                    if (k(j, a)) {
+                        return false;
+                    }
+                    return ln2.J().g(context, j, a, e43Var);
+                case 1:
+                    qq2 j2 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j2, a)) {
+                        return false;
+                    }
+                    return ln2.J().update(context, j2, a, e43Var);
+                case 2:
+                    qq2 j3 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j3, a)) {
+                        return false;
+                    }
+                    return ln2.J().l(context, j3, a, e43Var);
+                case 3:
+                    tq2 tq2Var = (tq2) j(unitedSchemeEntity, tq2.class);
+                    if (k(tq2Var, a)) {
+                        return false;
+                    }
+                    return ln2.J().j(context, tq2Var, a, e43Var);
+                case 4:
+                    sq2 sq2Var = (sq2) j(unitedSchemeEntity, sq2.class);
+                    if (k(sq2Var, a)) {
+                        return false;
+                    }
+                    return ln2.J().h(context, sq2Var, a, e43Var);
+                case 5:
+                    qq2 j4 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j4, a)) {
+                        return false;
+                    }
+                    return ln2.J().m(context, j4, a, e43Var);
+                case 6:
+                    pq2 pq2Var = (pq2) j(unitedSchemeEntity, pq2.class);
+                    if (k(pq2Var, a)) {
+                        return false;
+                    }
+                    return ln2.J().b(context, pq2Var, a, e43Var);
+                case 7:
+                    qq2 j5 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j5, a)) {
+                        return false;
+                    }
+                    return ln2.J().c(context, j5, a, e43Var);
+                case '\b':
+                    qq2 j6 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j6, a)) {
+                        return false;
+                    }
+                    return ln2.J().n(context, j6, a, e43Var);
+                case '\t':
+                    qq2 j7 = j(unitedSchemeEntity, qq2.class);
+                    if (k(j7, a)) {
+                        return false;
+                    }
+                    return ln2.J().k(context, j7, a, e43Var);
+                case '\n':
+                    oq2 oq2Var = (oq2) j(unitedSchemeEntity, oq2.class);
+                    if (k(oq2Var, a)) {
+                        return false;
+                    }
+                    return ln2.J().e(context, oq2Var, a, e43Var);
+                case 11:
+                    uq2 uq2Var = (uq2) j(unitedSchemeEntity, uq2.class);
+                    if (k(uq2Var, a)) {
+                        return false;
+                    }
+                    return ln2.J().a(context, uq2Var, a, e43Var);
+                default:
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, e43Var);
+            }
         }
-        return (mq2) invokeLL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public String c(String str) {
-        InterceptResult invokeL;
+    public <T extends qq2> T j(UnitedSchemeEntity unitedSchemeEntity, Class<T> cls) {
+        InterceptResult invokeLL;
+        JSONObject jSONObject;
+        T newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.d);
-                jSONObject.putOpt("epname", this.e);
-                jSONObject.putOpt("singer", this.f);
-                jSONObject.putOpt("coverImgUrl", this.g);
-                jSONObject.putOpt("lrcURL", this.h);
-                jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
-                jSONObject.putOpt("appid", m33.g0());
-                jSONObject.putOpt("user-agent", this.s);
-                jSONObject.putOpt(TiebaStatic.Params.REFER, this.t);
-                jSONObject.putOpt("Cookie", this.u);
-            } catch (JSONException e) {
-                if (v) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, cls)) == null) {
+            T t = null;
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            HashMap<String, String> params = unitedSchemeEntity.getParams();
+            if (params != null && !params.isEmpty()) {
+                String str = params.get("params");
+                if (str == null) {
+                    e12.c("map", "params string is empty");
+                    return null;
+                }
+                try {
+                    jSONObject = new JSONObject(str);
+                    newInstance = cls.newInstance();
+                } catch (Exception e) {
+                    e = e;
+                }
+                try {
+                    newInstance.a(jSONObject);
+                    return newInstance;
+                } catch (Exception e2) {
+                    e = e2;
+                    t = newInstance;
                     e.printStackTrace();
+                    e12.c("map", "params json parse error");
+                    return t;
                 }
             }
-            return jSONObject.toString();
+            e12.c("map", "entity get Params is empty");
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final boolean k(qq2 qq2Var, nq2 nq2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.b + " url=" + this.c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, qq2Var, nq2Var)) == null) {
+            if (qq2Var == null) {
+                e12.c("map", "parse error, model is null");
+                nq2Var.d(202);
+                return true;
+            }
+            if (d43.K().q().y0()) {
+                qq2Var.c = wj3.c().h();
+            }
+            if (TextUtils.isEmpty(qq2Var.c)) {
+                String B = yh3.B();
+                if (!TextUtils.isEmpty(B)) {
+                    qq2Var.c = B;
+                }
+                e12.o("map", "webView id is empty, use current webView");
+            }
+            if (yh3.m(qq2Var.c) == null) {
+                nq2Var.d(202);
+                e12.c("map", "can not find weiView by id " + qq2Var.c);
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

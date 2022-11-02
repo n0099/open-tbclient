@@ -23,7 +23,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean aN;
-    public List bv;
+    public List<Integer> bv;
     public volatile boolean bw;
     public j bx;
     public AdInfo mAdInfo;
@@ -215,7 +215,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65544, this, j) == null) {
             int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-            List list = this.bv;
+            List<Integer> list = this.bv;
             if (list == null || list.isEmpty()) {
                 return;
             }

@@ -1,260 +1,205 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Locale;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class h31 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
+    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772675, "Lcom/baidu/tieba/h31;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947772675, "Lcom/baidu/tieba/h31;");
+        }
+    }
+
+    public static void e(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
+        }
+    }
+
+    public h31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
     public static String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
-            switch (lowerCase.hashCode()) {
-                case -1443430368:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_SMARTISAN)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1245779295:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_GIONEE)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1206476313:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_HUAWEI)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -759499589:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_XIAOMI)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3418016:
-                    if (lowerCase.equals("oppo")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3620012:
-                    if (lowerCase.equals("vivo")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 103777484:
-                    if (lowerCase.equals("meizu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 105170387:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_NUBIA)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    String e = e("ro.build.version.emui");
-                    b = e;
-                    if (!TextUtils.isEmpty(e)) {
-                        a = "EMUI";
-                        return "EMUI";
-                    }
-                    return d();
-                case 1:
-                    String e2 = e("ro.miui.ui.version.name");
-                    b = e2;
-                    if (!TextUtils.isEmpty(e2)) {
-                        a = "MIUI";
-                        return "MIUI";
-                    }
-                    return d();
-                case 2:
-                    String e3 = e("ro.build.version.opporom");
-                    b = e3;
-                    if (!TextUtils.isEmpty(e3)) {
-                        a = "OPPO";
-                        return "OPPO";
-                    }
-                    return d();
-                case 3:
-                    String e4 = e("ro.vivo.os.version");
-                    b = e4;
-                    if (!TextUtils.isEmpty(e4)) {
-                        a = "VIVO";
-                        return "VIVO";
-                    }
-                    return d();
-                case 4:
-                    String e5 = e("ro.smartisan.version");
-                    b = e5;
-                    if (!TextUtils.isEmpty(e5)) {
-                        a = "SMARTISAN";
-                        return "SMARTISAN";
-                    }
-                    return d();
-                case 5:
-                    String e6 = e(RomUtils.KEY_VERSION_GIONEE);
-                    b = e6;
-                    if (!TextUtils.isEmpty(e6)) {
-                        a = RomUtils.ROM_GIONEE;
-                        return RomUtils.ROM_GIONEE;
-                    }
-                    return d();
-                case 6:
-                    String e7 = e(RomUtils.KEY_VERSION_NUBIA);
-                    b = e7;
-                    if (!TextUtils.isEmpty(e7)) {
-                        a = RomUtils.ROM_NUBIA;
-                        return RomUtils.ROM_NUBIA;
-                    }
-                    return d();
-                case 7:
-                    if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
-                        a = "FLYME";
-                        return "FLYME";
-                    }
-                    return d();
-                default:
-                    return d();
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Build.PRODUCT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = a;
             if (str == null) {
-                return a();
+                synchronized (h31.class) {
+                    str = a;
+                    if (str == null) {
+                        Context b = zi0.b();
+                        String c = c();
+                        if (c == null && (c = b(b)) == null) {
+                            c = b.getPackageName();
+                        }
+                        a = c;
+                        str = c;
+                    }
+                }
             }
             return str;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = Build.DISPLAY;
-            b = str;
-            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
-                a = "FLYME";
-            } else {
-                b = "unknown";
-                a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
             }
-            return a;
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String c() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                e("AppProcessManager", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String e(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
+    public static boolean d(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BufferedReader bufferedReader3 = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        bufferedReader.close();
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    String str2 = runningAppProcessInfo.processName;
+                    int myPid = Process.myPid();
+                    if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
+                        if (runningAppProcessInfo.importance != 100) {
+                            return false;
                         }
-                        return readLine;
-                    } catch (IOException e2) {
-                        e = e2;
-                        Log.e("Rom", "Unable to read prop " + str, e);
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        return null;
+                        return true;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedReader3 = bufferedReader2;
-                    if (bufferedReader3 != null) {
-                        try {
-                            bufferedReader3.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
+                    while (r4.hasNext()) {
                     }
-                    throw th;
                 }
-            } catch (IOException e5) {
-                e = e5;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (bufferedReader3 != null) {
-                }
-                throw th;
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
-        } else {
-            return (String) invokeL.objValue;
         }
+        return invokeLL.booleanValue;
     }
 }

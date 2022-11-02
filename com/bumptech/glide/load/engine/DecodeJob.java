@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine;
 
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -36,20 +37,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable, FactoryPools.Poolable {
+public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodeJob";
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback callback;
+    public Callback<R> callback;
     public Key currentAttemptingKey;
     public Object currentData;
     public DataSource currentDataSource;
-    public DataFetcher currentFetcher;
+    public DataFetcher<?> currentFetcher;
     public volatile DataFetcherGenerator currentGenerator;
     public Key currentSourceKey;
     public Thread currentThread;
-    public final DecodeHelper decodeHelper;
-    public final DeferredEncodeManager deferredEncodeManager;
+    public final DecodeHelper<R> decodeHelper;
+    public final DeferredEncodeManager<?> deferredEncodeManager;
     public final DiskCacheProvider diskCacheProvider;
     public DiskCacheStrategy diskCacheStrategy;
     public GlideContext glideContext;
@@ -62,7 +63,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     public boolean onlyRetrieveFromCache;
     public Options options;
     public int order;
-    public final Pools.Pool pool;
+    public final Pools.Pool<DecodeJob<?>> pool;
     public Priority priority;
     public final ReleaseManager releaseManager;
     public RunReason runReason;
@@ -70,16 +71,16 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     public Stage stage;
     public long startFetchTime;
     public final StateVerifier stateVerifier;
-    public final List throwables;
+    public final List<Throwable> throwables;
     public int width;
 
     /* loaded from: classes7.dex */
-    public interface Callback {
+    public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
-        void onResourceReady(Resource resource, DataSource dataSource, boolean z);
+        void onResourceReady(Resource<R> resource, DataSource dataSource, boolean z);
 
-        void reschedule(DecodeJob decodeJob);
+        void reschedule(DecodeJob<?> decodeJob);
     }
 
     /* loaded from: classes7.dex */
@@ -89,7 +90,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
 
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage;
@@ -159,7 +160,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     /* loaded from: classes7.dex */
-    public final class DecodeCallback implements DecodePath.DecodeCallback {
+    public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource dataSource;
@@ -185,7 +186,8 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
 
         @Override // com.bumptech.glide.load.engine.DecodePath.DecodeCallback
-        public Resource onResourceDecoded(Resource resource) {
+        @NonNull
+        public Resource<Z> onResourceDecoded(@NonNull Resource<Z> resource) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resource)) == null) {
@@ -196,12 +198,12 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     /* loaded from: classes7.dex */
-    public class DeferredEncodeManager {
+    public static class DeferredEncodeManager<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ResourceEncoder encoder;
+        public ResourceEncoder<Z> encoder;
         public Key key;
-        public LockedResource toEncode;
+        public LockedResource<Z> toEncode;
 
         public DeferredEncodeManager() {
             Interceptable interceptable = $ic;
@@ -251,7 +253,10 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
             }
         }
 
-        public void init(Key key, ResourceEncoder resourceEncoder, LockedResource lockedResource) {
+        /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.bumptech.glide.load.ResourceEncoder<X> */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.bumptech.glide.load.engine.LockedResource<X> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public <X> void init(Key key, ResourceEncoder<X> resourceEncoder, LockedResource<X> lockedResource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, key, resourceEncoder, lockedResource) == null) {
                 this.key = key;
@@ -262,7 +267,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     /* loaded from: classes7.dex */
-    public class ReleaseManager {
+    public static class ReleaseManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isEncodeComplete;
@@ -351,7 +356,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class RunReason {
+    public static final class RunReason {
         public static final /* synthetic */ RunReason[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RunReason DECODE_DATA;
@@ -419,7 +424,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Stage {
+    public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Stage DATA_CACHE;
@@ -491,7 +496,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool pool) {
+    public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool<DecodeJob<?>> pool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -506,25 +511,25 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
                 return;
             }
         }
-        this.decodeHelper = new DecodeHelper();
+        this.decodeHelper = new DecodeHelper<>();
         this.throwables = new ArrayList();
         this.stateVerifier = StateVerifier.newInstance();
-        this.deferredEncodeManager = new DeferredEncodeManager();
+        this.deferredEncodeManager = new DeferredEncodeManager<>();
         this.releaseManager = new ReleaseManager();
         this.diskCacheProvider = diskCacheProvider;
         this.pool = pool;
     }
 
-    private Resource decodeFromData(DataFetcher dataFetcher, Object obj, DataSource dataSource) throws GlideException {
+    private <Data> Resource<R> decodeFromData(DataFetcher<?> dataFetcher, Data data, DataSource dataSource) throws GlideException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, dataFetcher, obj, dataSource)) == null) {
-            if (obj == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, dataFetcher, data, dataSource)) == null) {
+            if (data == null) {
                 return null;
             }
             try {
                 long logTime = LogTime.getLogTime();
-                Resource decodeFromFetcher = decodeFromFetcher(obj, dataSource);
+                Resource<R> decodeFromFetcher = decodeFromFetcher(data, dataSource);
                 if (Log.isLoggable(TAG, 2)) {
                     logWithTimeAndKey("Decoded result " + decodeFromFetcher, logTime);
                 }
@@ -540,7 +545,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.bumptech.glide.load.engine.LockedResource */
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.bumptech.glide.load.engine.LockedResource */
     /* JADX WARN: Multi-variable type inference failed */
-    private void notifyEncodeAndRelease(Resource resource, DataSource dataSource, boolean z) {
+    private void notifyEncodeAndRelease(Resource<R> resource, DataSource dataSource, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65547, this, resource, dataSource, z) == null) {
             if (resource instanceof Initializable) {
@@ -566,11 +571,12 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    private Resource decodeFromFetcher(Object obj, DataSource dataSource) throws GlideException {
+    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: com.bumptech.glide.load.engine.LoadPath<Data, ?, R>, com.bumptech.glide.load.engine.LoadPath<Data, ResourceType, R> */
+    private <Data> Resource<R> decodeFromFetcher(Data data, DataSource dataSource) throws GlideException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, obj, dataSource)) == null) {
-            return runLoadPath(obj, dataSource, this.decodeHelper.getLoadPath(obj.getClass()));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, data, dataSource)) == null) {
+            return runLoadPath(data, dataSource, (LoadPath<Data, ?, R>) this.decodeHelper.getLoadPath(data.getClass()));
         }
         return (Resource) invokeLL.objValue;
     }
@@ -589,7 +595,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
                 long j = this.startFetchTime;
                 logWithTimeAndKey("Retrieved data", j, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
             }
-            Resource resource = null;
+            Resource<R> resource = null;
             try {
                 resource = decodeFromData(this.currentFetcher, this.currentData, this.currentDataSource);
             } catch (GlideException e) {
@@ -609,7 +615,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
-            DataFetcher dataFetcher = this.currentFetcher;
+            DataFetcher<?> dataFetcher = this.currentFetcher;
             try {
                 try {
                     if (this.isCancelled) {
@@ -754,6 +760,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         return (Stage) invokeL.objValue;
     }
 
+    @NonNull
     private Options getOptionsWithHardwareConfig(DataSource dataSource) {
         InterceptResult invokeL;
         boolean z;
@@ -824,6 +831,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
+    @NonNull
     public StateVerifier getVerifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -877,7 +885,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    private void notifyComplete(Resource resource, DataSource dataSource, boolean z) {
+    private void notifyComplete(Resource<R> resource, DataSource dataSource, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65546, this, resource, dataSource, z) == null) {
             setNotifiedOrThrow();
@@ -885,12 +893,12 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    private Resource runLoadPath(Object obj, DataSource dataSource, LoadPath loadPath) throws GlideException {
+    private <Data, ResourceType> Resource<R> runLoadPath(Data data, DataSource dataSource, LoadPath<Data, ResourceType, R> loadPath) throws GlideException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, obj, dataSource, loadPath)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65553, this, data, dataSource, loadPath)) == null) {
             Options optionsWithHardwareConfig = getOptionsWithHardwareConfig(dataSource);
-            DataRewinder rewinder = this.glideContext.getRegistry().getRewinder(obj);
+            DataRewinder<Data> rewinder = this.glideContext.getRegistry().getRewinder(data);
             try {
                 return loadPath.load(rewinder, optionsWithHardwareConfig, this.width, this.height, new DecodeCallback(this, dataSource));
             } finally {
@@ -909,8 +917,8 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
                 if (this.throwables.isEmpty()) {
                     th = null;
                 } else {
-                    List list = this.throwables;
-                    th = (Throwable) list.get(list.size() - 1);
+                    List<Throwable> list = this.throwables;
+                    th = list.get(list.size() - 1);
                 }
                 throw new IllegalStateException("Already notified", th);
             }
@@ -920,7 +928,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(DecodeJob decodeJob) {
+    public int compareTo(@NonNull DecodeJob<?> decodeJob) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, decodeJob)) == null) {
@@ -940,7 +948,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    public DecodeJob init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class cls, Class cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map map, boolean z, boolean z2, boolean z3, Options options, Callback callback, int i3) {
+    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback, Integer.valueOf(i3)})) == null) {
@@ -964,7 +972,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher dataFetcher, DataSource dataSource) {
+    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher<?> dataFetcher, DataSource dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, key, exc, dataFetcher, dataSource) == null) {
             dataFetcher.cleanup();
@@ -981,7 +989,7 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
     }
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void onDataFetcherReady(Key key, Object obj, DataFetcher dataFetcher, DataSource dataSource, Key key2) {
+    public void onDataFetcherReady(Key key, Object obj, DataFetcher<?> dataFetcher, DataSource dataSource, Key key2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, key, obj, dataFetcher, dataSource, key2) == null) {
             this.currentSourceKey = key;
@@ -1008,18 +1016,19 @@ public class DecodeJob implements DataFetcherGenerator.FetcherReadyCallback, Run
         }
     }
 
-    public Resource onResourceDecoded(DataSource dataSource, Resource resource) {
+    @NonNull
+    public <Z> Resource<Z> onResourceDecoded(DataSource dataSource, @NonNull Resource<Z> resource) {
         InterceptResult invokeLL;
-        Resource resource2;
-        Transformation transformation;
+        Resource<Z> resource2;
+        Transformation<Z> transformation;
         EncodeStrategy encodeStrategy;
         Key dataCacheKey;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, dataSource, resource)) == null) {
             Class<?> cls = resource.get().getClass();
-            ResourceEncoder resourceEncoder = null;
+            ResourceEncoder<Z> resourceEncoder = null;
             if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
-                Transformation transformation2 = this.decodeHelper.getTransformation(cls);
+                Transformation<Z> transformation2 = this.decodeHelper.getTransformation(cls);
                 transformation = transformation2;
                 resource2 = transformation2.transform(this.glideContext, resource, this.width, this.height);
             } else {

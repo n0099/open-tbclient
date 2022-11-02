@@ -6,6 +6,7 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,9 +22,10 @@ public final class zzo implements ServiceConnection, zzs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ zzr zza;
-    public final Map zzb;
+    public final Map<ServiceConnection, ServiceConnection> zzb;
     public int zzc;
     public boolean zzd;
+    @Nullable
     public IBinder zze;
     public final zzn zzf;
     public ComponentName zzg;
@@ -40,6 +42,7 @@ public final class zzo implements ServiceConnection, zzs {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.zzg : (ComponentName) invokeV.objValue;
     }
 
+    @Nullable
     public final IBinder zzc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,7 +123,7 @@ public final class zzo implements ServiceConnection, zzs {
         }
     }
 
-    public final void zze(String str, Executor executor) {
+    public final void zze(String str, @Nullable Executor executor) {
         ConnectionTracker connectionTracker;
         Context context;
         Context context2;

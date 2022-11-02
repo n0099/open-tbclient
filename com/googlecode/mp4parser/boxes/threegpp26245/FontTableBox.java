@@ -25,10 +25,10 @@ public class FontTableBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<FontRecord> entries;
 
     /* loaded from: classes7.dex */
-    public class FontRecord {
+    public static class FontRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int fontId;
@@ -133,7 +133,7 @@ public class FontTableBox extends AbstractBox {
         return invokeV.longValue;
     }
 
-    public List getEntries() {
+    public List<FontRecord> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -192,7 +192,7 @@ public class FontTableBox extends AbstractBox {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<FontRecord> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, list));

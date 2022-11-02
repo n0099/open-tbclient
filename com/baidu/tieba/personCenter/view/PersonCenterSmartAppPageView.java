@@ -4,10 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.y58;
+import com.baidu.tieba.i78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +20,8 @@ import java.util.List;
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
+    public List<i78> a;
+    public List<PersonCenterSmartAppItemView> b;
     public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -44,18 +45,18 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public void a(y58 y58Var) {
+    public void a(i78 i78Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, y58Var) == null) && y58Var != null && this.a.size() != this.c) {
-            this.a.add(y58Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, i78Var) == null) && i78Var != null && this.a.size() != this.c) {
+            this.a.add(i78Var);
             PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.b, this.a.size() - 1);
-            personCenterSmartAppItemView.a(y58Var);
+            personCenterSmartAppItemView.a(i78Var);
             personCenterSmartAppItemView.setVisibility(0);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppPageView(Context context, AttributeSet attributeSet) {
+    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,7 +77,7 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppPageView(Context context, AttributeSet attributeSet, int i) {
+    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

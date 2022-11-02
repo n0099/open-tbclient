@@ -1,6 +1,6 @@
 package com.baidu.swan.pms.model;
 
-import com.baidu.tieba.gc4;
+import com.baidu.tieba.yc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PMSException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gc4 mPmsError;
+    public final yc4 mPmsError;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PMSException(String str, gc4 gc4Var) {
+    public PMSException(String str, yc4 yc4Var) {
         super(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, gc4Var};
+            Object[] objArr = {str, yc4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,15 +31,15 @@ public class PMSException extends Exception {
                 return;
             }
         }
-        this.mPmsError = gc4Var;
+        this.mPmsError = yc4Var;
     }
 
-    public gc4 getPmsError() {
+    public yc4 getPmsError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPmsError;
         }
-        return (gc4) invokeV.objValue;
+        return (yc4) invokeV.objValue;
     }
 }

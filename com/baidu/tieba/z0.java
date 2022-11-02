@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class z0 implements Iterable {
+public class z0<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7 a;
-    public b7.a b;
+    public final b7<T> a;
+    public b7.a<T> b;
 
-    public z0(b7 b7Var) {
+    public z0(b7<T> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,13 +42,13 @@ public class z0 implements Iterable {
         return invokeL.booleanValue;
     }
 
-    public Object get(int i) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.a.get(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
     public int hashCode() {
@@ -61,12 +61,12 @@ public class z0 implements Iterable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.b == null) {
-                this.b = new b7.a(this.a, false);
+                this.b = new b7.a<>(this.a, false);
             }
             return this.b.iterator();
         }

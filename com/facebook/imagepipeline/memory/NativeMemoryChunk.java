@@ -10,11 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -24,16 +27,22 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public final long mNativePtr;
     public final int mSize;
 
+    @DoNotStrip
     public static native long nativeAllocate(int i);
 
+    @DoNotStrip
     public static native void nativeCopyFromByteArray(long j, byte[] bArr, int i, int i2);
 
+    @DoNotStrip
     public static native void nativeCopyToByteArray(long j, byte[] bArr, int i, int i2);
 
+    @DoNotStrip
     public static native void nativeFree(long j);
 
+    @DoNotStrip
     public static native void nativeMemcpy(long j, long j2, int i);
 
+    @DoNotStrip
     public static native byte nativeReadByte(long j);
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
@@ -63,6 +72,7 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
         ImagePipelineNativeLoader.load();
     }
 
+    @VisibleForTesting
     public NativeMemoryChunk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

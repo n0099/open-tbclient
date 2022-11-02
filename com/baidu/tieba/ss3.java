@@ -1,13 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface ss3 {
-    void a(int i);
+    void d(String str, String str2);
 
-    void b(boolean z, String str);
-
-    void c(boolean z, String str);
-
-    void d(boolean z, int i);
-
-    void onError(String str);
+    void f(View view2);
 }

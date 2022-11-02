@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: ApiReplaceUtil.java */
 /* loaded from: classes5.dex */
-public class my4 {
+public final /* synthetic */ class my4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BreatheTipWidget.PointType a;
-    public int b;
-    public int c;
 
-    public my4() {
+    public static boolean $default$forceApi(ApiReplaceUtil.Getter.Action action) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, action)) == null) {
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

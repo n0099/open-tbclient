@@ -10,14 +10,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageLoaderEngine {
     public final ImageLoaderConfiguration configuration;
     public Executor taskDistributor;
     public Executor taskExecutor;
     public Executor taskExecutorForCachedImages;
-    public final Map cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
-    public final Map uriLocks = new WeakHashMap();
+    public final Map<Integer, String> cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
+    public final Map<String, ReentrantLock> uriLocks = new WeakHashMap();
     public final AtomicBoolean paused = new AtomicBoolean(false);
     public final AtomicBoolean networkDenied = new AtomicBoolean(false);
     public final AtomicBoolean slowNetwork = new AtomicBoolean(false);
@@ -59,11 +59,11 @@ public class ImageLoaderEngine {
     }
 
     public String getLoadingUriForView(ImageAware imageAware) {
-        return (String) this.cacheKeysForImageAwares.get(Integer.valueOf(imageAware.getId()));
+        return this.cacheKeysForImageAwares.get(Integer.valueOf(imageAware.getId()));
     }
 
     public ReentrantLock getLockForUri(String str) {
-        ReentrantLock reentrantLock = (ReentrantLock) this.uriLocks.get(str);
+        ReentrantLock reentrantLock = this.uriLocks.get(str);
         if (reentrantLock == null) {
             ReentrantLock reentrantLock2 = new ReentrantLock();
             this.uriLocks.put(str, reentrantLock2);

@@ -1,102 +1,119 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class yy1 extends az1 {
+public class yy1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
+    public String a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy1(String str, String str2) {
-        super(str, str2);
+    public yy1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
+        this.d = -1.0f;
+        this.e = 0.0f;
+        this.f = 1.0f;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
+        float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.u = Color.parseColor(jSONObject.optString("color"));
-                this.v = true;
-            } catch (Exception unused) {
-                m02.o("Component-Model-TextView", "text color occurs exception");
-                this.v = false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
+            TextPaint textPaint = lx1Var.e;
+            int i = lx1Var.k;
+            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+            float f2 = fontMetrics.top;
+            int i2 = this.c;
+            float f3 = i2 + f2;
+            float f4 = fontMetrics.ascent + i2;
+            float f5 = fontMetrics.bottom;
+            float f6 = i2 + f5;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        f = i2;
+                    } else {
+                        f = i2 - (f4 - f3);
+                    }
+                } else {
+                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
+                }
+            } else {
+                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
             }
-            this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-            this.x = dh3.g((float) this.j.optDouble("lineHeight", 0.0d));
-            this.y = dh3.g((float) this.j.optDouble("lineSpace", 0.0d));
-            this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.B = this.j.optString("whiteSpace");
-            this.C = this.j.optString("lineBreak");
+            if (this.e == 0.0d) {
+                Rect rect = new Rect();
+                String str = this.a;
+                textPaint.getTextBounds(str, 0, str.length(), rect);
+                if (this.d != -1.0f) {
+                    float f7 = this.d;
+                    if (rect.width() > f7) {
+                        this.e = f7 / rect.width();
+                    }
+                }
+                this.e = 1.0f;
+            }
+            canvas.save();
+            int alpha = textPaint.getAlpha();
+            int color = textPaint.getColor();
+            textPaint.setStyle(Paint.Style.STROKE);
+            textPaint.setStrokeWidth(this.f);
+            textPaint.setColor(lx1Var.m);
+            lx1Var.c(textPaint);
+            canvas.scale(this.e, 1.0f);
+            canvas.drawText(this.a, this.b, f, textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setAlpha(alpha);
+            textPaint.setColor(color);
+            canvas.restore();
         }
     }
 
-    @Override // com.baidu.tieba.az1, com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
-    }
-
-    @Override // com.baidu.tieba.az1, com.baidu.tieba.cz1
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = vh3.g((float) jSONArray.optDouble(1));
+                    this.c = vh3.g((float) jSONArray.optDouble(2));
+                    if (jSONArray.length() > 3) {
+                        this.d = vh3.g((float) jSONArray.optDouble(3));
+                    }
+                    this.f = vh3.g(1.0f);
+                }
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

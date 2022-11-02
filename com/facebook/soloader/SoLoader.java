@@ -1,5 +1,6 @@
 package com.facebook.soloader;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.StrictMode;
@@ -34,6 +35,10 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import javax.annotation.concurrent.NotThreadSafe;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,26 +54,35 @@ public class SoLoader {
     public static final boolean SYSTRACE_LIBRARY_LOADING;
     public static final String TAG = "SoLoader";
     public static boolean isSystemApp;
+    @GuardedBy("sSoSourcesLock")
     @Nullable
     public static ApplicationSoSource sApplicationSoSource;
+    @GuardedBy("sSoSourcesLock")
     @Nullable
     public static UnpackingSoSource[] sBackupSoSources;
+    @GuardedBy("sSoSourcesLock")
     public static int sFlags;
-    public static final Set sLoadedAndMergedLibraries;
-    public static final HashSet sLoadedLibraries;
-    public static final Map sLoadingLibraries;
+    public static final Set<String> sLoadedAndMergedLibraries;
+    @GuardedBy("SoLoader.class")
+    public static final HashSet<String> sLoadedLibraries;
+    @GuardedBy("SoLoader.class")
+    public static final Map<String, Object> sLoadingLibraries;
     @Nullable
     public static SoFileLoader sSoFileLoader;
+    @GuardedBy("sSoSourcesLock")
     @Nullable
     public static SoSource[] sSoSources;
     public static final ReentrantReadWriteLock sSoSourcesLock;
+    @GuardedBy("sSoSourcesLock")
     public static volatile int sSoSourcesVersion;
     @Nullable
     public static SystemLoadLibraryWrapper sSystemLoadLibraryWrapper;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotOptimize
+    @TargetApi(14)
     /* loaded from: classes7.dex */
-    public class Api14Utils {
+    public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,8 +118,9 @@ public class SoLoader {
         }
     }
 
+    @NotThreadSafe
     /* loaded from: classes7.dex */
-    public class TestOnlyUtils {
+    public static class TestOnlyUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -157,7 +172,7 @@ public class SoLoader {
     }
 
     /* loaded from: classes7.dex */
-    public final class WrongAbiError extends UnsatisfiedLinkError {
+    public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +215,7 @@ public class SoLoader {
         sSoSources = null;
         boolean z = false;
         sSoSourcesVersion = 0;
-        sLoadedLibraries = new HashSet();
+        sLoadedLibraries = new HashSet<>();
         sLoadingLibraries = new HashMap();
         sLoadedAndMergedLibraries = Collections.newSetFromMap(new ConcurrentHashMap());
         sSystemLoadLibraryWrapper = null;

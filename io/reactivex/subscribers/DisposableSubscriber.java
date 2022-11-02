@@ -13,10 +13,10 @@ import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class DisposableSubscriber implements FlowableSubscriber, Disposable {
+public abstract class DisposableSubscriber<T> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference s;
+    public final AtomicReference<Subscription> s;
 
     public DisposableSubscriber() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class DisposableSubscriber implements FlowableSubscriber, Dispos
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
     }
 
     public final void cancel() {
@@ -65,7 +65,7 @@ public abstract class DisposableSubscriber implements FlowableSubscriber, Dispos
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ((Subscription) this.s.get()).request(Long.MAX_VALUE);
+            this.s.get().request(Long.MAX_VALUE);
         }
     }
 
@@ -80,7 +80,7 @@ public abstract class DisposableSubscriber implements FlowableSubscriber, Dispos
     public final void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            ((Subscription) this.s.get()).request(j);
+            this.s.get().request(j);
         }
     }
 }

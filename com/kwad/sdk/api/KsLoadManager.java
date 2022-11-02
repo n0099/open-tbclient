@@ -1,127 +1,192 @@
 package com.kwad.sdk.api;
 
 import android.app.Activity;
+import androidx.annotation.Keep;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
+@Keep
 /* loaded from: classes7.dex */
 public interface KsLoadManager {
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface DrawAdListener {
         @KsAdSdkApi
-        void onDrawAdLoad(List list);
+        @Keep
+        @MainThread
+        void onDrawAdLoad(@Nullable List<KsDrawAd> list);
 
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface FeedAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
-        void onFeedAdLoad(List list);
+        @Keep
+        @MainThread
+        void onFeedAdLoad(@Nullable List<KsFeedAd> list);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface FullScreenVideoAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
-        void onFullScreenVideoAdLoad(List list);
+        @Keep
+        @MainThread
+        void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list);
 
         @KsAdSdkApi
-        void onFullScreenVideoResult(List list);
+        @Keep
+        @MainThread
+        void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface InterstitialAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
-        void onInterstitialAdLoad(List list);
+        @Keep
+        @MainThread
+        void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list);
 
         @KsAdSdkApi
+        @Keep
         void onRequestResult(int i);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface NativeAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
-        void onNativeAdLoad(List list);
+        @Keep
+        @MainThread
+        void onNativeAdLoad(@Nullable List<KsNativeAd> list);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface RewardVideoAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
-        void onRewardVideoAdLoad(List list);
+        @Keep
+        @MainThread
+        void onRewardVideoAdLoad(@Nullable List<KsRewardVideoAd> list);
 
         @KsAdSdkApi
-        void onRewardVideoResult(List list);
+        @Keep
+        @MainThread
+        void onRewardVideoResult(@Nullable List<KsRewardVideoAd> list);
     }
 
     @KsAdSdkApi
+    @Keep
     /* loaded from: classes7.dex */
     public interface SplashScreenAdListener {
         @KsAdSdkApi
+        @Keep
+        @MainThread
         void onError(int i, String str);
 
         @KsAdSdkApi
+        @Keep
         void onRequestResult(int i);
 
         @KsAdSdkApi
-        void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd);
+        @Keep
+        @MainThread
+        void onSplashScreenAdLoad(@Nullable KsSplashScreenAd ksSplashScreenAd);
     }
 
     @KsAdSdkApi
+    @Keep
     String getBidRequestToken(KsScene ksScene);
 
     @KsAdSdkApi
+    @Keep
     String getBidRequestTokenV2(KsScene ksScene);
 
     @KsAdSdkApi
-    void loadConfigFeedAd(KsScene ksScene, FeedAdListener feedAdListener);
+    @Keep
+    @MainThread
+    void loadConfigFeedAd(KsScene ksScene, @NonNull FeedAdListener feedAdListener);
 
     @KsAdSdkApi
-    void loadDrawAd(KsScene ksScene, DrawAdListener drawAdListener);
+    @Keep
+    @MainThread
+    void loadDrawAd(KsScene ksScene, @NonNull DrawAdListener drawAdListener);
 
     @KsAdSdkApi
+    @Keep
     @Deprecated
-    void loadFeedAd(KsScene ksScene, FeedAdListener feedAdListener);
+    @MainThread
+    void loadFeedAd(KsScene ksScene, @NonNull FeedAdListener feedAdListener);
 
     @KsAdSdkApi
-    void loadFullScreenVideoAd(KsScene ksScene, FullScreenVideoAdListener fullScreenVideoAdListener);
+    @Keep
+    void loadFullScreenVideoAd(KsScene ksScene, @NonNull FullScreenVideoAdListener fullScreenVideoAdListener);
 
     @KsAdSdkApi
-    void loadInterstitialAd(KsScene ksScene, InterstitialAdListener interstitialAdListener);
+    @Keep
+    @MainThread
+    void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull InterstitialAdListener interstitialAdListener);
 
     @KsAdSdkApi
-    void loadNativeAd(KsScene ksScene, NativeAdListener nativeAdListener);
+    @Keep
+    @MainThread
+    void loadNativeAd(KsScene ksScene, @NonNull NativeAdListener nativeAdListener);
 
     @KsAdSdkApi
-    void loadNativeAd(String str, NativeAdListener nativeAdListener);
+    @Keep
+    @MainThread
+    void loadNativeAd(String str, @NonNull NativeAdListener nativeAdListener);
 
     @KsAdSdkApi
-    void loadRewardVideoAd(KsScene ksScene, RewardVideoAdListener rewardVideoAdListener);
+    @Keep
+    @MainThread
+    void loadRewardVideoAd(KsScene ksScene, @NonNull RewardVideoAdListener rewardVideoAdListener);
 
     @KsAdSdkApi
-    void loadSplashScreenAd(KsScene ksScene, SplashScreenAdListener splashScreenAdListener);
+    @Keep
+    @MainThread
+    void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull SplashScreenAdListener splashScreenAdListener);
 
     boolean showInstallDialog(Activity activity, KsExitInstallListener ksExitInstallListener);
 }

@@ -11,20 +11,20 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes8.dex */
-public final class ObservableSkip extends AbstractObservableWithUpstream {
+public final class ObservableSkip<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long n;
 
     /* loaded from: classes8.dex */
-    public final class SkipObserver implements Observer, Disposable {
+    public static final class SkipObserver<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public Disposable d;
         public long remaining;
 
-        public SkipObserver(Observer observer, long j) {
+        public SkipObserver(Observer<? super T> observer, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +78,14 @@ public final class ObservableSkip extends AbstractObservableWithUpstream {
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 long j = this.remaining;
                 if (j != 0) {
                     this.remaining = j - 1;
                 } else {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 }
             }
         }
@@ -101,7 +101,7 @@ public final class ObservableSkip extends AbstractObservableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkip(ObservableSource observableSource, long j) {
+    public ObservableSkip(ObservableSource<T> observableSource, long j) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -122,7 +122,7 @@ public final class ObservableSkip extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new SkipObserver(observer, this.n));

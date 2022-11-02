@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ public class DefaultAttachFileUploader extends BaseAttachFileUploader {
     }
 
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseAttachFileUploader
-    public ResponseEntity uploadSync(String str, File file) {
+    public ResponseEntity uploadSync(@NonNull String str, @NonNull File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {

@@ -21,10 +21,10 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
     public static final String KEY_RESULT_CODE = "resultCode";
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List autoMarkPkgs;
+    public List<String> autoMarkPkgs;
     public String category;
     public String command;
-    public List commandArguments;
+    public List<String> commandArguments;
     public String reason;
     public long resultCode;
 
@@ -58,7 +58,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         return (MiPushCommandMessage) invokeL.objValue;
     }
 
-    public List getAutoMarkPkgs() {
+    public List<String> getAutoMarkPkgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.autoMarkPkgs : (List) invokeV.objValue;
@@ -76,7 +76,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.command : (String) invokeV.objValue;
     }
 
-    public List getCommandArguments() {
+    public List<String> getCommandArguments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.commandArguments : (List) invokeV.objValue;
@@ -94,7 +94,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.resultCode : invokeV.longValue;
     }
 
-    public void setAutoMarkPkgs(List list) {
+    public void setAutoMarkPkgs(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.autoMarkPkgs = list;
@@ -115,7 +115,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         }
     }
 
-    public void setCommandArguments(List list) {
+    public void setCommandArguments(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             this.commandArguments = list;
@@ -144,12 +144,12 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
             bundle.putString("command", this.command);
             bundle.putLong("resultCode", this.resultCode);
             bundle.putString("reason", this.reason);
-            List list = this.commandArguments;
+            List<String> list = this.commandArguments;
             if (list != null) {
                 bundle.putStringArrayList(KEY_COMMAND_ARGUMENTS, (ArrayList) list);
             }
             bundle.putString("category", this.category);
-            List list2 = this.autoMarkPkgs;
+            List<String> list2 = this.autoMarkPkgs;
             if (list2 != null) {
                 bundle.putStringArrayList(KEY_AUTO_MARK_PKGS, (ArrayList) list2);
             }

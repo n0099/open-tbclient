@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import androidx.annotation.ColorInt;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScaleAnimSeekBar extends View {
     public int afA;
     public int afB;
@@ -32,7 +33,7 @@ public class ScaleAnimSeekBar extends View {
     public boolean afN;
     public boolean afO;
     public boolean afP;
-    public WeakReference afQ;
+    public WeakReference<a> afQ;
     public boolean afR;
     public boolean afS;
     public ValueAnimator afT;
@@ -59,7 +60,7 @@ public class ScaleAnimSeekBar extends View {
     public int aga;
     public boolean agb;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 
@@ -330,9 +331,9 @@ public class ScaleAnimSeekBar extends View {
     }
 
     private a getOnSeekBarChangedListener() {
-        WeakReference weakReference = this.afQ;
+        WeakReference<a> weakReference = this.afQ;
         if (weakReference != null) {
-            return (a) weakReference.get();
+            return weakReference.get();
         }
         return null;
     }
@@ -501,19 +502,19 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setOnSeekBarChangeListener(a aVar) {
-        this.afQ = new WeakReference(aVar);
+        this.afQ = new WeakReference<>(aVar);
     }
 
     public void setProgress(int i) {
         a(i, false, false);
     }
 
-    public void setProgressBackgroundColor(int i) {
+    public void setProgressBackgroundColor(@ColorInt int i) {
         this.afn = i;
         this.afD.setColor(i);
     }
 
-    public void setProgressColor(int i) {
+    public void setProgressColor(@ColorInt int i) {
         this.afo = i;
         this.afE.setColor(i);
     }
@@ -528,7 +529,7 @@ public class ScaleAnimSeekBar extends View {
         invalidate();
     }
 
-    public void setSecondaryProgressColor(int i) {
+    public void setSecondaryProgressColor(@ColorInt int i) {
         this.afp = i;
         this.afF.setColor(i);
     }

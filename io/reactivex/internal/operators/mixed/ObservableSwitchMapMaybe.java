@@ -13,6 +13,7 @@ import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -22,38 +23,39 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+@Experimental
 /* loaded from: classes8.dex */
-public final class ObservableSwitchMapMaybe extends Observable {
+public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function mapper;
-    public final Observable source;
+    public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
+    public final Observable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SwitchMapMaybeMainObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class SwitchMapMaybeMainObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final SwitchMapMaybeObserver INNER_DISPOSED;
+        public static final SwitchMapMaybeObserver<Object> INNER_DISPOSED;
         public static final long serialVersionUID = -5402190102429853762L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public volatile boolean done;
-        public final Observer downstream;
+        public final Observer<? super R> downstream;
         public final AtomicThrowable errors;
-        public final AtomicReference inner;
-        public final Function mapper;
+        public final AtomicReference<SwitchMapMaybeObserver<R>> inner;
+        public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
         public Disposable upstream;
 
         /* loaded from: classes8.dex */
-        public final class SwitchMapMaybeObserver extends AtomicReference implements MaybeObserver {
+        public static final class SwitchMapMaybeObserver<R> extends AtomicReference<Disposable> implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;
             public transient /* synthetic */ FieldHolder $fh;
-            public volatile Object item;
-            public final SwitchMapMaybeMainObserver parent;
+            public volatile R item;
+            public final SwitchMapMaybeMainObserver<?, R> parent;
 
-            public SwitchMapMaybeObserver(SwitchMapMaybeMainObserver switchMapMaybeMainObserver) {
+            public SwitchMapMaybeObserver(SwitchMapMaybeMainObserver<?, R> switchMapMaybeMainObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,10 +90,10 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
 
             @Override // io.reactivex.MaybeObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(R r) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                    this.item = obj;
+                if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
+                    this.item = r;
                     this.parent.drain();
                 }
             }
@@ -125,7 +127,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
                     return;
                 }
             }
-            INNER_DISPOSED = new SwitchMapMaybeObserver(null);
+            INNER_DISPOSED = new SwitchMapMaybeObserver<>(null);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -138,8 +140,10 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.ObservableSwitchMapMaybe$SwitchMapMaybeMainObserver$SwitchMapMaybeObserver<R>> */
+        /* JADX WARN: Multi-variable type inference failed */
         public void disposeInner() {
-            SwitchMapMaybeObserver switchMapMaybeObserver;
+            SwitchMapMaybeObserver<Object> switchMapMaybeObserver;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (switchMapMaybeObserver = (SwitchMapMaybeObserver) this.inner.getAndSet(INNER_DISPOSED)) != null && switchMapMaybeObserver != INNER_DISPOSED) {
                 switchMapMaybeObserver.dispose();
@@ -165,7 +169,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
         }
 
-        public SwitchMapMaybeMainObserver(Observer observer, Function function, boolean z) {
+        public SwitchMapMaybeMainObserver(Observer<? super R> observer, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,18 +188,19 @@ public final class ObservableSwitchMapMaybe extends Observable {
             this.mapper = function;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
-            this.inner = new AtomicReference();
+            this.inner = new AtomicReference<>();
         }
 
+        /* JADX DEBUG: Type inference failed for r5v5. Raw type applied. Possible types: R, ? super R */
         public void drain() {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Observer observer = this.downstream;
+            Observer<? super R> observer = this.downstream;
             AtomicThrowable atomicThrowable = this.errors;
-            AtomicReference atomicReference = this.inner;
+            AtomicReference<SwitchMapMaybeObserver<R>> atomicReference = this.inner;
             int i = 1;
             while (!this.cancelled) {
                 if (atomicThrowable.get() != null && !this.delayErrors) {
@@ -203,7 +208,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
                     return;
                 }
                 boolean z2 = this.done;
-                SwitchMapMaybeObserver switchMapMaybeObserver = (SwitchMapMaybeObserver) atomicReference.get();
+                SwitchMapMaybeObserver<R> switchMapMaybeObserver = atomicReference.get();
                 if (switchMapMaybeObserver == null) {
                     z = true;
                 } else {
@@ -220,7 +225,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
                     }
                 } else if (!z && switchMapMaybeObserver.item != null) {
                     atomicReference.compareAndSet(switchMapMaybeObserver, null);
-                    observer.onNext(switchMapMaybeObserver.item);
+                    observer.onNext((R) switchMapMaybeObserver.item);
                 } else {
                     i = addAndGet(-i);
                     if (i == 0) {
@@ -230,7 +235,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
         }
 
-        public void innerComplete(SwitchMapMaybeObserver switchMapMaybeObserver) {
+        public void innerComplete(SwitchMapMaybeObserver<R> switchMapMaybeObserver) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, switchMapMaybeObserver) == null) && this.inner.compareAndSet(switchMapMaybeObserver, null)) {
                 drain();
@@ -262,7 +267,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
         }
 
-        public void innerError(SwitchMapMaybeObserver switchMapMaybeObserver, Throwable th) {
+        public void innerError(SwitchMapMaybeObserver<R> switchMapMaybeObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, switchMapMaybeObserver, th) == null) {
                 if (this.inner.compareAndSet(switchMapMaybeObserver, null) && this.errors.addThrowable(th)) {
@@ -277,20 +282,22 @@ public final class ObservableSwitchMapMaybe extends Observable {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.ObservableSwitchMapMaybe$SwitchMapMaybeMainObserver$SwitchMapMaybeObserver<R>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
-            SwitchMapMaybeObserver switchMapMaybeObserver;
+        public void onNext(T t) {
+            SwitchMapMaybeObserver<R> switchMapMaybeObserver;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
-                SwitchMapMaybeObserver switchMapMaybeObserver2 = (SwitchMapMaybeObserver) this.inner.get();
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+                SwitchMapMaybeObserver<R> switchMapMaybeObserver2 = this.inner.get();
                 if (switchMapMaybeObserver2 != null) {
                     switchMapMaybeObserver2.dispose();
                 }
                 try {
-                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null MaybeSource");
-                    SwitchMapMaybeObserver switchMapMaybeObserver3 = new SwitchMapMaybeObserver(this);
+                    MaybeSource maybeSource = (MaybeSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null MaybeSource");
+                    SwitchMapMaybeObserver<R> switchMapMaybeObserver3 = new SwitchMapMaybeObserver<>(this);
                     do {
-                        switchMapMaybeObserver = (SwitchMapMaybeObserver) this.inner.get();
+                        switchMapMaybeObserver = this.inner.get();
                         if (switchMapMaybeObserver == INNER_DISPOSED) {
                             return;
                         }
@@ -306,7 +313,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
         }
     }
 
-    public ObservableSwitchMapMaybe(Observable observable, Function function, boolean z) {
+    public ObservableSwitchMapMaybe(Observable<T> observable, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -327,7 +334,7 @@ public final class ObservableSwitchMapMaybe extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, observer) == null) && !ScalarXMapZHelper.tryAsMaybe(this.source, this.mapper, observer)) {
             this.source.subscribe(new SwitchMapMaybeMainObserver(observer, this.mapper, this.delayErrors));

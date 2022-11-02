@@ -3,6 +3,8 @@ package com.baidu.pass.ecommerce.common.mvp;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +23,7 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(Context context) {
+    public BaseMvpView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +44,7 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(Context context, AttributeSet attributeSet) {
+    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -63,7 +65,7 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseMvpView(Context context, AttributeSet attributeSet, int i) {
+    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

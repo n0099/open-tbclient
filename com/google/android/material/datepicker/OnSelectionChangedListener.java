@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class OnSelectionChangedListener {
+public abstract class OnSelectionChangedListener<S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -15,7 +15,7 @@ public abstract class OnSelectionChangedListener {
         }
     }
 
-    public abstract void onSelectionChanged(Object obj);
+    public abstract void onSelectionChanged(S s);
 
     public OnSelectionChangedListener() {
         Interceptable interceptable = $ic;

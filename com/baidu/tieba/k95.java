@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,24 +21,162 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class k95 extends d95 {
+public class k95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
-    public static final int n;
+    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public TextView b;
-    public TextView c;
-    public TBSpecificationBtn d;
-    public LinearLayout e;
-    public int f;
-    public int g;
-    public int h;
-    public boolean i;
+    public h95 a;
+    public boolean b;
+    public ImageFileInfo c;
+    public j95 d;
+    public j95 e;
+    public j95 f;
+    public j95 g;
+
+    /* loaded from: classes4.dex */
+    public class a implements j95 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k95 a;
+
+        public a(k95 k95Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k95Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k95Var;
+        }
+
+        @Override // com.baidu.tieba.j95
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            String m;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                if (this.a.a == null) {
+                    this.a.a = new h95();
+                }
+                String filePath = imageFileInfo.getFilePath();
+                LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
+                imageFileInfo.setPageActionsList(null);
+                if (filePath.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                    File file = new File(ua5.b.d(imageFileInfo.getFilePath(), true));
+                    if (file.exists()) {
+                        return file.getAbsolutePath();
+                    }
+                }
+                hn c = this.a.a.c(imageFileInfo, true);
+                if (c == null) {
+                    Bitmap k = this.a.k(imageFileInfo);
+                    if (k == null) {
+                        return null;
+                    }
+                    int readPictureDegree = BitmapHelper.readPictureDegree(filePath);
+                    if (readPictureDegree != 0) {
+                        k = BitmapHelper.rotateBitmapBydegree(k, readPictureDegree);
+                    }
+                    m = this.a.m(k, 5242880L, 100);
+                } else {
+                    m = this.a.m(c.p(), 5242880L, 100);
+                }
+                imageFileInfo.setPageActionsList(pageActionsList);
+                return m;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements j95 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k95 a;
+
+        public b(k95 k95Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k95Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k95Var;
+        }
+
+        @Override // com.baidu.tieba.j95
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                return this.a.g(imageFileInfo.getFilePath());
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements j95 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k95 a;
+
+        public c(k95 k95Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k95Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k95Var;
+        }
+
+        @Override // com.baidu.tieba.j95
+        public String a(ImageFileInfo imageFileInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFileInfo)) == null) {
+                if (imageFileInfo == null) {
+                    return null;
+                }
+                return this.a.m(this.a.i(imageFileInfo.getFilePath()), 5242880L, 100);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,291 +191,208 @@ public class k95 extends d95 {
                 return;
             }
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
-        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k95(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0636, (ViewGroup) null));
+    public k95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166c);
-        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166b);
-        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166e);
-        this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166d);
-        this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09166a);
-        sy4 sy4Var = new sy4();
-        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0feb));
-        this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(sy4Var);
-        this.f = R.drawable.new_pic_emotion_08;
-        this.g = R.color.CAM_X0107;
-        this.h = R.color.CAM_X0109;
-        this.d.setOnClickListener(onClickListener);
-        this.attachedView.setOnClickListener(null);
-        l(0);
+        this.b = false;
+        this.d = new a(this);
+        b bVar = new b(this);
+        this.e = bVar;
+        this.f = bVar;
+        this.g = new c(this);
     }
 
-    public final void a() {
-        boolean z;
+    public final String h(String str) {
+        InterceptResult invokeL;
+        String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = 8;
-            if (this.d.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    marginLayoutParams.topMargin = k;
-                    this.e.setLayoutParams(marginLayoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ".jpg";
+            }
+            try {
+                substring = str.substring(str.lastIndexOf("."));
+            } catch (Exception unused) {
+            }
+            if (TextUtils.isEmpty(substring)) {
+                return ".jpg";
+            }
+            return substring;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final BitmapFactory.Options l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            return options;
+        }
+        return (BitmapFactory.Options) invokeL.objValue;
+    }
+
+    public final String g(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            long fileSize = FileHelper.getFileSize(str);
+            if (fileSize >= 31457280) {
+                i = 80;
+            } else if (fileSize >= DownloadManager.MIN_LEFT_SIZE) {
+                i = 85;
+            } else if (fileSize >= 15728640) {
+                i = 90;
+            } else if (fileSize >= Config.FULL_TRACE_LOG_LIMIT) {
+                i = 95;
+            } else {
+                i = 100;
+            }
+            try {
+                int readPictureDegree = BitmapHelper.readPictureDegree(str);
+                if (readPictureDegree != 0 || i != 100) {
+                    Bitmap i2 = i(str);
+                    if (readPictureDegree != 0 && i2 != null) {
+                        return m(BitmapHelper.rotateBitmapBydegree(i2, readPictureDegree), Config.FULL_TRACE_LOG_LIMIT, i);
+                    }
+                    return m(i2, Config.FULL_TRACE_LOG_LIMIT, i);
                 }
-                if (!this.i && (this.b.getText() == null || this.b.getText().length() <= 0)) {
-                    z = false;
+                return str;
+            } catch (Throwable unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Bitmap i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            BitmapFactory.Options l = l(str);
+            int i = l.outWidth;
+            int i2 = l.outHeight;
+            if (i != 0 && i2 != 0) {
+                Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
+                if (loadBitmap != null && !loadBitmap.isRecycled()) {
+                    return loadBitmap;
+                }
+                int i3 = 2;
+                for (int i4 = 0; i4 < 3; i4++) {
+                    l.inSampleSize = i3;
+                    Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, l);
+                    if (loadBitmap2 != null && !loadBitmap2.isRecycled()) {
+                        return loadBitmap2;
+                    }
+                    i3 *= 2;
+                }
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public String j(WriteData writeData, ImageFileInfo imageFileInfo, boolean z) {
+        InterceptResult invokeLLZ;
+        j95 j95Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, writeData, imageFileInfo, z)) == null) {
+            if (imageFileInfo == null) {
+                return null;
+            }
+            this.c = imageFileInfo;
+            String filePath = imageFileInfo.getFilePath();
+            boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
+            boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
+            if (!imageFileInfo.isGif() && (!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
+                if (checkIsLongImage) {
+                    j95Var = this.g;
+                    str = "正常·长图";
                 } else {
-                    z = true;
+                    j95Var = this.d;
+                    str = "正常·图";
                 }
-                TextView textView = this.b;
-                if (z) {
-                    i = 0;
-                }
-                textView.setVisibility(i);
-                this.g = R.color.CAM_X0107;
-            } else if (this.b.getVisibility() == 8) {
-                ViewGroup.LayoutParams layoutParams2 = this.e.getLayoutParams();
-                if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-                    marginLayoutParams2.topMargin = k;
-                    this.e.setLayoutParams(marginLayoutParams2);
-                }
-                this.g = R.color.CAM_X0107;
-            } else if (this.c.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams3 = this.e.getLayoutParams();
-                if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
-                    marginLayoutParams3.topMargin = m;
-                    this.e.setLayoutParams(marginLayoutParams3);
-                }
-                ViewGroup.LayoutParams layoutParams4 = this.c.getLayoutParams();
-                if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
-                    marginLayoutParams4.topMargin = n;
-                    this.c.setLayoutParams(marginLayoutParams4);
-                }
-                this.g = R.color.CAM_X0107;
-                this.h = R.color.CAM_X0109;
+            } else if (checkIsLongImage) {
+                j95Var = this.f;
+                str = "原始·长图";
             } else {
-                ViewGroup.LayoutParams layoutParams5 = this.a.getLayoutParams();
-                int i2 = j;
-                layoutParams5.width = i2;
-                layoutParams5.height = i2;
-                this.a.setLayoutParams(layoutParams5);
-                ViewGroup.LayoutParams layoutParams6 = this.e.getLayoutParams();
-                if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
-                    marginLayoutParams5.topMargin = l;
-                    this.e.setLayoutParams(marginLayoutParams5);
+                j95Var = this.e;
+                str = "原始·图";
+            }
+            uq8.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
+            String a2 = j95Var.a(imageFileInfo);
+            uq8.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
+            return a2;
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public final String m(Bitmap bitmap, long j, int i) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (this.b) {
+                ImageFileInfo imageFileInfo = this.c;
+                if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
+                    return FileHelper.compressBitmapToFile(h, ej.c(this.c.toCachedKey(false)) + h(this.c.getFilePath()), bitmap, (float) j, i);
                 }
-                this.h = R.color.CAM_X0109;
+                return "";
             }
-            onChangeSkinType();
-        }
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.attachedView;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.setVisibility(8);
-            this.c.setVisibility(8);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0109, 1);
-            a();
-        }
-    }
-
-    @Override // com.baidu.tieba.d95
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
-        }
-    }
-
-    @Override // com.baidu.tieba.d95
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.onViewDettached();
-            this.a.setImageResource(0);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.d.setVisibility(0);
-            this.c.setVisibility(0);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0109, 1);
-            a();
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setBackgroundColor(this.attachedView, i);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || str == null) {
-            return;
-        }
-        this.d.setText(str);
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.f = i;
-            SkinManager.setImageResource(this.a, i);
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i;
-                this.a.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            if (str == null) {
-                this.b.setVisibility(8);
+            ImageFileInfo imageFileInfo2 = this.c;
+            if (imageFileInfo2 != null && !TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) {
+                str = this.c.getTempUploadFileName();
             } else {
-                this.b.setVisibility(0);
-                this.b.setText(str);
+                str = "img_upload_temp_file.temp";
             }
-            a();
+            return FileHelper.compressBitmapToFile(str, bitmap, (float) j, i);
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public void n(String str) {
+    public final Bitmap k(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        tg i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || str == null) {
-            return;
-        }
-        this.c.setText(str);
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || str == null) {
-            return;
-        }
-        this.c.setText(str);
-        this.c.setVisibility(0);
-        a();
-    }
-
-    public void l(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageFileInfo)) == null) {
+            if (imageFileInfo == null) {
+                return null;
             }
-            int i3 = fj.i(TbadkCoreApplication.getInst());
-            if (i3 <= 0) {
-                i2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200);
-            } else {
-                i2 = (int) (i3 * 0.16d);
+            if (this.a == null) {
+                this.a = new h95();
             }
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i2 + i;
-                this.a.setLayoutParams(marginLayoutParams);
+            if (imageFileInfo.getImageType() == 0) {
+                return this.a.f(imageFileInfo, true);
             }
+            if (imageFileInfo.getImageType() == 1 && (i = sg.h().i(20)) != null) {
+                try {
+                    Object fromLocal = i.getFromLocal(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), Boolean.FALSE, null);
+                    if (fromLocal instanceof hn) {
+                        return ((hn) fromLocal).p();
+                    }
+                } catch (OutOfMemoryError unused) {
+                    BdBaseApplication.getInst().onAppMemoryLow();
+                }
+            }
+            return null;
         }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0202);
-            SkinManager.setImageResource(this.a, this.f);
-            SkinManager.setViewTextColor(this.b, this.h, 1, skinType);
-            SkinManager.setViewTextColor(this.c, this.g, 1, skinType);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes7.dex */
-public final class HlsDownloader extends SegmentDownloader {
+public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,7 +47,7 @@ public final class HlsDownloader extends SegmentDownloader {
         }
     }
 
-    public static void addSegment(ArrayList arrayList, HlsMediaPlaylist hlsMediaPlaylist, HlsMediaPlaylist.Segment segment, HashSet hashSet) throws IOException, InterruptedException {
+    public static void addSegment(ArrayList<SegmentDownloader.Segment> arrayList, HlsMediaPlaylist hlsMediaPlaylist, HlsMediaPlaylist.Segment segment, HashSet<Uri> hashSet) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, arrayList, hlsMediaPlaylist, segment, hashSet) == null) {
             long j = hlsMediaPlaylist.startTimeUs + segment.relativeStartTimeUs;
@@ -62,11 +62,11 @@ public final class HlsDownloader extends SegmentDownloader {
         }
     }
 
-    public static void extractUrls(List list, ArrayList arrayList) {
+    public static void extractUrls(List<HlsMasterPlaylist.HlsUrl> list, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, list, arrayList) == null) {
             for (int i = 0; i < list.size(); i++) {
-                arrayList.add(((HlsMasterPlaylist.HlsUrl) list.get(i)).url);
+                arrayList.add(list.get(i).url);
             }
         }
     }
@@ -83,6 +83,7 @@ public final class HlsDownloader extends SegmentDownloader {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
     public HlsMasterPlaylist getManifest(DataSource dataSource, Uri uri) throws IOException {
         InterceptResult invokeLL;
@@ -99,7 +100,7 @@ public final class HlsDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getAllSegments(DataSource dataSource, HlsMasterPlaylist hlsMasterPlaylist, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getAllSegments(DataSource dataSource, HlsMasterPlaylist hlsMasterPlaylist, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, dataSource, hlsMasterPlaylist, z)) == null) {
@@ -114,7 +115,7 @@ public final class HlsDownloader extends SegmentDownloader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.offline.SegmentDownloader
-    public List getSegments(DataSource dataSource, HlsMasterPlaylist hlsMasterPlaylist, String[] strArr, boolean z) throws InterruptedException, IOException {
+    public List<SegmentDownloader.Segment> getSegments(DataSource dataSource, HlsMasterPlaylist hlsMasterPlaylist, String[] strArr, boolean z) throws InterruptedException, IOException {
         InterceptResult invokeCommon;
         long j;
         Interceptable interceptable = $ic;
@@ -142,9 +143,9 @@ public final class HlsDownloader extends SegmentDownloader {
                     if (segment != null) {
                         addSegment(arrayList, hlsMediaPlaylist, segment, hashSet);
                     }
-                    List list = hlsMediaPlaylist.segments;
+                    List<HlsMediaPlaylist.Segment> list = hlsMediaPlaylist.segments;
                     for (int i = 0; i < list.size(); i++) {
-                        addSegment(arrayList, hlsMediaPlaylist, (HlsMediaPlaylist.Segment) list.get(i), hashSet);
+                        addSegment(arrayList, hlsMediaPlaylist, list.get(i), hashSet);
                     }
                 }
             }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.OpReorderer;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +100,7 @@ public class AdapterHelper implements OpReorderer.Callback {
                             }
                             return "mv";
                         }
-                        return "up";
+                        return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
                     }
                     return u.B;
                 }
@@ -735,15 +736,15 @@ public class AdapterHelper implements OpReorderer.Callback {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj})) == null) {
-            UpdateOp updateOp = (UpdateOp) this.mUpdateOpPool.acquire();
-            if (updateOp == null) {
+            UpdateOp acquire = this.mUpdateOpPool.acquire();
+            if (acquire == null) {
                 return new UpdateOp(i, i2, i3, obj);
             }
-            updateOp.cmd = i;
-            updateOp.positionStart = i2;
-            updateOp.itemCount = i3;
-            updateOp.payload = obj;
-            return updateOp;
+            acquire.cmd = i;
+            acquire.positionStart = i2;
+            acquire.itemCount = i3;
+            acquire.payload = obj;
+            return acquire;
         }
         return (UpdateOp) invokeCommon.objValue;
     }

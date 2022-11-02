@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zzh implements Parcelable.Creator {
+public final class zzh implements Parcelable.Creator<BinderWrapper> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +25,15 @@ public final class zzh implements Parcelable.Creator {
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ Object createFromParcel(Parcel parcel) {
+    public final /* synthetic */ BinderWrapper createFromParcel(Parcel parcel) {
         return new BinderWrapper(parcel, null);
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ Object[] newArray(int i) {
+    public final /* synthetic */ BinderWrapper[] newArray(int i) {
         return new BinderWrapper[i];
     }
 }

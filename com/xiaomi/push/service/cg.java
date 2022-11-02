@@ -23,7 +23,7 @@ public class cg implements XMPushService.n {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map f970a;
+    public static final Map<Integer, Map<String, List<String>>> f970a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final boolean f971a;

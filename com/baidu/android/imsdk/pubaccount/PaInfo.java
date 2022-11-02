@@ -16,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PaInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PaInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean acceptPush;
     public String avatar;
@@ -76,7 +76,7 @@ public class PaInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
+        CREATOR = new Parcelable.Creator<PaInfo>() { // from class: com.baidu.android.imsdk.pubaccount.PaInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,6 +95,7 @@ public class PaInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PaInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -106,6 +107,7 @@ public class PaInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PaInfo[] newArray(int i) {
                 InterceptResult invokeI;

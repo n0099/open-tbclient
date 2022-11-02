@@ -12,7 +12,7 @@ import java.util.List;
 public final class DecoderResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List byteSegments;
+    public final List<byte[]> byteSegments;
     public final String ecLevel;
     public Integer erasures;
     public Integer errorsCorrected;
@@ -24,7 +24,7 @@ public final class DecoderResult {
     public final String text;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DecoderResult(byte[] bArr, String str, List list, String str2) {
+    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2) {
         this(bArr, str, list, str2, -1, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -44,7 +44,7 @@ public final class DecoderResult {
         }
     }
 
-    public DecoderResult(byte[] bArr, String str, List list, String str2, int i, int i2) {
+    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2, int i, int i2) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,7 +74,7 @@ public final class DecoderResult {
         this.structuredAppendSequenceNumber = i;
     }
 
-    public List getByteSegments() {
+    public List<byte[]> getByteSegments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -6,6 +6,9 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.live.frame.IntentData;
@@ -25,7 +28,6 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.network.k;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,18 +35,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0677a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
     public b c;
 
+    @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC0649a implements Runnable {
+    public class RunnableC0660a implements Runnable {
         public final int b;
 
-        public RunnableC0649a(int i) {
+        public RunnableC0660a(int i) {
             this.b = i;
         }
 
@@ -52,7 +55,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         public void run() {
             try {
                 com.ss.android.downloadlib.addownload.b.f.a().b();
-                ConcurrentHashMap c = com.ss.android.downloadlib.addownload.b.f.a().c();
+                ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> c = com.ss.android.downloadlib.addownload.b.f.a().c();
                 if (c == null || c.isEmpty()) {
                     return;
                 }
@@ -64,7 +67,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public long a;
         public int b;
         public long c;
@@ -255,14 +258,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         return d;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0666a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0677a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
@@ -306,11 +309,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         }
     }
 
-    public static DownloadInfo a(List list, String str) {
+    public static DownloadInfo a(List<DownloadInfo> list, String str) {
         if (list != null && !list.isEmpty() && !TextUtils.isEmpty(str)) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                DownloadInfo downloadInfo = (DownloadInfo) it.next();
+            for (DownloadInfo downloadInfo : list) {
                 if (downloadInfo != null) {
                     if (str.equals(downloadInfo.getPackageName())) {
                         return downloadInfo;
@@ -324,7 +325,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         return null;
     }
 
-    private JSONObject b(DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.a aVar) {
+    private JSONObject b(@NonNull DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.a aVar) {
         com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
         if (a2 == null) {
             return null;
@@ -557,6 +558,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         });
     }
 
+    @WorkerThread
     public static synchronized void a(DownloadInfo downloadInfo, com.ss.android.downloadad.api.a.b bVar) {
         synchronized (a.class) {
             if (downloadInfo == null) {
@@ -568,7 +570,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
                 h.a().d(bVar);
                 String c2 = c(downloadInfo, bVar);
                 com.ss.android.downloadlib.addownload.b.f.a().b(downloadInfo.getUrl(), c2);
-                Map a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo.getUrl(), c2);
+                Map<Long, com.ss.android.downloadad.api.a.b> a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo.getUrl(), c2);
                 bVar.f(System.currentTimeMillis());
                 bVar.e(2);
                 bVar.b(c2);
@@ -589,7 +591,8 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ConcurrentHashMap concurrentHashMap, int i) {
+    @WorkerThread
+    public void a(@NonNull ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> concurrentHashMap, int i) {
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
         for (com.ss.android.downloadad.api.a.b bVar : concurrentHashMap.values()) {
@@ -749,6 +752,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         return 1;
     }
 
+    @WorkerThread
     public synchronized void a(final String str) {
         if (TextUtils.isEmpty(str)) {
             return;
@@ -805,7 +809,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         throw new RuntimeException("handleAppInstalled in main thread.");
     }
 
-    public static String c(DownloadInfo downloadInfo, com.ss.android.downloadad.api.a.b bVar) {
+    public static String c(@NonNull DownloadInfo downloadInfo, @NonNull com.ss.android.downloadad.api.a.b bVar) {
         File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
         String str = null;
         if (file.exists()) {
@@ -833,6 +837,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @WorkerThread
     public void c(com.ss.android.downloadad.api.a.b bVar) {
         SystemClock.sleep(20000L);
         int i = 15;
@@ -858,13 +863,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
             return;
         }
         d a2 = d.a();
-        RunnableC0649a runnableC0649a = new RunnableC0649a(i);
+        RunnableC0660a runnableC0660a = new RunnableC0660a(i);
         if (this.b > 0) {
             j = 2000;
         } else {
             j = 8000;
         }
-        a2.a(runnableC0649a, j);
+        a2.a(runnableC0660a, j);
         this.b = currentTimeMillis;
     }
 
@@ -874,7 +879,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
         try {
             com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
             if (d2 != null && !l.b(d2) && !d2.c.get()) {
-                Pair b2 = com.ss.android.downloadlib.addownload.b.d.a().b(d2);
+                Pair<d.a, Integer> b2 = com.ss.android.downloadlib.addownload.b.d.a().b(d2);
                 if (b2 != null) {
                     a2 = (d.a) b2.first;
                     i = ((Integer) b2.second).intValue();
@@ -986,7 +991,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0666
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.ag
-    public void a(final DownloadInfo downloadInfo, String str) {
+    public void a(@Nullable final DownloadInfo downloadInfo, @Nullable String str) {
         if (downloadInfo == null) {
             com.ss.android.downloadlib.e.c.a().a("info is null");
         } else if ((com.ss.android.socialbase.downloader.g.a.a(downloadInfo).b("check_applink_mode") & 2) != 0) {

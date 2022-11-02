@@ -21,6 +21,10 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.content.res.TypedArrayUtils;
@@ -153,6 +157,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         }
     }
 
+    @RequiresApi(24)
     /* loaded from: classes.dex */
     public static class AnimatedVectorDrawableDelegateState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
@@ -260,7 +265,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AnimatedVectorDrawableCompat(Context context) {
+    public AnimatedVectorDrawableCompat(@Nullable Context context) {
         this(context, null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -281,7 +286,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public boolean unregisterAnimationCallback(Animatable2Compat.AnimationCallback animationCallback) {
+    public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, animationCallback)) == null) {
@@ -302,7 +307,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         return invokeL.booleanValue;
     }
 
-    public AnimatedVectorDrawableCompat(Context context, AnimatedVectorDrawableCompatState animatedVectorDrawableCompatState, Resources resources) {
+    public AnimatedVectorDrawableCompat(@Nullable Context context, @Nullable AnimatedVectorDrawableCompatState animatedVectorDrawableCompatState, @Nullable Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -551,7 +556,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         }
     }
 
-    public static AnimatedVectorDrawableCompat create(Context context, int i) {
+    @Nullable
+    public static AnimatedVectorDrawableCompat create(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         int next;
         Interceptable interceptable = $ic;
@@ -611,13 +617,15 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         }
     }
 
-    public static void registerPlatformCallback(AnimatedVectorDrawable animatedVectorDrawable, Animatable2Compat.AnimationCallback animationCallback) {
+    @RequiresApi(23)
+    public static void registerPlatformCallback(@NonNull AnimatedVectorDrawable animatedVectorDrawable, @NonNull Animatable2Compat.AnimationCallback animationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, animatedVectorDrawable, animationCallback) == null) {
             animatedVectorDrawable.registerAnimationCallback(animationCallback.getPlatformCallback());
         }
     }
 
+    @RequiresApi(23)
     public static boolean unregisterPlatformCallback(AnimatedVectorDrawable animatedVectorDrawable, Animatable2Compat.AnimationCallback animationCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -934,7 +942,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
-    public void registerAnimationCallback(Animatable2Compat.AnimationCallback animationCallback) {
+    public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, animationCallback) == null) {
             Drawable drawable = this.mDelegateDrawable;

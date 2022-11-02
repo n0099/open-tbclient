@@ -1,399 +1,210 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cw4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static SharedPreferences a = null;
-    public static boolean b = false;
-    public static String c = null;
-    public static int d = 0;
-    public static String e = null;
-    public static int f = 99;
-    public static int g = -1;
+public class cw4 extends bw4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> f;
+    public u25 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947689161, "Lcom/baidu/tieba/cw4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947689161, "Lcom/baidu/tieba/cw4;");
-        }
-    }
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cw4 a;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            h(TbadkCoreApplication.getInst());
-            i();
-            int i = 1;
-            if (g >= 1) {
-                i = 2;
-            }
-            c("c14483", 0, i);
-        }
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            i();
-            return g;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && g < 0) {
-            g = ux4.k().l("app_restart_times", 0);
-        }
-    }
-
-    public static void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, null) == null) {
-            e = c;
-            f = d;
-            r();
-        }
-    }
-
-    public static void b(Context context) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            if (g < 0) {
-                g = context.getSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS, 0).getInt("app_restart_times", 0);
-            }
-            h(context);
-            if (g < 1) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            d("c14429", 1, i);
-        }
-    }
-
-    public static void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65547, null, j) == null) {
-            i();
-            int i = 2;
-            StatisticItem addParam = new StatisticItem("c14429").addParam("obj_type", 2);
-            if (g < 1) {
-                i = 1;
-            }
-            TiebaStatic.log(addParam.addParam("obj_source", i).addParam(TiebaStatic.Params.OBJ_PARAM2, j));
-        }
-    }
-
-    public static void c(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) {
-            Set<String> stringSet = a.getStringSet(str, null);
-            if (stringSet == null) {
-                stringSet = new HashSet<>();
-            }
-            stringSet.add(String.format(Locale.CHINA, "%d_%d_%d", Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(System.currentTimeMillis())));
-            SharedPreferences.Editor edit = a.edit();
-            edit.putStringSet(str, stringSet);
-            edit.commit();
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) {
-            String str2 = str + "_lastTime";
-            long j = a.getLong(str2, 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            Set<String> stringSet = a.getStringSet(str, null);
-            if (stringSet == null) {
-                stringSet = new HashSet<>();
-            }
-            stringSet.add(String.format(Locale.CHINA, "%d_%d_%d_%d", Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(currentTimeMillis), Long.valueOf(currentTimeMillis - j)));
-            SharedPreferences.Editor edit = a.edit();
-            edit.putStringSet(str, stringSet);
-            edit.putLong(str2, currentTimeMillis);
-            edit.commit();
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = "";
-            if (f == 99) {
-                String c2 = pa5.c();
-                if (ej.isEmpty(c2)) {
-                    return "";
+        public a(cw4 cw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return c2;
             }
-            if (!StringUtils.isNull(e)) {
-                str = e;
-            }
-            return ej.getUrlEncode(str);
+            this.a = cw4Var;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            i();
-            StatisticItem statisticItem = new StatisticItem("c14484");
-            int i = 1;
-            if (g >= 1) {
-                i = 2;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
             }
-            TiebaStatic.log(statisticItem.addParam("obj_source", i).addParam(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis()));
         }
     }
 
-    public static void m() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14579").addParam("obj_type", gw4.a().b());
-            if (gw4.a().d()) {
-                i = 1;
-            } else {
-                i = 2;
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cw4 a;
+
+        public b(cw4 cw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            TiebaStatic.log(addParam.addParam("obj_param1", i).addParam("obj_source", 6));
+            this.a = cw4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.c().dismiss();
+            }
         }
     }
 
-    public static void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            i();
-            h(TbadkCoreApplication.getInst());
-            SharedPreferences.Editor edit = a.edit();
-            q("c14429", edit);
-            q("c14483", edit);
-            q("c14482", edit);
-            a = null;
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cw4 a;
+
+        public c(cw4 cw4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cw4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cw4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a.f, new String[]{this.a.g.c()});
+                this.a.d.c().dismiss();
+            }
         }
     }
 
-    public static String g(Intent intent) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw4(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, intent)) == null) {
-            String dataString = intent.getDataString();
-            if (dataString != null && dataString.startsWith("custom")) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(dataString);
-                sb.append(".action.");
-                sb.append(intent.getAction());
-                if (intent.getCategories() != null) {
-                    sb.append("categories.");
-                    for (String str : intent.getCategories()) {
-                        sb.append(str);
-                        sb.append(".");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = tbPageContext;
+    }
+
+    @Override // com.baidu.tieba.yv4
+    public void d(yv4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (ew4.d() && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            if (LaunchStatsUtils.getLaunchType() == 0) {
+                u25 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
+                this.g = upgradePopWindowConfig;
+                if (upgradePopWindowConfig.i() && this.g.h().contains("app") && UpgradePopWindowHelper.isDue(this.g)) {
+                    ky4.k().y(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
+                    if (aVar != null) {
+                        aVar.a(true);
+                        return;
                     }
                 }
-                return sb.toString();
             }
-            return dataString;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void u(Activity activity) {
-        ActivityManager activityManager;
-        ActivityManager.AppTask appTask;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65557, null, activity) == null) && activity != null && activity.getClass() != null && Build.VERSION.SDK_INT >= 23 && (activityManager = (ActivityManager) activity.getSystemService("activity")) != null && (appTask = (ActivityManager.AppTask) ListUtils.getItem(activityManager.getAppTasks(), 0)) != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && activity.getClass().getName().equals(appTask.getTaskInfo().baseActivity.getClassName())) {
-            String g2 = g(appTask.getTaskInfo().baseIntent);
-            s(g2, ej.isEmpty(g2));
-            w();
+            if (aVar != null) {
+                aVar.a(false);
+            }
         }
     }
 
-    public static void h(Context context) {
+    @Override // com.baidu.tieba.bw4
+    public void g(TBAlertBuilder tBAlertBuilder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, context) == null) && a == null) {
-            a = context.getSharedPreferences("growth_funnel_sp", 0);
-        }
-    }
-
-    public static void l(String str, boolean z) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65548, null, str, z) == null) {
-            i();
-            StatisticItem statisticItem = new StatisticItem("c14430");
-            int i3 = 2;
-            if (z) {
-                i = 2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            if (this.g == null) {
+                this.g = TbSingleton.getInstance().getUpgradePopWindowConfig();
+            }
+            RelativeLayout relativeLayout = new RelativeLayout(this.c);
+            View view2 = new View(this.c);
+            kw4 d = kw4.d(view2);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.c);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080826, null);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            this.d.u(this.g.d());
+            this.d.o(this.g.g());
+            this.d.m(true);
+            this.d.j(relativeLayout);
+            if (TextUtils.isEmpty(this.g.c())) {
+                this.d.r(new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             } else {
-                i = 1;
+                this.d.r(new TBAlertConfig.a(this.g.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new b(this)), new TBAlertConfig.a(this.g.e(), TBAlertConfig.OperateBtnStyle.FORCE, new c(this)));
             }
-            StatisticItem addParam = statisticItem.addParam("obj_type", i);
-            if (g < 1) {
-                i2 = 1;
-            } else {
-                i2 = 2;
-            }
-            StatisticItem addParam2 = addParam.addParam("obj_source", i2);
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                i3 = 1;
-            }
-            TiebaStatic.log(addParam2.addParam("obj_param1", i3).addParam(TiebaStatic.Params.OBJ_PARAM2, str));
-        }
-    }
-
-    public static void t(AppLaunchInfoFetcher.Type type, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65556, null, type, intent) != null) || f < 99) {
-            return;
-        }
-        if (type == AppLaunchInfoFetcher.Type.BROADCAST) {
-            d = 98;
-            c = "CallReceiver";
-        } else if (type == AppLaunchInfoFetcher.Type.SERVICE) {
-            d = 98;
-            c = "CallService";
-        } else if (type == AppLaunchInfoFetcher.Type.ACTIVITY) {
-            if (intent != null) {
-                String dataString = intent.getDataString();
-                s(dataString, ej.isEmpty(dataString));
-            } else {
-                v("intent=null", 100);
-            }
-        } else {
-            d = 101;
-            c = "START_TYPE_FOR_UNKNOWN";
-        }
-        w();
-    }
-
-    public static void n(String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14579").addParam("obj_locate", str).addParam("obj_type", gw4.a().b());
-            if (gw4.a().d()) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 8);
-            if (gw4.a().b() != 3) {
-                addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, e());
-            }
-            TiebaStatic.log(addParam2);
-        }
-    }
-
-    public static void o(String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14579").addParam("obj_locate", str).addParam("obj_type", gw4.a().b());
-            if (gw4.a().d()) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            StatisticItem addParam2 = addParam.addParam("obj_param1", i).addParam("obj_source", 7);
-            if (gw4.a().b() != 3) {
-                addParam2.addParam(TiebaStatic.Params.OBJ_PARAM2, e());
-            }
-            TiebaStatic.log(addParam2);
-        }
-    }
-
-    public static void q(String str, SharedPreferences.Editor editor) {
-        Set<String> stringSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65553, null, str, editor) != null) || (stringSet = a.getStringSet(str, null)) == null) {
-            return;
-        }
-        for (String str2 : stringSet) {
-            String[] split = str2.split("_");
-            if (split != null) {
-                if (split.length == 3) {
-                    TiebaStatic.log(new StatisticItem(str).addParam("obj_type", split[0]).addParam("obj_source", split[1]).addParam(TiebaStatic.Params.OBJ_PARAM3, split[2]));
-                } else if (split.length == 4) {
-                    TiebaStatic.log(new StatisticItem(str).addParam("obj_type", split[0]).addParam("obj_source", split[1]).addParam(TiebaStatic.Params.OBJ_PARAM3, split[2]).addParam(TiebaStatic.Params.OBJ_PARAM4, split[3]));
-                }
-            }
-        }
-        editor.remove(str).apply();
-    }
-
-    public static void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("start_type", f + "");
-            hashMap.put("start_scheme", e());
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("uniqueKey", "kTBCUpdateLaunchTypeNotification");
-            hashMap2.put("data", hashMap);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap2));
-        }
-    }
-
-    public static void s(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65555, null, str, z) == null) {
-            c = str;
-            d = z ? 1 : 0;
-        }
-    }
-
-    @Deprecated
-    public static void v(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, str, i) == null) {
-            int i2 = f;
-            if (i2 == 99 || i2 == 100) {
-                d = i;
-                c = str;
-                w();
-            }
+            this.d.c().setCanceledOnTouchOutside(false);
         }
     }
 }

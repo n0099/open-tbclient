@@ -16,8 +16,8 @@ import java.util.List;
 public class WrapLineLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
+    public List<List<View>> a;
+    public List<Integer> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WrapLineLayout(Context context) {
@@ -126,10 +126,10 @@ public class WrapLineLayout extends ViewGroup {
             int paddingTop = getPaddingTop();
             int size = this.a.size();
             for (int i8 = 0; i8 < size; i8++) {
-                List list = (List) this.a.get(i8);
-                int intValue = ((Integer) this.b.get(i8)).intValue();
+                List<View> list = this.a.get(i8);
+                int intValue = this.b.get(i8).intValue();
                 for (int i9 = 0; i9 < list.size(); i9++) {
-                    View view2 = (View) list.get(i9);
+                    View view2 = list.get(i9);
                     if (view2.getVisibility() != 8) {
                         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
                         int i10 = marginLayoutParams2.leftMargin + paddingLeft;

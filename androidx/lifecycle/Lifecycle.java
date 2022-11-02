@@ -1,5 +1,8 @@
 package androidx.lifecycle;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +15,19 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class Lifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public AtomicReference<Object> mInternalScopeRef;
 
-    public abstract void addObserver(LifecycleObserver lifecycleObserver);
+    @MainThread
+    public abstract void addObserver(@NonNull LifecycleObserver lifecycleObserver);
 
+    @NonNull
+    @MainThread
     public abstract State getCurrentState();
 
-    public abstract void removeObserver(LifecycleObserver lifecycleObserver);
+    @MainThread
+    public abstract void removeObserver(@NonNull LifecycleObserver lifecycleObserver);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -158,7 +167,7 @@ public abstract class Lifecycle {
             return (State) invokeL.objValue;
         }
 
-        public boolean isAtLeast(State state) {
+        public boolean isAtLeast(@NonNull State state) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, state)) == null) {

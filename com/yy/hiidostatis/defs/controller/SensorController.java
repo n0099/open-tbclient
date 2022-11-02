@@ -11,7 +11,6 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,6 @@ import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -40,7 +38,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public static volatile StatisContent record;
     public transient /* synthetic */ FieldHolder $fh;
     public Sensor accelerometer;
-    public LinkedList accelerometerCache;
+    public LinkedList<SensorRecord> accelerometerCache;
     public float accelerometerThreshold;
     public Context context;
     public int countAccelerometer;
@@ -48,11 +46,11 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int countLight;
     public final boolean enable;
     public Sensor gyroscope;
-    public LinkedList gyroscopeCache;
+    public LinkedList<SensorRecord> gyroscopeCache;
     public float gyroscopeThreshold;
     public BatteryInfo initiateBattery;
     public Sensor light;
-    public LinkedList lightCache;
+    public LinkedList<SensorRecord> lightCache;
     public float lightThreshold;
     public int preSaveCountAcce;
     public int preSaveCountGyro;
@@ -92,7 +90,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     }
 
     /* loaded from: classes8.dex */
-    public class BatteryInfo {
+    public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int chargePlugged;
@@ -121,7 +119,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 try {
                     Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
                     int intExtra = registerReceiver.getIntExtra("status", -1);
-                    int intExtra2 = registerReceiver.getIntExtra(PollingModel.LEVEL, -1);
+                    int intExtra2 = registerReceiver.getIntExtra("level", -1);
                     int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
                     BatteryInfo batteryInfo = new BatteryInfo();
                     batteryInfo.level = intExtra2;
@@ -148,7 +146,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     }
 
     /* loaded from: classes8.dex */
-    public class SensorRecord {
+    public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long time;
@@ -189,9 +187,9 @@ public class SensorController implements SensorEventListener, SensorListener {
                 return;
             }
         }
-        this.gyroscopeCache = new LinkedList();
-        this.accelerometerCache = new LinkedList();
-        this.lightCache = new LinkedList();
+        this.gyroscopeCache = new LinkedList<>();
+        this.accelerometerCache = new LinkedList<>();
+        this.lightCache = new LinkedList<>();
         this.gyroscopeThreshold = f;
         this.accelerometerThreshold = f2;
         this.lightThreshold = f3;
@@ -211,17 +209,17 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    private void addCache(float[] fArr, LinkedList linkedList) {
+    private void addCache(float[] fArr, LinkedList<SensorRecord> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fArr, linkedList) == null) {
             if (linkedList.size() < 10) {
                 linkedList.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                 return;
             }
-            SensorRecord sensorRecord = (SensorRecord) linkedList.remove(5);
-            sensorRecord.value = copyFloatArray(fArr);
-            sensorRecord.time = System.currentTimeMillis();
-            linkedList.add(sensorRecord);
+            SensorRecord remove = linkedList.remove(5);
+            remove.value = copyFloatArray(fArr);
+            remove.time = System.currentTimeMillis();
+            linkedList.add(remove);
             while (linkedList.size() > 10) {
                 linkedList.remove(5);
             }
@@ -360,15 +358,13 @@ public class SensorController implements SensorEventListener, SensorListener {
         return (StatisContent) invokeL.objValue;
     }
 
-    private void recordToString(int i, List list, StringBuilder sb) {
+    private void recordToString(int i, List<SensorRecord> list, StringBuilder sb) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65544, this, i, list, sb) == null) {
             sb.append(i);
             if (i > 0) {
                 sb.append("|");
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    SensorRecord sensorRecord = (SensorRecord) it.next();
+                for (SensorRecord sensorRecord : list) {
                     for (float f : sensorRecord.value) {
                         sb.append(f);
                         sb.append(',');
@@ -490,7 +486,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                             this.lightCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                             this.countLight++;
                             saveAsyn(this.context, true);
-                        } else if (compareFloats(((SensorRecord) this.lightCache.getLast()).value, fArr, this.lightThreshold)) {
+                        } else if (compareFloats(this.lightCache.getLast().value, fArr, this.lightThreshold)) {
                             addCache(fArr, this.lightCache);
                             int i2 = this.countLight + 1;
                             this.countLight = i2;
@@ -503,7 +499,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                     this.gyroscopeCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                     this.countGvroscope++;
                     saveAsyn(this.context, true);
-                } else if (compareFloats(((SensorRecord) this.gyroscopeCache.getLast()).value, fArr, this.gyroscopeThreshold)) {
+                } else if (compareFloats(this.gyroscopeCache.getLast().value, fArr, this.gyroscopeThreshold)) {
                     addCache(fArr, this.gyroscopeCache);
                     int i3 = this.countGvroscope + 1;
                     this.countGvroscope = i3;
@@ -515,7 +511,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 this.accelerometerCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                 this.countAccelerometer++;
                 saveAsyn(this.context, true);
-            } else if (compareFloats(((SensorRecord) this.accelerometerCache.getLast()).value, fArr, this.accelerometerThreshold)) {
+            } else if (compareFloats(this.accelerometerCache.getLast().value, fArr, this.accelerometerThreshold)) {
                 addCache(fArr, this.accelerometerCache);
                 int i4 = this.countAccelerometer + 1;
                 this.countAccelerometer = i4;

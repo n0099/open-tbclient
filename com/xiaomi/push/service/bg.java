@@ -29,10 +29,10 @@ public class bg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public List f924a;
+    public List<a> f924a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ConcurrentHashMap f925a;
+    public ConcurrentHashMap<String, HashMap<String, b>> f925a;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -40,7 +40,7 @@ public class bg {
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -61,7 +61,7 @@ public class bg {
         public XMPushService f930a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0706b f931a;
+        public final C0717b f931a;
 
         /* renamed from: a  reason: collision with other field name */
         public c f932a;
@@ -73,7 +73,7 @@ public class bg {
         public String f934a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List f935a;
+        public List<a> f935a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f936a;
@@ -99,7 +99,7 @@ public class bg {
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0706b extends XMPushService.j {
+        public class C0717b extends XMPushService.j {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -113,7 +113,7 @@ public class bg {
             public int c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0706b(b bVar) {
+            public C0717b(b bVar) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -229,7 +229,7 @@ public class bg {
             this.f938b = false;
             this.f929a = new XMPushService.c(this);
             this.f927a = null;
-            this.f931a = new C0706b(this);
+            this.f931a = new C0717b(this);
         }
 
         public b(XMPushService xMPushService) {
@@ -254,7 +254,7 @@ public class bg {
             this.f938b = false;
             this.f929a = new XMPushService.c(this);
             this.f927a = null;
-            this.f931a = new C0706b(this);
+            this.f931a = new C0717b(this);
             this.f930a = xMPushService;
             a(new bh(this));
         }
@@ -442,7 +442,7 @@ public class bg {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
 
@@ -517,7 +517,7 @@ public class bg {
                 return;
             }
         }
-        this.f925a = new ConcurrentHashMap();
+        this.f925a = new ConcurrentHashMap<>();
         this.f924a = new ArrayList();
     }
 
@@ -569,25 +569,25 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             synchronized (this) {
-                HashMap hashMap = (HashMap) this.f925a.get(str);
+                HashMap<String, b> hashMap = this.f925a.get(str);
                 if (hashMap == null) {
                     return null;
                 }
-                return (b) hashMap.get(a(str2));
+                return hashMap.get(a(str2));
             }
         }
         return (b) invokeLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList m636a() {
+    public synchronized ArrayList<b> m636a() {
         InterceptResult invokeV;
-        ArrayList arrayList;
+        ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList();
-                for (HashMap hashMap : this.f925a.values()) {
+                arrayList = new ArrayList<>();
+                for (HashMap<String, b> hashMap : this.f925a.values()) {
                     arrayList.addAll(hashMap.values());
                 }
             }
@@ -597,26 +597,26 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection m637a(String str) {
+    public synchronized Collection<b> m637a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
-                return !this.f925a.containsKey(str) ? new ArrayList() : ((HashMap) ((HashMap) this.f925a.get(str)).clone()).values();
+                return !this.f925a.containsKey(str) ? new ArrayList() : ((HashMap) this.f925a.get(str).clone()).values();
             }
         }
         return (Collection) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List m638a(String str) {
+    public synchronized List<String> m638a(String str) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (HashMap hashMap : this.f925a.values()) {
+                for (HashMap<String, b> hashMap : this.f925a.values()) {
                     for (b bVar : hashMap.values()) {
                         if (str.equals(bVar.f934a)) {
                             arrayList.add(bVar.g);
@@ -634,9 +634,9 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                Iterator it = m636a().iterator();
+                Iterator<b> it = m636a().iterator();
                 while (it.hasNext()) {
-                    ((b) it.next()).m643a();
+                    it.next().m643a();
                 }
                 this.f925a.clear();
             }
@@ -647,7 +647,7 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             synchronized (this) {
-                for (HashMap hashMap : this.f925a.values()) {
+                for (HashMap<String, b> hashMap : this.f925a.values()) {
                     for (b bVar : hashMap.values()) {
                         bVar.a(c.a, 1, 3, (String) null, (String) null);
                     }
@@ -660,7 +660,7 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, context, i) == null) {
             synchronized (this) {
-                for (HashMap hashMap : this.f925a.values()) {
+                for (HashMap<String, b> hashMap : this.f925a.values()) {
                     for (b bVar : hashMap.values()) {
                         bVar.a(c.a, 2, i, (String) null, (String) null);
                     }
@@ -682,9 +682,9 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             synchronized (this) {
-                HashMap hashMap = (HashMap) this.f925a.get(bVar.g);
+                HashMap<String, b> hashMap = this.f925a.get(bVar.g);
                 if (hashMap == null) {
-                    hashMap = new HashMap();
+                    hashMap = new HashMap<>();
                     this.f925a.put(bVar.g, hashMap);
                 }
                 hashMap.put(a(bVar.f937b), bVar);
@@ -701,7 +701,7 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             synchronized (this) {
-                HashMap hashMap = (HashMap) this.f925a.get(str);
+                HashMap<String, b> hashMap = this.f925a.get(str);
                 if (hashMap != null) {
                     for (b bVar : hashMap.values()) {
                         bVar.m643a();
@@ -721,9 +721,9 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
             synchronized (this) {
-                HashMap hashMap = (HashMap) this.f925a.get(str);
+                HashMap<String, b> hashMap = this.f925a.get(str);
                 if (hashMap != null) {
-                    b bVar = (b) hashMap.get(a(str2));
+                    b bVar = hashMap.get(a(str2));
                     if (bVar != null) {
                         bVar.m643a();
                     }

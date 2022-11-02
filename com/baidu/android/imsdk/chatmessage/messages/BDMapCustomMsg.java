@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BDMapCustomMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BDMapCustomMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -46,7 +46,7 @@ public class BDMapCustomMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BDMapCustomMsg.1
+        CREATOR = new Parcelable.Creator<BDMapCustomMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BDMapCustomMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +65,7 @@ public class BDMapCustomMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BDMapCustomMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -76,6 +77,7 @@ public class BDMapCustomMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BDMapCustomMsg[] newArray(int i) {
                 InterceptResult invokeI;

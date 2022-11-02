@@ -12,7 +12,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.Pointcut;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PointcutImpl implements Pointcut {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,13 +101,13 @@ public class PointcutImpl implements Pointcut {
     }
 
     @Override // org.aspectj.lang.reflect.Pointcut
-    public AjType[] getParameterTypes() {
+    public AjType<?>[] getParameterTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
             int length = parameterTypes.length;
-            AjType[] ajTypeArr = new AjType[length];
+            AjType<?>[] ajTypeArr = new AjType[length];
             for (int i = 0; i < length; i++) {
                 ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
             }
@@ -133,7 +133,7 @@ public class PointcutImpl implements Pointcut {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(getName());
             stringBuffer.append("(");
-            AjType[] parameterTypes = getParameterTypes();
+            AjType<?>[] parameterTypes = getParameterTypes();
             int i = 0;
             while (i < parameterTypes.length) {
                 stringBuffer.append(parameterTypes[i].getName());

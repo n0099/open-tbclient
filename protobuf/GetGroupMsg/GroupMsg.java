@@ -28,18 +28,18 @@ public final class GroupMsg extends Message {
     public final List<MsgInfo> msgList;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<GroupMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public GroupInfo groupInfo;
         public Integer hasMore;
-        public List msgList;
+        public List<MsgInfo> msgList;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public final class GroupMsg extends Message {
         }
         if (z) {
             this.groupInfo = builder.groupInfo;
-            List list = builder.msgList;
+            List<MsgInfo> list = builder.msgList;
             if (list == null) {
                 this.msgList = DEFAULT_MSGLIST;
             } else {

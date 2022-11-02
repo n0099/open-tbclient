@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -13,7 +14,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopicSubNode;
-import com.baidu.tieba.vg;
+import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ import java.util.List;
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vg a;
+    public ng<CardFrsGameSpecialTopicItemView> a;
     public int b;
     public int c;
     public int d;
@@ -100,7 +101,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameSpecialTopicLayout(Context context, AttributeSet attributeSet) {
+    public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -124,7 +125,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameSpecialTopicLayout(Context context, AttributeSet attributeSet, int i) {
+    public CardFrsGameSpecialTopicLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -161,10 +162,10 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(vg vgVar) {
+    public void setViewPool(ng<CardFrsGameSpecialTopicItemView> ngVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vgVar) == null) {
-            this.a = vgVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ngVar) == null) {
+            this.a = ngVar;
         }
     }
 
@@ -226,15 +227,15 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardFrsGameSpecialTopicItemView, featureCardTopicSubNode) != null) || featureCardTopicSubNode == null) {
             return;
         }
-        cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().L(featureCardTopicSubNode.image, 10, false);
+        cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().K(featureCardTopicSubNode.image, 10, false);
         cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
-        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f071a, String.valueOf(featureCardTopicSubNode.article_num)));
-        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f071b, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f071d, String.valueOf(featureCardTopicSubNode.article_num)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f071e, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
         cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
         cardFrsGameSpecialTopicItemView.c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setData(List list) {
+    public void setData(List<FeatureCardTopicSubNode> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
@@ -246,7 +247,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             if (getChildAt(i) instanceof CardFrsGameSpecialTopicItemView) {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = (CardFrsGameSpecialTopicItemView) getChildAt(i);
                 c(cardFrsGameSpecialTopicItemView, i, this.c);
-                d(cardFrsGameSpecialTopicItemView, (FeatureCardTopicSubNode) list.get(i));
+                d(cardFrsGameSpecialTopicItemView, list.get(i));
             }
             i++;
         }
@@ -255,13 +256,13 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             i++;
         }
         while (i < list.size()) {
-            CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView2 = (CardFrsGameSpecialTopicItemView) this.a.b();
-            if (cardFrsGameSpecialTopicItemView2.getParent() != null) {
-                ((ViewGroup) cardFrsGameSpecialTopicItemView2.getParent()).removeView(cardFrsGameSpecialTopicItemView2);
+            CardFrsGameSpecialTopicItemView b = this.a.b();
+            if (b.getParent() != null) {
+                ((ViewGroup) b.getParent()).removeView(b);
             }
-            c(cardFrsGameSpecialTopicItemView2, i, this.c);
-            d(cardFrsGameSpecialTopicItemView2, (FeatureCardTopicSubNode) list.get(i));
-            addView(cardFrsGameSpecialTopicItemView2);
+            c(b, i, this.c);
+            d(b, list.get(i));
+            addView(b);
             i++;
         }
     }

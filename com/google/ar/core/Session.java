@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.es9;
-import com.baidu.tieba.js9;
+import com.baidu.tieba.nt9;
+import com.baidu.tieba.st9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class Session {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final js9 c;
+    public final st9 c;
 
     private native long[] nativeAcquireAllAnchors(long j);
 
@@ -87,7 +87,7 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Feature {
+    public static final class Feature {
         public static final /* synthetic */ Feature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Feature FRONT_CAMERA;
@@ -156,7 +156,7 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public static final /* synthetic */ a[] c;
@@ -214,7 +214,7 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b A;
         public static final b B;
@@ -245,7 +245,7 @@ public class Session {
         public static final b z;
         public transient /* synthetic */ FieldHolder $fh;
         public final int j;
-        public final Class k;
+        public final Class<? extends Exception> k;
         public final String l;
 
         static {
@@ -347,7 +347,7 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public abstract class c {
+    public static abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public static final c c;
@@ -358,9 +358,9 @@ public class Session {
         public static final /* synthetic */ c[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int b;
-        public final Class h;
+        public final Class<?> h;
 
-        public abstract es9 a(long j, Session session);
+        public abstract nt9 a(long j, Session session);
 
         static {
             InterceptResult invokeClinit;
@@ -375,7 +375,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, es9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, nt9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -411,13 +411,13 @@ public class Session {
             this(str, i2, i3, cls);
         }
 
-        public static c a(Class cls) {
+        public static c a(Class<? extends nt9> cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
                 for (c cVar : values()) {
-                    Class cls2 = cVar.h;
+                    Class<?> cls2 = cVar.h;
                     if (cls2 != null && cls2.equals(cls)) {
                         return cVar;
                     }
@@ -451,7 +451,7 @@ public class Session {
             }
         }
         this.b = new Object();
-        this.c = new js9();
+        this.c = new st9();
         this.a = 0L;
     }
 

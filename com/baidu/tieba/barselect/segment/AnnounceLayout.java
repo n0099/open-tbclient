@@ -14,11 +14,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b16;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.oj;
-import com.baidu.tieba.pl5;
-import com.baidu.tieba.u06;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.gj;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.nm5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public TextView f;
 
     /* loaded from: classes3.dex */
-    public class a extends pl5 {
+    public class a extends nm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AnnounceLayout h;
@@ -100,14 +100,14 @@ public class AnnounceLayout extends CardBasicLayout {
                 return;
             }
         }
-        this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds90) * 2);
+        this.d = xi.t((Activity) getContext()).widthPixels - (xi.g(getContext(), R.dimen.tbds90) * 2);
         b();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090285);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090294);
         }
     }
 
@@ -120,7 +120,7 @@ public class AnnounceLayout extends CardBasicLayout {
             setOrientation(1);
             setGravity(17);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d011e, (ViewGroup) this, true);
             a();
         }
     }
@@ -130,12 +130,12 @@ public class AnnounceLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) == null) {
             if (spannableStringBuilder != null && !TextUtils.isEmpty(spannableStringBuilder.toString())) {
                 int i = 2;
-                if (!oj.b(this.d, this.f.getPaint(), spannableStringBuilder.toString(), 2)) {
+                if (!gj.b(this.d, this.f.getPaint(), spannableStringBuilder.toString(), 2)) {
                     this.f.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
                     return;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(StringHelper.STRING_MORE);
-                SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04e0));
+                SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04e2));
                 spannableStringBuilder3.setSpan(new a(this, 2, null), 0, spannableStringBuilder3.length(), 17);
                 spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
                 StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.f.getPaint(), (int) this.d, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
@@ -159,23 +159,23 @@ public class AnnounceLayout extends CardBasicLayout {
                 this.f.setText(spannableStringBuilder);
                 return;
             }
-            this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0586));
+            this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0589));
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, u06 u06Var) {
+    public void setData(int i, e26 e26Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, u06Var) == null) {
-            super.setData(i, u06Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, e26Var) == null) {
+            super.setData(i, e26Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == b16.b) {
-                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds120) * 2);
+                if (i2 == l26.b) {
+                    this.d = xi.t((Activity) getContext()).widthPixels - (xi.g(getContext(), R.dimen.tbds120) * 2);
                 }
                 int i3 = this.a;
-                if (i3 == b16.c || i3 == b16.d) {
-                    this.d = fj.r((Activity) getContext()).widthPixels - (fj.f(getContext(), R.dimen.tbds96) * 2);
+                if (i3 == l26.c || i3 == l26.d) {
+                    this.d = xi.t((Activity) getContext()).widthPixels - (xi.g(getContext(), R.dimen.tbds96) * 2);
                 }
                 c(new SpannableStringBuilder(this.c.b()));
                 return;

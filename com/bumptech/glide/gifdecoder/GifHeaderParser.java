@@ -1,6 +1,8 @@
 package com.bumptech.glide.gifdecoder;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -284,6 +286,7 @@ public class GifHeaderParser {
         }
     }
 
+    @Nullable
     private int[] readColorTable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -385,6 +388,7 @@ public class GifHeaderParser {
         }
     }
 
+    @NonNull
     public GifHeader parseHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -408,7 +412,7 @@ public class GifHeaderParser {
         return (GifHeader) invokeV.objValue;
     }
 
-    public GifHeaderParser setData(ByteBuffer byteBuffer) {
+    public GifHeaderParser setData(@NonNull ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {
@@ -422,7 +426,7 @@ public class GifHeaderParser {
         return (GifHeaderParser) invokeL.objValue;
     }
 
-    public GifHeaderParser setData(byte[] bArr) {
+    public GifHeaderParser setData(@Nullable byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {

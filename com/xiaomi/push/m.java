@@ -25,7 +25,7 @@ public class m {
     public static volatile int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map f819a = null;
+    public static Map<String, q> f819a = null;
     public static int b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -293,7 +293,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             m559a();
-            return (q) f819a.get(str.toUpperCase());
+            return f819a.get(str.toUpperCase());
         }
         return (q) invokeL.objValue;
     }

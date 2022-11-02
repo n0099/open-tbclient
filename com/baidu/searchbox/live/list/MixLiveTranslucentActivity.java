@@ -115,6 +115,7 @@ public final class MixLiveTranslucentActivity extends MixLiveActivity {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MixLiveTranslucentActivity this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {

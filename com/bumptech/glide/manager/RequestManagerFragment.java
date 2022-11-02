@@ -1,9 +1,14 @@
 package com.bumptech.glide.manager;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +27,14 @@ public class RequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RMFragment";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set childRequestManagerFragments;
+    public final Set<RequestManagerFragment> childRequestManagerFragments;
     public final ActivityFragmentLifecycle lifecycle;
+    @Nullable
     public Fragment parentFragmentHint;
+    @Nullable
     public RequestManager requestManager;
     public final RequestManagerTreeNode requestManagerTreeNode;
+    @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
     /* loaded from: classes7.dex */
@@ -54,7 +62,8 @@ public class RequestManagerFragment extends Fragment {
         }
 
         @Override // com.bumptech.glide.manager.RequestManagerTreeNode
-        public Set getDescendants() {
+        @NonNull
+        public Set<RequestManager> getDescendants() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -98,6 +107,8 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
+    @Nullable
+    @TargetApi(17)
     private Fragment getParentFragmentUsingHint() {
         InterceptResult invokeV;
         Fragment fragment;
@@ -125,6 +136,7 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
+    @NonNull
     public ActivityFragmentLifecycle getGlideLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,6 +146,7 @@ public class RequestManagerFragment extends Fragment {
         return (ActivityFragmentLifecycle) invokeV.objValue;
     }
 
+    @Nullable
     public RequestManager getRequestManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,6 +156,7 @@ public class RequestManagerFragment extends Fragment {
         return (RequestManager) invokeV.objValue;
     }
 
+    @NonNull
     public RequestManagerTreeNode getRequestManagerTreeNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -189,7 +203,9 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
-    public RequestManagerFragment(ActivityFragmentLifecycle activityFragmentLifecycle) {
+    @SuppressLint({"ValidFragment"})
+    @VisibleForTesting
+    public RequestManagerFragment(@NonNull ActivityFragmentLifecycle activityFragmentLifecycle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,7 +232,8 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
-    private boolean isDescendant(Fragment fragment) {
+    @TargetApi(17)
+    private boolean isDescendant(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragment)) == null) {
@@ -237,7 +254,7 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
-    private void registerFragmentWithRoot(Activity activity) {
+    private void registerFragmentWithRoot(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, activity) == null) {
             unregisterFragmentWithRoot();
@@ -271,7 +288,7 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
-    public void setParentFragmentHint(Fragment fragment) {
+    public void setParentFragmentHint(@Nullable Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fragment) == null) {
             this.parentFragmentHint = fragment;
@@ -281,14 +298,16 @@ public class RequestManagerFragment extends Fragment {
         }
     }
 
-    public void setRequestManager(RequestManager requestManager) {
+    public void setRequestManager(@Nullable RequestManager requestManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, requestManager) == null) {
             this.requestManager = requestManager;
         }
     }
 
-    public Set getDescendantRequestManagerFragments() {
+    @NonNull
+    @TargetApi(17)
+    public Set<RequestManagerFragment> getDescendantRequestManagerFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

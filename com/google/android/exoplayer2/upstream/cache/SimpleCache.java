@@ -28,8 +28,8 @@ public final class SimpleCache implements Cache {
     public final File cacheDir;
     public final CacheEvictor evictor;
     public final CachedContentIndex index;
-    public final HashMap listeners;
-    public final HashMap lockedSpans;
+    public final HashMap<String, ArrayList<Cache.Listener>> listeners;
+    public final HashMap<String, CacheSpan> lockedSpans;
     public long totalSpace;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -71,9 +71,9 @@ public final class SimpleCache implements Cache {
         this.totalSpace = 0L;
         this.cacheDir = file;
         this.evictor = cacheEvictor;
-        this.lockedSpans = new HashMap();
+        this.lockedSpans = new HashMap<>();
         this.index = cachedContentIndex;
-        this.listeners = new HashMap();
+        this.listeners = new HashMap<>();
         ConditionVariable conditionVariable = new ConditionVariable();
         new Thread(this, "SimpleCache.initialize()", conditionVariable) { // from class: com.google.android.exoplayer2.upstream.cache.SimpleCache.1
             public static /* synthetic */ Interceptable $ic;
@@ -263,10 +263,10 @@ public final class SimpleCache implements Cache {
     private void notifySpanTouched(SimpleCacheSpan simpleCacheSpan, CacheSpan cacheSpan) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, this, simpleCacheSpan, cacheSpan) == null) {
-            ArrayList arrayList = (ArrayList) this.listeners.get(simpleCacheSpan.key);
+            ArrayList<Cache.Listener> arrayList = this.listeners.get(simpleCacheSpan.key);
             if (arrayList != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    ((Cache.Listener) arrayList.get(size)).onSpanTouched(this, simpleCacheSpan, cacheSpan);
+                    arrayList.get(size).onSpanTouched(this, simpleCacheSpan, cacheSpan);
                 }
             }
             this.evictor.onSpanTouched(this, simpleCacheSpan, cacheSpan);
@@ -292,15 +292,15 @@ public final class SimpleCache implements Cache {
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized NavigableSet addListener(String str, Cache.Listener listener) {
+    public synchronized NavigableSet<CacheSpan> addListener(String str, Cache.Listener listener) {
         InterceptResult invokeLL;
-        NavigableSet cachedSpans;
+        NavigableSet<CacheSpan> cachedSpans;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, listener)) == null) {
             synchronized (this) {
-                ArrayList arrayList = (ArrayList) this.listeners.get(str);
+                ArrayList<Cache.Listener> arrayList = this.listeners.get(str);
                 if (arrayList == null) {
-                    arrayList = new ArrayList();
+                    arrayList = new ArrayList<>();
                     this.listeners.put(str, arrayList);
                 }
                 arrayList.add(listener);
@@ -376,11 +376,11 @@ public final class SimpleCache implements Cache {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             ArrayList arrayList = new ArrayList();
             for (CachedContent cachedContent : this.index.getAll()) {
-                Iterator it = cachedContent.getSpans().iterator();
+                Iterator<SimpleCacheSpan> it = cachedContent.getSpans().iterator();
                 while (it.hasNext()) {
-                    CacheSpan cacheSpan = (CacheSpan) it.next();
-                    if (!cacheSpan.file.exists()) {
-                        arrayList.add(cacheSpan);
+                    SimpleCacheSpan next = it.next();
+                    if (!next.file.exists()) {
+                        arrayList.add(next);
                     }
                 }
             }
@@ -395,10 +395,10 @@ public final class SimpleCache implements Cache {
     private void notifySpanAdded(SimpleCacheSpan simpleCacheSpan) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, simpleCacheSpan) == null) {
-            ArrayList arrayList = (ArrayList) this.listeners.get(simpleCacheSpan.key);
+            ArrayList<Cache.Listener> arrayList = this.listeners.get(simpleCacheSpan.key);
             if (arrayList != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    ((Cache.Listener) arrayList.get(size)).onSpanAdded(this, simpleCacheSpan);
+                    arrayList.get(size).onSpanAdded(this, simpleCacheSpan);
                 }
             }
             this.evictor.onSpanAdded(this, simpleCacheSpan);
@@ -408,10 +408,10 @@ public final class SimpleCache implements Cache {
     private void notifySpanRemoved(CacheSpan cacheSpan) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, cacheSpan) == null) {
-            ArrayList arrayList = (ArrayList) this.listeners.get(cacheSpan.key);
+            ArrayList<Cache.Listener> arrayList = this.listeners.get(cacheSpan.key);
             if (arrayList != null) {
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    ((Cache.Listener) arrayList.get(size)).onSpanRemoved(this, cacheSpan);
+                    arrayList.get(size).onSpanRemoved(this, cacheSpan);
                 }
             }
             this.evictor.onSpanRemoved(this, cacheSpan);
@@ -419,7 +419,7 @@ public final class SimpleCache implements Cache {
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized NavigableSet getCachedSpans(String str) {
+    public synchronized NavigableSet<CacheSpan> getCachedSpans(String str) {
         InterceptResult invokeL;
         TreeSet treeSet;
         Interceptable interceptable = $ic;
@@ -487,7 +487,7 @@ public final class SimpleCache implements Cache {
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized Set getKeys() {
+    public synchronized Set<String> getKeys() {
         InterceptResult invokeV;
         HashSet hashSet;
         Interceptable interceptable = $ic;
@@ -544,7 +544,7 @@ public final class SimpleCache implements Cache {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, listener) == null) {
             synchronized (this) {
-                ArrayList arrayList = (ArrayList) this.listeners.get(str);
+                ArrayList<Cache.Listener> arrayList = this.listeners.get(str);
                 if (arrayList != null) {
                     arrayList.remove(listener);
                     if (arrayList.isEmpty()) {

@@ -1,84 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import android.text.TextUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.u04;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class c74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static RecommendItemModel a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            RecommendItemModel recommendItemModel = new RecommendItemModel();
-            recommendItemModel.appName = jSONObject.optString("app_name");
-            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
-            recommendItemModel.scheme = jSONObject.optString("scheme");
-            recommendItemModel.desc = jSONObject.optString("desc");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
-            if (optJSONObject != null) {
-                recommendItemModel.buttonText = optJSONObject.optString("text");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627657, "Lcom/baidu/tieba/c74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return recommendItemModel;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947627657, "Lcom/baidu/tieba/c74;");
+                return;
+            }
         }
-        return (RecommendItemModel) invokeL.objValue;
+        boolean z = ok1.a;
     }
 
-    public static b74 b(JSONObject jSONObject) {
+    public static PathType a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            b74 b74Var = new b74();
-            if (jSONObject == null) {
-                return b74Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return PathType.ERROR;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
-            if (optJSONObject != null) {
-                b74Var.a = a(optJSONObject);
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                return PathType.RELATIVE;
             }
-            b74Var.b = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    b74Var.b.add(a(optJSONArray.optJSONObject(i)));
-                }
-            }
-            return b74Var;
+            return PathType.NETWORK;
         }
-        return (b74) invokeL.objValue;
+        return (PathType) invokeL.objValue;
     }
 
-    public static d74 c(String str) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
+        File h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            d74 d74Var = new d74();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                d74Var.a = jSONObject.getInt("errno");
-                d74Var.b = jSONObject.optString("errmsg");
-                d74Var.c = jSONObject.optJSONObject("data");
-                return d74Var;
-            } catch (JSONException e) {
-                d74Var.a = -1;
-                d74Var.b = "network error: response parse failed.";
-                if (wj1.a) {
-                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
-                }
-                return d74Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            e43 q = d43.K().q();
+            if (!q.I() || q.k0() == null || (h = u04.d.h(q.getAppId(), q.k0())) == null || !h.exists()) {
+                return null;
             }
+            return "file://" + h.getAbsolutePath();
         }
-        return (d74) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -52,7 +52,7 @@ public abstract class BaseNativeUnifiedAd {
 
     public abstract void setBrowserType(int i);
 
-    public abstract void setCategories(List list);
+    public abstract void setCategories(List<String> list);
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 

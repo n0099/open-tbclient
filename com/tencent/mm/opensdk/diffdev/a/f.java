@@ -12,7 +12,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class f extends AsyncTask {
+public final class f extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OAuthListener k;
@@ -21,7 +21,7 @@ public final class f extends AsyncTask {
     public String url;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public OAuthErrCode m;
@@ -127,8 +127,10 @@ public final class f extends AsyncTask {
         this.url = String.format("https://long.open.weixin.qq.com/connect/l/qrconnect?f=json&uuid=%s", str);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.AsyncTask
-    public final /* synthetic */ Object doInBackground(Object[] objArr) {
+    public final /* synthetic */ a doInBackground(Void[] voidArr) {
         a aVar;
         OAuthErrCode oAuthErrCode;
         String str;
@@ -181,9 +183,10 @@ public final class f extends AsyncTask {
         return aVar;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // android.os.AsyncTask
-    public final /* synthetic */ void onPostExecute(Object obj) {
-        a aVar = (a) obj;
-        this.k.onAuthFinish(aVar.m, aVar.u);
+    public final /* synthetic */ void onPostExecute(a aVar) {
+        a aVar2 = aVar;
+        this.k.onAuthFinish(aVar2.m, aVar2.u);
     }
 }

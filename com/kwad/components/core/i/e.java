@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ public abstract class e extends BaseSystemDialogFragment {
         return invokeLL.intValue;
     }
 
-    public abstract View a(LayoutInflater layoutInflater, ViewGroup viewGroup);
+    public abstract View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
     @Override // android.app.DialogFragment
     public void dismiss() {
@@ -67,7 +68,8 @@ public abstract class e extends BaseSystemDialogFragment {
     }
 
     @Override // android.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public final View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) ? a(Wrapper.wrapInflaterIfNeed(layoutInflater), viewGroup) : (View) invokeLLL.objValue;

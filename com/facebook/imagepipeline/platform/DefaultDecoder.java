@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.platform;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.common.streams.LimitedInputStream;
@@ -28,15 +30,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+@TargetApi(11)
 /* loaded from: classes7.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DECODE_BUFFER_SIZE = 16384;
     public static final byte[] EOI_TAIL;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool mBitmapPool;
-    public final Pools.SynchronizedPool mDecodeBuffers;
+    @VisibleForTesting
+    public final Pools.SynchronizedPool<ByteBuffer> mDecodeBuffers;
     @Nullable
     public final PreverificationHelper mPreverificationHelper;
 
@@ -94,7 +100,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private CloseableReference decodeFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
+    private CloseableReference<Bitmap> decodeFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
         InterceptResult invokeLLLL;
         boolean z;
         Bitmap bitmap;
@@ -123,7 +129,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                 if (rect != null && z) {
                     options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 }
-                bitmap = (Bitmap) this.mBitmapPool.get(getBitmapSize(i, i2, options));
+                bitmap = this.mBitmapPool.get(getBitmapSize(i, i2, options));
                 if (bitmap == null) {
                     throw new NullPointerException("BitmapPool.get returned null");
                 }
@@ -135,13 +141,13 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                 }
                 options.inPreferredColorSpace = colorSpace;
             }
-            ByteBuffer byteBuffer = (ByteBuffer) this.mDecodeBuffers.acquire();
-            if (byteBuffer == null) {
-                byteBuffer = ByteBuffer.allocate(16384);
+            ByteBuffer acquire = this.mDecodeBuffers.acquire();
+            if (acquire == null) {
+                acquire = ByteBuffer.allocate(16384);
             }
             try {
                 try {
-                    options.inTempStorage = byteBuffer.array();
+                    options.inTempStorage = acquire.array();
                     if (Build.VERSION.SDK_INT >= 19 && rect != null && bitmap != null) {
                         try {
                             bitmap.reconfigure(i, i2, options.inPreferredConfig);
@@ -160,7 +166,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                                     bitmap2 = null;
                                     if (bitmap2 == null) {
                                     }
-                                    this.mDecodeBuffers.release(byteBuffer);
+                                    this.mDecodeBuffers.release(acquire);
                                     if (bitmap == null) {
                                     }
                                     return CloseableReference.of(bitmap2, this.mBitmapPool);
@@ -184,7 +190,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                         if (bitmap2 == null) {
                             bitmap2 = BitmapFactory.decodeStream(inputStream, null, options);
                         }
-                        this.mDecodeBuffers.release(byteBuffer);
+                        this.mDecodeBuffers.release(acquire);
                         if (bitmap == null && bitmap != bitmap2) {
                             this.mBitmapPool.release(bitmap);
                             bitmap2.recycle();
@@ -195,7 +201,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                     bitmap2 = null;
                     if (bitmap2 == null) {
                     }
-                    this.mDecodeBuffers.release(byteBuffer);
+                    this.mDecodeBuffers.release(acquire);
                     if (bitmap == null) {
                     }
                     return CloseableReference.of(bitmap2, this.mBitmapPool);
@@ -207,8 +213,8 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                         inputStream.reset();
                         Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
                         if (decodeStream != null) {
-                            CloseableReference of = CloseableReference.of(decodeStream, SimpleBitmapReleaser.getInstance());
-                            this.mDecodeBuffers.release(byteBuffer);
+                            CloseableReference<Bitmap> of = CloseableReference.of(decodeStream, SimpleBitmapReleaser.getInstance());
+                            this.mDecodeBuffers.release(acquire);
                             return of;
                         }
                         throw e;
@@ -222,7 +228,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                     throw e2;
                 }
             } catch (Throwable th3) {
-                this.mDecodeBuffers.release(byteBuffer);
+                this.mDecodeBuffers.release(acquire);
                 throw th3;
             }
         }
@@ -250,7 +256,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference decodeFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect) {
+    public CloseableReference<Bitmap> decodeFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, config, rect)) == null) {
@@ -259,7 +265,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         return (CloseableReference) invokeLLL.objValue;
     }
 
-    public CloseableReference decodeStaticImageFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect) {
+    public CloseableReference<Bitmap> decodeStaticImageFromStream(InputStream inputStream, BitmapFactory.Options options, @Nullable Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inputStream, options, rect)) == null) {
@@ -269,7 +275,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
+    public CloseableReference<Bitmap> decodeFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, @Nullable ColorSpace colorSpace) {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -293,7 +299,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, i)) == null) {
@@ -303,7 +309,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, @Nullable ColorSpace colorSpace) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, @Nullable ColorSpace colorSpace) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +63,7 @@ public class ElasticTaskBuilder {
         return (ElasticTaskBuilder) invokeV.objValue;
     }
 
-    public ElasticTask build(Runnable runnable, String str, int i) {
+    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i) {
         InterceptResult invokeLLI;
         ElasticTask elasticTask;
         Interceptable interceptable = $ic;

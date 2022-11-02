@@ -22,21 +22,21 @@ public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0090a b;
+    public InterfaceC0091a b;
     public String c;
     public String d;
-    public ArrayList e;
+    public ArrayList<String> e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0090a {
+    public interface InterfaceC0091a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
 
         void a(String str, long j, long j2);
 
-        void a(String str, long j, ArrayList arrayList);
+        void a(String str, long j, ArrayList<String> arrayList);
     }
 
     static {
@@ -167,7 +167,7 @@ public class a implements b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(String str, ArrayList arrayList) {
+    public static String a(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         File file;
         Interceptable interceptable = $ic;
@@ -180,7 +180,7 @@ public class a implements b.a {
                         if (i >= arrayList.size()) {
                             break;
                         }
-                        String str3 = (String) arrayList.get(i);
+                        String str3 = arrayList.get(i);
                         if (!TextUtils.isEmpty(str3)) {
                             File file2 = new File(str, str3);
                             if (!file2.isDirectory()) {
@@ -218,7 +218,7 @@ public class a implements b.a {
                 if (this.e != null) {
                     CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
                     for (int i = 0; i < this.e.size(); i++) {
-                        String str2 = (String) this.e.get(i);
+                        String str2 = this.e.get(i);
                         if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
                             String substring = str2.substring(4, 36);
                             if (!o.a(substring, this.d + File.separator + str2)) {
@@ -261,13 +261,13 @@ public class a implements b.a {
         }
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0090a interfaceC0090a) {
+    public void a(String str, String str2, String str3, InterfaceC0091a interfaceC0091a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC0090a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0090a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC0091a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0091a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0090a;
+        this.b = interfaceC0091a;
         this.d = str3;
         o.b(str3);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);

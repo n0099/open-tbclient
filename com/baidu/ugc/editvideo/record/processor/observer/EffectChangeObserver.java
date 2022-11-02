@@ -1,8 +1,10 @@
 package com.baidu.ugc.editvideo.record.processor.observer;
 
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public interface EffectChangeObserver {
-    void onChanged(Map map, List list);
+    void onChanged(Map<String, ShaderConfig> map, List<MediaTrack> list);
 }

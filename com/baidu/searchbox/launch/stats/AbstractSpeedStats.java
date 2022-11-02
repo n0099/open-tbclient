@@ -80,7 +80,7 @@ public abstract class AbstractSpeedStats {
         }
     }
 
-    public void addStatsMap(String str, Map map) {
+    public void addStatsMap(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) && DEBUG) {
             Log.d(TAG, "addStatsTimeStamp key: " + str + " map " + map.toString());

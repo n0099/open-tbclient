@@ -23,8 +23,8 @@ public class DBGroupTableManager {
     public static final String SYSTEM_TABLE = "sqlite_master";
     public static final String TAG = "DBGroupTableManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap activeState;
-    public ArrayList exisGroupTable;
+    public HashMap<String, Integer> activeState;
+    public ArrayList<String> exisGroupTable;
     public boolean isActivieInit;
     public boolean isGroupExistInit;
 
@@ -43,8 +43,8 @@ public class DBGroupTableManager {
         }
         this.isGroupExistInit = false;
         this.isActivieInit = false;
-        this.exisGroupTable = new ArrayList();
-        this.activeState = new HashMap();
+        this.exisGroupTable = new ArrayList<>();
+        this.activeState = new HashMap<>();
     }
 
     private synchronized void initGroupActiveState(DBOperation dBOperation) {
@@ -55,7 +55,7 @@ public class DBGroupTableManager {
                 if (this.isActivieInit) {
                     return;
                 }
-                if (dBOperation != null && (query = dBOperation.query(new IResultParse(this) { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.1
+                if (dBOperation != null && (query = dBOperation.query(new IResultParse<GroupInfo>(this) { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DBGroupTableManager this$0;
@@ -79,6 +79,7 @@ public class DBGroupTableManager {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // com.baidu.android.imsdk.db.IResultParse
                     public GroupInfo onParse(Cursor cursor) {
                         InterceptResult invokeL;
@@ -112,7 +113,7 @@ public class DBGroupTableManager {
                 if (this.isGroupExistInit) {
                     return;
                 }
-                if (dBOperation != null && (query = dBOperation.query(new IResultParse(this) { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.2
+                if (dBOperation != null && (query = dBOperation.query(new IResultParse<String>(this) { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DBGroupTableManager this$0;
@@ -191,7 +192,7 @@ public class DBGroupTableManager {
         }
     }
 
-    public void addGroupTable(ArrayList arrayList) {
+    public void addGroupTable(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             this.exisGroupTable.addAll(arrayList);
@@ -213,7 +214,7 @@ public class DBGroupTableManager {
             if (!this.isActivieInit) {
                 initGroupActiveState(DBOperationFactory.getNewDb(context));
             }
-            if (!this.activeState.containsKey(str) || ((Integer) this.activeState.get(str)).intValue() != 1) {
+            if (!this.activeState.containsKey(str) || this.activeState.get(str).intValue() != 1) {
                 return false;
             }
             return true;

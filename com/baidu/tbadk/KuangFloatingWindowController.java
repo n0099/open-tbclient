@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.zu8;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,13 +96,13 @@ public class KuangFloatingWindowController {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
-                Boolean bool;
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Boolean data;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof KeyBoardSwitchMessage) || (bool = (Boolean) ((KeyBoardSwitchMessage) customResponsedMessage).getData()) == null) {
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof KeyBoardSwitchMessage) || (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) == null) {
                     return;
                 }
-                if (!bool.booleanValue()) {
+                if (!data.booleanValue()) {
                     this.this$0.hideFloatingView();
                 } else if (this.this$0.init()) {
                     this.this$0.showFloatingView();
@@ -137,13 +137,13 @@ public class KuangFloatingWindowController {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
-                Boolean bool;
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Boolean data;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof WindowSwitchMessage) || (bool = (Boolean) ((WindowSwitchMessage) customResponsedMessage).getData()) == null) {
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof WindowSwitchMessage) || (data = ((WindowSwitchMessage) customResponsedMessage).getData()) == null) {
                     return;
                 }
-                if (bool.booleanValue()) {
+                if (data.booleanValue()) {
                     this.this$0.hideFloatingView();
                 } else if (this.this$0.init()) {
                     this.this$0.showFloatingView();
@@ -178,10 +178,10 @@ public class KuangFloatingWindowController {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
-                Boolean bool;
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Boolean data;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ConfigChangeMessage) && (bool = (Boolean) ((ConfigChangeMessage) customResponsedMessage).getData()) != null && bool.booleanValue()) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ConfigChangeMessage) && (data = ((ConfigChangeMessage) customResponsedMessage).getData()) != null && data.booleanValue()) {
                     this.this$0.hideFloatingView();
                     if (this.this$0.init()) {
                         this.this$0.showFloatingView();
@@ -197,7 +197,7 @@ public class KuangFloatingWindowController {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             View view2 = this.mFloatingView;
             if (view2 == null) {
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0298, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029a, (ViewGroup) null);
                 this.mFloatingView = inflate;
                 inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingWindowController.4
                     public static /* synthetic */ Interceptable $ic;
@@ -257,7 +257,7 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
             }
             WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -310,13 +310,13 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = zu8.a(2002);
+            layoutParams.type = iw8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");

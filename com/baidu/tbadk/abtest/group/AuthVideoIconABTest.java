@@ -20,7 +20,7 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
     public static final String VIDEO_AUTHOR_B = "12_11_tieba_videofeed_v_c";
     public static final String VIDEO_AUTHOR_C = "12_11_tieba_videofeed_v_d";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -40,7 +40,7 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -82,7 +82,7 @@ public class AuthVideoIconABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(4);
+        ArrayList<String> arrayList = new ArrayList<>(4);
         this.mABTestList = arrayList;
         arrayList.add(VIDEO_AUTHOR);
         this.mABTestList.add(VIDEO_AUTHOR_A);

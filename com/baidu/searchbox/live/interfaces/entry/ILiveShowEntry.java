@@ -8,7 +8,7 @@ import kotlin.Metadata;
 public interface ILiveShowEntry {
     void clearLiveShowResource();
 
-    void dispatchHostEvent(Context context, String str, Map map);
+    void dispatchHostEvent(Context context, String str, Map<String, ? extends Object> map);
 
     void enterLiveShowRoom(Context context, String str);
 

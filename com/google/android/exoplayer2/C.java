@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
 import androidx.core.view.InputDeviceCompat;
@@ -271,6 +272,7 @@ public final class C {
         }
     }
 
+    @TargetApi(21)
     public static int generateAudioSessionIdV21(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

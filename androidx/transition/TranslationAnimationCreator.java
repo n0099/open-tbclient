@@ -6,6 +6,8 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,28 +35,28 @@ public class TranslationAnimationCreator {
         public final View mViewInHierarchy;
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionCancel(Transition transition) {
+        public void onTransitionCancel(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, transition) == null) {
             }
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionPause(Transition transition) {
+        public void onTransitionPause(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, transition) == null) {
             }
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionResume(Transition transition) {
+        public void onTransitionResume(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, transition) == null) {
             }
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionStart(Transition transition) {
+        public void onTransitionStart(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, transition) == null) {
             }
@@ -81,10 +83,10 @@ public class TranslationAnimationCreator {
             this.mStartY = i2 - Math.round(this.mMovingView.getTranslationY());
             this.mTerminalX = f;
             this.mTerminalY = f2;
-            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092317);
+            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236b);
             this.mTransitionPosition = iArr;
             if (iArr != null) {
-                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092317, null);
+                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236b, null);
             }
         }
 
@@ -97,7 +99,7 @@ public class TranslationAnimationCreator {
                 }
                 this.mTransitionPosition[0] = Math.round(this.mStartX + this.mMovingView.getTranslationX());
                 this.mTransitionPosition[1] = Math.round(this.mStartY + this.mMovingView.getTranslationY());
-                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092317, this.mTransitionPosition);
+                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236b, this.mTransitionPosition);
             }
         }
 
@@ -122,7 +124,7 @@ public class TranslationAnimationCreator {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionEnd(Transition transition) {
+        public void onTransitionEnd(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, transition) == null) {
                 this.mMovingView.setTranslationX(this.mTerminalX);
@@ -146,7 +148,8 @@ public class TranslationAnimationCreator {
         }
     }
 
-    public static Animator createAnimation(View view2, TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, TimeInterpolator timeInterpolator, Transition transition) {
+    @Nullable
+    public static Animator createAnimation(@NonNull View view2, @NonNull TransitionValues transitionValues, int i, int i2, float f, float f2, float f3, float f4, @Nullable TimeInterpolator timeInterpolator, @NonNull Transition transition) {
         InterceptResult invokeCommon;
         float f5;
         float f6;
@@ -154,7 +157,7 @@ public class TranslationAnimationCreator {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), timeInterpolator, transition})) == null) {
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092317);
+            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09236b);
             if (iArr != null) {
                 f5 = (iArr[0] - i) + translationX;
                 f6 = (iArr[1] - i2) + translationY;

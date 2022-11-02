@@ -1,5 +1,9 @@
 package androidx.lifecycle;
 
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.arch.core.internal.SafeIterableMap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +47,7 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
         }
 
         @Override // androidx.lifecycle.Observer
-        public void onChanged(V v) {
+        public void onChanged(@Nullable V v) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && this.mVersion != this.mLiveData.getVersion()) {
                 this.mVersion = this.mLiveData.getVersion();
@@ -83,6 +87,7 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
     }
 
     @Override // androidx.lifecycle.LiveData
+    @CallSuper
     public void onActive() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -94,6 +99,7 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
     }
 
     @Override // androidx.lifecycle.LiveData
+    @CallSuper
     public void onInactive() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -104,7 +110,8 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
         }
     }
 
-    public <S> void addSource(LiveData<S> liveData, Observer<? super S> observer) {
+    @MainThread
+    public <S> void addSource(@NonNull LiveData<S> liveData, @NonNull Observer<? super S> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, liveData, observer) == null) {
             Source<?> source = new Source<>(liveData, observer);
@@ -118,7 +125,8 @@ public class MediatorLiveData<T> extends MutableLiveData<T> {
         }
     }
 
-    public <S> void removeSource(LiveData<S> liveData) {
+    @MainThread
+    public <S> void removeSource(@NonNull LiveData<S> liveData) {
         Source<?> remove;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, liveData) == null) && (remove = this.mSources.remove(liveData)) != null) {

@@ -25,7 +25,7 @@ public class PatchMetaInfo {
     public int bootLoadSyncPolicy = 0;
 
     /* loaded from: classes6.dex */
-    public class VersionInfo {
+    public static class VersionInfo {
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";
         public static final String KEY_HOST_VERSIONNAME = "hostVersionName";
         public static final String KEY_PATCH_VERSIONCODE = "patchVersionCode";

@@ -15,6 +15,7 @@ import com.yy.hiidostatis.message.MessageSender;
 import com.yy.hiidostatis.message.bean.Message;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -44,7 +45,7 @@ public class OKSender implements MessageSender {
 
     /* renamed from: com.yy.hiidostatis.message.sender.OKSender$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -171,7 +172,7 @@ public class OKSender implements MessageSender {
         }
 
         @Override // okhttp3.Dns
-        public List lookup(String str) throws UnknownHostException {
+        public List<InetAddress> lookup(String str) throws UnknownHostException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -186,7 +187,7 @@ public class OKSender implements MessageSender {
     }
 
     /* loaded from: classes8.dex */
-    public class ReqTag {
+    public static class ReqTag {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Message msg;

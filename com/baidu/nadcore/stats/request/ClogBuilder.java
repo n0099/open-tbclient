@@ -1,24 +1,25 @@
 package com.baidu.nadcore.stats.request;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.ApsConstants;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.c21;
-import com.baidu.tieba.d21;
-import com.baidu.tieba.e21;
-import com.baidu.tieba.f21;
-import com.baidu.tieba.gj0;
-import com.baidu.tieba.h21;
-import com.baidu.tieba.n01;
-import com.baidu.tieba.o01;
-import com.baidu.tieba.yz0;
+import com.baidu.tieba.a31;
+import com.baidu.tieba.e11;
+import com.baidu.tieba.f11;
+import com.baidu.tieba.fj0;
+import com.baidu.tieba.p01;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.u21;
+import com.baidu.tieba.w21;
+import com.baidu.tieba.y21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,14 +31,14 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends n01 {
+public class ClogBuilder extends e11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Area {
+    public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Area AD_BTN_DETAIL;
@@ -105,7 +106,7 @@ public class ClogBuilder extends n01 {
             AD_NOTIFICATION_SHOW = new Area("AD_NOTIFICATION_SHOW", 10, "ad_notification_show");
             AD_NOTIFICATION_NOTIFY = new Area("AD_NOTIFICATION_NOTIFY", 11, "ad_notification_notify");
             AD_NOTIFICATION_REMOVE = new Area("AD_NOTIFICATION_REMOVE", 12, "ad_notification_remove");
-            DIALOG = new Area("DIALOG", 13, "popup");
+            DIALOG = new Area("DIALOG", 13, MapController.POPUP_LAYER_TAG);
             DIALOG_POSITIVE = new Area("DIALOG_POSITIVE", 14, "popup_select");
             DIALOG_NEGATIVE = new Area("DIALOG_NEGATIVE", 15, "popup_cancel");
             DIALOG_KEYBACK = new Area("DIALOG_KEYBACK", 16, "popup_back");
@@ -174,7 +175,7 @@ public class ClogBuilder extends n01 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class LogType {
+    public static final class LogType {
         public static final /* synthetic */ LogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LogType AD_CALL;
@@ -229,6 +230,7 @@ public class ClogBuilder extends n01 {
         public static final LogType PLACEHOLDER;
         public static final LogType PLAY_ZERO_SEC;
         public static final LogType REWARD_COIN_FAIL;
+        public static final LogType REWARD_COMPLETE_TASK;
         public static final LogType REWARD_TOKEN_FAIL;
         public static final LogType SHOW;
         public static final LogType SKIP;
@@ -329,10 +331,11 @@ public class ClogBuilder extends n01 {
             PHONE_STATE_LISTEN = new LogType("PHONE_STATE_LISTEN", 64, "807");
             REWARD_TOKEN_FAIL = new LogType("REWARD_TOKEN_FAIL", 65, "781");
             REWARD_COIN_FAIL = new LogType("REWARD_COIN_FAIL", 66, "782");
-            NON_AD_CLICK = new LogType("NON_AD_CLICK", 67, "8");
-            LogType logType = new LogType("PLACEHOLDER", 68, "-1");
+            REWARD_COMPLETE_TASK = new LogType("REWARD_COMPLETE_TASK", 67, "785");
+            NON_AD_CLICK = new LogType("NON_AD_CLICK", 68, "8");
+            LogType logType = new LogType("PLACEHOLDER", 69, "-1");
             PLACEHOLDER = logType;
-            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, NON_AD_CLICK, logType};
+            $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_KEEP, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, MINI_PROGRAM, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, REWARD_COMPLETE_TASK, NON_AD_CLICK, logType};
         }
 
         public LogType(String str, int i, String str2) {
@@ -377,7 +380,7 @@ public class ClogBuilder extends n01 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class Page {
+    public static final class Page {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Page AD_CALL;
@@ -424,7 +427,7 @@ public class ClogBuilder extends n01 {
             RETARGET = new Page("RETARGET", 2, "RETARGET");
             AD_START_INSTALL_TIPS = new Page("AD_START_INSTALL_TIPS", 3, "AD_START_INSTALL_TIPS");
             AD_INSTALL_TIPS = new Page("AD_INSTALL_TIPS", 4, "AD_INSTALL_TIPS");
-            POPUP = new Page("POPUP", 5, "popup");
+            POPUP = new Page("POPUP", 5, MapController.POPUP_LAYER_TAG);
             PAGE_NA = new Page("PAGE_NA", 6, "page_na");
             PAGE_SEARCHBOX = new Page("PAGE_SEARCHBOX", 7, "HOMEPAGE");
             AD_TAIL = new Page("AD_TAIL", 8, "TAIL");
@@ -499,7 +502,7 @@ public class ClogBuilder extends n01 {
                 return;
             }
         }
-        this.c = yz0.c(null);
+        this.c = p01.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -613,7 +616,7 @@ public class ClogBuilder extends n01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder s(String str) {
+    public ClogBuilder s(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
@@ -623,7 +626,7 @@ public class ClogBuilder extends n01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    public ClogBuilder t(String str) {
+    public ClogBuilder t(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
@@ -693,18 +696,19 @@ public class ClogBuilder extends n01 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l01, com.baidu.tieba.o01
+    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            gj0 gj0Var = (gj0) ServiceManager.getService(gj0.a);
-            if (gj0Var != null) {
-                A(gj0Var.a(this.c.optString("extra_param")));
+            fj0 fj0Var = (fj0) ServiceManager.getService(fj0.a);
+            if (fj0Var != null) {
+                A(fj0Var.a(this.c.optString("extra_param")));
             }
         }
     }
 
+    @NonNull
     public JSONObject h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -714,7 +718,7 @@ public class ClogBuilder extends n01 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.n01, com.baidu.tieba.o01
+    @Override // com.baidu.tieba.e11, com.baidu.tieba.f11
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -727,57 +731,58 @@ public class ClogBuilder extends n01 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.l01, com.baidu.tieba.o01
-    public o01 b(String str, String str2) {
+    @Override // com.baidu.tieba.c11, com.baidu.tieba.f11
+    public <T extends f11> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             d(str, str2);
             return this;
         }
-        return (o01) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.l01
-    public o01 d(String str, Object obj) {
+    @Override // com.baidu.tieba.c11
+    public <T extends f11> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            yz0.f(this.c, str, obj);
+            p01.f(this.c, str, obj);
             return this;
         }
-        return (o01) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !d21.a) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !u21.a) {
             return;
         }
-        e21 e21Var = (e21) c21.a().a(e21.class);
-        if (e21Var != null) {
-            e21Var.a(h());
+        a31 a31Var = (a31) t21.a().a(a31.class);
+        if (a31Var != null) {
+            a31Var.a(h());
         }
-        f21 f21Var = (f21) c21.a().a(f21.class);
-        if (f21Var != null) {
-            f21Var.a(h());
+        w21 w21Var = (w21) t21.a().a(w21.class);
+        if (w21Var != null) {
+            w21Var.a(h());
         }
-        h21 h21Var = (h21) c21.a().a(h21.class);
-        if (h21Var != null) {
-            h21Var.a(h());
+        y21 y21Var = (y21) t21.a().a(y21.class);
+        if (y21Var != null) {
+            y21Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.n01, com.baidu.tieba.l01, com.baidu.tieba.o01
+    @Override // com.baidu.tieba.e11, com.baidu.tieba.c11, com.baidu.tieba.f11
+    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             super.toString();
-            if (this.a.toString().contains(LaunchStatsUtils.AD)) {
+            if (this.a.toString().contains("ad")) {
                 return this.a.toString();
             }
             try {
@@ -788,7 +793,7 @@ public class ClogBuilder extends n01 {
                     this.a.append('&');
                 }
                 StringBuilder sb = this.a;
-                sb.append(LaunchStatsUtils.AD);
+                sb.append("ad");
                 sb.append('=');
                 sb.append(encode);
                 return sb.toString();

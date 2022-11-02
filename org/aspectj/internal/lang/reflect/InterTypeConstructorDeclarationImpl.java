@@ -14,14 +14,14 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeConstructorDeclaration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InterTypeConstructorDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeConstructorDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Method baseMethod;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeConstructorDeclarationImpl(AjType ajType, String str, int i, Method method) {
+    public InterTypeConstructorDeclarationImpl(AjType<?> ajType, String str, int i, Method method) {
         super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,12 +43,12 @@ public class InterTypeConstructorDeclarationImpl extends InterTypeDeclarationImp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeConstructorDeclaration
-    public AjType[] getExceptionTypes() {
+    public AjType<?>[] getExceptionTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Class<?>[] exceptionTypes = this.baseMethod.getExceptionTypes();
-            AjType[] ajTypeArr = new AjType[exceptionTypes.length];
+            AjType<?>[] ajTypeArr = new AjType[exceptionTypes.length];
             for (int i = 0; i < exceptionTypes.length; i++) {
                 ajTypeArr[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
             }
@@ -58,12 +58,12 @@ public class InterTypeConstructorDeclarationImpl extends InterTypeDeclarationImp
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeConstructorDeclaration
-    public AjType[] getParameterTypes() {
+    public AjType<?>[] getParameterTypes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
-            AjType[] ajTypeArr = new AjType[parameterTypes.length - 1];
+            AjType<?>[] ajTypeArr = new AjType[parameterTypes.length - 1];
             for (int i = 1; i < parameterTypes.length; i++) {
                 ajTypeArr[i - 1] = AjTypeSystem.getAjType(parameterTypes[i]);
             }
@@ -103,7 +103,7 @@ public class InterTypeConstructorDeclarationImpl extends InterTypeDeclarationImp
             stringBuffer.append(this.targetTypeName);
             stringBuffer.append(".new");
             stringBuffer.append("(");
-            AjType[] parameterTypes = getParameterTypes();
+            AjType<?>[] parameterTypes = getParameterTypes();
             for (int i = 0; i < parameterTypes.length - 1; i++) {
                 stringBuffer.append(parameterTypes[i].toString());
                 stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);

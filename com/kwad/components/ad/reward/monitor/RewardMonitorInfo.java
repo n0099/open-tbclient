@@ -7,9 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes7.dex */
 public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;

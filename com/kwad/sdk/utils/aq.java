@@ -97,7 +97,7 @@ public final class aq {
         return false;
     }
 
-    public static List Ag() {
+    public static List<String> Ag() {
         KsCustomController ksCustomController;
         try {
             SdkConfig sdkConfig = ((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getSdkConfig();

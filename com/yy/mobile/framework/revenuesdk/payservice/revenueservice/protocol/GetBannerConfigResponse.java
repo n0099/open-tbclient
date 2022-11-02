@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class GetBannerConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List bannerConfigItemList;
+    public List<BannerConfigItem> bannerConfigItemList;
     public int cmd;
     public String expand;
     public String message;
@@ -57,7 +57,7 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
         return (BannerConfigResult) invokeV.objValue;
     }
 
-    public List optBannerConfigItemList(JSONArray jSONArray) {
+    public List<BannerConfigItem> optBannerConfigItemList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
@@ -83,7 +83,7 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
         return (List) invokeL.objValue;
     }
 
-    public List optBannerInfoList(JSONArray jSONArray) {
+    public List<BannerConfigItem.BannerInfo> optBannerInfoList(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {

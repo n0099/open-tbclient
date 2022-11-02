@@ -22,13 +22,13 @@ public class VideoOption {
 
     /* renamed from: com.qq.e.ads.cfg.VideoOption$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public final class AutoPlayPolicy {
+    public static final class AutoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALWAYS = 1;
         public static final int NEVER = 2;
@@ -51,7 +51,7 @@ public class VideoOption {
     }
 
     /* loaded from: classes8.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -167,7 +167,7 @@ public class VideoOption {
 
     @Deprecated
     /* loaded from: classes8.dex */
-    public final class VideoADContainerRender {
+    public static final class VideoADContainerRender {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEV = 2;
         public static final int SDK = 1;
@@ -191,7 +191,7 @@ public class VideoOption {
 
     @Deprecated
     /* loaded from: classes8.dex */
-    public final class VideoPlayPolicy {
+    public static final class VideoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO = 1;
         public static final int MANUAL = 2;

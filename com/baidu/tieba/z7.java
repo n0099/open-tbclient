@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public class z7 extends x7 {
+public class z7<K, V> extends x7<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7 o;
+    public final b7<K> o;
 
     /* loaded from: classes6.dex */
-    public class a extends x7.a {
+    public static class a<K, V> extends x7.a<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public b7 g;
+        public b7<K> g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z7 z7Var) {
+        public a(z7<K, V> z7Var) {
             super(z7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,7 +84,7 @@ public class z7 extends x7 {
                         int i = this.c;
                         this.d = i;
                         this.f.a = this.g.get(i);
-                        x7.b bVar = this.f;
+                        x7.b<K, V> bVar = this.f;
                         bVar.b = this.b.c(bVar.a);
                         boolean z = true;
                         int i2 = this.c + 1;
@@ -104,13 +104,13 @@ public class z7 extends x7 {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends x7.c {
+    public static class b<K> extends x7.c<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public b7 f;
+        public b7<K> f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z7 z7Var) {
+        public b(z7<K, ?> z7Var) {
             super(z7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -145,11 +145,11 @@ public class z7 extends x7 {
         }
 
         @Override // com.baidu.tieba.x7.c
-        public b7 d() {
+        public b7<K> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                b7 b7Var = new b7(true, this.f.b - this.c);
+                b7<K> b7Var = new b7<>(true, this.f.b - this.c);
                 e(b7Var);
                 return b7Var;
             }
@@ -172,11 +172,11 @@ public class z7 extends x7 {
         }
 
         @Override // com.baidu.tieba.x7.c
-        public b7 e(b7 b7Var) {
+        public b7<K> e(b7<K> b7Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b7Var)) == null) {
-                b7 b7Var2 = this.f;
+                b7<K> b7Var2 = this.f;
                 int i = this.c;
                 b7Var.c(b7Var2, i, b7Var2.b - i);
                 this.c = this.f.b;
@@ -187,13 +187,13 @@ public class z7 extends x7 {
         }
 
         @Override // com.baidu.tieba.x7.c, java.util.Iterator
-        public Object next() {
+        public K next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (this.a) {
                     if (this.e) {
-                        Object obj = this.f.get(this.c);
+                        K k = this.f.get(this.c);
                         int i = this.c;
                         this.d = i;
                         boolean z = true;
@@ -203,24 +203,24 @@ public class z7 extends x7 {
                             z = false;
                         }
                         this.a = z;
-                        return obj;
+                        return k;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
                 throw new NoSuchElementException();
             }
-            return invokeV.objValue;
+            return (K) invokeV.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c extends x7.e {
+    public static class c<V> extends x7.e<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b7 f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(z7 z7Var) {
+        public c(z7<?, V> z7Var) {
             super(z7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -270,13 +270,13 @@ public class z7 extends x7 {
         }
 
         @Override // com.baidu.tieba.x7.e, java.util.Iterator
-        public Object next() {
+        public V next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.a) {
                     if (this.e) {
-                        Object c = this.b.c(this.f.get(this.c));
+                        V c = this.b.c(this.f.get(this.c));
                         int i = this.c;
                         this.d = i;
                         boolean z = true;
@@ -292,7 +292,7 @@ public class z7 extends x7 {
                 }
                 throw new NoSuchElementException();
             }
-            return invokeV.objValue;
+            return (V) invokeV.objValue;
         }
     }
 
@@ -309,7 +309,7 @@ public class z7 extends x7 {
                 return;
             }
         }
-        this.o = new b7();
+        this.o = new b7<>();
     }
 
     @Override // com.baidu.tieba.x7
@@ -324,7 +324,7 @@ public class z7 extends x7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.x7, java.lang.Iterable
     /* renamed from: e */
-    public x7.a iterator() {
+    public x7.a<K, V> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -351,11 +351,11 @@ public class z7 extends x7 {
                 return;
             }
         }
-        this.o = new b7(i);
+        this.o = new b7<>(i);
     }
 
     @Override // com.baidu.tieba.x7
-    public x7.a b() {
+    public x7.a<K, V> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -369,13 +369,13 @@ public class z7 extends x7 {
             x7.a aVar = this.h;
             if (!aVar.e) {
                 aVar.b();
-                x7.a aVar2 = this.h;
+                x7.a<K, V> aVar2 = this.h;
                 aVar2.e = true;
                 this.i.e = false;
                 return aVar2;
             }
             this.i.b();
-            x7.a aVar3 = this.i;
+            x7.a<K, V> aVar3 = this.i;
             aVar3.e = true;
             this.h.e = false;
             return aVar3;
@@ -384,7 +384,7 @@ public class z7 extends x7 {
     }
 
     @Override // com.baidu.tieba.x7
-    public x7.c f() {
+    public x7.c<K> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -398,13 +398,13 @@ public class z7 extends x7 {
             x7.c cVar = this.l;
             if (!cVar.e) {
                 cVar.b();
-                x7.c cVar2 = this.l;
+                x7.c<K> cVar2 = this.l;
                 cVar2.e = true;
                 this.m.e = false;
                 return cVar2;
             }
             this.m.b();
-            x7.c cVar3 = this.m;
+            x7.c<K> cVar3 = this.m;
             cVar3.e = true;
             this.l.e = false;
             return cVar3;
@@ -413,7 +413,7 @@ public class z7 extends x7 {
     }
 
     @Override // com.baidu.tieba.x7
-    public x7.e n() {
+    public x7.e<V> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -427,13 +427,13 @@ public class z7 extends x7 {
             x7.e eVar = this.j;
             if (!eVar.e) {
                 eVar.b();
-                x7.e eVar2 = this.j;
+                x7.e<V> eVar2 = this.j;
                 eVar2.e = true;
                 this.k.e = false;
                 return eVar2;
             }
             this.k.b();
-            x7.e eVar3 = this.k;
+            x7.e<V> eVar3 = this.k;
             eVar3.e = true;
             this.j.e = false;
             return eVar3;
@@ -442,21 +442,21 @@ public class z7 extends x7 {
     }
 
     @Override // com.baidu.tieba.x7
-    public Object i(Object obj, Object obj2) {
+    public V i(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, obj, obj2)) == null) {
-            int g = g(obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
+            int g = g(k);
             if (g >= 0) {
-                Object[] objArr = this.c;
-                Object obj3 = objArr[g];
-                objArr[g] = obj2;
-                return obj3;
+                V[] vArr = this.c;
+                V v2 = vArr[g];
+                vArr[g] = v;
+                return v2;
             }
             int i = -(g + 1);
-            this.b[i] = obj;
-            this.c[i] = obj2;
-            this.o.a(obj);
+            this.b[i] = k;
+            this.c[i] = v;
+            this.o.a(k);
             int i2 = this.a + 1;
             this.a = i2;
             if (i2 >= this.e) {
@@ -465,33 +465,33 @@ public class z7 extends x7 {
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 
     @Override // com.baidu.tieba.x7
-    public Object k(Object obj) {
+    public V k(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            this.o.j(obj, false);
-            return super.k(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
+            this.o.j(k, false);
+            return (V) super.k(k);
         }
-        return invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
-    public Object o(int i) {
+    public V o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            return super.k(this.o.i(i));
+            return (V) super.k(this.o.i(i));
         }
-        return invokeI.objValue;
+        return (V) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.x7
     public String m(String str, boolean z) {
         InterceptResult invokeLZ;
-        Object obj;
+        K k;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
             if (this.a == 0) {
@@ -504,26 +504,26 @@ public class z7 extends x7 {
             if (z) {
                 sb.append('{');
             }
-            b7 b7Var = this.o;
+            b7<K> b7Var = this.o;
             int i = b7Var.b;
             for (int i2 = 0; i2 < i; i2++) {
-                Object obj2 = b7Var.get(i2);
+                K k2 = b7Var.get(i2);
                 if (i2 > 0) {
                     sb.append(str);
                 }
-                Object obj3 = "(this)";
-                if (obj2 == this) {
-                    obj = "(this)";
+                Object obj = "(this)";
+                if (k2 == this) {
+                    k = "(this)";
                 } else {
-                    obj = obj2;
+                    k = k2;
+                }
+                sb.append(k);
+                sb.append('=');
+                V c2 = c(k2);
+                if (c2 != this) {
+                    obj = c2;
                 }
                 sb.append(obj);
-                sb.append('=');
-                Object c2 = c(obj2);
-                if (c2 != this) {
-                    obj3 = c2;
-                }
-                sb.append(obj3);
             }
             if (z) {
                 sb.append('}');

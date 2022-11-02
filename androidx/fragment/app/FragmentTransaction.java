@@ -3,6 +3,13 @@ package androidx.fragment.app;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.AnimRes;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.lifecycle.Lifecycle;
@@ -47,6 +54,7 @@ public abstract class FragmentTransaction {
     public int mEnterAnim;
     public int mExitAnim;
     public final FragmentFactory mFragmentFactory;
+    @Nullable
     public String mName;
     public ArrayList<Op> mOps;
     public int mPopEnterAnim;
@@ -64,8 +72,9 @@ public abstract class FragmentTransaction {
 
     public abstract void commitNowAllowingStateLoss();
 
+    @NonNull
     @Deprecated
-    public FragmentTransaction setTransitionStyle(int i) {
+    public FragmentTransaction setTransitionStyle(@StyleRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) ? this : (FragmentTransaction) invokeI.objValue;
@@ -120,7 +129,7 @@ public abstract class FragmentTransaction {
             this.mCurrentMaxState = state;
         }
 
-        public Op(int i, Fragment fragment, Lifecycle.State state) {
+        public Op(int i, @NonNull Fragment fragment, Lifecycle.State state) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +172,7 @@ public abstract class FragmentTransaction {
         this.mClassLoader = null;
     }
 
-    public FragmentTransaction(FragmentFactory fragmentFactory, ClassLoader classLoader) {
+    public FragmentTransaction(@NonNull FragmentFactory fragmentFactory, @Nullable ClassLoader classLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -185,7 +194,8 @@ public abstract class FragmentTransaction {
         this.mClassLoader = classLoader;
     }
 
-    private Fragment createFragment(Class<? extends Fragment> cls, Bundle bundle) {
+    @NonNull
+    private Fragment createFragment(@NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, bundle)) == null) {
@@ -206,7 +216,8 @@ public abstract class FragmentTransaction {
         return (Fragment) invokeLL.objValue;
     }
 
-    public FragmentTransaction add(int i, Fragment fragment) {
+    @NonNull
+    public FragmentTransaction add(@IdRes int i, @NonNull Fragment fragment) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, fragment)) == null) {
@@ -216,7 +227,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeIL.objValue;
     }
 
-    public FragmentTransaction replace(int i, Fragment fragment) {
+    @NonNull
+    public FragmentTransaction replace(@IdRes int i, @NonNull Fragment fragment) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, fragment)) == null) {
@@ -225,7 +237,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeIL.objValue;
     }
 
-    public FragmentTransaction setCustomAnimations(int i, int i2) {
+    @NonNull
+    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i, @AnimRes @AnimatorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) {
@@ -234,7 +247,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeII.objValue;
     }
 
-    public FragmentTransaction setMaxLifecycle(Fragment fragment, Lifecycle.State state) {
+    @NonNull
+    public FragmentTransaction setMaxLifecycle(@NonNull Fragment fragment, @NonNull Lifecycle.State state) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048610, this, fragment, state)) == null) {
@@ -244,7 +258,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeLL.objValue;
     }
 
-    public FragmentTransaction add(int i, Fragment fragment, String str) {
+    @NonNull
+    public FragmentTransaction add(@IdRes int i, @NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, fragment, str)) == null) {
@@ -254,7 +269,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeILL.objValue;
     }
 
-    public FragmentTransaction replace(int i, Fragment fragment, String str) {
+    @NonNull
+    public FragmentTransaction replace(@IdRes int i, @NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048599, this, i, fragment, str)) == null) {
@@ -267,7 +283,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeILL.objValue;
     }
 
-    public final FragmentTransaction add(int i, Class<? extends Fragment> cls, Bundle bundle) {
+    @NonNull
+    public final FragmentTransaction add(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, cls, bundle)) == null) {
@@ -276,7 +293,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeILL.objValue;
     }
 
-    public final FragmentTransaction replace(int i, Class<? extends Fragment> cls, Bundle bundle) {
+    @NonNull
+    public final FragmentTransaction replace(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048600, this, i, cls, bundle)) == null) {
@@ -285,7 +303,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeILL.objValue;
     }
 
-    public final FragmentTransaction add(int i, Class<? extends Fragment> cls, Bundle bundle, String str) {
+    @NonNull
+    public final FragmentTransaction add(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), cls, bundle, str})) == null) {
@@ -294,7 +313,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeCommon.objValue;
     }
 
-    public final FragmentTransaction replace(int i, Class<? extends Fragment> cls, Bundle bundle, String str) {
+    @NonNull
+    public final FragmentTransaction replace(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), cls, bundle, str})) == null) {
@@ -303,7 +323,7 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeCommon.objValue;
     }
 
-    public FragmentTransaction add(ViewGroup viewGroup, Fragment fragment, String str) {
+    public FragmentTransaction add(@NonNull ViewGroup viewGroup, @NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewGroup, fragment, str)) == null) {
@@ -313,7 +333,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeLLL.objValue;
     }
 
-    public FragmentTransaction add(Fragment fragment, String str) {
+    @NonNull
+    public FragmentTransaction add(@NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, fragment, str)) == null) {
@@ -323,7 +344,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeLL.objValue;
     }
 
-    public final FragmentTransaction add(Class<? extends Fragment> cls, Bundle bundle, String str) {
+    @NonNull
+    public final FragmentTransaction add(@NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, cls, bundle, str)) == null) {
@@ -343,7 +365,8 @@ public abstract class FragmentTransaction {
         }
     }
 
-    public FragmentTransaction addToBackStack(String str) {
+    @NonNull
+    public FragmentTransaction addToBackStack(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
@@ -357,7 +380,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction attach(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction attach(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, fragment)) == null) {
@@ -367,7 +391,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction detach(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction detach(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, fragment)) == null) {
@@ -377,7 +402,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction hide(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction hide(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, fragment)) == null) {
@@ -387,7 +413,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction remove(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction remove(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, fragment)) == null) {
@@ -397,7 +424,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction runOnCommit(Runnable runnable) {
+    @NonNull
+    public FragmentTransaction runOnCommit(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, runnable)) == null) {
@@ -411,6 +439,7 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
     public FragmentTransaction setAllowOptimization(boolean z) {
         InterceptResult invokeZ;
@@ -421,8 +450,9 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeZ.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbShortTitle(int i) {
+    public FragmentTransaction setBreadCrumbShortTitle(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
@@ -433,8 +463,9 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeI.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbTitle(int i) {
+    public FragmentTransaction setBreadCrumbTitle(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
@@ -445,7 +476,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeI.objValue;
     }
 
-    public FragmentTransaction setPrimaryNavigationFragment(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction setPrimaryNavigationFragment(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, fragment)) == null) {
@@ -455,6 +487,7 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
+    @NonNull
     public FragmentTransaction setReorderingAllowed(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -465,6 +498,7 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeZ.objValue;
     }
 
+    @NonNull
     public FragmentTransaction setTransition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -475,7 +509,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeI.objValue;
     }
 
-    public FragmentTransaction show(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction show(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, fragment)) == null) {
@@ -485,7 +520,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction addSharedElement(View view2, String str) {
+    @NonNull
+    public FragmentTransaction addSharedElement(@NonNull View view2, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, str)) == null) {
@@ -513,6 +549,7 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeLL.objValue;
     }
 
+    @NonNull
     public FragmentTransaction disallowAddToBackStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -544,7 +581,7 @@ public abstract class FragmentTransaction {
         return invokeV.booleanValue;
     }
 
-    public void doAddOp(int i, Fragment fragment, String str, int i2) {
+    public void doAddOp(int i, Fragment fragment, @Nullable String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), fragment, str, Integer.valueOf(i2)}) == null) {
             Class<?> cls = fragment.getClass();
@@ -576,8 +613,9 @@ public abstract class FragmentTransaction {
         }
     }
 
+    @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence) {
+    public FragmentTransaction setBreadCrumbShortTitle(@Nullable CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, charSequence)) == null) {
@@ -588,8 +626,9 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbTitle(CharSequence charSequence) {
+    public FragmentTransaction setBreadCrumbTitle(@Nullable CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, charSequence)) == null) {
@@ -600,7 +639,8 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public FragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
+    @NonNull
+    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i, @AnimRes @AnimatorRes int i2, @AnimRes @AnimatorRes int i3, @AnimRes @AnimatorRes int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048609, this, i, i2, i3, i4)) == null) {

@@ -9,12 +9,12 @@ import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.observers.SerializedObserver;
 /* loaded from: classes8.dex */
-public final class ObservableSerialized extends AbstractObservableWithUpstream {
+public final class ObservableSerialized<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSerialized(Observable observable) {
+    public ObservableSerialized(Observable<T> observable) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,7 +34,7 @@ public final class ObservableSerialized extends AbstractObservableWithUpstream {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             this.source.subscribe(new SerializedObserver(observer));

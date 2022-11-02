@@ -1,7 +1,10 @@
 package androidx.customview.view;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public abstract class AbsSavedState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -134,6 +138,7 @@ public abstract class AbsSavedState implements Parcelable {
         this.mSuperState = null;
     }
 
+    @Nullable
     public final Parcelable getSuperState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,7 +149,7 @@ public abstract class AbsSavedState implements Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsSavedState(Parcel parcel) {
+    public AbsSavedState(@NonNull Parcel parcel) {
         this(parcel, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -164,7 +169,7 @@ public abstract class AbsSavedState implements Parcelable {
         }
     }
 
-    public AbsSavedState(Parcel parcel, ClassLoader classLoader) {
+    public AbsSavedState(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +188,7 @@ public abstract class AbsSavedState implements Parcelable {
         this.mSuperState = readParcelable == null ? EMPTY_STATE : readParcelable;
     }
 
-    public AbsSavedState(Parcelable parcelable) {
+    public AbsSavedState(@NonNull Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

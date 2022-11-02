@@ -2,6 +2,7 @@ package com.bumptech.glide.manager;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +32,8 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
     }
 
     @Override // com.bumptech.glide.manager.ConnectivityMonitorFactory
-    public ConnectivityMonitor build(Context context, ConnectivityMonitor.ConnectivityListener connectivityListener) {
+    @NonNull
+    public ConnectivityMonitor build(@NonNull Context context, @NonNull ConnectivityMonitor.ConnectivityListener connectivityListener) {
         InterceptResult invokeLL;
         boolean z;
         String str;

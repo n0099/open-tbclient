@@ -1,27 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.webkit.sdk.WebResourceRequest;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
-public final class g82 extends InputStream {
+public class g82 implements n82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public e82 b;
+    public CopyOnWriteArrayList<s82> b;
 
-    public g82(InputStream inputStream, e82 e82Var) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g82 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-820201142, "Lcom/baidu/tieba/g82$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-820201142, "Lcom/baidu/tieba/g82$b;");
+                    return;
+                }
+            }
+            a = new g82(null);
+        }
+    }
+
+    public g82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, e82Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,103 +63,52 @@ public final class g82 extends InputStream {
                 return;
             }
         }
-        this.a = inputStream;
-        this.b = e82Var;
+        this.b = new CopyOnWriteArrayList<>();
     }
 
-    @Override // java.io.InputStream
-    public int available() throws IOException {
+    public static g82 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.available();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.intValue;
+        return (g82) invokeV.objValue;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public /* synthetic */ g82(a aVar) {
+        this();
+    }
+
+    public void a(s82 s82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.close();
-            this.b.c(this.a);
-            this.b.a();
-            qj4.d(this.a);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, s82Var) == null) && s82Var != null && !this.b.contains(s82Var)) {
+            this.b.add(s82Var);
         }
     }
 
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
+    @RequiresApi(api = 21)
+    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
+        InterceptResult invokeLZ;
+        Uri url;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.markSupported();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.read();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                super.reset();
-                this.a.reset();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
+            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
+                return null;
             }
+            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
         }
+        return (WebResourceResponse) invokeLZ.objValue;
     }
 
-    @Override // java.io.InputStream
-    public void mark(int i) {
+    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.mark(i);
-            this.a.mark(i);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
+            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+                return null;
+            }
+            return new v82(this.b, str, map, 0, z).b(str, map, z);
         }
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.a.read(bArr);
-            this.b.d(bArr, 0, read);
-            return read;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.a.skip(j);
-            return super.skip(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            int read = this.a.read(bArr, i, i2);
-            this.b.d(bArr, i, read);
-            return read;
-        }
-        return invokeLII.intValue;
+        return (WebResourceResponse) invokeLLZ.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface xo4 {
-    float a();
+    void a(boolean z);
 
-    int b();
+    void onFail();
 }

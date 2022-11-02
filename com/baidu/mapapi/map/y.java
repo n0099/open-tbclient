@@ -1,23 +1,25 @@
 package com.baidu.mapapi.map;
 
+import android.animation.ValueAnimator;
 import android.view.View;
-import com.baidu.mapsdkplatform.comapi.map.ab;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class y implements View.OnClickListener {
+public class y implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ WearMapView a;
+    public final /* synthetic */ ViewGroup.LayoutParams a;
+    public final /* synthetic */ SwipeDismissTouchListener b;
 
-    public y(WearMapView wearMapView) {
+    public y(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wearMapView};
+            Object[] objArr = {swipeDismissTouchListener, layoutParams};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,20 +29,18 @@ public class y implements View.OnClickListener {
                 return;
             }
         }
-        this.a = wearMapView;
+        this.b = swipeDismissTouchListener;
+        this.a = layoutParams;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        com.baidu.mapsdkplatform.comapi.map.j jVar;
-        com.baidu.mapsdkplatform.comapi.map.j jVar2;
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            jVar = this.a.f;
-            ab E = jVar.a().E();
-            E.a -= 1.0f;
-            jVar2 = this.a.f;
-            jVar2.a().a(E, 300);
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            this.a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            view2 = this.b.e;
+            view2.setLayoutParams(this.a);
         }
     }
 }

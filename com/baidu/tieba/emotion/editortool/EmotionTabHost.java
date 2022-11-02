@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
+import com.baidu.tieba.e65;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 import com.baidu.tieba.emotion.editortool.EmotionTabWidgetView;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.x55;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.ia6;
+import com.baidu.tieba.q65;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,14 +32,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
-public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabWidgetView.b, EmotionTabContentView.h, x55 {
+/* loaded from: classes4.dex */
+public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabWidgetView.b, EmotionTabContentView.h, q65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EmotionTabContentView a;
     public EmotionTabWidgetView b;
-    public ArrayList c;
-    public ArrayList d;
+    public ArrayList<w65> c;
+    public ArrayList<w65> d;
     public int e;
     public String f;
     public int g;
@@ -51,7 +51,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
     public int m;
     public CustomMessageListener n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001117) {
                 this.a.h();
@@ -107,8 +107,8 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.c = new ArrayList<>();
+        this.d = new ArrayList<>();
         this.e = -1;
         this.f = null;
         this.g = -1;
@@ -126,9 +126,9 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             setOrientation(1);
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0267, (ViewGroup) this, true);
-            this.a = (EmotionTabContentView) findViewById(R.id.obfuscated_res_0x7f09098c);
-            EmotionTabWidgetView emotionTabWidgetView = (EmotionTabWidgetView) findViewById(R.id.obfuscated_res_0x7f090991);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0269, (ViewGroup) this, true);
+            this.a = (EmotionTabContentView) findViewById(R.id.obfuscated_res_0x7f09099c);
+            EmotionTabWidgetView emotionTabWidgetView = (EmotionTabWidgetView) findViewById(R.id.obfuscated_res_0x7f0909a1);
             this.b = emotionTabWidgetView;
             emotionTabWidgetView.setOnTabSelectedListener(this);
             this.a.setOnEmotionSwitchedListener(this);
@@ -157,8 +157,8 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.c = new ArrayList<>();
+        this.d = new ArrayList<>();
         this.e = -1;
         this.f = null;
         this.g = -1;
@@ -171,12 +171,12 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         e(context);
     }
 
-    @Override // com.baidu.tieba.x55
-    public void K(l55 l55Var) {
+    @Override // com.baidu.tieba.q65
+    public void K(e65 e65Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l55Var) == null) && (editorTools = this.l) != null) {
-            editorTools.A(l55Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e65Var) == null) && (editorTools = this.l) != null) {
+            editorTools.A(e65Var);
         }
     }
 
@@ -200,14 +200,14 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    public final void d(d65 d65Var) {
+    public final void d(w65 w65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d65Var) == null) {
-            this.b.b(d65Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, w65Var) == null) {
+            this.b.b(w65Var);
         }
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -227,7 +227,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, editorTools) == null) {
@@ -258,7 +258,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
@@ -279,26 +279,26 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    @Override // com.baidu.tieba.m55
-    public void B(l55 l55Var) {
+    @Override // com.baidu.tieba.f65
+    public void B(e65 e65Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, l55Var) != null) || l55Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, e65Var) != null) || e65Var == null) {
             return;
         }
-        int i = l55Var.a;
+        int i = e65Var.a;
         if (i != 1) {
             if (i == 35) {
-                Object obj = l55Var.c;
+                Object obj = e65Var.c;
                 if (obj instanceof Boolean) {
                     boolean booleanValue = ((Boolean) obj).booleanValue();
                     setShowBigEmotion(booleanValue);
                     if (!booleanValue) {
                         ArrayList arrayList = new ArrayList();
-                        Iterator it = this.d.iterator();
+                        Iterator<w65> it = this.d.iterator();
                         while (it.hasNext()) {
-                            d65 d65Var = (d65) it.next();
-                            if (d65Var != null && d65Var.j()) {
-                                arrayList.add(d65Var);
+                            w65 next = it.next();
+                            if (next != null && next.j()) {
+                                arrayList.add(next);
                             }
                         }
                         this.a.I(arrayList, 0);
@@ -313,7 +313,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 7));
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -328,7 +328,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -356,7 +356,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         }
     }
 
-    @Override // com.baidu.tieba.x55
+    @Override // com.baidu.tieba.q65
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -390,21 +390,21 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         this.a.I(this.d, i);
         this.b.setCurrentTab(i);
         this.e = i;
-        this.f = ((d65) this.d.get(i)).f();
+        this.f = this.d.get(i).f();
     }
 
-    public final ArrayList g() {
+    public final ArrayList<w65> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator it = y86.k().i().iterator();
+            ArrayList<w65> arrayList = new ArrayList<>();
+            Iterator<w65> it = ia6.k().i().iterator();
             while (it.hasNext()) {
-                d65 d65Var = (d65) it.next();
-                if (d65Var.h() != EmotionGroupType.BIG_EMOTION || this.h) {
-                    if (d65Var.h() != EmotionGroupType.USER_COLLECT || this.i) {
-                        if (d65Var.h() != EmotionGroupType.USER_DIY || this.j) {
-                            arrayList.add(d65Var);
+                w65 next = it.next();
+                if (next.h() != EmotionGroupType.BIG_EMOTION || this.h) {
+                    if (next.h() != EmotionGroupType.USER_COLLECT || this.i) {
+                        if (next.h() != EmotionGroupType.USER_DIY || this.j) {
+                            arrayList.add(next);
                         }
                     }
                 }
@@ -418,42 +418,42 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c = y86.k().i();
+            this.c = ia6.k().i();
             if (this.h && this.i && this.j) {
-                this.d = y86.k().i();
+                this.d = ia6.k().i();
             } else {
                 this.d = g();
                 if ((!this.i || !this.j) && this.c != null) {
-                    ArrayList arrayList = new ArrayList(y86.k().i());
+                    ArrayList<w65> arrayList = new ArrayList<>(ia6.k().i());
                     this.c = arrayList;
-                    ListIterator listIterator = arrayList.listIterator();
+                    ListIterator<w65> listIterator = arrayList.listIterator();
                     while (listIterator.hasNext()) {
-                        d65 d65Var = (d65) listIterator.next();
-                        if (d65Var.h() == EmotionGroupType.USER_COLLECT && !this.i) {
+                        w65 next = listIterator.next();
+                        if (next.h() == EmotionGroupType.USER_COLLECT && !this.i) {
                             listIterator.remove();
                         }
-                        if (d65Var.h() == EmotionGroupType.USER_DIY && !this.j) {
+                        if (next.h() == EmotionGroupType.USER_DIY && !this.j) {
                             listIterator.remove();
                         }
                     }
                 }
             }
-            ArrayList arrayList2 = this.c;
+            ArrayList<w65> arrayList2 = this.c;
             if ((arrayList2 == null || arrayList2.size() <= 0) && (i = this.k) < 3) {
                 this.k = i + 1;
-                y86.k().v();
+                ia6.k().v();
                 return;
             }
             this.b.setDatas(this.c);
             int size = this.c.size();
             int i2 = 0;
             for (int i3 = 0; i3 < size; i3++) {
-                d65 d65Var2 = (d65) this.c.get(i3);
+                w65 w65Var = this.c.get(i3);
                 String str = this.f;
-                if (str != null && str.equals(d65Var2.f())) {
+                if (str != null && str.equals(w65Var.f())) {
                     i2 = i3;
                 }
-                d(d65Var2);
+                d(w65Var);
             }
             f(i2);
         }

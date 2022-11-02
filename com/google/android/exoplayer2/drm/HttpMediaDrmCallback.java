@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.drm;
 
+import android.annotation.TargetApi;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+@TargetApi(18)
 /* loaded from: classes7.dex */
 public final class HttpMediaDrmCallback implements MediaDrmCallback {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +28,7 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
     public final HttpDataSource.Factory dataSourceFactory;
     public final String defaultLicenseUrl;
     public final boolean forceDefaultLicenseUrl;
-    public final Map keyRequestProperties;
+    public final Map<String, String> keyRequestProperties;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpMediaDrmCallback(String str, HttpDataSource.Factory factory) {
@@ -70,14 +72,14 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
         this.keyRequestProperties = new HashMap();
     }
 
-    public static byte[] executePost(HttpDataSource.Factory factory, String str, byte[] bArr, Map map) throws IOException {
+    public static byte[] executePost(HttpDataSource.Factory factory, String str, byte[] bArr, Map<String, String> map) throws IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, factory, str, bArr, map)) == null) {
             HttpDataSource createDataSource = factory.createDataSource();
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    createDataSource.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    createDataSource.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             DataSourceInputStream dataSourceInputStream = new DataSourceInputStream(createDataSource, new DataSpec(Uri.parse(str), bArr, 0L, 0L, -1L, null, 1));

@@ -1,5 +1,7 @@
 package com.baidu.searchbox.logsystem.logsys;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.util.LLog;
@@ -14,14 +16,19 @@ public class LogObject extends LogBaseObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mCrashTAG;
+    @Nullable
     public String mLogBasicData;
+    @Nullable
     public File mLogBasicDataFile;
     public boolean mLogBasicDataOverflow;
+    @Nullable
     public LogExtra mLogExtra;
+    @Nullable
     public File mLogExtraPathNameKeeper;
+    @NonNull
     public String mProcessName;
 
-    public LogObject(LogType logType, String str, String str2, File file, File file2, LogExtra logExtra, String str3) {
+    public LogObject(@NonNull LogType logType, @NonNull String str, @Nullable String str2, @Nullable File file, @Nullable File file2, @Nullable LogExtra logExtra, @NonNull String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,14 +128,14 @@ public class LogObject extends LogBaseObject {
         return (String) invokeV.objValue;
     }
 
-    public void setLogBasicData(String str) {
+    public void setLogBasicData(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.mLogBasicData = str;
         }
     }
 
-    public void setLogBasicDataFile(File file) {
+    public void setLogBasicDataFile(@NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, file) == null) {
             this.mLogBasicDataFile = file;

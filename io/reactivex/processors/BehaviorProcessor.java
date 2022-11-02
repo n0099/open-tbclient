@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -27,7 +28,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class BehaviorProcessor extends FlowableProcessor {
+public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorSubscription[] EMPTY;
     public static final Object[] EMPTY_ARRAY;
@@ -36,26 +37,26 @@ public final class BehaviorProcessor extends FlowableProcessor {
     public long index;
     public final ReadWriteLock lock;
     public final Lock readLock;
-    public final AtomicReference subscribers;
-    public final AtomicReference terminalEvent;
-    public final AtomicReference value;
+    public final AtomicReference<BehaviorSubscription<T>[]> subscribers;
+    public final AtomicReference<Throwable> terminalEvent;
+    public final AtomicReference<Object> value;
     public final Lock writeLock;
 
     /* loaded from: classes8.dex */
-    public final class BehaviorSubscription extends AtomicLong implements Subscription, AppendOnlyLinkedArrayList.NonThrowingPredicate {
+    public static final class BehaviorSubscription<T> extends AtomicLong implements Subscription, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3293175281126227086L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public boolean emitting;
         public boolean fastPath;
         public long index;
         public boolean next;
-        public AppendOnlyLinkedArrayList queue;
-        public final BehaviorProcessor state;
+        public AppendOnlyLinkedArrayList<Object> queue;
+        public final BehaviorProcessor<T> state;
 
-        public BehaviorSubscription(Subscriber subscriber, BehaviorProcessor behaviorProcessor) {
+        public BehaviorSubscription(Subscriber<? super T> subscriber, BehaviorProcessor<T> behaviorProcessor) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +85,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
         }
 
         public void emitLoop() {
-            AppendOnlyLinkedArrayList appendOnlyLinkedArrayList;
+            AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 while (!this.cancelled) {
@@ -126,7 +127,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
                 if (this.next) {
                     return;
                 }
-                BehaviorProcessor behaviorProcessor = this.state;
+                BehaviorProcessor<T> behaviorProcessor = this.state;
                 Lock lock = behaviorProcessor.readLock;
                 lock.lock();
                 this.index = behaviorProcessor.index;
@@ -160,9 +161,9 @@ public final class BehaviorProcessor extends FlowableProcessor {
                         return;
                     }
                     if (this.emitting) {
-                        AppendOnlyLinkedArrayList appendOnlyLinkedArrayList = this.queue;
+                        AppendOnlyLinkedArrayList<Object> appendOnlyLinkedArrayList = this.queue;
                         if (appendOnlyLinkedArrayList == null) {
-                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList(4);
+                            appendOnlyLinkedArrayList = new AppendOnlyLinkedArrayList<>(4);
                             this.queue = appendOnlyLinkedArrayList;
                         }
                         appendOnlyLinkedArrayList.add(obj);
@@ -200,7 +201,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
                 } else {
                     long j = get();
                     if (j != 0) {
-                        this.actual.onNext(NotificationLite.getValue(obj));
+                        this.actual.onNext((Object) NotificationLite.getValue(obj));
                         if (j != Long.MAX_VALUE) {
                             decrementAndGet();
                             return false;
@@ -235,11 +236,11 @@ public final class BehaviorProcessor extends FlowableProcessor {
     }
 
     @CheckReturnValue
-    public static BehaviorProcessor create() {
+    public static <T> BehaviorProcessor<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new BehaviorProcessor();
+            return new BehaviorProcessor<>();
         }
         return (BehaviorProcessor) invokeV.objValue;
     }
@@ -258,19 +259,21 @@ public final class BehaviorProcessor extends FlowableProcessor {
         return (Throwable) invokeV.objValue;
     }
 
-    public Object getValue() {
+    public T getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Object obj = this.value.get();
             if (!NotificationLite.isComplete(obj) && !NotificationLite.isError(obj)) {
-                return NotificationLite.getValue(obj);
+                return (T) NotificationLite.getValue(obj);
             }
             return null;
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: io.reactivex.processors.BehaviorProcessor<T> */
+    /* JADX WARN: Multi-variable type inference failed */
     public Object[] getValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -299,7 +302,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (((BehaviorSubscription[]) this.subscribers.get()).length != 0) {
+            if (this.subscribers.get().length != 0) {
                 return true;
             }
             return false;
@@ -337,7 +340,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
             return;
         }
         Object complete = NotificationLite.complete();
-        for (BehaviorSubscription behaviorSubscription : terminate(complete)) {
+        for (BehaviorSubscription<T> behaviorSubscription : terminate(complete)) {
             behaviorSubscription.emitNext(complete, this.index);
         }
     }
@@ -346,7 +349,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return ((BehaviorSubscription[]) this.subscribers.get()).length;
+            return this.subscribers.get().length;
         }
         return invokeV.intValue;
     }
@@ -364,23 +367,23 @@ public final class BehaviorProcessor extends FlowableProcessor {
                 return;
             }
         }
-        this.value = new AtomicReference();
+        this.value = new AtomicReference<>();
         ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
         this.lock = reentrantReadWriteLock;
         this.readLock = reentrantReadWriteLock.readLock();
         this.writeLock = this.lock.writeLock();
-        this.subscribers = new AtomicReference(EMPTY);
-        this.terminalEvent = new AtomicReference();
+        this.subscribers = new AtomicReference<>(EMPTY);
+        this.terminalEvent = new AtomicReference<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BehaviorProcessor(Object obj) {
+    public BehaviorProcessor(T t) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -391,7 +394,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
                 return;
             }
         }
-        this.value.lazySet(ObjectHelper.requireNonNull(obj, "defaultValue is null"));
+        this.value.lazySet(ObjectHelper.requireNonNull(t, "defaultValue is null"));
     }
 
     @Override // org.reactivestreams.Subscriber
@@ -404,33 +407,33 @@ public final class BehaviorProcessor extends FlowableProcessor {
                 return;
             }
             Object error = NotificationLite.error(th);
-            for (BehaviorSubscription behaviorSubscription : terminate(error)) {
+            for (BehaviorSubscription<T> behaviorSubscription : terminate(error)) {
                 behaviorSubscription.emitNext(error, this.index);
             }
         }
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, obj) == null) {
-            ObjectHelper.requireNonNull(obj, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (interceptable == null || interceptable.invokeL(1048588, this, t) == null) {
+            ObjectHelper.requireNonNull(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.terminalEvent.get() != null) {
                 return;
             }
-            Object next = NotificationLite.next(obj);
+            Object next = NotificationLite.next(t);
             setCurrent(next);
-            for (BehaviorSubscription behaviorSubscription : (BehaviorSubscription[]) this.subscribers.get()) {
+            for (BehaviorSubscription<T> behaviorSubscription : this.subscribers.get()) {
                 behaviorSubscription.emitNext(next, this.index);
             }
         }
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, subscriber) == null) {
-            BehaviorSubscription behaviorSubscription = new BehaviorSubscription(subscriber, this);
+            BehaviorSubscription<T> behaviorSubscription = new BehaviorSubscription<>(subscriber, this);
             subscriber.onSubscribe(behaviorSubscription);
             if (add(behaviorSubscription)) {
                 if (behaviorSubscription.cancelled) {
@@ -441,7 +444,7 @@ public final class BehaviorProcessor extends FlowableProcessor {
                     return;
                 }
             }
-            Throwable th = (Throwable) this.terminalEvent.get();
+            Throwable th = this.terminalEvent.get();
             if (th == ExceptionHelper.TERMINATED) {
                 subscriber.onComplete();
             } else {
@@ -451,24 +454,24 @@ public final class BehaviorProcessor extends FlowableProcessor {
     }
 
     @CheckReturnValue
-    public static BehaviorProcessor createDefault(Object obj) {
+    public static <T> BehaviorProcessor<T> createDefault(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "defaultValue is null");
-            return new BehaviorProcessor(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
+            ObjectHelper.requireNonNull(t, "defaultValue is null");
+            return new BehaviorProcessor<>(t);
         }
         return (BehaviorProcessor) invokeL.objValue;
     }
 
-    public boolean add(BehaviorSubscription behaviorSubscription) {
-        BehaviorSubscription[] behaviorSubscriptionArr;
-        BehaviorSubscription[] behaviorSubscriptionArr2;
+    public boolean add(BehaviorSubscription<T> behaviorSubscription) {
+        BehaviorSubscription<T>[] behaviorSubscriptionArr;
+        BehaviorSubscription<T>[] behaviorSubscriptionArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, behaviorSubscription)) == null) {
             do {
-                behaviorSubscriptionArr = (BehaviorSubscription[]) this.subscribers.get();
+                behaviorSubscriptionArr = this.subscribers.get();
                 if (behaviorSubscriptionArr == TERMINATED) {
                     return false;
                 }
@@ -505,13 +508,13 @@ public final class BehaviorProcessor extends FlowableProcessor {
         }
     }
 
-    public BehaviorSubscription[] terminate(Object obj) {
+    public BehaviorSubscription<T>[] terminate(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            BehaviorSubscription[] behaviorSubscriptionArr = (BehaviorSubscription[]) this.subscribers.get();
-            BehaviorSubscription[] behaviorSubscriptionArr2 = TERMINATED;
-            if (behaviorSubscriptionArr != behaviorSubscriptionArr2 && (behaviorSubscriptionArr = (BehaviorSubscription[]) this.subscribers.getAndSet(behaviorSubscriptionArr2)) != TERMINATED) {
+            BehaviorSubscription<T>[] behaviorSubscriptionArr = this.subscribers.get();
+            BehaviorSubscription<T>[] behaviorSubscriptionArr2 = TERMINATED;
+            if (behaviorSubscriptionArr != behaviorSubscriptionArr2 && (behaviorSubscriptionArr = this.subscribers.getAndSet(behaviorSubscriptionArr2)) != TERMINATED) {
                 setCurrent(obj);
             }
             return behaviorSubscriptionArr;
@@ -519,50 +522,53 @@ public final class BehaviorProcessor extends FlowableProcessor {
         return (BehaviorSubscription[]) invokeL.objValue;
     }
 
-    public Object[] getValues(Object[] objArr) {
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    public T[] getValues(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
             Object obj = this.value.get();
             if (obj != null && !NotificationLite.isComplete(obj) && !NotificationLite.isError(obj)) {
                 Object value = NotificationLite.getValue(obj);
-                if (objArr.length != 0) {
-                    objArr[0] = value;
-                    if (objArr.length != 1) {
-                        objArr[1] = null;
-                        return objArr;
+                if (tArr.length != 0) {
+                    tArr[0] = value;
+                    if (tArr.length != 1) {
+                        tArr[1] = 0;
+                        return tArr;
                     }
-                    return objArr;
+                    return tArr;
                 }
-                Object[] objArr2 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), 1);
-                objArr2[0] = value;
-                return objArr2;
+                T[] tArr2 = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), 1));
+                tArr2[0] = value;
+                return tArr2;
             }
-            if (objArr.length != 0) {
-                objArr[0] = null;
+            if (tArr.length != 0) {
+                tArr[0] = 0;
             }
-            return objArr;
+            return tArr;
         }
-        return (Object[]) invokeL.objValue;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 
-    public boolean offer(Object obj) {
+    @Experimental
+    public boolean offer(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            if (obj == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
+            if (t == null) {
                 onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 return true;
             }
-            BehaviorSubscription[] behaviorSubscriptionArr = (BehaviorSubscription[]) this.subscribers.get();
-            for (BehaviorSubscription behaviorSubscription : behaviorSubscriptionArr) {
+            BehaviorSubscription<T>[] behaviorSubscriptionArr = this.subscribers.get();
+            for (BehaviorSubscription<T> behaviorSubscription : behaviorSubscriptionArr) {
                 if (behaviorSubscription.isFull()) {
                     return false;
                 }
             }
-            Object next = NotificationLite.next(obj);
+            Object next = NotificationLite.next(t);
             setCurrent(next);
-            for (BehaviorSubscription behaviorSubscription2 : behaviorSubscriptionArr) {
+            for (BehaviorSubscription<T> behaviorSubscription2 : behaviorSubscriptionArr) {
                 behaviorSubscription2.emitNext(next, this.index);
             }
             return true;
@@ -570,13 +576,15 @@ public final class BehaviorProcessor extends FlowableProcessor {
         return invokeL.booleanValue;
     }
 
-    public void remove(BehaviorSubscription behaviorSubscription) {
-        BehaviorSubscription[] behaviorSubscriptionArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.processors.BehaviorProcessor$BehaviorSubscription<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(BehaviorSubscription<T> behaviorSubscription) {
+        BehaviorSubscription<T>[] behaviorSubscriptionArr;
         BehaviorSubscription[] behaviorSubscriptionArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, behaviorSubscription) == null) {
             do {
-                behaviorSubscriptionArr = (BehaviorSubscription[]) this.subscribers.get();
+                behaviorSubscriptionArr = this.subscribers.get();
                 int length = behaviorSubscriptionArr.length;
                 if (length == 0) {
                     return;

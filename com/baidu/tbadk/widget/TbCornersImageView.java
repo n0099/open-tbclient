@@ -10,10 +10,12 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.gr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,7 +90,7 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TbCornersImageView(Context context, AttributeSet attributeSet) {
+    public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -109,7 +111,7 @@ public class TbCornersImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbCornersImageView(Context context, AttributeSet attributeSet, int i) {
+    public TbCornersImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -129,7 +131,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
         this.d = -1;
         this.f = -1;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.CornersImageView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.CornersImageView, 0, 0);
         for (int i4 = 0; i4 < obtainStyledAttributes.getIndexCount(); i4++) {
             int index = obtainStyledAttributes.getIndex(i4);
             if (index == 10) {
@@ -234,7 +236,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public void setBorderColor(int i) {
+    public void setBorderColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.d = i;
@@ -290,7 +292,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public void setInnerBorderColor(int i) {
+    public void setInnerBorderColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.f = i;
@@ -307,7 +309,7 @@ public class TbCornersImageView extends AppCompatImageView {
         }
     }
 
-    public void setMaskColor(int i) {
+    public void setMaskColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.l = i;

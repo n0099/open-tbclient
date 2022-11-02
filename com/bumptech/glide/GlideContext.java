@@ -3,6 +3,10 @@ package com.bumptech.glide;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.widget.ImageView;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,6 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Engine;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.ImageViewTargetFactory;
 import com.bumptech.glide.request.target.ViewTarget;
@@ -23,13 +28,16 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class GlideContext extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final TransitionOptions DEFAULT_TRANSITION_OPTIONS;
+    @VisibleForTesting
+    public static final TransitionOptions<?, ?> DEFAULT_TRANSITION_OPTIONS;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool arrayPool;
-    public final List defaultRequestListeners;
+    public final List<RequestListener<Object>> defaultRequestListeners;
+    @Nullable
+    @GuardedBy("this")
     public RequestOptions defaultRequestOptions;
     public final Glide.RequestOptionsFactory defaultRequestOptionsFactory;
-    public final Map defaultTransitionOptions;
+    public final Map<Class<?>, TransitionOptions<?, ?>> defaultTransitionOptions;
     public final Engine engine;
     public final GlideExperiments experiments;
     public final ImageViewTargetFactory imageViewTargetFactory;
@@ -52,6 +60,7 @@ public class GlideContext extends ContextWrapper {
         DEFAULT_TRANSITION_OPTIONS = new GenericTransitionOptions();
     }
 
+    @NonNull
     public ArrayPool getArrayPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +70,7 @@ public class GlideContext extends ContextWrapper {
         return (ArrayPool) invokeV.objValue;
     }
 
-    public List getDefaultRequestListeners() {
+    public List<RequestListener<Object>> getDefaultRequestListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -77,7 +86,7 @@ public class GlideContext extends ContextWrapper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 if (this.defaultRequestOptions == null) {
-                    this.defaultRequestOptions = (RequestOptions) this.defaultRequestOptionsFactory.build().lock();
+                    this.defaultRequestOptions = this.defaultRequestOptionsFactory.build().lock();
                 }
                 requestOptions = this.defaultRequestOptions;
             }
@@ -86,6 +95,7 @@ public class GlideContext extends ContextWrapper {
         return (RequestOptions) invokeV.objValue;
     }
 
+    @NonNull
     public Engine getEngine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,6 +123,7 @@ public class GlideContext extends ContextWrapper {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Registry getRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -123,7 +134,7 @@ public class GlideContext extends ContextWrapper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GlideContext(Context context, ArrayPool arrayPool, Registry registry, ImageViewTargetFactory imageViewTargetFactory, Glide.RequestOptionsFactory requestOptionsFactory, Map map, List list, Engine engine, GlideExperiments glideExperiments, int i) {
+    public GlideContext(@NonNull Context context, @NonNull ArrayPool arrayPool, @NonNull Registry registry, @NonNull ImageViewTargetFactory imageViewTargetFactory, @NonNull Glide.RequestOptionsFactory requestOptionsFactory, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull List<RequestListener<Object>> list, @NonNull Engine engine, @NonNull GlideExperiments glideExperiments, int i) {
         super(context.getApplicationContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -151,7 +162,8 @@ public class GlideContext extends ContextWrapper {
         this.logLevel = i;
     }
 
-    public ViewTarget buildImageViewTarget(ImageView imageView, Class cls) {
+    @NonNull
+    public <X> ViewTarget<ImageView, X> buildImageViewTarget(@NonNull ImageView imageView, @NonNull Class<X> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageView, cls)) == null) {
@@ -160,22 +172,20 @@ public class GlideContext extends ContextWrapper {
         return (ViewTarget) invokeLL.objValue;
     }
 
-    public TransitionOptions getDefaultTransitionOptions(Class cls) {
+    @NonNull
+    public <T> TransitionOptions<?, T> getDefaultTransitionOptions(@NonNull Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
-            TransitionOptions transitionOptions = (TransitionOptions) this.defaultTransitionOptions.get(cls);
+            TransitionOptions<?, T> transitionOptions = (TransitionOptions<?, T>) this.defaultTransitionOptions.get(cls);
             if (transitionOptions == null) {
-                for (Map.Entry entry : this.defaultTransitionOptions.entrySet()) {
-                    if (((Class) entry.getKey()).isAssignableFrom(cls)) {
-                        transitionOptions = (TransitionOptions) entry.getValue();
+                for (Map.Entry<Class<?>, TransitionOptions<?, ?>> entry : this.defaultTransitionOptions.entrySet()) {
+                    if (entry.getKey().isAssignableFrom(cls)) {
+                        transitionOptions = (TransitionOptions<?, T>) entry.getValue();
                     }
                 }
             }
-            if (transitionOptions == null) {
-                return DEFAULT_TRANSITION_OPTIONS;
-            }
-            return transitionOptions;
+            return transitionOptions == null ? (TransitionOptions<?, T>) DEFAULT_TRANSITION_OPTIONS : transitionOptions;
         }
         return (TransitionOptions) invokeL.objValue;
     }

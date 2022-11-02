@@ -31,7 +31,7 @@ public final class BdLog {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class LogLevel {
+    public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LogLevel DEBUG;
@@ -102,7 +102,7 @@ public final class BdLog {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;

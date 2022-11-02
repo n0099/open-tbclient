@@ -10,7 +10,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.EndConsumerHelper;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public abstract class DefaultSubscriber implements FlowableSubscriber {
+public abstract class DefaultSubscriber<T> implements FlowableSubscriber<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Subscription s;

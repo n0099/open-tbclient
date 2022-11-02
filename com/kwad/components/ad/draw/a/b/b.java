@@ -1,6 +1,7 @@
 package com.kwad.components.ad.draw.a.b;
 
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +15,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
     public FrameLayout bS;
+    @Nullable
     public com.kwad.components.ad.i.b bb;
 
     public b() {
@@ -78,7 +80,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
             FrameLayout frameLayout = this.bS;
             com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
             bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-            this.bb.a((b.InterfaceC0528b) null);
+            this.bb.a((b.InterfaceC0539b) null);
         }
     }
 
@@ -87,7 +89,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091114);
+            this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09114e);
         }
     }
 

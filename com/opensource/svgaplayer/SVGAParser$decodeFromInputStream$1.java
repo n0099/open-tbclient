@@ -64,9 +64,9 @@ public final class SVGAParser$decodeFromInputStream$1 implements Runnable {
                     if (x.length <= 4 || x[0] != 80 || x[1] != 75 || x[2] != 3 || x[3] != 4) {
                         r = this.a.r(x);
                         if (r != null) {
-                            Object decode = MovieEntity.ADAPTER.decode(r);
+                            MovieEntity decode = MovieEntity.ADAPTER.decode(r);
                             Intrinsics.checkExpressionValueIsNotNull(decode, "MovieEntity.ADAPTER.decode(it)");
-                            SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity((MovieEntity) decode, new File(this.c));
+                            SVGAVideoEntity sVGAVideoEntity = new SVGAVideoEntity(decode, new File(this.c));
                             sVGAVideoEntity.i(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(sVGAVideoEntity, this));
                         }
                     } else {

@@ -1,100 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.IMConstants;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes5.dex */
 public class qi {
     public static /* synthetic */ Interceptable $ic;
+    public static qi c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile SparseArray<Bitmap> a;
+    public Context b;
 
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315029, "Lcom/baidu/tieba/qi;")) == null) {
+            return;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public final void b() {
-            ArrayList c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c = wh.c(true)) != null && c.size() != 0) {
-                int i = 0;
-                Iterator it = c.iterator();
-                while (it.hasNext()) {
-                    i = (int) (i + ((yh) it.next()).a);
-                }
-                int i2 = i - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
-                ArrayList arrayList = new ArrayList();
-                if (i2 > 0) {
-                    Collections.sort(c, new zh());
-                    Iterator it2 = c.iterator();
-                    while (it2.hasNext()) {
-                        yh yhVar = (yh) it2.next();
-                        arrayList.add(yhVar.b);
-                        i2 = (int) (i2 - yhVar.a);
-                        if (i2 <= 0) {
-                            break;
-                        }
-                    }
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                Iterator it3 = c.iterator();
-                while (it3.hasNext()) {
-                    yh yhVar2 = (yh) it3.next();
-                    if (yhVar2 != null) {
-                        long j = yhVar2.c;
-                        if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(yhVar2.b)) {
-                            arrayList.add(yhVar2.b);
-                        }
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    wh.a(arrayList, true);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                b();
-                return null;
-            }
-            return (String) invokeL.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448315029, "Lcom/baidu/tieba/qi;");
         }
     }
 
@@ -102,20 +41,96 @@ public class qi {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new SparseArray<>();
+        Bitmap.Config config = Bitmap.Config.RGB_565;
+    }
+
+    public static synchronized qi d() {
+        InterceptResult invokeV;
+        qi qiVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (qi.class) {
+                if (c == null) {
+                    c = new qi();
+                }
+                qiVar = c;
+            }
+            return qiVar;
+        }
+        return (qi) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.clear();
             }
         }
     }
 
-    public void a() {
+    public byte[] a(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new b(null).execute(new String[0]);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bitmap, i)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
         }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return BitmapFactory.decodeFile(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            this.b = context;
+        }
+    }
+
+    public Bitmap f(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bitmap, i, i2)) == null) {
+            if (i > 0 && i2 >= 0 && bitmap != null && !bitmap.isRecycled()) {
+                if (bitmap.getWidth() <= i && bitmap.getHeight() <= i2) {
+                    return bitmap;
+                }
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                float f = i2 / height;
+                float f2 = i / width;
+                if (f > f2) {
+                    f = f2;
+                }
+                Matrix matrix = new Matrix();
+                matrix.postScale(f, f);
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+                if (createBitmap != bitmap) {
+                    bitmap.recycle();
+                }
+                return createBitmap;
+            }
+            return null;
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

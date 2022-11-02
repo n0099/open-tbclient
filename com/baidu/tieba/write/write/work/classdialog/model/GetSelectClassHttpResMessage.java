@@ -21,9 +21,9 @@ import tbclient.GetWorksTags.Tag;
 public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List firstClass;
-    public List secondClass;
-    public List tags;
+    public List<String> firstClass;
+    public List<List<String>> secondClass;
+    public List<VideoCategoryClassData> tags;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetSelectClassHttpResMessage() {
@@ -87,7 +87,7 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public List getFirstClass() {
+    public List<String> getFirstClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,7 +96,7 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getSecondClass() {
+    public List<List<String>> getSecondClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -105,7 +105,7 @@ public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List getTags() {
+    public List<VideoCategoryClassData> getTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

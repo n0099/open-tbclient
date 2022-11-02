@@ -1,6 +1,7 @@
 package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.Request;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class BaseTarget implements Target {
+public abstract class BaseTarget<Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Request request;
@@ -23,21 +24,21 @@ public abstract class BaseTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadCleared(Drawable drawable) {
+    public void onLoadCleared(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
         }
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadFailed(Drawable drawable) {
+    public void onLoadFailed(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
         }
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void onLoadStarted(Drawable drawable) {
+    public void onLoadStarted(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
         }
@@ -72,6 +73,7 @@ public abstract class BaseTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
+    @Nullable
     public Request getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,7 +84,7 @@ public abstract class BaseTarget implements Target {
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void setRequest(Request request) {
+    public void setRequest(@Nullable Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, request) == null) {
             this.request = request;

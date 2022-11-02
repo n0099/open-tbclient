@@ -15,15 +15,15 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static volatile b Re;
-    public Stack Rb = new Stack();
+    public Stack<AdTemplate> Rb = new Stack<>();
     public String Rc;
     public File Rd;
     public boolean mHasInit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void fT();
 
@@ -40,9 +40,9 @@ public class b {
         Throwable th;
         Exception e;
         boolean z = false;
-        Iterator it = this.Rb.iterator();
+        Iterator<AdTemplate> it = this.Rb.iterator();
         while (it.hasNext()) {
-            if (com.kwad.sdk.core.response.a.d.ca((AdTemplate) it.next()) == com.kwad.sdk.core.response.a.d.ca(adTemplate)) {
+            if (com.kwad.sdk.core.response.a.d.ca(it.next()) == com.kwad.sdk.core.response.a.d.ca(adTemplate)) {
                 it.remove();
                 z = true;
             }

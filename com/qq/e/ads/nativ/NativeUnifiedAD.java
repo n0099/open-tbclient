@@ -14,7 +14,6 @@ import com.qq.e.ads.NativeAbstractAD;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.pi.NUADI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdErrorConvertor;
@@ -22,20 +21,20 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class NativeUnifiedAD extends NativeAbstractAD {
+public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdListenerAdapter g;
     public NativeADUnifiedListener h;
-    public List i;
-    public List j;
+    public List<Integer> i;
+    public List<String> j;
     public volatile int k;
     public volatile int l;
     public String m;
     public LoadAdParams n;
 
     /* loaded from: classes8.dex */
-    public class AdListenerAdapter implements ADListener {
+    public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NativeADUnifiedListener a;
@@ -165,10 +164,10 @@ public class NativeUnifiedAD extends NativeAbstractAD {
                 }
                 return;
             }
-            Object obj = this.a;
-            if (obj != null) {
+            T t = this.a;
+            if (t != 0) {
                 LoadAdParams loadAdParams = this.n;
-                NUADI nuadi = (NUADI) obj;
+                NUADI nuadi = (NUADI) t;
                 if (loadAdParams != null) {
                     nuadi.loadData(i, loadAdParams);
                 } else {
@@ -183,11 +182,11 @@ public class NativeUnifiedAD extends NativeAbstractAD {
     public void a(NUADI nuadi) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nuadi) == null) {
-            super.a((ADI) nuadi);
+            super.a((NativeUnifiedAD) nuadi);
             nuadi.setMinVideoDuration(this.k);
             nuadi.setMaxVideoDuration(this.l);
             nuadi.setVastClassName(this.m);
-            List list = this.j;
+            List<String> list = this.j;
             if (list != null) {
                 setCategories(list);
             }
@@ -211,9 +210,9 @@ public class NativeUnifiedAD extends NativeAbstractAD {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj != null) {
-                return ((NUADI) obj).getAdNetWorkName();
+            T t = this.a;
+            if (t != 0) {
+                return ((NUADI) t).getAdNetWorkName();
             }
             a("getAdNetWorkName");
             return null;
@@ -236,15 +235,15 @@ public class NativeUnifiedAD extends NativeAbstractAD {
         }
     }
 
-    public void setCategories(List list) {
+    public void setCategories(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.j = list;
-            Object obj = this.a;
-            if (obj == null || list == null) {
+            T t = this.a;
+            if (t == 0 || list == null) {
                 return;
             }
-            ((NUADI) obj).setCategories(list);
+            ((NUADI) t).setCategories(list);
         }
     }
 
@@ -255,9 +254,9 @@ public class NativeUnifiedAD extends NativeAbstractAD {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            Object obj = this.a;
-            if (obj != null) {
-                ((NUADI) obj).setMaxVideoDuration(this.l);
+            T t = this.a;
+            if (t != 0) {
+                ((NUADI) t).setMaxVideoDuration(this.l);
             }
         }
     }
@@ -269,9 +268,9 @@ public class NativeUnifiedAD extends NativeAbstractAD {
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            Object obj = this.a;
-            if (obj != null) {
-                ((NUADI) obj).setMinVideoDuration(this.k);
+            T t = this.a;
+            if (t != 0) {
+                ((NUADI) t).setMinVideoDuration(this.k);
             }
         }
     }
@@ -284,9 +283,9 @@ public class NativeUnifiedAD extends NativeAbstractAD {
                 return;
             }
             this.m = str;
-            Object obj = this.a;
-            if (obj != null) {
-                ((NUADI) obj).setVastClassName(str);
+            T t = this.a;
+            if (t != 0) {
+                ((NUADI) t).setVastClassName(str);
             }
         }
     }

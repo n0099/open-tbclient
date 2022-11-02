@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.security.KeyPairGeneratorSpec;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,13 +48,13 @@ public class AESUtil {
 
     /* renamed from: com.baidu.searchbox.retrieve.file.util.AESUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context context;
@@ -73,7 +74,7 @@ public class AESUtil {
             }
         }
 
-        public Builder setContext(Context context) {
+        public Builder setContext(@NonNull Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
@@ -110,7 +111,7 @@ public class AESUtil {
     }
 
     /* loaded from: classes2.dex */
-    public class CryptResult {
+    public static class CryptResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FAIL = -1;
         public static final int NOT_INITIALIZED = 1;
@@ -153,7 +154,7 @@ public class AESUtil {
     }
 
     /* loaded from: classes2.dex */
-    public class ModeNotMatchException extends Exception {
+    public static class ModeNotMatchException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -394,7 +395,7 @@ public class AESUtil {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0011 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0013 */
     /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.lang.StringBuilder */
     /* JADX DEBUG: Multi-variable search result rejected for r4v4, resolved type: java.lang.StringBuilder */
     /* JADX WARN: Multi-variable type inference failed */

@@ -27,6 +27,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,10 +143,10 @@ public class XMPushService extends Service implements fz {
     public String f858a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList f859a;
+    public ArrayList<n> f859a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Collection f860a;
+    public Collection<ar> f860a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f861a;
@@ -319,7 +320,7 @@ public class XMPushService extends Service implements fz {
     }
 
     /* loaded from: classes8.dex */
-    public class c extends j {
+    public static class c extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final bg.b a;
@@ -676,7 +677,7 @@ public class XMPushService extends Service implements fz {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class j extends p.b {
+    public static abstract class j extends p.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1190,7 +1191,7 @@ public class XMPushService extends Service implements fz {
         this.f856a = null;
         this.f843a = null;
         this.f860a = Collections.synchronizedCollection(new ArrayList());
-        this.f859a = new ArrayList();
+        this.f859a = new ArrayList<>();
         this.f847a = new ci(this);
     }
 
@@ -1201,7 +1202,7 @@ public class XMPushService extends Service implements fz {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, gnVar, str, str2)) == null) {
             bg a2 = bg.a();
-            List m638a = a2.m638a(str);
+            List<String> m638a = a2.m638a(str);
             if (m638a.isEmpty()) {
                 sb = new StringBuilder();
                 str3 = "open channel should be called first before sending a packet, pkg=";
@@ -1209,7 +1210,7 @@ public class XMPushService extends Service implements fz {
                 gnVar.o(str);
                 str = gnVar.k();
                 if (TextUtils.isEmpty(str)) {
-                    str = (String) m638a.get(0);
+                    str = m638a.get(0);
                     gnVar.l(str);
                 }
                 bg.b a3 = a2.a(str, gnVar.m());
@@ -1820,17 +1821,17 @@ public class XMPushService extends Service implements fz {
                         str4 = null;
                         if (bk.l.equals(intent.getAction())) {
                             String stringExtra5 = intent.getStringExtra(bk.B);
-                            List m638a = a2.m638a(stringExtra5);
+                            List<String> m638a = a2.m638a(stringExtra5);
                             if (!m638a.isEmpty()) {
                                 String stringExtra6 = intent.getStringExtra(bk.t);
                                 String stringExtra7 = intent.getStringExtra(bk.q);
                                 if (TextUtils.isEmpty(stringExtra6)) {
-                                    stringExtra6 = (String) m638a.get(0);
+                                    stringExtra6 = m638a.get(0);
                                 }
                                 if (TextUtils.isEmpty(stringExtra7)) {
-                                    Collection m637a = a2.m637a(stringExtra6);
+                                    Collection<bg.b> m637a = a2.m637a(stringExtra6);
                                     if (m637a != null && !m637a.isEmpty()) {
-                                        a5 = (bg.b) m637a.iterator().next();
+                                        a5 = m637a.iterator().next();
                                     }
                                 } else {
                                     a5 = a2.a(stringExtra6, stringExtra7);
@@ -2211,10 +2212,10 @@ public class XMPushService extends Service implements fz {
                 ii iiVar = new ii();
                 it.a(iiVar, byteArrayExtra);
                 String b2 = iiVar.b();
-                Map m481a = iiVar.m481a();
+                Map<String, String> m481a = iiVar.m481a();
                 if (m481a != null) {
-                    String str = (String) m481a.get("extra_help_aw_info");
-                    String str2 = (String) m481a.get("extra_aw_app_online_cmd");
+                    String str = m481a.get("extra_help_aw_info");
+                    String str2 = m481a.get("extra_aw_app_online_cmd");
                     if (TextUtils.isEmpty(str2)) {
                         return;
                     }
@@ -2508,12 +2509,12 @@ public class XMPushService extends Service implements fz {
     public void a(String str, byte[] bArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048590, this, str, bArr, z) == null) {
-            Collection m637a = bg.a().m637a("5");
+            Collection<bg.b> m637a = bg.a().m637a("5");
             if (m637a.isEmpty()) {
                 if (!z) {
                     return;
                 }
-            } else if (((bg.b) m637a.iterator().next()).f932a == bg.c.c) {
+            } else if (m637a.iterator().next().f932a == bg.c.c) {
                 a(new cj(this, 4, str, bArr));
                 return;
             } else if (!z) {
@@ -2546,7 +2547,7 @@ public class XMPushService extends Service implements fz {
                     try {
                         it.a(ijVar, cif.m471a());
                         a(new w(this, cif.b(), ijVar.b(), ijVar.c(), bArr));
-                        eo.a(getApplicationContext()).a(cif.b(), "E100003", ijVar.a(), 6002, null);
+                        eo.a(getApplicationContext()).a(cif.b(), "E100003", ijVar.a(), NodeType.E_TRAFFIC_UGC, null);
                     } catch (iz e2) {
                         com.xiaomi.channel.commonutils.logger.b.d("app register error. " + e2);
                         x.a(this, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, " data action error.");
@@ -2629,9 +2630,9 @@ public class XMPushService extends Service implements fz {
                 com.xiaomi.channel.commonutils.logger.b.m89a("reconnection successful, reactivate alarm.");
                 eu.a(true);
             }
-            Iterator it = bg.a().m636a().iterator();
+            Iterator<bg.b> it = bg.a().m636a().iterator();
             while (it.hasNext()) {
-                a(new b(this, (bg.b) it.next()));
+                a(new b(this, it.next()));
             }
             if (this.f861a || !com.xiaomi.push.m.m561a(getApplicationContext())) {
                 return;
@@ -2653,7 +2654,7 @@ public class XMPushService extends Service implements fz {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             try {
-                Class a2 = com.xiaomi.push.v.a(this, "miui.os.Build");
+                Class<?> a2 = com.xiaomi.push.v.a(this, "miui.os.Build");
                 Field field = a2.getField("IS_CM_CUSTOMIZATION_TEST");
                 Field field2 = a2.getField("IS_CU_CUSTOMIZATION_TEST");
                 Field field3 = a2.getField("IS_CT_CUSTOMIZATION_TEST");

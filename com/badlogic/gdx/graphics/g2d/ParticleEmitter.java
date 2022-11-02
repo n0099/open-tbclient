@@ -23,7 +23,7 @@ public class ParticleEmitter {
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public String B;
-    public b7 C;
+    public b7<String> C;
     public int D;
     public boolean[] E;
     public boolean F;
@@ -70,7 +70,7 @@ public class ParticleEmitter {
     public g r;
     public h s;
     public float t;
-    public b7 u;
+    public b7<b4> u;
     public SpriteMode v;
     public d[] w;
     public int x;
@@ -79,7 +79,7 @@ public class ParticleEmitter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class SpawnEllipseSide {
+    public static final class SpawnEllipseSide {
         public static final /* synthetic */ SpawnEllipseSide[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SpawnEllipseSide both;
@@ -147,7 +147,7 @@ public class ParticleEmitter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class SpawnShape {
+    public static final class SpawnShape {
         public static final /* synthetic */ SpawnShape[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SpawnShape ellipse;
@@ -217,7 +217,7 @@ public class ParticleEmitter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class SpriteMode {
+    public static final class SpriteMode {
         public static final /* synthetic */ SpriteMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SpriteMode animated;
@@ -284,7 +284,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -346,7 +346,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class b extends e {
+    public static class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public static float[] e;
         public transient /* synthetic */ FieldHolder $fh;
@@ -465,7 +465,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class c extends g {
+    public static class c extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean j;
@@ -511,7 +511,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class d extends b4 {
+    public static class d extends b4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float A;
@@ -559,7 +559,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -606,7 +606,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class f extends e {
+    public static class f extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float c;
@@ -651,7 +651,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class g extends f {
+    public static class g extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float[] e;
@@ -763,7 +763,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public class h extends e {
+    public static class h extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SpawnShape c;
@@ -942,7 +942,7 @@ public class ParticleEmitter {
         return (d) invokeL.objValue;
     }
 
-    public void r(b7 b7Var) {
+    public void r(b7<String> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, b7Var) == null) {
             this.C = b7Var;
@@ -980,33 +980,33 @@ public class ParticleEmitter {
     }
 
     public final void a(int i) {
-        b4 b4Var;
-        float f2;
+        b4 f2;
+        float f3;
         float l;
         float l2;
-        float f3;
+        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             int i2 = a.a[this.v.ordinal()];
             if (i2 != 1 && i2 != 2) {
                 if (i2 != 3) {
-                    b4Var = null;
+                    f2 = null;
                 } else {
-                    b4Var = (b4) this.u.h();
+                    f2 = this.u.h();
                 }
             } else {
-                b4Var = (b4) this.u.f();
+                f2 = this.u.f();
             }
             d[] dVarArr = this.w;
             d dVar = dVarArr[i];
             if (dVar == null) {
-                dVar = j(b4Var);
+                dVar = j(f2);
                 dVarArr[i] = dVar;
                 dVar.a(this.G, this.H);
             } else {
-                dVar.r(b4Var);
+                dVar.r(f2);
             }
-            float f4 = this.W / this.V;
+            float f5 = this.W / this.V;
             int i3 = this.I;
             if (this.d.j) {
                 e();
@@ -1014,7 +1014,7 @@ public class ParticleEmitter {
             if (this.b.j) {
                 d();
             }
-            int e2 = this.P + ((int) (this.Q * this.d.e(f4)));
+            int e2 = this.P + ((int) (this.Q * this.d.e(f5)));
             dVar.t = e2;
             dVar.u = e2;
             g gVar = this.i;
@@ -1032,15 +1032,15 @@ public class ParticleEmitter {
             }
             int i4 = i3 & 2;
             if (i4 == 0) {
-                f2 = dVar.D + (dVar.E * this.j.e(0.0f));
-                dVar.D = f2;
-                dVar.F = com.badlogic.gdx.math.d.d(f2);
-                dVar.G = com.badlogic.gdx.math.d.p(f2);
+                f3 = dVar.D + (dVar.E * this.j.e(0.0f));
+                dVar.D = f3;
+                dVar.F = com.badlogic.gdx.math.d.d(f3);
+                dVar.G = com.badlogic.gdx.math.d.p(f3);
             } else {
-                f2 = 0.0f;
+                f3 = 0.0f;
             }
-            float n = b4Var.n();
-            float k = b4Var.k();
+            float n = f2.n();
+            float k = f2.k();
             dVar.v = this.f.d() / n;
             dVar.w = this.f.g() / n;
             if (!this.f.f()) {
@@ -1066,7 +1066,7 @@ public class ParticleEmitter {
                 }
                 float e3 = dVar.z + (dVar.A * this.h.e(0.0f));
                 if (this.a0) {
-                    e3 += f2;
+                    e3 += f3;
                 }
                 dVar.w(e3);
             }
@@ -1097,76 +1097,76 @@ public class ParticleEmitter {
             fArr[2] = d2[2];
             dVar.H = this.m.d();
             dVar.I = this.m.g() - dVar.H;
-            float f5 = this.z;
+            float f6 = this.z;
             f fVar = this.o;
             if (fVar.a) {
-                f5 += fVar.d();
+                f6 += fVar.d();
             }
-            float f6 = this.A;
+            float f7 = this.A;
             f fVar2 = this.p;
             if (fVar2.a) {
-                f6 += fVar2.d();
+                f7 += fVar2.d();
             }
             int i5 = a.c[this.s.c.ordinal()];
             if (i5 != 1) {
                 if (i5 != 2) {
                     if (i5 == 3) {
-                        float e4 = this.R + (this.S * this.q.e(f4));
-                        float e5 = this.T + (this.U * this.r.e(f4));
+                        float e4 = this.R + (this.S * this.q.e(f5));
+                        float e5 = this.T + (this.U * this.r.e(f5));
                         if (e4 != 0.0f) {
                             float k2 = com.badlogic.gdx.math.d.k() * e4;
-                            f5 += k2;
-                            f6 += k2 * (e5 / e4);
+                            f6 += k2;
+                            f7 += k2 * (e5 / e4);
                         } else {
-                            f6 += e5 * com.badlogic.gdx.math.d.k();
+                            f7 += e5 * com.badlogic.gdx.math.d.k();
                         }
                     }
                 } else {
-                    float e6 = this.R + (this.S * this.q.e(f4));
-                    float f7 = e6 / 2.0f;
-                    float e7 = (this.T + (this.U * this.r.e(f4))) / 2.0f;
-                    if (f7 != 0.0f && e7 != 0.0f) {
-                        float f8 = f7 / e7;
+                    float e6 = this.R + (this.S * this.q.e(f5));
+                    float f8 = e6 / 2.0f;
+                    float e7 = (this.T + (this.U * this.r.e(f5))) / 2.0f;
+                    if (f8 != 0.0f && e7 != 0.0f) {
+                        float f9 = f8 / e7;
                         h hVar = this.s;
                         if (hVar.d) {
                             int i6 = a.b[hVar.e.ordinal()];
                             if (i6 != 1) {
                                 if (i6 != 2) {
-                                    f3 = com.badlogic.gdx.math.d.l(360.0f);
+                                    f4 = com.badlogic.gdx.math.d.l(360.0f);
                                 } else {
-                                    f3 = com.badlogic.gdx.math.d.l(179.0f);
+                                    f4 = com.badlogic.gdx.math.d.l(179.0f);
                                 }
                             } else {
-                                f3 = -com.badlogic.gdx.math.d.l(179.0f);
+                                f4 = -com.badlogic.gdx.math.d.l(179.0f);
                             }
-                            float d3 = com.badlogic.gdx.math.d.d(f3);
-                            float p = com.badlogic.gdx.math.d.p(f3);
-                            f5 += d3 * f7;
-                            f6 += (f7 * p) / f8;
+                            float d3 = com.badlogic.gdx.math.d.d(f4);
+                            float p = com.badlogic.gdx.math.d.p(f4);
+                            f6 += d3 * f8;
+                            f7 += (f8 * p) / f9;
                             if (i4 == 0) {
-                                dVar.D = f3;
+                                dVar.D = f4;
                                 dVar.F = d3;
                                 dVar.G = p;
                             }
                         } else {
-                            float f9 = f7 * f7;
+                            float f10 = f8 * f8;
                             do {
-                                l = com.badlogic.gdx.math.d.l(e6) - f7;
-                                l2 = com.badlogic.gdx.math.d.l(e6) - f7;
-                            } while ((l * l) + (l2 * l2) > f9);
-                            f5 += l;
-                            f6 += l2 / f8;
+                                l = com.badlogic.gdx.math.d.l(e6) - f8;
+                                l2 = com.badlogic.gdx.math.d.l(e6) - f8;
+                            } while ((l * l) + (l2 * l2) > f10);
+                            f6 += l;
+                            f7 += l2 / f9;
                         }
                     }
                 }
             } else {
-                float e8 = this.R + (this.S * this.q.e(f4));
-                float e9 = this.T + (this.U * this.r.e(f4));
-                f5 += com.badlogic.gdx.math.d.l(e8) - (e8 / 2.0f);
-                f6 += com.badlogic.gdx.math.d.l(e9) - (e9 / 2.0f);
+                float e8 = this.R + (this.S * this.q.e(f5));
+                float e9 = this.T + (this.U * this.r.e(f5));
+                f6 += com.badlogic.gdx.math.d.l(e8) - (e8 / 2.0f);
+                f7 += com.badlogic.gdx.math.d.l(e9) - (e9 / 2.0f);
             }
-            dVar.s(f5 - (n / 2.0f), f6 - (k / 2.0f), n, k);
-            int e10 = (int) (this.N + (this.O * this.b.e(f4)));
+            dVar.s(f6 - (n / 2.0f), f7 - (k / 2.0f), n, k);
+            int e10 = (int) (this.N + (this.O * this.b.e(f5)));
             if (e10 > 0) {
                 int i7 = dVar.u;
                 if (e10 >= i7) {
@@ -1206,7 +1206,7 @@ public class ParticleEmitter {
         }
     }
 
-    public b7 f() {
+    public b7<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -1215,7 +1215,7 @@ public class ParticleEmitter {
         return (b7) invokeV.objValue;
     }
 
-    public b7 g() {
+    public b7<b4> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -1276,8 +1276,8 @@ public class ParticleEmitter {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.u = new b7();
-            this.C = new b7();
+            this.u = new b7<>();
+            this.C = new b7<>();
             this.c.c(true);
             this.e.c(true);
             this.d.c(true);
@@ -1354,7 +1354,7 @@ public class ParticleEmitter {
                     this.v = SpriteMode.valueOf(p(readLine));
                     bufferedReader.readLine();
                 }
-                b7 b7Var = new b7();
+                b7<String> b7Var = new b7<>();
                 while (true) {
                     String readLine2 = bufferedReader.readLine();
                     if (readLine2 == null || readLine2.isEmpty()) {
@@ -1441,7 +1441,7 @@ public class ParticleEmitter {
         }
     }
 
-    public void u(b7 b7Var) {
+    public void u(b7<b4> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, b7Var) == null) {
             this.u = b7Var;
@@ -1457,17 +1457,17 @@ public class ParticleEmitter {
                     if (i2 != 1) {
                         if (i2 != 2) {
                             if (i2 == 3) {
-                                b4Var = (b4) b7Var.h();
+                                b4Var = b7Var.h();
                             }
                         } else {
                             float f2 = 1.0f - (dVar.u / dVar.t);
                             int i3 = b7Var.b;
                             int min = Math.min((int) (f2 * i3), i3 - 1);
                             dVar.O = min;
-                            b4Var = (b4) b7Var.get(min);
+                            b4Var = b7Var.get(min);
                         }
                     } else {
-                        b4Var = (b4) b7Var.f();
+                        b4Var = b7Var.f();
                     }
                     dVar.i(b4Var);
                     dVar.v(b4Var.l(), b4Var.m());
@@ -1622,7 +1622,7 @@ public class ParticleEmitter {
                 int i4 = this.u.b;
                 int min = Math.min((int) (f6 * i4), i4 - 1);
                 if (dVar.O != min) {
-                    b4 b4Var = (b4) this.u.get(min);
+                    b4 b4Var = this.u.get(min);
                     float n = dVar.n();
                     float k = dVar.k();
                     dVar.i(b4Var);

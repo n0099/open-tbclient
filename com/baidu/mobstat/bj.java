@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,17 +27,18 @@ public abstract class bj implements bh.a {
 
     public abstract void a();
 
+    @TargetApi(14)
     /* loaded from: classes2.dex */
-    public class a extends bj {
+    public static class a extends bj {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<Activity> a;
         public b b;
-        public final WeakHashMap c;
+        public final WeakHashMap<View, C0116a> c;
 
         /* renamed from: com.baidu.mobstat.bj$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0114a extends View.AccessibilityDelegate {
+        public class C0116a extends View.AccessibilityDelegate {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -46,7 +48,7 @@ public abstract class bj implements bh.a {
             public long e;
             public long f;
 
-            public C0114a(a aVar, WeakReference weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+            public C0116a(a aVar, WeakReference<Activity> weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +114,7 @@ public abstract class bj implements bh.a {
                             return;
                         }
                         this.f = System.currentTimeMillis();
-                        if (this.b != null && !(this.b instanceof C0114a) && this.b != this) {
+                        if (this.b != null && !(this.b instanceof C0116a) && this.b != this) {
                             this.b.sendAccessibilityEvent(view2, i);
                         } else {
                             super.sendAccessibilityEvent(view2, i);
@@ -125,7 +127,7 @@ public abstract class bj implements bh.a {
             }
         }
 
-        public a(int i, WeakReference weakReference, b bVar) {
+        public a(int i, WeakReference<Activity> weakReference, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +144,7 @@ public abstract class bj implements bh.a {
             }
             this.a = weakReference;
             this.b = bVar;
-            this.c = new WeakHashMap();
+            this.c = new WeakHashMap<>();
         }
 
         private View.AccessibilityDelegate a(View view2) {
@@ -160,13 +162,13 @@ public abstract class bj implements bh.a {
 
         @Override // com.baidu.mobstat.bj
         public void a() {
-            WeakHashMap weakHashMap;
+            WeakHashMap<View, C0116a> weakHashMap;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (weakHashMap = this.c) == null) {
                 return;
             }
-            for (Map.Entry entry : weakHashMap.entrySet()) {
-                ((View) entry.getKey()).setAccessibilityDelegate(((C0114a) entry.getValue()).a());
+            for (Map.Entry<View, C0116a> entry : weakHashMap.entrySet()) {
+                entry.getKey().setAccessibilityDelegate(entry.getValue().a());
             }
             this.c.clear();
         }
@@ -179,17 +181,17 @@ public abstract class bj implements bh.a {
             }
         }
 
-        public void a(WeakReference weakReference, View view2, String str, boolean z) {
+        public void a(WeakReference<Activity> weakReference, View view2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{weakReference, view2, str, Boolean.valueOf(z)}) == null) {
                 View.AccessibilityDelegate a = a(view2);
-                if (!(a instanceof C0114a)) {
-                    C0114a c0114a = new C0114a(this, weakReference, view2, str, a, z);
-                    view2.setAccessibilityDelegate(c0114a);
-                    this.c.put(view2, c0114a);
+                if (!(a instanceof C0116a)) {
+                    C0116a c0116a = new C0116a(this, weakReference, view2, str, a, z);
+                    view2.setAccessibilityDelegate(c0116a);
+                    this.c.put(view2, c0116a);
                     return;
                 }
-                ((C0114a) a).a(z);
+                ((C0116a) a).a(z);
             }
         }
     }

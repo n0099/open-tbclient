@@ -1,125 +1,68 @@
 package com.baidu.tieba;
 
-import android.widget.ExpandableListView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import tbclient.NewHottopic.PkModule;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TopicDetail;
+/* loaded from: classes6.dex */
 public class t67 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133236, "Lcom/baidu/tieba/t67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133236, "Lcom/baidu/tieba/t67;");
-                return;
-            }
-        }
-        e = new ArrayList(5);
-    }
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public i77 e;
+    public x67 f;
 
     public t67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(TopicDetail topicDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == 1) {
-                return ExpandableListView.getPackedPositionForChild(this.a, this.b);
-            }
-            return ExpandableListView.getPackedPositionForGroup(this.a);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
+            return;
         }
-        return invokeV.longValue;
+        this.a = topicDetail.topic_id.longValue();
+        this.b = topicDetail.topic_desc;
+        topicDetail.discuss_num.longValue();
+        this.c = topicDetail.topic_image;
+        this.d = topicDetail.bg_image;
     }
 
-    public void e() {
+    public void b(PkModule pkModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (e) {
-                if (e.size() < 5) {
-                    e.add(this);
-                }
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = 0;
-            this.d = 0;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            i77 i77Var = new i77();
+            this.e = i77Var;
+            i77Var.a = this.a;
+            i77Var.f = 2;
+            i77Var.a(pkModule);
         }
     }
 
-    public static t67 b() {
-        InterceptResult invokeV;
+    public void c(TimeLine timeLine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e) {
-                if (e.size() > 0) {
-                    t67 t67Var = (t67) e.remove(0);
-                    t67Var.f();
-                    return t67Var;
-                }
-                return new t67();
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
+            return;
         }
-        return (t67) invokeV.objValue;
-    }
-
-    public static t67 c(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
-            t67 b = b();
-            b.d = i;
-            b.a = i2;
-            b.b = i3;
-            b.c = i4;
-            return b;
-        }
-        return (t67) invokeIIII.objValue;
-    }
-
-    public static t67 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(2, i, 0, 0);
-        }
-        return (t67) invokeI.objValue;
+        x67 x67Var = new x67();
+        this.f = x67Var;
+        x67Var.a(this.a, timeLine);
     }
 }

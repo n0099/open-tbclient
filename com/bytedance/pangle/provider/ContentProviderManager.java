@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -27,10 +29,10 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+@Keep
 /* loaded from: classes7.dex */
 public class ContentProviderManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,9 +44,9 @@ public class ContentProviderManager {
     public static final String PROVIDER_URI = "uri";
     public static ContentProviderManager sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map mAuthorityProcessNameMap;
-    public final Map mContentProviderMap;
-    public final Map mSystemProviderInfoMap;
+    public final Map<String, String> mAuthorityProcessNameMap;
+    public final Map<b, a> mContentProviderMap;
+    public final Map<String, c> mSystemProviderInfoMap;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +64,7 @@ public class ContentProviderManager {
     }
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final b a;
@@ -91,7 +93,7 @@ public class ContentProviderManager {
     }
 
     /* loaded from: classes7.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -147,7 +149,7 @@ public class ContentProviderManager {
     }
 
     /* loaded from: classes7.dex */
-    public final class c extends b {
+    public static final class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProviderInfo d;
@@ -209,7 +211,7 @@ public class ContentProviderManager {
         return (ContentProviderManager) invokeV.objValue;
     }
 
-    public Map getSystemProviderInfoMap() {
+    public Map<String, c> getSystemProviderInfoMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -257,6 +259,7 @@ public class ContentProviderManager {
         return (Bundle) invokeCommon.objValue;
     }
 
+    @RequiresApi(api = 26)
     public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, Bundle bundle, CancellationSignal cancellationSignal, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -324,7 +327,7 @@ public class ContentProviderManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (String) this.mAuthorityProcessNameMap.get(str);
+            return this.mAuthorityProcessNameMap.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -333,7 +336,7 @@ public class ContentProviderManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            a aVar = (a) this.mContentProviderMap.get(bVar);
+            a aVar = this.mContentProviderMap.get(bVar);
             if (aVar == null) {
                 return null;
             }
@@ -350,7 +353,7 @@ public class ContentProviderManager {
                 return true;
             }
             String authority = uri.getAuthority();
-            Set keySet = this.mAuthorityProcessNameMap.keySet();
+            Set<String> keySet = this.mAuthorityProcessNameMap.keySet();
             if (keySet != null && keySet.contains(authority)) {
                 return true;
             }
@@ -395,12 +398,10 @@ public class ContentProviderManager {
         }
     }
 
-    public void installContentProviders(Collection collection, Plugin plugin) {
+    public void installContentProviders(Collection<ProviderInfo> collection, Plugin plugin) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048587, this, collection, plugin) == null) && collection != null && collection.size() != 0 && plugin != null) {
-            Iterator it = collection.iterator();
-            while (it.hasNext()) {
-                ProviderInfo providerInfo = (ProviderInfo) it.next();
+            for (ProviderInfo providerInfo : collection) {
                 if (ZeusLogger.isDebug()) {
                     StringBuilder sb = new StringBuilder(128);
                     sb.append("Install plugin provider [authority:");
@@ -415,6 +416,7 @@ public class ContentProviderManager {
         }
     }
 
+    @RequiresApi(api = 16)
     public Cursor query(ContentResolver contentResolver, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class Vector2 implements Serializable, e {
+public class Vector2 implements Serializable, e<Vector2> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Vector2 X;
     public static final Vector2 Y;

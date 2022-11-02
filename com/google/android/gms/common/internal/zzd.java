@@ -3,18 +3,24 @@ package com.google.android.gms.common.internal;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import androidx.annotation.BinderThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.util.VisibleForTesting;
+@VisibleForTesting
 /* loaded from: classes7.dex */
 public final class zzd extends zzab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public BaseGmsClient zza;
     public final int zzb;
 
-    public zzd(BaseGmsClient baseGmsClient, int i) {
+    public zzd(@NonNull BaseGmsClient baseGmsClient, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +40,8 @@ public final class zzd extends zzab {
     }
 
     @Override // com.google.android.gms.common.internal.IGmsCallbacks
-    public final void onPostInitComplete(int i, IBinder iBinder, Bundle bundle) {
+    @BinderThread
+    public final void onPostInitComplete(int i, @NonNull IBinder iBinder, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, iBinder, bundle) == null) {
             Preconditions.checkNotNull(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
@@ -44,7 +51,8 @@ public final class zzd extends zzab {
     }
 
     @Override // com.google.android.gms.common.internal.IGmsCallbacks
-    public final void zzc(int i, IBinder iBinder, zzj zzjVar) {
+    @BinderThread
+    public final void zzc(int i, @NonNull IBinder iBinder, @NonNull zzj zzjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
             BaseGmsClient baseGmsClient = this.zza;
@@ -56,7 +64,8 @@ public final class zzd extends zzab {
     }
 
     @Override // com.google.android.gms.common.internal.IGmsCallbacks
-    public final void zzb(int i, Bundle bundle) {
+    @BinderThread
+    public final void zzb(int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
             Log.wtf("GmsClient", "received deprecated onAccountValidationComplete callback, ignoring", new Exception());

@@ -27,7 +27,7 @@ public class PbEditorData implements Serializable {
     public boolean openVoiceRecordButton;
 
     /* loaded from: classes3.dex */
-    public class ThreadData implements Serializable {
+    public static class ThreadData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long authorId;

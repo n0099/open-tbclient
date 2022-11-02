@@ -15,7 +15,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class Metadata implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Metadata> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final Entry[] entries;
 
@@ -46,11 +46,12 @@ public final class Metadata implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.Metadata.1
+        CREATOR = new Parcelable.Creator<Metadata>() { // from class: com.google.android.exoplayer2.metadata.Metadata.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Metadata[] newArray(int i) {
                 InterceptResult invokeI;
@@ -73,6 +74,7 @@ public final class Metadata implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Metadata createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -131,7 +133,7 @@ public final class Metadata implements Parcelable {
         }
     }
 
-    public Metadata(List list) {
+    public Metadata(List<? extends Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

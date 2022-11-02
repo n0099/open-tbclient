@@ -1,5 +1,7 @@
 package androidx.media2.common;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.versionedparcelable.VersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,6 +34,7 @@ public final class SubtitleData implements VersionedParcelable {
         }
     }
 
+    @NonNull
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +62,7 @@ public final class SubtitleData implements VersionedParcelable {
         return invokeV.longValue;
     }
 
-    public SubtitleData(long j, long j2, byte[] bArr) {
+    public SubtitleData(long j, long j2, @NonNull byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +82,7 @@ public final class SubtitleData implements VersionedParcelable {
         this.mData = bArr;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {

@@ -37,16 +37,16 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd7;
-import com.baidu.tieba.ec7;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.pl5;
-import com.baidu.tieba.pz8;
-import com.baidu.tieba.t97;
-import com.baidu.tieba.ya7;
-import com.baidu.tieba.zf;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.ic7;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.le7;
+import com.baidu.tieba.nm5;
+import com.baidu.tieba.od7;
+import com.baidu.tieba.py4;
+import com.baidu.tieba.rf;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class SingleImageTextView extends RelativeLayout {
     public TextView f;
     public ImageView g;
     public TextView h;
-    public zf i;
+    public rf i;
     public int j;
     public ViewGroup k;
     public TextView l;
@@ -113,14 +113,14 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends pl5 {
+    public class b extends nm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7.a h;
+        public final /* synthetic */ ic7.a h;
         public final /* synthetic */ SingleImageTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i, String str, ya7.a aVar) {
+        public b(SingleImageTextView singleImageTextView, int i, String str, ic7.a aVar) {
             super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -142,7 +142,7 @@ public class SingleImageTextView extends RelativeLayout {
             this.h = aVar;
         }
 
-        @Override // com.baidu.tieba.pl5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
@@ -151,7 +151,7 @@ public class SingleImageTextView extends RelativeLayout {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.i.a, this.i.k(this.h.d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
         }
 
-        @Override // com.baidu.tieba.pl5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        @Override // com.baidu.tieba.nm5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
@@ -165,12 +165,12 @@ public class SingleImageTextView extends RelativeLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ya7.a a;
+        public final /* synthetic */ ic7.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ SingleImageTextView d;
 
-        public c(SingleImageTextView singleImageTextView, ya7.a aVar, TbPageContext tbPageContext, int i) {
+        public c(SingleImageTextView singleImageTextView, ic7.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,13 +198,13 @@ public class SingleImageTextView extends RelativeLayout {
         */
         public void onClick(View view2) {
             String str;
-            ya7.a aVar;
+            ic7.a aVar;
             String str2;
             int i;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ya7.a aVar2 = this.a;
+                ic7.a aVar2 = this.a;
                 if (aVar2 != null && (str3 = aVar2.d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
                         this.d.a.startActivity(Intent.parseUri(this.a.d, 1));
@@ -239,12 +239,12 @@ public class SingleImageTextView extends RelativeLayout {
                 }
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    t97 m = bd7.m(this.a.f);
+                    db7 m = le7.m(this.a.f);
                     if (m != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
                         int i2 = this.a.g;
                         if ((i2 == 1 || i2 == 3) && !"0".equals(m.b)) {
-                            ec7.c().a(m.b);
+                            od7.c().a(m.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -445,10 +445,10 @@ public class SingleImageTextView extends RelativeLayout {
         return (String) invokeL.objValue;
     }
 
-    public void setOnItemViewLongClickListener(zf zfVar) {
+    public void setOnItemViewLongClickListener(rf rfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zfVar) == null) {
-            this.i = zfVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rfVar) == null) {
+            this.i = rfVar;
         }
     }
 
@@ -472,7 +472,7 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void f(ya7.a aVar) {
+    public void f(ic7.a aVar) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
@@ -522,10 +522,10 @@ public class SingleImageTextView extends RelativeLayout {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 1, skinType);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0109, 1, skinType);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0107, 1, skinType);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080600, R.color.CAM_X0109, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080605, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.h, R.color.common_color_10067, 1, skinType);
             SkinManager.setBackgroundResource(this.e, R.drawable.multi_single_divider_selector, skinType);
-            nv4 d = nv4.d(this.l);
+            kw4 d = kw4.d(this.l);
             d.v(R.color.CAM_X0107);
             d.w(R.dimen.M_T_X003);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
@@ -540,24 +540,24 @@ public class SingleImageTextView extends RelativeLayout {
             if (str == null) {
                 return null;
             }
-            int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int f2 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            int f3 = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int f4 = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int f5 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-            int f6 = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int f7 = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0def);
+            int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int g2 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int g3 = xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int g4 = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int g5 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+            int g6 = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int g7 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e06);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) string);
-            zx4 zx4Var = new zx4(f, -1, R.color.CAM_X0302, f3, R.color.CAM_X0101, f4, f7);
-            zx4Var.f(true);
-            zx4Var.b(f2);
-            zx4Var.h(f5);
-            zx4Var.i(f6);
-            zx4Var.g(true);
-            zx4Var.d(fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-            spannableStringBuilder.setSpan(zx4Var, 0, string.length(), 17);
+            py4 py4Var = new py4(g, -1, R.color.CAM_X0302, g3, R.color.CAM_X0101, g4, g7);
+            py4Var.f(true);
+            py4Var.b(g2);
+            py4Var.h(g5);
+            py4Var.i(g6);
+            py4Var.g(true);
+            py4Var.d(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+            spannableStringBuilder.setSpan(py4Var, 0, string.length(), 17);
             spannableStringBuilder.append((CharSequence) str);
             return spannableStringBuilder;
         }
@@ -567,21 +567,21 @@ public class SingleImageTextView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a8, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091eff);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091efb);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091efc);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05b8, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f4a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f46);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f47);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.d.setRadius(fj.f(getContext(), R.dimen.tbds20));
+            this.d.setRadius(xi.g(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b5d);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091efd);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091ecd);
-            this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091297);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e2);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ba1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091f48);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091f18);
+            this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092437);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092438);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);
@@ -609,7 +609,7 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext tbPageContext, ya7.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, ic7.a aVar, View view2, int i) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLLI(1048583, this, tbPageContext, aVar, view2, i) != null) || aVar == null) {
@@ -625,14 +625,14 @@ public class SingleImageTextView extends RelativeLayout {
         if (!TextUtils.isEmpty(aVar.b)) {
             str2 = aVar.b;
         }
-        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0906))) {
+        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911))) {
             b bVar = new b(this, 2, aVar.d, aVar);
-            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0906));
+            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.c.setOnTouchListener(new pz8(spannableString));
+            this.c.setOnTouchListener(new y09(spannableString));
             this.c.setText(spannableString);
-            this.f.setText(R.string.obfuscated_res_0x7f0f02f9);
+            this.f.setText(R.string.obfuscated_res_0x7f0f02fa);
         } else {
             this.c.setText(str2);
         }
@@ -655,7 +655,7 @@ public class SingleImageTextView extends RelativeLayout {
         this.b.setMaxLines(2);
         if (!TextUtils.isEmpty(aVar.c)) {
             this.d.setTag(aVar.c);
-            this.d.L(aVar.c, 10, false);
+            this.d.K(aVar.c, 10, false);
         }
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

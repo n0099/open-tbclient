@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class LoginManager {
     public String TAG;
     public int cidTryLoginedTimes;
     public Runnable imLoginRunable;
-    public ArrayList mLoginListeners;
+    public ArrayList<ILoginListener> mLoginListeners;
     public volatile LoginState mLoginState;
 
     static {
@@ -50,7 +50,7 @@ public class LoginManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class LoginState {
+    public static final class LoginState {
         public static final /* synthetic */ LoginState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LoginState LOGINED;
@@ -167,7 +167,7 @@ public class LoginManager {
             }
         };
         mContext = context.getApplicationContext();
-        this.mLoginListeners = new ArrayList();
+        this.mLoginListeners = new ArrayList<>();
     }
 
     public synchronized boolean loginInternal(ILoginListener iLoginListener) {
@@ -305,9 +305,9 @@ public class LoginManager {
         return (LoginState) invokeV.objValue;
     }
 
-    public synchronized ArrayList getLoginListener() {
+    public synchronized ArrayList<ILoginListener> getLoginListener() {
         InterceptResult invokeV;
-        ArrayList arrayList;
+        ArrayList<ILoginListener> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
@@ -338,7 +338,7 @@ public class LoginManager {
             synchronized (this) {
                 iLoginListener = null;
                 if (!this.mLoginListeners.isEmpty()) {
-                    iLoginListener = (ILoginListener) this.mLoginListeners.remove(0);
+                    iLoginListener = this.mLoginListeners.remove(0);
                 }
             }
             return iLoginListener;
@@ -364,22 +364,22 @@ public class LoginManager {
                     return;
                 }
             }
-            Handler handler = c80.c;
+            Handler handler = b80.c;
             if (handler != null) {
                 handler.removeCallbacks(this.imLoginRunable);
-                c80.c.postDelayed(this.imLoginRunable, 3000L);
+                b80.c.postDelayed(this.imLoginRunable, 3000L);
             }
         }
     }
 
     private void triggleLoginListenerCallBack(int i, String str) {
-        ArrayList arrayList;
+        ArrayList<ILoginListener> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(65543, this, i, str) == null) && (arrayList = this.mLoginListeners) != null && arrayList.size() != 0) {
-            Iterator it = this.mLoginListeners.iterator();
+            Iterator<ILoginListener> it = this.mLoginListeners.iterator();
             while (it.hasNext()) {
                 try {
-                    ((ILoginListener) it.next()).onLoginResult(i, str);
+                    it.next().onLoginResult(i, str);
                 } catch (Error e) {
                     new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                 }
@@ -401,11 +401,11 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
                 } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + c80.e);
+                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + b80.e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (c80.e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                    if (b80.e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                         imRetryLogin(i);
-                    } else if (!c80.e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    } else if (!b80.e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }
@@ -431,10 +431,10 @@ public class LoginManager {
                     imLogin(false);
                 } else if (4005 != i && 4003 != i && 4004 != i) {
                     if (this.mLoginListeners != null && this.mLoginListeners.size() != 0) {
-                        Iterator it = this.mLoginListeners.iterator();
+                        Iterator<ILoginListener> it = this.mLoginListeners.iterator();
                         while (it.hasNext()) {
                             try {
-                                ((ILoginListener) it.next()).onLogoutResult(i, str, AccountManagerImpl.getInstance(mContext).getLoginType());
+                                it.next().onLogoutResult(i, str, AccountManagerImpl.getInstance(mContext).getLoginType());
                             } catch (Error e) {
                                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                             }

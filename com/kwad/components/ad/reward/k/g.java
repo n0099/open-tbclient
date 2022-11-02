@@ -181,9 +181,9 @@ public final class g extends v implements View.OnClickListener {
     public final void e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091077, R.id.obfuscated_res_0x7f091075);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f0910b1, R.id.obfuscated_res_0x7f0910af);
             if (this.eQ == null) {
-                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091076);
+                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910b0);
             }
             this.pV.setOnClickListener(this);
         }

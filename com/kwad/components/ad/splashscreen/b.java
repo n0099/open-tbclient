@@ -3,6 +3,7 @@ package com.kwad.components.ad.splashscreen;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +30,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean xr;
@@ -57,12 +58,12 @@ public final class b {
 
     /* renamed from: com.kwad.components.ad.splashscreen.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0551b {
+    public static class C0562b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean xs;
 
-        public C0551b() {
+        public C0562b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +79,7 @@ public final class b {
             this.xs = false;
         }
 
-        public /* synthetic */ C0551b(byte b) {
+        public /* synthetic */ C0562b(byte b) {
             this();
         }
     }
@@ -110,7 +111,7 @@ public final class b {
             ksScene.setAdNum(5);
             com.kwad.sdk.core.e.b.d("KsAdSplashScreenLoadManager", "loadSplashScreenCache ");
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(false).a(new com.kwad.components.core.k.c(elapsedRealtime) { // from class: com.kwad.components.ad.splashscreen.b.4
+            KsAdLoadManager.a(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(false).a(new com.kwad.components.core.k.c(elapsedRealtime) { // from class: com.kwad.components.ad.splashscreen.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long xq;
@@ -134,7 +135,7 @@ public final class b {
                 }
 
                 @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
-                public final void a(AdResultData adResultData) {
+                public final void a(@NonNull AdResultData adResultData) {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, adResultData) == null) || adResultData.getAdTemplateList().size() <= 0) {
                         return;
@@ -158,7 +159,7 @@ public final class b {
         }
     }
 
-    public static void loadSplashScreenAd(KsScene ksScene, KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
+    public static void loadSplashScreenAd(@NonNull KsScene ksScene, @NonNull KsLoadManager.SplashScreenAdListener splashScreenAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ksScene, splashScreenAdListener) == null) {
             boolean a2 = m.oF().a(ksScene, "loadSplashScreenAd");
@@ -169,7 +170,7 @@ public final class b {
             aVar.xr = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             com.kwad.components.core.k.kwai.b bVar = new com.kwad.components.core.k.kwai.b(ksScene);
-            C0551b c0551b = new C0551b((byte) 0);
+            C0562b c0562b = new C0562b((byte) 0);
             com.kwad.components.core.j.a.og().oh();
             mHandler.postDelayed(new Runnable(ksScene) { // from class: com.kwad.components.ad.splashscreen.b.1
                 public static /* synthetic */ Interceptable $ic;
@@ -202,10 +203,10 @@ public final class b {
                     }
                 }
             }, 15000L);
-            Runnable runnable = new Runnable(c0551b, splashScreenAdListener) { // from class: com.kwad.components.ad.splashscreen.b.2
+            Runnable runnable = new Runnable(c0562b, splashScreenAdListener) { // from class: com.kwad.components.ad.splashscreen.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0551b xk;
+                public final /* synthetic */ C0562b xk;
                 public final /* synthetic */ KsLoadManager.SplashScreenAdListener xl;
 
                 {
@@ -213,7 +214,7 @@ public final class b {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0551b, splashScreenAdListener};
+                        Object[] objArr = {c0562b, splashScreenAdListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -223,7 +224,7 @@ public final class b {
                             return;
                         }
                     }
-                    this.xk = c0551b;
+                    this.xk = c0562b;
                     this.xl = splashScreenAdListener;
                 }
 
@@ -247,12 +248,12 @@ public final class b {
             com.kwad.components.splash.monitor.a.qG();
             com.kwad.components.splash.monitor.a.qH();
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0571a().c(bVar).aw(true).ax(a2).a(new com.kwad.components.core.k.c(c0551b, runnable, aVar, splashScreenAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.splashscreen.b.3
+            KsAdLoadManager.a(new a.C0582a().c(bVar).aw(true).ax(a2).a(new com.kwad.components.core.k.c(c0562b, runnable, aVar, splashScreenAdListener, elapsedRealtime, ksScene) { // from class: com.kwad.components.ad.splashscreen.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;
                 public final /* synthetic */ long ef;
-                public final /* synthetic */ C0551b xk;
+                public final /* synthetic */ C0562b xk;
                 public final /* synthetic */ KsLoadManager.SplashScreenAdListener xl;
                 public final /* synthetic */ Runnable xm;
                 public final /* synthetic */ a xn;
@@ -262,7 +263,7 @@ public final class b {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0551b, runnable, aVar, splashScreenAdListener, Long.valueOf(elapsedRealtime), ksScene};
+                        Object[] objArr = {c0562b, runnable, aVar, splashScreenAdListener, Long.valueOf(elapsedRealtime), ksScene};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -272,7 +273,7 @@ public final class b {
                             return;
                         }
                     }
-                    this.xk = c0551b;
+                    this.xk = c0562b;
                     this.xm = runnable;
                     this.xn = aVar;
                     this.xl = splashScreenAdListener;
@@ -338,7 +339,7 @@ public final class b {
                 }
 
                 @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
-                public final void a(AdResultData adResultData, boolean z) {
+                public final void a(@NonNull AdResultData adResultData, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adResultData, z) == null) {
                         bd.runOnUiThread(new Runnable(this, adResultData) { // from class: com.kwad.components.ad.splashscreen.b.3.2
@@ -395,7 +396,7 @@ public final class b {
                             com.kwad.components.core.j.a.og().am(3);
                             return;
                         }
-                        AdTemplate adTemplate = (AdTemplate) adResultData.getAdTemplateList().get(0);
+                        AdTemplate adTemplate = adResultData.getAdTemplateList().get(0);
                         adTemplate.loadDataTime = SystemClock.elapsedRealtime() - this.ef;
                         adTemplate.notNetworkRequest = z;
                         String az = com.kwad.sdk.core.response.a.a.az(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
@@ -460,7 +461,7 @@ public final class b {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                                 try {
-                                                    KsAdLoadManager.ab().a(this.xp);
+                                                    KsAdLoadManager.ab().a((KsAdLoadManager) this.xp);
                                                     this.xo.xl.onSplashScreenAdLoad(this.xp);
                                                 } catch (Throwable th) {
                                                     com.kwad.sdk.core.e.b.printStackTrace(th);
@@ -519,7 +520,7 @@ public final class b {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         try {
-                                            KsAdLoadManager.ab().a(this.xp);
+                                            KsAdLoadManager.ab().a((KsAdLoadManager) this.xp);
                                             this.xo.xl.onSplashScreenAdLoad(this.xp);
                                         } catch (Throwable th) {
                                             com.kwad.sdk.core.e.b.printStackTrace(th);

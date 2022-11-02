@@ -8,10 +8,10 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
-import com.baidu.tieba.lg3;
+import com.baidu.tieba.dh3;
+import com.baidu.tieba.dt5;
+import com.baidu.tieba.hq3;
 import com.baidu.tieba.m9;
-import com.baidu.tieba.pp3;
-import com.baidu.tieba.ur5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,8 +101,8 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        ur5.a();
-        pp3.a(uri);
+        dt5.a();
+        hq3.a(uri);
     }
 
     @Override // android.app.Activity
@@ -111,7 +111,7 @@ public class SwanEntryActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             m9.b(this);
             super.onCreate(bundle);
-            if (lg3.a(this)) {
+            if (dh3.a(this)) {
                 return;
             }
             a();

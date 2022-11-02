@@ -19,6 +19,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuItemHoverListener;
 import androidx.appcompat.widget.MenuPopupWindow;
@@ -138,7 +142,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         public final int position;
         public final MenuPopupWindow window;
 
-        public CascadingMenuInfo(MenuPopupWindow menuPopupWindow, MenuBuilder menuBuilder, int i) {
+        public CascadingMenuInfo(@NonNull MenuPopupWindow menuPopupWindow, @NonNull MenuBuilder menuBuilder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +172,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         }
     }
 
-    public CascadingMenuPopup(Context context, View view2, int i, int i2, boolean z) {
+    public CascadingMenuPopup(@NonNull Context context, @NonNull View view2, @AttrRes int i, @StyleRes int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -293,7 +297,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
             }
 
             @Override // androidx.appcompat.widget.MenuItemHoverListener
-            public void onItemHoverEnter(MenuBuilder menuBuilder, MenuItem menuItem) {
+            public void onItemHoverEnter(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, menuBuilder, menuItem) == null) {
                     CascadingMenuInfo cascadingMenuInfo = null;
@@ -367,7 +371,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
             }
 
             @Override // androidx.appcompat.widget.MenuItemHoverListener
-            public void onItemHoverExit(MenuBuilder menuBuilder, MenuItem menuItem) {
+            public void onItemHoverExit(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItem) == null) {
                     this.this$0.mSubMenuHoverHandler.removeCallbacksAndMessages(menuBuilder);
@@ -445,7 +449,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         }
     }
 
-    private int findIndexOfAddedMenu(MenuBuilder menuBuilder) {
+    private int findIndexOfAddedMenu(@NonNull MenuBuilder menuBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, menuBuilder)) == null) {
@@ -474,7 +478,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setAnchorView(View view2) {
+    public void setAnchorView(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && this.mAnchorView != view2) {
             this.mAnchorView = view2;
@@ -551,7 +555,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         }
     }
 
-    private MenuItem findMenuItemForSubmenu(MenuBuilder menuBuilder, MenuBuilder menuBuilder2) {
+    private MenuItem findMenuItemForSubmenu(@NonNull MenuBuilder menuBuilder, @NonNull MenuBuilder menuBuilder2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, menuBuilder, menuBuilder2)) == null) {
@@ -567,7 +571,8 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         return (MenuItem) invokeLL.objValue;
     }
 
-    private View findParentViewForSubmenu(CascadingMenuInfo cascadingMenuInfo, MenuBuilder menuBuilder) {
+    @Nullable
+    private View findParentViewForSubmenu(@NonNull CascadingMenuInfo cascadingMenuInfo, @NonNull MenuBuilder menuBuilder) {
         InterceptResult invokeLL;
         MenuAdapter menuAdapter;
         int i;
@@ -672,7 +677,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
         return invokeI.intValue;
     }
 
-    private void showMenu(MenuBuilder menuBuilder) {
+    private void showMenu(@NonNull MenuBuilder menuBuilder) {
         CascadingMenuInfo cascadingMenuInfo;
         View view2;
         boolean z;

@@ -43,7 +43,7 @@ public class ParamsUtil implements NoProguard {
 
     /* renamed from: com.baidu.sapi2.utils.ParamsUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class ParamsUtil implements NoProguard {
         }
     }
 
-    public static String addExtras(String str, Map map) {
+    public static String addExtras(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
@@ -176,7 +176,7 @@ public class ParamsUtil implements NoProguard {
         return (String) invokeLZ.objValue;
     }
 
-    public static List buildLoginStatusCookie(String str, SapiConfiguration sapiConfiguration) {
+    public static List<HttpCookie> buildLoginStatusCookie(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class ParamsUtil implements NoProguard {
         return (List) invokeLL.objValue;
     }
 
-    public static List buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
+    public static List<HttpCookie> buildNaCookie(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         String wapDomain;
         Interceptable interceptable = $ic;

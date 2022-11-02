@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public class NoTransition implements Transition {
+public class NoTransition<R> implements Transition<R> {
     public static /* synthetic */ Interceptable $ic;
-    public static final NoTransition NO_ANIMATION;
-    public static final TransitionFactory NO_ANIMATION_FACTORY;
+    public static final NoTransition<?> NO_ANIMATION;
+    public static final TransitionFactory<?> NO_ANIMATION_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.bumptech.glide.request.transition.Transition
@@ -27,7 +27,7 @@ public class NoTransition implements Transition {
     }
 
     /* loaded from: classes7.dex */
-    public class NoAnimationFactory implements TransitionFactory {
+    public static class NoAnimationFactory<R> implements TransitionFactory<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public class NoTransition implements Transition {
         }
 
         @Override // com.bumptech.glide.request.transition.TransitionFactory
-        public Transition build(DataSource dataSource, boolean z) {
+        public Transition<R> build(DataSource dataSource, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {
@@ -69,7 +69,7 @@ public class NoTransition implements Transition {
                 return;
             }
         }
-        NO_ANIMATION = new NoTransition();
+        NO_ANIMATION = new NoTransition<>();
         NO_ANIMATION_FACTORY = new NoAnimationFactory();
     }
 
@@ -87,7 +87,7 @@ public class NoTransition implements Transition {
         }
     }
 
-    public static Transition get() {
+    public static <R> Transition<R> get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -96,11 +96,11 @@ public class NoTransition implements Transition {
         return (Transition) invokeV.objValue;
     }
 
-    public static TransitionFactory getFactory() {
+    public static <R> TransitionFactory<R> getFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return NO_ANIMATION_FACTORY;
+            return (TransitionFactory<R>) NO_ANIMATION_FACTORY;
         }
         return (TransitionFactory) invokeV.objValue;
     }

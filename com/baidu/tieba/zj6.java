@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface zj6 {
-    void a(int i);
+    void W();
 
-    void cancel();
+    void b0();
+
+    void t();
+
+    void y();
 }

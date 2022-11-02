@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -44,7 +45,7 @@ public class NpsLoadChainLog {
     public UBCManager ubcManager;
 
     /* loaded from: classes2.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -749,7 +750,7 @@ public class NpsLoadChainLog {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    public void yyMinilibUbc(String str, long j, Boolean bool, String str2) {
+    public void yyMinilibUbc(String str, long j, @Nullable Boolean bool, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Long.valueOf(j), bool, str2}) == null) {
             if (bool == null) {

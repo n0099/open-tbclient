@@ -3,51 +3,56 @@ package tv.athena.revenue.payui.view;
 import android.app.Activity;
 import android.view.View;
 import android.view.Window;
-import com.baidu.tieba.e5a;
-import com.baidu.tieba.f6a;
+import androidx.annotation.Keep;
+import com.baidu.tieba.n6a;
+import com.baidu.tieba.o7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
+@Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends f6a {
+public interface IYYPayAmountView extends o7a {
 
+    @Keep
     /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i, String str);
 
-        void showInputNumberDialog(Activity activity, List list, String str);
+        void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str);
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(e5a e5aVar, List list, String str);
+        void toPayWayDialog(n6a n6aVar, List<PayWayInfo> list, String str);
     }
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.f6a
+    @Override // com.baidu.tieba.o7a
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);
 
+    @Keep
     /* loaded from: classes9.dex */
-    public class ViewParams {
+    public static class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AppCustomExpand appCustomExpand;
-        public Map clientInfoExpand;
+        public Map<String, String> clientInfoExpand;
         public boolean closeOnSuccess;
         public String payAmountDialogTitle;
         public PayScene payScene;

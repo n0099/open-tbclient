@@ -1,6 +1,7 @@
 package com.ss.android.socialbase.downloader.f;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -10,7 +11,7 @@ public class q {
     public final String b;
     public final String c;
     public final boolean d;
-    public final List e;
+    public final List<m> e;
     public int f;
     public boolean g;
     public int h;
@@ -58,7 +59,7 @@ public class q {
         }
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         if (this == obj) {
             return true;
         }

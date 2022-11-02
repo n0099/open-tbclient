@@ -46,7 +46,7 @@ public final class FeatureCodes {
         }
     }
 
-    public static List getAll() {
+    public static List<Integer> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {

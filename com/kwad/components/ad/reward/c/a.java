@@ -1,5 +1,6 @@
 package com.kwad.components.ad.reward.c;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,10 +13,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public final class a implements KsInnerAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final AdTemplate mAdTemplate;
     public final int oQ;
 
-    public a(AdTemplate adTemplate, int i) {
+    public a(@NonNull AdTemplate adTemplate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,6 +36,7 @@ public final class a implements KsInnerAd {
         this.oQ = i;
     }
 
+    @NonNull
     public final AdTemplate getAdTemplate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

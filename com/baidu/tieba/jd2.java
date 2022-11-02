@@ -8,22 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class jd2 implements qo2 {
+public class jd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue c;
+    public final Map<Integer, Integer> a;
 
     /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final jd2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,17 +25,17 @@ public class jd2 implements qo2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-693678765, "Lcom/baidu/tieba/jd2$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-693678796, "Lcom/baidu/tieba/jd2$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-693678765, "Lcom/baidu/tieba/jd2$b;");
+                    classClinitInterceptable.invokePostClinit(-693678796, "Lcom/baidu/tieba/jd2$a;");
                     return;
                 }
             }
-            a = new jd2(null);
+            a = new jd2();
         }
     }
 
@@ -58,59 +52,40 @@ public class jd2 implements qo2 {
                 return;
             }
         }
-        this.c = new ConcurrentLinkedQueue();
+        this.a = new ConcurrentHashMap();
     }
 
     public static jd2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
         return (jd2) invokeV.objValue;
     }
 
-    public synchronized void a() {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.c.clear();
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            e12.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
         }
     }
 
-    public /* synthetic */ jd2(a aVar) {
-        this();
-    }
-
-    public synchronized void c(kd2 kd2Var, String str) {
+    public int c(int i) {
+        InterceptResult invokeI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kd2Var, str) == null) {
-            synchronized (this) {
-                while (this.c.size() > 0) {
-                    kd2 kd2Var2 = (kd2) this.c.peek();
-                    if (kd2Var2 == null) {
-                        this.c.remove();
-                    } else if (kd2Var2.a()) {
-                        break;
-                    } else {
-                        this.c.remove();
-                    }
-                }
-                int size = this.c.size();
-                if (size == 0) {
-                    this.c.offer(kd2Var);
-                    gh3.g0(kd2Var);
-                } else {
-                    kd2 kd2Var3 = (kd2) this.c.peek();
-                    this.c.offer(kd2Var);
-                    if (size == 1 && kd2Var3 != null && kd2Var3.b(str)) {
-                        gh3.g0(kd2Var);
-                    } else {
-                        gh3.q().post(kd2Var);
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
             }
+            e12.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
+            return i2;
         }
+        return invokeI.intValue;
     }
 }

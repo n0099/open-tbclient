@@ -17,11 +17,11 @@ import tbclient.Error;
 import tbclient.GetHistoryForum.DataRes;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList mForumData;
+    public LinkedList<VisitedForumData> mForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentlyVisitedForumHttpResponseMessage() {
@@ -41,7 +41,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
         }
     }
 
-    public LinkedList getForumData() {
+    public LinkedList<VisitedForumData> getForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -71,7 +71,7 @@ public class RecentlyVisitedForumHttpResponseMessage extends HttpResponsedMessag
             setErrorString(getHistoryForumResIdl.error.usermsg);
         }
         if (getError() == 0 && (dataRes = getHistoryForumResIdl.data) != null && dataRes.history_forum != null) {
-            this.mForumData = new LinkedList();
+            this.mForumData = new LinkedList<>();
             HashMap hashMap = new HashMap();
             if (!ListUtils.isEmpty(getHistoryForumResIdl.data.this_week_forums)) {
                 for (HistoryForumInfo historyForumInfo : getHistoryForumResIdl.data.this_week_forums) {

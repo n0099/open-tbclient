@@ -12,7 +12,7 @@ public final class w {
         this.amr = !(eVar instanceof f);
     }
 
-    private List du(String str) {
+    private List<? extends t> du(String str) {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(this.amq.M("tEXt", str));
         arrayList.addAll(this.amq.M("zTXt", str));
@@ -21,7 +21,7 @@ public final class w {
     }
 
     public final String dv(String str) {
-        List<t> du = du(str);
+        List<? extends t> du = du(str);
         if (du.isEmpty()) {
             return "";
         }

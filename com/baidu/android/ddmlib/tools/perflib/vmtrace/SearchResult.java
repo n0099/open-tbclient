@@ -1,5 +1,6 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,10 +12,10 @@ import java.util.Set;
 public class SearchResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set mInstances;
-    public final Set mMethods;
+    public final Set<Call> mInstances;
+    public final Set<MethodInfo> mMethods;
 
-    public SearchResult(Set set, Set set2) {
+    public SearchResult(@NonNull Set<MethodInfo> set, @NonNull Set<Call> set2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,7 +34,8 @@ public class SearchResult {
         this.mInstances = set2;
     }
 
-    public Set getInstances() {
+    @NonNull
+    public Set<Call> getInstances() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,7 +44,8 @@ public class SearchResult {
         return (Set) invokeV.objValue;
     }
 
-    public Set getMethods() {
+    @NonNull
+    public Set<MethodInfo> getMethods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

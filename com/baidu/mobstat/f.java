@@ -38,7 +38,7 @@ public class f {
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -73,7 +73,7 @@ public class f {
                 try {
                     jSONObject.put("n", this.a);
                     jSONObject.put("v", this.b);
-                    jSONObject.put("w", this.c);
+                    jSONObject.put(Config.DEVICE_WIDTH, this.c);
                     return jSONObject;
                 } catch (JSONException e) {
                     ba.c().b(e);
@@ -148,7 +148,7 @@ public class f {
         return (String) invokeLL.objValue;
     }
 
-    private ArrayList a(Context context, int i) {
+    private ArrayList<a> a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, context, i)) == null) {
@@ -160,7 +160,7 @@ public class f {
         return (ArrayList) invokeLI.objValue;
     }
 
-    private void a(Context context, ArrayList arrayList, boolean z) {
+    private void a(Context context, ArrayList<a> arrayList, boolean z) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList, z) == null) {
@@ -169,9 +169,9 @@ public class f {
             sb.append(z ? 1 : 0);
             try {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = arrayList.iterator();
+                Iterator<a> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    JSONObject a2 = ((a) it.next()).a();
+                    JSONObject a2 = it.next().a();
                     if (a2 != null) {
                         jSONArray.put(a2);
                     }
@@ -191,11 +191,11 @@ public class f {
     }
 
     private void a(Context context, boolean z, int i) {
-        ArrayList a2;
+        ArrayList<a> a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (a2 = a(context, i)) != null && a2.size() != 0) {
             if (z) {
-                String b = ((a) a2.get(0)).b();
+                String b = a2.get(0).b();
                 if (a(b, this.b)) {
                     this.b = b;
                 }
@@ -216,7 +216,7 @@ public class f {
         return invokeLL.booleanValue;
     }
 
-    private ArrayList b(Context context, int i) {
+    private ArrayList<a> b(Context context, int i) {
         InterceptResult invokeLI;
         List<ActivityManager.RunningTaskInfo> list;
         Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public class f {
                 list = null;
             }
             if (list == null) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             for (ActivityManager.RunningTaskInfo runningTaskInfo : list) {
@@ -243,19 +243,19 @@ public class f {
                     }
                 }
             }
-            return new ArrayList(linkedHashMap.values());
+            return new ArrayList<>(linkedHashMap.values());
         }
         return (ArrayList) invokeLI.objValue;
     }
 
-    private ArrayList c(Context context, int i) {
+    private ArrayList<a> c(Context context, int i) {
         InterceptResult invokeLI;
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, this, context, i)) == null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses == null) {
-                return new ArrayList();
+                return new ArrayList<>();
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
@@ -267,7 +267,7 @@ public class f {
                     }
                 }
             }
-            return new ArrayList(linkedHashMap.values());
+            return new ArrayList<>(linkedHashMap.values());
         }
         return (ArrayList) invokeLI.objValue;
     }

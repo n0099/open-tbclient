@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.request.model;
-/* loaded from: classes7.dex */
+
+import com.ksad.json.annotation.KsJson;
+@KsJson
+/* loaded from: classes8.dex */
 public class f extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public long acW;
     public int adStyle;

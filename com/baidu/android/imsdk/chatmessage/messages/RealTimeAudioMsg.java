@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RealTimeAudioMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -37,7 +37,7 @@ public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGu
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeAudioMsg.1
+        CREATOR = new Parcelable.Creator<RealTimeAudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.RealTimeAudioMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,6 +56,7 @@ public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGu
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RealTimeAudioMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -67,6 +68,7 @@ public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGu
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RealTimeAudioMsg[] newArray(int i) {
                 InterceptResult invokeI;

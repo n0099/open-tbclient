@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class VideoChannelHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mVideoItemDatas;
+    public ArrayList<VideoItemData> mVideoItemDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoChannelHttpResponseMessage() {
@@ -35,7 +35,7 @@ public class VideoChannelHttpResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
         }
-        this.mVideoItemDatas = new ArrayList();
+        this.mVideoItemDatas = new ArrayList<>();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -43,7 +43,7 @@ public class VideoChannelHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getError() == 0 && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("thread_list")) != null && optJSONArray.length() > 0) {
-            this.mVideoItemDatas = new ArrayList();
+            this.mVideoItemDatas = new ArrayList<>();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 VideoItemData videoItemData = new VideoItemData();
                 videoItemData.parseFeedJson(optJSONArray.optString(i2), "");
@@ -52,7 +52,7 @@ public class VideoChannelHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getVideoItemDatas() {
+    public List<VideoItemData> getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

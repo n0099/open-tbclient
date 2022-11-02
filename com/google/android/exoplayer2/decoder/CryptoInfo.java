@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.decoder;
 
+import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,13 +26,14 @@ public final class CryptoInfo {
 
     /* renamed from: com.google.android.exoplayer2.decoder.CryptoInfo$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @TargetApi(24)
     /* loaded from: classes7.dex */
-    public final class PatternHolderV24 {
+    public static final class PatternHolderV24 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaCodec.CryptoInfo frameworkCryptoInfo;
@@ -93,6 +95,7 @@ public final class CryptoInfo {
         this.patternHolder = Util.SDK_INT >= 24 ? new PatternHolderV24(cryptoInfo, null) : null;
     }
 
+    @TargetApi(16)
     private void updateFrameworkCryptoInfoV16() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
@@ -110,6 +113,7 @@ public final class CryptoInfo {
         }
     }
 
+    @TargetApi(16)
     private MediaCodec.CryptoInfo newFrameworkCryptoInfoV16() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -119,6 +123,7 @@ public final class CryptoInfo {
         return (MediaCodec.CryptoInfo) invokeV.objValue;
     }
 
+    @TargetApi(16)
     public MediaCodec.CryptoInfo getFrameworkCryptoInfoV16() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

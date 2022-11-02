@@ -1,6 +1,8 @@
 package androidx.customview.widget;
 
 import android.graphics.Rect;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,15 +18,15 @@ public class FocusStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public interface BoundsAdapter {
-        void obtainBounds(Object obj, Rect rect);
+    public interface BoundsAdapter<T> {
+        void obtainBounds(T t, Rect rect);
     }
 
     /* loaded from: classes.dex */
-    public interface CollectionAdapter {
-        Object get(Object obj, int i);
+    public interface CollectionAdapter<T, V> {
+        V get(T t, int i);
 
-        int size(Object obj);
+        int size(T t);
     }
 
     public static int getWeightedDistanceFor(int i, int i2) {
@@ -136,7 +138,7 @@ public class FocusStrategy {
         }
     }
 
-    public static boolean beamBeats(int i, Rect rect, Rect rect2, Rect rect3) {
+    public static boolean beamBeats(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), rect, rect2, rect3})) == null) {
@@ -152,7 +154,7 @@ public class FocusStrategy {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isBetterCandidate(int i, Rect rect, Rect rect2, Rect rect3) {
+    public static boolean isBetterCandidate(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), rect, rect2, rect3})) == null) {
@@ -170,7 +172,7 @@ public class FocusStrategy {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean beamsOverlap(int i, Rect rect, Rect rect2) {
+    public static boolean beamsOverlap(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, rect, rect2)) == null) {
@@ -195,7 +197,7 @@ public class FocusStrategy {
         return invokeILL.booleanValue;
     }
 
-    public static boolean isToDirectionOf(int i, Rect rect, Rect rect2) {
+    public static boolean isToDirectionOf(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65546, null, i, rect, rect2)) == null) {
@@ -228,7 +230,7 @@ public class FocusStrategy {
         return invokeILL.booleanValue;
     }
 
-    public static int minorAxisDistance(int i, Rect rect, Rect rect2) {
+    public static int minorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65551, null, i, rect, rect2)) == null) {
@@ -247,7 +249,7 @@ public class FocusStrategy {
         return invokeILL.intValue;
     }
 
-    public static <L, T> T findNextFocusInAbsoluteDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, Rect rect, int i) {
+    public static <L, T> T findNextFocusInAbsoluteDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, @NonNull Rect rect, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{l, collectionAdapter, boundsAdapter, t, rect, Integer.valueOf(i)})) == null) {
@@ -273,12 +275,12 @@ public class FocusStrategy {
             int size = collectionAdapter.size(l);
             Rect rect3 = new Rect();
             for (int i2 = 0; i2 < size; i2++) {
-                Object obj = collectionAdapter.get(l, i2);
-                if (obj != t) {
-                    boundsAdapter.obtainBounds(obj, rect3);
+                T t3 = collectionAdapter.get(l, i2);
+                if (t3 != t) {
+                    boundsAdapter.obtainBounds(t3, rect3);
                     if (isBetterCandidate(i, rect, rect3, rect2)) {
                         rect2.set(rect3);
-                        t2 = (T) obj;
+                        t2 = t3;
                     }
                 }
             }
@@ -287,7 +289,7 @@ public class FocusStrategy {
         return (T) invokeCommon.objValue;
     }
 
-    public static <L, T> T findNextFocusInRelativeDirection(L l, CollectionAdapter<L, T> collectionAdapter, BoundsAdapter<T> boundsAdapter, T t, int i, boolean z, boolean z2) {
+    public static <L, T> T findNextFocusInRelativeDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{l, collectionAdapter, boundsAdapter, t, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -354,7 +356,7 @@ public class FocusStrategy {
         return (T) invokeLLZ.objValue;
     }
 
-    public static int majorAxisDistanceRaw(int i, Rect rect, Rect rect2) {
+    public static int majorAxisDistanceRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         int i2;
         int i3;
@@ -386,7 +388,7 @@ public class FocusStrategy {
         return invokeILL.intValue;
     }
 
-    public static int majorAxisDistanceToFarEdgeRaw(int i, Rect rect, Rect rect2) {
+    public static int majorAxisDistanceToFarEdgeRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         int i2;
         int i3;
@@ -418,7 +420,7 @@ public class FocusStrategy {
         return invokeILL.intValue;
     }
 
-    public static boolean isCandidate(Rect rect, Rect rect2, int i) {
+    public static boolean isCandidate(@NonNull Rect rect, @NonNull Rect rect2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, rect, rect2, i)) == null) {
@@ -459,7 +461,7 @@ public class FocusStrategy {
         return invokeLLI.booleanValue;
     }
 
-    public static int majorAxisDistance(int i, Rect rect, Rect rect2) {
+    public static int majorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65547, null, i, rect, rect2)) == null) {
@@ -468,7 +470,7 @@ public class FocusStrategy {
         return invokeILL.intValue;
     }
 
-    public static int majorAxisDistanceToFarEdge(int i, Rect rect, Rect rect2) {
+    public static int majorAxisDistanceToFarEdge(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(65549, null, i, rect, rect2)) == null) {

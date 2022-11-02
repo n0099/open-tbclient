@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message.chat;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class OfficialChatMessage extends ChatMessage {
                 builder.toUid = Long.valueOf(getToUserId());
                 builder.msgType = Integer.valueOf(getMsgType());
                 builder.recordId = Long.valueOf(getRecordId());
-                if (eh.g(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
+                if (wg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != getUserInfo().getUserIdLong()) {
                     userType = getUserInfo().getUserType();
                 } else {
                     userType = getToUserInfo().getUserType();

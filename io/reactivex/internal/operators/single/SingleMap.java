@@ -13,20 +13,20 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
 /* loaded from: classes8.dex */
-public final class SingleMap extends Single {
+public final class SingleMap<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function mapper;
-    public final SingleSource source;
+    public final Function<? super T, ? extends R> mapper;
+    public final SingleSource<? extends T> source;
 
     /* loaded from: classes8.dex */
-    public final class MapSingleObserver implements SingleObserver {
+    public static final class MapSingleObserver<T, R> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Function mapper;
-        public final SingleObserver t;
+        public final Function<? super T, ? extends R> mapper;
+        public final SingleObserver<? super R> t;
 
-        public MapSingleObserver(SingleObserver singleObserver, Function function) {
+        public MapSingleObserver(SingleObserver<? super R> singleObserver, Function<? super T, ? extends R> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,11 +62,11 @@ public final class SingleMap extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
                 try {
-                    this.t.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper function returned a null value."));
+                    this.t.onSuccess(ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     onError(th);
@@ -75,7 +75,7 @@ public final class SingleMap extends Single {
         }
     }
 
-    public SingleMap(SingleSource singleSource, Function function) {
+    public SingleMap(SingleSource<? extends T> singleSource, Function<? super T, ? extends R> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public final class SingleMap extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super R> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new MapSingleObserver(singleObserver, this.mapper));

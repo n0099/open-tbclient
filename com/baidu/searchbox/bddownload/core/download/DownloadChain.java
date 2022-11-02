@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.download;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -40,20 +42,24 @@ public class DownloadChain implements Runnable {
     public static final String TAG = "DownloadChain";
     public transient /* synthetic */ FieldHolder $fh;
     public final int blockIndex;
+    @NonNull
     public final DownloadCache cache;
     public final CallbackDispatcher callbackDispatcher;
     public int connectIndex;
-    public final List connectInterceptorList;
+    public final List<Interceptor.Connect> connectInterceptorList;
     public volatile DownloadConnection connection;
     public volatile Thread currentThread;
     public int fetchIndex;
-    public final List fetchInterceptorList;
+    public final List<Interceptor.Fetch> fetchInterceptorList;
     public final AtomicBoolean finished;
+    @NonNull
     public final BreakpointInfo info;
     public long noCallbackIncreaseBytes;
     public final Runnable releaseConnectionRunnable;
     public long responseContentLength;
+    @NonNull
     public final DownloadStore store;
+    @NonNull
     public final DownloadTask task;
 
     static {
@@ -94,7 +100,7 @@ public class DownloadChain implements Runnable {
         }
     }
 
-    public DownloadChain(int i, DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadCache downloadCache, DownloadStore downloadStore) {
+    public DownloadChain(int i, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +159,7 @@ public class DownloadChain implements Runnable {
         this.callbackDispatcher = BdDownload.with().callbackDispatcher();
     }
 
-    public static DownloadChain createChain(int i, DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadCache downloadCache, DownloadStore downloadStore) {
+    public static DownloadChain createChain(int i, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), downloadTask, breakpointInfo, downloadCache, downloadStore})) == null) {
@@ -187,6 +193,7 @@ public class DownloadChain implements Runnable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public DownloadCache getCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -196,6 +203,7 @@ public class DownloadChain implements Runnable {
         return (DownloadCache) invokeV.objValue;
     }
 
+    @Nullable
     public synchronized DownloadConnection getConnection() {
         InterceptResult invokeV;
         DownloadConnection downloadConnection;
@@ -209,6 +217,7 @@ public class DownloadChain implements Runnable {
         return (DownloadConnection) invokeV.objValue;
     }
 
+    @NonNull
     public DownloadStore getDownloadStore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,6 +227,7 @@ public class DownloadChain implements Runnable {
         return (DownloadStore) invokeV.objValue;
     }
 
+    @NonNull
     public BreakpointInfo getInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,6 +255,7 @@ public class DownloadChain implements Runnable {
         return invokeV.longValue;
     }
 
+    @NonNull
     public DownloadTask getTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,10 +291,10 @@ public class DownloadChain implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (!this.cache.isInterrupt()) {
-                List list = this.connectInterceptorList;
+                List<Interceptor.Connect> list = this.connectInterceptorList;
                 int i = this.connectIndex;
                 this.connectIndex = i + 1;
-                return ((Interceptor.Connect) list.get(i)).interceptConnect(this);
+                return list.get(i).interceptConnect(this);
             }
             throw InterruptException.SIGNAL;
         }
@@ -295,10 +306,10 @@ public class DownloadChain implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (!this.cache.isInterrupt()) {
-                List list = this.fetchInterceptorList;
+                List<Interceptor.Fetch> list = this.fetchInterceptorList;
                 int i = this.fetchIndex;
                 this.fetchIndex = i + 1;
-                return ((Interceptor.Fetch) list.get(i)).interceptFetch(this);
+                return list.get(i).interceptFetch(this);
             }
             throw InterruptException.SIGNAL;
         }
@@ -320,6 +331,7 @@ public class DownloadChain implements Runnable {
         }
     }
 
+    @NonNull
     public synchronized DownloadConnection getConnectionOrCreate() throws IOException {
         InterceptResult invokeV;
         DownloadConnection downloadConnection;
@@ -365,7 +377,7 @@ public class DownloadChain implements Runnable {
         }
     }
 
-    public synchronized void setConnection(DownloadConnection downloadConnection) {
+    public synchronized void setConnection(@NonNull DownloadConnection downloadConnection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, downloadConnection) == null) {
             synchronized (this) {

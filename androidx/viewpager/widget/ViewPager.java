@@ -26,6 +26,11 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.Scroller;
+import androidx.annotation.CallSuper;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -133,8 +138,8 @@ public class ViewPager extends ViewGroup {
     public int mTouchSlop;
     public VelocityTracker mVelocityTracker;
 
-    @Inherited
     @Target({ElementType.TYPE})
+    @Inherited
     @Retention(RetentionPolicy.RUNTIME)
     /* loaded from: classes.dex */
     public @interface DecorView {
@@ -142,21 +147,21 @@ public class ViewPager extends ViewGroup {
 
     /* loaded from: classes.dex */
     public interface OnAdapterChangeListener {
-        void onAdapterChanged(ViewPager viewPager, PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
+        void onAdapterChanged(@NonNull ViewPager viewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2);
     }
 
     /* loaded from: classes.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
-        void onPageScrolled(int i, float f, int i2);
+        void onPageScrolled(int i, float f, @Px int i2);
 
         void onPageSelected(int i);
     }
 
     /* loaded from: classes.dex */
     public interface PageTransformer {
-        void transformPage(View view2, float f);
+        void transformPage(@NonNull View view2, float f);
     }
 
     /* loaded from: classes.dex */
@@ -480,7 +485,7 @@ public class ViewPager extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcelable parcelable) {
+        public SavedState(@NonNull Parcelable parcelable) {
             super(parcelable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -709,7 +714,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager(Context context) {
+    public ViewPager(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -817,7 +822,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public boolean executeKeyEvent(KeyEvent keyEvent) {
+    public boolean executeKeyEvent(@NonNull KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, keyEvent)) == null) {
@@ -850,7 +855,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ViewPager(Context context, AttributeSet attributeSet) {
+    public ViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1177,7 +1182,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setPageTransformer(boolean z, PageTransformer pageTransformer, int i) {
+    public void setPageTransformer(boolean z, @Nullable PageTransformer pageTransformer, int i) {
         boolean z2;
         boolean z3;
         boolean z4;
@@ -1390,7 +1395,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public static boolean isDecorView(View view2) {
+    public static boolean isDecorView(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view2)) == null) {
@@ -1417,7 +1422,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void addOnAdapterChangeListener(OnAdapterChangeListener onAdapterChangeListener) {
+    public void addOnAdapterChangeListener(@NonNull OnAdapterChangeListener onAdapterChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onAdapterChangeListener) == null) {
             if (this.mAdapterChangeListeners == null) {
@@ -1427,7 +1432,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void addOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+    public void addOnPageChangeListener(@NonNull OnPageChangeListener onPageChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onPageChangeListener) == null) {
             if (this.mOnPageChangeListeners == null) {
@@ -1517,7 +1522,7 @@ public class ViewPager extends ViewGroup {
         return (ItemInfo) invokeI.objValue;
     }
 
-    public void removeOnAdapterChangeListener(OnAdapterChangeListener onAdapterChangeListener) {
+    public void removeOnAdapterChangeListener(@NonNull OnAdapterChangeListener onAdapterChangeListener) {
         List<OnAdapterChangeListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048627, this, onAdapterChangeListener) == null) && (list = this.mAdapterChangeListeners) != null) {
@@ -1525,7 +1530,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void removeOnPageChangeListener(OnPageChangeListener onPageChangeListener) {
+    public void removeOnPageChangeListener(@NonNull OnPageChangeListener onPageChangeListener) {
         List<OnPageChangeListener> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048628, this, onPageChangeListener) == null) && (list = this.mOnPageChangeListeners) != null) {
@@ -1583,7 +1588,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setPageMarginDrawable(int i) {
+    public void setPageMarginDrawable(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
             setPageMarginDrawable(ContextCompat.getDrawable(getContext(), i));
@@ -1687,6 +1692,7 @@ public class ViewPager extends ViewGroup {
         return (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
+    @Nullable
     public PagerAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2227,7 +2233,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setAdapter(PagerAdapter pagerAdapter) {
+    public void setAdapter(@Nullable PagerAdapter pagerAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, pagerAdapter) == null) {
             PagerAdapter pagerAdapter2 = this.mAdapter;
@@ -2671,7 +2677,7 @@ public class ViewPager extends ViewGroup {
         return (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public void setPageMarginDrawable(Drawable drawable) {
+    public void setPageMarginDrawable(@Nullable Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, drawable) == null) {
@@ -2710,7 +2716,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    public void setPageTransformer(boolean z, PageTransformer pageTransformer) {
+    public void setPageTransformer(boolean z, @Nullable PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048641, this, z, pageTransformer) == null) {
             setPageTransformer(z, pageTransformer, 2);
@@ -2946,6 +2952,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x0068  */
+    @CallSuper
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

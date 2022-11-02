@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.resource.transcode;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.Resource;
 /* loaded from: classes7.dex */
-public class UnitTranscoder implements ResourceTranscoder {
+public class UnitTranscoder<Z> implements ResourceTranscoder<Z, Z> {
     public static /* synthetic */ Interceptable $ic;
-    public static final UnitTranscoder UNIT_TRANSCODER;
+    public static final UnitTranscoder<?> UNIT_TRANSCODER;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.bumptech.glide.load.resource.transcode.ResourceTranscoder
-    public Resource transcode(Resource resource, Options options) {
+    @Nullable
+    public Resource<Z> transcode(@NonNull Resource<Z> resource, @NonNull Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, resource, options)) == null) ? resource : (Resource) invokeLL.objValue;
@@ -35,7 +38,7 @@ public class UnitTranscoder implements ResourceTranscoder {
                 return;
             }
         }
-        UNIT_TRANSCODER = new UnitTranscoder();
+        UNIT_TRANSCODER = new UnitTranscoder<>();
     }
 
     public UnitTranscoder() {
@@ -52,7 +55,7 @@ public class UnitTranscoder implements ResourceTranscoder {
         }
     }
 
-    public static ResourceTranscoder get() {
+    public static <Z> ResourceTranscoder<Z, Z> get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

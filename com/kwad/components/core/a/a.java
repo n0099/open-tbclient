@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +20,6 @@ import com.kwad.sdk.KsAdSDKImpl;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class a {
@@ -29,7 +30,7 @@ public class a {
 
     /* renamed from: com.kwad.components.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0558a extends SQLiteOpenHelper {
+    public static class C0569a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static int CU = 1;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0558a(Context context) {
+        public C0569a(@Nullable Context context) {
             super(context, "ksadcache.db", (SQLiteDatabase.CursorFactory) null, CU);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -106,19 +107,18 @@ public class a {
                 return;
             }
         }
-        this.CR = new C0558a(context).getWritableDatabase();
+        this.CR = new C0569a(context).getWritableDatabase();
     }
 
-    private void b(List list, String str) {
+    private <T extends h> void b(List<T> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, list, str) == null) {
             try {
                 try {
                     this.CR.beginTransaction();
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
+                    for (T t : list) {
                         try {
-                            long insertWithOnConflict = this.CR.insertWithOnConflict(str, null, ((h) it.next()).ma(), 5);
+                            long insertWithOnConflict = this.CR.insertWithOnConflict(str, null, t.ma(), 5);
                             com.kwad.sdk.core.e.b.d("AdCacheDBManager", "insertData: " + str + ", rowId: " + insertWithOnConflict);
                         } catch (Exception e) {
                             com.kwad.sdk.core.e.b.printStackTrace(e);
@@ -158,6 +158,7 @@ public class a {
         }
     }
 
+    @Nullable
     public static a lP() {
         InterceptResult invokeV;
         KsAdSDKImpl ksAdSDKImpl;
@@ -180,7 +181,9 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public final List a(String str, long j, int i) {
+    @Nullable
+    @WorkerThread
+    public final List<g> a(String str, long j, int i) {
         InterceptResult invokeCommon;
         Cursor cursor;
         Interceptable interceptable = $ic;
@@ -244,6 +247,7 @@ public class a {
         }
     }
 
+    @WorkerThread
     public final e af(String str) {
         InterceptResult invokeL;
         Throwable th;
@@ -254,9 +258,9 @@ public class a {
                 cursor = this.CR.rawQuery("select  * from ksad_ad_cache_strategy where posId=?", new String[]{str});
                 try {
                     try {
-                        List a = e.a(cursor);
+                        List<e> a = e.a(cursor);
                         if (a != null && a.size() > 0) {
-                            e eVar = (e) a.get(0);
+                            e eVar = a.get(0);
                             com.kwad.sdk.crash.utils.b.closeQuietly(cursor);
                             return eVar;
                         }
@@ -286,13 +290,15 @@ public class a {
         return (e) invokeL.objValue;
     }
 
-    public final void h(List list) {
+    @WorkerThread
+    public final void h(List<g> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             b(list, "ksad_ad_cache");
         }
     }
 
+    @WorkerThread
     public final void j(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
@@ -305,6 +311,7 @@ public class a {
         }
     }
 
+    @WorkerThread
     public final void lQ() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

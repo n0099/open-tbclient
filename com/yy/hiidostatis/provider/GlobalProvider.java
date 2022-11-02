@@ -18,8 +18,8 @@ public final class GlobalProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final GlobalProvider instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentMap classProvider;
-    public ConcurrentMap nameProvider;
+    public ConcurrentMap<Class, Provider> classProvider;
+    public ConcurrentMap<String, Provider> nameProvider;
 
     static {
         InterceptResult invokeClinit;
@@ -79,17 +79,17 @@ public final class GlobalProvider {
         return (GlobalProvider) invokeL.objValue;
     }
 
-    public Object get(Class cls, MessageConfig messageConfig) {
+    public <T> T get(Class cls, MessageConfig messageConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cls, messageConfig)) == null) {
-            Provider provider = (Provider) this.classProvider.get(cls);
+            Provider provider = this.classProvider.get(cls);
             if (provider != null) {
-                return provider.generate(messageConfig);
+                return (T) provider.generate(messageConfig);
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public void registerProvider(Class cls, Provider provider) {
@@ -99,17 +99,17 @@ public final class GlobalProvider {
         }
     }
 
-    public Object get(String str, MessageConfig messageConfig) {
+    public <T> T get(String str, MessageConfig messageConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, messageConfig)) == null) {
-            Provider provider = (Provider) this.nameProvider.get(str);
+            Provider provider = this.nameProvider.get(str);
             if (provider != null) {
-                return provider.generate(messageConfig);
+                return (T) provider.generate(messageConfig);
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public void registerProvider(String str, Provider provider) {

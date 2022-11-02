@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CriusUIIndicatorView extends CriusUI {
+public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwiperIndicatorView mIndicatorView;
@@ -49,7 +49,7 @@ public class CriusUIIndicatorView extends CriusUI {
             CriusData criusData = this.renderObject.parent;
             if (criusData != null && criusData.children != null) {
                 for (int i = 0; i < criusData.children.size(); i++) {
-                    CriusData criusData2 = (CriusData) criusData.children.get(i);
+                    CriusData criusData2 = criusData.children.get(i);
                     if (TextUtils.equals(NativeConstants.TYPE_SWIPER, criusData2.type) && TextUtils.equals(this.renderObject.indicatorAttrs.swiperId, criusData2.swiperAttrs.id)) {
                         return (ViewPager) criusData2.getUI().getView();
                     }
@@ -87,7 +87,7 @@ public class CriusUIIndicatorView extends CriusUI {
             CriusData criusData = this.renderObject;
             if (criusData != null && criusData.parent != null) {
                 if (criusData.indicatorAttrs.isHorizontalCenter) {
-                    if (((SwiperIndicatorView) getView()).getVisibility() == 8) {
+                    if (getView().getVisibility() == 8) {
                         return;
                     }
                     CriusData criusData2 = this.renderObject;

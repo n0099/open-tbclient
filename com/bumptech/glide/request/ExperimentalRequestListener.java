@@ -8,11 +8,11 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.target.Target;
 @Deprecated
 /* loaded from: classes7.dex */
-public abstract class ExperimentalRequestListener implements RequestListener {
+public abstract class ExperimentalRequestListener<ResourceT> implements RequestListener<ResourceT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract boolean onResourceReady(Object obj, Object obj2, Target target, DataSource dataSource, boolean z, boolean z2);
+    public abstract boolean onResourceReady(ResourceT resourcet, Object obj, Target<ResourceT> target, DataSource dataSource, boolean z, boolean z2);
 
     public ExperimentalRequestListener() {
         Interceptable interceptable = $ic;

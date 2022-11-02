@@ -55,7 +55,7 @@ public final class AtomParsers {
     }
 
     /* loaded from: classes7.dex */
-    public final class ChunkIterator {
+    public static final class ChunkIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableByteArray chunkOffsets;
@@ -130,7 +130,7 @@ public final class AtomParsers {
     }
 
     /* loaded from: classes7.dex */
-    public final class StsdData {
+    public static final class StsdData {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STSD_HEADER_SIZE = 8;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public final class AtomParsers {
     }
 
     /* loaded from: classes7.dex */
-    public final class StszSampleSizeBox implements SampleSizeBox {
+    public static final class StszSampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableByteArray data;
@@ -228,7 +228,7 @@ public final class AtomParsers {
     }
 
     /* loaded from: classes7.dex */
-    public final class Stz2SampleSizeBox implements SampleSizeBox {
+    public static final class Stz2SampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentByte;
@@ -305,7 +305,7 @@ public final class AtomParsers {
     }
 
     /* loaded from: classes7.dex */
-    public final class TkhdData {
+    public static final class TkhdData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long duration;
@@ -413,10 +413,10 @@ public final class AtomParsers {
         return (byte[]) invokeLII.objValue;
     }
 
-    public static Pair parseSampleEntryEncryptionData(ParsableByteArray parsableByteArray, int i, int i2) {
+    public static Pair<Integer, TrackEncryptionBox> parseSampleEntryEncryptionData(ParsableByteArray parsableByteArray, int i, int i2) {
         InterceptResult invokeLII;
         boolean z;
-        Pair parseCommonEncryptionSinfFromParent;
+        Pair<Integer, TrackEncryptionBox> parseCommonEncryptionSinfFromParent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65551, null, parsableByteArray, i, i2)) == null) {
             int position = parsableByteArray.getPosition();
@@ -488,7 +488,7 @@ public final class AtomParsers {
             List list = null;
             int i14 = i;
             if (i14 == Atom.TYPE_enca) {
-                Pair parseSampleEntryEncryptionData = parseSampleEntryEncryptionData(parsableByteArray, i13, i3);
+                Pair<Integer, TrackEncryptionBox> parseSampleEntryEncryptionData = parseSampleEntryEncryptionData(parsableByteArray, i13, i3);
                 if (parseSampleEntryEncryptionData != null) {
                     i14 = ((Integer) parseSampleEntryEncryptionData.first).intValue();
                     if (drmInitData3 == null) {
@@ -593,11 +593,11 @@ public final class AtomParsers {
                         findEsdsPosition = findEsdsPosition(parsableByteArray, i11, i10);
                     }
                     if (findEsdsPosition != -1) {
-                        Pair parseEsdsFromParent = parseEsdsFromParent(parsableByteArray, findEsdsPosition);
+                        Pair<String, byte[]> parseEsdsFromParent = parseEsdsFromParent(parsableByteArray, findEsdsPosition);
                         str6 = (String) parseEsdsFromParent.first;
                         bArr = (byte[]) parseEsdsFromParent.second;
                         if ("audio/mp4a-latm".equals(str6)) {
-                            Pair parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
+                            Pair<Integer, Integer> parseAacAudioSpecificConfig = CodecSpecificDataUtil.parseAacAudioSpecificConfig(bArr);
                             i17 = ((Integer) parseAacAudioSpecificConfig.first).intValue();
                             i16 = ((Integer) parseAacAudioSpecificConfig.second).intValue();
                         }
@@ -631,7 +631,7 @@ public final class AtomParsers {
         }
     }
 
-    public static Pair parseCommonEncryptionSinfFromParent(ParsableByteArray parsableByteArray, int i, int i2) {
+    public static Pair<Integer, TrackEncryptionBox> parseCommonEncryptionSinfFromParent(ParsableByteArray parsableByteArray, int i, int i2) {
         InterceptResult invokeLII;
         boolean z;
         boolean z2;
@@ -683,7 +683,7 @@ public final class AtomParsers {
         return (Pair) invokeLII.objValue;
     }
 
-    public static Pair parseEdts(Atom.ContainerAtom containerAtom) {
+    public static Pair<long[], long[]> parseEdts(Atom.ContainerAtom containerAtom) {
         InterceptResult invokeL;
         Atom.LeafAtom leafAtomOfType;
         long readUnsignedInt;
@@ -723,7 +723,7 @@ public final class AtomParsers {
         return (Pair) invokeL.objValue;
     }
 
-    public static Pair parseMdhd(ParsableByteArray parsableByteArray) {
+    public static Pair<Long, String> parseMdhd(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -748,7 +748,7 @@ public final class AtomParsers {
         return (Pair) invokeL.objValue;
     }
 
-    public static Pair parseEsdsFromParent(ParsableByteArray parsableByteArray, int i) {
+    public static Pair<String, byte[]> parseEsdsFromParent(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, parsableByteArray, i)) == null) {
@@ -1544,10 +1544,10 @@ public final class AtomParsers {
             }
             long j4 = j3;
             Atom.ContainerAtom containerAtomOfType2 = containerAtomOfType.getContainerAtomOfType(Atom.TYPE_minf).getContainerAtomOfType(Atom.TYPE_stbl);
-            Pair parseMdhd = parseMdhd(containerAtomOfType.getLeafAtomOfType(Atom.TYPE_mdhd).data);
+            Pair<Long, String> parseMdhd = parseMdhd(containerAtomOfType.getLeafAtomOfType(Atom.TYPE_mdhd).data);
             StsdData parseStsd = parseStsd(containerAtomOfType2.getLeafAtomOfType(Atom.TYPE_stsd).data, parseTkhd.id, parseTkhd.rotationDegrees, (String) parseMdhd.second, drmInitData, z2);
             if (!z) {
-                Pair parseEdts = parseEdts(containerAtom.getContainerAtomOfType(Atom.TYPE_edts));
+                Pair<long[], long[]> parseEdts = parseEdts(containerAtom.getContainerAtomOfType(Atom.TYPE_edts));
                 jArr2 = (long[]) parseEdts.second;
                 jArr = (long[]) parseEdts.first;
             } else {
@@ -1679,7 +1679,7 @@ public final class AtomParsers {
             String str2 = null;
             int i7 = i;
             if (i7 == Atom.TYPE_encv) {
-                Pair parseSampleEntryEncryptionData = parseSampleEntryEncryptionData(parsableByteArray, i2, i3);
+                Pair<Integer, TrackEncryptionBox> parseSampleEntryEncryptionData = parseSampleEntryEncryptionData(parsableByteArray, i2, i3);
                 if (parseSampleEntryEncryptionData != null) {
                     i7 = ((Integer) parseSampleEntryEncryptionData.first).intValue();
                     if (drmInitData2 == null) {
@@ -1692,7 +1692,7 @@ public final class AtomParsers {
                 parsableByteArray.setPosition(position);
             }
             DrmInitData drmInitData3 = drmInitData2;
-            List list = null;
+            List<byte[]> list = null;
             byte[] bArr = null;
             boolean z7 = false;
             float f = 1.0f;
@@ -1766,7 +1766,7 @@ public final class AtomParsers {
                         z2 = false;
                     }
                     Assertions.checkState(z2);
-                    Pair parseEsdsFromParent = parseEsdsFromParent(parsableByteArray, position2);
+                    Pair<String, byte[]> parseEsdsFromParent = parseEsdsFromParent(parsableByteArray, position2);
                     str2 = (String) parseEsdsFromParent.first;
                     list = Collections.singletonList(parseEsdsFromParent.second);
                 } else if (readInt2 == Atom.TYPE_pasp) {

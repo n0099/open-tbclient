@@ -3,6 +3,8 @@ package com.baidu.searchbox.player.element;
 import android.content.Context;
 import android.os.Message;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
@@ -29,6 +31,7 @@ public abstract class AbsElement implements IElement {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public ViewGroup.LayoutParams getLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +57,7 @@ public abstract class AbsElement implements IElement {
     }
 
     @Override // com.baidu.searchbox.player.element.IElement
-    public void onEventNotify(VideoEvent videoEvent) {
+    public void onEventNotify(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoEvent) == null) {
         }
@@ -105,6 +108,7 @@ public abstract class AbsElement implements IElement {
         return (Context) invokeV.objValue;
     }
 
+    @NonNull
     public ElementLayer getParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,7 +150,7 @@ public abstract class AbsElement implements IElement {
         }
     }
 
-    public void setParent(ElementLayer elementLayer) {
+    public void setParent(@NonNull ElementLayer elementLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, elementLayer) == null) {
             this.mParent = elementLayer;

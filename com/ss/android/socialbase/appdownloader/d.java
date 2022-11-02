@@ -20,7 +20,6 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -135,7 +134,7 @@ public class d {
         }
     }
 
-    public List b(Context context) {
+    public List<DownloadInfo> b(Context context) {
         return Downloader.getInstance(context).getDownloadingDownloadInfosWithMimeType("application/vnd.android.package-archive");
     }
 
@@ -191,13 +190,11 @@ public class d {
         return null;
     }
 
-    private List a(List list) {
+    private List<com.ss.android.socialbase.downloader.model.c> a(List<com.ss.android.socialbase.downloader.model.c> list) {
         ArrayList arrayList = new ArrayList();
         boolean z = false;
         if (list != null && list.size() > 0) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                com.ss.android.socialbase.downloader.model.c cVar = (com.ss.android.socialbase.downloader.model.c) it.next();
+            for (com.ss.android.socialbase.downloader.model.c cVar : list) {
                 if (cVar != null && !TextUtils.isEmpty(cVar.a()) && !TextUtils.isEmpty(cVar.b())) {
                     if (cVar.a().equals("User-Agent")) {
                         z = true;
@@ -301,7 +298,7 @@ public class d {
         DownloadInfo downloadInfo;
         if (fVar != null && fVar.getContext() != null) {
             try {
-                List a2 = a(fVar.d());
+                List<com.ss.android.socialbase.downloader.model.c> a2 = a(fVar.d());
                 String a3 = fVar.a();
                 if (TextUtils.isEmpty(a3)) {
                     return 0;
@@ -511,7 +508,7 @@ public class d {
         return str2;
     }
 
-    public List a(Context context) {
+    public List<DownloadInfo> a(Context context) {
         return Downloader.getInstance(context).getUnCompletedDownloadInfosWithMimeType("application/vnd.android.package-archive");
     }
 

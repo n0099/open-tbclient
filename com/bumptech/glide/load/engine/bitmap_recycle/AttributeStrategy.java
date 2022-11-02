@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,11 +14,12 @@ import com.bumptech.glide.util.Util;
 public class AttributeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final GroupedLinkedMap groupedMap;
+    public final GroupedLinkedMap<Key, Bitmap> groupedMap;
     public final KeyPool keyPool;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class Key implements Poolable {
+    public static class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap.Config config;
@@ -103,8 +105,9 @@ public class AttributeStrategy implements LruPoolStrategy {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class KeyPool extends BaseKeyPool {
+    public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,6 +126,7 @@ public class AttributeStrategy implements LruPoolStrategy {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
         public Key create() {
             InterceptResult invokeV;
@@ -137,7 +141,7 @@ public class AttributeStrategy implements LruPoolStrategy {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) {
-                Key key = (Key) get();
+                Key key = get();
                 key.init(i, i2, config);
                 return key;
             }
@@ -159,7 +163,7 @@ public class AttributeStrategy implements LruPoolStrategy {
             }
         }
         this.keyPool = new KeyPool();
-        this.groupedMap = new GroupedLinkedMap();
+        this.groupedMap = new GroupedLinkedMap<>();
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
@@ -167,7 +171,7 @@ public class AttributeStrategy implements LruPoolStrategy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (Bitmap) this.groupedMap.removeLast();
+            return this.groupedMap.removeLast();
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -232,7 +236,7 @@ public class AttributeStrategy implements LruPoolStrategy {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
-            return (Bitmap) this.groupedMap.get(this.keyPool.get(i, i2, config));
+            return this.groupedMap.get(this.keyPool.get(i, i2, config));
         }
         return (Bitmap) invokeIIL.objValue;
     }

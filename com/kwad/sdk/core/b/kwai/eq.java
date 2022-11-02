@@ -3,9 +3,10 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.kwad.components.ad.reward.monitor.RewardWebViewInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class eq implements com.kwad.sdk.core.d {
-    public static void a(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
+/* loaded from: classes8.dex */
+public final class eq implements com.kwad.sdk.core.d<RewardWebViewInfo> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -34,7 +35,8 @@ public final class eq implements com.kwad.sdk.core.d {
         rewardWebViewInfo.ratioCount = jSONObject.optDouble("ratio_count");
     }
 
-    public static JSONObject b(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -73,13 +75,15 @@ public final class eq implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((RewardWebViewInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
+        a2(rewardWebViewInfo, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((RewardWebViewInfo) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(RewardWebViewInfo rewardWebViewInfo, JSONObject jSONObject) {
+        return b2(rewardWebViewInfo, jSONObject);
     }
 }

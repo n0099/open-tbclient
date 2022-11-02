@@ -1,41 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class fk8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ek8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public static synchronized ek8 a() {
+        InterceptResult invokeV;
+        ek8 ek8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", str2);
-            int i = 1;
-            if (cw4.f() >= 1) {
-                i = 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (fk8.class) {
+                if (a == null) {
+                    a = new ek8();
+                }
+                ek8Var = a;
             }
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
+            return ek8Var;
         }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
-            statisticItem.param("obj_type", str);
-            int i = 1;
-            if (cw4.f() >= 1) {
-                i = 2;
-            }
-            statisticItem.param("obj_locate", i);
-            TiebaStatic.log(statisticItem);
-        }
+        return (ek8) invokeV.objValue;
     }
 }

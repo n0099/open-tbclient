@@ -13,6 +13,7 @@ import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -27,40 +28,41 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableSwitchMapSingle extends Flowable {
+public final class FlowableSwitchMapSingle<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function mapper;
-    public final Flowable source;
+    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class SwitchMapSingleSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class SwitchMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final SwitchMapSingleObserver INNER_DISPOSED;
+        public static final SwitchMapSingleObserver<Object> INNER_DISPOSED;
         public static final long serialVersionUID = -5402190102429853762L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public volatile boolean done;
-        public final Subscriber downstream;
+        public final Subscriber<? super R> downstream;
         public long emitted;
         public final AtomicThrowable errors;
-        public final AtomicReference inner;
-        public final Function mapper;
+        public final AtomicReference<SwitchMapSingleObserver<R>> inner;
+        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
         public final AtomicLong requested;
         public Subscription upstream;
 
         /* loaded from: classes8.dex */
-        public final class SwitchMapSingleObserver extends AtomicReference implements SingleObserver {
+        public static final class SwitchMapSingleObserver<R> extends AtomicReference<Disposable> implements SingleObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 8042919737683345351L;
             public transient /* synthetic */ FieldHolder $fh;
-            public volatile Object item;
-            public final SwitchMapSingleSubscriber parent;
+            public volatile R item;
+            public final SwitchMapSingleSubscriber<?, R> parent;
 
-            public SwitchMapSingleObserver(SwitchMapSingleSubscriber switchMapSingleSubscriber) {
+            public SwitchMapSingleObserver(SwitchMapSingleSubscriber<?, R> switchMapSingleSubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,10 +97,10 @@ public final class FlowableSwitchMapSingle extends Flowable {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(R r) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                    this.item = obj;
+                if (interceptable == null || interceptable.invokeL(1048579, this, r) == null) {
+                    this.item = r;
                     this.parent.drain();
                 }
             }
@@ -124,7 +126,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
                     return;
                 }
             }
-            INNER_DISPOSED = new SwitchMapSingleObserver(null);
+            INNER_DISPOSED = new SwitchMapSingleObserver<>(null);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -137,8 +139,10 @@ public final class FlowableSwitchMapSingle extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.FlowableSwitchMapSingle$SwitchMapSingleSubscriber$SwitchMapSingleObserver<R>> */
+        /* JADX WARN: Multi-variable type inference failed */
         public void disposeInner() {
-            SwitchMapSingleObserver switchMapSingleObserver;
+            SwitchMapSingleObserver<Object> switchMapSingleObserver;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (switchMapSingleObserver = (SwitchMapSingleObserver) this.inner.getAndSet(INNER_DISPOSED)) != null && switchMapSingleObserver != INNER_DISPOSED) {
                 switchMapSingleObserver.dispose();
@@ -154,7 +158,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
             }
         }
 
-        public SwitchMapSingleSubscriber(Subscriber subscriber, Function function, boolean z) {
+        public SwitchMapSingleSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,18 +178,19 @@ public final class FlowableSwitchMapSingle extends Flowable {
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
             this.requested = new AtomicLong();
-            this.inner = new AtomicReference();
+            this.inner = new AtomicReference<>();
         }
 
+        /* JADX DEBUG: Type inference failed for r8v6. Raw type applied. Possible types: R, ? super R */
         public void drain() {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.downstream;
+            Subscriber<? super R> subscriber = this.downstream;
             AtomicThrowable atomicThrowable = this.errors;
-            AtomicReference atomicReference = this.inner;
+            AtomicReference<SwitchMapSingleObserver<R>> atomicReference = this.inner;
             AtomicLong atomicLong = this.requested;
             long j = this.emitted;
             int i = 1;
@@ -195,7 +200,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
                     return;
                 }
                 boolean z2 = this.done;
-                SwitchMapSingleObserver switchMapSingleObserver = (SwitchMapSingleObserver) atomicReference.get();
+                SwitchMapSingleObserver<R> switchMapSingleObserver = atomicReference.get();
                 if (switchMapSingleObserver == null) {
                     z = true;
                 } else {
@@ -212,7 +217,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
                     }
                 } else if (!z && switchMapSingleObserver.item != null && j != atomicLong.get()) {
                     atomicReference.compareAndSet(switchMapSingleObserver, null);
-                    subscriber.onNext(switchMapSingleObserver.item);
+                    subscriber.onNext((R) switchMapSingleObserver.item);
                     j++;
                 } else {
                     this.emitted = j;
@@ -224,7 +229,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
             }
         }
 
-        public void innerError(SwitchMapSingleObserver switchMapSingleObserver, Throwable th) {
+        public void innerError(SwitchMapSingleObserver<R> switchMapSingleObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, switchMapSingleObserver, th) == null) {
                 if (this.inner.compareAndSet(switchMapSingleObserver, null) && this.errors.addThrowable(th)) {
@@ -274,20 +279,22 @@ public final class FlowableSwitchMapSingle extends Flowable {
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.mixed.FlowableSwitchMapSingle$SwitchMapSingleSubscriber$SwitchMapSingleObserver<R>> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
-            SwitchMapSingleObserver switchMapSingleObserver;
+        public void onNext(T t) {
+            SwitchMapSingleObserver<R> switchMapSingleObserver;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-                SwitchMapSingleObserver switchMapSingleObserver2 = (SwitchMapSingleObserver) this.inner.get();
+            if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+                SwitchMapSingleObserver<R> switchMapSingleObserver2 = this.inner.get();
                 if (switchMapSingleObserver2 != null) {
                     switchMapSingleObserver2.dispose();
                 }
                 try {
-                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null SingleSource");
-                    SwitchMapSingleObserver switchMapSingleObserver3 = new SwitchMapSingleObserver(this);
+                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null SingleSource");
+                    SwitchMapSingleObserver<R> switchMapSingleObserver3 = new SwitchMapSingleObserver<>(this);
                     do {
-                        switchMapSingleObserver = (SwitchMapSingleObserver) this.inner.get();
+                        switchMapSingleObserver = this.inner.get();
                         if (switchMapSingleObserver == INNER_DISPOSED) {
                             return;
                         }
@@ -303,7 +310,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
         }
     }
 
-    public FlowableSwitchMapSingle(Flowable flowable, Function function, boolean z) {
+    public FlowableSwitchMapSingle(Flowable<T> flowable, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -324,7 +331,7 @@ public final class FlowableSwitchMapSingle extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new SwitchMapSingleSubscriber(subscriber, this.mapper, this.delayErrors));

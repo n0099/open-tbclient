@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +19,7 @@ import com.baidu.rtc.player.BRTCPlayerImpl;
 import com.baidu.rtc.player.BRTCPlayerParameters;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.tieba.u36;
+import com.baidu.tieba.e56;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +46,7 @@ public class TbBRTCPlayerView extends FrameLayout {
     public int g;
     public ViewGroup h;
     public BRTCPlayerEvents i;
-    public HashMap j;
+    public HashMap<Integer, String> j;
     public int k;
     public BuildParams l;
     public long m;
@@ -70,14 +72,14 @@ public class TbBRTCPlayerView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0331a implements Runnable {
+        public class RunnableC0348a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0331a(a aVar, int i, String str) {
+            public RunnableC0348a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +161,7 @@ public class TbBRTCPlayerView extends FrameLayout {
             }
             if (this.a.i != null) {
                 if (TbBRTCPlayerView.o) {
-                    u36.b(new RunnableC0331a(this, i, str));
+                    e56.b(new RunnableC0348a(this, i, str));
                 }
                 this.a.i.onError(i, str);
             }
@@ -398,7 +400,7 @@ public class TbBRTCPlayerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbBRTCPlayerView(Context context) {
+    public TbBRTCPlayerView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -442,11 +444,11 @@ public class TbBRTCPlayerView extends FrameLayout {
         }
     }
 
-    public void setVideoInfo(HashMap hashMap) {
+    public void setVideoInfo(HashMap<Integer, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, hashMap) == null) {
             this.j = hashMap;
-            String str = (String) hashMap.get(0);
+            String str = hashMap.get(0);
             if (o) {
                 g("setVideoInfo " + str);
             }
@@ -461,7 +463,7 @@ public class TbBRTCPlayerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbBRTCPlayerView(Context context, AttributeSet attributeSet) {
+    public TbBRTCPlayerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -486,7 +488,7 @@ public class TbBRTCPlayerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbBRTCPlayerView(Context context, AttributeSet attributeSet, int i) {
+    public TbBRTCPlayerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

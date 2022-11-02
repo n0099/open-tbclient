@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
@@ -50,7 +49,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -81,12 +80,11 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    private void verifyAllLength(String str, Set set) {
+    private void verifyAllLength(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, this, str, set) == null) && set != null) {
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                verifyLength(str, (String) it.next());
+            for (String str2 : set) {
+                verifyLength(str, str2);
             }
         }
     }
@@ -142,7 +140,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, set)) == null) {
@@ -187,7 +185,7 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    public void putStringSet(String str, Set set) {
+    public void putStringSet(String str, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, set) == null) {
             verifyAllLength(str, set);

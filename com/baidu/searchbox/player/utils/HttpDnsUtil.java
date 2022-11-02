@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.utils;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,14 +27,14 @@ public class HttpDnsUtil {
         }
     }
 
-    public static void preResolveHosts(List list) {
+    public static void preResolveHosts(@Nullable List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
             CyberPlayerManager.preResolveHosts(list);
         }
     }
 
-    public static void setHttpDNS2(CyberPlayerManager.HttpDNS2 httpDNS2) {
+    public static void setHttpDNS2(@NonNull CyberPlayerManager.HttpDNS2 httpDNS2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, httpDNS2) == null) {
             CyberPlayerManager.setHttpDNS2(httpDNS2);

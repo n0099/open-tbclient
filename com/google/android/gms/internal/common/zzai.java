@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zzai extends zzag {
+public final class zzai<E> extends zzag<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final zzag zza;
+    public static final zzag<Object> zza;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient Object[] zzb;
     public final transient int zzc;
@@ -93,16 +93,16 @@ public final class zzai extends zzag {
     }
 
     @Override // java.util.List
-    public final Object get(int i) {
+    public final E get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             zzs.zza(i, this.zzc, "index");
-            Object obj = this.zzb[i];
-            obj.getClass();
-            return obj;
+            E e = (E) this.zzb[i];
+            e.getClass();
+            return e;
         }
-        return invokeI.objValue;
+        return (E) invokeI.objValue;
     }
 
     @Override // com.google.android.gms.internal.common.zzag, com.google.android.gms.internal.common.zzac

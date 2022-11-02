@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MethodCallsLogger {
     public static /* synthetic */ Interceptable $ic;
@@ -29,6 +31,7 @@ public class MethodCallsLogger {
         this.mCalledMethods = new HashMap();
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean approveCall(String str, int i) {
         InterceptResult invokeLI;
         int i2;

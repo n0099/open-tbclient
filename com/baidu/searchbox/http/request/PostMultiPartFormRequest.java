@@ -21,14 +21,14 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.internal.Util;
 /* loaded from: classes2.dex */
-public class PostMultiPartFormRequest extends HttpParaRequest {
+public class PostMultiPartFormRequest extends HttpParaRequest<PostMultiPartFormRequestBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List bytes;
-    public List files;
+    public List<PostBytes> bytes;
+    public List<PostFile> files;
 
     /* loaded from: classes2.dex */
-    public class PostBytes {
+    public static class PostBytes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] bytes;
@@ -84,7 +84,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
     }
 
     /* loaded from: classes2.dex */
-    public class PostFile {
+    public static class PostFile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String contentType;
@@ -153,11 +153,11 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
     }
 
     /* loaded from: classes2.dex */
-    public class PostMultiPartFormRequestBuilder extends HttpRequestParasBuilder {
+    public static class PostMultiPartFormRequestBuilder extends HttpRequestParasBuilder<PostMultiPartFormRequestBuilder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List postBytes;
-        public List postFiles;
+        public List<PostBytes> postBytes;
+        public List<PostFile> postFiles;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public PostMultiPartFormRequestBuilder(AbstractHttpManager abstractHttpManager) {
@@ -253,11 +253,11 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder addFiles(List list) {
+        public PostMultiPartFormRequestBuilder addFiles(List<PostFile> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
-                List list2 = this.postFiles;
+                List<PostFile> list2 = this.postFiles;
                 if (list2 == null) {
                     this.postFiles = new ArrayList(list);
                 } else {
@@ -268,7 +268,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder bytes(List list) {
+        public PostMultiPartFormRequestBuilder bytes(List<PostBytes> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
@@ -278,7 +278,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
             return (PostMultiPartFormRequestBuilder) invokeL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder files(List list) {
+        public PostMultiPartFormRequestBuilder files(List<PostFile> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, list)) == null) {
@@ -324,11 +324,11 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
             return (PostMultiPartFormRequestBuilder) invokeLLL.objValue;
         }
 
-        public PostMultiPartFormRequestBuilder addBytes(List list) {
+        public PostMultiPartFormRequestBuilder addBytes(List<PostBytes> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-                List list2 = this.postBytes;
+                List<PostBytes> list2 = this.postBytes;
                 if (list2 == null) {
                     this.postBytes = new ArrayList(list);
                 } else {
@@ -394,7 +394,7 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
     public void initExtraHttpRequest(PostMultiPartFormRequestBuilder postMultiPartFormRequestBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, postMultiPartFormRequestBuilder) == null) {
-            super.initExtraHttpRequest((HttpRequestParasBuilder) postMultiPartFormRequestBuilder);
+            super.initExtraHttpRequest((PostMultiPartFormRequest) postMultiPartFormRequestBuilder);
             if (postMultiPartFormRequestBuilder.postFiles != null) {
                 this.files = Util.immutableList(postMultiPartFormRequestBuilder.postFiles);
             }
@@ -417,26 +417,26 @@ public class PostMultiPartFormRequest extends HttpParaRequest {
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public RequestBody buildOkRequestBody() {
         InterceptResult invokeV;
-        List list;
+        List<PostFile> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedHashMap linkedHashMap = this.params;
+            LinkedHashMap<String, String> linkedHashMap = this.params;
             if ((linkedHashMap != null && !linkedHashMap.isEmpty()) || ((list = this.files) != null && list.size() > 0)) {
                 MultipartBody.Builder builder = new MultipartBody.Builder();
                 builder.setType(MultipartBody.FORM);
-                LinkedHashMap linkedHashMap2 = this.params;
+                LinkedHashMap<String, String> linkedHashMap2 = this.params;
                 if (linkedHashMap2 != null && !linkedHashMap2.isEmpty()) {
-                    for (Map.Entry entry : this.params.entrySet()) {
-                        builder.addFormDataPart((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : this.params.entrySet()) {
+                        builder.addFormDataPart(entry.getKey(), entry.getValue());
                     }
                 }
-                List list2 = this.files;
+                List<PostFile> list2 = this.files;
                 if (list2 != null && list2.size() > 0) {
                     for (PostFile postFile : this.files) {
                         builder.addFormDataPart(postFile.key, postFile.fileName, RequestBody.create(MediaType.parse(postFile.contentType), postFile.file));
                     }
                 }
-                List list3 = this.bytes;
+                List<PostBytes> list3 = this.bytes;
                 if (list3 != null && list3.size() > 0) {
                     for (PostBytes postBytes : this.bytes) {
                         builder.addFormDataPart(postBytes.key, postBytes.fileName, RequestBody.create(MediaType.parse(postBytes.contentType), postBytes.bytes));

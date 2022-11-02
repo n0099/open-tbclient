@@ -11,11 +11,11 @@ import java.util.List;
 public class Period {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List adaptationSets;
+    public final List<AdaptationSet> adaptationSets;
     public final String id;
     public final long startMs;
 
-    public Period(String str, long j, List list) {
+    public Period(String str, long j, List<AdaptationSet> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +41,7 @@ public class Period {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             int size = this.adaptationSets.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (((AdaptationSet) this.adaptationSets.get(i2)).type == i) {
+                if (this.adaptationSets.get(i2).type == i) {
                     return i2;
                 }
             }

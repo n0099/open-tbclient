@@ -35,7 +35,7 @@ public class bm implements eh {
     }
 
     @Override // com.xiaomi.push.eh
-    public void a(Context context, HashMap hashMap) {
+    public void a(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ii iiVar = new ii();
@@ -55,7 +55,7 @@ public class bm implements eh {
     }
 
     @Override // com.xiaomi.push.eh
-    public void b(Context context, HashMap hashMap) {
+    public void b(Context context, HashMap<String, String> hashMap) {
         hg a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hashMap) == null) || (a = hg.a(context)) == null) {
@@ -65,7 +65,7 @@ public class bm implements eh {
     }
 
     @Override // com.xiaomi.push.eh
-    public void c(Context context, HashMap hashMap) {
+    public void c(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
             com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo：\u3000" + dy.b(hashMap));

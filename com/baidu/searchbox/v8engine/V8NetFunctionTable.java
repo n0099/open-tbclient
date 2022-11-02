@@ -12,12 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@NotProguard
 /* loaded from: classes2.dex */
 public class V8NetFunctionTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "V8NetFunctionTable";
     public static long sNativeGlobalFunctionTablePointer;
-    public static final List sV8NetFunctionTableInitListenerList;
+    public static final List<ValueCallback<Long>> sV8NetFunctionTableInitListenerList;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +51,7 @@ public class V8NetFunctionTable {
         }
     }
 
-    public static void addOnCronetThreadInitializedListener(ValueCallback valueCallback) {
+    public static void addOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, valueCallback) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
@@ -65,7 +66,7 @@ public class V8NetFunctionTable {
         }
     }
 
-    public static void removeOnCronetThreadInitializedListener(ValueCallback valueCallback) {
+    public static void removeOnCronetThreadInitializedListener(ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, valueCallback) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
@@ -78,7 +79,7 @@ public class V8NetFunctionTable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
-                Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("addOnCronetThreadInitializedListener", ValueCallback.class).invoke(null, new ValueCallback() { // from class: com.baidu.searchbox.v8engine.V8NetFunctionTable.1
+                Class.forName("com.baidu.webkit.internal.ApisInteractWithMario").getDeclaredMethod("addOnCronetThreadInitializedListener", ValueCallback.class).invoke(null, new ValueCallback<Long>() { // from class: com.baidu.searchbox.v8engine.V8NetFunctionTable.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,7 +122,7 @@ public class V8NetFunctionTable {
         if (interceptable == null || interceptable.invokeJ(65541, null, j) == null) {
             synchronized (sV8NetFunctionTableInitListenerList) {
                 sNativeGlobalFunctionTablePointer = j;
-                for (ValueCallback valueCallback : sV8NetFunctionTableInitListenerList) {
+                for (ValueCallback<Long> valueCallback : sV8NetFunctionTableInitListenerList) {
                     valueCallback.onReceiveValue(Long.valueOf(j));
                 }
                 sV8NetFunctionTableInitListenerList.clear();

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RtpTransceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class RtpTransceiver {
     public static native boolean nativeStopped(long j);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class RtpTransceiverDirection {
+    /* loaded from: classes9.dex */
+    public static final class RtpTransceiverDirection {
         public static final /* synthetic */ RtpTransceiverDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtpTransceiverDirection INACTIVE;
@@ -93,6 +93,7 @@ public class RtpTransceiver {
             this.nativeIndex = i2;
         }
 
+        @CalledByNative("RtpTransceiverDirection")
         public static RtpTransceiverDirection fromNativeIndex(int i) {
             InterceptResult invokeI;
             RtpTransceiverDirection[] values;
@@ -126,6 +127,7 @@ public class RtpTransceiver {
             return (RtpTransceiverDirection[]) invokeV.objValue;
         }
 
+        @CalledByNative("RtpTransceiverDirection")
         public int getNativeIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -136,12 +138,12 @@ public class RtpTransceiver {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public final class RtpTransceiverInit {
+    /* loaded from: classes9.dex */
+    public static final class RtpTransceiverInit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RtpTransceiverDirection direction;
-        public final List streamIds;
+        public final List<String> streamIds;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public RtpTransceiverInit() {
@@ -161,6 +163,7 @@ public class RtpTransceiver {
             }
         }
 
+        @CalledByNative("RtpTransceiverInit")
         public int getDirectionNativeIndex() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -170,7 +173,8 @@ public class RtpTransceiver {
             return invokeV.intValue;
         }
 
-        public List getStreamIds() {
+        @CalledByNative("RtpTransceiverInit")
+        public List<String> getStreamIds() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -200,7 +204,7 @@ public class RtpTransceiver {
             }
         }
 
-        public RtpTransceiverInit(RtpTransceiverDirection rtpTransceiverDirection, List list) {
+        public RtpTransceiverInit(RtpTransceiverDirection rtpTransceiverDirection, List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,6 +224,7 @@ public class RtpTransceiver {
         }
     }
 
+    @CalledByNative
     public RtpTransceiver(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -248,6 +253,7 @@ public class RtpTransceiver {
         throw new IllegalStateException("RtpTransceiver has been disposed.");
     }
 
+    @CalledByNative
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

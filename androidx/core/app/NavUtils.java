@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +39,8 @@ public final class NavUtils {
         }
     }
 
-    public static Intent getParentActivityIntent(Activity activity) {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Activity activity) {
         InterceptResult invokeL;
         Intent parentActivityIntent;
         Interceptable interceptable = $ic;
@@ -63,7 +66,8 @@ public final class NavUtils {
         return (Intent) invokeL.objValue;
     }
 
-    public static Intent getParentActivityIntent(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Context context, @NonNull ComponentName componentName) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, componentName)) == null) {
@@ -80,7 +84,7 @@ public final class NavUtils {
         return (Intent) invokeLL.objValue;
     }
 
-    public static boolean shouldUpRecreateTask(Activity activity, Intent intent) {
+    public static boolean shouldUpRecreateTask(@NonNull Activity activity, @NonNull Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, activity, intent)) == null) {
@@ -96,7 +100,8 @@ public final class NavUtils {
         return invokeLL.booleanValue;
     }
 
-    public static Intent getParentActivityIntent(Context context, Class<?> cls) throws PackageManager.NameNotFoundException {
+    @Nullable
+    public static Intent getParentActivityIntent(@NonNull Context context, @NonNull Class<?> cls) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
@@ -113,7 +118,8 @@ public final class NavUtils {
         return (Intent) invokeLL.objValue;
     }
 
-    public static String getParentActivityName(Activity activity) {
+    @Nullable
+    public static String getParentActivityName(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
@@ -126,7 +132,8 @@ public final class NavUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getParentActivityName(Context context, ComponentName componentName) throws PackageManager.NameNotFoundException {
+    @Nullable
+    public static String getParentActivityName(@NonNull Context context, @NonNull ComponentName componentName) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLL;
         String string;
         String str;
@@ -157,7 +164,7 @@ public final class NavUtils {
         return (String) invokeLL.objValue;
     }
 
-    public static void navigateUpFromSameTask(Activity activity) {
+    public static void navigateUpFromSameTask(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
             Intent parentActivityIntent = getParentActivityIntent(activity);
@@ -169,7 +176,7 @@ public final class NavUtils {
         }
     }
 
-    public static void navigateUpTo(Activity activity, Intent intent) {
+    public static void navigateUpTo(@NonNull Activity activity, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, activity, intent) == null) {
             if (Build.VERSION.SDK_INT >= 16) {

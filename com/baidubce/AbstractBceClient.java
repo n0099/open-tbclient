@@ -13,6 +13,7 @@ import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.http.BceHttpClient;
 import com.baidubce.http.handler.HttpResponseHandler;
 import com.baidubce.internal.InternalRequest;
+import com.baidubce.model.AbstractBceRequest;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
@@ -132,16 +133,16 @@ public abstract class AbstractBceClient {
         return (String) invokeV.objValue;
     }
 
-    public AbstractBceResponse invokeHttpClient(InternalRequest internalRequest, Class cls) {
+    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T invokeHttpClient(InternalRequest<M> internalRequest, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, internalRequest, cls)) == null) {
-            return invokeHttpClient(internalRequest, cls, null);
+            return (T) invokeHttpClient(internalRequest, cls, null);
         }
-        return (AbstractBceResponse) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public AbstractBceResponse invokeHttpClient(InternalRequest internalRequest, Class cls, BceProgressCallback bceProgressCallback) {
+    public <T extends AbstractBceResponse, M extends AbstractBceRequest> T invokeHttpClient(InternalRequest<M> internalRequest, Class<T> cls, BceProgressCallback<M> bceProgressCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, internalRequest, cls, bceProgressCallback)) == null) {
@@ -151,9 +152,9 @@ public abstract class AbstractBceClient {
             if (!internalRequest.getHeaders().containsKey("Date")) {
                 internalRequest.addHeader("Date", DateUtils.rfc822DateFormat());
             }
-            return this.client.execute(internalRequest, cls, this.responseHandlers, bceProgressCallback);
+            return (T) this.client.execute(internalRequest, cls, this.responseHandlers, bceProgressCallback);
         }
-        return (AbstractBceResponse) invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
     public void setClient(BceHttpClient bceHttpClient) {

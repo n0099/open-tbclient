@@ -2,7 +2,9 @@ package com.baidu.searchbox.player;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.kernel.EmptyKernelFactory;
 import com.baidu.searchbox.player.kernel.IKernelFactory;
 import com.baidu.searchbox.player.message.IMessengerFactory;
@@ -54,6 +56,7 @@ public class BDPlayerConfig {
         }
     }
 
+    @PublicMethod
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,6 +66,8 @@ public class BDPlayerConfig {
         return (Context) invokeV.objValue;
     }
 
+    @NonNull
+    @PublicMethod
     public static IKernelFactory getKernelFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,6 +80,8 @@ public class BDPlayerConfig {
         return (IKernelFactory) invokeV.objValue;
     }
 
+    @NonNull
+    @PublicMethod
     public static IMessengerFactory getMessengerFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,6 +94,7 @@ public class BDPlayerConfig {
         return (IMessengerFactory) invokeV.objValue;
     }
 
+    @PublicMethod
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,6 +104,7 @@ public class BDPlayerConfig {
         return invokeV.booleanValue;
     }
 
+    @PublicMethod
     public static void initEnv(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
@@ -109,13 +118,15 @@ public class BDPlayerConfig {
         }
     }
 
-    public static void setAppContext(Context context) {
+    @PublicMethod
+    public static void setAppContext(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             sApplication = context;
         }
     }
 
+    @PublicMethod
     public static void setDebugMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
@@ -123,14 +134,16 @@ public class BDPlayerConfig {
         }
     }
 
-    public static void setKernelFactory(IKernelFactory iKernelFactory) {
+    @PublicMethod
+    public static void setKernelFactory(@NonNull IKernelFactory iKernelFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, iKernelFactory) == null) {
             sKernelFactory = iKernelFactory;
         }
     }
 
-    public static void setMessengerFactory(IMessengerFactory iMessengerFactory) {
+    @PublicMethod
+    public static void setMessengerFactory(@NonNull IMessengerFactory iMessengerFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, iMessengerFactory) == null) {
             sMessengerFactory = iMessengerFactory;

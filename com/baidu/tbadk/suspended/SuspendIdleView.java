@@ -2,8 +2,9 @@ package com.baidu.tbadk.suspended;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +36,7 @@ public class SuspendIdleView extends SusPendedView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SuspendIdleView(Context context, AttributeSet attributeSet) {
+    public SuspendIdleView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +57,7 @@ public class SuspendIdleView extends SusPendedView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SuspendIdleView(Context context, AttributeSet attributeSet, int i) {
+    public SuspendIdleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,7 +104,7 @@ public class SuspendIdleView extends SusPendedView {
             setIsFinish(false);
             setRatio(0.0f);
             if (getTranAnim() != null) {
-                getTranAnim().setIntValues(fj.i(getContext()), 0);
+                getTranAnim().setIntValues(xi.j(getContext()), 0);
             }
             super.i();
         }

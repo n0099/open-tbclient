@@ -54,7 +54,7 @@ public class NetworkStatRecord {
     public boolean isConnected;
     public boolean isProxyConnect;
     public boolean isVPNConnect;
-    public List localDnsIpList;
+    public List<String> localDnsIpList;
     public String localIP;
     public int netEngine;
     public String netType;

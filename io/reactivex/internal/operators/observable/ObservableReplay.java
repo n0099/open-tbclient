@@ -34,33 +34,33 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableReplay extends ConnectableObservable implements HasUpstreamObservableSource, Disposable {
+public final class ObservableReplay<T> extends ConnectableObservable<T> implements HasUpstreamObservableSource<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public static final BufferSupplier DEFAULT_UNBOUNDED_FACTORY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferSupplier bufferFactory;
-    public final AtomicReference current;
-    public final ObservableSource onSubscribe;
-    public final ObservableSource source;
+    public final BufferSupplier<T> bufferFactory;
+    public final AtomicReference<ReplayObserver<T>> current;
+    public final ObservableSource<T> onSubscribe;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public interface BufferSupplier {
-        ReplayBuffer call();
+    public interface BufferSupplier<T> {
+        ReplayBuffer<T> call();
     }
 
     /* loaded from: classes8.dex */
-    public interface ReplayBuffer {
+    public interface ReplayBuffer<T> {
         void complete();
 
         void error(Throwable th);
 
-        void next(Object obj);
+        void next(T t);
 
-        void replay(InnerDisposable innerDisposable);
+        void replay(InnerDisposable<T> innerDisposable);
     }
 
     /* loaded from: classes8.dex */
-    public abstract class BoundedReplayBuffer extends AtomicReference implements ReplayBuffer {
+    public static abstract class BoundedReplayBuffer<T> extends AtomicReference<Node> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2346567790059478686L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return (Node) get();
+                return get();
             }
             return (Node) invokeV.objValue;
         }
@@ -147,14 +147,14 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 this.size--;
-                setFirst((Node) ((Node) get()).get());
+                setFirst(get().get());
             }
         }
 
         public final void trimHead() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-                Node node = (Node) get();
+                Node node = get();
                 if (node.value != null) {
                     Node node2 = new Node(null);
                     node2.lazySet(node.get());
@@ -189,10 +189,10 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.ReplayBuffer
-        public final void next(Object obj) {
+        public final void next(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-                addLast(new Node(enterTransform(NotificationLite.next(obj))));
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+                addLast(new Node(enterTransform(NotificationLite.next(t))));
                 truncate();
             }
         }
@@ -200,9 +200,9 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         public final void removeSome(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-                Node node = (Node) get();
+                Node node = get();
                 while (i > 0) {
-                    node = (Node) node.get();
+                    node = node.get();
                     i--;
                     this.size--;
                 }
@@ -217,16 +217,16 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             }
         }
 
-        public final void collect(Collection collection) {
+        public final void collect(Collection<? super T> collection) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection) == null) {
                 Node head = getHead();
                 while (true) {
-                    head = (Node) head.get();
+                    head = head.get();
                     if (head != null) {
                         Object leaveTransform = leaveTransform(head.value);
                         if (!NotificationLite.isComplete(leaveTransform) && !NotificationLite.isError(leaveTransform)) {
-                            collection.add(NotificationLite.getValue(leaveTransform));
+                            collection.add((Object) NotificationLite.getValue(leaveTransform));
                         } else {
                             return;
                         }
@@ -238,7 +238,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.ReplayBuffer
-        public final void replay(InnerDisposable innerDisposable) {
+        public final void replay(InnerDisposable<T> innerDisposable) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048588, this, innerDisposable) != null) || innerDisposable.getAndIncrement() != 0) {
                 return;
@@ -251,7 +251,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
                     innerDisposable.index = node;
                 }
                 while (!innerDisposable.isDisposed()) {
-                    Node node2 = (Node) node.get();
+                    Node node2 = node.get();
                     if (node2 != null) {
                         if (NotificationLite.accept(leaveTransform(node2.value), innerDisposable.child)) {
                             innerDisposable.index = null;
@@ -269,12 +269,12 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class DisposeConsumer implements Consumer {
+    public static final class DisposeConsumer<R> implements Consumer<Disposable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ObserverResourceWrapper srw;
+        public final ObserverResourceWrapper<R> srw;
 
-        public DisposeConsumer(ObserverResourceWrapper observerResourceWrapper) {
+        public DisposeConsumer(ObserverResourceWrapper<R> observerResourceWrapper) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,16 +303,16 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class InnerDisposable extends AtomicInteger implements Disposable {
+    public static final class InnerDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2728361546769921047L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean cancelled;
-        public final Observer child;
+        public final Observer<? super T> child;
         public Object index;
-        public final ReplayObserver parent;
+        public final ReplayObserver<T> parent;
 
-        public InnerDisposable(ReplayObserver replayObserver, Observer observer) {
+        public InnerDisposable(ReplayObserver<T> replayObserver, Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -340,13 +340,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             }
         }
 
-        public Object index() {
+        public <U> U index() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.index;
+                return (U) this.index;
             }
-            return invokeV.objValue;
+            return (U) invokeV.objValue;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -361,13 +361,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class MulticastReplay extends Observable {
+    public static final class MulticastReplay<R, U> extends Observable<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callable connectableFactory;
-        public final Function selector;
+        public final Callable<? extends ConnectableObservable<U>> connectableFactory;
+        public final Function<? super Observable<U>, ? extends ObservableSource<R>> selector;
 
-        public MulticastReplay(Callable callable, Function function) {
+        public MulticastReplay(Callable<? extends ConnectableObservable<U>> callable, Function<? super Observable<U>, ? extends ObservableSource<R>> function) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -387,7 +387,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.Observable
-        public void subscribeActual(Observer observer) {
+        public void subscribeActual(Observer<? super R> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
                 try {
@@ -405,7 +405,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class Node extends AtomicReference {
+    public static final class Node extends AtomicReference<Node> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 245354315435971818L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -431,13 +431,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class Replay extends ConnectableObservable {
+    public static final class Replay<T> extends ConnectableObservable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConnectableObservable co;
-        public final Observable observable;
+        public final ConnectableObservable<T> co;
+        public final Observable<T> observable;
 
-        public Replay(ConnectableObservable connectableObservable, Observable observable) {
+        public Replay(ConnectableObservable<T> connectableObservable, Observable<T> observable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -457,7 +457,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.observables.ConnectableObservable
-        public void connect(Consumer consumer) {
+        public void connect(Consumer<? super Disposable> consumer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
                 this.co.connect(consumer);
@@ -465,7 +465,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.Observable
-        public void subscribeActual(Observer observer) {
+        public void subscribeActual(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
                 this.observable.subscribe(observer);
@@ -474,7 +474,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplayBufferSupplier implements BufferSupplier {
+    public static final class ReplayBufferSupplier<T> implements BufferSupplier<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -498,7 +498,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BufferSupplier
-        public ReplayBuffer call() {
+        public ReplayBuffer<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -509,15 +509,15 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplayObserver extends AtomicReference implements Observer, Disposable {
+    public static final class ReplayObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final InnerDisposable[] EMPTY;
         public static final InnerDisposable[] TERMINATED;
         public static final long serialVersionUID = -533785617179540163L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ReplayBuffer buffer;
+        public final ReplayBuffer<T> buffer;
         public boolean done;
-        public final AtomicReference observers;
+        public final AtomicReference<InnerDisposable[]> observers;
         public final AtomicBoolean shouldConnect;
 
         static {
@@ -572,7 +572,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         public void replay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.get()) {
+                for (InnerDisposable<T> innerDisposable : this.observers.get()) {
                     this.buffer.replay(innerDisposable);
                 }
             }
@@ -581,13 +581,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         public void replayFinal() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                for (InnerDisposable innerDisposable : (InnerDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(TERMINATED)) {
                     this.buffer.replay(innerDisposable);
                 }
             }
         }
 
-        public ReplayObserver(ReplayBuffer replayBuffer) {
+        public ReplayObserver(ReplayBuffer<T> replayBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -603,18 +603,18 @@ public final class ObservableReplay extends ConnectableObservable implements Has
                 }
             }
             this.buffer = replayBuffer;
-            this.observers = new AtomicReference(EMPTY);
+            this.observers = new AtomicReference<>(EMPTY);
             this.shouldConnect = new AtomicBoolean();
         }
 
-        public boolean add(InnerDisposable innerDisposable) {
+        public boolean add(InnerDisposable<T> innerDisposable) {
             InnerDisposable[] innerDisposableArr;
             InnerDisposable[] innerDisposableArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerDisposable)) == null) {
                 do {
-                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
+                    innerDisposableArr = this.observers.get();
                     if (innerDisposableArr == TERMINATED) {
                         return false;
                     }
@@ -643,10 +643,10 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && !this.done) {
-                this.buffer.next(obj);
+            if ((interceptable == null || interceptable.invokeL(1048581, this, t) == null) && !this.done) {
+                this.buffer.next(t);
                 replay();
             }
         }
@@ -659,13 +659,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             }
         }
 
-        public void remove(InnerDisposable innerDisposable) {
+        public void remove(InnerDisposable<T> innerDisposable) {
             InnerDisposable[] innerDisposableArr;
             InnerDisposable[] innerDisposableArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, innerDisposable) == null) {
                 do {
-                    innerDisposableArr = (InnerDisposable[]) this.observers.get();
+                    innerDisposableArr = this.observers.get();
                     int length = innerDisposableArr.length;
                     if (length == 0) {
                         return;
@@ -699,13 +699,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplaySource implements ObservableSource {
+    public static final class ReplaySource<T> implements ObservableSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final BufferSupplier bufferFactory;
-        public final AtomicReference curr;
+        public final BufferSupplier<T> bufferFactory;
+        public final AtomicReference<ReplayObserver<T>> curr;
 
-        public ReplaySource(AtomicReference atomicReference, BufferSupplier bufferSupplier) {
+        public ReplaySource(AtomicReference<ReplayObserver<T>> atomicReference, BufferSupplier<T> bufferSupplier) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -725,22 +725,22 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.ObservableSource
-        public void subscribe(Observer observer) {
-            ReplayObserver replayObserver;
+        public void subscribe(Observer<? super T> observer) {
+            ReplayObserver<T> replayObserver;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
                 while (true) {
-                    replayObserver = (ReplayObserver) this.curr.get();
+                    replayObserver = this.curr.get();
                     if (replayObserver != null) {
                         break;
                     }
-                    ReplayObserver replayObserver2 = new ReplayObserver(this.bufferFactory.call());
+                    ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.bufferFactory.call());
                     if (this.curr.compareAndSet(null, replayObserver2)) {
                         replayObserver = replayObserver2;
                         break;
                     }
                 }
-                InnerDisposable innerDisposable = new InnerDisposable(replayObserver, observer);
+                InnerDisposable<T> innerDisposable = new InnerDisposable<>(replayObserver, observer);
                 observer.onSubscribe(innerDisposable);
                 replayObserver.add(innerDisposable);
                 if (innerDisposable.isDisposed()) {
@@ -753,7 +753,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class ScheduledReplaySupplier implements BufferSupplier {
+    public static final class ScheduledReplaySupplier<T> implements BufferSupplier<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -783,7 +783,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BufferSupplier
-        public ReplayBuffer call() {
+        public ReplayBuffer<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -794,7 +794,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class SizeAndTimeBoundReplayBuffer extends BoundedReplayBuffer {
+    public static final class SizeAndTimeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3457957419649567404L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -851,18 +851,18 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node2 = (Node) get();
-                Object obj = node2.get();
+                Node node2 = get();
+                Node node3 = node2.get();
                 while (true) {
-                    Node node3 = (Node) obj;
+                    Node node4 = node3;
                     node = node2;
-                    node2 = node3;
+                    node2 = node4;
                     if (node2 != null) {
                         Timed timed = (Timed) node2.value;
                         if (NotificationLite.isComplete(timed.value()) || NotificationLite.isError(timed.value()) || timed.time() > now) {
                             break;
                         }
-                        obj = node2.get();
+                        node3 = node2.get();
                     } else {
                         break;
                     }
@@ -878,8 +878,8 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node2 = (Node) get();
-                Node node3 = (Node) node2.get();
+                Node node2 = get();
+                Node node3 = node2.get();
                 int i = 0;
                 while (true) {
                     Node node4 = node3;
@@ -890,13 +890,13 @@ public final class ObservableReplay extends ConnectableObservable implements Has
                         if (i2 > this.limit) {
                             i++;
                             this.size = i2 - 1;
-                            node3 = (Node) node2.get();
+                            node3 = node2.get();
                         } else if (((Timed) node2.value).time() > now) {
                             break;
                         } else {
                             i++;
                             this.size--;
-                            node3 = (Node) node2.get();
+                            node3 = node2.get();
                         }
                     } else {
                         break;
@@ -922,8 +922,8 @@ public final class ObservableReplay extends ConnectableObservable implements Has
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 long now = this.scheduler.now(this.unit) - this.maxAge;
-                Node node = (Node) get();
-                Node node2 = (Node) node.get();
+                Node node = get();
+                Node node2 = node.get();
                 int i = 0;
                 while (true) {
                     Node node3 = node2;
@@ -934,14 +934,14 @@ public final class ObservableReplay extends ConnectableObservable implements Has
                     }
                     i++;
                     this.size--;
-                    node2 = (Node) node.get();
+                    node2 = node.get();
                 }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class SizeBoundReplayBuffer extends BoundedReplayBuffer {
+    public static final class SizeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5898283885385201806L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -975,7 +975,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class UnBoundedFactory implements BufferSupplier {
+    public static final class UnBoundedFactory implements BufferSupplier<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -994,7 +994,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BufferSupplier
-        public ReplayBuffer call() {
+        public ReplayBuffer<Object> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -1005,7 +1005,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     /* loaded from: classes8.dex */
-    public final class UnboundedReplayBuffer extends ArrayList implements ReplayBuffer {
+    public static final class UnboundedReplayBuffer<T> extends ArrayList<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7063189396499112664L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1050,22 +1050,22 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.ReplayBuffer
-        public void next(Object obj) {
+        public void next(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                add(NotificationLite.next(obj));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                add(NotificationLite.next(t));
                 this.size++;
             }
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.ReplayBuffer
-        public void replay(InnerDisposable innerDisposable) {
+        public void replay(InnerDisposable<T> innerDisposable) {
             int i;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048579, this, innerDisposable) != null) || innerDisposable.getAndIncrement() != 0) {
                 return;
             }
-            Observer observer = innerDisposable.child;
+            Observer<? super T> observer = innerDisposable.child;
             int i2 = 1;
             while (!innerDisposable.isDisposed()) {
                 int i3 = this.size;
@@ -1119,8 +1119,8 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Disposable disposable = (Disposable) this.current.get();
-            if (disposable != null && !disposable.isDisposed()) {
+            ReplayObserver<T> replayObserver = this.current.get();
+            if (replayObserver != null && !replayObserver.isDisposed()) {
                 return false;
             }
             return true;
@@ -1129,7 +1129,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     @Override // io.reactivex.internal.fuseable.HasUpstreamObservableSource
-    public ObservableSource source() {
+    public ObservableSource<T> source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1138,7 +1138,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ObservableSource) invokeV.objValue;
     }
 
-    public ObservableReplay(ObservableSource observableSource, ObservableSource observableSource2, AtomicReference atomicReference, BufferSupplier bufferSupplier) {
+    public ObservableReplay(ObservableSource<T> observableSource, ObservableSource<T> observableSource2, AtomicReference<ReplayObserver<T>> atomicReference, BufferSupplier<T> bufferSupplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1159,7 +1159,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         this.bufferFactory = bufferSupplier;
     }
 
-    public static ConnectableObservable create(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{observableSource, Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1168,7 +1168,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ConnectableObservable) invokeCommon.objValue;
     }
 
-    public static ConnectableObservable create(ObservableSource observableSource, int i) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observableSource, i)) == null) {
@@ -1180,7 +1180,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ConnectableObservable) invokeLI.objValue;
     }
 
-    public static Observable multicastSelector(Callable callable, Function function) {
+    public static <U, R> Observable<R> multicastSelector(Callable<? extends ConnectableObservable<U>> callable, Function<? super Observable<U>, ? extends ObservableSource<R>> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, callable, function)) == null) {
@@ -1189,7 +1189,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (Observable) invokeLL.objValue;
     }
 
-    public static ConnectableObservable observeOn(ConnectableObservable connectableObservable, Scheduler scheduler) {
+    public static <T> ConnectableObservable<T> observeOn(ConnectableObservable<T> connectableObservable, Scheduler scheduler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, connectableObservable, scheduler)) == null) {
@@ -1198,7 +1198,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ConnectableObservable) invokeLL.objValue;
     }
 
-    public static ConnectableObservable create(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{observableSource, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) {
@@ -1207,7 +1207,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ConnectableObservable) invokeCommon.objValue;
     }
 
-    public static ConnectableObservable create(ObservableSource observableSource, BufferSupplier bufferSupplier) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, BufferSupplier<T> bufferSupplier) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, observableSource, bufferSupplier)) == null) {
@@ -1217,7 +1217,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
         return (ConnectableObservable) invokeLL.objValue;
     }
 
-    public static ConnectableObservable createFrom(ObservableSource observableSource) {
+    public static <T> ConnectableObservable<T> createFrom(ObservableSource<? extends T> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, observableSource)) == null) {
@@ -1227,7 +1227,7 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, observer) == null) {
             this.onSubscribe.subscribe(observer);
@@ -1235,17 +1235,17 @@ public final class ObservableReplay extends ConnectableObservable implements Has
     }
 
     @Override // io.reactivex.observables.ConnectableObservable
-    public void connect(Consumer consumer) {
-        ReplayObserver replayObserver;
+    public void connect(Consumer<? super Disposable> consumer) {
+        ReplayObserver<T> replayObserver;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, consumer) == null) {
             while (true) {
-                replayObserver = (ReplayObserver) this.current.get();
+                replayObserver = this.current.get();
                 if (replayObserver != null && !replayObserver.isDisposed()) {
                     break;
                 }
-                ReplayObserver replayObserver2 = new ReplayObserver(this.bufferFactory.call());
+                ReplayObserver<T> replayObserver2 = new ReplayObserver<>(this.bufferFactory.call());
                 if (this.current.compareAndSet(replayObserver, replayObserver2)) {
                     replayObserver = replayObserver2;
                     break;

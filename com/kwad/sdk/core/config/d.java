@@ -2,6 +2,9 @@ package com.kwad.sdk.core.config;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.ksad.annotation.invoker.ForInvoker;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.config.item.e;
@@ -13,11 +16,12 @@ import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.w;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static volatile boolean HK;
     public static volatile SdkConfigData Vy;
 
+    @WorkerThread
     public static void aV(Context context) {
         com.kwad.sdk.core.e.b.d("SdkConfigManager", "load");
         c.init();
@@ -43,11 +47,11 @@ public final class d {
         return ((j) b(context, c.TL)).getValue().intValue() > 0;
     }
 
-    public static com.kwad.sdk.core.config.item.b b(Context context, com.kwad.sdk.core.config.item.b bVar) {
+    public static <T extends com.kwad.sdk.core.config.item.b> T b(Context context, T t) {
         if (!isLoaded()) {
-            b.a(context, bVar);
+            b.a(context, t);
         }
-        return bVar;
+        return t;
     }
 
     public static float ba(Context context) {
@@ -151,7 +155,7 @@ public final class d {
         return c.UF.getOaid();
     }
 
-    public static List lD() {
+    public static List<String> lD() {
         return c.Ud.getValue();
     }
 
@@ -242,7 +246,8 @@ public final class d {
         return c.Uc.getValue();
     }
 
-    public static List rI() {
+    @NonNull
+    public static List<String> rI() {
         return c.Ue.getValue();
     }
 
@@ -310,6 +315,7 @@ public final class d {
         return c.UK.getValue().intValue();
     }
 
+    @Nullable
     public static SdkConfigData rZ() {
         if (Vy != null) {
             return Vy;
@@ -396,7 +402,7 @@ public final class d {
     }
 
     public static com.kwad.sdk.core.network.idc.kwai.a sq() {
-        return (com.kwad.sdk.core.network.idc.kwai.a) c.Vr.getValue();
+        return c.Vr.getValue();
     }
 
     public static long sr() {

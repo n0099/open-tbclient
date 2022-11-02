@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +33,7 @@ public final class AdsMediaSource implements MediaSource {
     public transient /* synthetic */ FieldHolder $fh;
     public long[][] adDurationsUs;
     public MediaSource[][] adGroupMediaSources;
-    public final Map adMediaSourceByMediaPeriod;
+    public final Map<MediaPeriod, MediaSource> adMediaSourceByMediaPeriod;
     public AdPlaybackState adPlaybackState;
     public final ViewGroup adUiViewGroup;
     public final AdsLoader adsLoader;
@@ -41,7 +42,9 @@ public final class AdsMediaSource implements MediaSource {
     public final MediaSource contentMediaSource;
     public Timeline contentTimeline;
     public final DataSource.Factory dataSourceFactory;
+    @Nullable
     public final Handler eventHandler;
+    @Nullable
     public final AdsListener eventListener;
     public MediaSource.Listener listener;
     public final Handler mainHandler;
@@ -265,7 +268,7 @@ public final class AdsMediaSource implements MediaSource {
         }
     }
 
-    public AdsMediaSource(MediaSource mediaSource, DataSource.Factory factory, AdsLoader adsLoader, ViewGroup viewGroup, Handler handler, AdsListener adsListener) {
+    public AdsMediaSource(MediaSource mediaSource, DataSource.Factory factory, AdsLoader adsLoader, ViewGroup viewGroup, @Nullable Handler handler, @Nullable AdsListener adsListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -374,7 +377,7 @@ public final class AdsMediaSource implements MediaSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mediaPeriod) == null) {
             if (this.adMediaSourceByMediaPeriod.containsKey(mediaPeriod)) {
-                ((MediaSource) this.adMediaSourceByMediaPeriod.remove(mediaPeriod)).releasePeriod(mediaPeriod);
+                this.adMediaSourceByMediaPeriod.remove(mediaPeriod).releasePeriod(mediaPeriod);
             } else {
                 this.contentMediaSource.releasePeriod(mediaPeriod);
             }

@@ -17,9 +17,19 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
+    public List<PoiDetailInfo> a;
+
+    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,6 +59,15 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public List<PoiDetailInfo> getPoiDetailInfoList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,23 +111,7 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
         }
     }
 
-    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List getPoiDetailInfoList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void setPoiDetailInfoList(List list) {
+    public void setPoiDetailInfoList(List<PoiDetailInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a = list;
@@ -119,19 +122,23 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.a;
-            if (list == null || list.isEmpty()) {
-                return "PoiDetailSearchResult is null";
+            List<PoiDetailInfo> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
+                for (int i = 0; i < this.a.size(); i++) {
+                    stringBuffer.append(" ");
+                    stringBuffer.append(i);
+                    stringBuffer.append(" ");
+                    PoiDetailInfo poiDetailInfo = this.a.get(i);
+                    if (poiDetailInfo != null) {
+                        stringBuffer.append(poiDetailInfo.toString());
+                    } else {
+                        stringBuffer.append(StringUtil.NULL_STRING);
+                    }
+                }
+                return stringBuffer.toString();
             }
-            StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
-            for (int i = 0; i < this.a.size(); i++) {
-                stringBuffer.append(" ");
-                stringBuffer.append(i);
-                stringBuffer.append(" ");
-                PoiDetailInfo poiDetailInfo = (PoiDetailInfo) this.a.get(i);
-                stringBuffer.append(poiDetailInfo != null ? poiDetailInfo.toString() : StringUtil.NULL_STRING);
-            }
-            return stringBuffer.toString();
+            return "PoiDetailSearchResult is null";
         }
         return (String) invokeV.objValue;
     }

@@ -1,56 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 /* loaded from: classes5.dex */
-public class sb9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sb9 {
+    public static final ServiceReference a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948145791, "Lcom/baidu/tieba/sb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948145791, "Lcom/baidu/tieba/sb9;");
-                return;
-            }
-        }
-        a = pa9.m();
-    }
+    void a(String str, String str2);
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            byte[] bArr2 = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return bArr2;
-                }
-                return bArr2;
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
+    void b(String str, String str2);
 }

@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,13 +29,13 @@ public class TailFrameView extends KSFrameLayout {
     public com.kwad.components.ad.reward.widget.tailframe.a xe;
 
     /* loaded from: classes7.dex */
-    public final class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
+    public static class a extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super(R.layout.obfuscated_res_0x7f0d047f);
+            super(R.layout.obfuscated_res_0x7f0d048a);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +52,7 @@ public class TailFrameView extends KSFrameLayout {
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
@@ -60,7 +62,7 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public final class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
+    public static class b extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageView xf;
@@ -69,7 +71,7 @@ public class TailFrameView extends KSFrameLayout {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b() {
-            super(R.layout.obfuscated_res_0x7f0d0480);
+            super(R.layout.obfuscated_res_0x7f0d048b);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,14 +101,14 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09122b);
-                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09122c);
-                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f09122d);
+                this.xf = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091265);
+                this.xg = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091266);
+                this.xh = (ImageView) this.wU.findViewById(R.id.obfuscated_res_0x7f091267);
             }
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
@@ -116,14 +118,14 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public final class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
+    public static class c extends com.kwad.components.ad.reward.widget.tailframe.a implements com.kwad.sdk.widget.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View xi;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c() {
-            super(R.layout.obfuscated_res_0x7f0d0481);
+            super(R.layout.obfuscated_res_0x7f0d048c);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,12 +160,12 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092503);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f092558);
             }
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
@@ -171,7 +173,7 @@ public class TailFrameView extends KSFrameLayout {
                     this.xi.setVisibility(8);
                     this.bq.setVisibility(8);
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060789));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f06078a));
                 }
                 jm();
             }
@@ -179,13 +181,13 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public final class d extends com.kwad.components.ad.reward.widget.tailframe.a {
+    public static class d extends com.kwad.components.ad.reward.widget.tailframe.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d() {
-            super(R.layout.obfuscated_res_0x7f0d0482);
+            super(R.layout.obfuscated_res_0x7f0d048d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,13 +204,13 @@ public class TailFrameView extends KSFrameLayout {
         }
 
         @Override // com.kwad.components.ad.reward.widget.tailframe.a
-        public final void a(AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
+        public final void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, com.kwad.components.ad.reward.widget.tailframe.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, adTemplate, jSONObject, bVar) == null) {
                 super.a(adTemplate, jSONObject, bVar);
                 if (com.kwad.sdk.core.response.a.d.p(this.mAdTemplate)) {
                     View view2 = this.wU;
-                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f060789));
+                    view2.setBackgroundColor(ContextCompat.getColor(view2.getContext(), R.color.obfuscated_res_0x7f06078a));
                     this.wV.setVisibility(8);
                     this.bq.setVisibility(8);
                 }
@@ -218,7 +220,7 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameView(Context context) {
+    public TailFrameView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -238,7 +240,7 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameView(Context context, AttributeSet attributeSet) {
+    public TailFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -259,7 +261,7 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameView(Context context, AttributeSet attributeSet, int i) {
+    public TailFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -280,7 +282,7 @@ public class TailFrameView extends KSFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TailFrameView(Context context, View view2) {
+    public TailFrameView(@NonNull Context context, View view2) {
         super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

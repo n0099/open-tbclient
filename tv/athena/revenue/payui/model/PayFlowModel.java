@@ -1,5 +1,6 @@
 package tv.athena.revenue.payui.model;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,12 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
+@Keep
 /* loaded from: classes9.dex */
 public class PayFlowModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppCustomExpand appCustomExpand;
-    public Map clientInfoExpand;
+    public Map<String, String> clientInfoExpand;
     public AbsViewEventHandler viewEventListener;
 
     public PayFlowModel() {

@@ -1,11 +1,12 @@
 package com.baidu.sapi2.callback;
 
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class VerifyUserFaceIDCallback extends FaceIDCallback {
+public abstract class VerifyUserFaceIDCallback<R extends SapiResult> extends FaceIDCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

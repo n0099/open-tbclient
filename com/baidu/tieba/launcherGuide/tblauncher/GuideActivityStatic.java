@@ -19,7 +19,7 @@ public class GuideActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public final class a implements CustomMessageTask.CustomRunnable {
+    public static class a implements CustomMessageTask.CustomRunnable<GuildActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,14 +38,14 @@ public class GuideActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage run(CustomMessage customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<GuildActivityConfig> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null) {
-                    ((GuildActivityConfig) customMessage.getData()).getIntent().setClass(((GuildActivityConfig) customMessage.getData()).getContext(), GuideActivity.class);
-                    if (!((GuildActivityConfig) customMessage.getData()).startActivity(GuideActivity.class)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(((GuildActivityConfig) customMessage.getData()).getContext()).createNormalCfg(1)));
+                    customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), GuideActivity.class);
+                    if (!customMessage.getData().startActivity(GuideActivity.class)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(customMessage.getData().getContext()).createNormalCfg(1)));
                     }
                 }
                 return null;

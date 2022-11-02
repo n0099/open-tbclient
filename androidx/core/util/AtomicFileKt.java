@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +20,7 @@ public final class AtomicFileKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @RequiresApi(17)
     public static final byte[] readBytes(android.util.AtomicFile atomicFile) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -30,6 +32,7 @@ public final class AtomicFileKt {
         return (byte[]) invokeL.objValue;
     }
 
+    @RequiresApi(17)
     public static final String readText(android.util.AtomicFile atomicFile, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -41,6 +44,7 @@ public final class AtomicFileKt {
         return (String) invokeLL.objValue;
     }
 
+    @RequiresApi(17)
     public static final void writeBytes(android.util.AtomicFile atomicFile, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicFile, bArr) == null) {
@@ -63,6 +67,7 @@ public final class AtomicFileKt {
         return readText(atomicFile, charset);
     }
 
+    @RequiresApi(17)
     public static final void tryWrite(android.util.AtomicFile atomicFile, Function1<? super FileOutputStream, Unit> function1) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, atomicFile, function1) == null) {
@@ -82,6 +87,7 @@ public final class AtomicFileKt {
         }
     }
 
+    @RequiresApi(17)
     public static final void writeText(android.util.AtomicFile atomicFile, String str, Charset charset) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, atomicFile, str, charset) == null) {

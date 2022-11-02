@@ -16,7 +16,7 @@ public class SnapshotConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class DeviceConstants {
+    public static final class DeviceConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEVICE_APP_DB_INFO = "pre_d_db_info";
         public static final String DEVICE_APP_LOGCAT_FILE_NAME = "pre_d_logcat_log";
@@ -40,7 +40,7 @@ public class SnapshotConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class DeviceFilePathConstants {
+    public static final class DeviceFilePathConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEVICE_BUILD_CONFIG = "/system/build.prop";
         public static final String DEVICE_ION_HEAP = "/sys/kernel/debug/ion/ion_mm_heap";
@@ -65,7 +65,7 @@ public class SnapshotConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class ExtConstant {
+    public static final class ExtConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXT_FILE_PREFIX = "ext_";
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class SnapshotConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class LocalConstants {
+    public static final class LocalConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOCAL_PREFIX = "local_";
         public static final String LOCAL_PROCESS_PATH_NAME_KEEPER = "local_p_path_name_keeper";
@@ -108,7 +108,7 @@ public class SnapshotConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class ProcessConstants {
+    public static final class ProcessConstants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PROCESS_LOG_BASIC_DATA = "pre_p_log_basicdata";
         public static final String PROCESS_MEM_STATUS = "pre_p_memory_status";

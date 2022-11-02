@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.ou4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,10 +24,10 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static final String CACHE_KEY_PREFIX = "p_group_info";
     public transient /* synthetic */ FieldHolder $fh;
     public int commonGroupNum;
-    public List commonGroups;
+    public List<GroupInfoData> commonGroups;
     public int groupNum;
     public GroupPermData groupPerm;
-    public List groups;
+    public List<GroupInfoData> groups;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGroupsByUidMessage() {
@@ -55,7 +56,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
         return invokeV.intValue;
     }
 
-    public List getCommonGroups() {
+    public List<GroupInfoData> getCommonGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,7 +83,7 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
         return (GroupPermData) invokeV.objValue;
     }
 
-    public List getGroups() {
+    public List<GroupInfoData> getGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -126,12 +127,13 @@ public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
             str = "";
         }
         if (groupsByUidMessage != null && groupsByUidMessage.getFriendUid() == 0) {
-            ou4.f();
-            TbSocketReponsedMessage.saveProtocolBufferDataToCache(ou4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
+            hv4.f();
+            TbSocketReponsedMessage.saveProtocolBufferDataToCache(hv4.d("tb.im_entergroup"), CACHE_KEY_PREFIX + str, bArr);
         }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         boolean z;

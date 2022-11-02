@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class BaseControllerListener implements ControllerListener {
+public class BaseControllerListener<INFO> implements ControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ControllerListener NO_OP_LISTENER;
+    public static final ControllerListener<Object> NO_OP_LISTENER;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.facebook.drawee.controller.ControllerListener
@@ -24,9 +24,9 @@ public class BaseControllerListener implements ControllerListener {
     }
 
     @Override // com.facebook.drawee.controller.ControllerListener
-    public void onFinalImageSet(String str, @Nullable Object obj, @Nullable Animatable animatable) {
+    public void onFinalImageSet(String str, @Nullable INFO info, @Nullable Animatable animatable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj, animatable) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info, animatable) == null) {
         }
     }
 
@@ -38,9 +38,9 @@ public class BaseControllerListener implements ControllerListener {
     }
 
     @Override // com.facebook.drawee.controller.ControllerListener
-    public void onIntermediateImageSet(String str, @Nullable Object obj) {
+    public void onIntermediateImageSet(String str, @Nullable INFO info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, info) == null) {
         }
     }
 
@@ -88,11 +88,11 @@ public class BaseControllerListener implements ControllerListener {
         }
     }
 
-    public static ControllerListener getNoOpListener() {
+    public static <INFO> ControllerListener<INFO> getNoOpListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return NO_OP_LISTENER;
+            return (ControllerListener<INFO>) NO_OP_LISTENER;
         }
         return (ControllerListener) invokeV.objValue;
     }

@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.web.client;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -167,6 +168,7 @@ public class ShareWebViewClient extends BaseWebViewClient {
     }
 
     @Override // com.sina.weibo.sdk.web.client.BaseWebViewClient, android.webkit.WebViewClient
+    @TargetApi(24)
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

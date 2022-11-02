@@ -46,7 +46,7 @@ public class bj {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a extends FilterInputStream {
+    public static final class a extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -88,13 +88,13 @@ public class bj {
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Map f141a;
+        public Map<String, String> f141a;
 
         public String toString() {
             InterceptResult invokeV;
@@ -162,7 +162,7 @@ public class bj {
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.String */
     /* JADX WARN: Multi-variable type inference failed */
-    public static bh a(Context context, String str, String str2, Map map, String str3) {
+    public static bh a(Context context, String str, String str2, Map<String, String> map, String str3) {
         InterceptResult invokeLLLLL;
         boolean z;
         BufferedReader bufferedReader;
@@ -182,9 +182,9 @@ public class bj {
                         m195a.setRequestMethod(str4);
                         int i = 0;
                         if (map != null) {
-                            z = "gzip".equalsIgnoreCase((String) map.get("Content-Encoding"));
+                            z = "gzip".equalsIgnoreCase(map.get("Content-Encoding"));
                             for (String str5 : map.keySet()) {
-                                m195a.setRequestProperty(str5, (String) map.get(str5));
+                                m195a.setRequestProperty(str5, map.get(str5));
                             }
                         } else {
                             z = false;
@@ -256,10 +256,10 @@ public class bj {
         return (bh) invokeLLLLL.objValue;
     }
 
-    public static bh a(Context context, String str, Map map) {
+    public static bh a(Context context, String str, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) ? a(context, str, "POST", (Map) null, a(map)) : (bh) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, map)) == null) ? a(context, str, "POST", (Map<String, String>) null, a(map)) : (bh) invokeLLL.objValue;
     }
 
     public static InputStream a(Context context, URL url, boolean z, String str, String str2) {
@@ -268,7 +268,7 @@ public class bj {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, url, Boolean.valueOf(z), str, str2})) == null) ? a(context, url, z, str, str2, null, null) : (InputStream) invokeCommon.objValue;
     }
 
-    public static InputStream a(Context context, URL url, boolean z, String str, String str2, Map map, b bVar) {
+    public static InputStream a(Context context, URL url, boolean z, String str, String str2, Map<String, String> map, b bVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, url, Boolean.valueOf(z), str, str2, map, bVar})) == null) {
@@ -288,7 +288,7 @@ public class bj {
                         }
                         if (map != null) {
                             for (String str3 : map.keySet()) {
-                                m195a.setRequestProperty(str3, (String) map.get(str3));
+                                m195a.setRequestProperty(str3, map.get(str3));
                             }
                         }
                         if (bVar != null && (url.getProtocol().equals("http") || url.getProtocol().equals("https"))) {
@@ -401,7 +401,7 @@ public class bj {
 
     /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: java.io.File */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String a(String str, Map map, File file, String str2) {
+    public static String a(String str, Map<String, String> map, File file, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65547, null, str, map, file, str2)) != null) {
@@ -423,8 +423,8 @@ public class bj {
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=*****");
                 if (map != null) {
-                    for (Map.Entry entry : map.entrySet()) {
-                        httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                     }
                 }
                 httpURLConnection.setFixedLengthStreamingMode(name.length() + 77 + ((int) file.length()) + str2.length());
@@ -486,7 +486,7 @@ public class bj {
         }
     }
 
-    public static String a(Map map) {
+    public static String a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, map)) == null) {
@@ -494,12 +494,12 @@ public class bj {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer();
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
                     try {
-                        stringBuffer.append(URLEncoder.encode((String) entry.getKey(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
                         stringBuffer.append("=");
-                        stringBuffer.append(URLEncoder.encode((String) entry.getValue(), "UTF-8"));
+                        stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
                         stringBuffer.append("&");
                     } catch (UnsupportedEncodingException e) {
                         com.xiaomi.channel.commonutils.logger.b.m89a("Failed to convert from params map to string: " + e);

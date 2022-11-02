@@ -2,6 +2,7 @@ package com.bun.miitmdid;
 
 import android.content.Context;
 import android.os.IBinder;
+import androidx.annotation.Keep;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.asus.msa.sdid.IDIDBinderStatusListener;
 import com.asus.msa.sdid.SupplementaryDIDManager;
@@ -9,10 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public class i extends m implements IDIDBinderStatusListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public final SupplementaryDIDManager n;
 
     public i(Context context) {
@@ -34,20 +37,26 @@ public class i extends m implements IDIDBinderStatusListener {
     }
 
     @Override // android.os.IInterface
+    @Keep
     public native IBinder asBinder();
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native void doStart();
 
     @Override // com.bun.miitmdid.m, com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native boolean isSync();
 
     @Override // com.asus.msa.sdid.IDIDBinderStatusListener
+    @Keep
     public native void onError();
 
     @Override // com.asus.msa.sdid.IDIDBinderStatusListener
+    @Keep
     public native void onSuccess(IDidAidlInterface iDidAidlInterface);
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
     public native void shutDown();
 }

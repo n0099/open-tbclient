@@ -19,21 +19,21 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableAmb extends Flowable {
+public final class FlowableAmb<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher[] sources;
-    public final Iterable sourcesIterable;
+    public final Publisher<? extends T>[] sources;
+    public final Iterable<? extends Publisher<? extends T>> sourcesIterable;
 
     /* loaded from: classes8.dex */
-    public final class AmbCoordinator implements Subscription {
+    public static final class AmbCoordinator<T> implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
-        public final AmbInnerSubscriber[] subscribers;
+        public final Subscriber<? super T> actual;
+        public final AmbInnerSubscriber<T>[] subscribers;
         public final AtomicInteger winner;
 
-        public AmbCoordinator(Subscriber subscriber, int i) {
+        public AmbCoordinator(Subscriber<? super T> subscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +58,7 @@ public final class FlowableAmb extends Flowable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.winner.get() != -1) {
                 this.winner.lazySet(-1);
-                for (AmbInnerSubscriber ambInnerSubscriber : this.subscribers) {
+                for (AmbInnerSubscriber<T> ambInnerSubscriber : this.subscribers) {
                     ambInnerSubscriber.cancel();
                 }
             }
@@ -72,22 +72,22 @@ public final class FlowableAmb extends Flowable {
                 if (i > 0) {
                     this.subscribers[i - 1].request(j);
                 } else if (i == 0) {
-                    for (AmbInnerSubscriber ambInnerSubscriber : this.subscribers) {
+                    for (AmbInnerSubscriber<T> ambInnerSubscriber : this.subscribers) {
                         ambInnerSubscriber.request(j);
                     }
                 }
             }
         }
 
-        public void subscribe(Publisher[] publisherArr) {
+        public void subscribe(Publisher<? extends T>[] publisherArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, publisherArr) == null) {
-                AmbInnerSubscriber[] ambInnerSubscriberArr = this.subscribers;
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.subscribers;
                 int length = ambInnerSubscriberArr.length;
                 int i = 0;
                 while (i < length) {
                     int i2 = i + 1;
-                    ambInnerSubscriberArr[i] = new AmbInnerSubscriber(this, i2, this.actual);
+                    ambInnerSubscriberArr[i] = new AmbInnerSubscriber<>(this, i2, this.actual);
                     i = i2;
                 }
                 this.winner.lazySet(0);
@@ -106,7 +106,7 @@ public final class FlowableAmb extends Flowable {
                 if (this.winner.get() != 0 || !this.winner.compareAndSet(0, i)) {
                     return false;
                 }
-                AmbInnerSubscriber[] ambInnerSubscriberArr = this.subscribers;
+                AmbInnerSubscriber<T>[] ambInnerSubscriberArr = this.subscribers;
                 int length = ambInnerSubscriberArr.length;
                 while (i2 < length) {
                     int i3 = i2 + 1;
@@ -122,17 +122,17 @@ public final class FlowableAmb extends Flowable {
     }
 
     /* loaded from: classes8.dex */
-    public final class AmbInnerSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
+    public static final class AmbInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1185974347409665484L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final int index;
         public final AtomicLong missedRequested;
-        public final AmbCoordinator parent;
+        public final AmbCoordinator<T> parent;
         public boolean won;
 
-        public AmbInnerSubscriber(AmbCoordinator ambCoordinator, int i, Subscriber subscriber) {
+        public AmbInnerSubscriber(AmbCoordinator<T> ambCoordinator, int i, Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +171,7 @@ public final class FlowableAmb extends Flowable {
                     this.won = true;
                     this.actual.onComplete();
                 } else {
-                    ((Subscription) get()).cancel();
+                    get().cancel();
                 }
             }
         }
@@ -186,23 +186,23 @@ public final class FlowableAmb extends Flowable {
                     this.won = true;
                     this.actual.onError(th);
                 } else {
-                    ((Subscription) get()).cancel();
+                    get().cancel();
                     RxJavaPlugins.onError(th);
                 }
             }
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 if (this.won) {
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 } else if (this.parent.win(this.index)) {
                     this.won = true;
-                    this.actual.onNext(obj);
+                    this.actual.onNext(t);
                 } else {
-                    ((Subscription) get()).cancel();
+                    get().cancel();
                 }
             }
         }
@@ -224,7 +224,7 @@ public final class FlowableAmb extends Flowable {
         }
     }
 
-    public FlowableAmb(Publisher[] publisherArr, Iterable iterable) {
+    public FlowableAmb(Publisher<? extends T>[] publisherArr, Iterable<? extends Publisher<? extends T>> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,22 +244,22 @@ public final class FlowableAmb extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            Publisher[] publisherArr = this.sources;
+            Publisher<? extends T>[] publisherArr = this.sources;
             if (publisherArr == null) {
                 publisherArr = new Publisher[8];
                 try {
                     length = 0;
-                    for (Publisher publisher : this.sourcesIterable) {
+                    for (Publisher<? extends T> publisher : this.sourcesIterable) {
                         if (publisher == null) {
                             EmptySubscription.error(new NullPointerException("One of the sources is null"), subscriber);
                             return;
                         }
                         if (length == publisherArr.length) {
-                            Publisher[] publisherArr2 = new Publisher[(length >> 2) + length];
+                            Publisher<? extends T>[] publisherArr2 = new Publisher[(length >> 2) + length];
                             System.arraycopy(publisherArr, 0, publisherArr2, 0, length);
                             publisherArr = publisherArr2;
                         }

@@ -1,5 +1,6 @@
 package com.baidu.android.util.connect;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
@@ -45,6 +46,7 @@ public class ConnectManager {
         checkNetworkType(context);
     }
 
+    @SuppressLint({"MissingPermission"})
     @Deprecated
     public static NetworkInfo getInfo(Context context) {
         InterceptResult invokeL;

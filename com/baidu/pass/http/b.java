@@ -166,11 +166,11 @@ public class b {
         return (HttpURLConnection) invokeL.objValue;
     }
 
-    private HashMap a(HttpURLConnection httpURLConnection) {
+    private HashMap<String, String> a(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, httpURLConnection)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             int size = httpURLConnection.getHeaderFields().size();
             for (int i = 0; i < size; i++) {
                 String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
@@ -243,11 +243,11 @@ public class b {
         }
     }
 
-    private void a(HttpURLConnection httpURLConnection, HashMap hashMap) {
+    private void a(HttpURLConnection httpURLConnection, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65546, this, httpURLConnection, hashMap) == null) && hashMap != null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
-                httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
     }
@@ -426,7 +426,7 @@ public class b {
             }
             InputStream inputStream = a2.getInputStream();
             int responseCode = a2.getResponseCode();
-            HashMap a3 = a(a2);
+            HashMap<String, String> a3 = a(a2);
             byte[] a4 = a(inputStream);
             try {
                 inputStream.close();

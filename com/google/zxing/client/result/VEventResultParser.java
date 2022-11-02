@@ -32,9 +32,9 @@ public final class VEventResultParser extends ResultParser {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, charSequence, str, z)) == null) {
-            List matchSingleVCardPrefixedField = VCardResultParser.matchSingleVCardPrefixedField(charSequence, str, z, false);
+            List<String> matchSingleVCardPrefixedField = VCardResultParser.matchSingleVCardPrefixedField(charSequence, str, z, false);
             if (matchSingleVCardPrefixedField != null && !matchSingleVCardPrefixedField.isEmpty()) {
-                return (String) matchSingleVCardPrefixedField.get(0);
+                return matchSingleVCardPrefixedField.get(0);
             }
             return null;
         }
@@ -45,12 +45,12 @@ public final class VEventResultParser extends ResultParser {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, charSequence, str, z)) == null) {
-            List matchVCardPrefixedField = VCardResultParser.matchVCardPrefixedField(charSequence, str, z, false);
+            List<List<String>> matchVCardPrefixedField = VCardResultParser.matchVCardPrefixedField(charSequence, str, z, false);
             if (matchVCardPrefixedField != null && !matchVCardPrefixedField.isEmpty()) {
                 int size = matchVCardPrefixedField.size();
                 String[] strArr = new String[size];
                 for (int i = 0; i < size; i++) {
-                    strArr[i] = (String) ((List) matchVCardPrefixedField.get(i)).get(0);
+                    strArr[i] = matchVCardPrefixedField.get(i).get(0);
                 }
                 return strArr;
             }

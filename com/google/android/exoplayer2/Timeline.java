@@ -28,7 +28,7 @@ public abstract class Timeline {
     public abstract int getWindowCount();
 
     /* loaded from: classes7.dex */
-    public final class Period {
+    public static final class Period {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] adCounts;
@@ -258,7 +258,7 @@ public abstract class Timeline {
     }
 
     /* loaded from: classes7.dex */
-    public final class Window {
+    public static final class Window {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long defaultPositionUs;
@@ -576,7 +576,7 @@ public abstract class Timeline {
         return (Window) invokeIL.objValue;
     }
 
-    public final Pair getPeriodPosition(Window window, Period period, int i, long j) {
+    public final Pair<Integer, Long> getPeriodPosition(Window window, Period period, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{window, period, Integer.valueOf(i), Long.valueOf(j)})) == null) {
@@ -585,7 +585,7 @@ public abstract class Timeline {
         return (Pair) invokeCommon.objValue;
     }
 
-    public final Pair getPeriodPosition(Window window, Period period, int i, long j, long j2) {
+    public final Pair<Integer, Long> getPeriodPosition(Window window, Period period, int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{window, period, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {

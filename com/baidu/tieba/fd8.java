@@ -1,128 +1,105 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.os.AsyncTask;
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fd8 extends AsyncTask {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Camera a;
-    public byte[] b;
-    public a c;
-    public int d;
+public interface fd8 {
+    JSONObject a();
 
     /* loaded from: classes4.dex */
-    public interface a {
-        String a(byte[] bArr, int i, int i2, boolean z);
-    }
+    public static abstract class a implements fd8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final long b;
 
-    public fd8(Camera camera, byte[] bArr, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = camera;
-        this.b = bArr;
-        this.c = aVar;
-        this.d = i;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getStatus() != AsyncTask.Status.FINISHED) {
-            cancel(true);
-        }
-    }
-
-    public fd8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-            } else {
-                execute(new Void[0]);
-            }
-            return this;
-        }
-        return (fd8) invokeV.objValue;
-    }
-
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onCancelled();
-            this.c = null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Camera.Parameters parameters;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            Camera camera = this.a;
-            if (camera == null) {
-                return null;
-            }
-            try {
-                parameters = camera.getParameters();
-            } catch (RuntimeException e) {
-                BdLog.e(e);
-                parameters = null;
-            }
-            if (parameters == null) {
-                return null;
-            }
-            Camera.Size previewSize = parameters.getPreviewSize();
-            int i = previewSize.width;
-            int i2 = previewSize.height;
-            byte[] bArr = this.b;
-            if (this.d == 0) {
-                bArr = new byte[bArr.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
-                    }
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                i = i2;
-                i2 = i;
             }
-            try {
+            this.a = i;
+            this.b = System.currentTimeMillis();
+        }
+
+        @Override // com.baidu.tieba.fd8
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    if (this.c == null) {
-                        return null;
-                    }
-                    return this.c.a(bArr, i, i2, false);
-                } catch (Exception unused) {
-                    return null;
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("timestamp", this.b);
+                    jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception unused2) {
-                return this.c.a(bArr, i, i2, true);
+                return jSONObject;
             }
+            return (JSONObject) invokeV.objValue;
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static abstract class b implements fd8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final String b;
+        public final long c;
+
+        public b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = System.currentTimeMillis();
+        }
+
+        @Override // com.baidu.tieba.fd8
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("source", this.b);
+                    jSONObject.put("timestamp", this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
     }
 }

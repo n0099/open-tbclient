@@ -1,30 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-import tbclient.VideoDesc;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes4.dex */
 public class ju4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
-    public static VideoDesc a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ju4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            VideoDesc.Builder builder = new VideoDesc.Builder();
-            if (jSONObject != null) {
-                builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
-                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
-                builder.video_url = jSONObject.optString("video_url");
-                builder.video_width = jSONObject.optString("video_width");
-                builder.video_height = jSONObject.optString("video_height");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return builder.build(true);
         }
-        return (VideoDesc) invokeL.objValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, schoolRecomUserInfo) != null) || schoolRecomUserInfo == null) {
+            return;
+        }
+        this.a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.b = schoolRecomUserInfo.uname;
+        this.c = schoolRecomUserInfo.portrait;
+        this.d = schoolRecomUserInfo.institute;
+        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

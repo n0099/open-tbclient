@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.oh5;
+import com.baidu.tieba.gj5;
+import com.baidu.tieba.kj5;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.ni;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.vi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class ForumBroadcastHelper {
     public static final String VALUE_PARMARS_BCAST_FROM_EDIT = "failed_broadcast";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
-    public HashMap params;
+    public HashMap<String, Object> params;
 
     public ForumBroadcastHelper(Context context) {
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class ForumBroadcastHelper {
                 return;
             }
         }
-        this.params = new HashMap();
+        this.params = new HashMap<>();
         this.mContext = context;
     }
 
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            vi.a(TbConfig.TIEBA_ADDRESS + "p/" + str + "?share=9105&fr=share");
+            ni.a(TbConfig.TIEBA_ADDRESS + "p/" + str + "?share=9105&fr=share");
         }
     }
 
@@ -93,7 +93,7 @@ public class ForumBroadcastHelper {
             this.params.put("image", str7);
             this.params.put("from", str8);
             this.params.put("obj_source", str9);
-            HashMap hashMap = this.params;
+            HashMap<String, Object> hashMap = this.params;
             hashMap.put(KEY_PARMARS_BCAST_THREADLINK, TbConfig.TIEBA_ADDRESS + "p/" + str4 + "?share=9105&fr=share");
         }
     }
@@ -102,7 +102,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                mi5.b(new ii5(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
+                kj5.b(new gj5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -126,7 +126,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.ii5
+                    @Override // com.baidu.tieba.gj5
                     public String doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -135,7 +135,7 @@ public class ForumBroadcastHelper {
                         }
                         return (String) invokeV.objValue;
                     }
-                }, new oh5(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
+                }, new li5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -159,7 +159,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.oh5
+                    @Override // com.baidu.tieba.li5
                     public void onReturnDataInUI(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {

@@ -1,5 +1,6 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.ByteBufferUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,7 +44,7 @@ public class VmTraceParser {
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceParser$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$VmClockType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,6 +154,7 @@ public class VmTraceParser {
             return invokeI.intValue;
         }
 
+        @NonNull
         private String readString(int i) throws IOException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;

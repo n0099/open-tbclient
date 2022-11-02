@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.BaseMenuPresenter;
@@ -414,7 +417,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, menuBuilder, z) == null) {
                 if (menuBuilder instanceof SubMenuBuilder) {
@@ -428,7 +431,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder)) == null) {
@@ -446,6 +449,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
+    @SuppressLint({"BanParcelableUsage"})
     /* loaded from: classes.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
@@ -1040,7 +1044,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     }
 
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter, androidx.appcompat.view.menu.MenuPresenter
-    public void initForMenu(Context context, MenuBuilder menuBuilder) {
+    public void initForMenu(@NonNull Context context, @Nullable MenuBuilder menuBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, context, menuBuilder) == null) {
             super.initForMenu(context, menuBuilder);

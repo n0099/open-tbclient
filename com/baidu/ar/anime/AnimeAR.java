@@ -110,7 +110,7 @@ public class AnimeAR extends c {
             if (TextUtils.isEmpty(str2) && p.A(getContext())) {
                 aVar.an();
             }
-            aVar.a(new a.InterfaceC0045a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
+            aVar.a(new a.InterfaceC0046a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimeAR ce;
@@ -139,7 +139,7 @@ public class AnimeAR extends c {
                     this.ch = aVar;
                 }
 
-                @Override // com.baidu.ar.anime.a.InterfaceC0045a
+                @Override // com.baidu.ar.anime.a.InterfaceC0046a
                 public void b(FramePixels framePixels) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, framePixels) == null) {
@@ -259,7 +259,7 @@ public class AnimeAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public List getMsgKeyListened() {
+                    public List<String> getMsgKeyListened() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -271,7 +271,7 @@ public class AnimeAR extends c {
                     }
 
                     @Override // com.baidu.ar.lua.LuaMsgListener
-                    public void onLuaMessage(HashMap hashMap) {
+                    public void onLuaMessage(HashMap<String, Object> hashMap) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
                             String str = (String) hashMap.get("event_name");
@@ -347,7 +347,7 @@ public class AnimeAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.setup(hashMap);
@@ -367,7 +367,7 @@ public class AnimeAR extends c {
                 com.baidu.ar.h.b.b(str2, "mAbilityName error: " + this.bD);
             }
             if (this.cd == null) {
-                b bVar = new b(new b.InterfaceC0047b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
+                b bVar = new b(new b.InterfaceC0048b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnimeAR ce;
@@ -390,7 +390,7 @@ public class AnimeAR extends c {
                         this.ce = this;
                     }
 
-                    @Override // com.baidu.ar.anime.b.InterfaceC0047b
+                    @Override // com.baidu.ar.anime.b.InterfaceC0048b
                     public void a(int i, String str3, long j) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str3, Long.valueOf(j)}) == null) {

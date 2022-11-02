@@ -60,7 +60,7 @@ public final class StringUtils {
         }
     }
 
-    public static String guessEncoding(byte[] bArr, Map map) {
+    public static String guessEncoding(byte[] bArr, Map<DecodeHintType, ?> map) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;

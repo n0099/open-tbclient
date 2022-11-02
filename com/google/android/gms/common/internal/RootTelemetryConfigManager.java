@@ -1,5 +1,7 @@
 package com.google.android.gms.common.internal;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,12 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
+import com.google.android.gms.common.util.VisibleForTesting;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class RootTelemetryConfigManager {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
     public static RootTelemetryConfigManager zza;
     public static final RootTelemetryConfiguration zzb;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public RootTelemetryConfiguration zzc;
 
     static {
@@ -45,6 +52,8 @@ public final class RootTelemetryConfigManager {
         }
     }
 
+    @NonNull
+    @KeepForSdk
     public static synchronized RootTelemetryConfigManager getInstance() {
         InterceptResult invokeV;
         RootTelemetryConfigManager rootTelemetryConfigManager;
@@ -61,13 +70,16 @@ public final class RootTelemetryConfigManager {
         return (RootTelemetryConfigManager) invokeV.objValue;
     }
 
+    @Nullable
+    @KeepForSdk
     public RootTelemetryConfiguration getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.zzc : (RootTelemetryConfiguration) invokeV.objValue;
     }
 
-    public final synchronized void zza(RootTelemetryConfiguration rootTelemetryConfiguration) {
+    @VisibleForTesting
+    public final synchronized void zza(@Nullable RootTelemetryConfiguration rootTelemetryConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rootTelemetryConfiguration) == null) {
             synchronized (this) {

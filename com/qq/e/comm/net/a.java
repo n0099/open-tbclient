@@ -86,8 +86,8 @@ public class a {
                     if (!StringUtil.isEmpty(str)) {
                         jSONObject.putOpt("cell_native", str);
                     }
-                    for (Map.Entry entry : deviceStatus.getLacAndCeilId().entrySet()) {
-                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
+                        jSONObject.putOpt(entry.getKey(), entry.getValue());
                     }
                 }
                 str = null;
@@ -110,7 +110,7 @@ public class a {
                 jSONObject.putOpt("did", deviceStatus.getDeviceId());
                 jSONObject.putOpt("md", deviceStatus.model);
                 jSONObject.putOpt("lg", deviceStatus.getLanguage());
-                jSONObject.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
+                jSONObject.putOpt(Config.DEVICE_WIDTH, Integer.valueOf(deviceStatus.getDeviceWidth()));
                 jSONObject.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
                 jSONObject.putOpt(Config.DEVICE_ID_SEC, Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));

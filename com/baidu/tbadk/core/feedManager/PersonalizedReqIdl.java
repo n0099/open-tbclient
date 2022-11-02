@@ -16,13 +16,13 @@ public final class PersonalizedReqIdl extends Message {
     public final DataReq data;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<PersonalizedReqIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataReq data;
@@ -66,6 +66,7 @@ public final class PersonalizedReqIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public PersonalizedReqIdl build(boolean z) {
             InterceptResult invokeZ;

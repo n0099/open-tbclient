@@ -362,7 +362,7 @@ public class Tencent {
         return invokeCommon.booleanValue;
     }
 
-    public static Map parseMiniParameters(Intent intent) {
+    public static Map<String, String> parseMiniParameters(Intent intent) {
         InterceptResult invokeL;
         String stringExtra;
         Interceptable interceptable = $ic;
@@ -539,7 +539,7 @@ public class Tencent {
         }
     }
 
-    public int login(Activity activity, IUiListener iUiListener, Map map) {
+    public int login(Activity activity, IUiListener iUiListener, Map<String, Object> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, activity, iUiListener, map)) == null) {
@@ -603,7 +603,7 @@ public class Tencent {
         }
     }
 
-    public void setEmotions(Activity activity, ArrayList arrayList, IUiListener iUiListener) {
+    public void setEmotions(Activity activity, ArrayList<Uri> arrayList, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048611, this, activity, arrayList, iUiListener) == null) {
             SLog.i("openSDK_LOG.Tencent", "saveQQEmotions()");

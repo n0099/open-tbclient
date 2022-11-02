@@ -15,17 +15,17 @@ import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class InnerQueuedObserver extends AtomicReference implements Observer, Disposable {
+public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5417183359794346637L;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean done;
     public int fusionMode;
-    public final InnerQueuedObserverSupport parent;
+    public final InnerQueuedObserverSupport<T> parent;
     public final int prefetch;
-    public SimpleQueue queue;
+    public SimpleQueue<T> queue;
 
-    public InnerQueuedObserver(InnerQueuedObserverSupport innerQueuedObserverSupport, int i) {
+    public InnerQueuedObserver(InnerQueuedObserverSupport<T> innerQueuedObserverSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class InnerQueuedObserver extends AtomicReference implements Observ
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return DisposableHelper.isDisposed((Disposable) get());
+            return DisposableHelper.isDisposed(get());
         }
         return invokeV.booleanValue;
     }
@@ -88,7 +88,7 @@ public final class InnerQueuedObserver extends AtomicReference implements Observ
         }
     }
 
-    public SimpleQueue queue() {
+    public SimpleQueue<T> queue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -113,11 +113,11 @@ public final class InnerQueuedObserver extends AtomicReference implements Observ
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
             if (this.fusionMode == 0) {
-                this.parent.innerNext(this, obj);
+                this.parent.innerNext(this, t);
             } else {
                 this.parent.drain();
             }

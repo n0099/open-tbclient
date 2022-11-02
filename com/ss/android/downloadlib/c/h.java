@@ -1,5 +1,6 @@
 package com.ss.android.downloadlib.c;
 
+import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
@@ -10,7 +11,7 @@ import org.json.JSONObject;
 public class h {
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static h a = new h();
     }
 
@@ -35,19 +36,19 @@ public class h {
         b(bVar, com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("noti_continue_delay_secs", 5));
     }
 
-    public void c(com.ss.android.downloadad.api.a.b bVar) {
+    public void c(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         c(bVar, 5L);
     }
 
-    public void d(com.ss.android.downloadad.api.a.b bVar) {
+    public void d(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         c(bVar, com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("noti_install_delay_secs", 5));
     }
 
-    public void e(com.ss.android.downloadad.api.a.b bVar) {
+    public void e(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         a(bVar, 5L);
     }
 
-    public void f(com.ss.android.downloadad.api.a.b bVar) {
+    public void f(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         a(bVar, com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("noti_open_delay_secs", 5));
     }
 
@@ -74,7 +75,7 @@ public class h {
         com.ss.android.downloadlib.d.a.a().b("download_notification_show", jSONObject, bVar);
     }
 
-    private void b(final com.ss.android.downloadad.api.a.b bVar, long j) {
+    private void b(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;
@@ -97,7 +98,7 @@ public class h {
         }, j * 1000);
     }
 
-    private void c(final com.ss.android.downloadad.api.a.b bVar, long j) {
+    private void c(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;
@@ -120,7 +121,7 @@ public class h {
         }, j * 1000);
     }
 
-    public void a(final com.ss.android.downloadad.api.a.b bVar, long j) {
+    public void a(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;

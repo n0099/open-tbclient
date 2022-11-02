@@ -2,21 +2,26 @@ package com.google.android.material.floatingactionbutton;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import java.util.List;
 /* loaded from: classes7.dex */
 public interface MotionStrategy {
-    void addAnimationListener(Animator.AnimatorListener animatorListener);
+    void addAnimationListener(@NonNull Animator.AnimatorListener animatorListener);
 
     AnimatorSet createAnimator();
 
     MotionSpec getCurrentMotionSpec();
 
+    @AnimatorRes
     int getDefaultMotionSpecResource();
 
-    List getListeners();
+    List<Animator.AnimatorListener> getListeners();
 
+    @Nullable
     MotionSpec getMotionSpec();
 
     void onAnimationCancel();
@@ -25,13 +30,13 @@ public interface MotionStrategy {
 
     void onAnimationStart(Animator animator);
 
-    void onChange(ExtendedFloatingActionButton.OnChangedCallback onChangedCallback);
+    void onChange(@Nullable ExtendedFloatingActionButton.OnChangedCallback onChangedCallback);
 
     void performNow();
 
-    void removeAnimationListener(Animator.AnimatorListener animatorListener);
+    void removeAnimationListener(@NonNull Animator.AnimatorListener animatorListener);
 
-    void setMotionSpec(MotionSpec motionSpec);
+    void setMotionSpec(@Nullable MotionSpec motionSpec);
 
     boolean shouldCancel();
 }

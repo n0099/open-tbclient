@@ -14,7 +14,7 @@ public class OpenBusiLuckyMoney {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Req extends BaseReq {
+    public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_URL_LENGHT = 10240;
         public transient /* synthetic */ FieldHolder $fh;

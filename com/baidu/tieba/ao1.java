@@ -1,22 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface ao1 {
+    boolean A();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    boolean B();
 
-    void a(HashMap hashMap, File file, a aVar, String str);
+    JSONObject C();
 
-    void b(Context context, String str, String str2, String str3);
+    boolean D();
 
-    void c(HashMap hashMap, File file, a aVar);
+    void E();
 
-    void d(Bitmap bitmap, HashMap hashMap, File[] fileArr, a aVar);
+    long F();
+
+    boolean G();
+
+    long H();
+
+    String getExpInfos();
+
+    JSONObject getRawSwitch();
+
+    int getSwitch(String str, int i);
+
+    String getSwitch(String str, String str2);
+
+    boolean getSwitch(String str, boolean z);
+
+    boolean j();
+
+    String k();
+
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    boolean p();
+
+    int q();
+
+    boolean r();
+
+    boolean s();
+
+    boolean t();
+
+    int u();
+
+    boolean v();
+
+    boolean w();
+
+    boolean x();
+
+    int y();
+
+    boolean z();
 }

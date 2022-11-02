@@ -163,7 +163,7 @@ public final class CodedOutputStream {
     }
 
     /* loaded from: classes7.dex */
-    public class OutOfSpaceException extends IOException {
+    public static class OutOfSpaceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6947486886997889499L;
         public transient /* synthetic */ FieldHolder $fh;

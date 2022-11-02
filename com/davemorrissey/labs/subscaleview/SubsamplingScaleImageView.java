@@ -1,5 +1,6 @@
 package com.davemorrissey.labs.subscaleview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -64,11 +65,11 @@ public class SubsamplingScaleImageView extends View {
     public static final int SCALE_TYPE_CENTER_INSIDE = 1;
     public static final int SCALE_TYPE_CUSTOM = 3;
     public static final String TAG;
-    public static final List VALID_EASING_STYLES;
-    public static final List VALID_ORIENTATIONS;
-    public static final List VALID_PAN_LIMITS;
-    public static final List VALID_SCALE_TYPES;
-    public static final List VALID_ZOOM_STYLES;
+    public static final List<Integer> VALID_EASING_STYLES;
+    public static final List<Integer> VALID_ORIENTATIONS;
+    public static final List<Integer> VALID_PAN_LIMITS;
+    public static final List<Integer> VALID_SCALE_TYPES;
+    public static final List<Integer> VALID_ZOOM_STYLES;
     public static final int ZOOM_FOCUS_CENTER = 2;
     public static final int ZOOM_FOCUS_CENTER_IMMEDIATE = 3;
     public static final int ZOOM_FOCUS_CENTER_IN_TO_MAX_OUT_TO_INIT = 4;
@@ -76,7 +77,7 @@ public class SubsamplingScaleImageView extends View {
     public transient /* synthetic */ FieldHolder $fh;
     public Anim anim;
     public Bitmap bitmap;
-    public DecoderFactory bitmapDecoderFactory;
+    public DecoderFactory<? extends ImageDecoder> bitmapDecoderFactory;
     public Paint bitmapPaint;
     public boolean debug;
     public Paint debugPaint;
@@ -117,7 +118,7 @@ public class SubsamplingScaleImageView extends View {
     public boolean quickScaleMoved;
     public final float quickScaleThreshold;
     public boolean readySent;
-    public DecoderFactory regionDecoderFactory;
+    public DecoderFactory<? extends ImageRegionDecoder> regionDecoderFactory;
     public int sHeight;
     public int sOrientation;
     public PointF sPendingCenter;
@@ -130,7 +131,7 @@ public class SubsamplingScaleImageView extends View {
     public float scaleStart;
     public float[] srcArray;
     public Paint tileBgPaint;
-    public Map tileMap;
+    public Map<Integer, List<Tile>> tileMap;
     public PointF vCenterStart;
     public float vDistStart;
     public PointF vTranslate;
@@ -191,7 +192,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class Anim {
+    public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long duration;
@@ -444,18 +445,18 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class BitmapLoadTask extends BdAsyncTask {
+    public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap bitmap;
-        public final WeakReference contextRef;
-        public final WeakReference decoderFactoryRef;
+        public final WeakReference<Context> contextRef;
+        public final WeakReference<DecoderFactory<? extends ImageDecoder>> decoderFactoryRef;
         public Exception exception;
         public final boolean preview;
         public final Uri source;
-        public final WeakReference viewRef;
+        public final WeakReference<SubsamplingScaleImageView> viewRef;
 
-        public BitmapLoadTask(SubsamplingScaleImageView subsamplingScaleImageView, Context context, DecoderFactory decoderFactory, Uri uri, boolean z) {
+        public BitmapLoadTask(SubsamplingScaleImageView subsamplingScaleImageView, Context context, DecoderFactory<? extends ImageDecoder> decoderFactory, Uri uri, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -470,9 +471,9 @@ public class SubsamplingScaleImageView extends View {
                     return;
                 }
             }
-            this.viewRef = new WeakReference(subsamplingScaleImageView);
-            this.contextRef = new WeakReference(context);
-            this.decoderFactoryRef = new WeakReference(decoderFactory);
+            this.viewRef = new WeakReference<>(subsamplingScaleImageView);
+            this.contextRef = new WeakReference<>(context);
+            this.decoderFactoryRef = new WeakReference<>(decoderFactory);
             this.source = uri;
             this.preview = z;
         }
@@ -485,11 +486,11 @@ public class SubsamplingScaleImageView extends View {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     String uri = this.source.toString();
-                    Context context = (Context) this.contextRef.get();
-                    DecoderFactory decoderFactory = (DecoderFactory) this.decoderFactoryRef.get();
-                    SubsamplingScaleImageView subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get();
+                    Context context = this.contextRef.get();
+                    DecoderFactory<? extends ImageDecoder> decoderFactory = this.decoderFactoryRef.get();
+                    SubsamplingScaleImageView subsamplingScaleImageView = this.viewRef.get();
                     if (context != null && decoderFactory != null && subsamplingScaleImageView != null) {
-                        this.bitmap = ((ImageDecoder) decoderFactory.make()).decode(context, this.source);
+                        this.bitmap = decoderFactory.make().decode(context, this.source);
                         return Integer.valueOf(subsamplingScaleImageView.getExifOrientation(uri));
                     }
                     return null;
@@ -507,7 +508,7 @@ public class SubsamplingScaleImageView extends View {
         public void onPostExecute(Integer num) {
             SubsamplingScaleImageView subsamplingScaleImageView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) && (subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) && (subsamplingScaleImageView = this.viewRef.get()) != null) {
                 Bitmap bitmap = this.bitmap;
                 if (bitmap != null && num != null) {
                     if (this.preview) {
@@ -527,7 +528,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultOnImageEventListener implements OnImageEventListener {
+    public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -582,7 +583,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class ScaleAndTranslate {
+    public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float scale;
@@ -613,7 +614,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class Tile {
+    public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Bitmap bitmap;
@@ -644,13 +645,13 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class TileLoadTask extends BdAsyncTask {
+    public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference decoderRef;
+        public final WeakReference<ImageRegionDecoder> decoderRef;
         public Exception exception;
-        public final WeakReference tileRef;
-        public final WeakReference viewRef;
+        public final WeakReference<Tile> tileRef;
+        public final WeakReference<SubsamplingScaleImageView> viewRef;
 
         public TileLoadTask(SubsamplingScaleImageView subsamplingScaleImageView, ImageRegionDecoder imageRegionDecoder, Tile tile) {
             Interceptable interceptable = $ic;
@@ -667,9 +668,9 @@ public class SubsamplingScaleImageView extends View {
                     return;
                 }
             }
-            this.viewRef = new WeakReference(subsamplingScaleImageView);
-            this.decoderRef = new WeakReference(imageRegionDecoder);
-            this.tileRef = new WeakReference(tile);
+            this.viewRef = new WeakReference<>(subsamplingScaleImageView);
+            this.decoderRef = new WeakReference<>(imageRegionDecoder);
+            this.tileRef = new WeakReference<>(tile);
             tile.loading = true;
         }
 
@@ -681,9 +682,9 @@ public class SubsamplingScaleImageView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
-                    SubsamplingScaleImageView subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get();
-                    ImageRegionDecoder imageRegionDecoder = (ImageRegionDecoder) this.decoderRef.get();
-                    Tile tile = (Tile) this.tileRef.get();
+                    SubsamplingScaleImageView subsamplingScaleImageView = this.viewRef.get();
+                    ImageRegionDecoder imageRegionDecoder = this.decoderRef.get();
+                    Tile tile = this.tileRef.get();
                     if (imageRegionDecoder != null && tile != null && subsamplingScaleImageView != null && imageRegionDecoder.isReady()) {
                         synchronized (subsamplingScaleImageView.decoderLock) {
                             subsamplingScaleImageView.fileSRect(tile.sRect, tile.fileSRect);
@@ -717,8 +718,8 @@ public class SubsamplingScaleImageView extends View {
         public void onPostExecute(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                SubsamplingScaleImageView subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get();
-                Tile tile = (Tile) this.tileRef.get();
+                SubsamplingScaleImageView subsamplingScaleImageView = this.viewRef.get();
+                Tile tile = this.tileRef.get();
                 if (subsamplingScaleImageView != null && tile != null) {
                     if (bitmap != null) {
                         tile.bitmap = bitmap;
@@ -733,17 +734,17 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* loaded from: classes7.dex */
-    public class TilesInitTask extends BdAsyncTask {
+    public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference contextRef;
+        public final WeakReference<Context> contextRef;
         public ImageRegionDecoder decoder;
-        public final WeakReference decoderFactoryRef;
+        public final WeakReference<DecoderFactory<? extends ImageRegionDecoder>> decoderFactoryRef;
         public Exception exception;
         public final Uri source;
-        public final WeakReference viewRef;
+        public final WeakReference<SubsamplingScaleImageView> viewRef;
 
-        public TilesInitTask(SubsamplingScaleImageView subsamplingScaleImageView, Context context, DecoderFactory decoderFactory, Uri uri) {
+        public TilesInitTask(SubsamplingScaleImageView subsamplingScaleImageView, Context context, DecoderFactory<? extends ImageRegionDecoder> decoderFactory, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -758,9 +759,9 @@ public class SubsamplingScaleImageView extends View {
                     return;
                 }
             }
-            this.viewRef = new WeakReference(subsamplingScaleImageView);
-            this.contextRef = new WeakReference(context);
-            this.decoderFactoryRef = new WeakReference(decoderFactory);
+            this.viewRef = new WeakReference<>(subsamplingScaleImageView);
+            this.contextRef = new WeakReference<>(context);
+            this.decoderFactoryRef = new WeakReference<>(decoderFactory);
             this.source = uri;
         }
 
@@ -772,13 +773,13 @@ public class SubsamplingScaleImageView extends View {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
                 try {
                     String uri = this.source.toString();
-                    Context context = (Context) this.contextRef.get();
-                    DecoderFactory decoderFactory = (DecoderFactory) this.decoderFactoryRef.get();
-                    SubsamplingScaleImageView subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get();
+                    Context context = this.contextRef.get();
+                    DecoderFactory<? extends ImageRegionDecoder> decoderFactory = this.decoderFactoryRef.get();
+                    SubsamplingScaleImageView subsamplingScaleImageView = this.viewRef.get();
                     if (context != null && decoderFactory != null && subsamplingScaleImageView != null) {
-                        ImageRegionDecoder imageRegionDecoder = (ImageRegionDecoder) decoderFactory.make();
-                        this.decoder = imageRegionDecoder;
-                        Point init = imageRegionDecoder.init(context, this.source);
+                        ImageRegionDecoder make = decoderFactory.make();
+                        this.decoder = make;
+                        Point init = make.init(context, this.source);
                         int i = init.x;
                         int i2 = init.y;
                         int exifOrientation = subsamplingScaleImageView.getExifOrientation(uri);
@@ -803,7 +804,7 @@ public class SubsamplingScaleImageView extends View {
         public void onPostExecute(int[] iArr) {
             SubsamplingScaleImageView subsamplingScaleImageView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) && (subsamplingScaleImageView = (SubsamplingScaleImageView) this.viewRef.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) && (subsamplingScaleImageView = this.viewRef.get()) != null) {
                 ImageRegionDecoder imageRegionDecoder = this.decoder;
                 if (imageRegionDecoder == null || iArr == null || iArr.length != 3) {
                     if (this.exception != null && subsamplingScaleImageView.onImageEventListener != null) {
@@ -1258,7 +1259,7 @@ public class SubsamplingScaleImageView extends View {
         return (AnimationBuilder) invokeF.objValue;
     }
 
-    public final void setBitmapDecoderClass(Class cls) {
+    public final void setBitmapDecoderClass(Class<? extends ImageDecoder> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, cls) == null) {
             if (cls != null) {
@@ -1269,7 +1270,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setBitmapDecoderFactory(DecoderFactory decoderFactory) {
+    public final void setBitmapDecoderFactory(DecoderFactory<? extends ImageDecoder> decoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, decoderFactory) == null) {
             if (decoderFactory != null) {
@@ -1386,7 +1387,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setRegionDecoderClass(Class cls) {
+    public final void setRegionDecoderClass(Class<? extends ImageRegionDecoder> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, cls) == null) {
             if (cls != null) {
@@ -1397,7 +1398,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setRegionDecoderFactory(DecoderFactory decoderFactory) {
+    public final void setRegionDecoderFactory(DecoderFactory<? extends ImageRegionDecoder> decoderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, decoderFactory) == null) {
             if (decoderFactory != null) {
@@ -1768,7 +1769,7 @@ public class SubsamplingScaleImageView extends View {
                     this.fullImageSampleSize = calculateInSampleSize / 2;
                 }
                 initialiseTileMap(point);
-                for (Tile tile : (List) this.tileMap.get(Integer.valueOf(this.fullImageSampleSize))) {
+                for (Tile tile : this.tileMap.get(Integer.valueOf(this.fullImageSampleSize))) {
                     TileLoadTask tileLoadTask = new TileLoadTask(this, this.decoder, tile);
                     tileLoadTask.setPriority(3);
                     tileLoadTask.execute(new Void[0]);
@@ -1822,6 +1823,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
+    @SuppressLint({"FloatMath"})
     private float distance(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -2140,8 +2142,8 @@ public class SubsamplingScaleImageView extends View {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65605, this, z) == null) && this.decoder != null && this.tileMap != null) {
             int min = Math.min(this.fullImageSampleSize, calculateInSampleSize(this.scale));
-            for (Map.Entry entry : this.tileMap.entrySet()) {
-                for (Tile tile : (List) entry.getValue()) {
+            for (Map.Entry<Integer, List<Tile>> entry : this.tileMap.entrySet()) {
+                for (Tile tile : entry.getValue()) {
                     if (tile.sampleSize < min || (tile.sampleSize > min && tile.sampleSize != this.fullImageSampleSize)) {
                         tile.visible = false;
                         if (tile.bitmap != null) {
@@ -2180,13 +2182,13 @@ public class SubsamplingScaleImageView extends View {
             if (this.bitmap != null && !this.preview) {
                 return true;
             }
-            Map map = this.tileMap;
+            Map<Integer, List<Tile>> map = this.tileMap;
             if (map == null) {
                 return false;
             }
-            for (Map.Entry entry : map.entrySet()) {
-                if (((Integer) entry.getKey()).intValue() == this.fullImageSampleSize) {
-                    for (Tile tile : (List) entry.getValue()) {
+            for (Map.Entry<Integer, List<Tile>> entry : map.entrySet()) {
+                if (entry.getKey().intValue() == this.fullImageSampleSize) {
+                    for (Tile tile : entry.getValue()) {
                         if (tile.loading || tile.bitmap == null) {
                             z = false;
                         }
@@ -2371,10 +2373,10 @@ public class SubsamplingScaleImageView extends View {
                 this.bitmap = null;
                 this.preview = false;
             }
-            Map map = this.tileMap;
+            Map<Integer, List<Tile>> map = this.tileMap;
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    for (Tile tile : (List) entry.getValue()) {
+                for (Map.Entry<Integer, List<Tile>> entry : map.entrySet()) {
+                    for (Tile tile : entry.getValue()) {
                         tile.visible = false;
                         if (tile.bitmap != null) {
                             tile.bitmap.recycle();
@@ -2478,10 +2480,10 @@ public class SubsamplingScaleImageView extends View {
                 if (this.tileMap != null && isBaseLayerReady()) {
                     int min2 = Math.min(this.fullImageSampleSize, calculateInSampleSize(this.scale));
                     boolean z3 = false;
-                    for (Map.Entry entry : this.tileMap.entrySet()) {
+                    for (Map.Entry<Integer, List<Tile>> entry : this.tileMap.entrySet()) {
                         int i3 = min2;
-                        if (((Integer) entry.getKey()).intValue() == i3) {
-                            for (Tile tile : (List) entry.getValue()) {
+                        if (entry.getKey().intValue() == i3) {
+                            for (Tile tile : entry.getValue()) {
                                 if (tile.visible && (tile.loading || tile.bitmap == null)) {
                                     z3 = true;
                                 }
@@ -2491,9 +2493,9 @@ public class SubsamplingScaleImageView extends View {
                         i2 = 1;
                         c = 0;
                     }
-                    for (Map.Entry entry2 : this.tileMap.entrySet()) {
-                        if (((Integer) entry2.getKey()).intValue() == min2 || z3) {
-                            for (Tile tile2 : (List) entry2.getValue()) {
+                    for (Map.Entry<Integer, List<Tile>> entry2 : this.tileMap.entrySet()) {
+                        if (entry2.getKey().intValue() == min2 || z3) {
+                            for (Tile tile2 : entry2.getValue()) {
                                 sourceToViewRect(tile2.sRect, tile2.vRect);
                                 if (!tile2.loading && tile2.bitmap != null) {
                                     if (this.tileBgPaint != null) {

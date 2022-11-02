@@ -13,7 +13,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u0005\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\n"}, d2 = {"<anonymous>", "", "index", "", "value", "", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class DirectHeader$byteArray$2 extends Lambda implements Function2 {
+public final class DirectHeader$byteArray$2 extends Lambda implements Function2<Integer, List<? extends Byte>, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ DirectHeader this$0;
@@ -39,13 +39,15 @@ public final class DirectHeader$byteArray$2 extends Lambda implements Function2 
         this.this$0 = directHeader;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        invoke(((Number) obj).intValue(), (List) obj2);
+    public /* bridge */ /* synthetic */ Unit invoke(Integer num, List<? extends Byte> list) {
+        invoke(num.intValue(), (List<Byte>) list);
         return Unit.INSTANCE;
     }
 
-    public final void invoke(int i, List value) {
+    public final void invoke(int i, List<Byte> value) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, value) == null) {
             Intrinsics.checkNotNullParameter(value, "value");
@@ -54,7 +56,7 @@ public final class DirectHeader$byteArray$2 extends Lambda implements Function2 
                 int i2 = 0;
                 while (true) {
                     int i3 = i2 + 1;
-                    this.this$0.getBuffer()[i + i2] = ((Number) value.get(i2)).byteValue();
+                    this.this$0.getBuffer()[i + i2] = value.get(i2).byteValue();
                     if (i3 <= size) {
                         i2 = i3;
                     } else {

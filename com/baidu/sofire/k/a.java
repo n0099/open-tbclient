@@ -1,5 +1,6 @@
 package com.baidu.sofire.k;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.Application;
 import android.app.PendingIntent;
@@ -38,7 +39,7 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.baidu.sofire.rp.receiver.Receiver;
-import com.baidu.tieba.lh1;
+import com.baidu.tieba.di1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -87,10 +88,10 @@ public class a {
     public static int l = -1;
     public static int m = -1;
     public static int n = -1;
-    public static HashMap o;
+    public static HashMap<Integer, ApkInfo> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Class a(String str) {
+    public static Class<?> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
@@ -231,7 +232,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object a(Object obj, String str, Class[] clsArr, Object... objArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Object a(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         InterceptResult invokeLLLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -493,7 +494,7 @@ public class a {
         return (String) invokeLLL.objValue;
     }
 
-    public static String a(Class cls) {
+    public static String a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
@@ -1017,7 +1018,7 @@ public class a {
         if (r4 == null) goto L22;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x004e, code lost:
-        com.baidu.sofire.k.a.o = new java.util.HashMap();
+        com.baidu.sofire.k.a.o = new java.util.HashMap<>();
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0056, code lost:
         r4.clear();
@@ -1141,7 +1142,7 @@ public class a {
         if (r2.hasNext() != false) goto L96;
      */
     /* JADX WARN: Code restructure failed: missing block: B:96:0x0179, code lost:
-        r3 = (com.baidu.sofire.core.ApkInfo) r2.next();
+        r3 = r2.next();
         r5 = new org.json.JSONObject();
      */
     /* JADX WARN: Code restructure failed: missing block: B:98:0x0186, code lost:
@@ -1239,6 +1240,7 @@ public class a {
         return (JSONObject) invokeCommon.objValue;
     }
 
+    @SuppressLint({"WrongConstant"})
     public static void a(Context context, long j2) {
         PendingIntent service;
         Interceptable interceptable = $ic;
@@ -1311,14 +1313,14 @@ public class a {
             aVar2.e = str5;
             if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
                 com.baidu.sofire.j.a a3 = com.baidu.sofire.j.a.a(context);
-                List c2 = a3.c();
+                List<com.baidu.sofire.e.a> c2 = a3.c();
                 if (c2 == null) {
                     a3.a(aVar2);
                 } else if (!c2.contains(aVar2)) {
                     a3.a(aVar2);
                 } else {
                     int indexOf = c2.indexOf(aVar2);
-                    if (indexOf != -1 && (aVar = (com.baidu.sofire.e.a) c2.get(indexOf)) != null) {
+                    if (indexOf != -1 && (aVar = c2.get(indexOf)) != null) {
                         a3.f.putString("re_con", a3.e.getString("re_con", "").replace(com.baidu.sofire.e.a.a(aVar), com.baidu.sofire.e.a.a(aVar2)));
                         a3.f.commit();
                     }
@@ -1379,7 +1381,7 @@ public class a {
         }
     }
 
-    public static void a(Context context, String str, Map map, boolean z) {
+    public static void a(Context context, String str, Map<String, Object> map, boolean z) {
         String str2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{context, str, map, Boolean.valueOf(z)}) == null) && !TextUtils.isEmpty(str)) {
@@ -1756,7 +1758,7 @@ public class a {
                             }
                             if (z) {
                             }
-                            a(context, "1003140", (Map) hashMap, true);
+                            a(context, "1003140", (Map<String, Object>) hashMap, true);
                         }
                         return z3;
                     }
@@ -1788,7 +1790,7 @@ public class a {
                 if (z) {
                     hashMap2.put("1", "0");
                 }
-                a(context, "1003140", (Map) hashMap2, true);
+                a(context, "1003140", (Map<String, Object>) hashMap2, true);
             }
             return z3;
         }
@@ -1935,7 +1937,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(lh1.a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(di1.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }
@@ -2320,7 +2322,7 @@ public class a {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("1003003", jSONObject);
                 jSONObject2.put("0", jSONObject3);
-                Map d2 = a2.d();
+                Map<Integer, String> d2 = a2.d();
                 JSONArray jSONArray2 = new JSONArray();
                 for (String str : ((HashMap) d2).values()) {
                     jSONArray2.put(str);

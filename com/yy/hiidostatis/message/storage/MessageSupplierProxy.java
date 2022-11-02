@@ -21,7 +21,6 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -31,8 +30,8 @@ public class MessageSupplierProxy implements MessageSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK_LIST_CAPACITY = 200;
     public transient /* synthetic */ FieldHolder $fh;
-    public List blackList;
-    public Set blackListIndex;
+    public List<String> blackList;
+    public Set<String> blackListIndex;
     public final TaskDataSqLiteCacheManager cacheManager;
     public final MessageConfig config;
     public final Context context;
@@ -69,7 +68,7 @@ public class MessageSupplierProxy implements MessageSupplier {
                     return;
                 }
                 if (this.blackList.size() >= 200) {
-                    this.blackListIndex.remove((String) this.blackList.remove(0));
+                    this.blackListIndex.remove(this.blackList.remove(0));
                 }
                 this.blackList.add(str);
                 this.blackListIndex.add(str);
@@ -82,10 +81,10 @@ public class MessageSupplierProxy implements MessageSupplier {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i);
+            List<TaskData> andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i);
             if (andMoveToSendingList != null && !andMoveToSendingList.isEmpty()) {
                 if (andMoveToSendingList.size() == 1) {
-                    return trans((TaskData) andMoveToSendingList.get(0));
+                    return trans(andMoveToSendingList.get(0));
                 }
                 return trans(andMoveToSendingList);
             }
@@ -168,7 +167,7 @@ public class MessageSupplierProxy implements MessageSupplier {
         return (Message) invokeL.objValue;
     }
 
-    private Message trans(List list) {
+    private Message trans(List<TaskData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list)) == null) {
@@ -177,9 +176,7 @@ public class MessageSupplierProxy implements MessageSupplier {
                 StringBuilder sb = new StringBuilder();
                 sb.append(PreferencesUtil.LEFT_MOUNT);
                 StringBuilder sb2 = new StringBuilder();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    TaskData taskData = (TaskData) it.next();
+                for (TaskData taskData : list) {
                     sb.append("\"");
                     sb.append(taskData.getContent());
                     sb.append("&");

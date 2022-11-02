@@ -18,7 +18,7 @@ public interface f extends IInterface {
     void a(ComponentName componentName, IBinder iBinder);
 
     /* loaded from: classes7.dex */
-    public abstract class a extends Binder implements f {
+    public static abstract class a extends Binder implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,13 +31,13 @@ public interface f extends IInterface {
 
         /* renamed from: com.bytedance.pangle.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public final class C0494a implements f {
+        public static class C0505a implements f {
             public static /* synthetic */ Interceptable $ic;
             public static f a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0494a(IBinder iBinder) {
+            public C0505a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public interface f extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0494a.a;
+                return C0505a.a;
             }
             return (f) invokeV.objValue;
         }
@@ -151,7 +151,7 @@ public interface f extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                     return (f) queryLocalInterface;
                 }
-                return new C0494a(iBinder);
+                return new C0505a(iBinder);
             }
             return (f) invokeL.objValue;
         }

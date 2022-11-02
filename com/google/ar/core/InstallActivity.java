@@ -1,6 +1,7 @@
 package com.google.ar.core;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +14,13 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.ls9;
-import com.baidu.tieba.ms9;
-import com.baidu.tieba.ns9;
-import com.baidu.tieba.ps9;
+import com.baidu.tieba.pt9;
+import com.baidu.tieba.rt9;
+import com.baidu.tieba.tt9;
+import com.baidu.tieba.ut9;
+import com.baidu.tieba.vt9;
+import com.baidu.tieba.wt9;
+import com.baidu.tieba.yt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,6 +32,7 @@ import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
+@TargetApi(24)
 /* loaded from: classes7.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -99,7 +101,7 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = true;
             this.d = p.b;
-            is9.d().e(this).c(this, new ps9(this));
+            rt9.d().e(this).c(this, new yt9(this));
         }
     }
 
@@ -108,33 +110,33 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (!this.e) {
-                is9.d().g();
+                rt9.d().g();
             }
             super.onDestroy();
         }
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void, com.baidu.tieba.ps9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.yt9.a(com.google.ar.core.p):void, com.baidu.tieba.yt9.b(java.lang.Exception):void] */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.j(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void, com.baidu.tieba.ps9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.yt9.a(com.google.ar.core.p):void, com.baidu.tieba.yt9.b(java.lang.Exception):void] */
     public static /* synthetic */ p e(InstallActivity installActivity, p pVar) {
         installActivity.d = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.yt9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean f(InstallActivity installActivity) {
         return installActivity.g;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ps9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.yt9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void g(InstallActivity installActivity) {
         installActivity.i();
     }
@@ -142,8 +144,8 @@ public class InstallActivity extends Activity {
     public final void j(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            is9.d().a = exc;
-            is9.d().g();
+            rt9.d().a = exc;
+            rt9.d().g();
             this.e = true;
             super.finish();
         }
@@ -170,8 +172,8 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new ms9(this, width, i, height));
-            ofFloat.addListener(new ns9(this));
+            ofFloat.addUpdateListener(new vt9(this, width, i, height));
+            ofFloat.addListener(new wt9(this));
             ofFloat.start();
         }
     }
@@ -207,11 +209,11 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new ks9(this));
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new tt9(this));
             if (!k()) {
                 findViewById(R.id.__arcore_cancelButton).setVisibility(8);
             }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new ls9(this));
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new ut9(this));
             TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
             if (this.b.ordinal() != 1) {
                 textView.setText(R.string.__arcore_install_app);
@@ -237,7 +239,7 @@ public class InstallActivity extends Activity {
                     } else if (this.d == p.a) {
                         this.g = true;
                     } else {
-                        j(is9.d().a);
+                        j(rt9.d().a);
                     }
                 }
             }
@@ -278,7 +280,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    is9.d().e(this).e(this, new gs9(atomicReference));
+                    rt9.d().e(this).e(this, new pt9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal != 0) {
                         if (ordinal == 3) {

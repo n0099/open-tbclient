@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Process;
 import android.os.WorkSource;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,11 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.wrappers.Wrappers;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class WorkSourceUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -176,7 +179,8 @@ public class WorkSourceUtil {
         zzi = method6;
     }
 
-    public static void add(WorkSource workSource, int i, String str) {
+    @KeepForSdk
+    public static void add(@NonNull WorkSource workSource, int i, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65538, null, workSource, i, str) == null) {
             Method method = zzc;
@@ -203,7 +207,9 @@ public class WorkSourceUtil {
         }
     }
 
-    public static WorkSource fromPackage(Context context, String str) {
+    @NonNull
+    @KeepForSdk
+    public static WorkSource fromPackage(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         String str2;
         String str3;
@@ -239,7 +245,9 @@ public class WorkSourceUtil {
         return (WorkSource) invokeLL.objValue;
     }
 
-    public static WorkSource fromPackageAndModuleExperimentalPi(Context context, String str, String str2) {
+    @NonNull
+    @KeepForSdk
+    public static WorkSource fromPackageAndModuleExperimentalPi(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         String str3;
         String str4;
@@ -293,7 +301,9 @@ public class WorkSourceUtil {
         return (WorkSource) invokeLLL.objValue;
     }
 
-    public static List getNames(WorkSource workSource) {
+    @NonNull
+    @KeepForSdk
+    public static List<String> getNames(@NonNull WorkSource workSource) {
         InterceptResult invokeL;
         int zza2;
         Interceptable interceptable = $ic;
@@ -326,7 +336,8 @@ public class WorkSourceUtil {
         return (List) invokeL.objValue;
     }
 
-    public static boolean hasWorkSourcePermission(Context context) {
+    @KeepForSdk
+    public static boolean hasWorkSourcePermission(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -338,7 +349,7 @@ public class WorkSourceUtil {
         return invokeL.booleanValue;
     }
 
-    public static int zza(WorkSource workSource) {
+    public static int zza(@NonNull WorkSource workSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, workSource)) == null) {
@@ -357,7 +368,8 @@ public class WorkSourceUtil {
         return invokeL.intValue;
     }
 
-    public static boolean isEmpty(WorkSource workSource) {
+    @KeepForSdk
+    public static boolean isEmpty(@NonNull WorkSource workSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, workSource)) == null) {

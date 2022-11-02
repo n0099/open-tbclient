@@ -15,14 +15,14 @@ import io.reactivex.observers.SerializedObserver;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableSampleWithObservable extends AbstractObservableWithUpstream {
+public final class ObservableSampleWithObservable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
-    public final ObservableSource other;
+    public final ObservableSource<?> other;
 
     /* loaded from: classes8.dex */
-    public final class SampleMainEmitLast extends SampleMainObserver {
+    public static final class SampleMainEmitLast<T> extends SampleMainObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainEmitLast(Observer observer, ObservableSource observableSource) {
+        public SampleMainEmitLast(Observer<? super T> observer, ObservableSource<?> observableSource) {
             super(observer, observableSource);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -92,13 +92,13 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
     }
 
     /* loaded from: classes8.dex */
-    public final class SampleMainNoLast extends SampleMainObserver {
+    public static final class SampleMainNoLast<T> extends SampleMainObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3029755663834015785L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleMainNoLast(Observer observer, ObservableSource observableSource) {
+        public SampleMainNoLast(Observer<? super T> observer, ObservableSource<?> observableSource) {
             super(observer, observableSource);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -144,14 +144,14 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
     }
 
     /* loaded from: classes8.dex */
-    public abstract class SampleMainObserver extends AtomicReference implements Observer, Disposable {
+    public static abstract class SampleMainObserver<T> extends AtomicReference<T> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final AtomicReference other;
+        public final Observer<? super T> actual;
+        public final AtomicReference<Disposable> other;
         public Disposable s;
-        public final ObservableSource sampler;
+        public final ObservableSource<?> sampler;
 
         public abstract void completeMain();
 
@@ -159,7 +159,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
 
         public abstract void run();
 
-        public SampleMainObserver(Observer observer, ObservableSource observableSource) {
+        public SampleMainObserver(Observer<? super T> observer, ObservableSource<?> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
                     return;
                 }
             }
-            this.other = new AtomicReference();
+            this.other = new AtomicReference<>();
             this.actual = observer;
             this.sampler = observableSource;
         }
@@ -197,7 +197,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
         }
 
         public void emit() {
-            Object andSet;
+            T andSet;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (andSet = getAndSet(null)) != null) {
                 this.actual.onNext(andSet);
@@ -244,10 +244,10 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-                lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+                lazySet(t);
             }
         }
 
@@ -274,12 +274,12 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
     }
 
     /* loaded from: classes8.dex */
-    public final class SamplerObserver implements Observer {
+    public static final class SamplerObserver<T> implements Observer<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SampleMainObserver parent;
+        public final SampleMainObserver<T> parent;
 
-        public SamplerObserver(SampleMainObserver sampleMainObserver) {
+        public SamplerObserver(SampleMainObserver<T> sampleMainObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,7 +331,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSampleWithObservable(ObservableSource observableSource, ObservableSource observableSource2, boolean z) {
+    public ObservableSampleWithObservable(ObservableSource<T> observableSource, ObservableSource<?> observableSource2, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -353,7 +353,7 @@ public final class ObservableSampleWithObservable extends AbstractObservableWith
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

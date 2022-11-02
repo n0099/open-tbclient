@@ -11,10 +11,10 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0664a implements k {
+    public static class C0675a implements k {
         public AlertDialog a;
 
-        public C0664a(AlertDialog.Builder builder) {
+        public C0675a(AlertDialog.Builder builder) {
             if (builder != null) {
                 this.a = builder.show();
             }
@@ -53,7 +53,7 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
     public k a() {
-        return new C0664a(this.a);
+        return new C0675a(this.a);
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l

@@ -1,26 +1,29 @@
 package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.bumptech.glide.manager.LifecycleListener;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public interface Target extends LifecycleListener {
+public interface Target<R> extends LifecycleListener {
     public static final int SIZE_ORIGINAL = Integer.MIN_VALUE;
 
+    @Nullable
     Request getRequest();
 
-    void getSize(SizeReadyCallback sizeReadyCallback);
+    void getSize(@NonNull SizeReadyCallback sizeReadyCallback);
 
-    void onLoadCleared(Drawable drawable);
+    void onLoadCleared(@Nullable Drawable drawable);
 
-    void onLoadFailed(Drawable drawable);
+    void onLoadFailed(@Nullable Drawable drawable);
 
-    void onLoadStarted(Drawable drawable);
+    void onLoadStarted(@Nullable Drawable drawable);
 
-    void onResourceReady(Object obj, Transition transition);
+    void onResourceReady(@NonNull R r, @Nullable Transition<? super R> transition);
 
-    void removeCallback(SizeReadyCallback sizeReadyCallback);
+    void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback);
 
-    void setRequest(Request request);
+    void setRequest(@Nullable Request request);
 }

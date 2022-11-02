@@ -55,7 +55,7 @@ public class a1 implements View.OnClickListener {
             if (!feedbackReportActivity2.A) {
                 if (feedbackReportActivity2.S.d.size() == 0) {
                     Toast.makeText(feedbackReportActivity2, "请选择举报内容问题", 0).show();
-                } else if (feedbackReportActivity2.S.d.size() == 1 && ((String) feedbackReportActivity2.S.d.get(0)).contains("其他") && feedbackReportActivity2.s.getText().toString().isEmpty()) {
+                } else if (feedbackReportActivity2.S.d.size() == 1 && feedbackReportActivity2.S.d.get(0).contains("其他") && feedbackReportActivity2.s.getText().toString().isEmpty()) {
                     Toast.makeText(feedbackReportActivity2, "请填写更多问题和建议", 0).show();
                 } else {
                     if (feedbackReportActivity2.l == 1) {

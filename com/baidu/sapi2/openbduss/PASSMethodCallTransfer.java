@@ -21,7 +21,7 @@ public class PASSMethodCallTransfer implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public abstract class DynamicCallbak {
+    public static abstract class DynamicCallbak {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_NOT_FIND_CALL_METHOD = -1002;
         public static final int ERROR_CODE_NOT_LOGIN = -1001;
@@ -49,12 +49,12 @@ public class PASSMethodCallTransfer implements NoProguard {
     }
 
     /* loaded from: classes2.dex */
-    public class ParamsWap {
+    public static class ParamsWap {
         public static /* synthetic */ Interceptable $ic = null;
         public static String BDUSS = "2";
         public static String UID = "1";
         public transient /* synthetic */ FieldHolder $fh;
-        public Map attributes;
+        public Map<String, String> attributes;
         public Object param;
 
         static {
@@ -113,16 +113,16 @@ public class PASSMethodCallTransfer implements NoProguard {
                     objArr2[i] = obj;
                 } else {
                     ParamsWap paramsWap = (ParamsWap) obj;
-                    Map map = paramsWap.attributes;
+                    Map<String, String> map = paramsWap.attributes;
                     if (map == null) {
                         objArr2[i] = paramsWap.param;
                     } else {
                         for (String str : map.keySet()) {
                             Object obj2 = null;
                             if (ParamsWap.UID.equals(str)) {
-                                obj2 = setObjectValue(paramsWap.param, (String) paramsWap.attributes.get(str), sapiAccount.uid);
+                                obj2 = setObjectValue(paramsWap.param, paramsWap.attributes.get(str), sapiAccount.uid);
                             } else if (ParamsWap.BDUSS.equals(str)) {
-                                obj2 = setObjectValue(paramsWap.param, (String) paramsWap.attributes.get(str), sapiAccount.bduss);
+                                obj2 = setObjectValue(paramsWap.param, paramsWap.attributes.get(str), sapiAccount.bduss);
                             }
                             objArr2[i] = obj2;
                         }
@@ -165,7 +165,7 @@ public class PASSMethodCallTransfer implements NoProguard {
         return invokeLLL.objValue;
     }
 
-    public Object dynamicCallMethod(Object obj, Object[] objArr, String str, DynamicCallbak dynamicCallbak, Class... clsArr) {
+    public Object dynamicCallMethod(Object obj, Object[] objArr, String str, DynamicCallbak dynamicCallbak, Class<?>... clsArr) {
         InterceptResult invokeLLLLL;
         Class<?> cls;
         Interceptable interceptable = $ic;

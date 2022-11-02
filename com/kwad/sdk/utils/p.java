@@ -1,8 +1,10 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.kwad.sdk.service.ServiceProvider;
 /* loaded from: classes8.dex */
@@ -10,6 +12,7 @@ public final class p {
     public static boolean anx;
     public static Location any;
 
+    @SuppressLint({"MissingPermission"})
     public static Location a(Context context, LocationManager locationManager) {
         try {
             if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) == 0) {
@@ -27,6 +30,7 @@ public final class p {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public static Location b(Context context, LocationManager locationManager) {
         try {
             if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.h) == 0) {
@@ -44,6 +48,7 @@ public final class p {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public static Location c(Context context, LocationManager locationManager) {
         try {
             if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.h) == 0) {
@@ -61,6 +66,7 @@ public final class p {
         }
     }
 
+    @Nullable
     public static Location cg(Context context) {
         if (!aq.zT() || aq.zU() == null) {
             if (anx || any != null || context == null) {

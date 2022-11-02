@@ -14,7 +14,7 @@ public class de implements da {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
-    public TreeMap b;
+    public TreeMap<String, String> b;
 
     public de() {
         Interceptable interceptable = $ic;
@@ -29,11 +29,11 @@ public class de implements da {
                 return;
             }
         }
-        this.b = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override // com.baidu.mobstat.dd
-    public Iterator b() {
+    public Iterator<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -65,7 +65,7 @@ public class de implements da {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String str2 = (String) this.b.get(str);
+            String str2 = this.b.get(str);
             if (str2 == null) {
                 return "";
             }

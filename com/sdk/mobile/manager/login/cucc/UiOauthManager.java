@@ -65,11 +65,11 @@ public class UiOauthManager extends SDKManager {
         this.mContext = context;
     }
 
-    private void dispatchHandler(int i, CallBack callBack) {
+    private <T> void dispatchHandler(int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, callBack) == null) {
             Log.e("ZJW_LOG", "dispatchHandler");
-            new d(this.mContext, i, new CallBack(this, callBack) { // from class: com.sdk.mobile.manager.login.cucc.UiOauthManager.1
+            new d(this.mContext, i, new CallBack<T>(this, callBack) { // from class: com.sdk.mobile.manager.login.cucc.UiOauthManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UiOauthManager this$0;
@@ -105,15 +105,15 @@ public class UiOauthManager extends SDKManager {
                 }
 
                 @Override // com.sdk.base.api.CallBack
-                public void onSuccess(int i2, String str, int i3, Object obj, String str2) {
+                public void onSuccess(int i2, String str, int i3, T t, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), obj, str2}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
                         Log.e("ZJW_LOG", "onSuccess code--->" + i2);
                         Log.e("ZJW_LOG", "onSuccess msg--->" + str);
                         Log.e("ZJW_LOG", "onSuccess status--->" + i3);
-                        Log.e("ZJW_LOG", "onSuccess response--->" + obj);
+                        Log.e("ZJW_LOG", "onSuccess response--->" + t);
                         if (i2 == 0) {
-                            this.val$callBack.onSuccess(i2, str, i3, obj, str2);
+                            this.val$callBack.onSuccess(i2, str, i3, t, str2);
                         }
                         if (i2 == 1) {
                             this.val$callBack.onSuccess(i2, str, i3, null, str2);
@@ -153,7 +153,7 @@ public class UiOauthManager extends SDKManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.otherLoginListener : (OnCustomViewListener) invokeV.objValue;
     }
 
-    public void login(int i, CallBack callBack) {
+    public <T> void login(int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, callBack) == null) {
             dispatchHandler(i, callBack);

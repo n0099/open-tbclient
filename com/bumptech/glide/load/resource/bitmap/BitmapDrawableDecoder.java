@@ -2,6 +2,9 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,14 +18,14 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 /* loaded from: classes7.dex */
-public class BitmapDrawableDecoder implements ResourceDecoder {
+public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType, BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResourceDecoder decoder;
+    public final ResourceDecoder<DataType, Bitmap> decoder;
     public final Resources resources;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BitmapDrawableDecoder(Context context, ResourceDecoder resourceDecoder) {
+    public BitmapDrawableDecoder(Context context, ResourceDecoder<DataType, Bitmap> resourceDecoder) {
         this(context.getResources(), resourceDecoder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +45,7 @@ public class BitmapDrawableDecoder implements ResourceDecoder {
         }
     }
 
-    public BitmapDrawableDecoder(Resources resources, ResourceDecoder resourceDecoder) {
+    public BitmapDrawableDecoder(@NonNull Resources resources, @NonNull ResourceDecoder<DataType, Bitmap> resourceDecoder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +66,7 @@ public class BitmapDrawableDecoder implements ResourceDecoder {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public BitmapDrawableDecoder(Resources resources, BitmapPool bitmapPool, ResourceDecoder resourceDecoder) {
+    public BitmapDrawableDecoder(Resources resources, BitmapPool bitmapPool, ResourceDecoder<DataType, Bitmap> resourceDecoder) {
         this(resources, resourceDecoder);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,21 +87,21 @@ public class BitmapDrawableDecoder implements ResourceDecoder {
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(Object obj, int i, int i2, Options options) throws IOException {
+    public Resource<BitmapDrawable> decode(@NonNull DataType datatype, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
-            return LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(obj, i, i2, options));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{datatype, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
+            return LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(datatype, i, i2, options));
         }
         return (Resource) invokeCommon.objValue;
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(Object obj, Options options) throws IOException {
+    public boolean handles(@NonNull DataType datatype, @NonNull Options options) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, options)) == null) {
-            return this.decoder.handles(obj, options);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, datatype, options)) == null) {
+            return this.decoder.handles(datatype, options);
         }
         return invokeLL.booleanValue;
     }

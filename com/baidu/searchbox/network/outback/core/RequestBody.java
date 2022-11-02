@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
@@ -29,6 +30,7 @@ public abstract class RequestBody {
         return invokeV.longValue;
     }
 
+    @Nullable
     public abstract MediaType contentType();
 
     public abstract void writeTo(OutputStream outputStream) throws IOException;
@@ -47,7 +49,7 @@ public abstract class RequestBody {
         }
     }
 
-    public static RequestBody create(MediaType mediaType, File file) {
+    public static RequestBody create(@Nullable MediaType mediaType, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mediaType, file)) == null) {
@@ -88,6 +90,7 @@ public abstract class RequestBody {
                     }
 
                     @Override // com.baidu.searchbox.network.outback.core.RequestBody
+                    @Nullable
                     public MediaType contentType() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -133,7 +136,7 @@ public abstract class RequestBody {
         return (RequestBody) invokeLL.objValue;
     }
 
-    public static RequestBody create(MediaType mediaType, String str) {
+    public static RequestBody create(@Nullable MediaType mediaType, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mediaType, str)) == null) {
@@ -147,7 +150,7 @@ public abstract class RequestBody {
         return (RequestBody) invokeLL.objValue;
     }
 
-    public static RequestBody create(MediaType mediaType, byte[] bArr) {
+    public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mediaType, bArr)) == null) {
@@ -156,7 +159,7 @@ public abstract class RequestBody {
         return (RequestBody) invokeLL.objValue;
     }
 
-    public static RequestBody create(MediaType mediaType, byte[] bArr, int i, int i2) {
+    public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr, i, i2)) == null) {
@@ -202,6 +205,7 @@ public abstract class RequestBody {
                     }
 
                     @Override // com.baidu.searchbox.network.outback.core.RequestBody
+                    @Nullable
                     public MediaType contentType() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;

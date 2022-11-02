@@ -44,7 +44,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
     public boolean auH;
     public int auI;
     public final boolean auJ;
-    public final ArrayList auK;
+    public final ArrayList<c> auK;
     public e auL;
     public boolean auM;
     public boolean auO;
@@ -114,7 +114,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
     }
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public com.kwai.filedownloader.c.c auC;
@@ -265,7 +265,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
             }
         }
         this.auB = 5;
-        this.auK = new ArrayList(5);
+        this.auK = new ArrayList<>(5);
         this.auV = 0L;
         this.auW = 0L;
         this.auX = 0L;
@@ -358,7 +358,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.kwai.filedownloader.download.a F(List list) {
+    private com.kwai.filedownloader.download.a F(List<com.kwai.filedownloader.c.a> list) {
         InterceptResult invokeL;
         long Em;
         long j;
@@ -399,7 +399,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         return (com.kwai.filedownloader.download.a) invokeL.objValue;
     }
 
-    private void a(int i, List list) {
+    private void a(int i, List<com.kwai.filedownloader.c.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65543, this, i, list) == null) {
             if (i <= 1 || list.size() != i) {
@@ -455,7 +455,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         }
     }
 
-    private void a(Map map, ConnectTask connectTask, com.kwai.filedownloader.kwai.b bVar) {
+    private void a(Map<String, List<String>> map, ConnectTask connectTask, com.kwai.filedownloader.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, this, map, connectTask, bVar) == null) {
             int id = this.auC.getId();
@@ -495,7 +495,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         }
     }
 
-    private void c(List list, long j) {
+    private void c(List<com.kwai.filedownloader.c.a> list, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65547, this, list, j) == null) {
             int id = this.auC.getId();
@@ -509,11 +509,9 @@ public final class DownloadLaunchRunnable implements f, Runnable {
                 com.kwai.filedownloader.e.d.e(this, "fetch data with multiple connection(count: [%d]) for task[%d] totalLength[%d]", Integer.valueOf(list.size()), Integer.valueOf(id), Long.valueOf(j));
             }
             boolean z = this.auO;
-            Iterator it = list.iterator();
             long j2 = 0;
             long j3 = 0;
-            while (it.hasNext()) {
-                com.kwai.filedownloader.c.a aVar = (com.kwai.filedownloader.c.a) it.next();
+            for (com.kwai.filedownloader.c.a aVar : list) {
                 long Ei = aVar.Ej() == j2 ? j - aVar.Ei() : (aVar.Ej() - aVar.Ei()) + 1;
                 j3 += aVar.Ei() - aVar.getStartOffset();
                 if (Ei != j2) {
@@ -532,13 +530,13 @@ public final class DownloadLaunchRunnable implements f, Runnable {
                 this.auC.Z(j3);
             }
             ArrayList arrayList = new ArrayList(this.auK.size());
-            Iterator it2 = this.auK.iterator();
-            while (it2.hasNext()) {
-                c cVar = (c) it2.next();
+            Iterator<c> it = this.auK.iterator();
+            while (it.hasNext()) {
+                c next = it.next();
                 if (this.hw) {
-                    cVar.pause();
+                    next.pause();
                 } else {
-                    arrayList.add(Executors.callable(cVar));
+                    arrayList.add(Executors.callable(next));
                 }
             }
             if (this.hw) {
@@ -599,7 +597,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.auC.Eo() > 1) {
-                List ce = this.aux.ce(this.auC.getId());
+                List<com.kwai.filedownloader.c.a> ce = this.aux.ce(this.auC.getId());
                 if (this.auC.Eo() == ce.size()) {
                     this.auC.Z(com.kwai.filedownloader.c.a.G(ce));
                 } else {
@@ -948,7 +946,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
                             com.kwai.filedownloader.kwai.b bVar = null;
                             try {
                                 DC();
-                                List ce = this.aux.ce(this.auC.getId());
+                                List<com.kwai.filedownloader.c.a> ce = this.aux.ce(this.auC.getId());
                                 Do = new ConnectTask.a().cl(this.auC.getId()).er(this.auC.getUrl()).es(this.auC.En()).a(this.auD).a(F(ce)).Do();
                                 Dk = Do.Dk();
                             } catch (DiscardSafely unused) {

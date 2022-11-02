@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
@@ -27,7 +28,7 @@ public class ExceptionAnalysis {
     public Context c;
     public HeadObject d;
     public String e;
-    public List f;
+    public List<String> f;
     public boolean g;
     public Callback mCallback;
 
@@ -118,6 +119,7 @@ public class ExceptionAnalysis {
         this.mCallback = callback;
     }
 
+    @SuppressLint({"NewApi"})
     private JSONObject a(Context context) {
         InterceptResult invokeL;
         int i;
@@ -185,7 +187,7 @@ public class ExceptionAnalysis {
                     jSONObject.put("v", appVersionName);
                     jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
                     jSONObject.put("mem", a(context));
-                    jSONObject.put(Config.EXCEPTION_CRASH_CHANNEL, i2);
+                    jSONObject.put("ty", i2);
                     jSONObject.put("sv", "4.0.9.7");
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
@@ -271,7 +273,7 @@ public class ExceptionAnalysis {
         }
     }
 
-    public void setFilterPackageList(List list) {
+    public void setFilterPackageList(List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && list.size() > 0) {
             this.f = list;

@@ -1,5 +1,6 @@
 package androidx.print;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,6 +24,9 @@ import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,7 +43,9 @@ import java.io.InputStream;
 /* loaded from: classes.dex */
 public final class PrintHelper {
     public static /* synthetic */ Interceptable $ic = null;
+    @SuppressLint({"InlinedApi"})
     public static final int COLOR_MODE_COLOR = 2;
+    @SuppressLint({"InlinedApi"})
     public static final int COLOR_MODE_MONOCHROME = 1;
     public static final boolean IS_MIN_MARGINS_HANDLING_CORRECT;
     public static final String LOG_TAG = "PrintHelper";
@@ -62,6 +68,7 @@ public final class PrintHelper {
         void onFinish();
     }
 
+    @RequiresApi(19)
     /* loaded from: classes.dex */
     public class PrintBitmapAdapter extends PrintDocumentAdapter {
         public static /* synthetic */ Interceptable $ic;
@@ -122,6 +129,7 @@ public final class PrintHelper {
         }
     }
 
+    @RequiresApi(19)
     /* loaded from: classes.dex */
     public class PrintUriAdapter extends PrintDocumentAdapter {
         public static /* synthetic */ Interceptable $ic;
@@ -369,7 +377,7 @@ public final class PrintHelper {
         IS_MIN_MARGINS_HANDLING_CORRECT = z2;
     }
 
-    public PrintHelper(Context context) {
+    public PrintHelper(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -454,6 +462,7 @@ public final class PrintHelper {
         }
     }
 
+    @RequiresApi(19)
     public static PrintAttributes.Builder copyAttributes(PrintAttributes printAttributes) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -612,14 +621,14 @@ public final class PrintHelper {
         return (Bitmap) invokeL.objValue;
     }
 
-    public void printBitmap(String str, Bitmap bitmap) {
+    public void printBitmap(@NonNull String str, @NonNull Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, bitmap) == null) {
             printBitmap(str, bitmap, (OnPrintFinishCallback) null);
         }
     }
 
-    public void printBitmap(String str, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
+    public void printBitmap(@NonNull String str, @NonNull Bitmap bitmap, @Nullable OnPrintFinishCallback onPrintFinishCallback) {
         PrintAttributes.MediaSize mediaSize;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, bitmap, onPrintFinishCallback) == null) && Build.VERSION.SDK_INT >= 19 && bitmap != null) {
@@ -633,14 +642,14 @@ public final class PrintHelper {
         }
     }
 
-    public void printBitmap(String str, Uri uri) throws FileNotFoundException {
+    public void printBitmap(@NonNull String str, @NonNull Uri uri) throws FileNotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, uri) == null) {
             printBitmap(str, uri, (OnPrintFinishCallback) null);
         }
     }
 
-    public void printBitmap(String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
+    public void printBitmap(@NonNull String str, @NonNull Uri uri, @Nullable OnPrintFinishCallback onPrintFinishCallback) throws FileNotFoundException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048583, this, str, uri, onPrintFinishCallback) != null) || Build.VERSION.SDK_INT < 19) {
             return;
@@ -660,6 +669,7 @@ public final class PrintHelper {
         printManager.print(str, printUriAdapter, builder.build());
     }
 
+    @RequiresApi(19)
     public void writeBitmap(PrintAttributes printAttributes, int i, Bitmap bitmap, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
         PrintAttributes build;
         Interceptable interceptable = $ic;

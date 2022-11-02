@@ -13,7 +13,7 @@ public class FeatureCardHot extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Integer floor;
-    public List sub_nodes;
+    public List<FeatureCardHotSubNode> sub_nodes;
     public String title;
     public String type;
 

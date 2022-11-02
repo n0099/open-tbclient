@@ -117,7 +117,7 @@ public final class MutableMapWithDefaultImpl<K, V> implements MutableMapWithDefa
         Map<K, V> map = getMap();
         V v = map.get(k);
         if (v == null && !map.containsKey(k)) {
-            return (V) this.f1023default.invoke(k);
+            return this.f1023default.invoke(k);
         }
         return v;
     }

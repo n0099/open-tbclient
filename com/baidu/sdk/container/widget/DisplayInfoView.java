@@ -97,7 +97,7 @@ public class DisplayInfoView extends LinearLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DisplayInfoView a;

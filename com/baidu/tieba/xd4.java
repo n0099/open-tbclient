@@ -1,58 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.channels.ReadableByteChannel;
+import okhttp3.ResponseBody;
 /* loaded from: classes6.dex */
-public class xd4 extends pc4 {
+public class xd4 implements zd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponseBody a;
 
-    public static void a(String str, Map map, Map map2, tc4 tc4Var) {
+    public xd4(@NonNull ResponseBody responseBody) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, tc4Var) != null) || d(str, tc4Var)) {
-            return;
-        }
-        c(qa4.g().getRequest(), str, map, map2, tc4Var);
-    }
-
-    public static void b(String str, Map map, Map map2, JSONObject jSONObject, tc4 tc4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, tc4Var) != null) || d(str, tc4Var)) {
-            return;
-        }
-        ma4 postStringRequest = qa4.g().postStringRequest();
-        ya4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, tc4Var);
-    }
-
-    public static void c(HttpRequestBuilder httpRequestBuilder, String str, Map map, Map map2, tc4 tc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, tc4Var) == null) {
-            httpRequestBuilder.url(uc4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(pc4.b).cookieManager(pc4.a).enableStat(true).build().executeStat(tc4Var);
-        }
-    }
-
-    public static boolean d(String str, tc4 tc4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, tc4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {responseBody};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (tc4Var != null) {
-                tc4Var.onStart();
-                return false;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.a = responseBody;
+    }
+
+    @Override // com.baidu.tieba.zd4
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.contentLength();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.zd4
+    public ReadableByteChannel source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.source();
+        }
+        return (ReadableByteChannel) invokeV.objValue;
     }
 }

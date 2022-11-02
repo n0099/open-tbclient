@@ -1,29 +1,17 @@
 package com.baidu.tieba;
+
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes4.dex */
 public interface fs3 {
-    long a();
+    void a(int i);
 
-    void b(boolean z);
+    void b();
 
-    boolean c();
+    void c(DownloadState downloadState, int i);
 
-    boolean d();
+    void d(String str);
 
     String e();
 
-    long f();
-
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void f(boolean z);
 }

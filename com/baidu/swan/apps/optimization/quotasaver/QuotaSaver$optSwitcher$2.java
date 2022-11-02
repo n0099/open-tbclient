@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jp2;
+import com.baidu.tieba.bq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +14,8 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\t\n\u0000\n\u0002\b\u0003*\u0001\u0001\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "com/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1", "invoke", "()Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
-public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 {
+/* loaded from: classes3.dex */
+public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<a> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$optSwitcher$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
         }
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements jp2 {
+    /* loaded from: classes3.dex */
+    public static final class a implements bq2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,7 +73,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
             }
         }
 
-        @Override // com.baidu.tieba.jp2
+        @Override // com.baidu.tieba.bq2
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.jp2
+        @Override // com.baidu.tieba.bq2
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.jp2
+        @Override // com.baidu.tieba.bq2
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.jp2
+        @Override // com.baidu.tieba.bq2
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.jp2
+        @Override // com.baidu.tieba.bq2
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -140,6 +140,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final a invoke() {
         InterceptResult invokeV;

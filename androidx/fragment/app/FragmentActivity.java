@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -16,6 +17,12 @@ import android.view.Window;
 import androidx.activity.ComponentActivity;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.activity.OnBackPressedDispatcherOwner;
+import androidx.annotation.CallSuper;
+import androidx.annotation.ContentView;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.SharedElementCallback;
@@ -55,7 +62,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     public boolean mStartedIntentSenderFromFragment;
     public boolean mStopped;
 
-    public void onAttachFragment(Fragment fragment) {
+    public void onAttachFragment(@NonNull Fragment fragment) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fragment) == null) {
         }
@@ -89,6 +96,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.lifecycle.LifecycleOwner
+        @NonNull
         public Lifecycle getLifecycle() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -99,6 +107,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.activity.OnBackPressedDispatcherOwner
+        @NonNull
         public OnBackPressedDispatcher getOnBackPressedDispatcher() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -109,6 +118,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.lifecycle.ViewModelStoreOwner
+        @NonNull
         public ViewModelStore getViewModelStore() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -131,6 +141,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
+        @NonNull
         public LayoutInflater onGetLayoutInflater() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -190,7 +201,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onAttachFragment(Fragment fragment) {
+        public void onAttachFragment(@NonNull Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, fragment) == null) {
                 this.this$0.onAttachFragment(fragment);
@@ -198,6 +209,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback, androidx.fragment.app.FragmentContainer
+        @Nullable
         public View onFindViewById(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -208,7 +220,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public boolean onShouldSaveFragmentState(Fragment fragment) {
+        public boolean onShouldSaveFragmentState(@NonNull Fragment fragment) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, fragment)) == null) {
@@ -218,7 +230,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public boolean onShouldShowRequestPermissionRationale(String str) {
+        public boolean onShouldShowRequestPermissionRationale(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
@@ -228,7 +240,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onDump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        public void onDump(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, fileDescriptor, printWriter, strArr) == null) {
                 this.this$0.dump(str, fileDescriptor, printWriter, strArr);
@@ -236,7 +248,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048592, this, fragment, intent, i, bundle) == null) {
                 this.this$0.startActivityFromFragment(fragment, intent, i, bundle);
@@ -244,7 +256,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onRequestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+        public void onRequestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048588, this, fragment, strArr, i) == null) {
                 this.this$0.requestPermissionsFromFragment(fragment, strArr, i);
@@ -252,7 +264,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
+        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048591, this, fragment, intent, i) == null) {
                 this.this$0.startActivityFromFragment(fragment, intent, i);
@@ -260,7 +272,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+        public void onStartIntentSenderFromFragment(@NonNull Fragment fragment, IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{fragment, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
                 this.this$0.startIntentSenderFromFragment(fragment, intentSender, i, intent, i2, i3, i4, bundle);
@@ -304,7 +316,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentActivity(int i) {
+    @ContentView
+    public FragmentActivity(@LayoutRes int i) {
         super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -326,7 +339,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         this.mStopped = true;
     }
 
-    private int allocateRequestIndex(Fragment fragment) {
+    private int allocateRequestIndex(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, fragment)) == null) {
@@ -353,7 +366,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
+    public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
@@ -363,6 +376,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
+    @CallSuper
     public void onMultiWindowModeChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
@@ -371,7 +385,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
+    @CallSuper
+    public void onNewIntent(@SuppressLint({"UnknownNullness"}) Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, intent) == null) {
             super.onNewIntent(intent);
@@ -380,6 +395,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
+    @CallSuper
     public void onPictureInPictureModeChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
@@ -387,14 +403,14 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void setEnterSharedElementCallback(SharedElementCallback sharedElementCallback) {
+    public void setEnterSharedElementCallback(@Nullable SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, sharedElementCallback) == null) {
             ActivityCompat.setEnterSharedElementCallback(this, sharedElementCallback);
         }
     }
 
-    public void setExitSharedElementCallback(SharedElementCallback sharedElementCallback) {
+    public void setExitSharedElementCallback(@Nullable SharedElementCallback sharedElementCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, sharedElementCallback) == null) {
             ActivityCompat.setExitSharedElementCallback(this, sharedElementCallback);
@@ -417,6 +433,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
+    @NonNull
     public FragmentManager getSupportFragmentManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,6 +443,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         return (FragmentManager) invokeV.objValue;
     }
 
+    @NonNull
     @Deprecated
     public LoaderManager getSupportLoaderManager() {
         InterceptResult invokeV;
@@ -569,7 +587,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         return invokeLL.booleanValue;
     }
 
-    public final View dispatchFragmentsOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public final View dispatchFragmentsOnCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
@@ -579,7 +598,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, view2, str, context, attributeSet)) == null) {
@@ -593,7 +613,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dump(@NonNull String str, @Nullable FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
             super.dump(str, fileDescriptor, printWriter, strArr);
@@ -617,7 +637,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    @CallSuper
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             this.mFragments.noteStateNotSaved();
@@ -647,7 +668,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             this.mFragments.attachHost(null);
@@ -678,7 +699,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
@@ -703,7 +724,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
+    public boolean onCreatePanelMenu(int i, @NonNull Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, menu)) == null) {
@@ -716,7 +737,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
+    public boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, menuItem)) == null) {
@@ -735,7 +756,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
+    public void onPanelClosed(int i, @NonNull Menu menu) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i, menu) == null) {
             if (i == 0) {
@@ -745,8 +766,9 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     @Deprecated
-    public boolean onPrepareOptionsPanel(View view2, Menu menu) {
+    public boolean onPrepareOptionsPanel(@Nullable View view2, @NonNull Menu menu) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, menu)) == null) {
@@ -756,7 +778,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048608, this, intent, i) == null) {
             if (!this.mStartedActivityFromFragment && i != -1) {
@@ -767,7 +789,8 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+    @Nullable
+    public View onCreateView(@NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, str, context, attributeSet)) == null) {
@@ -781,7 +804,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view2, Menu menu) {
+    public boolean onPreparePanel(int i, @Nullable View view2, @NonNull Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, view2, menu)) == null) {
@@ -794,7 +817,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048609, this, intent, i, bundle) == null) {
             if (!this.mStartedActivityFromFragment && i != -1) {
@@ -804,7 +827,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048610, this, fragment, intent, i) == null) {
             startActivityFromFragment(fragment, intent, i, (Bundle) null);
@@ -812,7 +835,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048598, this, i, strArr, iArr) == null) {
             this.mFragments.noteStateNotSaved();
@@ -835,7 +858,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
+    public void requestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048605, this, fragment, strArr, i) == null) {
             if (i == -1) {
@@ -852,7 +875,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
+    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048611, this, fragment, intent, i, bundle) == null) {
             this.mStartedActivityFromFragment = true;
@@ -870,7 +893,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (!this.mStartedIntentSenderFromFragment && i != -1) {
@@ -881,7 +904,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             if (!this.mStartedIntentSenderFromFragment && i != -1) {
@@ -891,7 +914,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void startIntentSenderFromFragment(Fragment fragment, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{fragment, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             this.mStartedIntentSenderFromFragment = true;

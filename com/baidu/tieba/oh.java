@@ -1,94 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class oh extends rf {
+public class oh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rf
-    public void changeSettingByType(int i) {
+    public static void a(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
+            qc qcVar = new qc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+            qcVar.setSdCard(z);
+            qcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            kc.f().a(qcVar);
         }
     }
 
-    @Override // com.baidu.tieba.rf
-    public String[] getCrashKeys() {
-        InterceptResult invokeV;
+    public static File[] b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        File[] fileArr;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rf
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.rf
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.rf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "android_should_open_ubc_log" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rf
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public oh() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
+            diskFileOperate.setSdCard(z);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            kc.f().call(diskFileOperate);
+            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
+                fileArr = diskFileOperate.getFileInfo().listFiles();
+            } else {
+                fileArr = null;
             }
+            if (z2) {
+                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
+                diskFileOperate2.setSdCard(z);
+                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                kc.f().call(diskFileOperate2);
+                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
+                    if (fileArr != null && fileArr.length != 0) {
+                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
+                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
+                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
+                        return fileArr2;
+                    }
+                    return listFiles;
+                }
+            }
+            return fileArr;
         }
+        return (File[]) invokeCommon.objValue;
     }
 
-    public static boolean isOn() {
-        InterceptResult invokeV;
+    public static ArrayList<qh> c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (SwitchManager.getInstance().findType("android_should_open_ubc_log") == 1) {
-                return true;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            ArrayList<qh> arrayList = new ArrayList<>();
+            File[] b = b(z, true);
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            arrayList.add(new qh(name, file.length(), file.lastModified()));
+                        }
+                    }
+                }
             }
-            return false;
+            return arrayList;
         }
-        return invokeV.booleanValue;
+        return (ArrayList) invokeZ.objValue;
     }
 }

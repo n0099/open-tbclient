@@ -1,5 +1,7 @@
 package com.baidu.ufosdk.ui;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -76,6 +78,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@SuppressLint({"SetJavaScriptEnabled"})
+@TargetApi(11)
 /* loaded from: classes6.dex */
 public class FeedbackReportActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -87,6 +91,7 @@ public class FeedbackReportActivity extends Activity {
     public JSONArray E;
     public Dialog F;
     public IFeedbackMethodCallback G;
+    @SuppressLint({"HandlerLeak"})
     public Handler H;
     public ScrollView I;
     public String J;
@@ -123,7 +128,7 @@ public class FeedbackReportActivity extends Activity {
     public EditText t;
     public TextView u;
     public LinearLayout v;
-    public List w;
+    public List<byte[]> w;
     public Boolean x;
     public String y;
     public View z;
@@ -365,7 +370,7 @@ public class FeedbackReportActivity extends Activity {
                 for (int i3 = 0; i3 < size; i3++) {
                     CustomCheckBox customCheckBox = new CustomCheckBox(h0Var.c, h0Var.f);
                     customCheckBox.setTextColor(h0Var.f ? -10066330 : -13421773);
-                    customCheckBox.setText((String) h0Var.a.get(i3));
+                    customCheckBox.setText(h0Var.a.get(i3));
                     customCheckBox.setTextSize(14.0f);
                     linearLayout3.addView(customCheckBox, layoutParams2);
                     customCheckBox.setOnClickListener(new g0(h0Var, customCheckBox));
@@ -815,7 +820,7 @@ public class FeedbackReportActivity extends Activity {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(ArrayList arrayList, int i) {
+        public void a(ArrayList<String> arrayList, int i) {
             int i2;
             float f;
             Interceptable interceptable = $ic;
@@ -1206,13 +1211,13 @@ public class FeedbackReportActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = this.S.d;
+            ArrayList<String> arrayList = this.S.d;
             String str = "";
             for (int i = 0; i < arrayList.size(); i++) {
                 if (i == arrayList.size() - 1) {
-                    str = str + ((String) arrayList.get(i));
+                    str = str + arrayList.get(i);
                 } else {
-                    str = str + ((String) arrayList.get(i)) + ParamableElem.DIVIDE_PARAM;
+                    str = str + arrayList.get(i) + ParamableElem.DIVIDE_PARAM;
                 }
             }
             return str;
@@ -1356,7 +1361,7 @@ public class FeedbackReportActivity extends Activity {
         String a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, str4, str5, handler})) == null) {
-            ArrayList arrayList = this.S.d;
+            ArrayList<String> arrayList = this.S.d;
             for (int i = 0; i < arrayList.size(); i++) {
                 this.E.put(arrayList.get(i));
             }
@@ -1506,7 +1511,7 @@ public class FeedbackReportActivity extends Activity {
                 relativeLayout.addView(e1Var, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
                 try {
                     if (this.w.get(i) != null) {
-                        bitmap = BitmapFactory.decodeByteArray((byte[]) this.w.get(i), 0, ((byte[]) this.w.get(i)).length);
+                        bitmap = BitmapFactory.decodeByteArray(this.w.get(i), 0, this.w.get(i).length);
                         if (bitmap == null) {
                             return;
                         }
@@ -1550,7 +1555,7 @@ public class FeedbackReportActivity extends Activity {
                 imageView.setMinimumWidth(p1.a(getApplicationContext(), 77.0f));
                 relativeLayout.addView(imageView, new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 77.0f), p1.a(getApplicationContext(), 77.0f)));
                 try {
-                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.w.get(i), 0, ((byte[]) this.w.get(i)).length);
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray(this.w.get(i), 0, this.w.get(i).length);
                     if (decodeByteArray != null && a(decodeByteArray, p1.a(getApplicationContext(), 45.0f)) != null) {
                         imageView.setImageBitmap(decodeByteArray);
                         imageView.setOnClickListener(new b(this));

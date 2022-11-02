@@ -17,6 +17,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.annotation.AnimatorRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.appcompat.widget.AppCompatImageHelper;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -67,24 +78,32 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public static final int SIZE_MINI = 1;
     public static final int SIZE_NORMAL = 0;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public ColorStateList backgroundTint;
+    @Nullable
     public PorterDuff.Mode backgroundTintMode;
     public int borderWidth;
     public boolean compatPadding;
     public int customSize;
+    @NonNull
     public final ExpandableWidgetHelper expandableWidgetHelper;
+    @NonNull
     public final AppCompatImageHelper imageHelper;
+    @Nullable
     public PorterDuff.Mode imageMode;
     public int imagePadding;
+    @Nullable
     public ColorStateList imageTint;
     public FloatingActionButtonImpl impl;
     public int maxImageSize;
+    @Nullable
     public ColorStateList rippleColor;
     public final Rect shadowPadding;
     public int size;
     public final Rect touchArea;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface Size {
     }
@@ -105,7 +124,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* loaded from: classes7.dex */
-    public class BaseBehavior extends CoordinatorLayout.Behavior {
+    public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = true;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +181,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             obtainStyledAttributes.recycle();
         }
 
-        public static boolean isBottomSheet(View view2) {
+        public static boolean isBottomSheet(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
@@ -176,7 +195,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+        public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, layoutParams) == null) && layoutParams.dodgeInsetEdges == 0) {
                 layoutParams.dodgeInsetEdges = 80;
@@ -190,6 +209,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             }
         }
 
+        @VisibleForTesting
         public void setInternalAutoHideListener(OnVisibilityChangedListener onVisibilityChangedListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, onVisibilityChangedListener) == null) {
@@ -197,7 +217,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             }
         }
 
-        private void offsetIfNeeded(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton) {
+        private void offsetIfNeeded(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton) {
             Rect rect;
             int i;
             Interceptable interceptable = $ic;
@@ -225,7 +245,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             }
         }
 
-        private boolean shouldUpdateVisibility(View view2, FloatingActionButton floatingActionButton) {
+        private boolean shouldUpdateVisibility(@NonNull View view2, @NonNull FloatingActionButton floatingActionButton) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, floatingActionButton)) == null) {
@@ -238,7 +258,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             return invokeLL.booleanValue;
         }
 
-        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, FloatingActionButton floatingActionButton) {
+        private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull FloatingActionButton floatingActionButton) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, coordinatorLayout, appBarLayout, floatingActionButton)) == null) {
@@ -262,7 +282,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, Rect rect) {
+        public boolean getInsetDodgeRect(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, @NonNull Rect rect) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, floatingActionButton, rect)) == null) {
@@ -273,7 +293,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             return invokeLLL.booleanValue;
         }
 
-        private boolean updateFabVisibilityForBottomSheet(View view2, FloatingActionButton floatingActionButton) {
+        private boolean updateFabVisibilityForBottomSheet(@NonNull View view2, @NonNull FloatingActionButton floatingActionButton) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, view2, floatingActionButton)) == null) {
@@ -292,7 +312,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, View view2) {
+        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, View view2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, coordinatorLayout, floatingActionButton, view2)) == null) {
@@ -311,7 +331,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, int i) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, coordinatorLayout, floatingActionButton, i)) == null) {
@@ -338,7 +358,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* loaded from: classes7.dex */
-    public class Behavior extends BaseBehavior {
+    public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -383,22 +403,22 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean getInsetDodgeRect(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, Rect rect) {
+        public /* bridge */ /* synthetic */ boolean getInsetDodgeRect(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, @NonNull Rect rect) {
             return super.getInsetDodgeRect(coordinatorLayout, floatingActionButton, rect);
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, View view2) {
+        public /* bridge */ /* synthetic */ boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, View view2) {
             return super.onDependentViewChanged(coordinatorLayout, floatingActionButton, view2);
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onLayoutChild(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, int i) {
+        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i) {
             return super.onLayoutChild(coordinatorLayout, floatingActionButton, i);
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public /* bridge */ /* synthetic */ void onAttachedToLayoutParams(CoordinatorLayout.LayoutParams layoutParams) {
+        public /* bridge */ /* synthetic */ void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
             super.onAttachedToLayoutParams(layoutParams);
         }
 
@@ -408,13 +428,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
+        @VisibleForTesting
         public /* bridge */ /* synthetic */ void setInternalAutoHideListener(OnVisibilityChangedListener onVisibilityChangedListener) {
             super.setInternalAutoHideListener(onVisibilityChangedListener);
         }
     }
 
     /* loaded from: classes7.dex */
-    public abstract class OnVisibilityChangedListener {
+    public static abstract class OnVisibilityChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -470,7 +491,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // com.google.android.material.shadow.ShadowViewDelegate
-        public void setBackgroundDrawable(Drawable drawable) {
+        public void setBackgroundDrawable(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) != null) || drawable == null) {
                 return;
@@ -510,13 +531,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* loaded from: classes7.dex */
-    public class TransformationCallbackWrapper implements FloatingActionButtonImpl.InternalTransformationCallback {
+    public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final TransformationCallback listener;
+        @NonNull
+        public final TransformationCallback<T> listener;
         public final /* synthetic */ FloatingActionButton this$0;
 
-        public TransformationCallbackWrapper(FloatingActionButton floatingActionButton, TransformationCallback transformationCallback) {
+        public TransformationCallbackWrapper(@NonNull FloatingActionButton floatingActionButton, TransformationCallback<T> transformationCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -535,7 +557,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             this.listener = transformationCallback;
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -556,6 +578,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             return invokeV.intValue;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.android.material.animation.TransformationCallback<T extends com.google.android.material.floatingactionbutton.FloatingActionButton> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.InternalTransformationCallback
         public void onScaleChanged() {
             Interceptable interceptable = $ic;
@@ -564,6 +588,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.google.android.material.animation.TransformationCallback<T extends com.google.android.material.floatingactionbutton.FloatingActionButton> */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.InternalTransformationCallback
         public void onTranslationChanged() {
             Interceptable interceptable = $ic;
@@ -574,7 +600,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FloatingActionButton(Context context) {
+    public FloatingActionButton(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -609,7 +635,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, motionEvent)) == null) {
@@ -622,7 +648,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FloatingActionButton(Context context, AttributeSet attributeSet) {
+    public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402bc);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -643,7 +669,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatingActionButton(Context context, AttributeSet attributeSet, int i) {
+    public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -700,7 +726,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         setScaleType(ImageView.ScaleType.MATRIX);
     }
 
-    private void offsetRectWithShadow(Rect rect) {
+    private void offsetRectWithShadow(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, rect) == null) {
             int i = rect.left;
@@ -712,7 +738,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    private FloatingActionButtonImpl.InternalVisibilityChangedListener wrapOnVisibilityChangedListener(OnVisibilityChangedListener onVisibilityChangedListener) {
+    @Nullable
+    private FloatingActionButtonImpl.InternalVisibilityChangedListener wrapOnVisibilityChangedListener(@Nullable OnVisibilityChangedListener onVisibilityChangedListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, onVisibilityChangedListener)) == null) {
@@ -764,21 +791,21 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return (FloatingActionButtonImpl.InternalVisibilityChangedListener) invokeL.objValue;
     }
 
-    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
             getImpl().addOnHideAnimationListener(animatorListener);
         }
     }
 
-    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
             getImpl().addOnShowAnimationListener(animatorListener);
         }
     }
 
-    public void addTransformationCallback(TransformationCallback transformationCallback) {
+    public void addTransformationCallback(@NonNull TransformationCallback<? extends FloatingActionButton> transformationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, transformationCallback) == null) {
             getImpl().addTransformationCallback(new TransformationCallbackWrapper(this, transformationCallback));
@@ -786,7 +813,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Deprecated
-    public boolean getContentRect(Rect rect) {
+    public boolean getContentRect(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, rect)) == null) {
@@ -800,7 +827,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return invokeL.booleanValue;
     }
 
-    public void getMeasuredContentRect(Rect rect) {
+    public void getMeasuredContentRect(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, rect) == null) {
             rect.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
@@ -808,28 +835,28 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void hide(OnVisibilityChangedListener onVisibilityChangedListener) {
+    public void hide(@Nullable OnVisibilityChangedListener onVisibilityChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, onVisibilityChangedListener) == null) {
             hide(onVisibilityChangedListener, true);
         }
     }
 
-    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, animatorListener) == null) {
             getImpl().removeOnHideAnimationListener(animatorListener);
         }
     }
 
-    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void removeOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, animatorListener) == null) {
             getImpl().removeOnShowAnimationListener(animatorListener);
         }
     }
 
-    public void removeTransformationCallback(TransformationCallback transformationCallback) {
+    public void removeTransformationCallback(@NonNull TransformationCallback<? extends FloatingActionButton> transformationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, transformationCallback) == null) {
             getImpl().removeTransformationCallback(new TransformationCallbackWrapper(this, transformationCallback));
@@ -861,7 +888,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
-    public void setBackgroundTintList(ColorStateList colorStateList) {
+    public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048623, this, colorStateList) == null) && this.backgroundTint != colorStateList) {
             this.backgroundTint = colorStateList;
@@ -870,7 +897,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
-    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+    public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048624, this, mode) == null) && this.backgroundTintMode != mode) {
             this.backgroundTintMode = mode;
@@ -885,7 +912,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatElevationResource(int i) {
+    public void setCompatElevationResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             setCompatElevation(getResources().getDimension(i));
@@ -899,7 +926,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatHoveredFocusedTranslationZResource(int i) {
+    public void setCompatHoveredFocusedTranslationZResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
             setCompatHoveredFocusedTranslationZ(getResources().getDimension(i));
@@ -913,14 +940,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatPressedTranslationZResource(int i) {
+    public void setCompatPressedTranslationZResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
             setCompatPressedTranslationZ(getResources().getDimension(i));
         }
     }
 
-    public void setCustomSize(int i) {
+    public void setCustomSize(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
             if (i >= 0) {
@@ -936,6 +963,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
     public void setElevation(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048632, this, f) == null) {
@@ -963,21 +991,21 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // com.google.android.material.expandable.ExpandableTransformationWidget
-    public void setExpandedComponentIdHint(int i) {
+    public void setExpandedComponentIdHint(@IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
             this.expandableWidgetHelper.setExpandedComponentIdHint(i);
         }
     }
 
-    public void setHideMotionSpec(MotionSpec motionSpec) {
+    public void setHideMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, motionSpec) == null) {
             getImpl().setHideMotionSpec(motionSpec);
         }
     }
 
-    public void setHideMotionSpecResource(int i) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
             setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
@@ -985,7 +1013,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.widget.ImageView
-    public void setImageDrawable(Drawable drawable) {
+    public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048638, this, drawable) == null) && getDrawable() != drawable) {
             super.setImageDrawable(drawable);
@@ -997,7 +1025,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(int i) {
+    public void setImageResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
             this.imageHelper.setImageResource(i);
@@ -1005,7 +1033,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setRippleColor(int i) {
+    public void setRippleColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             setRippleColor(ColorStateList.valueOf(i));
@@ -1030,6 +1058,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @VisibleForTesting
     public void setShadowPaddingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
@@ -1038,21 +1068,21 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048645, this, shapeAppearanceModel) == null) {
             getImpl().setShapeAppearance(shapeAppearanceModel);
         }
     }
 
-    public void setShowMotionSpec(MotionSpec motionSpec) {
+    public void setShowMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048646, this, motionSpec) == null) {
             getImpl().setShowMotionSpec(motionSpec);
         }
     }
 
-    public void setShowMotionSpecResource(int i) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
             setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
@@ -1071,7 +1101,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048649, this, colorStateList) == null) {
             setBackgroundTintList(colorStateList);
@@ -1079,7 +1109,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048650, this, mode) == null) {
             setBackgroundTintMode(mode);
@@ -1087,7 +1117,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    public void setSupportImageTintList(ColorStateList colorStateList) {
+    public void setSupportImageTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048651, this, colorStateList) == null) && this.imageTint != colorStateList) {
             this.imageTint = colorStateList;
@@ -1096,7 +1126,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    public void setSupportImageTintMode(PorterDuff.Mode mode) {
+    public void setSupportImageTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048652, this, mode) == null) && this.imageMode != mode) {
             this.imageMode = mode;
@@ -1147,7 +1177,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void show(OnVisibilityChangedListener onVisibilityChangedListener) {
+    public void show(@Nullable OnVisibilityChangedListener onVisibilityChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048660, this, onVisibilityChangedListener) == null) {
             show(onVisibilityChangedListener, true);
@@ -1174,20 +1204,21 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return invokeII.intValue;
     }
 
-    public void hide(OnVisibilityChangedListener onVisibilityChangedListener, boolean z) {
+    public void hide(@Nullable OnVisibilityChangedListener onVisibilityChangedListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048606, this, onVisibilityChangedListener, z) == null) {
             getImpl().hide(wrapOnVisibilityChangedListener(onVisibilityChangedListener), z);
         }
     }
 
-    public void show(OnVisibilityChangedListener onVisibilityChangedListener, boolean z) {
+    public void show(@Nullable OnVisibilityChangedListener onVisibilityChangedListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048661, this, onVisibilityChangedListener, z) == null) {
             getImpl().show(wrapOnVisibilityChangedListener(onVisibilityChangedListener), z);
         }
     }
 
+    @NonNull
     private FloatingActionButtonImpl createImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1229,6 +1260,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
+    @Nullable
     public ColorStateList getBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1239,6 +1271,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
+    @Nullable
     public PorterDuff.Mode getBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1249,7 +1282,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.AttachedBehavior
-    public CoordinatorLayout.Behavior getBehavior() {
+    @NonNull
+    public CoordinatorLayout.Behavior<FloatingActionButton> getBehavior() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -1285,6 +1319,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return invokeV.floatValue;
     }
 
+    @Nullable
     public Drawable getContentBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1294,6 +1329,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return (Drawable) invokeV.objValue;
     }
 
+    @Px
     public int getCustomSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1313,6 +1349,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return invokeV.intValue;
     }
 
+    @Nullable
     public MotionSpec getHideMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1322,6 +1359,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return (MotionSpec) invokeV.objValue;
     }
 
+    @ColorInt
     @Deprecated
     public int getRippleColor() {
         InterceptResult invokeV;
@@ -1336,6 +1374,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getRippleColorStateList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1346,6 +1385,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // com.google.android.material.shape.Shapeable
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1355,6 +1395,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public MotionSpec getShowMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1383,6 +1424,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1393,6 +1435,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1403,6 +1446,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
+    @Nullable
     public ColorStateList getSupportImageTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1413,6 +1457,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
+    @Nullable
     public PorterDuff.Mode getSupportImageTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1580,7 +1625,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048641, this, colorStateList) == null) && this.rippleColor != colorStateList) {
             this.rippleColor = colorStateList;

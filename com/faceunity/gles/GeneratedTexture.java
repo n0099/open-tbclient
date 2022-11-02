@@ -35,7 +35,7 @@ public class GeneratedTexture {
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class GeneratedTexture {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class Image {
+    public static final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Image COARSE;

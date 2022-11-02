@@ -13,11 +13,12 @@ import tbclient.Error;
 import tbclient.GetMsgRecForumlist.DataRes;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistResIdl;
 import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class MsgRecForumHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List forumList;
+    public List<RecommendForumInfo> forumList;
     public Page pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

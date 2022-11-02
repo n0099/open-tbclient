@@ -1,6 +1,7 @@
 package com.facebook.fresco.animation.drawable.animator;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
+@TargetApi(11)
 /* loaded from: classes7.dex */
 public class AnimatedDrawable2ValueAnimatorHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -55,6 +57,7 @@ public class AnimatedDrawable2ValueAnimatorHelper {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                @TargetApi(11)
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {

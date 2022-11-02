@@ -5,21 +5,22 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ec7;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.od7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter {
+public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends MsgCommonItemAdapter.MsgViewHolder {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +47,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgMultiImageTextViewItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public MsgMultiImageTextViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,9 +68,9 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rn
+    @Override // com.baidu.tieba.jn
     /* renamed from: E */
-    public MsgCommonItemAdapter.MsgViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
@@ -79,29 +80,30 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter {
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.rn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (ChatMessage) obj, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.jn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgMultiImageTextView msgMultiImageTextView = (MsgMultiImageTextView) msgViewHolder.a();
-            msgMultiImageTextView.E(this.c);
-            msgMultiImageTextView.F(i);
-            msgMultiImageTextView.v(this.d);
-            msgMultiImageTextView.B(chatMessage.getCacheData().getLastMsgTime());
-            msgMultiImageTextView.W(this.a, chatMessage, viewGroup);
+            MsgMultiImageTextView a2 = msgViewHolder.a();
+            a2.E(this.c);
+            a2.F(i);
+            a2.v(this.d);
+            a2.B(chatMessage.getCacheData().getLastMsgTime());
+            a2.W(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
-            ec7.c().e(chatMessage, this.a.getPageActivity());
-            ec7.c().f(chatMessage, this.a.getPageActivity());
-            ec7.c().d(chatMessage);
+            od7.c().e(chatMessage, this.a.getPageActivity());
+            od7.c().f(chatMessage, this.a.getPageActivity());
+            od7.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
@@ -186,7 +187,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class c {
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +258,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThirdPartyView(Context context, AttributeSet attributeSet) {
+    public ThirdPartyView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -278,7 +279,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThirdPartyView(Context context, AttributeSet attributeSet, int i) {
+    public ThirdPartyView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -317,17 +318,17 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d8, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d48);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d49);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4c);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d45);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d44);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4b);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d46);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d47);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d50);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e8, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d93);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d91);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d92);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d95);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8e);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8d);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d94);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d8f);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d90);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d99);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
@@ -337,10 +338,10 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             this.j.setOnClickListener(this);
-            List thirdPartyConfig = getThirdPartyConfig();
+            List<FastLoginFeature> thirdPartyConfig = getThirdPartyConfig();
             int min = Math.min(thirdPartyConfig.size(), 5);
             for (int i = 0; i < min; i++) {
-                FastLoginFeature fastLoginFeature = (FastLoginFeature) thirdPartyConfig.get(i);
+                FastLoginFeature fastLoginFeature = thirdPartyConfig.get(i);
                 if (fastLoginFeature == FastLoginFeature.TX_WEIXIN_SSO) {
                     this.b.setVisibility(0);
                 } else if (fastLoginFeature == FastLoginFeature.TX_QQ_SSO) {
@@ -394,7 +395,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    private List getThirdPartyConfig() {
+    private List<FastLoginFeature> getThirdPartyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
@@ -432,39 +433,39 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-            if (view2.getId() == R.id.obfuscated_res_0x7f091d4a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091d93) {
                 this.m = QuickLoginType.WECHAT;
                 webSocialLoginDTO.socialType = SocialType.WEIXIN;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d48) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d91) {
                 this.m = QuickLoginType.QQ;
                 webSocialLoginDTO.socialType = SocialType.QQ_SSO;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d95) {
                 this.m = QuickLoginType.YY;
                 webSocialLoginDTO.socialType = SocialType.YY;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d49) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d92) {
                 this.m = QuickLoginType.SINA;
                 webSocialLoginDTO.socialType = SocialType.SINA_WEIBO_SSO;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d45) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d8e) {
                 this.m = QuickLoginType.HUAWEI;
                 webSocialLoginDTO.socialType = SocialType.HUAWEI;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d44) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d8d) {
                 this.m = QuickLoginType.HONOR;
                 webSocialLoginDTO.socialType = SocialType.HONOR;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d4b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d94) {
                 this.m = QuickLoginType.XIAOMI;
                 webSocialLoginDTO.socialType = SocialType.XIAOMI;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d46) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d8f) {
                 this.m = QuickLoginType.MEIZU;
                 webSocialLoginDTO.socialType = SocialType.MEIZU;
                 a(webSocialLoginDTO);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d47) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d90) {
                 this.m = QuickLoginType.FULL_SCREEN;
                 e();
             }

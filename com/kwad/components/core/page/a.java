@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.components.core.kwai.a;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.KsAdWebView;
@@ -23,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0572a, x.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0583a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean Fu;
@@ -86,6 +88,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0572a
         }
     }
 
+    @InvokeBy(invokerClass = KsAdSDKImpl.class, methodId = KsAdSDKImpl.INVOKER_ID_INIT_COMPONENT_PROXY)
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -114,16 +117,16 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0572a
     }
 
     @Override // com.kwad.components.core.i.b, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             getActivity().setTheme(R.style.obfuscated_res_0x7f10022f);
-            setContentView(R.layout.obfuscated_res_0x7f0d0403);
+            setContentView(R.layout.obfuscated_res_0x7f0d040e);
             d(getIntent());
-            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091126);
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091160);
             nv();
-            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09112b));
+            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091165));
             this.mk = aVar;
             aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
             this.mk.a(this);
@@ -164,7 +167,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0572a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
@@ -172,7 +175,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0572a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0572a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0583a
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {

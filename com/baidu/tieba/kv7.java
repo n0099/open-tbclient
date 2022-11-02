@@ -1,152 +1,67 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.lv7;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbContent;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes4.dex */
 public class kv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView a;
-    public TextView b;
-    public TbRichTextView c;
-    public ViewStub d;
-    public View e;
-    public ImageView f;
-    public View g;
-    public lv7.a h;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Post a;
-        public final /* synthetic */ kv7 b;
-
-        public a(kv7 kv7Var, Post post) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kv7Var, post};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kv7Var;
-            this.a = post;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Post post;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
-                this.b.h.a(String.valueOf(this.a.id));
-            }
-        }
-    }
-
-    public kv7(ViewStub viewStub, lv7.a aVar) {
+    public kv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewStub, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = viewStub;
-        this.h = aVar;
     }
 
-    public void d(boolean z) {
-        View view2;
-        int i;
+    public int a() {
+        InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
-            if (z) {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            int hashCode = str.hashCode();
+            if (hashCode != 2154) {
+                if (hashCode != 2161) {
+                    if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
             } else {
-                i = 8;
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+                    c = 2;
+                }
+                c = 65535;
             }
-            view2.setVisibility(i);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            View inflate = this.d.inflate();
-            this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090631);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090633);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090630);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090634);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090632);
-            this.c.setTextSize(TbConfig.getContentSize());
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.c;
-            if (tbRichTextView != null) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            if (c != 0) {
+                if (c == 1) {
+                    return 2;
+                }
+                return 3;
             }
+            return 1;
         }
-    }
-
-    public boolean update(Post post, User user) {
-        InterceptResult invokeLL;
-        List<PbContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
-            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
-                b();
-                d(true);
-                this.b.setText(user.name_show);
-                this.f.setOnClickListener(new a(this, post));
-                this.a.L(user.portrait, 12, false);
-                this.c.setVisibility(0);
-                this.c.setText(TbRichTextView.X(post.content, false));
-                return true;
-            }
-            d(false);
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
     }
 }

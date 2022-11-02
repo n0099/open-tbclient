@@ -145,7 +145,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotification(Context context, List list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
+    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i), aVar}) == null) {
             p.d(TAG, "pushNotification");
@@ -162,7 +162,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationByCustom(Context context, List list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
+    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
         Notification notification;
         int i;
         Bitmap bitmap;
@@ -212,7 +212,7 @@ public class NotifyAdapterUtil {
             }
             int suitIconId = NotifyUtil.getNotifyLayoutAdapter(context).getSuitIconId();
             remoteViews.setViewVisibility(suitIconId, i);
-            if (list != null && !list.isEmpty() && (bitmap = (Bitmap) list.get(i)) != null) {
+            if (list != null && !list.isEmpty() && (bitmap = list.get(i)) != null) {
                 remoteViews.setImageViewBitmap(suitIconId, bitmap);
             } else {
                 if (defaultNotifyIcon <= 0) {
@@ -222,7 +222,7 @@ public class NotifyAdapterUtil {
             }
             Bitmap bitmap2 = null;
             if (list != null && list.size() > 1) {
-                bitmap2 = (Bitmap) list.get(1);
+                bitmap2 = list.get(1);
             }
             if (bitmap2 != null) {
                 if (!TextUtils.isEmpty(insideNotificationItem.getPurePicUrl())) {
@@ -305,7 +305,7 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationBySystem(Context context, List list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
+    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         String str;
         Bitmap bitmap;
         Notification.Builder builder;
@@ -323,7 +323,7 @@ public class NotifyAdapterUtil {
             AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
             if (list != null && !list.isEmpty()) {
-                bitmap = (Bitmap) list.get(0);
+                bitmap = list.get(0);
                 if (bitmap != null && defaultNotifyIcon > 0 && (decodeResource = BitmapFactory.decodeResource(context.getResources(), defaultNotifyIcon)) != null) {
                     int width = decodeResource.getWidth();
                     str = packageName;
@@ -397,7 +397,7 @@ public class NotifyAdapterUtil {
                 builder.setDefaults(1);
             }
             if (list != null && list.size() > 1) {
-                bitmap2 = (Bitmap) list.get(1);
+                bitmap2 = list.get(1);
                 i2 = i;
             } else {
                 i2 = i;

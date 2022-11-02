@@ -1,11 +1,13 @@
 package com.baidu.android.util.devices;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.connect.ConnectManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -38,7 +40,7 @@ public class NetWorkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class NetType {
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -237,6 +239,7 @@ public class NetWorkUtils {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"HardwareIds"})
     public static String getMacAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +322,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getBSSID(Context context) {
+    public static String getBSSID(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -329,7 +332,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getIPAddress(Context context) {
+    public static int getIPAddress(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -359,7 +362,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static int getNetworkId(Context context) {
+    public static int getNetworkId(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
@@ -369,7 +372,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getNetworkInfo(Context context) {
+    public static String getNetworkInfo(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
@@ -389,7 +392,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiInfo(Context context) {
+    public static String getWifiInfo(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, context)) == null) {
@@ -399,7 +402,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static String getWifiName(Context context) {
+    public static String getWifiName(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
@@ -439,7 +442,7 @@ public class NetWorkUtils {
     }
 
     @Deprecated
-    public static boolean isWapNetWorkConnected(Context context) {
+    public static boolean isWapNetWorkConnected(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
@@ -619,6 +622,7 @@ public class NetWorkUtils {
         return (NetType) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static InetAddress intToInetAddress(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

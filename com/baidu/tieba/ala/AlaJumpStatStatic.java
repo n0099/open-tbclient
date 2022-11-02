@@ -2,9 +2,7 @@ package com.baidu.tieba.ala;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccount;
@@ -12,9 +10,9 @@ import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.gb;
-import com.baidu.tieba.mh;
-import com.baidu.tieba.yd5;
+import com.baidu.tieba.eh;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.ue5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +26,7 @@ public class AlaJumpStatStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a extends gb {
+    public static class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +50,8 @@ public class AlaJumpStatStatic {
             }
         }
 
-        public CustomMessage process(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+        /* renamed from: process  reason: avoid collision after fix types in other method */
+        public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             InterceptResult invokeLL;
             Object data;
             Interceptable interceptable = $ic;
@@ -65,16 +64,18 @@ public class AlaJumpStatStatic {
             return (CustomMessage) invokeLL.objValue;
         }
 
-        @Override // com.baidu.tieba.kb
-        public /* bridge */ /* synthetic */ Message process(Message message, MessageTask messageTask) {
-            CustomMessage customMessage = (CustomMessage) message;
-            process(customMessage, (CustomMessageTask) messageTask);
-            return customMessage;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+        @Override // com.baidu.tieba.jb
+        public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            CustomMessage<?> customMessage2 = customMessage;
+            process2(customMessage2, customMessageTask);
+            return customMessage2;
         }
     }
 
     /* loaded from: classes3.dex */
-    public final class b extends gb {
+    public static class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +99,8 @@ public class AlaJumpStatStatic {
             }
         }
 
-        public CustomMessage process(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+        /* renamed from: process  reason: avoid collision after fix types in other method */
+        public CustomMessage<?> process2(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             InterceptResult invokeLL;
             Object data;
             Interceptable interceptable = $ic;
@@ -114,11 +116,13 @@ public class AlaJumpStatStatic {
             return (CustomMessage) invokeLL.objValue;
         }
 
-        @Override // com.baidu.tieba.kb
-        public /* bridge */ /* synthetic */ Message process(Message message, MessageTask messageTask) {
-            CustomMessage customMessage = (CustomMessage) message;
-            process(customMessage, (CustomMessageTask) messageTask);
-            return customMessage;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+        @Override // com.baidu.tieba.jb
+        public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+            CustomMessage<?> customMessage2 = customMessage;
+            process2(customMessage2, customMessageTask);
+            return customMessage2;
         }
     }
 
@@ -156,10 +160,10 @@ public class AlaJumpStatStatic {
     public static final void b(Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, obj, str) == null) {
-            mh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            eh statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "ala_jump_fail");
             statsItem.b("config", str);
-            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - yd5.b().c()));
+            statsItem.c(FetchLog.START_TIME, Long.valueOf(System.currentTimeMillis() - ue5.b().c()));
             if (obj instanceof AlaLiveRoomActivityConfig) {
                 AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
                 statsItem.b(SapiAccount.SAPI_ACCOUNT_FROMTYPE, alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

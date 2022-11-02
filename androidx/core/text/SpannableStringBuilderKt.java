@@ -10,6 +10,7 @@ import android.text.style.StyleSpan;
 import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
+import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +25,7 @@ public final class SpannableStringBuilderKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, int i, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, spannableStringBuilder, i, function1)) == null) {
@@ -37,7 +38,7 @@ public final class SpannableStringBuilderKt {
         return (SpannableStringBuilder) invokeLIL.objValue;
     }
 
-    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, int i, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, spannableStringBuilder, i, function1)) == null) {

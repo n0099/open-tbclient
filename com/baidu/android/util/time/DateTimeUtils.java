@@ -34,12 +34,12 @@ public final class DateTimeUtils {
     public static long MSEC_OF_ONE_HOUR = 3600000;
     public static long MSEC_OF_ONE_MINUTE = 60000;
     public static long MSEC_OF_ONE_SEC = 1000;
-    public static final Set NORMAL_DAY;
+    public static final Set<Integer> NORMAL_DAY;
     public static final int TIME_DAY_MILLISECOND = 86400000;
     public static final String TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String TIME_FORMAT_CN = "yyyy年MM月dd日 HH:mm:ss";
-    public static final Set WEEKEND_DAY;
-    public static final Set WORK_DAY;
+    public static final Set<Integer> WEEKEND_DAY;
+    public static final Set<Integer> WORK_DAY;
     public static final String Y4MD = "yyyy-MM-dd";
     public static final String Y4MD_HM = "yyyy-MM-dd HH:mm";
     public static final String YEAR_FORMAT = "yyyy";
@@ -299,14 +299,14 @@ public final class DateTimeUtils {
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
                     if (j4 > 0) {
-                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1431), Long.valueOf(j4));
+                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f144f), Long.valueOf(j4));
                     }
                     if (j5 > 0) {
-                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1432), Long.valueOf(j5));
+                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1450), Long.valueOf(j5));
                     }
-                    return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1433);
+                    return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1451);
                 } else if (calendar.after(calendar3)) {
-                    return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1430), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
+                    return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f144e), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
                     if (z2) {
                         return new SimpleDateFormat("MM-dd", Locale.getDefault()).format(calendar.getTime());
@@ -329,7 +329,7 @@ public final class DateTimeUtils {
 
     public static long getNextDayByMode(long j, int i) {
         InterceptResult invokeCommon;
-        Set set;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             if (i != 1) {
@@ -394,7 +394,7 @@ public final class DateTimeUtils {
 
     public static Date getNextDayByMode(Date date, int i) {
         InterceptResult invokeLI;
-        Set set;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, date, i)) == null) {
             if (i != 1) {

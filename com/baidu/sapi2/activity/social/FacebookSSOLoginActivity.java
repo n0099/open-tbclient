@@ -34,7 +34,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     public LoginManager o;
 
     /* loaded from: classes2.dex */
-    public class a implements FacebookCallback {
+    public class a implements FacebookCallback<LoginResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacebookSSOLoginActivity a;
@@ -86,7 +86,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1093));
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f10ae));
             }
         }
 
@@ -135,7 +135,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10a7);
+            setTitleText(R.string.obfuscated_res_0x7f0f10c2);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

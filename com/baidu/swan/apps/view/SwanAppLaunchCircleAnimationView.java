@@ -7,9 +7,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q94;
+import com.baidu.tieba.ia4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,7 +102,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppLaunchCircleAnimationView(Context context, AttributeSet attributeSet) {
+    public SwanAppLaunchCircleAnimationView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,7 +126,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppLaunchCircleAnimationView(Context context, AttributeSet attributeSet, int i) {
+    public SwanAppLaunchCircleAnimationView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -162,8 +163,8 @@ public class SwanAppLaunchCircleAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.g = System.currentTimeMillis();
-            this.d = getResources().getColor(R.color.obfuscated_res_0x7f06040d);
-            this.c = getResources().getColor(R.color.obfuscated_res_0x7f06040b);
+            this.d = getResources().getColor(R.color.obfuscated_res_0x7f06040e);
+            this.c = getResources().getColor(R.color.obfuscated_res_0x7f06040c);
             this.a.setColor(this.d);
             this.a.setAntiAlias(true);
             this.a.setStyle(Paint.Style.STROKE);
@@ -180,7 +181,7 @@ public class SwanAppLaunchCircleAnimationView extends View {
             g();
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             this.f = ofFloat;
-            ofFloat.setInterpolator(new q94(0.4f, 0.0f, 0.6f, 1.0f));
+            ofFloat.setInterpolator(new ia4(0.4f, 0.0f, 0.6f, 1.0f));
             this.f.setRepeatCount(-1);
             this.f.setRepeatMode(1);
             this.f.setDuration(800L);

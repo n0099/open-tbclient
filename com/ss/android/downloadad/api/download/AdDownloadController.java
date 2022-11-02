@@ -31,7 +31,7 @@ public class AdDownloadController implements DownloadController {
     }
 
     /* loaded from: classes8.dex */
-    public final class Builder {
+    public static final class Builder {
         public AdDownloadController controller = new AdDownloadController();
 
         @Deprecated

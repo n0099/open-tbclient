@@ -2,6 +2,7 @@ package androidx.core.location;
 
 import android.location.LocationManager;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ public final class LocationManagerCompat {
         }
     }
 
-    public static boolean isLocationEnabled(LocationManager locationManager) {
+    public static boolean isLocationEnabled(@NonNull LocationManager locationManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, locationManager)) == null) {

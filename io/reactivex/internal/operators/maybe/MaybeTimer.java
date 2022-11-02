@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeTimer extends Maybe {
+public final class MaybeTimer extends Maybe<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long delay;
@@ -22,13 +22,13 @@ public final class MaybeTimer extends Maybe {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class TimerDisposable extends AtomicReference implements Disposable, Runnable {
+    public static final class TimerDisposable extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2875964065294031672L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super Long> actual;
 
-        public TimerDisposable(MaybeObserver maybeObserver) {
+        public TimerDisposable(MaybeObserver<? super Long> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public final class MaybeTimer extends Maybe {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -101,7 +101,7 @@ public final class MaybeTimer extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super Long> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             TimerDisposable timerDisposable = new TimerDisposable(maybeObserver);

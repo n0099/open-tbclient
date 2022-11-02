@@ -7,6 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.a.i;
+import com.baidu.ubs.analytics.a.l;
+import com.baidu.ubs.analytics.a.n;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -14,13 +17,13 @@ public final class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a l;
-    public List m;
-    public List n;
-    public List o;
-    public List p;
+    public List<n> m;
+    public List<com.baidu.ubs.analytics.a.a> n;
+    public List<l> o;
+    public List<i> p;
 
     /* loaded from: classes6.dex */
-    public final class a implements Serializable {
+    public static class a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String A;
@@ -335,7 +338,7 @@ public final class b implements Serializable {
         }
     }
 
-    public final List getEvents() {
+    public final List<com.baidu.ubs.analytics.a.a> getEvents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -353,7 +356,7 @@ public final class b implements Serializable {
         return (a) invokeV.objValue;
     }
 
-    public final List o() {
+    public final List<n> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -362,7 +365,7 @@ public final class b implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public final List p() {
+    public final List<l> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -371,7 +374,7 @@ public final class b implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public final List q() {
+    public final List<i> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -387,28 +390,28 @@ public final class b implements Serializable {
         }
     }
 
-    public final void b(List list) {
+    public final void b(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.m = list;
         }
     }
 
-    public final void c(List list) {
+    public final void c(List<com.baidu.ubs.analytics.a.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.n = list;
         }
     }
 
-    public final void d(List list) {
+    public final void d(List<l> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.o = list;
         }
     }
 
-    public final void e(List list) {
+    public final void e(List<i> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.p = list;

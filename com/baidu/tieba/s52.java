@@ -1,78 +1,15 @@
 package com.baidu.tieba;
-
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class s52 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s52 {
+    void a(int i);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102329, "Lcom/baidu/tieba/s52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102329, "Lcom/baidu/tieba/s52;");
-                return;
-            }
-        }
-        a = wj1.a;
-        b = new AtomicInteger(0);
-    }
+    boolean b(String str);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void c(int i, String str, String str2);
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!m72.h()) {
-                return "master";
-            }
-            int andIncrement = b.getAndIncrement();
-            if (andIncrement >= 1) {
-                str = "master" + andIncrement;
-            }
-            if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
+    void d(String str);
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
-        }
-        return invokeV.intValue;
-    }
+    void e(String str);
+
+    void goBack();
 }

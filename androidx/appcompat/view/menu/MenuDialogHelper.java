@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -51,7 +52,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+    public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, menuBuilder)) == null) {
@@ -88,7 +89,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+    public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, z) == null) {
             if (z || menuBuilder == this.mMenu) {

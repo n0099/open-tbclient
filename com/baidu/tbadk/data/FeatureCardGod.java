@@ -13,7 +13,7 @@ public class FeatureCardGod extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Integer floor;
-    public List sub_nodes;
+    public List<com.baidu.tbadk.core.data.MetaData> sub_nodes;
     public String title;
     public Integer type;
 

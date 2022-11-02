@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.view.EmotionView;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,8 +95,8 @@ public class PickEmotionView extends FrameLayout {
             this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = fj.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.topMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = xi.g(getContext(), R.dimen.obfuscated_res_0x7f070302);
             addView(this.b, layoutParams);
         }
     }
@@ -127,9 +127,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065b);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080660);
             } else {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065a);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08065f);
             }
         }
     }
@@ -138,8 +138,8 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
             this.a.setLoadProcType(i);
-            this.a.l0();
-            this.a.n0(emotionImageData);
+            this.a.k0();
+            this.a.m0(emotionImageData);
         }
     }
 }

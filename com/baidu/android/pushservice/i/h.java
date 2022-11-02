@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.i;
 
+import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -35,6 +36,7 @@ public class h {
         notificationManager.cancel(i);
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(Context context, String str) {
         NotificationManager notificationManager;
         Interceptable interceptable = $ic;
@@ -44,6 +46,7 @@ public class h {
         notificationManager.deleteNotificationChannel(str);
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) {
@@ -60,6 +63,7 @@ public class h {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static int b(Context context) {
         InterceptResult invokeL;
         boolean z;

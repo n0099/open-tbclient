@@ -23,10 +23,10 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0123a {
+    public interface InterfaceC0130a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
-        void a(Object obj);
+        void a(T t);
     }
 
     public a() {
@@ -50,36 +50,36 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (str == null || str.equals("")) {
-                return new c(PanoStateError.c);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
-                if (optJSONObject == null) {
-                    return new c(PanoStateError.c);
-                }
-                if (optJSONObject.optInt("error") == 0) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("content");
-                    if (optJSONArray == null) {
+            if (str != null && !str.equals("")) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    JSONObject optJSONObject = jSONObject.optJSONObject(TiebaStatic.LogFields.RESULT);
+                    if (optJSONObject == null) {
                         return new c(PanoStateError.c);
                     }
-                    c cVar = null;
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
-                        if (optJSONObject2 != null) {
-                            cVar = new c(PanoStateError.a);
-                            cVar.a(optJSONObject2.optString("PID"));
-                            cVar.a(optJSONObject2.optInt("hasstreet"));
+                    if (optJSONObject.optInt("error") == 0) {
+                        JSONArray optJSONArray = jSONObject.optJSONArray("content");
+                        if (optJSONArray == null) {
+                            return new c(PanoStateError.c);
                         }
+                        c cVar = null;
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
+                            if (optJSONObject2 != null) {
+                                cVar = new c(PanoStateError.a);
+                                cVar.a(optJSONObject2.optString("PID"));
+                                cVar.a(optJSONObject2.optInt("hasstreet"));
+                            }
+                        }
+                        return cVar;
                     }
-                    return cVar;
+                    return new c(PanoStateError.b);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return new c(PanoStateError.c);
                 }
-                return new c(PanoStateError.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return new c(PanoStateError.c);
             }
+            return new c(PanoStateError.c);
         }
         return (c) invokeL.objValue;
     }
@@ -98,17 +98,20 @@ public class a {
 
     private void a(Uri.Builder builder, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder, str, str2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            builder.appendQueryParameter(str, str2);
         }
-        builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0123a interfaceC0123a) {
+    public void a(String str, InterfaceC0130a<c> interfaceC0130a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0123a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0130a) == null) {
             Uri.Builder builder = new Uri.Builder();
-            builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
+            if (HttpClient.isHttpsEnable) {
+                builder.scheme("https");
+            } else {
+                builder.scheme("http");
+            }
             builder.encodedAuthority("api.map.baidu.com");
             builder.path("/sdkproxy/lbs_androidsdk/pano/v1/");
             a(builder, "qt", "poi");
@@ -116,11 +119,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0123a.a(new c(PanoStateError.d));
+                interfaceC0130a.a((InterfaceC0130a<c>) new c(PanoStateError.d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC0123a));
+            this.a.get(a(builder), new b(this, interfaceC0130a));
         }
     }
 }

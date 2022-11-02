@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,11 +47,13 @@ public final class RemoteInput {
     public final String mResultKey;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface EditChoicesBeforeSending {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Source {
     }
@@ -64,7 +70,7 @@ public final class RemoteInput {
         public CharSequence mLabel;
         public final String mResultKey;
 
-        public Builder(String str) {
+        public Builder(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +96,8 @@ public final class RemoteInput {
             throw new IllegalArgumentException("Result key can't be null");
         }
 
-        public Builder addExtras(Bundle bundle) {
+        @NonNull
+        public Builder addExtras(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
@@ -102,6 +109,7 @@ public final class RemoteInput {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setAllowFreeFormInput(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -112,7 +120,8 @@ public final class RemoteInput {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setChoices(CharSequence[] charSequenceArr) {
+        @NonNull
+        public Builder setChoices(@Nullable CharSequence[] charSequenceArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequenceArr)) == null) {
@@ -122,6 +131,7 @@ public final class RemoteInput {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setEditChoicesBeforeSending(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -132,7 +142,8 @@ public final class RemoteInput {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setLabel(CharSequence charSequence) {
+        @NonNull
+        public Builder setLabel(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
@@ -142,6 +153,7 @@ public final class RemoteInput {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public RemoteInput build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -151,6 +163,7 @@ public final class RemoteInput {
             return (RemoteInput) invokeV.objValue;
         }
 
+        @NonNull
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -160,7 +173,8 @@ public final class RemoteInput {
             return (Bundle) invokeV.objValue;
         }
 
-        public Builder setAllowDataType(String str, boolean z) {
+        @NonNull
+        public Builder setAllowDataType(@NonNull String str, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
@@ -274,6 +288,7 @@ public final class RemoteInput {
         }
     }
 
+    @RequiresApi(20)
     public static android.app.RemoteInput fromCompat(RemoteInput remoteInput) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -287,6 +302,7 @@ public final class RemoteInput {
         return (android.app.RemoteInput) invokeL.objValue;
     }
 
+    @RequiresApi(20)
     public static android.app.RemoteInput[] fromCompat(RemoteInput[] remoteInputArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -312,6 +328,7 @@ public final class RemoteInput {
         return (String) invokeL.objValue;
     }
 
+    @RequiresApi(16)
     public static Intent getClipDataIntentFromIntent(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -346,7 +363,7 @@ public final class RemoteInput {
         return (Bundle) invokeL.objValue;
     }
 
-    public static int getResultsSource(Intent intent) {
+    public static int getResultsSource(@NonNull Intent intent) {
         InterceptResult invokeL;
         Intent clipDataIntentFromIntent;
         Interceptable interceptable = $ic;
@@ -393,7 +410,7 @@ public final class RemoteInput {
         return (Map) invokeLL.objValue;
     }
 
-    public static void setResultsSource(Intent intent, int i) {
+    public static void setResultsSource(@NonNull Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, null, intent, i) == null) {
             int i2 = Build.VERSION.SDK_INT;

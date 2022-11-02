@@ -14,6 +14,7 @@ import kotlinx.coroutines.DelayKt;
 import kotlinx.coroutines.Dispatchers;
 import kotlinx.coroutines.EventLoop_commonKt;
 import kotlinx.coroutines.GlobalScope;
+import kotlinx.coroutines.ObsoleteCoroutinesApi;
 import kotlinx.coroutines.TimeSource;
 import kotlinx.coroutines.TimeSourceKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a1\u0010\u0006\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0007\u001a1\u0010\b\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003H\u0082@ø\u0001\u0000¢\u0006\u0004\b\b\u0010\u0007\u001a;\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00040\r2\u0006\u0010\u0001\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00002\b\b\u0002\u0010\n\u001a\u00020\t2\b\b\u0002\u0010\f\u001a\u00020\u000bH\u0007¢\u0006\u0004\b\u000e\u0010\u000f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0010"}, d2 = {"", "delayMillis", "initialDelayMillis", "Lkotlinx/coroutines/channels/SendChannel;", "", "channel", "fixedDelayTicker", "(JJLkotlinx/coroutines/channels/SendChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "fixedPeriodTicker", "Lkotlin/coroutines/CoroutineContext;", "context", "Lkotlinx/coroutines/channels/TickerMode;", "mode", "Lkotlinx/coroutines/channels/ReceiveChannel;", ALaKeepAliveService.KEY_TICKER, "(JJLkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/channels/TickerMode;)Lkotlinx/coroutines/channels/ReceiveChannel;", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -42,13 +43,13 @@ public final class TickerChannelsKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final /* synthetic */ Object fixedDelayTicker(long j, long j2, SendChannel sendChannel, Continuation continuation) {
+    public static final /* synthetic */ Object fixedDelayTicker(long j, long j2, SendChannel<? super Unit> sendChannel, Continuation<? super Unit> continuation) {
         TickerChannelsKt$fixedDelayTicker$1 tickerChannelsKt$fixedDelayTicker$1;
         Object coroutine_suspended;
         int i;
         long j3;
         long j4;
-        SendChannel sendChannel2;
+        SendChannel<? super Unit> sendChannel2;
         Unit unit;
         if (continuation instanceof TickerChannelsKt$fixedDelayTicker$1) {
             tickerChannelsKt$fixedDelayTicker$1 = (TickerChannelsKt$fixedDelayTicker$1) continuation;
@@ -149,7 +150,8 @@ public final class TickerChannelsKt {
         }
     }
 
-    public static final ReceiveChannel ticker(long j, long j2, CoroutineContext coroutineContext, TickerMode tickerMode) {
+    @ObsoleteCoroutinesApi
+    public static final ReceiveChannel<Unit> ticker(long j, long j2, CoroutineContext coroutineContext, TickerMode tickerMode) {
         boolean z;
         boolean z2 = true;
         if (j >= 0) {
@@ -180,12 +182,12 @@ public final class TickerChannelsKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final /* synthetic */ Object fixedPeriodTicker(long j, long j2, SendChannel sendChannel, Continuation continuation) {
+    public static final /* synthetic */ Object fixedPeriodTicker(long j, long j2, SendChannel<? super Unit> sendChannel, Continuation<? super Unit> continuation) {
         TickerChannelsKt$fixedPeriodTicker$1 tickerChannelsKt$fixedPeriodTicker$1;
         Object coroutine_suspended;
         int i;
         long nanoTime;
-        SendChannel sendChannel2;
+        SendChannel<? super Unit> sendChannel2;
         long j3;
         long j4;
         Long boxLong;
@@ -193,7 +195,7 @@ public final class TickerChannelsKt {
         long j5;
         long j6;
         long j7;
-        SendChannel sendChannel3;
+        SendChannel<? super Unit> sendChannel3;
         long j8;
         TimeSource timeSource;
         long nanoTime2;
@@ -203,6 +205,7 @@ public final class TickerChannelsKt {
         long coerceAtLeast;
         long delayNanosToMillis;
         Long boxLong2;
+        SendChannel<? super Unit> sendChannel4;
         Unit unit;
         long j11 = j2;
         if (continuation instanceof TickerChannelsKt$fixedPeriodTicker$1) {
@@ -245,20 +248,20 @@ public final class TickerChannelsKt {
                             j4 = j5;
                             delayToNanos = j8;
                             j11 = j17;
-                            sendChannel2 = sendChannel3;
+                            sendChannel4 = sendChannel3;
                             i3 = 2;
                             j7 = j3 + delayToNanos;
                             unit = Unit.INSTANCE;
                             tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
                             tickerChannelsKt$fixedPeriodTicker$1.J$1 = j11;
-                            tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+                            tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
                             tickerChannelsKt$fixedPeriodTicker$1.J$2 = j7;
                             tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
                             tickerChannelsKt$fixedPeriodTicker$1.label = i3;
-                            if (sendChannel2.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+                            if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
                                 return coroutine_suspended;
                             }
-                            sendChannel3 = sendChannel2;
+                            sendChannel3 = sendChannel4;
                             long j18 = j11;
                             j8 = delayToNanos;
                             j5 = j4;
@@ -295,17 +298,17 @@ public final class TickerChannelsKt {
                                 j4 = j5;
                                 delayToNanos = j8;
                                 j11 = j172;
-                                sendChannel2 = sendChannel3;
+                                sendChannel4 = sendChannel3;
                                 i3 = 2;
                                 j7 = j3 + delayToNanos;
                                 unit = Unit.INSTANCE;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$1 = j11;
-                                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+                                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$2 = j7;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
                                 tickerChannelsKt$fixedPeriodTicker$1.label = i3;
-                                if (sendChannel2.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+                                if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
                                 }
                             } else {
                                 delayNanosToMillis = EventLoop_commonKt.delayNanosToMillis(coerceAtLeast);
@@ -328,17 +331,17 @@ public final class TickerChannelsKt {
                                 j4 = j5;
                                 delayToNanos = j8;
                                 j11 = j1722;
-                                sendChannel2 = sendChannel3;
+                                sendChannel4 = sendChannel3;
                                 i3 = 2;
                                 j7 = j3 + delayToNanos;
                                 unit = Unit.INSTANCE;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$1 = j11;
-                                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+                                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$2 = j7;
                                 tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
                                 tickerChannelsKt$fixedPeriodTicker$1.label = i3;
-                                if (sendChannel2.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+                                if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
                                 }
                             }
                         } else {
@@ -402,15 +405,16 @@ public final class TickerChannelsKt {
                     j4 = j;
                 }
                 delayToNanos = EventLoop_commonKt.delayToNanos(j4);
+                sendChannel4 = sendChannel2;
                 j7 = j3 + delayToNanos;
                 unit = Unit.INSTANCE;
                 tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
                 tickerChannelsKt$fixedPeriodTicker$1.J$1 = j11;
-                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+                tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
                 tickerChannelsKt$fixedPeriodTicker$1.J$2 = j7;
                 tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
                 tickerChannelsKt$fixedPeriodTicker$1.label = i3;
-                if (sendChannel2.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+                if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
                 }
             }
         }
@@ -422,15 +426,16 @@ public final class TickerChannelsKt {
         if (i == 0) {
         }
         delayToNanos = EventLoop_commonKt.delayToNanos(j4);
+        sendChannel4 = sendChannel2;
         j7 = j3 + delayToNanos;
         unit = Unit.INSTANCE;
         tickerChannelsKt$fixedPeriodTicker$1.J$0 = j4;
         tickerChannelsKt$fixedPeriodTicker$1.J$1 = j11;
-        tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel2;
+        tickerChannelsKt$fixedPeriodTicker$1.L$0 = sendChannel4;
         tickerChannelsKt$fixedPeriodTicker$1.J$2 = j7;
         tickerChannelsKt$fixedPeriodTicker$1.J$3 = delayToNanos;
         tickerChannelsKt$fixedPeriodTicker$1.label = i32;
-        if (sendChannel2.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
+        if (sendChannel4.send(unit, tickerChannelsKt$fixedPeriodTicker$1) == coroutine_suspended) {
         }
     }
 

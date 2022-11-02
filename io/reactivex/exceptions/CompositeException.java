@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -22,11 +23,11 @@ public final class CompositeException extends RuntimeException {
     public static final long serialVersionUID = 3026362227162912146L;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable cause;
-    public final List exceptions;
+    public final List<Throwable> exceptions;
     public final String message;
 
     /* loaded from: classes8.dex */
-    public final class CompositeExceptionCausalChain extends RuntimeException {
+    public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         public static final long serialVersionUID = 3875212506787802066L;
@@ -55,7 +56,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes8.dex */
-    public abstract class PrintStreamOrWriter {
+    public static abstract class PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,7 +78,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes8.dex */
-    public final class WrappedPrintStream extends PrintStreamOrWriter {
+    public static final class WrappedPrintStream extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PrintStream printStream;
@@ -110,7 +111,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes8.dex */
-    public final class WrappedPrintWriter extends PrintStreamOrWriter {
+    public static final class WrappedPrintWriter extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PrintWriter printWriter;
@@ -142,7 +143,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    public CompositeException(Iterable iterable) {
+    public CompositeException(@NonNull Iterable<? extends Throwable> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,9 +161,7 @@ public final class CompositeException extends RuntimeException {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         ArrayList arrayList = new ArrayList();
         if (iterable != null) {
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                Throwable th = (Throwable) it.next();
+            for (Throwable th : iterable) {
                 if (th instanceof CompositeException) {
                     linkedHashSet.addAll(((CompositeException) th).getExceptions());
                 } else if (th != null) {
@@ -187,7 +186,7 @@ public final class CompositeException extends RuntimeException {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public CompositeException(Throwable... thArr) {
+    public CompositeException(@NonNull Throwable... thArr) {
         this(r7);
         List asList;
         Interceptable interceptable = $ic;
@@ -231,7 +230,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    private List getListOfCauses(Throwable th) {
+    private List<Throwable> getListOfCauses(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, th)) == null) {
@@ -305,6 +304,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     @Override // java.lang.Throwable
+    @NonNull
     public synchronized Throwable getCause() {
         InterceptResult invokeV;
         Throwable th;
@@ -314,19 +314,21 @@ public final class CompositeException extends RuntimeException {
                 if (this.cause == null) {
                     CompositeExceptionCausalChain compositeExceptionCausalChain = new CompositeExceptionCausalChain();
                     HashSet hashSet = new HashSet();
+                    Iterator<Throwable> it = this.exceptions.iterator();
                     CompositeExceptionCausalChain compositeExceptionCausalChain2 = compositeExceptionCausalChain;
-                    for (Throwable th2 : this.exceptions) {
-                        if (!hashSet.contains(th2)) {
-                            hashSet.add(th2);
-                            for (Throwable th3 : getListOfCauses(th2)) {
-                                if (hashSet.contains(th3)) {
-                                    th2 = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
+                    while (it.hasNext()) {
+                        Throwable next = it.next();
+                        if (!hashSet.contains(next)) {
+                            hashSet.add(next);
+                            for (Throwable th2 : getListOfCauses(next)) {
+                                if (hashSet.contains(th2)) {
+                                    next = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
                                 } else {
-                                    hashSet.add(th3);
+                                    hashSet.add(th2);
                                 }
                             }
                             try {
-                                compositeExceptionCausalChain2.initCause(th2);
+                                compositeExceptionCausalChain2.initCause(next);
                             } catch (Throwable unused) {
                             }
                             compositeExceptionCausalChain2 = getRootCause(compositeExceptionCausalChain2);
@@ -341,7 +343,8 @@ public final class CompositeException extends RuntimeException {
         return (Throwable) invokeV.objValue;
     }
 
-    public List getExceptions() {
+    @NonNull
+    public List<Throwable> getExceptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -351,6 +354,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     @Override // java.lang.Throwable
+    @NonNull
     public String getMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

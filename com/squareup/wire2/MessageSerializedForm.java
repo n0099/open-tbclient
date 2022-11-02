@@ -5,19 +5,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
 /* loaded from: classes8.dex */
-public final class MessageSerializedForm implements Serializable {
+public final class MessageSerializedForm<M extends Message<M, B>, B extends Message.a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] bytes;
-    public final Class messageClass;
+    public final Class<M> messageClass;
 
-    public MessageSerializedForm(byte[] bArr, Class cls) {
+    public MessageSerializedForm(byte[] bArr, Class<M> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

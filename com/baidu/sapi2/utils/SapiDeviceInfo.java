@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.sapi2.NoProguard;
@@ -22,7 +23,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -39,9 +39,9 @@ public class SapiDeviceInfo implements NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class DeviceInfoCookieManager {
+    public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
-        public static Map cookiesMap;
+        public static Map<String, String> cookiesMap;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -74,7 +74,7 @@ public class SapiDeviceInfo implements NoProguard {
             }
         }
 
-        public static List getCookiesKeyList() {
+        public static List<String> getCookiesKeyList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -124,10 +124,10 @@ public class SapiDeviceInfo implements NoProguard {
             return (List) invokeV.objValue;
         }
 
-        public static void updateCookiesMap(List list) {
+        public static void updateCookiesMap(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, null, list) == null) {
-                List cookiesKeyList = getCookiesKeyList();
+                List<String> cookiesKeyList = getCookiesKeyList();
                 for (int i = 0; i < cookiesKeyList.size() && i < list.size(); i++) {
                     cookiesMap.put(cookiesKeyList.get(i), list.get(i));
                 }
@@ -149,7 +149,7 @@ public class SapiDeviceInfo implements NoProguard {
             }
         }
         DELIMITER = Character.toString((char) 1);
-        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
+        AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", Config.DEVICE_WIDTH, "8", "h", "P"});
     }
 
     public static String buildIV() {
@@ -208,7 +208,7 @@ public class SapiDeviceInfo implements NoProguard {
         return invokeV.intValue;
     }
 
-    public static List buildDeviceTokens(String str) {
+    public static List<String> buildDeviceTokens(String str) {
         InterceptResult invokeL;
         String str2;
         String str3;
@@ -238,7 +238,7 @@ public class SapiDeviceInfo implements NoProguard {
             ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
             SapiConfiguration confignation = isAccountManager.getConfignation();
             Context context = confignation.context;
-            List diExceptIndex = SapiContext.getInstance().getDiExceptIndex();
+            List<Integer> diExceptIndex = SapiContext.getInstance().getDiExceptIndex();
             JSONArray grayControlParams = ParamsUtil.getGrayControlParams();
             ArrayList arrayList = new ArrayList();
             String str24 = "";
@@ -450,14 +450,14 @@ public class SapiDeviceInfo implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            List buildDeviceTokens = buildDeviceTokens(str);
+            List<String> buildDeviceTokens = buildDeviceTokens(str);
             DeviceInfoCookieManager.updateCookiesMap(buildDeviceTokens);
             return encryptDeviceInfo(TextUtils.join(DELIMITER, buildDeviceTokens));
         }
         return (String) invokeL.objValue;
     }
 
-    public static String getDiCookieInfo(List list) {
+    public static String getDiCookieInfo(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
@@ -466,7 +466,7 @@ public class SapiDeviceInfo implements NoProguard {
         return (String) invokeL.objValue;
     }
 
-    public static String getDiCookieInfo(List list, boolean z) {
+    public static String getDiCookieInfo(List<String> list, boolean z) {
         InterceptResult invokeLZ;
         String str;
         Interceptable interceptable = $ic;
@@ -475,9 +475,7 @@ public class SapiDeviceInfo implements NoProguard {
             if (DeviceInfoCookieManager.cookiesMap.isEmpty() || list == null) {
                 return null;
             }
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
+            for (String str2 : list) {
                 try {
                     jSONObject.put(str2, DeviceInfoCookieManager.cookiesMap.get(str2));
                 } catch (JSONException e) {

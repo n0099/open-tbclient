@@ -7,7 +7,9 @@ import kotlin.Metadata;
 public final class Symbol {
     public final String symbol;
 
-    public final Object unbox(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final <T> T unbox(Object obj) {
         if (obj == this) {
             return null;
         }

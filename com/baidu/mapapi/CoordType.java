@@ -57,12 +57,18 @@ public final class CoordType {
     public static CoordType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CoordType) Enum.valueOf(CoordType.class, str) : (CoordType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (CoordType) Enum.valueOf(CoordType.class, str);
+        }
+        return (CoordType) invokeL.objValue;
     }
 
     public static CoordType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) $VALUES.clone() : (CoordType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (CoordType[]) $VALUES.clone();
+        }
+        return (CoordType[]) invokeV.objValue;
     }
 }

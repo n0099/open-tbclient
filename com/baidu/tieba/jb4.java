@@ -1,96 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes4.dex */
-public abstract class jb4 {
+public class jb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jb4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract boolean a(lc4 lc4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract boolean b(lc4 lc4Var, List list, jc4 jc4Var, hc4 hc4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract void c(String str);
-
-    public abstract void d(String str, String str2);
-
-    public abstract boolean e(Class cls, String str);
-
-    public abstract boolean f(nc4 nc4Var);
-
-    public abstract boolean g(List list);
-
-    public abstract boolean h(String str);
-
-    public abstract int j(String str);
-
-    public abstract List k(String str, int i);
-
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean m(kc4 kc4Var);
-
-    public abstract boolean n(String str, String str2, String str3);
-
-    public abstract kc4 o(Class cls, String str);
-
-    public abstract Map p();
-
-    public abstract nc4 q(String str, long j, long j2);
-
-    public abstract List r(String str, String[] strArr);
-
-    public abstract List s(String str, long j, long j2);
-
-    public abstract oc4 t(String str);
-
-    public abstract PMSAppInfo u(String str);
-
-    public abstract Map v();
-
-    public abstract List w(String str);
-
-    public abstract boolean x(nc4 nc4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
-
-    public jb4() {
+    public static HttpRequestBuilder a(@NonNull hb4 hb4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hb4Var)) == null) {
+            return b(hb4Var, null);
         }
+        return (HttpRequestBuilder) invokeL.objValue;
     }
 
-    public static jb4 i() {
-        InterceptResult invokeV;
+    @NonNull
+    public static HttpRequestBuilder b(@NonNull hb4 hb4Var, @Nullable ib4 ib4Var) {
+        InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jb4.class) {
-                    if (a == null) {
-                        a = new kb4();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, hb4Var, ib4Var)) == null) {
+            if (ib4Var == null) {
+                ib4Var = ib4.g();
             }
-            return a;
+            String str = hb4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return ib4Var.getRequest();
+                case 1:
+                    return ib4Var.headerRequest();
+                case 2:
+                    o = ib4Var.o();
+                    break;
+                case 3:
+                    o = ib4Var.postRequest();
+                    break;
+                case 4:
+                    o = ib4Var.putRequest();
+                    break;
+                case 5:
+                    o = ib4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = ib4Var.y();
+                    break;
+                case 7:
+                    o = ib4Var.a();
+                    break;
+                default:
+                    return ib4Var.getRequest();
+            }
+            RequestBody requestBody = hb4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
+            }
+            return o;
         }
-        return (jb4) invokeV.objValue;
+        return (HttpRequestBuilder) invokeLL.objValue;
     }
 }

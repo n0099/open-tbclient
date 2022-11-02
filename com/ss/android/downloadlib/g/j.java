@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class j {
-    public static Map a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, a> a = Collections.synchronizedMap(new HashMap());
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -32,7 +32,7 @@ public class j {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return (a) a.remove(str);
+        return a.remove(str);
     }
 
     public static void a(String str, a aVar) {

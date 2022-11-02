@@ -20,7 +20,7 @@ public class Point extends TrackableBase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class OrientationMode {
+    public static final class OrientationMode {
         public static final /* synthetic */ OrientationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OrientationMode ESTIMATED_SURFACE_NORMAL;

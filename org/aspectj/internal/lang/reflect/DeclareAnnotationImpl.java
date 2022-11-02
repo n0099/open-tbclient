@@ -14,20 +14,20 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareAnnotation;
 import org.aspectj.lang.reflect.SignaturePattern;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeclareAnnotationImpl implements DeclareAnnotation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String annText;
-    public AjType declaringType;
+    public AjType<?> declaringType;
     public DeclareAnnotation.Kind kind;
     public SignaturePattern signaturePattern;
     public Annotation theAnnotation;
     public TypePattern typePattern;
 
     /* renamed from: org.aspectj.internal.lang.reflect.DeclareAnnotationImpl$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
         }
     }
 
-    public DeclareAnnotationImpl(AjType ajType, String str, String str2, Annotation annotation, String str3) {
+    public DeclareAnnotationImpl(AjType<?> ajType, String str, String str2, Annotation annotation, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
     }
 
     @Override // org.aspectj.lang.reflect.DeclareAnnotation
-    public AjType getDeclaringType() {
+    public AjType<?> getDeclaringType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

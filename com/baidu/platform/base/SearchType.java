@@ -30,7 +30,10 @@ public final class SearchType {
     public static final SearchType q;
     public static final SearchType r;
     public static final SearchType s;
-    public static final /* synthetic */ SearchType[] t;
+    public static final SearchType t;
+    public static final SearchType u;
+    public static final SearchType v;
+    public static final /* synthetic */ SearchType[] w;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,9 +67,12 @@ public final class SearchType {
         p = new SearchType("DISTRICT_SEARCH", 15);
         q = new SearchType("POI_DETAIL_SHARE", 16);
         r = new SearchType("LOCATION_SEARCH_SHARE", 17);
-        SearchType searchType = new SearchType("ROUTE_PLAN_SHARE", 18);
-        s = searchType;
-        t = new SearchType[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, searchType};
+        s = new SearchType("ROUTE_PLAN_SHARE", 18);
+        t = new SearchType("WEATHER_SEARCH", 19);
+        u = new SearchType("RECOMMEND_STOP", 20);
+        SearchType searchType = new SearchType("BUILDING_SEARCH", 21);
+        v = searchType;
+        w = new SearchType[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, searchType};
     }
 
     public SearchType(String str, int i2) {
@@ -91,12 +97,18 @@ public final class SearchType {
     public static SearchType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SearchType) Enum.valueOf(SearchType.class, str) : (SearchType) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (SearchType) Enum.valueOf(SearchType.class, str);
+        }
+        return (SearchType) invokeL.objValue;
     }
 
     public static SearchType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SearchType[]) t.clone() : (SearchType[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (SearchType[]) w.clone();
+        }
+        return (SearchType[]) invokeV.objValue;
     }
 }

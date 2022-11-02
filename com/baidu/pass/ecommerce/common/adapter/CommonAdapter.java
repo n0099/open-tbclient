@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public abstract class CommonAdapter extends BaseAdapter {
+public abstract class CommonAdapter<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List items;
+    public List<T> items;
     public LayoutInflater layoutInflater;
 
     public abstract ViewHolder createViewHolder(View view2);
@@ -53,7 +53,7 @@ public abstract class CommonAdapter extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.items;
+            List<T> list = this.items;
             if (list == null) {
                 return 0;
             }
@@ -62,7 +62,7 @@ public abstract class CommonAdapter extends BaseAdapter {
         return invokeV.intValue;
     }
 
-    public List getItems() {
+    public List<T> getItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -79,7 +79,7 @@ public abstract class CommonAdapter extends BaseAdapter {
         }
     }
 
-    public void addData(List list) {
+    public void addData(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             if (list != null) {
@@ -90,28 +90,28 @@ public abstract class CommonAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public T getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List list = this.items;
+            List<T> list = this.items;
             if (list == null) {
                 return null;
             }
             return list.get(i);
         }
-        return invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public void removeData(Object obj) {
+    public void removeData(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-            this.items.remove(obj);
+        if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
+            this.items.remove(t);
             notifyDataSetChanged();
         }
     }
 
-    public void setData(List list) {
+    public void setData(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.items.clear();

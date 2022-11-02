@@ -12,7 +12,6 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,9 +21,9 @@ public class ForwardingRequestListener2 implements RequestListener2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingRequestListener2";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mRequestListeners;
+    public final List<RequestListener2> mRequestListeners;
 
-    public ForwardingRequestListener2(Set set) {
+    public ForwardingRequestListener2(Set<RequestListener2> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,9 +39,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             }
         }
         this.mRequestListeners = new ArrayList(set.size());
-        Iterator it = set.iterator();
-        while (it.hasNext()) {
-            RequestListener2 requestListener2 = (RequestListener2) it.next();
+        for (RequestListener2 requestListener2 : set) {
             if (requestListener2 != null) {
                 this.mRequestListeners.add(requestListener2);
             }
@@ -86,7 +83,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onProducerStart(producerContext, str);
+                    this.mRequestListeners.get(i).onProducerStart(producerContext, str);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerStart", e);
                 }
@@ -101,7 +98,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onRequestFailure(producerContext, th);
+                    this.mRequestListeners.get(i).onRequestFailure(producerContext, th);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestFailure", e);
                 }
@@ -116,7 +113,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, producerContext, str)) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
-                if (((RequestListener2) this.mRequestListeners.get(i)).requiresExtraMap(producerContext, str)) {
+                if (this.mRequestListeners.get(i).requiresExtraMap(producerContext, str)) {
                     return true;
                 }
             }
@@ -139,7 +136,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onRequestCancellation(producerContext);
+                    this.mRequestListeners.get(i).onRequestCancellation(producerContext);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestCancellation", e);
                 }
@@ -154,7 +151,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onRequestStart(producerContext);
+                    this.mRequestListeners.get(i).onRequestStart(producerContext);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestStart", e);
                 }
@@ -169,7 +166,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onRequestSuccess(producerContext);
+                    this.mRequestListeners.get(i).onRequestSuccess(producerContext);
                 } catch (Exception e) {
                     onException("InternalListener exception in onRequestSuccess", e);
                 }
@@ -178,13 +175,13 @@ public class ForwardingRequestListener2 implements RequestListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map map) {
+    public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest, encodedImage, th, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
+                    this.mRequestListeners.get(i).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
@@ -193,13 +190,13 @@ public class ForwardingRequestListener2 implements RequestListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map map) {
+    public void onProducerFinishWithFailure(ProducerContext producerContext, String str, Throwable th, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, producerContext, str, th, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onProducerFinishWithFailure(producerContext, str, th, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithFailure(producerContext, str, th, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
@@ -214,7 +211,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onProducerEvent(producerContext, str, str2);
+                    this.mRequestListeners.get(i).onProducerEvent(producerContext, str, str2);
                 } catch (Exception e) {
                     onException("InternalListener exception in onIntermediateChunkStart", e);
                 }
@@ -223,13 +220,13 @@ public class ForwardingRequestListener2 implements RequestListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map map) {
+    public void onProducerFinishWithCancellation(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, producerContext, str, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onProducerFinishWithCancellation(producerContext, str, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithCancellation(producerContext, str, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithCancellation", e);
                 }
@@ -238,13 +235,13 @@ public class ForwardingRequestListener2 implements RequestListener2 {
     }
 
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
-    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map map) {
+    public void onProducerFinishWithSuccess(ProducerContext producerContext, String str, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, producerContext, str, map) == null) {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onProducerFinishWithSuccess(producerContext, str, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithSuccess(producerContext, str, map);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }
@@ -259,7 +256,7 @@ public class ForwardingRequestListener2 implements RequestListener2 {
             int size = this.mRequestListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ((RequestListener2) this.mRequestListeners.get(i)).onUltimateProducerReached(producerContext, str, z);
+                    this.mRequestListeners.get(i).onUltimateProducerReached(producerContext, str, z);
                 } catch (Exception e) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }

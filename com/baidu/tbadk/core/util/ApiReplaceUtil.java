@@ -1,17 +1,22 @@
 package com.baidu.tbadk.core.util;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.net.wifi.WifiInfo;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.bq4;
-import com.baidu.tieba.wx4;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.sq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +29,7 @@ import java.net.SocketException;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+@Keep
 /* loaded from: classes3.dex */
 public class ApiReplaceUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -31,18 +37,20 @@ public class ApiReplaceUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class Getter {
+    public static class Getter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Map cache;
+        public final Map<String, Object> cache;
 
         /* loaded from: classes3.dex */
-        public interface Action {
+        public interface Action<T> {
             boolean forceApi();
 
+            @NonNull
             String provideKey();
 
-            Object provideValue();
+            @Nullable
+            T provideValue();
         }
 
         public Getter() {
@@ -64,31 +72,33 @@ public class ApiReplaceUtil {
         /* JADX INFO: Access modifiers changed from: private */
         public void checkPrivacyPolicyOnDebug() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && bq4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && sq4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
                 throw new IllegalStateException("未同意隐私协议前，禁止调用系统相关API");
             }
         }
 
-        public Object get(Action action) {
+        @Nullable
+        public <T> T get(@NonNull Action<T> action) {
             InterceptResult invokeL;
-            Object obj;
+            T t;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, action)) == null) {
                 String provideKey = action.provideKey();
-                if (!action.forceApi() && (obj = this.cache.get(provideKey)) != null) {
-                    return obj;
+                if (!action.forceApi() && (t = (T) this.cache.get(provideKey)) != null) {
+                    return t;
                 }
                 checkPrivacyPolicyOnDebug();
-                Object provideValue = action.provideValue();
+                T provideValue = action.provideValue();
                 this.cache.put(provideKey, provideValue);
                 return provideValue;
             }
-            return invokeL.objValue;
+            return (T) invokeL.objValue;
         }
     }
 
+    @Keep
     /* loaded from: classes3.dex */
-    public class Overload {
+    public static class Overload {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -110,7 +120,7 @@ public class ApiReplaceUtil {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, contentResolver, str)) == null) {
-                return (String) ApiReplaceUtil.sGetter.get(new Getter.Action(str, contentResolver) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.Overload.1
+                return (String) ApiReplaceUtil.sGetter.get(new Getter.Action<String>(str, contentResolver) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.Overload.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$name;
@@ -146,6 +156,7 @@ public class ApiReplaceUtil {
                     }
 
                     @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                    @NonNull
                     public String provideKey() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -209,17 +220,18 @@ public class ApiReplaceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, telephonyManager)) == null) {
-            return (String) sGetter.get(new Getter.Action(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.2
+            return (String) sGetter.get(new Getter.Action<String>(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TelephonyManager val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -246,6 +258,7 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @SuppressLint({"MissingPermission", "HardwareIds"})
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -263,17 +276,18 @@ public class ApiReplaceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, telephonyManager)) == null) {
-            return (String) sGetter.get(new Getter.Action(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.1
+            return (String) sGetter.get(new Getter.Action<String>(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TelephonyManager val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -300,6 +314,8 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @RequiresApi(api = 26)
+                @SuppressLint({"MissingPermission"})
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -317,17 +333,18 @@ public class ApiReplaceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, wifiInfo)) == null) {
-            return (String) sGetter.get(new Getter.Action(wifiInfo) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.6
+            return (String) sGetter.get(new Getter.Action<String>(wifiInfo) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WifiInfo val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -354,6 +371,7 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @SuppressLint({"HardwareIds"})
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -367,21 +385,22 @@ public class ApiReplaceUtil {
         return (String) invokeL.objValue;
     }
 
-    public static List getRunningAppProcesses(ActivityManager activityManager) {
+    public static List<ActivityManager.RunningAppProcessInfo> getRunningAppProcesses(ActivityManager activityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, activityManager)) == null) {
-            return (List) sGetter.get(new Getter.Action(activityManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.7
+            return (List) sGetter.get(new Getter.Action<List<ActivityManager.RunningAppProcessInfo>>(activityManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ActivityManager val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -408,7 +427,7 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
-                public List provideValue() {
+                public List<ActivityManager.RunningAppProcessInfo> provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
@@ -425,17 +444,18 @@ public class ApiReplaceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, telephonyManager)) == null) {
-            return (String) sGetter.get(new Getter.Action(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.4
+            return (String) sGetter.get(new Getter.Action<String>(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TelephonyManager val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -462,6 +482,7 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @SuppressLint({"MissingPermission", "HardwareIds"})
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -479,17 +500,18 @@ public class ApiReplaceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, telephonyManager)) == null) {
-            return (String) sGetter.get(new Getter.Action(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.3
+            return (String) sGetter.get(new Getter.Action<String>(telephonyManager) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TelephonyManager val$manager;
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return wx4.$default$forceApi(this);
+                    return my4.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -516,6 +538,7 @@ public class ApiReplaceUtil {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @SuppressLint({"MissingPermission", "HardwareIds"})
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -549,7 +572,7 @@ public class ApiReplaceUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, contentResolver, str)) == null) {
-            return (String) sGetter.get(new Getter.Action(str, contentResolver) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.5
+            return (String) sGetter.get(new Getter.Action<String>(str, contentResolver) { // from class: com.baidu.tbadk.core.util.ApiReplaceUtil.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$name;
@@ -585,6 +608,7 @@ public class ApiReplaceUtil {
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
+                @NonNull
                 public String provideKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

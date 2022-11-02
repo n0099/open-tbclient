@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class c implements d {
     public int a;
     public AtomicLong b = new AtomicLong(0);
-    public Map c = new ConcurrentHashMap();
-    public List d = new CopyOnWriteArrayList();
+    public Map<Long, byte[]> c = new ConcurrentHashMap();
+    public List<Long> d = new CopyOnWriteArrayList();
 
     public c(int i) {
         this.a = i;
@@ -56,12 +56,12 @@ public class c implements d {
             c = i;
         }
         for (int i2 = 0; i2 < c; i2++) {
-            Object obj = this.d.get(i2);
-            if (obj != null) {
+            Long l = this.d.get(i2);
+            if (l != null) {
                 com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-                cVar.a(a.a((byte[]) this.c.get(obj)));
-                com.meizu.cloud.pushsdk.c.f.c.c("MemoryStore", " current key " + obj + " payload " + cVar, new Object[0]);
-                linkedList.add((Long) obj);
+                cVar.a(a.a(this.c.get(l)));
+                com.meizu.cloud.pushsdk.c.f.c.c("MemoryStore", " current key " + l + " payload " + cVar, new Object[0]);
+                linkedList.add(l);
                 arrayList.add(cVar);
             }
         }

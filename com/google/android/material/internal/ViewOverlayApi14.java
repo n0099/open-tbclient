@@ -1,5 +1,6 @@
 package com.google.android.material.internal;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -8,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,13 +30,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     public transient /* synthetic */ FieldHolder $fh;
     public OverlayViewGroup overlayViewGroup;
 
+    @SuppressLint({"ViewConstructor", "PrivateApi"})
     /* loaded from: classes7.dex */
-    public class OverlayViewGroup extends ViewGroup {
+    public static class OverlayViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public static Method invalidateChildInParentFastMethod;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean disposed;
-        public ArrayList drawables;
+        public ArrayList<Drawable> drawables;
         public ViewGroup hostView;
         public View requestingView;
         public ViewOverlayApi14 viewOverlay;
@@ -112,7 +116,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         private void disposeIfEmpty() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(65539, this) == null) && getChildCount() == 0) {
-                ArrayList arrayList = this.drawables;
+                ArrayList<Drawable> arrayList = this.drawables;
                 if (arrayList == null || arrayList.size() == 0) {
                     this.disposed = true;
                     this.hostView.removeView(this);
@@ -133,7 +137,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @Override // android.view.View, android.graphics.drawable.Drawable.Callback
-        public void invalidateDrawable(Drawable drawable) {
+        public void invalidateDrawable(@NonNull Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
                 invalidate(drawable.getBounds());
@@ -141,7 +145,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         public void remove(Drawable drawable) {
-            ArrayList arrayList;
+            ArrayList<Drawable> arrayList;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) && (arrayList = this.drawables) != null) {
                 arrayList.remove(drawable);
@@ -152,9 +156,9 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @Override // android.view.View
-        public boolean verifyDrawable(Drawable drawable) {
+        public boolean verifyDrawable(@NonNull Drawable drawable) {
             InterceptResult invokeL;
-            ArrayList arrayList;
+            ArrayList<Drawable> arrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, drawable)) == null) {
                 if (!super.verifyDrawable(drawable) && ((arrayList = this.drawables) == null || !arrayList.contains(drawable))) {
@@ -170,7 +174,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
                 assertNotDisposed();
                 if (this.drawables == null) {
-                    this.drawables = new ArrayList();
+                    this.drawables = new ArrayList<>();
                 }
                 if (!this.drawables.contains(drawable)) {
                     this.drawables.add(drawable);
@@ -215,14 +219,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                 canvas.translate(iArr2[0] - iArr[0], iArr2[1] - iArr[1]);
                 canvas.clipRect(new Rect(0, 0, this.requestingView.getWidth(), this.requestingView.getHeight()));
                 super.dispatchDraw(canvas);
-                ArrayList arrayList = this.drawables;
+                ArrayList<Drawable> arrayList = this.drawables;
                 if (arrayList == null) {
                     size = 0;
                 } else {
                     size = arrayList.size();
                 }
                 for (int i = 0; i < size; i++) {
-                    ((Drawable) this.drawables.get(i)).draw(canvas);
+                    this.drawables.get(i).draw(canvas);
                 }
             }
         }
@@ -250,6 +254,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             return (ViewParent) invokeLL.objValue;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public ViewParent invalidateChildInParentFast(int i, int i2, Rect rect) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -320,7 +325,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @Override // com.google.android.material.internal.ViewOverlayImpl
-    public void add(Drawable drawable) {
+    public void add(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             this.overlayViewGroup.add(drawable);
@@ -328,7 +333,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @Override // com.google.android.material.internal.ViewOverlayImpl
-    public void remove(Drawable drawable) {
+    public void remove(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
             this.overlayViewGroup.remove(drawable);

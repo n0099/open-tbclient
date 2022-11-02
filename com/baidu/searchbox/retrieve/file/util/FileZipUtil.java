@@ -225,7 +225,7 @@ public class FileZipUtil {
         return (String) invokeL.objValue;
     }
 
-    public static void populateFilesList(File file, List list) throws IOException {
+    public static void populateFilesList(File file, List<String> list) throws IOException {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, file, list) == null) && (listFiles = file.listFiles()) != null && listFiles.length != 0) {

@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SClientConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList sclients;
+    public ArrayList<String> sclients;
 
     public SClientConfig() {
         Interceptable interceptable = $ic;
@@ -29,10 +29,10 @@ public final class SClientConfig {
                 return;
             }
         }
-        this.sclients = new ArrayList();
+        this.sclients = new ArrayList<>();
     }
 
-    public final ArrayList getSclients() {
+    public final ArrayList<String> getSclients() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -50,7 +50,7 @@ public final class SClientConfig {
         return (String) invokeV.objValue;
     }
 
-    public final void setSclients(ArrayList arrayList) {
+    public final void setSclients(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             Intrinsics.checkNotNullParameter(arrayList, "<set-?>");

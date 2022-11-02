@@ -17,30 +17,30 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 /* loaded from: classes4.dex */
-public class j0 {
+public class j0<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public static final Executor i;
     public static volatile f j;
-    public static j0 k;
-    public static j0 l;
-    public static j0 m;
+    public static j0<?> k;
+    public static j0<Boolean> l;
+    public static j0<Boolean> m;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
     public boolean b;
     public boolean c;
-    public Object d;
+    public TResult d;
     public Exception e;
     public boolean f;
     public l0 g;
-    public List h;
+    public List<i0<TResult, Void>> h;
 
     /* loaded from: classes4.dex */
     public interface f {
-        void a(j0 j0Var, UnobservedTaskException unobservedTaskException);
+        void a(j0<?> j0Var, UnobservedTaskException unobservedTaskException);
     }
 
     /* loaded from: classes4.dex */
-    public final class d implements Runnable {
+    public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h0 a;
@@ -49,7 +49,7 @@ public class j0 {
         public final /* synthetic */ j0 d;
 
         /* loaded from: classes4.dex */
-        public class a implements i0 {
+        public class a implements i0<TContinuationResult, Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -73,9 +73,11 @@ public class j0 {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.baidu.tieba.k0 */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.i0
             /* renamed from: a */
-            public Void then(j0 j0Var) {
+            public Void then(j0<TContinuationResult> j0Var) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, j0Var)) == null) {
@@ -144,7 +146,7 @@ public class j0 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements i0 {
+    public class a implements i0<TResult, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k0 a;
@@ -176,7 +178,7 @@ public class j0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.i0
         /* renamed from: a */
-        public Void then(j0 j0Var) {
+        public Void then(j0<TResult> j0Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, j0Var)) != null) {
@@ -188,7 +190,7 @@ public class j0 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements i0 {
+    public class b implements i0<TResult, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k0 a;
@@ -220,7 +222,7 @@ public class j0 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.i0
         /* renamed from: a */
-        public Void then(j0 j0Var) {
+        public Void then(j0<TResult> j0Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, j0Var)) != null) {
@@ -232,7 +234,7 @@ public class j0 {
     }
 
     /* loaded from: classes4.dex */
-    public final class c implements Runnable {
+    public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h0 a;
@@ -261,6 +263,8 @@ public class j0 {
             this.d = j0Var;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.k0 */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -282,7 +286,7 @@ public class j0 {
     }
 
     /* loaded from: classes4.dex */
-    public final class e implements Runnable {
+    public static class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h0 a;
@@ -309,6 +313,8 @@ public class j0 {
             this.c = callable;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidu.tieba.k0 */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
@@ -345,9 +351,9 @@ public class j0 {
         g0.a();
         i = g0.b();
         f0.c();
-        k = new j0((Object) null);
-        l = new j0(Boolean.TRUE);
-        m = new j0(Boolean.FALSE);
+        k = new j0<>((Object) null);
+        l = new j0<>(Boolean.TRUE);
+        m = new j0<>(Boolean.FALSE);
         new j0(true);
     }
 
@@ -397,17 +403,17 @@ public class j0 {
         return (Exception) invokeV.objValue;
     }
 
-    public Object l() {
+    public TResult l() {
         InterceptResult invokeV;
-        Object obj;
+        TResult tresult;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this.a) {
-                obj = this.d;
+                tresult = this.d;
             }
-            return obj;
+            return tresult;
         }
-        return invokeV.objValue;
+        return (TResult) invokeV.objValue;
     }
 
     public boolean n() {
@@ -471,12 +477,12 @@ public class j0 {
         return invokeV.booleanValue;
     }
 
-    public j0(Object obj) {
+    public j0(TResult tresult) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {tresult};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -488,24 +494,24 @@ public class j0 {
         }
         this.a = new Object();
         this.h = new ArrayList();
-        t(obj);
+        t(tresult);
     }
 
-    public static j0 j(Object obj) {
+    public static <TResult> j0<TResult> j(TResult tresult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, obj)) == null) {
-            if (obj == null) {
-                return k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, tresult)) == null) {
+            if (tresult == null) {
+                return (j0<TResult>) k;
             }
-            if (obj instanceof Boolean) {
-                if (((Boolean) obj).booleanValue()) {
-                    return l;
+            if (tresult instanceof Boolean) {
+                if (((Boolean) tresult).booleanValue()) {
+                    return (j0<TResult>) l;
                 }
-                return m;
+                return (j0<TResult>) m;
             }
             k0 k0Var = new k0();
-            k0Var.setResult(obj);
+            k0Var.setResult(tresult);
             return k0Var.a();
         }
         return (j0) invokeL.objValue;
@@ -557,7 +563,7 @@ public class j0 {
         }
     }
 
-    public static void c(k0 k0Var, i0 i0Var, j0 j0Var, Executor executor, h0 h0Var) {
+    public static <TContinuationResult, TResult> void c(k0<TContinuationResult> k0Var, i0<TResult, j0<TContinuationResult>> i0Var, j0<TResult> j0Var, Executor executor, h0 h0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65542, null, k0Var, i0Var, j0Var, executor, h0Var) == null) {
             try {
@@ -568,7 +574,7 @@ public class j0 {
         }
     }
 
-    public static void d(k0 k0Var, i0 i0Var, j0 j0Var, Executor executor, h0 h0Var) {
+    public static <TContinuationResult, TResult> void d(k0<TContinuationResult> k0Var, i0<TResult, TContinuationResult> i0Var, j0<TResult> j0Var, Executor executor, h0 h0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65547, null, k0Var, i0Var, j0Var, executor, h0Var) == null) {
             try {
@@ -579,7 +585,7 @@ public class j0 {
         }
     }
 
-    public static j0 call(Callable callable) {
+    public static <TResult> j0<TResult> call(Callable<TResult> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, callable)) == null) {
@@ -588,7 +594,7 @@ public class j0 {
         return (j0) invokeL.objValue;
     }
 
-    public static j0 i(Exception exc) {
+    public static <TResult> j0<TResult> i(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, exc)) == null) {
@@ -599,7 +605,7 @@ public class j0 {
         return (j0) invokeL.objValue;
     }
 
-    public j0 e(i0 i0Var) {
+    public <TContinuationResult> j0<TContinuationResult> e(i0<TResult, TContinuationResult> i0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i0Var)) == null) {
@@ -608,7 +614,7 @@ public class j0 {
         return (j0) invokeL.objValue;
     }
 
-    public j0 g(i0 i0Var) {
+    public <TContinuationResult> j0<TContinuationResult> g(i0<TResult, j0<TContinuationResult>> i0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i0Var)) == null) {
@@ -617,16 +623,16 @@ public class j0 {
         return (j0) invokeL.objValue;
     }
 
-    public boolean t(Object obj) {
+    public boolean t(TResult tresult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tresult)) == null) {
             synchronized (this.a) {
                 if (this.b) {
                     return false;
                 }
                 this.b = true;
-                this.d = obj;
+                this.d = tresult;
                 this.a.notifyAll();
                 q();
                 return true;
@@ -635,7 +641,7 @@ public class j0 {
         return invokeL.booleanValue;
     }
 
-    public static j0 call(Callable callable, h0 h0Var) {
+    public static <TResult> j0<TResult> call(Callable<TResult> callable, h0 h0Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, callable, h0Var)) == null) {
@@ -644,7 +650,7 @@ public class j0 {
         return (j0) invokeLL.objValue;
     }
 
-    public static j0 call(Callable callable, Executor executor) {
+    public static <TResult> j0<TResult> call(Callable<TResult> callable, Executor executor) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, callable, executor)) == null) {
@@ -653,7 +659,7 @@ public class j0 {
         return (j0) invokeLL.objValue;
     }
 
-    public static j0 call(Callable callable, Executor executor, h0 h0Var) {
+    public static <TResult> j0<TResult> call(Callable<TResult> callable, Executor executor, h0 h0Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, callable, executor, h0Var)) == null) {
@@ -668,7 +674,7 @@ public class j0 {
         return (j0) invokeLLL.objValue;
     }
 
-    public j0 f(i0 i0Var, Executor executor, h0 h0Var) {
+    public <TContinuationResult> j0<TContinuationResult> f(i0<TResult, TContinuationResult> i0Var, Executor executor, h0 h0Var) {
         InterceptResult invokeLLL;
         boolean o;
         Interceptable interceptable = $ic;
@@ -688,7 +694,7 @@ public class j0 {
         return (j0) invokeLLL.objValue;
     }
 
-    public j0 h(i0 i0Var, Executor executor, h0 h0Var) {
+    public <TContinuationResult> j0<TContinuationResult> h(i0<TResult, j0<TContinuationResult>> i0Var, Executor executor, h0 h0Var) {
         InterceptResult invokeLLL;
         boolean o;
         Interceptable interceptable = $ic;
@@ -712,7 +718,7 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this.a) {
-                for (i0 i0Var : this.h) {
+                for (i0<TResult, Void> i0Var : this.h) {
                     try {
                         i0Var.then(this);
                     } catch (RuntimeException e2) {

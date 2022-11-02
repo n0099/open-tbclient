@@ -8,14 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.MonotonicClock;
+import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class AnimationBackendDelegateWithInactivityCheck extends AnimationBackendDelegate {
+public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final long INACTIVITY_CHECK_POLLING_TIME_MS = 1000;
+    @VisibleForTesting
     public static final long INACTIVITY_THRESHOLD_MS = 2000;
     public transient /* synthetic */ FieldHolder $fh;
     public long mInactivityCheckPollingTimeMs;
@@ -34,13 +38,13 @@ public class AnimationBackendDelegateWithInactivityCheck extends AnimationBacken
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnimationBackendDelegateWithInactivityCheck(@Nullable AnimationBackend animationBackend, @Nullable InactivityListener inactivityListener, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
-        super(animationBackend);
+    public AnimationBackendDelegateWithInactivityCheck(@Nullable T t, @Nullable InactivityListener inactivityListener, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
+        super(t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {animationBackend, inactivityListener, monotonicClock, scheduledExecutorService};
+            Object[] objArr = {t, inactivityListener, monotonicClock, scheduledExecutorService};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -120,11 +124,11 @@ public class AnimationBackendDelegateWithInactivityCheck extends AnimationBacken
         }
     }
 
-    public static AnimationBackendDelegate createForBackend(AnimationBackend animationBackend, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
+    public static <T extends AnimationBackend & InactivityListener> AnimationBackendDelegate<T> createForBackend(T t, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, animationBackend, monotonicClock, scheduledExecutorService)) == null) {
-            return createForBackend(animationBackend, (InactivityListener) animationBackend, monotonicClock, scheduledExecutorService);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, t, monotonicClock, scheduledExecutorService)) == null) {
+            return createForBackend(t, (InactivityListener) t, monotonicClock, scheduledExecutorService);
         }
         return (AnimationBackendDelegate) invokeLLL.objValue;
     }
@@ -142,11 +146,11 @@ public class AnimationBackendDelegateWithInactivityCheck extends AnimationBacken
         return invokeLLI.booleanValue;
     }
 
-    public static AnimationBackendDelegate createForBackend(AnimationBackend animationBackend, InactivityListener inactivityListener, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
+    public static <T extends AnimationBackend> AnimationBackendDelegate<T> createForBackend(T t, InactivityListener inactivityListener, MonotonicClock monotonicClock, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, animationBackend, inactivityListener, monotonicClock, scheduledExecutorService)) == null) {
-            return new AnimationBackendDelegateWithInactivityCheck(animationBackend, inactivityListener, monotonicClock, scheduledExecutorService);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, t, inactivityListener, monotonicClock, scheduledExecutorService)) == null) {
+            return new AnimationBackendDelegateWithInactivityCheck(t, inactivityListener, monotonicClock, scheduledExecutorService);
         }
         return (AnimationBackendDelegate) invokeLLLL.objValue;
     }

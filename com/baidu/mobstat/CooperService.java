@@ -911,7 +911,7 @@ public class CooperService implements ICooperService {
         }
     }
 
-    public void setUserProperty(Context context, Map map) {
+    public void setUserProperty(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048630, this, context, map) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -929,15 +929,15 @@ public class CooperService implements ICooperService {
                 bb.c().c("[WARNING] setUserProperty failed,map size can not over 100 !");
             } else {
                 boolean z2 = true;
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
                     JSONArray jSONArray = new JSONArray();
-                    String str = (String) entry.getKey();
-                    String str2 = (String) entry.getValue();
-                    if (!TextUtils.isEmpty(str) && str2 != null) {
-                        if (str.length() <= 256 && (TextUtils.isEmpty(str2) || str2.length() <= 256)) {
-                            jSONArray.put(str2);
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    if (!TextUtils.isEmpty(key) && value != null) {
+                        if (key.length() <= 256 && (TextUtils.isEmpty(value) || value.length() <= 256)) {
+                            jSONArray.put(value);
                             jSONArray.put("1");
-                            jSONObject.put(str, jSONArray);
+                            jSONObject.put(key, jSONArray);
                         }
                         bb.c().c("[WARNING] setUserProperty failed,key or value can not over 256 bytes !");
                         z2 = false;

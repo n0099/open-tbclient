@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c90;
+import com.baidu.tieba.b90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public static final int ERROR_TEXT_FIELD_NUMBER = 5;
     public static final int LOG_ID_FIELD_NUMBER = 3;
     public static final int METHOD_ID_FIELD_NUMBER = 2;
-    public static Parser PARSER = null;
+    public static Parser<RpcMetaPb$RpcResponseMeta> PARSER = null;
     public static final int SERVICE_ID_FIELD_NUMBER = 1;
     public static final RpcMetaPb$RpcResponseMeta defaultInstance;
     public static final long serialVersionUID = 0;
@@ -46,7 +46,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public long serviceId_;
 
     /* loaded from: classes2.dex */
-    public final class a extends AbstractParser {
+    public static class a extends AbstractParser<RpcMetaPb$RpcResponseMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,7 +78,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     }
 
     /* loaded from: classes2.dex */
-    public final class b extends GeneratedMessageLite.Builder implements MessageLiteOrBuilder {
+    public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -190,9 +190,11 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return this;
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.google.protobuf.GeneratedMessageLite] */
+        /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public /* bridge */ /* synthetic */ GeneratedMessageLite.Builder mergeFrom(GeneratedMessageLite generatedMessageLite) {
-            s((RpcMetaPb$RpcResponseMeta) generatedMessageLite);
+        public /* bridge */ /* synthetic */ b mergeFrom(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
+            s(rpcMetaPb$RpcResponseMeta);
             return this;
         }
 
@@ -253,7 +255,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (c90) null);
+                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (b90) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -345,18 +347,18 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = null;
                 try {
                     try {
-                        RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta2 = (RpcMetaPb$RpcResponseMeta) RpcMetaPb$RpcResponseMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
-                        if (rpcMetaPb$RpcResponseMeta2 != null) {
-                            s(rpcMetaPb$RpcResponseMeta2);
+                        RpcMetaPb$RpcResponseMeta parsePartialFrom = RpcMetaPb$RpcResponseMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            s(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
-                        RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta3 = (RpcMetaPb$RpcResponseMeta) e.getUnfinishedMessage();
+                        RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta2 = (RpcMetaPb$RpcResponseMeta) e.getUnfinishedMessage();
                         try {
                             throw e;
                         } catch (Throwable th) {
                             th = th;
-                            rpcMetaPb$RpcResponseMeta = rpcMetaPb$RpcResponseMeta3;
+                            rpcMetaPb$RpcResponseMeta = rpcMetaPb$RpcResponseMeta2;
                             if (rpcMetaPb$RpcResponseMeta != null) {
                             }
                             throw th;
@@ -494,7 +496,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-    public Parser getParserForType() {
+    public Parser<RpcMetaPb$RpcResponseMeta> getParserForType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -686,7 +688,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c90 c90Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -712,7 +714,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, c90 c90Var) {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, b90 b90Var) {
         this(builder);
     }
 
@@ -720,7 +722,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, inputStream, extensionRegistryLite)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeLL.objValue;
     }
@@ -729,7 +731,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, byteString, extensionRegistryLite)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(byteString, extensionRegistryLite);
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeLL.objValue;
     }
@@ -768,7 +770,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, inputStream)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseDelimitedFrom(inputStream);
+            return PARSER.parseDelimitedFrom(inputStream);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeL.objValue;
     }
@@ -777,7 +779,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, byteString)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(byteString);
+            return PARSER.parseFrom(byteString);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeL.objValue;
     }
@@ -786,7 +788,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, codedInputStream)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(codedInputStream);
+            return PARSER.parseFrom(codedInputStream);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeL.objValue;
     }
@@ -795,7 +797,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, codedInputStream, extensionRegistryLite)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeLL.objValue;
     }
@@ -804,7 +806,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, inputStream)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(inputStream);
+            return PARSER.parseFrom(inputStream);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeL.objValue;
     }
@@ -813,7 +815,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, inputStream, extensionRegistryLite)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(inputStream, extensionRegistryLite);
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeLL.objValue;
     }
@@ -822,7 +824,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, bArr)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(bArr);
+            return PARSER.parseFrom(bArr);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeL.objValue;
     }
@@ -831,7 +833,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, bArr, extensionRegistryLite)) == null) {
-            return (RpcMetaPb$RpcResponseMeta) PARSER.parseFrom(bArr, extensionRegistryLite);
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
         }
         return (RpcMetaPb$RpcResponseMeta) invokeLL.objValue;
     }

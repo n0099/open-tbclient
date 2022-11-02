@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.List;
 public final class Mp4WebvttSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List cues;
+    public final List<Cue> cues;
 
     @Override // com.google.android.exoplayer2.text.Subtitle
     public int getEventTimeCount() {
@@ -33,7 +34,7 @@ public final class Mp4WebvttSubtitle implements Subtitle {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j < 0 ? 0 : -1 : invokeJ.intValue;
     }
 
-    public Mp4WebvttSubtitle(List list) {
+    public Mp4WebvttSubtitle(List<Cue> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +53,7 @@ public final class Mp4WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {

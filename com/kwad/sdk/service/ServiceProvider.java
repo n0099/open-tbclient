@@ -9,25 +9,25 @@ public final class ServiceProvider {
     public enum ServiceProviderDelegate {
         INSTANCE;
         
-        public final Map mProviders = new HashMap();
+        public final Map<Class<?>, Object> mProviders = new HashMap();
 
         ServiceProviderDelegate() {
         }
 
-        public final Object get(Class cls) {
-            return this.mProviders.get(cls);
+        public final <T> T get(Class<T> cls) {
+            return (T) this.mProviders.get(cls);
         }
 
-        public final void put(Class cls, Object obj) {
-            this.mProviders.put(cls, obj);
+        public final <T> void put(Class<T> cls, T t) {
+            this.mProviders.put(cls, t);
         }
     }
 
-    public static Object get(Class cls) {
-        return ServiceProviderDelegate.INSTANCE.get(cls);
+    public static <T> T get(Class<T> cls) {
+        return (T) ServiceProviderDelegate.INSTANCE.get(cls);
     }
 
-    public static void put(Class cls, Object obj) {
-        ServiceProviderDelegate.INSTANCE.put(cls, obj);
+    public static <T> void put(Class<T> cls, T t) {
+        ServiceProviderDelegate.INSTANCE.put(cls, t);
     }
 }

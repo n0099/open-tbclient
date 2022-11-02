@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Landroid/os/HandlerThread;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class DanmakuPlayer$actionThread$2 extends Lambda implements Function0 {
+public final class DanmakuPlayer$actionThread$2 extends Lambda implements Function0<HandlerThread> {
     public static /* synthetic */ Interceptable $ic;
     public static final DanmakuPlayer$actionThread$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,6 +53,7 @@ public final class DanmakuPlayer$actionThread$2 extends Lambda implements Functi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final HandlerThread invoke() {
         InterceptResult invokeV;

@@ -60,13 +60,13 @@ public final class Props extends Message {
     public final String usedStatus;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<Props> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String endTime;
@@ -76,7 +76,7 @@ public final class Props extends Message {
         public String notice;
         public Integer num;
         public String openStatus;
-        public List pattern;
+        public List<String> pattern;
         public String propsCategory;
         public Integer propsId;
         public String propsType;
@@ -264,7 +264,7 @@ public final class Props extends Message {
             } else {
                 this.title = str9;
             }
-            List list = builder.pattern;
+            List<String> list = builder.pattern;
             if (list == null) {
                 this.pattern = DEFAULT_PATTERN;
                 return;

@@ -1,6 +1,7 @@
 package com.baidu.titan.sdk.runtime;
 
 import com.baidu.titan.sdk.runtime.Log;
+import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -9,11 +10,12 @@ import java.lang.reflect.Method;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+@DisableIntercept
 /* loaded from: classes6.dex */
 public class TitanRuntime {
     public static Interceptable $ic;
-    public static final ThreadLocal sInterceptStorage = new ThreadLocal();
-    public static final ThreadLocal sInitContextStorage = new ThreadLocal();
+    public static final ThreadLocal<WeakReference<InterceptResult>> sInterceptStorage = new ThreadLocal<>();
+    public static final ThreadLocal<WeakReference<InitContext>> sInitContextStorage = new ThreadLocal<>();
 
     /* loaded from: classes6.dex */
     public interface Logging {
@@ -30,13 +32,13 @@ public class TitanRuntime {
 
     public static InterceptResult getThreadInterceptResult() {
         InterceptResult interceptResult;
-        WeakReference weakReference = (WeakReference) sInterceptStorage.get();
-        if (weakReference != null && (interceptResult = (InterceptResult) weakReference.get()) != null) {
+        WeakReference<InterceptResult> weakReference = sInterceptStorage.get();
+        if (weakReference != null && (interceptResult = weakReference.get()) != null) {
             interceptResult.objValue = null;
             return interceptResult;
         }
         InterceptResult interceptResult2 = new InterceptResult();
-        sInterceptStorage.set(new WeakReference(interceptResult2));
+        sInterceptStorage.set(new WeakReference<>(interceptResult2));
         return interceptResult2;
     }
 
@@ -89,7 +91,7 @@ public class TitanRuntime {
         }
     }
 
-    public static Field getFieldByName(Class cls, String str) {
+    public static Field getFieldByName(Class<?> cls, String str) {
         Log.Logging logging = Log.logging;
         if (logging != null && logging.isLoggable(Level.FINE)) {
             Log.logging.log(Level.FINE, String.format("getFieldByName:%s in %s", str, cls.getName()));
@@ -104,7 +106,7 @@ public class TitanRuntime {
         return null;
     }
 
-    public static Method getMethodByName(Class cls, String str, Class[] clsArr) {
+    public static Method getMethodByName(Class<?> cls, String str, Class[] clsArr) {
         Log.Logging logging;
         if (cls == null) {
             return null;
@@ -162,9 +164,9 @@ public class TitanRuntime {
         }
     }
 
-    public static Object newForClass(Object[] objArr, Class[] clsArr, Class cls) throws Throwable {
+    public static <T> T newForClass(Object[] objArr, Class[] clsArr, Class<T> cls) throws Throwable {
         try {
-            Constructor declaredConstructor = cls.getDeclaredConstructor(clsArr);
+            Constructor<T> declaredConstructor = cls.getDeclaredConstructor(clsArr);
             declaredConstructor.setAccessible(true);
             try {
                 return cls.cast(declaredConstructor.newInstance(objArr));

@@ -12,7 +12,7 @@ import io.reactivex.functions.BiPredicate;
 /* loaded from: classes8.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final BiPredicate EQUALS;
+    public static final BiPredicate<Object, Object> EQUALS;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int compare(int i, int i2) {
@@ -41,7 +41,7 @@ public final class ObjectHelper {
     }
 
     /* loaded from: classes8.dex */
-    public final class BiObjectPredicate implements BiPredicate {
+    public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,11 +102,11 @@ public final class ObjectHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static BiPredicate equalsPredicate() {
+    public static <T> BiPredicate<T, T> equalsPredicate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return EQUALS;
+            return (BiPredicate<T, T>) EQUALS;
         }
         return (BiPredicate) invokeV.objValue;
     }
@@ -123,16 +123,16 @@ public final class ObjectHelper {
         return invokeLL.booleanValue;
     }
 
-    public static Object requireNonNull(Object obj, String str) {
+    public static <T> T requireNonNull(T t, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, obj, str)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, t, str)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException(str);
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static int verifyPositive(int i, String str) {

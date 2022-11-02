@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.ChecksumException;
+import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DecoderResult;
@@ -55,7 +56,7 @@ public final class Decoder {
         }
     }
 
-    public DecoderResult decode(boolean[][] zArr, Map map) throws ChecksumException, FormatException {
+    public DecoderResult decode(boolean[][] zArr, Map<DecodeHintType, ?> map) throws ChecksumException, FormatException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, zArr, map)) == null) {
@@ -73,7 +74,7 @@ public final class Decoder {
         return (DecoderResult) invokeLL.objValue;
     }
 
-    private DecoderResult decode(BitMatrixParser bitMatrixParser, Map map) throws FormatException, ChecksumException {
+    private DecoderResult decode(BitMatrixParser bitMatrixParser, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, bitMatrixParser, map)) == null) {
@@ -106,12 +107,12 @@ public final class Decoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitMatrix)) == null) {
-            return decode(bitMatrix, (Map) null);
+            return decode(bitMatrix, (Map<DecodeHintType, ?>) null);
         }
         return (DecoderResult) invokeL.objValue;
     }
 
-    public DecoderResult decode(BitMatrix bitMatrix, Map map) throws FormatException, ChecksumException {
+    public DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
         InterceptResult invokeLL;
         ChecksumException e;
         Interceptable interceptable = $ic;
@@ -160,7 +161,7 @@ public final class Decoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zArr)) == null) {
-            return decode(zArr, (Map) null);
+            return decode(zArr, (Map<DecodeHintType, ?>) null);
         }
         return (DecoderResult) invokeL.objValue;
     }

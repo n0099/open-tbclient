@@ -17,7 +17,7 @@ public class ChooseCardFromWXCardPackage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Req extends BaseReq {
+    public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String appId;
@@ -86,7 +86,7 @@ public class ChooseCardFromWXCardPackage {
     }
 
     /* loaded from: classes8.dex */
-    public class Resp extends BaseResp {
+    public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String cardItemList;

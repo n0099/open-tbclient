@@ -6,6 +6,10 @@ import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,10 +26,12 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    @Px
     public int slideDistance;
     public int slideEdge;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface GravityFlag {
     }
@@ -49,7 +55,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         this.slideEdge = i;
     }
 
-    public static Animator createTranslationAppearAnimator(View view2, View view3, int i, int i2) {
+    public static Animator createTranslationAppearAnimator(View view2, View view3, int i, @Px int i2) {
         InterceptResult invokeLLII;
         float f;
         float f2;
@@ -88,7 +94,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         return (Animator) invokeLLII.objValue;
     }
 
-    public static Animator createTranslationDisappearAnimator(View view2, View view3, int i, int i2) {
+    public static Animator createTranslationDisappearAnimator(View view2, View view3, int i, @Px int i2) {
         InterceptResult invokeLLII;
         float f;
         float f2;
@@ -170,7 +176,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         return invokeL.booleanValue;
     }
 
-    public void setSlideDistance(int i) {
+    public void setSlideDistance(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i >= 0) {
@@ -189,7 +195,8 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createAppear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) {
@@ -199,7 +206,8 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     }
 
     @Override // com.google.android.material.transition.VisibilityAnimatorProvider
-    public Animator createDisappear(ViewGroup viewGroup, View view2) {
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2)) == null) {
@@ -208,6 +216,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         return (Animator) invokeLL.objValue;
     }
 
+    @Px
     public int getSlideDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

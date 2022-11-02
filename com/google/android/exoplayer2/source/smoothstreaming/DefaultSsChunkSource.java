@@ -48,7 +48,7 @@ public class DefaultSsChunkSource implements SsChunkSource {
     }
 
     /* loaded from: classes7.dex */
-    public final class Factory implements SsChunkSource.Factory {
+    public static final class Factory implements SsChunkSource.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSource.Factory dataSourceFactory;
@@ -180,7 +180,7 @@ public class DefaultSsChunkSource implements SsChunkSource {
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkSource
-    public int getPreferredQueueSize(long j, List list) {
+    public int getPreferredQueueSize(long j, List<? extends MediaChunk> list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, list)) == null) {

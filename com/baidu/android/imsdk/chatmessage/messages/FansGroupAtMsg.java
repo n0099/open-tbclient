@@ -23,16 +23,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class FansGroupAtMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FansGroupAtMsg> CREATOR;
     public static final String TAG = "FansGroupAtMsg";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mAtDataList;
+    public ArrayList<AtData> mAtDataList;
     public String mText;
 
     /* loaded from: classes.dex */
-    public class AtData implements Parcelable, NoProGuard {
+    public static class AtData implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<AtData> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mAtText;
         public String mAtType;
@@ -61,7 +61,7 @@ public class FansGroupAtMsg extends NormalMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg.AtData.1
+            CREATOR = new Parcelable.Creator<AtData>() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg.AtData.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,6 +80,7 @@ public class FansGroupAtMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public AtData createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -91,6 +92,7 @@ public class FansGroupAtMsg extends NormalMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public AtData[] newArray(int i) {
                     InterceptResult invokeI;
@@ -209,7 +211,7 @@ public class FansGroupAtMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg.1
+        CREATOR = new Parcelable.Creator<FansGroupAtMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -228,6 +230,7 @@ public class FansGroupAtMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupAtMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -239,6 +242,7 @@ public class FansGroupAtMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public FansGroupAtMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -251,7 +255,7 @@ public class FansGroupAtMsg extends NormalMsg {
         };
     }
 
-    public ArrayList getDataList() {
+    public ArrayList<AtData> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -320,7 +324,7 @@ public class FansGroupAtMsg extends NormalMsg {
         this.mText = parcel.readString();
         int readInt = parcel.readInt();
         if (readInt > 0) {
-            ArrayList arrayList = new ArrayList(readInt);
+            ArrayList<AtData> arrayList = new ArrayList<>(readInt);
             this.mAtDataList = arrayList;
             parcel.readTypedList(arrayList, AtData.CREATOR);
         }
@@ -328,15 +332,15 @@ public class FansGroupAtMsg extends NormalMsg {
 
     public boolean isGroupAtUserById(String str) {
         InterceptResult invokeL;
-        ArrayList arrayList;
+        ArrayList<AtData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (!isMsgRead() && (arrayList = this.mAtDataList) != null && arrayList.size() != 0 && !TextUtils.isEmpty(str)) {
-                Iterator it = this.mAtDataList.iterator();
+                Iterator<AtData> it = this.mAtDataList.iterator();
                 while (it.hasNext()) {
-                    AtData atData = (AtData) it.next();
-                    String type = atData.getType();
-                    String user = atData.getUser();
+                    AtData next = it.next();
+                    String type = next.getType();
+                    String user = next.getUser();
                     LogUtils.d(TAG, "userId: " + str + ", atData_user: " + user);
                     if (TextUtils.equals(type, IMConstants.AT_DATA_TYPE_GROUP_ALL)) {
                         return true;
@@ -366,7 +370,7 @@ public class FansGroupAtMsg extends NormalMsg {
                 JSONArray optJSONArray = jSONObject.optJSONArray("at_data");
                 int length = optJSONArray.length();
                 if (length > 0) {
-                    this.mAtDataList = new ArrayList(length);
+                    this.mAtDataList = new ArrayList<>(length);
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         String optString = jSONObject2.optString("at_type", "");
@@ -389,7 +393,7 @@ public class FansGroupAtMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
-    public void setDataList(ArrayList arrayList) {
+    public void setDataList(ArrayList<AtData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.mAtDataList = arrayList;
@@ -403,7 +407,7 @@ public class FansGroupAtMsg extends NormalMsg {
         }
     }
 
-    public boolean setJsonContent(String str, ArrayList arrayList) {
+    public boolean setJsonContent(String str, ArrayList<AtData> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, arrayList)) == null) {
@@ -415,13 +419,13 @@ public class FansGroupAtMsg extends NormalMsg {
                 jSONObject.put("text", str);
                 JSONArray jSONArray = new JSONArray();
                 if (arrayList.size() > 0) {
-                    Iterator it = arrayList.iterator();
+                    Iterator<AtData> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        AtData atData = (AtData) it.next();
+                        AtData next = it.next();
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("at_type", atData.getType());
-                        jSONObject2.put("at_user", atData.getUser());
-                        jSONObject2.put("text", atData.getText());
+                        jSONObject2.put("at_type", next.getType());
+                        jSONObject2.put("at_user", next.getUser());
+                        jSONObject2.put("text", next.getText());
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -442,7 +446,7 @@ public class FansGroupAtMsg extends NormalMsg {
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mText);
-            ArrayList arrayList = this.mAtDataList;
+            ArrayList<AtData> arrayList = this.mAtDataList;
             if (arrayList != null) {
                 i2 = arrayList.size();
             } else {

@@ -30,7 +30,7 @@ public class d1 extends BaseAdapter {
     }
 
     /* loaded from: classes6.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;

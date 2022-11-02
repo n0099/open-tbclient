@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,13 +16,14 @@ public class StatsReport {
     public final String type;
     public final Value[] values;
 
-    /* loaded from: classes8.dex */
-    public class Value {
+    /* loaded from: classes9.dex */
+    public static class Value {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String name;
         public final String value;
 
+        @CalledByNative("Value")
         public Value(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,6 +53,7 @@ public class StatsReport {
         }
     }
 
+    @CalledByNative
     public StatsReport(String str, String str2, double d, Value[] valueArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

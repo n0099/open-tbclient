@@ -20,7 +20,7 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
     public static final String TAG = "CloseableImage";
     public static final String[] mImageExtrasList;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mExtras;
+    public Map<String, Object> mExtras;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public abstract void close();
@@ -54,6 +54,19 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
         mImageExtrasList = new String[]{ProducerContext.ExtraKeys.ENCODED_SIZE, ProducerContext.ExtraKeys.ENCODED_WIDTH, ProducerContext.ExtraKeys.ENCODED_HEIGHT, ProducerContext.ExtraKeys.SOURCE_URI, "image_format", "bitmap_config"};
     }
 
+    public void finalize() throws Throwable {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isClosed()) {
+            return;
+        }
+        FLog.w(TAG, "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
+        try {
+            close();
+        } finally {
+            super.finalize();
+        }
+    }
+
     public CloseableImage() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -72,7 +85,7 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
 
     @Override // com.facebook.imagepipeline.image.HasImageMetadata
     @Nonnull
-    public Map getExtras() {
+    public Map<String, Object> getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -91,20 +104,7 @@ public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMe
         return (QualityInfo) invokeV.objValue;
     }
 
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || isClosed()) {
-            return;
-        }
-        FLog.w(TAG, "finalize: %s %x still open.", getClass().getSimpleName(), Integer.valueOf(System.identityHashCode(this)));
-        try {
-            close();
-        } finally {
-            super.finalize();
-        }
-    }
-
-    public void setImageExtras(Map map) {
+    public void setImageExtras(Map<String, Object> map) {
         String[] strArr;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, map) != null) || map == null) {

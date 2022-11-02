@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,8 +16,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lv6;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.uw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +70,7 @@ public class FunAdSmallPicView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdSmallPicView(Context context, AttributeSet attributeSet) {
+    public FunAdSmallPicView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -93,15 +94,15 @@ public class FunAdSmallPicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035f, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0361, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ec);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ea);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ee);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ef);
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900ed);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900eb);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f4);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f2);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f6);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f7);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f5);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0900f3);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setConrers(15);
             a(this.a);
@@ -112,9 +113,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            nv4.d(this.e).v(R.color.CAM_X0105);
-            nv4.d(this.d).v(R.color.CAM_X0109);
-            nv4.d(this.f).v(R.color.CAM_X0109);
+            kw4.d(this.e).v(R.color.CAM_X0105);
+            kw4.d(this.d).v(R.color.CAM_X0109);
+            kw4.d(this.f).v(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -128,11 +129,11 @@ public class FunAdSmallPicView extends LinearLayout {
             this.d.setText(funNativeAd2.getNativeInfo().getTitle());
             this.e.setText(funNativeAd2.getNativeInfo().getDescription());
         }
-        lv6.F(this.b, funNativeAd2);
+        uw6.F(this.b, funNativeAd2);
         if (!StringHelper.equals(str, this.a.getUrl())) {
-            this.a.G();
+            this.a.F();
         }
-        this.a.L(str, 10, false);
+        this.a.K(str, 10, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {

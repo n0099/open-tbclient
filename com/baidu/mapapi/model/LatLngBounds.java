@@ -11,23 +11,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes2.dex */
 public final class LatLngBounds implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LatLngBounds> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final LatLng northeast;
     public final LatLng southwest;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public double a;
         public double b;
         public double c;
         public double d;
-        public boolean e;
+        public double e;
+        public double f;
+        public boolean g;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -42,13 +55,78 @@ public final class LatLngBounds implements Parcelable {
                     return;
                 }
             }
-            this.e = true;
+            this.g = true;
+        }
+
+        private void a(LatLng latLng) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(65537, this, latLng) != null) || latLng == null) {
+                return;
+            }
+            double d = latLng.latitude;
+            double d2 = latLng.longitude;
+            if (d < this.a) {
+                this.a = d;
+            }
+            if (d > this.b) {
+                this.b = d;
+            }
+            int i = (d2 > 0.0d ? 1 : (d2 == 0.0d ? 0 : -1));
+            if (i >= 0) {
+                if (d2 < this.c) {
+                    this.c = d2;
+                }
+                if (d2 > this.d) {
+                    this.d = d2;
+                    if (this.c == 0.0d) {
+                        this.c = d2;
+                    }
+                }
+                if (i == 0) {
+                    this.e = d2;
+                    return;
+                }
+                return;
+            }
+            if (d2 < this.f) {
+                this.f = d2;
+            }
+            if (d2 > this.e) {
+                this.e = d2;
+            }
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.a, this.c)) : (LatLngBounds) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.e != 0.0d || this.f != 0.0d) {
+                    if (this.d == 0.0d && this.c == 0.0d) {
+                        this.d = this.e;
+                        this.c = this.f;
+                    } else {
+                        double d = this.f + 360.0d;
+                        this.c = d;
+                        double d2 = this.d;
+                        if (d > d2) {
+                            this.d = d;
+                            this.c = d2;
+                        }
+                    }
+                }
+                double d3 = this.d;
+                if (d3 > 180.0d) {
+                    double d4 = d3 - 360.0d;
+                    this.d = d4;
+                    double d5 = this.c;
+                    if (d4 < d5) {
+                        this.d = d5;
+                        this.c = d4;
+                    }
+                }
+                return new LatLngBounds(new LatLng(this.b, this.d), new LatLng(this.a, this.c));
+            }
+            return (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -58,28 +136,49 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.e) {
-                    this.e = false;
-                    double d = latLng.latitude;
-                    this.a = d;
-                    this.b = d;
-                    double d2 = latLng.longitude;
-                    this.c = d2;
-                    this.d = d2;
+                if (this.g) {
+                    this.g = false;
+                    double d = latLng.longitude;
+                    if (d >= 0.0d) {
+                        this.c = d;
+                        this.d = d;
+                    } else {
+                        this.f = d;
+                        this.e = d;
+                    }
+                    double d2 = latLng.latitude;
+                    this.a = d2;
+                    this.b = d2;
                 }
-                double d3 = latLng.latitude;
-                double d4 = latLng.longitude;
-                if (d3 < this.a) {
-                    this.a = d3;
-                }
-                if (d3 > this.b) {
-                    this.b = d3;
-                }
-                if (d4 < this.c) {
-                    this.c = d4;
-                }
-                if (d4 > this.d) {
-                    this.d = d4;
+                a(latLng);
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder include(List<LatLng> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+                if (list != null && list.size() != 0) {
+                    if (list.get(0) != null && this.g) {
+                        this.g = false;
+                        if (list.get(0).longitude >= 0.0d) {
+                            double d = list.get(0).longitude;
+                            this.c = d;
+                            this.d = d;
+                        } else {
+                            double d2 = list.get(0).longitude;
+                            this.f = d2;
+                            this.e = d2;
+                        }
+                        double d3 = list.get(0).latitude;
+                        this.a = d3;
+                        this.b = d3;
+                    }
+                    for (LatLng latLng : list) {
+                        a(latLng);
+                    }
                 }
                 return this;
             }
@@ -101,6 +200,22 @@ public final class LatLngBounds implements Parcelable {
             }
         }
         CREATOR = new b();
+    }
+
+    public LatLng getCenter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LatLng latLng = this.northeast;
+            double d = latLng.latitude;
+            LatLng latLng2 = this.southwest;
+            double d2 = latLng2.latitude;
+            double d3 = ((d - d2) / 2.0d) + d2;
+            double d4 = latLng.longitude;
+            double d5 = latLng2.longitude;
+            return new LatLng(d3, ((d4 - d5) / 2.0d) + d5);
+        }
+        return (LatLng) invokeV.objValue;
     }
 
     public LatLngBounds(Parcel parcel) {
@@ -156,35 +271,12 @@ public final class LatLngBounds implements Parcelable {
             double d4 = latLng3.longitude;
             double d5 = latLng.latitude;
             double d6 = latLng.longitude;
-            return d5 >= d && d5 <= d2 && d6 >= d3 && d6 <= d4;
+            if (d5 >= d && d5 <= d2 && d6 >= d3 && d6 <= d4) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public LatLng getCenter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LatLng latLng = this.northeast;
-            double d = latLng.latitude;
-            LatLng latLng2 = this.southwest;
-            double d2 = latLng2.latitude;
-            double d3 = ((d - d2) / 2.0d) + d2;
-            double d4 = latLng.longitude;
-            double d5 = latLng2.longitude;
-            return new LatLng(d3, ((d4 - d5) / 2.0d) + d5);
-        }
-        return (LatLng) invokeV.objValue;
     }
 
     public String toString() {

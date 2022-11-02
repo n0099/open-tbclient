@@ -11,9 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.CompletableSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+@Experimental
 /* loaded from: classes8.dex */
 public final class CompletableCache extends Completable implements CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +23,7 @@ public final class CompletableCache extends Completable implements CompletableOb
     public static final InnerCompletableCache[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference observers;
+    public final AtomicReference<InnerCompletableCache[]> observers;
     public final AtomicBoolean once;
     public final CompletableSource source;
 
@@ -97,10 +99,10 @@ public final class CompletableCache extends Completable implements CompletableOb
 
     @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
     public void onComplete() {
-        InnerCompletableCache[] innerCompletableCacheArr;
+        InnerCompletableCache[] andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (InnerCompletableCache innerCompletableCache : (InnerCompletableCache[]) this.observers.getAndSet(TERMINATED)) {
+            for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(TERMINATED)) {
                 if (!innerCompletableCache.get()) {
                     innerCompletableCache.actual.onComplete();
                 }
@@ -124,7 +126,7 @@ public final class CompletableCache extends Completable implements CompletableOb
             }
         }
         this.source = completableSource;
-        this.observers = new AtomicReference(EMPTY);
+        this.observers = new AtomicReference<>(EMPTY);
         this.once = new AtomicBoolean();
     }
 
@@ -160,7 +162,7 @@ public final class CompletableCache extends Completable implements CompletableOb
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerCompletableCache)) == null) {
             do {
-                innerCompletableCacheArr = (InnerCompletableCache[]) this.observers.get();
+                innerCompletableCacheArr = this.observers.get();
                 if (innerCompletableCacheArr == TERMINATED) {
                     return false;
                 }
@@ -176,11 +178,11 @@ public final class CompletableCache extends Completable implements CompletableOb
 
     @Override // io.reactivex.CompletableObserver
     public void onError(Throwable th) {
-        InnerCompletableCache[] innerCompletableCacheArr;
+        InnerCompletableCache[] andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             this.error = th;
-            for (InnerCompletableCache innerCompletableCache : (InnerCompletableCache[]) this.observers.getAndSet(TERMINATED)) {
+            for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(TERMINATED)) {
                 if (!innerCompletableCache.get()) {
                     innerCompletableCache.actual.onError(th);
                 }
@@ -194,7 +196,7 @@ public final class CompletableCache extends Completable implements CompletableOb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, innerCompletableCache) == null) {
             do {
-                innerCompletableCacheArr = (InnerCompletableCache[]) this.observers.get();
+                innerCompletableCacheArr = this.observers.get();
                 int length = innerCompletableCacheArr.length;
                 if (length == 0) {
                     return;

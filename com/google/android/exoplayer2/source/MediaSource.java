@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.source;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ public interface MediaSource {
 
     /* loaded from: classes7.dex */
     public interface Listener {
-        void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, Object obj);
+        void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, @Nullable Object obj);
     }
 
     MediaPeriod createPeriod(MediaPeriodId mediaPeriodId, Allocator allocator);
@@ -31,7 +32,7 @@ public interface MediaSource {
     void releaseSource();
 
     /* loaded from: classes7.dex */
-    public final class MediaPeriodId {
+    public static final class MediaPeriodId {
         public static /* synthetic */ Interceptable $ic;
         public static final MediaPeriodId UNSET;
         public transient /* synthetic */ FieldHolder $fh;

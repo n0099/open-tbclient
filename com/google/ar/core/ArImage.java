@@ -44,7 +44,7 @@ public class ArImage extends z {
     public static native void nativeLoadSymbols();
 
     /* loaded from: classes7.dex */
-    public final class a extends a0 {
+    public class a extends a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long a;

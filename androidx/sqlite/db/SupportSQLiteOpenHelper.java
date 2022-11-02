@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteException;
 import android.os.Build;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,14 +34,18 @@ public interface SupportSQLiteOpenHelper {
 
     SupportSQLiteDatabase getWritableDatabase();
 
+    @RequiresApi(api = 16)
     void setWriteAheadLoggingEnabled(boolean z);
 
     /* loaded from: classes.dex */
     public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final Callback callback;
+        @NonNull
         public final Context context;
+        @Nullable
         public final String name;
 
         /* loaded from: classes.dex */
@@ -49,7 +56,7 @@ public interface SupportSQLiteOpenHelper {
             public Context mContext;
             public String mName;
 
-            public Builder(Context context) {
+            public Builder(@NonNull Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +74,7 @@ public interface SupportSQLiteOpenHelper {
                 this.mContext = context;
             }
 
-            public Builder callback(Callback callback) {
+            public Builder callback(@NonNull Callback callback) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callback)) == null) {
@@ -77,7 +84,7 @@ public interface SupportSQLiteOpenHelper {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder name(String str) {
+            public Builder name(@Nullable String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -105,7 +112,7 @@ public interface SupportSQLiteOpenHelper {
             }
         }
 
-        public Configuration(Context context, String str, Callback callback) {
+        public Configuration(@NonNull Context context, @Nullable String str, @NonNull Callback callback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,14 +213,14 @@ public interface SupportSQLiteOpenHelper {
                     deleteDatabaseFile(supportSQLiteDatabase.getPath());
                     return;
                 }
-                List<Pair> list = null;
+                List<Pair<String, String>> list = null;
                 try {
                     try {
                         list = supportSQLiteDatabase.getAttachedDbs();
                     } finally {
                         if (list != null) {
-                            for (Pair pair : list) {
-                                deleteDatabaseFile((String) pair.second);
+                            for (Pair<String, String> next : list) {
+                                deleteDatabaseFile((String) next.second);
                             }
                         } else {
                             deleteDatabaseFile(supportSQLiteDatabase.getPath());

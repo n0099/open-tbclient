@@ -49,11 +49,11 @@ public class LiveActivityHelper {
 
     public static boolean isOnlyOneLiveActivity() {
         InterceptResult invokeV;
-        List allActivity;
+        List<Activity> allActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             LiveGetHostActivitiesService liveGetHostActivitiesService = (LiveGetHostActivitiesService) ServiceManager.getService(LiveGetHostActivitiesService.Companion.getSERVICE_REFERENCE());
-            if (liveGetHostActivitiesService == null || (allActivity = liveGetHostActivitiesService.getAllActivity()) == null || allActivity.isEmpty() || allActivity.size() != 1 || !isLiveActivity((Activity) allActivity.get(0))) {
+            if (liveGetHostActivitiesService == null || (allActivity = liveGetHostActivitiesService.getAllActivity()) == null || allActivity.isEmpty() || allActivity.size() != 1 || !isLiveActivity(allActivity.get(0))) {
                 return false;
             }
             return true;

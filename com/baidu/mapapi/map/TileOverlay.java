@@ -23,8 +23,8 @@ public final class TileOverlay {
     public transient /* synthetic */ FieldHolder $fh;
     public BaiduMap a;
     public ExecutorService c;
-    public HashMap d;
-    public HashSet e;
+    public HashMap<String, Tile> d;
+    public HashSet<String> e;
     public TileProvider g;
 
     static {
@@ -59,8 +59,8 @@ public final class TileOverlay {
         }
         this.a = baiduMap;
         this.g = tileProvider;
-        this.d = new HashMap();
-        this.e = new HashSet();
+        this.d = new HashMap<>();
+        this.e = new HashSet<>();
         this.c = Executors.newFixedThreadPool(1);
     }
 
@@ -70,7 +70,7 @@ public final class TileOverlay {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             synchronized (this) {
                 if (this.d.containsKey(str)) {
-                    Tile tile = (Tile) this.d.get(str);
+                    Tile tile = this.d.get(str);
                     this.d.remove(str);
                     return tile;
                 }
@@ -80,12 +80,11 @@ public final class TileOverlay {
         return (Tile) invokeL.objValue;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(String str, Tile tile) {
+    private synchronized void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, str, tile) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
             synchronized (this) {
-                this.d.put(str, tile);
+                this.e.add(str);
             }
         }
     }
@@ -103,54 +102,14 @@ public final class TileOverlay {
         return invokeL.booleanValue;
     }
 
-    private synchronized void c(String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void a(String str, Tile tile) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, tile) == null) {
             synchronized (this) {
-                this.e.add(str);
+                this.d.put(str, tile);
             }
         }
-    }
-
-    public Tile a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
-            String str3 = i + "_" + i2 + "_" + i3;
-            Tile a = a(str3);
-            if (a != null) {
-                return a;
-            }
-            BaiduMap baiduMap = this.a;
-            if (baiduMap != null && f == 0) {
-                WinRound winRound = baiduMap.getMapStatus().a.j;
-                f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
-            }
-            if (this.d.size() > f) {
-                a();
-            }
-            if (b(str3) || this.c.isShutdown()) {
-                return null;
-            }
-            try {
-                c(str3);
-                this.c.execute(new w(this, i, i2, i3, str3));
-                return null;
-            } catch (RejectedExecutionException unused) {
-                str = b;
-                str2 = "ThreadPool excepiton";
-                Log.e(str, str2);
-                return null;
-            } catch (Exception unused2) {
-                str = b;
-                str2 = "fileDir is not legal";
-                Log.e(str, str2);
-                return null;
-            }
-        }
-        return (Tile) invokeIII.objValue;
     }
 
     public synchronized void a() {
@@ -187,9 +146,44 @@ public final class TileOverlay {
     public void removeTileOverlay() {
         BaiduMap baiduMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (baiduMap = this.a) == null) {
             return;
         }
         baiduMap.a(this);
+    }
+
+    public Tile a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            String str = i + "_" + i2 + "_" + i3;
+            Tile a = a(str);
+            if (a != null) {
+                return a;
+            }
+            BaiduMap baiduMap = this.a;
+            if (baiduMap != null && f == 0) {
+                WinRound winRound = baiduMap.getMapStatus().a.j;
+                f = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2);
+            }
+            if (this.d.size() > f) {
+                a();
+            }
+            if (!b(str) && !this.c.isShutdown()) {
+                try {
+                    c(str);
+                    this.c.execute(new af(this, i, i2, i3, str));
+                    return null;
+                } catch (RejectedExecutionException unused) {
+                    Log.e(b, "ThreadPool excepiton");
+                    return null;
+                } catch (Exception unused2) {
+                    Log.e(b, "fileDir is not legal");
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (Tile) invokeIII.objValue;
     }
 }

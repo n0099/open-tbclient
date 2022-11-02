@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.base;
 import android.content.Context;
 import android.os.Environment;
 /* loaded from: classes8.dex */
-public class h extends i implements g {
+public class h extends i<g> implements g {
     public static h c;
     public boolean d;
 
@@ -34,46 +34,46 @@ public class h extends i implements g {
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str) {
-        ((g) c()).a(str);
+        c().a(str);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str, String str2) {
-        ((g) c()).a(str, str2);
+        c().a(str, str2);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(String str, String str2, Throwable th) {
-        ((g) c()).a(str, str2, th);
+        c().a(str, str2, th);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void a(boolean z) {
-        ((g) c()).a(z);
+        c().a(z);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public boolean a() {
-        return ((g) c()).a();
+        return c().a();
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void b(String str, String str2) {
-        ((g) c()).b(str, str2);
+        c().b(str, str2);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void b(boolean z) {
-        ((g) c()).b(z);
+        c().b(z);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void c(String str, String str2) {
-        ((g) c()).c(str, str2);
+        c().c(str, str2);
     }
 
     @Override // com.meizu.cloud.pushsdk.base.g
     public void d(String str, String str2) {
-        ((g) c()).d(str, str2);
+        c().d(str, str2);
     }
 }

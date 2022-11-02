@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Collections;
@@ -16,12 +17,12 @@ public final class TtmlSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long[] eventTimesUs;
-    public final Map globalStyles;
-    public final Map regionMap;
+    public final Map<String, TtmlStyle> globalStyles;
+    public final Map<String, TtmlRegion> regionMap;
     public final TtmlNode root;
 
-    public TtmlSubtitle(TtmlNode ttmlNode, Map map, Map map2) {
-        Map emptyMap;
+    public TtmlSubtitle(TtmlNode ttmlNode, Map<String, TtmlStyle> map, Map<String, TtmlRegion> map2) {
+        Map<String, TtmlStyle> emptyMap;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +49,7 @@ public final class TtmlSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List getCues(long j) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
@@ -91,7 +92,7 @@ public final class TtmlSubtitle implements Subtitle {
         return invokeV.intValue;
     }
 
-    public Map getGlobalStyles() {
+    public Map<String, TtmlStyle> getGlobalStyles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

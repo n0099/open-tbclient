@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.upload;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BIMRtcTrackDatabase {
@@ -28,13 +28,14 @@ public class BIMRtcTrackDatabase {
     public static final int MAX_QUERY_COUNT = 1000;
     public static String TAG = "BIMRtcTrackDatabase";
     public static DbOpenHelper dbOpenHelper;
+    @SuppressLint({"StaticFieldLeak"})
     public static BIMRtcTrackDatabase instance;
     public static final Object myLock;
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
     /* loaded from: classes.dex */
-    public class DbOpenHelper extends SQLiteOpenHelper {
+    public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +137,7 @@ public class BIMRtcTrackDatabase {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class RequestEnum {
+    public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TABLE_NAME = "request";
@@ -265,7 +266,7 @@ public class BIMRtcTrackDatabase {
         return (SQLiteDatabase) invokeL.objValue;
     }
 
-    private List getCursorRequests(Cursor cursor) {
+    private List<Request> getCursorRequests(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cursor)) == null) {
@@ -302,13 +303,12 @@ public class BIMRtcTrackDatabase {
         return (BIMRtcTrackDatabase) invokeL.objValue;
     }
 
-    public void deleteRequests(List list) {
+    public void deleteRequests(List<Request> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             synchronized (myLock) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    deleteRequest((Request) it.next());
+                for (Request request : list) {
+                    deleteRequest(request);
                 }
             }
         }
@@ -384,7 +384,7 @@ public class BIMRtcTrackDatabase {
         return invokeV.longValue;
     }
 
-    public List getRequests() {
+    public List<Request> getRequests() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -394,7 +394,7 @@ public class BIMRtcTrackDatabase {
                 if (db == null) {
                     return null;
                 }
-                List arrayList = new ArrayList();
+                List<Request> arrayList = new ArrayList<>();
                 try {
                     cursor = db.rawQuery("select * from request limit 1000", null);
                     arrayList = getCursorRequests(cursor);
@@ -415,7 +415,7 @@ public class BIMRtcTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List getRequestsByAliasId(long j) {
+    public List<Request> getRequestsByAliasId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
@@ -425,7 +425,7 @@ public class BIMRtcTrackDatabase {
                 if (db == null) {
                     return null;
                 }
-                List arrayList = new ArrayList();
+                List<Request> arrayList = new ArrayList<>();
                 try {
                     cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j, null);
                     arrayList = getCursorRequests(cursor);

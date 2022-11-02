@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,6 +32,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
 
     /* loaded from: classes.dex */
     public interface SupportParentable {
+        @Nullable
         Intent getSupportParentActivityIntent();
     }
 
@@ -52,7 +55,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         this.mSourceContext = context;
     }
 
-    public TaskStackBuilder addParentStack(Activity activity) {
+    @NonNull
+    public TaskStackBuilder addParentStack(@NonNull Activity activity) {
         InterceptResult invokeL;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -78,7 +82,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (TaskStackBuilder) invokeL.objValue;
     }
 
-    public static TaskStackBuilder create(Context context) {
+    @NonNull
+    public static TaskStackBuilder create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -97,7 +102,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (TaskStackBuilder) invokeL.objValue;
     }
 
-    public TaskStackBuilder addNextIntent(Intent intent) {
+    @NonNull
+    public TaskStackBuilder addNextIntent(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
@@ -107,7 +113,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (TaskStackBuilder) invokeL.objValue;
     }
 
-    public TaskStackBuilder addNextIntentWithParentStack(Intent intent) {
+    @NonNull
+    public TaskStackBuilder addNextIntentWithParentStack(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
@@ -124,7 +131,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (TaskStackBuilder) invokeL.objValue;
     }
 
-    public TaskStackBuilder addParentStack(Class<?> cls) {
+    @NonNull
+    public TaskStackBuilder addParentStack(@NonNull Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
@@ -133,6 +141,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (TaskStackBuilder) invokeL.objValue;
     }
 
+    @Nullable
     public Intent editIntentAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -199,6 +208,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         }
     }
 
+    @NonNull
     public Intent[] getIntents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -217,6 +227,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (Intent[]) invokeV.objValue;
     }
 
+    @Nullable
     public PendingIntent getPendingIntent(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -226,7 +237,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (PendingIntent) invokeII.objValue;
     }
 
-    public PendingIntent getPendingIntent(int i, int i2, Bundle bundle) {
+    @Nullable
+    public PendingIntent getPendingIntent(int i, int i2, @Nullable Bundle bundle) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i, i2, bundle)) == null) {
@@ -244,7 +256,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
         return (PendingIntent) invokeIIL.objValue;
     }
 
-    public void startActivities(Bundle bundle) {
+    public void startActivities(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             if (!this.mIntents.isEmpty()) {

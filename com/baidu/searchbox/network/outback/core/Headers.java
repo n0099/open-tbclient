@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.outback.core;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.HttpDate;
@@ -26,10 +27,10 @@ public final class Headers {
     public final String[] namesAndValues;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List namesAndValues;
+        public final List<String> namesAndValues;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -90,8 +91,8 @@ public final class Headers {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
                 for (int size = this.namesAndValues.size() - 2; size >= 0; size -= 2) {
-                    if (str.equalsIgnoreCase((String) this.namesAndValues.get(size))) {
-                        return (String) this.namesAndValues.get(size + 1);
+                    if (str.equalsIgnoreCase(this.namesAndValues.get(size))) {
+                        return this.namesAndValues.get(size + 1);
                     }
                 }
                 return null;
@@ -105,7 +106,7 @@ public final class Headers {
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
                 int i = 0;
                 while (i < this.namesAndValues.size()) {
-                    if (str.equalsIgnoreCase((String) this.namesAndValues.get(i))) {
+                    if (str.equalsIgnoreCase(this.namesAndValues.get(i))) {
                         this.namesAndValues.remove(i);
                         this.namesAndValues.remove(i);
                         i -= 2;
@@ -191,11 +192,11 @@ public final class Headers {
                 return;
             }
         }
-        List list = builder.namesAndValues;
+        List<String> list = builder.namesAndValues;
         this.namesAndValues = (String[]) list.toArray(new String[list.size()]);
     }
 
-    public List values(String str) {
+    public List<String> values(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
@@ -235,7 +236,7 @@ public final class Headers {
         this.namesAndValues = strArr;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -247,6 +248,7 @@ public final class Headers {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public String get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -256,6 +258,7 @@ public final class Headers {
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     public Date getDate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -338,17 +341,17 @@ public final class Headers {
         return (String) invokeLL.objValue;
     }
 
-    public static Headers of(Map map) {
+    public static Headers of(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
             if (map != null) {
                 String[] strArr = new String[map.size() * 2];
                 int i = 0;
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (entry.getKey() != null && entry.getValue() != null) {
-                        String trim = ((String) entry.getKey()).trim();
-                        String trim2 = ((String) entry.getValue()).trim();
+                        String trim = entry.getKey().trim();
+                        String trim2 = entry.getValue().trim();
                         checkName(trim);
                         checkValue(trim2, trim);
                         strArr[i] = trim;
@@ -417,7 +420,7 @@ public final class Headers {
         return invokeV.intValue;
     }
 
-    public Set names() {
+    public Set<String> names() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -451,7 +454,7 @@ public final class Headers {
         return invokeV.intValue;
     }
 
-    public Map toMultimap() {
+    public Map<String, List<String>> toMultimap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

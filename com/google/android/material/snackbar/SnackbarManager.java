@@ -3,6 +3,8 @@ package com.google.android.material.snackbar;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +21,13 @@ public class SnackbarManager {
     public static final int SHORT_DURATION_MS = 1500;
     public static SnackbarManager snackbarManager;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public SnackbarRecord currentSnackbar;
+    @NonNull
     public final Handler handler;
+    @NonNull
     public final Object lock;
+    @Nullable
     public SnackbarRecord nextSnackbar;
 
     /* loaded from: classes7.dex */
@@ -32,10 +38,11 @@ public class SnackbarManager {
     }
 
     /* loaded from: classes7.dex */
-    public class SnackbarRecord {
+    public static class SnackbarRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference callback;
+        @NonNull
+        public final WeakReference<Callback> callback;
         public int duration;
         public boolean paused;
 
@@ -54,11 +61,11 @@ public class SnackbarManager {
                     return;
                 }
             }
-            this.callback = new WeakReference(callback);
+            this.callback = new WeakReference<>(callback);
             this.duration = i;
         }
 
-        public boolean isSnackbar(Callback callback) {
+        public boolean isSnackbar(@Nullable Callback callback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callback)) == null) {
@@ -109,7 +116,7 @@ public class SnackbarManager {
             }
 
             @Override // android.os.Handler.Callback
-            public boolean handleMessage(Message message) {
+            public boolean handleMessage(@NonNull Message message) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
@@ -124,11 +131,11 @@ public class SnackbarManager {
         });
     }
 
-    private boolean cancelSnackbarLocked(SnackbarRecord snackbarRecord, int i) {
+    private boolean cancelSnackbarLocked(@NonNull SnackbarRecord snackbarRecord, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, snackbarRecord, i)) == null) {
-            Callback callback = (Callback) snackbarRecord.callback.get();
+            Callback callback = snackbarRecord.callback.get();
             if (callback != null) {
                 this.handler.removeCallbacksAndMessages(snackbarRecord);
                 callback.dismiss(i);
@@ -170,7 +177,7 @@ public class SnackbarManager {
         if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (snackbarRecord = this.nextSnackbar) != null) {
             this.currentSnackbar = snackbarRecord;
             this.nextSnackbar = null;
-            Callback callback = (Callback) snackbarRecord.callback.get();
+            Callback callback = snackbarRecord.callback.get();
             if (callback != null) {
                 callback.show();
             } else {
@@ -205,7 +212,7 @@ public class SnackbarManager {
         return invokeL.booleanValue;
     }
 
-    public void handleTimeout(SnackbarRecord snackbarRecord) {
+    public void handleTimeout(@NonNull SnackbarRecord snackbarRecord) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, snackbarRecord) == null) {
             synchronized (this.lock) {
@@ -294,7 +301,7 @@ public class SnackbarManager {
         }
     }
 
-    private void scheduleTimeoutLocked(SnackbarRecord snackbarRecord) {
+    private void scheduleTimeoutLocked(@NonNull SnackbarRecord snackbarRecord) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65541, this, snackbarRecord) != null) || (i = snackbarRecord.duration) == -2) {

@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -22,7 +23,7 @@ public class ActivityLifeObserver {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public Application.ActivityLifecycleCallbacks b;
-    public Set d;
+    public Set<IActivityLifeCallback> d;
 
     /* loaded from: classes2.dex */
     public interface IActivityLifeCallback {
@@ -100,6 +101,7 @@ public class ActivityLifeObserver {
         }
     }
 
+    @TargetApi(14)
     public void doRegister(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
@@ -236,6 +238,7 @@ public class ActivityLifeObserver {
         }
     }
 
+    @TargetApi(14)
     public void unRegister(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {

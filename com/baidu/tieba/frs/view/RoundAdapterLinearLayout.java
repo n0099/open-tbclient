@@ -25,7 +25,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h */
-    public static final int black_alpha4 = 2131100717;
+    public static final int black_alpha4 = 2131100718;
     public transient /* synthetic */ FieldHolder $fh;
     public float c;
     public Shape d;

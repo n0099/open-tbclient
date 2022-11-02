@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -40,7 +41,7 @@ public class FindEmulator {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Property {
+    public static class Property {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String name;
@@ -67,7 +68,7 @@ public class FindEmulator {
     }
 
     /* loaded from: classes8.dex */
-    public class tcp {
+    public static class tcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int id;
@@ -453,6 +454,7 @@ public class FindEmulator {
         return invokeV.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static boolean hasEmulatorBuild(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AsyncPublishVideoStatData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +26,7 @@ public class AsyncPublishVideoStatData implements Serializable {
     public long startTime;
     public String url;
 
-    public AsyncPublishVideoStatData(VideoInfo videoInfo) {
+    public AsyncPublishVideoStatData(@NonNull VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

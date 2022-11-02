@@ -13,7 +13,7 @@ import java.util.List;
 public class MultiCacheKey implements CacheKey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mCacheKeys;
+    public final List<CacheKey> mCacheKeys;
 
     @Override // com.facebook.cache.common.CacheKey
     public boolean isResourceIdForDebugging() {
@@ -25,7 +25,7 @@ public class MultiCacheKey implements CacheKey {
         return invokeV.booleanValue;
     }
 
-    public MultiCacheKey(List list) {
+    public MultiCacheKey(List<CacheKey> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class MultiCacheKey implements CacheKey {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
             for (int i = 0; i < this.mCacheKeys.size(); i++) {
-                if (((CacheKey) this.mCacheKeys.get(i)).containsUri(uri)) {
+                if (this.mCacheKeys.get(i).containsUri(uri)) {
                     return true;
                 }
             }
@@ -74,7 +74,7 @@ public class MultiCacheKey implements CacheKey {
         return invokeL.booleanValue;
     }
 
-    public List getCacheKeys() {
+    public List<CacheKey> getCacheKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -88,7 +88,7 @@ public class MultiCacheKey implements CacheKey {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ((CacheKey) this.mCacheKeys.get(0)).getUriString();
+            return this.mCacheKeys.get(0).getUriString();
         }
         return (String) invokeV.objValue;
     }

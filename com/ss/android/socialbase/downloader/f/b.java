@@ -1,4 +1,6 @@
 package com.ss.android.socialbase.downloader.f;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public class b implements c, d, e {
     public final int a;
@@ -21,6 +23,7 @@ public class b implements c, d, e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.d
+    @NonNull
     public a a() throws p, InterruptedException {
         a aVar;
         a aVar2 = this.i;
@@ -48,7 +51,7 @@ public class b implements c, d, e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.c
-    public void a(a aVar) {
+    public void a(@NonNull a aVar) {
         synchronized (this.c) {
             a aVar2 = this.f;
             if (aVar2 == null) {
@@ -63,7 +66,7 @@ public class b implements c, d, e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
-    public void b(a aVar) {
+    public void b(@NonNull a aVar) {
         synchronized (this.d) {
             a aVar2 = this.h;
             if (aVar2 == null) {
@@ -78,6 +81,7 @@ public class b implements c, d, e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.c
+    @NonNull
     public a b() throws p, InterruptedException {
         synchronized (this.c) {
             if (!this.j) {

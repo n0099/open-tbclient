@@ -42,7 +42,7 @@ public final class c {
         }
     }
 
-    public static com.bytedance.pangle.util.d a(MappedByteBuffer mappedByteBuffer, int i, String str) {
+    public static com.bytedance.pangle.util.d<Integer, byte[]> a(MappedByteBuffer mappedByteBuffer, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, mappedByteBuffer, i, str)) == null) {
@@ -55,7 +55,7 @@ public final class c {
                     for (int i5 = 0; i5 < i3; i5++) {
                         bArr[i5] = mappedByteBuffer.get(i4 + i5);
                     }
-                    return new com.bytedance.pangle.util.d(Integer.valueOf(i4), bArr);
+                    return new com.bytedance.pangle.util.d<>(Integer.valueOf(i4), bArr);
                 }
                 throw new RuntimeException(str + " is compressed. compressSize:" + i2 + " size:" + i3);
             }
@@ -64,7 +64,7 @@ public final class c {
         return (com.bytedance.pangle.util.d) invokeLIL.objValue;
     }
 
-    public static void a(File file, HashSet hashSet, h hVar) {
+    public static void a(File file, HashSet<String> hashSet, h hVar) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, file, hashSet, hVar) == null) {
@@ -98,9 +98,9 @@ public final class c {
                         int i10 = b.getInt(i5 + 24);
                         if (hashSet.contains(str)) {
                             if (i9 == i10) {
-                                com.bytedance.pangle.util.d a = a(b, b.getInt(i5 + 42), str);
+                                com.bytedance.pangle.util.d<Integer, byte[]> a = a(b, b.getInt(i5 + 42), str);
                                 try {
-                                    byte[] bArr2 = (byte[]) a.b;
+                                    byte[] bArr2 = a.b;
                                     if (!TextUtils.isEmpty(str) && hVar.a(str)) {
                                         if (str.equals("AndroidManifest.xml")) {
                                             k.a(bArr2, hVar);
@@ -110,8 +110,8 @@ public final class c {
                                             new a(bArr2, hVar).a();
                                         }
                                     }
-                                    for (int i11 = 0; i11 < ((byte[]) a.b).length; i11++) {
-                                        b.put(((Integer) a.a).intValue() + i11, ((byte[]) a.b)[i11]);
+                                    for (int i11 = 0; i11 < a.b.length; i11++) {
+                                        b.put(a.a.intValue() + i11, a.b[i11]);
                                     }
                                 } catch (Throwable th) {
                                     throw new RuntimeException(th);

@@ -56,13 +56,13 @@ public class k {
     public static k f;
     public static Application g;
     public static Random h;
-    public static List i;
+    public static List<Integer> i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public boolean b;
-    public Map c;
-    public Map d;
-    public Map e;
+    public Map<String, ApkInfo> c;
+    public Map<String, ApkInfo> d;
+    public Map<String, MyReceiver> e;
 
     static {
         InterceptResult invokeClinit;
@@ -99,7 +99,7 @@ public class k {
         this.e = new HashMap();
     }
 
-    public List a() {
+    public List<ApkInfo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -144,7 +144,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             try {
-                return (ApkInfo) this.d.get(str);
+                return this.d.get(str);
             } catch (Throwable unused) {
                 int i2 = com.baidu.sofire.a.b.a;
                 return null;
@@ -279,7 +279,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ApkInfo apkInfo = (ApkInfo) this.c.get(str);
+            ApkInfo apkInfo = this.c.get(str);
             if (apkInfo != null) {
                 this.c.remove(str);
                 this.d.remove(apkInfo.packageName);
@@ -301,7 +301,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ApkInfo apkInfo = (ApkInfo) this.d.get(str);
+            ApkInfo apkInfo = this.d.get(str);
             if (apkInfo != null) {
                 this.c.remove(apkInfo.pkgPath);
                 this.d.remove(str);
@@ -384,7 +384,7 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final String a(Context context, Collection collection) {
+    public final String a(Context context, Collection<String> collection) {
         InterceptResult invokeLL;
         PackageManager packageManager;
         ApplicationInfo applicationInfo;
@@ -933,13 +933,13 @@ public class k {
                 if (lVar.d == null) {
                     return;
                 }
-                ApkInfo apkInfo = (ApkInfo) this.d.get(lVar.a);
+                ApkInfo apkInfo = this.d.get(lVar.a);
                 if (apkInfo != null) {
                     if (apkInfo.intentFilters == null) {
                         apkInfo.intentFilters = new ArrayList();
                     }
                     for (int i3 = 0; i3 < apkInfo.intentFilters.size(); i3++) {
-                        if (lVar.a((l) apkInfo.intentFilters.get(i3))) {
+                        if (lVar.a(apkInfo.intentFilters.get(i3))) {
                             return;
                         }
                     }
@@ -1087,9 +1087,9 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
             String str4 = i2 + str;
-            Map map = U.sRealtimeMd5Map;
+            Map<String, String> map = U.sRealtimeMd5Map;
             if (map != null) {
-                String str5 = (String) map.get(str4);
+                String str5 = map.get(str4);
                 if (!TextUtils.isEmpty(str5)) {
                     str2 = str5;
                 }
@@ -1117,7 +1117,7 @@ public class k {
                 hashMap.put("1", Integer.valueOf(i2));
                 hashMap.put("2", str);
                 hashMap.put("3", Base64.encodeToString(((String) pair.second).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
-                com.baidu.sofire.k.a.a(g.getApplicationContext(), "1003117", (Map) hashMap, false);
+                com.baidu.sofire.k.a.a(g.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
                 return false;
             }
             return true;
@@ -1172,7 +1172,7 @@ public class k {
             this.a = apkInfo.versionName;
             synchronized (this) {
                 if (!TextUtils.isEmpty(apkInfo.pkgPath)) {
-                    ApkInfo apkInfo2 = (ApkInfo) this.c.get(apkInfo.pkgPath);
+                    ApkInfo apkInfo2 = this.c.get(apkInfo.pkgPath);
                     if (apkInfo2 != null) {
                         if (apkInfo2.versionName.equals(apkInfo.versionName)) {
                             return true;
@@ -1184,7 +1184,7 @@ public class k {
                         hashMap.put("0", 1);
                         hashMap.put("1", Integer.valueOf(apkInfo.key));
                         hashMap.put("2", apkInfo.versionName);
-                        com.baidu.sofire.k.a.a(g.getApplicationContext(), "1003117", (Map) hashMap, false);
+                        com.baidu.sofire.k.a.a(g.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
                         return false;
                     }
                     apkInfo.hostContext = g;
@@ -1369,23 +1369,23 @@ public class k {
                 if (lVar.d == null) {
                     return;
                 }
-                ApkInfo apkInfo = (ApkInfo) this.d.get(lVar.a);
+                ApkInfo apkInfo = this.d.get(lVar.a);
                 if (apkInfo != null && apkInfo.intentFilters != null) {
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < apkInfo.intentFilters.size(); i3++) {
-                        if (lVar.a((l) apkInfo.intentFilters.get(i3))) {
+                        if (lVar.a(apkInfo.intentFilters.get(i3))) {
                             arrayList.add(Integer.valueOf(i3));
                         }
                     }
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         int intValue = ((Integer) it.next()).intValue();
-                        List list = apkInfo.intentFilters;
+                        List<l> list = apkInfo.intentFilters;
                         if (list != null) {
                             list.remove(intValue);
                         }
                     }
-                    List list2 = apkInfo.intentFilters;
+                    List<l> list2 = apkInfo.intentFilters;
                     if (list2 != null && list2.size() == 0) {
                         apkInfo.intentFilters = null;
                     }
@@ -1395,7 +1395,7 @@ public class k {
                     return;
                 }
                 for (ApkInfo apkInfo2 : a()) {
-                    List list3 = apkInfo2.intentFilters;
+                    List<l> list3 = apkInfo2.intentFilters;
                     if (list3 != null && list3.size() > 0) {
                         for (l lVar2 : apkInfo2.intentFilters) {
                             String a2 = a(lVar2.d);
@@ -1406,7 +1406,7 @@ public class k {
                         continue;
                     }
                 }
-                g.unregisterReceiver((MyReceiver) this.e.get(a));
+                g.unregisterReceiver(this.e.get(a));
                 this.e.remove(a);
             }
         }
@@ -1417,14 +1417,14 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             try {
-                ApkInfo apkInfo = (ApkInfo) this.d.get(str);
+                ApkInfo apkInfo = this.d.get(str);
                 if (apkInfo == null) {
                     return false;
                 }
-                Class a = ((j) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                Class<?> a = ((j) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                 Object invoke = a.getDeclaredMethod("getInstance", Context.class).invoke(a, g);
                 if (invoke != null) {
-                    com.baidu.sofire.k.a.a(invoke, "unload", (Class[]) null, new Object[0]);
+                    com.baidu.sofire.k.a.a(invoke, "unload", (Class<?>[]) null, new Object[0]);
                 }
                 this.c.remove(apkInfo.pkgPath);
                 this.d.remove(str);

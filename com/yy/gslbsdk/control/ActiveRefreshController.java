@@ -80,15 +80,15 @@ public class ActiveRefreshController {
         }
         NetStatusInfo cachedNetStatusInfo = DataCacheMgr.INSTANCE.getCachedNetStatusInfo();
         ArrayList arrayList = new ArrayList();
-        List listRefresh = resInfo.getListRefresh();
+        List<Map<String, String>> listRefresh = resInfo.getListRefresh();
         if (listRefresh != null && !listRefresh.isEmpty()) {
             for (int i = 0; i < listRefresh.size(); i++) {
                 try {
-                    Map map = (Map) listRefresh.get(i);
+                    Map<String, String> map = listRefresh.get(i);
                     if (map != null && !map.isEmpty()) {
-                        String str = (String) map.get(u.A);
+                        String str = map.get(u.A);
                         if (!TextUtils.isEmpty(str)) {
-                            String str2 = (String) map.get("ut");
+                            String str2 = map.get("ut");
                             if (!TextUtils.isEmpty(str2) && TextUtils.isDigitsOnly(str2)) {
                                 long longValue = Long.valueOf(str2).longValue() * 1000;
                                 if (longValue >= 1) {

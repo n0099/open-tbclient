@@ -18,9 +18,10 @@ public final class StringsKt___StringsKt$windowedSequence$2 extends Lambda imple
         this.$transform = function1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke(((Number) obj).intValue());
+    public /* bridge */ /* synthetic */ Object invoke(Integer num) {
+        return invoke(num.intValue());
     }
 
     /* JADX WARN: Type inference failed for: r4v2, types: [R, java.lang.Object] */

@@ -10,7 +10,7 @@ import android.os.RemoteException;
 public interface IPatchInstallObserver extends IInterface {
 
     /* loaded from: classes6.dex */
-    public class Default implements IPatchInstallObserver {
+    public static class Default implements IPatchInstallObserver {
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return null;
@@ -24,7 +24,7 @@ public interface IPatchInstallObserver extends IInterface {
     void onPatchInstalled(int i, Bundle bundle) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IPatchInstallObserver {
+    public static abstract class Stub extends Binder implements IPatchInstallObserver {
         public static final String DESCRIPTOR = "com.baidu.titan.sdk.pm.IPatchInstallObserver";
         public static final int TRANSACTION_onPatchInstalled = 1;
 
@@ -34,7 +34,7 @@ public interface IPatchInstallObserver extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IPatchInstallObserver {
+        public static class Proxy implements IPatchInstallObserver {
             public static IPatchInstallObserver sDefaultImpl;
             public IBinder mRemote;
 

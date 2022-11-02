@@ -3,56 +3,41 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdFactory;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdLoadListener;
-import com.fun.ad.sdk.FunAdLoader;
 import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public final class jr9 implements FunAdFactory {
+public class jr9 extends dr9<KsInterstitialAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map a;
-    public final Object b;
-    public final LinkedList c;
-    public int d;
-    public kl9 e;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public class a implements KsLoadManager.InterstitialAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Context a;
-        public final FunAdSlot b;
-        public final FunAdLoadListener c;
+        public final /* synthetic */ jr9 a;
 
-        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        public a(jr9 jr9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, funAdSlot, funAdLoadListener};
+                Object[] objArr = {jr9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,245 +47,117 @@ public final class jr9 implements FunAdFactory {
                     return;
                 }
             }
-            this.a = context;
-            this.b = funAdSlot;
-            this.c = funAdLoadListener;
+            this.a = jr9Var;
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onInterstitialAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                this.a.onAdLoaded((jr9) list.get(0));
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onRequestResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893048, "Lcom/baidu/tieba/jr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947893048, "Lcom/baidu/tieba/jr9;");
-                return;
-            }
-        }
-        f = !jr9.class.desiredAssertionStatus();
-    }
-
-    public jr9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jr9(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new Object();
-        this.c = new LinkedList();
-        this.d = 0;
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void destroyAd(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this.b) {
-                this.c.clear();
-            }
-            synchronized (this.a) {
-                zl9 b = ql9.b(str);
-                if (b == null) {
-                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
-                    return;
-                }
-                LinkedHashMap linkedHashMap = (LinkedHashMap) this.a.get(str);
-                if (linkedHashMap == null) {
-                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
-                    return;
-                }
-                HashSet hashSet = new HashSet();
-                for (Map.Entry entry : linkedHashMap.entrySet()) {
-                    zl9 zl9Var = (zl9) entry.getKey();
-                    ((FunAdLoader) entry.getValue()).destroy();
-                    if (!b.equals(zl9Var)) {
-                        LogPrinter.d("Remove redundant loader for sid:%s", str);
-                        hashSet.add(zl9Var);
-                    }
-                }
-                Iterator it = hashSet.iterator();
-                while (it.hasNext()) {
-                    linkedHashMap.remove((zl9) it.next());
-                }
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public List getCacheStatistics(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 != null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                for (FunAdLoader funAdLoader : a2) {
-                    List cacheStatistics = funAdLoader.getCacheStatistics(str);
-                    if (!cacheStatistics.isEmpty()) {
-                        return cacheStatistics;
-                    }
-                }
-            }
-            return new ArrayList();
-        }
-        return (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ar9(pid) : (AdRipper) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public FunNativeAd2 getNativeAd2(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                return null;
-            }
-            for (FunAdLoader funAdLoader : a2) {
-                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
-                if (nativeAd2 != null) {
-                    return nativeAd2;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
         }
-        return (FunNativeAd2) invokeLL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public boolean isAdReady(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsAdSDK.getLoadManager().loadInterstitialAd(new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build(), new a(this));
+            onLoadStart(funAdSlot);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                return false;
-            }
-            for (FunAdLoader funAdLoader : a2) {
-                if (funAdLoader.isReady()) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((KsInterstitialAd) obj).getECPM() / 100.0d;
         }
-        return invokeL.booleanValue;
+        return invokeL.doubleValue;
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-        int i;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.b) {
-                i = this.d;
-            }
-            if (i == -1) {
-                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
-                funAdLoadListener.onError(funAdSlot.getSid());
-            } else if (i == 0) {
-                synchronized (this.b) {
-                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
-                }
-            } else if (i != 1) {
-                throw new RuntimeException("Unknown st:" + i);
-            } else {
-                List a2 = a(funAdSlot.getSid());
-                if (a2 == null) {
-                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
-                    funAdLoadListener.onError(funAdSlot.getSid());
-                    return;
-                }
-                Iterator it = a2.iterator();
-                FunAdLoader funAdLoader = (FunAdLoader) it.next();
-                while (it.hasNext()) {
-                    ((FunAdLoader) it.next()).recycleListener();
-                }
-                funAdLoader.load(context, funAdSlot, funAdLoadListener);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            if (z) {
+                ksInterstitialAd.setBidEcpm((int) (d2 * 100.0d));
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, funAdInteractionListener) == null) {
-            List a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                funAdInteractionListener.onAdError(str);
-                return;
-            }
-            Iterator it = a2.iterator();
-            while (it.hasNext()) {
-                FunAdLoader funAdLoader = (FunAdLoader) it.next();
-                if (!it.hasNext()) {
-                    funAdLoader.show(activity, viewGroup, str, funAdInteractionListener);
-                    return;
-                } else if (funAdLoader.isReady()) {
-                    funAdLoader.show(activity, viewGroup, str, funAdInteractionListener);
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdFactory
-    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
-            List<FunAdLoader> a2 = a(str);
-            if (a2 == null) {
-                LogPrinter.d("No Loader found for sid:%s", str);
-                funAdInteractionListener.onAdError(str);
-                return null;
-            }
-            for (FunAdLoader funAdLoader : a2) {
-                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
-                if (showSplash != null) {
-                    return showSplash;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            onShowStart(ksInterstitialAd);
+            ksInterstitialAd.setAdInteractionListener(new kr9(this, ksInterstitialAd));
+            ksInterstitialAd.showInterstitialAd(activity, e());
+            return true;
         }
-        return (FunSplashAd) invokeLLLL.objValue;
-    }
-
-    public final List a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                zl9 b = ql9.b(str);
-                if (b == null) {
-                    return null;
-                }
-                LinkedHashMap linkedHashMap = (LinkedHashMap) this.a.get(str);
-                if (linkedHashMap == null) {
-                    linkedHashMap = new LinkedHashMap();
-                    this.a.put(str, linkedHashMap);
-                }
-                if (((FunAdLoader) linkedHashMap.get(b)) == null) {
-                    linkedHashMap.put(b, b.a.a(this.e));
-                }
-                ArrayList arrayList = new ArrayList(linkedHashMap.values());
-                Collections.reverse(arrayList);
-                return arrayList;
-            }
-        }
-        return (List) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

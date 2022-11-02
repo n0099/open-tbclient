@@ -1,8 +1,9 @@
 package com.baidu.tieba.hottopic.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d77;
+import com.baidu.tieba.n87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +14,14 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d77 hotThreadItemListData;
+    public n87 hotThreadItemListData;
     public Page page;
-    public List thread_list;
+    public List<ThreadInfo> thread_list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicRelateThreadMessage() {
@@ -39,13 +41,13 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         }
     }
 
-    public d77 getHotThreadItemListData() {
+    public n87 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (d77) invokeV.objValue;
+        return (n87) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -57,7 +59,7 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         return (Page) invokeV.objValue;
     }
 
-    public List getThreadList() {
+    public List<ThreadInfo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -67,6 +69,7 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -81,9 +84,9 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                d77 d77Var = new d77();
-                this.hotThreadItemListData = d77Var;
-                d77Var.n(getTopicRelateThreadResIdl.data);
+                n87 n87Var = new n87();
+                this.hotThreadItemListData = n87Var;
+                n87Var.n(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }

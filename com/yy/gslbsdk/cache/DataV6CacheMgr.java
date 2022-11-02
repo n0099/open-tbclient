@@ -26,8 +26,8 @@ public final class DataV6CacheMgr {
     public static final DataV6CacheMgr INSTANCE;
     public static final String TAG = "DataV6CacheMgr";
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap mHttpDNSCache;
-    public ConcurrentHashMap mLocalDNSCache;
+    public ConcurrentHashMap<String, ResultTB> mHttpDNSCache;
+    public ConcurrentHashMap<String, DnsInfo> mLocalDNSCache;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public final class DataV6CacheMgr {
         return (DataV6CacheMgr[]) invokeV.objValue;
     }
 
-    public ConcurrentHashMap getAllLocalDNSFromCache() {
+    public ConcurrentHashMap<String, DnsInfo> getAllLocalDNSFromCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -83,8 +83,8 @@ public final class DataV6CacheMgr {
                 return;
             }
         }
-        this.mLocalDNSCache = new ConcurrentHashMap();
-        this.mHttpDNSCache = new ConcurrentHashMap();
+        this.mLocalDNSCache = new ConcurrentHashMap<>();
+        this.mHttpDNSCache = new ConcurrentHashMap<>();
     }
 
     public static DataV6CacheMgr valueOf(String str) {
@@ -134,13 +134,13 @@ public final class DataV6CacheMgr {
 
     public int getHttpDNSFromCache(Context context, String str, String str2, DnsInfo dnsInfo) {
         InterceptResult invokeLLLL;
-        List resultV6ByNetworkHost;
+        List<ResultTB> resultV6ByNetworkHost;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 ResultTB httpDNSFromMemCache = getHttpDNSFromMemCache(str, str2);
                 if (httpDNSFromMemCache == null && (resultV6ByNetworkHost = DBAccessMgr.getInstance(context).getResultV6ByNetworkHost(str, str2)) != null && !resultV6ByNetworkHost.isEmpty()) {
-                    httpDNSFromMemCache = (ResultTB) resultV6ByNetworkHost.get(0);
+                    httpDNSFromMemCache = resultV6ByNetworkHost.get(0);
                 }
                 if (httpDNSFromMemCache != null) {
                     dnsInfo.setHost(httpDNSFromMemCache.getHost());
@@ -165,7 +165,7 @@ public final class DataV6CacheMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             try {
-                ResultTB resultTB = (ResultTB) this.mHttpDNSCache.get(str2);
+                ResultTB resultTB = this.mHttpDNSCache.get(str2);
                 if (resultTB != null) {
                     if (str.equals(resultTB.getNetwork())) {
                         return resultTB;
@@ -187,7 +187,7 @@ public final class DataV6CacheMgr {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, dnsInfo)) == null) {
             if (dnsInfo != null) {
                 if (this.mLocalDNSCache.containsKey(str)) {
-                    DnsInfo dnsInfo2 = (DnsInfo) this.mLocalDNSCache.get(str);
+                    DnsInfo dnsInfo2 = this.mLocalDNSCache.get(str);
                     if (dnsInfo2.getEndTime() > System.currentTimeMillis()) {
                         dnsInfo.cloneDnsInfo(dnsInfo2);
                         return 0;

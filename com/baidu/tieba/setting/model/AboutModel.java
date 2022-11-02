@@ -13,16 +13,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.hj;
-import com.baidu.tieba.i25;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.i35;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.mi;
+import com.baidu.tieba.q35;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.ui;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.y25;
+import com.baidu.tieba.setting.more.AboutActivity;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes5.dex */
-public class AboutModel extends BdBaseModel {
+public class AboutModel extends BdBaseModel<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -38,7 +39,7 @@ public class AboutModel extends BdBaseModel {
     public final boolean c;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -54,7 +55,7 @@ public class AboutModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<String, Integer, q35> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -86,22 +87,22 @@ public class AboutModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public y25 doInBackground(String... strArr) {
+        public q35 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                y25 y25Var = null;
+                q35 q35Var = null;
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
                     this.a = netWork;
-                    netWork.addPostData("_os_version", hj.k());
+                    netWork.addPostData("_os_version", zi.k());
                     StringBuffer stringBuffer = new StringBuffer(15);
-                    stringBuffer.append(String.valueOf(fj.k(TbadkCoreApplication.getInst().getApp())));
+                    stringBuffer.append(String.valueOf(xi.l(TbadkCoreApplication.getInst().getApp())));
                     stringBuffer.append(",");
-                    stringBuffer.append(String.valueOf(fj.i(TbadkCoreApplication.getInst().getApp())));
+                    stringBuffer.append(String.valueOf(xi.j(TbadkCoreApplication.getInst().getApp())));
                     this.a.addPostData("_phone_screen", stringBuffer.toString());
-                    if (q25.d().f() > 0) {
+                    if (i35.d().f() > 0) {
                         this.a.addPostData("_msg_status", "0");
                     } else {
                         this.a.addPostData("_msg_status", "1");
@@ -117,7 +118,7 @@ public class AboutModel extends BdBaseModel {
                     this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                     this.a.addPostData(PackageTable.MD5, UtilHelper.getTiebaApkMd5());
                     NetWork netWork3 = this.a;
-                    boolean a = ui.a();
+                    boolean a = mi.a();
                     String str2 = WebKitFactory.OS_64;
                     if (!a) {
                         str = "32";
@@ -126,7 +127,7 @@ public class AboutModel extends BdBaseModel {
                     }
                     netWork3.addPostData("running_abi", str);
                     NetWork netWork4 = this.a;
-                    if (!ui.b()) {
+                    if (!mi.b()) {
                         str2 = "32";
                     }
                     netWork4.addPostData("support_abi", str2);
@@ -134,48 +135,48 @@ public class AboutModel extends BdBaseModel {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    y25 y25Var2 = new y25();
+                    q35 q35Var2 = new q35();
                     try {
-                        y25Var2.B(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && y25Var2.i().a() != null && y25Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b.b, y25Var2.i().a());
-                            TbadkCoreApplication.setClientId(y25Var2.i().a());
+                        q35Var2.B(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && q35Var2.i().a() != null && q35Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b.b, q35Var2.i().a());
+                            TbadkCoreApplication.setClientId(q35Var2.i().a());
                         }
-                        i25 v = y25Var2.v();
+                        a35 v = q35Var2.v();
                         if (v != null) {
-                            ux4.k().u("localvideo_open", v.y());
+                            ky4.k().u("localvideo_open", v.y());
                         }
-                        q05 e = y25Var2.e();
+                        g15 e = q35Var2.e();
                         if (e != null && !TextUtils.isEmpty(e.c())) {
-                            ux4.k().y("sync_ad_privacy_url", e.c());
+                            ky4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        return y25Var2;
+                        return q35Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        y25Var = y25Var2;
+                        q35Var = q35Var2;
                         BdLog.e(e.getMessage());
-                        return y25Var;
+                        return q35Var;
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
             } else {
-                return (y25) invokeL.objValue;
+                return (q35) invokeL.objValue;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(y25 y25Var) {
+        public void onPostExecute(q35 q35Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y25Var) == null) {
-                super.onPostExecute(y25Var);
-                if (y25Var != null && y25Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(y25Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q35Var) == null) {
+                super.onPostExecute(q35Var);
+                if (q35Var != null && q35Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(q35Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(y25Var);
+                this.b.mLoadDataCallBack.c(q35Var);
             }
         }
 

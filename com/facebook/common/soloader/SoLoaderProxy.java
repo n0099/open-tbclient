@@ -19,7 +19,7 @@ public class SoLoaderProxy {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultLoader implements Loader {
+    public static class DefaultLoader implements Loader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

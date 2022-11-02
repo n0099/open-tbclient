@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.jp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ao5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
+    public Context a;
+    public jp4 b;
+    public b c;
+    public MarkData d;
+    public final jp4.a e;
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z);
     }
 
     /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
+    public class a implements jp4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ao5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ao5 ao5Var, int i) {
-            super(i);
+        public a(ao5 ao5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ao5Var, Integer.valueOf(i)};
+                Object[] objArr = {ao5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,22 +52,39 @@ public class ao5 {
             this.a = ao5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        @Override // com.baidu.tieba.jp4.a
+        public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                this.a.b(((Integer) customResponsedMessage.getData()).intValue(), false);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        xi.P(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d2));
+                    } else {
+                        xi.P(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f101f));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        wo8 wo8Var = new wo8();
+                        wo8Var.a = this.a.d.getThreadId();
+                        wo8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, wo8Var));
+                        return;
+                    }
+                    return;
+                }
+                xi.P(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f151d));
             }
         }
     }
 
-    public ao5(BaseFragmentActivity baseFragmentActivity) {
+    public ao5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,68 +94,74 @@ public class ao5 {
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        c();
-    }
-
-    public void d(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
-            b46.a().b(configuration);
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = jp4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = jp4.c((BaseFragmentActivity) context);
+        }
+        jp4 jp4Var = this.b;
+        if (jp4Var != null) {
+            jp4Var.j(this.e);
         }
     }
 
-    public final void b(int i, boolean z) {
+    public void g(boolean z) {
+        jp4 jp4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a).createNormalCfg(i);
-            if (TbSingleton.getInstance().getFirstOpenScheme() != null) {
-                createNormalCfg.getIntent().setData(TbSingleton.getInstance().getFirstOpenScheme());
-                TbSingleton.getInstance().setFirstOpenScheme(null);
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (jp4Var = this.b) != null) {
+            jp4Var.h(z);
+        }
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            jp4 jp4Var = this.b;
+            if (jp4Var != null) {
+                jp4Var.i(markData);
             }
-            this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-            this.a.finish();
-            SpeedStatsManager.getInstance().addStatsTimeStamp(3006);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 4));
         }
     }
 
-    public final void c() {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.registerListener(new a(this, 2921639));
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void d() {
+        jp4 jp4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (jp4Var = this.b) != null) {
+            jp4Var.a();
+            this.b.h(true);
         }
     }
 
     public void e() {
+        jp4 jp4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b46.a().c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jp4Var = this.b) != null && jp4Var.e()) {
+            this.b.d();
+            this.b.h(false);
         }
     }
 
-    public void f() {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b46.a().d();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b46.a().e(this.a);
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (!yj8.a(this.a.getIntent()) && !yj8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
-                this.a.finish();
-            } else {
-                h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            jp4 jp4Var = this.b;
+            if (jp4Var != null) {
+                return jp4Var.e();
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

@@ -1,105 +1,165 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Pair;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.yo2;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface xo2 extends yo2.b {
-    up1 A(String str);
+public final class xo2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, Object> a;
 
-    View B(String str);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    String C();
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xo2 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    m33 D();
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-282711920, "Lcom/baidu/tieba/xo2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-282711920, "Lcom/baidu/tieba/xo2$b;");
+                    return;
+                }
+            }
+            a = new xo2(null);
+        }
+    }
 
-    void E(jo2 jo2Var, gm2 gm2Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307022, "Lcom/baidu/tieba/xo2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948307022, "Lcom/baidu/tieba/xo2;");
+                return;
+            }
+        }
+        b = ok1.a;
+    }
 
-    al1 F();
+    public xo2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LruCache<>(10);
+    }
 
-    pb3 G();
+    public static xo2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (xo2) invokeV.objValue;
+    }
 
-    u22 H();
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
+            }
+        }
+    }
 
-    void I();
+    public /* synthetic */ xo2(a aVar) {
+        this();
+    }
 
-    SwanAppPropertyWindow J(Activity activity);
+    public synchronized <RESULT> RESULT b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
+            }
+        }
+        return (RESULT) invokeL.objValue;
+    }
 
-    void K(String str);
+    public synchronized <RESULT> void d(String str, RESULT result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
+            }
+        }
+    }
 
-    dl1 L();
-
-    SwanCoreVersion M();
-
-    boolean N();
-
-    void O();
-
-    dl1 P();
-
-    void a();
-
-    String b();
-
-    void c();
-
-    void d(jo2 jo2Var, gm2 gm2Var);
-
-    b43 e(String str, SwanAppConfigData swanAppConfigData, String str2);
-
-    void exit();
-
-    b43 f(String str);
-
-    String g();
-
-    SwanAppActivity getActivity();
-
-    tp1 i();
-
-    b43 j(String str);
-
-    boolean k();
-
-    void l(SwanAppActivity swanAppActivity);
-
-    void m(String str, md2 md2Var);
-
-    FullScreenFloatView n(Activity activity);
-
-    void o();
-
-    void p();
-
-    rp1 q();
-
-    Pair r();
-
-    void registerReceiver(Context context);
-
-    SwanAppConfigData s();
-
-    void t(Intent intent);
-
-    void u(md2 md2Var);
-
-    void unregisterReceiver(Context context);
-
-    void v();
-
-    void w();
-
-    Pair x();
-
-    void y(pd2 pd2Var, boolean z);
-
-    String z();
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
+            }
+        }
+    }
 }

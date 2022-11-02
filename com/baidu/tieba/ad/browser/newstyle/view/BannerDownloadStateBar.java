@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +46,7 @@ public class BannerDownloadStateBar extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BannerDownloadStateBar(Context context, AttributeSet attributeSet) {
+    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +67,7 @@ public class BannerDownloadStateBar extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerDownloadStateBar(Context context, AttributeSet attributeSet, int i) {
+    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,8 +95,8 @@ public class BannerDownloadStateBar extends LinearLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09028d);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090290);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029c);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09029f);
             setState(0);
         }
     }

@@ -40,7 +40,7 @@ public abstract class StreamReader {
 
     /* renamed from: com.google.android.exoplayer2.extractor.ogg.StreamReader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -50,7 +50,7 @@ public abstract class StreamReader {
     public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j, SetupData setupData) throws IOException, InterruptedException;
 
     /* loaded from: classes7.dex */
-    public class SetupData {
+    public static class SetupData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Format format;
@@ -72,7 +72,7 @@ public abstract class StreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class UnseekableOggSeeker implements OggSeeker {
+    public static final class UnseekableOggSeeker implements OggSeeker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,7 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface py2 {
-    void a(String str);
 
-    void b(int i, String str);
+import android.view.View;
+/* loaded from: classes5.dex */
+public interface py2 extends qx2 {
+    void a(long j);
+
+    void c(long j);
+
+    void d(long j);
+
+    void e(long j);
+
+    void f(View view2);
 }

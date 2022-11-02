@@ -1,7 +1,11 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Matrix;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class ViewUtilsApi21 extends ViewUtilsApi19 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +53,8 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void setAnimationMatrix(View view2, Matrix matrix) {
+    @SuppressLint({"NewApi"})
+    public void setAnimationMatrix(@NonNull View view2, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, matrix) == null) && sTryHiddenSetAnimationMatrix) {
             try {
@@ -60,7 +66,8 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void transformMatrixToGlobal(View view2, Matrix matrix) {
+    @SuppressLint({"NewApi"})
+    public void transformMatrixToGlobal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, matrix) == null) && sTryHiddenTransformMatrixToGlobal) {
             try {
@@ -72,7 +79,8 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
     }
 
     @Override // androidx.transition.ViewUtilsBase
-    public void transformMatrixToLocal(View view2, Matrix matrix) {
+    @SuppressLint({"NewApi"})
+    public void transformMatrixToLocal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, matrix) == null) && sTryHiddenTransformMatrixToLocal) {
             try {

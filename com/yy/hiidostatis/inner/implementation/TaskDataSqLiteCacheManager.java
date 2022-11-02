@@ -20,7 +20,6 @@ import com.yy.hiidostatis.message.log.TraceLog;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,7 +32,7 @@ public class TaskDataSqLiteCacheManager {
     public static final int MAX_CACHE_SIZE = 100;
     public static final int MAX_RETRY_TIMES;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap actRemain;
+    public ConcurrentHashMap<String, AtomicInteger> actRemain;
     public boolean isFirstSyncFromFile;
     public ReentrantLock lock;
     public String mCacheFileName;
@@ -42,7 +41,7 @@ public class TaskDataSqLiteCacheManager {
     public int mLastFileSize;
     public TaskDataSet memoryCacheDataSet;
     public MessageMonitor monitor;
-    public List sendingData;
+    public List<String> sendingData;
 
     static {
         InterceptResult invokeClinit;
@@ -114,7 +113,7 @@ public class TaskDataSqLiteCacheManager {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i)) == null) {
-            AtomicInteger atomicInteger = (AtomicInteger) this.actRemain.get(str);
+            AtomicInteger atomicInteger = this.actRemain.get(str);
             if (atomicInteger == null) {
                 atomicInteger = new AtomicInteger();
                 this.actRemain.put(str, atomicInteger);
@@ -128,7 +127,7 @@ public class TaskDataSqLiteCacheManager {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, str, i)) == null) {
-            AtomicInteger atomicInteger = (AtomicInteger) this.actRemain.get(str);
+            AtomicInteger atomicInteger = this.actRemain.get(str);
             if (atomicInteger != null) {
                 return atomicInteger.addAndGet(i * (-1));
             }
@@ -151,7 +150,7 @@ public class TaskDataSqLiteCacheManager {
         }
     }
 
-    public void removeSendListBatch(Context context, List list) {
+    public void removeSendListBatch(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, list) == null) {
             this.lock.lock();
@@ -290,7 +289,7 @@ public class TaskDataSqLiteCacheManager {
         return (TaskData) invokeL.objValue;
     }
 
-    public int cacheData(Context context, List list) {
+    public int cacheData(Context context, List<TaskData> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list)) == null) {
@@ -310,14 +309,12 @@ public class TaskDataSqLiteCacheManager {
         return invokeLL.intValue;
     }
 
-    public void restoreSendList(Context context, List list) {
+    public void restoreSendList(Context context, List<String[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, list) == null) {
             this.lock.lock();
             try {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    String[] strArr = (String[]) it.next();
+                for (String[] strArr : list) {
                     this.sendingData.remove(strArr[1]);
                     addRemain(strArr[0], 1);
                 }
@@ -328,7 +325,7 @@ public class TaskDataSqLiteCacheManager {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, NEW_ARRAY, APUT, INVOKE, IGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public List getAndMoveToSendingList(Context context, int i) {
+    public List<TaskData> getAndMoveToSendingList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
@@ -474,7 +471,7 @@ public class TaskDataSqLiteCacheManager {
         return invokeLL.booleanValue;
     }
 
-    public int saveAll(Context context, Collection collection, Map map) {
+    public int saveAll(Context context, Collection<TaskData> collection, Map<String, Integer> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, collection, map)) == null) {
@@ -486,8 +483,8 @@ public class TaskDataSqLiteCacheManager {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                for (Map.Entry entry : map.entrySet()) {
-                    addRemain((String) entry.getKey(), ((Integer) entry.getValue()).intValue());
+                for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                    addRemain(entry.getKey(), entry.getValue().intValue());
                 }
                 this.memoryCacheDataSet.addAll(collection);
                 if (this.memoryCacheDataSet.size() > 100) {

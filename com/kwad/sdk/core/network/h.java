@@ -1,9 +1,17 @@
 package com.kwad.sdk.core.network;
-/* loaded from: classes7.dex */
-public interface h {
-    void onError(g gVar, int i, String str);
 
-    void onStartRequest(g gVar);
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.kwad.sdk.core.network.BaseResultData;
+import com.kwad.sdk.core.network.g;
+/* loaded from: classes8.dex */
+public interface h<R extends g, T extends BaseResultData> {
+    @WorkerThread
+    void onError(@NonNull R r, int i, String str);
 
-    void onSuccess(g gVar, BaseResultData baseResultData);
+    @WorkerThread
+    void onStartRequest(@NonNull R r);
+
+    @WorkerThread
+    void onSuccess(@NonNull R r, @NonNull T t);
 }

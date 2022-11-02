@@ -22,7 +22,7 @@ public class FaceBuyQueryData extends OrmObject implements Serializable {
     public String usermsg;
 
     /* loaded from: classes4.dex */
-    public class BuyResult extends OrmObject implements Serializable {
+    public static class BuyResult extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -34451984893L;
         public transient /* synthetic */ FieldHolder $fh;

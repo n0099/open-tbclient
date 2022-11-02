@@ -2,6 +2,7 @@ package com.bytedance.pangle.service;
 
 import android.app.Service;
 import android.content.ComponentName;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,6 +17,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+@Keep
 /* loaded from: classes7.dex */
 public abstract class PluginService extends Service implements a {
     public static /* synthetic */ Interceptable $ic = null;

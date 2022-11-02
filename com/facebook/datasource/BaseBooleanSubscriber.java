@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class BaseBooleanSubscriber implements DataSubscriber {
+public abstract class BaseBooleanSubscriber implements DataSubscriber<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.facebook.datasource.DataSubscriber
-    public void onCancellation(DataSource dataSource) {
+    public void onCancellation(DataSource<Boolean> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
         }
     }
 
-    public abstract void onFailureImpl(DataSource dataSource);
+    public abstract void onFailureImpl(DataSource<Boolean> dataSource);
 
     public abstract void onNewResultImpl(boolean z);
 
     @Override // com.facebook.datasource.DataSubscriber
-    public void onProgressUpdate(DataSource dataSource) {
+    public void onProgressUpdate(DataSource<Boolean> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dataSource) == null) {
         }
@@ -43,7 +43,7 @@ public abstract class BaseBooleanSubscriber implements DataSubscriber {
     }
 
     @Override // com.facebook.datasource.DataSubscriber
-    public void onFailure(DataSource dataSource) {
+    public void onFailure(DataSource<Boolean> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
             try {
@@ -55,11 +55,11 @@ public abstract class BaseBooleanSubscriber implements DataSubscriber {
     }
 
     @Override // com.facebook.datasource.DataSubscriber
-    public void onNewResult(DataSource dataSource) {
+    public void onNewResult(DataSource<Boolean> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
             try {
-                onNewResultImpl(((Boolean) dataSource.getResult()).booleanValue());
+                onNewResultImpl(dataSource.getResult().booleanValue());
             } finally {
                 dataSource.close();
             }

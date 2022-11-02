@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List closeLives;
+    public List<Long> closeLives;
     public long interval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,7 +69,7 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
         }
     }
 
-    public List getCloseLives() {
+    public List<Long> getCloseLives() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

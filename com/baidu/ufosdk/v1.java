@@ -21,7 +21,7 @@ public class v1 {
     public ThreadPoolExecutor b;
 
     /* loaded from: classes6.dex */
-    public class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -61,7 +61,7 @@ public class v1 {
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final v1 a;
         public transient /* synthetic */ FieldHolder $fh;

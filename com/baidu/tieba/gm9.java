@@ -1,40 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.zl9;
+import com.baidu.tieba.ts9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdLoader;
+import java.util.Comparator;
+/* compiled from: lambda */
 /* loaded from: classes4.dex */
-public class gm9 implements zl9.a {
+public final /* synthetic */ class gm9 implements Comparator {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ gm9 a = new gm9();
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ul9 a;
 
-    public gm9(tq9 tq9Var, ul9 ul9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tq9Var, ul9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ul9Var;
+    private /* synthetic */ gm9() {
     }
 
-    @Override // com.baidu.tieba.zl9.a
-    public FunAdLoader a(kl9 kl9Var) {
-        InterceptResult invokeL;
+    @Override // java.util.Comparator
+    public final int compare(Object obj, Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kl9Var)) == null) ? new lr9(this.a, kl9Var) : (FunAdLoader) invokeL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? ts9.b.h((Double) obj, (Double) obj2) : invokeLL.intValue;
     }
 }

@@ -12,6 +12,11 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.textclassifier.TextClassifier;
 import android.widget.EditText;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TextViewCompat;
@@ -31,7 +36,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     public final AppCompatTextHelper mTextHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(Context context) {
+    public AppCompatEditText(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -52,7 +57,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(Context context, AttributeSet attributeSet) {
+    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f04026d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -73,7 +78,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -119,6 +124,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,6 +140,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -148,6 +157,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.EditText, android.widget.TextView
+    @Nullable
     public Editable getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,6 +171,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
+    @NonNull
+    @RequiresApi(api = 26)
     public TextClassifier getTextClassifier() {
         InterceptResult invokeV;
         AppCompatTextClassifierHelper appCompatTextClassifierHelper;
@@ -197,7 +209,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.setBackgroundResource(i);
@@ -217,7 +229,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -226,7 +239,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -235,7 +249,8 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextClassifier(TextClassifier textClassifier) {
+    @RequiresApi(api = 26)
+    public void setTextClassifier(@Nullable TextClassifier textClassifier) {
         AppCompatTextClassifierHelper appCompatTextClassifierHelper;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, textClassifier) == null) {

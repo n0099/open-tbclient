@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class LruHashMap extends LinkedHashMap {
+public class LruHashMap<K, V> extends LinkedHashMap<K, V> {
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
     public final long maxSize;
 
@@ -17,7 +17,7 @@ public class LruHashMap extends LinkedHashMap {
     }
 
     @Override // java.util.LinkedHashMap
-    public boolean removeEldestEntry(Map.Entry entry) {
+    public boolean removeEldestEntry(Map.Entry<K, V> entry) {
         return ((long) size()) > this.maxSize;
     }
 }

@@ -1,5 +1,6 @@
 package com.faceunity.encoder;
 
+import android.annotation.TargetApi;
 import android.graphics.SurfaceTexture;
 import android.opengl.EGL14;
 import android.opengl.EGLContext;
@@ -14,9 +15,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.np7;
-import com.baidu.tieba.tp7;
-import com.baidu.tieba.xp7;
+import com.baidu.tieba.cr7;
+import com.baidu.tieba.gr7;
+import com.baidu.tieba.wq7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,6 +35,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
+@TargetApi(18)
 /* loaded from: classes7.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -64,7 +66,7 @@ public class TextureMovieEncoder {
     public int mHeight;
     public WindowSurface mInputWindowSurface;
     public MediaMuxerWrapper mMuxer;
-    public tp7 mPostMonitorManager;
+    public cr7 mPostMonitorManager;
     public boolean mReady;
     public Object mReadyFence;
     public int mRecordingStatus;
@@ -84,7 +86,7 @@ public class TextureMovieEncoder {
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -177,7 +179,7 @@ public class TextureMovieEncoder {
     }
 
     /* loaded from: classes7.dex */
-    public class EncoderConfig {
+    public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long firstTimeStampBase;
@@ -225,10 +227,10 @@ public class TextureMovieEncoder {
     }
 
     /* loaded from: classes7.dex */
-    public class VideoEncoderHandler extends Handler {
+    public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference mWeakEncoder;
+        public WeakReference<TextureMovieEncoder> mWeakEncoder;
 
         public VideoEncoderHandler(TextureMovieEncoder textureMovieEncoder) {
             Interceptable interceptable = $ic;
@@ -245,7 +247,7 @@ public class TextureMovieEncoder {
                     return;
                 }
             }
-            this.mWeakEncoder = new WeakReference(textureMovieEncoder);
+            this.mWeakEncoder = new WeakReference<>(textureMovieEncoder);
         }
 
         @Override // android.os.Handler
@@ -254,7 +256,7 @@ public class TextureMovieEncoder {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
                 Object obj = message.obj;
-                TextureMovieEncoder textureMovieEncoder = (TextureMovieEncoder) this.mWeakEncoder.get();
+                TextureMovieEncoder textureMovieEncoder = this.mWeakEncoder.get();
                 if (textureMovieEncoder == null) {
                     Log.w(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
                 } else if (i != 0) {
@@ -383,7 +385,7 @@ public class TextureMovieEncoder {
     }
 
     public TextureMovieEncoder() {
-        xp7 xp7Var;
+        gr7 gr7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -400,14 +402,14 @@ public class TextureMovieEncoder {
         this.mRecordingStatus = 4;
         this.firstTimeStampBase = 0L;
         this.firstNanoTime = 0L;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, xp7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, gr7.class);
         if (runTask != null) {
-            xp7Var = (xp7) runTask.getData();
+            gr7Var = (gr7) runTask.getData();
         } else {
-            xp7Var = null;
+            gr7Var = null;
         }
-        if (xp7Var != null) {
-            this.mPostMonitorManager = xp7Var.get();
+        if (gr7Var != null) {
+            this.mPostMonitorManager = gr7Var.get();
         }
         this.config = null;
         this.prepareEncoderFence = new Object();
@@ -541,9 +543,9 @@ public class TextureMovieEncoder {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                tp7 tp7Var = this.mPostMonitorManager;
-                if (tp7Var != null) {
-                    tp7Var.b(14, np7.a(e));
+                cr7 cr7Var = this.mPostMonitorManager;
+                if (cr7Var != null) {
+                    cr7Var.b(14, wq7.a(e));
                 }
             }
         }
@@ -628,15 +630,15 @@ public class TextureMovieEncoder {
                     this.prepareEncoderFence.notify();
                 }
             } catch (IOException e) {
-                tp7 tp7Var = this.mPostMonitorManager;
-                if (tp7Var != null) {
-                    tp7Var.b(12, np7.a(e));
+                cr7 cr7Var = this.mPostMonitorManager;
+                if (cr7Var != null) {
+                    cr7Var.b(12, wq7.a(e));
                 }
             } catch (IllegalStateException e2) {
                 this.videoEncoderReadyFlag = false;
-                tp7 tp7Var2 = this.mPostMonitorManager;
-                if (tp7Var2 != null) {
-                    tp7Var2.b(13, np7.a(e2));
+                cr7 cr7Var2 = this.mPostMonitorManager;
+                if (cr7Var2 != null) {
+                    cr7Var2.b(13, wq7.a(e2));
                     return;
                 }
                 return;

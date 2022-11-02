@@ -1,9 +1,13 @@
 package com.baidu.searchbox.player.pool;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes2.dex */
-public interface IPool {
-    Object acquire();
+public interface IPool<T> {
+    T acquire();
 
-    Object acquire(String str);
+    @Nullable
+    T acquire(String str);
 
-    void release(Object obj);
+    void release(@NonNull T t);
 }

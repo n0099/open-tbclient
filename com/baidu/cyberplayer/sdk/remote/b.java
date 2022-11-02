@@ -18,18 +18,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface b extends IInterface {
 
     /* loaded from: classes2.dex */
-    public abstract class a extends Binder implements b {
+    public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0093a implements b {
+        public static class C0094a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0093a(IBinder iBinder) {
+            public C0094a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -741,7 +741,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0093a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0094a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -776,7 +776,7 @@ public interface b extends IInterface {
                         return true;
                     case 3:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        a(parcel.readInt() != 0 ? (e) e.CREATOR.createFromParcel(parcel) : null);
+                        a(parcel.readInt() != 0 ? e.CREATOR.createFromParcel(parcel) : null);
                         parcel2.writeNoException();
                         return true;
                     case 4:

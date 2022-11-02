@@ -10,7 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.w36;
+import com.baidu.tieba.f56;
+import com.baidu.tieba.g56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,14 +19,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class ConsumptionRecordsModel extends BdBaseModel {
+public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public ArrayList d;
-    public w36 e;
+    public ArrayList<f56> d;
+    public g56 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -34,7 +35,7 @@ public class ConsumptionRecordsModel extends BdBaseModel {
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList arrayList, w36 w36Var, boolean z);
+        void b(int i, String str, ArrayList<f56> arrayList, g56 g56Var, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -226,18 +227,18 @@ public class ConsumptionRecordsModel extends BdBaseModel {
         }
     }
 
-    public final void H(ArrayList arrayList, w36 w36Var, boolean z) {
+    public final void H(ArrayList<f56> arrayList, g56 g56Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, w36Var, z) == null) {
-            if (w36Var != null) {
-                this.e = w36Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, g56Var, z) == null) {
+            if (g56Var != null) {
+                this.e = g56Var;
             }
             this.f = z;
             if (arrayList == null) {
                 return;
             }
             if (this.d == null) {
-                this.d = new ArrayList();
+                this.d = new ArrayList<>();
             }
             if (this.a == 1) {
                 this.d.clear();

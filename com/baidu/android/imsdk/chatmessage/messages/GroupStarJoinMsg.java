@@ -19,11 +19,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupStarJoinMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int groupnum;
-    public ArrayList memPushoutBuids;
-    public ArrayList memberbuid;
+    public ArrayList<String> memPushoutBuids;
+    public ArrayList<String> memberbuid;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
@@ -45,7 +45,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarJoinMsg.1
+        CREATOR = new Parcelable.Creator<GroupStarJoinMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupStarJoinMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,6 +64,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarJoinMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -75,6 +76,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupStarJoinMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -112,7 +114,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
         return invokeV.intValue;
     }
 
-    public ArrayList getMemberBuid() {
+    public ArrayList<String> getMemberBuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -121,7 +123,7 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList getPushoutBuid() {
+    public ArrayList<String> getPushoutBuid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -149,10 +151,10 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             }
         }
         this.groupnum = parcel.readInt();
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         this.memberbuid = arrayList;
         parcel.readList(arrayList, String.class.getClassLoader());
-        ArrayList arrayList2 = new ArrayList();
+        ArrayList<String> arrayList2 = new ArrayList<>();
         this.memPushoutBuids = arrayList2;
         parcel.readList(arrayList2, String.class.getClassLoader());
     }
@@ -166,12 +168,12 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 JSONObject jSONObject = new JSONObject(getMsgContent());
                 this.groupnum = jSONObject.optInt("group_num");
                 JSONArray jSONArray = jSONObject.getJSONArray("member");
-                this.memberbuid = new ArrayList();
+                this.memberbuid = new ArrayList<>();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     this.memberbuid.add(String.valueOf(jSONArray.getLong(i)));
                 }
                 if (jSONObject.has("del_member")) {
-                    this.memPushoutBuids = new ArrayList();
+                    this.memPushoutBuids = new ArrayList<>();
                     JSONArray jSONArray2 = jSONObject.getJSONArray("del_member");
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                         this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i2)));

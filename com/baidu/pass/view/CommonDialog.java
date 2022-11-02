@@ -25,7 +25,7 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class Builder implements com.baidu.pass.a {
+    public static class Builder implements com.baidu.pass.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
@@ -114,12 +114,12 @@ public class CommonDialog extends Dialog implements com.baidu.pass.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.pass_sdk_base_ui_common_dialog, (ViewGroup) null);
-                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003d1);
+                CommonDialog commonDialog = new CommonDialog(this.a, R.style.obfuscated_res_0x7f1003d2);
                 TextView textView = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_title);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.pass_base_ui_dialog_content);
                 View findViewById = inflate.findViewById(R.id.pass_base_ui_dialog_horizontal_split_line);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091664);
-                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a34);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916a3);
+                TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a78);
                 View findViewById2 = inflate.findViewById(R.id.pass_base_ui_dialog_vertical_split_line);
                 textView.setText(this.c);
                 if (TextUtils.isEmpty(this.b)) {

@@ -66,7 +66,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     public AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     /* loaded from: classes7.dex */
-    public class AVCDecoderConfigurationRecord {
+    public static class AVCDecoderConfigurationRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int avcLevelIndication;
@@ -82,10 +82,10 @@ public final class AvcConfigurationBox extends AbstractBox {
         public int lengthSizeMinusOne;
         public int lengthSizeMinusOnePaddingBits;
         public int numberOfSequenceParameterSetsPaddingBits;
-        public List pictureParameterSets;
+        public List<byte[]> pictureParameterSets;
         public int profileCompatibility;
-        public List sequenceParameterSetExts;
-        public List sequenceParameterSets;
+        public List<byte[]> sequenceParameterSetExts;
+        public List<byte[]> sequenceParameterSets;
 
         public AVCDecoderConfigurationRecord() {
             Interceptable interceptable = $ic;
@@ -286,7 +286,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             return invokeV.longValue;
         }
 
-        public List getPictureParameterSetsAsStrings() {
+        public List<String> getPictureParameterSetsAsStrings() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -299,7 +299,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             return (List) invokeV.objValue;
         }
 
-        public List getSequenceParameterSetExtsAsStrings() {
+        public List<String> getSequenceParameterSetExtsAsStrings() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -312,7 +312,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             return (List) invokeV.objValue;
         }
 
-        public List getSequenceParameterSetsAsStrings() {
+        public List<String> getSequenceParameterSetsAsStrings() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -433,7 +433,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         return (String[]) invokeV.objValue;
     }
 
-    public List getPictureParameterSets() {
+    public List<byte[]> getPictureParameterSets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -463,7 +463,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         return (String[]) invokeV.objValue;
     }
 
-    public List getSequenceParameterSetExts() {
+    public List<byte[]> getSequenceParameterSetExts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -473,7 +473,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         return (List) invokeV.objValue;
     }
 
-    public List getSequenceParameterSets() {
+    public List<byte[]> getSequenceParameterSets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -636,7 +636,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    public void setPictureParameterSets(List list) {
+    public void setPictureParameterSets(List<byte[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, list));
@@ -652,7 +652,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    public void setSequenceParameterSetExts(List list) {
+    public void setSequenceParameterSetExts(List<byte[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_21, this, this, list));
@@ -660,7 +660,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    public void setSequenceParameterSets(List list) {
+    public void setSequenceParameterSets(List<byte[]> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this, list));

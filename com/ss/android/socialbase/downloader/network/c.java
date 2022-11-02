@@ -2,21 +2,22 @@ package com.ss.android.socialbase.downloader.network;
 
 import android.net.Uri;
 import android.os.Handler;
+import java.net.InetAddress;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
-    public final com.ss.android.socialbase.downloader.i.h a;
+    public final com.ss.android.socialbase.downloader.i.h<String, b> a;
     public final Handler b;
     public final Handler c;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void a(String str, List list);
+        void a(String str, List<InetAddress> list);
     }
 
     /* loaded from: classes8.dex */
-    public class b {
-        public List a;
+    public static class b {
+        public List<InetAddress> a;
         public long b;
 
         public b() {
@@ -25,23 +26,23 @@ public class c {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0693c {
+    public static class C0704c {
         public static final c a = new c();
     }
 
     public c() {
-        this.a = new com.ss.android.socialbase.downloader.i.h(4, 16, false);
+        this.a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
         this.b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
         this.c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static c a() {
-        return C0693c.a;
+        return C0704c.a;
     }
 
-    private void a(String str, List list) {
+    private void a(String str, List<InetAddress> list) {
         synchronized (this.a) {
-            b bVar = (b) this.a.get(str);
+            b bVar = this.a.get(str);
             if (bVar == null) {
                 bVar = new b();
                 this.a.put(str, bVar);
@@ -66,7 +67,7 @@ public class c {
         try {
             String host = Uri.parse(str).getHost();
             synchronized (this.a) {
-                bVar = (b) this.a.get(host);
+                bVar = this.a.get(host);
             }
             if (bVar != null) {
                 if (System.currentTimeMillis() - bVar.b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
@@ -80,7 +81,7 @@ public class c {
             Runnable runnable = new Runnable() { // from class: com.ss.android.socialbase.downloader.network.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    List list;
+                    List<InetAddress> list;
                     a aVar2 = aVar;
                     if (aVar2 != null) {
                         String str2 = str;
@@ -95,7 +96,7 @@ public class c {
                 }
             };
             this.c.postDelayed(runnable, j);
-            List list = null;
+            List<InetAddress> list = null;
             if (com.ss.android.socialbase.downloader.g.a.c().a("use_host_dns", 1) == 1 && (u = com.ss.android.socialbase.downloader.downloader.c.u()) != null) {
                 list = u.a(host);
             }

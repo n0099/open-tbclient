@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.lang;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
@@ -86,7 +87,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String collectionToDelimitedString(Collection collection, String str) {
+    public static String collectionToDelimitedString(Collection<?> collection, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, collection, str)) == null) {
@@ -272,7 +273,7 @@ public final class StringUtil implements IStringUtil {
         return (String) invokeL.objValue;
     }
 
-    public static boolean collectionIsEmpty(Collection collection) {
+    public static boolean collectionIsEmpty(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) {
@@ -285,7 +286,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String collectionToCommaDelimitedString(Collection collection) {
+    public static String collectionToCommaDelimitedString(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) {
@@ -295,7 +296,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static Set commaDelimitedListToSet(String str) {
+    public static Set<String> commaDelimitedListToSet(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
@@ -599,7 +600,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String[] toStringArray(Collection collection) {
+    public static String[] toStringArray(Collection<String> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, collection)) == null) {
@@ -794,7 +795,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String collectionToDelimitedString(Collection collection, String str, String str2, String str3) {
+    public static String collectionToDelimitedString(Collection<?> collection, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, collection, str, str2, str3)) == null) {
@@ -802,7 +803,7 @@ public final class StringUtil implements IStringUtil {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            Iterator it = collection.iterator();
+            Iterator<?> it = collection.iterator();
             while (it.hasNext()) {
                 sb.append(str2);
                 sb.append(it.next());
@@ -871,7 +872,7 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String[] toStringArray(Enumeration enumeration) {
+    public static String[] toStringArray(Enumeration<String> enumeration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65610, null, enumeration)) == null) {
@@ -1020,6 +1021,7 @@ public final class StringUtil implements IStringUtil {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static void validateLocalePart(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65623, null, str) == null) {

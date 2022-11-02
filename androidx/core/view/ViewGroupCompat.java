@@ -4,6 +4,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +32,7 @@ public final class ViewGroupCompat {
         }
     }
 
-    public static int getLayoutMode(ViewGroup viewGroup) {
+    public static int getLayoutMode(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) {
@@ -43,7 +44,7 @@ public final class ViewGroupCompat {
         return invokeL.intValue;
     }
 
-    public static int getNestedScrollAxes(ViewGroup viewGroup) {
+    public static int getNestedScrollAxes(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, viewGroup)) == null) {
@@ -58,14 +59,14 @@ public final class ViewGroupCompat {
         return invokeL.intValue;
     }
 
-    public static boolean isTransitionGroup(ViewGroup viewGroup) {
+    public static boolean isTransitionGroup(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return viewGroup.isTransitionGroup();
             }
-            Boolean bool = (Boolean) viewGroup.getTag(R.id.obfuscated_res_0x7f09208d);
+            Boolean bool = (Boolean) viewGroup.getTag(R.id.obfuscated_res_0x7f0920d9);
             if ((bool == null || !bool.booleanValue()) && viewGroup.getBackground() == null && ViewCompat.getTransitionName(viewGroup) == null) {
                 return false;
             }
@@ -84,7 +85,7 @@ public final class ViewGroupCompat {
         return invokeLLL.booleanValue;
     }
 
-    public static void setLayoutMode(ViewGroup viewGroup, int i) {
+    public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(65541, null, viewGroup, i) == null) && Build.VERSION.SDK_INT >= 18) {
             viewGroup.setLayoutMode(i);
@@ -99,13 +100,13 @@ public final class ViewGroupCompat {
         }
     }
 
-    public static void setTransitionGroup(ViewGroup viewGroup, boolean z) {
+    public static void setTransitionGroup(@NonNull ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65543, null, viewGroup, z) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 viewGroup.setTransitionGroup(z);
             } else {
-                viewGroup.setTag(R.id.obfuscated_res_0x7f09208d, Boolean.valueOf(z));
+                viewGroup.setTag(R.id.obfuscated_res_0x7f0920d9, Boolean.valueOf(z));
             }
         }
     }

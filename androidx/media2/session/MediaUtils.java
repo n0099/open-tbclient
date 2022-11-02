@@ -1,5 +1,6 @@
 package androidx.media2.session;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,6 +18,9 @@ import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -44,6 +48,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic = null;
@@ -258,7 +263,8 @@ public class MediaUtils {
         return (MediaItem) invokeL.objValue;
     }
 
-    public static List<MediaBrowserCompat.MediaItem> convertToMediaItemList(List<MediaItem> list) {
+    @Nullable
+    public static List<MediaBrowserCompat.MediaItem> convertToMediaItemList(@Nullable List<MediaItem> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, list)) == null) {
@@ -316,7 +322,7 @@ public class MediaUtils {
         return invokeL.intValue;
     }
 
-    public static boolean doesBundleHaveCustomParcelable(Bundle bundle) {
+    public static boolean doesBundleHaveCustomParcelable(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, bundle)) == null) {
@@ -371,7 +377,8 @@ public class MediaUtils {
         return invokeL.intValue;
     }
 
-    public static <T> List<T> removeNullElements(List<T> list) {
+    @Nullable
+    public static <T> List<T> removeNullElements(@Nullable List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, list)) == null) {
@@ -398,7 +405,8 @@ public class MediaUtils {
         return (MediaController.PlaybackInfo) invokeL.objValue;
     }
 
-    public static MediaItem upcastForPreparceling(MediaItem mediaItem) {
+    @Nullable
+    public static MediaItem upcastForPreparceling(@Nullable MediaItem mediaItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, mediaItem)) == null) {
@@ -410,7 +418,8 @@ public class MediaUtils {
         return (MediaItem) invokeL.objValue;
     }
 
-    public static List<MediaSession.CommandButton> convertToCustomLayout(PlaybackStateCompat playbackStateCompat) {
+    @NonNull
+    public static List<MediaSession.CommandButton> convertToCustomLayout(@Nullable PlaybackStateCompat playbackStateCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, playbackStateCompat)) == null) {
@@ -460,6 +469,7 @@ public class MediaUtils {
         return (MediaMetadataCompat) invokeL.objValue;
     }
 
+    @SuppressLint({"WrongConstant"})
     public static RatingCompat convertToRatingCompat(Rating rating) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -489,7 +499,8 @@ public class MediaUtils {
         return (RatingCompat) invokeL.objValue;
     }
 
-    public static MediaLibraryService.LibraryParams convertToLibraryParams(Context context, Bundle bundle) {
+    @Nullable
+    public static MediaLibraryService.LibraryParams convertToLibraryParams(@NonNull Context context, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, bundle)) == null) {
@@ -532,7 +543,8 @@ public class MediaUtils {
         return (List) invokeLI.objValue;
     }
 
-    public static MediaBrowserCompat.MediaItem convertToMediaItem(MediaItem mediaItem) {
+    @Nullable
+    public static MediaBrowserCompat.MediaItem convertToMediaItem(@Nullable MediaItem mediaItem) {
         InterceptResult invokeL;
         MediaDescriptionCompat build;
         int i;
@@ -636,7 +648,8 @@ public class MediaUtils {
         }
     }
 
-    public static VideoSize upcastForPreparceling(VideoSize videoSize) {
+    @Nullable
+    public static VideoSize upcastForPreparceling(@Nullable VideoSize videoSize) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, videoSize)) == null) {
@@ -815,7 +828,8 @@ public class MediaUtils {
         return (List) invokeL.objValue;
     }
 
-    public static Bundle convertToRootHints(MediaLibraryService.LibraryParams libraryParams) {
+    @Nullable
+    public static Bundle convertToRootHints(@Nullable MediaLibraryService.LibraryParams libraryParams) {
         InterceptResult invokeL;
         Bundle bundle;
         Interceptable interceptable = $ic;
@@ -836,7 +850,8 @@ public class MediaUtils {
         return (Bundle) invokeL.objValue;
     }
 
-    public static SessionCommandGroup convertToSessionCommandGroup(long j, PlaybackStateCompat playbackStateCompat) {
+    @NonNull
+    public static SessionCommandGroup convertToSessionCommandGroup(long j, @Nullable PlaybackStateCompat playbackStateCompat) {
         InterceptResult invokeJL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -867,7 +882,8 @@ public class MediaUtils {
         return (SessionCommandGroup) invokeJL.objValue;
     }
 
-    public static SessionPlayer.TrackInfo upcastForPreparceling(SessionPlayer.TrackInfo trackInfo) {
+    @Nullable
+    public static SessionPlayer.TrackInfo upcastForPreparceling(@Nullable SessionPlayer.TrackInfo trackInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, trackInfo)) == null) {
@@ -879,7 +895,8 @@ public class MediaUtils {
         return (SessionPlayer.TrackInfo) invokeL.objValue;
     }
 
-    public static List<SessionPlayer.TrackInfo> upcastForPreparceling(List<SessionPlayer.TrackInfo> list) {
+    @Nullable
+    public static List<SessionPlayer.TrackInfo> upcastForPreparceling(@Nullable List<SessionPlayer.TrackInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, list)) == null) {

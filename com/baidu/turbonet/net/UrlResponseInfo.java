@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class UrlResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List a;
+    public final List<String> a;
     public final int b;
     public final String c;
     public final boolean d;
@@ -29,13 +29,13 @@ public final class UrlResponseInfo {
     public final HeaderBlock h;
 
     /* loaded from: classes6.dex */
-    public final class HeaderBlock {
+    public static final class HeaderBlock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List a;
-        public Map b;
+        public final List<Map.Entry<String, String>> a;
+        public Map<String, List<String>> b;
 
-        public HeaderBlock(List list) {
+        public HeaderBlock(List<Map.Entry<String, String>> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public final class UrlResponseInfo {
             this.a = list;
         }
 
-        public List a() {
+        public List<Map.Entry<String, String>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -62,16 +62,16 @@ public final class UrlResponseInfo {
             return (List) invokeV.objValue;
         }
 
-        public Map b() {
+        public Map<String, List<String>> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map map = this.b;
+                Map<String, List<String>> map = this.b;
                 if (map != null) {
                     return map;
                 }
                 TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Map.Entry entry : this.a) {
+                for (Map.Entry<String, String> entry : this.a) {
                     ArrayList arrayList = new ArrayList();
                     if (treeMap.containsKey(entry.getKey())) {
                         arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -79,7 +79,7 @@ public final class UrlResponseInfo {
                     arrayList.add(entry.getValue());
                     treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
                 }
-                Map unmodifiableMap = Collections.unmodifiableMap(treeMap);
+                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
                 this.b = unmodifiableMap;
                 return unmodifiableMap;
             }
@@ -87,7 +87,7 @@ public final class UrlResponseInfo {
         }
     }
 
-    public UrlResponseInfo(List list, int i, String str, List list2, boolean z, String str2, String str3) {
+    public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class UrlResponseInfo {
         this.g = new AtomicLong();
     }
 
-    public Map a() {
+    public Map<String, List<String>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -121,7 +121,7 @@ public final class UrlResponseInfo {
         return (Map) invokeV.objValue;
     }
 
-    public List b() {
+    public List<Map.Entry<String, String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -179,13 +179,13 @@ public final class UrlResponseInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List list = this.a;
-            return (String) list.get(list.size() - 1);
+            List<String> list = this.a;
+            return list.get(list.size() - 1);
         }
         return (String) invokeV.objValue;
     }
 
-    public List i() {
+    public List<String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

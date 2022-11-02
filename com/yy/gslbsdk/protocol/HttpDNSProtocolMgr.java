@@ -174,7 +174,7 @@ public class HttpDNSProtocolMgr {
                     resInfo.setStatus(translateErrCode(jSONObject.getInt("s")));
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
                     JSONArray jSONArray = jSONObject.getJSONArray("dns");
                     int i2 = 0;
                     while (i2 < jSONArray.length()) {
@@ -184,7 +184,7 @@ public class HttpDNSProtocolMgr {
                         dnsInfo.setUip(jSONObject.getString("u"));
                         dnsInfo.setHost(jSONObject2.getString("name"));
                         dnsInfo.setTtl(Math.max(jSONObject2.getInt(ResultTB.TTL), GlobalTools.sMinSecondTTL));
-                        LinkedList linkedList = new LinkedList();
+                        LinkedList<String> linkedList = new LinkedList<>();
                         if (!jSONObject2.isNull(str3)) {
                             JSONArray jSONArray2 = jSONObject2.getJSONArray(str3);
                             str2 = str3;

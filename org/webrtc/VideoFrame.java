@@ -20,33 +20,45 @@ public class VideoFrame implements RefCounted {
 
     /* loaded from: classes9.dex */
     public interface Buffer extends RefCounted {
+        @CalledByNative("Buffer")
         Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6);
 
+        @CalledByNative("Buffer")
         int getHeight();
 
+        @CalledByNative("Buffer")
         int getWidth();
 
         @Override // org.webrtc.RefCounted
+        @CalledByNative("Buffer")
         void release();
 
         @Override // org.webrtc.RefCounted
+        @CalledByNative("Buffer")
         void retain();
 
+        @CalledByNative("Buffer")
         I420Buffer toI420();
     }
 
     /* loaded from: classes9.dex */
     public interface I420Buffer extends Buffer {
+        @CalledByNative("I420Buffer")
         ByteBuffer getDataU();
 
+        @CalledByNative("I420Buffer")
         ByteBuffer getDataV();
 
+        @CalledByNative("I420Buffer")
         ByteBuffer getDataY();
 
+        @CalledByNative("I420Buffer")
         int getStrideU();
 
+        @CalledByNative("I420Buffer")
         int getStrideV();
 
+        @CalledByNative("I420Buffer")
         int getStrideY();
     }
 
@@ -60,7 +72,7 @@ public class VideoFrame implements RefCounted {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes9.dex */
-        public final class Type {
+        public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Type OES;
@@ -137,6 +149,7 @@ public class VideoFrame implements RefCounted {
         }
     }
 
+    @CalledByNative
     public VideoFrame(Buffer buffer, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -164,6 +177,7 @@ public class VideoFrame implements RefCounted {
         throw new IllegalArgumentException("buffer not allowed to be null");
     }
 
+    @CalledByNative
     public Buffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,6 +211,7 @@ public class VideoFrame implements RefCounted {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public int getRotation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -206,6 +221,7 @@ public class VideoFrame implements RefCounted {
         return invokeV.intValue;
     }
 
+    @CalledByNative
     public long getTimestampNs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -216,6 +232,7 @@ public class VideoFrame implements RefCounted {
     }
 
     @Override // org.webrtc.RefCounted
+    @CalledByNative
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

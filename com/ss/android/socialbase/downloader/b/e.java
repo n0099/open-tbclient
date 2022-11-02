@@ -15,7 +15,6 @@ import com.ss.android.socialbase.downloader.f.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -30,16 +29,16 @@ public class e extends c.a implements t {
     public volatile boolean f;
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public void a(int i, List list) {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List b() {
+    public List<DownloadInfo> b() {
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List b(String str) {
+    public List<DownloadInfo> b(String str) {
         return null;
     }
 
@@ -48,12 +47,12 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List c(String str) {
+    public List<DownloadInfo> c(String str) {
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List d(String str) {
+    public List<DownloadInfo> d(String str) {
         return null;
     }
 
@@ -96,7 +95,7 @@ public class e extends c.a implements t {
 
     @Override // com.ss.android.socialbase.downloader.b.c
     public void a() {
-        a(new SparseArray(), new SparseArray(), (d) null);
+        a(new SparseArray<>(), new SparseArray<>(), (d) null);
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
@@ -183,10 +182,10 @@ public class e extends c.a implements t {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ss.android.socialbase.downloader.downloader.j
     /* renamed from: k */
-    public ArrayList n(int i) {
-        Map l = l(i);
+    public ArrayList<i> n(int i) {
+        Map<Long, i> l = l(i);
         if (l != null && !l.isEmpty()) {
-            return new ArrayList(l.values());
+            return new ArrayList<>(l.values());
         }
         return null;
     }
@@ -258,13 +257,11 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public void b(int i, List list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
             d(i);
             if (list != null) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    com.ss.android.socialbase.downloader.model.b bVar = (com.ss.android.socialbase.downloader.model.b) it.next();
+                for (com.ss.android.socialbase.downloader.model.b bVar : list) {
                     if (bVar != null) {
                         a(bVar);
                         if (bVar.f()) {
@@ -392,14 +389,12 @@ public class e extends c.a implements t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list) {
+    public void a(List<DownloadInfo> list) {
         if (list == null) {
             return;
         }
         try {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                DownloadInfo downloadInfo = (DownloadInfo) it.next();
+            for (DownloadInfo downloadInfo : list) {
                 if (downloadInfo != null && downloadInfo.isSavePathRedirected()) {
                     com.ss.android.socialbase.downloader.i.f.b(downloadInfo);
                 }
@@ -447,7 +442,7 @@ public class e extends c.a implements t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List list, List list2, SparseArray sparseArray, SparseArray sparseArray2, SparseArray sparseArray3) {
+    public void a(List<DownloadInfo> list, List<Integer> list2, SparseArray<DownloadInfo> sparseArray, SparseArray<DownloadInfo> sparseArray2, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray3) {
         int size = sparseArray.size();
         if (size >= 0 && b != null) {
             synchronized (b) {
@@ -470,7 +465,7 @@ public class e extends c.a implements t {
                     }
                     for (int i2 = 0; i2 < size; i2++) {
                         int keyAt = sparseArray.keyAt(i2);
-                        DownloadInfo downloadInfo = (DownloadInfo) sparseArray.get(keyAt);
+                        DownloadInfo downloadInfo = sparseArray.get(keyAt);
                         b.delete("downloader", "_id = ?", new String[]{String.valueOf(keyAt)});
                         b.insert("downloader", null, downloadInfo.toContentValues());
                         if (downloadInfo.getChunkCount() > 1) {
@@ -487,8 +482,8 @@ public class e extends c.a implements t {
                     if (sparseArray2 != null && sparseArray3 != null) {
                         int size2 = sparseArray2.size();
                         for (int i3 = 0; i3 < size2; i3++) {
-                            int id = ((DownloadInfo) sparseArray2.valueAt(i3)).getId();
-                            List a = com.ss.android.socialbase.downloader.i.f.a(c(id));
+                            int id = sparseArray2.valueAt(i3).getId();
+                            List<com.ss.android.socialbase.downloader.model.b> a = com.ss.android.socialbase.downloader.i.f.a(c(id));
                             if (a != null && a.size() > 0) {
                                 sparseArray3.put(id, a);
                             }
@@ -560,7 +555,7 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List a(String str) {
+    public List<DownloadInfo> a(String str) {
         h();
         ArrayList arrayList = new ArrayList();
         if (b != null) {
@@ -618,7 +613,7 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.b.c
-    public List c(int i) {
+    public List<com.ss.android.socialbase.downloader.model.b> c(int i) {
         ArrayList arrayList = new ArrayList();
         h();
         if (b != null) {
@@ -693,7 +688,7 @@ public class e extends c.a implements t {
         }
     }
 
-    public void a(SparseArray sparseArray, SparseArray sparseArray2) {
+    public void a(SparseArray<DownloadInfo> sparseArray, SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2) {
         try {
             HashMap a = com.ss.android.socialbase.downloader.i.f.a(sparseArray);
             HashMap a2 = com.ss.android.socialbase.downloader.i.f.a(sparseArray2);
@@ -705,7 +700,7 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.t
-    public void a(final SparseArray sparseArray, final SparseArray sparseArray2, final d dVar) {
+    public void a(final SparseArray<DownloadInfo> sparseArray, final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2, final d dVar) {
         try {
             Runnable runnable = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.e.1
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, IGET, IGET, INVOKE, INVOKE, IGET, INVOKE, IGET, IGET, IGET, INVOKE, IF] complete} */
@@ -992,7 +987,7 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public boolean a(int i, Map map) {
+    public boolean a(int i, Map<Long, i> map) {
         long currentTimeMillis = System.currentTimeMillis();
         h();
         if (b == null) {
@@ -1001,7 +996,7 @@ public class e extends c.a implements t {
         JSONArray jSONArray = new JSONArray();
         try {
             for (Long l : map.keySet()) {
-                jSONArray.put(((i) map.get(Long.valueOf(l.longValue()))).k());
+                jSONArray.put(map.get(Long.valueOf(l.longValue())).k());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -1034,7 +1029,7 @@ public class e extends c.a implements t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public Map l(int i) {
+    public Map<Long, i> l(int i) {
         Cursor cursor;
         String str;
         h();

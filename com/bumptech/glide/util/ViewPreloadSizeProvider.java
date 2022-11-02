@@ -2,6 +2,8 @@ package com.bumptech.glide.util;
 
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,40 +16,40 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class ViewPreloadSizeProvider implements ListPreloader.PreloadSizeProvider, SizeReadyCallback {
+public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] size;
     public SizeViewTarget viewTarget;
 
     /* loaded from: classes7.dex */
-    public final class SizeViewTarget extends CustomViewTarget {
+    public static final class SizeViewTarget extends CustomViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadFailed(Drawable drawable) {
+        public void onLoadFailed(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.CustomViewTarget
-        public void onResourceCleared(Drawable drawable) {
+        public void onResourceCleared(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
             }
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onResourceReady(Object obj, Transition transition) {
+        public void onResourceReady(@NonNull Object obj, @Nullable Transition<? super Object> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, transition) == null) {
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SizeViewTarget(View view2) {
+        public SizeViewTarget(@NonNull View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -81,7 +83,7 @@ public class ViewPreloadSizeProvider implements ListPreloader.PreloadSizeProvide
         }
     }
 
-    public ViewPreloadSizeProvider(View view2) {
+    public ViewPreloadSizeProvider(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,10 +104,11 @@ public class ViewPreloadSizeProvider implements ListPreloader.PreloadSizeProvide
     }
 
     @Override // com.bumptech.glide.ListPreloader.PreloadSizeProvider
-    public int[] getPreloadSize(Object obj, int i, int i2) {
+    @Nullable
+    public int[] getPreloadSize(@NonNull T t, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, obj, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, t, i, i2)) == null) {
             int[] iArr = this.size;
             if (iArr == null) {
                 return null;
@@ -124,7 +127,7 @@ public class ViewPreloadSizeProvider implements ListPreloader.PreloadSizeProvide
         }
     }
 
-    public void setView(View view2) {
+    public void setView(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && this.size == null && this.viewTarget == null) {
             SizeViewTarget sizeViewTarget = new SizeViewTarget(view2);

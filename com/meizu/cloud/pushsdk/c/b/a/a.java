@@ -31,12 +31,12 @@ public class a extends c {
         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "init memory store", new Object[0]);
     }
 
-    private LinkedList a(LinkedList linkedList) {
-        LinkedList linkedList2 = new LinkedList();
+    private LinkedList<g> a(LinkedList<e> linkedList) {
+        LinkedList<g> linkedList2 = new LinkedList<>();
         LinkedList linkedList3 = new LinkedList();
-        Iterator it = linkedList.iterator();
+        Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
-            linkedList3.add(b.a(b(((e) it.next()).a())));
+            linkedList3.add(b.a(b(it.next().a())));
         }
         com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Request Futures: %s", Integer.valueOf(linkedList3.size()));
         for (int i = 0; i < linkedList3.size(); i++) {
@@ -50,17 +50,17 @@ public class a extends c {
             } catch (TimeoutException e3) {
                 com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Request Future had a timeout: %s", e3.getMessage());
             }
-            if (((e) linkedList.get(i)).c()) {
-                linkedList2.add(new g(true, ((e) linkedList.get(i)).b()));
+            if (linkedList.get(i).c()) {
+                linkedList2.add(new g(true, linkedList.get(i).b()));
             } else {
-                linkedList2.add(new g(a(i2), ((e) linkedList.get(i)).b()));
+                linkedList2.add(new g(a(i2), linkedList.get(i).b()));
             }
         }
         return linkedList2;
     }
 
-    private Callable a(final Long l) {
-        return new Callable() { // from class: com.meizu.cloud.pushsdk.c.b.a.a.3
+    private Callable<Boolean> a(final Long l) {
+        return new Callable<Boolean>() { // from class: com.meizu.cloud.pushsdk.c.b.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
@@ -70,13 +70,13 @@ public class a extends c {
         };
     }
 
-    private LinkedList b(LinkedList linkedList) {
+    private LinkedList<Boolean> b(LinkedList<Long> linkedList) {
         boolean z;
-        LinkedList linkedList2 = new LinkedList();
+        LinkedList<Boolean> linkedList2 = new LinkedList<>();
         LinkedList linkedList3 = new LinkedList();
-        Iterator it = linkedList.iterator();
+        Iterator<Long> it = linkedList.iterator();
         while (it.hasNext()) {
-            linkedList3.add(b.a(a((Long) it.next())));
+            linkedList3.add(b.a(a(it.next())));
         }
         com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Removal Futures: %s", Integer.valueOf(linkedList3.size()));
         for (int i = 0; i < linkedList3.size(); i++) {
@@ -100,8 +100,8 @@ public class a extends c {
         return linkedList2;
     }
 
-    private Callable b(final i iVar) {
-        return new Callable() { // from class: com.meizu.cloud.pushsdk.c.b.a.a.2
+    private Callable<Integer> b(final i iVar) {
+        return new Callable<Integer>() { // from class: com.meizu.cloud.pushsdk.c.b.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
@@ -116,22 +116,22 @@ public class a extends c {
         if (com.meizu.cloud.pushsdk.c.f.e.a(this.d)) {
             if (this.v.c() > 0) {
                 this.w = 0;
-                LinkedList a = a(a(this.v.d()));
+                LinkedList<g> a = a(a(this.v.d()));
                 com.meizu.cloud.pushsdk.c.f.c.c(this.u, "Processing emitter results.", new Object[0]);
-                LinkedList linkedList = new LinkedList();
-                Iterator it = a.iterator();
+                LinkedList<Long> linkedList = new LinkedList<>();
+                Iterator<g> it = a.iterator();
                 int i = 0;
                 int i2 = 0;
                 while (it.hasNext()) {
-                    g gVar = (g) it.next();
-                    if (gVar.a()) {
-                        Iterator it2 = gVar.b().iterator();
+                    g next = it.next();
+                    if (next.a()) {
+                        Iterator<Long> it2 = next.b().iterator();
                         while (it2.hasNext()) {
-                            linkedList.add((Long) it2.next());
+                            linkedList.add(it2.next());
                         }
-                        i += gVar.b().size();
+                        i += next.b().size();
                     } else {
-                        i2 += gVar.b().size();
+                        i2 += next.b().size();
                         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Request sending failed but we will retry later.", new Object[0]);
                     }
                 }

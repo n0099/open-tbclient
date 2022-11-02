@@ -17,16 +17,16 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ForEachWhileObserver extends AtomicReference implements Observer, Disposable {
+public final class ForEachWhileObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4403180040475402120L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean done;
     public final Action onComplete;
-    public final Consumer onError;
-    public final Predicate onNext;
+    public final Consumer<? super Throwable> onError;
+    public final Predicate<? super T> onNext;
 
-    public ForEachWhileObserver(Predicate predicate, Consumer consumer, Action action) {
+    public ForEachWhileObserver(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public final class ForEachWhileObserver extends AtomicReference implements Obser
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return DisposableHelper.isDisposed((Disposable) get());
+            return DisposableHelper.isDisposed(get());
         }
         return invokeV.booleanValue;
     }
@@ -98,13 +98,13 @@ public final class ForEachWhileObserver extends AtomicReference implements Obser
     }
 
     @Override // io.reactivex.Observer
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, obj) != null) || this.done) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, t) != null) || this.done) {
             return;
         }
         try {
-            if (!this.onNext.test(obj)) {
+            if (!this.onNext.test(t)) {
                 dispose();
                 onComplete();
             }

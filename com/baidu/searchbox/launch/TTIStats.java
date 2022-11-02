@@ -41,13 +41,13 @@ public class TTIStats {
     public static final String UBC_STAGE_KEY = "stage";
     public static final String UBC_STARTTS_KEY = "startts";
     public static final String UBC_START_LAUNCH_ID = "3112";
-    public static Map mRecordMap;
+    public static Map<String, TTIData> mRecordMap;
     public static long sAppCreateTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
     public UBCManager mUbcManager;
 
     /* loaded from: classes2.dex */
-    public class TTIData {
+    public static class TTIData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long duration;
@@ -213,7 +213,7 @@ public class TTIStats {
         if (Looper.getMainLooper() != Looper.myLooper()) {
             str = str + "_async";
         }
-        TTIData tTIData = (TTIData) mRecordMap.get(str);
+        TTIData tTIData = mRecordMap.get(str);
         if (tTIData != null) {
             tTIData.duration += j;
         } else {
@@ -235,7 +235,7 @@ public class TTIStats {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 for (String str : mRecordMap.keySet()) {
-                    TTIData tTIData = (TTIData) mRecordMap.get(str);
+                    TTIData tTIData = mRecordMap.get(str);
                     if (tTIData != null) {
                         jSONObject2.put(str, tTIData.duration);
                         jSONObject3.put(str, tTIData.startTs);

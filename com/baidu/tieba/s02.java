@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ScrollView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.tieba.jn1;
-import com.baidu.tieba.ko2;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,100 +18,59 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class s02 extends j53 {
+public class s02 {
     public static /* synthetic */ Interceptable $ic;
-    public static Set f;
-    public static final Set g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService c;
-    public int d;
-    public u02 e;
 
     /* loaded from: classes5.dex */
-    public class a implements jn1.b {
+    public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ s02 d;
 
-        public a(s02 s02Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s02Var, context, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.d = s02Var;
-            this.a = context;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.jn1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    m02.c("LocalDebugAction", "Authentication Success");
-                    s02.g.add(this.d.o(this.a));
-                    this.d.p(this.a, this.b, this.c);
-                    return;
-                }
-                m02.c("LocalDebugAction", "Authentication Fail : Not developer");
-                this.d.w(this.a, this.b, 401);
             }
         }
 
-        @Override // com.baidu.tieba.jn1.b
-        public void b(Exception exc) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                m02.d("LocalDebugAction", "onFail : Authentication exception :", exc);
-                this.d.w(this.a, this.b, 401);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (view2.getParent() != null) {
+                    view2.getParent().requestDisallowInterceptTouchEvent(true);
+                    return false;
+                }
+                return false;
             }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ s02 f;
+        public final /* synthetic */ ScrollView a;
+        public final /* synthetic */ m02 b;
 
-        public b(s02 s02Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public b(ScrollView scrollView, m02 m02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s02Var, context, str, file, unitedSchemeEntity, callbackHandler};
+                Object[] objArr = {scrollView, m02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -126,21 +80,16 @@ public class s02 extends j53 {
                     return;
                 }
             }
-            this.f = s02Var;
-            this.a = context;
-            this.b = str;
-            this.c = file;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
+            this.a = scrollView;
+            this.b = m02Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.smoothScrollTo(0, this.b.D);
             }
-            this.f.x(this.a, this.b, this.c, this.d, this.e);
         }
     }
 
@@ -157,273 +106,200 @@ public class s02 extends j53 {
                 return;
             }
         }
-        g = new HashSet();
+        a = ok1.a;
     }
 
-    public final void q() {
-        m33 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b0 = m33.b0()) == null) {
-            return;
-        }
-        vf3.j(b0.w());
-        System.exit(0);
-    }
-
-    public final boolean t() {
+    public static FrameLayout.LayoutParams a() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            va4 b2 = xa4.b();
-            if (b2 == null) {
-                str = "1";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            layoutParams.leftMargin = 0;
+            layoutParams.topMargin = 0;
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public static boolean b(@NonNull t02 t02Var, @NonNull uz1 uz1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, t02Var, uz1Var, swanAppComponentContainerView)) == null) {
+            e12.c("Component-Container-Scroll", "insert component（scroll）");
+            if (uz1Var.h == null) {
+                x02.a("Component-Container-Scroll", "insert component（scroll） with a null position");
+                return false;
+            } else if (TextUtils.isEmpty(uz1Var.d)) {
+                ScrollView h = h(swanAppComponentContainerView, uz1Var);
+                if (h == null || !t02Var.a.c(h, uz1Var.h)) {
+                    return false;
+                }
+                return true;
             } else {
-                str = b2.i().getString("enable_local_debug_switch", "1");
-            }
-            return TextUtils.equals(str, "1");
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s02(j43 j43Var) {
-        super(j43Var, "/swanAPI/localdebuglaunch");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                SwanAppComponentContainerView a2 = t02Var.a(uz1Var.d);
+                if (a2 == null) {
+                    e12.c("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
+                    return false;
+                }
+                ScrollView h2 = h(swanAppComponentContainerView, uz1Var);
+                if (h2 == null) {
+                    e12.c("Component-Container-Scroll", "insert component（scroll） to parent with a null scroll view");
+                    return false;
+                }
+                a2.addView(h2, uz1Var.b());
+                return true;
             }
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public static boolean g(@NonNull t02 t02Var, @NonNull uz1 uz1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (!t()) {
-                m02.c("LocalDebugAction", "switch is off");
-                w(context, unitedSchemeEntity, 1003);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, t02Var, uz1Var, swanAppComponentContainerView)) == null) {
+            if (TextUtils.isEmpty(uz1Var.d)) {
+                return t02Var.a.removeView(swanAppComponentContainerView.getScrollView());
+            }
+            SwanAppComponentContainerView a2 = t02Var.a(uz1Var.d);
+            if (a2 == null) {
+                e12.c("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                this.e = u02.c(optParamsAsJo);
-                if (rc3.e(0).swanCoreVersionCode < this.e.h) {
-                    m02.c("LocalDebugAction", "swan js version is low");
-                    w(context, unitedSchemeEntity, 1002);
-                    return false;
-                } else if (!u()) {
-                    m02.c("LocalDebugAction", "debug model invalid");
-                    w(context, unitedSchemeEntity, 202);
-                    return false;
-                } else if (!SwanAppAllianceLoginHelper.d.f() && !s().contains(tm2.h0().h(context)) && !g.contains(o(context))) {
-                    zj1.b(this.e.b, new a(this, context, unitedSchemeEntity, callbackHandler));
-                    return true;
-                } else {
-                    p(context, unitedSchemeEntity, callbackHandler);
-                    return true;
-                }
+            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
+            boolean z = true;
+            if (scrollView != null && scrollView.getParent() == a2) {
+                a2.removeView(scrollView);
+                return true;
             }
-            m02.c("LocalDebugAction", "param is null");
-            w(context, unitedSchemeEntity, 202);
+            StringBuilder sb = new StringBuilder();
+            sb.append("remove component（scroll）to parent with a illegal parent view");
+            if (scrollView != null) {
+                z = false;
+            }
+            sb.append(z);
+            x02.a("Component-Container-Scroll", sb.toString());
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final String o(Context context) {
+    public static boolean c(@NonNull uz1 uz1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return tm2.h0().h(context) + this.e.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                if (j53.b) {
-                    Log.e("LocalDebugAction", "url encode fail", e);
-                    return str;
-                }
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
-            File b2 = t02.b();
-            if (b2.exists()) {
-                boolean L = qj4.L(b2);
-                m02.i("LocalDebugAction", "debug bundle delete: " + L);
-            }
-            if (t02.g()) {
-                boolean L2 = qj4.L(t02.d());
-                m02.i("LocalDebugAction", "unzip folder delete: " + L2);
-            }
-            this.c = Executors.newFixedThreadPool(4);
-            this.d = 0;
-            v02.e().f("downloadstart");
-            for (int i = 0; i < this.e.c.length(); i++) {
-                String a2 = this.e.a(i);
-                if (TextUtils.isEmpty(a2)) {
-                    int i2 = this.d + 1;
-                    this.d = i2;
-                    if (i2 >= this.e.c.length()) {
-                        m02.c("LocalDebugAction", "IPs are invalid");
-                        w(context, unitedSchemeEntity, 202);
-                        v02.e().f("downloadfail");
-                    }
-                } else {
-                    this.c.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
-                }
-            }
-        }
-    }
-
-    public final Set s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (f == null) {
-                f = new HashSet();
-                va4 b2 = xa4.b();
-                String str = "";
-                if (b2 != null) {
-                    str = b2.i().getString("auth_white_list", "");
-                }
-                JSONArray jSONArray = null;
-                try {
-                    jSONArray = new JSONArray(str);
-                } catch (JSONException unused) {
-                    if (j53.b) {
-                        Log.d("LocalDebugAction", "JSONException: parse cloud white list");
-                    }
-                }
-                if (jSONArray != null) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        f.add(jSONArray.optString(i));
-                    }
-                }
-            }
-            return f;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final boolean u() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TextUtils.isEmpty(this.e.a) && !TextUtils.isEmpty(this.e.b) && (jSONArray = this.e.c) != null && jSONArray.length() > 0 && !TextUtils.isEmpty(this.e.d)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uz1Var)) == null) {
+            if ((uz1Var instanceof m02) && TextUtils.equals(((m02) uz1Var).E, "scroll")) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final ko2.a v(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        String str;
+    public static boolean d(@NonNull t02 t02Var, @NonNull tz1 tz1Var, @NonNull uz1 uz1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull w02 w02Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null) {
-                str = unitedSchemeEntity.getUri().toString();
-            } else {
-                str = "";
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, t02Var, tz1Var, uz1Var, swanAppComponentContainerView, w02Var)) == null) {
+            if (!(uz1Var instanceof m02)) {
+                return false;
             }
-            m02.i("LocalDebugAction", "local debug scheme = " + str);
-            return (ko2.a) ((ko2.a) ((ko2.a) ((ko2.a) ((ko2.a) ((ko2.a) ((ko2.a) new ko2.a().v0(this.e.b)).A0(false)).L0(true)).M0(this.e.e)).N0(this.e.f)).K0(str)).P0(this.e.g);
+            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
+            if (w02Var.a(7)) {
+                if (a) {
+                    Log.d("Component-Container-Scroll", "update component（scroll）overflow_y");
+                }
+                if (scrollView != null) {
+                    if (scrollView.getParent() == null) {
+                        return false;
+                    }
+                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
+                    ((ViewGroup) scrollView.getParent()).removeView(scrollView);
+                    swanAppComponentContainerView.setScrollView(null);
+                } else {
+                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
+                }
+                if (t02Var.b(tz1Var)) {
+                    return true;
+                }
+                x02.a("Component-Container-Scroll", "update component（scroll） overflow_y fail");
+            }
+            return false;
         }
-        return (ko2.a) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i) {
+    public static boolean e(@NonNull t02 t02Var, @NonNull uz1 uz1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-            va4 b2 = xa4.b();
-            String str = "";
-            if (b2 != null) {
-                str = b2.i().getString("error_url", "");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, t02Var, uz1Var, swanAppComponentContainerView)) == null) {
+            if (a) {
+                Log.d("Component-Container-Scroll", "update component（scroll）position");
             }
+            String str = uz1Var.d;
             if (TextUtils.isEmpty(str)) {
-                e33.g(context, "IPs are invalid ：" + i).G();
-                return;
+                ScrollView scrollView = swanAppComponentContainerView.getScrollView();
+                ScrollView scrollView2 = swanAppComponentContainerView;
+                if (scrollView != null) {
+                    scrollView2 = swanAppComponentContainerView.getScrollView();
+                }
+                return t02Var.a.a(scrollView2, uz1Var.h);
+            }
+            SwanAppComponentContainerView a2 = t02Var.a(str);
+            if (a2 == null) {
+                e12.c("Component-Container-Scroll", "update component（scroll）to parent with a null parent container view");
+                return false;
+            }
+            ScrollView scrollView3 = swanAppComponentContainerView.getScrollView();
+            boolean z = true;
+            if (scrollView3 != null && scrollView3.getParent() == a2) {
+                a2.updateViewLayout(scrollView3, uz1Var.b());
+                return true;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(SchemeConfig.getSchemeHead());
-            sb.append("://v1/easybrowse/open?url=");
-            sb.append(r(str + "?" + i));
-            SchemeRouter.invoke(context, sb.toString());
+            sb.append("update component（scroll）to parent with a illegal parent view (Scroll) ");
+            if (scrollView3 != null) {
+                z = false;
+            }
+            sb.append(z);
+            x02.a("Component-Container-Scroll", sb.toString());
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void f(@NonNull t02 t02Var, @NonNull tz1 tz1Var, @NonNull uz1 uz1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull w02 w02Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65542, null, t02Var, tz1Var, uz1Var, swanAppComponentContainerView, w02Var) != null) || !(uz1Var instanceof m02)) {
+            return;
+        }
+        ScrollView scrollView = swanAppComponentContainerView.getScrollView();
+        if (w02Var.a(8)) {
+            if (a) {
+                Log.d("Component-Container-Scroll", "update component（scroll） scroll_top");
+            }
+            if (scrollView != null) {
+                scrollView.smoothScrollTo(0, ((m02) uz1Var).D);
+            }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c4, code lost:
-        if (r6 >= r4.e.c.length()) goto L37;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Nullable
+    public static ScrollView h(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull uz1 uz1Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
-            try {
-                Response executeSync = ((GetRequest.GetRequestBuilder) ((GetRequest.GetRequestBuilder) qa4.g().getRequest().url(this.e.b(str))).connectionTimeout(3000)).build().executeSync();
-                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    boolean a2 = tj4.a(executeSync.body().byteStream(), file);
-                    m02.i("LocalDebugAction", "save debug bundle: " + a2);
-                    v02.e().f("downloadsuccess");
-                    this.e.e = str;
-                    context.startActivity(ko2.g1(context, v(unitedSchemeEntity)));
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.c != null) {
-                        this.c.shutdownNow();
-                        this.c = null;
-                    }
-                    if (!ProcessUtils.isMainProcess()) {
-                        if (j53.b) {
-                            Log.d("LocalDebugAction", "Suicide for reload.");
-                        }
-                        q();
-                    }
-                }
-                if (executeSync != null) {
-                    executeSync.close();
-                }
-            } catch (IOException unused) {
-                synchronized (this) {
-                    if (this.e.c != null) {
-                        int i = this.d + 1;
-                        this.d = i;
-                    }
-                    m02.c("LocalDebugAction", "Host IPs are invalid");
-                    w(context, unitedSchemeEntity, 1001);
-                    v02.e().f("downloadfail");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, swanAppComponentContainerView, uz1Var)) == null) {
+            if (!(uz1Var instanceof m02)) {
+                return null;
             }
+            ScrollView scrollView = new ScrollView(swanAppComponentContainerView.getContext());
+            scrollView.setFillViewport(true);
+            scrollView.setOnTouchListener(new a());
+            FrameLayout frameLayout = new FrameLayout(swanAppComponentContainerView.getContext());
+            frameLayout.addView(swanAppComponentContainerView, a());
+            scrollView.addView(frameLayout);
+            swanAppComponentContainerView.postDelayed(new b(scrollView, (m02) uz1Var), 100L);
+            swanAppComponentContainerView.setScrollView(scrollView);
+            return scrollView;
         }
+        return (ScrollView) invokeLL.objValue;
     }
 }

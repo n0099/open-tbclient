@@ -265,7 +265,7 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportReturnCode(int i, String str, long j, String str2, Map map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
@@ -277,7 +277,7 @@ public class MetricsWorker implements IMetricsAPI {
     }
 
     @Override // com.yy.hiidostatis.defs.interf.IMetricsAPI
-    public void reportSrcData(int i, String str, String str2, long j, Map map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         MetricsPkg cutPiece;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {

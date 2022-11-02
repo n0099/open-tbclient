@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.gif;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,15 +20,15 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class StreamGifDecoder implements ResourceDecoder {
+public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamGifDecoder";
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayPool byteArrayPool;
-    public final ResourceDecoder byteBufferDecoder;
-    public final List parsers;
+    public final ResourceDecoder<ByteBuffer, GifDrawable> byteBufferDecoder;
+    public final List<ImageHeaderParser> parsers;
 
-    public StreamGifDecoder(List list, ResourceDecoder resourceDecoder, ArrayPool arrayPool) {
+    public StreamGifDecoder(List<ImageHeaderParser> list, ResourceDecoder<ByteBuffer, GifDrawable> resourceDecoder, ArrayPool arrayPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +78,7 @@ public class StreamGifDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
+    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
@@ -92,7 +93,7 @@ public class StreamGifDecoder implements ResourceDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(InputStream inputStream, Options options) throws IOException {
+    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, inputStream, options)) == null) {

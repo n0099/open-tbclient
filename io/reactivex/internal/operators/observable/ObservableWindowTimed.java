@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -25,7 +26,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableWindowTimed extends AbstractObservableWithUpstream {
+public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstream<T, Observable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -37,7 +38,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class WindowExactBoundedObserver extends QueueDrainObserver implements Disposable {
+    public static final class WindowExactBoundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -48,20 +49,20 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         public Disposable s;
         public final Scheduler scheduler;
         public volatile boolean terminated;
-        public final AtomicReference timer;
+        public final AtomicReference<Disposable> timer;
         public final long timespan;
         public final TimeUnit unit;
-        public UnicastSubject window;
+        public UnicastSubject<T> window;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
-        public final class ConsumerIndexHolder implements Runnable {
+        public static final class ConsumerIndexHolder implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long index;
-            public final WindowExactBoundedObserver parent;
+            public final WindowExactBoundedObserver<?> parent;
 
-            public ConsumerIndexHolder(long j, WindowExactBoundedObserver windowExactBoundedObserver) {
+            public ConsumerIndexHolder(long j, WindowExactBoundedObserver<?> windowExactBoundedObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +85,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    WindowExactBoundedObserver windowExactBoundedObserver = this.parent;
+                    WindowExactBoundedObserver<?> windowExactBoundedObserver = this.parent;
                     if (!windowExactBoundedObserver.cancelled) {
                         windowExactBoundedObserver.queue.offer(this);
                     } else {
@@ -99,7 +100,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactBoundedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
+        public WindowExactBoundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -117,7 +118,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                     return;
                 }
             }
-            this.timer = new AtomicReference();
+            this.timer = new AtomicReference<>();
             this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
@@ -187,13 +188,15 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             }
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r2v9, resolved type: io.reactivex.subjects.UnicastSubject */
+        /* JADX WARN: Multi-variable type inference failed */
         public void drainLoop() {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer observer = this.actual;
-                UnicastSubject unicastSubject = this.window;
+                Observer<? super V> observer = this.actual;
+                UnicastSubject<T> unicastSubject = this.window;
                 int i = 1;
                 while (!this.terminated) {
                     boolean z2 = this.done;
@@ -226,7 +229,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                         if (this.restartTimerOnMaxSize || this.producerIndex == consumerIndexHolder.index) {
                             unicastSubject.onComplete();
                             this.count = 0L;
-                            unicastSubject = UnicastSubject.create(this.bufferSize);
+                            unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
                             this.window = unicastSubject;
                             observer.onNext(unicastSubject);
                         }
@@ -237,11 +240,11 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                             this.producerIndex++;
                             this.count = 0L;
                             unicastSubject.onComplete();
-                            unicastSubject = UnicastSubject.create(this.bufferSize);
+                            unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
                             this.window = unicastSubject;
                             this.actual.onNext(unicastSubject);
                             if (this.restartTimerOnMaxSize) {
-                                Disposable disposable = (Disposable) this.timer.get();
+                                Disposable disposable = this.timer.get();
                                 disposable.dispose();
                                 Scheduler.Worker worker = this.worker;
                                 ConsumerIndexHolder consumerIndexHolder2 = new ConsumerIndexHolder(this.producerIndex, this);
@@ -263,24 +266,24 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.terminated) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, t) != null) || this.terminated) {
                 return;
             }
             if (fastEnter()) {
-                UnicastSubject unicastSubject = this.window;
-                unicastSubject.onNext(obj);
+                UnicastSubject<T> unicastSubject = this.window;
+                unicastSubject.onNext(t);
                 long j = this.count + 1;
                 if (j >= this.maxSize) {
                     this.producerIndex++;
                     this.count = 0L;
                     unicastSubject.onComplete();
-                    UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                    UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
                     this.window = create;
                     this.actual.onNext(create);
                     if (this.restartTimerOnMaxSize) {
-                        ((Disposable) this.timer.get()).dispose();
+                        this.timer.get().dispose();
                         Scheduler.Worker worker = this.worker;
                         ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
                         long j2 = this.timespan;
@@ -293,7 +296,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(obj));
+                this.queue.offer(NotificationLite.next(t));
                 if (!enter()) {
                     return;
                 }
@@ -307,12 +310,12 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
-                Observer observer = this.actual;
+                Observer<? super V> observer = this.actual;
                 observer.onSubscribe(this);
                 if (this.cancelled) {
                     return;
                 }
-                UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
                 this.window = create;
                 observer.onNext(create);
                 ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
@@ -331,7 +334,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowSkipObserver extends QueueDrainObserver implements Disposable, Runnable {
+    public static final class WindowSkipObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
@@ -340,7 +343,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         public final long timeskip;
         public final long timespan;
         public final TimeUnit unit;
-        public final List windows;
+        public final List<UnicastSubject<T>> windows;
         public final Scheduler.Worker worker;
 
         /* loaded from: classes8.dex */
@@ -348,9 +351,9 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WindowSkipObserver this$0;
-            public final UnicastSubject w;
+            public final UnicastSubject<T> w;
 
-            public CompletionTask(WindowSkipObserver windowSkipObserver, UnicastSubject unicastSubject) {
+            public CompletionTask(WindowSkipObserver windowSkipObserver, UnicastSubject<T> unicastSubject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -379,13 +382,13 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         /* loaded from: classes8.dex */
-        public final class SubjectWork {
+        public static final class SubjectWork<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final boolean open;
-            public final UnicastSubject w;
+            public final UnicastSubject<T> w;
 
-            public SubjectWork(UnicastSubject unicastSubject, boolean z) {
+            public SubjectWork(UnicastSubject<T> unicastSubject, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -406,7 +409,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipObserver(Observer observer, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
+        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -432,7 +435,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             this.windows = new LinkedList();
         }
 
-        public void complete(UnicastSubject unicastSubject) {
+        public void complete(UnicastSubject<T> unicastSubject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, unicastSubject) == null) {
                 this.queue.offer(new SubjectWork(unicastSubject, false));
@@ -513,27 +516,27 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer observer = this.actual;
-                List<UnicastSubject> list = this.windows;
+                Observer<? super V> observer = this.actual;
+                List<UnicastSubject<T>> list = this.windows;
                 int i = 1;
                 while (!this.terminated) {
                     boolean z2 = this.done;
-                    Object poll = mpscLinkedQueue.poll();
-                    if (poll == null) {
+                    T t = (T) mpscLinkedQueue.poll();
+                    if (t == null) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    boolean z3 = poll instanceof SubjectWork;
+                    boolean z3 = t instanceof SubjectWork;
                     if (z2 && (z || z3)) {
                         mpscLinkedQueue.clear();
                         Throwable th = this.error;
                         if (th != null) {
-                            for (UnicastSubject unicastSubject : list) {
+                            for (UnicastSubject<T> unicastSubject : list) {
                                 unicastSubject.onError(th);
                             }
                         } else {
-                            for (UnicastSubject unicastSubject2 : list) {
+                            for (UnicastSubject<T> unicastSubject2 : list) {
                                 unicastSubject2.onComplete();
                             }
                         }
@@ -546,10 +549,10 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                             return;
                         }
                     } else if (z3) {
-                        SubjectWork subjectWork = (SubjectWork) poll;
+                        SubjectWork subjectWork = (SubjectWork) t;
                         if (subjectWork.open) {
                             if (!this.cancelled) {
-                                UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
                                 list.add(create);
                                 observer.onNext(create);
                                 this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
@@ -562,8 +565,8 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                             }
                         }
                     } else {
-                        for (UnicastSubject unicastSubject3 : list) {
-                            unicastSubject3.onNext(poll);
+                        for (UnicastSubject<T> unicastSubject3 : list) {
+                            unicastSubject3.onNext(t);
                         }
                     }
                 }
@@ -575,18 +578,18 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
                 if (fastEnter()) {
-                    for (UnicastSubject unicastSubject : this.windows) {
-                        unicastSubject.onNext(obj);
+                    for (UnicastSubject<T> unicastSubject : this.windows) {
+                        unicastSubject.onNext(t);
                     }
                     if (leave(-1) == 0) {
                         return;
                     }
                 } else {
-                    this.queue.offer(obj);
+                    this.queue.offer(t);
                     if (!enter()) {
                         return;
                     }
@@ -604,7 +607,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                 if (this.cancelled) {
                     return;
                 }
-                UnicastSubject create = UnicastSubject.create(this.bufferSize);
+                UnicastSubject<T> create = UnicastSubject.create(this.bufferSize);
                 this.windows.add(create);
                 this.actual.onNext(create);
                 this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
@@ -616,7 +619,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
     }
 
     /* loaded from: classes8.dex */
-    public final class WindowExactUnboundedObserver extends QueueDrainObserver implements Observer, Disposable, Runnable {
+    public static final class WindowExactUnboundedObserver<T> extends QueueDrainObserver<T, Object, Observable<T>> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public static final Object NEXT;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,10 +627,10 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         public Disposable s;
         public final Scheduler scheduler;
         public volatile boolean terminated;
-        public final AtomicReference timer;
+        public final AtomicReference<Disposable> timer;
         public final long timespan;
         public final TimeUnit unit;
-        public UnicastSubject window;
+        public UnicastSubject<T> window;
 
         static {
             InterceptResult invokeClinit;
@@ -699,7 +702,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactUnboundedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
+        public WindowExactUnboundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -717,13 +720,14 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                     return;
                 }
             }
-            this.timer = new AtomicReference();
+            this.timer = new AtomicReference<>();
             this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
             this.bufferSize = i;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: io.reactivex.subjects.UnicastSubject */
         /* JADX WARN: Code restructure failed: missing block: B:10:0x001d, code lost:
             r7.window = null;
             r0.clear();
@@ -745,6 +749,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         /* JADX WARN: Code restructure failed: missing block: B:43:?, code lost:
             return;
          */
+        /* JADX WARN: Multi-variable type inference failed */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -752,8 +757,8 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
-                Observer observer = this.actual;
-                UnicastSubject unicastSubject = this.window;
+                Observer<? super V> observer = this.actual;
+                UnicastSubject<T> unicastSubject = this.window;
                 int i = 1;
                 while (true) {
                     boolean z = this.terminated;
@@ -768,7 +773,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
                         } else if (poll == NEXT) {
                             unicastSubject.onComplete();
                             if (!z) {
-                                unicastSubject = UnicastSubject.create(this.bufferSize);
+                                unicastSubject = (UnicastSubject<T>) UnicastSubject.create(this.bufferSize);
                                 this.window = unicastSubject;
                                 observer.onNext(unicastSubject);
                             } else {
@@ -797,18 +802,18 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, obj) != null) || this.terminated) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, t) != null) || this.terminated) {
                 return;
             }
             if (fastEnter()) {
-                this.window.onNext(obj);
+                this.window.onNext(t);
                 if (leave(-1) == 0) {
                     return;
                 }
             } else {
-                this.queue.offer(NotificationLite.next(obj));
+                this.queue.offer(NotificationLite.next(t));
                 if (!enter()) {
                     return;
                 }
@@ -822,7 +827,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
             if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.s, disposable)) {
                 this.s = disposable;
                 this.window = UnicastSubject.create(this.bufferSize);
-                Observer observer = this.actual;
+                Observer<? super V> observer = this.actual;
                 observer.onSubscribe(this);
                 observer.onNext(this.window);
                 if (!this.cancelled) {
@@ -835,7 +840,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowTimed(ObservableSource observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
+    public ObservableWindowTimed(ObservableSource<T> observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -862,7 +867,7 @@ public final class ObservableWindowTimed extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Observable<T>> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.EventListener;
+import okhttp3.Request;
 /* loaded from: classes2.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
@@ -69,7 +70,7 @@ public interface IHttpContext {
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
-        public NetworkStat getNewNetworkStat() {
+        public NetworkStat<Request> getNewNetworkStat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -136,7 +137,7 @@ public interface IHttpContext {
 
     IHttpDns getNewHttpDns();
 
-    NetworkStat getNewNetworkStat();
+    NetworkStat<Request> getNewNetworkStat();
 
     void init();
 

@@ -14,7 +14,7 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Logging {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger fallbackLogger;
@@ -25,7 +25,7 @@ public class Logging {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    public static void enableTracing(String str, EnumSet enumSet) {
+    public static void enableTracing(String str, EnumSet<TraceLevel> enumSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, enumSet) == null) {
         }
@@ -40,8 +40,8 @@ public class Logging {
     public static native void nativeLog(int i, String str, String str2);
 
     /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class Logging {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
-    public final class Severity {
+    /* loaded from: classes9.dex */
+    public static final class Severity {
         public static final /* synthetic */ Severity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Severity LS_ERROR;
@@ -152,8 +152,8 @@ public class Logging {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes8.dex */
-    public final class TraceLevel {
+    /* loaded from: classes9.dex */
+    public static final class TraceLevel {
         public static final /* synthetic */ TraceLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TraceLevel TRACE_ALL;

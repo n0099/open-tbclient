@@ -1,6 +1,7 @@
 package com.bumptech.glide.signature;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +38,8 @@ public final class AndroidResourceSignature implements Key {
         this.applicationVersion = key;
     }
 
-    public static Key obtain(Context context) {
+    @NonNull
+    public static Key obtain(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -64,7 +66,7 @@ public final class AndroidResourceSignature implements Key {
     }
 
     @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(MessageDigest messageDigest) {
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, messageDigest) == null) {
             this.applicationVersion.updateDiskCacheKey(messageDigest);

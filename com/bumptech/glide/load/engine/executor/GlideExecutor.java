@@ -4,6 +4,9 @@ import android.os.Process;
 import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -126,7 +129,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public static final long NO_THREAD_TIMEOUT = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,6 +138,7 @@ public final class GlideExecutor implements ExecutorService {
         public String name;
         public final boolean preventNetworkOperations;
         public long threadTimeoutMillis;
+        @NonNull
         public UncaughtThrowableStrategy uncaughtThrowableStrategy;
 
         public Builder(boolean z) {
@@ -182,7 +186,7 @@ public final class GlideExecutor implements ExecutorService {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setThreadCount(int i) {
+        public Builder setThreadCount(@IntRange(from = 1) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
@@ -203,7 +207,7 @@ public final class GlideExecutor implements ExecutorService {
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setUncaughtThrowableStrategy(UncaughtThrowableStrategy uncaughtThrowableStrategy) {
+        public Builder setUncaughtThrowableStrategy(@NonNull UncaughtThrowableStrategy uncaughtThrowableStrategy) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uncaughtThrowableStrategy)) == null) {
@@ -215,7 +219,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     /* loaded from: classes7.dex */
-    public final class DefaultThreadFactory implements ThreadFactory {
+    public static final class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_PRIORITY = 9;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +249,7 @@ public final class GlideExecutor implements ExecutorService {
         }
 
         @Override // java.util.concurrent.ThreadFactory
-        public synchronized Thread newThread(Runnable runnable) {
+        public synchronized Thread newThread(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Thread thread;
             Interceptable interceptable = $ic;
@@ -419,7 +423,8 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List shutdownNow() {
+    @NonNull
+    public List<Runnable> shutdownNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -437,6 +442,7 @@ public final class GlideExecutor implements ExecutorService {
         return (String) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public GlideExecutor(ExecutorService executorService) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -476,7 +482,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    public void execute(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
             this.delegate.execute(runnable);
@@ -484,7 +490,8 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List invokeAll(Collection collection) throws InterruptedException {
+    @NonNull
+    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection) throws InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
@@ -494,17 +501,19 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public Object invokeAny(Collection collection) throws InterruptedException, ExecutionException {
+    @NonNull
+    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection) throws InterruptedException, ExecutionException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
-            return this.delegate.invokeAny(collection);
+            return (T) this.delegate.invokeAny(collection);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public Future submit(Runnable runnable) {
+    @NonNull
+    public Future<?> submit(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, runnable)) == null) {
@@ -524,7 +533,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
@@ -534,11 +543,12 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public Future submit(Runnable runnable, Object obj) {
+    @NonNull
+    public <T> Future<T> submit(@NonNull Runnable runnable, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, runnable, obj)) == null) {
-            return this.delegate.submit(runnable, obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, runnable, t)) == null) {
+            return this.delegate.submit(runnable, t);
         }
         return (Future) invokeLL.objValue;
     }
@@ -564,7 +574,8 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List invokeAll(Collection collection, long j, TimeUnit timeUnit) throws InterruptedException {
+    @NonNull
+    public <T> List<Future<T>> invokeAll(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) {
@@ -574,13 +585,13 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public Object invokeAny(Collection collection, long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public <T> T invokeAny(@NonNull Collection<? extends Callable<T>> collection, long j, @NonNull TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) {
-            return this.delegate.invokeAny(collection, j, timeUnit);
+            return (T) this.delegate.invokeAny(collection, j, timeUnit);
         }
-        return invokeCommon.objValue;
+        return (T) invokeCommon.objValue;
     }
 
     public static GlideExecutor newUnlimitedSourceExecutor() {
@@ -593,7 +604,7 @@ public final class GlideExecutor implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public Future submit(Callable callable) {
+    public <T> Future<T> submit(@NonNull Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, callable)) == null) {

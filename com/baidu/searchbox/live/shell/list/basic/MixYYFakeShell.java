@@ -76,7 +76,7 @@ import kotlin.reflect.KProperty;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000»\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001M\u0018\u0000 ~2\u00020\u00012\u00020\u00022\u00020\u0003:\u0002~\u007fB\u001f\u0012\u0006\u0010w\u001a\u00020v\u0012\u0006\u0010y\u001a\u00020x\u0012\u0006\u0010{\u001a\u00020z¢\u0006\u0004\b|\u0010}J\u0019\u0010\u0007\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u000e\u001a\u00020\u0006¢\u0006\u0004\b\u000e\u0010\nJ\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0010\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0011\u0010\u0012J)\u0010\u0018\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u00132\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u001c\u001a\u00020\u00062\u0006\u0010\u001b\u001a\u00020\u001aH\u0016¢\u0006\u0004\b\u001c\u0010\u001dJ\u000f\u0010\u001e\u001a\u00020\u0006H\u0007¢\u0006\u0004\b\u001e\u0010\nJ\u000f\u0010\u001f\u001a\u00020\u0006H\u0007¢\u0006\u0004\b\u001f\u0010\nJ\u001f\u0010#\u001a\u00020\"2\u0006\u0010 \u001a\u00020\u00132\u0006\u0010\u0005\u001a\u00020!H\u0016¢\u0006\u0004\b#\u0010$J\u000f\u0010%\u001a\u00020\u0006H\u0016¢\u0006\u0004\b%\u0010\nJ\u0017\u0010(\u001a\u00020\u00062\u0006\u0010'\u001a\u00020&H\u0016¢\u0006\u0004\b(\u0010)J\u000f\u0010*\u001a\u00020\u0006H\u0016¢\u0006\u0004\b*\u0010\nJ\u000f\u0010+\u001a\u00020\u0006H\u0016¢\u0006\u0004\b+\u0010\nJ'\u0010.\u001a\u00020\u00062\u0006\u0010,\u001a\u00020\u00132\u0006\u0010'\u001a\u00020&2\u0006\u0010-\u001a\u00020\"H\u0016¢\u0006\u0004\b.\u0010/J\u0017\u00101\u001a\u00020\u00062\u0006\u00100\u001a\u00020\u0016H\u0016¢\u0006\u0004\b1\u00102J\u000f\u00103\u001a\u00020\u0006H\u0007¢\u0006\u0004\b3\u0010\nJ\u000f\u00104\u001a\u00020\u0006H\u0002¢\u0006\u0004\b4\u0010\nJ/\u00109\u001a\u00020\u00062\u0006\u0010\u0014\u001a\u00020\u00132\u000e\u00106\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000f052\u0006\u00108\u001a\u000207H\u0016¢\u0006\u0004\b9\u0010:J\u000f\u0010;\u001a\u00020\u0006H\u0007¢\u0006\u0004\b;\u0010\nJ\u000f\u0010<\u001a\u00020\u0006H\u0007¢\u0006\u0004\b<\u0010\nJ\u000f\u0010=\u001a\u00020\u0006H\u0007¢\u0006\u0004\b=\u0010\nJ\u000f\u0010>\u001a\u00020\u0006H\u0002¢\u0006\u0004\b>\u0010\nJ\r\u0010?\u001a\u00020\u0006¢\u0006\u0004\b?\u0010\nR\"\u0010@\u001a\u00020\u00138\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b@\u0010A\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER\"\u0010G\u001a\u00020F8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bG\u0010H\u001a\u0004\bI\u0010J\"\u0004\bK\u0010LR\u001d\u0010R\u001a\u00020M8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bN\u0010O\u001a\u0004\bP\u0010QR\u0016\u0010S\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bS\u0010TR\u0016\u0010U\u001a\u00020\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bU\u0010TR\"\u0010V\u001a\u00020\"8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bV\u0010T\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\u0018\u0010[\u001a\u0004\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b[\u0010\\R.\u0010_\u001a\u0004\u0018\u00010]2\b\u0010^\u001a\u0004\u0018\u00010]8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b_\u0010`\u001a\u0004\ba\u0010b\"\u0004\bc\u0010dR\u0018\u0010f\u001a\u0004\u0018\u00010e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bf\u0010gR\u0018\u0010i\u001a\u0004\u0018\u00010h8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bi\u0010jR\u001d\u0010o\u001a\u00020k8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bl\u0010O\u001a\u0004\bm\u0010nR\u001e\u0010r\u001a\n q*\u0004\u0018\u00010p0p8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\br\u0010sR\u0018\u0010t\u001a\u0004\u0018\u00010\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bt\u0010u¨\u0006\u0080\u0001"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell;", "Landroidx/lifecycle/LifecycleObserver;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", "", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "checkImpl", "()V", "Landroid/view/View;", "createContainerView", "()Landroid/view/View;", "hideActivityBackground", "", "content", "log", "(Ljava/lang/String;)V", "", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "onLiveAttach", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "onLiveBindData", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "onLiveDeselected", "onLiveDetach", CriusAttrConstants.POSITION, "isFromUser", "onLiveSelected", "(ILcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Z)V", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "onRealDetach", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "registerRoomInfoService", "showActivityBackground", "curPosition", "I", "getCurPosition", "()I", "setCurPosition", "(I)V", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "com/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1", "invokeAbility$delegate", "Lkotlin/Lazy;", "getInvokeAbility", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$invokeAbility$2$1;", "invokeAbility", "isDestroy", "Z", "isDetach", "isSelected", "()Z", "setSelected", "(Z)V", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "mOrientationHelper", "Lcom/baidu/searchbox/player/helper/OrientationHelper;", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "value", "mixLiveImpl", "Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "getMixLiveImpl", "()Lcom/baidu/live/mix/interfaces/MixLiveInterface;", "setMixLiveImpl", "(Lcom/baidu/live/mix/interfaces/MixLiveInterface;)V", "Lcom/baidu/live/mix/MixLiveItemModel;", "mixModel", "Lcom/baidu/live/mix/MixLiveItemModel;", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "mixRoomInfo", "Lcom/baidu/searchbox/live/mix/MixRoomInfo;", "Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack$delegate", "getOrientationChangeCallBack", "()Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "orientationChangeCallBack", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "yyView", "Landroid/view/View;", "Landroid/content/Context;", "context", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "OrientationChangeCallBack", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class MixYYFakeShell extends AbstractMixFakeShell implements LifecycleObserver, EventAction {
+public final class MixYYFakeShell extends AbstractMixFakeShell implements LifecycleObserver, EventAction<AbstractEvent> {
     public static final /* synthetic */ KProperty[] $$delegatedProperties;
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -143,7 +143,7 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\b\n\u0002\b\t\b\u0082\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\"\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\"\u0010\f\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\u0007\u001a\u0004\b\f\u0010\t\"\u0004\b\r\u0010\u000bR\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014¨\u0006\u0017"}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$Companion;", "", "ROOM_ID_YY", "Ljava/lang/String;", "SID_CONST_KEY", "", "hasSelected", "Z", "getHasSelected", "()Z", "setHasSelected", "(Z)V", "isLoadPlugin", "setLoadPlugin", "", "lastContextHashCode", "I", "getLastContextHashCode", "()I", "setLastContextHashCode", "(I)V", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,18 +219,18 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0010\t\n\u0002\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\n0\t¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00028\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0007\u0010\bR\u001f\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\n0\t8\u0006@\u0006¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000eR\"\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\"\u0010\u0016\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u0010\u0011\u001a\u0004\b\u0017\u0010\u0013\"\u0004\b\u0018\u0010\u0015R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0016\u0010\u001c\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001c\u0010\u0011R\u0016\u0010\u001d\u001a\u00020\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u0011¨\u0006 "}, d2 = {"Lcom/baidu/searchbox/live/shell/list/basic/MixYYFakeShell$OrientationChangeCallBack;", "com/baidu/searchbox/player/helper/OrientationHelper$IOrientationChange", "", "i", "", "onOrientationChanged", "(I)V", "DELAY_TIME", "I", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "activityRef", "Ljava/lang/ref/WeakReference;", "getActivityRef", "()Ljava/lang/ref/WeakReference;", "", "canChangeOrientation", "Z", "getCanChangeOrientation", "()Z", "setCanChangeOrientation", "(Z)V", "fullScreenMode", "getFullScreenMode", "setFullScreenMode", "", "mChangedTime", "J", "mIsLandscape", "mIsPortrait", "<init>", "(Ljava/lang/ref/WeakReference;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
+    public static final class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int DELAY_TIME;
-        public final WeakReference activityRef;
+        public final WeakReference<Activity> activityRef;
         public boolean canChangeOrientation;
         public boolean fullScreenMode;
         public long mChangedTime;
         public boolean mIsLandscape;
         public boolean mIsPortrait;
 
-        public OrientationChangeCallBack(WeakReference weakReference) {
+        public OrientationChangeCallBack(WeakReference<Activity> weakReference) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,7 +249,7 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             this.DELAY_TIME = 1000;
         }
 
-        public final WeakReference getActivityRef() {
+        public final WeakReference<Activity> getActivityRef() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -293,16 +293,16 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
                 if (this.mIsPortrait && System.currentTimeMillis() - this.mChangedTime > this.DELAY_TIME) {
                     if (OrientationHelper.isReverseLandscape(i)) {
                         this.mIsLandscape = true;
-                        WeakReference weakReference = this.activityRef;
-                        if (weakReference != null && (activity3 = (Activity) weakReference.get()) != null) {
+                        WeakReference<Activity> weakReference = this.activityRef;
+                        if (weakReference != null && (activity3 = weakReference.get()) != null) {
                             BdActivityUtils.requestLandscape(activity3, true);
                             return;
                         }
                         return;
                     } else if (OrientationHelper.isLandscape(i)) {
                         this.mIsLandscape = true;
-                        WeakReference weakReference2 = this.activityRef;
-                        if (weakReference2 != null && (activity2 = (Activity) weakReference2.get()) != null) {
+                        WeakReference<Activity> weakReference2 = this.activityRef;
+                        if (weakReference2 != null && (activity2 = weakReference2.get()) != null) {
                             BdActivityUtils.requestLandscape(activity2, false);
                             return;
                         }
@@ -317,8 +317,8 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             if (OrientationHelper.isPortrait(i) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > this.DELAY_TIME) {
                 this.mChangedTime = System.currentTimeMillis();
                 this.mIsLandscape = false;
-                WeakReference weakReference3 = this.activityRef;
-                if (weakReference3 != null && (activity = (Activity) weakReference3.get()) != null) {
+                WeakReference<Activity> weakReference3 = this.activityRef;
+                if (weakReference3 != null && (activity = weakReference3.get()) != null) {
                     BdActivityUtils.requestPortrait(activity);
                 }
             }
@@ -372,6 +372,7 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MixYYFakeShell this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -1262,11 +1263,11 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             }
             LiveItemModelListService liveItemModelListService = (LiveItemModelListService) ServiceLocator.Companion.getGlobalService(LiveItemModelListService.class);
             if (liveItemModelListService != null) {
-                List liveItemModels = liveItemModelListService.getLiveItemModels();
+                List<LiveContainer.LiveItemModel> liveItemModels = liveItemModelListService.getLiveItemModels();
                 if (liveItemModelListService.getCurrentPosition() >= 0 && liveItemModelListService.getCurrentPosition() + 1 < liveItemModels.size()) {
                     int currentPosition = liveItemModelListService.getCurrentPosition() + 1;
-                    if (!((LiveContainer.LiveItemModel) liveItemModels.get(currentPosition)).isYYLive() && (imagePipeline = Fresco.getImagePipeline()) != null) {
-                        imagePipeline.prefetchToBitmapCache(ImageRequest.fromUri(((LiveContainer.LiveItemModel) liveItemModels.get(currentPosition)).getCover()), null);
+                    if (!liveItemModels.get(currentPosition).isYYLive() && (imagePipeline = Fresco.getImagePipeline()) != null) {
+                        imagePipeline.prefetchToBitmapCache(ImageRequest.fromUri(liveItemModels.get(currentPosition).getCover()), null);
                     }
                 }
             }

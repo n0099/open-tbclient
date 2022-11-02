@@ -16,7 +16,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ARVOJniClient {
     public static /* synthetic */ Interceptable $ic;
-    public static List sModelIds;
+    public static List<String> sModelIds;
     public static int sTrackerId;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,13 +40,13 @@ public class ARVOJniClient {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{fArr, Float.valueOf(f), fArr2, fArr3})) == null) ? ARAlgoJniClient.calModelPosition(fArr, f, fArr2, fArr3) : invokeCommon.intValue;
     }
 
-    public static synchronized ArrayList fetchModelPose() {
+    public static synchronized ArrayList<TrackModel> fetchModelPose() {
         InterceptResult invokeV;
-        ArrayList arrayList;
+        ArrayList<TrackModel> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (ARVOJniClient.class) {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
                 if (sModelIds != null) {
                     for (String str : sModelIds) {
                         float[] fArr = new float[16];
@@ -118,7 +118,7 @@ public class ARVOJniClient {
                     while (true) {
                         if (i >= size) {
                             break;
-                        } else if (((String) sModelIds.get(i)).equals(str)) {
+                        } else if (sModelIds.get(i).equals(str)) {
                             break;
                         } else {
                             i++;

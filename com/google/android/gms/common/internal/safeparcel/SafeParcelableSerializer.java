@@ -4,17 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.util.Base64Utils;
+import com.google.android.gms.common.util.VisibleForTesting;
 import com.google.android.gms.internal.common.zzag;
 import java.util.ArrayList;
-import java.util.Iterator;
+@VisibleForTesting
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class SafeParcelableSerializer {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +39,9 @@ public final class SafeParcelableSerializer {
         }
     }
 
-    public static SafeParcelable deserializeFromBytes(byte[] bArr, Parcelable.Creator creator) {
+    @NonNull
+    @KeepForSdk
+    public static <T extends SafeParcelable> T deserializeFromBytes(@NonNull byte[] bArr, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, creator)) == null) {
@@ -42,23 +49,27 @@ public final class SafeParcelableSerializer {
             Parcel obtain = Parcel.obtain();
             obtain.unmarshall(bArr, 0, bArr.length);
             obtain.setDataPosition(0);
-            SafeParcelable safeParcelable = (SafeParcelable) creator.createFromParcel(obtain);
+            T createFromParcel = creator.createFromParcel(obtain);
             obtain.recycle();
-            return safeParcelable;
+            return createFromParcel;
         }
-        return (SafeParcelable) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static SafeParcelable deserializeFromString(String str, Parcelable.Creator creator) {
+    @NonNull
+    @KeepForSdk
+    public static <T extends SafeParcelable> T deserializeFromString(@NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, creator)) == null) {
-            return deserializeFromBytes(Base64Utils.decodeUrlSafe(str), creator);
+            return (T) deserializeFromBytes(Base64Utils.decodeUrlSafe(str), creator);
         }
-        return (SafeParcelable) invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
-    public static SafeParcelable deserializeFromIntentExtra(Intent intent, String str, Parcelable.Creator creator) {
+    @Nullable
+    @KeepForSdk
+    public static <T extends SafeParcelable> T deserializeFromIntentExtra(@NonNull Intent intent, @NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, intent, str, creator)) == null) {
@@ -66,12 +77,14 @@ public final class SafeParcelableSerializer {
             if (byteArrayExtra == null) {
                 return null;
             }
-            return deserializeFromBytes(byteArrayExtra, creator);
+            return (T) deserializeFromBytes(byteArrayExtra, creator);
         }
-        return (SafeParcelable) invokeLLL.objValue;
+        return (T) invokeLLL.objValue;
     }
 
-    public static ArrayList deserializeIterableFromBundleSafe(Bundle bundle, String str, Parcelable.Creator creator) {
+    @Nullable
+    @KeepForSdk
+    public static <T extends SafeParcelable> ArrayList<T> deserializeIterableFromBundleSafe(@NonNull Bundle bundle, @NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, bundle, str, creator)) == null) {
@@ -80,7 +93,9 @@ public final class SafeParcelableSerializer {
         return (ArrayList) invokeLLL.objValue;
     }
 
-    public static ArrayList deserializeIterableFromIntentExtraSafe(Intent intent, String str, Parcelable.Creator creator) {
+    @Nullable
+    @KeepForSdk
+    public static <T extends SafeParcelable> ArrayList<T> deserializeIterableFromIntentExtraSafe(@NonNull Intent intent, @NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, intent, str, creator)) == null) {
@@ -90,54 +105,58 @@ public final class SafeParcelableSerializer {
     }
 
     @Deprecated
-    public static void serializeIterableToBundle(Iterable iterable, Bundle bundle, String str) {
+    public static <T extends SafeParcelable> void serializeIterableToBundle(@NonNull Iterable<T> iterable, @NonNull Bundle bundle, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, iterable, bundle, str) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                arrayList.add(serializeToBytes((SafeParcelable) it.next()));
+            for (T t : iterable) {
+                arrayList.add(serializeToBytes(t));
             }
             bundle.putSerializable(str, arrayList);
         }
     }
 
-    public static void serializeIterableToBundleSafe(Iterable iterable, Bundle bundle, String str) {
+    public static <T extends SafeParcelable> void serializeIterableToBundleSafe(@NonNull Iterable<T> iterable, @NonNull Bundle bundle, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, iterable, bundle, str) == null) {
             bundle.putByteArray(str, zza(iterable));
         }
     }
 
+    @KeepForSdk
     @Deprecated
-    public static void serializeIterableToIntentExtra(Iterable iterable, Intent intent, String str) {
+    public static <T extends SafeParcelable> void serializeIterableToIntentExtra(@NonNull Iterable<T> iterable, @NonNull Intent intent, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, iterable, intent, str) == null) {
             ArrayList arrayList = new ArrayList();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                arrayList.add(serializeToBytes((SafeParcelable) it.next()));
+            for (T t : iterable) {
+                arrayList.add(serializeToBytes(t));
             }
             intent.putExtra(str, arrayList);
         }
     }
 
-    public static void serializeIterableToIntentExtraSafe(Iterable iterable, Intent intent, String str) {
+    @KeepForSdk
+    public static <T extends SafeParcelable> void serializeIterableToIntentExtraSafe(@NonNull Iterable<T> iterable, @NonNull Intent intent, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, iterable, intent, str) == null) {
             intent.putExtra(str, zza(iterable));
         }
     }
 
-    public static void serializeToIntentExtra(SafeParcelable safeParcelable, Intent intent, String str) {
+    @KeepForSdk
+    public static <T extends SafeParcelable> void serializeToIntentExtra(@NonNull T t, @NonNull Intent intent, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, safeParcelable, intent, str) == null) {
-            intent.putExtra(str, serializeToBytes(safeParcelable));
+        if (interceptable == null || interceptable.invokeLLL(65550, null, t, intent, str) == null) {
+            intent.putExtra(str, serializeToBytes(t));
         }
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: java.util.ArrayList<T extends com.google.android.gms.common.internal.safeparcel.SafeParcelable> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Nullable
     @Deprecated
-    public static ArrayList deserializeIterableFromBundle(Bundle bundle, String str, Parcelable.Creator creator) {
+    public static <T extends SafeParcelable> ArrayList<T> deserializeIterableFromBundle(@NonNull Bundle bundle, @NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str, creator)) == null) {
@@ -145,7 +164,7 @@ public final class SafeParcelableSerializer {
             if (arrayList == null) {
                 return null;
             }
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
+            ArrayList<T> arrayList2 = (ArrayList<T>) new ArrayList(arrayList.size());
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 arrayList2.add(deserializeFromBytes((byte[]) arrayList.get(i), creator));
@@ -155,8 +174,12 @@ public final class SafeParcelableSerializer {
         return (ArrayList) invokeLLL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: java.util.ArrayList<T extends com.google.android.gms.common.internal.safeparcel.SafeParcelable> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Nullable
+    @KeepForSdk
     @Deprecated
-    public static ArrayList deserializeIterableFromIntentExtra(Intent intent, String str, Parcelable.Creator creator) {
+    public static <T extends SafeParcelable> ArrayList<T> deserializeIterableFromIntentExtra(@NonNull Intent intent, @NonNull String str, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, intent, str, creator)) == null) {
@@ -164,7 +187,7 @@ public final class SafeParcelableSerializer {
             if (arrayList == null) {
                 return null;
             }
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
+            ArrayList<T> arrayList2 = (ArrayList<T>) new ArrayList(arrayList.size());
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 arrayList2.add(deserializeFromBytes((byte[]) arrayList.get(i), creator));
@@ -174,7 +197,8 @@ public final class SafeParcelableSerializer {
         return (ArrayList) invokeLLL.objValue;
     }
 
-    public static ArrayList deserializeIterableFromBytes(byte[] bArr, Parcelable.Creator creator) {
+    @Nullable
+    public static <T extends SafeParcelable> ArrayList<T> deserializeIterableFromBytes(@Nullable byte[] bArr, @NonNull Parcelable.Creator<T> creator) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, creator)) == null) {
@@ -186,7 +210,7 @@ public final class SafeParcelableSerializer {
             obtain.unmarshall(bArr, 0, length);
             obtain.setDataPosition(0);
             try {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<T> arrayList = new ArrayList<>();
                 obtain.readTypedList(arrayList, creator);
                 return arrayList;
             } finally {
@@ -196,12 +220,14 @@ public final class SafeParcelableSerializer {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static byte[] serializeToBytes(SafeParcelable safeParcelable) {
+    @NonNull
+    @KeepForSdk
+    public static <T extends SafeParcelable> byte[] serializeToBytes(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, safeParcelable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, t)) == null) {
             Parcel obtain = Parcel.obtain();
-            safeParcelable.writeToParcel(obtain, 0);
+            t.writeToParcel(obtain, 0);
             byte[] marshall = obtain.marshall();
             obtain.recycle();
             return marshall;
@@ -209,16 +235,18 @@ public final class SafeParcelableSerializer {
         return (byte[]) invokeL.objValue;
     }
 
-    public static String serializeToString(SafeParcelable safeParcelable) {
+    @NonNull
+    @KeepForSdk
+    public static <T extends SafeParcelable> String serializeToString(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, safeParcelable)) == null) {
-            return Base64Utils.encodeUrlSafe(serializeToBytes(safeParcelable));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, t)) == null) {
+            return Base64Utils.encodeUrlSafe(serializeToBytes(t));
         }
         return (String) invokeL.objValue;
     }
 
-    public static byte[] zza(Iterable iterable) {
+    public static <T extends SafeParcelable> byte[] zza(Iterable<T> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, iterable)) == null) {

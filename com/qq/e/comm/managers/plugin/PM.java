@@ -28,7 +28,7 @@ import java.util.concurrent.Future;
 /* loaded from: classes8.dex */
 public class PM {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map p;
+    public static final Map<Class<?>, String> p;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
     public final Context b;
@@ -42,7 +42,7 @@ public class PM {
     public final e j;
     public POFactory k;
     public int l;
-    public Future m;
+    public Future<Boolean> m;
     public final f n;
     public f o;
 
@@ -72,7 +72,7 @@ public class PM {
     }
 
     /* loaded from: classes8.dex */
-    public final class c extends HashMap {
+    public static class c extends HashMap<Class<?>, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +198,7 @@ public class PM {
     }
 
     private void f() {
-        Future future;
+        Future<Boolean> future;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || (future = this.m) == null) {
             return;
@@ -257,7 +257,7 @@ public class PM {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Callable {
+    public class a implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
@@ -280,8 +280,10 @@ public class PM {
             this.a = pm;
         }
 
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, java.lang.Object] */
         @Override // java.util.concurrent.Callable
-        public Object call() throws Exception {
+        public Boolean call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -422,7 +424,7 @@ public class PM {
         }
     }
 
-    public Object getFactory(Class cls) throws d {
+    public <T> T getFactory(Class<T> cls) throws d {
         InterceptResult invokeL;
         ClassLoader classLoader;
         boolean z;
@@ -446,10 +448,10 @@ public class PM {
             GDTLogger.d(sb.toString());
             if (classLoader != null) {
                 try {
-                    String str = (String) p.get(cls);
+                    String str = p.get(cls);
                     if (!StringUtil.isEmpty(str)) {
                         Class<?> loadClass = classLoader.loadClass(str);
-                        Object cast = cls.cast(loadClass.getDeclaredMethod("getInstance", new Class[0]).invoke(loadClass, new Object[0]));
+                        T cast = cls.cast(loadClass.getDeclaredMethod("getInstance", new Class[0]).invoke(loadClass, new Object[0]));
                         GDTLogger.d("ServiceDelegateFactory =" + cast);
                         return cast;
                     }
@@ -460,6 +462,6 @@ public class PM {
             }
             throw new d("Fail to init GDTADPLugin,PluginClassLoader == null;while loading factory impl for:" + cls);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

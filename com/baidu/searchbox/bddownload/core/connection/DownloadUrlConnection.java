@@ -1,5 +1,7 @@
 package com.baidu.searchbox.bddownload.core.connection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.IRedirectHandler;
@@ -18,6 +20,7 @@ import java.net.ProtocolException;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class DownloadUrlConnection implements DownloadConnection, DownloadConnection.Connected {
@@ -30,7 +33,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     public URL url;
 
     /* loaded from: classes2.dex */
-    public class Configuration {
+    public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer connectTimeout;
@@ -83,7 +86,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     }
 
     /* loaded from: classes2.dex */
-    public class Factory implements DownloadConnection.Factory {
+    public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Configuration configuration;
@@ -146,7 +149,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     }
 
     /* loaded from: classes2.dex */
-    public final class RedirectHandler implements IRedirectHandler {
+    public static final class RedirectHandler implements IRedirectHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String redirectLocation;
@@ -166,6 +169,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
 
         @Override // com.baidu.searchbox.bddownload.IRedirectHandler
+        @Nullable
         public String getRedirectLocation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -176,7 +180,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
 
         @Override // com.baidu.searchbox.bddownload.IRedirectHandler
-        public void handleRedirect(DownloadConnection downloadConnection, DownloadConnection.Connected connected, Map map) throws IOException {
+        public void handleRedirect(DownloadConnection downloadConnection, DownloadConnection.Connected connected, Map<String, List<String>> map) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadConnection, connected, map) == null) {
                 DownloadUrlConnection downloadUrlConnection = (DownloadUrlConnection) downloadConnection;
@@ -358,7 +362,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map requestProperties = getRequestProperties();
+            Map<String, List<String>> requestProperties = getRequestProperties();
             this.connection.connect();
             this.redirectHandler.handleRedirect(this, this, requestProperties);
             return this;
@@ -387,7 +391,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public Map getRequestProperties() {
+    public Map<String, List<String>> getRequestProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -397,7 +401,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Connected
-    public Map getResponseHeaderFields() {
+    public Map<String, List<String>> getResponseHeaderFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -441,7 +445,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     }
 
     @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection
-    public boolean setRequestMethod(String str) throws ProtocolException {
+    public boolean setRequestMethod(@NonNull String str) throws ProtocolException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {

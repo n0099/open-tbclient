@@ -49,17 +49,17 @@ public class EmotionUtils {
     public static long sLastTimeStampMS;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAllZoneTitle;
-    public Map mEmotionBitmapMap;
-    public Map mEmotionClassicList;
-    public List mEmotionPanelList;
+    public Map<String, Bitmap> mEmotionBitmapMap;
+    public Map<String, EmotionClassic> mEmotionClassicList;
+    public List<String> mEmotionPanelList;
     public MediaPlayer mMediaPlayer;
     public String mOftenZoneTitle;
-    public List mRecommendEmotionPanelList;
+    public List<String> mRecommendEmotionPanelList;
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class EmotionUtils {
     }
 
     /* loaded from: classes2.dex */
-    public class EmotionClassic {
+    public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File file;
@@ -180,7 +180,7 @@ public class EmotionUtils {
         return (String) invokeV.objValue;
     }
 
-    public List getPanelEmotionList() {
+    public List<String> getPanelEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -212,8 +212,8 @@ public class EmotionUtils {
     }
 
     private void initEmotionBitmapCache() {
-        List list;
-        Map map;
+        List<String> list;
+        Map<String, EmotionClassic> map;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (list = this.mEmotionPanelList) != null && !list.isEmpty() && (map = this.mEmotionClassicList) != null && !map.isEmpty()) {
             ArrayList arrayList = new ArrayList(this.mEmotionPanelList);
@@ -266,18 +266,18 @@ public class EmotionUtils {
         return invokeL.booleanValue;
     }
 
-    private String queryEmotionNameById(Map map, String str) {
+    private String queryEmotionNameById(Map<String, EmotionClassic> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, map, str)) == null) {
             String str2 = "";
             if (map != null && !map.isEmpty()) {
-                for (Map.Entry entry : map.entrySet()) {
-                    String str3 = (String) entry.getKey();
-                    if (str.equals(((EmotionClassic) entry.getValue()).id)) {
-                        return str3;
+                for (Map.Entry<String, EmotionClassic> entry : map.entrySet()) {
+                    String key = entry.getKey();
+                    if (str.equals(entry.getValue().id)) {
+                        return key;
                     }
-                    str2 = str3;
+                    str2 = key;
                 }
             }
             return str2;
@@ -316,7 +316,7 @@ public class EmotionUtils {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Bitmap bitmap = (Bitmap) this.mEmotionBitmapMap.get(str);
+            Bitmap bitmap = this.mEmotionBitmapMap.get(str);
             if (bitmap != null) {
                 return bitmap;
             }
@@ -381,7 +381,7 @@ public class EmotionUtils {
         EmotionClassic emotionClassic;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, emotionType, str)) == null) {
-            if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] == 1 && (emotionClassic = (EmotionClassic) this.mEmotionClassicList.get(str)) != null) {
+            if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] == 1 && (emotionClassic = this.mEmotionClassicList.get(str)) != null) {
                 return emotionClassic.file;
             }
             return null;
@@ -397,7 +397,7 @@ public class EmotionUtils {
             if (AnonymousClass1.$SwitchMap$com$baidu$spswitch$emotion$EmotionType[emotionType.ordinal()] != 1) {
                 emotionClassic = null;
             } else {
-                emotionClassic = (EmotionClassic) this.mEmotionClassicList.get(str);
+                emotionClassic = this.mEmotionClassicList.get(str);
             }
             if (emotionClassic == null) {
                 return "";
@@ -407,20 +407,20 @@ public class EmotionUtils {
         return (String) invokeLL.objValue;
     }
 
-    public List getPanelOftenEmotionList() {
+    public List<String> getPanelOftenEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List emotionUsageList = EmotionUsageUtil.getEmotionUsageList(this.mEmotionClassicList);
+            List<String> emotionUsageList = EmotionUsageUtil.getEmotionUsageList(this.mEmotionClassicList);
             if (emotionUsageList == null) {
-                emotionUsageList = new ArrayList();
+                emotionUsageList = new ArrayList<>();
             }
             int i = 0;
             int size = this.mRecommendEmotionPanelList.size();
             while (emotionUsageList.size() < 7 && size > 0) {
                 int i2 = i + 1;
-                String str = (String) this.mRecommendEmotionPanelList.get(i);
-                Map map = this.mEmotionClassicList;
+                String str = this.mRecommendEmotionPanelList.get(i);
+                Map<String, EmotionClassic> map = this.mEmotionClassicList;
                 if (map != null && map.containsKey(str) && !TextUtils.isEmpty(str) && emotionUsageList.indexOf(str) == -1) {
                     emotionUsageList.add(str);
                 }

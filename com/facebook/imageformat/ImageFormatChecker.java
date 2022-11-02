@@ -23,7 +23,7 @@ public class ImageFormatChecker {
     public static ImageFormatChecker sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public List mCustomImageFormatCheckers;
+    public List<ImageFormat.FormatChecker> mCustomImageFormatCheckers;
     public final ImageFormat.FormatChecker mDefaultFormatChecker;
     public int mMaxHeaderLength;
 
@@ -82,7 +82,7 @@ public class ImageFormatChecker {
         return (ImageFormat) invokeL.objValue;
     }
 
-    public void setCustomImageFormatCheckers(@Nullable List list) {
+    public void setCustomImageFormatCheckers(@Nullable List<ImageFormat.FormatChecker> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.mCustomImageFormatCheckers = list;

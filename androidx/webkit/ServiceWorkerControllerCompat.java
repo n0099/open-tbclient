@@ -1,5 +1,8 @@
 package androidx.webkit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.webkit.internal.ServiceWorkerControllerImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +16,10 @@ public abstract class ServiceWorkerControllerCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @NonNull
     public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
 
-    public abstract void setServiceWorkerClient(ServiceWorkerClientCompat serviceWorkerClientCompat);
+    public abstract void setServiceWorkerClient(@Nullable ServiceWorkerClientCompat serviceWorkerClientCompat);
 
     /* loaded from: classes.dex */
     public static class LAZY_HOLDER {
@@ -54,6 +58,7 @@ public abstract class ServiceWorkerControllerCompat {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ServiceWorkerControllerCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,6 +73,7 @@ public abstract class ServiceWorkerControllerCompat {
         }
     }
 
+    @NonNull
     public static ServiceWorkerControllerCompat getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

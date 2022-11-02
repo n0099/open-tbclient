@@ -95,7 +95,7 @@ public class CallerThreadExecutor extends AbstractExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List shutdownNow() {
+    public List<Runnable> shutdownNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

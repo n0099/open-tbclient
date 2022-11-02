@@ -1,363 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatusbarColorUtils;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.i79;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.write.data.CreateTagResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class h79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public dy4 b;
-    public BottomSheetDialog c;
-    public BdTopToast d;
-    public ViewGroup e;
-    public View f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public LinearLayout j;
-    public EditText k;
-    public ImageView l;
-    public int m;
-    public String n;
-    public String o;
-    public i79 p;
-    public e79 q;
-    public final Runnable r;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final i69 b;
+    @NonNull
+    public final EditorTools c;
+    @NonNull
+    public final b59 d;
+    @NonNull
+    public final t79 e;
+    @NonNull
+    public final x79 f;
+    @NonNull
+    public final WriteData g;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public a(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.k != null) {
-                fj.L(this.a.a, this.a.k);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public b(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
-            }
-            this.a.o();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements i79.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public c(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // com.baidu.tieba.i79.b
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.n();
-            this.a.w(str);
-        }
-
-        @Override // com.baidu.tieba.i79.b
-        public void a(CreateTagResponseData createTagResponseData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, createTagResponseData) == null) {
-                this.a.n();
-                if (createTagResponseData != null && createTagResponseData.tagInfo != null && this.a.q != null) {
-                    this.a.q.a(createTagResponseData.tagInfo);
-                }
-                if (this.a.c != null) {
-                    this.a.c.dismiss();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public d(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String trim = this.a.k.getText().toString().trim();
-                if (!TextUtils.isEmpty(trim) && trim.equals(this.a.o)) {
-                    if (this.a.c != null) {
-                        this.a.c.dismiss();
-                    }
-                } else if (this.a.p != null) {
-                    this.a.p.c(this.a.k.getText().toString().trim(), this.a.n);
-                    this.a.o();
-                    this.a.v();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public e(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                this.a.c.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public f(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.k.setText((CharSequence) null);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public g(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, editable) != null) {
-                return;
-            }
-            this.a.t(editable);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class h implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h79 a;
-
-        public h(h79 h79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h79Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                hh.a().removeCallbacks(this.a.r);
-            }
-        }
-    }
-
-    public h79() {
+    public h79(@NonNull TbPageContext<?> tbPageContext, @NonNull i69 i69Var, @NonNull EditorTools editorTools, @NonNull b59 b59Var, @NonNull t79 t79Var, @NonNull x79 x79Var, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, i69Var, editorTools, b59Var, t79Var, x79Var, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -367,175 +47,180 @@ public class h79 {
                 return;
             }
         }
-        this.r = new a(this);
+        this.a = tbPageContext;
+        this.b = i69Var;
+        this.c = editorTools;
+        this.d = b59Var;
+        this.e = t79Var;
+        this.f = x79Var;
+        this.g = writeData;
     }
 
-    public final void n() {
-        dy4 dy4Var;
+    public List<m69<?>> a(List<i79.a> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dy4Var = this.b) != null) {
-            dy4Var.b();
-        }
-    }
-
-    public final void o() {
-        BdTopToast bdTopToast;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (bdTopToast = this.d) == null) {
-            return;
-        }
-        bdTopToast.b();
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i79 i79Var = new i79();
-            this.p = i79Var;
-            i79Var.e();
-            this.p.f(new c(this));
-        }
-    }
-
-    public void s() {
-        i79 i79Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i79Var = this.p) != null) {
-            i79Var.g();
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.b == null) {
-                dy4 dy4Var = new dy4(this.a);
-                dy4Var.c(false);
-                dy4Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0487));
-                this.b = dy4Var;
-            }
-            this.b.e();
-        }
-    }
-
-    public final void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (this.d == null) {
-                this.d = new BdTopToast(this.a);
-            }
-            this.d.g(str);
-            this.d.i(this.e);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = new BottomSheetDialog(this.a, R.style.obfuscated_res_0x7f1000f9);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) null);
-            this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09073a);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0904a0);
-            this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0906b9);
-            this.j = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090123);
-            this.k = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f09093c);
-            this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090ff6);
-            this.i.setOnClickListener(new d(this));
-            this.h.setOnClickListener(new e(this));
-            this.l.setOnClickListener(new f(this));
-            this.k.addTextChangedListener(new g(this));
-            this.c.setContentView(this.f);
-            if (this.c.getWindow() != null && this.c.getWindow().getAttributes() != null) {
-                this.m = this.c.getWindow().getAttributes().windowAnimations;
-            }
-            this.c.setOnDismissListener(new h(this));
-            r();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            nv4 d2 = nv4.d(this.f);
-            d2.m(1);
-            d2.n(R.string.J_X14);
-            d2.f(R.color.CAM_X0211);
-            nv4 d3 = nv4.d(this.j);
-            d3.n(R.string.J_X07);
-            d3.f(R.color.CAM_X0209);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
-            TextView textView = this.i;
-            if (textView != null) {
-                textView.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0302, TbadkCoreApplication.getInst().getSkinType()));
-            }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            EditText editText = this.k;
-            if (editText != null) {
-                editText.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            }
-        }
-    }
-
-    public final void t(Editable editable) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, editable) == null) {
-            int i = 0;
-            if (editable != null && editable.toString().trim().length() > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.i.setEnabled(z);
-            ImageView imageView = this.l;
-            if (!z) {
-                i = 8;
-            }
-            imageView.setVisibility(i);
-        }
-    }
-
-    public void u(Activity activity, String str, String str2, e79 e79Var) {
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048583, this, activity, str, str2, e79Var) == null) {
-            this.a = activity;
-            this.n = str2;
-            this.o = str;
-            this.q = e79Var;
-            if (this.p == null) {
-                p();
-            }
-            if (this.c == null) {
-                q();
-            }
-            this.c.setOnDismissListener(new b(this));
-            if (this.c.getWindow() != null && this.m > 0) {
-                this.c.getWindow().setWindowAnimations(this.m);
-            }
-            this.c.show();
-            if (this.c.getWindow() != null) {
-                this.c.getWindow().setWindowAnimations(-1);
-                this.e = (ViewGroup) this.c.getWindow().getDecorView();
-                StatusbarColorUtils.setStatusBarDarkIcon(this.c.getWindow(), true);
-            }
-            EditText editText = this.k;
-            if (editText != null) {
-                editText.setText(str);
-                EditText editText2 = this.k;
-                if (editText2.getText() == null) {
-                    length = 0;
-                } else {
-                    length = this.k.getText().length();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (i79.a aVar : list) {
+                m69<?> b = b(aVar);
+                if (b != null) {
+                    b.h(aVar.b, this.g);
+                    arrayList.add(b);
                 }
-                editText2.setSelection(length);
-                t(this.k.getText());
-                this.k.requestFocus();
-                hh.a().postDelayed(this.r, 150L);
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public m69<?> b(i79.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            if (aVar == null) {
+                return null;
+            }
+            String str = aVar.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 3118:
+                    if (str.equals("c1")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 3119:
+                    if (str.equals("c2")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3120:
+                    if (str.equals("c3")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 3121:
+                    if (str.equals("c4")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3122:
+                    if (str.equals("c5")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case 3123:
+                    if (str.equals("c6")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 3124:
+                    if (str.equals("c7")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3125:
+                    if (str.equals("c8")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case 3126:
+                    if (str.equals("c9")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 96706:
+                            if (str.equals("c10")) {
+                                c = 15;
+                                break;
+                            }
+                            break;
+                        case 96707:
+                            if (str.equals("c11")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 96708:
+                            if (str.equals("c12")) {
+                                c = '\t';
+                                break;
+                            }
+                            break;
+                        case 96709:
+                            if (str.equals("c13")) {
+                                c = '\n';
+                                break;
+                            }
+                            break;
+                        case 96710:
+                            if (str.equals("c14")) {
+                                c = 0;
+                                break;
+                            }
+                            break;
+                        case 96711:
+                            if (str.equals("c15")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
+                        case 96712:
+                            if (str.equals("c16")) {
+                                c = '\b';
+                                break;
+                            }
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return p79.a(this.a);
+                case 1:
+                    return p79.b(this.a);
+                case 2:
+                    return p79.c(this.a, this.b, this.c, this.d, this.e);
+                case 3:
+                    return p79.e(this.a);
+                case 4:
+                    return p79.f(this.a);
+                case 5:
+                    return p79.g(this.a);
+                case 6:
+                    return p79.h(this.a, this.f);
+                case 7:
+                    return p79.i(this.a);
+                case '\b':
+                    return p79.j(this.a);
+                case '\t':
+                    return p79.k(this.a);
+                case '\n':
+                    return p79.l(this.a);
+                case 11:
+                    return p79.m(this.a, this.b, this.c, this.f, this.d, this.e);
+                case '\f':
+                    return p79.n(this.a, this.b, this.d, this.e);
+                case '\r':
+                    return p79.o(this.a);
+                case 14:
+                    return p79.p(this.a);
+                case 15:
+                    return p79.q(this.a);
+                default:
+                    return null;
             }
         }
+        return (m69) invokeL.objValue;
     }
 }

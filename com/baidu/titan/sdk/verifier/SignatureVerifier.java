@@ -22,11 +22,11 @@ public class SignatureVerifier {
     public Context mContext;
     public File mPatchFile;
     public SignaturePolicy mSignaturePolicy = SignaturePolicy.V2_ONLY;
-    public final HashSet mAllowedSigs = new HashSet();
+    public final HashSet<String> mAllowedSigs = new HashSet<>();
 
     /* renamed from: com.baidu.titan.sdk.verifier.SignatureVerifier$1  reason: invalid class name */
     /* loaded from: classes6.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy;
 
         static {

@@ -7,11 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 /* loaded from: classes8.dex */
-public abstract class Subject extends Observable implements Observer {
+public abstract class Subject<T> extends Observable<T> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Nullable
     public abstract Throwable getThrowable();
 
     public abstract boolean hasComplete();
@@ -34,7 +37,8 @@ public abstract class Subject extends Observable implements Observer {
         }
     }
 
-    public final Subject toSerialized() {
+    @NonNull
+    public final Subject<T> toSerialized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

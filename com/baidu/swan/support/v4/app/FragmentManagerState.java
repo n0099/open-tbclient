@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public final class FragmentManagerState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<FragmentManagerState> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentState[] mActive;
     public int[] mAdded;
@@ -30,7 +30,7 @@ public final class FragmentManagerState implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<FragmentManagerState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

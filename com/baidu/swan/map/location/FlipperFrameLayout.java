@@ -6,24 +6,26 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a94;
+import com.baidu.tieba.s94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FlipperFrameLayout extends FrameLayout implements a94.b {
+public class FlipperFrameLayout extends FrameLayout implements s94.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-    public a94 b;
+    public s94 b;
     public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(Context context) {
+    public FlipperFrameLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +45,7 @@ public class FlipperFrameLayout extends FrameLayout implements a94.b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(Context context, AttributeSet attributeSet) {
+    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -64,7 +66,7 @@ public class FlipperFrameLayout extends FrameLayout implements a94.b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(Context context, AttributeSet attributeSet, int i) {
+    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -84,7 +86,7 @@ public class FlipperFrameLayout extends FrameLayout implements a94.b {
         }
     }
 
-    @Override // com.baidu.tieba.a94.b
+    @Override // com.baidu.tieba.s94.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -92,7 +94,7 @@ public class FlipperFrameLayout extends FrameLayout implements a94.b {
         }
     }
 
-    @Override // com.baidu.tieba.a94.b
+    @Override // com.baidu.tieba.s94.b
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -112,10 +114,10 @@ public class FlipperFrameLayout extends FrameLayout implements a94.b {
         return invokeF.booleanValue;
     }
 
-    public void setViewFlipper(a94 a94Var) {
+    public void setViewFlipper(s94 s94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, a94Var) == null) {
-            this.b = a94Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, s94Var) == null) {
+            this.b = s94Var;
         }
     }
 

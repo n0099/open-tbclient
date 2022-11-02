@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public class c implements Parcelable, Comparable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.ss.android.socialbase.downloader.model.c.1
+    public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.ss.android.socialbase.downloader.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

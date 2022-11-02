@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.base.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -143,6 +144,7 @@ public class PassBiometricUtil {
         return invokeLII.intValue;
     }
 
+    @TargetApi(23)
     public static boolean checkRequestPermission(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

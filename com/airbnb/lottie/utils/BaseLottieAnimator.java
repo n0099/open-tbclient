@@ -8,8 +8,8 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes.dex */
 public abstract class BaseLottieAnimator extends ValueAnimator {
-    public final Set updateListeners = new CopyOnWriteArraySet();
-    public final Set listeners = new CopyOnWriteArraySet();
+    public final Set<ValueAnimator.AnimatorUpdateListener> updateListeners = new CopyOnWriteArraySet();
+    public final Set<Animator.AnimatorListener> listeners = new CopyOnWriteArraySet();
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public long getStartDelay() {

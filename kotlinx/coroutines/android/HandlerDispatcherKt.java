@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Choreographer;
+import androidx.annotation.VisibleForTesting;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
@@ -15,6 +16,9 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
@@ -23,6 +27,7 @@ import kotlinx.coroutines.Dispatchers;
 /* loaded from: classes8.dex */
 public final class HandlerDispatcherKt {
     public static final long MAX_DELAY = 4611686018427387903L;
+    @JvmField
     public static final HandlerDispatcher Main;
     public static volatile Choreographer choreographer;
 
@@ -30,6 +35,8 @@ public final class HandlerDispatcherKt {
     public static /* synthetic */ void Main$annotations() {
     }
 
+    @JvmOverloads
+    @JvmName(name = "from")
     public static final HandlerDispatcher from(Handler handler) {
         return from$default(handler, null, 1, null);
     }
@@ -49,11 +56,13 @@ public final class HandlerDispatcherKt {
         Main = (HandlerDispatcher) m698constructorimpl;
     }
 
+    @JvmOverloads
+    @JvmName(name = "from")
     public static final HandlerDispatcher from(Handler handler, String str) {
         return new HandlerContext(handler, str);
     }
 
-    public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation cancellableContinuation) {
+    public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation<? super Long> cancellableContinuation) {
         choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$postFrameCallback$1
             @Override // android.view.Choreographer.FrameCallback
             public final void doFrame(long j) {
@@ -62,7 +71,7 @@ public final class HandlerDispatcherKt {
         });
     }
 
-    public static final void updateChoreographerAndPostFrameCallback(CancellableContinuation cancellableContinuation) {
+    public static final void updateChoreographerAndPostFrameCallback(CancellableContinuation<? super Long> cancellableContinuation) {
         Choreographer choreographer2 = choreographer;
         if (choreographer2 == null) {
             choreographer2 = Choreographer.getInstance();
@@ -74,6 +83,7 @@ public final class HandlerDispatcherKt {
         postFrameCallback(choreographer2, cancellableContinuation);
     }
 
+    @VisibleForTesting
     public static final Handler asHandler(Looper looper, boolean z) {
         int i;
         if (z && (i = Build.VERSION.SDK_INT) >= 16) {
@@ -93,7 +103,7 @@ public final class HandlerDispatcherKt {
         return new Handler(looper);
     }
 
-    public static final Object awaitFrame(Continuation continuation) {
+    public static final Object awaitFrame(Continuation<? super Long> continuation) {
         Choreographer choreographer2 = choreographer;
         if (choreographer2 != null) {
             CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);

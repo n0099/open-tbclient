@@ -13,11 +13,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectForumConfig;
+import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,6 +33,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public TextView d;
     public ImageView e;
     public View f;
+    public GameData g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumSelectedView(Context context) {
@@ -108,12 +110,12 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c9, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905c2);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0905c4);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cb, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d2);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d3);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905cf);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0905d1);
             setOnClickListener(this);
             c();
         }
@@ -130,7 +132,7 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
         this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-        nv4 d = nv4.d(this.d);
+        kw4 d = kw4.d(this.d);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0206);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
@@ -141,13 +143,22 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectForumConfig(getContext())));
+            SelectForumConfig selectForumConfig = new SelectForumConfig(getContext());
+            selectForumConfig.setGameData(this.g);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumConfig));
+        }
+    }
+
+    public void setGameData(GameData gameData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, gameData) == null) {
+            this.g = gameData;
         }
     }
 
     public void setSelectedForum(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.d.setVisibility(8);
             this.c.setText(str);
         }

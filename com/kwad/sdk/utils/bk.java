@@ -22,8 +22,8 @@ import java.util.zip.ZipOutputStream;
 public final class bk {
 
     /* loaded from: classes8.dex */
-    public final class a extends ZipOutputStream {
-        public Map aps;
+    public static class a extends ZipOutputStream {
+        public Map<String, Integer> aps;
 
         public a(OutputStream outputStream) {
             super(outputStream);
@@ -35,7 +35,7 @@ public final class bk {
             ZipEntry zipEntry2;
             Integer num;
             String name = zipEntry.getName();
-            Integer num2 = (Integer) this.aps.get(name);
+            Integer num2 = this.aps.get(name);
             if (num2 == null || num2.intValue() <= 0) {
                 zipEntry2 = zipEntry;
                 num = 1;

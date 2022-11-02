@@ -18,7 +18,7 @@ public class q3 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] a;
         public transient /* synthetic */ FieldHolder $fh;

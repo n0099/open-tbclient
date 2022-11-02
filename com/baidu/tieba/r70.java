@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.Map;
 /* loaded from: classes5.dex */
 public interface r70 {
-    String a();
+    void a(int i, byte[] bArr);
 
-    String b();
-
-    String c();
-
-    Map d();
+    void b(int i, byte[] bArr);
 }

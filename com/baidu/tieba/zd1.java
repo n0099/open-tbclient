@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.nad.jni.NADNativeHelper;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tbadk.core.atomData.AbsMsgImageActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
+import java.net.URLDecoder;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zd1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static Bundle d;
+    public static long e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a extends lb1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ zd1 b;
+        public final /* synthetic */ lb1 a;
 
-        public a(zd1 zd1Var, String str) {
+        public a(lb1 lb1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zd1Var, str};
+                Object[] objArr = {lb1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,508 +52,236 @@ public class zd1 {
                     return;
                 }
             }
-            this.b = zd1Var;
-            this.a = str;
+            this.a = lb1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.lb1
+        public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String f = this.b.f(this.a, currentTimeMillis);
-                String f2 = this.b.f(this.a, 86400000 + currentTimeMillis);
-                String f3 = this.b.f(this.a, 172800000 + currentTimeMillis);
-                JSONObject jSONObject = new JSONObject();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lb1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 try {
-                    jSONObject.put(AbsMsgImageActivityConfig.CURRENT_URL, f);
-                    jSONObject.put("tomorrow_url", f2);
-                    jSONObject.put("after_tomorrow_url", f3);
-                    jSONObject.put("cache_time", currentTimeMillis);
-                } catch (JSONException unused) {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        String unused = zd1.a = optJSONObject.optString("orderId");
+                        String unused2 = zd1.b = optJSONObject.optString("smsId");
+                        zd1.c = optJSONObject.optString("mobile");
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    lb1 lb1Var = this.a;
+                    lb1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused3) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
                 }
-                f01.a().b("splash_sp_name").j("splash_query_cache_url", jSONObject.toString(), false);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public static class b extends lb1<String> {
         public static /* synthetic */ Interceptable $ic;
-        public static final zd1 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lb1 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-235642140, "Lcom/baidu/tieba/zd1$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-235642140, "Lcom/baidu/tieba/zd1$b;");
+        public b(lb1 lb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new zd1(null);
+            this.a = lb1Var;
         }
-    }
 
-    public zd1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.lb1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
             }
         }
-    }
 
-    public static zd1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (zd1) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && be1.t()) {
-            h("query");
-        }
-    }
-
-    public /* synthetic */ zd1(a aVar) {
-        this();
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return f(str, System.currentTimeMillis());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            j11.d(new a(this, str), "cache splash request url");
-        }
-    }
-
-    public final void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || od1.a().d() == null || !od1.a().d().has("client_ext") || (optJSONObject = od1.a().d().optJSONObject("client_ext")) == null) {
-            return;
-        }
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                jSONObject.put(next, optJSONObject.opt(next));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final String j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            int a2 = t21.a(j, System.currentTimeMillis());
-            if (a2 >= 2) {
-                return f01.a().b("splash_sp_name").getString("after_tomorrow_reason", "");
-            }
-            if (a2 == 1) {
-                return f01.a().b("splash_sp_name").getString("tomorrow_reason", "");
-            }
-            return f01.a().b("splash_sp_name").getString("current_reason", "");
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String k(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (TextUtils.equals(str, "query")) {
-                str2 = l(str);
-                Log.d("RequestUrlManager", " getQueryUrl from cache url ： " + str2);
-            } else {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str2)) {
-                String e = e(str);
-                Log.d("RequestUrlManager", " getQueryUrl NOCache url ： " + e);
-                return e;
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void b(HashMap hashMap) {
-        String n;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
-            ij0 a2 = aj0.a();
-            if (TextUtils.isEmpty(a2.n())) {
-                n = a2.u();
-            } else {
-                n = a2.n();
-            }
-            hashMap.put("ver", n);
-            hashMap.put("sv", "1.0");
-            hashMap.put("uid", a2.r());
-            hashMap.put(TiebaStatic.Params.BDID, a2.m());
-            hashMap.put("cuid", a2.g());
-            String e = qj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
-            }
-            String h = qj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                hashMap.put("ov", h);
-            }
-            String b2 = qj0.c().b(false);
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("imei", b2);
-            }
-            hashMap.put("ua", a2.o());
-            hashMap.put("fmt", "json");
-            hashMap.put("apna", a2.packageName());
-            hashMap.put("eid", a2.h());
-            hashMap.put("st", "1");
-            hashMap.put("ot", "2");
-            hashMap.put("nt", String.valueOf(new iq0().c()));
-            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
-            hashMap.put("is_https", "1");
-            String a3 = qj0.c().a(false);
-            if (!TextUtils.isEmpty(a3)) {
-                hashMap.put(HttpRequest.ANDROID_ID, a3);
-            }
-            hashMap.put("from", od1.a().from());
-            hashMap.put("cfrom", od1.a().a());
-            hashMap.put("User-Agent", aj0.e());
-        }
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(15:4|5|6|(1:8)|9|(3:39|40|(11:42|(6:45|(2:47|(4:49|(1:51)|52|(1:54))(2:55|(1:57)))|58|(2:60|61)(1:63)|62|43)|64|12|(2:14|(4:(1:17)|18|19|20)(1:37))(1:38)|21|(1:23)|24|25|26|28))|11|12|(0)(0)|21|(0)|24|25|26|28) */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00fa A[Catch: JSONException -> 0x020f, TryCatch #2 {JSONException -> 0x020f, blocks: (B:11:0x005b, B:13:0x0061, B:14:0x0066, B:16:0x006c, B:18:0x0086, B:20:0x00a2, B:22:0x00a8, B:23:0x00ad, B:25:0x00b3, B:26:0x00b9, B:28:0x00bf, B:29:0x00c0, B:31:0x00d1, B:34:0x00dc, B:36:0x00fa, B:40:0x012b), top: B:64:0x005b }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0142  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01d9 A[Catch: JSONException -> 0x0213, TRY_LEAVE, TryCatch #1 {JSONException -> 0x0213, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0135, B:45:0x0146, B:47:0x01d9, B:48:0x01e9, B:49:0x0203, B:43:0x0139), top: B:62:0x000c }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void c(HashMap hashMap, String str, String str2, long j) {
-        int i;
-        zd1 zd1Var;
-        String f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
-            long j2 = j;
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject = new JSONObject();
-                if (x8.f().h()) {
-                    jSONObject.put("k", "cmd");
-                    jSONObject.put("v", str2);
-                    jSONArray.put(jSONObject);
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
-                jSONObject2.put("v", "5.8.0.17");
-                jSONArray.put(jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                List t = ae1.t();
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                JSONArray jSONArray2 = new JSONArray();
-                if (t != null) {
-                    try {
-                        if (t.size() > 0) {
-                            Iterator it = t.iterator();
-                            i = 0;
-                            while (it.hasNext()) {
-                                ce1 ce1Var = (ce1) it.next();
-                                JSONObject jSONObject4 = new JSONObject();
-                                Iterator it2 = it;
-                                jSONObject4.put("k", ce1Var.c);
-                                if (!TextUtils.isEmpty(ce1Var.c)) {
-                                    int g = ae1.g(ce1Var, j2);
-                                    Log.e("RequestUrlManager", "onAdSuccess: " + g);
-                                    if (g == 0) {
-                                        if (ce1Var.h()) {
-                                            xz0.b(arrayList2, ce1Var.c);
-                                        }
-                                        if (ce1Var.f()) {
-                                            xz0.b(arrayList, ce1Var.c);
-                                        }
-                                    } else if (ce1Var.h()) {
-                                        i |= g;
-                                    }
-                                }
-                                jSONObject4.put("r", String.valueOf(ce1Var.x));
-                                if (ce1Var.h()) {
-                                    jSONArray2.put(jSONObject4);
-                                }
-                                j2 = j;
-                                it = it2;
-                            }
-                            jSONObject3.put("d", jSONArray2);
-                            jSONObject3.put("s", ee1.d());
-                            jSONArray.put(new JSONObject());
-                            if (!TextUtils.equals(str2, "query")) {
-                                JSONObject jSONObject5 = new JSONObject();
-                                jSONObject5.put("k", "ukey");
-                                jSONObject5.put("v", TextUtils.join(",", arrayList));
-                                jSONArray.put(jSONObject5);
-                                JSONObject jSONObject6 = new JSONObject();
-                                jSONObject6.put("k", "xz_ukey");
-                                jSONObject6.put("v", TextUtils.join(",", arrayList2));
-                                jSONArray.put(jSONObject6);
-                                if (arrayList2.isEmpty()) {
-                                    if (i == 0) {
-                                        i = 1;
-                                    }
-                                    String valueOf = String.valueOf(i);
-                                    BaseVM.d = valueOf;
-                                    zd1Var = this;
-                                    zd1Var.n(j, valueOf);
-                                } else {
-                                    zd1Var = this;
-                                    BaseVM.d = "";
-                                }
-                            } else {
-                                zd1Var = this;
-                            }
-                            JSONObject jSONObject7 = new JSONObject();
-                            jSONObject7.put("k", "logid");
-                            jSONObject7.put("v", String.valueOf(j));
-                            jSONArray.put(jSONObject7);
-                            JSONObject jSONObject8 = new JSONObject();
-                            jSONObject8.put("k", "uid");
-                            jSONObject8.put("v", aj0.a().r());
-                            jSONArray.put(jSONObject8);
-                            JSONObject jSONObject9 = new JSONObject();
-                            jSONObject9.put("k", "ext_info");
-                            JSONObject jSONObject10 = new JSONObject();
-                            jSONObject10.put("ipdx", hn0.a().a());
-                            jSONObject10.put("update_mark", NADNativeHelper.b());
-                            jSONObject10.put("boot_mark", NADNativeHelper.a());
-                            zd1Var.a(jSONObject10);
-                            jSONObject10.put(Constants.KEYS.AD_INFO, jSONObject3);
-                            jSONObject9.put("v", jSONObject10.toString());
-                            jSONArray.put(jSONObject9);
-                            JSONObject jSONObject11 = new JSONObject();
-                            jSONObject11.put("k", AdExtParam.KEY_IADEX);
-                            jSONObject11.put("v", aj0.d().l());
-                            jSONArray.put(jSONObject11);
-                            f = qj0.c().f(false);
-                            if (!TextUtils.isEmpty(f)) {
-                                JSONObject jSONObject12 = new JSONObject();
-                                jSONObject12.put("k", "oaid_v");
-                                jSONObject12.put("v", f);
-                                jSONArray.put(jSONObject12);
-                            }
-                            JSONObject jSONObject13 = new JSONObject();
-                            jSONObject13.put("k", "encoded_ua_new");
-                            jSONObject13.put("v", URLEncoder.encode(aj0.e(), IMAudioTransRequest.CHARSET));
-                            jSONArray.put(jSONObject13);
-                            hashMap.put("ext", jSONArray.toString());
-                        }
-                    } catch (JSONException e) {
-                        e = e;
-                        e.printStackTrace();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lb1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        this.a.c(optJSONObject);
                         return;
                     }
+                    lb1 lb1Var = this.a;
+                    lb1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
                 }
-                i = 0;
-                jSONObject3.put("d", jSONArray2);
-                jSONObject3.put("s", ee1.d());
-                jSONArray.put(new JSONObject());
-                if (!TextUtils.equals(str2, "query")) {
-                }
-                JSONObject jSONObject72 = new JSONObject();
-                jSONObject72.put("k", "logid");
-                jSONObject72.put("v", String.valueOf(j));
-                jSONArray.put(jSONObject72);
-                JSONObject jSONObject82 = new JSONObject();
-                jSONObject82.put("k", "uid");
-                jSONObject82.put("v", aj0.a().r());
-                jSONArray.put(jSONObject82);
-                JSONObject jSONObject92 = new JSONObject();
-                jSONObject92.put("k", "ext_info");
-                JSONObject jSONObject102 = new JSONObject();
-                jSONObject102.put("ipdx", hn0.a().a());
-                jSONObject102.put("update_mark", NADNativeHelper.b());
-                jSONObject102.put("boot_mark", NADNativeHelper.a());
-                zd1Var.a(jSONObject102);
-                jSONObject102.put(Constants.KEYS.AD_INFO, jSONObject3);
-                jSONObject92.put("v", jSONObject102.toString());
-                jSONArray.put(jSONObject92);
-                JSONObject jSONObject112 = new JSONObject();
-                jSONObject112.put("k", AdExtParam.KEY_IADEX);
-                jSONObject112.put("v", aj0.d().l());
-                jSONArray.put(jSONObject112);
-                f = qj0.c().f(false);
-                if (!TextUtils.isEmpty(f)) {
-                }
-                JSONObject jSONObject132 = new JSONObject();
-                jSONObject132.put("k", "encoded_ua_new");
-                jSONObject132.put("v", URLEncoder.encode(aj0.e(), IMAudioTransRequest.CHARSET));
-                jSONArray.put(jSONObject132);
-                hashMap.put("ext", jSONArray.toString());
-            } catch (JSONException e2) {
-                e = e2;
             }
         }
     }
 
-    public final String d(String str, Map map) {
-        InterceptResult invokeLL;
-        String query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
-            if (map != null && map.size() != 0) {
-                URI create = URI.create(str);
-                if (TextUtils.isEmpty(create.getQuery())) {
-                    query = "";
-                } else {
-                    query = create.getQuery();
-                }
-                StringBuilder sb = new StringBuilder(query);
-                if (sb.length() > 0) {
-                    sb.append('&');
-                }
-                for (Map.Entry entry : map.entrySet()) {
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                    sb.append('&');
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                try {
-                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
+    /* loaded from: classes6.dex */
+    public static class c extends lb1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lb1 a;
+
+        public c(lb1 lb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return str;
+            this.a = lb1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lb1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                this.a.c(jSONObject);
+            }
+        }
+
+        @Override // com.baidu.tieba.lb1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return i(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeoE4C+X8ahP2/juzyb10hdQNIHR3a+m3+nV6sVaOiXpNw1sNnB/2ms9vV2yXCOTz2JFWMmgr8p5dA9yUfYzSVMWN8jyZdOzAwGzjh6oB32FsqlgFkXNTNJHkdIzJRq/H8Q9mlh67c2KrMN2QLU219M6EbLoTL0i+0oUbZ4W0IrwIDAQAB");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, lb1<JSONObject> lb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, lb1Var) == null) {
+            String[] split = str.split("&");
+            mb1 mb1Var = new mb1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        mb1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        mb1Var.d(split2[0], split2[1]);
+                    }
+                }
+            }
+            tb1.j().g(vb1.e(), mb1Var, new c(lb1Var));
+        }
+    }
+
+    public static void g(String str, nb1 nb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, nb1Var) == null) {
+            String a2 = nb1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                nb1Var.d("Cookie", str2);
+                return;
+            }
+            nb1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 0)));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
         }
         return (String) invokeLL.objValue;
     }
 
-    public String f(String str, long j) {
-        InterceptResult invokeLJ;
-        String str2;
-        String str3;
+    public static void e(Bundle bundle, String str, String str2, long j, lb1<JSONObject> lb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
-            String a2 = kd1.a();
-            StringBuilder sb = new StringBuilder();
-            sb.append(a2);
-            if (TextUtils.equals(str, "update")) {
-                str2 = "?action=update";
-            } else {
-                str2 = "?action=query";
-            }
-            sb.append(str2);
-            String sb2 = sb.toString();
-            String i = i(str);
-            HashMap hashMap = new HashMap();
-            if (TextUtils.equals(str, "update")) {
-                str3 = String.valueOf(be1.o());
-            } else {
-                str3 = "1";
-            }
-            hashMap.put("ac", str3);
-            hashMap.put("pid", i);
-            hashMap.put("product_id ", aj0.a().q());
-            b(hashMap);
-            c(hashMap, i, str, j);
-            return d(sb2, hashMap);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j), lb1Var}) == null) {
+            d = bundle;
+            e = j;
+            f = str2;
+            nb1 nb1Var = new nb1();
+            ub1.d(nb1Var);
+            f(bundle, nb1Var);
+            mb1 mb1Var = new mb1();
+            mb1Var.d("token", d("orderId=" + str + "&payChannel=" + str2 + "&timestamp=" + j));
+            new rb1().a(vb1.n(), nb1Var, mb1Var, new a(lb1Var));
         }
-        return (String) invokeLJ.objValue;
     }
 
-    public final String i(String str) {
-        InterceptResult invokeL;
+    public static void f(Bundle bundle, nb1 nb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.equals(str, "update")) {
-                String optString = od1.a().d().optString("na_cpc_update_pid");
-                if (TextUtils.isEmpty(optString)) {
-                    return od1.a().e();
-                }
-                return optString;
-            }
-            return be1.l();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String l(String str) {
-        InterceptResult invokeL;
-        String optString;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            String string = f01.a().b("splash_sp_name").getString("splash_query_cache_url", "");
+        if (interceptable == null || interceptable.invokeLL(65541, null, bundle, nb1Var) == null) {
+            String string = bundle.getString("bduss");
             if (TextUtils.isEmpty(string)) {
-                return "";
+                return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(string);
-                long optLong = jSONObject.optLong("cache_time");
-                int a2 = t21.a(optLong, System.currentTimeMillis());
-                if (a2 >= 2) {
-                    optString = jSONObject.optString("after_tomorrow_url");
-                } else if (a2 == 1) {
-                    optString = jSONObject.optString("tomorrow_url");
-                } else {
-                    optString = jSONObject.optString(AbsMsgImageActivityConfig.CURRENT_URL);
-                }
-                String str2 = optString;
-                if (!TextUtils.isEmpty(str2)) {
-                    BaseVM.d = j(optLong);
-                    if (og0.a) {
-                        return str2 + "&cache_time=" + (optLong / 1000);
-                    }
-                    return str2;
-                }
-                return str2;
-            } catch (JSONException unused) {
-                return "";
-            }
+            g(string, nb1Var);
         }
-        return (String) invokeL.objValue;
     }
 
-    public final void n(long j, String str) {
+    public static void h(String str, lb1<JSONObject> lb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
-            int a2 = t21.a(System.currentTimeMillis(), j);
-            if (a2 >= 2) {
-                f01.a().b("splash_sp_name").i("after_tomorrow_reason", str);
-            } else if (a2 == 1) {
-                f01.a().b("splash_sp_name").i("tomorrow_reason", str);
-            } else {
-                f01.a().b("splash_sp_name").i("current_reason", str);
-            }
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, lb1Var) == null) {
+            nb1 nb1Var = new nb1();
+            ub1.d(nb1Var);
+            f(d, nb1Var);
+            mb1 mb1Var = new mb1();
+            mb1Var.d("token", d("orderId=" + a + "&payChannel=" + f + "&smsId=" + b + "&timestamp=" + e + "&verifyCode=" + str));
+            new rb1().a(vb1.g(), nb1Var, mb1Var, new b(lb1Var));
         }
     }
 }

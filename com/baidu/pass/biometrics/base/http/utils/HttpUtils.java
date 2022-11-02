@@ -35,14 +35,14 @@ public class HttpUtils {
         }
     }
 
-    public static String getNonce(Context context, List list) {
+    public static String getNonce(Context context, List<RestNameValuePair> list) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, list)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(list);
-            Collections.sort(arrayList, new Comparator() { // from class: com.baidu.pass.biometrics.base.http.utils.HttpUtils.1
+            Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.pass.biometrics.base.http.utils.HttpUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

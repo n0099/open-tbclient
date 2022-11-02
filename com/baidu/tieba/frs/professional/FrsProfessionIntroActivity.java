@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsProfessionIntroActivity extends BaseActivity {
+public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -113,7 +113,7 @@ public class FrsProfessionIntroActivity extends BaseActivity {
         this.r = new a(this);
     }
 
-    public final void B1() {
+    public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = true;
@@ -121,13 +121,13 @@ public class FrsProfessionIntroActivity extends BaseActivity {
                 z = false;
             }
             if (z) {
-                int f = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
-                    ((LinearLayout.LayoutParams) layoutParams).height = f;
+                    ((LinearLayout.LayoutParams) layoutParams).height = g;
                     ViewGroup.LayoutParams layoutParams2 = this.j.getLayoutParams();
                     if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                        ((RelativeLayout.LayoutParams) layoutParams2).height = f;
+                        ((RelativeLayout.LayoutParams) layoutParams2).height = g;
                     }
                 }
             }
@@ -163,35 +163,35 @@ public class FrsProfessionIntroActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d049f);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aa6);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ab1);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091aa7);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091aae);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091aaf);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09040c);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091aaa);
+            setContentView(R.layout.obfuscated_res_0x7f0d04af);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aea);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091af5);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091aeb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091af2);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091af3);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090419);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091aee);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f51));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091aa9);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f69));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091aed);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f4b);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091aa8);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091ab5);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091aab);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091aac);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091aad);
-            this.m = findViewById(R.id.obfuscated_res_0x7f091ab2);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091ab3);
-            this.o = findViewById(R.id.obfuscated_res_0x7f091ab4);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f67);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091aec);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091af9);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091aef);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091af0);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091af1);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091af6);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091af7);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091af8);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);
-            B1();
+            A1();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.j.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-            this.i.L(stringExtra, 10, false);
+            this.i.K(stringExtra, 10, false);
         }
     }
 }

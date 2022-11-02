@@ -1,24 +1,22 @@
 package com.baidu.platform.core.c;
 
-import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.mapapi.search.poi.PoiIndoorOption;
+import com.baidu.mapapi.search.geocode.GeoCodeOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public c(PoiIndoorOption poiIndoorOption) {
+    public c(GeoCodeOption geoCodeOption) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {poiIndoorOption};
+            Object[] objArr = {geoCodeOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,39 +26,27 @@ public class c extends com.baidu.platform.base.e {
                 return;
             }
         }
-        a(poiIndoorOption);
-    }
-
-    private void a(PoiIndoorOption poiIndoorOption) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, poiIndoorOption) == null) {
-            this.a.a("qt", "indoor_s");
-            this.a.a("x", "0");
-            this.a.a("y", "0");
-            this.a.a("from", "android_map_sdk");
-            String str = poiIndoorOption.bid;
-            if (str != null && !str.equals("")) {
-                this.a.a("bid", str);
-            }
-            String str2 = poiIndoorOption.wd;
-            if (str2 != null && !str2.equals("")) {
-                this.a.a(ActVideoSetting.WIFI_DISPLAY, str2);
-            }
-            String str3 = poiIndoorOption.floor;
-            if (str3 != null && !str3.equals("")) {
-                this.a.a("floor", str3);
-            }
-            com.baidu.platform.util.a aVar = this.a;
-            aVar.a(ProgressInfo.JSON_KEY_CURRENT, poiIndoorOption.currentPage + "");
-            com.baidu.platform.util.a aVar2 = this.a;
-            aVar2.a("pageSize", poiIndoorOption.pageSize + "");
-        }
+        a(geoCodeOption);
     }
 
     @Override // com.baidu.platform.base.e
     public String a(com.baidu.platform.domain.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.c() : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.f();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    private void a(GeoCodeOption geoCodeOption) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, this, geoCodeOption) == null) {
+            this.a.a("city", geoCodeOption.mCity);
+            this.a.a("address", geoCodeOption.mAddress);
+            this.a.a("output", "json");
+            this.a.a("ret_coordtype", "bd09ll");
+            this.a.a("from", "android_map_sdk");
+        }
     }
 }

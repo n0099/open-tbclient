@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -99,6 +100,7 @@ public class Sha2Crypt {
         return (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static String sha2Crypt(byte[] bArr, String str, String str2, int i, String str3) {
         InterceptResult invokeCommon;
         int i2;

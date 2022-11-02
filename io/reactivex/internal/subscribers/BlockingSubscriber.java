@@ -15,12 +15,12 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class BlockingSubscriber extends AtomicReference implements FlowableSubscriber, Subscription {
+public final class BlockingSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object TERMINATED;
     public static final long serialVersionUID = -4875965440900746268L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue queue;
+    public final Queue<Object> queue;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public final class BlockingSubscriber extends AtomicReference implements Flowabl
         }
     }
 
-    public BlockingSubscriber(Queue queue) {
+    public BlockingSubscriber(Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,10 +93,10 @@ public final class BlockingSubscriber extends AtomicReference implements Flowabl
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.queue.offer(NotificationLite.next(obj));
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.queue.offer(NotificationLite.next(t));
         }
     }
 
@@ -112,7 +112,7 @@ public final class BlockingSubscriber extends AtomicReference implements Flowabl
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            ((Subscription) get()).request(j);
+            get().request(j);
         }
     }
 }

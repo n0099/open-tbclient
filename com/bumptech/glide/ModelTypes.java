@@ -3,26 +3,48 @@ package com.bumptech.glide;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import androidx.annotation.CheckResult;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import java.io.File;
 import java.net.URL;
 /* loaded from: classes7.dex */
-public interface ModelTypes {
-    Object load(Bitmap bitmap);
+public interface ModelTypes<T> {
+    @NonNull
+    @CheckResult
+    T load(@Nullable Bitmap bitmap);
 
-    Object load(Drawable drawable);
+    @NonNull
+    @CheckResult
+    T load(@Nullable Drawable drawable);
 
-    Object load(Uri uri);
+    @NonNull
+    @CheckResult
+    T load(@Nullable Uri uri);
 
-    Object load(File file);
+    @NonNull
+    @CheckResult
+    T load(@Nullable File file);
 
-    Object load(Integer num);
+    @NonNull
+    @CheckResult
+    T load(@Nullable @DrawableRes @RawRes Integer num);
 
-    Object load(Object obj);
+    @NonNull
+    @CheckResult
+    T load(@Nullable Object obj);
 
-    Object load(String str);
+    @NonNull
+    @CheckResult
+    T load(@Nullable String str);
 
+    @CheckResult
     @Deprecated
-    Object load(URL url);
+    T load(@Nullable URL url);
 
-    Object load(byte[] bArr);
+    @NonNull
+    @CheckResult
+    T load(@Nullable byte[] bArr);
 }

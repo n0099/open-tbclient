@@ -20,7 +20,7 @@ public final class ExceptionHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class Termination extends Throwable {
+    public static final class Termination extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4649703670690200604L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,14 +83,14 @@ public final class ExceptionHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static boolean addThrowable(AtomicReference atomicReference, Throwable th) {
+    public static <T> boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th) {
         Throwable th2;
         Throwable compositeException;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, atomicReference, th)) == null) {
             do {
-                th2 = (Throwable) atomicReference.get();
+                th2 = atomicReference.get();
                 if (th2 == TERMINATED) {
                     return false;
                 }
@@ -105,7 +105,7 @@ public final class ExceptionHelper {
         return invokeLL.booleanValue;
     }
 
-    public static List flatten(Throwable th) {
+    public static List<Throwable> flatten(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
@@ -115,7 +115,7 @@ public final class ExceptionHelper {
             while (!arrayDeque.isEmpty()) {
                 Throwable th2 = (Throwable) arrayDeque.removeFirst();
                 if (th2 instanceof CompositeException) {
-                    List exceptions = ((CompositeException) th2).getExceptions();
+                    List<Throwable> exceptions = ((CompositeException) th2).getExceptions();
                     for (int size = exceptions.size() - 1; size >= 0; size--) {
                         arrayDeque.offerFirst(exceptions.get(size));
                     }
@@ -128,21 +128,21 @@ public final class ExceptionHelper {
         return (List) invokeL.objValue;
     }
 
-    public static Throwable terminate(AtomicReference atomicReference) {
+    public static <T> Throwable terminate(AtomicReference<Throwable> atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference)) == null) {
-            Throwable th = (Throwable) atomicReference.get();
+            Throwable th = atomicReference.get();
             Throwable th2 = TERMINATED;
             if (th != th2) {
-                return (Throwable) atomicReference.getAndSet(th2);
+                return atomicReference.getAndSet(th2);
             }
             return th;
         }
         return (Throwable) invokeL.objValue;
     }
 
-    public static Exception throwIfThrowable(Throwable th) throws Throwable {
+    public static <E extends Throwable> Exception throwIfThrowable(Throwable th) throws Throwable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, th)) == null) {

@@ -21,12 +21,12 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FutureSubscriber extends CountDownLatch implements FlowableSubscriber, Future, Subscription {
+public final class FutureSubscriber<T> extends CountDownLatch implements FlowableSubscriber<T>, Future<T>, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference s;
-    public Object value;
+    public final AtomicReference<Subscription> s;
+    public T value;
 
     @Override // org.reactivestreams.Subscription
     public void cancel() {
@@ -58,11 +58,11 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
     }
 
     @Override // java.util.concurrent.Future
-    public Object get() throws InterruptedException, ExecutionException {
+    public T get() throws InterruptedException, ExecutionException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -79,7 +79,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
             }
             throw new CancellationException();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // org.reactivestreams.Subscriber
@@ -92,7 +92,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
                 return;
             }
             do {
-                subscription = (Subscription) this.s.get();
+                subscription = this.s.get();
                 if (subscription == this || subscription == SubscriptionHelper.CANCELLED) {
                     return;
                 }
@@ -109,7 +109,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             do {
-                subscription = (Subscription) this.s.get();
+                subscription = this.s.get();
                 if (subscription == this || subscription == (subscriptionHelper = SubscriptionHelper.CANCELLED)) {
                     return false;
                 }
@@ -124,7 +124,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
     }
 
     @Override // java.util.concurrent.Future
-    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
@@ -143,7 +143,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
             }
             throw new CancellationException();
         }
-        return invokeJL.objValue;
+        return (T) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.Future
@@ -151,7 +151,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return SubscriptionHelper.isCancelled((Subscription) this.s.get());
+            return SubscriptionHelper.isCancelled(this.s.get());
         }
         return invokeV.booleanValue;
     }
@@ -175,7 +175,7 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
             do {
-                subscription = (Subscription) this.s.get();
+                subscription = this.s.get();
                 if (subscription != this && subscription != SubscriptionHelper.CANCELLED) {
                     this.error = th;
                 } else {
@@ -188,15 +188,15 @@ public final class FutureSubscriber extends CountDownLatch implements FlowableSu
     }
 
     @Override // org.reactivestreams.Subscriber
-    public void onNext(Object obj) {
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
             if (this.value != null) {
-                ((Subscription) this.s.get()).cancel();
+                this.s.get().cancel();
                 onError(new IndexOutOfBoundsException("More than one element received"));
                 return;
             }
-            this.value = obj;
+            this.value = t;
         }
     }
 

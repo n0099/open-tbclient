@@ -8,11 +8,13 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.util.SparseArray;
+import androidx.annotation.Nullable;
 import com.ss.android.socialbase.downloader.b.b;
 import com.ss.android.socialbase.downloader.b.c;
 import com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService;
 import com.ss.android.socialbase.downloader.downloader.c;
 import com.ss.android.socialbase.downloader.downloader.t;
+import com.ss.android.socialbase.downloader.f.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +27,10 @@ public class f implements ServiceConnection, t {
     public static boolean b;
     public static int c;
     public static long d;
+    @Nullable
     public c a;
-    public c.a.InterfaceC0685a g;
-    public Future i;
+    public c.a.InterfaceC0696a g;
+    public Future<?> i;
     public Handler e = new Handler(Looper.getMainLooper());
     public b f = null;
     public Runnable h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
@@ -43,17 +46,17 @@ public class f implements ServiceConnection, t {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ss.android.socialbase.downloader.downloader.j
     /* renamed from: a */
-    public ArrayList n(int i) {
+    public ArrayList<i> n(int i) {
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public boolean a(int i, Map map) {
+    public boolean a(int i, Map<Long, i> map) {
         return false;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public Map l(int i) {
+    public Map<Long, i> l(int i) {
         return null;
     }
 
@@ -76,7 +79,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List b() {
+    public List<DownloadInfo> b() {
         try {
             if (this.a != null) {
                 return this.a.b();
@@ -127,7 +130,7 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC0685a a(f fVar) {
+    public static /* synthetic */ c.a.InterfaceC0696a a(f fVar) {
         return fVar.g;
     }
 
@@ -177,7 +180,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List c(int i) {
+    public List<com.ss.android.socialbase.downloader.model.b> c(int i) {
         try {
             if (this.a != null) {
                 return this.a.c(i);
@@ -190,7 +193,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List d(String str) {
+    public List<DownloadInfo> d(String str) {
         try {
             if (this.a != null) {
                 return this.a.d(str);
@@ -379,7 +382,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void b(int i, List list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
             if (this.a != null) {
                 this.a.b(i, list);
@@ -403,7 +406,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List a(String str) {
+    public List<DownloadInfo> a(String str) {
         try {
             if (this.a != null) {
                 return this.a.a(str);
@@ -416,7 +419,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List b(String str) {
+    public List<DownloadInfo> b(String str) {
         try {
             if (this.a != null) {
                 return this.a.b(str);
@@ -429,7 +432,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List c(String str) {
+    public List<DownloadInfo> c(String str) {
         try {
             if (this.a != null) {
                 return this.a.c(str);
@@ -486,7 +489,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void a(int i, List list) {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
             if (this.a != null) {
                 this.a.a(i, list);
@@ -497,7 +500,7 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.t
-    public void a(final SparseArray sparseArray, final SparseArray sparseArray2, final d dVar) {
+    public void a(final SparseArray<DownloadInfo> sparseArray, final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> sparseArray2, final d dVar) {
         com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.4
             @Override // java.lang.Runnable
             public void run() {
@@ -555,8 +558,8 @@ public class f implements ServiceConnection, t {
         }
     }
 
-    public void a(c.a.InterfaceC0685a interfaceC0685a) {
-        this.g = interfaceC0685a;
+    public void a(c.a.InterfaceC0696a interfaceC0696a) {
+        this.g = interfaceC0696a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j

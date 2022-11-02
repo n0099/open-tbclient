@@ -7,7 +7,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mAudienceCount;
-    public List mIds;
+    public List<Long> mIds;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaMGetLiveStatusRequestMessage() {
@@ -49,7 +49,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
             builder.live_ids = this.mIds;
             builder.audience_count = Long.valueOf(this.mAudienceCount);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                yh5.a(builder, true);
+                vi5.a(builder, true);
             }
             AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -65,7 +65,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
         }
     }
 
-    public void setListIds(List list) {
+    public void setListIds(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.mIds = list;

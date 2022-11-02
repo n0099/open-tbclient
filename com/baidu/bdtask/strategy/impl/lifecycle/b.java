@@ -5,6 +5,7 @@ import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.framework.redux.d;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.tieba.rq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +18,7 @@ public final class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(d dVar) {
+    public b(d<com.baidu.bdtask.ctrl.b, rq> dVar) {
         super(dVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +49,7 @@ public final class b extends a {
             TaskProcessData processData = b(subTaskState).getResponse().getProcessData();
             DebugTrace.a.c(new InitiativeLifecycleStrategy$onFinished$1(processData));
             if (processData.isDone()) {
-                BDPTask.m.H(b(subTaskState).getActionId());
+                BDPTask.m.I(b(subTaskState).getActionId());
             } else if (b(subTaskState).isVisitAction()) {
                 SubTaskState k = a().k(b(subTaskState).getSingleKey());
                 if (k != null) {

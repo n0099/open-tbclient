@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class StatsInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList its;
+    public LinkedList<long[]> its;
     public String sip;
 
     public StatsInfo() {
@@ -27,7 +27,7 @@ public class StatsInfo {
                 return;
             }
         }
-        LinkedList linkedList = new LinkedList();
+        LinkedList<long[]> linkedList = new LinkedList<>();
         this.its = linkedList;
         linkedList.add(new long[]{0, 0, 0});
         this.its.add(new long[]{0, 0, 0});
@@ -36,7 +36,7 @@ public class StatsInfo {
         this.its.add(new long[]{0, 0, 0});
     }
 
-    public LinkedList getIts() {
+    public LinkedList<long[]> getIts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -54,7 +54,7 @@ public class StatsInfo {
         return (String) invokeV.objValue;
     }
 
-    public void setIts(LinkedList linkedList) {
+    public void setIts(LinkedList<long[]> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkedList) == null) {
             this.its = linkedList;

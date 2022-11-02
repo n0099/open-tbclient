@@ -13,7 +13,7 @@ public interface LoaderErrorThrower {
     void maybeThrowError(int i) throws IOException;
 
     /* loaded from: classes7.dex */
-    public final class Dummy implements LoaderErrorThrower {
+    public static final class Dummy implements LoaderErrorThrower {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

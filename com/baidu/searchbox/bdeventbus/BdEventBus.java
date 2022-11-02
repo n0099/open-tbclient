@@ -29,7 +29,7 @@ public final class BdEventBus {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0007\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00078\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\tR\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\n\u0010\u000b¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$Companion;", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getDefault", "()Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "", "BDEVENTBUS_ENABLE", "Ljava/lang/String;", "", "DEFAULT_VALUE", "Z", "defaultInstance", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public final class BdEventBus {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\bÂ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/BdEventBus$SingletonHolder;", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "holder", "Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "getHolder", "()Lcom/baidu/searchbox/bdeventbus/BdEventBus;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class SingletonHolder {
+    public static final class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SingletonHolder INSTANCE;
         public static final BdEventBus holder;
@@ -151,7 +151,7 @@ public final class BdEventBus {
     }
 
     @Deprecated(message = "请直接调用register方法")
-    public final void lazyRegister(Object subscriber, Class eventType, int i, Action action) {
+    public final <T> void lazyRegister(Object subscriber, Class<T> eventType, int i, Action<T> action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048576, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
@@ -161,7 +161,7 @@ public final class BdEventBus {
         }
     }
 
-    public final void register(Object subscriber, Class eventType, int i, Action action) {
+    public final <T> void register(Object subscriber, Class<T> eventType, int i, Action<T> action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
@@ -189,7 +189,7 @@ public final class BdEventBus {
         }
     }
 
-    public final void register(Object subscriber, Class eventType, Action action) {
+    public final <T> void register(Object subscriber, Class<T> eventType, Action<T> action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, subscriber, eventType, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");

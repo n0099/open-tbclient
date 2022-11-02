@@ -9,6 +9,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
+import androidx.annotation.Keep;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
+@Keep
 /* loaded from: classes7.dex */
 public class PluginContext extends e {
     public static /* synthetic */ Interceptable $ic;
@@ -44,6 +47,7 @@ public class PluginContext extends e {
         }
     }
 
+    @RequiresApi(api = 17)
     private Resources getResourcesInternal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

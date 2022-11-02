@@ -1,5 +1,6 @@
 package com.bytedance.pangle.util;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,10 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+@Keep
 /* loaded from: classes7.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static Map sFieldCache;
+    public static Map<String, Field> sFieldCache;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +49,14 @@ public class FieldUtils {
         }
     }
 
-    public static Field getField(Class cls, String str) {
+    public static Field getField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Field field;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
             String key = getKey(cls, str);
             synchronized (sFieldCache) {
-                field = (Field) sFieldCache.get(key);
+                field = sFieldCache.get(key);
             }
             if (field != null) {
                 if (!field.isAccessible()) {
@@ -81,7 +83,7 @@ public class FieldUtils {
         return (Field) invokeLL.objValue;
     }
 
-    public static String getKey(Class cls, String str) {
+    public static String getKey(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Object obj;
         Interceptable interceptable = $ic;
@@ -115,7 +117,7 @@ public class FieldUtils {
         return invokeLL.objValue;
     }
 
-    public static Object readStaticField(Class cls, String str) {
+    public static Object readStaticField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
@@ -164,7 +166,7 @@ public class FieldUtils {
         }
     }
 
-    public static void writeStaticField(Class cls, String str, Object obj) {
+    public static void writeStaticField(Class<?> cls, String str, Object obj) {
         Field field;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65546, null, cls, str, obj) == null) && (field = getField(cls, str)) != null) {

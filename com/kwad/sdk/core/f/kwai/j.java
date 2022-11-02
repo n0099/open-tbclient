@@ -7,10 +7,10 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.f;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public Context mContext;
-    public final LinkedBlockingQueue Zs = new LinkedBlockingQueue(1);
+    public final LinkedBlockingQueue<IBinder> Zs = new LinkedBlockingQueue<>(1);
     public ServiceConnection Zq = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.j.1
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
@@ -41,7 +41,7 @@ public final class j {
             new StringBuilder("getOAID isBind=").append(bindService);
             if (bindService) {
                 try {
-                    str = new f.a((IBinder) this.Zs.take()).getOAID();
+                    str = new f.a(this.Zs.take()).getOAID();
                     new StringBuilder("getOAID oaid:").append(str);
                     context = this.mContext;
                 } catch (Exception unused) {

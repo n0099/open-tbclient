@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +19,7 @@ public class AppCompatRatingBar extends RatingBar {
     public final AppCompatProgressBarHelper mAppCompatProgressBarHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(Context context) {
+    public AppCompatRatingBar(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +40,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(Context context, AttributeSet attributeSet) {
+    public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -59,7 +61,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatRatingBar(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

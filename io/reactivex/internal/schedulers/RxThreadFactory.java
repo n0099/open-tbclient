@@ -20,7 +20,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public final int priority;
 
     /* loaded from: classes8.dex */
-    public final class RxCustomThread extends Thread implements NonBlockingThread {
+    public static final class RxCustomThread extends Thread implements NonBlockingThread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

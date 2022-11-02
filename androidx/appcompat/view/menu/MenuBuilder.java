@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewConfiguration;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.ActionProvider;
@@ -36,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuBuilder implements SupportMenu {
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,13 +75,15 @@ public class MenuBuilder implements SupportMenu {
     public ArrayList<MenuItemImpl> mTempShortcutItemList;
     public ArrayList<MenuItemImpl> mVisibleItems;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface Callback {
-        boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem);
+        boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem);
 
-        void onMenuModeChange(MenuBuilder menuBuilder);
+        void onMenuModeChange(@NonNull MenuBuilder menuBuilder);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface ItemInvoker {
         boolean invokeItem(MenuItemImpl menuItemImpl);
@@ -479,7 +484,7 @@ public class MenuBuilder implements SupportMenu {
         }
     }
 
-    public boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public boolean dispatchMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, menuBuilder, menuItem)) == null) {
@@ -1363,6 +1368,7 @@ public class MenuBuilder implements SupportMenu {
         }
     }
 
+    @NonNull
     public ArrayList<MenuItemImpl> getVisibleItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -11,6 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.BackpressureKind;
 import io.reactivex.annotations.BackpressureSupport;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.SchedulerSupport;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
@@ -107,11 +109,11 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 /* loaded from: classes8.dex */
-public abstract class Single implements SingleSource {
+public abstract class Single<T> implements SingleSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void subscribeActual(SingleObserver singleObserver);
+    public abstract void subscribeActual(@NonNull SingleObserver<? super T> singleObserver);
 
     public Single() {
         Interceptable interceptable = $ic;
@@ -129,7 +131,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single never() {
+    public static <T> Single<T> never() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
@@ -140,20 +142,20 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object blockingGet() {
+    public final T blockingGet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BlockingMultiObserver blockingMultiObserver = new BlockingMultiObserver();
             subscribe(blockingMultiObserver);
-            return blockingMultiObserver.blockingGet();
+            return (T) blockingMultiObserver.blockingGet();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single cache() {
+    public final Single<T> cache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -164,7 +166,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single hide() {
+    public final Single<T> hide() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
@@ -175,7 +177,8 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single onTerminateDetach() {
+    @Experimental
+    public final Single<T> onTerminateDetach() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
@@ -187,7 +190,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeat() {
+    public final Flowable<T> repeat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
@@ -198,7 +201,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retry() {
+    public final Single<T> retry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
@@ -219,11 +222,11 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test() {
+    public final TestObserver<T> test() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<T> testObserver = new TestObserver<>();
             subscribe(testObserver);
             return testObserver;
         }
@@ -244,7 +247,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable toFlowable() {
+    public final Flowable<T> toFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
@@ -258,7 +261,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Future toFuture() {
+    public final Future<T> toFuture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
@@ -269,7 +272,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe toMaybe() {
+    public final Maybe<T> toMaybe() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
@@ -283,7 +286,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable toObservable() {
+    public final Observable<T> toObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
@@ -297,7 +300,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single amb(Iterable iterable) {
+    public static <T> Single<T> amb(Iterable<? extends SingleSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iterable)) == null) {
@@ -310,7 +313,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Iterable iterable) {
+    public static <T> Flowable<T> concat(Iterable<? extends SingleSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iterable)) == null) {
@@ -322,7 +325,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concatArray(SingleSource... singleSourceArr) {
+    public static <T> Flowable<T> concatArray(SingleSource<? extends T>... singleSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, singleSourceArr)) == null) {
@@ -333,7 +336,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single create(SingleOnSubscribe singleOnSubscribe) {
+    public static <T> Single<T> create(SingleOnSubscribe<T> singleOnSubscribe) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, singleOnSubscribe)) == null) {
@@ -345,7 +348,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single defer(Callable callable) {
+    public static <T> Single<T> defer(Callable<? extends SingleSource<? extends T>> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, callable)) == null) {
@@ -357,7 +360,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single error(Throwable th) {
+    public static <T> Single<T> error(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, th)) == null) {
@@ -369,7 +372,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single fromCallable(Callable callable) {
+    public static <T> Single<T> fromCallable(Callable<? extends T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, callable)) == null) {
@@ -381,7 +384,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single fromFuture(Future future) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, future)) == null) {
@@ -392,7 +395,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single fromObservable(ObservableSource observableSource) {
+    public static <T> Single<T> fromObservable(ObservableSource<? extends T> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, observableSource)) == null) {
@@ -405,7 +408,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
-    public static Single fromPublisher(Publisher publisher) {
+    public static <T> Single<T> fromPublisher(Publisher<? extends T> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, publisher)) == null) {
@@ -417,12 +420,12 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single just(Object obj) {
+    public static <T> Single<T> just(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "value is null");
-            return RxJavaPlugins.onAssembly(new SingleJust(obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, t)) == null) {
+            ObjectHelper.requireNonNull(t, "value is null");
+            return RxJavaPlugins.onAssembly(new SingleJust(t));
         }
         return (Single) invokeL.objValue;
     }
@@ -430,7 +433,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(Iterable iterable) {
+    public static <T> Flowable<T> merge(Iterable<? extends SingleSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, iterable)) == null) {
@@ -442,7 +445,8 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(Iterable iterable) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(Iterable<? extends SingleSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, iterable)) == null) {
@@ -451,7 +455,7 @@ public abstract class Single implements SingleSource {
         return (Flowable) invokeL.objValue;
     }
 
-    public static Single toSingle(Flowable flowable) {
+    public static <T> Single<T> toSingle(Flowable<T> flowable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, flowable)) == null) {
@@ -462,7 +466,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single unsafeCreate(SingleSource singleSource) {
+    public static <T> Single<T> unsafeCreate(SingleSource<T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, singleSource)) == null) {
@@ -477,7 +481,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single wrap(SingleSource singleSource) {
+    public static <T> Single<T> wrap(SingleSource<T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, singleSource)) == null) {
@@ -492,7 +496,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single ambWith(SingleSource singleSource) {
+    public final Single<T> ambWith(SingleSource<? extends T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, singleSource)) == null) {
@@ -504,30 +508,31 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object as(SingleConverter singleConverter) {
+    @Experimental
+    public final <R> R as(@NonNull SingleConverter<T, ? extends R> singleConverter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleConverter)) == null) {
-            return ((SingleConverter) ObjectHelper.requireNonNull(singleConverter, "converter is null")).apply(this);
+            return (R) ((SingleConverter) ObjectHelper.requireNonNull(singleConverter, "converter is null")).apply(this);
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single cast(Class cls) {
+    public final <U> Single<U> cast(Class<? extends U> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
             ObjectHelper.requireNonNull(cls, "clazz is null");
-            return map(Functions.castFunction(cls));
+            return (Single<U>) map(Functions.castFunction(cls));
         }
         return (Single) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single compose(SingleTransformer singleTransformer) {
+    public final <R> Single<R> compose(SingleTransformer<? super T, ? extends R> singleTransformer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, singleTransformer)) == null) {
@@ -539,7 +544,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable concatWith(SingleSource singleSource) {
+    public final Flowable<T> concatWith(SingleSource<? extends T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, singleSource)) == null) {
@@ -550,7 +555,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single contains(Object obj) {
+    public final Single<Boolean> contains(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
@@ -561,7 +566,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single delaySubscription(CompletableSource completableSource) {
+    public final Single<T> delaySubscription(CompletableSource completableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, completableSource)) == null) {
@@ -573,7 +578,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doAfterSuccess(Consumer consumer) {
+    public final Single<T> doAfterSuccess(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, consumer)) == null) {
@@ -585,7 +590,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doAfterTerminate(Action action) {
+    public final Single<T> doAfterTerminate(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, action)) == null) {
@@ -597,7 +602,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doFinally(Action action) {
+    public final Single<T> doFinally(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, action)) == null) {
@@ -609,7 +614,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doOnDispose(Action action) {
+    public final Single<T> doOnDispose(Action action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, action)) == null) {
@@ -621,7 +626,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doOnError(Consumer consumer) {
+    public final Single<T> doOnError(Consumer<? super Throwable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, consumer)) == null) {
@@ -633,7 +638,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doOnEvent(BiConsumer biConsumer) {
+    public final Single<T> doOnEvent(BiConsumer<? super T, ? super Throwable> biConsumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, biConsumer)) == null) {
@@ -645,7 +650,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doOnSubscribe(Consumer consumer) {
+    public final Single<T> doOnSubscribe(Consumer<? super Disposable> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, consumer)) == null) {
@@ -657,7 +662,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single doOnSuccess(Consumer consumer) {
+    public final Single<T> doOnSuccess(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, consumer)) == null) {
@@ -669,7 +674,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe filter(Predicate predicate) {
+    public final Maybe<T> filter(Predicate<? super T> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, predicate)) == null) {
@@ -681,7 +686,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single flatMap(Function function) {
+    public final <R> Single<R> flatMap(Function<? super T, ? extends SingleSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, function)) == null) {
@@ -693,7 +698,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Completable flatMapCompletable(Function function) {
+    public final Completable flatMapCompletable(Function<? super T, ? extends CompletableSource> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, function)) == null) {
@@ -705,7 +710,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe flatMapMaybe(Function function) {
+    public final <R> Maybe<R> flatMapMaybe(Function<? super T, ? extends MaybeSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, function)) == null) {
@@ -717,7 +722,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable flatMapObservable(Function function) {
+    public final <R> Observable<R> flatMapObservable(Function<? super T, ? extends ObservableSource<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, function)) == null) {
@@ -729,7 +734,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable flatMapPublisher(Function function) {
+    public final <R> Flowable<R> flatMapPublisher(Function<? super T, ? extends Publisher<? extends R>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, function)) == null) {
@@ -741,7 +746,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable flattenAsFlowable(Function function) {
+    public final <U> Flowable<U> flattenAsFlowable(Function<? super T, ? extends Iterable<? extends U>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, function)) == null) {
@@ -753,7 +758,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Observable flattenAsObservable(Function function) {
+    public final <U> Observable<U> flattenAsObservable(Function<? super T, ? extends Iterable<? extends U>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, function)) == null) {
@@ -765,7 +770,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single lift(SingleOperator singleOperator) {
+    public final <R> Single<R> lift(SingleOperator<? extends R, ? super T> singleOperator) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, singleOperator)) == null) {
@@ -777,7 +782,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single map(Function function) {
+    public final <R> Single<R> map(Function<? super T, ? extends R> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, function)) == null) {
@@ -790,7 +795,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable mergeWith(SingleSource singleSource) {
+    public final Flowable<T> mergeWith(SingleSource<? extends T> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, singleSource)) == null) {
@@ -801,7 +806,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single observeOn(Scheduler scheduler) {
+    public final Single<T> observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, scheduler)) == null) {
@@ -813,7 +818,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single onErrorResumeNext(Single single) {
+    public final Single<T> onErrorResumeNext(Single<? extends T> single) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, single)) == null) {
@@ -825,7 +830,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single onErrorReturn(Function function) {
+    public final Single<T> onErrorReturn(Function<Throwable, ? extends T> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, function)) == null) {
@@ -837,12 +842,12 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single onErrorReturnItem(Object obj) {
+    public final Single<T> onErrorReturnItem(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, obj)) == null) {
-            ObjectHelper.requireNonNull(obj, "value is null");
-            return RxJavaPlugins.onAssembly(new SingleOnErrorReturn(this, null, obj));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, t)) == null) {
+            ObjectHelper.requireNonNull(t, "value is null");
+            return RxJavaPlugins.onAssembly(new SingleOnErrorReturn(this, null, t));
         }
         return (Single) invokeL.objValue;
     }
@@ -850,7 +855,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeat(long j) {
+    public final Flowable<T> repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
@@ -862,7 +867,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeatUntil(BooleanSupplier booleanSupplier) {
+    public final Flowable<T> repeatUntil(BooleanSupplier booleanSupplier) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, booleanSupplier)) == null) {
@@ -874,7 +879,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable repeatWhen(Function function) {
+    public final Flowable<T> repeatWhen(Function<? super Flowable<Object>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, function)) == null) {
@@ -885,7 +890,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retry(long j) {
+    public final Single<T> retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
@@ -896,7 +901,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retryWhen(Function function) {
+    public final Single<T> retryWhen(Function<? super Flowable<Throwable>, ? extends Publisher<?>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, function)) == null) {
@@ -907,7 +912,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(BiConsumer biConsumer) {
+    public final Disposable subscribe(BiConsumer<? super T, ? super Throwable> biConsumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, biConsumer)) == null) {
@@ -921,7 +926,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single subscribeOn(Scheduler scheduler) {
+    public final Single<T> subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, scheduler)) == null) {
@@ -933,19 +938,19 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final SingleObserver subscribeWith(SingleObserver singleObserver) {
+    public final <E extends SingleObserver<? super T>> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, singleObserver)) == null) {
-            subscribe(singleObserver);
-            return singleObserver;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
-        return (SingleObserver) invokeL.objValue;
+        return (E) invokeL.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single takeUntil(CompletableSource completableSource) {
+    public final Single<T> takeUntil(CompletableSource completableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, completableSource)) == null) {
@@ -957,11 +962,11 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final TestObserver test(boolean z) {
+    public final TestObserver<T> test(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048643, this, z)) == null) {
-            TestObserver testObserver = new TestObserver();
+            TestObserver<T> testObserver = new TestObserver<>();
             if (z) {
                 testObserver.cancel();
             }
@@ -973,23 +978,24 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Object to(Function function) {
+    public final <R> R to(Function<? super Single<T>, R> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, function)) == null) {
             try {
-                return ((Function) ObjectHelper.requireNonNull(function, "convert is null")).apply(this);
+                return (R) ((Function) ObjectHelper.requireNonNull(function, "convert is null")).apply(this);
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 throw ExceptionHelper.wrapOrThrow(th);
             }
         }
-        return invokeL.objValue;
+        return (R) invokeL.objValue;
     }
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single unsubscribeOn(Scheduler scheduler) {
+    @Experimental
+    public final Single<T> unsubscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048654, this, scheduler)) == null) {
@@ -1001,7 +1007,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single ambArray(SingleSource... singleSourceArr) {
+    public static <T> Single<T> ambArray(SingleSource<? extends T>... singleSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, singleSourceArr)) == null) {
@@ -1019,7 +1025,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(SingleSource singleSource, SingleSource singleSource2) {
+    public static <T> Flowable<T> concat(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, singleSource, singleSource2)) == null) {
@@ -1032,7 +1038,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single equals(SingleSource singleSource, SingleSource singleSource2) {
+    public static <T> Single<Boolean> equals(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, singleSource, singleSource2)) == null) {
@@ -1045,7 +1051,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Single fromFuture(Future future, Scheduler scheduler) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future, Scheduler scheduler) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, future, scheduler)) == null) {
@@ -1057,7 +1063,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(SingleSource singleSource, SingleSource singleSource2) {
+    public static <T> Flowable<T> merge(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, singleSource, singleSource2)) == null) {
@@ -1071,7 +1077,8 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(SingleSource singleSource, SingleSource singleSource2) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, singleSource, singleSource2)) == null) {
@@ -1084,7 +1091,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Single timer(long j, TimeUnit timeUnit) {
+    public static Single<Long> timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65573, null, j, timeUnit)) == null) {
@@ -1095,7 +1102,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(Iterable iterable, Function function) {
+    public static <T, R> Single<R> zip(Iterable<? extends SingleSource<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65588, null, iterable, function)) == null) {
@@ -1108,7 +1115,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single contains(Object obj, BiPredicate biPredicate) {
+    public final Single<Boolean> contains(Object obj, BiPredicate<Object, Object> biPredicate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, biPredicate)) == null) {
@@ -1121,7 +1128,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single delay(long j, TimeUnit timeUnit) {
+    public final Single<T> delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, timeUnit)) == null) {
@@ -1132,7 +1139,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single delaySubscription(long j, TimeUnit timeUnit) {
+    public final Single<T> delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048589, this, j, timeUnit)) == null) {
@@ -1143,7 +1150,8 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retry(long j, Predicate predicate) {
+    @Experimental
+    public final Single<T> retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048627, this, j, predicate)) == null) {
@@ -1154,7 +1162,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Consumer consumer, Consumer consumer2) {
+    public final Disposable subscribe(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, consumer, consumer2)) == null) {
@@ -1169,7 +1177,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single timeout(long j, TimeUnit timeUnit) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048644, this, j, timeUnit)) == null) {
@@ -1180,7 +1188,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single zipWith(SingleSource singleSource, BiFunction biFunction) {
+    public final <U, R> Single<R> zipWith(SingleSource<U> singleSource, BiFunction<? super T, ? super U, ? extends R> biFunction) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048655, this, singleSource, biFunction)) == null) {
@@ -1192,7 +1200,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3) {
+    public static <T> Flowable<T> concat(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, singleSource, singleSource2, singleSource3)) == null) {
@@ -1207,7 +1215,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3) {
+    public static <T> Flowable<T> merge(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65561, null, singleSource, singleSource2, singleSource3)) == null) {
@@ -1222,7 +1230,8 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, singleSource, singleSource2, singleSource3)) == null) {
@@ -1236,7 +1245,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Single timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Single<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1249,7 +1258,8 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single delay(long j, TimeUnit timeUnit, boolean z) {
+    @Experimental
+    public final Single<T> delay(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) {
@@ -1260,7 +1270,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single timeout(long j, TimeUnit timeUnit, SingleSource singleSource) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048647, this, new Object[]{Long.valueOf(j), timeUnit, singleSource})) == null) {
@@ -1273,7 +1283,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4) {
+    public static <T> Flowable<T> concat(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3, SingleSource<? extends T> singleSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, singleSource, singleSource2, singleSource3, singleSource4)) == null) {
@@ -1288,7 +1298,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Single fromFuture(Future future, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{future, Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1300,7 +1310,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4) {
+    public static <T> Flowable<T> merge(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3, SingleSource<? extends T> singleSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65562, null, singleSource, singleSource2, singleSource3, singleSource4)) == null) {
@@ -1316,7 +1326,8 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3, SingleSource<? extends T> singleSource4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65568, null, singleSource, singleSource2, singleSource3, singleSource4)) == null) {
@@ -1329,7 +1340,7 @@ public abstract class Single implements SingleSource {
         return (Flowable) invokeLLLL.objValue;
     }
 
-    private Single timeout0(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource singleSource) {
+    private Single<T> timeout0(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, singleSource})) == null) {
@@ -1342,7 +1353,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single using(Callable callable, Function function, Consumer consumer, boolean z) {
+    public static <T, U> Single<T> using(Callable<U> callable, Function<? super U, ? extends SingleSource<? extends T>> function, Consumer<? super U> consumer, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65578, null, new Object[]{callable, function, consumer, Boolean.valueOf(z)})) == null) {
@@ -1356,7 +1367,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, Function3 function3) {
+    public static <T1, T2, T3, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, Function3<? super T1, ? super T2, ? super T3, ? extends R> function3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65586, null, singleSource, singleSource2, singleSource3, function3)) == null) {
@@ -1370,7 +1381,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single timeout(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource singleSource) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, singleSource})) == null) {
@@ -1383,7 +1394,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Publisher publisher) {
+    public static <T> Flowable<T> concat(Publisher<? extends SingleSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, publisher)) == null) {
@@ -1394,7 +1405,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single error(Callable callable) {
+    public static <T> Single<T> error(Callable<? extends Throwable> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, callable)) == null) {
@@ -1407,7 +1418,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable merge(Publisher publisher) {
+    public static <T> Flowable<T> merge(Publisher<? extends SingleSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, publisher)) == null) {
@@ -1420,7 +1431,8 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable mergeDelayError(Publisher publisher) {
+    @Experimental
+    public static <T> Flowable<T> mergeDelayError(Publisher<? extends SingleSource<? extends T>> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, publisher)) == null) {
@@ -1432,7 +1444,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single delaySubscription(ObservableSource observableSource) {
+    public final <U> Single<T> delaySubscription(ObservableSource<U> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, observableSource)) == null) {
@@ -1444,7 +1456,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single onErrorResumeNext(Function function) {
+    public final Single<T> onErrorResumeNext(Function<? super Throwable, ? extends SingleSource<? extends T>> function) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, function)) == null) {
@@ -1456,7 +1468,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retry(BiPredicate biPredicate) {
+    public final Single<T> retry(BiPredicate<? super Integer, ? super Throwable> biPredicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, biPredicate)) == null) {
@@ -1467,7 +1479,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Disposable subscribe(Consumer consumer) {
+    public final Disposable subscribe(Consumer<? super T> consumer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, consumer)) == null) {
@@ -1478,7 +1490,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single takeUntil(SingleSource singleSource) {
+    public final <E> Single<T> takeUntil(SingleSource<? extends E> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, singleSource)) == null) {
@@ -1491,7 +1503,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static Flowable concat(Publisher publisher, int i) {
+    public static <T> Flowable<T> concat(Publisher<? extends SingleSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i)) == null) {
@@ -1504,7 +1516,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Observable concat(ObservableSource observableSource) {
+    public static <T> Observable<T> concat(ObservableSource<? extends SingleSource<? extends T>> observableSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, observableSource)) == null) {
@@ -1516,7 +1528,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single merge(SingleSource singleSource) {
+    public static <T> Single<T> merge(SingleSource<? extends SingleSource<? extends T>> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, singleSource)) == null) {
@@ -1528,7 +1540,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single delaySubscription(SingleSource singleSource) {
+    public final <U> Single<T> delaySubscription(SingleSource<U> singleSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, singleSource)) == null) {
@@ -1540,7 +1552,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single retry(Predicate predicate) {
+    public final Single<T> retry(Predicate<? super Throwable> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, predicate)) == null) {
@@ -1551,11 +1563,11 @@ public abstract class Single implements SingleSource {
 
     @Override // io.reactivex.SingleSource
     @SchedulerSupport("none")
-    public final void subscribe(SingleObserver singleObserver) {
+    public final void subscribe(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, singleObserver) == null) {
             ObjectHelper.requireNonNull(singleObserver, "subscriber is null");
-            SingleObserver onSubscribe = RxJavaPlugins.onSubscribe(this, singleObserver);
+            SingleObserver<? super T> onSubscribe = RxJavaPlugins.onSubscribe(this, singleObserver);
             ObjectHelper.requireNonNull(onSubscribe, "subscriber returned by the RxJavaPlugins hook is null");
             try {
                 subscribeActual(onSubscribe);
@@ -1573,7 +1585,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Single takeUntil(Publisher publisher) {
+    public final <E> Single<T> takeUntil(Publisher<E> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, publisher)) == null) {
@@ -1585,7 +1597,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single fromFuture(Future future, long j, TimeUnit timeUnit) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
@@ -1596,7 +1608,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single using(Callable callable, Function function, Consumer consumer) {
+    public static <T, U> Single<T> using(Callable<U> callable, Function<? super U, ? extends SingleSource<? extends T>> function, Consumer<? super U> consumer) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65577, null, callable, function, consumer)) == null) {
@@ -1607,7 +1619,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, BiFunction biFunction) {
+    public static <T1, T2, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65587, null, singleSource, singleSource2, biFunction)) == null) {
@@ -1620,7 +1632,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1631,7 +1643,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1642,7 +1654,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
@@ -1653,7 +1665,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, SingleSource singleSource5, SingleSource singleSource6, SingleSource singleSource7, SingleSource singleSource8, SingleSource singleSource9, Function9 function9) {
+    public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, SingleSource<? extends T5> singleSource5, SingleSource<? extends T6> singleSource6, SingleSource<? extends T7> singleSource7, SingleSource<? extends T8> singleSource8, SingleSource<? extends T9> singleSource9, Function9<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? super T9, ? extends R> function9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{singleSource, singleSource2, singleSource3, singleSource4, singleSource5, singleSource6, singleSource7, singleSource8, singleSource9, function9})) == null) {
@@ -1673,7 +1685,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, SingleSource singleSource5, SingleSource singleSource6, SingleSource singleSource7, SingleSource singleSource8, Function8 function8) {
+    public static <T1, T2, T3, T4, T5, T6, T7, T8, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, SingleSource<? extends T5> singleSource5, SingleSource<? extends T6> singleSource6, SingleSource<? extends T7> singleSource7, SingleSource<? extends T8> singleSource8, Function8<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? super T8, ? extends R> function8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65581, null, new Object[]{singleSource, singleSource2, singleSource3, singleSource4, singleSource5, singleSource6, singleSource7, singleSource8, function8})) == null) {
@@ -1692,7 +1704,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, SingleSource singleSource5, SingleSource singleSource6, SingleSource singleSource7, Function7 function7) {
+    public static <T1, T2, T3, T4, T5, T6, T7, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, SingleSource<? extends T5> singleSource5, SingleSource<? extends T6> singleSource6, SingleSource<? extends T7> singleSource7, Function7<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? super T7, ? extends R> function7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65582, null, new Object[]{singleSource, singleSource2, singleSource3, singleSource4, singleSource5, singleSource6, singleSource7, function7})) == null) {
@@ -1710,7 +1722,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, SingleSource singleSource5, SingleSource singleSource6, Function6 function6) {
+    public static <T1, T2, T3, T4, T5, T6, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, SingleSource<? extends T5> singleSource5, SingleSource<? extends T6> singleSource6, Function6<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? super T6, ? extends R> function6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65583, null, new Object[]{singleSource, singleSource2, singleSource3, singleSource4, singleSource5, singleSource6, function6})) == null) {
@@ -1727,7 +1739,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, SingleSource singleSource5, Function5 function5) {
+    public static <T1, T2, T3, T4, T5, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, SingleSource<? extends T5> singleSource5, Function5<? super T1, ? super T2, ? super T3, ? super T4, ? super T5, ? extends R> function5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{singleSource, singleSource2, singleSource3, singleSource4, singleSource5, function5})) == null) {
@@ -1743,7 +1755,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zip(SingleSource singleSource, SingleSource singleSource2, SingleSource singleSource3, SingleSource singleSource4, Function4 function4) {
+    public static <T1, T2, T3, T4, R> Single<R> zip(SingleSource<? extends T1> singleSource, SingleSource<? extends T2> singleSource2, SingleSource<? extends T3> singleSource3, SingleSource<? extends T4> singleSource4, Function4<? super T1, ? super T2, ? super T3, ? super T4, ? extends R> function4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65585, null, singleSource, singleSource2, singleSource3, singleSource4, function4)) == null) {
@@ -1758,7 +1770,7 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static Single zipArray(Function function, SingleSource... singleSourceArr) {
+    public static <T, R> Single<R> zipArray(Function<? super Object[], ? extends R> function, SingleSource<? extends T>... singleSourceArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65589, null, function, singleSourceArr)) == null) {
@@ -1774,7 +1786,8 @@ public abstract class Single implements SingleSource {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    @Experimental
+    public final Single<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
@@ -1788,7 +1801,7 @@ public abstract class Single implements SingleSource {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Single delaySubscription(Publisher publisher) {
+    public final <U> Single<T> delaySubscription(Publisher<U> publisher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, publisher)) == null) {

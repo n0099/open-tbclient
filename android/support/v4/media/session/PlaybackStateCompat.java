@@ -1,5 +1,6 @@
 package android.support.v4.media.session;
 
+import android.annotation.SuppressLint;
 import android.media.session.PlaybackState;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +8,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,6 +23,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class PlaybackStateCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -46,7 +50,7 @@ public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_SKIP_TO_PREVIOUS = 16;
     public static final long ACTION_SKIP_TO_QUEUE_ITEM = 4096;
     public static final long ACTION_STOP = 1;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PlaybackStateCompat> CREATOR;
     public static final int ERROR_CODE_ACTION_ABORTED = 10;
     public static final int ERROR_CODE_APP_ERROR = 1;
     public static final int ERROR_CODE_AUTHENTICATION_EXPIRED = 3;
@@ -87,7 +91,7 @@ public final class PlaybackStateCompat implements Parcelable {
     public final long mActions;
     public final long mActiveItemId;
     public final long mBufferedPosition;
-    public List mCustomActions;
+    public List<CustomAction> mCustomActions;
     public final int mErrorCode;
     public final CharSequence mErrorMessage;
     public final Bundle mExtras;
@@ -98,26 +102,31 @@ public final class PlaybackStateCompat implements Parcelable {
     public final long mUpdateTime;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Actions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface MediaKeyAction {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface RepeatMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ShuffleMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface State {
     }
@@ -163,9 +172,9 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public final class CustomAction implements Parcelable {
+    public static final class CustomAction implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<CustomAction> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mAction;
         public PlaybackState.CustomAction mCustomActionFwk;
@@ -184,7 +193,7 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         /* loaded from: classes.dex */
-        public final class Builder {
+        public static final class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final String mAction;
@@ -255,7 +264,7 @@ public final class PlaybackStateCompat implements Parcelable {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
+            CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -274,6 +283,7 @@ public final class PlaybackStateCompat implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public CustomAction createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -285,6 +295,7 @@ public final class PlaybackStateCompat implements Parcelable {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public CustomAction[] newArray(int i) {
                     InterceptResult invokeI;
@@ -428,13 +439,13 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mActions;
         public long mActiveItemId;
         public long mBufferedPosition;
-        public final List mCustomActions;
+        public final List<CustomAction> mCustomActions;
         public int mErrorCode;
         public CharSequence mErrorMessage;
         public Bundle mExtras;
@@ -486,7 +497,7 @@ public final class PlaybackStateCompat implements Parcelable {
             this.mActions = playbackStateCompat.mActions;
             this.mErrorCode = playbackStateCompat.mErrorCode;
             this.mErrorMessage = playbackStateCompat.mErrorMessage;
-            List list = playbackStateCompat.mCustomActions;
+            List<CustomAction> list = playbackStateCompat.mCustomActions;
             if (list != null) {
                 arrayList.addAll(list);
             }
@@ -623,7 +634,7 @@ public final class PlaybackStateCompat implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
+        CREATOR = new Parcelable.Creator<PlaybackStateCompat>() { // from class: android.support.v4.media.session.PlaybackStateCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -642,6 +653,7 @@ public final class PlaybackStateCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PlaybackStateCompat createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -653,6 +665,7 @@ public final class PlaybackStateCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PlaybackStateCompat[] newArray(int i) {
                 InterceptResult invokeI;
@@ -692,7 +705,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return invokeV.longValue;
     }
 
-    public List getCustomActions() {
+    public List<CustomAction> getCustomActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -719,6 +732,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public Bundle getExtras() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -764,7 +778,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return invokeV.intValue;
     }
 
-    public PlaybackStateCompat(int i, long j, long j2, float f, long j3, int i2, CharSequence charSequence, long j4, List list, long j5, Bundle bundle) {
+    public PlaybackStateCompat(int i, long j, long j2, float f, long j3, int i2, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -851,6 +865,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return (PlaybackStateCompat) invokeL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public long getCurrentPosition(Long l) {
         InterceptResult invokeL;
         long elapsedRealtime;

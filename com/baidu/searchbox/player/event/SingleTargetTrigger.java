@@ -1,6 +1,8 @@
 package com.baidu.searchbox.player.event;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,6 +28,7 @@ public abstract class SingleTargetTrigger implements IEventTrigger {
         }
     }
 
+    @PublicMethod(version = "11.24.0.0")
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -33,7 +36,8 @@ public abstract class SingleTargetTrigger implements IEventTrigger {
         }
     }
 
-    public void setMessenger(IMessenger iMessenger) {
+    @PublicMethod(version = "11.24.0.0")
+    public void setMessenger(@NonNull IMessenger iMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iMessenger) == null) {
             this.mIMessenger = iMessenger;
@@ -41,7 +45,8 @@ public abstract class SingleTargetTrigger implements IEventTrigger {
     }
 
     @Override // com.baidu.searchbox.player.event.IEventTrigger
-    public void triggerEvent(VideoEvent videoEvent) {
+    @PublicMethod(version = "11.24.0.0")
+    public void triggerEvent(@NonNull VideoEvent videoEvent) {
         IMessenger iMessenger;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) != null) || (iMessenger = this.mIMessenger) == null) {

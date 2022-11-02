@@ -1,5 +1,6 @@
 package com.facebook.webpsupport;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.webp.BitmapCreator;
 import com.facebook.common.webp.WebpBitmapFactory;
 import com.facebook.common.webp.WebpSupportStatus;
@@ -25,6 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
+@DoNotStrip
 /* loaded from: classes7.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,10 +38,13 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static WebpBitmapFactory.WebpErrorLogger mWebpErrorLogger;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @DoNotStrip
     public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f, byte[] bArr2);
 
+    @DoNotStrip
     public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f, byte[] bArr);
 
+    @DoNotStrip
     public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
 
     static {
@@ -77,6 +83,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
     public static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeIIL;
         Bitmap bitmap;
@@ -90,6 +97,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeIIL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -99,6 +107,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLII.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -108,6 +117,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLII.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -117,6 +127,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
@@ -126,6 +137,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLIL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeStream(InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -135,6 +147,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLLL.objValue;
     }
 
+    @DoNotStrip
     public static void setBitmapSize(@Nullable BitmapFactory.Options options, int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(65568, null, options, i, i2) == null) && options != null) {
@@ -143,6 +156,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
     public static boolean setOutDimensions(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -177,6 +191,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLLL.objValue;
     }
 
+    @DoNotStrip
     public static byte[] getInTempStorageFromOptions(@Nullable BitmapFactory.Options options) {
         InterceptResult invokeL;
         byte[] bArr;
@@ -190,6 +205,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (byte[]) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -199,6 +215,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeFileDescriptor(FileDescriptor fileDescriptor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -208,6 +225,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeStream(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -217,6 +235,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -226,6 +245,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeFileDescriptor(FileDescriptor fileDescriptor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -235,6 +255,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeStream(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -252,6 +273,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
     public static void setPaddingDefaultValues(@Nullable Rect rect) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65571, null, rect) == null) && rect != null) {
@@ -262,6 +284,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
+    @SuppressLint({"NewApi"})
     public static boolean shouldPremultiply(BitmapFactory.Options options) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -302,6 +326,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
     public static float getScaleFromOptions(BitmapFactory.Options options) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -349,6 +374,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (byte[]) invokeLL.objValue;
     }
 
+    @DoNotStrip
     @Nullable
     public static Bitmap hookDecodeFile(String str, BitmapFactory.Options options) {
         InterceptResult invokeLL;
@@ -366,6 +392,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeResource(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -375,6 +402,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLI.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeFile(String str, BitmapFactory.Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -384,6 +412,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeResource(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -413,6 +442,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Bitmap originalDecodeByteArray;
@@ -436,6 +466,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeCommon.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLL;
         Bitmap originalDecodeFileDescriptor;
@@ -481,6 +512,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         }
     }
 
+    @DoNotStrip
     @Nullable
     public static Bitmap hookDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
@@ -504,6 +536,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLIL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeStream(InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLL;
         Bitmap originalDecodeStream;
@@ -530,6 +563,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap hookDecodeResourceStream(Resources resources, TypedValue typedValue, InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -553,6 +587,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeLLLLL.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -572,6 +607,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         return (Bitmap) invokeCommon.objValue;
     }
 
+    @DoNotStrip
     public static Bitmap originalDecodeResourceStream(Resources resources, TypedValue typedValue, InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;

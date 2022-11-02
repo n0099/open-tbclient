@@ -38,7 +38,7 @@ public class SelectorImageView extends BdBaseImageView {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements View.OnTouchListener {
+    public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

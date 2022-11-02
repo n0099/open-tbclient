@@ -21,32 +21,32 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class CompletableUsing extends Completable {
+public final class CompletableUsing<R> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function completableFunction;
-    public final Consumer disposer;
+    public final Function<? super R, ? extends CompletableSource> completableFunction;
+    public final Consumer<? super R> disposer;
     public final boolean eager;
-    public final Callable resourceSupplier;
+    public final Callable<R> resourceSupplier;
 
     /* loaded from: classes8.dex */
-    public final class UsingObserver extends AtomicReference implements CompletableObserver, Disposable {
+    public static final class UsingObserver<R> extends AtomicReference<Object> implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -674404550052917487L;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public Disposable d;
-        public final Consumer disposer;
+        public final Consumer<? super R> disposer;
         public final boolean eager;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UsingObserver(CompletableObserver completableObserver, Object obj, Consumer consumer, boolean z) {
-            super(obj);
+        public UsingObserver(CompletableObserver completableObserver, R r, Consumer<? super R> consumer, boolean z) {
+            super(r);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {completableObserver, obj, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {completableObserver, r, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -156,7 +156,7 @@ public final class CompletableUsing extends Completable {
         }
     }
 
-    public CompletableUsing(Callable callable, Function function, Consumer consumer, boolean z) {
+    public CompletableUsing(Callable<R> callable, Function<? super R, ? extends CompletableSource> function, Consumer<? super R> consumer, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +182,7 @@ public final class CompletableUsing extends Completable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, completableObserver) == null) {
             try {
-                Object call = this.resourceSupplier.call();
+                R call = this.resourceSupplier.call();
                 try {
                     ((CompletableSource) ObjectHelper.requireNonNull(this.completableFunction.apply(call), "The completableFunction returned a null CompletableSource")).subscribe(new UsingObserver(completableObserver, call, this.disposer, this.eager));
                 } catch (Throwable th) {

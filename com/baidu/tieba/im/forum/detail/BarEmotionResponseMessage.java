@@ -14,7 +14,7 @@ public class BarEmotionResponseMessage extends JsonHttpResponsedMessage {
     public ForumEmotionData data;
 
     /* loaded from: classes4.dex */
-    public class ForumEmotionData extends OrmObject {
+    public static class ForumEmotionData extends OrmObject {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATUS_OK = 1;
         public transient /* synthetic */ FieldHolder $fh;

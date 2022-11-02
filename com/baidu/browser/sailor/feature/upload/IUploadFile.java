@@ -10,9 +10,9 @@ import com.baidu.webkit.sdk.WebChromeClient;
 public interface IUploadFile extends INoProGuard {
     void cancelUpload(Activity activity);
 
-    void onOpenFileChooser(Activity activity, ValueCallback valueCallback);
+    void onOpenFileChooser(Activity activity, ValueCallback<Uri> valueCallback);
 
-    void onOpenFileChooser(Activity activity, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams);
+    void onOpenFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams);
 
     void onResult(Activity activity, int i, Intent intent);
 

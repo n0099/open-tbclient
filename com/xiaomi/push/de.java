@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,12 +35,13 @@ public class de {
 
     /* renamed from: a  reason: collision with other field name */
     public int f202a;
+    @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
     public final SimpleDateFormat f203a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList f204a;
+    public ArrayList<File> f204a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f205a;
@@ -79,7 +81,7 @@ public class de {
         }
         this.f203a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.b = 2097152;
-        this.f204a = new ArrayList();
+        this.f204a = new ArrayList<>();
     }
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
@@ -143,9 +145,9 @@ public class de {
                 try {
                     bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m648a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
                     this.f202a = 0;
-                    Iterator it = this.f204a.iterator();
+                    Iterator<File> it = this.f204a.iterator();
                     while (it.hasNext()) {
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream((File) it.next())));
+                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
                         try {
                             a(bufferedReader, bufferedWriter, compile);
                             bufferedReader.close();

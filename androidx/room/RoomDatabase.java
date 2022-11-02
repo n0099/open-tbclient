@@ -1,11 +1,18 @@
 package androidx.room;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.WorkerThread;
 import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityManagerCompat;
@@ -38,9 +45,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public abstract class RoomDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_IMPL_SUFFIX = "_Impl";
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final int MAX_BIND_PARAMETER_CNT = 999;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllowMainThreadQueries;
+    @Nullable
     public List<Callback> mCallbacks;
     public final ReentrantLock mCloseLock;
     public volatile SupportSQLiteDatabase mDatabase;
@@ -49,10 +58,13 @@ public abstract class RoomDatabase {
     public Executor mQueryExecutor;
     public boolean mWriteAheadLoggingEnabled;
 
+    @WorkerThread
     public abstract void clearAllTables();
 
+    @NonNull
     public abstract InvalidationTracker createInvalidationTracker();
 
+    @NonNull
     public abstract SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration databaseConfiguration);
 
     /* loaded from: classes.dex */
@@ -72,7 +84,7 @@ public abstract class RoomDatabase {
         public Executor mQueryExecutor;
         public boolean mRequireMigration;
 
-        public Builder(Context context, Class<T> cls, String str) {
+        public Builder(@NonNull Context context, @NonNull Class<T> cls, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +107,8 @@ public abstract class RoomDatabase {
             this.mMigrationContainer = new MigrationContainer();
         }
 
-        public Builder<T> addCallback(Callback callback) {
+        @NonNull
+        public Builder<T> addCallback(@NonNull Callback callback) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callback)) == null) {
@@ -108,6 +121,7 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder<T> fallbackToDestructiveMigrationFrom(int... iArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -123,7 +137,8 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder<T> openHelperFactory(SupportSQLiteOpenHelper.Factory factory) {
+        @NonNull
+        public Builder<T> openHelperFactory(@Nullable SupportSQLiteOpenHelper.Factory factory) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, factory)) == null) {
@@ -133,7 +148,8 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder<T> setJournalMode(JournalMode journalMode) {
+        @NonNull
+        public Builder<T> setJournalMode(@NonNull JournalMode journalMode) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, journalMode)) == null) {
@@ -143,7 +159,8 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder<T> setQueryExecutor(Executor executor) {
+        @NonNull
+        public Builder<T> setQueryExecutor(@NonNull Executor executor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, executor)) == null) {
@@ -153,7 +170,8 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder<T> addMigrations(Migration... migrationArr) {
+        @NonNull
+        public Builder<T> addMigrations(@NonNull Migration... migrationArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, migrationArr)) == null) {
@@ -170,6 +188,7 @@ public abstract class RoomDatabase {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder<T> allowMainThreadQueries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -180,6 +199,7 @@ public abstract class RoomDatabase {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         public Builder<T> fallbackToDestructiveMigration() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -190,6 +210,7 @@ public abstract class RoomDatabase {
             return (Builder) invokeV.objValue;
         }
 
+        @NonNull
         public T build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -229,13 +250,13 @@ public abstract class RoomDatabase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onCreate(SupportSQLiteDatabase supportSQLiteDatabase) {
+        public void onCreate(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, supportSQLiteDatabase) == null) {
             }
         }
 
-        public void onOpen(SupportSQLiteDatabase supportSQLiteDatabase) {
+        public void onOpen(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
             }
@@ -263,6 +284,7 @@ public abstract class RoomDatabase {
         public static /* synthetic */ Interceptable $ic;
         public static final JournalMode AUTOMATIC;
         public static final JournalMode TRUNCATE;
+        @RequiresApi(16)
         public static final JournalMode WRITE_AHEAD_LOGGING;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,6 +345,7 @@ public abstract class RoomDatabase {
             return (JournalMode[]) invokeV.objValue;
         }
 
+        @SuppressLint({"NewApi"})
         public JournalMode resolve(Context context) {
             InterceptResult invokeL;
             ActivityManager activityManager;
@@ -450,7 +473,7 @@ public abstract class RoomDatabase {
             return (List) invokeCommon.objValue;
         }
 
-        public void addMigrations(Migration... migrationArr) {
+        public void addMigrations(@NonNull Migration... migrationArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, migrationArr) == null) {
                 for (Migration migration : migrationArr) {
@@ -459,6 +482,7 @@ public abstract class RoomDatabase {
             }
         }
 
+        @Nullable
         public List<Migration> findMigrationPath(int i, int i2) {
             InterceptResult invokeII;
             boolean z;
@@ -507,6 +531,7 @@ public abstract class RoomDatabase {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void assertNotMainThread() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.mAllowMainThreadQueries || !isMainThread()) {
@@ -556,6 +581,7 @@ public abstract class RoomDatabase {
         return (Lock) invokeV.objValue;
     }
 
+    @NonNull
     public InvalidationTracker getInvalidationTracker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -565,6 +591,7 @@ public abstract class RoomDatabase {
         return (InvalidationTracker) invokeV.objValue;
     }
 
+    @NonNull
     public SupportSQLiteOpenHelper getOpenHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -574,6 +601,7 @@ public abstract class RoomDatabase {
         return (SupportSQLiteOpenHelper) invokeV.objValue;
     }
 
+    @NonNull
     public Executor getQueryExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -612,7 +640,7 @@ public abstract class RoomDatabase {
         }
     }
 
-    public SupportSQLiteStatement compileStatement(String str) {
+    public SupportSQLiteStatement compileStatement(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -622,7 +650,7 @@ public abstract class RoomDatabase {
         return (SupportSQLiteStatement) invokeL.objValue;
     }
 
-    public void internalInitInvalidationTracker(SupportSQLiteDatabase supportSQLiteDatabase) {
+    public void internalInitInvalidationTracker(@NonNull SupportSQLiteDatabase supportSQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, supportSQLiteDatabase) == null) {
             this.mInvalidationTracker.internalInit(supportSQLiteDatabase);
@@ -639,7 +667,7 @@ public abstract class RoomDatabase {
         return (Cursor) invokeL.objValue;
     }
 
-    public <V> V runInTransaction(Callable<V> callable) {
+    public <V> V runInTransaction(@NonNull Callable<V> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, callable)) == null) {
@@ -663,7 +691,8 @@ public abstract class RoomDatabase {
         return (V) invokeL.objValue;
     }
 
-    public void init(DatabaseConfiguration databaseConfiguration) {
+    @CallSuper
+    public void init(@NonNull DatabaseConfiguration databaseConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, databaseConfiguration) == null) {
             this.mOpenHelper = createOpenHelper(databaseConfiguration);
@@ -681,7 +710,7 @@ public abstract class RoomDatabase {
         }
     }
 
-    public Cursor query(String str, Object[] objArr) {
+    public Cursor query(String str, @Nullable Object[] objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, objArr)) == null) {
@@ -690,7 +719,7 @@ public abstract class RoomDatabase {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void runInTransaction(Runnable runnable) {
+    public void runInTransaction(@NonNull Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, runnable) == null) {
             beginTransaction();

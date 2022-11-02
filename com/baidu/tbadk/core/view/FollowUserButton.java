@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,14 +11,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ty4;
-import com.baidu.tieba.vz4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.l05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FollowUserButton extends TBSpecificationBtn implements vz4 {
+public class FollowUserButton extends TBSpecificationBtn implements l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -29,7 +30,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
         void onClick(View view2);
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -58,7 +59,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FollowUserButton(Context context, AttributeSet attributeSet) {
+    public FollowUserButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -79,7 +80,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FollowUserButton(Context context, AttributeSet attributeSet, int i) {
+    public FollowUserButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -99,15 +100,15 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
         }
         this.p = 0;
         this.q = true;
-        ty4 ty4Var = new ty4();
-        ty4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-        ty4Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
-        ty4Var.r(R.color.CAM_X0304);
-        setConfig(ty4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+        jz4 jz4Var = new jz4();
+        jz4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+        jz4Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
+        jz4Var.r(R.color.CAM_X0304);
+        setConfig(jz4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -116,7 +117,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -153,7 +154,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -161,7 +162,7 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
         }
     }
 
-    @Override // com.baidu.tieba.vz4
+    @Override // com.baidu.tieba.l05
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -179,20 +180,20 @@ public class FollowUserButton extends TBSpecificationBtn implements vz4 {
             if (z) {
                 setVisibility(0);
                 setClickable(this.q);
-                ty4 ty4Var = new ty4();
-                ty4Var.t(R.color.CAM_X0109);
-                ty4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
-                setConfig(ty4Var);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef));
+                jz4 jz4Var = new jz4();
+                jz4Var.t(R.color.CAM_X0109);
+                jz4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
+                setConfig(jz4Var);
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a));
             } else {
                 setVisibility(0);
-                ty4 ty4Var2 = new ty4();
-                ty4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
-                ty4Var2.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
-                ty4Var2.r(R.color.CAM_X0304);
-                setConfig(ty4Var2);
+                jz4 jz4Var2 = new jz4();
+                jz4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
+                jz4Var2.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
+                jz4Var2.r(R.color.CAM_X0304);
+                setConfig(jz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

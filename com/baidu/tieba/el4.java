@@ -1,118 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public final class el4 implements MediaGestureLayout.b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public MediaGestureLayout b;
-    public MediaGestureLayout.c c;
+/* loaded from: classes4.dex */
+public interface el4 {
+    void a();
 
-    public el4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        g(context);
-    }
+    void b(boolean z);
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void a(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && (cVar = this.c) != null) {
-            cVar.a(motionEvent);
-        }
-    }
+    void c(SwanVideoView swanVideoView);
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void c(int i) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (cVar = this.c) != null) {
-            cVar.c(i);
-        }
-    }
+    void d(boolean z);
 
-    public void d(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
-            this.b.h(swanVideoView);
-        }
-    }
+    void onBufferingUpdate(int i);
 
-    public void e(bl4 bl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bl4Var) == null) {
-            this.b.g(bl4Var);
-        }
-    }
+    void onError(int i, int i2, String str);
 
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.a = context;
-            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
-            this.b = mediaGestureLayout;
-            mediaGestureLayout.setMediaGestureListener(this);
-        }
-    }
+    void onPause();
 
-    public void h(MediaGestureLayout.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
+    void onPrepared();
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void onDoubleTap(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) && (cVar = this.c) != null) {
-            cVar.onDoubleTap(motionEvent);
-        }
-    }
+    void onResume();
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) && (cVar = this.c) != null) {
-            cVar.b(motionEvent, mediaGestureMode);
-        }
-    }
+    void onSeekEnd();
 
-    public ViewGroup f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
+    void onStart();
+
+    void onVideoSizeChanged(int i, int i2);
 }

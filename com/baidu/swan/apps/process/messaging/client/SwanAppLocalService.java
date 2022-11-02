@@ -24,40 +24,40 @@ import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a03;
-import com.baidu.tieba.c82;
-import com.baidu.tieba.fi4;
-import com.baidu.tieba.fo2;
-import com.baidu.tieba.ga2;
-import com.baidu.tieba.gg3;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.h03;
-import com.baidu.tieba.ha2;
+import com.baidu.tieba.b92;
+import com.baidu.tieba.cy2;
+import com.baidu.tieba.d43;
+import com.baidu.tieba.fj3;
+import com.baidu.tieba.fy2;
+import com.baidu.tieba.g82;
+import com.baidu.tieba.gh2;
+import com.baidu.tieba.gj3;
+import com.baidu.tieba.hy2;
+import com.baidu.tieba.j43;
 import com.baidu.tieba.j82;
-import com.baidu.tieba.kx2;
-import com.baidu.tieba.l33;
-import com.baidu.tieba.ni3;
-import com.baidu.tieba.nx2;
-import com.baidu.tieba.o72;
-import com.baidu.tieba.og2;
-import com.baidu.tieba.oi3;
-import com.baidu.tieba.px2;
-import com.baidu.tieba.r33;
-import com.baidu.tieba.r72;
-import com.baidu.tieba.rw2;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.u22;
-import com.baidu.tieba.u72;
+import com.baidu.tieba.jx2;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.m32;
+import com.baidu.tieba.m82;
+import com.baidu.tieba.m92;
+import com.baidu.tieba.ma3;
+import com.baidu.tieba.mn2;
+import com.baidu.tieba.n32;
+import com.baidu.tieba.o82;
+import com.baidu.tieba.oh3;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.ov1;
+import com.baidu.tieba.oy2;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.s03;
 import com.baidu.tieba.u82;
-import com.baidu.tieba.u93;
-import com.baidu.tieba.um2;
-import com.baidu.tieba.v22;
-import com.baidu.tieba.w72;
-import com.baidu.tieba.wg3;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.wu1;
-import com.baidu.tieba.wx2;
-import com.baidu.tieba.zo2;
+import com.baidu.tieba.xi4;
+import com.baidu.tieba.xo2;
+import com.baidu.tieba.ya2;
+import com.baidu.tieba.yg3;
+import com.baidu.tieba.yh3;
+import com.baidu.tieba.z03;
+import com.baidu.tieba.za2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +67,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppLocalService extends Service implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_PERLOAD = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_PERLOAD";
@@ -90,7 +90,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,24 +118,24 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gg3.g();
-                gg3.f();
-                gg3.h();
-                wu1.e(AppRuntime.getAppContext());
-                if (tm2.V().b()) {
-                    tm2.I().d();
+                yg3.g();
+                yg3.f();
+                yg3.h();
+                ov1.e(AppRuntime.getAppContext());
+                if (ln2.V().b()) {
+                    ln2.I().d();
                 }
-                oi3.y(tm2.c());
-                wx2.a().c(R.layout.obfuscated_res_0x7f0d00a6, R.layout.obfuscated_res_0x7f0d00c4, R.layout.obfuscated_res_0x7f0d00b9);
-                tm2.V().a(tm2.u0().a());
-                boolean z = ni3.i;
-                fo2.c().d("screenSize", wg3.b());
+                gj3.y(ln2.c());
+                oy2.a().c(R.layout.obfuscated_res_0x7f0d00a7, R.layout.obfuscated_res_0x7f0d00c5, R.layout.obfuscated_res_0x7f0d00ba);
+                ln2.V().a(ln2.u0().a());
+                boolean z = fj3.i;
+                xo2.c().d("screenSize", oh3.b());
                 this.a.preloadActivityClass();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,19 +166,19 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 try {
                     ClassLoader classLoader = this.a.getClassLoader();
                     Class.forName(SwanAppProcessInfo.current().activity.getName(), true, classLoader);
-                    Class.forName(fi4.class.getName(), true, classLoader);
-                    Class.forName(v22.b.class.getName(), true, classLoader);
-                    Class.forName(u22.class.getName(), true, classLoader);
+                    Class.forName(xi4.class.getName(), true, classLoader);
+                    Class.forName(n32.b.class.getName(), true, classLoader);
+                    Class.forName(m32.class.getName(), true, classLoader);
                     Class.forName(SwanAppSlaveManager.class.getName(), true, classLoader);
                     Class.forName(JsFunction.class.getName(), true, classLoader);
-                    Class.forName(r33.class.getName(), true, classLoader);
+                    Class.forName(j43.class.getName(), true, classLoader);
                     Class.forName(SlideHelper.class.getName(), true, classLoader);
-                    Class.forName(og2.class.getName(), true, classLoader);
+                    Class.forName(gh2.class.getName(), true, classLoader);
                     Class.forName(PullToRefreshBaseWebView.class.getName(), true, classLoader);
                     Class.forName(SlidingPaneLayout.class.getName(), true, classLoader);
-                    Class.forName(u82.class.getName(), true, classLoader);
+                    Class.forName(m92.class.getName(), true, classLoader);
                     Class.forName(SwanAppConfigData.class.getName(), true, classLoader);
-                    Class.forName(a03.class.getName(), true, classLoader);
+                    Class.forName(s03.class.getName(), true, classLoader);
                 } catch (Throwable th) {
                     if (SwanAppLocalService.DEBUG) {
                         Log.d(SwanAppLocalService.TAG, Log.getStackTraceString(th));
@@ -201,7 +201,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 return;
             }
         }
-        DEBUG = wj1.a;
+        DEBUG = ok1.a;
         sFlagPreloaded = false;
     }
 
@@ -223,7 +223,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     public void preloadActivityClass() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            gg3.k(new b(this), "PreClassLoader");
+            yg3.k(new b(this), "PreClassLoader");
         }
     }
 
@@ -261,7 +261,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 try {
                     onActionPreload(intent);
                 } catch (Throwable th) {
-                    u93.b bVar = new u93.b(10013);
+                    ma3.b bVar = new ma3.b(10013);
                     bVar.i(th.getMessage());
                     bVar.m();
                     if (DEBUG) {
@@ -272,7 +272,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 try {
                     Message message = (Message) intent.getParcelableExtra("data");
                     if (message != null) {
-                        l33.K().y().R().handleMessage(message);
+                        d43.K().y().R().handleMessage(message);
                     }
                 } catch (Exception e) {
                     Log.e(TAG, ACTION_RECEIVER_MSG, e);
@@ -286,7 +286,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         if ((interceptable != null && interceptable.invokeL(65541, this, intent) != null) || intent == null) {
             return;
         }
-        px2.e().i();
+        hy2.e().i();
         long currentTimeMillis = System.currentTimeMillis();
         long longExtra = intent.getLongExtra("bundle_key_preload_launch_time", currentTimeMillis);
         long longExtra2 = intent.getLongExtra("bundle_key_preload_swan_updated_time", currentTimeMillis);
@@ -294,7 +294,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         if (TextUtils.isEmpty(stringExtra)) {
             stringExtra = "0";
         }
-        HybridUbcFlow p = rw2.p("preload");
+        HybridUbcFlow p = jx2.p("preload");
         UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_launch");
         ubcFlowEvent.h(longExtra);
         p.F(ubcFlowEvent);
@@ -308,41 +308,41 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         if (!TextUtils.isEmpty(stringExtra)) {
             p.D("preload_scene", stringExtra);
         }
-        if (tm2.g0() != null && tm2.g0().t()) {
+        if (ln2.g0() != null && ln2.g0().t()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", currentTimeMillis);
                 jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                 jSONObject.put("cost", currentTimeMillis - longExtra2);
-                jSONObject.put("is_preload_started", ga2.D);
-                jSONObject.put("is_preload_ready", ga2.U().m0());
+                jSONObject.put("is_preload_started", ya2.D);
+                jSONObject.put("is_preload_ready", ya2.U().m0());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            rw2.d dVar = new rw2.d("812");
+            jx2.d dVar = new jx2.d("812");
             dVar.g("swan");
             dVar.i(StatConstants.VALUE_TYPE_RECEIVE);
             dVar.h(intent.getStringExtra("bundle_key_preload_src"));
             dVar.e(jSONObject);
-            rw2.onEvent(dVar);
+            jx2.onEvent(dVar);
         }
-        ga2.v.g(intent);
-        zo2.U().t(intent);
+        ya2.v.g(intent);
+        rp2.U().t(intent);
         preloadSwanGame(intent);
-        if (nx2.m()) {
+        if (fy2.m()) {
             SwanPrefetchImageRes.b().c();
         }
         if (!sFlagPreloaded) {
             sFlagPreloaded = true;
-            gh3.a0(new a(this));
+            yh3.a0(new a(this));
         }
-        ha2.c(true);
+        za2.c(true);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0022, code lost:
-        if ((java.lang.System.currentTimeMillis() - com.baidu.tieba.gc2.b(1)) < (r0 * 86400000)) goto L6;
+        if ((java.lang.System.currentTimeMillis() - com.baidu.tieba.yc2.b(1)) < (r0 * 86400000)) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -350,7 +350,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     private void preloadSwanGame(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, intent) == null) {
-            int d = kx2.d();
+            int d = cy2.d();
             boolean z = false;
             if (d >= 0) {
                 if (d != 0) {
@@ -358,7 +358,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 z = true;
             }
             if (z) {
-                um2.i().p(intent);
+                mn2.i().p(intent);
             }
             if (DEBUG) {
                 Log.d(TAG, "strategy : " + d + " , canPreload swan game : " + z);
@@ -385,21 +385,21 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SwanAppProcessInfo.init(getProcessInfo());
-            tm2.G().a();
+            ln2.G().a();
             super.onCreate();
-            this.mMessenger = new Messenger(h03.Q().R());
+            this.mMessenger = new Messenger(z03.Q().R());
             if (DEBUG) {
                 Log.i(TAG, "onCreate " + getProcessInfo());
             }
-            h03.Q().c0();
-            r72 a2 = r72.a();
-            r72.b bVar = new r72.b();
+            z03.Q().c0();
+            j82 a2 = j82.a();
+            j82.b bVar = new j82.b();
             bVar.i(52428800L);
-            bVar.g(new u72());
+            bVar.g(new m82());
             bVar.h(new CustomStrategyImpl());
             a2.i(bVar);
-            o72.b().a(new c82(this, w72.d()));
-            o72.b().a(new j82(this, null));
+            g82.b().a(new u82(this, o82.d()));
+            g82.b().a(new b92(this, null));
         }
     }
 

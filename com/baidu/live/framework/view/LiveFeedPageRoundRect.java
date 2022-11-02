@@ -10,9 +10,11 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qa0;
+import com.baidu.tieba.pa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +31,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public boolean e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LiveFeedPageRoundRect(Context context) {
+    public LiveFeedPageRoundRect(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +52,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveFeedPageRoundRect(Context context, AttributeSet attributeSet) {
+    public LiveFeedPageRoundRect(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -135,7 +137,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(1048582, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, qa0.LiveFeedPageRoundRect);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, pa0.LiveFeedPageRoundRect);
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);

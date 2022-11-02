@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.widget.EdgeEffect;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +36,7 @@ public final class EdgeEffectCompat {
         this.mEdgeEffect = new EdgeEffect(context);
     }
 
-    public static void onPull(EdgeEffect edgeEffect, float f, float f2) {
+    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             if (Build.VERSION.SDK_INT >= 21) {

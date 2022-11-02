@@ -20,11 +20,11 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.face.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class C0165a implements Comparator {
+    public static class C0173a implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0165a() {
+        public C0173a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,15 +38,16 @@ public final class a {
             }
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
+        public int compare(Camera.Size size, Camera.Size size2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                Camera.Size size = (Camera.Size) obj;
-                Camera.Size size2 = (Camera.Size) obj2;
-                int i = size.height * size.width;
-                int i2 = size2.height * size2.width;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
+                Camera.Size size3 = size;
+                Camera.Size size4 = size2;
+                int i = size3.height * size3.width;
+                int i2 = size4.height * size4.width;
                 if (i2 < i) {
                     return -1;
                 }
@@ -60,7 +61,7 @@ public final class a {
     }
 
     /* loaded from: classes2.dex */
-    public final class b implements Comparator {
+    public static class b implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,15 +79,16 @@ public final class a {
             }
         }
 
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // java.util.Comparator
-        public int compare(Object obj, Object obj2) {
+        public int compare(Camera.Size size, Camera.Size size2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                Camera.Size size = (Camera.Size) obj;
-                Camera.Size size2 = (Camera.Size) obj2;
-                int i = size.height * size.width;
-                int i2 = size2.height * size2.width;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
+                Camera.Size size3 = size;
+                Camera.Size size4 = size2;
+                int i = size3.height * size3.width;
+                int i2 = size4.height * size4.width;
                 if (i2 < i) {
                     return 1;
                 }
@@ -183,7 +185,7 @@ public final class a {
                 return new Point(640, 480);
             }
             ArrayList arrayList = new ArrayList(supportedPreviewSizes);
-            Collections.sort(arrayList, new C0165a());
+            Collections.sort(arrayList, new C0173a());
             int i = point.x;
             int i2 = point.y;
             if (i > i2) {

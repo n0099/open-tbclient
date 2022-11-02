@@ -17,7 +17,7 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class TiebaStaticHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap mActivityNames;
+    public static final HashMap<String, String> mActivityNames;
     public static String mCurrentActivityAllName;
     public static String mCurrentActivityName;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class TiebaStaticHelper {
                 return;
             }
         }
-        mActivityNames = new HashMap();
+        mActivityNames = new HashMap<>();
     }
 
     public TiebaStaticHelper() {
@@ -125,15 +125,15 @@ public class TiebaStaticHelper {
             if (lastIndexOf != -1 && (i = lastIndexOf + 1) < str.length()) {
                 str = str.substring(i, str.length());
             }
-            HashMap hashMap = mActivityNames;
+            HashMap<String, String> hashMap = mActivityNames;
             if (hashMap != null) {
-                str2 = (String) hashMap.get(str);
+                str2 = hashMap.get(str);
             } else {
                 str2 = "";
             }
             if (str2 == null) {
                 str2 = getShortName(str);
-                HashMap hashMap2 = mActivityNames;
+                HashMap<String, String> hashMap2 = mActivityNames;
                 if (hashMap2 != null) {
                     hashMap2.put(str, str2);
                 }

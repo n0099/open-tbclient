@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.platform;
 
+import android.annotation.TargetApi;
 import android.graphics.BitmapFactory;
 import androidx.core.util.Pools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.memory.BitmapPool;
 import com.facebook.imageutils.BitmapUtil;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
+@TargetApi(21)
 /* loaded from: classes7.dex */
 public class ArtDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;

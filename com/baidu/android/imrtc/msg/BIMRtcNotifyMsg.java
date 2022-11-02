@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.msg;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.notify.BIMInviteSyncRtcInfo;
 import com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo;
@@ -36,7 +37,7 @@ public class BIMRtcNotifyMsg {
         }
     }
 
-    public static BIMRtcInfo parseJson(Context context, JSONObject jSONObject) {
+    public static BIMRtcInfo parseJson(Context context, @NonNull JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, jSONObject)) == null) {

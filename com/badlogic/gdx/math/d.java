@@ -43,7 +43,7 @@ public final class d {
     }
 
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final float[] a;
         public transient /* synthetic */ FieldHolder $fh;

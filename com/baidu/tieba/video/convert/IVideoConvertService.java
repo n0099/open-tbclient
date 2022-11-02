@@ -25,7 +25,7 @@ public interface IVideoConvertService extends IInterface {
     void setIVideoConvertListener(IVideoConvertListener iVideoConvertListener) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IVideoConvertService {
+    public static abstract class Stub extends Binder implements IVideoConvertService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.tieba.video.convert.IVideoConvertService";
         public static final int TRANSACTION_abortConvert = 4;
@@ -43,7 +43,7 @@ public interface IVideoConvertService extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IVideoConvertService {
+        public static class Proxy implements IVideoConvertService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;

@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SuggestionSearchOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
     public String mCity;
     public Boolean mCityLimit;
     public String mKeyword;
@@ -32,7 +33,17 @@ public class SuggestionSearchOption {
         this.mCity = null;
         this.mKeyword = null;
         this.mLocation = null;
+        this.a = true;
         this.mCityLimit = Boolean.FALSE;
+    }
+
+    public boolean isExtendAdcode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 
     public SuggestionSearchOption city(String str) {
@@ -55,10 +66,20 @@ public class SuggestionSearchOption {
         return (SuggestionSearchOption) invokeL.objValue;
     }
 
+    public SuggestionSearchOption extendAdcode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a = z;
+            return this;
+        }
+        return (SuggestionSearchOption) invokeZ.objValue;
+    }
+
     public SuggestionSearchOption keyword(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             this.mKeyword = str;
             return this;
         }
@@ -68,7 +89,7 @@ public class SuggestionSearchOption {
     public SuggestionSearchOption location(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, latLng)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, latLng)) == null) {
             this.mLocation = latLng;
             return this;
         }

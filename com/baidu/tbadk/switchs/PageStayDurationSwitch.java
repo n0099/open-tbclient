@@ -1,19 +1,19 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dd5;
-import com.baidu.tieba.rf;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class PageStayDurationSwitch extends rf {
+public class PageStayDurationSwitch extends jf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -23,7 +23,7 @@ public class PageStayDurationSwitch extends rf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class PageStayDurationSwitch extends rf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class PageStayDurationSwitch extends rf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "log_online_smallflow" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,11 +74,11 @@ public class PageStayDurationSwitch extends rf {
         }
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            dd5 b = dd5.b();
+            zd5 b = zd5.b();
             boolean z = true;
             if (1 != i) {
                 z = false;

@@ -15,6 +15,7 @@ import com.facebook.drawee.R;
 import com.facebook.drawee.drawable.AutoRotateDrawable;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
+import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class GenericDraweeHierarchyInflater {
@@ -49,6 +50,7 @@ public class GenericDraweeHierarchyInflater {
         return (Drawable) invokeLLI.objValue;
     }
 
+    @ReturnsOwnership
     public static RoundingParams getRoundingParams(GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,7 +124,7 @@ public class GenericDraweeHierarchyInflater {
     /* JADX WARN: Removed duplicated region for block: B:153:0x022e  */
     /* JADX WARN: Type inference failed for: r4v0 */
     /* JADX WARN: Type inference failed for: r4v15 */
-    /* JADX WARN: Type inference failed for: r4v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r4v4, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

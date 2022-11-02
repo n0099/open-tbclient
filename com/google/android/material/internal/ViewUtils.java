@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -20,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +36,7 @@ public class ViewUtils {
     }
 
     /* loaded from: classes7.dex */
-    public class RelativePadding {
+    public static class RelativePadding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bottom;
@@ -60,7 +65,7 @@ public class ViewUtils {
             this.bottom = i4;
         }
 
-        public RelativePadding(RelativePadding relativePadding) {
+        public RelativePadding(@NonNull RelativePadding relativePadding) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,14 +108,14 @@ public class ViewUtils {
         }
     }
 
-    public static void doOnApplyWindowInsets(View view2, AttributeSet attributeSet, int i, int i2) {
+    public static void doOnApplyWindowInsets(@NonNull View view2, @Nullable AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65537, null, view2, attributeSet, i, i2) == null) {
             doOnApplyWindowInsets(view2, attributeSet, i, i2, null);
         }
     }
 
-    public static void doOnApplyWindowInsets(View view2, AttributeSet attributeSet, int i, int i2, OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
+    public static void doOnApplyWindowInsets(@NonNull View view2, @Nullable AttributeSet attributeSet, int i, int i2, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), onApplyWindowInsetsListener}) == null) {
             TypedArray obtainStyledAttributes = view2.getContext().obtainStyledAttributes(attributeSet, R.styleable.Insets, i, i2);
@@ -148,7 +153,8 @@ public class ViewUtils {
                 }
 
                 @Override // com.google.android.material.internal.ViewUtils.OnApplyWindowInsetsListener
-                public WindowInsetsCompat onApplyWindowInsets(View view3, WindowInsetsCompat windowInsetsCompat, RelativePadding relativePadding) {
+                @NonNull
+                public WindowInsetsCompat onApplyWindowInsets(View view3, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull RelativePadding relativePadding) {
                     InterceptResult invokeLLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, view3, windowInsetsCompat, relativePadding)) == null) {
@@ -183,7 +189,7 @@ public class ViewUtils {
         }
     }
 
-    public static void doOnApplyWindowInsets(View view2, OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
+    public static void doOnApplyWindowInsets(@NonNull View view2, @NonNull OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, view2, onApplyWindowInsetsListener) == null) {
             ViewCompat.setOnApplyWindowInsetsListener(view2, new androidx.core.view.OnApplyWindowInsetsListener(onApplyWindowInsetsListener, new RelativePadding(ViewCompat.getPaddingStart(view2), view2.getPaddingTop(), ViewCompat.getPaddingEnd(view2), view2.getPaddingBottom())) { // from class: com.google.android.material.internal.ViewUtils.3
@@ -225,7 +231,7 @@ public class ViewUtils {
         }
     }
 
-    public static float dpToPx(Context context, int i) {
+    public static float dpToPx(@NonNull Context context, @Dimension(unit = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
@@ -234,7 +240,8 @@ public class ViewUtils {
         return invokeLI.floatValue;
     }
 
-    public static ViewGroup getContentView(View view2) {
+    @Nullable
+    public static ViewGroup getContentView(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
@@ -254,7 +261,8 @@ public class ViewUtils {
         return (ViewGroup) invokeL.objValue;
     }
 
-    public static ViewOverlayImpl getContentViewOverlay(View view2) {
+    @Nullable
+    public static ViewOverlayImpl getContentViewOverlay(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
@@ -263,7 +271,8 @@ public class ViewUtils {
         return (ViewOverlayImpl) invokeL.objValue;
     }
 
-    public static ViewOverlayImpl getOverlay(View view2) {
+    @Nullable
+    public static ViewOverlayImpl getOverlay(@Nullable View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
@@ -278,7 +287,7 @@ public class ViewUtils {
         return (ViewOverlayImpl) invokeL.objValue;
     }
 
-    public static float getParentAbsoluteElevation(View view2) {
+    public static float getParentAbsoluteElevation(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
@@ -303,7 +312,7 @@ public class ViewUtils {
         return invokeL.booleanValue;
     }
 
-    public static void requestApplyInsetsWhenAttached(View view2) {
+    public static void requestApplyInsetsWhenAttached(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, view2) == null) {
             if (ViewCompat.isAttachedToWindow(view2)) {
@@ -335,7 +344,7 @@ public class ViewUtils {
                     }
 
                     @Override // android.view.View.OnAttachStateChangeListener
-                    public void onViewAttachedToWindow(View view3) {
+                    public void onViewAttachedToWindow(@NonNull View view3) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                             view3.removeOnAttachStateChangeListener(this);
@@ -347,7 +356,7 @@ public class ViewUtils {
         }
     }
 
-    public static void requestFocusAndShowKeyboard(View view2) {
+    public static void requestFocusAndShowKeyboard(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, view2) == null) {
             view2.requestFocus();

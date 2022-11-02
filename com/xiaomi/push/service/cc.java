@@ -1,5 +1,6 @@
 package com.xiaomi.push.service;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import android.os.Build;
@@ -19,12 +20,13 @@ public class cc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Map map) {
+    public static int a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a((String) map.get("notification_top_period"), 0)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a(map.get("notification_top_period"), 0)) : invokeL.intValue;
     }
 
+    @TargetApi(19)
     public static Notification a(Notification notification, int i, String str, ax axVar) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
@@ -57,6 +59,7 @@ public class cc {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Integer.valueOf(i), str2, notification})) == null) ? new cd(i, str2, context, str, notification) : (al.a) invokeCommon.objValue;
     }
 
+    @TargetApi(19)
     /* renamed from: a  reason: collision with other method in class */
     public static void m656a(Context context, String str, int i, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -65,7 +68,7 @@ public class cc {
         }
     }
 
-    public static void a(Context context, Map map, eq eqVar, long j) {
+    public static void a(Context context, Map<String, String> map, eq eqVar, long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, map, eqVar, Long.valueOf(j)}) == null) && map != null && eqVar != null && com.xiaomi.push.m.m561a(context) && m657a(map)) {
             int a = a(map);
@@ -87,11 +90,11 @@ public class cc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m657a(Map map) {
+    public static boolean m657a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
-            String str = (String) map.get("notification_top_repeat");
+            String str = map.get("notification_top_repeat");
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -102,10 +105,10 @@ public class cc {
         return invokeL.booleanValue;
     }
 
-    public static int b(Map map) {
+    public static int b(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a((String) map.get("notification_top_frequency"), 0)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) ? Math.max(0, com.xiaomi.push.w.a(map.get("notification_top_frequency"), 0)) : invokeL.intValue;
     }
 
     public static String b(int i, String str) {
@@ -117,6 +120,7 @@ public class cc {
         return (String) invokeIL.objValue;
     }
 
+    @TargetApi(19)
     public static void c(Context context, String str, int i, String str2, Notification notification) {
         ax a;
         Notification a2;

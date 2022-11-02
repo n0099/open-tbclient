@@ -30,7 +30,7 @@ public final class AssociatedItemContainer extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public a b;
-    public final ArrayList c;
+    public final ArrayList<ItemData> c;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -118,7 +118,7 @@ public final class AssociatedItemContainer extends LinearLayout {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.c = new ArrayList<>();
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
     }
@@ -142,7 +142,7 @@ public final class AssociatedItemContainer extends LinearLayout {
                     this$0.removeViewAt(this$0.getChildCount() - 1);
                 }
                 this$0.requestLayout();
-                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f09102f);
+                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f091069);
                 if (tag != null) {
                     ItemData itemData = (ItemData) tag;
                     this$0.getItemDataList().remove(itemData);
@@ -176,8 +176,8 @@ public final class AssociatedItemContainer extends LinearLayout {
             final ItemCardView itemCardView = new ItemCardView(getContext());
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.N();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f09102f, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.l39
+            itemCardView.setTag(R.id.obfuscated_res_0x7f091069, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.u49
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,7 +210,7 @@ public final class AssociatedItemContainer extends LinearLayout {
         }
     }
 
-    public final ArrayList getItemDataList() {
+    public final ArrayList<ItemData> getItemDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

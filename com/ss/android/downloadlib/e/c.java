@@ -134,7 +134,7 @@ public class c implements com.ss.android.download.api.b.a {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static c a = new c();
     }
 }

@@ -4,15 +4,16 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.m97;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.wa7;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public m97 d;
+    public wa7 d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +44,7 @@ public class GameContactsItemView extends RelativeLayout {
                 return;
             }
         }
-        e = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+        e = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
     }
 
     public void a() {
@@ -70,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public m97 getGameMatchUser() {
+    public wa7 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (m97) invokeV.objValue;
+        return (wa7) invokeV.objValue;
     }
 
     public void h() {
@@ -90,7 +91,7 @@ public class GameContactsItemView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d != null) {
-            this.a.getImgView().L(this.d.a(), 12, false);
+            this.a.getImgView().K(this.d.a(), 12, false);
         }
     }
 
@@ -177,12 +178,12 @@ public class GameContactsItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new View(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fj.f(getContext(), R.dimen.tbds13), fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds47));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.g(getContext(), R.dimen.tbds13), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            nv4 d = nv4.d(this.c);
+            kw4 d = kw4.d(this.c);
             d.n(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -196,7 +197,7 @@ public class GameContactsItemView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(6, this.a.getId());
             layoutParams.addRule(7, this.a.getId());
-            layoutParams.setMargins(0, -fj.f(getContext(), R.dimen.tbds10), -fj.f(getContext(), R.dimen.tbds14), 0);
+            layoutParams.setMargins(0, -xi.g(getContext(), R.dimen.tbds10), -xi.g(getContext(), R.dimen.tbds14), 0);
             this.b.setLayoutParams(layoutParams);
             addView(this.b);
         }
@@ -214,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(m97 m97Var) {
+    public void setGameMatchUser(@NonNull wa7 wa7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, m97Var) != null) || m97Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, wa7Var) != null) || wa7Var.equals(this.d)) {
             return;
         }
-        this.d = m97Var;
+        this.d = wa7Var;
         i();
     }
 }

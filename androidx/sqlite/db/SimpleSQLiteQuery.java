@@ -1,5 +1,6 @@
 package androidx.sqlite.db;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Object[] mBindArgs;
     public final String mQuery;
 
@@ -34,7 +36,7 @@ public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
         }
     }
 
-    public SimpleSQLiteQuery(String str, Object[] objArr) {
+    public SimpleSQLiteQuery(String str, @Nullable Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

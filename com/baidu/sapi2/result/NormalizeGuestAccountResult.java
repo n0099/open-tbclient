@@ -17,7 +17,7 @@ public class NormalizeGuestAccountResult extends SapiResult {
     public Activity activity;
     public boolean isAccountMerge;
     public String normalizeWay;
-    public HashMap normalizeWayMap;
+    public HashMap<String, Integer> normalizeWayMap;
 
     public void finishActivity() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class NormalizeGuestAccountResult extends SapiResult {
                 return;
             }
         }
-        HashMap hashMap = new HashMap(3);
+        HashMap<String, Integer> hashMap = new HashMap<>(3);
         this.normalizeWayMap = hashMap;
         hashMap.put("sms_upgrade", 1);
         this.normalizeWayMap.put("sms_upgrade_exist", 2);
@@ -50,7 +50,7 @@ public class NormalizeGuestAccountResult extends SapiResult {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.normalizeWayMap.containsKey(this.normalizeWay)) {
-                return ((Integer) this.normalizeWayMap.get(this.normalizeWay)).intValue();
+                return this.normalizeWayMap.get(this.normalizeWay).intValue();
             }
             return 0;
         }

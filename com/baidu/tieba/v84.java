@@ -1,18 +1,8 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.gq2;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,70 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v84 {
+public class v84 extends q84<qq2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public gq2 a;
-    public Marker b;
-    public Marker c;
-    public View d;
-    public ViewGroup e;
-    public Marker f;
-    public ValueAnimator g;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onAnimationEnd();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ w84 b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ v84 d;
-
-        public a(v84 v84Var, w84 w84Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v84Var, w84Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = v84Var;
-            this.b = w84Var;
-            this.c = bVar;
-            this.a = false;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
-                if (!this.a && animatedFraction > 0.99d) {
-                    this.a = true;
-                    b bVar = this.c;
-                    if (bVar != null) {
-                        bVar.onAnimationEnd();
-                    }
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -98,7 +30,7 @@ public class v84 {
                 return;
             }
         }
-        h = Boolean.TRUE;
+        boolean z = ok1.a;
     }
 
     public v84() {
@@ -115,99 +47,56 @@ public class v84 {
         }
     }
 
-    public void a(w84 w84Var, LatLng latLng) {
-        Marker marker;
+    public static v84 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, w84Var, latLng) != null) || (marker = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new v84();
         }
-        marker.setPosition(latLng);
-        fq2 fq2Var = this.a.b;
-        fq2Var.a = latLng.latitude;
-        fq2Var.b = latLng.longitude;
-        Marker marker2 = this.f;
-        if (marker2 != null) {
-            marker2.setPosition(latLng);
-        }
-        if (!h.booleanValue()) {
-            return;
-        }
-        Marker marker3 = this.c;
-        if (marker3 != null) {
-            marker3.setPosition(latLng);
-        }
-        ViewGroup viewGroup = this.e;
-        if (viewGroup != null) {
-            w84Var.l.removeView(viewGroup);
-            MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-            builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-            builder.position(latLng);
-            w84Var.l.addView(this.e, builder.build());
-            this.e.setAlpha(0.0f);
-        }
+        return (v84) invokeV.objValue;
     }
 
-    public void b(w84 w84Var) {
-        gq2 gq2Var;
-        gq2.b bVar;
+    @Override // com.baidu.tieba.q84
+    public boolean b(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w84Var) == null) && (gq2Var = this.a) != null && (bVar = gq2Var.i) != null && bVar.isValid()) {
-            gq2 gq2Var2 = this.a;
-            if (gq2Var2.k != null && this.d == null && !TextUtils.equals(gq2Var2.i.g, "ALWAYS")) {
-                w84Var.l.removeView(this.e);
-                this.e.removeView(this.d);
-                View a2 = k84.a(w84Var, this.a);
-                this.d = a2;
-                this.e.addView(a2, 0);
-                this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(this.b.getPosition());
-                Bitmap bitmap = this.b.getIcon().getBitmap();
-                builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-                w84Var.l.addView(this.e, builder.build());
-                this.e.setAlpha(0.0f);
-                Marker marker = this.f;
-                if (marker != null) {
-                    marker.remove();
-                }
-                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
-                if (fromView == null) {
-                    return;
-                }
-                Bitmap bitmap2 = fromView.getBitmap();
-                if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
-                    float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
-                    float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    fq2 fq2Var = this.a.b;
-                    this.f = (Marker) w84Var.l.getMap().addOverlay(markerOptions.position(new LatLng(fq2Var.a, fq2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
-                }
-            }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
+            return e(context, qq2Var, nq2Var, e43Var, jSONObject);
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    public void c(w84 w84Var, LatLng latLng, bq2 bq2Var, b bVar) {
-        Marker marker;
+    public final boolean e(Context context, qq2 qq2Var, nq2 nq2Var, e43 e43Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, w84Var, latLng, bq2Var, bVar) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if ((valueAnimator != null && valueAnimator.isRunning()) || (marker = this.b) == null) {
-                return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qq2Var, nq2Var, e43Var, jSONObject)) == null) {
+            e12.i("map", "GetRegionAction start");
+            mq1 A = rp2.U().A(qq2Var.c);
+            if (!(A instanceof kq1)) {
+                e12.c("map", "WebViewManager is null");
+                return false;
             }
-            float f = 360.0f - ((float) bq2Var.B);
-            if (f >= 0.0f && f <= 360.0f) {
-                marker.setRotate(f);
+            o94 d = n84.b().c((kq1) A).d(qq2Var.b);
+            if (d == null) {
+                e12.c("map", "can not find map by id " + qq2Var.b);
+                return false;
             }
-            int i = bq2Var.C;
-            if (i < 0) {
-                i = -i;
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            ValueAnimator ofObject = ValueAnimator.ofObject(new j84(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-            this.g = ofObject;
-            ofObject.setDuration(i);
-            this.g.addUpdateListener(new a(this, w84Var, bVar));
-            this.g.start();
+            e12.i("map", "GetRegionAction end");
+            return true;
         }
+        return invokeLLLLL.booleanValue;
     }
 }

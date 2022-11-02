@@ -1,85 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLockWindowMsg.DataRes;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes6.dex */
-public class zc8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public ad8 c;
-    public MetaData d;
+public interface zc8 extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
+    void changeRenderViewMode(int i);
 
-    public zc8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCurrentPosition();
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
+    View getMainView();
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
+    boolean isFullScreen();
 
-    public ad8 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (ad8) invokeV.objValue;
-    }
+    boolean isPlaying();
 
-    public MetaData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (MetaData) invokeV.objValue;
-    }
+    boolean onBackPress();
 
-    public void e(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = dataRes.publish_user;
-        this.b = dataRes.publish_pic;
-        MetaData metaData = new MetaData();
-        this.d = metaData;
-        metaData.parserProtobuf(dataRes.author);
-        this.d.setPendantData(null);
-        ad8 ad8Var = new ad8();
-        this.c = ad8Var;
-        ad8Var.e(dataRes.thread_info);
-    }
+    boolean onBackground(boolean z);
+
+    void onScroll();
+
+    boolean onVolumeUp();
+
+    void setAfterClickListener(View.OnClickListener onClickListener);
+
+    void setData(ThreadData threadData);
+
+    void setFrom(String str);
+
+    void setJumpToPbClickListener(View.OnClickListener onClickListener);
+
+    void setStageType(String str);
+
+    void setStatistic(uc8 uc8Var);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void startPlay();
+
+    void stopPlay();
 }

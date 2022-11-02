@@ -49,7 +49,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class AugmentedFaceMode {
+    public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AugmentedFaceMode DISABLED;
@@ -136,7 +136,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class CloudAnchorMode {
+    public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloudAnchorMode DISABLED;
@@ -223,7 +223,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class FocusMode {
+    public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FocusMode AUTO;
@@ -310,7 +310,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class LightEstimationMode {
+    public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LightEstimationMode AMBIENT_INTENSITY;
@@ -397,7 +397,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class PlaneFindingMode {
+    public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final PlaneFindingMode DISABLED;
@@ -488,7 +488,7 @@ public class Config {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class UpdateMode {
+    public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UpdateMode BLOCKING;

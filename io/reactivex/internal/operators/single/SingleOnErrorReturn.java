@@ -13,21 +13,21 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 /* loaded from: classes8.dex */
-public final class SingleOnErrorReturn extends Single {
+public final class SingleOnErrorReturn<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource source;
-    public final Object value;
-    public final Function valueSupplier;
+    public final SingleSource<? extends T> source;
+    public final T value;
+    public final Function<? super Throwable, ? extends T> valueSupplier;
 
     /* loaded from: classes8.dex */
-    public final class OnErrorReturn implements SingleObserver {
+    public final class OnErrorReturn implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver observer;
+        public final SingleObserver<? super T> observer;
         public final /* synthetic */ SingleOnErrorReturn this$0;
 
-        public OnErrorReturn(SingleOnErrorReturn singleOnErrorReturn, SingleObserver singleObserver) {
+        public OnErrorReturn(SingleOnErrorReturn singleOnErrorReturn, SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,11 +48,11 @@ public final class SingleOnErrorReturn extends Single {
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            Object apply;
+            T apply;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 SingleOnErrorReturn singleOnErrorReturn = this.this$0;
-                Function function = singleOnErrorReturn.valueSupplier;
+                Function<? super Throwable, ? extends T> function = singleOnErrorReturn.valueSupplier;
                 if (function != null) {
                     try {
                         apply = function.apply(th);
@@ -83,20 +83,20 @@ public final class SingleOnErrorReturn extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.observer.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.observer.onSuccess(t);
             }
         }
     }
 
-    public SingleOnErrorReturn(SingleSource singleSource, Function function, Object obj) {
+    public SingleOnErrorReturn(SingleSource<? extends T> singleSource, Function<? super Throwable, ? extends T> function, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {singleSource, function, obj};
+            Object[] objArr = {singleSource, function, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,11 +108,11 @@ public final class SingleOnErrorReturn extends Single {
         }
         this.source = singleSource;
         this.valueSupplier = function;
-        this.value = obj;
+        this.value = t;
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new OnErrorReturn(this, singleObserver));

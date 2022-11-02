@@ -23,11 +23,11 @@ public class Session {
     public volatile long d;
     public volatile long e;
     public volatile int f;
-    public List g;
+    public List<a> g;
     public volatile JSONObject h;
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -168,7 +168,7 @@ public class Session {
         this.h = null;
     }
 
-    private void a(List list, a aVar) {
+    private void a(List<a> list, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, list, aVar) == null) {
             try {
@@ -180,7 +180,7 @@ public class Session {
                     list.add(aVar);
                     return;
                 }
-                a aVar2 = (a) list.get(size - 1);
+                a aVar2 = list.get(size - 1);
                 if (!TextUtils.isEmpty(aVar2.a) && !TextUtils.isEmpty(aVar.a)) {
                     if (aVar2.a.equals(aVar.a) && aVar2.f != aVar.f) {
                         if (aVar2.f) {
@@ -325,7 +325,7 @@ public class Session {
                 }
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < this.g.size(); i++) {
-                    jSONArray.put(getPVJson((a) this.g.get(i), this.a));
+                    jSONArray.put(getPVJson(this.g.get(i), this.a));
                 }
                 if (bu.a().e()) {
                     jSONObject.put("p", jSONArray);

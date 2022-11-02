@@ -25,7 +25,7 @@ public class Base64Utils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
@@ -47,7 +47,7 @@ public class Base64Utils {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends a {
+    public static class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] c;
         public static final int[] d;
@@ -224,7 +224,7 @@ public class Base64Utils {
     }
 
     /* loaded from: classes2.dex */
-    public class c extends a {
+    public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ boolean g;
         public static final byte[] h;

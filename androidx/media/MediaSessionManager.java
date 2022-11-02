@@ -4,6 +4,10 @@ import android.content.Context;
 import android.media.session.MediaSessionManager;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.media.MediaSessionManagerImplApi28;
 import androidx.media.MediaSessionManagerImplBase;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,11 +48,15 @@ public final class MediaSessionManager {
     public static final class RemoteUserInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LEGACY_CONTROLLER = "android.media.session.MediaController";
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public static final int UNKNOWN_PID = -1;
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public static final int UNKNOWN_UID = -1;
         public transient /* synthetic */ FieldHolder $fh;
         public RemoteUserInfoImpl mImpl;
 
+        @RequiresApi(28)
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public RemoteUserInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,7 +75,7 @@ public final class MediaSessionManager {
             this.mImpl = new MediaSessionManagerImplApi28.RemoteUserInfoImplApi28(remoteUserInfo);
         }
 
-        public RemoteUserInfo(String str, int i, int i2) {
+        public RemoteUserInfo(@NonNull String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +97,7 @@ public final class MediaSessionManager {
             }
         }
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -104,6 +112,7 @@ public final class MediaSessionManager {
             return invokeL.booleanValue;
         }
 
+        @NonNull
         public String getPackageName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -192,7 +201,8 @@ public final class MediaSessionManager {
         }
     }
 
-    public static MediaSessionManager getSessionManager(Context context) {
+    @NonNull
+    public static MediaSessionManager getSessionManager(@NonNull Context context) {
         InterceptResult invokeL;
         MediaSessionManager mediaSessionManager;
         Interceptable interceptable = $ic;
@@ -211,7 +221,7 @@ public final class MediaSessionManager {
         return (MediaSessionManager) invokeL.objValue;
     }
 
-    public boolean isTrustedForMediaControl(RemoteUserInfo remoteUserInfo) {
+    public boolean isTrustedForMediaControl(@NonNull RemoteUserInfo remoteUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteUserInfo)) == null) {

@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.record.source;
 
 import android.graphics.SurfaceTexture;
 import android.view.SurfaceHolder;
+import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycle;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import java.util.List;
@@ -18,7 +19,7 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         String getVideoPath();
 
-        List getVideoPathList();
+        List<VideoPlayData> getVideoPathList();
 
         boolean isEnd();
 
@@ -46,7 +47,7 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         void setVideoPath(String str);
 
-        void setVideoPathList(List list);
+        void setVideoPathList(List<VideoPlayData> list);
 
         void setVolume(float f, float f2);
 

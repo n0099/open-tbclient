@@ -1,5 +1,6 @@
 package com.facebook.fresco.animation.bitmap.cache;
 
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +35,7 @@ public class NoOpCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public CloseableReference getBitmapToReuseForFrame(int i, int i2, int i3) {
+    public CloseableReference<Bitmap> getBitmapToReuseForFrame(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
@@ -45,7 +46,7 @@ public class NoOpCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public CloseableReference getCachedFrame(int i) {
+    public CloseableReference<Bitmap> getCachedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -56,7 +57,7 @@ public class NoOpCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public CloseableReference getFallbackFrame(int i) {
+    public CloseableReference<Bitmap> getFallbackFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
@@ -76,14 +77,14 @@ public class NoOpCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public void onFramePrepared(int i, CloseableReference closeableReference, int i2) {
+    public void onFramePrepared(int i, CloseableReference<Bitmap> closeableReference, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
         }
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public void onFrameRendered(int i, CloseableReference closeableReference, int i2) {
+    public void onFrameRendered(int i, CloseableReference<Bitmap> closeableReference, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
         }

@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes7.dex */
@@ -17,9 +19,11 @@ public abstract class BaseProxyService extends Service {
         this.mDelegate = getDelegate(context);
     }
 
+    @NonNull
     public abstract IServiceProxy getDelegate(Context context);
 
     @Override // android.app.Service
+    @Nullable
     public IBinder onBind(Intent intent) {
         ClassLoader externalClassLoader = Loader.get().getExternalClassLoader();
         if (externalClassLoader != null) {

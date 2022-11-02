@@ -4,9 +4,9 @@ import java.util.LinkedList;
 /* loaded from: classes8.dex */
 public class g {
     public final boolean a;
-    public final LinkedList b;
+    public final LinkedList<Long> b;
 
-    public g(boolean z, LinkedList linkedList) {
+    public g(boolean z, LinkedList<Long> linkedList) {
         this.a = z;
         this.b = linkedList;
     }
@@ -15,7 +15,7 @@ public class g {
         return this.a;
     }
 
-    public LinkedList b() {
+    public LinkedList<Long> b() {
         return this.b;
     }
 }

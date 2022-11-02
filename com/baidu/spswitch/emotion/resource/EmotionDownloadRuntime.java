@@ -1,10 +1,13 @@
 package com.baidu.spswitch.emotion.resource;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes2.dex */
 public class EmotionDownloadRuntime {
     public static /* synthetic */ Interceptable $ic;
@@ -24,6 +27,7 @@ public class EmotionDownloadRuntime {
         }
     }
 
+    @Inject(force = false)
     public static IEmotionDownload getDownloadImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

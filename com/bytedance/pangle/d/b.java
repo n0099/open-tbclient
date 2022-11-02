@@ -12,7 +12,7 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 0;
         public static int b = 1;

@@ -20,13 +20,13 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean enableInitialDiscontinuity;
     public final long endUs;
-    public final ArrayList mediaPeriods;
+    public final ArrayList<ClippingMediaPeriod> mediaPeriods;
     public final MediaSource mediaSource;
     public MediaSource.Listener sourceListener;
     public final long startUs;
 
     /* loaded from: classes7.dex */
-    public final class ClippingTimeline extends ForwardingTimeline {
+    public static final class ClippingTimeline extends ForwardingTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long endUs;
@@ -194,7 +194,7 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
         this.startUs = j;
         this.endUs = j2;
         this.enableInitialDiscontinuity = z;
-        this.mediaPeriods = new ArrayList();
+        this.mediaPeriods = new ArrayList<>();
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
@@ -233,7 +233,7 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
             this.sourceListener.onSourceInfoRefreshed(this, new ClippingTimeline(timeline, this.startUs, this.endUs), obj);
             int size = this.mediaPeriods.size();
             for (int i = 0; i < size; i++) {
-                ((ClippingMediaPeriod) this.mediaPeriods.get(i)).setClipping(this.startUs, this.endUs);
+                this.mediaPeriods.get(i).setClipping(this.startUs, this.endUs);
             }
         }
     }

@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
     public String b;
-    public xk5 c;
+    public String c;
+    public long d;
+    public boolean e;
 
     public wk5() {
         Interceptable interceptable = $ic;
@@ -29,20 +31,31 @@ public class wk5 {
         }
     }
 
-    public void a(String str) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || ej.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof wk5)) {
+                return false;
+            }
+            wk5 wk5Var = (wk5) obj;
+            if (wk5Var.d == this.d && wk5Var.c.equals(this.c) && wk5Var.b.equals(this.b) && wk5Var.e == this.e && wk5Var.a == this.a) {
+                return true;
+            }
+            return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            jSONObject.optInt("error_code");
-            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            xk5 xk5Var = new xk5();
-            this.c = xk5Var;
-            xk5Var.a(jSONObject.optJSONObject("info"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

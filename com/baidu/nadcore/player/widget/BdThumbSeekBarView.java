@@ -1,5 +1,6 @@
 package com.baidu.nadcore.player.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,8 +14,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az0;
-import com.baidu.tieba.ez0;
+import com.baidu.tieba.rz0;
+import com.baidu.tieba.vz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +60,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeeBarStatus {
+    public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeeBarStatus None;
@@ -125,7 +126,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeekBarStyle {
+    public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeekBarStyle LINE;
@@ -191,7 +192,7 @@ public class BdThumbSeekBarView extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SeekBarDirect {
+    public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SeekBarDirect Horizontal;
@@ -256,7 +257,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,22 +358,22 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.b = paint;
         paint.setAntiAlias(true);
-        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081d));
+        this.b.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081e));
         Paint paint2 = new Paint();
         this.o = paint2;
         paint2.setAntiAlias(true);
-        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081f));
+        this.o.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060820));
         Paint paint3 = new Paint();
         this.p = paint3;
         paint3.setAntiAlias(true);
-        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081e));
+        this.p.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06081f));
         this.l = 100.0f;
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080db1);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080dcb);
         }
-        this.i = az0.a(this, 0.0f);
+        this.i = rz0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -383,7 +384,7 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        ez0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        vz0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -756,6 +757,7 @@ public class BdThumbSeekBarView extends View {
         if (r6 != 3) goto L23;
      */
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

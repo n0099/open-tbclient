@@ -14,19 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public Matrix mDrawMatrix;
+    @VisibleForTesting
     @Nullable
     public PointF mFocusPoint;
+    @VisibleForTesting
     public ScalingUtils.ScaleType mScaleType;
+    @VisibleForTesting
     public Object mScaleTypeState;
     public Matrix mTempMatrix;
+    @VisibleForTesting
     public int mUnderlyingHeight;
+    @VisibleForTesting
     public int mUnderlyingWidth;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,6 +113,7 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
         }
     }
 
+    @VisibleForTesting
     public void configureBounds() {
         float f;
         float f2;

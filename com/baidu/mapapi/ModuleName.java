@@ -33,6 +33,15 @@ public final class ModuleName {
         $VALUES = new ModuleName[]{moduleName};
     }
 
+    public static ModuleName[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (ModuleName[]) $VALUES.clone();
+        }
+        return (ModuleName[]) invokeV.objValue;
+    }
+
     public ModuleName(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,12 +64,9 @@ public final class ModuleName {
     public static ModuleName valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ModuleName) Enum.valueOf(ModuleName.class, str) : (ModuleName) invokeL.objValue;
-    }
-
-    public static ModuleName[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ModuleName[]) $VALUES.clone() : (ModuleName[]) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (ModuleName) Enum.valueOf(ModuleName.class, str);
+        }
+        return (ModuleName) invokeL.objValue;
     }
 }

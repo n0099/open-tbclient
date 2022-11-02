@@ -1,215 +1,134 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetAddressList.LbsInfo;
-import tbclient.GetAddressList.friendList;
 /* loaded from: classes3.dex */
-public class b35 implements TbCheckBox.c {
+public class b35 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public long c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public c35 h;
-    public String i;
 
-    public b35() {
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (i == 1) {
+                str2 = "index";
+            } else if (i == 2) {
+                str2 = "pb_live";
+            } else if (i == 3) {
+                int i2 = a;
+                if (i2 == 1) {
+                    str2 = "video_bar_live";
+                } else {
+                    if (i2 == 2) {
+                        str2 = "video_immer_live";
+                    }
+                    str2 = "";
+                }
+            } else {
+                if (i == 4) {
+                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
+                }
+                str2 = "";
             }
+            return str + "?source=" + str2;
         }
-        this.a = false;
+        return (String) invokeLI.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public c35 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return (c35) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public boolean isChecked() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(friendList friendlist) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, friendlist) == null) && friendlist != null) {
-            this.b = friendlist.user_name;
-            this.c = friendlist.user_id.longValue();
-            this.e = friendlist.portrait;
-            this.i = friendlist.name_show;
-            this.f = friendlist.quanpin;
-            LbsInfo lbsInfo = friendlist.location;
-            int i = -1;
-            long j = 0;
-            if (lbsInfo == null) {
-                this.h = new c35("", 0L, -1);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
+                b = liveRemindRecommendData.getShowPage();
+                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
+                if (liveRemindRecommendData.getShowPage() == 3) {
+                    String c = c();
+                    if (liveIconScheme.contains("closeLink")) {
+                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
+                    }
+                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
+                }
+                return liveIconScheme;
             }
-            Long l = lbsInfo.time;
-            if (l != null && l.longValue() > 0) {
-                j = friendlist.location.time.longValue();
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int i = a;
+            if (i == 1) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
             }
-            Integer num = friendlist.location.is_hide;
-            if (num != null && num.intValue() >= 0) {
-                i = friendlist.location.is_hide.intValue();
+            if (i == 2) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
             }
-            this.h = new c35(friendlist.location.distance, j, i);
+            int i2 = b;
+            if (i2 == 1) {
+                return "index_gz";
+            }
+            if (i2 == 2) {
+                return AddFriendActivityConfig.TYPE_PB_HEAD;
+            }
+            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
     }
 
-    public void j(String str) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
     }
 
-    public void k(c35 c35Var) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, c35Var) == null) {
-            this.h = c35Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return "";
+            }
+            String queryParameter = parse.getQueryParameter("source");
+            if (StringUtils.isNull(queryParameter)) {
+                return "";
+            }
+            return queryParameter;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void l(String str) {
+    public static void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
-    public void setChecked(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            a = i;
         }
     }
 }

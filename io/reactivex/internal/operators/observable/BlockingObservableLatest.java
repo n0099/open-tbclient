@@ -18,18 +18,18 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BlockingObservableLatest implements Iterable {
+public final class BlockingObservableLatest<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableSource source;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class BlockingObservableLatestIterator extends DisposableObserver implements Iterator {
+    public static final class BlockingObservableLatestIterator<T> extends DisposableObserver<Notification<T>> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Notification iteratorNotification;
+        public Notification<T> iteratorNotification;
         public final Semaphore notify;
-        public final AtomicReference value;
+        public final AtomicReference<Notification<T>> value;
 
         @Override // io.reactivex.Observer
         public void onComplete() {
@@ -52,22 +52,22 @@ public final class BlockingObservableLatest implements Iterable {
                 }
             }
             this.notify = new Semaphore(0);
-            this.value = new AtomicReference();
+            this.value = new AtomicReference<>();
         }
 
         @Override // java.util.Iterator
-        public Object next() {
+        public T next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (hasNext()) {
-                    Object value = this.iteratorNotification.getValue();
+                    T value = this.iteratorNotification.getValue();
                     this.iteratorNotification = null;
                     return value;
                 }
                 throw new NoSuchElementException();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -83,7 +83,7 @@ public final class BlockingObservableLatest implements Iterable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Notification notification = this.iteratorNotification;
+                Notification<T> notification = this.iteratorNotification;
                 if (notification != null && notification.isOnError()) {
                     throw ExceptionHelper.wrapOrThrow(this.iteratorNotification.getError());
                 }
@@ -91,10 +91,10 @@ public final class BlockingObservableLatest implements Iterable {
                     try {
                         BlockingHelper.verifyNonBlocking();
                         this.notify.acquire();
-                        Notification notification2 = (Notification) this.value.getAndSet(null);
-                        this.iteratorNotification = notification2;
-                        if (notification2.isOnError()) {
-                            throw ExceptionHelper.wrapOrThrow(notification2.getError());
+                        Notification<T> andSet = this.value.getAndSet(null);
+                        this.iteratorNotification = andSet;
+                        if (andSet.isOnError()) {
+                            throw ExceptionHelper.wrapOrThrow(andSet.getError());
                         }
                     } catch (InterruptedException e) {
                         dispose();
@@ -115,9 +115,7 @@ public final class BlockingObservableLatest implements Iterable {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.Observer
-        public void onNext(Notification notification) {
+        public void onNext(Notification<T> notification) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, notification) == null) {
@@ -131,9 +129,14 @@ public final class BlockingObservableLatest implements Iterable {
                 }
             }
         }
+
+        @Override // io.reactivex.Observer
+        public /* bridge */ /* synthetic */ void onNext(Object obj) {
+            onNext((Notification) ((Notification) obj));
+        }
     }
 
-    public BlockingObservableLatest(ObservableSource observableSource) {
+    public BlockingObservableLatest(ObservableSource<T> observableSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +155,7 @@ public final class BlockingObservableLatest implements Iterable {
     }
 
     @Override // java.lang.Iterable
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -1,5 +1,7 @@
 package com.baidu.sapi2;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -72,6 +74,7 @@ import com.baidu.sapi2.utils.SyncAccountUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Enums;
+import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.logindialog.view.a;
@@ -98,7 +101,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -163,11 +165,11 @@ public class SapiWebView extends WebView {
     public static StatLoadLogin statLoadLogin;
     public transient /* synthetic */ FieldHolder $fh;
     public AccountChangeCallback accountChangeCallback;
-    public List asynJsMehodName;
+    public List<String> asynJsMehodName;
     public ChangePwdCallback changePwdCallback;
     public SapiConfiguration configuration;
     public Dialog dateInvalidDialog;
-    public List extras;
+    public List<PassNameValuePair> extras;
     public FileChooserCallback fileChooserCallback;
     public boolean isDestory;
     public volatile boolean isLoadThirdPartyUrl;
@@ -235,9 +237,9 @@ public class SapiWebView extends WebView {
 
     /* loaded from: classes2.dex */
     public interface FileChooserCallback {
-        void onFileChooser(ValueCallback valueCallback);
+        void onFileChooser(ValueCallback<Uri> valueCallback);
 
-        void onFileChooserForOSVersion5(ValueCallback valueCallback);
+        void onFileChooserForOSVersion5(ValueCallback<Uri[]> valueCallback);
     }
 
     /* loaded from: classes2.dex */
@@ -265,7 +267,7 @@ public class SapiWebView extends WebView {
 
     /* loaded from: classes2.dex */
     public interface LocalConfigCallback {
-        List getFastLoginFeatureList();
+        List<FastLoginFeature> getFastLoginFeatureList();
     }
 
     /* loaded from: classes2.dex */
@@ -347,14 +349,14 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class AccountDestoryCallback {
+    public static abstract class AccountDestoryCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public abstract void onAccountDestory(AccountDestoryResult accountDestoryResult);
 
         /* loaded from: classes2.dex */
-        public class AccountDestoryResult {
+        public static class AccountDestoryResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -389,14 +391,14 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class AccountFreezeCallback {
+    public static abstract class AccountFreezeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public abstract void onAccountFreeze(AccountFreezeResult accountFreezeResult);
 
         /* loaded from: classes2.dex */
-        public class AccountFreezeResult {
+        public static class AccountFreezeResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -438,13 +440,13 @@ public class SapiWebView extends WebView {
         void onBioScanFace(BioScanFaceResult bioScanFaceResult);
 
         /* loaded from: classes2.dex */
-        public abstract class BioScanFaceResult {
+        public static abstract class BioScanFaceResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int showGuidePage;
             public String subpro;
-            public List transParamsList;
-            public Map transParamsMap;
+            public List<PassNameValuePair> transParamsList;
+            public Map<String, String> transParamsMap;
             public int type;
             public String uid;
 
@@ -471,10 +473,10 @@ public class SapiWebView extends WebView {
 
     /* loaded from: classes2.dex */
     public interface InvokeScAppCallback {
-        void onInvokeScApp(String str, String str2, List list, InvokeScAppResult invokeScAppResult);
+        void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, InvokeScAppResult invokeScAppResult);
 
         /* loaded from: classes2.dex */
-        public abstract class InvokeScAppResult {
+        public static abstract class InvokeScAppResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -497,14 +499,14 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class PreFillUserNameCallback {
+    public static abstract class PreFillUserNameCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public abstract void onPreFillUserName(PreFillUserNameResult preFillUserNameResult);
 
         /* loaded from: classes2.dex */
-        public class PreFillUserNameResult {
+        public static class PreFillUserNameResult {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String userName;
@@ -540,14 +542,14 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class SwitchAccountCallback {
+    public static abstract class SwitchAccountCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         public abstract void onAccountSwitch(Result result);
 
         /* loaded from: classes2.dex */
-        public class Result {
+        public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String displayName;
@@ -774,7 +776,7 @@ public class SapiWebView extends WebView {
                                             SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public transient /* synthetic */ FieldHolder $fh;
-                                                public final /* synthetic */ RunnableC01282 this$2;
+                                                public final /* synthetic */ RunnableC01362 this$2;
                                                 public final /* synthetic */ String val$bduss;
                                                 public final /* synthetic */ String val$ptoken;
 
@@ -1101,7 +1103,7 @@ public class SapiWebView extends WebView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ActivityLifeCycle {
+    public static final class ActivityLifeCycle {
         public static final /* synthetic */ ActivityLifeCycle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ActivityLifeCycle ON_PAUSE;
@@ -1169,7 +1171,7 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class BiometricsIdentifyResult {
+    public static abstract class BiometricsIdentifyResult {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_GET_STOKEN_FAILED = -402;
         public static final String ERROR_MSG_GET_STOKEN_FAILED = "服务异常，请稍后再试";
@@ -1206,11 +1208,11 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public class Command {
+    public static class Command {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String actionName;
-        public List actionParams;
+        public List<String> actionParams;
 
         public Command() {
             Interceptable interceptable = $ic;
@@ -1237,7 +1239,7 @@ public class SapiWebView extends WebView {
             return (String) invokeV.objValue;
         }
 
-        public List getActionParams() {
+        public List<String> getActionParams() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -1277,7 +1279,7 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class CoverWebBdussResult {
+    public static abstract class CoverWebBdussResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1299,7 +1301,7 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public class LoadExternalWebViewResult {
+    public static class LoadExternalWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String defaultTitle;
@@ -1321,7 +1323,7 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public class LoadSlideWebViewResult {
+    public static class LoadSlideWebViewResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String adapter;
@@ -1345,7 +1347,7 @@ public class SapiWebView extends WebView {
     }
 
     /* loaded from: classes2.dex */
-    public abstract class PickPhotoResult {
+    public static abstract class PickPhotoResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1375,7 +1377,7 @@ public class SapiWebView extends WebView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean bindAccount;
-        public List paramsList;
+        public List<PassNameValuePair> paramsList;
         public final /* synthetic */ SapiWebView this$0;
         public String timeoutUrl;
         public String weixinBindUrl;
@@ -1619,7 +1621,7 @@ public class SapiWebView extends WebView {
                                 String realnameAuthenticateUrl = this.this$0.getRealnameAuthenticateUrl();
                                 ArrayList arrayList2 = new ArrayList();
                                 arrayList2.add(new PassNameValuePair("bduss", this.val$bduss));
-                                arrayList2.add(new PassNameValuePair("stoken", (String) getTplStokenResult.tplStokenMap.get("pp")));
+                                arrayList2.add(new PassNameValuePair("stoken", getTplStokenResult.tplStokenMap.get("pp")));
                                 arrayList2.add(new PassNameValuePair("bdstoken", this.this$0.configuration.realnameAuthenticateStoken));
                                 this.this$0.loadUrl(realnameAuthenticateUrl + "&" + SapiUtils.createRequestParams(arrayList2) + "#idcardverify");
                             }
@@ -1693,15 +1695,13 @@ public class SapiWebView extends WebView {
         init();
     }
 
-    private String addExtras(String str, List list) {
+    private String addExtras(String str, List<PassNameValuePair> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, this, str, list)) == null) {
             if (list != null) {
                 ArrayList arrayList = new ArrayList();
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    PassNameValuePair passNameValuePair = (PassNameValuePair) it.next();
+                for (PassNameValuePair passNameValuePair : list) {
                     if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                         try {
                             arrayList.add(new PassNameValuePair(URLEncoder.encode(passNameValuePair.getName(), "UTF-8"), URLEncoder.encode(passNameValuePair.getValue(), "UTF-8")));
@@ -1720,7 +1720,7 @@ public class SapiWebView extends WebView {
         return (String) invokeLL.objValue;
     }
 
-    private void loadChinaMobileLogin(int i, List list) {
+    private void loadChinaMobileLogin(int i, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65589, this, i, list) == null) {
             String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i;
@@ -1909,6 +1909,7 @@ public class SapiWebView extends WebView {
         }
     }
 
+    @TargetApi(8)
     public void asyncNaLifeCycle2H5(ActivityLifeCycle activityLifeCycle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityLifeCycle) == null) && !getSettings().getBlockNetworkLoads()) {
@@ -1963,21 +1964,21 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadAddressManage(List list) {
+    public void loadAddressManage(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, list) == null) {
             loadUrl(addExtras(getAddressManageUrl(), list));
         }
     }
 
-    public void loadAuthWidget(List list) {
+    public void loadAuthWidget(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, list) == null) {
             loadUrl(addExtras(SapiAccountManager.getInstance().getAccountService().getAuthWidgetUrl(), list));
         }
     }
 
-    public void loadCertGuardianUrl(List list) {
+    public void loadCertGuardianUrl(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, list) == null) {
             loadUrl(addExtras(getCertGuardUrl(), list));
@@ -1991,21 +1992,21 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadInvoiceBuild(List list) {
+    public void loadInvoiceBuild(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, list) == null) {
             loadUrl(addExtras(getInvoiceBuildUrl(), list));
         }
     }
 
-    public void loadLogin(List list) {
+    public void loadLogin(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, list) == null) {
             loadLogin(0, list);
         }
     }
 
-    public void loadRegist(List list) {
+    public void loadRegist(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, list) == null) {
             String loginUrl = getLoginUrl();
@@ -2013,7 +2014,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadSwitchAccount(List list) {
+    public void loadSwitchAccount(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048631, this, list) == null) {
             loadUrl(addExtras(getSwitchAccountUrl(), list));
@@ -2522,21 +2523,21 @@ public class SapiWebView extends WebView {
         return (String) invokeLL.objValue;
     }
 
-    public void loadAccountCenter(List list, String str) {
+    public void loadAccountCenter(List<PassNameValuePair> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, list, str) == null) {
             loadAccountCenter(list, str, ACCOUNT_CENTER);
         }
     }
 
-    public void loadAuthWidget(List list, boolean z) {
+    public void loadAuthWidget(List<PassNameValuePair> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048611, this, list, z) == null) {
             loadUrl(addExtras(SapiAccountManager.getInstance().getAccountService().getAuthWidgetUrl(z), list));
         }
     }
 
-    public void loadHuaWeiSSOLogin(String str, List list) {
+    public void loadHuaWeiSSOLogin(String str, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048620, this, str, list) == null) {
             loadUrl(addExtras(ParamsUtil.getUrlBind(this.configuration, SocialType.HUAWEI, str, null, null), list));
@@ -2572,7 +2573,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadNormalizeGuestAccount(List list, String str, SocialType socialType) {
+    public void loadNormalizeGuestAccount(List<PassNameValuePair> list, String str, SocialType socialType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048626, this, list, str, socialType) == null) {
             webLogin(getContext(), str);
@@ -2616,7 +2617,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadFaceLogin(List list) {
+    private void loadFaceLogin(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65590, this, list) == null) {
             String addExtras = addExtras(getLoginUrl(), list);
@@ -2630,7 +2631,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadJoinLogin(List list) {
+    private void loadJoinLogin(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65591, this, list) == null) {
             String addExtras = addExtras(getLoginUrl(), list);
@@ -2843,6 +2844,8 @@ public class SapiWebView extends WebView {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
+    @TargetApi(7)
     private void configSapiWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65580, this) == null) {
@@ -2912,6 +2915,8 @@ public class SapiWebView extends WebView {
         }
     }
 
+    @SuppressLint({"AddJavascriptInterface"})
+    @TargetApi(11)
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65587, this) == null) {
@@ -2954,7 +2959,7 @@ public class SapiWebView extends WebView {
                     this.this$0 = this;
                 }
 
-                public void openFileChooser(ValueCallback valueCallback) {
+                public void openFileChooser(ValueCallback<Uri> valueCallback) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048582, this, valueCallback) == null) && this.this$0.fileChooserCallback != null) {
                         this.this$0.fileChooserCallback.onFileChooser(valueCallback);
@@ -3140,6 +3145,7 @@ public class SapiWebView extends WebView {
                 }
 
                 @Override // android.webkit.WebChromeClient
+                @TargetApi(5)
                 public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
@@ -3148,7 +3154,7 @@ public class SapiWebView extends WebView {
                 }
 
                 @Override // android.webkit.WebChromeClient
-                public boolean onShowFileChooser(WebView webView, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+                public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
                     InterceptResult invokeLLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
@@ -3161,14 +3167,14 @@ public class SapiWebView extends WebView {
                     return invokeLLL.booleanValue;
                 }
 
-                public void openFileChooser(ValueCallback valueCallback, String str, String str2) {
+                public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, valueCallback, str, str2) == null) && this.this$0.fileChooserCallback != null) {
                         this.this$0.fileChooserCallback.onFileChooser(valueCallback);
                     }
                 }
 
-                public void openFileChooser(ValueCallback valueCallback, String str) {
+                public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048583, this, valueCallback, str) == null) && this.this$0.fileChooserCallback != null) {
                         this.this$0.fileChooserCallback.onFileChooser(valueCallback);
@@ -3258,11 +3264,11 @@ public class SapiWebView extends WebView {
         return (String) invokeL.objValue;
     }
 
-    public void asyncCommonCookie(List list) {
+    public void asyncCommonCookie(List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            List buildDeviceInfoCookie = buildDeviceInfoCookie();
-            List buildDarkModeCookie = buildDarkModeCookie();
+            List<PassNameValuePair> buildDeviceInfoCookie = buildDeviceInfoCookie();
+            List<PassNameValuePair> buildDarkModeCookie = buildDarkModeCookie();
             if (list != null && !list.isEmpty()) {
                 buildDeviceInfoCookie.addAll(list);
             }
@@ -3741,7 +3747,7 @@ public class SapiWebView extends WebView {
         return (String) invokeV.objValue;
     }
 
-    public List buildCommonParams() {
+    public List<PassNameValuePair> buildCommonParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -3856,7 +3862,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadNormalLogin(int i, List list) {
+    private void loadNormalLogin(int i, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65593, this, i, list) == null) {
             String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i;
@@ -3890,7 +3896,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadShareAccounts(int i, List list) {
+    private void loadShareAccounts(int i, List<PassNameValuePair> list) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65595, this, i, list) == null) {
@@ -3950,13 +3956,13 @@ public class SapiWebView extends WebView {
         return (String) invokeLL.objValue;
     }
 
-    public void loadExternalUrl(String str, List list) {
+    public void loadExternalUrl(String str, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048615, this, str, list) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (!str.contains(BROWSE_MODE_AGREEMENT_HOST)) {
                     if (list == null) {
-                        list = new ArrayList();
+                        list = new ArrayList<>();
                     }
                     list.add(new PassNameValuePair("clientfrom", "native"));
                     list.add(new PassNameValuePair("client", "android"));
@@ -3982,7 +3988,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadLogin(int i, List list) {
+    public void loadLogin(int i, List<PassNameValuePair> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048624, this, i, list) == null) {
@@ -4378,7 +4384,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public List buildDarkModeCookie() {
+    public List<PassNameValuePair> buildDarkModeCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -4409,7 +4415,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadUrl(String str, List list) {
+    public void loadUrl(String str, List<PassNameValuePair> list) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048635, this, str, list) == null) {
@@ -4430,19 +4436,19 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public List buildDeviceInfoCookie() {
+    public List<PassNameValuePair> buildDeviceInfoCookie() {
         InterceptResult invokeV;
         String diCookieInfo;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List loginCookieDiKeys = SapiContext.getInstance().getSapiOptions().getLoginCookieDiKeys();
+            List<String> loginCookieDiKeys = SapiContext.getInstance().getSapiOptions().getLoginCookieDiKeys();
             ArrayList arrayList = new ArrayList();
             String str2 = "";
             String replaceAll = this.configuration.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             String replaceAll2 = this.configuration.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             Log.e("APP_VERSION", "wap_pass=" + replaceAll, ", passport=" + replaceAll2);
-            if (loginCookieDiKeys.size() == 1 && ((String) loginCookieDiKeys.get(0)).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
+            if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
                 diCookieInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
             } else {
                 diCookieInfo = SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
@@ -4464,13 +4470,13 @@ public class SapiWebView extends WebView {
         return (List) invokeV.objValue;
     }
 
-    public void loadAccountCenter(List list, String str, String str2) {
+    public void loadAccountCenter(List<PassNameValuePair> list, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048607, this, list, str, str2) == null) {
             SapiAccountService.asyncStoken2Web(getContext(), str);
             String accountCenterUrl = getAccountCenterUrl(str2);
             if (list == null) {
-                list = new ArrayList();
+                list = new ArrayList<>();
             }
             if (this.jsCallBacks.pickPhotoCallback != null && this.configuration.supportPhoto) {
                 list.add(new PassNameValuePair("support_photo", "1"));
@@ -4505,7 +4511,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadBindWidget(BindWidgetAction bindWidgetAction, String str, String str2, boolean z, List list) {
+    public void loadBindWidget(BindWidgetAction bindWidgetAction, String str, String str2, boolean z, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{bindWidgetAction, str, str2, Boolean.valueOf(z), list}) == null) {
             if (bindWidgetAction != null) {
@@ -4598,7 +4604,7 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadHonorSSOLogin(String str, String str2, String str3, List list) {
+    public void loadHonorSSOLogin(String str, String str2, String str3, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048619, this, str, str2, str3, list) == null) {
             loadUrl(addExtras(ParamsUtil.getUrlBindHonor(this.configuration, SocialType.HONOR, str, str2, str3), list));

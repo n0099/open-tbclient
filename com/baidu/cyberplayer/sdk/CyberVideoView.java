@@ -29,7 +29,8 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+@Keep
+/* loaded from: classes2.dex */
 public class CyberVideoView extends FrameLayout implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener, ICyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +46,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public Context a;
     public CyberPlayer b;
     public Uri c;
-    public Map d;
+    public Map<String, String> d;
     public int e;
     public int f;
     public int g;
@@ -53,7 +54,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public int i;
     public int j;
     public int k;
-    public HashMap l;
+    public HashMap<String, String> l;
     public CyberPlayerManager.HttpDNS m;
     public CyberPlayerManager.OnPreparedListener n;
     public CyberPlayerManager.OnVideoSizeChangedListener o;
@@ -66,7 +67,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public i v;
     public final int w;
     public a x;
-    public ArrayList y;
+    public ArrayList<ICyberVideoView.OnSnapShotCompleteListener> y;
     public int z;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -135,7 +136,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         this.i = 0;
         this.j = 0;
         this.k = 0;
-        this.l = new HashMap();
+        this.l = new HashMap<>();
         this.z = 0;
         this.A = true;
         this.D = 1.0f;
@@ -328,7 +329,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         CyberLog.d("CyberVideoView", "CyberVideoView mRenderType:" + this.w);
         this.a = context.getApplicationContext();
         this.x = new a();
-        this.y = new ArrayList();
+        this.y = new ArrayList<>();
         reset();
         a();
     }
@@ -357,7 +358,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         this.i = 0;
         this.j = 0;
         this.k = 0;
-        this.l = new HashMap();
+        this.l = new HashMap<>();
         this.z = 0;
         this.A = true;
         this.D = 1.0f;
@@ -549,7 +550,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         this.w = a(i);
         this.a = context.getApplicationContext();
         this.x = new a();
-        this.y = new ArrayList();
+        this.y = new ArrayList<>();
         reset();
         a();
     }
@@ -657,7 +658,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             }
             if (this.l != null) {
                 for (String str : this.l.keySet()) {
-                    this.b.setOption(str, (String) this.l.get(str));
+                    this.b.setOption(str, this.l.get(str));
                 }
             }
             CyberPlayer cyberPlayer = this.b;
@@ -693,16 +694,16 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList b;
+        ArrayList<a.C0089a> b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.b == null || (b = this.x.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0088a c0088a = (a.C0088a) b.get(i);
-            if (c0088a != null && c0088a.a() != null) {
-                this.b.setExternalInfo(c0088a.a(), c0088a.b());
+            a.C0089a c0089a = b.get(i);
+            if (c0089a != null && c0089a.a() != null) {
+                this.b.setExternalInfo(c0089a.a(), c0089a.b());
             }
         }
     }
@@ -789,8 +790,8 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     public void changeProxyDynamic(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b != null && TextUtils.isEmpty(o.c())) {
-            HashMap hashMap = this.l;
-            String str2 = hashMap != null ? (String) hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
+            HashMap<String, String> hashMap = this.l;
+            String str2 = hashMap != null ? hashMap.get(CyberPlayerManager.OPT_HTTP_PROXY) : null;
             if (TextUtils.isEmpty(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return;
@@ -802,7 +803,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 this.b.changeProxyDynamic(str, true);
             }
             this.b.seekTo(getCurrentPosition() + ErrorCode.SERVER_ERROR);
-            HashMap hashMap2 = this.l;
+            HashMap<String, String> hashMap2 = this.l;
             if (hashMap2 != null) {
                 hashMap2.put(CyberPlayerManager.OPT_HTTP_PROXY, str);
             }
@@ -815,7 +816,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             CyberLog.i("CyberVideoView", "destory called");
             f();
-            HashMap hashMap = this.l;
+            HashMap<String, String> hashMap = this.l;
             if (hashMap != null) {
                 hashMap.clear();
                 this.l = null;
@@ -830,7 +831,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                     this.y.clear();
                 }
             }
-            Map map = this.d;
+            Map<String, String> map = this.d;
             if (map != null) {
                 map.clear();
                 this.d = null;
@@ -1163,7 +1164,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             if (iVar != null) {
                 iVar.c();
             }
-            HashMap hashMap = this.l;
+            HashMap<String, String> hashMap = this.l;
             if (hashMap != null) {
                 hashMap.clear();
             }
@@ -1335,7 +1336,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 CyberLog.i("CyberVideoView", "Do not set option when the video player playing");
                 return;
             }
-            HashMap hashMap = this.l;
+            HashMap<String, String> hashMap = this.l;
             if (hashMap != null) {
                 hashMap.put(str, str2);
             }
@@ -1423,7 +1424,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView
-    public void setVideoURI(Uri uri, Map map) {
+    public void setVideoURI(Uri uri, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048625, this, uri, map) == null) {
             this.c = uri;
@@ -1474,7 +1475,7 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
                 this.h = 0;
                 this.i = 0;
             }
-            HashMap hashMap = this.l;
+            HashMap<String, String> hashMap = this.l;
             if (hashMap != null) {
                 hashMap.clear();
             }

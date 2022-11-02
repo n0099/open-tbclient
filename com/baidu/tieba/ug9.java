@@ -1,34 +1,36 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.og9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.faceunity.encoder.AudioEncoderCore;
-import java.nio.ByteBuffer;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 /* loaded from: classes6.dex */
-public class ug9 {
+public class ug9 implements og9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg9 a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public int d;
-    public boolean e;
-    public long f;
+    public final String a;
+    public final og9.a b;
+    public volatile int c;
+    public volatile long d;
 
-    public ug9(wg9 wg9Var) {
+    public ug9(String str, og9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wg9Var};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,137 +40,200 @@ public class ug9 {
                 return;
             }
         }
-        this.f = 0L;
-        this.c = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
-        createAudioFormat.setInteger("aac-profile", 2);
-        createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
-        createAudioFormat.setInteger("max-input-size", 163840);
-        try {
-            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.b.start();
-        this.d = -1;
-        this.e = false;
-        this.a = wg9Var;
+        this.a = str;
+        this.b = aVar;
     }
 
-    public void a() {
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
-        int dequeueInputBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
-            while (true) {
-                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    break;
-                } else if (dequeueInputBuffer == -1) {
-                    ih9.b("wait for MediaCodec encoder");
-                }
-            }
-            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
-            byteBuffer2.clear();
-            if (byteBuffer != null) {
-                byteBuffer2.put(byteBuffer);
-            }
-            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
-        }
-    }
-
-    public void c() throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
-                if (dequeueOutputBuffer == -1) {
+            if (!isCanceled()) {
+                if (!isPaused()) {
                     return;
                 }
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.e) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.b.getOutputFormat();
-                    ih9.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.d = this.a.a(outputFormat);
-                    if (!this.a.c()) {
-                        synchronized (this.a) {
-                            while (!this.a.e()) {
-                                try {
-                                    this.a.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                    this.e = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    ih9.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                    }
-                    MediaCodec.BufferInfo bufferInfo = this.c;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.c;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.e) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        long j = this.f;
-                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
-                            bufferInfo2.presentationTimeUs = j + 20000;
-                        }
-                        byteBuffer.position(this.c.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.c;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.a.b(this.d, byteBuffer, this.c);
-                        this.f = this.c.presentationTimeUs;
-                    }
-                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.c.flags & 4) != 0) {
-                        return;
-                    }
-                }
+                throw new DownloadException(106, "Connection Paused!");
+            }
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    @Override // com.baidu.tieba.og9
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    @Override // com.baidu.tieba.og9
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.og9
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.c == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.og9
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
+            try {
+                b();
+            } catch (DownloadException e) {
+                c(e);
             }
         }
     }
 
-    public void d() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = System.currentTimeMillis();
             try {
-                if (this.b != null) {
-                    this.b.stop();
-                    this.b.release();
-                    this.b = null;
+                URL url = new URL(this.a);
+                ?? r2 = 0;
+                try {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == 200) {
+                                d(httpURLConnection, false);
+                            } else if (responseCode == 206) {
+                                d(httpURLConnection, true);
+                            } else {
+                                throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
+                    }
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
+                    }
+                    throw th;
                 }
-                if (this.a != null) {
-                    this.a.d();
-                    this.a = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
+        }
+    }
+
+    public final void c(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
+        }
+    }
+
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
+                }
+            }
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
         }
     }
 }

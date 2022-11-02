@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.download.DownloadController;
@@ -23,9 +24,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class f {
     public static volatile f a;
     public long f;
-    public final List c = new CopyOnWriteArrayList();
-    public final Map d = new ConcurrentHashMap();
-    public final CopyOnWriteArrayList e = new CopyOnWriteArrayList();
+    public final List<com.ss.android.downloadlib.addownload.f> c = new CopyOnWriteArrayList();
+    public final Map<String, com.ss.android.downloadlib.addownload.f> d = new ConcurrentHashMap();
+    public final CopyOnWriteArrayList<Object> e = new CopyOnWriteArrayList<>();
     public final Handler b = new Handler(Looper.getMainLooper());
 
     public static f a() {
@@ -58,15 +59,15 @@ public class f {
         if (this.c.size() <= 0) {
             c(context, i, downloadStatusChangeListener, downloadModel);
         } else {
-            com.ss.android.downloadlib.addownload.f fVar = (com.ss.android.downloadlib.addownload.f) this.c.remove(0);
-            fVar.b(context).b(i, downloadStatusChangeListener).b(downloadModel).a();
-            this.d.put(downloadModel.getDownloadUrl(), fVar);
+            com.ss.android.downloadlib.addownload.f remove = this.c.remove(0);
+            remove.b(context).b(i, downloadStatusChangeListener).b(downloadModel).a();
+            this.d.put(downloadModel.getDownloadUrl(), remove);
         }
     }
 
     public void a(Context context, int i, DownloadStatusChangeListener downloadStatusChangeListener, DownloadModel downloadModel) {
         if (downloadModel != null && !TextUtils.isEmpty(downloadModel.getDownloadUrl())) {
-            com.ss.android.downloadlib.addownload.f fVar = (com.ss.android.downloadlib.addownload.f) this.d.get(downloadModel.getDownloadUrl());
+            com.ss.android.downloadlib.addownload.f fVar = this.d.get(downloadModel.getDownloadUrl());
             if (fVar != null) {
                 fVar.b(context).b(i, downloadStatusChangeListener).b(downloadModel).a();
             } else if (!this.c.isEmpty()) {
@@ -101,9 +102,9 @@ public class f {
     }
 
     public com.ss.android.downloadlib.addownload.e a(String str) {
-        Map map = this.d;
+        Map<String, com.ss.android.downloadlib.addownload.f> map = this.d;
         if (map != null && map.size() != 0 && !TextUtils.isEmpty(str)) {
-            com.ss.android.downloadlib.addownload.f fVar = (com.ss.android.downloadlib.addownload.f) this.d.get(str);
+            com.ss.android.downloadlib.addownload.f fVar = this.d.get(str);
             if (fVar instanceof com.ss.android.downloadlib.addownload.e) {
                 return (com.ss.android.downloadlib.addownload.e) fVar;
             }
@@ -111,7 +112,7 @@ public class f {
         return null;
     }
 
-    public void a(final DownloadModel downloadModel, final DownloadController downloadController, final DownloadEventConfig downloadEventConfig) {
+    public void a(final DownloadModel downloadModel, @Nullable final DownloadController downloadController, @Nullable final DownloadEventConfig downloadEventConfig) {
         this.b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.1
             @Override // java.lang.Runnable
             public void run() {
@@ -223,7 +224,7 @@ public class f {
 
     public void a(String str, int i) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (!TextUtils.isEmpty(str) && (fVar = (com.ss.android.downloadlib.addownload.f) this.d.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (fVar = this.d.get(str)) != null) {
             if (fVar.a(i)) {
                 this.c.add(fVar);
                 this.d.remove(str);
@@ -242,14 +243,14 @@ public class f {
 
     public void a(String str, long j, int i, DownloadEventConfig downloadEventConfig, DownloadController downloadController, OnItemClickListener onItemClickListener, IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (!TextUtils.isEmpty(str) && (fVar = (com.ss.android.downloadlib.addownload.f) this.d.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (fVar = this.d.get(str)) != null) {
             fVar.a(j).b(downloadEventConfig).b(downloadController).a(onItemClickListener).a(iDownloadButtonClickListener).b(i);
         }
     }
 
     public void a(String str, boolean z) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (!TextUtils.isEmpty(str) && (fVar = (com.ss.android.downloadlib.addownload.f) this.d.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (fVar = this.d.get(str)) != null) {
             fVar.a(z);
         }
     }

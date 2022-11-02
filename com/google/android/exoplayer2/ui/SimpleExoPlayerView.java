@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.ui;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -15,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +32,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.id3.ApicFrame;
 import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
@@ -35,6 +40,7 @@ import com.google.android.exoplayer2.ui.PlaybackControlView;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.List;
+@TargetApi(16)
 /* loaded from: classes7.dex */
 public final class SimpleExoPlayerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
@@ -60,11 +66,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
 
     /* renamed from: com.google.android.exoplayer2.ui.SimpleExoPlayerView$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @SuppressLint({"InlinedApi"})
     private boolean isDpadKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -96,7 +103,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         }
 
         @Override // com.google.android.exoplayer2.text.TextOutput
-        public void onCues(List list) {
+        public void onCues(List<Cue> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && this.this$0.subtitleView != null) {
                 this.this$0.subtitleView.onCues(list);
@@ -349,14 +356,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
             addView(imageView);
             return;
         }
-        int i8 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027b;
+        int i8 = com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027d;
         int i9 = 5000;
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, R.styleable.SimpleExoPlayerView, 0, 0);
             try {
                 z3 = obtainStyledAttributes.hasValue(9);
                 i3 = obtainStyledAttributes.getColor(9, 0);
-                i8 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027b);
+                i8 = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d027d);
                 z4 = obtainStyledAttributes.getBoolean(11, true);
                 i4 = obtainStyledAttributes.getResourceId(2, 0);
                 z5 = obtainStyledAttributes.getBoolean(12, true);
@@ -385,12 +392,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         LayoutInflater.from(context).inflate(i8, this);
         this.componentListener = new ComponentListener(this, null);
         setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094c);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095c);
         this.contentFrame = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             setResizeModeRaw(aspectRatioFrameLayout, i2);
         }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095b);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096b);
         this.shutterView = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
@@ -408,8 +415,8 @@ public final class SimpleExoPlayerView extends FrameLayout {
         } else {
             this.surfaceView = null;
         }
-        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090952);
-        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094b);
+        this.overlayFrameLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090962);
+        ImageView imageView2 = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095b);
         this.artworkView = imageView2;
         if (z4 && imageView2 != null) {
             z6 = true;
@@ -420,14 +427,14 @@ public final class SimpleExoPlayerView extends FrameLayout {
         if (i4 != 0) {
             this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
         }
-        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095c);
+        SubtitleView subtitleView = (SubtitleView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09096c);
         this.subtitleView = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
             this.subtitleView.setUserDefaultTextSize();
         }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094d);
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09094e);
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095d);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09095e);
         if (playbackControlView != null) {
             this.controller = playbackControlView;
         } else if (findViewById2 != null) {
@@ -495,7 +502,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setControlDispatcher(ControlDispatcher controlDispatcher) {
+    public void setControlDispatcher(@Nullable ControlDispatcher controlDispatcher) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, controlDispatcher) == null) {
@@ -691,15 +698,16 @@ public final class SimpleExoPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, resources, imageView) == null) {
             imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3));
-            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06073a));
         }
     }
 
+    @TargetApi(23)
     public static void configureEditModeLogoV23(Resources resources, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, resources, imageView) == null) {
             imageView.setImageDrawable(resources.getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0804f3, null));
-            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060739, null));
+            imageView.setBackgroundColor(resources.getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06073a, null));
         }
     }
 
@@ -855,7 +863,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         }
     }
 
-    public static void switchTargetView(SimpleExoPlayer simpleExoPlayer, SimpleExoPlayerView simpleExoPlayerView, SimpleExoPlayerView simpleExoPlayerView2) {
+    public static void switchTargetView(@NonNull SimpleExoPlayer simpleExoPlayer, @Nullable SimpleExoPlayerView simpleExoPlayerView, @Nullable SimpleExoPlayerView simpleExoPlayerView2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65556, null, simpleExoPlayer, simpleExoPlayerView, simpleExoPlayerView2) != null) || simpleExoPlayerView == simpleExoPlayerView2) {
             return;

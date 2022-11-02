@@ -19,7 +19,7 @@ public class DelegatingSSLSession implements SSLSession {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class CertificateWrap extends DelegatingSSLSession {
+    public static class CertificateWrap extends DelegatingSSLSession {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

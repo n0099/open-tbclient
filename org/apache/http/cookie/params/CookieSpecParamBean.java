@@ -9,7 +9,7 @@ import java.util.Collection;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CookieSpecParamBean extends HttpAbstractParamBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class CookieSpecParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setDatePatterns(Collection collection) {
+    public void setDatePatterns(Collection<String> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, collection) == null) {
             throw new RuntimeException("Stub!");

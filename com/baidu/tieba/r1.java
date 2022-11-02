@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r1 extends p1 {
+public class r1 extends p1<Cubemap, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a b;
@@ -17,7 +17,7 @@ public class r1 extends p1 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: f */
-    public b7 a(String str, k3 k3Var, b bVar) {
+    public b7<j1> a(String str, k3 k3Var, b bVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, k3Var, bVar)) == null) {
@@ -27,7 +27,7 @@ public class r1 extends p1 {
     }
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -50,7 +50,7 @@ public class r1 extends p1 {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends l1 {
+    public static class b extends l1<Cubemap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pixmap.Format b;

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tm2;
+import com.baidu.tieba.ln2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0003\u0010\u0000\u001a*\u0012\f\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u0001 \u0003*\u0014\u0012\u000e\b\u0001\u0012\n \u0003*\u0004\u0018\u00010\u00020\u0002\u0018\u00010\u00010\u0001H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "", "kotlin.jvm.PlatformType", "invoke", "()[Ljava/lang/String;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Function0 {
+public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Function0<String[]> {
     public static /* synthetic */ Interceptable $ic;
     public static final SwanLoadingTips$loadingTips$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,13 +65,13 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (((int) (Math.random() * 2)) != 0) {
-                Application c = tm2.c();
+                Application c = ln2.c();
                 if (c == null || (resources2 = c.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(R.array.obfuscated_res_0x7f03000c);
             }
-            Application c2 = tm2.c();
+            Application c2 = ln2.c();
             if (c2 == null || (resources = c2.getResources()) == null) {
                 return null;
             }

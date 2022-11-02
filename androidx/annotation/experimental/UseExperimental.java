@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 /* loaded from: classes.dex */
 public @interface UseExperimental {
-    Class markerClass();
+    Class<?> markerClass();
 }

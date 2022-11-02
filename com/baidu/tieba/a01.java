@@ -1,22 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.JvmName;
+@JvmName(name = "LayerUtils")
 /* loaded from: classes3.dex */
-public class a01 {
+public final class a01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static double a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j2 == 0) {
-                return 0.0d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561255, "Lcom/baidu/tieba/a01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return j / j2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947561255, "Lcom/baidu/tieba/a01;");
+                return;
+            }
         }
-        return invokeCommon.doubleValue;
+        v41.a(253.0f);
+        v41.a(9.0f);
+    }
+
+    public static final dx0 a(ArrayList<zw0> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<zw0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    zw0 next = it.next();
+                    if (next instanceof dx0) {
+                        return (dx0) next;
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (dx0) invokeL.objValue;
     }
 }

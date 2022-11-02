@@ -1,51 +1,44 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes4.dex */
-public interface k51 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final k51 b = new a();
+public class k51 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a();
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            return v31.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+        }
+        return invokeL.booleanValue;
     }
 
-    int a(Context context, b bVar);
-
-    /* loaded from: classes4.dex */
-    public final class a implements k51 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.k51
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
             }
-            return invokeLL.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            boolean a = v31.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (Build.VERSION.SDK_INT >= 16) {
+                return (a || v31.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
             }
+            return a;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -27,13 +27,13 @@ public class Env {
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.baseapi.Env$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class Holder {
+    public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final Env instance;
         public transient /* synthetic */ FieldHolder $fh;

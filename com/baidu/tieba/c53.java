@@ -1,31 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c53 extends j53 {
+public class c53 extends b63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c53(j43 j43Var) {
-        super(j43Var, "/swanAPI/performancePanel");
+    public c53(b53 b53Var) {
+        super(b53Var, "/swanAPI/abTestConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
+            Object[] objArr = {b53Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,44 +40,81 @@ public class c53 extends j53 {
         }
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public static String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (!zo2.U().N() && !j53.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
-                return false;
-            } else if (m33Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                    return false;
-                }
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String optString = optJSONObject.optString("slaveId");
-                            String optString2 = optJSONObject.optString("actionName");
-                            long optLong = optJSONObject.optLong("timestamp", -1L);
-                            if (j53.b) {
-                                Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
-                            }
-                            dy2.b().d(optString, optString2, optLong);
-                        }
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File a = tg3.a();
+            if (a == null) {
+                return null;
+            }
+            String path = a.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return null;
+            }
+            return path + "/debug_abtest_config.json";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            if (!b63.b) {
                 return false;
             }
+            JSONObject a = b63.a(unitedSchemeEntity, "params");
+            if (a != null && context != null) {
+                JSONObject optJSONObject = a.optJSONObject("abtest");
+                if (optJSONObject != null) {
+                    if (l(optJSONObject)) {
+                        i = R.string.obfuscated_res_0x7f0f12fa;
+                    } else {
+                        i = R.string.obfuscated_res_0x7f0f12f8;
+                    }
+                    Toast.makeText(context, i, 1).show();
+                } else {
+                    j();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12fb, 1).show();
+                }
+                return true;
+            }
+            Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12f9, 1).show();
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return;
+            }
+            File file = new File(k);
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+    }
+
+    public final boolean l(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            String k = k();
+            if (TextUtils.isEmpty(k)) {
+                return false;
+            }
+            return hn2.b(k, jSONObject.toString(), false);
+        }
+        return invokeL.booleanValue;
     }
 }

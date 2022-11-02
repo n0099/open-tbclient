@@ -28,6 +28,9 @@ public class AppTools {
     public static String getBaiduMapToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a();
+        }
+        return (String) invokeV.objValue;
     }
 }

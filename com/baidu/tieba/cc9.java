@@ -1,60 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public final class cc9 extends SQLiteOpenHelper {
+public class cc9 implements oc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qc9 a;
+    public IPCService b;
+    public rc9 c;
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc9(Context context) {
-        super(context, "BaiDuAb.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public cc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.oc9
+    public lc9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            int i = 0;
-            while (true) {
-                String[] strArr = dc9.a;
-                if (i < strArr.length) {
-                    sQLiteDatabase.execSQL(strArr[i]);
-                    i++;
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new qc9();
             }
+            return this.a;
         }
+        return (lc9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oc9
+    public nc9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
+        }
+        return (nc9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oc9
+    public nb9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return jc9.b();
+        }
+        return (nb9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oc9
+    public rb9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return jc9.c();
+        }
+        return (rb9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oc9
+    public mc9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new rc9();
+            }
+            return this.c;
+        }
+        return (mc9) invokeV.objValue;
     }
 }

@@ -14,7 +14,7 @@ public class ReportThemeActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReportThemeActivityConfig(Context context, String str, ArrayList arrayList) {
+    public ReportThemeActivityConfig(Context context, String str, ArrayList<String> arrayList) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -16,7 +16,7 @@ import java.util.UUID;
 /* loaded from: classes7.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
-    public static Map uuidRegistry;
+    public static Map<UUID, Class<? extends ProtectionSpecificHeader>> uuidRegistry;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract ByteBuffer getData();
@@ -57,26 +57,26 @@ public abstract class ProtectionSpecificHeader {
 
     public static ProtectionSpecificHeader createFor(UUID uuid, ByteBuffer byteBuffer) {
         InterceptResult invokeLL;
-        ProtectionSpecificHeader protectionSpecificHeader;
+        ProtectionSpecificHeader newInstance;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, uuid, byteBuffer)) == null) {
-            Class cls = (Class) uuidRegistry.get(uuid);
+            Class<? extends ProtectionSpecificHeader> cls = uuidRegistry.get(uuid);
             if (cls != null) {
                 try {
-                    protectionSpecificHeader = (ProtectionSpecificHeader) cls.newInstance();
+                    newInstance = cls.newInstance();
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 } catch (InstantiationException e2) {
                     throw new RuntimeException(e2);
                 }
             } else {
-                protectionSpecificHeader = null;
+                newInstance = null;
             }
-            if (protectionSpecificHeader == null) {
-                protectionSpecificHeader = new GenericHeader();
+            if (newInstance == null) {
+                newInstance = new GenericHeader();
             }
-            protectionSpecificHeader.parse(byteBuffer);
-            return protectionSpecificHeader;
+            newInstance.parse(byteBuffer);
+            return newInstance;
         }
         return (ProtectionSpecificHeader) invokeLL.objValue;
     }

@@ -16,18 +16,19 @@ import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.BdSailorWebViewClient;
 import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.res.ui.NetworkErrorView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d43;
-import com.baidu.tieba.g64;
-import com.baidu.tieba.l33;
-import com.baidu.tieba.li3;
-import com.baidu.tieba.m33;
-import com.baidu.tieba.st2;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.wp1;
-import com.baidu.tieba.ym1;
+import com.baidu.tieba.dj3;
+import com.baidu.tieba.e43;
+import com.baidu.tieba.ku2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.oq1;
+import com.baidu.tieba.qn1;
+import com.baidu.tieba.v43;
+import com.baidu.tieba.y64;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li3 {
+public class GameWebViewManager extends SwanAppWebViewManager implements oq1<NgWebView>, dj3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean B;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +68,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.up1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.mq1
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -128,11 +129,11 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
                 if (GameWebViewManager.B) {
                     Log.d("SwanGameWebViewManager", "shouldOverrideUrlLoading url: " + str);
                 }
-                boolean z = !d43.h(str);
-                if (!z && (d43.e(str) || d43.f(str))) {
+                boolean z = !v43.h(str);
+                if (!z && (v43.e(str) || v43.f(str))) {
                     try {
                         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                        m33 b0 = m33.b0();
+                        e43 b0 = e43.b0();
                         if (b0 != null) {
                             b0.w().startActivity(intent);
                             return true;
@@ -209,7 +210,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !SwanAppNetworkUtils.i(this.a.a) || !d43.h(this.a.r().getUrl())) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !SwanAppNetworkUtils.i(this.a.a) || !v43.h(this.a.r().getUrl())) {
                 return;
             }
             this.a.r().reload();
@@ -230,15 +231,15 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
                 return;
             }
         }
-        B = wj1.a;
+        B = ok1.a;
     }
 
-    @Override // com.baidu.tieba.wp1
+    @Override // com.baidu.tieba.oq1
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g64.a(this.w, st2.a());
-            g64.c(this);
+            y64.a(this.w, ku2.a());
+            y64.c(this);
         }
     }
 
@@ -250,7 +251,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         }
     }
 
-    @Override // com.baidu.tieba.wp1
+    @Override // com.baidu.tieba.oq1
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -263,7 +264,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.li3
+    @Override // com.baidu.tieba.dj3
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -306,7 +307,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
                         if (GameWebViewManager.B) {
                             Log.d("SwanGameWebViewManager", "onSubFrameBeforeRequest url: " + str);
                         }
-                        return !d43.h(str);
+                        return !v43.h(str);
                     }
                     return invokeLL.booleanValue;
                 }
@@ -322,7 +323,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         }
     }
 
-    @Override // com.baidu.tieba.li3
+    @Override // com.baidu.tieba.dj3
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -349,7 +350,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         }
     }
 
-    @Override // com.baidu.tieba.li3
+    @Override // com.baidu.tieba.dj3
     public void onViewDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -360,20 +361,20 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
     public final void p1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010142);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010143);
             this.z.setVisibility(0);
             this.z.startAnimation(loadAnimation);
         }
     }
 
-    @Override // com.baidu.tieba.wp1
+    @Override // com.baidu.tieba.oq1
     public void removeFromParent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             r().stopLoading();
             r().clearView();
-            g64.d(this.w);
-            g64.e(this);
+            y64.d(this.w);
+            y64.e(this);
         }
     }
 
@@ -401,7 +402,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         q1(context);
     }
 
-    @Override // com.baidu.tieba.wp1
+    @Override // com.baidu.tieba.oq1
     public void g(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
@@ -414,7 +415,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         }
     }
 
-    @Override // com.baidu.tieba.wp1
+    @Override // com.baidu.tieba.oq1
     public void i(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
@@ -423,9 +424,9 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
     }
 
     public final void q1(Context context) {
-        ym1 a2;
+        qn1 a2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, context) == null) && (a2 = l33.K().x().a().a()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048597, this, context) == null) && (a2 = d43.K().x().a().a()) != null) {
             a2.a(context);
         }
     }
@@ -443,7 +444,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         layoutParams.leftMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f07072e);
         this.A.setLayoutParams(layoutParams);
         this.A.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.A.setImageResource(R.drawable.obfuscated_res_0x7f08120a);
+        this.A.setImageResource(R.drawable.obfuscated_res_0x7f081226);
         this.A.setClickable(true);
         this.A.setOnClickListener(new a(this));
         this.w.addView(this.A);
@@ -454,7 +455,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             NetworkErrorView networkErrorView = new NetworkErrorView(this.a.getBaseContext());
             this.y = networkErrorView;
-            networkErrorView.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603bf));
+            networkErrorView.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603c0));
             r().addView(this.y, -1, -1);
             this.y.setVisibility(8);
             b bVar = new b(this);
@@ -471,19 +472,19 @@ public class GameWebViewManager extends SwanAppWebViewManager implements wp1, li
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.gravity = 17;
             this.z.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.z.setImageResource(R.drawable.obfuscated_res_0x7f08120b);
+            this.z.setImageResource(R.drawable.obfuscated_res_0x7f081227);
             this.w.addView(this.z, layoutParams);
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.up1
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.mq1
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             if (B) {
                 Log.i("SwanGameWebViewManager", "loadUrl:" + str);
             }
-            if (!d43.h(str)) {
+            if (!v43.h(str)) {
                 return;
             }
             p1();

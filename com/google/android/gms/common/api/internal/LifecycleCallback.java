@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.Keep;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+@KeepForSdk
 /* loaded from: classes7.dex */
 public class LifecycleCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    @KeepForSdk
     public final LifecycleFragment mLifecycleFragment;
 
-    public LifecycleCallback(LifecycleFragment lifecycleFragment) {
+    @KeepForSdk
+    public LifecycleCallback(@NonNull LifecycleFragment lifecycleFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,54 +47,71 @@ public class LifecycleCallback {
         this.mLifecycleFragment = lifecycleFragment;
     }
 
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    @KeepForSdk
+    @MainThread
+    public void dump(@NonNull String str, @NonNull FileDescriptor fileDescriptor, @NonNull PrintWriter printWriter, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, fileDescriptor, printWriter, strArr) == null) {
         }
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
+    @KeepForSdk
+    @MainThread
+    public void onActivityResult(int i, int i2, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
         }
     }
 
-    public void onCreate(Bundle bundle) {
+    @KeepForSdk
+    @MainThread
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
         }
     }
 
+    @KeepForSdk
+    @MainThread
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
+    @KeepForSdk
+    @MainThread
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public void onSaveInstanceState(Bundle bundle) {
+    @KeepForSdk
+    @MainThread
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
         }
     }
 
+    @KeepForSdk
+    @MainThread
     public void onStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
+    @KeepForSdk
+    @MainThread
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
+    @Keep
     public static LifecycleFragment getChimeraLifecycleFragmentImpl(LifecycleActivity lifecycleActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -95,7 +121,9 @@ public class LifecycleCallback {
         return (LifecycleFragment) invokeL.objValue;
     }
 
-    public static LifecycleFragment getFragment(Activity activity) {
+    @NonNull
+    @KeepForSdk
+    public static LifecycleFragment getFragment(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
@@ -104,7 +132,9 @@ public class LifecycleCallback {
         return (LifecycleFragment) invokeL.objValue;
     }
 
-    public static LifecycleFragment getFragment(ContextWrapper contextWrapper) {
+    @NonNull
+    @KeepForSdk
+    public static LifecycleFragment getFragment(@NonNull ContextWrapper contextWrapper) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, contextWrapper)) == null) {
@@ -113,7 +143,9 @@ public class LifecycleCallback {
         return (LifecycleFragment) invokeL.objValue;
     }
 
-    public static LifecycleFragment getFragment(LifecycleActivity lifecycleActivity) {
+    @NonNull
+    @KeepForSdk
+    public static LifecycleFragment getFragment(@NonNull LifecycleActivity lifecycleActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lifecycleActivity)) == null) {
@@ -128,6 +160,8 @@ public class LifecycleCallback {
         return (LifecycleFragment) invokeL.objValue;
     }
 
+    @NonNull
+    @KeepForSdk
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

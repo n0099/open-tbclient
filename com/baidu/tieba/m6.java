@@ -26,12 +26,12 @@ public class m6 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public static final Class[] e;
     public transient /* synthetic */ FieldHolder $fh;
-    public x7 a;
+    public x7<Class, x7<String, Object>> a;
     public c4 b;
     public float c;
-    public final x7 d;
+    public final x7<String, Class> d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends p7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,21 +93,21 @@ public class m6 implements i7 {
         }
 
         @Override // com.baidu.tieba.p7
-        public Object k(Class cls, Class cls2, JsonValue jsonValue) {
+        public <T> T k(Class<T> cls, Class cls2, JsonValue jsonValue) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, cls2, jsonValue)) == null) {
                 if (jsonValue != null && jsonValue.D() && !u8.f(CharSequence.class, cls)) {
-                    return this.n.h(jsonValue.j(), cls);
+                    return (T) this.n.h(jsonValue.j(), cls);
                 }
-                return super.k(cls, cls2, jsonValue);
+                return (T) super.k(cls, cls2, jsonValue);
             }
-            return invokeLLL.objValue;
+            return (T) invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends p7.b {
+    /* loaded from: classes5.dex */
+    public class b extends p7.b<m6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m6 a;
@@ -181,8 +181,8 @@ public class m6 implements i7 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends p7.b {
+    /* loaded from: classes5.dex */
+    public class c extends p7.b<v3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k3 a;
@@ -226,7 +226,7 @@ public class m6 implements i7 {
                 if (a.c()) {
                     String h = a.h();
                     try {
-                        b7 m = this.b.m(h);
+                        b7<d4> m = this.b.m(h);
                         if (m != null) {
                             v3Var = new v3(new v3.a(a, bool.booleanValue()), m, true);
                         } else {
@@ -258,8 +258,8 @@ public class m6 implements i7 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d extends p7.b {
+    /* loaded from: classes5.dex */
+    public class d extends p7.b<l3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m6 a;
@@ -302,7 +302,7 @@ public class m6 implements i7 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends p7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,8 +346,8 @@ public class m6 implements i7 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f {
+    /* loaded from: classes5.dex */
+    public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -396,9 +396,9 @@ public class m6 implements i7 {
                 return;
             }
         }
-        this.a = new x7();
+        this.a = new x7<>();
         this.c = 1.0f;
-        this.d = new x7(e.length);
+        this.d = new x7<>(e.length);
         for (Class cls : e) {
             this.d.i(cls.getSimpleName(), cls);
         }
@@ -412,10 +412,10 @@ public class m6 implements i7 {
             if (c4Var != null) {
                 c4Var.dispose();
             }
-            x7.e n = this.a.n();
+            x7.e<x7<String, Object>> n = this.a.n();
             n.c();
             while (n.hasNext()) {
-                x7.e n2 = ((x7) n.next()).n();
+                x7.e<Object> n2 = n.next().n();
                 n2.c();
                 while (n2.hasNext()) {
                     Object next = n2.next();
@@ -443,9 +443,9 @@ public class m6 implements i7 {
                 return;
             }
         }
-        this.a = new x7();
+        this.a = new x7<>();
         this.c = 1.0f;
-        this.d = new x7(e.length);
+        this.d = new x7<>(e.length);
         for (Class cls : e) {
             this.d.i(cls.getSimpleName(), cls);
         }
@@ -472,13 +472,13 @@ public class m6 implements i7 {
         return (d4) invokeL.objValue;
     }
 
-    public b7 m(String str) {
+    public b7<d4> m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             d4 d4Var = (d4) r(str + "_0", d4.class);
             if (d4Var != null) {
-                b7 b7Var = new b7();
+                b7<d4> b7Var = new b7<>();
                 int i = 1;
                 while (d4Var != null) {
                     b7Var.a(d4Var);
@@ -526,17 +526,17 @@ public class m6 implements i7 {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, cls) == null) {
             if (str != null) {
                 if (obj != null) {
-                    x7 x7Var = (x7) this.a.c(cls);
-                    if (x7Var == null) {
+                    x7<String, Object> c2 = this.a.c(cls);
+                    if (c2 == null) {
                         if (cls != d4.class && cls != w6.class && cls != b4.class) {
                             i = 64;
                         } else {
                             i = 256;
                         }
-                        x7Var = new x7(i);
-                        this.a.i(cls, x7Var);
+                        c2 = new x7<>(i);
+                        this.a.i(cls, c2);
                     }
-                    x7Var.i(str, obj);
+                    c2.i(str, obj);
                     return;
                 }
                 throw new IllegalArgumentException("resource cannot be null.");
@@ -548,10 +548,10 @@ public class m6 implements i7 {
     public void g(c4 c4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, c4Var) == null) {
-            b7 g = c4Var.g();
+            b7<c4.a> g = c4Var.g();
             int i = g.b;
             for (int i2 = 0; i2 < i; i2++) {
-                c4.a aVar = (c4.a) g.get(i2);
+                c4.a aVar = g.get(i2);
                 String str = aVar.i;
                 if (aVar.h != -1) {
                     str = str + "_" + aVar.h;
@@ -561,29 +561,29 @@ public class m6 implements i7 {
         }
     }
 
-    public Object h(String str, Class cls) {
+    public <T> T h(String str, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, cls)) == null) {
             if (str != null) {
                 if (cls != null) {
                     if (cls == w6.class) {
-                        return i(str);
+                        return (T) i(str);
                     }
                     if (cls == d4.class) {
-                        return l(str);
+                        return (T) l(str);
                     }
                     if (cls == x3.class) {
-                        return k(str);
+                        return (T) k(str);
                     }
                     if (cls == b4.class) {
-                        return n(str);
+                        return (T) n(str);
                     }
-                    x7 x7Var = (x7) this.a.c(cls);
-                    if (x7Var != null) {
-                        Object c2 = x7Var.c(str);
-                        if (c2 != null) {
-                            return c2;
+                    x7<String, Object> c2 = this.a.c(cls);
+                    if (c2 != null) {
+                        T t = (T) c2.c(str);
+                        if (t != null) {
+                            return t;
                         }
                         throw new GdxRuntimeException("No " + cls.getName() + " registered with name: " + str);
                     }
@@ -593,7 +593,7 @@ public class m6 implements i7 {
             }
             throw new IllegalArgumentException("name cannot be null.");
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public w6 i(String str) {
@@ -663,10 +663,10 @@ public class m6 implements i7 {
             aVar.o(v3.class, new c(this, k3Var, this));
             aVar.o(l3.class, new d(this));
             aVar.o(f.class, new e(this));
-            x7.a it = this.d.iterator();
+            x7.a<String, Class> it = this.d.iterator();
             while (it.hasNext()) {
-                x7.b bVar = (x7.b) it.next();
-                aVar.a((String) bVar.a, (Class) bVar.b);
+                x7.b next = it.next();
+                aVar.a((String) next.a, (Class) next.b);
             }
             return aVar;
         }
@@ -775,22 +775,22 @@ public class m6 implements i7 {
         return (w6) invokeLL.objValue;
     }
 
-    public Object r(String str, Class cls) {
+    public <T> T r(String str, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, cls)) == null) {
             if (str != null) {
                 if (cls != null) {
-                    x7 x7Var = (x7) this.a.c(cls);
-                    if (x7Var == null) {
+                    x7<String, Object> c2 = this.a.c(cls);
+                    if (c2 == null) {
                         return null;
                     }
-                    return x7Var.c(str);
+                    return (T) c2.c(str);
                 }
                 throw new IllegalArgumentException("type cannot be null.");
             }
             throw new IllegalArgumentException("name cannot be null.");
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 }

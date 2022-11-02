@@ -2,6 +2,7 @@ package androidx.appcompat.view;
 
 import android.view.View;
 import android.view.animation.Interpolator;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListener;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ViewPropertyAnimatorCompatSet {
     public static /* synthetic */ Interceptable $ic;

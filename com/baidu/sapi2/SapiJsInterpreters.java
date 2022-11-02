@@ -1,5 +1,6 @@
 package com.baidu.sapi2;
 
+import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -81,7 +82,7 @@ public class SapiJsInterpreters {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
     public Context context;
-    public HashMap interpreterHashMap;
+    public HashMap<String, AbstractInterpreter> interpreterHashMap;
     public SapiJsCallBacks.CallBacks jsCallBacks;
     public long preShareClickTime;
     public SapiWebView sapiWebView;
@@ -145,7 +146,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                String str = (String) command.getActionParams().get(0);
+                String str = command.getActionParams().get(0);
                 if (this.this$0.jsCallBacks.bindWidgetCallback != null) {
                     this.this$0.jsCallBacks.bindWidgetCallback.onPhoneNumberExist(str);
                     return null;
@@ -189,7 +190,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    String optString = new JSONObject((String) command.getActionParams().get(0)).optString("livinguname");
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString("livinguname");
                     if (!TextUtils.isEmpty(optString)) {
                         new FaceLoginService().syncFaceLoginUID(this.this$0.context, optString);
                         return null;
@@ -283,7 +284,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                String str = (String) command.getActionParams().get(0);
+                String str = command.getActionParams().get(0);
                 HashMap hashMap = new HashMap();
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -372,6 +373,7 @@ public class SapiJsInterpreters {
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        @TargetApi(11)
         public String interpret(SapiWebView.Command command) {
             InterceptResult invokeL;
             String str;
@@ -527,7 +529,7 @@ public class SapiJsInterpreters {
                     Object[] pkgIconAndName = SapiUtils.getPkgIconAndName(this.this$0.context, this.this$0.context.getPackageName());
                     jSONObject.put("icon", pkgIconAndName[0]);
                     jSONObject.put("name", pkgIconAndName[1]);
-                    List shareStorageModel = ShareUtils.getShareStorageModel();
+                    List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
                     Object obj = "false";
                     if (this.this$0.jsCallBacks.shareAccountClickCallback != null && shareStorageModel != null && shareStorageModel.size() > 0) {
                         jSONObject.put("openShareLogin", "true");
@@ -592,8 +594,8 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.loadExternalWebViewCallback != null) {
                     SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult = new SapiWebView.LoadExternalWebViewResult();
-                    loadExternalWebViewResult.defaultTitle = (String) command.getActionParams().get(0);
-                    loadExternalWebViewResult.externalUrl = (String) command.getActionParams().get(1);
+                    loadExternalWebViewResult.defaultTitle = command.getActionParams().get(0);
+                    loadExternalWebViewResult.externalUrl = command.getActionParams().get(1);
                     this.this$0.jsCallBacks.loadExternalWebViewCallback.loadExternalWebview(loadExternalWebViewResult);
                     return null;
                 }
@@ -638,7 +640,7 @@ public class SapiJsInterpreters {
                 if (this.this$0.jsCallBacks.loadSlideWebViewCallback != null) {
                     SapiWebView.LoadSlideWebViewResult loadSlideWebViewResult = new SapiWebView.LoadSlideWebViewResult();
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                         loadSlideWebViewResult.placeholderTitle = jSONObject.optString("placeholderTitle");
                         loadSlideWebViewResult.url = jSONObject.optString("url");
                         loadSlideWebViewResult.page = jSONObject.optString("page");
@@ -728,7 +730,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                String str = (String) command.getActionParams().get(0);
+                String str = command.getActionParams().get(0);
                 if (this.this$0.jsCallBacks.webViewTitleCallback != null) {
                     this.this$0.jsCallBacks.webViewTitleCallback.onTitleChange(str);
                     return null;
@@ -813,7 +815,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                SapiStatUtil.statShareClickOther((String) command.getActionParams().get(0), this.this$0.sapiWebView.extras);
+                SapiStatUtil.statShareClickOther(command.getActionParams().get(0), this.this$0.sapiWebView.extras);
                 return null;
             }
             return (String) invokeL.objValue;
@@ -1116,7 +1118,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
                     char c = 0;
-                    String str = (String) command.getActionParams().get(0);
+                    String str = command.getActionParams().get(0);
                     switch (str.hashCode()) {
                         case -1519161818:
                             break;
@@ -1312,7 +1314,7 @@ public class SapiJsInterpreters {
                 if (this.this$0.jsCallBacks.stopSlideWebviewCallback != null) {
                     boolean z = false;
                     try {
-                        z = new JSONObject((String) command.getActionParams().get(0)).optBoolean("isStop");
+                        z = new JSONObject(command.getActionParams().get(0)).optBoolean("isStop");
                     } catch (Exception e) {
                         Log.e(e);
                     }
@@ -1453,14 +1455,14 @@ public class SapiJsInterpreters {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                String str2 = (String) command.getActionParams().get(0);
+                String str2 = command.getActionParams().get(0);
                 if (command.getActionParams().size() >= 2) {
-                    i = Integer.parseInt((String) command.getActionParams().get(1));
+                    i = Integer.parseInt(command.getActionParams().get(1));
                 } else {
                     i = 0;
                 }
                 if (command.getActionParams().size() >= 3) {
-                    str = (String) command.getActionParams().get(2);
+                    str = command.getActionParams().get(2);
                 } else {
                     str = null;
                 }
@@ -1671,7 +1673,7 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             InterceptResult invokeL;
-            List list;
+            List<FastLoginFeature> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.localConfigCallback != null) {
@@ -1818,7 +1820,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.getCurrentPageNameCallback != null) {
                     try {
-                        this.this$0.jsCallBacks.getCurrentPageNameCallback.getCurrentPageName(new JSONObject((String) command.getActionParams().get(0)).optString("name"));
+                        this.this$0.jsCallBacks.getCurrentPageNameCallback.getCurrentPageName(new JSONObject(command.getActionParams().get(0)).optString("name"));
                         return null;
                     } catch (Exception e) {
                         Log.e(e);
@@ -1867,7 +1869,7 @@ public class SapiJsInterpreters {
                 this.this$0.sapiWebView.handleOpenApiAuthorizeResponse(this.this$0.jsCallBacks.rrLoginResponse);
                 if (command.getActionParams().size() > 0) {
                     try {
-                        this.this$0.sapiWebView.finish(new JSONObject((String) command.getActionParams().get(0)).optString("page"));
+                        this.this$0.sapiWebView.finish(new JSONObject(command.getActionParams().get(0)).optString("page"));
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -1876,7 +1878,7 @@ public class SapiJsInterpreters {
                 }
                 if (this.this$0.jsCallBacks.webviewPageFinishCallback != null) {
                     if (command.getActionParams().size() > 0) {
-                        str = (String) command.getActionParams().get(0);
+                        str = command.getActionParams().get(0);
                     } else {
                         str = "";
                     }
@@ -1923,7 +1925,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack != null) {
                     try {
-                        this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack.onCallback(new JSONObject((String) command.getActionParams().get(0)).optInt("coordinateY"));
+                        this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack.onCallback(new JSONObject(command.getActionParams().get(0)).optInt("coordinateY"));
                         return null;
                     } catch (Exception e) {
                         Log.e(e);
@@ -2084,7 +2086,7 @@ public class SapiJsInterpreters {
                             }
 
                             @Override // com.baidu.sapi2.callback.ShareModelCallback
-                            public void onReceiveShareModels(List list) {
+                            public void onReceiveShareModels(List<ShareStorage.StorageModel> list) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, list) == null) {
                                     if (list == null || list.size() == 0) {
@@ -2251,7 +2253,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    int optInt = new JSONObject((String) command.getActionParams().get(0)).optInt("type");
+                    int optInt = new JSONObject(command.getActionParams().get(0)).optInt("type");
                     if (this.this$0.jsCallBacks.grantWebCallback != null) {
                         this.this$0.jsCallBacks.grantWebCallback.onGrant(optInt);
                         return null;
@@ -2299,7 +2301,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.invoiceBuildCallback != null && command.getActionParams().size() > 0) {
-                    this.this$0.jsCallBacks.invoiceBuildCallback.onCallback((String) command.getActionParams().get(0));
+                    this.this$0.jsCallBacks.invoiceBuildCallback.onCallback(command.getActionParams().get(0));
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -2346,7 +2348,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
                     boolean z = false;
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     int optInt = jSONObject.optInt("errno");
                     String optString = jSONObject.optString("msg");
                     if (optInt == 0) {
@@ -2470,7 +2472,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.bdOauthLoginParams != null) {
-                    this.this$0.jsCallBacks.bdOauthLoginParams.callback.onCallback((String) command.getActionParams().get(0));
+                    this.this$0.jsCallBacks.bdOauthLoginParams.callback.onCallback(command.getActionParams().get(0));
                     return null;
                 }
                 return null;
@@ -2883,7 +2885,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     CertGuardianResult certGuardianResult = new CertGuardianResult();
                     int optInt = jSONObject.optInt("errno");
                     String optString = jSONObject.optString("errmsg");
@@ -2998,7 +3000,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 boolean z2 = false;
-                String str = (String) command.getActionParams().get(0);
+                String str = command.getActionParams().get(0);
                 try {
                     Class.forName(this.this$0.interpreterNameToClassFullName(str));
                     z = true;
@@ -3211,7 +3213,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (command != null && command.getActionParams() != null && !command.getActionParams().isEmpty()) {
-                    String str = (String) command.getActionParams().get(0);
+                    String str = command.getActionParams().get(0);
                     if (a.m.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
                     } else if (LoginConstants.SMS_LOGIN.equals(str)) {
@@ -3259,7 +3261,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     String optString = jSONObject.optString("username");
                     boolean equals = jSONObject.optString("close", "0").equals("1");
                     SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
@@ -3452,7 +3454,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    int optInt = new JSONObject((String) command.getActionParams().get(0)).optInt(TbEnum.SystemMessage.KEY_EVENT_ID);
+                    int optInt = new JSONObject(command.getActionParams().get(0)).optInt(TbEnum.SystemMessage.KEY_EVENT_ID);
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("errno", "0");
                     jSONObject.put("zid", Security.getZid(ServiceManager.getInstance().getIsAccountManager().getConfignation().context, optInt));
@@ -3498,7 +3500,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                this.this$0.jsCallBacks.leftBtnIsVisible = Integer.parseInt((String) command.getActionParams().get(0));
+                this.this$0.jsCallBacks.leftBtnIsVisible = Integer.parseInt(command.getActionParams().get(0));
                 if (this.this$0.jsCallBacks.leftBtnVisibleCallback != null) {
                     this.this$0.jsCallBacks.leftBtnVisibleCallback.onLeftBtnVisible(this.this$0.jsCallBacks.leftBtnIsVisible);
                     return null;
@@ -3597,7 +3599,7 @@ public class SapiJsInterpreters {
                 }
                 if (this.this$0.jsCallBacks.jumpToUriCallBack != null) {
                     try {
-                        this.this$0.jsCallBacks.jumpToUriCallBack.onJumpTo(new JSONObject((String) command.getActionParams().get(0)).optString("url"));
+                        this.this$0.jsCallBacks.jumpToUriCallBack.onJumpTo(new JSONObject(command.getActionParams().get(0)).optString("url"));
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("errno", 0);
                         if (this.this$0.jsCallBacks.promptResult != null) {
@@ -3699,7 +3701,7 @@ public class SapiJsInterpreters {
                     return null;
                 }
                 try {
-                    String str = (String) command.getActionParams().get(0);
+                    String str = command.getActionParams().get(0);
                     if (this.this$0.jsCallBacks.isForbidRecordCallBack != null) {
                         this.this$0.jsCallBacks.isForbidRecordCallBack.onForbidRecord(Boolean.valueOf("1".equals(str)));
                     }
@@ -3788,7 +3790,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.makeVibrateCallBack != null) {
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                         JSONArray optJSONArray = jSONObject.optJSONArray("pattern");
                         int optInt = jSONObject.optInt("repeat", -1);
                         String optString = jSONObject.optString("broadcastText");
@@ -3851,7 +3853,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONArray optJSONArray = new JSONObject((String) command.getActionParams().get(0)).optJSONArray("di_keys");
+                    JSONArray optJSONArray = new JSONObject(command.getActionParams().get(0)).optJSONArray("di_keys");
                     if (optJSONArray == null) {
                         return null;
                     }
@@ -3906,7 +3908,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    ((ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", new JSONObject((String) command.getActionParams().get(0)).optString("content")));
+                    ((ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
                     jSONObject.put("errno", 0);
                     return jSONObject.toString();
                 } catch (Exception e) {
@@ -3946,11 +3948,12 @@ public class SapiJsInterpreters {
         }
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        @TargetApi(11)
         public String interpret(SapiWebView.Command command) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                String str = (String) command.getActionParams().get(0);
+                String str = command.getActionParams().get(0);
                 Calendar calendar = Calendar.getInstance();
                 Date time = calendar.getTime();
                 try {
@@ -4074,7 +4077,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 int i = 0;
                 try {
-                    i = Integer.parseInt((String) command.getActionParams().get(0));
+                    i = Integer.parseInt(command.getActionParams().get(0));
                 } catch (Exception e) {
                     Log.e(e);
                 }
@@ -4082,7 +4085,7 @@ public class SapiJsInterpreters {
                 int i3 = 1;
                 if (command.getActionParams().size() > 1) {
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(1));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
                         i3 = jSONObject.optInt("sence", 1);
                         i2 = jSONObject.optInt("size", 512);
                     } catch (JSONException e2) {
@@ -4160,7 +4163,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 boolean z = false;
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     if (this.this$0.jsCallBacks.qrLoginCallback != null) {
                         int optInt = jSONObject.optInt("relogin", -1);
                         if (optInt == 1) {
@@ -4227,7 +4230,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
                     int optInt = jSONObject.optInt("status");
                     accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
@@ -4283,7 +4286,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     jSONObject.optString("action");
                     String optString = jSONObject.optString("minver");
                     JSONObject jSONObject2 = new JSONObject();
@@ -4331,7 +4334,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     String optString = jSONObject.optString("action");
                     String optString2 = jSONObject.optString("minver");
                     ArrayList arrayList = new ArrayList();
@@ -4416,12 +4419,12 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.switchAccountCallback != null) {
-                    List actionParams = command.getActionParams();
+                    List<String> actionParams = command.getActionParams();
                     SapiWebView.SwitchAccountCallback.Result result = new SapiWebView.SwitchAccountCallback.Result();
                     if (actionParams != null && actionParams.size() > 0) {
                         if (actionParams.size() > 1) {
                             try {
-                                JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(1));
+                                JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
                                 result.extraJson = jSONObject.optString("extrajson");
                                 result.displayName = jSONObject.optString("displayname");
                                 result.encryptedUid = jSONObject.optString("uid");
@@ -4433,7 +4436,7 @@ public class SapiJsInterpreters {
                                 Log.e(e);
                             }
                         } else {
-                            result.userName = (String) actionParams.get(0);
+                            result.userName = actionParams.get(0);
                             result.switchAccountType = 1;
                             this.this$0.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
                             return null;
@@ -4492,7 +4495,7 @@ public class SapiJsInterpreters {
                             Log.e(SapiJsInterpreters.TAG, "sapi_action_sync_account_info currentAccount is null, please check current is login");
                             return "";
                         }
-                        boolean syncAccount = SyncAccountUtils.syncAccount((String) command.getActionParams().get(0), currentAccount);
+                        boolean syncAccount = SyncAccountUtils.syncAccount(command.getActionParams().get(0), currentAccount);
                         JSONObject jSONObject = new JSONObject();
                         if (syncAccount) {
                             SapiContext.getInstance().addTouchidAccounts(currentAccount);
@@ -4606,7 +4609,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialVerificationHandler != null) {
                     try {
-                        this.this$0.jsCallBacks.socialVerificationHandler.sendMessage(ThirdPartyUtil.getVerificationMsg(new JSONObject((String) command.getActionParams().get(0)).optString("type")));
+                        this.this$0.jsCallBacks.socialVerificationHandler.sendMessage(ThirdPartyUtil.getVerificationMsg(new JSONObject(command.getActionParams().get(0)).optString("type")));
                         return null;
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -4656,7 +4659,7 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                int parseInt = Integer.parseInt((String) command.getActionParams().get(0));
+                int parseInt = Integer.parseInt(command.getActionParams().get(0));
                 if (this.this$0.jsCallBacks.pageStateCallback != null) {
                     this.this$0.jsCallBacks.pageStateCallback.pageState(parseInt);
                     return null;
@@ -4700,8 +4703,8 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 ArrayList arrayList = new ArrayList(1);
-                arrayList.add((String) command.getActionParams().get(0));
-                SapiUtils.sendSms(this.this$0.context, (String) command.getActionParams().get(1), arrayList);
+                arrayList.add(command.getActionParams().get(0));
+                SapiUtils.sendSms(this.this$0.context, command.getActionParams().get(1), arrayList);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("errno", "0");
@@ -4776,27 +4779,27 @@ public class SapiJsInterpreters {
                         }
                     }
                 };
-                biometricsIdentifyResult.biometricType = Integer.parseInt((String) command.getActionParams().get(0));
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
                 biometricsIdentifyResult.livenessRecogType = "bduss";
                 biometricsIdentifyResult.recordVideo = 0;
                 String str = "pp";
                 biometricsIdentifyResult.subPro = "pp";
                 if (command.getActionParams().size() > 1) {
-                    biometricsIdentifyResult.recordVideo = Integer.parseInt((String) command.getActionParams().get(1));
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(1));
                 }
                 if (command.getActionParams().size() > 2) {
-                    biometricsIdentifyResult.subPro = ((String) command.getActionParams().get(2)).toString();
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(2).toString();
                 }
                 if (command.getActionParams().size() > 3) {
                     try {
-                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject((String) command.getActionParams().get(3)).optInt("hideGuidePage", 0);
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(3)).optInt("hideGuidePage", 0);
                     } catch (JSONException e) {
                         Log.e(e);
                     }
                 }
                 if (command.getActionParams().size() > 4) {
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(4));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(4));
                         Iterator<String> keys = jSONObject.keys();
                         Bundle bundle = new Bundle();
                         while (keys.hasNext()) {
@@ -4856,7 +4859,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack != null) {
                     try {
-                        this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject((String) command.getActionParams().get(0)).optString("scale")) * 100.0f), new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
+                        this.this$0.jsCallBacks.biometricsIdentificationLiveCallBack.getLiveImage((int) (Float.parseFloat(new JSONObject(command.getActionParams().get(0)).optString("scale")) * 100.0f), new PassFaceRecogCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationLive.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ SapiBiometricsIdentificationLive this$1;
@@ -4994,26 +4997,26 @@ public class SapiJsInterpreters {
                         }
                     }
                 };
-                biometricsIdentifyResult.biometricType = Integer.parseInt((String) command.getActionParams().get(0));
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
                 biometricsIdentifyResult.livenessRecogType = "certinfo";
-                biometricsIdentifyResult.realName = (String) command.getActionParams().get(1);
-                biometricsIdentifyResult.idCardNum = (String) command.getActionParams().get(2);
+                biometricsIdentifyResult.realName = command.getActionParams().get(1);
+                biometricsIdentifyResult.idCardNum = command.getActionParams().get(2);
                 biometricsIdentifyResult.recordVideo = 0;
                 biometricsIdentifyResult.phoneNum = "";
                 if (command.getActionParams().size() > 3) {
-                    biometricsIdentifyResult.recordVideo = Integer.parseInt((String) command.getActionParams().get(3));
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(3));
                 }
                 if (command.getActionParams().size() > 4) {
-                    biometricsIdentifyResult.phoneNum = (String) command.getActionParams().get(4);
+                    biometricsIdentifyResult.phoneNum = command.getActionParams().get(4);
                 }
                 String str = "pp";
                 biometricsIdentifyResult.subPro = "pp";
                 if (command.getActionParams().size() > 5) {
-                    biometricsIdentifyResult.subPro = (String) command.getActionParams().get(5);
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(5);
                 }
                 if (command.getActionParams().size() > 6) {
                     try {
-                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject((String) command.getActionParams().get(6)).optInt("hideGuidePage", 0);
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(6)).optInt("hideGuidePage", 0);
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -5095,21 +5098,21 @@ public class SapiJsInterpreters {
                         }
                     }
                 };
-                biometricsIdentifyResult.biometricType = Integer.parseInt((String) command.getActionParams().get(0));
+                biometricsIdentifyResult.biometricType = Integer.parseInt(command.getActionParams().get(0));
                 biometricsIdentifyResult.livenessRecogType = "authtoken";
-                biometricsIdentifyResult.authToken = (String) command.getActionParams().get(1);
+                biometricsIdentifyResult.authToken = command.getActionParams().get(1);
                 biometricsIdentifyResult.recordVideo = 0;
                 String str = "pp";
                 biometricsIdentifyResult.subPro = "pp";
                 if (command.getActionParams().size() > 2) {
-                    biometricsIdentifyResult.recordVideo = Integer.parseInt((String) command.getActionParams().get(2));
+                    biometricsIdentifyResult.recordVideo = Integer.parseInt(command.getActionParams().get(2));
                 }
                 if (command.getActionParams().size() > 3) {
-                    biometricsIdentifyResult.subPro = ((String) command.getActionParams().get(3)).toString();
+                    biometricsIdentifyResult.subPro = command.getActionParams().get(3).toString();
                 }
                 if (command.getActionParams().size() > 4) {
                     try {
-                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject((String) command.getActionParams().get(4)).optInt("hideGuidePage", 0);
+                        biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(4)).optInt("hideGuidePage", 0);
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -5195,7 +5198,7 @@ public class SapiJsInterpreters {
                     }
                 };
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     bioScanFaceResult.uid = jSONObject.optString("uid");
                     bioScanFaceResult.type = jSONObject.optInt("type");
                     bioScanFaceResult.subpro = jSONObject.optString("subpro");
@@ -5255,7 +5258,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    jSONObject = new JSONObject(command.getActionParams().get(0));
                 } catch (JSONException e) {
                     e.printStackTrace();
                     jSONObject = null;
@@ -5393,7 +5396,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.idcardOcrImageCallBack != null) {
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                         this.this$0.jsCallBacks.idcardOcrImageCallBack.getIdcardImage(jSONObject.optString("way"), jSONObject.optString("type"), new IdcardOcrImageCallback(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiIdcardOcrImage.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -5579,7 +5582,7 @@ public class SapiJsInterpreters {
                 JSONObject jSONObject3 = null;
                 try {
                     jSONObject2.put("errno", 0);
-                    jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    jSONObject = new JSONObject(command.getActionParams().get(0));
                 } catch (Exception e) {
                     e = e;
                 }
@@ -5661,7 +5664,7 @@ public class SapiJsInterpreters {
                 if (System.currentTimeMillis() - this.this$0.preShareClickTime > 1000) {
                     this.this$0.preShareClickTime = System.currentTimeMillis();
                     try {
-                        JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                        JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                         String optString2 = jSONObject.optString("pkg");
                         String optString3 = jSONObject.optString("from", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
                         if (ShareUtils.SHARE_ACCOUNT_CLOUND_VERSION.equals(optString3)) {
@@ -5793,7 +5796,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                List<SapiAccount> arrayList = new ArrayList();
+                List<SapiAccount> arrayList = new ArrayList<>();
                 if (this.this$0.configuration.supportMultipleAccounts) {
                     arrayList = SapiContext.getInstance().getLoginAccounts();
                 } else {
@@ -5908,7 +5911,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    String optString = new JSONObject((String) command.getActionParams().get(0)).optString("uid");
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString("uid");
                     if (!TextUtils.isEmpty(optString)) {
                         for (SapiAccount sapiAccount : SapiContext.getInstance().getLoginAccounts()) {
                             if (optString.equals(sapiAccount.uid)) {
@@ -5963,7 +5966,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack != null) {
                     try {
-                        this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack.switchStyle(new JSONObject((String) command.getActionParams().get(0)).optString("styleType"));
+                        this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack.switchStyle(new JSONObject(command.getActionParams().get(0)).optString("styleType"));
                         return null;
                     } catch (Exception e) {
                         Log.e(e);
@@ -6020,7 +6023,7 @@ public class SapiJsInterpreters {
                 try {
                     jSONObject.put("errno", 0);
                     jSONObject.put("status", 0);
-                    JSONObject jSONObject2 = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
                     str = jSONObject2.optString("handle");
                     try {
                         str2 = jSONObject2.optString("portrait");
@@ -6142,7 +6145,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    String optString = new JSONObject((String) command.getActionParams().get(0)).optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
+                    String optString = new JSONObject(command.getActionParams().get(0)).optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                     int fingerPrintState = FingerprintUtil.getFingerPrintState(this.this$0.configuration);
                     boolean contains = SapiContext.getInstance().getTouchidLoginRecord().contains(optString);
                     List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
@@ -6237,13 +6240,13 @@ public class SapiJsInterpreters {
                 try {
                     int i = 1;
                     if (FingerprintUtil.getFingerPrintState(this.this$0.configuration) == 0) {
-                        List touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
+                        List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
                         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
-                        Iterator it = touchidAccounts.iterator();
+                        Iterator<SapiAccount> it = touchidAccounts.iterator();
                         while (true) {
                             if (it.hasNext()) {
-                                SapiAccount sapiAccount = (SapiAccount) it.next();
-                                if (sapiAccount.equals(currentAccount) && !TextUtils.isEmpty(sapiAccount.email)) {
+                                SapiAccount next = it.next();
+                                if (next.equals(currentAccount) && !TextUtils.isEmpty(next.email)) {
                                     z = true;
                                     break;
                                 }
@@ -6419,7 +6422,7 @@ public class SapiJsInterpreters {
                                 this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                                 if (i == 0) {
                                     try {
-                                        JSONObject jSONObject2 = new JSONObject((String) this.val$command.getActionParams().get(0));
+                                        JSONObject jSONObject2 = new JSONObject(this.val$command.getActionParams().get(0));
                                         String optString = jSONObject2.optString("portrait");
                                         String optString2 = jSONObject2.optString(SyncAccountUtils.KEY_PORTRAIT_SIGN);
                                         if (TextUtils.isEmpty(optString)) {
@@ -6486,7 +6489,7 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject((String) command.getActionParams().get(0));
+                    JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     String optString = jSONObject.optString("info");
                     String optString2 = jSONObject.optString("u");
                     SapiAccount sapiAccount = new SapiAccount();
@@ -6525,7 +6528,7 @@ public class SapiJsInterpreters {
                 return;
             }
         }
-        this.interpreterHashMap = new HashMap();
+        this.interpreterHashMap = new HashMap<>();
         this.sapiWebView = sapiWebView;
         this.context = sapiWebView.getContext();
         this.jsCallBacks = callBacks;
@@ -6536,7 +6539,7 @@ public class SapiJsInterpreters {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            AbstractInterpreter abstractInterpreter = (AbstractInterpreter) this.interpreterHashMap.get(str);
+            AbstractInterpreter abstractInterpreter = this.interpreterHashMap.get(str);
             if (abstractInterpreter == null && (abstractInterpreter = buidInterpreterByName(str)) != null) {
                 this.interpreterHashMap.put(str, abstractInterpreter);
             }

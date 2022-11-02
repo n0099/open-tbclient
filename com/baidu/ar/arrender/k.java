@@ -25,7 +25,7 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler aO;
-    public List ic;
+    public List<String> ic;
     public LuaMsgListener ie;
 
     /* renamed from: if  reason: not valid java name */
@@ -85,14 +85,14 @@ public class k {
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public List getMsgKeyListened() {
+                public List<String> getMsgKeyListened() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.ij.ic : (List) invokeV.objValue;
                 }
 
                 @Override // com.baidu.ar.lua.LuaMsgListener
-                public void onLuaMessage(HashMap hashMap) {
+                public void onLuaMessage(HashMap<String, Object> hashMap) {
                     PixelReadParams pixelReadParams;
                     PixelRotation pixelRotation;
                     Interceptable interceptable2 = $ic;

@@ -1,81 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.pu4;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.d35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class e35 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<d35> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a implements pu4.e {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ DialogInterface.OnCancelListener c;
+        public final /* synthetic */ d35 a;
 
-        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
+        public a(d35 d35Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = context;
-            this.c = onCancelListener;
-        }
-
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                e35.d(this.a, this.b);
-                pu4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.c;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(pu4Var.getDialog());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public final class b implements pu4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DialogInterface.OnCancelListener a;
-
-        public b(DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onCancelListener};
+                Object[] objArr = {d35Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,128 +40,116 @@ public class e35 {
                     return;
                 }
             }
-            this.a = onCancelListener;
+            this.a = d35Var;
         }
 
-        @Override // com.baidu.tieba.pu4.e
-        public void onClick(pu4 pu4Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pu4Var) == null) {
-                pu4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.a;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(pu4Var.getDialog());
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A();
+                boolean unused = e35.a = true;
             }
         }
     }
 
-    public static void e(int i, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, context) != null) || context == null) {
-            return;
-        }
-        d(i, context);
-    }
+    /* loaded from: classes3.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d35 a;
 
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return vm8.b(context, "com.sina.weibo");
-                    }
-                    return true;
-                }
-                return vm8.b(context, "com.tencent.mobileqq");
-            }
-            return vm8.b(context, "com.tencent.mm");
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static String c(int i, Context context) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        return String.format(context.getString(R.string.obfuscated_res_0x7f0f0412), context.getString(R.string.obfuscated_res_0x7f0f11d2));
-                    }
-                    return null;
-                }
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0412), context.getString(R.string.obfuscated_res_0x7f0f0f92));
-            }
-            return String.format(context.getString(R.string.obfuscated_res_0x7f0f0412), context.getString(R.string.obfuscated_res_0x7f0f15d9));
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static void d(int i, Context context) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
-            if (i != 3 && i != 2) {
-                if (i != 8 && i != 4) {
-                    if (i == 6) {
-                        if (!b(context, i)) {
-                            BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f118d)).i();
-                            return;
-                        }
-                        intent = new Intent();
-                        intent.setAction("android.intent.action.VIEW");
-                        intent.addCategory("android.intent.category.DEFAULT");
-                        intent.setData(Uri.parse("sinaweibo://splash"));
-                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    } else {
-                        intent = null;
-                    }
-                } else if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f117e)).i();
+        public b(d35 d35Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d35Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
-                } else {
-                    intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    context.startActivity(intent);
                 }
-            } else if (!b(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f119c)).i();
-                return;
-            } else {
-                intent = new Intent("android.intent.action.MAIN");
-                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.setComponent(componentName);
-                context.startActivity(intent);
             }
-            if (intent != null) {
-                context.startActivity(intent);
+            this.a = d35Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t();
             }
         }
     }
 
-    public static void f(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
+    public static d35 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65541, null, shareItem, context, i, onCancelListener) != null) || shareItem == null || TextUtils.isEmpty(shareItem.w) || TextUtils.isEmpty(shareItem.v) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            WeakReference<d35> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
         }
-        vi.a(shareItem.C0);
-        Activity activity = (Activity) context;
-        pu4 pu4Var = new pu4(activity);
-        pu4Var.setTitle(context.getString(R.string.obfuscated_res_0x7f0f0413));
-        pu4Var.setMessage(shareItem.C0);
-        pu4Var.setAutoNight(false);
-        pu4Var.setCancelable(true);
-        pu4Var.setTitleShowCenter(true);
-        pu4Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
-        pu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(onCancelListener)).create(w9.a(activity));
-        if (onCancelListener != null) {
-            pu4Var.setOnCalcelListener(onCancelListener);
+        return (d35) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        pu4Var.show();
+        return invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            ky4.k().x("key_live_remind_float_view", System.currentTimeMillis());
+        }
+    }
+
+    public static d35 d(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2, d35.h hVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
+            d35 d35Var = new d35(tbPageContext, map);
+            if (hVar != null) {
+                d35Var.x(hVar);
+            }
+            if (view2 != null) {
+                d35Var.y(view2);
+            }
+            if (j <= 0) {
+                d35Var.A();
+                a = true;
+            } else {
+                zg.a().postDelayed(new a(d35Var), j);
+            }
+            if (j2 > 0) {
+                zg.a().postDelayed(new b(d35Var), j2);
+            }
+            b = new WeakReference<>(d35Var);
+            return d35Var;
+        }
+        return (d35) invokeCommon.objValue;
+    }
+
+    public static d35 f(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !e45.d()) {
+                return d(view2, tbPageContext, map, j, j2, null);
+            }
+            return null;
+        }
+        return (d35) invokeCommon.objValue;
     }
 }

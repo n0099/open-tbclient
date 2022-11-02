@@ -1,11 +1,12 @@
 package com.baidu.sapi2.callback;
 
+import com.baidu.sapi2.result.WebLoginResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class WebLoginCallback implements SapiCallback {
+public abstract class WebLoginCallback implements SapiCallback<WebLoginResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

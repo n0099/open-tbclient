@@ -5,7 +5,7 @@ public class d {
     public String b;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public String a;
         public String b;
 

@@ -19,13 +19,13 @@ public final class PersonalizedResIdl extends Message {
     public final Error error;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<PersonalizedResIdl> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public DataRes data;
@@ -71,6 +71,7 @@ public final class PersonalizedResIdl extends Message {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire.Message.Builder
         public PersonalizedResIdl build(boolean z) {
             InterceptResult invokeZ;

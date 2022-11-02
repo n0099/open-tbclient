@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.animated.factory;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
@@ -74,25 +75,26 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         this.mBitmapFactory = platformBitmapFactory;
     }
 
-    private CloseableReference createBitmap(int i, int i2, Bitmap.Config config) {
+    @SuppressLint({"NewApi"})
+    private CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, this, i, i2, config)) == null) {
-            CloseableReference createBitmapInternal = this.mBitmapFactory.createBitmapInternal(i, i2, config);
-            ((Bitmap) createBitmapInternal.get()).eraseColor(0);
+            CloseableReference<Bitmap> createBitmapInternal = this.mBitmapFactory.createBitmapInternal(i, i2, config);
+            createBitmapInternal.get().eraseColor(0);
             if (Build.VERSION.SDK_INT >= 12) {
-                ((Bitmap) createBitmapInternal.get()).setHasAlpha(true);
+                createBitmapInternal.get().setHasAlpha(true);
             }
             return createBitmapInternal;
         }
         return (CloseableReference) invokeIIL.objValue;
     }
 
-    private CloseableReference createPreviewBitmap(AnimatedImage animatedImage, Bitmap.Config config, int i) {
+    private CloseableReference<Bitmap> createPreviewBitmap(AnimatedImage animatedImage, Bitmap.Config config, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, animatedImage, config, i)) == null) {
-            CloseableReference createBitmap = createBitmap(animatedImage.getWidth(), animatedImage.getHeight(), config);
+            CloseableReference<Bitmap> createBitmap = createBitmap(animatedImage.getWidth(), animatedImage.getHeight(), config);
             new AnimatedImageCompositor(this.mAnimatedDrawableBackendProvider.get(AnimatedImageResult.forAnimatedImage(animatedImage), null), new AnimatedImageCompositor.Callback(this) { // from class: com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +102,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
 
                 @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
                 @Nullable
-                public CloseableReference getCachedBitmap(int i2) {
+                public CloseableReference<Bitmap> getCachedBitmap(int i2) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) {
@@ -133,13 +135,13 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                     }
                     this.this$0 = this;
                 }
-            }).renderFrame(i, (Bitmap) createBitmap.get());
+            }).renderFrame(i, createBitmap.get());
             return createBitmap;
         }
         return (CloseableReference) invokeLLI.objValue;
     }
 
-    private List decodeAllFrames(AnimatedImage animatedImage, Bitmap.Config config) {
+    private List<CloseableReference<Bitmap>> decodeAllFrames(AnimatedImage animatedImage, Bitmap.Config config) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, animatedImage, config)) == null) {
@@ -178,7 +180,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                 }
 
                 @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-                public CloseableReference getCachedBitmap(int i) {
+                public CloseableReference<Bitmap> getCachedBitmap(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) {
@@ -188,8 +190,8 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                 }
             });
             for (int i = 0; i < animatedDrawableBackend.getFrameCount(); i++) {
-                CloseableReference createBitmap = createBitmap(animatedDrawableBackend.getWidth(), animatedDrawableBackend.getHeight(), config);
-                animatedImageCompositor.renderFrame(i, (Bitmap) createBitmap.get());
+                CloseableReference<Bitmap> createBitmap = createBitmap(animatedDrawableBackend.getWidth(), animatedDrawableBackend.getHeight(), config);
+                animatedImageCompositor.renderFrame(i, createBitmap.get());
                 arrayList.add(createBitmap);
             }
             return arrayList;
@@ -199,11 +201,11 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
 
     private CloseableImage getCloseableImage(ImageDecodeOptions imageDecodeOptions, AnimatedImage animatedImage, Bitmap.Config config) {
         InterceptResult invokeLLL;
-        List list;
+        List<CloseableReference<Bitmap>> list;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, imageDecodeOptions, animatedImage, config)) == null) {
-            CloseableReference closeableReference = null;
+            CloseableReference<Bitmap> closeableReference = null;
             try {
                 if (imageDecodeOptions.useLastFrameForPreview) {
                     i = animatedImage.getFrameCount() - 1;
@@ -212,14 +214,14 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
                 }
                 if (imageDecodeOptions.forceStaticImage) {
                     CloseableStaticBitmap closeableStaticBitmap = new CloseableStaticBitmap(createPreviewBitmap(animatedImage, config, i), ImmutableQualityInfo.FULL_QUALITY, 0);
-                    CloseableReference.closeSafely((CloseableReference) null);
-                    CloseableReference.closeSafely((Iterable) null);
+                    CloseableReference.closeSafely((CloseableReference<?>) null);
+                    CloseableReference.closeSafely((Iterable<? extends CloseableReference<?>>) null);
                     return closeableStaticBitmap;
                 }
                 if (imageDecodeOptions.decodeAllFrames) {
                     list = decodeAllFrames(animatedImage, config);
                     try {
-                        closeableReference = CloseableReference.cloneOrNull((CloseableReference) list.get(i));
+                        closeableReference = CloseableReference.cloneOrNull(list.get(i));
                     } catch (Throwable th) {
                         th = th;
                         CloseableReference.closeSafely(closeableReference);
@@ -266,10 +268,10 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, encodedImage, imageDecodeOptions, config)) == null) {
             if (sGifAnimatedImageDecoder != null) {
-                CloseableReference byteBufferRef = encodedImage.getByteBufferRef();
+                CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
                 Preconditions.checkNotNull(byteBufferRef);
                 try {
-                    PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) byteBufferRef.get();
+                    PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
                     if (pooledByteBuffer.getByteBuffer() != null) {
                         decodeFromNativeMemory = sGifAnimatedImageDecoder.decodeFromByteBuffer(pooledByteBuffer.getByteBuffer(), imageDecodeOptions);
                     } else {
@@ -292,10 +294,10 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, imageDecodeOptions, config)) == null) {
             if (sWebpAnimatedImageDecoder != null) {
-                CloseableReference byteBufferRef = encodedImage.getByteBufferRef();
+                CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
                 Preconditions.checkNotNull(byteBufferRef);
                 try {
-                    PooledByteBuffer pooledByteBuffer = (PooledByteBuffer) byteBufferRef.get();
+                    PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
                     if (pooledByteBuffer.getByteBuffer() != null) {
                         decodeFromNativeMemory = sWebpAnimatedImageDecoder.decodeFromByteBuffer(pooledByteBuffer.getByteBuffer(), imageDecodeOptions);
                     } else {

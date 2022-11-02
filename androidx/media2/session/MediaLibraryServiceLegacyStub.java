@@ -8,6 +8,8 @@ import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompat;
@@ -43,14 +45,14 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onAllowedCommandsChanged(int i, SessionCommandGroup sessionCommandGroup) throws RemoteException {
+        public final void onAllowedCommandsChanged(int i, @NonNull SessionCommandGroup sessionCommandGroup) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, sessionCommandGroup) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onBufferingStateChanged(int i, MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
+        public final void onBufferingStateChanged(int i, @NonNull MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), mediaItem, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             }
@@ -85,7 +87,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onPlaybackInfoChanged(int i, MediaController.PlaybackInfo playbackInfo) throws RemoteException {
+        public final void onPlaybackInfoChanged(int i, @NonNull MediaController.PlaybackInfo playbackInfo) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048582, this, i, playbackInfo) == null) {
             }
@@ -113,7 +115,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onPlaylistChanged(int i, List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
+        public final void onPlaylistChanged(int i, @NonNull List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), list, mediaMetadata, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
@@ -155,7 +157,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void onSubtitleData(int i, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) {
+        public final void onSubtitleData(int i, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), mediaItem, trackInfo, subtitleData}) == null) {
             }
@@ -183,21 +185,21 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onVideoSizeChanged(int i, VideoSize videoSize) throws RemoteException {
+        public void onVideoSizeChanged(int i, @NonNull VideoSize videoSize) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048596, this, i, videoSize) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void sendCustomCommand(int i, SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
+        public final void sendCustomCommand(int i, @NonNull SessionCommand sessionCommand, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048597, this, i, sessionCommand, bundle) == null) {
             }
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public final void setCustomLayout(int i, List<MediaSession.CommandButton> list) throws RemoteException {
+        public final void setCustomLayout(int i, @NonNull List<MediaSession.CommandButton> list) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048598, this, i, list) == null) {
             }
@@ -224,6 +226,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public transient /* synthetic */ FieldHolder $fh;
         public final Object mLock;
         public final MediaSessionManager.RemoteUserInfo mRemoteUserInfo;
+        @GuardedBy("mLock")
         public final List<SearchRequest> mSearchRequests;
         public final /* synthetic */ MediaLibraryServiceLegacyStub this$0;
 
@@ -276,7 +279,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onChildrenChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Bundle bundle;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
@@ -290,7 +293,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onSearchResultChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 ArrayList arrayList = new ArrayList();
@@ -392,7 +395,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         public final MediaBrowserServiceCompat mService;
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onSearchResultChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
             }
@@ -420,7 +423,7 @@ public class MediaLibraryServiceLegacyStub extends MediaSessionServiceLegacyStub
         }
 
         @Override // androidx.media2.session.MediaSession.ControllerCb
-        public void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
+        public void onChildrenChanged(int i, @NonNull String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), libraryParams}) == null) {
                 if (libraryParams != null && libraryParams.getExtras() != null) {

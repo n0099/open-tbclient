@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gb1;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,7 +88,7 @@ public class DuVipGuideView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        gb1.b().a(this.a, jSONObject.optString("icon_url"));
+        yb1.b().a(this.a, jSONObject.optString("icon_url"));
         this.b.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {
@@ -149,10 +149,10 @@ public class DuVipGuideView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e9, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffe);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092398);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092397);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08fd, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091038);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ed);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ec);
         }
     }
 }

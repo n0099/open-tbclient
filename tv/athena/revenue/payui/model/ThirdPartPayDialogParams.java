@@ -1,7 +1,8 @@
 package tv.athena.revenue.payui.model;
 
 import android.app.Activity;
-import com.baidu.tieba.y3a;
+import androidx.annotation.Keep;
+import com.baidu.tieba.h5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,16 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.Map;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
+@Keep
 /* loaded from: classes9.dex */
 public class ThirdPartPayDialogParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity act;
-    public Map appClientExpand;
+    public Map<String, String> appClientExpand;
     public PayType defaultType;
     public String payWayDialogTitle;
     public double targetAmount;
-    public y3a thirdPartOrderRequest;
+    public h5a thirdPartOrderRequest;
     public AbsViewEventHandler viewEventListener;
 
     public ThirdPartPayDialogParams() {

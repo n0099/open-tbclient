@@ -1,6 +1,7 @@
 package androidx.fragment.app;
 
 import android.os.Bundle;
+import androidx.annotation.IdRes;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
@@ -12,14 +13,14 @@ public final class FragmentTransactionKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final /* synthetic */ <F extends Fragment> FragmentTransaction add(FragmentTransaction fragmentTransaction, int i, String str, Bundle bundle) {
+    public static final /* synthetic */ <F extends Fragment> FragmentTransaction add(FragmentTransaction fragmentTransaction, @IdRes int i, String str, Bundle bundle) {
         Intrinsics.reifiedOperationMarker(4, "F");
         FragmentTransaction add = fragmentTransaction.add(i, Fragment.class, bundle, str);
         Intrinsics.checkExpressionValueIsNotNull(add, "add(containerViewId, F::class.java, args, tag)");
         return add;
     }
 
-    public static final /* synthetic */ <F extends Fragment> FragmentTransaction replace(FragmentTransaction fragmentTransaction, int i, String str, Bundle bundle) {
+    public static final /* synthetic */ <F extends Fragment> FragmentTransaction replace(FragmentTransaction fragmentTransaction, @IdRes int i, String str, Bundle bundle) {
         Intrinsics.reifiedOperationMarker(4, "F");
         FragmentTransaction replace = fragmentTransaction.replace(i, Fragment.class, bundle, str);
         Intrinsics.checkExpressionValueIsNotNull(replace, "replace(containerViewId, F::class.java, args, tag)");

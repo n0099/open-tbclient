@@ -31,7 +31,7 @@ public final class SMSMMSResultParser extends ResultParser {
         }
     }
 
-    public static void addNumberVia(Collection collection, Collection collection2, String str) {
+    public static void addNumberVia(Collection<String> collection, Collection<String> collection2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, collection, collection2, str) == null) {
             int indexOf = str.indexOf(59);
@@ -63,11 +63,11 @@ public final class SMSMMSResultParser extends ResultParser {
             if (!massagedText.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !massagedText.startsWith("SMS:") && !massagedText.startsWith("mms:") && !massagedText.startsWith("MMS:")) {
                 return null;
             }
-            Map parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
+            Map<String, String> parseNameValuePairs = ResultParser.parseNameValuePairs(massagedText);
             boolean z = false;
             if (parseNameValuePairs != null && !parseNameValuePairs.isEmpty()) {
-                str2 = (String) parseNameValuePairs.get("subject");
-                str = (String) parseNameValuePairs.get(TtmlNode.TAG_BODY);
+                str2 = parseNameValuePairs.get("subject");
+                str = parseNameValuePairs.get(TtmlNode.TAG_BODY);
                 z = true;
             } else {
                 str = null;

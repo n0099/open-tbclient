@@ -1,5 +1,6 @@
 package com.baidu.tbadk.widget.pulltorefresh.library.internal;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Matrix;
@@ -18,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
 public class FlipLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +42,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;

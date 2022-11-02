@@ -8,12 +8,16 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ba1;
+import com.baidu.tieba.ta1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -306,7 +310,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwipeBackLayout(Context context) {
+    public SwipeBackLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -327,7 +331,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SwipeBackLayout(Context context, AttributeSet attributeSet) {
+    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -405,7 +409,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwipeBackLayout(Context context, AttributeSet attributeSet, int i) {
+    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -475,7 +479,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    public void setMaskAlpha(int i) {
+    public void setMaskAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             if (i > 255) {
@@ -487,7 +491,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    public void setSwipeBackFactor(float f) {
+    public void setSwipeBackFactor(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
             if (f > 1.0f) {
@@ -513,10 +517,10 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    private void a(Context context, AttributeSet attributeSet) {
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ba1.sapi_sdk_SwipeBackLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ta1.sapi_sdk_SwipeBackLayout);
             setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
             setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
             setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));

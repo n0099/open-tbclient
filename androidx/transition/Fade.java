@@ -3,12 +3,14 @@ package androidx.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -107,6 +109,7 @@ public class Fade extends Visibility {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public Fade(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -166,7 +169,7 @@ public class Fade extends Visibility {
                 }
 
                 @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                public void onTransitionEnd(Transition transition) {
+                public void onTransitionEnd(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                         ViewUtils.setTransitionAlpha(this.val$view, 1.0f);
@@ -194,7 +197,7 @@ public class Fade extends Visibility {
     }
 
     @Override // androidx.transition.Visibility, androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             super.captureStartValues(transitionValues);

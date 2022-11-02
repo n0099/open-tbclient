@@ -22,7 +22,7 @@ public class DumediaStatExtPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public HashMap createPageInfoMap() {
+    public HashMap<String, String> createPageInfoMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -63,7 +63,7 @@ public class DumediaStatExtPlugin extends AbsPlugin {
     }
 
     private final void setPageInfo() {
-        HashMap createPageInfoMap;
+        HashMap<String, String> createPageInfoMap;
         BDVideoPlayer bindPlayer;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (createPageInfoMap = createPageInfoMap()) != null && (bindPlayer = getBindPlayer()) != null) {

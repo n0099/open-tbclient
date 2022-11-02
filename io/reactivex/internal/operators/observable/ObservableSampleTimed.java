@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableSampleTimed extends AbstractObservableWithUpstream {
+public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean emitLast;
@@ -26,14 +26,14 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class SampleTimedEmitLast extends SampleTimedObserver {
+    public static final class SampleTimedEmitLast<T> extends SampleTimedObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedEmitLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(observer, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -78,13 +78,13 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
     }
 
     /* loaded from: classes8.dex */
-    public final class SampleTimedNoLast extends SampleTimedObserver {
+    public static final class SampleTimedNoLast<T> extends SampleTimedObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7139995637533111443L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedNoLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
             super(observer, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -122,20 +122,20 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
     }
 
     /* loaded from: classes8.dex */
-    public abstract class SampleTimedObserver extends AtomicReference implements Observer, Disposable, Runnable {
+    public static abstract class SampleTimedObserver<T> extends AtomicReference<T> implements Observer<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3517602651313910099L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public final long period;
         public Disposable s;
         public final Scheduler scheduler;
-        public final AtomicReference timer;
+        public final AtomicReference<Disposable> timer;
         public final TimeUnit unit;
 
         public abstract void complete();
 
-        public SampleTimedObserver(Observer observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,7 +150,7 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
                     return;
                 }
             }
-            this.timer = new AtomicReference();
+            this.timer = new AtomicReference<>();
             this.actual = observer;
             this.period = j;
             this.unit = timeUnit;
@@ -174,7 +174,7 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
         }
 
         public void emit() {
-            Object andSet;
+            T andSet;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (andSet = getAndSet(null)) != null) {
                 this.actual.onNext(andSet);
@@ -210,10 +210,10 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-                lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                lazySet(t);
             }
         }
 
@@ -231,7 +231,7 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSampleTimed(ObservableSource observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public ObservableSampleTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -255,7 +255,7 @@ public final class ObservableSampleTimed extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);

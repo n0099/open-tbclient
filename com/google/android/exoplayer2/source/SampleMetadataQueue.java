@@ -38,7 +38,7 @@ public final class SampleMetadataQueue {
     public int upstreamSourceId;
 
     /* loaded from: classes7.dex */
-    public final class SampleExtrasHolder {
+    public static final class SampleExtrasHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TrackOutput.CryptoData cryptoData;

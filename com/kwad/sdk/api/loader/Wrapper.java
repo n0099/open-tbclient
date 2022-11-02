@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+@Keep
 /* loaded from: classes7.dex */
 public class Wrapper {
     public static final String CLAZZ_NAME = "com.kwad.sdk.api.loader.Wrapper";
@@ -26,20 +29,20 @@ public class Wrapper {
     public static final String METHOD_WRAP_CONTEXT = "wrapContextIfNeed";
     public static final String TAG = "Wrapper";
     public static final int TIMELINE_MINIWRAP = 150;
-    public static final ThreadLocal sAutoUnWrapModelTL = new ThreadLocal();
-    public static final List sAutoUnWrapStackList = new CopyOnWriteArrayList();
-    public static Map sResContextCache = new WeakHashMap();
+    public static final ThreadLocal<a> sAutoUnWrapModelTL = new ThreadLocal<>();
+    public static final List<String> sAutoUnWrapStackList = new CopyOnWriteArrayList();
+    public static Map<Context, Context> sResContextCache = new WeakHashMap();
 
     /* loaded from: classes7.dex */
-    public final class a {
-        public WeakReference Sc;
+    public static class a {
+        public WeakReference<Context> Sc;
         public StackTraceElement[] Sd;
         public int b;
         public int d;
         public long e;
 
         public a() {
-            this.Sc = new WeakReference(null);
+            this.Sc = new WeakReference<>(null);
             this.b = 0;
             this.Sd = null;
             this.d = 0;
@@ -50,7 +53,7 @@ public class Wrapper {
         }
 
         public final void a() {
-            this.Sc = new WeakReference(null);
+            this.Sc = new WeakReference<>(null);
             this.b = 0;
             this.Sd = null;
             this.d = 0;
@@ -58,7 +61,7 @@ public class Wrapper {
         }
     }
 
-    public static List getAutoUnWrapStackList() {
+    public static List<String> getAutoUnWrapStackList() {
         if (sAutoUnWrapStackList.isEmpty()) {
             sAutoUnWrapStackList.add("com.sensorsdata.analytics.android.sdk");
         }
@@ -67,7 +70,7 @@ public class Wrapper {
 
     public static boolean needAutoUnWrap(Context context, a aVar) {
         String str;
-        Context context2 = (Context) sResContextCache.get(context);
+        Context context2 = sResContextCache.get(context);
         String name = context2 != null ? context2.getClass().getName() : "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (!Arrays.equals(stackTrace, aVar.Sd)) {
@@ -136,12 +139,12 @@ public class Wrapper {
     }
 
     public static boolean returnUnWrappedContext(Context context) {
-        a aVar = (a) sAutoUnWrapModelTL.get();
+        a aVar = sAutoUnWrapModelTL.get();
         if (aVar == null) {
             sAutoUnWrapModelTL.set(new a((byte) 0));
         } else if (aVar.Sc.get() != context || Math.abs(System.currentTimeMillis() - aVar.e) >= 150) {
             aVar.a();
-            aVar.Sc = new WeakReference(context);
+            aVar.Sc = new WeakReference<>(context);
             aVar.e = System.currentTimeMillis();
         } else {
             aVar.b++;
@@ -153,6 +156,7 @@ public class Wrapper {
         return false;
     }
 
+    @Keep
     public static Context unwrapContextIfNeed(Context context) {
         ResContext resContext = context instanceof ResContext ? (ResContext) context : null;
         Context context2 = context;
@@ -170,7 +174,9 @@ public class Wrapper {
         return resContext != null ? resContext.getDelegatedContext() : context;
     }
 
-    public static Context wrapContextIfNeed(Context context) {
+    @Nullable
+    @Keep
+    public static Context wrapContextIfNeed(@Nullable Context context) {
         if (Loader.get().isExternalLoaded()) {
             if (context == null) {
                 return null;
@@ -179,7 +185,7 @@ public class Wrapper {
                 return context;
             }
             if (context instanceof ContextThemeWrapper) {
-                Context context2 = (Context) sResContextCache.get(context);
+                Context context2 = sResContextCache.get(context);
                 if (context2 == null) {
                     o oVar = new o((ContextThemeWrapper) context);
                     sResContextCache.put(context, oVar);
@@ -187,7 +193,7 @@ public class Wrapper {
                 }
                 return context2;
             } else if (context instanceof androidx.appcompat.view.ContextThemeWrapper) {
-                Context context3 = (Context) sResContextCache.get(context);
+                Context context3 = sResContextCache.get(context);
                 if (context3 == null) {
                     p pVar = new p((androidx.appcompat.view.ContextThemeWrapper) context);
                     sResContextCache.put(context, pVar);
@@ -195,7 +201,7 @@ public class Wrapper {
                 }
                 return context3;
             } else if (context instanceof ContextWrapper) {
-                Context context4 = (Context) sResContextCache.get(context);
+                Context context4 = sResContextCache.get(context);
                 if (context4 == null) {
                     q qVar = new q(context);
                     sResContextCache.put(context, qVar);
@@ -203,7 +209,7 @@ public class Wrapper {
                 }
                 return context4;
             } else {
-                Context context5 = (Context) sResContextCache.get(context);
+                Context context5 = sResContextCache.get(context);
                 if (context5 == null) {
                     q qVar2 = new q(context);
                     sResContextCache.put(context, qVar2);
@@ -215,6 +221,7 @@ public class Wrapper {
         return context;
     }
 
+    @Keep
     public static LayoutInflater wrapInflaterIfNeed(LayoutInflater layoutInflater) {
         if (Loader.get().isExternalLoaded()) {
             Context context = layoutInflater.getContext();

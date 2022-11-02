@@ -23,7 +23,7 @@ public class f implements AbstractPushManager {
     public PushConfiguration f80a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f81a;
+    public Map<e, AbstractPushManager> f81a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f82a;
@@ -132,7 +132,7 @@ public class f implements AbstractPushManager {
     public AbstractPushManager a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? (AbstractPushManager) this.f81a.get(eVar) : (AbstractPushManager) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) ? this.f81a.get(eVar) : (AbstractPushManager) invokeL.objValue;
     }
 
     public void a(PushConfiguration pushConfiguration) {

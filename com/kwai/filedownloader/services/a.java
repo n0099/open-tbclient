@@ -20,17 +20,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class a implements ServiceConnection, u {
+public abstract class a<CALLBACK extends Binder, INTERFACE extends IInterface> implements ServiceConnection, u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList atw;
-    public final Class avI;
-    public final Binder awm;
-    public volatile IInterface awn;
-    public final HashMap awo;
-    public final List awp;
+    public final ArrayList<Runnable> atw;
+    public final Class<?> avI;
+    public final CALLBACK awm;
+    public volatile INTERFACE awn;
+    public final HashMap<String, Object> awo;
+    public final List<Context> awp;
 
-    public a(Class cls) {
+    public a(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,9 +45,9 @@ public abstract class a implements ServiceConnection, u {
                 return;
             }
         }
-        this.awo = new HashMap();
+        this.awo = new HashMap<>();
         this.awp = new ArrayList();
-        this.atw = new ArrayList();
+        this.atw = new ArrayList<>();
         this.avI = cls;
         this.awm = CW();
     }
@@ -81,17 +81,17 @@ public abstract class a implements ServiceConnection, u {
         }
     }
 
-    public abstract Binder CW();
+    public abstract CALLBACK CW();
 
-    public final IInterface Eq() {
+    public final INTERFACE Eq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awn : (IInterface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.awn : (INTERFACE) invokeV.objValue;
     }
 
-    public abstract void a(IInterface iInterface, Binder binder);
+    public abstract void a(INTERFACE r1, CALLBACK callback);
 
-    public abstract IInterface b(IBinder iBinder);
+    public abstract INTERFACE b(IBinder iBinder);
 
     @Override // com.kwai.filedownloader.u
     public final void dC(Context context) {
@@ -117,7 +117,7 @@ public abstract class a implements ServiceConnection, u {
                 com.kwai.filedownloader.e.d.e(this, "onServiceConnected %s %s", componentName, this.awn);
             }
             try {
-                a(this.awn, this.awm);
+                a((a<CALLBACK, INTERFACE>) this.awn, (INTERFACE) this.awm);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

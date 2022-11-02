@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,10 +20,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.gq6;
+import com.baidu.tieba.hq6;
+import com.baidu.tieba.kw4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.xo6;
-import com.baidu.tieba.yo6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,11 +35,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentSingleView extends FrameLayout implements yo6 {
+public class HeaderComponentSingleView extends FrameLayout implements hq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int m;
     public static final int n;
     public static final int o;
+    public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public TextView b;
@@ -47,10 +49,18 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
     public ViewGroup f;
     public HeadImageView g;
     public TbImageAutoSwitch h;
-    public List i;
-    public xo6 j;
+    public List<String> i;
+    public gq6 j;
     public LiveFuseForumData k;
-    public TbImageAutoSwitch.b l;
+    public boolean l;
+    public TbImageAutoSwitch.b m;
+
+    @Override // com.baidu.tieba.hq6
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (View) invokeV.objValue;
+    }
 
     /* loaded from: classes4.dex */
     public class a implements TbImageAutoSwitch.b {
@@ -67,13 +77,13 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0243a implements View.OnClickListener {
+        public class View$OnClickListenerC0267a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0243a(a aVar, int i) {
+            public View$OnClickListenerC0267a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,8 +134,8 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
-                headImageView.L((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0243a(this, i));
+                headImageView.K((String) this.a.i.get(i), 12, false);
+                headImageView.setOnClickListener(new View$OnClickListenerC0267a(this, i));
             }
         }
 
@@ -135,10 +145,16 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 HeadImageView headImageView = new HeadImageView(this.a.getContext());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(HeaderComponentSingleView.m, HeaderComponentSingleView.m));
-                headImageView.setBorderWidth(HeaderComponentSingleView.o);
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(HeaderComponentSingleView.n, HeaderComponentSingleView.n));
+                headImageView.setBorderWidth(HeaderComponentSingleView.p);
                 headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-                headImageView.setIsRound(true);
+                if (this.a.l) {
+                    headImageView.setIsRound(true);
+                } else {
+                    headImageView.setIsRound(false);
+                    headImageView.setRadiusById(R.string.J_X05);
+                    headImageView.setConrers(15);
+                }
                 headImageView.setDrawBorder(true);
                 headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 headImageView.setPlaceHolder(1);
@@ -204,23 +220,23 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
                 return;
             }
         }
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds94);
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
-        o = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
+        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds94);
+        o = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+        p = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.k == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.k == null) {
             return;
         }
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType == 0) {
-            this.e.L(this.k.bjimg_light_big, 10, false);
+            this.e.K(this.k.bjimg_light_big, 10, false);
         } else {
-            this.e.L(this.k.bjimg_dark_big, 10, false);
+            this.e.K(this.k.bjimg_dark_big, 10, false);
         }
-        this.c.k0(this.k.icon_url, 38);
+        this.c.j0(this.k.icon_url, 38);
         if (skinType == 1) {
             this.c.setAlpha(0.7f);
         } else {
@@ -229,7 +245,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(Context context) {
+    public HeaderComponentSingleView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -247,12 +263,13 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             }
         }
         this.i = new ArrayList();
-        this.l = new a(this);
-        h();
+        this.l = true;
+        this.m = new a(this);
+        i();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(Context context, AttributeSet attributeSet) {
+    public HeaderComponentSingleView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -271,12 +288,13 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             }
         }
         this.i = new ArrayList();
-        this.l = new a(this);
-        h();
+        this.l = true;
+        this.m = new a(this);
+        i();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderComponentSingleView(Context context, AttributeSet attributeSet, int i) {
+    public HeaderComponentSingleView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -295,22 +313,23 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             }
         }
         this.i = new ArrayList();
-        this.l = new a(this);
-        h();
+        this.l = true;
+        this.m = new a(this);
+        i();
     }
 
-    @Override // com.baidu.tieba.yo6
+    @Override // com.baidu.tieba.hq6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int childCount = this.d.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                nv4 d = nv4.d((TextView) this.d.getChildAt(i));
+                kw4 d = kw4.d((TextView) this.d.getChildAt(i));
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
             }
-            nv4.d(this.b).v(R.color.CAM_X0108);
-            i();
+            kw4.d(this.b).v(R.color.CAM_X0108);
+            j();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -319,22 +338,37 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            nv4 d2 = nv4.d(this.f);
+            kw4 d2 = kw4.d(this.f);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
         }
     }
 
-    @Override // com.baidu.tieba.yo6
-    public void b(List list, xo6 xo6Var) {
+    @Override // com.baidu.tieba.hq6
+    public void b(List<LiveFuseForumData> list, gq6 gq6Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, xo6Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, gq6Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        LiveFuseForumData liveFuseForumData = (LiveFuseForumData) list.get(0);
+        LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = xo6Var;
-        List<String> list2 = liveFuseForumData.title;
+        this.j = gq6Var;
+        Integer num = liveFuseForumData.head_img_style;
+        if (num != null && num.intValue() != 0) {
+            z = false;
+        } else {
+            z = true;
+        }
+        this.l = z;
+        if (z) {
+            this.g.setIsRound(true);
+        } else {
+            this.g.setIsRound(false);
+            this.g.setRadiusById(R.string.J_X05);
+            this.g.setConrers(15);
+        }
+        List<String> list2 = this.k.title;
         if (!ListUtils.isEmpty(list2)) {
             int size = list2.size();
             for (int i = 0; i < list2.size(); i++) {
@@ -343,7 +377,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
                 textView.setLines(1);
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 textView.setText(list2.get(i));
-                nv4 d = nv4.d(textView);
+                kw4 d = kw4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X06);
@@ -362,7 +396,7 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             if (this.i.size() == 1) {
                 this.g.setVisibility(0);
                 this.h.setVisibility(8);
-                this.g.L((String) this.i.get(0), 12, false);
+                this.g.K(this.i.get(0), 12, false);
             } else {
                 this.h.setVisibility(0);
                 this.g.setVisibility(8);
@@ -374,33 +408,33 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
         }
         a();
         setOnClickListener(new b(this));
-        xo6 xo6Var2 = this.j;
-        if (xo6Var2 != null) {
-            xo6Var2.a(1, this.k);
+        gq6 gq6Var2 = this.j;
+        if (gq6Var2 != null) {
+            gq6Var2.a(1, this.k);
         }
     }
 
-    public final void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, this);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031a, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ad);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906bb);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906b7);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906af);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ae);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906b2);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906c5);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906bd);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906bc);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906c0);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906b5);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906c3);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -408,14 +442,14 @@ public class HeaderComponentSingleView extends FrameLayout implements yo6 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906b1);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906bf);
             this.h = tbImageAutoSwitch;
-            int i = m;
-            tbImageAutoSwitch.l(4, i, i, n);
+            int i = n;
+            tbImageAutoSwitch.l(4, i, i, o);
             this.h.setAnimationDuration(500);
             this.h.setCarouselDelayPeriod(2000);
             this.h.setCarouselPeriod(2000);
-            this.h.setAdapter(this.l);
+            this.h.setAdapter(this.m);
         }
     }
 }

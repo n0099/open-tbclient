@@ -2,6 +2,7 @@ package com.baidu.searchbox.anr.impl;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class ANRInfo {
     public String mStackTrace;
     public String mTimeStamp;
     public String mTracesPath;
-    public LinkedList mTrackUIs;
+    public LinkedList<TrackUI> mTrackUIs;
     public String mType;
 
     public ANRInfo(String str, String str2, String str3, String str4, String str5) {
@@ -108,7 +109,7 @@ public class ANRInfo {
         return (String) invokeV.objValue;
     }
 
-    public LinkedList getTrackUIs() {
+    public LinkedList<TrackUI> getTrackUIs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -175,7 +176,7 @@ public class ANRInfo {
         }
     }
 
-    public void setTrackUIs(LinkedList linkedList) {
+    public void setTrackUIs(LinkedList<TrackUI> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, linkedList) == null) {
             this.mTrackUIs = linkedList;

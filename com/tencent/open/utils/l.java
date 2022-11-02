@@ -1,5 +1,6 @@
 package com.tencent.open.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.ContentUris;
@@ -95,7 +96,7 @@ public class l {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -436,6 +437,7 @@ public class l {
         return invokeL.booleanValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static String a(Context context, Uri uri) {
         InterceptResult invokeLL;
         boolean z;
@@ -583,7 +585,7 @@ public class l {
         return (String) invokeLLLL.objValue;
     }
 
-    public static String a(Map map, String str, String str2) {
+    public static String a(Map<String, Object> map, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, map, str, str2)) == null) {
@@ -1082,7 +1084,7 @@ public class l {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Map map, String str, boolean z) {
+    public static boolean a(Map<String, Object> map, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65558, null, map, str, z)) == null) {

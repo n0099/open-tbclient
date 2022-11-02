@@ -3,9 +3,10 @@ package com.baidu.adp.framework.task;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cc;
+import com.baidu.tieba.bc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,16 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HttpMessageTask extends MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cc mConnectTimeOut;
+    public bc mConnectTimeOut;
     public boolean mIsImm;
     public HTTP_METHOD mMethod;
     public boolean mNeedGzip;
-    public Class mResponsedClass;
+    public Class<? extends HttpResponsedMessage> mResponsedClass;
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class HTTP_METHOD {
+    public static final class HTTP_METHOD {
         public static final /* synthetic */ HTTP_METHOD[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final HTTP_METHOD GET;
@@ -139,13 +140,13 @@ public class HttpMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public cc getConnectTimeOut() {
+    public bc getConnectTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mConnectTimeOut;
         }
-        return (cc) invokeV.objValue;
+        return (bc) invokeV.objValue;
     }
 
     public boolean getIsImm() {
@@ -166,7 +167,7 @@ public class HttpMessageTask extends MessageTask {
         return (HTTP_METHOD) invokeV.objValue;
     }
 
-    public Class getResponsedClass() {
+    public Class<? extends HttpResponsedMessage> getResponsedClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -193,10 +194,10 @@ public class HttpMessageTask extends MessageTask {
         return invokeV.booleanValue;
     }
 
-    public void setConnectTimeOut(cc ccVar) {
+    public void setConnectTimeOut(bc bcVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ccVar) == null) {
-            this.mConnectTimeOut = ccVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bcVar) == null) {
+            this.mConnectTimeOut = bcVar;
         }
     }
 
@@ -221,7 +222,7 @@ public class HttpMessageTask extends MessageTask {
         }
     }
 
-    public void setResponsedClass(Class cls) {
+    public void setResponsedClass(Class<? extends HttpResponsedMessage> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cls) == null) {
             this.mResponsedClass = cls;

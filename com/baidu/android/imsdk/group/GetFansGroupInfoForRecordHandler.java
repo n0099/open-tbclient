@@ -46,10 +46,10 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
     public void getChatObjectInfo(long j, CallBack callBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(String.valueOf(j));
             LogUtils.d(TAG, "getChatObjectInfo " + j);
-            GroupManagerImpl.getInstance(this.mContext).getFansGroupInfo(arrayList, true, new BIMValueCallBack(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetFansGroupInfoForRecordHandler.1
+            GroupManagerImpl.getInstance(this.mContext).getFansGroupInfo(arrayList, true, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetFansGroupInfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GetFansGroupInfoForRecordHandler this$0;
@@ -78,7 +78,7 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i, String str, ArrayList arrayList2) {
+                public void onResult(int i, String str, ArrayList<GroupInfo> arrayList2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList2) != null) || i != 0) {
                         return;

@@ -32,7 +32,7 @@ public final class VorbisReader extends StreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class VorbisSetup {
+    public static final class VorbisSetup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final VorbisUtil.CommentHeader commentHeader;

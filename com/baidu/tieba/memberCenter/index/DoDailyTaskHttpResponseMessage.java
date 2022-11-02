@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
+import tbclient.DoDailyTask.ButtonItem;
 import tbclient.DoDailyTask.DataRes;
 import tbclient.DoDailyTask.DialogItem;
 import tbclient.DoDailyTask.DoDailyTaskResIdl;
@@ -17,7 +18,7 @@ import tbclient.Error;
 public class DoDailyTaskHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List buttonItems;
+    public List<ButtonItem> buttonItems;
     public String content;
     public int isFinished;
     public int needDialog;

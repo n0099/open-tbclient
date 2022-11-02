@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.provider;
 /* loaded from: classes8.dex */
-public interface Provider {
-    Object generate(MessageConfig messageConfig);
+public interface Provider<T> {
+    T generate(MessageConfig messageConfig);
 }

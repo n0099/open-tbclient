@@ -1,5 +1,7 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,42 +13,42 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class LruCache {
+public class LruCache<T, Y> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map cache;
+    public final Map<T, Entry<Y>> cache;
     public long currentSize;
     public final long initialMaxSize;
     public long maxSize;
 
-    public int getSize(Object obj) {
+    public int getSize(@Nullable Y y) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, y)) == null) {
             return 1;
         }
         return invokeL.intValue;
     }
 
-    public void onItemEvicted(Object obj, Object obj2) {
+    public void onItemEvicted(@NonNull T t, @Nullable Y y) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, obj, obj2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, t, y) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public final class Entry {
+    public static final class Entry<Y> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int size;
-        public final Object value;
+        public final Y value;
 
-        public Entry(Object obj, int i) {
+        public Entry(Y y, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, Integer.valueOf(i)};
+                Object[] objArr = {y, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -56,7 +58,7 @@ public class LruCache {
                     return;
                 }
             }
-            this.value = obj;
+            this.value = y;
             this.size = i;
         }
     }
@@ -86,13 +88,13 @@ public class LruCache {
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             synchronized (this) {
                 while (this.currentSize > j) {
-                    Iterator it = this.cache.entrySet().iterator();
-                    Map.Entry entry = (Map.Entry) it.next();
-                    Entry entry2 = (Entry) entry.getValue();
-                    this.currentSize -= entry2.size;
-                    Object key = entry.getKey();
+                    Iterator<Map.Entry<T, Entry<Y>>> it = this.cache.entrySet().iterator();
+                    Map.Entry<T, Entry<Y>> next = it.next();
+                    Entry<Y> value = next.getValue();
+                    this.currentSize -= value.size;
+                    T key = next.getKey();
                     it.remove();
-                    onItemEvicted(key, entry2.value);
+                    onItemEvicted(key, value.value);
                 }
             }
         }
@@ -151,51 +153,53 @@ public class LruCache {
         return invokeV.longValue;
     }
 
-    public synchronized boolean contains(Object obj) {
+    public synchronized boolean contains(@NonNull T t) {
         InterceptResult invokeL;
         boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
             synchronized (this) {
-                containsKey = this.cache.containsKey(obj);
+                containsKey = this.cache.containsKey(t);
             }
             return containsKey;
         }
         return invokeL.booleanValue;
     }
 
-    public synchronized Object get(Object obj) {
+    @Nullable
+    public synchronized Y get(@NonNull T t) {
         InterceptResult invokeL;
-        Object obj2;
+        Y y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
             synchronized (this) {
-                Entry entry = (Entry) this.cache.get(obj);
+                Entry<Y> entry = this.cache.get(t);
                 if (entry != null) {
-                    obj2 = entry.value;
+                    y = entry.value;
                 } else {
-                    obj2 = null;
+                    y = null;
                 }
             }
-            return obj2;
+            return y;
         }
-        return invokeL.objValue;
+        return (Y) invokeL.objValue;
     }
 
-    public synchronized Object remove(Object obj) {
+    @Nullable
+    public synchronized Y remove(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
             synchronized (this) {
-                Entry entry = (Entry) this.cache.remove(obj);
-                if (entry == null) {
+                Entry<Y> remove = this.cache.remove(t);
+                if (remove == null) {
                     return null;
                 }
-                this.currentSize -= entry.size;
-                return entry.value;
+                this.currentSize -= remove.size;
+                return remove.value;
             }
         }
-        return invokeL.objValue;
+        return (Y) invokeL.objValue;
     }
 
     public synchronized void setSizeMultiplier(float f) {
@@ -212,42 +216,43 @@ public class LruCache {
         }
     }
 
-    public synchronized Object put(Object obj, Object obj2) {
+    @Nullable
+    public synchronized Y put(@NonNull T t, @Nullable Y y) {
         InterceptResult invokeLL;
-        Entry entry;
+        Entry<Y> entry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t, y)) == null) {
             synchronized (this) {
-                int size = getSize(obj2);
+                int size = getSize(y);
                 long j = size;
-                Object obj3 = null;
+                Y y2 = null;
                 if (j >= this.maxSize) {
-                    onItemEvicted(obj, obj2);
+                    onItemEvicted(t, y);
                     return null;
                 }
-                if (obj2 != null) {
+                if (y != null) {
                     this.currentSize += j;
                 }
-                Map map = this.cache;
-                if (obj2 == null) {
+                Map<T, Entry<Y>> map = this.cache;
+                if (y == null) {
                     entry = null;
                 } else {
-                    entry = new Entry(obj2, size);
+                    entry = new Entry<>(y, size);
                 }
-                Entry entry2 = (Entry) map.put(obj, entry);
-                if (entry2 != null) {
-                    this.currentSize -= entry2.size;
-                    if (!entry2.value.equals(obj2)) {
-                        onItemEvicted(obj, entry2.value);
+                Entry<Y> put = map.put(t, entry);
+                if (put != null) {
+                    this.currentSize -= put.size;
+                    if (!put.value.equals(y)) {
+                        onItemEvicted(t, put.value);
                     }
                 }
                 evict();
-                if (entry2 != null) {
-                    obj3 = entry2.value;
+                if (put != null) {
+                    y2 = put.value;
                 }
-                return obj3;
+                return y2;
             }
         }
-        return invokeLL.objValue;
+        return (Y) invokeLL.objValue;
     }
 }

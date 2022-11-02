@@ -1,5 +1,6 @@
 package androidx.media2.session;
 
+import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -26,6 +27,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Surface;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.concurrent.futures.AbstractResolvableFuture;
 import androidx.concurrent.futures.ResolvableFuture;
 import androidx.core.util.ObjectsCompat;
@@ -67,11 +71,14 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     public static final SessionResult RESULT_WHEN_CLOSED;
     public static final Object STATIC_LOCK;
     public static final String TAG = "MSImplBase";
+    @GuardedBy("STATIC_LOCK")
     public static boolean sComponentNamesInitialized;
+    @GuardedBy("STATIC_LOCK")
     public static ComponentName sServiceComponentName;
     public transient /* synthetic */ FieldHolder $fh;
     public final AudioManager mAudioManager;
     public final BroadcastReceiver mBroadcastReceiver;
+    @GuardedBy("mLock")
     public MediaBrowserServiceCompat mBrowserServiceLegacyStub;
     public final MediaSession.SessionCallback mCallback;
     public final Executor mCallbackExecutor;
@@ -81,7 +88,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     public final MediaSession mInstance;
     public final Object mLock;
     public final PendingIntent mMediaButtonIntent;
+    @GuardedBy("mLock")
     public MediaController.PlaybackInfo mPlaybackInfo;
+    @GuardedBy("mLock")
     public SessionPlayer mPlayer;
     public final SessionPlayerCallback mPlayerCallback;
     public final PendingIntent mSessionActivity;
@@ -91,12 +100,14 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     public final MediaSessionStub mSessionStub;
     public final SessionToken mSessionToken;
     public final Uri mSessionUri;
+    @Nullable
+    @GuardedBy("mLock")
     public VolumeProviderCompat mVolumeProviderCompat;
 
     @FunctionalInterface
     /* loaded from: classes.dex */
-    public interface PlayerTask {
-        Object run(SessionPlayer sessionPlayer) throws Exception;
+    public interface PlayerTask<T> {
+        T run(@NonNull SessionPlayer sessionPlayer) throws Exception;
     }
 
     @FunctionalInterface
@@ -106,7 +117,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public void updatePlayer(SessionPlayer sessionPlayer, SessionPlayer sessionPlayer2) {
+    public void updatePlayer(@NonNull SessionPlayer sessionPlayer, @Nullable SessionPlayer sessionPlayer2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048643, this, sessionPlayer, sessionPlayer2) == null) {
         }
@@ -171,17 +182,17 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 int i4 = 0;
                                 try {
-                                    BaseResult baseResult = (BaseResult) this.this$0.mFutures[this.val$cur].get();
-                                    int resultCode = baseResult.getResultCode();
+                                    T t = this.this$0.mFutures[this.val$cur].get();
+                                    int resultCode = t.getResultCode();
                                     if (resultCode != 0 && resultCode != 1) {
                                         for (int i5 = 0; i5 < this.this$0.mFutures.length; i5++) {
                                             if (!this.this$0.mFutures[i5].isCancelled() && !this.this$0.mFutures[i5].isDone() && this.val$cur != i5) {
                                                 this.this$0.mFutures[i5].cancel(true);
                                             }
                                         }
-                                        this.this$0.set(baseResult);
+                                        this.this$0.set(t);
                                     } else if (this.this$0.mSuccessCount.incrementAndGet() == this.this$0.mFutures.length) {
-                                        this.this$0.set(baseResult);
+                                        this.this$0.set(t);
                                     }
                                 } catch (Exception e) {
                                     while (true) {
@@ -278,7 +289,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.MediaItem.OnMetadataChangedListener
-        public void onMetadataChanged(MediaItem mediaItem, MediaMetadata mediaMetadata) {
+        public void onMetadataChanged(@NonNull MediaItem mediaItem, MediaMetadata mediaMetadata) {
             MediaSessionImplBase mediaSessionImplBase;
             List<MediaItem> playlist;
             Interceptable interceptable = $ic;
@@ -356,7 +367,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
             this.mPlaylistItemChangedListener = new PlaylistItemListener(mediaSessionImplBase);
         }
 
-        private void dispatchRemoteControllerTask(SessionPlayer sessionPlayer, RemoteControllerTask remoteControllerTask) {
+        private void dispatchRemoteControllerTask(@NonNull SessionPlayer sessionPlayer, @NonNull RemoteControllerTask remoteControllerTask) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(65537, this, sessionPlayer, remoteControllerTask) == null) && (session = getSession()) != null && sessionPlayer != null && session.getPlayer() == sessionPlayer) {
@@ -365,7 +376,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.MediaItem.OnMetadataChangedListener
-        public void onMetadataChanged(MediaItem mediaItem, MediaMetadata mediaMetadata) {
+        public void onMetadataChanged(@NonNull MediaItem mediaItem, @Nullable MediaMetadata mediaMetadata) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048579, this, mediaItem, mediaMetadata) == null) && (session = getSession()) != null && !updateCurrentMediaItemMetadataWithDuration(session.getPlayer(), mediaItem, mediaMetadata)) {
@@ -374,7 +385,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onPlaybackSpeedChanged(SessionPlayer sessionPlayer, float f) {
+        public void onPlaybackSpeedChanged(@NonNull SessionPlayer sessionPlayer, float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(1048581, this, sessionPlayer, f) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, sessionPlayer, f) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.3
@@ -416,7 +427,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onPlaylistMetadataChanged(SessionPlayer sessionPlayer, MediaMetadata mediaMetadata) {
+        public void onPlaylistMetadataChanged(@NonNull SessionPlayer sessionPlayer, MediaMetadata mediaMetadata) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sessionPlayer, mediaMetadata) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, mediaMetadata) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.6
@@ -456,7 +467,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onRepeatModeChanged(SessionPlayer sessionPlayer, int i) {
+        public void onRepeatModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048585, this, sessionPlayer, i) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, i, getSession()) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.7
@@ -498,7 +509,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onSeekCompleted(SessionPlayer sessionPlayer, long j) {
+        public void onSeekCompleted(@NonNull SessionPlayer sessionPlayer, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048586, this, sessionPlayer, j) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, sessionPlayer, j) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.4
@@ -540,7 +551,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onShuffleModeChanged(SessionPlayer sessionPlayer, int i) {
+        public void onShuffleModeChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048587, this, sessionPlayer, i) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, i, getSession()) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.8
@@ -582,7 +593,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onTrackDeselected(SessionPlayer sessionPlayer, SessionPlayer.TrackInfo trackInfo) {
+        public void onTrackDeselected(@NonNull SessionPlayer sessionPlayer, @NonNull SessionPlayer.TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048589, this, sessionPlayer, trackInfo) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, trackInfo) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.13
@@ -622,7 +633,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onTrackSelected(SessionPlayer sessionPlayer, SessionPlayer.TrackInfo trackInfo) {
+        public void onTrackSelected(@NonNull SessionPlayer sessionPlayer, @NonNull SessionPlayer.TrackInfo trackInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048590, this, sessionPlayer, trackInfo) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, trackInfo) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.12
@@ -662,7 +673,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onTracksChanged(SessionPlayer sessionPlayer, List<SessionPlayer.TrackInfo> list) {
+        public void onTracksChanged(@NonNull SessionPlayer sessionPlayer, @NonNull List<SessionPlayer.TrackInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048591, this, sessionPlayer, list) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, list, getSession()) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.11
@@ -704,7 +715,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onVideoSizeChanged(SessionPlayer sessionPlayer, VideoSize videoSize) {
+        public void onVideoSizeChanged(@NonNull SessionPlayer sessionPlayer, @NonNull VideoSize videoSize) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048592, this, sessionPlayer, videoSize) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, videoSize) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.10
@@ -756,7 +767,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
             return (MediaSessionImplBase) invokeV.objValue;
         }
 
-        private void notifyCurrentMediaItemChanged(MediaItem mediaItem) {
+        private void notifyCurrentMediaItemChanged(@Nullable MediaItem mediaItem) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(65539, this, mediaItem) != null) || (session = getSession()) == null) {
@@ -799,7 +810,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
             });
         }
 
-        private boolean updateCurrentMediaItemMetadataWithDuration(SessionPlayer sessionPlayer) {
+        private boolean updateCurrentMediaItemMetadataWithDuration(@NonNull SessionPlayer sessionPlayer) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, sessionPlayer)) == null) {
@@ -813,7 +824,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onPlaybackCompleted(SessionPlayer sessionPlayer) {
+        public void onPlaybackCompleted(@NonNull SessionPlayer sessionPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, sessionPlayer) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.9
@@ -850,7 +861,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
             }
         }
 
-        private boolean updateCurrentMediaItemMetadataWithDuration(SessionPlayer sessionPlayer, MediaItem mediaItem, MediaMetadata mediaMetadata) {
+        private boolean updateCurrentMediaItemMetadataWithDuration(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem, @Nullable MediaMetadata mediaMetadata) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, sessionPlayer, mediaItem, mediaMetadata)) == null) {
@@ -881,7 +892,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onAudioAttributesChanged(SessionPlayer sessionPlayer, AudioAttributesCompat audioAttributesCompat) {
+        public void onAudioAttributesChanged(@NonNull SessionPlayer sessionPlayer, AudioAttributesCompat audioAttributesCompat) {
             MediaSessionImplBase session;
             MediaController.PlaybackInfo playbackInfo;
             AudioAttributesCompat audioAttributes;
@@ -911,7 +922,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onCurrentMediaItemChanged(SessionPlayer sessionPlayer, MediaItem mediaItem) {
+        public void onCurrentMediaItemChanged(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sessionPlayer, mediaItem) == null) && (session = getSession()) != null && sessionPlayer != null && session.getPlayer() == sessionPlayer) {
@@ -935,7 +946,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onBufferingStateChanged(SessionPlayer sessionPlayer, MediaItem mediaItem, int i) {
+        public void onBufferingStateChanged(@NonNull SessionPlayer sessionPlayer, MediaItem mediaItem, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionPlayer, mediaItem, i) == null) {
                 updateCurrentMediaItemMetadataWithDuration(sessionPlayer);
@@ -980,7 +991,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onPlayerStateChanged(SessionPlayer sessionPlayer, int i) {
+        public void onPlayerStateChanged(@NonNull SessionPlayer sessionPlayer, int i) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048582, this, sessionPlayer, i) == null) && (session = getSession()) != null && sessionPlayer != null && session.getPlayer() == sessionPlayer) {
@@ -1025,7 +1036,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.session.RemoteSessionPlayer.Callback
-        public void onVolumeChanged(RemoteSessionPlayer remoteSessionPlayer, int i) {
+        public void onVolumeChanged(@NonNull RemoteSessionPlayer remoteSessionPlayer, int i) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLI(1048593, this, remoteSessionPlayer, i) != null) || (session = getSession()) == null) {
@@ -1049,7 +1060,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onPlaylistChanged(SessionPlayer sessionPlayer, List<MediaItem> list, MediaMetadata mediaMetadata) {
+        public void onPlaylistChanged(@NonNull SessionPlayer sessionPlayer, List<MediaItem> list, MediaMetadata mediaMetadata) {
             MediaSessionImplBase session;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(1048583, this, sessionPlayer, list, mediaMetadata) == null) && (session = getSession()) != null && sessionPlayer != null && session.getPlayer() == sessionPlayer) {
@@ -1107,7 +1118,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
 
         @Override // androidx.media2.common.SessionPlayer.PlayerCallback
-        public void onSubtitleData(SessionPlayer sessionPlayer, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) {
+        public void onSubtitleData(@NonNull SessionPlayer sessionPlayer, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048588, this, sessionPlayer, mediaItem, trackInfo, subtitleData) == null) {
                 dispatchRemoteControllerTask(sessionPlayer, new RemoteControllerTask(this, mediaItem, trackInfo, subtitleData) { // from class: androidx.media2.session.MediaSessionImplBase.SessionPlayerCallback.14
@@ -1170,6 +1181,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public List<MediaSession.ControllerInfo> getConnectedControllers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1274,7 +1286,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         this.mSessionCompat.setActive(true);
     }
 
-    public static VolumeProviderCompat createVolumeProviderCompat(RemoteSessionPlayer remoteSessionPlayer) {
+    public static VolumeProviderCompat createVolumeProviderCompat(@NonNull RemoteSessionPlayer remoteSessionPlayer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, remoteSessionPlayer)) == null) {
@@ -1325,7 +1337,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (VolumeProviderCompat) invokeL.objValue;
     }
 
-    private ListenableFuture<SessionPlayer.PlayerResult> dispatchPlayerTask(PlayerTask<ListenableFuture<SessionPlayer.PlayerResult>> playerTask) {
+    private ListenableFuture<SessionPlayer.PlayerResult> dispatchPlayerTask(@NonNull PlayerTask<ListenableFuture<SessionPlayer.PlayerResult>> playerTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, playerTask)) == null) {
@@ -1336,7 +1348,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    public static int getLegacyStreamType(AudioAttributesCompat audioAttributesCompat) {
+    public static int getLegacyStreamType(@Nullable AudioAttributesCompat audioAttributesCompat) {
         InterceptResult invokeL;
         int legacyStreamType;
         Interceptable interceptable = $ic;
@@ -1380,8 +1392,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1425,8 +1438,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public SessionPlayer.TrackInfo run(SessionPlayer sessionPlayer) throws Exception {
+                public SessionPlayer.TrackInfo run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1440,7 +1454,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public boolean isConnected(MediaSession.ControllerInfo controllerInfo) {
+    public boolean isConnected(@NonNull MediaSession.ControllerInfo controllerInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, controllerInfo)) == null) {
@@ -1455,7 +1469,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return invokeL.booleanValue;
     }
 
-    public boolean isInPlaybackState(SessionPlayer sessionPlayer) {
+    public boolean isInPlaybackState(@NonNull SessionPlayer sessionPlayer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, sessionPlayer)) == null) {
@@ -1538,8 +1552,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                    public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                    public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1588,8 +1603,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1633,8 +1649,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1656,7 +1673,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaInterface.SessionPlaylistControl
-    public ListenableFuture<SessionPlayer.PlayerResult> setMediaItem(MediaItem mediaItem) {
+    public ListenableFuture<SessionPlayer.PlayerResult> setMediaItem(@NonNull MediaItem mediaItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, mediaItem)) == null) {
@@ -1687,8 +1704,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                    public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                    public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1734,8 +1752,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1779,8 +1798,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1824,8 +1844,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1869,8 +1890,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1915,8 +1937,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                    public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                    public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1935,7 +1958,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaInterface.SessionPlaylistControl
-    public ListenableFuture<SessionPlayer.PlayerResult> updatePlaylistMetadata(MediaMetadata mediaMetadata) {
+    public ListenableFuture<SessionPlayer.PlayerResult> updatePlaylistMetadata(@Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, mediaMetadata)) == null) {
@@ -1965,8 +1988,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -1979,7 +2003,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ListenableFuture) invokeL.objValue;
     }
 
-    private <T> T dispatchPlayerTask(PlayerTask<T> playerTask, T t) {
+    private <T> T dispatchPlayerTask(@NonNull PlayerTask<T> playerTask, T t) {
         InterceptResult invokeLL;
         SessionPlayer sessionPlayer;
         Interceptable interceptable = $ic;
@@ -1989,9 +2013,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
             }
             try {
                 if (!isClosed()) {
-                    T t2 = (T) playerTask.run(sessionPlayer);
-                    if (t2 != null) {
-                        return t2;
+                    T run = playerTask.run(sessionPlayer);
+                    if (run != null) {
+                        return run;
                     }
                 } else if (DEBUG) {
                     Log.d(TAG, "API calls after the close()", new IllegalStateException());
@@ -2014,7 +2038,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public void setAllowedCommands(MediaSession.ControllerInfo controllerInfo, SessionCommandGroup sessionCommandGroup) {
+    public void setAllowedCommands(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull SessionCommandGroup sessionCommandGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048630, this, controllerInfo, sessionCommandGroup) == null) {
             if (this.mSessionStub.getConnectedControllersManager().isConnected(controllerInfo)) {
@@ -2058,7 +2082,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
     }
 
-    private ListenableFuture<SessionResult> dispatchRemoteControllerTask(MediaSession.ControllerInfo controllerInfo, RemoteControllerTask remoteControllerTask) {
+    private ListenableFuture<SessionResult> dispatchRemoteControllerTask(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull RemoteControllerTask remoteControllerTask) {
         InterceptResult invokeLL;
         SequencedFutureManager.SequencedFuture sequencedFuture;
         Interceptable interceptable = $ic;
@@ -2088,7 +2112,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ListenableFuture) invokeLL.objValue;
     }
 
-    public void dispatchRemoteControllerTaskWithoutReturn(MediaSession.ControllerInfo controllerInfo, RemoteControllerTask remoteControllerTask) {
+    public void dispatchRemoteControllerTaskWithoutReturn(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull RemoteControllerTask remoteControllerTask) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, controllerInfo, remoteControllerTask) == null) {
@@ -2114,6 +2138,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         }
     }
 
+    @Nullable
     private MediaItem getCurrentMediaItemOrNull() {
         InterceptResult invokeV;
         SessionPlayer sessionPlayer;
@@ -2130,6 +2155,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (MediaItem) invokeV.objValue;
     }
 
+    @Nullable
     private List<MediaItem> getPlaylistOrNull() {
         InterceptResult invokeV;
         SessionPlayer sessionPlayer;
@@ -2175,8 +2201,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Long run(SessionPlayer sessionPlayer) throws Exception {
+                public Long run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2221,8 +2248,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2294,8 +2322,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public MediaItem run(SessionPlayer sessionPlayer) throws Exception {
+                public MediaItem run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2337,8 +2366,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2380,8 +2410,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Long run(SessionPlayer sessionPlayer) throws Exception {
+                public Long run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2426,8 +2457,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Long run(SessionPlayer sessionPlayer) throws Exception {
+                public Long run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2444,6 +2476,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2454,6 +2487,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public MediaSession getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2505,8 +2539,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2562,8 +2597,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Float run(SessionPlayer sessionPlayer) throws Exception {
+                public Float run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2580,6 +2616,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public SessionPlayer getPlayer() {
         InterceptResult invokeV;
         SessionPlayer sessionPlayer;
@@ -2622,8 +2659,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2666,7 +2704,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public List<MediaItem> run(SessionPlayer sessionPlayer) throws Exception {
+                public List<MediaItem> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionPlayer)) == null) {
@@ -2708,8 +2746,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public MediaMetadata run(SessionPlayer sessionPlayer) throws Exception {
+                public MediaMetadata run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2751,8 +2790,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2794,8 +2834,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2857,8 +2898,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public Integer run(SessionPlayer sessionPlayer) throws Exception {
+                public Integer run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -2872,6 +2914,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public SessionToken getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2911,7 +2954,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public List<SessionPlayer.TrackInfo> run(SessionPlayer sessionPlayer) throws Exception {
+                public List<SessionPlayer.TrackInfo> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionPlayer)) == null) {
@@ -2925,6 +2968,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
+    @NonNull
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2963,8 +3007,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public VideoSize run(SessionPlayer sessionPlayer) {
+                public VideoSize run(@NonNull SessionPlayer sessionPlayer) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3016,8 +3061,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3059,8 +3105,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3110,8 +3157,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3153,8 +3201,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3196,8 +3245,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3210,7 +3260,8 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ListenableFuture) invokeV.objValue;
     }
 
-    private ComponentName getServiceComponentByAction(String str) {
+    @Nullable
+    private ComponentName getServiceComponentByAction(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, str)) == null) {
@@ -3227,6 +3278,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ComponentName) invokeL.objValue;
     }
 
+    @SuppressLint({"WrongConstant"})
     private void notifyPlayerUpdatedNotLocked(SessionPlayer sessionPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, sessionPlayer) == null) {
@@ -3537,7 +3589,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaInterface.SessionPlaylistControl
-    public ListenableFuture<SessionPlayer.PlayerResult> addPlaylistItem(int i, MediaItem mediaItem) {
+    public ListenableFuture<SessionPlayer.PlayerResult> addPlaylistItem(int i, @NonNull MediaItem mediaItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, mediaItem)) == null) {
@@ -3571,8 +3623,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Can't rename method to resolve collision */
                         @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                        public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                        public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3590,7 +3643,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public void broadcastCustomCommand(SessionCommand sessionCommand, Bundle bundle) {
+    public void broadcastCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionCommand, bundle) == null) {
             dispatchRemoteControllerTaskWithoutReturn(new RemoteControllerTask(this, sessionCommand, bundle) { // from class: androidx.media2.session.MediaSessionImplBase.5
@@ -3665,8 +3718,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                    public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                    public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3682,7 +3736,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaInterface.SessionPlaylistControl
-    public ListenableFuture<SessionPlayer.PlayerResult> replacePlaylistItem(int i, MediaItem mediaItem) {
+    public ListenableFuture<SessionPlayer.PlayerResult> replacePlaylistItem(int i, @NonNull MediaItem mediaItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048626, this, i, mediaItem)) == null) {
@@ -3716,8 +3770,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
+                        /* JADX WARN: Can't rename method to resolve collision */
                         @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                        public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                        public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3735,7 +3790,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public ListenableFuture<SessionResult> setCustomLayout(MediaSession.ControllerInfo controllerInfo, List<MediaSession.CommandButton> list) {
+    public ListenableFuture<SessionResult> setCustomLayout(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull List<MediaSession.CommandButton> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048631, this, controllerInfo, list)) == null) {
@@ -3777,7 +3832,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaInterface.SessionPlaylistControl
-    public ListenableFuture<SessionPlayer.PlayerResult> setPlaylist(List<MediaItem> list, MediaMetadata mediaMetadata) {
+    public ListenableFuture<SessionPlayer.PlayerResult> setPlaylist(@NonNull List<MediaItem> list, @Nullable MediaMetadata mediaMetadata) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048635, this, list, mediaMetadata)) == null) {
@@ -3810,8 +3865,9 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX WARN: Can't rename method to resolve collision */
                     @Override // androidx.media2.session.MediaSessionImplBase.PlayerTask
-                    public ListenableFuture<SessionPlayer.PlayerResult> run(SessionPlayer sessionPlayer) throws Exception {
+                    public ListenableFuture<SessionPlayer.PlayerResult> run(@NonNull SessionPlayer sessionPlayer) throws Exception {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, sessionPlayer)) == null) {
@@ -3888,7 +3944,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public void connectFromService(IMediaController iMediaController, int i, String str, int i2, int i3, Bundle bundle) {
+    public void connectFromService(IMediaController iMediaController, int i, String str, int i2, int i3, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{iMediaController, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             this.mSessionStub.connect(iMediaController, i, str, i2, i3, bundle);
@@ -3905,7 +3961,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public ListenableFuture<SessionResult> sendCustomCommand(MediaSession.ControllerInfo controllerInfo, SessionCommand sessionCommand, Bundle bundle) {
+    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull MediaSession.ControllerInfo controllerInfo, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048629, this, controllerInfo, sessionCommand, bundle)) == null) {
@@ -3948,7 +4004,8 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (ListenableFuture) invokeLLL.objValue;
     }
 
-    public MediaController.PlaybackInfo createPlaybackInfo(SessionPlayer sessionPlayer, AudioAttributesCompat audioAttributesCompat) {
+    @NonNull
+    public MediaController.PlaybackInfo createPlaybackInfo(@NonNull SessionPlayer sessionPlayer, AudioAttributesCompat audioAttributesCompat) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, sessionPlayer, audioAttributesCompat)) == null) {
@@ -3983,7 +4040,7 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
         return (PlaybackStateCompat) invokeV.objValue;
     }
 
-    public void dispatchRemoteControllerTaskWithoutReturn(RemoteControllerTask remoteControllerTask) {
+    public void dispatchRemoteControllerTaskWithoutReturn(@NonNull RemoteControllerTask remoteControllerTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, remoteControllerTask) == null) {
             List<MediaSession.ControllerInfo> connectedControllers = this.mSessionStub.getConnectedControllersManager().getConnectedControllers();
@@ -3999,7 +4056,8 @@ public class MediaSessionImplBase implements MediaSession.MediaSessionImpl {
     }
 
     @Override // androidx.media2.session.MediaSession.MediaSessionImpl
-    public void updatePlayer(SessionPlayer sessionPlayer) {
+    @SuppressLint({"WrongConstant"})
+    public void updatePlayer(@NonNull SessionPlayer sessionPlayer) {
         boolean z;
         SessionPlayer sessionPlayer2;
         Interceptable interceptable = $ic;

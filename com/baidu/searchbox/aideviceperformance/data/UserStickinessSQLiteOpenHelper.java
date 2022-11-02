@@ -29,8 +29,8 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
     public static String TAG = "UserStickinessSQLiteOpenHelper";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isChecked;
-    public ArrayList mBusinessIdListInDB;
-    public List mRegisterIds;
+    public ArrayList<String> mBusinessIdListInDB;
+    public List<String> mRegisterIds;
     public IUserStickinessBusinessDataProvider mUserStickinessHandler;
 
     static {
@@ -84,10 +84,10 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                 return;
             }
         }
-        this.mBusinessIdListInDB = new ArrayList();
+        this.mBusinessIdListInDB = new ArrayList<>();
         this.isChecked = false;
         this.mUserStickinessHandler = iUserStickinessBusinessDataProvider;
-        List registeredBusinessIdsList = iUserStickinessBusinessDataProvider.getRegisteredBusinessIdsList();
+        List<String> registeredBusinessIdsList = iUserStickinessBusinessDataProvider.getRegisteredBusinessIdsList();
         this.mRegisterIds = registeredBusinessIdsList;
         DBTableConfig.UserStickinessDBTable.setRegisterIds(registeredBusinessIdsList);
     }
@@ -102,7 +102,7 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                 getBusinessIdListInDB(sQLiteDatabase);
             }
             for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                String str = (String) this.mRegisterIds.get(i);
+                String str = this.mRegisterIds.get(i);
                 if (!this.mBusinessIdListInDB.contains(str)) {
                     sQLiteDatabase.execSQL("alter table user_stickiness add count_" + str + " long default 0");
                     sQLiteDatabase.execSQL("alter table user_stickiness add first_time_" + str + " long default 0");
@@ -113,11 +113,11 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                 if (i2 >= this.mBusinessIdListInDB.size()) {
                     break;
                 }
-                if (!this.mRegisterIds.contains((String) this.mBusinessIdListInDB.get(i2))) {
+                if (!this.mRegisterIds.contains(this.mBusinessIdListInDB.get(i2))) {
                     sQLiteDatabase.execSQL("alter table user_stickiness rename to user_stickiness_tmp");
                     String str2 = "";
                     for (int i3 = 0; i3 < this.mRegisterIds.size(); i3++) {
-                        String str3 = (String) this.mRegisterIds.get(i3);
+                        String str3 = this.mRegisterIds.get(i3);
                         if (i3 == this.mRegisterIds.size() - 1) {
                             str2 = str2 + COUNT_PREFIX + str3 + "," + FIRST_TIME_PREFIX + str3;
                         } else {
@@ -140,27 +140,27 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         if (interceptable == null || interceptable.invokeL(1048587, this, userStickinessItemModel) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("event_time", Long.valueOf(userStickinessItemModel.timeStamp));
-            HashMap idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
+            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
             for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                String str = (String) this.mRegisterIds.get(i);
+                String str = this.mRegisterIds.get(i);
                 if (idToItemDetailMap.containsKey(str)) {
-                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = (DBItemModel.UserStickinessItemModel.ItemDetailModel) idToItemDetailMap.get(str);
+                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str);
                     contentValues.put(COUNT_PREFIX + str, Integer.valueOf(itemDetailModel.count));
                     contentValues.put(FIRST_TIME_PREFIX + str, Long.valueOf(itemDetailModel.firstTime));
                 } else {
-                    contentValues.put(COUNT_PREFIX + ((String) this.mBusinessIdListInDB.get(i)), (Integer) 0);
-                    contentValues.put(FIRST_TIME_PREFIX + ((String) this.mBusinessIdListInDB.get(i)), (Long) 0L);
+                    contentValues.put(COUNT_PREFIX + this.mBusinessIdListInDB.get(i), (Integer) 0);
+                    contentValues.put(FIRST_TIME_PREFIX + this.mBusinessIdListInDB.get(i), (Long) 0L);
                 }
             }
             DBItemModel.UserStickinessItemModel queryLast = queryLast();
             if (queryLast != null) {
                 String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
-                HashMap idToItemDetailMap2 = queryLast.getIdToItemDetailMap();
+                HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap2 = queryLast.getIdToItemDetailMap();
                 String str2 = "";
                 for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
-                    String str3 = (String) this.mRegisterIds.get(i2);
+                    String str3 = this.mRegisterIds.get(i2);
                     str2 = str2 + COUNT_PREFIX + str3 + "=? AND " + FIRST_TIME_PREFIX + str3 + "=? AND ";
-                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel2 = (DBItemModel.UserStickinessItemModel.ItemDetailModel) idToItemDetailMap2.get(str3);
+                    DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel2 = idToItemDetailMap2.get(str3);
                     int i3 = i2 * 2;
                     strArr[i3] = String.valueOf(itemDetailModel2.count);
                     strArr[i3 + 1] = String.valueOf(itemDetailModel2.firstTime);
@@ -237,12 +237,12 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, userStickinessItemModel) == null) {
             String[] strArr = new String[(this.mRegisterIds.size() * 2) + 1];
-            HashMap idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
+            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
             String str = "";
             for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                String str2 = (String) this.mRegisterIds.get(i);
+                String str2 = this.mRegisterIds.get(i);
                 str = str + COUNT_PREFIX + str2 + "=? AND " + FIRST_TIME_PREFIX + str2 + "=? AND ";
-                DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = (DBItemModel.UserStickinessItemModel.ItemDetailModel) idToItemDetailMap.get(str2);
+                DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str2);
                 int i2 = i * 2;
                 strArr[i2] = String.valueOf(itemDetailModel.count);
                 strArr[i2 + 1] = String.valueOf(itemDetailModel.firstTime);
@@ -256,12 +256,12 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, userStickinessItemModel) == null) && this.mUserStickinessHandler != null && this.mRegisterIds != null) {
             ContentValues contentValues = new ContentValues();
-            HashMap idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
+            HashMap<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> idToItemDetailMap = userStickinessItemModel.getIdToItemDetailMap();
             if (this.mRegisterIds != null && idToItemDetailMap != null) {
                 for (int i = 0; i < this.mRegisterIds.size(); i++) {
-                    String str = (String) this.mRegisterIds.get(i);
+                    String str = this.mRegisterIds.get(i);
                     if (idToItemDetailMap.containsKey(str)) {
-                        DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = (DBItemModel.UserStickinessItemModel.ItemDetailModel) idToItemDetailMap.get(str);
+                        DBItemModel.UserStickinessItemModel.ItemDetailModel itemDetailModel = idToItemDetailMap.get(str);
                         contentValues.put(COUNT_PREFIX + str, Integer.valueOf(itemDetailModel.count));
                         contentValues.put(FIRST_TIME_PREFIX + str, Long.valueOf(itemDetailModel.firstTime));
                     } else {
@@ -275,7 +275,7 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         }
     }
 
-    public List queryLast(int i) {
+    public List<DBItemModel.UserStickinessItemModel> queryLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
@@ -289,7 +289,7 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
                             while (cursor.moveToNext()) {
                                 DBItemModel.UserStickinessItemModel userStickinessItemModel = new DBItemModel.UserStickinessItemModel(cursor.getLong(cursor.getColumnIndex("event_time")));
                                 for (int i2 = 0; i2 < this.mRegisterIds.size(); i2++) {
-                                    String str = (String) this.mRegisterIds.get(i2);
+                                    String str = this.mRegisterIds.get(i2);
                                     int i3 = cursor.getInt(cursor.getColumnIndex(COUNT_PREFIX + str));
                                     userStickinessItemModel.putIdToItemDetailMap(str, new DBItemModel.UserStickinessItemModel.ItemDetailModel(i3, cursor.getInt(cursor.getColumnIndex(FIRST_TIME_PREFIX + str))));
                                 }
@@ -350,9 +350,9 @@ public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            List queryLast = queryLast(1);
+            List<DBItemModel.UserStickinessItemModel> queryLast = queryLast(1);
             if (queryLast != null && queryLast.size() > 0) {
-                return (DBItemModel.UserStickinessItemModel) queryLast.get(0);
+                return queryLast.get(0);
             }
             return null;
         }

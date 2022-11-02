@@ -10,6 +10,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -226,6 +227,7 @@ public class ConnectManager {
         return invokeL.booleanValue;
     }
 
+    @RequiresApi(api = 21)
     public static boolean checkVPN(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

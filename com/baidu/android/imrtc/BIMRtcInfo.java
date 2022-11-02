@@ -2,6 +2,7 @@ package com.baidu.android.imrtc;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imrtc.utils.RtcConstants;
@@ -17,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BIMRtcInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BIMRtcInfo> CREATOR;
     public static final String TAG = "IMRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public int mAction;
@@ -51,7 +52,7 @@ public class BIMRtcInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imrtc.BIMRtcInfo.1
+        CREATOR = new Parcelable.Creator<BIMRtcInfo>() { // from class: com.baidu.android.imrtc.BIMRtcInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,6 +71,7 @@ public class BIMRtcInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMRtcInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -81,6 +83,7 @@ public class BIMRtcInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BIMRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
@@ -250,6 +253,7 @@ public class BIMRtcInfo implements Parcelable {
         }
     }
 
+    @NonNull
     public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
@@ -269,6 +273,7 @@ public class BIMRtcInfo implements Parcelable {
         return (BIMRtcInfo) invokeILL.objValue;
     }
 
+    @NonNull
     public String toRtcInfoString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

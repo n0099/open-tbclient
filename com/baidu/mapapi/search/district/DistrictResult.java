@@ -18,12 +18,22 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class DistrictResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DistrictResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng centerPt;
     public int cityCode;
     public String cityName;
-    public List polylines;
+    public List<List<LatLng>> polylines;
+
+    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,6 +69,42 @@ public class DistrictResult extends SearchResult implements Parcelable {
         this.cityName = null;
     }
 
+    public LatLng getCenterPt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.centerPt;
+        }
+        return (LatLng) invokeV.objValue;
+    }
+
+    public int getCityCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.cityCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getCityName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.cityName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<List<LatLng>> getPolylines() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.polylines;
+        }
+        return (List) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DistrictResult(Parcel parcel) {
         super(parcel);
@@ -92,40 +138,6 @@ public class DistrictResult extends SearchResult implements Parcelable {
         this.cityName = parcel.readString();
     }
 
-    @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public LatLng getCenterPt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.centerPt : (LatLng) invokeV.objValue;
-    }
-
-    public int getCityCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cityCode : invokeV.intValue;
-    }
-
-    public String getCityName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cityName : (String) invokeV.objValue;
-    }
-
-    public List getPolylines() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.polylines : (List) invokeV.objValue;
-    }
-
     public void setCenterPt(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, latLng) == null) {
@@ -147,7 +159,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setPolylines(List list) {
+    public void setPolylines(List<List<LatLng>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.polylines = list;
@@ -156,13 +168,19 @@ public class DistrictResult extends SearchResult implements Parcelable {
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
+        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeParcelable(this.centerPt, i);
-            List list = this.polylines;
-            parcel.writeInt(list == null ? 0 : list.size());
-            for (List list2 : this.polylines) {
+            List<List<LatLng>> list = this.polylines;
+            if (list == null) {
+                size = 0;
+            } else {
+                size = list.size();
+            }
+            parcel.writeInt(size);
+            for (List<LatLng> list2 : this.polylines) {
                 parcel.writeTypedList(list2);
             }
             parcel.writeInt(this.cityCode);

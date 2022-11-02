@@ -11,8 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.media.MediaUtils;
+import com.facebook.common.memory.PooledByteBuffer;
+import com.facebook.common.references.CloseableReference;
 import com.facebook.common.webp.WebpSupportStatus;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.AddImageTransformMetaDataProducer;
 import com.facebook.imagepipeline.producers.DiskCacheReadProducer;
 import com.facebook.imagepipeline.producers.DiskCacheWriteProducer;
@@ -32,35 +37,54 @@ import java.util.Map;
 public class ProducerSequenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Producer mBackgroundLocalContentUriFetchToEncodedMemorySequence;
-    public Producer mBackgroundLocalFileFetchToEncodedMemorySequence;
-    public Producer mBackgroundNetworkFetchToEncodedMemorySequence;
-    public Map mBitmapPrepareSequences;
-    public Map mCloseableImagePrefetchSequences;
-    public Producer mCommonNetworkFetchToEncodedMemorySequence;
+    @VisibleForTesting
+    public Producer<EncodedImage> mBackgroundLocalContentUriFetchToEncodedMemorySequence;
+    @VisibleForTesting
+    public Producer<EncodedImage> mBackgroundLocalFileFetchToEncodedMemorySequence;
+    @VisibleForTesting
+    public Producer<EncodedImage> mBackgroundNetworkFetchToEncodedMemorySequence;
+    @VisibleForTesting
+    public Map<Producer<CloseableReference<CloseableImage>>, Producer<CloseableReference<CloseableImage>>> mBitmapPrepareSequences;
+    @VisibleForTesting
+    public Map<Producer<CloseableReference<CloseableImage>>, Producer<Void>> mCloseableImagePrefetchSequences;
+    public Producer<EncodedImage> mCommonNetworkFetchToEncodedMemorySequence;
     public final ContentResolver mContentResolver;
-    public Producer mDataFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mDataFetchSequence;
     public final boolean mDiskCacheEnabled;
     public final boolean mDownsampleEnabled;
     public final ImageTranscoderFactory mImageTranscoderFactory;
     public final boolean mIsDiskCacheProbingEnabled;
     public final boolean mIsEncodedMemoryCacheProbingEnabled;
-    public Producer mLocalAssetFetchSequence;
-    public Producer mLocalContentUriEncodedImageProducerSequence;
-    public Producer mLocalContentUriFetchSequence;
-    public Producer mLocalFileEncodedImageProducerSequence;
-    public Producer mLocalFileFetchToEncodedMemoryPrefetchSequence;
-    public Producer mLocalImageFileFetchSequence;
-    public Producer mLocalResourceFetchSequence;
-    public Producer mLocalVideoFileFetchSequence;
-    public Producer mNetworkEncodedImageProducerSequence;
-    public Producer mNetworkFetchSequence;
-    public Producer mNetworkFetchToEncodedMemoryPrefetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mLocalAssetFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<PooledByteBuffer>> mLocalContentUriEncodedImageProducerSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mLocalContentUriFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<PooledByteBuffer>> mLocalFileEncodedImageProducerSequence;
+    @VisibleForTesting
+    public Producer<Void> mLocalFileFetchToEncodedMemoryPrefetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mLocalImageFileFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mLocalResourceFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mLocalVideoFileFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<PooledByteBuffer>> mNetworkEncodedImageProducerSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mNetworkFetchSequence;
+    @VisibleForTesting
+    public Producer<Void> mNetworkFetchToEncodedMemoryPrefetchSequence;
     public final NetworkFetcher mNetworkFetcher;
     public final boolean mPartialImageCachingEnabled;
-    public Map mPostprocessorSequences;
+    @VisibleForTesting
+    public Map<Producer<CloseableReference<CloseableImage>>, Producer<CloseableReference<CloseableImage>>> mPostprocessorSequences;
     public final ProducerFactory mProducerFactory;
-    public Producer mQualifiedResourceFetchSequence;
+    @VisibleForTesting
+    public Producer<CloseableReference<CloseableImage>> mQualifiedResourceFetchSequence;
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
     public final boolean mUseBitmapPrepareToDraw;
@@ -99,9 +123,9 @@ public class ProducerSequenceFactory {
         this.mIsDiskCacheProbingEnabled = z8;
     }
 
-    private synchronized Producer getBackgroundLocalContentUriFetchToEncodeMemorySequence() {
+    private synchronized Producer<EncodedImage> getBackgroundLocalContentUriFetchToEncodeMemorySequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             synchronized (this) {
@@ -127,9 +151,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getBackgroundLocalFileFetchToEncodeMemorySequence() {
+    private synchronized Producer<EncodedImage> getBackgroundLocalFileFetchToEncodeMemorySequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
@@ -155,9 +179,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getBackgroundNetworkFetchToEncodedMemorySequence() {
+    private synchronized Producer<EncodedImage> getBackgroundNetworkFetchToEncodedMemorySequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<EncodedImage> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
@@ -183,14 +207,14 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getDataFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getDataFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             synchronized (this) {
                 if (this.mDataFetchSequence == null) {
-                    Producer newDataFetchProducer = this.mProducerFactory.newDataFetchProducer();
+                    Producer<EncodedImage> newDataFetchProducer = this.mProducerFactory.newDataFetchProducer();
                     if (WebpSupportStatus.sIsWebpSupportRequired && (!this.mWebpSupportEnabled || WebpSupportStatus.sWebpBitmapFactory == null)) {
                         newDataFetchProducer = this.mProducerFactory.newWebpTranscodeProducer(newDataFetchProducer);
                     }
@@ -203,9 +227,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalFileFetchToEncodedMemoryPrefetchSequence() {
+    private synchronized Producer<Void> getLocalFileFetchToEncodedMemoryPrefetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<Void> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             synchronized (this) {
@@ -231,9 +255,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getNetworkFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getNetworkFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             synchronized (this) {
@@ -259,9 +283,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getNetworkFetchToEncodedMemoryPrefetchSequence() {
+    private synchronized Producer<Void> getNetworkFetchToEncodedMemoryPrefetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<Void> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             synchronized (this) {
@@ -287,7 +311,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    public Producer getLocalContentUriFetchEncodedImageProducerSequence() {
+    public Producer<CloseableReference<PooledByteBuffer>> getLocalContentUriFetchEncodedImageProducerSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -313,7 +337,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    public Producer getLocalFileFetchEncodedImageProducerSequence() {
+    public Producer<CloseableReference<PooledByteBuffer>> getLocalFileFetchEncodedImageProducerSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -339,7 +363,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    public Producer getNetworkFetchEncodedImageProducerSequence() {
+    public Producer<CloseableReference<PooledByteBuffer>> getNetworkFetchEncodedImageProducerSequence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -366,7 +390,7 @@ public class ProducerSequenceFactory {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    private Producer getBasicDecodedImageSequence(ImageRequest imageRequest) {
+    private Producer<CloseableReference<CloseableImage>> getBasicDecodedImageSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, imageRequest)) == null) {
@@ -381,44 +405,44 @@ public class ProducerSequenceFactory {
                 if (sourceUriType != 0) {
                     switch (sourceUriType) {
                         case 2:
-                            Producer localVideoFileFetchSequence = getLocalVideoFileFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> localVideoFileFetchSequence = getLocalVideoFileFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
                             return localVideoFileFetchSequence;
                         case 3:
-                            Producer localImageFileFetchSequence = getLocalImageFileFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> localImageFileFetchSequence = getLocalImageFileFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
                             return localImageFileFetchSequence;
                         case 4:
                             if (MediaUtils.isVideo(this.mContentResolver.getType(sourceUri))) {
-                                Producer localVideoFileFetchSequence2 = getLocalVideoFileFetchSequence();
+                                Producer<CloseableReference<CloseableImage>> localVideoFileFetchSequence2 = getLocalVideoFileFetchSequence();
                                 if (FrescoSystrace.isTracing()) {
                                     FrescoSystrace.endSection();
                                 }
                                 return localVideoFileFetchSequence2;
                             }
-                            Producer localContentUriFetchSequence = getLocalContentUriFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> localContentUriFetchSequence = getLocalContentUriFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
                             return localContentUriFetchSequence;
                         case 5:
-                            Producer localAssetFetchSequence = getLocalAssetFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> localAssetFetchSequence = getLocalAssetFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
                             return localAssetFetchSequence;
                         case 6:
-                            Producer localResourceFetchSequence = getLocalResourceFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> localResourceFetchSequence = getLocalResourceFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
                             return localResourceFetchSequence;
                         case 7:
-                            Producer dataFetchSequence = getDataFetchSequence();
+                            Producer<CloseableReference<CloseableImage>> dataFetchSequence = getDataFetchSequence();
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
                             }
@@ -429,7 +453,7 @@ public class ProducerSequenceFactory {
                             throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + getShortenedUriString(sourceUri));
                     }
                 }
-                Producer networkFetchSequence = getNetworkFetchSequence();
+                Producer<CloseableReference<CloseableImage>> networkFetchSequence = getNetworkFetchSequence();
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
                 }
@@ -443,13 +467,13 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private synchronized Producer getBitmapPrepareSequence(Producer producer) {
+    private synchronized Producer<CloseableReference<CloseableImage>> getBitmapPrepareSequence(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
-        Producer producer2;
+        Producer<CloseableReference<CloseableImage>> producer2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, producer)) == null) {
             synchronized (this) {
-                producer2 = (Producer) this.mBitmapPrepareSequences.get(producer);
+                producer2 = this.mBitmapPrepareSequences.get(producer);
                 if (producer2 == null) {
                     producer2 = this.mProducerFactory.newBitmapPrepareProducer(producer);
                     this.mBitmapPrepareSequences.put(producer, producer2);
@@ -460,30 +484,30 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private synchronized Producer getDecodedImagePrefetchSequence(Producer producer) {
+    private synchronized Producer<Void> getDecodedImagePrefetchSequence(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
-        Producer producer2;
+        Producer<Void> producer2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, producer)) == null) {
             synchronized (this) {
                 if (!this.mCloseableImagePrefetchSequences.containsKey(producer)) {
                     this.mCloseableImagePrefetchSequences.put(producer, ProducerFactory.newSwallowResultProducer(producer));
                 }
-                producer2 = (Producer) this.mCloseableImagePrefetchSequences.get(producer);
+                producer2 = this.mCloseableImagePrefetchSequences.get(producer);
             }
             return producer2;
         }
         return (Producer) invokeL.objValue;
     }
 
-    private Producer newBitmapCacheGetToDecodeSequence(Producer producer) {
+    private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToDecodeSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, producer)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ProducerSequenceFactory#newBitmapCacheGetToDecodeSequence");
             }
-            Producer newBitmapCacheGetToBitmapCacheSequence = newBitmapCacheGetToBitmapCacheSequence(this.mProducerFactory.newDecodeProducer(producer));
+            Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToBitmapCacheSequence = newBitmapCacheGetToBitmapCacheSequence(this.mProducerFactory.newDecodeProducer(producer));
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.endSection();
             }
@@ -492,7 +516,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private Producer newBitmapCacheGetToLocalTransformSequence(Producer producer) {
+    private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToLocalTransformSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, producer)) == null) {
@@ -501,7 +525,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private Producer newLocalThumbnailProducer(ThumbnailProducer[] thumbnailProducerArr) {
+    private Producer<EncodedImage> newLocalThumbnailProducer(ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, this, thumbnailProducerArr)) == null) {
@@ -524,11 +548,11 @@ public class ProducerSequenceFactory {
         }
     }
 
-    public Producer getDecodedImagePrefetchProducerSequence(ImageRequest imageRequest) {
+    public Producer<Void> getDecodedImagePrefetchProducerSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageRequest)) == null) {
-            Producer basicDecodedImageSequence = getBasicDecodedImageSequence(imageRequest);
+            Producer<CloseableReference<CloseableImage>> basicDecodedImageSequence = getBasicDecodedImageSequence(imageRequest);
             if (this.mUseBitmapPrepareToDraw) {
                 basicDecodedImageSequence = getBitmapPrepareSequence(basicDecodedImageSequence);
             }
@@ -537,9 +561,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private synchronized Producer getCommonNetworkFetchToEncodedMemorySequence() {
+    private synchronized Producer<EncodedImage> getCommonNetworkFetchToEncodedMemorySequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<EncodedImage> producer;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
@@ -574,9 +598,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalAssetFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getLocalAssetFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             synchronized (this) {
@@ -590,9 +614,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalImageFileFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getLocalImageFileFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             synchronized (this) {
@@ -606,9 +630,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalResourceFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getLocalResourceFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             synchronized (this) {
@@ -622,9 +646,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalVideoFileFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getLocalVideoFileFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             synchronized (this) {
@@ -638,9 +662,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getQualifiedResourceFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getQualifiedResourceFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
             synchronized (this) {
@@ -654,9 +678,9 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getLocalContentUriFetchSequence() {
+    private synchronized Producer<CloseableReference<CloseableImage>> getLocalContentUriFetchSequence() {
         InterceptResult invokeV;
-        Producer producer;
+        Producer<CloseableReference<CloseableImage>> producer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             synchronized (this) {
@@ -670,16 +694,16 @@ public class ProducerSequenceFactory {
         return (Producer) invokeV.objValue;
     }
 
-    private synchronized Producer getPostprocessorSequence(Producer producer) {
+    private synchronized Producer<CloseableReference<CloseableImage>> getPostprocessorSequence(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
-        Producer producer2;
+        Producer<CloseableReference<CloseableImage>> producer2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, producer)) == null) {
             synchronized (this) {
                 if (!this.mPostprocessorSequences.containsKey(producer)) {
                     this.mPostprocessorSequences.put(producer, this.mProducerFactory.newPostprocessorBitmapMemoryCacheProducer(this.mProducerFactory.newPostprocessorProducer(producer)));
                 }
-                producer2 = (Producer) this.mPostprocessorSequences.get(producer);
+                producer2 = this.mPostprocessorSequences.get(producer);
             }
             return producer2;
         }
@@ -699,7 +723,7 @@ public class ProducerSequenceFactory {
         return (String) invokeL.objValue;
     }
 
-    private Producer newBitmapCacheGetToBitmapCacheSequence(Producer producer) {
+    private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToBitmapCacheSequence(Producer<CloseableReference<CloseableImage>> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, producer)) == null) {
@@ -712,7 +736,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private Producer newDiskCacheSequence(Producer producer) {
+    private Producer<EncodedImage> newDiskCacheSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         DiskCacheWriteProducer newDiskCacheWriteProducer;
         Interceptable interceptable = $ic;
@@ -734,14 +758,14 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    public Producer getDecodedImageProducerSequence(ImageRequest imageRequest) {
+    public Producer<CloseableReference<CloseableImage>> getDecodedImageProducerSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest)) == null) {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("ProducerSequenceFactory#getDecodedImageProducerSequence");
             }
-            Producer basicDecodedImageSequence = getBasicDecodedImageSequence(imageRequest);
+            Producer<CloseableReference<CloseableImage>> basicDecodedImageSequence = getBasicDecodedImageSequence(imageRequest);
             if (imageRequest.getPostprocessor() != null) {
                 basicDecodedImageSequence = getPostprocessorSequence(basicDecodedImageSequence);
             }
@@ -756,7 +780,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    private Producer newBitmapCacheGetToLocalTransformSequence(Producer producer, ThumbnailProducer[] thumbnailProducerArr) {
+    private Producer<CloseableReference<CloseableImage>> newBitmapCacheGetToLocalTransformSequence(Producer<EncodedImage> producer, ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, producer, thumbnailProducerArr)) == null) {
@@ -765,7 +789,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeLL.objValue;
     }
 
-    private Producer newLocalTransformationsSequence(Producer producer, ThumbnailProducer[] thumbnailProducerArr) {
+    private Producer<EncodedImage> newLocalTransformationsSequence(Producer<EncodedImage> producer, ThumbnailProducer<EncodedImage>[] thumbnailProducerArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, producer, thumbnailProducerArr)) == null) {
@@ -774,7 +798,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeLL.objValue;
     }
 
-    private Producer newEncodedCacheMultiplexToTranscodeSequence(Producer producer) {
+    private Producer<EncodedImage> newEncodedCacheMultiplexToTranscodeSequence(Producer<EncodedImage> producer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, producer)) == null) {
@@ -793,7 +817,7 @@ public class ProducerSequenceFactory {
         return (Producer) invokeL.objValue;
     }
 
-    public Producer getEncodedImagePrefetchProducerSequence(ImageRequest imageRequest) {
+    public Producer<Void> getEncodedImagePrefetchProducerSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageRequest)) == null) {
@@ -812,7 +836,7 @@ public class ProducerSequenceFactory {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    public Producer getEncodedImageProducerSequence(ImageRequest imageRequest) {
+    public Producer<CloseableReference<PooledByteBuffer>> getEncodedImageProducerSequence(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imageRequest)) == null) {
@@ -830,13 +854,13 @@ public class ProducerSequenceFactory {
                         }
                         throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + getShortenedUriString(sourceUri));
                     }
-                    Producer localFileFetchEncodedImageProducerSequence = getLocalFileFetchEncodedImageProducerSequence();
+                    Producer<CloseableReference<PooledByteBuffer>> localFileFetchEncodedImageProducerSequence = getLocalFileFetchEncodedImageProducerSequence();
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
                     return localFileFetchEncodedImageProducerSequence;
                 }
-                Producer networkFetchEncodedImageProducerSequence = getNetworkFetchEncodedImageProducerSequence();
+                Producer<CloseableReference<PooledByteBuffer>> networkFetchEncodedImageProducerSequence = getNetworkFetchEncodedImageProducerSequence();
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
                 }

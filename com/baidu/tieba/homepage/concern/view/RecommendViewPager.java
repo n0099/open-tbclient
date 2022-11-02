@@ -3,6 +3,8 @@ package com.baidu.tieba.homepage.concern.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +20,7 @@ public class RecommendViewPager extends ViewPager {
     public float b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendViewPager(Context context) {
+    public RecommendViewPager(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,7 +42,7 @@ public class RecommendViewPager extends ViewPager {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendViewPager(Context context, AttributeSet attributeSet) {
+    public RecommendViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

@@ -1,12 +1,13 @@
 package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.NoProguard;
+import com.baidu.sapi2.result.GetPopularPortraitsInfoResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class GetPopularPortraitsCallback implements SapiCallback, NoProguard {
+public abstract class GetPopularPortraitsCallback implements SapiCallback<GetPopularPortraitsInfoResult>, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

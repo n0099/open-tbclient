@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 import org.aspectj.lang.Signature;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class SignatureImpl implements Signature {
     public static /* synthetic */ Interceptable $ic = null;
     public static Class[] EMPTY_CLASS_ARRAY = null;
@@ -31,7 +31,7 @@ public abstract class SignatureImpl implements Signature {
     public Cache stringCache;
     public String stringRep;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Cache {
         String get(int i);
 
@@ -40,8 +40,8 @@ public abstract class SignatureImpl implements Signature {
 
     public abstract String createToString(StringMaker stringMaker);
 
-    /* loaded from: classes8.dex */
-    public final class CacheImpl implements Cache {
+    /* loaded from: classes9.dex */
+    public static final class CacheImpl implements Cache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SoftReference toStringCacheRef;

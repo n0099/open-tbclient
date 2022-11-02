@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdDatabaseNewCreatedMessage extends CustomResponsedMessage {
+public class BdDatabaseNewCreatedMessage extends CustomResponsedMessage<SQLiteDatabase> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,11 +37,11 @@ public class BdDatabaseNewCreatedMessage extends CustomResponsedMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SQLiteDatabase sQLiteDatabase = (SQLiteDatabase) getData();
-            if (sQLiteDatabase == null) {
+            SQLiteDatabase data = getData();
+            if (data == null) {
                 return null;
             }
-            return sQLiteDatabase.getPath();
+            return data.getPath();
         }
         return (String) invokeV.objValue;
     }

@@ -17,15 +17,15 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SubscriptionInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Action action;
-    public Class eventType;
+    public Action<Object> action;
+    public Class<?> eventType;
     public final Object subscriber;
     public int threadMode;
 
     public static /* synthetic */ void getThreadMode$annotations() {
     }
 
-    public SubscriptionInfo(Object subscriber, Class eventType, int i, Action action) {
+    public SubscriptionInfo(Object subscriber, Class<?> eventType, int i, Action<Object> action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public final class SubscriptionInfo {
         return invokeL.booleanValue;
     }
 
-    public final Action getAction() {
+    public final Action<Object> getAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -74,7 +74,7 @@ public final class SubscriptionInfo {
         return (Action) invokeV.objValue;
     }
 
-    public final Class getEventType() {
+    public final Class<?> getEventType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -110,7 +110,7 @@ public final class SubscriptionInfo {
         return invokeV.intValue;
     }
 
-    public final void setAction(Action action) {
+    public final void setAction(Action<Object> action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, action) == null) {
             Intrinsics.checkNotNullParameter(action, "<set-?>");
@@ -118,7 +118,7 @@ public final class SubscriptionInfo {
         }
     }
 
-    public final void setEventType(Class cls) {
+    public final void setEventType(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cls) == null) {
             Intrinsics.checkNotNullParameter(cls, "<set-?>");

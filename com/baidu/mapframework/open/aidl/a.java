@@ -14,21 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public interface a extends IInterface {
+    void a(b bVar) throws RemoteException;
 
     /* renamed from: com.baidu.mapframework.open.aidl.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public abstract class AbstractBinderC0104a extends Binder implements a {
+    public static abstract class AbstractBinderC0107a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0105a implements a {
+        public static class C0108a implements a {
             public static /* synthetic */ Interceptable $ic;
+            public static a a;
             public transient /* synthetic */ FieldHolder $fh;
-            public IBinder a;
+            public IBinder b;
 
-            public C0105a(IBinder iBinder) {
+            public C0108a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,20 +45,29 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.a = iBinder;
+                this.b = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.a
             public void a(b bVar) throws RemoteException {
+                IBinder iBinder;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IMapOpenService");
-                        obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                        this.a.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
+                        if (bVar != null) {
+                            iBinder = bVar.asBinder();
+                        } else {
+                            iBinder = null;
+                        }
+                        obtain.writeStrongBinder(iBinder);
+                        if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0107a.a() != null) {
+                            AbstractBinderC0107a.a().a(bVar);
+                        } else {
+                            obtain2.readException();
+                        }
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -68,19 +79,34 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return this.b;
+                }
+                return (IBinder) invokeV.objValue;
             }
+        }
+
+        public static a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return C0108a.a;
+            }
+            return (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iBinder)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
                 if (iBinder == null) {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IMapOpenService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0105a(iBinder) : (a) queryLocalInterface;
+                if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
+                    return (a) queryLocalInterface;
+                }
+                return new C0108a(iBinder);
             }
             return (a) invokeL.objValue;
         }
@@ -105,6 +131,4 @@ public interface a extends IInterface {
             return invokeCommon.booleanValue;
         }
     }
-
-    void a(b bVar) throws RemoteException;
 }

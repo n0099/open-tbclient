@@ -1,126 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import android.media.MediaPlayer;
 /* loaded from: classes4.dex */
-public class iy3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public static volatile boolean b;
-    public static volatile List c;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface iy3 extends vx3 {
+    void a(boolean z);
 
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "log" : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
-    }
+    void c(String str) throws Exception;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947869798, "Lcom/baidu/tieba/iy3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947869798, "Lcom/baidu/tieba/iy3;");
-                return;
-            }
-        }
-        c = new ArrayList();
-    }
+    void f(ua4 ua4Var);
 
-    public iy3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void g(MediaPlayer.OnInfoListener onInfoListener);
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (iy3.class) {
-                c = new ArrayList();
-            }
-            b = false;
-        }
-    }
+    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
-            synchronized (iy3.class) {
-                if (c != null) {
-                    for (int i = 0; i < c.size(); i++) {
-                        zo2.U().m("console", (md2) c.get(i));
-                    }
-                    c.clear();
-                    c = null;
-                }
-            }
-            b = true;
-        }
-    }
+    void j(MediaPlayer.OnPreparedListener onPreparedListener);
 
-    public static void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            e(b(i), str);
-        }
-    }
+    void k(MediaPlayer.OnErrorListener onErrorListener);
 
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
-            f(cy3.t(str, str2));
-        }
-    }
+    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
 
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
-            f(cy3.v(str, str2));
-        }
-    }
+    void q(MediaPlayer.OnCompletionListener onCompletionListener);
 
-    public static void f(nd2 nd2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, nd2Var) == null) {
-            if (!b) {
-                synchronized (iy3.class) {
-                    if (c != null) {
-                        c.add(nd2Var);
-                        return;
-                    }
-                }
-            }
-            zo2.U().m("console", nd2Var);
-        }
-    }
+    boolean s();
 
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            a = z;
-            m02.n(z);
-        }
-    }
+    void setVolume(float f);
 }

@@ -2,6 +2,7 @@ package com.kwai.sodler.lib;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class d implements com.kwai.sodler.lib.a.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap axj;
+    public final ConcurrentHashMap<String, com.kwai.sodler.lib.a.a> axj;
     public final Context mContext;
 
     public d(Context context) {
@@ -38,7 +39,7 @@ public final class d implements com.kwai.sodler.lib.a.d {
                 return;
             }
         }
-        this.axj = new ConcurrentHashMap();
+        this.axj = new ConcurrentHashMap<>();
         this.mContext = context.getApplicationContext();
         try {
             ClassLoader classLoader = context.getClassLoader();
@@ -160,7 +161,7 @@ public final class d implements com.kwai.sodler.lib.a.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                com.kwai.sodler.lib.a.a aVar = (com.kwai.sodler.lib.a.a) this.axj.get(str);
+                com.kwai.sodler.lib.a.a aVar = this.axj.get(str);
                 if (aVar != null) {
                     if (!aVar.isLoaded()) {
                         return null;
@@ -173,7 +174,7 @@ public final class d implements com.kwai.sodler.lib.a.d {
     }
 
     @Override // com.kwai.sodler.lib.a.d
-    public final com.kwai.sodler.lib.a.f f(com.kwai.sodler.lib.a.f fVar) {
+    public final com.kwai.sodler.lib.a.f f(@NonNull com.kwai.sodler.lib.a.f fVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar)) == null) {
@@ -185,7 +186,7 @@ public final class d implements com.kwai.sodler.lib.a.d {
                 return fVar;
             }
             fVar.Fw();
-            com.kwai.sodler.lib.a.a aVar = (com.kwai.sodler.lib.a.a) this.axj.get(fVar.getId());
+            com.kwai.sodler.lib.a.a aVar = this.axj.get(fVar.getId());
             if (aVar != null && aVar.isLoaded()) {
                 fVar.c(aVar);
                 new StringBuilder("Load plugin success, path = ").append(aVar.Fh());

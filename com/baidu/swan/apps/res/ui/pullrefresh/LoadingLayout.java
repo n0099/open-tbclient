@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -7,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,7 +114,7 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +174,7 @@ public abstract class LoadingLayout extends FrameLayout {
                 return;
             }
         }
-        d = wj1.a;
+        d = ok1.a;
     }
 
     public int getCanRefreshPullLength() {
@@ -306,6 +307,7 @@ public abstract class LoadingLayout extends FrameLayout {
         b(context, attributeSet);
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {

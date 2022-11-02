@@ -30,6 +30,15 @@ public class GeoCodeOption {
         this.mAddress = null;
     }
 
+    public String getAddress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mAddress;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public GeoCodeOption address(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,11 +57,5 @@ public class GeoCodeOption {
             return this;
         }
         return (GeoCodeOption) invokeL.objValue;
-    }
-
-    public String getAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddress : (String) invokeV.objValue;
     }
 }

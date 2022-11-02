@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.fn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -203,14 +203,14 @@ public class OvalActionButton extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.t = skinType;
             if (skinType == 0) {
-                this.l = vl8.f("#00E1FF");
-                this.m = vl8.f("#00A2FF");
+                this.l = fn8.f("#00E1FF");
+                this.m = fn8.f("#00A2FF");
             } else if (skinType == 1) {
-                this.l = vl8.f("#00BBD4");
-                this.m = vl8.f("#0086D4");
+                this.l = fn8.f("#00BBD4");
+                this.m = fn8.f("#0086D4");
             } else if (skinType == 4) {
-                this.l = vl8.f("#2BE6FF");
-                this.m = vl8.f("#2BB1FF");
+                this.l = fn8.f("#2BE6FF");
+                this.m = fn8.f("#2BB1FF");
             }
         }
     }
@@ -326,7 +326,7 @@ public class OvalActionButton extends ImageView {
                         } else {
                             i3 = this.m;
                         }
-                        paint.setShadowLayer(16.0f, 5.0f, 5.0f, vl8.a(i3, 0.5f));
+                        paint.setShadowLayer(16.0f, 5.0f, 5.0f, fn8.a(i3, 0.5f));
                     } else {
                         int i6 = this.d;
                         float f15 = i6 * 0.054f;
@@ -340,7 +340,7 @@ public class OvalActionButton extends ImageView {
                         } else {
                             i2 = this.m;
                         }
-                        paint2.setShadowLayer(f15, cos, sin, vl8.a(i2, 0.83f));
+                        paint2.setShadowLayer(f15, cos, sin, fn8.a(i2, 0.83f));
                     }
                 }
                 LinearGradient linearGradient = this.k;
@@ -472,8 +472,8 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
-            this.l = vl8.f(str);
-            this.m = vl8.f(str2);
+            this.l = fn8.f(str);
+            this.m = fn8.f(str2);
             this.a = true;
             invalidate();
         }

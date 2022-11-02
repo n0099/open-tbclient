@@ -26,12 +26,12 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     public static final int THREAD_POOL_MAX = 4;
     public static final int THREAD_POOL_MIN = 2;
     public static ThreadPoolExecutor mExecutor;
-    public static Queue mLazyRunQueue;
+    public static Queue<Runnable> mLazyRunQueue;
     public static volatile boolean sIsZeusLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public final class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,9 +146,9 @@ public class ZeusThreadPoolUtil implements INoProGuard {
             synchronized (ZeusThreadPoolUtil.class) {
                 sIsZeusLoaded = true;
                 if (mLazyRunQueue != null) {
-                    Object poll = mLazyRunQueue.poll();
+                    Runnable poll = mLazyRunQueue.poll();
                     while (true) {
-                        Runnable runnable = (Runnable) poll;
+                        Runnable runnable = poll;
                         if (runnable == null) {
                             break;
                         }

@@ -62,14 +62,14 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     /* loaded from: classes3.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public int currentPosition;
 
         /* loaded from: classes3.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -408,7 +408,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         this.v = null;
         this.w = 0;
         this.x = 0;
-        this.y = R.drawable.obfuscated_res_0x7f080e97;
+        this.y = R.drawable.obfuscated_res_0x7f080eb3;
         l();
     }
 

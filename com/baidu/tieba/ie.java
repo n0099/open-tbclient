@@ -1,39 +1,119 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class ie implements ce {
+public class ie {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ce
-    public Object a(se seVar) {
-        InterceptResult invokeL;
+    public static final List<Object> a(ke keVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, seVar)) == null) {
-            return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, keVar, i)) == null) {
+            Class<?> a = keVar.a();
+            if (a != List.class && a != ArrayList.class) {
+                if (a == LinkedList.class) {
+                    return new LinkedList();
+                }
+                Object h = rc.h(a, i);
+                if (h == null) {
+                    h = rc.g(a);
+                }
+                if (h instanceof List) {
+                    return (List) h;
+                }
+                return null;
+            }
+            return new ArrayList(i);
         }
-        return invokeL.objValue;
+        return (List) invokeLI.objValue;
     }
 
-    public ie(Map map) {
+    public static final Queue<Object> c(ke keVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, keVar, i)) == null) {
+            Class<?> a = keVar.a();
+            if (a == Queue.class) {
+                return new LinkedList();
+            }
+            Object h = rc.h(a, i);
+            if (h == null) {
+                h = rc.g(a);
+            }
+            if (h instanceof Queue) {
+                return (Queue) h;
+            }
+            return null;
+        }
+        return (Queue) invokeLI.objValue;
+    }
+
+    public static final Set<Object> d(ke keVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, keVar, i)) == null) {
+            Class<?> a = keVar.a();
+            if (a == Set.class) {
+                return new HashSet();
+            }
+            Object h = rc.h(a, i);
+            if (h == null) {
+                h = rc.g(a);
+            }
+            if (h instanceof Set) {
+                return (Set) h;
+            }
+            return null;
+        }
+        return (Set) invokeLI.objValue;
+    }
+
+    public static final Map<String, Object> b(ke keVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, keVar, i)) == null) {
+            Class<?> a = keVar.a();
+            Type[] b = keVar.b();
+            if (!rc.e(a, Map.class)) {
+                return null;
+            }
+            if (b != null && b.length >= 2 && b[0] == String.class) {
+                if (a == Map.class) {
+                    return new HashMap(i);
+                }
+                Object h = rc.h(a, i);
+                if (h == null) {
+                    h = rc.g(a);
+                }
+                if (!(h instanceof Map)) {
+                    return null;
+                }
+                return (Map) h;
+            } else if (a == Map.class) {
+                return new HashMap(i);
+            } else {
+                Object h2 = rc.h(a, i);
+                if (h2 == null) {
+                    h2 = rc.g(a);
+                }
+                if (!(h2 instanceof Map)) {
+                    return null;
+                }
+                return (Map) h2;
             }
         }
+        return (Map) invokeLI.objValue;
     }
 }

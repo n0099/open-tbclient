@@ -1,156 +1,182 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class tf3 {
+public class tf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static rf3 g;
+    public static volatile tf3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public ViewTreeObserver.OnGlobalLayoutListener d;
+    public String e;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                return true;
+    /* loaded from: classes6.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ tf3 b;
+
+        public a(tf3 tf3Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tf3Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.b = tf3Var;
+            this.a = view2;
         }
-        return invokeV.booleanValue;
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (tf3.g != null) {
+                    tf3.g.c(this.b.e);
+                }
+                Rect rect = new Rect();
+                this.a.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.c != this.b.a) {
+                    if (this.b.c == height) {
+                        return;
+                    }
+                    if (this.b.c - height > this.b.b) {
+                        if (tf3.g != null) {
+                            tf3.g.b(this.b.e, this.b.c - height);
+                            if (tf3.f) {
+                                Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                            }
+                        }
+                        this.b.c = height;
+                        return;
+                    } else if (height - this.b.c > this.b.b) {
+                        if (tf3.g != null) {
+                            tf3.g.a(this.b.e, height - this.b.c);
+                        }
+                        if (tf3.f) {
+                            Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                        }
+                        this.b.c = height;
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                this.b.c = height;
+            }
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 9) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179240, "Lcom/baidu/tieba/tf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179240, "Lcom/baidu/tieba/tf3;");
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        f = ok1.a;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public tf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = 0;
+        this.b = 200;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
+    public static tf3 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return true;
+            if (h == null) {
+                synchronized (tf3.class) {
+                    if (h == null) {
+                        h = new tf3();
+                    }
+                }
             }
-            return false;
+            return h;
         }
-        return invokeV.booleanValue;
+        return (tf3) invokeV.objValue;
     }
 
-    public static boolean k() {
-        InterceptResult invokeV;
+    public static void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (Build.VERSION.SDK_INT == 9) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            g = null;
+            h = null;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean l() {
-        InterceptResult invokeV;
+    public final void h(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (Build.VERSION.SDK_INT == 10) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.d == null) {
+                this.d = new a(this, view2);
             }
-            return false;
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.d);
         }
-        return invokeV.booleanValue;
+    }
+
+    public void k(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.getViewTreeObserver().removeOnGlobalLayoutListener(this.d);
+            this.e = "";
+            g = null;
+            this.c = 0;
+        }
+    }
+
+    public void l(View view2, String str, rf3 rf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, rf3Var) == null) {
+            h(view2);
+            this.e = str;
+            g = rf3Var;
+            this.c = 0;
+        }
     }
 }

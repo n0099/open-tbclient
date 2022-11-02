@@ -1,6 +1,8 @@
 package com.baidu.searchbox.bddownload.core.dispatcher;
 
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -34,13 +36,14 @@ public class DownloadDispatcher {
     public static final String TAG = "DownloadDispatcher";
     public transient /* synthetic */ FieldHolder $fh;
     public int cancleSecondsFromRunning;
+    @Nullable
     public volatile ExecutorService executorService;
-    public final List finishingCalls;
+    public final List<DownloadCall> finishingCalls;
     public final AtomicInteger flyingCanceledAsyncCallCount;
     public int maxParallelRunningCount;
-    public final List readyAsyncCalls;
-    public final List runningAsyncCalls;
-    public final List runningSyncCalls;
+    public final List<DownloadCall> readyAsyncCalls;
+    public final List<DownloadCall> runningAsyncCalls;
+    public final List<DownloadCall> runningSyncCalls;
     public final AtomicInteger skipProceedCallCount;
     public DownloadStore store;
 
@@ -63,7 +66,7 @@ public class DownloadDispatcher {
         }
     }
 
-    public DownloadDispatcher(List list, List list2, List list3, List list4) {
+    public DownloadDispatcher(List<DownloadCall> list, List<DownloadCall> list2, List<DownloadCall> list3, List<DownloadCall> list4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,6 +145,7 @@ public class DownloadDispatcher {
         }
     }
 
+    @Nullable
     public synchronized DownloadTask findSameTask(DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -170,7 +174,7 @@ public class DownloadDispatcher {
     }
 
     public synchronized void finish(DownloadCall downloadCall) {
-        List list;
+        List<DownloadCall> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, downloadCall) == null) {
             synchronized (this) {
@@ -379,17 +383,17 @@ public class DownloadDispatcher {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void filterCanceledCalls(IdentifiedTask identifiedTask, List list, List list2) {
+    private synchronized void filterCanceledCalls(@NonNull IdentifiedTask identifiedTask, @NonNull List<DownloadCall> list, @NonNull List<DownloadCall> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, this, identifiedTask, list, list2) == null) {
             synchronized (this) {
-                Iterator it = this.readyAsyncCalls.iterator();
+                Iterator<DownloadCall> it = this.readyAsyncCalls.iterator();
                 while (it.hasNext()) {
-                    DownloadCall downloadCall = (DownloadCall) it.next();
-                    if (downloadCall.task == identifiedTask || downloadCall.task.getId() == identifiedTask.getId()) {
-                        if (!downloadCall.isCanceled() && !downloadCall.isFinishing()) {
+                    DownloadCall next = it.next();
+                    if (next.task == identifiedTask || next.task.getId() == identifiedTask.getId()) {
+                        if (!next.isCanceled() && !next.isFinishing()) {
                             it.remove();
-                            list.add(downloadCall);
+                            list.add(next);
                             return;
                         }
                         return;
@@ -397,7 +401,16 @@ public class DownloadDispatcher {
                     while (it.hasNext()) {
                     }
                 }
-                for (DownloadCall downloadCall2 : this.runningAsyncCalls) {
+                for (DownloadCall downloadCall : this.runningAsyncCalls) {
+                    if (downloadCall.task == identifiedTask || downloadCall.task.getId() == identifiedTask.getId()) {
+                        list.add(downloadCall);
+                        list2.add(downloadCall);
+                        return;
+                    }
+                    while (r0.hasNext()) {
+                    }
+                }
+                for (DownloadCall downloadCall2 : this.runningSyncCalls) {
                     if (downloadCall2.task == identifiedTask || downloadCall2.task.getId() == identifiedTask.getId()) {
                         list.add(downloadCall2);
                         list2.add(downloadCall2);
@@ -406,28 +419,17 @@ public class DownloadDispatcher {
                     while (r0.hasNext()) {
                     }
                 }
-                for (DownloadCall downloadCall3 : this.runningSyncCalls) {
-                    if (downloadCall3.task == identifiedTask || downloadCall3.task.getId() == identifiedTask.getId()) {
-                        list.add(downloadCall3);
-                        list2.add(downloadCall3);
-                        return;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
             }
         }
     }
 
-    private synchronized void handleCanceledCalls(List list, List list2) {
+    private synchronized void handleCanceledCalls(@NonNull List<DownloadCall> list, @NonNull List<DownloadCall> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, list, list2) == null) {
             synchronized (this) {
                 Util.d(TAG, "handle cancel calls, cancel calls: " + list2.size());
                 if (!list2.isEmpty()) {
-                    Iterator it = list2.iterator();
-                    while (it.hasNext()) {
-                        DownloadCall downloadCall = (DownloadCall) it.next();
+                    for (DownloadCall downloadCall : list2) {
                         if (!downloadCall.cancel()) {
                             list.remove(downloadCall);
                         }
@@ -436,12 +438,11 @@ public class DownloadDispatcher {
                 Util.d(TAG, "handle cancel calls, callback cancel event: " + list.size());
                 if (!list.isEmpty()) {
                     if (list.size() <= 1) {
-                        BdDownload.with().callbackDispatcher().dispatch().taskEnd(((DownloadCall) list.get(0)).task, EndCause.CANCELED, null);
+                        BdDownload.with().callbackDispatcher().dispatch().taskEnd(list.get(0).task, EndCause.CANCELED, null);
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        Iterator it2 = list.iterator();
-                        while (it2.hasNext()) {
-                            arrayList.add(((DownloadCall) it2.next()).task);
+                        for (DownloadCall downloadCall2 : list) {
+                            arrayList.add(downloadCall2.task);
                         }
                         BdDownload.with().callbackDispatcher().endTasksWithCanceled(arrayList);
                     }
@@ -450,7 +451,7 @@ public class DownloadDispatcher {
         }
     }
 
-    private boolean inspectForConflict(DownloadTask downloadTask) {
+    private boolean inspectForConflict(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, downloadTask)) == null) {
@@ -478,7 +479,7 @@ public class DownloadDispatcher {
         }
     }
 
-    public boolean inspectCompleted(DownloadTask downloadTask) {
+    public boolean inspectCompleted(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, downloadTask)) == null) {
@@ -487,7 +488,7 @@ public class DownloadDispatcher {
         return invokeL.booleanValue;
     }
 
-    public void setDownloadStore(DownloadStore downloadStore) {
+    public void setDownloadStore(@NonNull DownloadStore downloadStore) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, downloadStore) == null) {
             this.store = downloadStore;
@@ -501,7 +502,7 @@ public class DownloadDispatcher {
         }
     }
 
-    private boolean inspectForConflict(DownloadTask downloadTask, Collection collection, Collection collection2) {
+    private boolean inspectForConflict(@NonNull DownloadTask downloadTask, @Nullable Collection<DownloadTask> collection, @Nullable Collection<DownloadTask> collection2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, this, downloadTask, collection, collection2)) == null) {
@@ -513,12 +514,10 @@ public class DownloadDispatcher {
         return invokeLLL.booleanValue;
     }
 
-    private void printTaskList(List list) {
+    private void printTaskList(List<DownloadCall> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                DownloadCall downloadCall = (DownloadCall) it.next();
+            for (DownloadCall downloadCall : list) {
                 Util.d(TAG, "printTaskList: getPriority " + downloadCall.getPriority());
                 Util.d(TAG, "printTaskList: getId " + downloadCall.task.getId());
                 Util.d(TAG, "printTaskList: getLastSeconds " + downloadCall.task.getLastSeconds());
@@ -526,7 +525,7 @@ public class DownloadDispatcher {
         }
     }
 
-    public synchronized boolean isFileConflictAfterRun(DownloadTask downloadTask) {
+    public synchronized boolean isFileConflictAfterRun(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         File file;
         File file2;
@@ -591,19 +590,19 @@ public class DownloadDispatcher {
                     return;
                 }
                 Util.d(TAG, "task: processCalls runningAsyncSize() " + runningAsyncSize());
-                Iterator it = this.readyAsyncCalls.iterator();
+                Iterator<DownloadCall> it = this.readyAsyncCalls.iterator();
                 while (it.hasNext()) {
-                    DownloadCall downloadCall = (DownloadCall) it.next();
+                    DownloadCall next = it.next();
                     it.remove();
-                    DownloadTask downloadTask = downloadCall.task;
+                    DownloadTask downloadTask = next.task;
                     if (isFileConflictAfterRun(downloadTask)) {
                         BdDownload.with().callbackDispatcher().dispatch().taskEnd(downloadTask, EndCause.FILE_BUSY, null);
                     } else {
-                        if (downloadCall.isCanceled()) {
-                            enqueue(downloadCall.task);
+                        if (next.isCanceled()) {
+                            enqueue(next.task);
                         } else {
-                            this.runningAsyncCalls.add(downloadCall);
-                            getExecutorService().execute(downloadCall);
+                            this.runningAsyncCalls.add(next);
+                            getExecutorService().execute(next);
                         }
                         if (runningAsyncSize() >= this.maxParallelRunningCount) {
                             return;
@@ -695,7 +694,7 @@ public class DownloadDispatcher {
         return (ExecutorService) invokeV.objValue;
     }
 
-    public boolean inspectCompleted(DownloadTask downloadTask, Collection collection) {
+    public boolean inspectCompleted(@NonNull DownloadTask downloadTask, @Nullable Collection<DownloadTask> collection) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, downloadTask, collection)) == null) {
@@ -716,19 +715,19 @@ public class DownloadDispatcher {
         return invokeLL.booleanValue;
     }
 
-    public boolean inspectForConflict(DownloadTask downloadTask, Collection collection, Collection collection2, Collection collection3) {
+    public boolean inspectForConflict(@NonNull DownloadTask downloadTask, @NonNull Collection<DownloadCall> collection, @Nullable Collection<DownloadTask> collection2, @Nullable Collection<DownloadTask> collection3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048591, this, downloadTask, collection, collection2, collection3)) == null) {
             CallbackDispatcher callbackDispatcher = BdDownload.with().callbackDispatcher();
-            Iterator it = collection.iterator();
+            Iterator<DownloadCall> it = collection.iterator();
             while (it.hasNext()) {
-                DownloadCall downloadCall = (DownloadCall) it.next();
-                if (!downloadCall.isCanceled()) {
-                    if (downloadCall.equalsTask(downloadTask)) {
-                        if (downloadCall.isFinishing()) {
+                DownloadCall next = it.next();
+                if (!next.isCanceled()) {
+                    if (next.equalsTask(downloadTask)) {
+                        if (next.isFinishing()) {
                             Util.d(TAG, "task: " + downloadTask.getId() + " is finishing, move it to finishing list");
-                            this.finishingCalls.add(downloadCall);
+                            this.finishingCalls.add(next);
                             it.remove();
                             return false;
                         }
@@ -739,7 +738,7 @@ public class DownloadDispatcher {
                         }
                         return true;
                     }
-                    File file = downloadCall.getFile();
+                    File file = next.getFile();
                     File file2 = downloadTask.getFile();
                     if (file != null && file2 != null && file.equals(file2)) {
                         if (collection3 != null) {

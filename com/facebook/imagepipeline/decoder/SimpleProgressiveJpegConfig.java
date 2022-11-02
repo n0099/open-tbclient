@@ -19,7 +19,7 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
 
     /* renamed from: com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -28,11 +28,11 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     public interface DynamicValueConfig {
         int getGoodEnoughScanNumber();
 
-        List getScansToDecode();
+        List<Integer> getScansToDecode();
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultDynamicValueConfig implements DynamicValueConfig {
+    public static class DefaultDynamicValueConfig implements DynamicValueConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,7 +61,7 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         }
 
         @Override // com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig.DynamicValueConfig
-        public List getScansToDecode() {
+        public List<Integer> getScansToDecode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -116,11 +116,11 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List scansToDecode = this.mDynamicValueConfig.getScansToDecode();
+            List<Integer> scansToDecode = this.mDynamicValueConfig.getScansToDecode();
             if (scansToDecode != null && !scansToDecode.isEmpty()) {
                 for (int i2 = 0; i2 < scansToDecode.size(); i2++) {
-                    if (((Integer) scansToDecode.get(i2)).intValue() > i) {
-                        return ((Integer) scansToDecode.get(i2)).intValue();
+                    if (scansToDecode.get(i2).intValue() > i) {
+                        return scansToDecode.get(i2).intValue();
                     }
                 }
                 return Integer.MAX_VALUE;

@@ -2,6 +2,7 @@ package androidx.core.content;
 
 import android.content.ContentProvider;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,8 @@ public final class ContentProviderCompat {
         }
     }
 
-    public static Context requireContext(ContentProvider contentProvider) {
+    @NonNull
+    public static Context requireContext(@NonNull ContentProvider contentProvider) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, contentProvider)) == null) {

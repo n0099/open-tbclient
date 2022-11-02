@@ -1,24 +1,27 @@
 package com.baidu.sdk.container.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yg1;
-import com.baidu.tieba.zg1;
+import com.baidu.tieba.qh1;
+import com.baidu.tieba.rh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
+@SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public abstract class AbsCountDownView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public b b;
-    public yg1 c;
+    public qh1 c;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -32,7 +35,7 @@ public abstract class AbsCountDownView extends TextView {
     public abstract void setTimeMillis(long j);
 
     /* loaded from: classes2.dex */
-    public class a extends yg1 {
+    public class a extends qh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsCountDownView c;
@@ -55,7 +58,7 @@ public abstract class AbsCountDownView extends TextView {
             this.c = absCountDownView;
         }
 
-        @Override // com.baidu.tieba.yg1
+        @Override // com.baidu.tieba.qh1
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -89,7 +92,7 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AbsCountDownView(Context context, AttributeSet attributeSet) {
+    public AbsCountDownView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -110,7 +113,7 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbsCountDownView(Context context, AttributeSet attributeSet, int i) {
+    public AbsCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -134,7 +137,7 @@ public abstract class AbsCountDownView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new a(this);
-            zg1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            rh1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -147,10 +150,10 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        yg1 yg1Var;
+        qh1 qh1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (yg1Var = this.c) != null) {
-            yg1Var.cancel();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (qh1Var = this.c) != null) {
+            qh1Var.cancel();
             this.c = null;
         }
     }

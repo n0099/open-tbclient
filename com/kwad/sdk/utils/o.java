@@ -2,6 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.BufferedInputStream;
@@ -283,7 +284,7 @@ public final class o {
         }
     }
 
-    public static void a(File file, File file2, FileFilter fileFilter, boolean z, List list) {
+    public static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
         File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
         if (listFiles == null) {
             throw new IOException("Failed to list contents of " + file);
@@ -491,7 +492,7 @@ public final class o {
         return O(new File(str));
     }
 
-    public static void deleteContents(File file) {
+    public static void deleteContents(@NonNull File file) {
         File[] listFiles;
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {

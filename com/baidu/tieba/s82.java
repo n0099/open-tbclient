@@ -1,86 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.im2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class s82 {
+public abstract class s82 implements z82, n82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105212, "Lcom/baidu/tieba/s82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948105212, "Lcom/baidu/tieba/s82;");
-                return;
-            }
-        }
-        a = wj1.a;
-    }
-
-    public static r82 a(PMSAppInfo pMSAppInfo, String str) {
-        InterceptResult invokeLL;
+    public s82(@NonNull Context context, h82 h82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
-            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
-                return null;
-            }
-            File i = im2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-            if (!i.exists()) {
-                if (a) {
-                    Log.w("PrefetchUtils", "aiapp dir not exist ");
-                }
-                return null;
-            }
-            r82 r82Var = new r82();
-            if (new File(i, "app.json").exists()) {
-                if (a) {
-                    Log.d("PrefetchUtils", "find main pkg's app config file");
-                }
-                r82Var.a = i;
-                return r82Var;
-            } else if (TextUtils.isEmpty(str)) {
-                return null;
-            } else {
-                String g = eh3.g(str);
-                int lastIndexOf = g.lastIndexOf(File.separator);
-                if (lastIndexOf >= 0) {
-                    g = g.substring(0, lastIndexOf);
-                }
-                if (!new File(i, g).exists()) {
-                    return null;
-                }
-                int lastIndexOf2 = g.lastIndexOf(File.separator);
-                while (lastIndexOf2 >= 0) {
-                    g = g.substring(0, lastIndexOf2);
-                    if (new File(i, g + File.separator + "app.json").exists()) {
-                        if (a) {
-                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
-                        }
-                        r82Var.b = true;
-                        r82Var.c = g;
-                        r82Var.a = new File(i, g);
-                        return r82Var;
-                    }
-                    lastIndexOf2 = g.lastIndexOf(File.separator);
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, h82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (r82) invokeLL.objValue;
     }
 }

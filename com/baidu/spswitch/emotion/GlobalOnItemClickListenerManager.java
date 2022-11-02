@@ -8,7 +8,6 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
@@ -135,11 +134,11 @@ public class GlobalOnItemClickListenerManager {
                 }
 
                 @Override // android.widget.AdapterView.OnItemLongClickListener
-                public boolean onItemLongClick(AdapterView adapterView, View view2, int i, long j) {
+                public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                        Adapter adapter = adapterView.getAdapter();
+                        Object adapter = adapterView.getAdapter();
                         if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
                             this.this$0.performDelLongClick();
                             return false;
@@ -413,10 +412,10 @@ public class GlobalOnItemClickListenerManager {
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView adapterView, View view2, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                        Adapter adapter = adapterView.getAdapter();
+                        Object adapter = adapterView.getAdapter();
                         if (adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) {
                             BDEmotionBagLayout.EmotionGridViewAdapter emotionGridViewAdapter = (BDEmotionBagLayout.EmotionGridViewAdapter) adapter;
                             if (this.this$0.mEditText == null) {

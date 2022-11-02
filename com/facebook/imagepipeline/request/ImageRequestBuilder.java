@@ -35,7 +35,7 @@ public class ImageRequestBuilder {
     public String mLogTag;
     public ImageRequest.RequestLevel mLowestPermittedRequestLevel;
     public boolean mMemoryCacheEnabled;
-    public Map mNetRequestHeader;
+    public Map<String, String> mNetRequestHeader;
     @Nullable
     public Postprocessor mPostprocessor;
     public boolean mProgressiveRenderingEnabled;
@@ -52,7 +52,7 @@ public class ImageRequestBuilder {
     public String mTag;
 
     /* loaded from: classes7.dex */
-    public class BuilderException extends RuntimeException {
+    public static class BuilderException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,7 +210,7 @@ public class ImageRequestBuilder {
         return (ImageRequestBuilder) invokeL.objValue;
     }
 
-    public ImageRequestBuilder setNetRequestHeader(Map map) {
+    public ImageRequestBuilder setNetRequestHeader(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, map)) == null) {
@@ -397,7 +397,7 @@ public class ImageRequestBuilder {
         return (ImageRequest.RequestLevel) invokeV.objValue;
     }
 
-    public Map getNetRequestHeader() {
+    public Map<String, String> getNetRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

@@ -12,6 +12,12 @@ public class d {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? HttpClient.isHttpsEnable ? new b() : new a() : (c) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (HttpClient.isHttpsEnable) {
+                return new b();
+            }
+            return new a();
+        }
+        return (c) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ import io.reactivex.functions.Predicate;
 public final class CompletableOnErrorComplete extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Predicate predicate;
+    public final Predicate<? super Throwable> predicate;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
@@ -79,7 +79,7 @@ public final class CompletableOnErrorComplete extends Completable {
         }
     }
 
-    public CompletableOnErrorComplete(CompletableSource completableSource, Predicate predicate) {
+    public CompletableOnErrorComplete(CompletableSource completableSource, Predicate<? super Throwable> predicate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

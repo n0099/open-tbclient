@@ -1,92 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List b;
-    public c c;
-    public boolean d;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
+    public static class a implements iv4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ int a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ DialogInterface.OnCancelListener c;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b a;
-        public volatile NetWork b;
-        public final /* synthetic */ w35 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Comparator {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(Map.Entry entry, Map.Entry entry2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                    return (int) (eh.e(String.valueOf(entry.getValue()), 0) - eh.e(String.valueOf(entry2.getValue()), 0));
-                }
-                return invokeLL.intValue;
-            }
-        }
-
-        public c(w35 w35Var, b bVar) {
+        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w35Var, bVar};
+                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = context;
+            this.c = onCancelListener;
+        }
+
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                w35.d(this.a, this.b);
+                iv4Var.dismiss();
+                DialogInterface.OnCancelListener onCancelListener = this.c;
+                if (onCancelListener != null) {
+                    onCancelListener.onCancel(iv4Var.getDialog());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements iv4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DialogInterface.OnCancelListener a;
+
+        public b(DialogInterface.OnCancelListener onCancelListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {onCancelListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,279 +85,128 @@ public class w35 {
                     return;
                 }
             }
-            this.c = w35Var;
-            this.a = null;
-            this.b = null;
-            this.a = bVar;
+            this.a = onCancelListener;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(Object... objArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.iv4.e
+        public void onClick(iv4 iv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                try {
-                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                    String postNetData = this.b.postNetData();
-                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        JSONObject jSONObject = new JSONObject(postNetData);
-                        if (jSONObject.optInt("error_code") == 0) {
-                            String optString = jSONObject.optString("urls");
-                            this.c.b = this.c.j(optString);
-                            if (this.c.b != null && this.c.b.size() > 0) {
-                                HashMap hashMap = new HashMap();
-                                int i = 0;
-                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
-                                    String str = (String) this.c.b.get(i2);
-                                    b45 b45Var = new b45();
-                                    b45Var.a(str);
-                                    if (b45Var.d()) {
-                                        hashMap.put(str, Integer.valueOf(b45Var.b()));
-                                    }
-                                }
-                                if (hashMap.size() > 0) {
-                                    this.c.b = new ArrayList();
-                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                                    Collections.sort(arrayList, new a(this));
-                                    StringBuilder sb = new StringBuilder(50);
-                                    for (Map.Entry entry : arrayList) {
-                                        this.c.b.add(entry.getKey());
-                                        if (i != 0) {
-                                            sb.append(",");
-                                        }
-                                        i++;
-                                        sb.append((String) entry.getKey());
-                                    }
-                                    optString = sb.toString();
-                                }
-                                ux4.k().x("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
-                                ux4.k().y("KeyOfSharedPrefIpList", optString);
-                                return null;
-                            }
-                            return null;
-                        }
-                        return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+                iv4Var.dismiss();
+                DialogInterface.OnCancelListener onCancelListener = this.a;
+                if (onCancelListener != null) {
+                    onCancelListener.onCancel(iv4Var.getDialog());
+                }
+            }
+        }
+    }
+
+    public static void e(int i, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, context) != null) || context == null) {
+            return;
+        }
+        d(i, context);
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        return eo8.b(context, "com.sina.weibo");
+                    }
+                    return true;
+                }
+                return eo8.b(context, "com.tencent.mobileqq");
+            }
+            return eo8.b(context, "com.tencent.mm");
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static String c(int i, Context context) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        return String.format(context.getString(R.string.obfuscated_res_0x7f0f0414), context.getString(R.string.obfuscated_res_0x7f0f11f0));
                     }
                     return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
                 }
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0414), context.getString(R.string.obfuscated_res_0x7f0f0faa));
             }
-            return (Void) invokeL.objValue;
+            return String.format(context.getString(R.string.obfuscated_res_0x7f0f0414), context.getString(R.string.obfuscated_res_0x7f0f15f7));
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onCancelled(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.b != null) {
-                    this.b.cancelNetConnect();
-                    this.b = null;
-                }
-                this.c.c = null;
-                super.cancel(true);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
+        return (String) invokeIL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static w35 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-366662896, "Lcom/baidu/tieba/w35$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-366662896, "Lcom/baidu/tieba/w35$d;");
+    public static void d(int i, Context context) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
+            if (i != 3 && i != 2) {
+                if (i != 8 && i != 4) {
+                    if (i == 6) {
+                        if (!b(context, i)) {
+                            BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f11ab)).i();
+                            return;
+                        }
+                        intent = new Intent();
+                        intent.setAction("android.intent.action.VIEW");
+                        intent.addCategory("android.intent.category.DEFAULT");
+                        intent.setData(Uri.parse("sinaweibo://splash"));
+                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    } else {
+                        intent = null;
+                    }
+                } else if (!b(context, i)) {
+                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f119c)).i();
                     return;
+                } else {
+                    intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    context.startActivity(intent);
                 }
-            }
-            a = new w35(null);
-        }
-    }
-
-    public w35() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            } else if (!b(context, i)) {
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f11ba)).i();
                 return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = false;
-        this.d = false;
-        this.b = null;
-    }
-
-    public static w35 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d.a;
-        }
-        return (w35) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ux4.k().l("KeyOfSharedPrefImCount", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public /* synthetic */ w35(a aVar) {
-        this();
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
-            this.a = str;
-            ux4.k().y("KeyOfSharedPrefValidIp", str);
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
-            this.d = true;
-            c cVar = new c(this, bVar);
-            this.c = cVar;
-            cVar.setSelfExecute(true);
-            this.c.execute(new Object[0]);
-        }
-    }
-
-    public List g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                if (System.currentTimeMillis() - ux4.k().m("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
-                    ux4.k().y("KeyOfSharedPrefIpList", "");
-                    return null;
-                }
-                this.b = j(ux4.k().q("KeyOfSharedPrefIpList", null));
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int e = e();
-            if (e >= 10) {
-                ux4.k().w("KeyOfSharedPrefImCount", 0);
-                ux4.k().y("KeyOfSharedPrefValidIp", "");
-                this.a = null;
-                return null;
-            }
-            if (this.a == null) {
-                this.a = ux4.k().q("KeyOfSharedPrefValidIp", null);
-            }
-            if (!ej.isEmpty(this.a)) {
-                ux4.k().w("KeyOfSharedPrefImCount", e + 1);
             } else {
-                this.a = null;
+                intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
             }
-            return this.a;
+            if (intent != null) {
+                context.startActivity(intent);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final List j(String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public static void f(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
-                ArrayList arrayList = new ArrayList(3);
-                for (String str2 : split) {
-                    arrayList.add(str2);
-                }
-                return arrayList;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLLIL(65541, null, shareItem, context, i, onCancelListener) != null) || shareItem == null || TextUtils.isEmpty(shareItem.w) || TextUtils.isEmpty(shareItem.v) || !(context instanceof Activity)) {
+            return;
         }
-        return (List) invokeL.objValue;
+        ni.a(shareItem.C0);
+        Activity activity = (Activity) context;
+        iv4 iv4Var = new iv4(activity);
+        iv4Var.setTitle(context.getString(R.string.obfuscated_res_0x7f0f0415));
+        iv4Var.setMessage(shareItem.C0);
+        iv4Var.setAutoNight(false);
+        iv4Var.setCancelable(true);
+        iv4Var.setTitleShowCenter(true);
+        iv4Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
+        iv4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0376, new b(onCancelListener)).create(w9.a(activity));
+        if (onCancelListener != null) {
+            iv4Var.setOnCalcelListener(onCancelListener);
+        }
+        iv4Var.show();
     }
 }

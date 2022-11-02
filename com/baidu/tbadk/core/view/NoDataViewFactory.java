@@ -22,13 +22,13 @@ public class NoDataViewFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final b a;
@@ -36,7 +36,7 @@ public class NoDataViewFactory {
         public final int c;
 
         /* loaded from: classes3.dex */
-        public class a {
+        public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public b a;
@@ -140,7 +140,7 @@ public class NoDataViewFactory {
     }
 
     /* loaded from: classes3.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ImgType a;
@@ -150,7 +150,7 @@ public class NoDataViewFactory {
         public final int e;
 
         /* loaded from: classes3.dex */
-        public class a {
+        public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ImgType a;
@@ -305,7 +305,7 @@ public class NoDataViewFactory {
     }
 
     /* loaded from: classes3.dex */
-    public class e {
+    public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -315,7 +315,7 @@ public class NoDataViewFactory {
         public final int e;
 
         /* loaded from: classes3.dex */
-        public class a {
+        public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -466,7 +466,7 @@ public class NoDataViewFactory {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class ImgType {
+    public static final class ImgType {
         public static final /* synthetic */ ImgType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ImgType ANTI;
@@ -551,7 +551,7 @@ public class NoDataViewFactory {
     }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View.OnClickListener a;

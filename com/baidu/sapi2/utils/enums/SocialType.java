@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +64,7 @@ public final class SocialType {
         GOOGLE = new SocialType("GOOGLE", 11, 57, "google");
         YY = new SocialType("YY", 12, 58, "YY");
         CFO = new SocialType("CFO", 13, 60, "CFO");
-        QQ_SSO_BACKGROUND = new SocialType("QQ_SSO_BACKGROUND", 14, 100015, "QQ_SSO_BACKGROUND");
+        QQ_SSO_BACKGROUND = new SocialType("QQ_SSO_BACKGROUND", 14, MemberPayActivityConfig.SCENE_FROM_FRS, "QQ_SSO_BACKGROUND");
         SocialType socialType = new SocialType("WEIXIN_BACKGROUND", 15, 100042, "微信");
         WEIXIN_BACKGROUND = socialType;
         $VALUES = new SocialType[]{UNKNOWN, SINA_WEIBO_SSO, QQ_SSO, WEIXIN, HUAWEI, HONOR, IQIYI, XIAOMI, MEIZU, FACEBOOK, TWITTER, GOOGLE, YY, CFO, QQ_SSO_BACKGROUND, socialType};

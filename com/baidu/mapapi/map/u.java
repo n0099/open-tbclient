@@ -1,24 +1,23 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-import com.baidu.mapsdkplatform.comapi.map.ab;
-import com.baidu.mapsdkplatform.comapi.map.ac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class u implements View.OnClickListener {
+public class u implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ TextureMapView a;
+    public final /* synthetic */ View a;
+    public final /* synthetic */ MapView b;
 
-    public u(TextureMapView textureMapView) {
+    public u(MapView mapView, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {textureMapView};
+            Object[] objArr = {mapView, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,29 +27,15 @@ public class u implements View.OnClickListener {
                 return;
             }
         }
-        this.a = textureMapView;
+        this.b = mapView;
+        this.a = view2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        ac acVar;
-        ac acVar2;
-        ac acVar3;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            acVar = this.a.b;
-            float f = acVar.b().b;
-            acVar2 = this.a.b;
-            ab E = acVar2.b().E();
-            float f2 = E.a - 1.0f;
-            E.a = f2;
-            if (f2 >= f) {
-                f = f2;
-            }
-            E.a = f;
-            BaiduMap.mapStatusReason |= 16;
-            acVar3 = this.a.b;
-            acVar3.b().a(E, 300);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.removeView(this.a);
         }
     }
 }

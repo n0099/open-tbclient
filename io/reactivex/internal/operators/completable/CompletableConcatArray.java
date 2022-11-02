@@ -18,7 +18,7 @@ public final class CompletableConcatArray extends Completable {
     public final CompletableSource[] sources;
 
     /* loaded from: classes8.dex */
-    public final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
+    public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;

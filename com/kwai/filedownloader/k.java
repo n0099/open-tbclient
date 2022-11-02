@@ -16,17 +16,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class k implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0617a ato;
+    public a.InterfaceC0628a ato;
     public a.c atp;
-    public Queue atq;
+    public Queue<MessageSnapshot> atq;
     public boolean atr;
 
-    public k(a.InterfaceC0617a interfaceC0617a, a.c cVar) {
+    public k(a.InterfaceC0628a interfaceC0628a, a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0617a, cVar};
+            Object[] objArr = {interfaceC0628a, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,13 +37,13 @@ public final class k implements t {
             }
         }
         this.atr = false;
-        a(interfaceC0617a, cVar);
+        a(interfaceC0628a, cVar);
     }
 
-    private void a(a.InterfaceC0617a interfaceC0617a, a.c cVar) {
+    private void a(a.InterfaceC0628a interfaceC0628a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0617a, cVar) == null) {
-            this.ato = interfaceC0617a;
+        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0628a, cVar) == null) {
+            this.ato = interfaceC0628a;
             this.atp = cVar;
             this.atq = new LinkedBlockingQueue();
         }
@@ -53,8 +53,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65538, this, i) == null) && com.kwai.filedownloader.c.d.cy(i)) {
             if (!this.atq.isEmpty()) {
-                MessageSnapshot messageSnapshot = (MessageSnapshot) this.atq.peek();
-                com.kwai.filedownloader.e.d.f(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(messageSnapshot.getId()), Integer.valueOf(this.atq.size()), Byte.valueOf(messageSnapshot.Ca()));
+                MessageSnapshot peek = this.atq.peek();
+                com.kwai.filedownloader.e.d.f(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(peek.getId()), Integer.valueOf(this.atq.size()), Byte.valueOf(peek.Ca()));
             }
             this.ato = null;
         }
@@ -74,12 +74,12 @@ public final class k implements t {
     private void p(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, messageSnapshot) == null) {
-            a.InterfaceC0617a interfaceC0617a = this.ato;
-            if (interfaceC0617a == null) {
+            a.InterfaceC0628a interfaceC0628a = this.ato;
+            if (interfaceC0628a == null) {
                 if (com.kwai.filedownloader.e.d.awL) {
                     com.kwai.filedownloader.e.d.e(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(messageSnapshot.Ca()));
                 }
-            } else if (!this.atr && interfaceC0617a.Ci().BX() != null) {
+            } else if (!this.atr && interfaceC0628a.Ci().BX() != null) {
                 this.atq.offer(messageSnapshot);
                 j.CI().a(this);
             } else {
@@ -115,15 +115,15 @@ public final class k implements t {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.atr) {
             return;
         }
-        MessageSnapshot messageSnapshot = (MessageSnapshot) this.atq.poll();
-        byte Ca = messageSnapshot.Ca();
-        a.InterfaceC0617a interfaceC0617a = this.ato;
-        if (interfaceC0617a == null) {
+        MessageSnapshot poll = this.atq.poll();
+        byte Ca = poll.Ca();
+        a.InterfaceC0628a interfaceC0628a = this.ato;
+        if (interfaceC0628a == null) {
             return;
         }
-        a Ci = interfaceC0617a.Ci();
+        a Ci = interfaceC0628a.Ci();
         i BX = Ci.BX();
-        x.a Cj = interfaceC0617a.Cj();
+        x.a Cj = interfaceC0628a.Cj();
         bV(Ca);
         if (BX == null) {
             return;
@@ -131,7 +131,7 @@ public final class k implements t {
         if (Ca == 4) {
             try {
                 BX.b(Ci);
-                o(((com.kwai.filedownloader.message.a) messageSnapshot).DY());
+                o(((com.kwai.filedownloader.message.a) poll).DY());
                 return;
             } catch (Throwable th) {
                 m(Cj.n(th));
@@ -145,33 +145,33 @@ public final class k implements t {
             BX.c(Ci);
         } else if (Ca == -2) {
             if (gVar == null) {
-                BX.c(Ci, messageSnapshot.DZ(), messageSnapshot.Ea());
+                BX.c(Ci, poll.DZ(), poll.Ea());
                 return;
             }
-            messageSnapshot.Ed();
-            messageSnapshot.Eb();
+            poll.Ed();
+            poll.Eb();
         } else if (Ca == -1) {
-            BX.a(Ci, messageSnapshot.Ee());
+            BX.a(Ci, poll.Ee());
         } else if (Ca == 1) {
             if (gVar == null) {
-                BX.a(Ci, messageSnapshot.DZ(), messageSnapshot.Ea());
+                BX.a(Ci, poll.DZ(), poll.Ea());
                 return;
             }
-            messageSnapshot.Ed();
-            messageSnapshot.Eb();
+            poll.Ed();
+            poll.Eb();
         } else if (Ca == 2) {
             if (gVar == null) {
-                BX.a(Ci, messageSnapshot.getEtag(), messageSnapshot.DR(), Ci.getSmallFileSoFarBytes(), messageSnapshot.Ea());
+                BX.a(Ci, poll.getEtag(), poll.DR(), Ci.getSmallFileSoFarBytes(), poll.Ea());
                 return;
             }
-            messageSnapshot.getEtag();
-            messageSnapshot.DR();
-            messageSnapshot.Eb();
+            poll.getEtag();
+            poll.DR();
+            poll.Eb();
         } else if (Ca == 3) {
             if (gVar != null) {
-                messageSnapshot.Ed();
+                poll.Ed();
             } else {
-                BX.b(Ci, messageSnapshot.DZ(), Ci.getSmallFileTotalBytes());
+                BX.b(Ci, poll.DZ(), Ci.getSmallFileTotalBytes());
             }
         } else if (Ca != 5) {
             if (Ca != 6) {
@@ -179,12 +179,12 @@ public final class k implements t {
             }
             BX.a(Ci);
         } else {
-            messageSnapshot.Ee();
-            messageSnapshot.Ce();
+            poll.Ee();
+            poll.Ce();
             if (gVar != null) {
-                messageSnapshot.Ed();
+                poll.Ed();
             } else {
-                messageSnapshot.DZ();
+                poll.DZ();
             }
         }
     }
@@ -200,7 +200,7 @@ public final class k implements t {
     public final boolean CO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((MessageSnapshot) this.atq.peek()).Ca() == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.atq.peek().Ca() == 4 : invokeV.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.t
@@ -212,13 +212,13 @@ public final class k implements t {
     }
 
     @Override // com.kwai.filedownloader.t
-    public final void b(a.InterfaceC0617a interfaceC0617a, a.c cVar) {
+    public final void b(a.InterfaceC0628a interfaceC0628a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0617a, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0628a, cVar) == null) {
             if (this.ato != null) {
-                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0617a));
+                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0628a));
             }
-            a(interfaceC0617a, cVar);
+            a(interfaceC0628a, cVar);
         }
     }
 
@@ -311,8 +311,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, messageSnapshot) == null) {
             if (com.kwai.filedownloader.e.d.awL) {
-                a.InterfaceC0617a interfaceC0617a = this.ato;
-                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0617a, interfaceC0617a.Ci().Cc());
+                a.InterfaceC0628a interfaceC0628a = this.ato;
+                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0628a, interfaceC0628a.Ci().Cc());
             }
             this.atp.Cr();
             p(messageSnapshot);
@@ -336,8 +336,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Object[] objArr = new Object[2];
-            a.InterfaceC0617a interfaceC0617a = this.ato;
-            objArr[0] = Integer.valueOf(interfaceC0617a == null ? -1 : interfaceC0617a.Ci().getId());
+            a.InterfaceC0628a interfaceC0628a = this.ato;
+            objArr[0] = Integer.valueOf(interfaceC0628a == null ? -1 : interfaceC0628a.Ci().getId());
             objArr[1] = super.toString();
             return com.kwai.filedownloader.e.f.h("%d:%s", objArr);
         }

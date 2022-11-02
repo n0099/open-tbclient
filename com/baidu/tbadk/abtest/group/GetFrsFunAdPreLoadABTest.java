@@ -3,6 +3,7 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@ModifyClass
 /* loaded from: classes3.dex */
 public class GetFrsFunAdPreLoadABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -19,7 +21,7 @@ public class GetFrsFunAdPreLoadABTest extends AbsGroupUbsABTest {
     public static final String TYPE_B = "12.7.5_frs_preload_b";
     public static final String TYPE_C = "12.7.5_frs_preload_c";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,7 +41,7 @@ public class GetFrsFunAdPreLoadABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +83,7 @@ public class GetFrsFunAdPreLoadABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(3);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.mABTestList = arrayList;
         arrayList.add(TYPE_A);
         this.mABTestList.add(TYPE_B);

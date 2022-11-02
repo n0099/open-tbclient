@@ -1,8 +1,11 @@
 package androidx.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.webkit.WebMessage;
 import android.webkit.WebMessagePort;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.WebMessageCompat;
 import androidx.webkit.WebMessagePortCompat;
@@ -41,6 +44,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
         this.mFrameworksImpl = webMessagePort;
     }
 
+    @RequiresApi(23)
     public static WebMessage compatToFrameworkMessage(WebMessageCompat webMessageCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,6 +54,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
         return (WebMessage) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public static WebMessagePort[] compatToPorts(WebMessagePortCompat[] webMessagePortCompatArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -67,6 +72,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
         return (WebMessagePort[]) invokeL.objValue;
     }
 
+    @RequiresApi(23)
     public static WebMessageCompat frameworkMessageToCompat(WebMessage webMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -111,7 +117,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
-    public void postMessage(WebMessageCompat webMessageCompat) {
+    @SuppressLint({"NewApi"})
+    public void postMessage(@NonNull WebMessageCompat webMessageCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, webMessageCompat) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_POST_MESSAGE");
@@ -126,7 +133,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
-    public void setWebMessageCallback(WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
+    @SuppressLint({"NewApi"})
+    public void setWebMessageCallback(@NonNull WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, webMessageCallbackCompat) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_MESSAGE_PORT_SET_MESSAGE_CALLBACK");
@@ -184,6 +192,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
         return (WebMessagePortBoundaryInterface) invokeV.objValue;
     }
 
+    @RequiresApi(23)
     private WebMessagePort getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -197,6 +206,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
+    @RequiresApi(23)
     public WebMessagePort getFrameworkPort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -217,6 +227,7 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
+    @SuppressLint({"NewApi"})
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -232,7 +243,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
     }
 
     @Override // androidx.webkit.WebMessagePortCompat
-    public void setWebMessageCallback(Handler handler, WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
+    @SuppressLint({"NewApi"})
+    public void setWebMessageCallback(Handler handler, @NonNull WebMessagePortCompat.WebMessageCallbackCompat webMessageCallbackCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, handler, webMessageCallbackCompat) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("CREATE_WEB_MESSAGE_CHANNEL");

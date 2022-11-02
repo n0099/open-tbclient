@@ -7,11 +7,14 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,7 +93,7 @@ public class RankStarView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RankStarView(Context context, AttributeSet attributeSet) {
+    public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -118,7 +121,7 @@ public class RankStarView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RankStarView(Context context, AttributeSet attributeSet, int i) {
+    public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -313,7 +316,7 @@ public class RankStarView extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.d = fj.f(context, R.dimen.tbds63);
+            this.d = xi.g(context, R.dimen.tbds63);
             this.l = new Rect(0, 0, 0, 0);
             this.m = new Rect(0, 0, 0, 0);
             f();
@@ -409,7 +412,7 @@ public class RankStarView extends View {
         }
     }
 
-    public void setStarResource(int i, int i2, int i3, int i4) {
+    public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048589, this, i, i2, i3, i4) == null) {
             this.f = i;

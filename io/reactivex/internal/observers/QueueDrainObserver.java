@@ -13,23 +13,23 @@ import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.ObservableQueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
 /* loaded from: classes8.dex */
-public abstract class QueueDrainObserver extends QueueDrainSubscriberPad2 implements Observer, ObservableQueueDrain {
+public abstract class QueueDrainObserver<T, U, V> extends QueueDrainSubscriberPad2 implements Observer<T>, ObservableQueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Observer actual;
+    public final Observer<? super V> actual;
     public volatile boolean cancelled;
     public volatile boolean done;
     public Throwable error;
-    public final SimplePlainQueue queue;
+    public final SimplePlainQueue<U> queue;
 
     @Override // io.reactivex.internal.util.ObservableQueueDrain
-    public void accept(Observer observer, Object obj) {
+    public void accept(Observer<? super V> observer, U u) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, observer, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, observer, u) == null) {
         }
     }
 
-    public QueueDrainObserver(Observer observer, SimplePlainQueue simplePlainQueue) {
+    public QueueDrainObserver(Observer<? super V> observer, SimplePlainQueue<U> simplePlainQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,18 +103,18 @@ public abstract class QueueDrainObserver extends QueueDrainSubscriberPad2 implem
         return invokeV.booleanValue;
     }
 
-    public final void fastPathEmit(Object obj, boolean z, Disposable disposable) {
+    public final void fastPathEmit(U u, boolean z, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
-            Observer observer = this.actual;
-            SimplePlainQueue simplePlainQueue = this.queue;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
+            Observer<? super V> observer = this.actual;
+            SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (this.wip.get() == 0 && this.wip.compareAndSet(0, 1)) {
-                accept(observer, obj);
+                accept(observer, u);
                 if (leave(-1) == 0) {
                     return;
                 }
             } else {
-                simplePlainQueue.offer(obj);
+                simplePlainQueue.offer(u);
                 if (!enter()) {
                     return;
                 }
@@ -123,22 +123,22 @@ public abstract class QueueDrainObserver extends QueueDrainSubscriberPad2 implem
         }
     }
 
-    public final void fastPathOrderedEmit(Object obj, boolean z, Disposable disposable) {
+    public final void fastPathOrderedEmit(U u, boolean z, Disposable disposable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Boolean.valueOf(z), disposable}) == null) {
-            Observer observer = this.actual;
-            SimplePlainQueue simplePlainQueue = this.queue;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{u, Boolean.valueOf(z), disposable}) == null) {
+            Observer<? super V> observer = this.actual;
+            SimplePlainQueue<U> simplePlainQueue = this.queue;
             if (this.wip.get() == 0 && this.wip.compareAndSet(0, 1)) {
                 if (simplePlainQueue.isEmpty()) {
-                    accept(observer, obj);
+                    accept(observer, u);
                     if (leave(-1) == 0) {
                         return;
                     }
                 } else {
-                    simplePlainQueue.offer(obj);
+                    simplePlainQueue.offer(u);
                 }
             } else {
-                simplePlainQueue.offer(obj);
+                simplePlainQueue.offer(u);
                 if (!enter()) {
                     return;
                 }

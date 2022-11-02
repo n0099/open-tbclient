@@ -3,6 +3,8 @@ package com.google.android.material.animation;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Property;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,11 +15,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.WeakHashMap;
 /* loaded from: classes7.dex */
-public class DrawableAlphaProperty extends Property {
+public class DrawableAlphaProperty extends Property<Drawable, Integer> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Property DRAWABLE_ALPHA_COMPAT;
+    public static final Property<Drawable, Integer> DRAWABLE_ALPHA_COMPAT;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakHashMap alphaCache;
+    public final WeakHashMap<Drawable, Integer> alphaCache;
 
     static {
         InterceptResult invokeClinit;
@@ -52,12 +54,13 @@ public class DrawableAlphaProperty extends Property {
                 return;
             }
         }
-        this.alphaCache = new WeakHashMap();
+        this.alphaCache = new WeakHashMap<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public Integer get(Drawable drawable) {
+    @Nullable
+    public Integer get(@NonNull Drawable drawable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, drawable)) == null) {
@@ -65,7 +68,7 @@ public class DrawableAlphaProperty extends Property {
                 return Integer.valueOf(drawable.getAlpha());
             }
             if (this.alphaCache.containsKey(drawable)) {
-                return (Integer) this.alphaCache.get(drawable);
+                return this.alphaCache.get(drawable);
             }
             return 255;
         }
@@ -74,7 +77,7 @@ public class DrawableAlphaProperty extends Property {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.util.Property
-    public void set(Drawable drawable, Integer num) {
+    public void set(@NonNull Drawable drawable, @NonNull Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, num) == null) {
             if (Build.VERSION.SDK_INT < 19) {

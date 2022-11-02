@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.ProgressButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gd1;
+import com.baidu.tieba.yd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,8 +28,8 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public transient /* synthetic */ FieldHolder $fh;
     public ListView a;
     public ProgressButton b;
-    public List c;
-    public gd1 d;
+    public List<PayChannelEntity> c;
+    public yd1 d;
     public b e;
 
     /* loaded from: classes2.dex */
@@ -108,9 +108,9 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073f, (ViewGroup) this, true);
-            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091a0c);
-            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a10);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0754, (ViewGroup) this, true);
+            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091a50);
+            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091a54);
             this.b = progressButton;
             progressButton.setText("下一步");
             this.b.setOnClickListener(this);
@@ -121,7 +121,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a10) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a54) {
             this.b.setEnable(false);
             b bVar = this.e;
             if (bVar != null) {
@@ -179,7 +179,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012b);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012c);
             loadAnimation.setAnimationListener(new a(this));
             startAnimation(loadAnimation);
         }
@@ -189,7 +189,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012d));
+            startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012e));
         }
     }
 
@@ -197,11 +197,11 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.c;
+            List<PayChannelEntity> list = this.c;
             if (list != null && list.size() > 0) {
                 for (int i = 0; i < this.c.size(); i++) {
-                    if (((PayChannelEntity) this.c.get(i)).getIsSelected() == 1) {
-                        return (PayChannelEntity) this.c.get(i);
+                    if (this.c.get(i).getIsSelected() == 1) {
+                        return this.c.get(i);
                     }
                 }
                 return null;
@@ -212,13 +212,13 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            List list = this.c;
+            List<PayChannelEntity> list = this.c;
             if (list != null && list.size() > 0 && i >= 0 && i < this.c.size()) {
                 for (int i2 = 0; i2 < this.c.size(); i2++) {
-                    PayChannelEntity payChannelEntity = (PayChannelEntity) this.c.get(i2);
+                    PayChannelEntity payChannelEntity = this.c.get(i2);
                     if (i2 == i) {
                         if (payChannelEntity.getIsSelected() == 0) {
                             payChannelEntity.setIsSelected(1);
@@ -240,12 +240,12 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         }
     }
 
-    public void update(List list) {
+    public void update(List<PayChannelEntity> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.c = list;
             if (this.d == null) {
-                this.d = new gd1(getContext());
+                this.d = new yd1(getContext());
             }
             this.a.setAdapter((ListAdapter) this.d);
             this.d.b(this.c);

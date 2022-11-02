@@ -17,18 +17,18 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public abstract class AbstractBinderC0091a extends Binder implements a {
+    public static abstract class AbstractBinderC0092a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0092a implements a {
+        public static class C0093a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0092a(IBinder iBinder) {
+            public C0093a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0091a() {
+        public AbstractBinderC0092a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0092a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0093a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
@@ -177,7 +177,7 @@ public interface a extends IInterface {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
                 if (i == 1) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                    a(parcel.readInt() != 0 ? (e) e.CREATOR.createFromParcel(parcel) : null);
+                    a(parcel.readInt() != 0 ? e.CREATOR.createFromParcel(parcel) : null);
                 } else if (i == 2) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
                     a(parcel.readInt(), parcel.readString(), parcel.readLong());

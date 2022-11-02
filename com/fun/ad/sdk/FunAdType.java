@@ -111,14 +111,14 @@ public final class FunAdType {
     public static final String VIVO_NATIVE = "vivoNative";
     public static final String VIVO_NATIVE_EXPRESS = "vivoNativeExpress";
     public static final String VIVO_REWARD = "vivoRewardVideo";
-    public static final HashMap a;
+    public static final HashMap<String, FunAdType> a;
     public transient /* synthetic */ FieldHolder $fh;
     public final String b;
     public final AdType c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class AdType {
+    public static final class AdType {
         public static /* synthetic */ Interceptable $ic;
         public static final AdType BANNER;
         public static final AdType DRAW;
@@ -205,7 +205,7 @@ public final class FunAdType {
                 return;
             }
         }
-        a = new HashMap();
+        a = new HashMap<>();
     }
 
     public FunAdType(String str, AdType adType) {
@@ -231,8 +231,8 @@ public final class FunAdType {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pid, adType)) == null) {
-            HashMap hashMap = a;
-            FunAdType funAdType = (FunAdType) hashMap.get(pid.type);
+            HashMap<String, FunAdType> hashMap = a;
+            FunAdType funAdType = hashMap.get(pid.type);
             if (funAdType != null) {
                 return funAdType;
             }

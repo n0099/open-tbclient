@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$asFairChannel$1", f = "Combine.kt", i = {0, 0, 0}, l = {Cea708Decoder.COMMAND_RST}, m = "invokeSuspend", n = {"$this$produce", "channel", "$this$collect$iv"}, s = {"L$0", "L$1", "L$2"})
 /* loaded from: classes8.dex */
-public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Function2 {
+public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Function2<ProducerScope<? super Object>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Flow $flow;
     public Object L$0;
     public Object L$1;
@@ -33,15 +33,16 @@ public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Fu
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         CombineKt$asFairChannel$1 combineKt$asFairChannel$1 = new CombineKt$asFairChannel$1(this.$flow, continuation);
         combineKt$asFairChannel$1.p$ = (ProducerScope) obj;
         return combineKt$asFairChannel$1;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Object obj2) {
-        return ((CombineKt$asFairChannel$1) create(obj, (Continuation) obj2)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(ProducerScope<? super Object> producerScope, Continuation<? super Unit> continuation) {
+        return ((CombineKt$asFairChannel$1) create(producerScope, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -64,7 +65,7 @@ public final class CombineKt$asFairChannel$1 extends SuspendLambda implements Fu
             if (channel != null) {
                 final ChannelCoroutine channelCoroutine2 = (ChannelCoroutine) channel;
                 Flow flow2 = this.$flow;
-                FlowCollector flowCollector = new FlowCollector() { // from class: kotlinx.coroutines.flow.internal.CombineKt$asFairChannel$1$invokeSuspend$$inlined$collect$1
+                FlowCollector<Object> flowCollector = new FlowCollector<Object>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$asFairChannel$1$invokeSuspend$$inlined$collect$1
                     @Override // kotlinx.coroutines.flow.FlowCollector
                     public Object emit(Object obj2, Continuation continuation) {
                         ChannelCoroutine channelCoroutine3 = ChannelCoroutine.this;

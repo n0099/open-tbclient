@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ViewConfiguration;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +79,7 @@ public final class ViewConfigurationCompat {
         return invokeLL.floatValue;
     }
 
-    public static float getScaledHorizontalScrollFactor(ViewConfiguration viewConfiguration, Context context) {
+    public static float getScaledHorizontalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, viewConfiguration, context)) == null) {
@@ -90,7 +91,7 @@ public final class ViewConfigurationCompat {
         return invokeLL.floatValue;
     }
 
-    public static float getScaledVerticalScrollFactor(ViewConfiguration viewConfiguration, Context context) {
+    public static float getScaledVerticalScrollFactor(@NonNull ViewConfiguration viewConfiguration, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, viewConfiguration, context)) == null) {
@@ -134,7 +135,7 @@ public final class ViewConfigurationCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, Context context) {
+    public static boolean shouldShowMenuShortcutsWhenKeyboardPresent(ViewConfiguration viewConfiguration, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, viewConfiguration, context)) == null) {

@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static Map s;
+    public static Map<String, List<String>> s;
     public static int t;
     public static int u;
     public static boolean v;
@@ -100,16 +100,16 @@ public class b {
         return invokeI.intValue;
     }
 
-    public static List a(Map map) {
+    public static List<String> a(Map<String, List<String>> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             if (map != null) {
                 if (map.containsKey(ImagesContract.LOCAL)) {
-                    return (List) map.get(ImagesContract.LOCAL);
+                    return map.get(ImagesContract.LOCAL);
                 }
                 if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
-                    return (List) map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
+                    return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
                 }
                 return null;
             }
@@ -118,7 +118,7 @@ public class b {
         return (List) invokeL.objValue;
     }
 
-    public static boolean b(Map map) {
+    public static boolean b(Map<String, List<String>> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
@@ -130,13 +130,13 @@ public class b {
         return invokeL.booleanValue;
     }
 
-    public static Map h(String str) {
+    public static Map<String, List<String>> h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             HashMap hashMap = new HashMap();
             try {
-                List parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
+                List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
                 if (parseRawAddressList != null) {
                     hashMap.put(ImagesContract.LOCAL, parseRawAddressList);
                 }
@@ -166,7 +166,7 @@ public class b {
 
     public static String i(String str) {
         InterceptResult invokeL;
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             com.baidu.searchbox.dns.d.a.a d = com.baidu.searchbox.dns.a.a.e().d(str);
@@ -176,7 +176,7 @@ public class b {
                 list = null;
             }
             if (list == null || list.size() == 0) {
-                list = (List) s.get(str);
+                list = s.get(str);
             }
             if (list == null || list.size() <= 0) {
                 return null;
@@ -187,7 +187,7 @@ public class b {
             } else if ("mbd.baidu.com".equals(str)) {
                 i = b(list.size());
             }
-            return (String) list.get(i);
+            return list.get(i);
         }
         return (String) invokeL.objValue;
     }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.bddownload.core.file;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -18,7 +19,7 @@ public class ProcessFileStrategy {
     public transient /* synthetic */ FieldHolder $fh;
     public final FileLock fileLock;
 
-    public void completeProcessStream(MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
+    public void completeProcessStream(@NonNull MultiPointOutputStream multiPointOutputStream, @NonNull DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, multiPointOutputStream, downloadTask) == null) {
         }
@@ -40,6 +41,7 @@ public class ProcessFileStrategy {
         this.fileLock = new FileLock();
     }
 
+    @NonNull
     public FileLock getFileLock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,7 +51,8 @@ public class ProcessFileStrategy {
         return (FileLock) invokeV.objValue;
     }
 
-    public MultiPointOutputStream createProcessStream(DownloadTask downloadTask, BreakpointInfo breakpointInfo, DownloadStore downloadStore) {
+    @NonNull
+    public MultiPointOutputStream createProcessStream(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadStore downloadStore) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, breakpointInfo, downloadStore)) == null) {
@@ -58,7 +61,7 @@ public class ProcessFileStrategy {
         return (MultiPointOutputStream) invokeLLL.objValue;
     }
 
-    public void discardProcess(DownloadTask downloadTask) throws IOException {
+    public void discardProcess(@NonNull DownloadTask downloadTask) throws IOException {
         File file;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask) == null) && (file = downloadTask.getFile()) != null && file.exists() && !file.delete()) {
@@ -66,7 +69,7 @@ public class ProcessFileStrategy {
         }
     }
 
-    public boolean isPreAllocateLength(DownloadTask downloadTask) {
+    public boolean isPreAllocateLength(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadTask)) == null) {

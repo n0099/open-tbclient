@@ -13,6 +13,9 @@ import android.view.MotionEvent;
 import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.PopupWindow;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ListMenuItemView;
 import androidx.appcompat.view.menu.MenuAdapter;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -27,6 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,6 +39,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     public transient /* synthetic */ FieldHolder $fh;
     public MenuItemHoverListener mHoverListener;
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public static class MenuDropDownListView extends DropDownListView {
         public static /* synthetic */ Interceptable $ic;
@@ -218,7 +223,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MenuPopupWindow(Context context, AttributeSet attributeSet, int i, int i2) {
+    public MenuPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -239,6 +244,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @Override // androidx.appcompat.widget.ListPopupWindow
+    @NonNull
     public DropDownListView createDropDownListView(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -251,7 +257,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @Override // androidx.appcompat.widget.MenuItemHoverListener
-    public void onItemHoverEnter(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public void onItemHoverEnter(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         MenuItemHoverListener menuItemHoverListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuBuilder, menuItem) == null) && (menuItemHoverListener = this.mHoverListener) != null) {
@@ -260,7 +266,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
     }
 
     @Override // androidx.appcompat.widget.MenuItemHoverListener
-    public void onItemHoverExit(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public void onItemHoverExit(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         MenuItemHoverListener menuItemHoverListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, menuBuilder, menuItem) == null) && (menuItemHoverListener = this.mHoverListener) != null) {

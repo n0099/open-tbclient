@@ -3,18 +3,19 @@ package com.baidu.tieba.im.mygroup;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.fj;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.GroupsByUidMessage;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PersonGroupModel extends BdBaseModel {
+public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RequestUserPermissionMessage a;
@@ -62,8 +63,8 @@ public class PersonGroupModel extends BdBaseModel {
             }
         }
         this.b = false;
-        this.mImageWidth = fj.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = fj.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
     }
 
@@ -86,8 +87,8 @@ public class PersonGroupModel extends BdBaseModel {
             }
         }
         this.b = false;
-        this.mImageWidth = fj.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = fj.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = xi.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
     }
 

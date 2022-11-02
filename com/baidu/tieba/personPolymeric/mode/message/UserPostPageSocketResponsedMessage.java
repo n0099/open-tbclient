@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,6 +21,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     public boolean isHost;
     public int page;
     public PersonPostModel personPostModel;
+    @Nullable
     public MetaData threadAuthor;
     public User threadUser;
 
@@ -51,6 +53,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -68,7 +71,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void setOrginalMessage(Message message) {
+    public void setOrginalMessage(Message<?> message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
             super.setOrginalMessage(message);

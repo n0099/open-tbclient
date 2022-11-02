@@ -2,8 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +12,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jj3 extends gj3 {
+public class jj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public List<b> c;
+    public List<b> d;
+    public int[] e;
 
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
+        public final /* synthetic */ jj3 g;
+
+        public b(jj3 jj3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jj3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = jj3Var;
+        }
+
+        public /* synthetic */ b(jj3 jj3Var, a aVar) {
+            this(jj3Var);
+        }
+
+        public JSONObject i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("x", vh3.P(this.b));
+                    jSONObject.put("y", vh3.P(this.c));
+                    jSONObject.put("clientX", vh3.P(this.d - this.g.e[0]));
+                    jSONObject.put("clientY", vh3.P(this.e - this.g.e[1]));
+                    jSONObject.put("identifier", this.a);
+                    jSONObject.put(TTDownloadField.TT_FORCE, this.f);
+                } catch (JSONException e) {
+                    if (jj3.f) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
@@ -41,172 +105,215 @@ public class jj3 extends gj3 {
                 return;
             }
         }
-        b = wj1.a;
+        f = ok1.a;
     }
 
-    public void j() {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onUserCancel: report");
-            }
-            a();
-            l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.a.d("na_start")) {
-            this.a.g("na_start");
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
-            this.a.k();
-            rl2.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jj3(String str) {
-        super(str);
+    public jj3(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {motionEvent};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, "");
     }
 
-    public boolean b(String str) {
-        URI uri;
-        InterceptResult invokeL;
+    public final void g(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) && !TextUtils.equals(this.a, "touchend") && !TextUtils.equals(this.a, "touchcancel")) {
             try {
-                uri = new URI(str);
-            } catch (URISyntaxException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                uri = null;
-            }
-            if (uri != null && !TextUtils.isEmpty(uri.getPath()) && !TextUtils.equals("/", uri.getPath())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
-            }
-            if (!this.a.d("na_fcp")) {
-                this.a.g("na_fcp");
-            }
-        }
-    }
-
-    public void h(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !b(str) && !this.a.d("na_load_url_end")) {
-            this.a.g("na_load_url_end");
-            this.a.f("load_end_url", str);
-            boolean d = this.a.d("fe_fmp");
-            ij3 ij3Var = this.a;
-            if (d) {
-                str2 = "1";
-            } else {
-                str2 = "0";
-            }
-            ij3Var.f("fmpArrived", str2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
-            }
-            if (!this.a.d("na_load_url")) {
-                this.a.g("na_load_url");
-                this.a.f("load_url", str);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !b(str) && !this.a.d("na_first_image_paint")) {
-            this.a.g("na_first_image_paint");
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !b(str) && !this.a.d("na_first_text_paint")) {
-            this.a.g("na_first_text_paint");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
-            }
-            if (!this.a.d("na_up_screen")) {
-                this.a.g("na_up_screen");
-            }
-            if (this.a.d("fe_fmp")) {
-                a();
-                l();
-            }
-        }
-    }
-
-    public void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
-                } catch (JSONException e) {
-                    if (b) {
-                        e.printStackTrace();
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
+                        this.c.add(d(motionEvent, i));
                     }
                 }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
             }
-            this.a.g("fe_fmp");
-            if (this.a.d("na_up_screen")) {
-                a();
-                l();
+        }
+    }
+
+    public jj3(MotionEvent motionEvent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {motionEvent, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, str);
+    }
+
+    public b d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, i)) == null) {
+            int pointerId = motionEvent.getPointerId(i);
+            b bVar = new b(this, null);
+            bVar.a = pointerId;
+            bVar.b = motionEvent.getX(i);
+            bVar.c = motionEvent.getY(i);
+            bVar.d = (motionEvent.getRawX() + bVar.b) - motionEvent.getX();
+            bVar.e = (motionEvent.getRawY() + bVar.c) - motionEvent.getY();
+            bVar.f = motionEvent.getPressure(i);
+            return bVar;
+        }
+        return (b) invokeLI.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!this.c.isEmpty()) {
+                    for (b bVar : this.c) {
+                        if (bVar != null) {
+                            jSONArray.put(bVar.i());
+                        }
+                    }
+                }
+                JSONArray jSONArray2 = new JSONArray();
+                if (!this.d.isEmpty()) {
+                    for (b bVar2 : this.d) {
+                        if (bVar2 != null) {
+                            jSONArray2.put(bVar2.i());
+                        }
+                    }
+                }
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.b);
+                jSONObject.put("touches", jSONArray);
+                jSONObject.put("changedTouches", jSONArray2);
+            } catch (JSONException e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void f(MotionEvent motionEvent) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
+            try {
+                if (motionEvent.getActionMasked() == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    this.d.add(d(motionEvent, motionEvent.getActionIndex()));
+                    return;
+                }
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    this.d.add(d(motionEvent, i));
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void i(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
+            this.e = iArr;
+            if (f) {
+                Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
+            }
+        }
+    }
+
+    public final void h(MotionEvent motionEvent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, motionEvent, str) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked != 3) {
+                            if (actionMasked != 5) {
+                                if (actionMasked != 6) {
+                                    this.a = "error";
+                                } else {
+                                    this.a = "touchpointerup";
+                                    f(motionEvent);
+                                }
+                            } else {
+                                this.a = "touchpointerdown";
+                                f(motionEvent);
+                            }
+                        } else {
+                            this.a = "touchcancel";
+                            f(motionEvent);
+                        }
+                    } else {
+                        this.a = "touchmove";
+                        f(motionEvent);
+                    }
+                } else {
+                    this.a = "touchend";
+                    f(motionEvent);
+                }
+            } else {
+                this.a = "touchstart";
+                f(motionEvent);
+            }
+            this.b = motionEvent.getEventTime();
+            if (!TextUtils.isEmpty(str)) {
+                this.a = str;
+            }
+            g(motionEvent);
+            if (TextUtils.equals(this.a, "touchpointerdown")) {
+                this.a = "touchstart";
+            }
+            if (TextUtils.equals(this.a, "touchpointerup")) {
+                this.a = "touchend";
             }
         }
     }

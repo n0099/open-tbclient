@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.b7;
+import com.baidu.tieba.p3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,35 +20,35 @@ import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class s5 implements i7 {
+public abstract class s5<T extends p3> implements i7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map i;
+    public static final Map<Application, b7<s5>> i;
     public static int j;
     public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7 a;
+    public b7<T> a;
     public int b;
     public int c;
     public int d;
     public int e;
     public boolean f;
     public boolean g;
-    public c h;
+    public c<? extends s5<T>> h;
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
     }
 
     /* loaded from: classes5.dex */
-    public abstract class c {
+    public static abstract class c<U extends s5<? extends p3>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
-        public b7 c;
+        public b7<b> c;
         public a d;
         public a e;
         public a f;
@@ -56,14 +57,14 @@ public abstract class s5 implements i7 {
         public boolean i;
     }
 
-    public abstract void f(p3 p3Var);
+    public abstract void f(T t);
 
-    public abstract p3 j(b bVar);
+    public abstract T j(b bVar);
 
-    public abstract void k(p3 p3Var);
+    public abstract void k(T t);
 
     /* loaded from: classes5.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -113,7 +114,7 @@ public abstract class s5 implements i7 {
                 return;
             }
         }
-        this.a = new b7();
+        this.a = new b7<>();
     }
 
     public static String l() {
@@ -130,9 +131,9 @@ public abstract class s5 implements i7 {
     public static void a(Application application, s5 s5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, s5Var) == null) {
-            b7 b7Var = (b7) i.get(application);
+            b7<s5> b7Var = i.get(application);
             if (b7Var == null) {
-                b7Var = new b7();
+                b7Var = new b7<>();
             }
             b7Var.a(s5Var);
             i.put(application, b7Var);
@@ -152,7 +153,7 @@ public abstract class s5 implements i7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sb)) == null) {
             sb.append("Managed buffers/app: { ");
             for (Application application : i.keySet()) {
-                sb.append(((b7) i.get(application)).b);
+                sb.append(i.get(application).b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -162,13 +163,13 @@ public abstract class s5 implements i7 {
     }
 
     public static void n(Application application) {
-        b7 b7Var;
+        b7<s5> b7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, application) != null) || f1.f == null || (b7Var = (b7) i.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65542, null, application) != null) || f1.f == null || (b7Var = i.get(application)) == null) {
             return;
         }
         for (int i2 = 0; i2 < b7Var.b; i2++) {
-            ((s5) b7Var.get(i2)).g();
+            b7Var.get(i2).g();
         }
     }
 
@@ -177,9 +178,9 @@ public abstract class s5 implements i7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             n3 n3Var = f1.f;
-            b7.b it = this.a.iterator();
+            b7.b<T> it = this.a.iterator();
             while (it.hasNext()) {
-                k((p3) it.next());
+                k(it.next());
             }
             if (this.f) {
                 n3Var.p(this.e);
@@ -193,7 +194,7 @@ public abstract class s5 implements i7 {
             }
             n3Var.r(this.b);
             if (i.get(f1.a) != null) {
-                ((b7) i.get(f1.a)).j(this, true);
+                i.get(f1.a).j(this, true);
             }
         }
     }
@@ -218,7 +219,7 @@ public abstract class s5 implements i7 {
             int Q = n3Var.Q();
             this.b = Q;
             n3Var.f(36160, Q);
-            c cVar = this.h;
+            c<? extends s5<T>> cVar = this.h;
             int i3 = cVar.a;
             int i4 = cVar.b;
             if (cVar.h) {
@@ -246,24 +247,24 @@ public abstract class s5 implements i7 {
             }
             this.g = z;
             if (z) {
-                b7.b it = this.h.c.iterator();
+                b7.b<b> it = this.h.c.iterator();
                 int i5 = 0;
                 while (it.hasNext()) {
-                    b bVar = (b) it.next();
-                    p3 j2 = j(bVar);
+                    b next = it.next();
+                    T j2 = j(next);
                     this.a.a(j2);
-                    if (bVar.a()) {
+                    if (next.a()) {
                         n3Var.B(36160, i5 + 36064, 3553, j2.i(), 0);
                         i5++;
-                    } else if (bVar.b) {
+                    } else if (next.b) {
                         n3Var.B(36160, 36096, 3553, j2.i(), 0);
-                    } else if (bVar.c) {
+                    } else if (next.c) {
                         n3Var.B(36160, 36128, 3553, j2.i(), 0);
                     }
                 }
                 i2 = i5;
             } else {
-                p3 j3 = j((b) this.h.c.f());
+                T j3 = j(this.h.c.f());
                 this.a.a(j3);
                 n3Var.N(j3.a, j3.i());
                 i2 = 0;
@@ -276,7 +277,7 @@ public abstract class s5 implements i7 {
                 d.position(0);
                 f1.g.c(i2, d);
             } else {
-                f((p3) this.a.f());
+                f(this.a.f());
             }
             if (this.h.h) {
                 n3Var.k(36160, 36096, 36161, this.c);
@@ -288,13 +289,13 @@ public abstract class s5 implements i7 {
                 n3Var.k(36160, 33306, 36161, this.e);
             }
             n3Var.m(36161, 0);
-            b7.b it2 = this.a.iterator();
+            b7.b<T> it2 = this.a.iterator();
             while (it2.hasNext()) {
-                n3Var.N(((p3) it2.next()).a, 0);
+                n3Var.N(it2.next().a, 0);
             }
             int t = n3Var.t(36160);
             if (t == 36061) {
-                c cVar2 = this.h;
+                c<? extends s5<T>> cVar2 = this.h;
                 if (cVar2.h && cVar2.g && (f1.b.a("GL_OES_packed_depth_stencil") || f1.b.a("GL_EXT_packed_depth_stencil"))) {
                     if (this.h.h) {
                         n3Var.p(this.c);
@@ -321,9 +322,9 @@ public abstract class s5 implements i7 {
             }
             n3Var.f(36160, j);
             if (t != 36053) {
-                b7.b it3 = this.a.iterator();
+                b7.b<T> it3 = this.a.iterator();
                 while (it3.hasNext()) {
-                    k((p3) it3.next());
+                    k(it3.next());
                 }
                 if (this.f) {
                     n3Var.b(this.e);
@@ -357,16 +358,16 @@ public abstract class s5 implements i7 {
     public final void h() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !f1.b.b()) {
-            c cVar = this.h;
+            c<? extends s5<T>> cVar = this.h;
             if (!cVar.i) {
-                b7 b7Var = cVar.c;
+                b7<b> b7Var = cVar.c;
                 if (b7Var.b <= 1) {
-                    b7.b it = b7Var.iterator();
+                    b7.b<b> it = b7Var.iterator();
                     while (it.hasNext()) {
-                        b bVar = (b) it.next();
-                        if (!bVar.b) {
-                            if (!bVar.c) {
-                                if (bVar.a && !f1.b.a("OES_texture_float")) {
+                        b next = it.next();
+                        if (!next.b) {
+                            if (!next.c) {
+                                if (next.a && !f1.b.a("OES_texture_float")) {
                                     throw new GdxRuntimeException("Float texture FrameBuffer Attachment not available on GLES 2.0");
                                 }
                             } else {

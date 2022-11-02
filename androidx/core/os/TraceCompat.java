@@ -3,6 +3,7 @@ package androidx.core.os;
 import android.os.Build;
 import android.os.Trace;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -71,7 +72,7 @@ public final class TraceCompat {
         }
     }
 
-    public static void beginAsyncSection(String str, int i) {
+    public static void beginAsyncSection(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -87,7 +88,7 @@ public final class TraceCompat {
         }
     }
 
-    public static void endAsyncSection(String str, int i) {
+    public static void endAsyncSection(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -103,7 +104,7 @@ public final class TraceCompat {
         }
     }
 
-    public static void setCounter(String str, int i) {
+    public static void setCounter(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65543, null, str, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
@@ -119,7 +120,7 @@ public final class TraceCompat {
         }
     }
 
-    public static void beginSection(String str) {
+    public static void beginSection(@NonNull String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && Build.VERSION.SDK_INT >= 18) {
             Trace.beginSection(str);

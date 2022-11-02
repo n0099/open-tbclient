@@ -18,9 +18,9 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e55;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.eo8;
+import com.baidu.tieba.np8;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.x55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class XiubaTbJsBridge implements eo8 {
+public class XiubaTbJsBridge implements np8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -45,7 +44,7 @@ public class XiubaTbJsBridge implements eo8 {
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener downloadListener;
     public final CustomMessageListener installListener;
-    public final TbPageContext mTbPageContext;
+    public final TbPageContext<?> mTbPageContext;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -76,7 +75,7 @@ public class XiubaTbJsBridge implements eo8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (data = customResponsedMessage.getData()) != null && (data instanceof Intent) && "com.xiu8.baidu.activity".equals(XiubaTbJsBridge.getPackageName((Intent) data))) {
@@ -115,14 +114,14 @@ public class XiubaTbJsBridge implements eo8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof DownloadMessage)) {
                 return;
             }
             DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
-            if (downloadMessage.getData() != null && ((List) downloadMessage.getData()).size() > 0) {
-                for (DownloadData downloadData : (List) downloadMessage.getData()) {
+            if (downloadMessage.getData() != null && downloadMessage.getData().size() > 0) {
+                for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
                             if (!this.a) {
@@ -144,7 +143,7 @@ public class XiubaTbJsBridge implements eo8 {
         }
     }
 
-    public XiubaTbJsBridge(TbPageContext tbPageContext) {
+    public XiubaTbJsBridge(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +267,7 @@ public class XiubaTbJsBridge implements eo8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            e55.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1640), -1, -1);
+            x55.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f165f), -1, -1);
         }
     }
 
@@ -350,11 +349,11 @@ public class XiubaTbJsBridge implements eo8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
             if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-                int e = eh.e(split[0], 0);
+                int e = wg.e(split[0], 0);
                 if (e > 3) {
                     return true;
                 }
-                if (split.length >= 2 && e == 3 && eh.e(split[1], 0) >= 2) {
+                if (split.length >= 2 && e == 3 && wg.e(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -363,7 +362,7 @@ public class XiubaTbJsBridge implements eo8 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.eo8
+    @Override // com.baidu.tieba.np8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

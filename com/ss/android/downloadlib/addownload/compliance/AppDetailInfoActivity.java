@@ -3,6 +3,7 @@ package com.ss.android.downloadlib.addownload.compliance;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,10 +20,10 @@ public class AppDetailInfoActivity extends Activity {
     public RecyclerView d;
     public long e;
     public long f;
-    public List g;
+    public List<Pair<String, String>> g;
 
     /* loaded from: classes8.dex */
-    public class a extends RecyclerView.Adapter {
+    public class a extends RecyclerView.Adapter<Object> {
         public a() {
         }
     }
@@ -47,7 +48,7 @@ public class AppDetailInfoActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d08a2);
+        setContentView(R.layout.obfuscated_res_0x7f0d08b6);
         if (a()) {
             b();
         } else {
@@ -62,10 +63,10 @@ public class AppDetailInfoActivity extends Activity {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff8);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09237e);
-        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0918c5);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913e8);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091032);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d3);
+        this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091908);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091426);
         if (this.g.isEmpty()) {
             this.d.setVisibility(8);
             this.b.setVisibility(0);

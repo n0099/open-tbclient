@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.AbstractDataSource;
 import com.facebook.datasource.DataSource;
 import com.facebook.datasource.DataSubscriber;
@@ -15,24 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
-public class ListDataSource extends AbstractDataSource {
+public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final DataSource[] mDataSources;
+    public final DataSource<CloseableReference<T>>[] mDataSources;
+    @GuardedBy("this")
     public int mFinishedDataSources;
 
     /* renamed from: com.facebook.imagepipeline.datasource.ListDataSource$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class InternalDataSubscriber implements DataSubscriber {
+    public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @GuardedBy("InternalDataSubscriber.this")
         public boolean mFinished;
         public final /* synthetic */ ListDataSource this$0;
 
@@ -56,7 +60,7 @@ public class ListDataSource extends AbstractDataSource {
         }
 
         @Override // com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource dataSource) {
+        public void onCancellation(DataSource<CloseableReference<T>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
                 this.this$0.onDataSourceCancelled();
@@ -64,7 +68,7 @@ public class ListDataSource extends AbstractDataSource {
         }
 
         @Override // com.facebook.datasource.DataSubscriber
-        public void onFailure(DataSource dataSource) {
+        public void onFailure(DataSource<CloseableReference<T>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) != null) {
                 return;
@@ -73,7 +77,7 @@ public class ListDataSource extends AbstractDataSource {
         }
 
         @Override // com.facebook.datasource.DataSubscriber
-        public void onNewResult(DataSource dataSource) {
+        public void onNewResult(DataSource<CloseableReference<T>> dataSource) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource) == null) && dataSource.isFinished() && tryFinish()) {
                 this.this$0.onDataSourceFinished();
@@ -81,7 +85,7 @@ public class ListDataSource extends AbstractDataSource {
         }
 
         @Override // com.facebook.datasource.DataSubscriber
-        public void onProgressUpdate(DataSource dataSource) {
+        public void onProgressUpdate(DataSource<CloseableReference<T>> dataSource) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, dataSource) == null) {
                 this.this$0.onDataSourceProgress();
@@ -108,7 +112,7 @@ public class ListDataSource extends AbstractDataSource {
         }
     }
 
-    public ListDataSource(DataSource[] dataSourceArr) {
+    public ListDataSource(DataSource<CloseableReference<T>>[] dataSourceArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,14 +132,14 @@ public class ListDataSource extends AbstractDataSource {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onDataSourceFailed(DataSource dataSource) {
+    public void onDataSourceFailed(DataSource<CloseableReference<T>> dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, dataSource) == null) {
             setFailure(dataSource.getFailureCause());
         }
     }
 
-    public static ListDataSource create(DataSource... dataSourceArr) {
+    public static <T> ListDataSource<T> create(DataSource<CloseableReference<T>>... dataSourceArr) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -147,8 +151,8 @@ public class ListDataSource extends AbstractDataSource {
                 z = false;
             }
             Preconditions.checkState(z);
-            ListDataSource listDataSource = new ListDataSource(dataSourceArr);
-            for (DataSource dataSource : dataSourceArr) {
+            ListDataSource<T> listDataSource = new ListDataSource<>(dataSourceArr);
+            for (DataSource<CloseableReference<T>> dataSource : dataSourceArr) {
                 if (dataSource != null) {
                     listDataSource.getClass();
                     dataSource.subscribe(new InternalDataSubscriber(listDataSource, null), CallerThreadExecutor.getInstance());
@@ -198,7 +202,7 @@ public class ListDataSource extends AbstractDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             float f = 0.0f;
-            for (DataSource dataSource : this.mDataSources) {
+            for (DataSource<CloseableReference<T>> dataSource : this.mDataSources) {
                 f += dataSource.getProgress();
             }
             setProgress(f / this.mDataSources.length);
@@ -213,7 +217,7 @@ public class ListDataSource extends AbstractDataSource {
             if (!super.close()) {
                 return false;
             }
-            for (DataSource dataSource : this.mDataSources) {
+            for (DataSource<CloseableReference<T>> dataSource : this.mDataSources) {
                 dataSource.close();
             }
             return true;
@@ -243,7 +247,7 @@ public class ListDataSource extends AbstractDataSource {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.DataSource
     @Nullable
-    public synchronized List getResult() {
+    public synchronized List<CloseableReference<T>> getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -252,7 +256,7 @@ public class ListDataSource extends AbstractDataSource {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList(this.mDataSources.length);
-                for (DataSource dataSource : this.mDataSources) {
+                for (DataSource<CloseableReference<T>> dataSource : this.mDataSources) {
                     arrayList.add(dataSource.getResult());
                 }
                 return arrayList;

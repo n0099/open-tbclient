@@ -1,6 +1,7 @@
 package com.badlogic.gdx.graphics.g3d.model.data;
 
 import com.baidu.tieba.b7;
+import com.baidu.tieba.d5;
 import com.baidu.tieba.l3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,11 +22,11 @@ public class ModelMaterial {
     public l3 f;
     public float g;
     public float h;
-    public b7 i;
+    public b7<d5> i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class MaterialType {
+    public static final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MaterialType Lambert;

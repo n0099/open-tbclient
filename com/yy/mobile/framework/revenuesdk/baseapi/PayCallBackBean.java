@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
@@ -15,12 +16,13 @@ import java.util.Map;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+@Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u001a\b\u0087\b\u0018\u0000B\u008d\u0001\u0012\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u0014\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00010\u0001\u0012\b\b\u0002\u0010\u0016\u001a\u00020\t\u0012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u0018\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u0001\u0012\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u0010\u0012\u001a\b\u0002\u0010\u001c\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0018\u00010\u0004¢\u0006\u0004\b<\u0010=J\u0012\u0010\u0002\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\"\u0010\u0005\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0018\u00010\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J\u0012\u0010\u0007\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u0007\u0010\u0003J\u0012\u0010\b\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\b\u0010\u0003J\u0010\u0010\n\u001a\u00020\tHÆ\u0003¢\u0006\u0004\b\n\u0010\u000bJ\u0012\u0010\f\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\f\u0010\u0003J\u0012\u0010\r\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\r\u0010\u0003J\u0012\u0010\u000e\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u000e\u0010\u0003J\u0012\u0010\u000f\u001a\u0004\u0018\u00010\u0001HÆ\u0003¢\u0006\u0004\b\u000f\u0010\u0003J\u0012\u0010\u0011\u001a\u0004\u0018\u00010\u0010HÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\u0096\u0001\u0010\u001d\u001a\u00020\u00002\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u0014\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u0015\u001a\u0004\u0018\u00010\u00012\b\b\u0002\u0010\u0016\u001a\u00020\t2\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u0018\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u001a\u001a\u0004\u0018\u00010\u00012\n\b\u0002\u0010\u001b\u001a\u0004\u0018\u00010\u00102\u001a\b\u0002\u0010\u001c\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0018\u00010\u0004HÆ\u0001¢\u0006\u0004\b\u001d\u0010\u001eJ\u001a\u0010\"\u001a\u00020!2\b\u0010 \u001a\u0004\u0018\u00010\u001fHÖ\u0003¢\u0006\u0004\b\"\u0010#J\u0010\u0010%\u001a\u00020$HÖ\u0001¢\u0006\u0004\b%\u0010&J\u0010\u0010'\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b'\u0010\u0003R4\u0010\u001c\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0012\u0006\u0012\u0004\u0018\u00010\u0001\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010(\u001a\u0004\b)\u0010\u0006\"\u0004\b*\u0010+R\u001b\u0010\u0017\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0017\u0010,\u001a\u0004\b-\u0010\u0003R$\u0010\u0015\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010,\u001a\u0004\b.\u0010\u0003\"\u0004\b/\u00100R$\u0010\u0013\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010,\u001a\u0004\b1\u0010\u0003\"\u0004\b2\u00100R\u001b\u0010\u0018\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010,\u001a\u0004\b3\u0010\u0003R$\u0010\u0014\u001a\u0004\u0018\u00010\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0014\u0010,\u001a\u0004\b4\u0010\u0003\"\u0004\b5\u00100R\u001b\u0010\u0019\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0019\u0010,\u001a\u0004\b6\u0010\u0003R\u001b\u0010\u001a\u001a\u0004\u0018\u00010\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010,\u001a\u0004\b7\u0010\u0003R\u001b\u0010\u001b\u001a\u0004\u0018\u00010\u00108\u0006@\u0006¢\u0006\f\n\u0004\b\u001b\u00108\u001a\u0004\b9\u0010\u0012R\u0019\u0010\u0016\u001a\u00020\t8\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010:\u001a\u0004\b;\u0010\u000b¨\u0006>"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/baseapi/PayCallBackBean;", "", "component1", "()Ljava/lang/String;", "", "component10", "()Ljava/util/Map;", "component2", "component3", "", "component4", "()J", "component5", "component6", "component7", "component8", "Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;", "component9", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;", "orderId", "productId", "gpOrder", FetchLog.START_TIME, "chOrderid", "payLoad", "purchaseData", "purchaseSign", "purchaseStatus", "appClientExpand", "copy", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;Ljava/util/Map;)Lcom/yy/mobile/framework/revenuesdk/baseapi/PayCallBackBean;", "", ImageViewerConfig.FROM_OTHER, "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "toString", "Ljava/util/Map;", "getAppClientExpand", "setAppClientExpand", "(Ljava/util/Map;)V", "Ljava/lang/String;", "getChOrderid", "getGpOrder", "setGpOrder", "(Ljava/lang/String;)V", "getOrderId", "setOrderId", "getPayLoad", "getProductId", "setProductId", "getPurchaseData", "getPurchaseSign", "Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;", "getPurchaseStatus", "J", "getStartTime", "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yy/mobile/framework/revenuesdk/baseapi/PurchaseStatus;Ljava/util/Map;)V", "paybaseapi_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
 public final class PayCallBackBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map appClientExpand;
+    public Map<String, String> appClientExpand;
     public final String chOrderid;
     public String gpOrder;
     public String orderId;
@@ -56,7 +58,7 @@ public final class PayCallBackBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.orderId : (String) invokeV.objValue;
     }
 
-    public final Map component10() {
+    public final Map<String, String> component10() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.appClientExpand : (Map) invokeV.objValue;
@@ -110,7 +112,7 @@ public final class PayCallBackBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.purchaseStatus : (PurchaseStatus) invokeV.objValue;
     }
 
-    public final PayCallBackBean copy(String str, String str2, String str3, long j, String str4, String str5, String str6, String str7, PurchaseStatus purchaseStatus, Map map) {
+    public final PayCallBackBean copy(String str, String str2, String str3, long j, String str4, String str5, String str6, String str7, PurchaseStatus purchaseStatus, Map<String, String> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Long.valueOf(j), str4, str5, str6, str7, purchaseStatus, map})) == null) ? new PayCallBackBean(str, str2, str3, j, str4, str5, str6, str7, purchaseStatus, map) : (PayCallBackBean) invokeCommon.objValue;
@@ -157,7 +159,7 @@ public final class PayCallBackBean {
             int hashCode7 = (hashCode6 + (str7 != null ? str7.hashCode() : 0)) * 31;
             PurchaseStatus purchaseStatus = this.purchaseStatus;
             int hashCode8 = (hashCode7 + (purchaseStatus != null ? purchaseStatus.hashCode() : 0)) * 31;
-            Map map = this.appClientExpand;
+            Map<String, String> map = this.appClientExpand;
             return hashCode8 + (map != null ? map.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -172,7 +174,7 @@ public final class PayCallBackBean {
         return (String) invokeV.objValue;
     }
 
-    public PayCallBackBean(String str, String str2, String str3, long j, String str4, String str5, String str6, String str7, PurchaseStatus purchaseStatus, Map map) {
+    public PayCallBackBean(String str, String str2, String str3, long j, String str4, String str5, String str6, String str7, PurchaseStatus purchaseStatus, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +263,7 @@ public final class PayCallBackBean {
         }
     }
 
-    public final Map getAppClientExpand() {
+    public final Map<String, String> getAppClientExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -351,7 +353,7 @@ public final class PayCallBackBean {
         return invokeV.longValue;
     }
 
-    public final void setAppClientExpand(Map map) {
+    public final void setAppClientExpand(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, map) == null) {
             this.appClientExpand = map;

@@ -5,7 +5,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tieba.f87;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
@@ -17,6 +16,7 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.p97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,8 +75,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
-                f87 callback;
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                p97 callback;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                     return;
@@ -88,7 +88,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 } else if (customResponsedMessage.getCmd() == 2001145) {
                     boolean processHistory = this.this$0.processHistory(customResponsedMessage);
                     if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                        callback.D0();
+                        callback.E0();
                     }
                 }
             }
@@ -189,10 +189,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(f87 f87Var) {
+    public boolean loadFirst(p97 p97Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, f87Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, p97Var)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
@@ -202,7 +202,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             aVar.b = null;
             aVar.d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
-            loadGroupHistoryMessage.setCallback(f87Var);
+            loadGroupHistoryMessage.setCallback(p97Var);
             super.sendMessage(loadGroupHistoryMessage);
             return true;
         }
@@ -223,8 +223,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             MsgPageData msgPageData = this.mDatas;
             long j2 = 0;
             if (msgPageData != null && msgPageData.getChatMessages() != null && this.mDatas.size() > 0 && this.mDatas.getChatMessages().get(0) != null) {
-                j2 = ((ChatMessage) this.mDatas.getChatMessages().get(0)).getMsgId();
-                j = ((ChatMessage) this.mDatas.getChatMessages().get(0)).getRecordId();
+                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+                j = this.mDatas.getChatMessages().get(0).getRecordId();
             } else {
                 j = 0;
             }

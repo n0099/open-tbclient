@@ -183,7 +183,7 @@ public final class MixLiveItemModel {
     }
 
     /* loaded from: classes2.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

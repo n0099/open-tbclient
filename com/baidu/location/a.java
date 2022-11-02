@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class a implements Parcelable.Creator {
+public final class a implements Parcelable.Creator<BDLocation> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,6 +28,7 @@ public final class a implements Parcelable.Creator {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
     public BDLocation createFromParcel(Parcel parcel) {
         InterceptResult invokeL;
@@ -36,6 +37,7 @@ public final class a implements Parcelable.Creator {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
     public BDLocation[] newArray(int i) {
         InterceptResult invokeI;

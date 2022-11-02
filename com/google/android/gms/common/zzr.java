@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes7.dex */
-public final class zzr implements Parcelable.Creator {
+public final class zzr implements Parcelable.Creator<zzq> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,8 +26,9 @@ public final class zzr implements Parcelable.Creator {
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ Object createFromParcel(Parcel parcel) {
+    public final /* bridge */ /* synthetic */ zzq createFromParcel(Parcel parcel) {
         int validateObjectHeader = SafeParcelReader.validateObjectHeader(parcel);
         boolean z = false;
         String str = null;
@@ -53,8 +54,9 @@ public final class zzr implements Parcelable.Creator {
         return new zzq(z, str, i);
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ Object[] newArray(int i) {
+    public final /* synthetic */ zzq[] newArray(int i) {
         return new zzq[i];
     }
 }

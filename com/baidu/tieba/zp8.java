@@ -1,32 +1,50 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class zp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
-            aq8.b(mainTabScheduleStrategy);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948367751, "Lcom/baidu/tieba/zp8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948367751, "Lcom/baidu/tieba/zp8;");
         }
     }
 
-    public static void b(Runnable runnable, int i) {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
-            aq8.f(new fq8(runnable, i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
+                return null;
+            }
+            for (String str2 : split) {
+                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                    int indexOf = str2.indexOf("=") + 1;
+                    if (indexOf >= str2.length()) {
+                        return "";
+                    }
+                    return str2.substring(indexOf, str2.length());
+                }
+            }
+            return "";
         }
-    }
-
-    public static void c(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
-            aq8.f(new hq8(view2, i));
-        }
+        return (String) invokeL.objValue;
     }
 }

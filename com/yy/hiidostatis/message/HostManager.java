@@ -2,6 +2,7 @@ package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.message.bean.Message;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 import okhttp3.Call;
@@ -9,7 +10,7 @@ import okhttp3.Call;
 public interface HostManager {
     String getHost(Message message);
 
-    List lookup(String str) throws UnknownHostException;
+    List<InetAddress> lookup(String str) throws UnknownHostException;
 
     void onFailure(Call call, IOException iOException);
 

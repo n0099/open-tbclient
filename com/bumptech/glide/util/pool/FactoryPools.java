@@ -1,6 +1,7 @@
 package com.bumptech.glide.util.pool;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,34 +18,35 @@ import java.util.List;
 public final class FactoryPools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
-    public static final Resetter EMPTY_RESETTER;
+    public static final Resetter<Object> EMPTY_RESETTER;
     public static final String TAG = "FactoryPools";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public interface Factory {
-        Object create();
+    public interface Factory<T> {
+        T create();
     }
 
     /* loaded from: classes7.dex */
     public interface Poolable {
+        @NonNull
         StateVerifier getVerifier();
     }
 
     /* loaded from: classes7.dex */
-    public interface Resetter {
-        void reset(Object obj);
+    public interface Resetter<T> {
+        void reset(@NonNull T t);
     }
 
     /* loaded from: classes7.dex */
-    public final class FactoryPool implements Pools.Pool {
+    public static final class FactoryPool<T> implements Pools.Pool<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Factory factory;
-        public final Pools.Pool pool;
-        public final Resetter resetter;
+        public final Factory<T> factory;
+        public final Pools.Pool<T> pool;
+        public final Resetter<T> resetter;
 
-        public FactoryPool(Pools.Pool pool, Factory factory, Resetter resetter) {
+        public FactoryPool(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory, @NonNull Resetter<T> resetter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,11 +67,11 @@ public final class FactoryPools {
         }
 
         @Override // androidx.core.util.Pools.Pool
-        public Object acquire() {
+        public T acquire() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Object acquire = this.pool.acquire();
+                T acquire = this.pool.acquire();
                 if (acquire == null) {
                     acquire = this.factory.create();
                     if (Log.isLoggable(FactoryPools.TAG, 2)) {
@@ -81,19 +83,19 @@ public final class FactoryPools {
                 }
                 return acquire;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         @Override // androidx.core.util.Pools.Pool
-        public boolean release(Object obj) {
+        public boolean release(@NonNull T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (obj instanceof Poolable) {
-                    ((Poolable) obj).getVerifier().setRecycled(true);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+                if (t instanceof Poolable) {
+                    ((Poolable) t).getVerifier().setRecycled(true);
                 }
-                this.resetter.reset(obj);
-                return this.pool.release(obj);
+                this.resetter.reset(t);
+                return this.pool.release(t);
             }
             return invokeL.booleanValue;
         }
@@ -112,12 +114,12 @@ public final class FactoryPools {
                 return;
             }
         }
-        EMPTY_RESETTER = new Resetter() { // from class: com.bumptech.glide.util.pool.FactoryPools.1
+        EMPTY_RESETTER = new Resetter<Object>() { // from class: com.bumptech.glide.util.pool.FactoryPools.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
-            public void reset(Object obj) {
+            public void reset(@NonNull Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                 }
@@ -153,16 +155,18 @@ public final class FactoryPools {
         }
     }
 
-    public static Resetter emptyResetter() {
+    @NonNull
+    public static <T> Resetter<T> emptyResetter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return EMPTY_RESETTER;
+            return (Resetter<T>) EMPTY_RESETTER;
         }
         return (Resetter) invokeV.objValue;
     }
 
-    public static Pools.Pool threadSafeList() {
+    @NonNull
+    public static <T> Pools.Pool<List<T>> threadSafeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
@@ -171,7 +175,8 @@ public final class FactoryPools {
         return (Pools.Pool) invokeV.objValue;
     }
 
-    public static Pools.Pool build(Pools.Pool pool, Factory factory) {
+    @NonNull
+    public static <T extends Poolable> Pools.Pool<T> build(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pool, factory)) == null) {
@@ -180,7 +185,8 @@ public final class FactoryPools {
         return (Pools.Pool) invokeLL.objValue;
     }
 
-    public static Pools.Pool simple(int i, Factory factory) {
+    @NonNull
+    public static <T extends Poolable> Pools.Pool<T> simple(int i, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, factory)) == null) {
@@ -189,7 +195,8 @@ public final class FactoryPools {
         return (Pools.Pool) invokeIL.objValue;
     }
 
-    public static Pools.Pool threadSafe(int i, Factory factory) {
+    @NonNull
+    public static <T extends Poolable> Pools.Pool<T> threadSafe(int i, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, factory)) == null) {
@@ -198,7 +205,8 @@ public final class FactoryPools {
         return (Pools.Pool) invokeIL.objValue;
     }
 
-    public static Pools.Pool build(Pools.Pool pool, Factory factory, Resetter resetter) {
+    @NonNull
+    public static <T> Pools.Pool<T> build(@NonNull Pools.Pool<T> pool, @NonNull Factory<T> factory, @NonNull Resetter<T> resetter) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, pool, factory, resetter)) == null) {
@@ -207,11 +215,12 @@ public final class FactoryPools {
         return (Pools.Pool) invokeLLL.objValue;
     }
 
-    public static Pools.Pool threadSafeList(int i) {
+    @NonNull
+    public static <T> Pools.Pool<List<T>> threadSafeList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            return build(new Pools.SynchronizedPool(i), new Factory() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
+            return build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -231,7 +240,8 @@ public final class FactoryPools {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.util.pool.FactoryPools.Factory
-                public List create() {
+                @NonNull
+                public List<T> create() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -239,7 +249,7 @@ public final class FactoryPools {
                     }
                     return (List) invokeV.objValue;
                 }
-            }, new Resetter() { // from class: com.bumptech.glide.util.pool.FactoryPools.3
+            }, new Resetter<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -259,7 +269,7 @@ public final class FactoryPools {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.bumptech.glide.util.pool.FactoryPools.Resetter
-                public void reset(List list) {
+                public void reset(@NonNull List<T> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                         list.clear();

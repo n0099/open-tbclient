@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionFloatView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class EmotionFloatView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EmotionFloatView(Context context, AttributeSet attributeSet) {
+    public EmotionFloatView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -67,7 +68,7 @@ public class EmotionFloatView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionFloatView(Context context, AttributeSet attributeSet, int i) {
+    public EmotionFloatView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -91,9 +92,9 @@ public class EmotionFloatView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0251, (ViewGroup) this, true);
-            this.a = (GifView) findViewById(R.id.obfuscated_res_0x7f0908e3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090793);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0253, (ViewGroup) this, true);
+            this.a = (GifView) findViewById(R.id.obfuscated_res_0x7f0908f3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a1);
         }
     }
 
@@ -115,7 +116,7 @@ public class EmotionFloatView extends LinearLayout {
         GifView gifView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gifInfo) == null) && (gifView = this.a) != null) {
-            gifView.j0(gifInfo);
+            gifView.i0(gifInfo);
         }
     }
 
@@ -155,11 +156,11 @@ public class EmotionFloatView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 1) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094b, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080962, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 2) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094c, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080963, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 3) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080961, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             }
         }
     }

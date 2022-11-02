@@ -15,15 +15,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static e WT;
-    public final WeakHashMap WO;
-    public final Map WP;
-    public final HashMap WR;
-    public final Map WS;
+    public final WeakHashMap<f, AdTemplate> WO;
+    public final Map<f, AdTemplate> WP;
+    public final HashMap<String, AdTemplate> WR;
+    public final Map<String, AdTemplate> WS;
     public volatile boolean mHasInit;
-    public static final Map WQ = Collections.synchronizedMap(new LruHashMap(10));
+    public static final Map<String, Integer> WQ = Collections.synchronizedMap(new LruHashMap(10));
     public static final BroadcastReceiver IW = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.e.3
         @Override // android.content.BroadcastReceiver
         public final void onReceive(Context context, Intent intent) {
@@ -32,16 +32,16 @@ public class e {
     };
 
     public e() {
-        WeakHashMap weakHashMap = new WeakHashMap();
+        WeakHashMap<f, AdTemplate> weakHashMap = new WeakHashMap<>();
         this.WO = weakHashMap;
         this.WP = Collections.synchronizedMap(weakHashMap);
         this.mHasInit = false;
-        HashMap hashMap = new HashMap();
+        HashMap<String, AdTemplate> hashMap = new HashMap<>();
         this.WR = hashMap;
         this.WS = Collections.synchronizedMap(hashMap);
     }
 
-    private void a(String str, com.kwad.sdk.d.a aVar) {
+    private void a(String str, com.kwad.sdk.d.a<f> aVar) {
         Set<f> keySet = this.WP.keySet();
         synchronized (this.WP) {
             for (f fVar : keySet) {
@@ -58,7 +58,7 @@ public class e {
 
     public static int bK(String str) {
         Integer num;
-        if (TextUtils.isEmpty(str) || (num = (Integer) WQ.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (num = WQ.get(str)) == null) {
             return 0;
         }
         return num.intValue();
@@ -83,12 +83,12 @@ public class e {
         }
         com.ksad.download.e.S().n(schemeSpecificPart);
         synchronized (this.WS) {
-            Iterator it = this.WS.entrySet().iterator();
+            Iterator<Map.Entry<String, AdTemplate>> it = this.WS.entrySet().iterator();
             while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
-                if (entry != null) {
-                    String str = (String) entry.getKey();
-                    if (!TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, str)) {
+                Map.Entry<String, AdTemplate> next = it.next();
+                if (next != null) {
+                    String key = next.getKey();
+                    if (!TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, key)) {
                         it.remove();
                     }
                 }
@@ -97,17 +97,17 @@ public class e {
     }
 
     private void f(String str, h hVar) {
-        AdTemplate adTemplate;
-        for (Map.Entry entry : this.WS.entrySet()) {
-            if (entry != null && (adTemplate = (AdTemplate) entry.getValue()) != null) {
-                AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-                com.kwad.sdk.core.a.rD().b(str, adTemplate);
-                if (!TextUtils.isEmpty(str) && bQ.downloadId.equals(str) && !adTemplate.mDownloadFinishReported) {
+        AdTemplate value;
+        for (Map.Entry<String, AdTemplate> entry : this.WS.entrySet()) {
+            if (entry != null && (value = entry.getValue()) != null) {
+                AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(value);
+                com.kwad.sdk.core.a.rD().b(str, value);
+                if (!TextUtils.isEmpty(str) && bQ.downloadId.equals(str) && !value.mDownloadFinishReported) {
                     if (hVar.sX()) {
-                        a.b(1, adTemplate);
+                        a.b(1, value);
                         hVar.sW();
                     }
-                    adTemplate.mDownloadFinishReported = true;
+                    value.mDownloadFinishReported = true;
                 }
             }
         }
@@ -134,7 +134,7 @@ public class e {
 
     public final void a(final String str, final int i, final int i2, final int i3) {
         WQ.put(str, 2);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.4
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.4
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -160,7 +160,7 @@ public class e {
     public final void bE(final String str) {
         WQ.put(str, 1);
         final h hVar = new h();
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.1
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -174,7 +174,7 @@ public class e {
     public final void bF(final String str) {
         final h hVar = new h();
         WQ.put(str, 4);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.7
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.7
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -188,7 +188,7 @@ public class e {
     public final void bG(final String str) {
         final h hVar = new h();
         WQ.put(str, 1);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.8
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.8
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -202,7 +202,7 @@ public class e {
     public final void bH(final String str) {
         final h hVar = new h();
         WQ.put(str, 5);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.9
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.9
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -215,7 +215,7 @@ public class e {
 
     public final void bI(final String str) {
         final h hVar = new h();
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.2
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -229,7 +229,7 @@ public class e {
     public final void bJ(final String str) {
         final h hVar = new h();
         WQ.put(str, 9);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.10
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.10
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -253,7 +253,7 @@ public class e {
     public final void c(final String str, final int i, final String str2) {
         WQ.put(str, 7);
         final h hVar = new h();
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.6
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.6
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a
@@ -278,7 +278,7 @@ public class e {
     public final void u(final String str, final String str2) {
         final h hVar = new h();
         WQ.put(str, 8);
-        a(str, new com.kwad.sdk.d.a() { // from class: com.kwad.sdk.core.download.e.5
+        a(str, new com.kwad.sdk.d.a<f>() { // from class: com.kwad.sdk.core.download.e.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
             @Override // com.kwad.sdk.d.a

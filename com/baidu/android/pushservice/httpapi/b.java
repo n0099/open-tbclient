@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.httpapi;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
@@ -13,7 +14,8 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, HashMap hashMap) {
+    @SuppressLint({"InlinedApi"})
+    public static void a(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, context, hashMap) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;

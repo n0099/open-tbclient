@@ -93,7 +93,7 @@ public final class OpusReader extends StreamReader {
         return invokeL.longValue;
     }
 
-    private void putNativeOrderLong(List list, int i) {
+    private void putNativeOrderLong(List<byte[]> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, list, i) == null) {
             list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * C.NANOS_PER_SECOND) / 48000).array());

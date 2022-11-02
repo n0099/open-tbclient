@@ -1,331 +1,335 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.im2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tieba.w82;
+import com.baidu.tieba.z82;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
 import java.io.File;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class u82 {
+public class u82 extends s82 implements n82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public k82 b;
+    public h82 c;
+    public File d;
+    public b e;
 
     /* loaded from: classes6.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void onError(String str, int i, String str2);
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class b {
+    public class c implements w82.a {
         public static /* synthetic */ Interceptable $ic;
-        public static final u82 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public h82 a;
+        public String b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-419393028, "Lcom/baidu/tieba/u82$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* loaded from: classes6.dex */
+        public class a implements i82 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+
+            public a(c cVar, File file) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, file};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-419393028, "Lcom/baidu/tieba/u82$b;");
+                this.a = file;
+            }
+
+            @Override // com.baidu.tieba.i82
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ik4.L(this.a);
+                }
+            }
+        }
+
+        public c(u82 u82Var, h82 h82Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u82Var, h82Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new u82(null);
+            this.a = h82Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.w82.a
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                try {
+                    this.a.a(this.b, file, new a(this, file));
+                } catch (Exception e) {
+                    if (n82.a) {
+                        Log.d("HybridIntercept", Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.w82.a
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && n82.a) {
+                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948164794, "Lcom/baidu/tieba/u82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ u82 d;
+
+        public a(u82 u82Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u82Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948164794, "Lcom/baidu/tieba/u82;");
-                return;
+            this.d = u82Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e.onError(this.a, this.b, this.c);
             }
         }
-        b = wj1.a;
     }
 
-    public u82() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u82(@NonNull Context context, h82 h82Var) {
+        super(context, h82Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, h82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (h82) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-    }
-
-    public static u82 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        this.b = j82.a().f();
+        this.d = new File(j82.a().b(), "image_temp");
+        this.c = h82Var;
+        if (h82Var == null) {
+            h(context);
         }
-        return (u82) invokeV.objValue;
     }
 
-    public synchronized void d() {
+    @Override // com.baidu.tieba.z82
+    public WebResourceResponse a(@NonNull z82.a aVar) {
+        InterceptResult invokeL;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!i(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
             }
-        }
-    }
-
-    public /* synthetic */ u82(a aVar) {
-        this();
-    }
-
-    public final void a(SwanAppConfigData swanAppConfigData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, swanAppConfigData) == null) {
-            if (b) {
-                Log.d("AppLaunchMessenger", "afterLaunchEventSent: start");
+            String f = f(d);
+            InputStream inputStream = null;
+            h82 h82Var = this.c;
+            if (h82Var != null && !h82Var.isClosed()) {
+                inputStream = this.c.get(f);
             }
-            ws1.k(swanAppConfigData);
-            w82.k().x(l33.K().getAppId(), false);
-            ic3.l().t();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00d1 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00dd A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ef A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x013d A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x014a  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01bf A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x01c7 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x01d1  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x01e0 A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x022e A[Catch: all -> 0x02c9, TryCatch #0 {, blocks: (B:6:0x000d, B:8:0x0011, B:9:0x001f, B:12:0x0025, B:17:0x002f, B:18:0x0032, B:20:0x004b, B:22:0x0053, B:24:0x007b, B:26:0x009d, B:31:0x00ab, B:33:0x00bf, B:35:0x00c7, B:36:0x00cb, B:38:0x00d1, B:39:0x00d7, B:41:0x00dd, B:43:0x00e9, B:44:0x00eb, B:46:0x00ef, B:47:0x00f8, B:49:0x013d, B:52:0x0155, B:54:0x016c, B:56:0x0174, B:58:0x019c, B:60:0x01bf, B:62:0x01c7, B:65:0x01dc, B:67:0x01e0, B:68:0x01e9, B:70:0x022e, B:71:0x02be, B:64:0x01d3, B:57:0x0179, B:51:0x014c, B:23:0x0058), top: B:80:0x000d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void b(i52 i52Var, sp1 sp1Var, jo2 jo2Var, SwanAppConfigData swanAppConfigData, im2.g gVar, boolean z) {
-        boolean z2;
-        PMSAppInfo f0;
-        boolean H;
-        Bundle P;
-        boolean F;
-        da2 da2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{i52Var, sp1Var, jo2Var, swanAppConfigData, gVar, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("AppLaunchMessenger", "dispatchLaunchEvent");
-                    Log.d("SwanPrelink", "start dispatch launch event");
+            if (inputStream != null) {
+                if (n82.a) {
+                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
                 }
-                if (this.a) {
-                    if (z) {
-                        ba2.c(14);
-                    }
-                    return;
-                }
-                if (z) {
-                    ba2.c(1);
-                }
-                String d = x63.d(zo2.U(), jo2Var, swanAppConfigData);
-                String h = swanAppConfigData.h(d);
-                aa2 aa2Var = new aa2();
-                aa2Var.a = swanAppConfigData.n;
-                if (gVar != null && !TextUtils.isEmpty(gVar.a)) {
-                    aa2Var.b = gVar.a;
+                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
+            }
+            t82 a2 = x82.a(f, g(aVar));
+            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
+                d(f, i, a2.b);
+            }
+            WebResourceResponse c2 = c(a2);
+            if (c2 != null && c2.getData() != null) {
+                c2.setData(new y82(c2.getData(), new w82(new File(this.d, j82.a().d().a(f)), new c(this, this.c, f))));
+            }
+            if (n82.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("download image, response = ");
+                if (c2 != null) {
+                    z = true;
                 } else {
-                    aa2Var.b = im2.e.i(jo2Var.H(), jo2Var.v1()).getPath() + File.separator;
+                    z = false;
                 }
-                aa2Var.c = sp1Var.a();
-                aa2Var.d = d;
-                aa2Var.f = String.valueOf(j02.a());
-                aa2Var.g = aa2.c(m33.M(), d);
-                aa2Var.i = h;
-                if (!b && !zo2.U().N()) {
-                    z2 = false;
-                    aa2Var.h = z2;
-                    aa2Var.j = sp1Var.K();
-                    aa2Var.l = ea2.b();
-                    f0 = jo2Var.f0();
-                    if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
-                        aa2Var.m = f0.userActionApis;
-                    }
-                    H = lz2.H();
-                    if (H) {
-                        aa2Var.k = p02.b();
-                    }
-                    P = jo2Var.P();
-                    if (P != null) {
-                        String string = P.getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
-                        if (!TextUtils.isEmpty(string)) {
-                            aa2Var.e = string;
-                        }
-                    }
-                    if (b) {
-                        Log.d("AppLaunchMessenger", aa2Var.toString());
-                    }
-                    rw2.o().F(new UbcFlowEvent("master_dispatch_start"));
-                    m93.d().i("master_dispatch_start");
-                    i52Var.D(aa2Var);
-                    ga2.U().U0(aa2.b(aa2Var));
-                    tm2.m0().a();
-                    ga2.U().h1(aa2Var.j);
-                    F = lz2.F(jo2Var.g0());
-                    boolean p0 = jo2Var.p0();
-                    if (!F) {
-                        c12.d();
-                        c12.g().h("appready");
-                    } else if (p0) {
-                        v02.e().f("appready");
-                    }
-                    b43 f = zo2.U().f(e73.b(eh3.f(d)));
-                    da2Var = new da2();
-                    if (gVar == null && !TextUtils.isEmpty(gVar.a)) {
-                        da2Var.a = gVar.a;
-                    } else {
-                        da2Var.a = im2.e.i(jo2Var.H(), jo2Var.v1()).getPath() + File.separator;
-                    }
-                    da2Var.b = d;
-                    da2Var.d = f.g;
-                    da2Var.c = h;
-                    da2Var.k = aa2Var.g;
-                    da2Var.e = String.valueOf(jo2Var.m0());
-                    da2Var.g = z2;
-                    da2Var.i = sp1Var.K();
-                    da2Var.m = true;
-                    if (H) {
-                        da2Var.j = p02.d();
-                    }
-                    if (!F) {
-                        c12.g().h("pageready");
-                    } else if (p0) {
-                        v02.e().f("pageready");
-                    }
-                    if (b) {
-                        Log.d("AppLaunchMessenger", da2Var.toString());
-                    }
-                    rw2.o().F(new UbcFlowEvent("slave_dispatch_start"));
-                    m93.d().i("slave_dispatch_start");
-                    sp1Var.L(da2Var);
-                    tg3.d();
-                    sp1Var.r().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
-                    sp1Var.R(d);
-                    ga2.U().V0(sp1Var.a(), da2.a(da2Var));
-                    w93.F(sp1Var.a(), da2Var.b);
-                    if (b) {
-                        Log.d("AppLaunchMessenger", "app path: " + aa2Var.b);
-                        Log.d("AppLaunchMessenger", "webviewId: " + sp1Var.a());
-                        Log.d("AppLaunchMessenger", "pageUrl: " + d);
-                        Log.d("AppLaunchMessenger", "pagePath: " + da2Var.b);
-                        Log.d("AppLaunchMessenger", "onReachBottomDistance: " + da2Var.d);
-                        Log.d("AppLaunchMessenger", "sConsole:" + da2Var.e);
-                    }
-                    a(swanAppConfigData);
-                    this.a = true;
-                    e();
-                }
-                z2 = true;
-                aa2Var.h = z2;
-                aa2Var.j = sp1Var.K();
-                aa2Var.l = ea2.b();
-                f0 = jo2Var.f0();
-                if (f0 != null) {
-                    aa2Var.m = f0.userActionApis;
-                }
-                H = lz2.H();
-                if (H) {
-                }
-                P = jo2Var.P();
-                if (P != null) {
-                }
-                if (b) {
-                }
-                rw2.o().F(new UbcFlowEvent("master_dispatch_start"));
-                m93.d().i("master_dispatch_start");
-                i52Var.D(aa2Var);
-                ga2.U().U0(aa2.b(aa2Var));
-                tm2.m0().a();
-                ga2.U().h1(aa2Var.j);
-                F = lz2.F(jo2Var.g0());
-                boolean p02 = jo2Var.p0();
-                if (!F) {
-                }
-                b43 f2 = zo2.U().f(e73.b(eh3.f(d)));
-                da2Var = new da2();
-                if (gVar == null) {
-                }
-                da2Var.a = im2.e.i(jo2Var.H(), jo2Var.v1()).getPath() + File.separator;
-                da2Var.b = d;
-                da2Var.d = f2.g;
-                da2Var.c = h;
-                da2Var.k = aa2Var.g;
-                da2Var.e = String.valueOf(jo2Var.m0());
-                da2Var.g = z2;
-                da2Var.i = sp1Var.K();
-                da2Var.m = true;
-                if (H) {
-                }
-                if (!F) {
-                }
-                if (b) {
-                }
-                rw2.o().F(new UbcFlowEvent("slave_dispatch_start"));
-                m93.d().i("slave_dispatch_start");
-                sp1Var.L(da2Var);
-                tg3.d();
-                sp1Var.r().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, d);
-                sp1Var.R(d);
-                ga2.U().V0(sp1Var.a(), da2.a(da2Var));
-                w93.F(sp1Var.a(), da2Var.b);
-                if (b) {
-                }
-                a(swanAppConfigData);
-                this.a = true;
-                e();
+                sb.append(z);
+                sb.append(" ; url = ");
+                sb.append(f);
+                Log.e("HybridIntercept", sb.toString());
             }
+            return c2;
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(t82 t82Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t82Var)) == null) {
+            if (t82Var == null) {
+                return null;
+            }
+            String str = t82Var.e;
+            if (str != null && str.toLowerCase().contains("html")) {
+                t82Var.e = SapiWebView.DATA_MIME_TYPE;
+                t82Var.d = "UTF-8";
+            }
+            if (lg3.f()) {
+                return new WebResourceResponse(t82Var.e, t82Var.d, t82Var.a, t82Var.b, t82Var.c, t82Var.f);
+            }
+            return new WebResourceResponse(t82Var.e, "UTF-8", t82Var.f);
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("intercept") && str.length() > 9) {
+                str = str.substring(9);
+            }
+            if (n82.a) {
+                Log.d("HybridIntercept", "remote request url = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Map<String, String> g(@NonNull z82.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            Map<String, String> requestHeaders = aVar.getRequestHeaders();
+            if (requestHeaders == null) {
+                requestHeaders = new HashMap<>();
+            }
+            String f = ad3.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
+            if (!TextUtils.isEmpty(f)) {
+                requestHeaders.put("Cookie", f);
+                if (n82.a) {
+                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+                }
+            }
+            return requestHeaders;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            File b2 = j82.a().b();
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                b2 = new File(b2, e);
+            }
+            if (n82.a) {
+                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
+            }
+            ik4.l(b2);
+            this.c = ln2.U().b(context, b2, j82.a().g());
         }
     }
 
-    public final void e() {
-        int b2;
-        i52 W;
+    public final void d(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b2 = kx2.b()) != 0 && (W = ga2.U().W()) != null) {
-            if (b2 < 0) {
-                W.p(b2);
-            } else if (b2 == 1) {
-                W.p(-4);
-            } else {
-                W.p(-2);
-            }
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
+            yh3.q().post(new a(this, str, i, str2));
         }
+    }
+
+    public boolean i(@NonNull z82.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> requestHeaders;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (!aVar.c()) {
+                return true;
+            }
+            if (this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

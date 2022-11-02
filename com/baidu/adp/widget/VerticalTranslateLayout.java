@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kn;
+import com.baidu.tieba.cn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public final h t;
     public f u;
     public d v;
-    public final List w;
+    public final List<e> w;
     public g x;
 
     /* loaded from: classes.dex */
@@ -97,7 +97,7 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class TrackDirection {
+    public static final class TrackDirection {
         public static final /* synthetic */ TrackDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final TrackDirection bottom;
@@ -166,7 +166,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -405,7 +405,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (kn.a(f2, f, false) + this.d);
+                this.h.g = (int) (cn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-101, this.f);
             }
@@ -427,7 +427,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (kn.a(f2, f, false) + this.d);
+                this.h.g = (int) (cn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-100, this.f);
             }
@@ -450,7 +450,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (kn.a(f2, f, false) + this.d);
+                this.h.g = (int) (cn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-105, this.f);
             }
@@ -473,7 +473,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.h.s();
                     return;
                 }
-                this.h.g = (int) (kn.a(f2, f, false) + this.d);
+                this.h.g = (int) (cn.a(f2, f, false) + this.d);
                 this.h.invalidate();
                 this.h.r.sendEmptyMessageAtTime(-104, this.f);
             }

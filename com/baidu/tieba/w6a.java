@@ -1,45 +1,20 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public final class w6a {
+public class w6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948223911, "Lcom/baidu/tieba/w6a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948223911, "Lcom/baidu/tieba/w6a;");
-        }
-    }
-
-    @JvmStatic
-    public static final void a(WebView webView) {
+    public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            if (webView != null) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibility");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibilityTraversal");
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
+            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
         }
     }
 }

@@ -1,6 +1,8 @@
 package androidx.webkit;
 
 import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,9 +12,9 @@ public abstract class WebViewRenderProcessClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void onRenderProcessResponsive(WebView webView, WebViewRenderProcess webViewRenderProcess);
+    public abstract void onRenderProcessResponsive(@NonNull WebView webView, @Nullable WebViewRenderProcess webViewRenderProcess);
 
-    public abstract void onRenderProcessUnresponsive(WebView webView, WebViewRenderProcess webViewRenderProcess);
+    public abstract void onRenderProcessUnresponsive(@NonNull WebView webView, @Nullable WebViewRenderProcess webViewRenderProcess);
 
     public WebViewRenderProcessClient() {
         Interceptable interceptable = $ic;

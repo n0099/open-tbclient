@@ -68,7 +68,7 @@ public final class LongSparseArrayKt {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{longSparseArray, Long.valueOf(j), function0})) == null) {
             T t = longSparseArray.get(j);
             if (t == null) {
-                return (T) function0.invoke();
+                return function0.invoke();
             }
             return t;
         }

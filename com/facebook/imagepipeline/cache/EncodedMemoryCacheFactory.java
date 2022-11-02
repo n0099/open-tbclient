@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
+import com.facebook.common.memory.PooledByteBuffer;
 /* loaded from: classes7.dex */
 public class EncodedMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
@@ -26,12 +27,12 @@ public class EncodedMemoryCacheFactory {
         }
     }
 
-    public static InstrumentedMemoryCache get(MemoryCache memoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
+    public static InstrumentedMemoryCache<CacheKey, PooledByteBuffer> get(MemoryCache<CacheKey, PooledByteBuffer> memoryCache, ImageCacheStatsTracker imageCacheStatsTracker) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, memoryCache, imageCacheStatsTracker)) == null) {
             imageCacheStatsTracker.registerEncodedMemoryCache(memoryCache);
-            return new InstrumentedMemoryCache(memoryCache, new MemoryCacheTracker(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.EncodedMemoryCacheFactory.1
+            return new InstrumentedMemoryCache<>(memoryCache, new MemoryCacheTracker<CacheKey>(imageCacheStatsTracker) { // from class: com.facebook.imagepipeline.cache.EncodedMemoryCacheFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImageCacheStatsTracker val$imageCacheStatsTracker;

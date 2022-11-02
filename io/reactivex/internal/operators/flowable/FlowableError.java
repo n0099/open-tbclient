@@ -11,12 +11,12 @@ import io.reactivex.internal.subscriptions.EmptySubscription;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableError extends Flowable {
+public final class FlowableError<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable errorSupplier;
+    public final Callable<? extends Throwable> errorSupplier;
 
-    public FlowableError(Callable callable) {
+    public FlowableError(Callable<? extends Throwable> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,7 +35,7 @@ public final class FlowableError extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             try {

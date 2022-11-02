@@ -41,8 +41,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes7.dex */
-public class DecodeProducer implements Producer {
+public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_BITMAP_BYTES = "byteCount";
@@ -62,12 +63,12 @@ public class DecodeProducer implements Producer {
     public final boolean mDownsampleEnabledForNetwork;
     public final Executor mExecutor;
     public final ImageDecoder mImageDecoder;
-    public final Producer mInputProducer;
+    public final Producer<EncodedImage> mInputProducer;
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
     @Nullable
     public final Runnable mReclaimMemoryRunnable;
-    public final Supplier mRecoverFromDecoderOOM;
+    public final Supplier<Boolean> mRecoverFromDecoderOOM;
 
     /* loaded from: classes7.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
@@ -76,7 +77,7 @@ public class DecodeProducer implements Producer {
         public final /* synthetic */ DecodeProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LocalImagesProgressiveDecoder(DecodeProducer decodeProducer, Consumer consumer, ProducerContext producerContext, boolean z, int i) {
+        public LocalImagesProgressiveDecoder(DecodeProducer decodeProducer, Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, boolean z, int i) {
             super(decodeProducer, consumer, producerContext, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -143,7 +144,7 @@ public class DecodeProducer implements Producer {
         public final /* synthetic */ DecodeProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public NetworkImagesProgressiveDecoder(DecodeProducer decodeProducer, Consumer consumer, ProducerContext producerContext, ProgressiveJpegParser progressiveJpegParser, ProgressiveJpegConfig progressiveJpegConfig, boolean z, int i) {
+        public NetworkImagesProgressiveDecoder(DecodeProducer decodeProducer, Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, ProgressiveJpegParser progressiveJpegParser, ProgressiveJpegConfig progressiveJpegConfig, boolean z, int i) {
             super(decodeProducer, consumer, producerContext, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -215,12 +216,13 @@ public class DecodeProducer implements Producer {
     }
 
     /* loaded from: classes7.dex */
-    public abstract class ProgressiveDecoder extends DelegatingConsumer {
+    public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
         public transient /* synthetic */ FieldHolder $fh;
         public final String TAG;
         public final ImageDecodeOptions mImageDecodeOptions;
+        @GuardedBy("this")
         public boolean mIsFinished;
         public final JobScheduler mJobScheduler;
         public final ProducerContext mProducerContext;
@@ -232,7 +234,7 @@ public class DecodeProducer implements Producer {
         public abstract QualityInfo getQualityInfo();
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ProgressiveDecoder(DecodeProducer decodeProducer, Consumer consumer, ProducerContext producerContext, boolean z, int i) {
+        public ProgressiveDecoder(DecodeProducer decodeProducer, Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, boolean z, int i) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -398,7 +400,7 @@ public class DecodeProducer implements Producer {
         private void handleResult(CloseableImage closeableImage, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(65546, this, closeableImage, i) == null) {
-                CloseableReference create = this.this$0.mCloseableReferenceFactory.create(closeableImage);
+                CloseableReference<CloseableImage> create = this.this$0.mCloseableReferenceFactory.create(closeableImage);
                 try {
                     maybeFinish(BaseConsumer.isLast(i));
                     getConsumer().onNewResult(create, i);
@@ -419,13 +421,13 @@ public class DecodeProducer implements Producer {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* JADX WARN: Can't wrap try/catch for region: R(8:24|25|(9:(13:29|(11:33|34|35|36|38|39|(1:41)|42|43|44|45)|60|34|35|36|38|39|(0)|42|43|44|45)|(11:33|34|35|36|38|39|(0)|42|43|44|45)|38|39|(0)|42|43|44|45)|61|60|34|35|36) */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x00f9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x00fa, code lost:
             r0 = e;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x00fa, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x00fb, code lost:
             r2 = null;
          */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x00d9  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00da  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -514,7 +516,7 @@ public class DecodeProducer implements Producer {
                             } catch (Exception e) {
                                 e = e;
                                 CloseableImage closeableImage = internalDecode;
-                                Map extraMap = getExtraMap(closeableImage, queuedTime, qualityInfo2, isLast, str, str3, str2, valueOf);
+                                Map<String, String> extraMap = getExtraMap(closeableImage, queuedTime, qualityInfo2, isLast, str, str3, str2, valueOf);
                                 this.mProducerListener.onProducerFinishWithFailure(this.mProducerContext, DecodeProducer.PRODUCER_NAME, e, extraMap);
                                 this.mProducerListener.onDecoderFinishWithFailure(this.mProducerContext.getImageRequest(), encodedImage, e, extraMap);
                                 handleError(e);
@@ -538,7 +540,7 @@ public class DecodeProducer implements Producer {
         }
 
         @Nullable
-        private Map getExtraMap(@Nullable CloseableImage closeableImage, long j, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
+        private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{closeableImage, Long.valueOf(j), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
@@ -704,7 +706,7 @@ public class DecodeProducer implements Producer {
         }
     }
 
-    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer producer, int i, CloseableReferenceFactory closeableReferenceFactory, @Nullable Runnable runnable, Supplier supplier) {
+    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer<EncodedImage> producer, int i, CloseableReferenceFactory closeableReferenceFactory, @Nullable Runnable runnable, Supplier<Boolean> supplier) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -734,8 +736,8 @@ public class DecodeProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
-        Consumer networkImagesProgressiveDecoder;
+    public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
+        Consumer<EncodedImage> networkImagesProgressiveDecoder;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             try {

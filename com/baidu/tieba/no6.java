@@ -1,104 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.ss.android.download.api.constant.BaseConstants;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class no6 extends vw4 {
+public class no6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw4 c;
-    public String d;
+    public View a;
+    public BarImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public EntelechyUserLikeButton f;
+    public View g;
 
-    @Override // com.baidu.tieba.vw4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public no6(tw4 tw4Var, String str) {
-        super(tw4Var);
+    public no6(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tw4Var, str};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tw4Var;
-        this.d = str;
-    }
-
-    @ww4(isAsync = false, value = "downloadGame")
-    private void downloadGame(JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("packageName");
-        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
-        String optString3 = jSONObject.optString("imageUrl");
-        if (StringUtils.isNull(optString)) {
-            return;
-        }
-        if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c68);
-            return;
-        }
-        if (StringUtils.isNull(optString2)) {
-            g(optString);
-        } else {
-            af8.n().E(optString, optString2, optString, 0, af8.o(optString).intValue(), null, true, false, true, optString3, null, null);
-        }
-        StatisticItem statisticItem = new StatisticItem("c12775");
-        if (StringUtils.isNull(this.d)) {
-            str = "";
-        } else {
-            str = this.d;
-        }
-        TiebaStatic.log(statisticItem.param("fid", str));
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
-            try {
-                if (!(this.c.getContext() instanceof Activity)) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                this.c.getContext().startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        this.a = view2;
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b2f);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b32);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b30);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b31);
+        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090b2d);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b2e);
     }
 }

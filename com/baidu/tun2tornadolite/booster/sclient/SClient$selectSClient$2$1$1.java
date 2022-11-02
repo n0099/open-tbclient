@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tun2tornadolite.booster.sclient.SClient;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -18,7 +19,7 @@ import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$selectSClient$2$1$1", f = "SClient.kt", i = {}, l = {277}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes6.dex */
-public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements Function2 {
+public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super SClient.ConnectResult>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $address;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$selectSClient$2$1$1(String str, long j, Continuation continuation) {
+    public SClient$selectSClient$2$1$1(String str, long j, Continuation<? super SClient$selectSClient$2$1$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -49,7 +50,7 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) ? new SClient$selectSClient$2$1$1(this.$address, this.$timeout, continuation) : (Continuation) invokeLL.objValue;
@@ -57,7 +58,7 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(CoroutineScope coroutineScope, Continuation continuation) {
+    public final Object invoke(CoroutineScope coroutineScope, Continuation<? super SClient.ConnectResult> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, coroutineScope, continuation)) == null) ? ((SClient$selectSClient$2$1$1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;

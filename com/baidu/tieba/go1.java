@@ -1,21 +1,19 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface go1 {
-    void a(Context context, JSONObject jSONObject);
+    void a(String str, lr2 lr2Var);
 
-    void b(Context context, JSONObject jSONObject);
+    int getDuration();
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    boolean isPlaying();
 
-    void d(Context context, String[] strArr, int i);
+    void onRelease();
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map map);
+    void pause();
 
-    void f(Context context, JSONObject jSONObject);
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

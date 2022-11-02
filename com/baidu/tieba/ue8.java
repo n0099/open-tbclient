@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class ue8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ue8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public ConcurrentHashMap<String, ve8> c;
 
     public ue8() {
         Interceptable interceptable = $ic;
@@ -27,49 +33,155 @@ public class ue8 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public int a() {
+    public static ue8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (ue8.class) {
+                    if (d == null) {
+                        d = new ue8();
+                    }
+                }
+            }
+            return d;
+        }
+        return (ue8) invokeV.objValue;
+    }
+
+    public ConcurrentHashMap<String, ve8> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return invokeV.booleanValue;
+        return (ConcurrentHashMap) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public ve8 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null || this.c == null) {
+                return null;
+            }
+            String str2 = hashMap.get(str);
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            return this.c.get(str2);
+        }
+        return (ve8) invokeL.objValue;
+    }
+
+    public void f(String str) {
+        ConcurrentHashMap<String, ve8> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            Iterator<String> it = concurrentHashMap.keySet().iterator();
+            while (it.hasNext()) {
+                ve8 ve8Var = this.c.get(it.next());
+                if (ve8Var != null && str.equals(ve8Var.b)) {
+                    it.remove();
+                }
+            }
         }
     }
 
-    public void e(int i) {
+    public void g(boolean z) {
+        ConcurrentHashMap<String, ve8> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
+            return;
+        }
+        for (String str : concurrentHashMap.keySet()) {
+            ve8 ve8Var = this.c.get(str);
+            if (ve8Var != null) {
+                ve8Var.e = z;
+            }
+        }
+    }
+
+    public ve8 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            ConcurrentHashMap<String, ve8> concurrentHashMap = this.c;
+            if (concurrentHashMap == null) {
+                return null;
+            }
+            return concurrentHashMap.get(str);
+        }
+        return (ve8) invokeL.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap == null) {
+                return null;
+            }
+            return hashMap.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void i(HashMap<String, ve8> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            this.c.clear();
+            if (hashMap == null) {
+                return;
+            }
+            this.c.putAll(hashMap);
+        }
+    }
+
+    public void h(boolean z, String str) {
+        ConcurrentHashMap<String, ve8> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
+            for (String str2 : concurrentHashMap.keySet()) {
+                ve8 ve8Var = this.c.get(str2);
+                if (ve8Var != null && str.equals(ve8Var.b)) {
+                    ve8Var.e = z;
+                }
+            }
+        }
+    }
+
+    public void j(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void k(String str, String str2) {
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
+            hashMap.put(str, str2);
+        }
+    }
+
+    public void l(String str, HashMap<String, ve8> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
+            if (this.c == null) {
+                this.c = new ConcurrentHashMap<>();
+            }
+            f(str);
+            this.c.putAll(hashMap);
         }
     }
 }

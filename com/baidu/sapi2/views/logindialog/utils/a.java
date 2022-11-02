@@ -28,7 +28,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "auto_statistic";
     public static final String b = "login_dialog";
-    public static LinkedHashMap c = null;
+    public static LinkedHashMap<String, String> c = null;
     public static final String d = "show_time_consume";
     public static final String e = "show_login_type";
     public static final String f = "clickevent";
@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.views.logindialog.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class C0135a extends HttpHandlerWrap {
+    public static class C0143a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0135a(boolean z) {
+        public C0143a(boolean z) {
             super(z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -96,7 +96,7 @@ public class a {
                 return;
             }
         }
-        c = new LinkedHashMap();
+        c = new LinkedHashMap<>();
         i = new JSONArray();
     }
 
@@ -209,10 +209,10 @@ public class a {
                 httpHashMapWrap.put("auto_statistic", Base64.encodeToString(a().getBytes(), 2));
                 if (c != null) {
                     for (String str : c.keySet()) {
-                        httpHashMapWrap.put(str, (String) c.get(str));
+                        httpHashMapWrap.put(str, c.get(str));
                     }
                 }
-                new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0135a(true));
+                new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0143a(true));
                 b();
             } catch (Exception e2) {
                 Log.e(Log.TAG, e2.getMessage());

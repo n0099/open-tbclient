@@ -1,11 +1,12 @@
 package com.baidu.swan.apps.console.v8inspector.websocket;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.Text;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,14 +38,14 @@ public class WebSocketFrame {
     public String f;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class CloseCode {
+    public static final class CloseCode {
         public static final /* synthetic */ CloseCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CloseCode MessageTooLong;
@@ -139,7 +140,7 @@ public class WebSocketFrame {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class OpCode {
+    public static final class OpCode {
         public static final /* synthetic */ OpCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final OpCode Binary;
@@ -251,7 +252,7 @@ public class WebSocketFrame {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends WebSocketFrame {
+    public static class b extends WebSocketFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CloseCode i;
@@ -355,7 +356,7 @@ public class WebSocketFrame {
                 return;
             }
         }
-        g = wj1.a;
+        g = ok1.a;
         h = Charset.forName("UTF-8");
     }
 
@@ -421,9 +422,10 @@ public class WebSocketFrame {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebSocketFrame(OpCode opCode, List list) {
+    @SuppressLint({"BDThrowableCheck"})
+    public WebSocketFrame(OpCode opCode, List<WebSocketFrame> list) {
         this(opCode, true);
-        Iterator it;
+        Iterator<WebSocketFrame> it;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -442,22 +444,19 @@ public class WebSocketFrame {
         }
         long j = 0;
         while (list.iterator().hasNext()) {
-            j += ((WebSocketFrame) it.next()).d().length;
+            j += it.next().d().length;
         }
         if (j >= 0 && j <= 2147483647L) {
             int i3 = (int) j;
             this.e = i3;
             byte[] bArr = new byte[i3];
-            Iterator it2 = list.iterator();
             int i4 = 0;
-            while (it2.hasNext()) {
-                WebSocketFrame webSocketFrame = (WebSocketFrame) it2.next();
+            for (WebSocketFrame webSocketFrame : list) {
                 System.arraycopy(webSocketFrame.d(), 0, bArr, i4, webSocketFrame.d().length);
                 i4 += webSocketFrame.d().length;
             }
             n(bArr);
-        } else if (!g) {
-        } else {
+        } else if (g) {
             throw new RuntimeException("Max frame length has been exceeded.");
         }
     }
@@ -595,6 +594,7 @@ public class WebSocketFrame {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static int c(int i) throws EOFException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -648,6 +648,7 @@ public class WebSocketFrame {
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static WebSocketFrame k(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         boolean z;
@@ -774,6 +775,7 @@ public class WebSocketFrame {
         return (String) invokeV.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public final void m(InputStream inputStream) throws IOException {
         boolean z;
         Interceptable interceptable = $ic;

@@ -1,6 +1,7 @@
 package com.baidu.live.business.base;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +17,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.ub0;
+import com.baidu.tieba.tb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +116,7 @@ public abstract class LiveBaseFragment extends Fragment {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             this.b = null;
-            ub0.a().e(this);
+            tb0.a().e(this);
         }
     }
 
@@ -155,7 +156,7 @@ public abstract class LiveBaseFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
@@ -220,7 +221,7 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public boolean w1() {
+    public boolean x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {

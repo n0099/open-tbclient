@@ -1,6 +1,7 @@
 package com.kwad.components.core.k;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,19 +24,19 @@ public final class e {
     public static volatile boolean HJ;
     public static volatile boolean HK;
     public static volatile boolean HL;
-    public static final List HM;
+    public static final List<a> HM;
     public static Context ab;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(SdkConfigData sdkConfigData);
+        void a(@NonNull SdkConfigData sdkConfigData);
 
         void no();
     }
 
     /* loaded from: classes7.dex */
-    public final class b implements Runnable {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +124,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             com.kwad.sdk.core.e.b.d("ConfigRequestManager", "load()");
-            new m() { // from class: com.kwad.components.core.k.e.1
+            new m<d, SdkConfigData>() { // from class: com.kwad.components.core.k.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,6 +142,7 @@ public final class e {
                     }
                 }
 
+                @NonNull
                 public static SdkConfigData au(String str) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -160,6 +162,7 @@ public final class e {
                     return (SdkConfigData) invokeL.objValue;
                 }
 
+                @NonNull
                 public static d on() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -167,15 +170,18 @@ public final class e {
                 }
 
                 @Override // com.kwad.sdk.core.network.a
+                @NonNull
                 public final /* synthetic */ com.kwad.sdk.core.network.g createRequest() {
                     return on();
                 }
 
+                /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.network.BaseResultData' to match base method */
                 @Override // com.kwad.sdk.core.network.m
-                public final /* synthetic */ BaseResultData parseData(String str) {
+                @NonNull
+                public final /* synthetic */ SdkConfigData parseData(String str) {
                     return au(str);
                 }
-            }.request(new n() { // from class: com.kwad.components.core.k.e.2
+            }.request(new n<d, SdkConfigData>() { // from class: com.kwad.components.core.k.e.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,7 +203,7 @@ public final class e {
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
                 /* renamed from: a */
-                public void onStartRequest(d dVar) {
+                public void onStartRequest(@NonNull d dVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65537, this, dVar) == null) {
                         com.kwad.sdk.core.e.b.d("ConfigRequestManager", "onStartRequest request url = " + dVar.getUrl());
@@ -209,7 +215,7 @@ public final class e {
                 /* JADX INFO: Access modifiers changed from: private */
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
                 /* renamed from: a */
-                public void onError(d dVar, int i, String str) {
+                public void onError(@NonNull d dVar, int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIL(65538, this, dVar, i, str) == null) {
                         super.onError(dVar, i, str);
@@ -217,7 +223,7 @@ public final class e {
                     }
                 }
 
-                public static void b(SdkConfigData sdkConfigData) {
+                public static void b(@NonNull SdkConfigData sdkConfigData) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(65539, null, sdkConfigData) == null) {
                         com.kwad.sdk.core.config.b.aT(e.ab);
@@ -238,7 +244,7 @@ public final class e {
                 }
 
                 @Override // com.kwad.sdk.core.network.n, com.kwad.sdk.core.network.h
-                public final /* synthetic */ void onSuccess(com.kwad.sdk.core.network.g gVar, BaseResultData baseResultData) {
+                public final /* synthetic */ void onSuccess(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull BaseResultData baseResultData) {
                     b((SdkConfigData) baseResultData);
                 }
             });

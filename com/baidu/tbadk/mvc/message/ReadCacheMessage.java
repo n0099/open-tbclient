@@ -2,18 +2,18 @@ package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ub5;
+import com.baidu.tieba.qc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ReadCacheMessage extends CustomMessage {
+public class ReadCacheMessage<T> extends CustomMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedUid;
-    public ub5 requestData;
+    public qc5 requestData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReadCacheMessage(int i) {
@@ -36,13 +36,13 @@ public class ReadCacheMessage extends CustomMessage {
         this.isNeedUid = true;
     }
 
-    public ub5 getRequestData() {
+    public qc5 getRequestData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.requestData;
         }
-        return (ub5) invokeV.objValue;
+        return (qc5) invokeV.objValue;
     }
 
     public boolean isNeedUid() {
@@ -61,10 +61,10 @@ public class ReadCacheMessage extends CustomMessage {
         }
     }
 
-    public void setRequestData(ub5 ub5Var) {
+    public void setRequestData(qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ub5Var) == null) {
-            this.requestData = ub5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qc5Var) == null) {
+            this.requestData = qc5Var;
         }
     }
 }

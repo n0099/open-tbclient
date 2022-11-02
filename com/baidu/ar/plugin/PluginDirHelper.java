@@ -188,7 +188,7 @@ public class PluginDirHelper {
         return (String) invokeLL.objValue;
     }
 
-    public static List getPluginSignatureFiles(Context context, String str) {
+    public static List<String> getPluginSignatureFiles(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, context, str)) == null) {

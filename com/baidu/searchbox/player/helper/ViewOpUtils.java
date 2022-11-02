@@ -2,6 +2,7 @@ package com.baidu.searchbox.player.helper;
 
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,6 +30,7 @@ public class ViewOpUtils {
         }
     }
 
+    @PublicMethod
     public static boolean removeView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -103,7 +103,7 @@ public final class HStaticApi {
         }
     }
 
-    public void reportReg(String str, String str2, String str3, Map map) {
+    public void reportReg(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, map) == null) {
             ThreadPool.getPool().execute(new Runnable(this, str, str2, str3, map) { // from class: com.yy.hiidostatis.track.HStaticApi.1

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +18,7 @@ import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = fj.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 
@@ -97,7 +98,7 @@ public class ShareDialogItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShareDialogItemView(Context context, AttributeSet attributeSet) {
+    public ShareDialogItemView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,7 +131,7 @@ public class ShareDialogItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareDialogItemView(Context context, AttributeSet attributeSet, int i2) {
+    public ShareDialogItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -238,7 +239,7 @@ public class ShareDialogItemView extends LinearLayout {
             setTag(Integer.valueOf(i2));
             this.b.setScaleType(ImageView.ScaleType.FIT_XY);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.c);
-            this.b.L(str, 12, false);
+            this.b.K(str, 12, false);
             this.b.setIsRound(true);
             if (metaData.getItemType() == k) {
                 UtilHelper.showHeadImageViewBigVForStranger(this.b, metaData);

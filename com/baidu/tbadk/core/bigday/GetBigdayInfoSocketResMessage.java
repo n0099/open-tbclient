@@ -1,10 +1,11 @@
 package com.baidu.tbadk.core.bigday;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kf;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.cf;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.kr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList bigdayInfos;
+    public ArrayList<kr4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -49,14 +50,15 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            ou4.f();
-            kf d = ou4.d("tb.bigday_datas");
+            hv4.f();
+            cf<byte[]> d = hv4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -70,13 +72,13 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                 }
                 DataRes dataRes = getBigdayResIdl.data;
                 if (dataRes != null && dataRes.bigday_list != null) {
-                    this.bigdayInfos = new ArrayList();
+                    this.bigdayInfos = new ArrayList<>();
                     for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                         if (bigdayInfo != null) {
-                            tq4 tq4Var = new tq4();
-                            tq4Var.b(bigdayInfo);
-                            if (tq4Var.a()) {
-                                this.bigdayInfos.add(tq4Var);
+                            kr4 kr4Var = new kr4();
+                            kr4Var.b(bigdayInfo);
+                            if (kr4Var.a()) {
+                                this.bigdayInfos.add(kr4Var);
                             }
                         }
                     }

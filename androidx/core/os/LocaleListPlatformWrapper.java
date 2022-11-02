@@ -1,6 +1,9 @@
 package androidx.core.os;
 
 import android.os.LocaleList;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
+@RequiresApi(24)
 /* loaded from: classes.dex */
 public final class LocaleListPlatformWrapper implements LocaleListInterface {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +57,8 @@ public final class LocaleListPlatformWrapper implements LocaleListInterface {
     }
 
     @Override // androidx.core.os.LocaleListInterface
-    public Locale getFirstMatch(String[] strArr) {
+    @Nullable
+    public Locale getFirstMatch(@NonNull String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {

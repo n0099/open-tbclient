@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.f;
 
+import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.IOException;
@@ -46,7 +47,7 @@ public class l implements e {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
-    public void b(a aVar) throws IOException {
+    public void b(@NonNull a aVar) throws IOException {
         this.b.a(aVar.a, 0, aVar.c);
         this.a.b(aVar.c);
     }

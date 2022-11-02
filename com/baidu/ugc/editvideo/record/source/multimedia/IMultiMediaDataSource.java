@@ -1,6 +1,9 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import java.util.List;
@@ -21,11 +24,11 @@ public interface IMultiMediaDataSource {
 
     MediaTrackConfig getMediaTrackConfig();
 
-    List getMultiMediaDataTrack();
+    List<MultiMediaDataTrack> getMultiMediaDataTrack();
 
-    Map getShaderConfigMap();
+    Map<String, ShaderConfig> getShaderConfigMap();
 
-    List getUpdateMediaTracks();
+    List<MediaTrack> getUpdateMediaTracks();
 
     boolean isPaused();
 

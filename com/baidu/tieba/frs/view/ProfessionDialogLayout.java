@@ -7,12 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -113,7 +114,7 @@ public class ProfessionDialogLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProfessionDialogLayout(Context context, AttributeSet attributeSet) {
+    public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -135,7 +136,7 @@ public class ProfessionDialogLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProfessionDialogLayout(Context context, AttributeSet attributeSet, int i) {
+    public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -171,21 +172,21 @@ public class ProfessionDialogLayout extends LinearLayout {
     }
 
     private void setImageAttribute(TbImageView tbImageView) {
-        int k;
+        int l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tbImageView) == null) {
-            int f = fj.f(this.c, R.dimen.obfuscated_res_0x7f070225);
+            int g = xi.g(this.c, R.dimen.obfuscated_res_0x7f070225);
             if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                k = fj.i(this.c);
+                l = xi.j(this.c);
             } else {
-                k = fj.k(this.c);
+                l = xi.l(this.c);
             }
-            int i = k - (f * 2);
+            int i = l - (g * 2);
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = (i * 558) / 992;
             tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setRadius(fj.f(this.c, R.dimen.obfuscated_res_0x7f0701be));
+            tbImageView.setRadius(xi.g(this.c, R.dimen.obfuscated_res_0x7f0701be));
             tbImageView.setConrers(3);
             tbImageView.setIsBitmapPic(true);
         }
@@ -195,18 +196,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.c = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0756, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076b, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ec1);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907a5), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907a6), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090489), (int) R.color.CAM_X0302);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090efa);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907b3), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907b4), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090496), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080bf8);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090666);
-            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f080919);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c12);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090673);
+            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f08092e);
             tbImageView2.setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f090489).setOnClickListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f090496).setOnClickListener(new b(this));
         }
     }
 }

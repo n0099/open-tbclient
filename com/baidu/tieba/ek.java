@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import java.util.Map;
-/* loaded from: classes3.dex */
-public interface ek {
-    void a(String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class ek extends hk {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    void b(int i, String str);
-
-    void c(ak akVar);
-
-    void d(byte[] bArr);
-
-    void e();
-
-    void f(ik ikVar);
-
-    void g(int i, ak akVar);
-
-    void h(ak akVar);
-
-    void i(ak akVar);
-
-    void onOpen(Map map);
+    public ek(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+    }
 }

@@ -21,7 +21,7 @@ public abstract class TimeSelector {
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.TimeSelector$5  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass5 {
+    public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$ClockType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -3,6 +3,7 @@ package com.google.android.gms.common.internal;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +14,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+@SafeParcelable.Class(creator = "ConnectionInfoCreator")
 /* loaded from: classes7.dex */
 public final class zzj extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<zzj> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(id = 1)
     public Bundle zza;
+    @SafeParcelable.Field(id = 2)
     public Feature[] zzb;
+    @SafeParcelable.Field(defaultValue = "0", id = 3)
     public int zzc;
+    @Nullable
+    @SafeParcelable.Field(id = 4)
     public ConnectionTelemetryConfiguration zzd;
 
     static {
@@ -39,7 +47,8 @@ public final class zzj extends AbstractSafeParcelable {
         CREATOR = new zzk();
     }
 
-    public zzj(Bundle bundle, Feature[] featureArr, int i, ConnectionTelemetryConfiguration connectionTelemetryConfiguration) {
+    @SafeParcelable.Constructor
+    public zzj(@SafeParcelable.Param(id = 1) Bundle bundle, @SafeParcelable.Param(id = 2) Feature[] featureArr, @SafeParcelable.Param(id = 3) int i, @Nullable @SafeParcelable.Param(id = 4) ConnectionTelemetryConfiguration connectionTelemetryConfiguration) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

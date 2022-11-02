@@ -17,11 +17,11 @@ public class DataSources {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class ValueHolder {
+    public static class ValueHolder<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public Object value;
+        public T value;
 
         public ValueHolder() {
             Interceptable interceptable = $ic;
@@ -54,11 +54,11 @@ public class DataSources {
         }
     }
 
-    public static Supplier getFailedDataSourceSupplier(Throwable th) {
+    public static <T> Supplier<DataSource<T>> getFailedDataSourceSupplier(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            return new Supplier(th) { // from class: com.facebook.datasource.DataSources.1
+            return new Supplier<DataSource<T>>(th) { // from class: com.facebook.datasource.DataSources.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Throwable val$failure;
@@ -83,7 +83,7 @@ public class DataSources {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.common.internal.Supplier
-                public DataSource get() {
+                public DataSource<T> get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -96,18 +96,18 @@ public class DataSources {
         return (Supplier) invokeL.objValue;
     }
 
-    public static DataSource immediateDataSource(Object obj) {
+    public static <T> DataSource<T> immediateDataSource(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) {
             SimpleDataSource create = SimpleDataSource.create();
-            create.setResult(obj);
+            create.setResult(t);
             return create;
         }
         return (DataSource) invokeL.objValue;
     }
 
-    public static DataSource immediateFailedDataSource(Throwable th) {
+    public static <T> DataSource<T> immediateFailedDataSource(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
@@ -119,14 +119,14 @@ public class DataSources {
     }
 
     @Nullable
-    public static Object waitForFinalResult(DataSource dataSource) throws Throwable {
+    public static <T> T waitForFinalResult(DataSource<T> dataSource) throws Throwable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dataSource)) == null) {
             CountDownLatch countDownLatch = new CountDownLatch(1);
             ValueHolder valueHolder = new ValueHolder();
             ValueHolder valueHolder2 = new ValueHolder();
-            dataSource.subscribe(new DataSubscriber(valueHolder, countDownLatch, valueHolder2) { // from class: com.facebook.datasource.DataSources.2
+            dataSource.subscribe(new DataSubscriber<T>(valueHolder, countDownLatch, valueHolder2) { // from class: com.facebook.datasource.DataSources.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CountDownLatch val$latch;
@@ -134,7 +134,7 @@ public class DataSources {
                 public final /* synthetic */ ValueHolder val$resultHolder;
 
                 @Override // com.facebook.datasource.DataSubscriber
-                public void onProgressUpdate(DataSource dataSource2) {
+                public void onProgressUpdate(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, dataSource2) == null) {
                     }
@@ -161,15 +161,16 @@ public class DataSources {
                 }
 
                 @Override // com.facebook.datasource.DataSubscriber
-                public void onCancellation(DataSource dataSource2) {
+                public void onCancellation(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, dataSource2) == null) {
                         this.val$latch.countDown();
                     }
                 }
 
+                /* JADX WARN: Type inference failed for: r5v2, types: [java.lang.Throwable, T] */
                 @Override // com.facebook.datasource.DataSubscriber
-                public void onFailure(DataSource dataSource2) {
+                public void onFailure(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource2) == null) {
                         try {
@@ -180,8 +181,9 @@ public class DataSources {
                     }
                 }
 
+                /* JADX WARN: Type inference failed for: r5v2, types: [T, java.lang.Object] */
                 @Override // com.facebook.datasource.DataSubscriber
-                public void onNewResult(DataSource dataSource2) {
+                public void onNewResult(DataSource<T> dataSource2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 != null && interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSource2) != null) || !dataSource2.isFinished()) {
                         return;
@@ -219,12 +221,12 @@ public class DataSources {
                 }
             });
             countDownLatch.await();
-            Object obj = valueHolder2.value;
-            if (obj == null) {
+            T t = valueHolder2.value;
+            if (t == null) {
                 return valueHolder.value;
             }
-            throw ((Throwable) obj);
+            throw ((Throwable) t);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

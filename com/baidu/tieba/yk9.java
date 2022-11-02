@@ -1,23 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ml9;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class yk9 implements ml9.a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ yk9 a = new yk9();
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yk9 {
+    String getBizType();
 
-    private /* synthetic */ yk9() {
-    }
-
-    @Override // com.baidu.tieba.ml9.a
-    public final void a(kl9 kl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kl9Var) == null) {
-            ql9.d(kl9Var);
-        }
-    }
+    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
 }

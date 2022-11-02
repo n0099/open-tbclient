@@ -7,6 +7,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,13 +25,18 @@ import com.google.android.material.dialog.InsetDialogOnTouchListener;
 import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
 /* loaded from: classes7.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     public static /* synthetic */ Interceptable $ic = null;
+    @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;
+    @StyleRes
     public static final int DEF_STYLE_RES = 2131755304;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final Drawable background;
+    @NonNull
     public final Rect backgroundInsets;
 
     static {
@@ -45,7 +55,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(Context context) {
+    public MaterialStyledDatePickerDialog(@NonNull Context context) {
         this(context, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,7 +76,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(Context context, int i) {
+    public MaterialStyledDatePickerDialog(@NonNull Context context, int i) {
         this(context, i, null, -1, -1, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,7 +97,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(Context context, int i, DatePickerDialog.OnDateSetListener onDateSetListener, int i2, int i3, int i4) {
+    public MaterialStyledDatePickerDialog(@NonNull Context context, int i, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i2, int i3, int i4) {
         super(context, i, onDateSetListener, i2, i3, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -119,7 +129,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(Context context, DatePickerDialog.OnDateSetListener onDateSetListener, int i, int i2, int i3) {
+    public MaterialStyledDatePickerDialog(@NonNull Context context, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i, int i2, int i3) {
         this(context, 0, onDateSetListener, i, i2, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

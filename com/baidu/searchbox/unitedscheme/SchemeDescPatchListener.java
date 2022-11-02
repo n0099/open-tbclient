@@ -12,6 +12,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
+import com.baidu.searchbox.net.update.v2.UpdateAction;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,6 +25,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
 /* loaded from: classes2.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -158,7 +160,6 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;
@@ -172,12 +173,12 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
                     String str3 = TAG;
                     Log.d(str3, "value.data " + actionData.data);
                 }
-                if (SavePatchToFile(((JSONObject) actionData.data).toString())) {
+                if (SavePatchToFile(actionData.data.toString())) {
                     PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(DESC_PATCH_VERSION, actionData.version).apply();
-                    JSONArray optJSONArray = ((JSONObject) actionData.data).optJSONArray(PATCH);
+                    JSONArray optJSONArray = actionData.data.optJSONArray(PATCH);
                     if (optJSONArray != null) {
-                        startVersion = ((JSONObject) actionData.data).optString(START_VERSION);
-                        endVersion = ((JSONObject) actionData.data).optString(END_VERSION);
+                        startVersion = actionData.data.optString(START_VERSION);
+                        endVersion = actionData.data.optString(END_VERSION);
                         amendDes = optJSONArray.toString();
                         SchemeCollecter.finalDesPatch = SchemeCollecter.getAmendDes();
                         return true;

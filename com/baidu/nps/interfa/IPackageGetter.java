@@ -6,5 +6,5 @@ import java.util.List;
 public interface IPackageGetter {
     void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback);
 
-    void getBundleInfo(List list, IPackageGetCallback iPackageGetCallback);
+    void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback);
 }

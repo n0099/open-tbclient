@@ -48,11 +48,11 @@ public class a {
         return (String) invokeIL.objValue;
     }
 
-    public static String a(Object obj, String str) {
+    public static <T> String a(T t, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
-            return obj + "-" + str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, t, str)) == null) {
+            return t + "-" + str;
         }
         return (String) invokeLL.objValue;
     }

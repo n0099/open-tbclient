@@ -19,12 +19,12 @@ public final class AssetDataSource implements DataSource {
     public final AssetManager assetManager;
     public long bytesRemaining;
     public InputStream inputStream;
-    public final TransferListener listener;
+    public final TransferListener<? super AssetDataSource> listener;
     public boolean opened;
     public Uri uri;
 
     /* loaded from: classes7.dex */
-    public final class AssetDataSourceException extends IOException {
+    public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +70,7 @@ public final class AssetDataSource implements DataSource {
         }
     }
 
-    public AssetDataSource(Context context, TransferListener transferListener) {
+    public AssetDataSource(Context context, TransferListener<? super AssetDataSource> transferListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public final class AssetDataSource implements DataSource {
                 this.inputStream = null;
                 if (this.opened) {
                     this.opened = false;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super AssetDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferEnd(this);
                     }
@@ -152,7 +152,7 @@ public final class AssetDataSource implements DataSource {
                         }
                     }
                     this.opened = true;
-                    TransferListener transferListener = this.listener;
+                    TransferListener<? super AssetDataSource> transferListener = this.listener;
                     if (transferListener != null) {
                         transferListener.onTransferStart(this, dataSpec);
                     }
@@ -196,7 +196,7 @@ public final class AssetDataSource implements DataSource {
             if (j2 != -1) {
                 this.bytesRemaining = j2 - read;
             }
-            TransferListener transferListener = this.listener;
+            TransferListener<? super AssetDataSource> transferListener = this.listener;
             if (transferListener != null) {
                 transferListener.onBytesTransferred(this, read);
             }

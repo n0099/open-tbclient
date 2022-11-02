@@ -26,7 +26,7 @@ public interface ShuffleOrder {
     int getPreviousIndex(int i);
 
     /* loaded from: classes7.dex */
-    public class DefaultShuffleOrder implements ShuffleOrder {
+    public static class DefaultShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int[] indexInShuffled;
@@ -283,7 +283,7 @@ public interface ShuffleOrder {
     }
 
     /* loaded from: classes7.dex */
-    public final class UnshuffledShuffleOrder implements ShuffleOrder {
+    public static final class UnshuffledShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int length;

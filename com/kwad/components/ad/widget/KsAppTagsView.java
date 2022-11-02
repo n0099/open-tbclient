@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -13,7 +16,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class KsAppTagsView extends LinearLayout {
@@ -43,7 +45,7 @@ public class KsAppTagsView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsAppTagsView(Context context, AttributeSet attributeSet) {
+    public KsAppTagsView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +67,7 @@ public class KsAppTagsView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsAppTagsView(Context context, AttributeSet attributeSet, int i) {
+    public KsAppTagsView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -87,6 +89,7 @@ public class KsAppTagsView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 21)
     public KsAppTagsView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -108,7 +111,7 @@ public class KsAppTagsView extends LinearLayout {
         this.Cu = 3;
     }
 
-    public static void a(LinearLayout linearLayout, String str, int i) {
+    public static void a(LinearLayout linearLayout, String str, @LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linearLayout, str, i) == null) {
             TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(i, (ViewGroup) linearLayout, false);
@@ -117,15 +120,13 @@ public class KsAppTagsView extends LinearLayout {
         }
     }
 
-    public final void c(List list, int i) {
+    public final void c(List<String> list, @LayoutRes int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) || list == null) {
             return;
         }
         int i2 = 0;
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            String str = (String) it.next();
+        for (String str : list) {
             i2++;
             if (i2 > this.Cu) {
                 return;
@@ -134,10 +135,10 @@ public class KsAppTagsView extends LinearLayout {
         }
     }
 
-    public void setAppTags(List list) {
+    public void setAppTags(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            c(list, R.layout.obfuscated_res_0x7f0d0452);
+            c(list, R.layout.obfuscated_res_0x7f0d045d);
         }
     }
 

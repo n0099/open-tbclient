@@ -31,7 +31,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager$4  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -21,7 +21,7 @@ import java.io.IOException;
 public final class ChunkExtractorWrapper implements ExtractorOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray bindingTrackOutputs;
+    public final SparseArray<BindingTrackOutput> bindingTrackOutputs;
     public final Extractor extractor;
     public boolean extractorInitialized;
     public final Format primaryTrackManifestFormat;
@@ -36,7 +36,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
     }
 
     /* loaded from: classes7.dex */
-    public final class BindingTrackOutput implements TrackOutput {
+    public static final class BindingTrackOutput implements TrackOutput {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int id;
@@ -139,7 +139,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         this.extractor = extractor;
         this.primaryTrackType = i;
         this.primaryTrackManifestFormat = format;
-        this.bindingTrackOutputs = new SparseArray();
+        this.bindingTrackOutputs = new SparseArray<>();
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
@@ -148,7 +148,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Format[] formatArr = new Format[this.bindingTrackOutputs.size()];
             for (int i = 0; i < this.bindingTrackOutputs.size(); i++) {
-                formatArr[i] = ((BindingTrackOutput) this.bindingTrackOutputs.valueAt(i)).sampleFormat;
+                formatArr[i] = this.bindingTrackOutputs.valueAt(i).sampleFormat;
             }
             this.sampleFormats = formatArr;
         }
@@ -183,7 +183,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
             }
             this.extractor.seek(0L, 0L);
             for (int i = 0; i < this.bindingTrackOutputs.size(); i++) {
-                ((BindingTrackOutput) this.bindingTrackOutputs.valueAt(i)).bind(trackOutputProvider);
+                this.bindingTrackOutputs.valueAt(i).bind(trackOutputProvider);
             }
         }
     }
@@ -203,7 +203,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         Format format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
-            BindingTrackOutput bindingTrackOutput = (BindingTrackOutput) this.bindingTrackOutputs.get(i);
+            BindingTrackOutput bindingTrackOutput = this.bindingTrackOutputs.get(i);
             if (bindingTrackOutput == null) {
                 if (this.sampleFormats == null) {
                     z = true;

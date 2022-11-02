@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class f {
     public static f a;
-    public List b;
+    public List<d> b;
 
     public f() {
         ArrayList arrayList = new ArrayList();
@@ -30,7 +30,7 @@ public class f {
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar, int i, c cVar) {
-        List list = this.b;
+        List<d> list = this.b;
         if (list != null && list.size() != 0 && bVar != null) {
             DownloadInfo a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a());
             if (a2 != null && "application/vnd.android.package-archive".equals(a2.getMimeType())) {

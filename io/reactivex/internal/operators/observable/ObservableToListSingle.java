@@ -22,26 +22,26 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes8.dex */
-public final class ObservableToListSingle extends Single implements FuseToObservable {
+public final class ObservableToListSingle<T, U extends Collection<? super T>> extends Single<U> implements FuseToObservable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable collectionSupplier;
-    public final ObservableSource source;
+    public final Callable<U> collectionSupplier;
+    public final ObservableSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ToListObserver implements Observer, Disposable {
+    public static final class ToListObserver<T, U extends Collection<? super T>> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
-        public Collection collection;
+        public final SingleObserver<? super U> actual;
+        public U collection;
         public Disposable s;
 
-        public ToListObserver(SingleObserver singleObserver, Collection collection) {
+        public ToListObserver(SingleObserver<? super U> singleObserver, U u) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, collection};
+                Object[] objArr = {singleObserver, u};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
                 }
             }
             this.actual = singleObserver;
-            this.collection = collection;
+            this.collection = u;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -77,9 +77,9 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                Collection collection = this.collection;
+                U u = this.collection;
                 this.collection = null;
-                this.actual.onSuccess(collection);
+                this.actual.onSuccess(u);
             }
         }
 
@@ -93,10 +93,10 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.collection.add(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.collection.add(t);
             }
         }
 
@@ -110,7 +110,7 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
         }
     }
 
-    public ObservableToListSingle(ObservableSource observableSource, int i) {
+    public ObservableToListSingle(ObservableSource<T> observableSource, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
         this.collectionSupplier = Functions.createArrayList(i);
     }
 
-    public ObservableToListSingle(ObservableSource observableSource, Callable callable) {
+    public ObservableToListSingle(ObservableSource<T> observableSource, Callable<U> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -149,7 +149,7 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
-    public Observable fuseToObservable() {
+    public Observable<U> fuseToObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -159,7 +159,7 @@ public final class ObservableToListSingle extends Single implements FuseToObserv
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super U> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             try {

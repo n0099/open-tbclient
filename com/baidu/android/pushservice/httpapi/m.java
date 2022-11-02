@@ -57,7 +57,7 @@ public class m extends c {
     }
 
     @Override // com.baidu.android.pushservice.httpapi.a
-    public void b(HashMap hashMap) {
+    public void b(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
             super.b(hashMap);

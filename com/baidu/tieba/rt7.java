@@ -1,57 +1,192 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.FragmentManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
-import com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment;
-import com.baidu.tieba.newinterest.fragment.InterestSelectionStyleAFragment;
-import com.baidu.tieba.newinterest.fragment.InterestedForumStyleAFragment;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.newfaceshop.facemake.PickEmotionView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class rt7 implements View.OnClickListener, BaseInterestSelectionFragment.a {
+public class rt7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public int b;
-    public boolean c;
-    public ArrayList d;
-    public String[] e;
-    public boolean f;
-    public View g;
-    public View h;
-    public TextView i;
-    public NavigationBar j;
-    public BaseInterestedForumFragment k;
-    public BaseInterestSelectionFragment l;
+    public Context a;
+    public List<EmotionImageData> b;
+    public Set<String> c;
+    public LinkedHashMap<String, EmotionImageData> d;
+    public pt7 e;
+    public int f;
+    public int g;
+    public int h;
+    public final Runnable i;
 
-    public rt7(BaseFragmentActivity baseFragmentActivity, int i, boolean z, ArrayList arrayList, String[] strArr, boolean z2) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PickEmotionView a;
+        public final /* synthetic */ rt7 b;
+
+        public a(rt7 rt7Var, PickEmotionView pickEmotionView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rt7Var, pickEmotionView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = rt7Var;
+            this.a = pickEmotionView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Object tag;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (tag = view2.getTag(view2.getId())) != null && (tag instanceof EmotionImageData)) {
+                EmotionImageData emotionImageData = (EmotionImageData) tag;
+                if (this.b.d.containsKey(emotionImageData.getPicUrl())) {
+                    this.b.d.remove(emotionImageData.getPicUrl());
+                    this.a.setChoosed(false);
+                    if (this.b.e != null) {
+                        this.b.e.h();
+                    }
+                } else if (this.b.e != null) {
+                    if (this.b.e.k()) {
+                        this.b.d.put(emotionImageData.getPicUrl(), emotionImageData);
+                        this.a.setChoosed(true);
+                        this.b.e.t();
+                        return;
+                    }
+                    BdToast.b(this.b.a, this.b.a.getText(R.string.obfuscated_res_0x7f0f0600)).i();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rt7 a;
+
+        public b(rt7 rt7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rt7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rt7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.c == null) {
+                return;
+            }
+            HashSet hashSet = new HashSet();
+            Iterator it = this.a.d.entrySet().iterator();
+            while (it.hasNext()) {
+                hashSet.add(((EmotionImageData) ((Map.Entry) it.next()).getValue()).getThumbUrl() + this.a.h);
+            }
+            for (String str : this.a.c) {
+                if (!TextUtils.isEmpty(str) && !hashSet.contains(str)) {
+                    e95.k().h(str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PickEmotionView a;
+        public PickEmotionView b;
+        public PickEmotionView c;
+        public PickEmotionView d;
+        public final /* synthetic */ rt7 e;
+
+        public c(rt7 rt7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rt7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = rt7Var;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.e.j(this.a);
+            this.e.j(this.b);
+            this.e.j(this.c);
+            this.e.j(this.d);
+        }
+    }
+
+    public rt7(List<EmotionImageData> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, Integer.valueOf(i), Boolean.valueOf(z), arrayList, strArr, Boolean.valueOf(z2)};
+            Object[] objArr = {list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -61,193 +196,175 @@ public class rt7 implements View.OnClickListener, BaseInterestSelectionFragment.
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        this.b = i;
-        this.c = z;
-        this.d = arrayList;
-        this.e = strArr;
-        this.f = z2;
-        f();
-        g();
+        this.i = new b(this);
+        this.a = BdBaseApplication.getInst().getApp();
+        this.b = list;
+        this.h = i;
+        this.c = new HashSet();
+        this.d = new LinkedHashMap<>();
+        this.g = xi.g(this.a, R.dimen.obfuscated_res_0x7f070239);
+        this.f = (int) (((xi.l(this.a) - xi.g(this.a, R.dimen.obfuscated_res_0x7f070253)) - (this.g * 4)) * 0.333d);
     }
 
-    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment.a
-    public void a(List list) {
-        int i;
+    public void g(Map<String, EmotionImageData> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            InterestedForumStyleAFragment w1 = InterestedForumStyleAFragment.w1(this.b, this.e);
-            this.k = w1;
-            w1.t1(list);
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906f2, this.k).addToBackStack(null).commitAllowingStateLoss();
-            if (b().getFragments().size() == 1) {
-                i = 1;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            this.d.putAll(map);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<EmotionImageData> list = this.b;
+            if (list != null && i <= list.size() - 1) {
+                return this.b.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    public final void j(PickEmotionView pickEmotionView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, pickEmotionView) != null) || pickEmotionView == null) {
+            return;
+        }
+        pickEmotionView.getEmotionView().setOnClickListener(new a(this, pickEmotionView));
+    }
+
+    public void l(pt7 pt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, pt7Var) == null) {
+            this.e = pt7Var;
+        }
+    }
+
+    public final void m(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, pickEmotionView, emotionImageData) == null) {
+            if (this.d.containsKey(emotionImageData.getPicUrl())) {
+                pickEmotionView.setChoosed(true);
             } else {
-                i = 2;
+                pickEmotionView.setChoosed(false);
             }
-            nt7.a(i, 1, this.b, c(list), "");
         }
     }
 
-    public String c(List list) {
-        InterceptResult invokeL;
-        String a;
+    public final void n(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                gt7 gt7Var = (gt7) it.next();
-                if (gt7Var != null) {
-                    if (sb.length() > 0) {
-                        sb.append("|");
-                    }
-                    if (TextUtils.isEmpty(gt7Var.a())) {
-                        a = gt7Var.d();
-                    } else {
-                        a = gt7Var.a();
-                    }
-                    sb.append(a);
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-            int i = 1;
-            if (view2 == this.h && this.a != null) {
-                BaseInterestedForumFragment baseInterestedForumFragment = this.k;
-                if (baseInterestedForumFragment != null && baseInterestedForumFragment.isVisible()) {
-                    b().popBackStack();
-                    nt7.c(1, this.b);
-                    return;
-                }
-                e();
-            } else if (view2 == this.i) {
-                e();
-                if (b().getFragments().size() != 1) {
-                    i = 2;
-                }
-                nt7.a(i, 2, this.b, "", "");
-            }
+        if ((interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) && view2 != null && view2.getLayoutParams() != null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            marginLayoutParams.leftMargin = i;
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public final FragmentManager b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getSupportFragmentManager();
+            List<EmotionImageData> list = this.b;
+            if (list != null) {
+                if (list.size() % 4 == 0) {
+                    return this.b.size() / 4;
+                }
+                return (this.b.size() / 4) + 1;
+            }
+            return 0;
         }
-        return (FragmentManager) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public View d() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        EmotionImageData emotionImageData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                c cVar2 = new c(this);
+                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0537, (ViewGroup) null);
+                cVar2.a = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f0908f4);
+                cVar2.b = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f0908f5);
+                cVar2.c = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f0908f6);
+                cVar2.d = (PickEmotionView) inflate.findViewById(R.id.obfuscated_res_0x7f0908f7);
+                cVar2.a();
+                n(cVar2.b, this.f);
+                n(cVar2.c, this.f);
+                n(cVar2.d, this.f);
+                inflate.setTag(cVar2);
+                cVar = cVar2;
+                view2 = inflate;
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            int i2 = i * 4;
+            int i3 = i2 + 4;
+            int min = Math.min(i3, this.b.size() - 1);
+            for (int i4 = i2; i4 < i3; i4++) {
+                if (i4 <= min) {
+                    emotionImageData = this.b.get(i4);
+                } else {
+                    emotionImageData = null;
+                }
+                int i5 = i4 - i2;
+                if (i5 != 0) {
+                    if (i5 != 1) {
+                        if (i5 != 2) {
+                            if (i5 == 3) {
+                                h(cVar.d, emotionImageData);
+                            }
+                        } else {
+                            h(cVar.c, emotionImageData);
+                        }
+                    } else {
+                        h(cVar.b, emotionImageData);
+                    }
+                } else {
+                    h(cVar.a, emotionImageData);
+                }
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final void h(PickEmotionView pickEmotionView, EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, pickEmotionView, emotionImageData) != null) || pickEmotionView == null) {
+            return;
+        }
+        if (emotionImageData == null) {
+            pickEmotionView.setVisibility(4);
+            return;
+        }
+        pickEmotionView.getEmotionView().setTag(pickEmotionView.getEmotionView().getId(), emotionImageData);
+        pickEmotionView.setData(emotionImageData, this.h);
+        m(pickEmotionView, emotionImageData);
+        if (this.c != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+            Set<String> set = this.c;
+            set.add(emotionImageData.getThumbUrl() + pickEmotionView.getLoadType());
+        }
+    }
+
+    public LinkedHashMap<String, EmotionImageData> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-        return (View) invokeV.objValue;
+        return (LinkedHashMap) invokeV.objValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i.setOnClickListener(this);
-            this.h.setOnClickListener(this);
-            BaseInterestSelectionFragment baseInterestSelectionFragment = this.l;
-            if (baseInterestSelectionFragment != null) {
-                baseInterestSelectionFragment.t1(this);
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && b().getFragments().size() == 1) {
-            nt7.c(1, this.b);
-        }
-    }
-
-    public void i() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13682");
-            statisticItem.param("obj_type", 1);
-            TiebaStatic.log(statisticItem);
-            if (this.f) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.a).createNormalCfg(0)));
-            } else {
-                this.a.finish();
-            }
-        }
-    }
-
-    public final List j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (ListUtils.isEmpty(this.d)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = this.d.iterator();
-            while (it.hasNext()) {
-                gt7 gt7Var = new gt7();
-                gt7Var.i(((Integer) it.next()).intValue());
-                arrayList.add(gt7Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void f() {
-        BaseInterestedForumFragment baseInterestedForumFragment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d003e, (ViewGroup) null);
-            this.g = inflate;
-            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091649);
-            this.j = navigationBar;
-            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11d6));
-            this.i = addTextButton;
-            addTextButton.setId(R.id.obfuscated_res_0x7f090464);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0108);
-            this.h = this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            boolean z = this.c;
-            if (z) {
-                this.k = InterestedForumStyleAFragment.v1(this.b, z, this.e);
-                List j = j();
-                if (j != null) {
-                    this.k.t1(j);
-                }
-                BaseInterestedForumFragment baseInterestedForumFragment2 = this.k;
-                this.h.setVisibility(4);
-                baseInterestedForumFragment = baseInterestedForumFragment2;
-            } else {
-                InterestSelectionStyleAFragment u1 = InterestSelectionStyleAFragment.u1(this.b, this.e);
-                this.l = u1;
-                baseInterestedForumFragment = u1;
-            }
-            b().beginTransaction().add(R.id.obfuscated_res_0x7f0906f2, baseInterestedForumFragment).commitAllowingStateLoss();
-            TiebaStatic.log(new StatisticItem("c13681"));
+            new Thread(this.i).start();
         }
     }
 }

@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.kwad.sdk.api.loader.Reflect;
@@ -14,11 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class r {
-    public static Map SH = new HashMap();
+    public static Map<String, Resources> SH = new HashMap();
     public static final Object b = new Object();
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static final class a {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
                 Resources resources2 = (Resources) Reflect.a(resources.getClass()).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a;
@@ -33,7 +34,7 @@ public final class r {
     }
 
     /* loaded from: classes7.dex */
-    public final class b {
+    public static final class b {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
                 Resources resources2 = (Resources) Reflect.a(Reflect.be("android.content.res.HwResources")).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a;
@@ -54,7 +55,7 @@ public final class r {
     }
 
     /* loaded from: classes7.dex */
-    public final class c {
+    public static final class c {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
                 Resources resources2 = (Resources) Reflect.a(Reflect.be("android.content.res.MiuiResourcesImpl")).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a;
@@ -75,7 +76,7 @@ public final class r {
     }
 
     /* loaded from: classes7.dex */
-    public final class d {
+    public static final class d {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
                 Resources resources2 = (Resources) Reflect.a(Reflect.be("android.content.res.MiuiResources")).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a;
@@ -96,7 +97,7 @@ public final class r {
     }
 
     /* loaded from: classes7.dex */
-    public final class e {
+    public static final class e {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
                 Resources resources2 = (Resources) Reflect.a(Reflect.be("android.content.res.NubiaResources")).a(new Class[]{AssetManager.class, DisplayMetrics.class, Configuration.class}, assetManager, resources.getDisplayMetrics(), resources.getConfiguration()).a;
@@ -117,7 +118,7 @@ public final class r {
     }
 
     /* loaded from: classes7.dex */
-    public final class f {
+    public static final class f {
         public static Resources a(Context context, Resources resources, AssetManager assetManager) {
             try {
                 return b(context, resources, assetManager);
@@ -164,10 +165,11 @@ public final class r {
         return 0;
     }
 
+    @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
         synchronized (b) {
-            resources2 = (Resources) SH.get(str);
+            resources2 = SH.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);
                 if (resources2 == null) {

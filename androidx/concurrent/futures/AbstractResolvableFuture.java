@@ -1,5 +1,8 @@
 package androidx.concurrent.futures;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -24,6 +27,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 import java.util.concurrent.locks.LockSupport;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,13 +37,16 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
     public static final long SPIN_THRESHOLD_NANOS = 1000;
     public static final Logger log;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public volatile Listener listeners;
+    @Nullable
     public volatile Object value;
+    @Nullable
     public volatile Waiter waiters;
 
     /* renamed from: androidx.concurrent.futures.AbstractResolvableFuture$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -96,6 +103,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static final Cancellation CAUSELESS_CANCELLED;
         public static final Cancellation CAUSELESS_INTERRUPTED;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Throwable cause;
         public final boolean wasInterrupted;
 
@@ -121,7 +129,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
             CAUSELESS_INTERRUPTED = new Cancellation(true, null);
         }
 
-        public Cancellation(boolean z, Throwable th) {
+        public Cancellation(boolean z, @Nullable Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -224,6 +232,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static final Listener TOMBSTONE;
         public transient /* synthetic */ FieldHolder $fh;
         public final Executor executor;
+        @Nullable
         public Listener next;
         public final Runnable task;
 
@@ -476,7 +485,9 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         public static /* synthetic */ Interceptable $ic;
         public static final Waiter TOMBSTONE;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public volatile Waiter next;
+        @Nullable
         public volatile Thread thread;
 
         static {
@@ -788,7 +799,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return invokeL.booleanValue;
     }
 
-    public static CancellationException cancellationExceptionWithCause(String str, Throwable th) {
+    public static CancellationException cancellationExceptionWithCause(@Nullable String str, @Nullable Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, th)) == null) {
@@ -799,7 +810,8 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return (CancellationException) invokeLL.objValue;
     }
 
-    public static <T> T checkNotNull(T t) {
+    @NonNull
+    public static <T> T checkNotNull(@Nullable T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) {
@@ -871,7 +883,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return (String) invokeL.objValue;
     }
 
-    public final void maybePropagateCancellationTo(Future<?> future) {
+    public final void maybePropagateCancellationTo(@Nullable Future<?> future) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, future) == null) {
@@ -886,7 +898,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         }
     }
 
-    public boolean set(V v) {
+    public boolean set(@Nullable V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, v)) == null) {
@@ -1255,6 +1267,7 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
         return (V) invokeJL.objValue;
     }
 
+    @Nullable
     public String pendingToString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

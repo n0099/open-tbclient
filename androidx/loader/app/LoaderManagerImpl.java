@@ -3,6 +3,9 @@ package androidx.loader.app;
 import android.os.Bundle;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
 import androidx.core.util.DebugUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -33,7 +36,9 @@ public class LoaderManagerImpl extends LoaderManager {
     public static boolean DEBUG = false;
     public static final String TAG = "LoaderManager";
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final LifecycleOwner mLifecycleOwner;
+    @NonNull
     public final LoaderViewModel mLoaderViewModel;
 
     static {
@@ -55,14 +60,16 @@ public class LoaderManagerImpl extends LoaderManager {
     public static class LoaderInfo<D> extends MutableLiveData<D> implements Loader.OnLoadCompleteListener<D> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public final Bundle mArgs;
         public final int mId;
         public LifecycleOwner mLifecycleOwner;
+        @NonNull
         public final Loader<D> mLoader;
         public LoaderObserver<D> mObserver;
         public Loader<D> mPriorLoader;
 
-        public LoaderInfo(int i, Bundle bundle, Loader<D> loader, Loader<D> loader2) {
+        public LoaderInfo(int i, @Nullable Bundle bundle, @NonNull Loader<D> loader, @Nullable Loader<D> loader2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,6 +91,7 @@ public class LoaderManagerImpl extends LoaderManager {
             loader.registerListener(i, this);
         }
 
+        @MainThread
         public Loader<D> destroy(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -139,6 +147,7 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
+        @NonNull
         public Loader<D> getLoader() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -196,7 +205,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         @Override // androidx.loader.content.Loader.OnLoadCompleteListener
-        public void onLoadComplete(Loader<D> loader, D d) {
+        public void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, loader, d) == null) {
                 if (LoaderManagerImpl.DEBUG) {
@@ -216,7 +225,7 @@ public class LoaderManagerImpl extends LoaderManager {
         /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: androidx.lifecycle.Observer<? super D> */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.lifecycle.LiveData
-        public void removeObserver(Observer<? super D> observer) {
+        public void removeObserver(@NonNull Observer<? super D> observer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, observer) == null) {
                 super.removeObserver(observer);
@@ -238,7 +247,9 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
-        public Loader<D> setCallback(LifecycleOwner lifecycleOwner, LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+        @NonNull
+        @MainThread
+        public Loader<D> setCallback(@NonNull LifecycleOwner lifecycleOwner, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, lifecycleOwner, loaderCallbacks)) == null) {
@@ -277,11 +288,13 @@ public class LoaderManagerImpl extends LoaderManager {
     public static class LoaderObserver<D> implements Observer<D> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final LoaderManager.LoaderCallbacks<D> mCallback;
         public boolean mDeliveredData;
+        @NonNull
         public final Loader<D> mLoader;
 
-        public LoaderObserver(Loader<D> loader, LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+        public LoaderObserver(@NonNull Loader<D> loader, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -329,7 +342,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         @Override // androidx.lifecycle.Observer
-        public void onChanged(D d) {
+        public void onChanged(@Nullable D d) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d) == null) {
                 if (LoaderManagerImpl.DEBUG) {
@@ -340,6 +353,7 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
+        @MainThread
         public void reset() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mDeliveredData) {
@@ -391,7 +405,8 @@ public class LoaderManagerImpl extends LoaderManager {
                 }
 
                 @Override // androidx.lifecycle.ViewModelProvider.Factory
-                public <T extends ViewModel> T create(Class<T> cls) {
+                @NonNull
+                public <T extends ViewModel> T create(@NonNull Class<T> cls) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, cls)) == null) {
@@ -480,6 +495,7 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
+        @NonNull
         public static LoaderViewModel getInstance(ViewModelStore viewModelStore) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -523,7 +539,7 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
-        public void putLoader(int i, LoaderInfo loaderInfo) {
+        public void putLoader(int i, @NonNull LoaderInfo loaderInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048583, this, i, loaderInfo) == null) {
                 this.mLoaders.put(i, loaderInfo);
@@ -531,7 +547,7 @@ public class LoaderManagerImpl extends LoaderManager {
         }
     }
 
-    public LoaderManagerImpl(LifecycleOwner lifecycleOwner, ViewModelStore viewModelStore) {
+    public LoaderManagerImpl(@NonNull LifecycleOwner lifecycleOwner, @NonNull ViewModelStore viewModelStore) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -550,13 +566,15 @@ public class LoaderManagerImpl extends LoaderManager {
         this.mLoaderViewModel = LoaderViewModel.getInstance(viewModelStore);
     }
 
-    private <D> Loader<D> createAndInstallLoader(int i, Bundle bundle, LoaderManager.LoaderCallbacks<D> loaderCallbacks, Loader<D> loader) {
+    @NonNull
+    @MainThread
+    private <D> Loader<D> createAndInstallLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks, @Nullable Loader<D> loader) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), bundle, loaderCallbacks, loader})) == null) {
             try {
                 this.mLoaderViewModel.startCreatingLoader();
-                Loader onCreateLoader = loaderCallbacks.onCreateLoader(i, bundle);
+                Loader<D> onCreateLoader = loaderCallbacks.onCreateLoader(i, bundle);
                 if (onCreateLoader != null) {
                     if (onCreateLoader.getClass().isMemberClass() && !Modifier.isStatic(onCreateLoader.getClass().getModifiers())) {
                         throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + onCreateLoader);
@@ -579,6 +597,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     @Override // androidx.loader.app.LoaderManager
+    @MainThread
     public void destroyLoader(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -611,6 +630,7 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     @Override // androidx.loader.app.LoaderManager
+    @Nullable
     public <D> Loader<D> getLoader(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -646,7 +666,9 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     @Override // androidx.loader.app.LoaderManager
-    public <D> Loader<D> initLoader(int i, Bundle bundle, LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    @NonNull
+    @MainThread
+    public <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, bundle, loaderCallbacks)) == null) {
@@ -672,7 +694,9 @@ public class LoaderManagerImpl extends LoaderManager {
     }
 
     @Override // androidx.loader.app.LoaderManager
-    public <D> Loader<D> restartLoader(int i, Bundle bundle, LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    @NonNull
+    @MainThread
+    public <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, bundle, loaderCallbacks)) == null) {

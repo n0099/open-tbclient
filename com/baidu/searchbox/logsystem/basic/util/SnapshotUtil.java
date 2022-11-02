@@ -3,6 +3,8 @@ package com.baidu.searchbox.logsystem.basic.util;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
@@ -27,7 +29,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class SnapshotUtil {
@@ -43,7 +44,7 @@ public class SnapshotUtil {
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.util.SnapshotUtil$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,8 @@ public class SnapshotUtil {
         }
     }
 
-    public static File createPathNameKeeper(File file, Set set) {
+    @Nullable
+    public static File createPathNameKeeper(@NonNull File file, @NonNull Set<LogFile> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, set)) == null) {
@@ -122,10 +124,8 @@ public class SnapshotUtil {
                     try {
                         FileWriter fileWriter2 = new FileWriter(file2, true);
                         try {
-                            Iterator it = set.iterator();
                             HashSet hashSet = new HashSet(set.size());
-                            while (it.hasNext()) {
-                                LogFile logFile = (LogFile) it.next();
+                            for (LogFile logFile : set) {
                                 if (logFile != null) {
                                     String absolutePath = logFile.mFile.getAbsolutePath();
                                     if (!TextUtils.isEmpty(absolutePath) && !hashSet.contains(absolutePath)) {
@@ -173,39 +173,39 @@ public class SnapshotUtil {
         return (File) invokeLL.objValue;
     }
 
-    public static Set obtainDeviceSnapShots(Context context, Set set, File file) {
+    @NonNull
+    public static Set<LogFile> obtainDeviceSnapShots(@NonNull Context context, @NonNull Set<DeviceSnapshotType> set, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, set, file)) == null) {
             HashSet hashSet = new HashSet(5);
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                switch (AnonymousClass1.$SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType[((DeviceSnapshotType) it.next()).ordinal()]) {
+            for (DeviceSnapshotType deviceSnapshotType : set) {
+                switch (AnonymousClass1.$SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType[deviceSnapshotType.ordinal()]) {
                     case 1:
                         File file2 = new File(file, SnapshotConstant.DeviceConstants.DEVICE_APP_DB_INFO);
-                        if (!Utility.createNewEmptyFile(file2)) {
-                            break;
-                        } else {
+                        if (Utility.createNewEmptyFile(file2)) {
                             Utility.obtainDBInfo(context, file2);
                             hashSet.add(new LogFile(file2));
+                            break;
+                        } else {
                             break;
                         }
                     case 2:
                         File file3 = new File(file, SnapshotConstant.DeviceConstants.DEVICE_APP_LOGCAT_FILE_NAME);
-                        if (!Utility.createNewEmptyFile(file3)) {
-                            break;
-                        } else {
+                        if (Utility.createNewEmptyFile(file3)) {
                             Utility.obtainLogcatFile(file3);
                             hashSet.add(new LogFile(file3));
+                            break;
+                        } else {
                             break;
                         }
                     case 3:
                         File file4 = new File(file, SnapshotConstant.DeviceConstants.DEVICE_INFO);
-                        if (!Utility.createNewEmptyFile(file4)) {
-                            break;
-                        } else {
+                        if (Utility.createNewEmptyFile(file4)) {
                             Utility.obtainDeviceInfo(context, file4);
                             hashSet.add(new LogFile(file4));
+                            break;
+                        } else {
                             break;
                         }
                     case 4:
@@ -246,7 +246,8 @@ public class SnapshotUtil {
         return (Set) invokeLLL.objValue;
     }
 
-    public static LogFile obtainFragmentSnapShot(Context context, ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, EventObject eventObject, File file, String str) {
+    @Nullable
+    public static LogFile obtainFragmentSnapShot(@NonNull Context context, @NonNull ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, @NonNull EventObject eventObject, @NonNull File file, @NonNull String str) {
         InterceptResult invokeLLLLL;
         boolean saveFragmentSnapshot;
         Interceptable interceptable = $ic;
@@ -274,7 +275,8 @@ public class SnapshotUtil {
         return (LogFile) invokeLLLLL.objValue;
     }
 
-    public static LogFile obtainFragmentSnapShot(Context context, ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler, EventObject eventObject, File file, String str) {
+    @Nullable
+    public static LogFile obtainFragmentSnapShot(@NonNull Context context, @NonNull ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler, @NonNull EventObject eventObject, @NonNull File file, @NonNull String str) {
         InterceptResult invokeLLLLL;
         boolean saveFragmentSnapshot;
         Interceptable interceptable = $ic;
@@ -302,14 +304,13 @@ public class SnapshotUtil {
         return (LogFile) invokeLLLLL.objValue;
     }
 
-    public static Set obtainProcessSnapShots(Context context, Set set, File file, String str, LogExtra logExtra) {
+    @NonNull
+    public static Set<LogFile> obtainProcessSnapShots(@NonNull Context context, @NonNull Set<ProcessSnapshotType> set, @NonNull File file, @NonNull String str, @NonNull LogExtra logExtra) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, context, set, file, str, logExtra)) == null) {
             HashSet hashSet = new HashSet(5);
-            Iterator it = set.iterator();
-            while (it.hasNext()) {
-                ProcessSnapshotType processSnapshotType = (ProcessSnapshotType) it.next();
+            for (ProcessSnapshotType processSnapshotType : set) {
                 if (processSnapshotType == ProcessSnapshotType.PROCESS_SMAPS) {
                     File file2 = new File(file, SnapshotConstant.ProcessConstants.PROC_SMAPS_FILE);
                     if (Utility.createNewEmptyFile(file2)) {

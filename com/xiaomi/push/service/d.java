@@ -17,11 +17,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public static List a;
+    public static List<a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -77,7 +77,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                a aVar = (a) a.get(size);
+                a aVar = a.get(size);
                 if (SystemClock.elapsedRealtime() - aVar.f977a > 5000) {
                     a.remove(aVar);
                 }

@@ -1,10 +1,12 @@
 package com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.ugc.editvideo.player.IPlayer;
+import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.MediaInfo;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -176,7 +178,8 @@ public interface IMediaPlayer extends IPlayer {
 
     void setDataSource(Context context, Uri uri) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
-    void setDataSource(Context context, Uri uri, Map map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
+    @TargetApi(14)
+    void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
     void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException;
 
@@ -184,7 +187,7 @@ public interface IMediaPlayer extends IPlayer {
     void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 
     @Override // com.baidu.ugc.editvideo.player.IPlayer
-    void setDataSource(List list);
+    void setDataSource(List<VideoPlayData> list);
 
     void setDisplay(SurfaceHolder surfaceHolder);
 

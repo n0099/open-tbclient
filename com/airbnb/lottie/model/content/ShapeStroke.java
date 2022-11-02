@@ -1,6 +1,7 @@
 package com.airbnb.lottie.model.content;
 
 import android.graphics.Paint;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.StrokeContent;
@@ -15,16 +16,17 @@ public class ShapeStroke implements ContentModel {
     public final AnimatableColorValue color;
     public final boolean hidden;
     public final LineJoinType joinType;
-    public final List lineDashPattern;
+    public final List<AnimatableFloatValue> lineDashPattern;
     public final float miterLimit;
     public final String name;
+    @Nullable
     public final AnimatableFloatValue offset;
     public final AnimatableIntegerValue opacity;
     public final AnimatableFloatValue width;
 
     /* renamed from: com.airbnb.lottie.model.content.ShapeStroke$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType;
 
@@ -99,7 +101,7 @@ public class ShapeStroke implements ContentModel {
         }
     }
 
-    public ShapeStroke(String str, AnimatableFloatValue animatableFloatValue, List list, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue2, LineCapType lineCapType, LineJoinType lineJoinType, float f, boolean z) {
+    public ShapeStroke(String str, @Nullable AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue2, LineCapType lineCapType, LineJoinType lineJoinType, float f, boolean z) {
         this.name = str;
         this.offset = animatableFloatValue;
         this.lineDashPattern = list;
@@ -128,7 +130,7 @@ public class ShapeStroke implements ContentModel {
         return this.joinType;
     }
 
-    public List getLineDashPattern() {
+    public List<AnimatableFloatValue> getLineDashPattern() {
         return this.lineDashPattern;
     }
 

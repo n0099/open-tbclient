@@ -13,11 +13,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public class y7 implements Iterable {
+public class y7<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Object[] b;
+    public T[] b;
     public float c;
     public int d;
     public int e;
@@ -26,22 +26,22 @@ public class y7 implements Iterable {
     public transient a h;
 
     /* loaded from: classes6.dex */
-    public class a implements Iterable, Iterator {
+    public static class a<K> implements Iterable<K>, Iterator<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-        public final y7 b;
+        public final y7<K> b;
         public int c;
         public int d;
         public boolean e;
 
-        public a b() {
+        public a<K> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
         }
 
-        public a(y7 y7Var) {
+        public a(y7<K> y7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,8 +65,8 @@ public class y7 implements Iterable {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Object[] objArr = this.b.b;
-                int length = objArr.length;
+                K[] kArr = this.b.b;
+                int length = kArr.length;
                 do {
                     i = this.c + 1;
                     this.c = i;
@@ -74,7 +74,7 @@ public class y7 implements Iterable {
                         this.a = false;
                         return;
                     }
-                } while (objArr[i] == null);
+                } while (kArr[i] == null);
                 this.a = true;
             }
         }
@@ -108,24 +108,24 @@ public class y7 implements Iterable {
         }
 
         @Override // java.util.Iterator
-        public Object next() {
+        public K next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.a) {
                     if (this.e) {
-                        Object[] objArr = this.b.b;
+                        K[] kArr = this.b.b;
                         int i = this.c;
-                        Object obj = objArr[i];
+                        K k = kArr[i];
                         this.d = i;
                         a();
-                        return obj;
+                        return k;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
                 throw new NoSuchElementException();
             }
-            return invokeV.objValue;
+            return (K) invokeV.objValue;
         }
 
         @Override // java.util.Iterator
@@ -134,25 +134,25 @@ public class y7 implements Iterable {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 int i = this.d;
                 if (i >= 0) {
-                    y7 y7Var = this.b;
-                    Object[] objArr = y7Var.b;
+                    y7<K> y7Var = this.b;
+                    K[] kArr = y7Var.b;
                     int i2 = y7Var.f;
                     int i3 = i + 1;
                     while (true) {
                         int i4 = i3 & i2;
-                        Object obj = objArr[i4];
-                        if (obj == null) {
+                        K k = kArr[i4];
+                        if (k == null) {
                             break;
                         }
-                        int f = this.b.f(obj);
+                        int f = this.b.f(k);
                         if (((i4 - f) & i2) > ((i - f) & i2)) {
-                            objArr[i] = obj;
+                            kArr[i] = k;
                             i = i4;
                         }
                         i3 = i4 + 1;
                     }
-                    objArr[i] = null;
-                    y7 y7Var2 = this.b;
+                    kArr[i] = null;
+                    y7<K> y7Var2 = this.b;
                     y7Var2.a--;
                     if (i != this.d) {
                         this.c--;
@@ -214,33 +214,33 @@ public class y7 implements Iterable {
                 return "";
             }
             StringBuilder sb = new StringBuilder(32);
-            Object[] objArr = this.b;
-            int length = objArr.length;
+            T[] tArr = this.b;
+            int length = tArr.length;
             while (true) {
                 i = length - 1;
                 if (length <= 0) {
                     break;
                 }
-                Object obj = objArr[i];
-                if (obj == null) {
+                T t = tArr[i];
+                if (t == null) {
                     length = i;
                 } else {
-                    if (obj == this) {
-                        obj = "(this)";
+                    if (t == this) {
+                        t = "(this)";
                     }
-                    sb.append(obj);
+                    sb.append(t);
                 }
             }
             while (true) {
                 int i2 = i - 1;
                 if (i > 0) {
-                    Object obj2 = objArr[i2];
-                    if (obj2 != null) {
+                    T t2 = tArr[i2];
+                    if (t2 != null) {
                         sb.append(str);
-                        if (obj2 == this) {
-                            obj2 = "(this)";
+                        if (t2 == this) {
+                            t2 = "(this)";
                         }
-                        sb.append(obj2);
+                        sb.append(t2);
                     }
                     i = i2;
                 } else {
@@ -274,7 +274,7 @@ public class y7 implements Iterable {
             int i4 = h - 1;
             this.f = i4;
             this.e = Long.numberOfLeadingZeros(i4);
-            this.b = new Object[h];
+            this.b = (T[]) new Object[h];
             return;
         }
         throw new IllegalArgumentException("loadFactor must be > 0 and < 1: " + f);
@@ -296,32 +296,32 @@ public class y7 implements Iterable {
         return invokeCommon.intValue;
     }
 
-    public final void a(Object obj) {
+    public final void a(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            Object[] objArr = this.b;
-            int f = f(obj);
-            while (objArr[f] != null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            T[] tArr = this.b;
+            int f = f(t);
+            while (tArr[f] != null) {
                 f = (f + 1) & this.f;
             }
-            objArr[f] = obj;
+            tArr[f] = t;
         }
     }
 
-    public boolean add(Object obj) {
+    public boolean add(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            int e = e(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            int e = e(t);
             if (e >= 0) {
                 return false;
             }
-            Object[] objArr = this.b;
-            objArr[-(e + 1)] = obj;
+            T[] tArr = this.b;
+            tArr[-(e + 1)] = t;
             int i = this.a + 1;
             this.a = i;
             if (i >= this.d) {
-                g(objArr.length << 1);
+                g(tArr.length << 1);
             }
             return true;
         }
@@ -349,11 +349,11 @@ public class y7 implements Iterable {
         }
     }
 
-    public boolean contains(Object obj) {
+    public boolean contains(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (e(obj) >= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
+            if (e(t) >= 0) {
                 return true;
             }
             return false;
@@ -361,11 +361,11 @@ public class y7 implements Iterable {
         return invokeL.booleanValue;
     }
 
-    public int f(Object obj) {
+    public int f(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            return (int) ((obj.hashCode() * (-7046029254386353131L)) >>> this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
+            return (int) ((t.hashCode() * (-7046029254386353131L)) >>> this.e);
         }
         return invokeL.intValue;
     }
@@ -381,13 +381,13 @@ public class y7 implements Iterable {
 
     public int hashCode() {
         InterceptResult invokeV;
-        Object[] objArr;
+        T[] tArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             int i = this.a;
-            for (Object obj : this.b) {
-                if (obj != null) {
-                    i += obj.hashCode();
+            for (T t : this.b) {
+                if (t != null) {
+                    i += t.hashCode();
                 }
             }
             return i;
@@ -407,12 +407,12 @@ public class y7 implements Iterable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
     /* renamed from: d */
-    public a iterator() {
+    public a<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (g7.a) {
-                return new a(this);
+                return new a<>(this);
             }
             if (this.g == null) {
                 this.g = new a(this);
@@ -421,13 +421,13 @@ public class y7 implements Iterable {
             a aVar = this.g;
             if (!aVar.e) {
                 aVar.c();
-                a aVar2 = this.g;
+                a<T> aVar2 = this.g;
                 aVar2.e = true;
                 this.h.e = false;
                 return aVar2;
             }
             this.h.c();
-            a aVar3 = this.h;
+            a<T> aVar3 = this.h;
             aVar3.e = true;
             this.g.e = false;
             return aVar3;
@@ -435,19 +435,19 @@ public class y7 implements Iterable {
         return (a) invokeV.objValue;
     }
 
-    public int e(Object obj) {
+    public int e(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (obj != null) {
-                Object[] objArr = this.b;
-                int f = f(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
+            if (t != null) {
+                T[] tArr = this.b;
+                int f = f(t);
                 while (true) {
-                    Object obj2 = objArr[f];
-                    if (obj2 == null) {
+                    T t2 = tArr[f];
+                    if (t2 == null) {
                         return -(f + 1);
                     }
-                    if (obj2.equals(obj)) {
+                    if (t2.equals(t)) {
                         return f;
                     }
                     f = (f + 1) & this.f;
@@ -471,10 +471,10 @@ public class y7 implements Iterable {
             if (y7Var.a != this.a) {
                 return false;
             }
-            Object[] objArr = this.b;
-            int length = objArr.length;
+            T[] tArr = this.b;
+            int length = tArr.length;
             for (int i = 0; i < length; i++) {
-                if (objArr[i] != null && !y7Var.contains(objArr[i])) {
+                if (tArr[i] != null && !y7Var.contains(tArr[i])) {
                     return false;
                 }
             }
@@ -491,42 +491,42 @@ public class y7 implements Iterable {
             int i2 = i - 1;
             this.f = i2;
             this.e = Long.numberOfLeadingZeros(i2);
-            Object[] objArr = this.b;
-            this.b = new Object[i];
+            T[] tArr = this.b;
+            this.b = (T[]) new Object[i];
             if (this.a > 0) {
                 for (int i3 = 0; i3 < length; i3++) {
-                    Object obj = objArr[i3];
-                    if (obj != null) {
-                        a(obj);
+                    T t = tArr[i3];
+                    if (t != null) {
+                        a(t);
                     }
                 }
             }
         }
     }
 
-    public boolean remove(Object obj) {
+    public boolean remove(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
-            int e = e(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, t)) == null) {
+            int e = e(t);
             if (e < 0) {
                 return false;
             }
-            Object[] objArr = this.b;
+            T[] tArr = this.b;
             int i = this.f;
             int i2 = e + 1;
             while (true) {
                 int i3 = i2 & i;
-                Object obj2 = objArr[i3];
-                if (obj2 != null) {
-                    int f = f(obj2);
+                T t2 = tArr[i3];
+                if (t2 != null) {
+                    int f = f(t2);
                     if (((i3 - f) & i) > ((e - f) & i)) {
-                        objArr[e] = obj2;
+                        tArr[e] = t2;
                         e = i3;
                     }
                     i2 = i3 + 1;
                 } else {
-                    objArr[e] = null;
+                    tArr[e] = null;
                     this.a--;
                     return true;
                 }

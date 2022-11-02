@@ -36,7 +36,7 @@ public abstract class AppleDataBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_4 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_5 = null;
-    public static HashMap language;
+    public static HashMap<String, String> language;
     public transient /* synthetic */ FieldHolder $fh;
     public int dataCountry;
     public int dataLanguage;
@@ -62,7 +62,7 @@ public abstract class AppleDataBox extends AbstractBox {
             }
         }
         ajc$preClinit();
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap<>();
         language = hashMap;
         hashMap.put("0", "English");
         language.put("1", "French");
@@ -295,10 +295,10 @@ public abstract class AppleDataBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            HashMap hashMap = language;
+            HashMap<String, String> hashMap = language;
             StringBuilder sb = new StringBuilder();
             sb.append(this.dataLanguage);
-            String str = (String) hashMap.get(sb.toString());
+            String str = hashMap.get(sb.toString());
             if (str == null) {
                 ByteBuffer wrap = ByteBuffer.wrap(new byte[2]);
                 IsoTypeWriter.writeUInt16(wrap, this.dataLanguage);

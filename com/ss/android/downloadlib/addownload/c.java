@@ -9,11 +9,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class c {
     public static String a = "c";
     public static volatile c b;
-    public ConcurrentHashMap c;
+    public ConcurrentHashMap<Long, Runnable> c;
 
     public c() {
         this.c = null;
-        this.c = new ConcurrentHashMap();
+        this.c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
@@ -62,14 +62,14 @@ public class c {
         if (i != 4) {
             if (i != 5) {
                 if (i == 7) {
-                    Runnable runnable = (Runnable) this.c.remove(Long.valueOf(id));
+                    Runnable remove = this.c.remove(Long.valueOf(id));
                     if (z) {
                         com.ss.android.downloadlib.d.a.a().a(id, 1);
                         a(id, true, 1);
                         return;
                     }
-                    if (runnable != null) {
-                        com.ss.android.downloadlib.f.a().b().post(runnable);
+                    if (remove != null) {
+                        com.ss.android.downloadlib.f.a().b().post(remove);
                     }
                     a(id, false, 1);
                 }

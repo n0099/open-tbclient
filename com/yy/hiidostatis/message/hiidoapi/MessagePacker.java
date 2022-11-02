@@ -43,12 +43,12 @@ public class MessagePacker implements Packer {
     public static final String KEY_MAGIC = "HiidoData";
     public static final int MESSAGE_CACHE_SIZE = 3000;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentLinkedQueue cache;
+    public ConcurrentLinkedQueue<StatisContent> cache;
     public MessageConfig config;
     public volatile boolean initedFailed;
     public volatile boolean isInited;
     public volatile boolean isRunning;
-    public ConcurrentHashMap listens;
+    public ConcurrentHashMap<Integer, Packer.OnSavedListener> listens;
     public MessageMonitor monitor;
     public AtomicInteger saveCount;
     public Task sender;
@@ -70,15 +70,15 @@ public class MessagePacker implements Packer {
             }
         }
         this.initedFailed = false;
-        this.cache = new ConcurrentLinkedQueue();
-        this.listens = new ConcurrentHashMap();
+        this.cache = new ConcurrentLinkedQueue<>();
+        this.listens = new ConcurrentHashMap<>();
         this.saveCount = new AtomicInteger();
         this.config = messageConfig;
         this.monitor = messageMonitor;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyListeners(List list) {
+    public void notifyListeners(List<Packer.OnSavedListener> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65547, this, list) != null) || list == null) {
             return;

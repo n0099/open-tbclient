@@ -39,17 +39,17 @@ public class l9 {
         this.a = k9.b().a();
     }
 
-    public HashMap a() {
+    public HashMap<String, a9> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, a9> hashMap = new HashMap<>();
             for (String str : k9.b().f()) {
                 try {
                     String optString = new JSONObject(k9.b().e(str)).optString("sid");
                     String[] split = optString.split("_");
                     if (split.length == 2) {
-                        hashMap.put(optString, new a9(q20.d(split[0]), q20.d(split[1])));
+                        hashMap.put(optString, new a9(l20.d(split[0]), l20.d(split[1])));
                     }
                 } catch (JSONException unused) {
                     if (ABTestConfig.isDebug()) {
@@ -62,11 +62,11 @@ public class l9 {
         return (HashMap) invokeV.objValue;
     }
 
-    public HashMap b(String str) {
+    public HashMap<String, a9> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, a9> hashMap = new HashMap<>();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 Iterator<String> keys = jSONObject.keys();
@@ -76,7 +76,7 @@ public class l9 {
                         String optString = optJSONObject.optString("sid");
                         String[] split = optString.split("_");
                         if (split.length == 2) {
-                            hashMap.put(optString, new a9(q20.d(split[0]), q20.d(split[1])));
+                            hashMap.put(optString, new a9(l20.d(split[0]), l20.d(split[1])));
                         }
                     }
                 }
@@ -88,11 +88,11 @@ public class l9 {
         return (HashMap) invokeL.objValue;
     }
 
-    public HashMap d(String str) {
+    public HashMap<String, a9> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, a9> hashMap = new HashMap<>();
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray jSONArray = new JSONObject(str).getJSONArray("data");
@@ -101,7 +101,7 @@ public class l9 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new a9(q20.d(split[0]), q20.d(split[1])));
+                                hashMap.put(string, new a9(l20.d(split[0]), l20.d(split[1])));
                             }
                         }
                     }
@@ -114,13 +114,13 @@ public class l9 {
         return (HashMap) invokeL.objValue;
     }
 
-    public List e(int i) {
+    public List<i9> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : k9.b().f()) {
-                if (r20.a(str, this.a) == i) {
+                if (m20.a(str, this.a) == i) {
                     try {
                         arrayList.add(new i9(str, new JSONObject(k9.b().e(str)).opt("data")));
                     } catch (JSONException unused) {
@@ -135,11 +135,11 @@ public class l9 {
         return (List) invokeI.objValue;
     }
 
-    public HashMap c() {
+    public HashMap<String, a9> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, a9> hashMap = new HashMap<>();
             String c = k9.b().c();
             if (!TextUtils.isEmpty(c)) {
                 try {
@@ -149,7 +149,7 @@ public class l9 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new a9(q20.d(split[0]), q20.d(split[1])));
+                                hashMap.put(string, new a9(l20.d(split[0]), l20.d(split[1])));
                             }
                         }
                     }
@@ -174,7 +174,7 @@ public class l9 {
                         JSONArray jSONArray = new JSONArray(c);
                         jSONObject.put("version", d);
                         jSONObject.put("exps", jSONArray);
-                        i20.h(jSONObject);
+                        d20.h(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -198,7 +198,7 @@ public class l9 {
                         }
                     }
                 }
-                i20.k(jSONObject);
+                d20.k(jSONObject);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.minivideo.plugin.capture.listener;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.bean.VideoDraftBean;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +34,7 @@ public class DBUpdateCallbackAdapter implements DBUpdateCallback {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.listener.DBUpdateCallback
-    public void onQueryResult(ArrayList arrayList) {
+    public void onQueryResult(ArrayList<VideoDraftBean> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
         }

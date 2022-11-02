@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.MyBalanceInfo;
+@Keep
 /* loaded from: classes8.dex */
 public class MyBalanceResult {
     public static /* synthetic */ Interceptable $ic;

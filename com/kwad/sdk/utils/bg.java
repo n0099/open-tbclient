@@ -5,7 +5,7 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
 public final class bg extends Handler {
-    public WeakReference apk;
+    public WeakReference<a> apk;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -13,7 +13,7 @@ public final class bg extends Handler {
     }
 
     public bg(a aVar) {
-        this.apk = new WeakReference(aVar);
+        this.apk = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
@@ -23,7 +23,7 @@ public final class bg extends Handler {
         } catch (Exception e) {
             com.kwad.sdk.core.e.b.printStackTrace(e);
         }
-        if (this.apk == null || (aVar = (a) this.apk.get()) == null) {
+        if (this.apk == null || (aVar = this.apk.get()) == null) {
             return;
         }
         aVar.a(message);

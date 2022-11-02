@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lp4;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.cq4;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.userblock.message.UserBlockSetHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetRequestMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetSocketResponseMessage;
-import com.baidu.tieba.zm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public lp4 b;
-    public qb c;
+    public cq4 b;
+    public pb c;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -51,7 +51,7 @@ public class UserBlockSetModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends qb {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserBlockSetModel a;
@@ -78,25 +78,25 @@ public class UserBlockSetModel extends BdBaseModel {
             this.a = userBlockSetModel;
         }
 
-        @Override // com.baidu.tieba.qb
-        public void onMessage(ResponsedMessage responsedMessage) {
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockSetRequestMessage userBlockSetRequestMessage;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && this.a.b != null && responsedMessage != null && (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) != null && userBlockSetRequestMessage.getBlockUserId() == this.a.a) {
                 if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                    this.a.b.onError(-1, this.a.D(R.string.obfuscated_res_0x7f0f0325));
+                    this.a.b.onError(-1, this.a.D(R.string.obfuscated_res_0x7f0f0326));
                     return;
                 }
                 int error = responsedMessage.getError();
                 String errorString = responsedMessage.getErrorString();
                 if (error == 0 && !responsedMessage.hasError()) {
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.D(R.string.obfuscated_res_0x7f0f0327);
+                        errorString = this.a.D(R.string.obfuscated_res_0x7f0f0328);
                     }
                     this.a.b.onSuccess(errorString);
                 } else {
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.D(R.string.obfuscated_res_0x7f0f0325);
+                        errorString = this.a.D(R.string.obfuscated_res_0x7f0f0326);
                     }
                     this.a.b.onError(error, errorString);
                 }
@@ -137,18 +137,18 @@ public class UserBlockSetModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void G(lp4 lp4Var) {
+    public void G(cq4 cq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lp4Var) == null) {
-            this.b = lp4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cq4Var) == null) {
+            this.b = cq4Var;
         }
     }
 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zm8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            zm8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            io8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            io8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);

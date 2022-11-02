@@ -19,12 +19,12 @@ import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
 public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public final Bitmap.Config mBitmapConfig;
     public final BitmapFrameRenderer mBitmapFrameRenderer;
     public final ExecutorService mExecutorService;
-    public final SparseArray mPendingFrameDecodeJobs;
+    public final SparseArray<Runnable> mPendingFrameDecodeJobs;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
     /* loaded from: classes7.dex */
@@ -61,7 +61,7 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
 
         private boolean prepareFrameAndCache(int i, int i2) {
             InterceptResult invokeII;
-            CloseableReference bitmapToReuseForFrame;
+            CloseableReference<Bitmap> bitmapToReuseForFrame;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
                 int i3 = 2;
@@ -85,17 +85,17 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
                     FLog.w(DefaultBitmapFramePreparer.TAG, "Failed to create frame bitmap", e);
                     return false;
                 } finally {
-                    CloseableReference.closeSafely((CloseableReference) null);
+                    CloseableReference.closeSafely((CloseableReference<?>) null);
                 }
             }
             return invokeII.booleanValue;
         }
 
-        private boolean renderFrameAndCache(int i, CloseableReference closeableReference, int i2) {
+        private boolean renderFrameAndCache(int i, CloseableReference<Bitmap> closeableReference, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)})) == null) {
-                if (!CloseableReference.isValid(closeableReference) || !this.this$0.mBitmapFrameRenderer.renderFrame(i, (Bitmap) closeableReference.get())) {
+                if (!CloseableReference.isValid(closeableReference) || !this.this$0.mBitmapFrameRenderer.renderFrame(i, closeableReference.get())) {
                     return false;
                 }
                 FLog.v(DefaultBitmapFramePreparer.TAG, "Frame %d ready.", Integer.valueOf(this.mFrameNumber));
@@ -173,7 +173,7 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
         this.mBitmapFrameRenderer = bitmapFrameRenderer;
         this.mBitmapConfig = config;
         this.mExecutorService = executorService;
-        this.mPendingFrameDecodeJobs = new SparseArray();
+        this.mPendingFrameDecodeJobs = new SparseArray<>();
     }
 
     public static int getUniqueId(AnimationBackend animationBackend, int i) {

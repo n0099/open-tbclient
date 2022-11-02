@@ -16,7 +16,7 @@ public interface CookieJar {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.searchbox.network.support.cookie.CookieJar
-        public void saveFromResponse(UrlWrapper urlWrapper, List list) {
+        public void saveFromResponse(UrlWrapper urlWrapper, List<Cookie> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlWrapper, list) == null) {
             }
@@ -37,7 +37,7 @@ public interface CookieJar {
         }
 
         @Override // com.baidu.searchbox.network.support.cookie.CookieJar
-        public List loadForRequest(UrlWrapper urlWrapper) {
+        public List<Cookie> loadForRequest(UrlWrapper urlWrapper) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlWrapper)) == null) {
@@ -47,7 +47,7 @@ public interface CookieJar {
         }
     };
 
-    List loadForRequest(UrlWrapper urlWrapper);
+    List<Cookie> loadForRequest(UrlWrapper urlWrapper);
 
-    void saveFromResponse(UrlWrapper urlWrapper, List list);
+    void saveFromResponse(UrlWrapper urlWrapper, List<Cookie> list);
 }

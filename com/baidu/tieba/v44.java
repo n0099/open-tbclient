@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v44 extends vx3 {
+public class v44 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v44 c;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long currentSize;
-    @V8JavascriptField
-    public String[] keys;
-    @V8JavascriptField
-    public long limitSize;
+    public int a;
+    public volatile ArrayList<u44> b;
 
     public v44() {
         Interceptable interceptable = $ic;
@@ -26,7 +29,79 @@ public class v44 extends vx3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList<>(20);
+    }
+
+    public static v44 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (v44.class) {
+                    if (c == null) {
+                        c = new v44();
+                    }
+                }
+            }
+            return c;
+        }
+        return (v44) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
+            }
+        }
+    }
+
+    public synchronized void a(u44 u44Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, u44Var) == null) {
+            synchronized (this) {
+                if (u44Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(u44Var);
+                } else {
+                    this.a++;
+                }
+            }
+        }
+    }
+
+    public synchronized JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<u44> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

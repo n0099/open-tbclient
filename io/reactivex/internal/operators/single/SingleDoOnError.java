@@ -13,20 +13,20 @@ import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
 /* loaded from: classes8.dex */
-public final class SingleDoOnError extends Single {
+public final class SingleDoOnError<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onError;
-    public final SingleSource source;
+    public final Consumer<? super Throwable> onError;
+    public final SingleSource<T> source;
 
     /* loaded from: classes8.dex */
-    public final class DoOnError implements SingleObserver {
+    public final class DoOnError implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver s;
+        public final SingleObserver<? super T> s;
         public final /* synthetic */ SingleDoOnError this$0;
 
-        public DoOnError(SingleDoOnError singleDoOnError, SingleObserver singleObserver) {
+        public DoOnError(SingleDoOnError singleDoOnError, SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,15 +68,15 @@ public final class SingleDoOnError extends Single {
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                this.s.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                this.s.onSuccess(t);
             }
         }
     }
 
-    public SingleDoOnError(SingleSource singleSource, Consumer consumer) {
+    public SingleDoOnError(SingleSource<T> singleSource, Consumer<? super Throwable> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public final class SingleDoOnError extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             this.source.subscribe(new DoOnError(this, singleObserver));

@@ -20,8 +20,8 @@ public class DraweeConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public final ImmutableList mCustomDrawableFactories;
-    public final Supplier mDebugOverlayEnabledSupplier;
+    public final ImmutableList<DrawableFactory> mCustomDrawableFactories;
+    public final Supplier<Boolean> mDebugOverlayEnabledSupplier;
     @Nullable
     public final ImagePerfDataListener mImagePerfDataListener;
     @Nullable
@@ -29,17 +29,17 @@ public class DraweeConfig {
 
     /* renamed from: com.facebook.drawee.backends.pipeline.DraweeConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List mCustomDrawableFactories;
-        public Supplier mDebugOverlayEnabledSupplier;
+        public List<DrawableFactory> mCustomDrawableFactories;
+        public Supplier<Boolean> mDebugOverlayEnabledSupplier;
         @Nullable
         public ImagePerfDataListener mImagePerfDataListener;
         public PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
@@ -80,7 +80,7 @@ public class DraweeConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setDebugOverlayEnabledSupplier(Supplier supplier) {
+        public Builder setDebugOverlayEnabledSupplier(Supplier<Boolean> supplier) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplier)) == null) {
@@ -122,8 +122,8 @@ public class DraweeConfig {
     }
 
     public DraweeConfig(Builder builder) {
-        ImmutableList immutableList;
-        Supplier of;
+        ImmutableList<DrawableFactory> immutableList;
+        Supplier<Boolean> of;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class DraweeConfig {
     }
 
     @Nullable
-    public ImmutableList getCustomDrawableFactories() {
+    public ImmutableList<DrawableFactory> getCustomDrawableFactories() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -177,7 +177,7 @@ public class DraweeConfig {
         return (ImmutableList) invokeV.objValue;
     }
 
-    public Supplier getDebugOverlayEnabledSupplier() {
+    public Supplier<Boolean> getDebugOverlayEnabledSupplier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

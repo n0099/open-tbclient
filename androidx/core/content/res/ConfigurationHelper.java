@@ -2,6 +2,7 @@ package androidx.core.content.res;
 
 import android.content.res.Resources;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ public final class ConfigurationHelper {
         }
     }
 
-    public static int getDensityDpi(Resources resources) {
+    public static int getDensityDpi(@NonNull Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resources)) == null) {

@@ -1,81 +1,96 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class wh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList arrayList, boolean z) {
+    public static ArrayList<qh> a(nh nhVar, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            rc rcVar = new rc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            rcVar.setSdCard(z);
-            rcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            lc.f().a(rcVar);
-        }
-    }
-
-    public static File[] b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        File[] fileArr;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            lc.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
-                fileArr = diskFileOperate.getFileInfo().listFiles();
-            } else {
-                fileArr = null;
-            }
-            if (z2) {
-                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-                diskFileOperate2.setSdCard(z);
-                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                lc.f().call(diskFileOperate2);
-                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
-                    if (fileArr != null && fileArr.length != 0) {
-                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
-                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
-                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
-                        return fileArr2;
-                    }
-                    return listFiles;
-                }
-            }
-            return fileArr;
-        }
-        return (File[]) invokeCommon.objValue;
-    }
-
-    public static ArrayList c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] b = b(z, true);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, nhVar, z)) == null) {
+            ArrayList<qh> arrayList = new ArrayList<>();
+            File[] b = oh.b(nhVar.E(), z);
             if (b != null) {
                 for (File file : b) {
                     if (file.isFile()) {
                         String name = file.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            arrayList.add(new yh(name, file.length(), file.lastModified()));
+                        if (!TextUtils.isEmpty(name) && name.startsWith(nhVar.h()) && name.contains("Uploading")) {
+                            long length = file.length();
+                            if (z && file.getPath().contains("/notUpload")) {
+                                name = "notUpload/" + file.getName();
+                            }
+                            arrayList.add(new qh(name, length, file.lastModified()));
                         }
                     }
                 }
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            ArrayList<qh> arrayList2 = new ArrayList<>();
+            ArrayList arrayList3 = new ArrayList();
+            if (nhVar.h() != "stat") {
+                Iterator<qh> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    qh next = it.next();
+                    if (next != null) {
+                        long j = next.c;
+                        if (j != 0 && j + 604800000 < currentTimeMillis) {
+                            arrayList3.add(next.b);
+                        } else {
+                            arrayList2.add(next);
+                        }
+                    }
+                }
+                arrayList = arrayList2;
+            }
+            if (arrayList3.size() > 0) {
+                oh.a(arrayList3, nhVar.E());
+            }
             return arrayList;
         }
-        return (ArrayList) invokeZ.objValue;
+        return (ArrayList) invokeLZ.objValue;
+    }
+
+    public static BdUploadingLogInfo b(nh nhVar, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, nhVar, z)) == null) {
+            ArrayList<qh> a = a(nhVar, z);
+            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), nhVar.E(), nhVar.A());
+            if (a != null && a.size() > 0) {
+                if (a.size() > 1) {
+                    Collections.sort(a, new rh());
+                }
+                ArrayList arrayList = new ArrayList();
+                int size = a.size();
+                long j = 0;
+                for (int i = 0; i < size; i++) {
+                    qh qhVar = a.get(i);
+                    j += qhVar.a;
+                    arrayList.add(qhVar);
+                    if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                        bdUploadingLogInfo.add(arrayList);
+                        arrayList = new ArrayList();
+                        j = 0;
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    bdUploadingLogInfo.add(arrayList);
+                }
+            }
+            return bdUploadingLogInfo;
+        }
+        return (BdUploadingLogInfo) invokeLZ.objValue;
     }
 }

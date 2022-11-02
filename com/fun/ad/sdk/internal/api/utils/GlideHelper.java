@@ -21,7 +21,7 @@ public final class GlideHelper {
 
     /* renamed from: com.fun.ad.sdk.internal.api.utils.GlideHelper$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -84,7 +84,7 @@ public final class GlideHelper {
     }
 
     /* loaded from: classes7.dex */
-    public class GlideHelperHolder {
+    public static class GlideHelperHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final GlideHelper a;
         public transient /* synthetic */ FieldHolder $fh;

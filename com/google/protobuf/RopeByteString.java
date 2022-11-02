@@ -36,16 +36,16 @@ public class RopeByteString extends ByteString {
 
     /* renamed from: com.google.protobuf.RopeByteString$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class Balancer {
+    public static class Balancer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Stack prefixesStack;
+        public final Stack<ByteString> prefixesStack;
 
         public Balancer() {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class RopeByteString extends ByteString {
                     return;
                 }
             }
-            this.prefixesStack = new Stack();
+            this.prefixesStack = new Stack<>();
         }
 
         public /* synthetic */ Balancer(AnonymousClass1 anonymousClass1) {
@@ -87,11 +87,11 @@ public class RopeByteString extends ByteString {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, byteString, byteString2)) == null) {
                 doBalance(byteString);
                 doBalance(byteString2);
-                ByteString byteString3 = (ByteString) this.prefixesStack.pop();
+                ByteString pop = this.prefixesStack.pop();
                 while (!this.prefixesStack.isEmpty()) {
-                    byteString3 = new RopeByteString((ByteString) this.prefixesStack.pop(), byteString3, null);
+                    pop = new RopeByteString(this.prefixesStack.pop(), pop, null);
                 }
-                return byteString3;
+                return pop;
             }
             return (ByteString) invokeLL.objValue;
         }
@@ -116,18 +116,18 @@ public class RopeByteString extends ByteString {
             if (interceptable == null || interceptable.invokeL(65542, this, byteString) == null) {
                 int depthBinForLength = getDepthBinForLength(byteString.size());
                 int i = RopeByteString.minLengthByDepth[depthBinForLength + 1];
-                if (!this.prefixesStack.isEmpty() && ((ByteString) this.prefixesStack.peek()).size() < i) {
+                if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i) {
                     int i2 = RopeByteString.minLengthByDepth[depthBinForLength];
-                    ByteString byteString2 = (ByteString) this.prefixesStack.pop();
-                    while (!this.prefixesStack.isEmpty() && ((ByteString) this.prefixesStack.peek()).size() < i2) {
-                        byteString2 = new RopeByteString((ByteString) this.prefixesStack.pop(), byteString2, null);
+                    ByteString pop = this.prefixesStack.pop();
+                    while (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
+                        pop = new RopeByteString(this.prefixesStack.pop(), pop, null);
                     }
-                    RopeByteString ropeByteString = new RopeByteString(byteString2, byteString, null);
+                    RopeByteString ropeByteString = new RopeByteString(pop, byteString, null);
                     while (!this.prefixesStack.isEmpty()) {
-                        if (((ByteString) this.prefixesStack.peek()).size() >= RopeByteString.minLengthByDepth[getDepthBinForLength(ropeByteString.size()) + 1]) {
+                        if (this.prefixesStack.peek().size() >= RopeByteString.minLengthByDepth[getDepthBinForLength(ropeByteString.size()) + 1]) {
                             break;
                         }
-                        ropeByteString = new RopeByteString((ByteString) this.prefixesStack.pop(), ropeByteString, null);
+                        ropeByteString = new RopeByteString(this.prefixesStack.pop(), ropeByteString, null);
                     }
                     this.prefixesStack.push(ropeByteString);
                     return;
@@ -138,10 +138,10 @@ public class RopeByteString extends ByteString {
     }
 
     /* loaded from: classes7.dex */
-    public class PieceIterator implements Iterator {
+    public static class PieceIterator implements Iterator<LiteralByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Stack breadCrumbs;
+        public final Stack<RopeByteString> breadCrumbs;
         public LiteralByteString next;
 
         public PieceIterator(ByteString byteString) {
@@ -159,7 +159,7 @@ public class RopeByteString extends ByteString {
                     return;
                 }
             }
-            this.breadCrumbs = new Stack();
+            this.breadCrumbs = new Stack<>();
             this.next = getLeafByLeft(byteString);
         }
 
@@ -186,7 +186,7 @@ public class RopeByteString extends ByteString {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
                 while (!this.breadCrumbs.isEmpty()) {
-                    LiteralByteString leafByLeft = getLeafByLeft(((RopeByteString) this.breadCrumbs.pop()).right);
+                    LiteralByteString leafByLeft = getLeafByLeft(this.breadCrumbs.pop().right);
                     if (!leafByLeft.isEmpty()) {
                         return leafByLeft;
                     }
@@ -210,6 +210,7 @@ public class RopeByteString extends ByteString {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public LiteralByteString next() {
             InterceptResult invokeV;
@@ -243,6 +244,7 @@ public class RopeByteString extends ByteString {
         public final PieceIterator pieces;
         public final /* synthetic */ RopeByteString this$0;
 
+        /* JADX WARN: Type inference failed for: r0v3, types: [com.google.protobuf.ByteString$ByteIterator] */
         public RopeByteIterator(RopeByteString ropeByteString) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -261,7 +263,7 @@ public class RopeByteString extends ByteString {
             this.this$0 = ropeByteString;
             PieceIterator pieceIterator = new PieceIterator(ropeByteString, null);
             this.pieces = pieceIterator;
-            this.bytes = pieceIterator.next().iterator();
+            this.bytes = pieceIterator.next().iterator2();
             this.bytesRemaining = ropeByteString.size();
         }
 
@@ -283,6 +285,7 @@ public class RopeByteString extends ByteString {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.Iterator
         public Byte next() {
             InterceptResult invokeV;
@@ -293,13 +296,14 @@ public class RopeByteString extends ByteString {
             return (Byte) invokeV.objValue;
         }
 
+        /* JADX WARN: Type inference failed for: r0v10, types: [com.google.protobuf.ByteString$ByteIterator] */
         @Override // com.google.protobuf.ByteString.ByteIterator
         public byte nextByte() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (!this.bytes.hasNext()) {
-                    this.bytes = this.pieces.next().iterator();
+                    this.bytes = this.pieces.next().iterator2();
                 }
                 this.bytesRemaining--;
                 return this.bytes.nextByte();
@@ -601,7 +605,7 @@ public class RopeByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public List asReadOnlyByteBufferList() {
+    public List<ByteBuffer> asReadOnlyByteBufferList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -673,8 +677,10 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'com.google.protobuf.ByteString$ByteIterator' to match base method */
     @Override // com.google.protobuf.ByteString, java.lang.Iterable
-    public ByteString.ByteIterator iterator() {
+    /* renamed from: iterator */
+    public Iterator<Byte> iterator2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -819,20 +825,20 @@ public class RopeByteString extends ByteString {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, byteString)) == null) {
             PieceIterator pieceIterator = new PieceIterator(this, null);
-            LiteralByteString literalByteString = (LiteralByteString) pieceIterator.next();
+            LiteralByteString next = pieceIterator.next();
             PieceIterator pieceIterator2 = new PieceIterator(byteString, null);
-            LiteralByteString literalByteString2 = (LiteralByteString) pieceIterator2.next();
+            LiteralByteString next2 = pieceIterator2.next();
             int i = 0;
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                int size = literalByteString.size() - i;
-                int size2 = literalByteString2.size() - i2;
+                int size = next.size() - i;
+                int size2 = next2.size() - i2;
                 int min = Math.min(size, size2);
                 if (i == 0) {
-                    equalsRange = literalByteString.equalsRange(literalByteString2, i2, min);
+                    equalsRange = next.equalsRange(next2, i2, min);
                 } else {
-                    equalsRange = literalByteString2.equalsRange(literalByteString, i, min);
+                    equalsRange = next2.equalsRange(next, i, min);
                 }
                 if (!equalsRange) {
                     return false;
@@ -846,13 +852,13 @@ public class RopeByteString extends ByteString {
                     throw new IllegalStateException();
                 }
                 if (min == size) {
-                    literalByteString = (LiteralByteString) pieceIterator.next();
+                    next = pieceIterator.next();
                     i = 0;
                 } else {
                     i += min;
                 }
                 if (min == size2) {
-                    literalByteString2 = (LiteralByteString) pieceIterator2.next();
+                    next2 = pieceIterator2.next();
                     i2 = 0;
                 } else {
                     i2 += min;

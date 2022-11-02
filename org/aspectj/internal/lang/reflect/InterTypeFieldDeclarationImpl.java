@@ -12,16 +12,16 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeFieldDeclaration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeFieldDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Type genericType;
     public String name;
-    public AjType type;
+    public AjType<?> type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeFieldDeclarationImpl(AjType ajType, String str, int i, String str2, AjType ajType2, Type type) {
+    public InterTypeFieldDeclarationImpl(AjType<?> ajType, String str, int i, String str2, AjType<?> ajType2, Type type) {
         super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,7 +45,7 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeFieldDeclarationImpl(AjType ajType, AjType ajType2, Field field) {
+    public InterTypeFieldDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, Field field) {
         super(ajType, ajType2, field.getModifiers());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,7 +94,7 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
     }
 
     @Override // org.aspectj.lang.reflect.InterTypeFieldDeclaration
-    public AjType getType() {
+    public AjType<?> getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

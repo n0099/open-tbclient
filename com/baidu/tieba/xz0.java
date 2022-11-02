@@ -1,203 +1,261 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.player.utils.BdViewOpUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class xz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Activity b;
 
-    public static void n(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
-        }
-    }
-
-    public static void a(List list, Object obj, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, list, obj, i) != null) || f(list) || !e(list, i)) {
-            return;
-        }
-        try {
-            list.add(i, obj);
-        } catch (Exception e) {
-            n(e);
-        }
-    }
-
-    public static boolean b(List list, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, obj)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.add(obj);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void c(Collection collection, Collection collection2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) && collection2 != null && collection != null) {
-            collection.addAll(collection2);
-        }
-    }
-
-    public static Object d(List list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
-            }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
-        }
-        return invokeLI.objValue;
-    }
-
-    public static boolean e(List list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (f(list) || i < 0) {
-                return false;
-            }
-            try {
-                if (i >= list.size()) {
-                    return false;
+        public a(View view2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return true;
-            } catch (Exception e) {
-                n(e);
-                return false;
             }
+            this.a = view2;
+            this.b = activity;
         }
-        return invokeLI.booleanValue;
-    }
 
-    public static Object i(List list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (g(list) || !e(list, i)) {
-                return null;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int g = xz0.g();
+                int systemUiVisibility = this.a.getSystemUiVisibility();
+                int h = xz0.h(this.b);
+                if (g != systemUiVisibility) {
+                    h |= systemUiVisibility;
+                }
+                vz0.b(BdViewOpUtils.TAG, "RESTORE KEY_SYSTEM_UI_VISIBILITY=" + h);
+                this.a.setSystemUiVisibility(h);
             }
-            try {
-                return list.remove(i);
-            } catch (Exception e) {
-                n(e);
-                return null;
-            }
-        }
-        return invokeLI.objValue;
-    }
-
-    public static boolean j(List list, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, obj)) == null) {
-            if (g(list)) {
-                return false;
-            }
-            try {
-                return list.remove(obj);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean k(List list, Collection collection) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void m(List list, Comparator comparator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65548, null, list, comparator) != null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            n(e);
         }
     }
 
-    public static boolean g(List list) {
+    @Nullable
+    public static ViewGroup e(@Nullable Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if (activity != null) {
+                return (ViewGroup) activity.getWindow().getDecorView();
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public static boolean h(Map map) {
+    public static int f(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (!f(map) && !map.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if (activity.getIntent() == null) {
+                return 0;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int l(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (!f(list) && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, 0);
         }
         return invokeL.intValue;
+    }
+
+    public static int h(@Nullable Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, activity)) == null) {
+            if (activity == null || activity.getIntent() == null) {
+                return -1;
+            }
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context != null) {
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void l(@Nullable Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, activity) != null) || !i(activity)) {
+            return;
+        }
+        ViewGroup e = e(activity);
+        int h = h(activity);
+        if (e != null && h != -1) {
+            e.postDelayed(new a(e, activity), 300L);
+        }
+    }
+
+    public static boolean b(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, view2)) == null) {
+            if (activity != null && view2 != null) {
+                ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                k(view2);
+                viewGroup.removeView(view2);
+                viewGroup.addView(view2);
+                if (i(activity)) {
+                    n(activity);
+                    o(viewGroup, true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65539, null, activity, z) != null) || activity == null || Build.VERSION.SDK_INT < 28) {
+            return;
+        }
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        if (z) {
+            m(activity, attributes.layoutInDisplayCutoutMode);
+            attributes.layoutInDisplayCutoutMode = 1;
+        } else {
+            attributes.layoutInDisplayCutoutMode = f(activity);
+        }
+        window.setAttributes(attributes);
+    }
+
+    public static void o(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) {
+            vz0.b(BdViewOpUtils.TAG, "setSystemUiVisibility immersive: " + z);
+            if (view2 == null) {
+                return;
+            }
+            if (z) {
+                view2.setSystemUiVisibility(g());
+            } else {
+                view2.setSystemUiVisibility(0);
+            }
+        }
+    }
+
+    public static boolean c(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, viewGroup)) == null) {
+            if (view2 != null && viewGroup != null && viewGroup.getParent() != null) {
+                vz0.b(BdViewOpUtils.TAG, "attachView " + view2.hashCode() + " " + viewGroup.hashCode());
+                try {
+                    viewGroup.addView(view2);
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return 5638;
+            }
+            return 1542;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean j(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, viewGroup)) == null) {
+            if (viewGroup != null) {
+                vz0.b(BdViewOpUtils.TAG, "removeChilds " + viewGroup.hashCode());
+                viewGroup.removeAllViews();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        vz0.b(BdViewOpUtils.TAG, "removeView " + view2.hashCode());
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception e) {
+                        vz0.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void m(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65548, null, activity, i) == null) && activity.getIntent() != null) {
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, i);
+        }
+    }
+
+    public static void n(@Nullable Activity activity) {
+        ViewGroup e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, activity) == null) && activity != null && activity.getIntent() != null && (e = e(activity)) != null) {
+            vz0.b(BdViewOpUtils.TAG, "SAVE KEY_SYSTEM_UI_VISIBILITY=" + e.getSystemUiVisibility());
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, e.getSystemUiVisibility());
+        }
     }
 }

@@ -21,7 +21,7 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     public transient /* synthetic */ FieldHolder $fh;
     public final UPCEANReader[] readers;
 
-    public MultiFormatUPCEANReader(Map map) {
+    public MultiFormatUPCEANReader(Map<DecodeHintType, ?> map) {
         Collection collection;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +65,7 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeILL;
         boolean z;
         Collection collection;

@@ -18,7 +18,7 @@ public class NetWorkUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetType {
+    public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetType NONE;
@@ -121,6 +121,19 @@ public class NetWorkUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             NetworkInfo a = a(context);
             if (a != null && a.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            NetworkInfo a = a(context);
+            if (a != null && a.isAvailable() && a.getType() == 1) {
                 return true;
             }
             return false;

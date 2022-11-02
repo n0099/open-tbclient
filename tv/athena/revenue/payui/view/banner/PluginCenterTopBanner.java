@@ -13,8 +13,8 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.m6a;
+import com.baidu.tieba.o4a;
+import com.baidu.tieba.v7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -37,7 +38,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public PluginCenterBannerGallery a;
     public RadioGroup b;
-    public final List c;
+    public final List<BannerConfigItem.BannerInfo> c;
     public View d;
     public float e;
     public BannerItemSelectListener f;
@@ -59,7 +60,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     }
 
     /* loaded from: classes9.dex */
-    public final class a implements RadioGroup.OnCheckedChangeListener {
+    public static final class a implements RadioGroup.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginCenterTopBanner a;
@@ -100,18 +101,19 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     }
 
     /* loaded from: classes9.dex */
-    public final class b implements AdapterView.OnItemSelectedListener {
+    public static final class b implements AdapterView.OnItemSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginCenterTopBanner a;
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
-        public void onNothingSelected(AdapterView adapterView) {
+        public void onNothingSelected(AdapterView<?> adapterView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) {
             }
         }
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(PluginCenterTopBanner pluginCenterTopBanner) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -131,16 +133,16 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         }
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
-        public void onItemSelected(AdapterView adapterView, View view2, int i, long j) {
+        public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= m6a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i >= v7a.a.a(PluginCenterTopBanner.c(this.a).getData())) {
                 return;
             }
             RadioGroup radioGroup = this.a.b;
             if (radioGroup == null) {
                 Intrinsics.throwNpe();
             }
-            List data = PluginCenterTopBanner.c(this.a).getData();
+            List<BannerConfigItem.BannerInfo> data = PluginCenterTopBanner.c(this.a).getData();
             if (data == null) {
                 Intrinsics.throwNpe();
             }
@@ -299,7 +301,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         }
     }
 
-    public final void e(List list) {
+    public final void e(List<? extends BannerConfigItem.BannerInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             RadioGroup radioGroup = this.b;
@@ -313,7 +315,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
                 radioButton.setId(i + 4660);
                 Context context = getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ec9));
+                radioButton.setButtonDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ee5));
                 RadioGroup radioGroup2 = this.b;
                 if (radioGroup2 == null) {
                     Intrinsics.throwNpe();
@@ -328,7 +330,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         }
     }
 
-    public final void setData(List list) {
+    public final void setData(List<? extends BannerConfigItem.BannerInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && !Intrinsics.areEqual(this.c, list) && list != null) {
             this.c.clear();
@@ -378,7 +380,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
         return (RadioGroup.LayoutParams) invokeV.objValue;
     }
 
-    public final List getData() {
+    public final List<BannerConfigItem.BannerInfo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -390,17 +392,17 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     public final void g(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet, i) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f3a.Pay_Ui_Banner, i, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o4a.Pay_Ui_Banner, i, 0);
             this.e = obtainStyledAttributes.getFloat(0, 0.0f);
             obtainStyledAttributes.recycle();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b3, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912a7);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06c8, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0912e2);
             if (findViewById != null) {
                 this.a = (PluginCenterBannerGallery) findViewById;
-                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912a6);
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912e1);
                 if (findViewById2 != null) {
                     this.b = (RadioGroup) findViewById2;
-                    this.d = findViewById(R.id.obfuscated_res_0x7f090328);
+                    this.d = findViewById(R.id.obfuscated_res_0x7f090337);
                     PluginCenterBannerGallery pluginCenterBannerGallery = this.a;
                     if (pluginCenterBannerGallery == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mGallery");

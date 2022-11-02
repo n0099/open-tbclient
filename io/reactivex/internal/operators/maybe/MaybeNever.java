@@ -11,7 +11,7 @@ import io.reactivex.Maybe;
 import io.reactivex.MaybeObserver;
 import io.reactivex.internal.disposables.EmptyDisposable;
 /* loaded from: classes8.dex */
-public final class MaybeNever extends Maybe {
+public final class MaybeNever extends Maybe<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final MaybeNever INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class MaybeNever extends Maybe {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super Object> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             maybeObserver.onSubscribe(EmptyDisposable.NEVER);

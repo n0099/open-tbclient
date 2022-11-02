@@ -24,8 +24,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oo5;
-import com.baidu.tieba.ws9;
+import com.baidu.tieba.fu9;
+import com.baidu.tieba.np5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 /* loaded from: classes7.dex */
-public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
+public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POINTER = -1;
     public static final int LAYOUT_FORCE_BOTTOM = 3;
@@ -69,7 +69,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     public boolean mCachingStarted;
     public Runnable mClearScrollingCache;
     public ContextMenu.ContextMenuInfo mContextMenuInfo;
-    public PLA_AdapterView.c mDataSetObserver;
+    public PLA_AdapterView<ListAdapter>.c mDataSetObserver;
     public boolean mDrawSelectorOnTop;
     public boolean mFlingProfilingStarted;
     public d mFlingRunnable;
@@ -207,7 +207,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     }
 
     /* loaded from: classes7.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @ViewDebug.ExportedProperty(mapping = {@ViewDebug.IntToString(from = -1, to = "ITEM_VIEW_TYPE_IGNORE"), @ViewDebug.IntToString(from = -2, to = "ITEM_VIEW_TYPE_HEADER_OR_FOOTER")})
@@ -865,9 +865,9 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         public i a;
         public int b;
         public View[] c;
-        public Stack[] d;
+        public Stack<View>[] d;
         public int e;
-        public Stack f;
+        public Stack<View> f;
         public final /* synthetic */ PLA_AbsListView g;
 
         public boolean n(int i) {
@@ -899,9 +899,9 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
                 if (i >= 1) {
-                    Stack[] stackArr = new Stack[i];
+                    Stack<View>[] stackArr = new Stack[i];
                     for (int i2 = 0; i2 < i; i2++) {
-                        stackArr[i2] = new Stack();
+                        stackArr[i2] = new Stack<>();
                     }
                     this.e = i;
                     this.f = stackArr[0];
@@ -928,7 +928,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             return (View) invokeI.objValue;
         }
 
-        public void j(List list) {
+        public void j(List<View> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
                 int i = this.e;
@@ -936,10 +936,10 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                     list.addAll(this.f);
                     return;
                 }
-                Stack[] stackArr = this.d;
+                Stack<View>[] stackArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
-                    Stack stack = stackArr[i2];
-                    ws9.c("add scarp views from reclaimScrapViews");
+                    Stack<View> stack = stackArr[i2];
+                    fu9.c("add scarp views from reclaimScrapViews");
                     list.addAll(stack);
                 }
             }
@@ -948,7 +948,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         public void c(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ws9.c("addToScrap");
+                fu9.c("addToScrap");
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
                 if (layoutParams == null) {
                     return;
@@ -981,17 +981,17 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
                 int i2 = this.e;
                 if (i2 == 1) {
-                    Stack stack = this.f;
+                    Stack<View> stack = this.f;
                     int size = stack.size();
                     for (int i3 = 0; i3 < size; i3++) {
-                        ((View) stack.get(i3)).setDrawingCacheBackgroundColor(i);
+                        stack.get(i3).setDrawingCacheBackgroundColor(i);
                     }
                 } else {
                     for (int i4 = 0; i4 < i2; i4++) {
-                        Stack stack2 = this.d[i4];
+                        Stack<View> stack2 = this.d[i4];
                         int size2 = stack2.size();
                         for (int i5 = 0; i5 < size2; i5++) {
-                            ((View) stack2.get(i4)).setDrawingCacheBackgroundColor(i);
+                            stack2.get(i4).setDrawingCacheBackgroundColor(i);
                         }
                     }
                 }
@@ -1008,18 +1008,18 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int i = this.e;
                 if (i == 1) {
-                    Stack stack = this.f;
+                    Stack<View> stack = this.f;
                     int size = stack.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        this.g.removeDetachedView((View) stack.remove((size - 1) - i2), false);
+                        this.g.removeDetachedView(stack.remove((size - 1) - i2), false);
                     }
                     return;
                 }
                 for (int i3 = 0; i3 < i; i3++) {
-                    Stack stack2 = this.d[i3];
+                    Stack<View> stack2 = this.d[i3];
                     int size2 = stack2.size();
                     for (int i4 = 0; i4 < size2; i4++) {
-                        this.g.removeDetachedView((View) stack2.remove((size2 - 1) - i4), false);
+                        this.g.removeDetachedView(stack2.remove((size2 - 1) - i4), false);
                     }
                 }
             }
@@ -1030,18 +1030,18 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 int i = this.e;
                 if (i == 1) {
-                    Stack stack = this.f;
+                    Stack<View> stack = this.f;
                     int size = stack.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        ((View) stack.get(i2)).forceLayout();
+                        stack.get(i2).forceLayout();
                     }
                     return;
                 }
                 for (int i3 = 0; i3 < i; i3++) {
-                    Stack stack2 = this.d[i3];
+                    Stack<View> stack2 = this.d[i3];
                     int size2 = stack2.size();
                     for (int i4 = 0; i4 < size2; i4++) {
-                        ((View) stack2.get(i4)).forceLayout();
+                        stack2.get(i4).forceLayout();
                     }
                 }
             }
@@ -1067,10 +1067,10 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
 
         public View g(int i) {
             InterceptResult invokeI;
-            Stack stack;
+            Stack<View> stack;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                ws9.c("getFromScrap: " + i);
+                fu9.c("getFromScrap: " + i);
                 if (this.g.getHeaderViewsCount() > i) {
                     return null;
                 }
@@ -1079,7 +1079,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                 } else {
                     int itemViewType = this.g.mAdapter.getItemViewType(i);
                     if (itemViewType >= 0) {
-                        Stack[] stackArr = this.d;
+                        Stack<View>[] stackArr = this.d;
                         if (itemViewType < stackArr.length) {
                             stack = stackArr[itemViewType];
                         }
@@ -1088,12 +1088,12 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                 }
                 int size = stack.size();
                 for (int i2 = size - 1; i2 >= 0; i2--) {
-                    if (((LayoutParams) ((View) stack.get(i2)).getLayoutParams()).b == i) {
-                        return (View) stack.remove(i2);
+                    if (((LayoutParams) stack.get(i2).getLayoutParams()).b == i) {
+                        return stack.remove(i2);
                     }
                 }
                 if (size > 0) {
-                    return (View) stack.remove(0);
+                    return stack.remove(0);
                 }
                 return null;
             }
@@ -1105,16 +1105,16 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 int length = this.c.length;
                 int i = this.e;
-                Stack[] stackArr = this.d;
+                Stack<View>[] stackArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
-                    Stack stack = stackArr[i2];
+                    Stack<View> stack = stackArr[i2];
                     int size = stack.size();
                     int i3 = size - length;
                     int i4 = size - 1;
                     int i5 = 0;
                     while (i5 < i3) {
-                        ws9.c("remove scarp views from pruneScrapViews");
-                        this.g.removeDetachedView((View) stack.remove(i4), false);
+                        fu9.c("remove scarp views from pruneScrapViews");
+                        this.g.removeDetachedView(stack.remove(i4), false);
                         i5++;
                         i4--;
                     }
@@ -1138,7 +1138,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                 } else {
                     z2 = false;
                 }
-                Stack stack = this.f;
+                Stack<View> stack = this.f;
                 for (int length = viewArr.length - 1; length >= 0; length--) {
                     View view2 = viewArr[length];
                     if (view2 != null) {
@@ -1153,7 +1153,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                                 stack = this.d[i];
                             }
                             this.g.dispatchFinishTemporaryDetach(view2);
-                            ws9.c("addToScrap from scrapActiveViews");
+                            fu9.c("addToScrap from scrapActiveViews");
                             stack.add(view2);
                             if (z) {
                                 this.a.onMovedToScrapHeap(view2);
@@ -1167,7 +1167,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     }
 
     /* loaded from: classes7.dex */
-    public class j {
+    public static class j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -1282,7 +1282,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         this.mActivePointerId = -1;
         initAbsListView();
         setVerticalScrollBarEnabled(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(oo5.View);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(np5.View);
         try {
             View.class.getDeclaredMethod("initializeScrollbars", TypedArray.class).invoke(this, obtainStyledAttributes);
         } catch (IllegalAccessException e2) {
@@ -1326,7 +1326,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
             if (g2 != null) {
                 view2 = this.mAdapter.getView(i2, g2, this);
                 if (view2 != g2) {
-                    ws9.c("obtainView");
+                    fu9.c("obtainView");
                     this.mRecycler.c(g2);
                     int i3 = this.mCacheColorHint;
                     if (i3 != 0) {
@@ -1337,7 +1337,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                     dispatchFinishTemporaryDetach(view2);
                 }
             } else {
-                ws9.c("makeView:" + i2);
+                fu9.c("makeView:" + i2);
                 view2 = this.mAdapter.getView(i2, null, this);
                 int i4 = this.mCacheColorHint;
                 if (i4 != 0) {
@@ -1390,7 +1390,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         this.mIsScrap = new boolean[1];
         this.mActivePointerId = -1;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oo5.AbsListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, np5.AbsListView, i2, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(5);
         if (drawable != null) {
             setSelector(drawable);
@@ -1431,7 +1431,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void addTouchables(ArrayList arrayList) {
+    public void addTouchables(ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
             int childCount = getChildCount();
@@ -1874,7 +1874,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     public void invalidateViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            ws9.a("data changed by invalidateViews()");
+            fu9.a("data changed by invalidateViews()");
             this.mDataChanged = true;
             rememberSyncState();
             requestLayout();
@@ -2192,7 +2192,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         }
     }
 
-    public void reclaimViews(List list) {
+    public void reclaimViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048639, this, list) == null) {
             int childCount = getChildCount();
@@ -2267,7 +2267,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048632, this, i2, i3, i4, i5) == null) && getChildCount() > 0) {
-            ws9.a("data changed by onSizeChanged()");
+            fu9.a("data changed by onSizeChanged()");
             this.mDataChanged = true;
             rememberSyncState();
         }
@@ -2589,7 +2589,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                 }
                 this.mRecycler.h();
             }
-            ws9.c("onLayout");
+            fu9.c("onLayout");
             layoutChildren();
             this.mInLayout = false;
         }
@@ -2839,7 +2839,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             super.onWindowFocusChanged(z);
-            ws9.c("onWindowFocusChanged");
+            fu9.c("onWindowFocusChanged");
             int i2 = !isInTouchMode();
             if (!z) {
                 setChildrenDrawingCacheEnabled(false);
@@ -2856,7 +2856,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView implements ViewTre
                 int i3 = this.mLastTouchMode;
                 if (i2 != i3 && i3 != -1) {
                     this.mLayoutMode = 0;
-                    ws9.c("onWindowFocusChanged");
+                    fu9.c("onWindowFocusChanged");
                     layoutChildren();
                 }
             }

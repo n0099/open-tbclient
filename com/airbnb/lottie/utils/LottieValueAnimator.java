@@ -1,10 +1,15 @@
 package com.airbnb.lottie.utils;
 
 import android.view.Choreographer;
+import androidx.annotation.FloatRange;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
 /* loaded from: classes.dex */
 public class LottieValueAnimator extends BaseLottieAnimator implements Choreographer.FrameCallback {
+    @Nullable
     public LottieComposition composition;
     public float speed = 1.0f;
     public boolean speedReversedForRepeatMode = false;
@@ -13,6 +18,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
     public int repeatCount = 0;
     public float minFrame = -2.1474836E9f;
     public float maxFrame = 2.1474836E9f;
+    @VisibleForTesting
     public boolean running = false;
 
     private float getFrameDurationNs() {
@@ -31,6 +37,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
+    @MainThread
     public void cancel() {
         notifyCancel();
         removeFrameCallback();
@@ -42,12 +49,14 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         this.maxFrame = 2.1474836E9f;
     }
 
+    @MainThread
     public void endAnimation() {
         removeFrameCallback();
         notifyEnd(isReversed());
     }
 
     @Override // android.animation.ValueAnimator
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getAnimatedFraction() {
         float minFrame;
         float maxFrame;
@@ -72,6 +81,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         return Float.valueOf(getAnimatedValueAbsolute());
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getAnimatedValueAbsolute() {
         LottieComposition lottieComposition = this.composition;
         if (lottieComposition == null) {
@@ -126,10 +136,12 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         return this.running;
     }
 
+    @MainThread
     public void pauseAnimation() {
         removeFrameCallback();
     }
 
+    @MainThread
     public void playAnimation() {
         float minFrame;
         this.running = true;
@@ -152,6 +164,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         }
     }
 
+    @MainThread
     public void removeFrameCallback() {
         removeFrameCallback(true);
     }
@@ -171,6 +184,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.minFrame), Float.valueOf(this.maxFrame), Float.valueOf(this.frame)));
     }
 
+    @MainThread
     public void resumeAnimation() {
         this.running = true;
         postFrameCallback();
@@ -237,6 +251,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         }
     }
 
+    @MainThread
     public void removeFrameCallback(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {

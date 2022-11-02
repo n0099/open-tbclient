@@ -24,8 +24,8 @@ public class BdStatSwitchData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap mChildTypes;
-    public final HashMap tmpSwitchConfDataHashMap;
+    public HashMap<String, ArrayList<String>> mChildTypes;
+    public final HashMap<String, BdUploadStatMsgData> tmpSwitchConfDataHashMap;
     public final BdStatisticsUploadConfig uploadConfig;
     public final BdStatisticsWriteConfig writeConfig;
 
@@ -44,8 +44,8 @@ public class BdStatSwitchData implements Serializable {
         }
         this.writeConfig = new BdStatisticsWriteConfig();
         this.uploadConfig = new BdStatisticsUploadConfig();
-        this.tmpSwitchConfDataHashMap = new HashMap();
-        this.mChildTypes = new HashMap();
+        this.tmpSwitchConfDataHashMap = new HashMap<>();
+        this.mChildTypes = new HashMap<>();
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
         bdStatisticsWriteConfigItem.type = "dbg";
         bdStatisticsWriteConfigItem.isWrite = true;
@@ -100,7 +100,7 @@ public class BdStatSwitchData implements Serializable {
             return;
         }
         JSONObject optJSONObject = jSONArray.optJSONObject(0);
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
         if (bdStatisticsWriteConfigItem != null) {
             if (optJSONObject2.optInt(MemberPayActivityConfig.IS_WRITE, 0) != 0) {
@@ -203,11 +203,11 @@ public class BdStatSwitchData implements Serializable {
         }
     }
 
-    public ArrayList getChiledTypes(String str) {
+    public ArrayList<String> getChiledTypes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return (ArrayList) this.mChildTypes.get(str);
+            return this.mChildTypes.get(str);
         }
         return (ArrayList) invokeL.objValue;
     }
@@ -216,7 +216,7 @@ public class BdStatSwitchData implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str);
+            return this.tmpSwitchConfDataHashMap.get(str);
         }
         return (BdUploadStatMsgData) invokeL.objValue;
     }
@@ -248,7 +248,7 @@ public class BdStatSwitchData implements Serializable {
             } else {
                 str3 = str2;
             }
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return true;
                 }
@@ -270,7 +270,7 @@ public class BdStatSwitchData implements Serializable {
             } else {
                 str3 = str2;
             }
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return true;
                 }
@@ -292,7 +292,7 @@ public class BdStatSwitchData implements Serializable {
             } else {
                 str3 = str2;
             }
-            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str3)) != null) {
+            if (!TextUtils.isEmpty(str3) && (bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str3)) != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return bdUploadStatMsgData.isWifi;
                 }
@@ -307,7 +307,7 @@ public class BdStatSwitchData implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) this.tmpSwitchConfDataHashMap.get(str2);
+            BdUploadStatMsgData bdUploadStatMsgData = this.tmpSwitchConfDataHashMap.get(str2);
             if (bdUploadStatMsgData != null) {
                 if (System.currentTimeMillis() < bdUploadStatMsgData.deadLineTime) {
                     return true;

@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.util.Log;
 import android.util.LongSparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +41,7 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flush(Resources resources) {
+    public static void flush(@NonNull Resources resources) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, resources) != null) || (i = Build.VERSION.SDK_INT) >= 28) {
@@ -54,7 +56,8 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flushLollipops(Resources resources) {
+    @RequiresApi(21)
+    public static void flushLollipops(@NonNull Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, resources) == null) {
             if (!sDrawableCacheFieldFetched) {
@@ -82,7 +85,8 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flushThemedResourcesCache(Object obj) {
+    @RequiresApi(16)
+    public static void flushThemedResourcesCache(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
             if (!sThemedResourceCacheClazzFetched) {
@@ -123,7 +127,8 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flushMarshmallows(Resources resources) {
+    @RequiresApi(23)
+    public static void flushMarshmallows(@NonNull Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, resources) == null) {
             if (!sDrawableCacheFieldFetched) {
@@ -152,7 +157,8 @@ public class ResourcesFlusher {
         }
     }
 
-    public static void flushNougats(Resources resources) {
+    @RequiresApi(24)
+    public static void flushNougats(@NonNull Resources resources) {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources) == null) {

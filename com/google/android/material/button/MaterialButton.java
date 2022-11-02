@@ -16,6 +16,15 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
 import android.widget.Checkable;
 import android.widget.CompoundButton;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -57,15 +66,24 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public transient /* synthetic */ FieldHolder $fh;
     public boolean broadcasting;
     public boolean checked;
+    @Nullable
     public Drawable icon;
     public int iconGravity;
+    @Px
     public int iconLeft;
+    @Px
     public int iconPadding;
+    @Px
     public int iconSize;
+    @Nullable
     public ColorStateList iconTint;
+    @Nullable
     public PorterDuff.Mode iconTintMode;
+    @NonNull
     public final MaterialButtonHelper materialButtonHelper;
-    public final LinkedHashSet onCheckedChangeListeners;
+    @NonNull
+    public final LinkedHashSet<OnCheckedChangeListener> onCheckedChangeListeners;
+    @Nullable
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
@@ -84,9 +102,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     /* loaded from: classes7.dex */
-    public class SavedState extends AbsSavedState {
+    public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean checked;
 
@@ -103,7 +121,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                     return;
                 }
             }
-            CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +141,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -134,6 +153,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
+                @NonNull
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
@@ -144,8 +164,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
-                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -157,7 +179,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
+        public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -201,7 +223,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
             }
         }
 
-        private void readFromParcel(Parcel parcel) {
+        private void readFromParcel(@NonNull Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, parcel) == null) {
                 boolean z = true;
@@ -213,7 +235,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
@@ -240,7 +262,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialButton(Context context) {
+    public MaterialButton(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -261,7 +283,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
-    public void setBackgroundDrawable(Drawable drawable) {
+    public void setBackgroundDrawable(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             if (isUsingOriginalBackground()) {
@@ -279,7 +301,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialButton(Context context, AttributeSet attributeSet) {
+    public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ab);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -300,7 +322,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialButton(Context context, AttributeSet attributeSet, int i) {
+    public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -318,7 +340,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 return;
             }
         }
-        this.onCheckedChangeListeners = new LinkedHashSet();
+        this.onCheckedChangeListeners = new LinkedHashSet<>();
         this.checked = false;
         this.broadcasting = false;
         Context context2 = getContext();
@@ -337,6 +359,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         updateIcon(this.icon != null);
     }
 
+    @NonNull
     private String getA11yClassName() {
         InterceptResult invokeV;
         Class cls;
@@ -385,6 +408,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
+    @Nullable
     public ColorStateList getBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -395,6 +419,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
+    @Nullable
     public PorterDuff.Mode getBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -404,6 +429,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return (PorterDuff.Mode) invokeV.objValue;
     }
 
+    @Px
     public int getCornerRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -434,6 +460,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return invokeV.intValue;
     }
 
+    @Px
     public int getIconPadding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -443,6 +470,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return invokeV.intValue;
     }
 
+    @Px
     public int getIconSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -470,6 +498,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return (PorterDuff.Mode) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getRippleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -483,6 +512,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // com.google.android.material.shape.Shapeable
+    @NonNull
     public ShapeAppearanceModel getShapeAppearanceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -507,6 +537,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Px
     public int getStrokeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -520,6 +551,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -533,6 +566,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -580,6 +615,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.widget.TextView, android.view.View
+    @NonNull
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -621,7 +657,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void addOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
+    public void addOnCheckedChangeListener(@NonNull OnCheckedChangeListener onCheckedChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onCheckedChangeListener) == null) {
             this.onCheckedChangeListeners.add(onCheckedChangeListener);
@@ -646,7 +682,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
-    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
+    public void onInitializeAccessibilityEvent(@NonNull AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, accessibilityEvent) == null) {
             super.onInitializeAccessibilityEvent(accessibilityEvent);
@@ -656,7 +692,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
+    public void onInitializeAccessibilityNodeInfo(@NonNull AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, accessibilityNodeInfo) == null) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
@@ -668,7 +704,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
+    public void onRestoreInstanceState(@Nullable Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, parcelable) == null) {
             if (!(parcelable instanceof SavedState)) {
@@ -681,7 +717,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void removeOnCheckedChangeListener(OnCheckedChangeListener onCheckedChangeListener) {
+    public void removeOnCheckedChangeListener(@NonNull OnCheckedChangeListener onCheckedChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, onCheckedChangeListener) == null) {
             this.onCheckedChangeListeners.remove(onCheckedChangeListener);
@@ -689,7 +725,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
-    public void setBackground(Drawable drawable) {
+    public void setBackground(@NonNull Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, drawable) == null) {
             setBackgroundDrawable(drawable);
@@ -697,7 +733,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
+    public void setBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             if (isUsingOriginalBackground()) {
@@ -709,7 +745,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
@@ -723,7 +759,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
-    public void setBackgroundTintList(ColorStateList colorStateList) {
+    public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, colorStateList) == null) {
             setSupportBackgroundTintList(colorStateList);
@@ -731,7 +767,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
-    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+    public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, mode) == null) {
             setSupportBackgroundTintMode(mode);
@@ -745,14 +781,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setCornerRadius(int i) {
+    public void setCornerRadius(@Px int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048614, this, i) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setCornerRadius(i);
         }
     }
 
-    public void setCornerRadiusResource(int i) {
+    public void setCornerRadiusResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048615, this, i) == null) && isUsingOriginalBackground()) {
             setCornerRadius(getResources().getDimensionPixelSize(i));
@@ -760,6 +796,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
     public void setElevation(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048616, this, f) == null) {
@@ -770,7 +807,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIcon(Drawable drawable) {
+    public void setIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048617, this, drawable) == null) && this.icon != drawable) {
             this.icon = drawable;
@@ -786,7 +823,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIconPadding(int i) {
+    public void setIconPadding(@Px int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048619, this, i) == null) && this.iconPadding != i) {
             this.iconPadding = i;
@@ -794,7 +831,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIconResource(int i) {
+    public void setIconResource(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
@@ -807,7 +844,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIconSize(int i) {
+    public void setIconSize(@Px int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             if (i >= 0) {
@@ -822,7 +859,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIconTint(ColorStateList colorStateList) {
+    public void setIconTint(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048622, this, colorStateList) == null) && this.iconTint != colorStateList) {
             this.iconTint = colorStateList;
@@ -838,7 +875,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setIconTintResource(int i) {
+    public void setIconTintResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
             setIconTint(AppCompatResources.getColorStateList(getContext(), i));
@@ -852,7 +889,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setOnPressedChangeListenerInternal(OnPressedChangeListener onPressedChangeListener) {
+    public void setOnPressedChangeListenerInternal(@Nullable OnPressedChangeListener onPressedChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, onPressedChangeListener) == null) {
             this.onPressedChangeListenerInternal = onPressedChangeListener;
@@ -871,14 +908,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048628, this, colorStateList) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setRippleColor(colorStateList);
         }
     }
 
-    public void setRippleColorResource(int i) {
+    public void setRippleColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048629, this, i) == null) && isUsingOriginalBackground()) {
             setRippleColor(AppCompatResources.getColorStateList(getContext(), i));
@@ -886,7 +923,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // com.google.android.material.shape.Shapeable
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, shapeAppearanceModel) == null) {
             if (isUsingOriginalBackground()) {
@@ -904,28 +941,28 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setStrokeColor(ColorStateList colorStateList) {
+    public void setStrokeColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048632, this, colorStateList) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setStrokeColor(colorStateList);
         }
     }
 
-    public void setStrokeColorResource(int i) {
+    public void setStrokeColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048633, this, i) == null) && isUsingOriginalBackground()) {
             setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
-    public void setStrokeWidth(int i) {
+    public void setStrokeWidth(@Px int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048634, this, i) == null) && isUsingOriginalBackground()) {
             this.materialButtonHelper.setStrokeWidth(i);
         }
     }
 
-    public void setStrokeWidthResource(int i) {
+    public void setStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048635, this, i) == null) && isUsingOriginalBackground()) {
             setStrokeWidth(getResources().getDimensionPixelSize(i));
@@ -933,7 +970,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, colorStateList) == null) {
             if (isUsingOriginalBackground()) {
@@ -945,7 +983,8 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048637, this, mode) == null) {
             if (isUsingOriginalBackground()) {
@@ -1080,9 +1119,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 return;
             }
             this.broadcasting = true;
-            Iterator it = this.onCheckedChangeListeners.iterator();
+            Iterator<OnCheckedChangeListener> it = this.onCheckedChangeListeners.iterator();
             while (it.hasNext()) {
-                ((OnCheckedChangeListener) it.next()).onCheckedChanged(this, this.checked);
+                it.next().onCheckedChanged(this, this.checked);
             }
             this.broadcasting = false;
         }

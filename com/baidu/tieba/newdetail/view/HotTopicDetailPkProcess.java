@@ -9,12 +9,14 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,8 +87,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = fj.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -148,7 +150,7 @@ public class HotTopicDetailPkProcess extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailPkProcess(Context context, AttributeSet attributeSet) {
+    public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -173,7 +175,7 @@ public class HotTopicDetailPkProcess extends View {
         f();
     }
 
-    public void setProcess(float f, boolean z) {
+    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             if (f < 0.0f) {
@@ -196,7 +198,7 @@ public class HotTopicDetailPkProcess extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicDetailPkProcess(Context context, AttributeSet attributeSet, int i) {
+    public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

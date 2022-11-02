@@ -8,6 +8,10 @@ import android.graphics.Shader;
 import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.util.Xml;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.crius.constants.NativeConstants;
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class GradientColorInflaterCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,7 +41,7 @@ public final class GradientColorInflaterCompat {
         public final int[] mColors;
         public final float[] mOffsets;
 
-        public ColorStops(int i, int i2) {
+        public ColorStops(@ColorInt int i, @ColorInt int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +60,7 @@ public final class GradientColorInflaterCompat {
             this.mOffsets = new float[]{0.0f, 1.0f};
         }
 
-        public ColorStops(int i, int i2, int i3) {
+        public ColorStops(@ColorInt int i, @ColorInt int i2, @ColorInt int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +79,7 @@ public final class GradientColorInflaterCompat {
             this.mOffsets = new float[]{0.0f, 0.5f, 1.0f};
         }
 
-        public ColorStops(List<Integer> list, List<Float> list2) {
+        public ColorStops(@NonNull List<Integer> list, @NonNull List<Float> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +118,7 @@ public final class GradientColorInflaterCompat {
         }
     }
 
-    public static ColorStops checkColors(ColorStops colorStops, int i, int i2, boolean z, int i3) {
+    public static ColorStops checkColors(@Nullable ColorStops colorStops, @ColorInt int i, @ColorInt int i2, boolean z, @ColorInt int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{colorStops, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
@@ -128,7 +133,7 @@ public final class GradientColorInflaterCompat {
         return (ColorStops) invokeCommon.objValue;
     }
 
-    public static Shader createFromXml(Resources resources, XmlPullParser xmlPullParser, Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static Shader createFromXml(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLL;
         int next;
         Interceptable interceptable = $ic;
@@ -148,7 +153,7 @@ public final class GradientColorInflaterCompat {
         return (Shader) invokeLLL.objValue;
     }
 
-    public static Shader createFromXmlInner(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws IOException, XmlPullParserException {
+    public static Shader createFromXmlInner(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, resources, xmlPullParser, attributeSet, theme)) == null) {
@@ -192,7 +197,7 @@ public final class GradientColorInflaterCompat {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ColorStops inflateChildElements(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
+    public static ColorStops inflateChildElements(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         int depth;
         Interceptable interceptable = $ic;

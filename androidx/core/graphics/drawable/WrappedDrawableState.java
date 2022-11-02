@@ -5,6 +5,8 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +22,7 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
     public ColorStateList mTint;
     public PorterDuff.Mode mTintMode;
 
-    public WrappedDrawableState(WrappedDrawableState wrappedDrawableState) {
+    public WrappedDrawableState(@Nullable WrappedDrawableState wrappedDrawableState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,6 +78,7 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
     }
 
     @Override // android.graphics.drawable.Drawable.ConstantState
+    @NonNull
     public Drawable newDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,7 +89,8 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
     }
 
     @Override // android.graphics.drawable.Drawable.ConstantState
-    public Drawable newDrawable(Resources resources) {
+    @NonNull
+    public Drawable newDrawable(@Nullable Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, resources)) == null) {

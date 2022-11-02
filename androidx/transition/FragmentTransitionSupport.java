@@ -1,8 +1,11 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransitionImpl;
 import androidx.transition.Transition;
@@ -14,6 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"RestrictedApi"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FragmentTransitionSupport extends FragmentTransitionImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -99,7 +104,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 }
 
                 @Override // androidx.transition.Transition.EpicenterCallback
-                public Rect onGetEpicenter(Transition transition) {
+                public Rect onGetEpicenter(@NonNull Transition transition) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, transition)) == null) {
@@ -239,28 +244,28 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 public final /* synthetic */ View val$fragmentView;
 
                 @Override // androidx.transition.Transition.TransitionListener
-                public void onTransitionCancel(Transition transition) {
+                public void onTransitionCancel(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                     }
                 }
 
                 @Override // androidx.transition.Transition.TransitionListener
-                public void onTransitionPause(Transition transition) {
+                public void onTransitionPause(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition) == null) {
                     }
                 }
 
                 @Override // androidx.transition.Transition.TransitionListener
-                public void onTransitionResume(Transition transition) {
+                public void onTransitionResume(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, transition) == null) {
                     }
                 }
 
                 @Override // androidx.transition.Transition.TransitionListener
-                public void onTransitionStart(Transition transition) {
+                public void onTransitionStart(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, transition) == null) {
                     }
@@ -287,7 +292,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 }
 
                 @Override // androidx.transition.Transition.TransitionListener
-                public void onTransitionEnd(Transition transition) {
+                public void onTransitionEnd(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                         transition.removeListener(this);
@@ -387,7 +392,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 }
 
                 @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                public void onTransitionEnd(Transition transition) {
+                public void onTransitionEnd(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
                         transition.removeListener(this);
@@ -395,7 +400,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 }
 
                 @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                public void onTransitionStart(Transition transition) {
+                public void onTransitionStart(@NonNull Transition transition) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                         Object obj5 = this.val$enterTransition;
@@ -448,7 +453,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                 }
 
                 @Override // androidx.transition.Transition.EpicenterCallback
-                public Rect onGetEpicenter(Transition transition) {
+                public Rect onGetEpicenter(@NonNull Transition transition) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, transition)) == null) {

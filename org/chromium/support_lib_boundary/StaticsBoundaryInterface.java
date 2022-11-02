@@ -4,13 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.webkit.ValueCallback;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface StaticsBoundaryInterface {
     Uri getSafeBrowsingPrivacyPolicyUrl();
 
-    void initSafeBrowsing(Context context, ValueCallback valueCallback);
+    void initSafeBrowsing(Context context, ValueCallback<Boolean> valueCallback);
 
     boolean isMultiProcessEnabled();
 
-    void setSafeBrowsingWhitelist(List list, ValueCallback valueCallback);
+    void setSafeBrowsingWhitelist(List<String> list, ValueCallback<Boolean> valueCallback);
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs.dynamic;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.zl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,10 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage {
+public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<zl6, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pk6 responseData;
+    public zl6 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicSocketResponsedMessage() {
@@ -35,7 +36,7 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class getProtobufResponseIdlClass() {
+    public Class<StarTrendsResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -45,14 +46,15 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            pk6 pk6Var = new pk6();
-            this.responseData = pk6Var;
-            StarTrendsResIdl a = pk6Var.a(bArr);
+            zl6 zl6Var = new zl6();
+            this.responseData = zl6Var;
+            StarTrendsResIdl a = zl6Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

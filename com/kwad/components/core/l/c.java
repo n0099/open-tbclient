@@ -1,5 +1,7 @@
 package com.kwad.components.core.l;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +24,7 @@ public final class c extends InputStream {
     public volatile long IJ;
     public int IK;
 
-    public c(InputStream inputStream, int i) {
+    public c(@NonNull InputStream inputStream, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,6 +88,7 @@ public final class c extends InputStream {
         ot();
     }
 
+    @WorkerThread
     public static void p(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {

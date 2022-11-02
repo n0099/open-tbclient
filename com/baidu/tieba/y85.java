@@ -1,94 +1,260 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y85 extends v85 {
-    public static /* synthetic */ Interceptable $ic;
+public class y85 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static y85 c = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public UserData a;
+    public TbHttpMessageTask b;
 
-    @Override // com.baidu.tieba.v85
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948284051, "Lcom/baidu/tieba/y85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948284051, "Lcom/baidu/tieba/y85;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y85 a;
+
+        public a(y85 y85Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y85Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y85Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                GetUserInfoRequstData c = this.a.c();
+                c.setNetType(NetMessage.NetType.HTTP);
+                if (this.a.b != null) {
+                    new HttpClient.a(c.getHttpMessage(), this.a.b).execute(new HttpMessage[0]);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(y85 y85Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y85Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                er4.g(this.a);
+            }
+        }
     }
 
     public y85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static y85 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (y85.class) {
+                    if (c == null) {
+                        c = new y85();
+                    }
+                }
+            }
+            return c;
+        }
+        return (y85) invokeV.objValue;
+    }
+
+    public UserData e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            new Thread(new a(this)).start();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (d) {
+                g();
+                d = false;
                 return;
             }
+            MessageManager.getInstance().sendMessage(c());
         }
-        this.a = 0;
     }
 
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
+    public final GetUserInfoRequstData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.v85
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
-            return;
-        }
-        this.a = Integer.parseInt(str);
-    }
-
-    @Override // com.baidu.tieba.v85
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                getUserInfoRequstData.setUid(wg.g(currentAccountObj.getID(), 0L));
             }
-            l85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i != 0 && i != 1) {
-                if (i != 2 && i != 3) {
-                    return bitmap;
-                }
-                return BitmapHelper.reversalBitmap(bitmap, this.a);
-            }
-            return BitmapHelper.rotateBitmap(bitmap, this.a);
+            getUserInfoRequstData.setScreenWidth(xi.l(TbadkCoreApplication.getInst().getApp()));
+            return getUserInfoRequstData;
         }
-        return (Bitmap) invokeLZ.objValue;
+        return (GetUserInfoRequstData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v85
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(fj.k(TbadkCoreApplication.getInst().getApp()), fj.i(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            io8.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = io8.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
+            this.b = c2;
+            c2.setTimeOut(yb.d().b());
+            this.b.setRetry(yb.d().a());
+            this.b.setConnectTimeOut(yb.d().c());
         }
-        return (Bitmap) invokeL.objValue;
+    }
+
+    public void i(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
+            this.a = userData;
+            if (userData == null) {
+                return;
+            }
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj == null) {
+                currentAccountObj = new AccountData();
+            }
+            if (!StringUtils.isNull(userData.getUserName())) {
+                currentAccountObj.setAccount(userData.getUserName());
+            }
+            if (!StringUtils.isNull(userData.getPortrait())) {
+                currentAccountObj.setPortrait(userData.getPortrait());
+            }
+            currentAccountObj.setSex(userData.getSex());
+            currentAccountObj.setMemberType(userData.getIsMem());
+            currentAccountObj.setVipInfo(userData.getUserVipInfo());
+            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
+            if (userData.getGodUserData() != null) {
+                currentAccountObj.setGodType(userData.getGodUserData().getType());
+            }
+            if (userData.getNewGodData() != null) {
+                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
+            }
+            if (!TextUtils.isEmpty(userData.getUk())) {
+                currentAccountObj.setUk(userData.getUk());
+            }
+            currentAccountObj.setIsBigV(userData.isBigV());
+            currentAccountObj.setNameShow(userData.getName_show());
+            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(userData.getDynamicUrl());
+            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
+            if (currentAccountObj.getVipInfo() != null) {
+                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
+            } else {
+                currentAccountObj.setMemberIconUrl(null);
+            }
+            CloseAdData closeAdData = userData.getCloseAdData();
+            if (closeAdData != null) {
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.z());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.A());
+            }
+            currentAccountObj.setUserIcons(userData.getIconInfo());
+            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
+            ch.a().c(new b(this, currentAccountObj));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
+        }
     }
 }

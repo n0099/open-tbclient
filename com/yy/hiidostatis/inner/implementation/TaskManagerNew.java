@@ -43,12 +43,12 @@ public class TaskManagerNew implements ITaskManager {
     public volatile boolean mIsStoreWorking;
     public volatile boolean mIsWorking;
     public String mLastSucDataId;
-    public Vector mPreStoreVectors;
+    public Vector<TaskData> mPreStoreVectors;
     public final TaskExecutor mSaveExecutor;
     public AtomicInteger sendFailedCount;
 
     /* loaded from: classes8.dex */
-    public class FailSendControler {
+    public static class FailSendControler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public class TaskManagerNew implements ITaskManager {
         this.mLastSucDataId = null;
         this.mHttpUtil = null;
         this.sendFailedCount = new AtomicInteger(0);
-        this.mPreStoreVectors = new Vector();
+        this.mPreStoreVectors = new Vector<>();
         this.mIsStoreWorking = false;
         this.BATCH_STORE_SIZE = 100;
         this.BATCH_STORE_WAITING_TIME = 50L;

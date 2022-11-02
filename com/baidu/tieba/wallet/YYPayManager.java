@@ -13,12 +13,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.ed5;
-import com.baidu.tieba.fd5;
-import com.baidu.tieba.hd5;
-import com.baidu.tieba.md5;
-import com.baidu.tieba.nd5;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.be5;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.je5;
+import com.baidu.tieba.ky4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public class YYPayManager {
     public static final int YY_PAY_USE_CHANNEL_YY_LIVE = 30;
     public static BroadcastReceiver broadcastReceiver;
     public static IWechatProxyCallback wxPayCallback;
-    public static hd5 yyPayResultCallback;
+    public static de5 yyPayResultCallback;
     public static YYPayUIKit yyPayUIKit;
     public static YYPayUIKit yyPayUIKitYYLive;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +123,9 @@ public class YYPayManager {
         return invokeV.booleanValue;
     }
 
-    public static void destoryYyPayCallback(hd5 hd5Var) {
+    public static void destoryYyPayCallback(de5 de5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, hd5Var) == null) && hd5Var == yyPayResultCallback) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, de5Var) == null) && de5Var == yyPayResultCallback) {
             yyPayResultCallback = null;
         }
     }
@@ -136,7 +136,7 @@ public class YYPayManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String q = ux4.k().q("version_name", "");
+            String q = ky4.k().q("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName("百度贴吧");
@@ -192,29 +192,29 @@ public class YYPayManager {
         return (MiddleRevenueConfig) invokeI.objValue;
     }
 
-    public static void doYYPayTask(md5 md5Var) {
+    public static void doYYPayTask(ie5 ie5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, md5Var) != null) || md5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, null, ie5Var) != null) || ie5Var == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = md5Var.e;
-        Object obj = md5Var.a;
+        yyPayResultCallback = ie5Var.e;
+        Object obj = ie5Var.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = md5Var.g;
-        if (!TextUtils.isEmpty(md5Var.c)) {
-            viewParams.payAmountDialogTitle = md5Var.c;
+        viewParams.closeOnSuccess = ie5Var.g;
+        if (!TextUtils.isEmpty(ie5Var.c)) {
+            viewParams.payAmountDialogTitle = ie5Var.c;
         }
-        Long l = md5Var.d;
+        Long l = ie5Var.d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i = md5Var.f;
+                int i = ie5Var.f;
                 if (i != 1) {
                     if (i != 3) {
                         viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
@@ -226,12 +226,12 @@ public class YYPayManager {
                 }
             }
         }
-        hd5 hd5Var = yyPayResultCallback;
-        if (hd5Var instanceof ed5) {
-            viewParams.viewEventListener = new AbsViewEventHandler((ed5) hd5Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
+        de5 de5Var = yyPayResultCallback;
+        if (de5Var instanceof ae5) {
+            viewParams.viewEventListener = new AbsViewEventHandler((ae5) de5Var) { // from class: com.baidu.tieba.wallet.YYPayManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ed5 val$absPayAllResult;
+                public final /* synthetic */ ae5 val$absPayAllResult;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -261,7 +261,7 @@ public class YYPayManager {
             };
         }
         if (obj != null) {
-            IPayCallback iPayCallback = new IPayCallback() { // from class: com.baidu.tieba.wallet.YYPayManager.2
+            IPayCallback<CurrencyChargeMessage> iPayCallback = new IPayCallback() { // from class: com.baidu.tieba.wallet.YYPayManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -306,31 +306,31 @@ public class YYPayManager {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048579, this, obj2, payCallBackBean) == null) && YYPayManager.yyPayResultCallback != null) {
                         if (obj2 instanceof CurrencyChargeMessage) {
-                            nd5 nd5Var = new nd5();
+                            je5 je5Var = new je5();
                             CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                            nd5Var.g = currencyChargeMessage.status;
-                            nd5Var.b = currencyChargeMessage.appid;
-                            nd5Var.h = Long.valueOf(currencyChargeMessage.uid);
-                            nd5Var.i = currencyChargeMessage.usedChannel;
-                            nd5Var.d = currencyChargeMessage.currencyType;
-                            nd5Var.a = Long.valueOf(currencyChargeMessage.amount);
-                            nd5Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                            nd5Var.f = currencyChargeMessage.orderId;
-                            nd5Var.e = currencyChargeMessage.expand;
-                            YYPayManager.yyPayResultCallback.onSuccess(nd5Var);
+                            je5Var.g = currencyChargeMessage.status;
+                            je5Var.b = currencyChargeMessage.appid;
+                            je5Var.h = Long.valueOf(currencyChargeMessage.uid);
+                            je5Var.i = currencyChargeMessage.usedChannel;
+                            je5Var.d = currencyChargeMessage.currencyType;
+                            je5Var.a = Long.valueOf(currencyChargeMessage.amount);
+                            je5Var.c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                            je5Var.f = currencyChargeMessage.orderId;
+                            je5Var.e = currencyChargeMessage.expand;
+                            YYPayManager.yyPayResultCallback.onSuccess(je5Var);
                             return;
                         }
                         YYPayManager.yyPayResultCallback.onSuccess(null);
                     }
                 }
             };
-            if (md5Var.b == 0) {
+            if (ie5Var.b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }
             if (TbSingleton.getInstance().isUserBan()) {
-                fd5.a(null);
+                be5.a(null);
             }
         }
     }
@@ -406,11 +406,11 @@ public class YYPayManager {
         return invokeV.booleanValue;
     }
 
-    public static void onWxPayResult(Map map) {
+    public static void onWxPayResult(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, map) == null) {
             HashMap hashMap = new HashMap();
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
                 hashMap.put(entry.getKey(), entry.getValue().toString());
             }
             IWechatProxyCallback iWechatProxyCallback = wxPayCallback;

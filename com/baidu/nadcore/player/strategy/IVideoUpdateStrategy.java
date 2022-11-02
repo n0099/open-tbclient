@@ -29,7 +29,7 @@ public interface IVideoUpdateStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class VolumeIconState {
+    public static final class VolumeIconState {
         public static final /* synthetic */ VolumeIconState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final VolumeIconState ALWAYS_SHOW;

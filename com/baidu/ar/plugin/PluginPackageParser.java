@@ -2,6 +2,7 @@ package com.baidu.ar.plugin;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.InstrumentationInfo;
@@ -33,30 +34,30 @@ import java.util.TreeMap;
 public class PluginPackageParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mActivityInfoCache;
-    public Map mActivityIntentFilterCache;
-    public Map mActivityObjCache;
+    public Map<ComponentName, ActivityInfo> mActivityInfoCache;
+    public Map<ComponentName, List<IntentFilter>> mActivityIntentFilterCache;
+    public Map<ComponentName, Object> mActivityObjCache;
     public final Context mHostContext;
     public final PackageInfo mHostPackageInfo;
-    public Map mInstrumentationInfoCache;
-    public Map mInstrumentationObjCache;
+    public Map<ComponentName, InstrumentationInfo> mInstrumentationInfoCache;
+    public Map<ComponentName, Object> mInstrumentationObjCache;
     public final String mPackageName;
     public final PackageParser mParser;
-    public Map mPermissionGroupInfoCache;
-    public Map mPermissionGroupObjCache;
-    public Map mPermissionsInfoCache;
-    public Map mPermissionsObjCache;
+    public Map<ComponentName, PermissionGroupInfo> mPermissionGroupInfoCache;
+    public Map<ComponentName, Object> mPermissionGroupObjCache;
+    public Map<ComponentName, PermissionInfo> mPermissionsInfoCache;
+    public Map<ComponentName, Object> mPermissionsObjCache;
     public final File mPluginFile;
-    public Map mProviderInfoCache;
-    public Map mProviderIntentFilterCache;
-    public Map mProviderObjCache;
-    public Map mReceiverIntentFilterCache;
-    public Map mReceiversInfoCache;
-    public Map mReceiversObjCache;
-    public ArrayList mRequestedPermissionsCache;
-    public Map mServiceInfoCache;
-    public Map mServiceIntentFilterCache;
-    public Map mServiceObjCache;
+    public Map<ComponentName, ProviderInfo> mProviderInfoCache;
+    public Map<ComponentName, List<IntentFilter>> mProviderIntentFilterCache;
+    public Map<ComponentName, Object> mProviderObjCache;
+    public Map<ComponentName, List<IntentFilter>> mReceiverIntentFilterCache;
+    public Map<ComponentName, ActivityInfo> mReceiversInfoCache;
+    public Map<ComponentName, Object> mReceiversObjCache;
+    public ArrayList<String> mRequestedPermissionsCache;
+    public Map<ComponentName, ServiceInfo> mServiceInfoCache;
+    public Map<ComponentName, List<IntentFilter>> mServiceIntentFilterCache;
+    public Map<ComponentName, Object> mServiceObjCache;
 
     public PluginPackageParser(Context context, File file) {
         Interceptable interceptable = $ic;
@@ -80,7 +81,7 @@ public class PluginPackageParser {
         this.mInstrumentationObjCache = new TreeMap(new ComponentNameComparator());
         this.mPermissionsObjCache = new TreeMap(new ComponentNameComparator());
         this.mPermissionGroupObjCache = new TreeMap(new ComponentNameComparator());
-        this.mRequestedPermissionsCache = new ArrayList();
+        this.mRequestedPermissionsCache = new ArrayList<>();
         this.mActivityIntentFilterCache = new TreeMap(new ComponentNameComparator());
         this.mServiceIntentFilterCache = new TreeMap(new ComponentNameComparator());
         this.mProviderIntentFilterCache = new TreeMap(new ComponentNameComparator());
@@ -112,7 +113,7 @@ public class PluginPackageParser {
                 }
                 this.mActivityInfoCache.put(componentName, generateActivityInfo);
             }
-            List readIntentFilterFromComponent = this.mParser.readIntentFilterFromComponent(obj);
+            List<IntentFilter> readIntentFilterFromComponent = this.mParser.readIntentFilterFromComponent(obj);
             synchronized (this.mActivityIntentFilterCache) {
                 this.mActivityIntentFilterCache.remove(componentName);
                 this.mActivityIntentFilterCache.put(componentName, new ArrayList(readIntentFilterFromComponent));
@@ -131,7 +132,7 @@ public class PluginPackageParser {
                 }
                 this.mServiceInfoCache.put(componentName2, generateServiceInfo);
             }
-            List readIntentFilterFromComponent2 = this.mParser.readIntentFilterFromComponent(obj2);
+            List<IntentFilter> readIntentFilterFromComponent2 = this.mParser.readIntentFilterFromComponent(obj2);
             synchronized (this.mServiceIntentFilterCache) {
                 this.mServiceIntentFilterCache.remove(componentName2);
                 this.mServiceIntentFilterCache.put(componentName2, new ArrayList(readIntentFilterFromComponent2));
@@ -150,7 +151,7 @@ public class PluginPackageParser {
                 }
                 this.mProviderInfoCache.put(componentName3, generateProviderInfo);
             }
-            List readIntentFilterFromComponent3 = this.mParser.readIntentFilterFromComponent(obj3);
+            List<IntentFilter> readIntentFilterFromComponent3 = this.mParser.readIntentFilterFromComponent(obj3);
             synchronized (this.mProviderIntentFilterCache) {
                 this.mProviderIntentFilterCache.remove(componentName3);
                 this.mProviderIntentFilterCache.put(componentName3, new ArrayList(readIntentFilterFromComponent3));
@@ -169,7 +170,7 @@ public class PluginPackageParser {
                 }
                 this.mReceiversInfoCache.put(componentName4, generateReceiverInfo);
             }
-            List readIntentFilterFromComponent4 = this.mParser.readIntentFilterFromComponent(obj4);
+            List<IntentFilter> readIntentFilterFromComponent4 = this.mParser.readIntentFilterFromComponent(obj4);
             synchronized (this.mReceiverIntentFilterCache) {
                 this.mReceiverIntentFilterCache.remove(componentName4);
                 this.mReceiverIntentFilterCache.put(componentName4, new ArrayList(readIntentFilterFromComponent4));
@@ -281,13 +282,13 @@ public class PluginPackageParser {
         }
     }
 
-    public List getActivityIntentFilter(ComponentName componentName) {
+    public List<IntentFilter> getActivityIntentFilter(ComponentName componentName) {
         InterceptResult invokeL;
-        List list;
+        List<IntentFilter> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, componentName)) == null) {
             synchronized (this.mActivityIntentFilterCache) {
-                list = (List) this.mActivityIntentFilterCache.get(componentName);
+                list = this.mActivityIntentFilterCache.get(componentName);
             }
             return list;
         }
@@ -308,26 +309,26 @@ public class PluginPackageParser {
         return (ApplicationInfo) invokeI.objValue;
     }
 
-    public List getProviderIntentFilter(ComponentName componentName) {
+    public List<IntentFilter> getProviderIntentFilter(ComponentName componentName) {
         InterceptResult invokeL;
-        List list;
+        List<IntentFilter> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, componentName)) == null) {
             synchronized (this.mProviderObjCache) {
-                list = (List) this.mProviderIntentFilterCache.get(componentName);
+                list = this.mProviderIntentFilterCache.get(componentName);
             }
             return list;
         }
         return (List) invokeL.objValue;
     }
 
-    public List getServiceIntentFilter(ComponentName componentName) {
+    public List<IntentFilter> getServiceIntentFilter(ComponentName componentName) {
         InterceptResult invokeL;
-        List list;
+        List<IntentFilter> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, componentName)) == null) {
             synchronized (this.mServiceIntentFilterCache) {
-                list = (List) this.mServiceIntentFilterCache.get(componentName);
+                list = this.mServiceIntentFilterCache.get(componentName);
             }
             return list;
         }
@@ -341,7 +342,7 @@ public class PluginPackageParser {
         }
     }
 
-    public List getActivities() {
+    public List<ActivityInfo> getActivities() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -350,7 +351,7 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public List getInstrumentationInfos() {
+    public List<InstrumentationInfo> getInstrumentationInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -368,7 +369,7 @@ public class PluginPackageParser {
         return (String) invokeV.objValue;
     }
 
-    public List getPermissionGroups() {
+    public List<PermissionGroupInfo> getPermissionGroups() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -377,7 +378,7 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public List getPermissions() {
+    public List<PermissionInfo> getPermissions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -395,7 +396,7 @@ public class PluginPackageParser {
         return (File) invokeV.objValue;
     }
 
-    public List getProviders() {
+    public List<ProviderInfo> getProviders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -404,7 +405,7 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public List getReceivers() {
+    public List<ActivityInfo> getReceivers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
@@ -413,7 +414,7 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public List getRequestedPermissions() {
+    public List<String> getRequestedPermissions() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -426,7 +427,7 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public List getServices() {
+    public List<ServiceInfo> getServices() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -571,21 +572,21 @@ public class PluginPackageParser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet(getRequestedPermissions()));
+            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
             fixPackageInfo(generatePackageInfo);
             return generatePackageInfo;
         }
         return (PackageInfo) invokeI.objValue;
     }
 
-    public List getReceiverIntentFilter(ActivityInfo activityInfo) {
+    public List<IntentFilter> getReceiverIntentFilter(ActivityInfo activityInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, activityInfo)) == null) {
             synchronized (this.mReceiverIntentFilterCache) {
                 for (ComponentName componentName : this.mReceiverIntentFilterCache.keySet()) {
-                    if (TextUtils.equals(activityInfo.name, ((ActivityInfo) this.mReceiversInfoCache.get(componentName)).name)) {
-                        return (List) this.mReceiverIntentFilterCache.get(componentName);
+                    if (TextUtils.equals(activityInfo.name, this.mReceiversInfoCache.get(componentName).name)) {
+                        return this.mReceiverIntentFilterCache.get(componentName);
                     }
                 }
                 return null;
@@ -594,7 +595,7 @@ public class PluginPackageParser {
         return (List) invokeL.objValue;
     }
 
-    public Map getReceiverIntentFilter() {
+    public Map<ActivityInfo, List<IntentFilter>> getReceiverIntentFilter() {
         InterceptResult invokeV;
         HashMap hashMap;
         Interceptable interceptable = $ic;

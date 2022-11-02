@@ -1,5 +1,6 @@
 package com.baidu.ufosdk;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
@@ -35,6 +36,7 @@ public class t extends WebView {
         a(context);
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     public final void a(Context context) {
         int i;
         Interceptable interceptable = $ic;

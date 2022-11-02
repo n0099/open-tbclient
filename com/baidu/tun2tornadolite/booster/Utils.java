@@ -56,25 +56,24 @@ public final class Utils {
     }
 
     /* renamed from: amb$lambda-1$cancelAll  reason: not valid java name */
-    public static final void m55amb$lambda1$cancelAll(List list) {
+    public static final <T> void m55amb$lambda1$cancelAll(List<? extends Deferred<? extends T>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, list) == null) {
-            Iterator it = list.iterator();
+            Iterator<T> it = list.iterator();
             while (it.hasNext()) {
                 Job.DefaultImpls.cancel$default((Job) ((Deferred) it.next()), (CancellationException) null, 1, (Object) null);
             }
         }
     }
 
-    public final Object amb(List list, Continuation continuation) {
+    public final <T> Object amb(List<? extends Deferred<? extends T>> list, Continuation<? super T> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, continuation)) == null) {
             SelectBuilderImpl selectBuilderImpl = new SelectBuilderImpl(continuation);
             try {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    selectBuilderImpl.invoke(((Deferred) it.next()).getOnAwait(), new Utils$amb$2$1(list, null));
+                for (Deferred<? extends T> deferred : list) {
+                    selectBuilderImpl.invoke(deferred.getOnAwait(), new Utils$amb$2$1(list, null));
                 }
             } catch (Throwable th) {
                 selectBuilderImpl.handleBuilderException(th);

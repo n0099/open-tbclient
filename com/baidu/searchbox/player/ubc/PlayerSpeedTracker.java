@@ -1,5 +1,7 @@
 package com.baidu.searchbox.player.ubc;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.session.VideoSessionManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +30,7 @@ public class PlayerSpeedTracker {
         }
     }
 
-    public static void beginCallPlayerStart(String str) {
+    public static void beginCallPlayerStart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_START_PLAYER);
@@ -36,7 +38,7 @@ public class PlayerSpeedTracker {
         }
     }
 
-    public static void beginInitPlayer(String str) {
+    public static void beginInitPlayer(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_CALL_PLAYER);
@@ -44,7 +46,7 @@ public class PlayerSpeedTracker {
         }
     }
 
-    public static void beginTrack(String str) {
+    public static void beginTrack(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             FlowInstanceManager.createFlow(str);
@@ -53,70 +55,70 @@ public class PlayerSpeedTracker {
         }
     }
 
-    public static void cancelTrack(String str) {
+    public static void cancelTrack(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             FlowInstanceManager.endFlow(str);
         }
     }
 
-    public static void endActivityCreatePart(String str) {
+    public static void endActivityCreatePart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_ACTIVITY_CREATE);
         }
     }
 
-    public static void endAfterInitToPlayPart(String str) {
+    public static void endAfterInitToPlayPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_AFTER_INIT_PLAYER_TO_START);
         }
     }
 
-    public static void endInitLayerPart(String str) {
+    public static void endInitLayerPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LAYER);
         }
     }
 
-    public static void endInitPlayerEnvPart(String str) {
+    public static void endInitPlayerEnvPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_PLAYER_ENV);
         }
     }
 
-    public static void endInitPluginPart(String str) {
+    public static void endInitPluginPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_PLUGIN);
         }
     }
 
-    public static void endPlayCore(String str) {
+    public static void endPlayCore(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_START_PLAY_TO_FIRST_FRAME_DISPLAY);
         }
     }
 
-    public static void endPrepareResourcePart(String str) {
+    public static void endPrepareResourcePart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_PREPARE_RESOURCE);
         }
     }
 
-    public static void endSchemeDispatchPart(String str) {
+    public static void endSchemeDispatchPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_SCHEME_DISPATCH);
         }
     }
 
-    public static boolean hasCreateFlow(String str) {
+    public static boolean hasCreateFlow(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
@@ -125,77 +127,78 @@ public class PlayerSpeedTracker {
         return invokeL.booleanValue;
     }
 
-    public static void startActivityCreatePart(String str) {
+    public static void startActivityCreatePart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_ACTIVITY_CREATE);
         }
     }
 
-    public static void startAfterInitToPlayPart(String str) {
+    public static void startAfterInitToPlayPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_AFTER_INIT_PLAYER_TO_START);
         }
     }
 
-    public static void startInitLayerPart(String str) {
+    public static void startInitLayerPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_LAYER);
         }
     }
 
-    public static void startInitPlayerEnvPart(String str) {
+    public static void startInitPlayerEnvPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_PLAYER_ENV);
         }
     }
 
-    public static void startInitPluginPart(String str) {
+    public static void startInitPluginPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_INIT_PLUGIN);
         }
     }
 
-    public static void startPrepareResourcePart(String str) {
+    public static void startPrepareResourcePart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_PREPARE_RESOURCE);
         }
     }
 
-    public static void startSchemeDispatchPart(String str) {
+    public static void startSchemeDispatchPart(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, str) == null) {
             FlowInstanceManager.startFlowPart(str, PlayerSpeedMonitorConstants.PART_SCHEME_DISPATCH);
         }
     }
 
-    public static void endCustomPart(String str, String str2) {
+    public static void endCustomPart(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
             FlowInstanceManager.endFlowPart(str, str2);
         }
     }
 
-    public static void startCustomPart(String str, String str2) {
+    public static void startCustomPart(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
             FlowInstanceManager.startFlowPart(str, str2);
         }
     }
 
-    public static void endTrack(String str, BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Object obj, long j) {
+    public static void endTrack(@NonNull String str, @NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{str, bDVideoPlayerUbcContent, obj, Long.valueOf(j)}) == null) {
             FlowInstanceManager.setValueAndEndFlow(str, getPerformanceString(bDVideoPlayerUbcContent, obj, j));
         }
     }
 
-    public static String getPerformanceString(BDVideoPlayerUbcContent bDVideoPlayerUbcContent, Object obj, long j) {
+    @NonNull
+    public static String getPerformanceString(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{bDVideoPlayerUbcContent, obj, Long.valueOf(j)})) == null) {

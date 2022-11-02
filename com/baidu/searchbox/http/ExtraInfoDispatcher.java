@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class ExtraInfoDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mExtraCallbacks;
+    public List<ExtraInfoCallback> mExtraCallbacks;
 
     public ExtraInfoDispatcher() {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public final class ExtraInfoDispatcher {
     }
 
     public void clearCallback() {
-        List list;
+        List<ExtraInfoCallback> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.mExtraCallbacks) != null) {
             list.clear();
         }
     }
 
-    public List getAllCallbacks() {
+    public List<ExtraInfoCallback> getAllCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -49,7 +49,7 @@ public final class ExtraInfoDispatcher {
     }
 
     public void addCallback(ExtraInfoCallback extraInfoCallback) {
-        List list;
+        List<ExtraInfoCallback> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, extraInfoCallback) == null) && !this.mExtraCallbacks.contains(extraInfoCallback) && (list = this.mExtraCallbacks) != null) {
             list.add(extraInfoCallback);
@@ -57,7 +57,7 @@ public final class ExtraInfoDispatcher {
     }
 
     public void removeCallback(ExtraInfoCallback extraInfoCallback) {
-        List list;
+        List<ExtraInfoCallback> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, extraInfoCallback) == null) && extraInfoCallback != null && (list = this.mExtraCallbacks) != null) {
             list.remove(extraInfoCallback);

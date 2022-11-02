@@ -1,6 +1,10 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,15 +16,16 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+@RequiresApi(api = 28)
 /* loaded from: classes7.dex */
-public final class ByteBufferBitmapImageDecoderResourceDecoder implements ResourceDecoder {
+public final class ByteBufferBitmapImageDecoderResourceDecoder implements ResourceDecoder<ByteBuffer, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapImageDecoderResourceDecoder wrapped;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(ByteBuffer byteBuffer, Options options) throws IOException {
+    public boolean handles(@NonNull ByteBuffer byteBuffer, @NonNull Options options) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, byteBuffer, options)) == null) {
@@ -47,7 +52,8 @@ public final class ByteBufferBitmapImageDecoderResourceDecoder implements Resour
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource decode(ByteBuffer byteBuffer, int i, int i2, Options options) throws IOException {
+    @Nullable
+    public Resource<Bitmap> decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {

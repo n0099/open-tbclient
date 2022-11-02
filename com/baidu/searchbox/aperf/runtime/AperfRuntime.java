@@ -14,7 +14,7 @@ public class AperfRuntime {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public final class Runtime {
+    public static final class Runtime {
         public static /* synthetic */ Interceptable $ic;
         public static final String sProcessUUID;
         public transient /* synthetic */ FieldHolder $fh;

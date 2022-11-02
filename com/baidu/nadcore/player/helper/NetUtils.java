@@ -1,9 +1,11 @@
 package com.baidu.nadcore.player.helper;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.tieba.ar0;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.rr0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +21,7 @@ public class NetUtils {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class NetStatus {
+    public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetStatus NET_DOWN;
@@ -117,12 +119,14 @@ public class NetUtils {
         return (NetStatus) invokeV.objValue;
     }
 
+    @Nullable
+    @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         InterceptResult invokeV;
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b = ar0.b();
+            Context b = rr0.b();
             if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
                 return null;
             }

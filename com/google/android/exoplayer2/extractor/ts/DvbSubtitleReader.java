@@ -22,10 +22,10 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
     public final TrackOutput[] outputs;
     public int sampleBytesWritten;
     public long sampleTimeUs;
-    public final List subtitleInfos;
+    public final List<TsPayloadReader.DvbSubtitleInfo> subtitleInfos;
     public boolean writingSample;
 
-    public DvbSubtitleReader(List list) {
+    public DvbSubtitleReader(List<TsPayloadReader.DvbSubtitleInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public final class DvbSubtitleReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
             for (int i = 0; i < this.outputs.length; i++) {
-                TsPayloadReader.DvbSubtitleInfo dvbSubtitleInfo = (TsPayloadReader.DvbSubtitleInfo) this.subtitleInfos.get(i);
+                TsPayloadReader.DvbSubtitleInfo dvbSubtitleInfo = this.subtitleInfos.get(i);
                 trackIdGenerator.generateNewId();
                 TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 3);
                 track.format(Format.createImageSampleFormat(trackIdGenerator.getFormatId(), MimeTypes.APPLICATION_DVBSUBS, null, -1, Collections.singletonList(dvbSubtitleInfo.initializationData), dvbSubtitleInfo.language, null));

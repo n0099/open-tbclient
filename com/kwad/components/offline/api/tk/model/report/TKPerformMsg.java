@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class TKPerformMsg extends BaseOfflineCompoJsonParse implements Serializable {
+public class TKPerformMsg extends BaseOfflineCompoJsonParse<TKPerformMsg> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTER_SCENE = -1;
     public static final int OTHER_FAIL = 3;

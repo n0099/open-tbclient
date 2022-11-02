@@ -17,7 +17,7 @@ public abstract class MixBaseParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String extReq;
-    public final Map store;
+    public final Map<String, String> store;
     public String tpl;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public abstract class MixBaseParams {
         }
     }
 
-    public final void addExtParams(Pair pair) {
+    public final void addExtParams(Pair<String, String> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pair) == null) {
             this.store.put(pair.getFirst(), pair.getSecond());
@@ -109,7 +109,7 @@ public abstract class MixBaseParams {
         return (String) invokeV.objValue;
     }
 
-    public Map toMap() {
+    public Map<String, String> toMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

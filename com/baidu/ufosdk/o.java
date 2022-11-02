@@ -15,7 +15,7 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public WeakReference b;
+    public WeakReference<WebView> b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public o(WebView webView) {
@@ -46,7 +46,7 @@ public class o {
                 if (this.b == null) {
                     webView = null;
                 } else {
-                    webView = (WebView) this.b.get();
+                    webView = this.b.get();
                 }
                 if (webView != null) {
                     webView.loadUrl(String.format("javascript:" + this.a + "(%s)", str));
@@ -72,7 +72,7 @@ public class o {
             }
         }
         if (webView != null) {
-            this.b = new WeakReference(webView);
+            this.b = new WeakReference<>(webView);
         }
         this.a = str;
     }

@@ -2,19 +2,20 @@ package com.baidu.tieba.pb.pb.main.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ty4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.l05;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements vz4 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +41,7 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements v
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PbImageAlaUserLikeButton(Context context, AttributeSet attributeSet) {
+    public PbImageAlaUserLikeButton(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -61,7 +62,7 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements v
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbImageAlaUserLikeButton(Context context, AttributeSet attributeSet, int i) {
+    public PbImageAlaUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -86,19 +87,19 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements v
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                ty4 ty4Var = new ty4();
-                ty4Var.t(R.color.CAM_X0109);
-                setConfig(ty4Var);
+                jz4 jz4Var = new jz4();
+                jz4Var.t(R.color.CAM_X0109);
+                setConfig(jz4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fef));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f100a));
             } else {
-                ty4 ty4Var2 = new ty4();
-                ty4Var2.r(R.color.CAM_X0302);
-                ty4Var2.i(R.drawable.obfuscated_res_0x7f08091c, 0, TBSpecificationButtonConfig.IconType.SVG);
-                ty4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(ty4Var2);
+                jz4 jz4Var2 = new jz4();
+                jz4Var2.r(R.color.CAM_X0302);
+                jz4Var2.i(R.drawable.obfuscated_res_0x7f080931, 0, TBSpecificationButtonConfig.IconType.SVG);
+                jz4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(jz4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
             }
             r(TbadkCoreApplication.getInst().getSkinType());
         }

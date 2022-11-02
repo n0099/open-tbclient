@@ -25,10 +25,12 @@ import com.facebook.imagepipeline.listener.RequestListener;
 import java.io.File;
 import java.util.Map;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.Immutable;
+@Immutable
 /* loaded from: classes7.dex */
 public class ImageRequest {
     public static /* synthetic */ Interceptable $ic;
-    public static final Fn REQUEST_TO_URI_FN;
+    public static final Fn<ImageRequest, Uri> REQUEST_TO_URI_FN;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public final BytesRange mBytesRange;
@@ -41,7 +43,7 @@ public class ImageRequest {
     public final boolean mLocalThumbnailPreviewsEnabled;
     public String mLogTag;
     public final RequestLevel mLowestPermittedRequestLevel;
-    public final Map mNetRequestHeader;
+    public final Map<String, String> mNetRequestHeader;
     @Nullable
     public final Postprocessor mPostprocessor;
     public final boolean mProgressiveRenderingEnabled;
@@ -60,7 +62,7 @@ public class ImageRequest {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class CacheChoice {
+    public static final class CacheChoice {
         public static final /* synthetic */ CacheChoice[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CacheChoice DEFAULT;
@@ -126,7 +128,7 @@ public class ImageRequest {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class RequestLevel {
+    public static final class RequestLevel {
         public static final /* synthetic */ RequestLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RequestLevel BITMAP_MEMORY_CACHE;
@@ -231,7 +233,7 @@ public class ImageRequest {
                 return;
             }
         }
-        REQUEST_TO_URI_FN = new Fn() { // from class: com.facebook.imagepipeline.request.ImageRequest.1
+        REQUEST_TO_URI_FN = new Fn<ImageRequest, Uri>() { // from class: com.facebook.imagepipeline.request.ImageRequest.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -322,7 +324,7 @@ public class ImageRequest {
         return (RequestLevel) invokeV.objValue;
     }
 
-    public Map getNetRequestHeader() {
+    public Map<String, String> getNetRequestHeader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {

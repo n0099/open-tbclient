@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveFeedToolInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<LiveFeedToolInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String cmd;
     public String icon;
@@ -44,7 +44,7 @@ public class LiveFeedToolInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.live.business.model.data.LiveFeedToolInfo.1
+        CREATOR = new Parcelable.Creator<LiveFeedToolInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedToolInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,6 +63,7 @@ public class LiveFeedToolInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedToolInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -74,6 +75,7 @@ public class LiveFeedToolInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public LiveFeedToolInfo[] newArray(int i) {
                 InterceptResult invokeI;

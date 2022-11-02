@@ -1,13 +1,17 @@
 package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
+@Keep
 /* loaded from: classes8.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
@@ -16,11 +20,11 @@ public class ProductListResult {
     public String currencyName;
     public int currencyType;
     public int defaultCid;
-    public List payWayInfoList;
+    public List<PayWayInfo> payWayInfoList;
     public PaysSettingInfo paysSettingInfo;
-    public List productInfoList;
+    public List<ProductInfo> productInfoList;
 
-    public ProductListResult(int i, String str, PaysSettingInfo paysSettingInfo, List list, List list2, int i2, String str2) {
+    public ProductListResult(int i, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,7 +75,7 @@ public class ProductListResult {
         return invokeV.intValue;
     }
 
-    public List getPayWayInfoList() {
+    public List<PayWayInfo> getPayWayInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -89,7 +93,7 @@ public class ProductListResult {
         return (PaysSettingInfo) invokeV.objValue;
     }
 
-    public List getProductInfoList() {
+    public List<ProductInfo> getProductInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

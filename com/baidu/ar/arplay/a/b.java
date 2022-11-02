@@ -19,8 +19,8 @@ public class b {
     public static int dk = 2;
     public static int dl = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map dm;
-    public Map dn;
+    public Map<String, String> dm;
+    public Map<String, String> dn;
 
     /* renamed from: do  reason: not valid java name */
     public SharedPreferences f0do;
@@ -79,7 +79,7 @@ public class b {
     public String getValue(int i, String str) {
         InterceptResult invokeIL;
         String str2;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str)) != null) {
             return (String) invokeIL.objValue;
@@ -101,13 +101,13 @@ public class b {
             if (str2 == null) {
             }
         }
-        str2 = (String) map.get(str);
+        str2 = map.get(str);
         if (str2 == null) {
         }
     }
 
     public void setValue(int i, String str, String str2) {
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
             if (i == dj) {

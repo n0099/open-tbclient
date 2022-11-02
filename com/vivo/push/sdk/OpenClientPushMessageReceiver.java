@@ -17,14 +17,14 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onDelAlias(Context context, int i, List list, List list2, String str) {
+    public final void onDelAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onDelTags(Context context, int i, List list, List list2, String str) {
+    public final void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
@@ -53,14 +53,14 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onSetAlias(Context context, int i, List list, List list2, String str) {
+    public final void onSetAlias(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onSetTags(Context context, int i, List list, List list2, String str) {
+    public final void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
@@ -122,7 +122,7 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onListTags(Context context, int i, List list, String str) {
+    public final void onListTags(Context context, int i, List<String> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048580, this, context, i, list, str) == null) {
             super.onListTags(context, i, list, str);

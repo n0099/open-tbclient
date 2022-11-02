@@ -1,6 +1,7 @@
 package androidx.lifecycle;
 
 import android.os.Handler;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ public class ServiceLifecycleDispatcher {
         public final LifecycleRegistry mRegistry;
         public boolean mWasExecuted;
 
-        public DispatchRunnable(LifecycleRegistry lifecycleRegistry, Lifecycle.Event event) {
+        public DispatchRunnable(@NonNull LifecycleRegistry lifecycleRegistry, Lifecycle.Event event) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +55,7 @@ public class ServiceLifecycleDispatcher {
         }
     }
 
-    public ServiceLifecycleDispatcher(LifecycleOwner lifecycleOwner) {
+    public ServiceLifecycleDispatcher(@NonNull LifecycleOwner lifecycleOwner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,6 +87,7 @@ public class ServiceLifecycleDispatcher {
         }
     }
 
+    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

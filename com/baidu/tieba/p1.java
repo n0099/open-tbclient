@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class p1 extends o1 {
+public abstract class p1<T, P extends l1<T>> extends o1<T, P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void c(n1 n1Var, String str, k3 k3Var, l1 l1Var);
+    public abstract void c(n1 n1Var, String str, k3 k3Var, P p);
 
-    public abstract Object d(n1 n1Var, String str, k3 k3Var, l1 l1Var);
+    public abstract T d(n1 n1Var, String str, k3 k3Var, P p);
 
-    public void e(n1 n1Var, String str, k3 k3Var, l1 l1Var) {
+    public void e(n1 n1Var, String str, k3 k3Var, P p) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, str, k3Var, l1Var) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, n1Var, str, k3Var, p) == null) {
         }
     }
 

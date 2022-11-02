@@ -34,7 +34,7 @@ public class MessageConfig {
     public String from;
     public boolean gaidEnable;
     public float gyroscopeThreshold;
-    public Set ignoreActivity;
+    public Set<String> ignoreActivity;
     public int interval;
     public boolean isLogOn;
     public final boolean isMainConfig;
@@ -185,7 +185,7 @@ public class MessageConfig {
         }
     }
 
-    public void setIgnoreActivity(Set set) {
+    public void setIgnoreActivity(Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, set) == null) {
             this.ignoreActivity = set;
@@ -393,7 +393,7 @@ public class MessageConfig {
         return invokeV.floatValue;
     }
 
-    public Set getIgnoreActivity() {
+    public Set<String> getIgnoreActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {

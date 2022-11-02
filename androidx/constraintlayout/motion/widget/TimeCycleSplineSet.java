@@ -774,7 +774,7 @@ public abstract class TimeCycleSplineSet {
                     c = 65535;
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c = 2;
                         break;
                     }

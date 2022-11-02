@@ -5,5 +5,5 @@ import java.util.ArrayList;
 public interface IRevenueDataSender {
     void cancelAllRequest(int i, int i2);
 
-    void sendData(int i, int i2, String str, ArrayList arrayList, byte[] bArr);
+    void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr);
 }

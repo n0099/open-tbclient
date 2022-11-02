@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class SimpleDataSource extends AbstractDataSource {
+public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class SimpleDataSource extends AbstractDataSource {
         }
     }
 
-    public static SimpleDataSource create() {
+    public static <T> SimpleDataSource<T> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new SimpleDataSource();
+            return new SimpleDataSource<>();
         }
         return (SimpleDataSource) invokeV.objValue;
     }
@@ -56,21 +56,25 @@ public class SimpleDataSource extends AbstractDataSource {
         return invokeF.booleanValue;
     }
 
-    public boolean setResult(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean setResult(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return super.setResult(Preconditions.checkNotNull(obj), true, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            return super.setResult(Preconditions.checkNotNull(t), true, null);
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.facebook.datasource.SimpleDataSource<T> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean setResult(Object obj, boolean z, Map map) {
+    public boolean setResult(T t, boolean z, Map<String, Object> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{obj, Boolean.valueOf(z), map})) == null) {
-            return super.setResult(Preconditions.checkNotNull(obj), z, map);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{t, Boolean.valueOf(z), map})) == null) {
+            return super.setResult(Preconditions.checkNotNull(t), z, map);
         }
         return invokeCommon.booleanValue;
     }

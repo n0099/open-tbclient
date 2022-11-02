@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.source.TrackGroup;
+import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -27,13 +28,13 @@ public abstract class BaseTrackSelection implements TrackSelection {
 
     /* renamed from: com.google.android.exoplayer2.trackselection.BaseTrackSelection$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class DecreasingBandwidthComparator implements Comparator {
+    public static final class DecreasingBandwidthComparator implements Comparator<Format> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,7 +156,7 @@ public abstract class BaseTrackSelection implements TrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int evaluateQueueSize(long j, List list) {
+    public int evaluateQueueSize(long j, List<? extends MediaChunk> list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, list)) == null) {

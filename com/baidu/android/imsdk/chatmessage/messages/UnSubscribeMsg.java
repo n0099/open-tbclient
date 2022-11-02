@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UnSubscribeMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UnSubscribeMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String text;
 
@@ -35,7 +35,7 @@ public class UnSubscribeMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSubscribeMsg.1
+        CREATOR = new Parcelable.Creator<UnSubscribeMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.UnSubscribeMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,6 +54,7 @@ public class UnSubscribeMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UnSubscribeMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -65,6 +66,7 @@ public class UnSubscribeMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public UnSubscribeMsg[] newArray(int i) {
                 InterceptResult invokeI;

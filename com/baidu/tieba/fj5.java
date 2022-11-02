@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Random;
+import java.util.Date;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class fj5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float a;
-    public static final Random b;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,46 +31,71 @@ public class fj5 {
                 return;
             }
         }
-        a = ux4.k().l("key_tb_image_view_track_sample", 0);
-        b = new Random();
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public static boolean a(String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!UbsABTestHelper.isSearchLoginTestA()) {
+                return false;
+            }
+            Date date = new Date(ky4.k().m("show_login_dialog_strategy_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date2 = new Date(currentTimeMillis);
+            ky4.k().x("show_login_dialog_strategy_key", currentTimeMillis);
+            return !TimeHelper.isSameDay(date, date2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || !str.contains("tiebapic.baidu.com") || str.contains("w%3D120%3Bh%3D120")) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (wi.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str.toLowerCase()).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (wi.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str.toLowerCase()).find();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (wi.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!b(str) && !c(str) && !d(str)) {
                 return false;
             }
             return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a > b.nextInt(100000)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void c(String str, float f) {
-        String simpleName;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLF(65539, null, str, f) != null) || !a(str) || !b()) {
-            return;
-        }
-        Activity f2 = n9.g().f(n9.g().h() - 1);
-        if (f2 == null) {
-            simpleName = "unknown";
-        } else {
-            simpleName = f2.getClass().getSimpleName();
-        }
-        TiebaStatic.log(new StatisticItem("TbImageViewTrack").param("obj_name", str).param("obj_source", simpleName).param("obj_param1", String.format("%.2f", Float.valueOf(f))).param(TiebaStatic.Params.OBJ_PARAM2, ma.c(simpleName)));
     }
 }

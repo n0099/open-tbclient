@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.support.cookie;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
@@ -44,17 +45,20 @@ public final class Cookie {
     public final String value;
 
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public String domain;
         public long expiresAt;
         public boolean hostOnly;
         public boolean httpOnly;
+        @Nullable
         public String name;
         public String path;
         public boolean persistent;
         public boolean secure;
+        @Nullable
         public String value;
 
         public Builder() {
@@ -381,6 +385,7 @@ public final class Cookie {
     /* JADX WARN: Removed duplicated region for block: B:60:0x00f1  */
     /* JADX WARN: Removed duplicated region for block: B:61:0x00f3  */
     /* JADX WARN: Removed duplicated region for block: B:74:0x0117  */
+    @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -575,6 +580,7 @@ public final class Cookie {
         return invokeLII.longValue;
     }
 
+    @Nullable
     public static Cookie parse(UrlWrapper urlWrapper, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -584,15 +590,15 @@ public final class Cookie {
         return (Cookie) invokeLL.objValue;
     }
 
-    public static List parseAll(UrlWrapper urlWrapper, Headers headers) {
+    public static List<Cookie> parseAll(UrlWrapper urlWrapper, Headers headers) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, urlWrapper, headers)) == null) {
-            List values = headers.values("Set-Cookie");
+            List<String> values = headers.values("Set-Cookie");
             int size = values.size();
             ArrayList arrayList = null;
             for (int i = 0; i < size; i++) {
-                Cookie parse = parse(urlWrapper, (String) values.get(i));
+                Cookie parse = parse(urlWrapper, values.get(i));
                 if (parse != null) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -761,7 +767,7 @@ public final class Cookie {
         return (String) invokeV.objValue;
     }
 
-    public boolean equals(Object obj) {
+    public boolean equals(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {

@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.engine;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
@@ -649,7 +650,7 @@ public class ARPEngine implements c {
         }
     }
 
-    public void setContext(SoftReference softReference) {
+    public void setContext(SoftReference<Context> softReference) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048627, this, softReference) == null) || (aRPFilter = this.mARPFilter) == null) {
@@ -782,7 +783,7 @@ public class ARPEngine implements c {
         }
     }
 
-    public void updateNodeUniform(String str, HashMap hashMap) {
+    public void updateNodeUniform(String str, HashMap<String, Object> hashMap) {
         AbstractARPEngine3D abstractARPEngine3D;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048641, this, str, hashMap) == null) || !isEngineCanAccess() || isAppControllerInterrupt() || (abstractARPEngine3D = this.mARPEngine3D) == null) {

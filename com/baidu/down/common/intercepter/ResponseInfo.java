@@ -11,8 +11,8 @@ public final class ResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String method;
-    public Map requestHeaders;
-    public Map responseHeaders;
+    public Map<String, String> requestHeaders;
+    public Map<String, String> responseHeaders;
     public int stateCode;
     public String url;
 
@@ -51,14 +51,14 @@ public final class ResponseInfo {
             for (String str : this.requestHeaders.keySet()) {
                 sb.append(str);
                 sb.append(":");
-                sb.append((String) this.requestHeaders.get(str));
+                sb.append(this.requestHeaders.get(str));
                 sb.append("\n");
             }
             sb.append("=== Response ===\n");
             for (String str2 : this.responseHeaders.keySet()) {
                 sb.append(str2);
                 sb.append(":");
-                sb.append((String) this.responseHeaders.get(str2));
+                sb.append(this.responseHeaders.get(str2));
                 sb.append("\n");
             }
             return sb.toString();

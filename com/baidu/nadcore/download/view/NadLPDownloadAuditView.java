@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +23,7 @@ public class NadLPDownloadAuditView extends RelativeLayout {
     public RelativeLayout b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NadLPDownloadAuditView(Context context) {
+    public NadLPDownloadAuditView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,7 +44,7 @@ public class NadLPDownloadAuditView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadLPDownloadAuditView(Context context, AttributeSet attributeSet) {
+    public NadLPDownloadAuditView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -66,9 +68,9 @@ public class NadLPDownloadAuditView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05fa, this);
-            this.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091459);
-            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09145a);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060a, this);
+            this.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091498);
+            this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091499);
         }
     }
 

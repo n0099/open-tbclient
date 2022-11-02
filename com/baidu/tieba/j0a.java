@@ -1,101 +1,126 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes4.dex */
-public abstract class j0a extends AbstractQueue {
+public final class j0a<T> implements gz9.b<Boolean, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReferenceArray a;
-    public final int b;
+    public final yz9<? super T, Boolean> a;
+    public final boolean b;
 
-    public final int b(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
+    /* loaded from: classes4.dex */
+    public class a extends mz9<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean e;
+        public boolean f;
+        public final /* synthetic */ SingleDelayedProducer g;
+        public final /* synthetic */ mz9 h;
+        public final /* synthetic */ j0a i;
+
+        public a(j0a j0aVar, SingleDelayedProducer singleDelayedProducer, mz9 mz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j0aVar, singleDelayedProducer, mz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = j0aVar;
+            this.g = singleDelayedProducer;
+            this.h = mz9Var;
+        }
+
+        @Override // com.baidu.tieba.hz9
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
+                this.f = true;
+                if (this.e) {
+                    this.g.setValue(Boolean.FALSE);
+                } else {
+                    this.g.setValue(Boolean.valueOf(this.i.b));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hz9
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (!this.f) {
+                    this.f = true;
+                    this.h.onError(th);
+                    return;
+                }
+                n3a.j(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.hz9
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
+                return;
+            }
+            this.e = true;
+            try {
+                if (this.i.a.call(t).booleanValue()) {
+                    this.f = true;
+                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
+                    unsubscribe();
+                }
+            } catch (Throwable th) {
+                sz9.g(th, this, t);
+            }
+        }
     }
 
-    public j0a(int i) {
+    public j0a(yz9<? super T, Boolean> yz9Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {yz9Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int b = x0a.b(i);
-        this.b = b - 1;
-        this.a = new AtomicReferenceArray(b);
+        this.a = yz9Var;
+        this.b = z;
     }
 
-    public final int a(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gz9.b, com.baidu.tieba.yz9
+    public mz9<? super T> call(mz9<? super Boolean> mz9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.b & ((int) j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mz9Var)) == null) {
+            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(mz9Var);
+            a aVar = new a(this, singleDelayedProducer, mz9Var);
+            mz9Var.b(aVar);
+            mz9Var.f(singleDelayedProducer);
+            return aVar;
         }
-        return invokeJ.intValue;
-    }
-
-    public final Object c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return d(this.a, i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == 0 && isEmpty()) {
-                return;
-            }
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final Object d(AtomicReferenceArray atomicReferenceArray, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
-            return atomicReferenceArray.get(i);
-        }
-        return invokeLI.objValue;
-    }
-
-    public final void e(AtomicReferenceArray atomicReferenceArray, int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, obj) == null) {
-            atomicReferenceArray.lazySet(i, obj);
-        }
+        return (mz9) invokeL.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.message.a;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -27,6 +28,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @SuppressLint({"NewApi"})
     public static void a(Context context, PublicMsg publicMsg, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65536, null, context, publicMsg, str, i) == null) {

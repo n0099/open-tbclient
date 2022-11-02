@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c2 extends b2 {
+public class c2 extends b2<c4, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c4.c b;
 
     /* loaded from: classes3.dex */
-    public class a extends l1 {
+    public static class a extends l1<c4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean b;
@@ -62,7 +62,7 @@ public class c2 extends b2 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.o1
     /* renamed from: d */
-    public b7 a(String str, k3 k3Var, a aVar) {
+    public b7<j1> a(String str, k3 k3Var, a aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, k3Var, aVar)) == null) {
@@ -72,16 +72,16 @@ public class c2 extends b2 {
             } else {
                 this.b = new c4.c(k3Var, i, false);
             }
-            b7 b7Var = new b7();
-            b7.b it = this.b.a().iterator();
+            b7<j1> b7Var = new b7<>();
+            b7.b<c4.c.p> it = this.b.a().iterator();
             while (it.hasNext()) {
-                c4.c.p pVar = (c4.c.p) it.next();
+                c4.c.p next = it.next();
                 d2.b bVar = new d2.b();
-                bVar.b = pVar.f;
-                bVar.c = pVar.e;
-                bVar.f = pVar.g;
-                bVar.g = pVar.h;
-                b7Var.a(new j1(pVar.a, Texture.class, bVar));
+                bVar.b = next.f;
+                bVar.c = next.e;
+                bVar.f = next.g;
+                bVar.g = next.h;
+                b7Var.a(new j1(next.a, Texture.class, bVar));
             }
             return b7Var;
         }
@@ -95,10 +95,10 @@ public class c2 extends b2 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, n1Var, str, k3Var, aVar)) == null) {
-            b7.b it = this.b.a().iterator();
+            b7.b<c4.c.p> it = this.b.a().iterator();
             while (it.hasNext()) {
-                c4.c.p pVar = (c4.c.p) it.next();
-                pVar.b = (Texture) n1Var.j(pVar.a.j().replaceAll("\\\\", "/"), Texture.class);
+                c4.c.p next = it.next();
+                next.b = (Texture) n1Var.j(next.a.j().replaceAll("\\\\", "/"), Texture.class);
             }
             c4 c4Var = new c4(this.b);
             this.b = null;

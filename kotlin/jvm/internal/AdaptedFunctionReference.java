@@ -1,7 +1,9 @@
 package kotlin.jvm.internal;
 
 import java.io.Serializable;
+import kotlin.SinceKotlin;
 import kotlin.reflect.KDeclarationContainer;
+@SinceKotlin(version = "1.4")
 /* loaded from: classes8.dex */
 public class AdaptedFunctionReference implements FunctionBase, Serializable {
     public final int arity;

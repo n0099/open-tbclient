@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.platform.comapi.UIMsg;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
@@ -24,8 +24,8 @@ import java.util.List;
 public final class EANManufacturerOrgSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List countryIdentifiers;
-    public final List ranges;
+    public final List<String> countryIdentifiers;
+    public final List<int[]> ranges;
 
     public EANManufacturerOrgSupport() {
         Interceptable interceptable = $ic;
@@ -92,8 +92,8 @@ public final class EANManufacturerOrgSupport {
                 add(new int[]{529}, "CY");
                 add(new int[]{531}, "MK");
                 add(new int[]{535}, "MT");
-                add(new int[]{539}, "IE");
-                add(new int[]{RecordConstants.DEFAULT_PREVIEW_WIDTH, 549}, "BE/LU");
+                add(new int[]{UIMsg.MsgDefine.MSG_USERINFO_SECURE}, "IE");
+                add(new int[]{540, 549}, "BE/LU");
                 add(new int[]{560}, "PT");
                 add(new int[]{569}, "IS");
                 add(new int[]{570, 579}, "DK");
@@ -178,12 +178,12 @@ public final class EANManufacturerOrgSupport {
             initIfNeeded();
             int parseInt = Integer.parseInt(str.substring(0, 3));
             int size = this.ranges.size();
-            for (int i2 = 0; i2 < size && parseInt >= (i = (iArr = (int[]) this.ranges.get(i2))[0]); i2++) {
+            for (int i2 = 0; i2 < size && parseInt >= (i = (iArr = this.ranges.get(i2))[0]); i2++) {
                 if (iArr.length != 1) {
                     i = iArr[1];
                 }
                 if (parseInt <= i) {
-                    return (String) this.countryIdentifiers.get(i2);
+                    return this.countryIdentifiers.get(i2);
                 }
             }
             return null;

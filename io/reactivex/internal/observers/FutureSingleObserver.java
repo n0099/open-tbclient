@@ -20,12 +20,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class FutureSingleObserver extends CountDownLatch implements SingleObserver, Future, Disposable {
+public final class FutureSingleObserver<T> extends CountDownLatch implements SingleObserver<T>, Future<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference s;
-    public Object value;
+    public final AtomicReference<Disposable> s;
+    public T value;
 
     @Override // io.reactivex.disposables.Disposable
     public void dispose() {
@@ -50,11 +50,11 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
                 return;
             }
         }
-        this.s = new AtomicReference();
+        this.s = new AtomicReference<>();
     }
 
     @Override // java.util.concurrent.Future
-    public Object get() throws InterruptedException, ExecutionException {
+    public T get() throws InterruptedException, ExecutionException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -71,7 +71,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
             }
             throw new CancellationException();
         }
-        return invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
     @Override // java.util.concurrent.Future
@@ -82,7 +82,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             do {
-                disposable = (Disposable) this.s.get();
+                disposable = this.s.get();
                 if (disposable == this || disposable == (disposableHelper = DisposableHelper.DISPOSED)) {
                     return false;
                 }
@@ -97,7 +97,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
     }
 
     @Override // java.util.concurrent.Future
-    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
@@ -116,7 +116,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
             }
             throw new CancellationException();
         }
-        return invokeJL.objValue;
+        return (T) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.Future
@@ -124,7 +124,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DisposableHelper.isDisposed((Disposable) this.s.get());
+            return DisposableHelper.isDisposed(this.s.get());
         }
         return invokeV.booleanValue;
     }
@@ -158,7 +158,7 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
             do {
-                disposable = (Disposable) this.s.get();
+                disposable = this.s.get();
                 if (disposable == DisposableHelper.DISPOSED) {
                     RxJavaPlugins.onError(th);
                     return;
@@ -178,13 +178,13 @@ public final class FutureSingleObserver extends CountDownLatch implements Single
     }
 
     @Override // io.reactivex.SingleObserver
-    public void onSuccess(Object obj) {
+    public void onSuccess(T t) {
         Disposable disposable;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, obj) != null) || (disposable = (Disposable) this.s.get()) == DisposableHelper.DISPOSED) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, t) != null) || (disposable = this.s.get()) == DisposableHelper.DISPOSED) {
             return;
         }
-        this.value = obj;
+        this.value = t;
         this.s.compareAndSet(disposable, this);
         countDown();
     }

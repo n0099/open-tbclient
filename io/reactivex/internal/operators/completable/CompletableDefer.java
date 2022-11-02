@@ -15,9 +15,9 @@ import java.util.concurrent.Callable;
 public final class CompletableDefer extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable completableSupplier;
+    public final Callable<? extends CompletableSource> completableSupplier;
 
-    public CompletableDefer(Callable callable) {
+    public CompletableDefer(Callable<? extends CompletableSource> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

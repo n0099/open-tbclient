@@ -2,6 +2,7 @@ package com.bytedance.pangle.log;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -15,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.GlobalParam;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes7.dex */
 public class ZeusLogger {
     public static /* synthetic */ Interceptable $ic = null;

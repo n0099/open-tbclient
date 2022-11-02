@@ -1,5 +1,6 @@
 package com.baidu.searchbox.fluency.listener;
 
+import androidx.annotation.CallSuper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.fluency.listener.FrameRateListener;
@@ -23,10 +24,10 @@ import kotlin.jvm.internal.Intrinsics;
 public class FrameRateListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Companion Companion;
-    public static final LinkedList framePool;
+    public static final LinkedList<FrameReplay> framePool;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor executor;
-    public final LinkedList frameList;
+    public final LinkedList<FrameReplay> frameList;
 
     public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
@@ -42,7 +43,7 @@ public class FrameRateListener {
         }
     }
 
-    public void doReplay(List frameList) {
+    public void doReplay(List<FrameReplay> frameList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, frameList) == null) {
             Intrinsics.checkNotNullParameter(frameList, "frameList");
@@ -60,7 +61,7 @@ public class FrameRateListener {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\f\u0018\u0000 ,:\u0001,B\u0007¢\u0006\u0004\b+\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\"\u0010\u0005\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\"\u0010\u0012\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0006\u001a\u0004\b\u0013\u0010\b\"\u0004\b\u0014\u0010\nR\"\u0010\u0015\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0006\u001a\u0004\b\u0016\u0010\b\"\u0004\b\u0017\u0010\nR\"\u0010\u0019\u001a\u00020\u00188\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\u001a\u001a\u0004\b\u0019\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\"\u0010\u001e\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u0006\u001a\u0004\b\u001f\u0010\b\"\u0004\b \u0010\nR\"\u0010\"\u001a\u00020!8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010#\u001a\u0004\b$\u0010%\"\u0004\b&\u0010'R\"\u0010(\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010\u0006\u001a\u0004\b)\u0010\b\"\u0004\b*\u0010\n¨\u0006-"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "", "recycle", "()V", "", "animationCostNs", "J", "getAnimationCostNs", "()J", "setAnimationCostNs", "(J)V", "", "dropFrame", "I", "getDropFrame", "()I", "setDropFrame", "(I)V", "endNs", "getEndNs", "setEndNs", "inputCostNs", "getInputCostNs", "setInputCostNs", "", "isVsyncFrame", "Z", "()Z", "setVsyncFrame", "(Z)V", "startNs", "getStartNs", "setStartNs", "", "topPage", "Ljava/lang/String;", "getTopPage", "()Ljava/lang/String;", "setTopPage", "(Ljava/lang/String;)V", "traversalCostNs", "getTraversalCostNs", "setTraversalCostNs", "<init>", "Companion", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class FrameReplay {
+    public static final class FrameReplay {
         public static /* synthetic */ Interceptable $ic;
         public static final Companion Companion;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class FrameRateListener {
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay$Companion;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "create", "()Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class Companion {
+        public static final class Companion {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -297,7 +298,7 @@ public class FrameRateListener {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/fluency/listener/FrameRateListener$Companion;", "Ljava/util/LinkedList;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener$FrameReplay;", "framePool", "Ljava/util/LinkedList;", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -334,7 +335,7 @@ public class FrameRateListener {
             }
         }
         Companion = new Companion(null);
-        framePool = new LinkedList();
+        framePool = new LinkedList<>();
     }
 
     public FrameRateListener() {
@@ -350,7 +351,7 @@ public class FrameRateListener {
                 return;
             }
         }
-        this.frameList = new LinkedList();
+        this.frameList = new LinkedList<>();
     }
 
     public Executor getExecutor() {
@@ -362,6 +363,7 @@ public class FrameRateListener {
         return (Executor) invokeV.objValue;
     }
 
+    @CallSuper
     public void collect(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {

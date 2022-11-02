@@ -55,7 +55,7 @@ public class PayRespDispatcher {
         this.mPayServiceCallback = iPayServiceCallback;
     }
 
-    private Object getResponseData(Class cls, IResponse iResponse) {
+    private <T> T getResponseData(Class<T> cls, IResponse iResponse) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, iResponse)) == null) {
@@ -65,7 +65,7 @@ public class PayRespDispatcher {
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     private void onBannerConfig(IResponse iResponse) {
@@ -353,16 +353,18 @@ public class PayRespDispatcher {
         }
     }
 
-    public void onSuccess(RequestParams requestParams, Object obj, PayCallBackBean payCallBackBean) {
-        IResult callback;
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> void onSuccess(RequestParams requestParams, T t, PayCallBackBean payCallBackBean) {
+        IResult<?> callback;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, requestParams, obj, payCallBackBean) != null) || requestParams == null || (callback = requestParams.getCallback()) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, requestParams, t, payCallBackBean) != null) || requestParams == null || (callback = requestParams.getCallback()) == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            callback.onSuccess(obj, payCallBackBean);
+            callback.onSuccess(t, payCallBackBean);
         } else {
-            ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, callback, obj, payCallBackBean) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespDispatcher.2
+            ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, callback, t, payCallBackBean) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespDispatcher.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayRespDispatcher this$0;
@@ -375,7 +377,7 @@ public class PayRespDispatcher {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, callback, obj, payCallBackBean};
+                        Object[] objArr = {this, callback, t, payCallBackBean};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -387,7 +389,7 @@ public class PayRespDispatcher {
                     }
                     this.this$0 = this;
                     this.val$callback = callback;
-                    this.val$data = obj;
+                    this.val$data = t;
                     this.val$payCallBackBean = payCallBackBean;
                 }
 

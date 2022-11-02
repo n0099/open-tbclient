@@ -8,6 +8,10 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -39,6 +43,7 @@ import java.util.concurrent.Executor;
 /* loaded from: classes.dex */
 public class MediaSession implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
+    @GuardedBy("STATIC_LOCK")
     public static final HashMap<String, MediaSession> SESSION_ID_TO_SESSION_MAP;
     public static final Object STATIC_LOCK;
     public static final String TAG = "MediaSession";
@@ -47,9 +52,9 @@ public class MediaSession implements Closeable {
 
     /* loaded from: classes.dex */
     public interface MediaSessionImpl extends MediaInterface.SessionPlayer, Closeable {
-        void broadcastCustomCommand(SessionCommand sessionCommand, Bundle bundle);
+        void broadcastCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle);
 
-        void connectFromService(IMediaController iMediaController, int i, String str, int i2, int i3, Bundle bundle);
+        void connectFromService(IMediaController iMediaController, int i, String str, int i2, int i3, @Nullable Bundle bundle);
 
         PlaybackStateCompat createPlaybackStateCompat();
 
@@ -57,10 +62,12 @@ public class MediaSession implements Closeable {
 
         Executor getCallbackExecutor();
 
-        List getConnectedControllers();
+        @NonNull
+        List<ControllerInfo> getConnectedControllers();
 
         Context getContext();
 
+        @NonNull
         String getId();
 
         MediaSession getInstance();
@@ -69,31 +76,34 @@ public class MediaSession implements Closeable {
 
         MediaController.PlaybackInfo getPlaybackInfo();
 
+        @NonNull
         SessionPlayer getPlayer();
 
         PendingIntent getSessionActivity();
 
         MediaSessionCompat getSessionCompat();
 
+        @NonNull
         SessionToken getToken();
 
+        @NonNull
         Uri getUri();
 
         boolean isClosed();
 
-        boolean isConnected(ControllerInfo controllerInfo);
+        boolean isConnected(@NonNull ControllerInfo controllerInfo);
 
-        ListenableFuture sendCustomCommand(ControllerInfo controllerInfo, SessionCommand sessionCommand, Bundle bundle);
+        ListenableFuture<SessionResult> sendCustomCommand(@NonNull ControllerInfo controllerInfo, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle);
 
-        void setAllowedCommands(ControllerInfo controllerInfo, SessionCommandGroup sessionCommandGroup);
+        void setAllowedCommands(@NonNull ControllerInfo controllerInfo, @NonNull SessionCommandGroup sessionCommandGroup);
 
-        ListenableFuture setCustomLayout(ControllerInfo controllerInfo, List list);
+        ListenableFuture<SessionResult> setCustomLayout(@NonNull ControllerInfo controllerInfo, @NonNull List<CommandButton> list);
 
         void setLegacyControllerConnectionTimeoutMs(long j);
 
-        void updatePlayer(SessionPlayer sessionPlayer);
+        void updatePlayer(@NonNull SessionPlayer sessionPlayer);
 
-        void updatePlayer(SessionPlayer sessionPlayer, SessionPlayer sessionPlayer2);
+        void updatePlayer(@NonNull SessionPlayer sessionPlayer, @Nullable SessionPlayer sessionPlayer2);
     }
 
     /* loaded from: classes.dex */
@@ -130,6 +140,7 @@ public class MediaSession implements Closeable {
                 }
             }
 
+            @NonNull
             public CommandButton build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -139,7 +150,8 @@ public class MediaSession implements Closeable {
                 return (CommandButton) invokeV.objValue;
             }
 
-            public Builder setCommand(SessionCommand sessionCommand) {
+            @NonNull
+            public Builder setCommand(@Nullable SessionCommand sessionCommand) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sessionCommand)) == null) {
@@ -149,7 +161,8 @@ public class MediaSession implements Closeable {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setDisplayName(CharSequence charSequence) {
+            @NonNull
+            public Builder setDisplayName(@Nullable CharSequence charSequence) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence)) == null) {
@@ -159,6 +172,7 @@ public class MediaSession implements Closeable {
                 return (Builder) invokeL.objValue;
             }
 
+            @NonNull
             public Builder setEnabled(boolean z) {
                 InterceptResult invokeZ;
                 Interceptable interceptable = $ic;
@@ -169,7 +183,8 @@ public class MediaSession implements Closeable {
                 return (Builder) invokeZ.objValue;
             }
 
-            public Builder setExtras(Bundle bundle) {
+            @NonNull
+            public Builder setExtras(@Nullable Bundle bundle) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
@@ -179,6 +194,7 @@ public class MediaSession implements Closeable {
                 return (Builder) invokeL.objValue;
             }
 
+            @NonNull
             public Builder setIconResId(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
@@ -204,6 +220,7 @@ public class MediaSession implements Closeable {
             }
         }
 
+        @Nullable
         public SessionCommand getCommand() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -213,6 +230,7 @@ public class MediaSession implements Closeable {
             return (SessionCommand) invokeV.objValue;
         }
 
+        @Nullable
         public CharSequence getDisplayName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -222,6 +240,7 @@ public class MediaSession implements Closeable {
             return (CharSequence) invokeV.objValue;
         }
 
+        @Nullable
         public Bundle getExtras() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -249,7 +268,7 @@ public class MediaSession implements Closeable {
             return invokeV.booleanValue;
         }
 
-        public CommandButton(SessionCommand sessionCommand, int i, CharSequence charSequence, Bundle bundle, boolean z) {
+        public CommandButton(@Nullable SessionCommand sessionCommand, int i, @Nullable CharSequence charSequence, Bundle bundle, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -278,7 +297,7 @@ public class MediaSession implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
         public ForegroundServiceEventCallback mForegroundServiceEventCallback;
 
-        public int onCommandRequest(MediaSession mediaSession, ControllerInfo controllerInfo, SessionCommand sessionCommand) {
+        public int onCommandRequest(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo, @NonNull SessionCommand sessionCommand) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, mediaSession, controllerInfo, sessionCommand)) == null) {
@@ -287,7 +306,8 @@ public class MediaSession implements Closeable {
             return invokeLLL.intValue;
         }
 
-        public MediaItem onCreateMediaItem(MediaSession mediaSession, ControllerInfo controllerInfo, String str) {
+        @Nullable
+        public MediaItem onCreateMediaItem(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo, @NonNull String str) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaSession, controllerInfo, str)) == null) {
@@ -296,13 +316,13 @@ public class MediaSession implements Closeable {
             return (MediaItem) invokeLLL.objValue;
         }
 
-        public void onDisconnected(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public void onDisconnected(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, mediaSession, controllerInfo) == null) {
             }
         }
 
-        public int onFastForward(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public int onFastForward(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, mediaSession, controllerInfo)) == null) {
@@ -311,13 +331,13 @@ public class MediaSession implements Closeable {
             return invokeLL.intValue;
         }
 
-        public void onPostConnect(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public void onPostConnect(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, mediaSession, controllerInfo) == null) {
             }
         }
 
-        public int onRewind(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public int onRewind(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSession, controllerInfo)) == null) {
@@ -326,7 +346,7 @@ public class MediaSession implements Closeable {
             return invokeLL.intValue;
         }
 
-        public int onSetMediaUri(MediaSession mediaSession, ControllerInfo controllerInfo, Uri uri, Bundle bundle) {
+        public int onSetMediaUri(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo, @NonNull Uri uri, @Nullable Bundle bundle) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, mediaSession, controllerInfo, uri, bundle)) == null) {
@@ -335,7 +355,7 @@ public class MediaSession implements Closeable {
             return invokeLLLL.intValue;
         }
 
-        public int onSetRating(MediaSession mediaSession, ControllerInfo controllerInfo, String str, Rating rating) {
+        public int onSetRating(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo, @NonNull String str, @NonNull Rating rating) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, mediaSession, controllerInfo, str, rating)) == null) {
@@ -344,7 +364,7 @@ public class MediaSession implements Closeable {
             return invokeLLLL.intValue;
         }
 
-        public int onSkipBackward(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public int onSkipBackward(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, mediaSession, controllerInfo)) == null) {
@@ -353,7 +373,7 @@ public class MediaSession implements Closeable {
             return invokeLL.intValue;
         }
 
-        public int onSkipForward(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        public int onSkipForward(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, mediaSession, controllerInfo)) == null) {
@@ -408,7 +428,8 @@ public class MediaSession implements Closeable {
             }
         }
 
-        public SessionCommandGroup onConnect(MediaSession mediaSession, ControllerInfo controllerInfo) {
+        @Nullable
+        public SessionCommandGroup onConnect(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSession, controllerInfo)) == null) {
@@ -425,7 +446,8 @@ public class MediaSession implements Closeable {
             }
         }
 
-        public SessionResult onCustomCommand(MediaSession mediaSession, ControllerInfo controllerInfo, SessionCommand sessionCommand, Bundle bundle) {
+        @NonNull
+        public SessionResult onCustomCommand(@NonNull MediaSession mediaSession, @NonNull ControllerInfo controllerInfo, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, mediaSession, controllerInfo, sessionCommand, bundle)) == null) {
@@ -456,7 +478,7 @@ public class MediaSession implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Builder(Context context, SessionPlayer sessionPlayer) {
+        public Builder(@NonNull Context context, @NonNull SessionPlayer sessionPlayer) {
             super(context, sessionPlayer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -478,6 +500,7 @@ public class MediaSession implements Closeable {
 
         /* JADX WARN: Type inference failed for: r0v5, types: [C extends androidx.media2.session.MediaSession$SessionCallback, androidx.media2.session.MediaSession$Builder$1] */
         @Override // androidx.media2.session.MediaSession.BuilderBase
+        @NonNull
         public MediaSession build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -518,7 +541,8 @@ public class MediaSession implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaSession.BuilderBase
-        public Builder setExtras(Bundle bundle) {
+        @NonNull
+        public Builder setExtras(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -530,7 +554,8 @@ public class MediaSession implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaSession.BuilderBase
-        public Builder setId(String str) {
+        @NonNull
+        public Builder setId(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -542,7 +567,8 @@ public class MediaSession implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaSession.BuilderBase
-        public Builder setSessionActivity(PendingIntent pendingIntent) {
+        @NonNull
+        public Builder setSessionActivity(@Nullable PendingIntent pendingIntent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pendingIntent)) == null) {
@@ -554,7 +580,8 @@ public class MediaSession implements Closeable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // androidx.media2.session.MediaSession.BuilderBase
-        public Builder setSessionCallback(Executor executor, SessionCallback sessionCallback) {
+        @NonNull
+        public Builder setSessionCallback(@NonNull Executor executor, @NonNull SessionCallback sessionCallback) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, executor, sessionCallback)) == null) {
@@ -564,6 +591,7 @@ public class MediaSession implements Closeable {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public static abstract class BuilderBase<T extends MediaSession, U extends BuilderBase<T, U, C>, C extends SessionCallback> {
         public static /* synthetic */ Interceptable $ic;
@@ -576,9 +604,10 @@ public class MediaSession implements Closeable {
         public SessionPlayer mPlayer;
         public PendingIntent mSessionActivity;
 
+        @NonNull
         public abstract T build();
 
-        public BuilderBase(Context context, SessionPlayer sessionPlayer) {
+        public BuilderBase(@NonNull Context context, @NonNull SessionPlayer sessionPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -605,7 +634,8 @@ public class MediaSession implements Closeable {
             throw new NullPointerException("context shouldn't be null");
         }
 
-        public U setExtras(Bundle bundle) {
+        @NonNull
+        public U setExtras(@NonNull Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
@@ -621,7 +651,8 @@ public class MediaSession implements Closeable {
             return (U) invokeL.objValue;
         }
 
-        public U setId(String str) {
+        @NonNull
+        public U setId(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -634,7 +665,8 @@ public class MediaSession implements Closeable {
             return (U) invokeL.objValue;
         }
 
-        public U setSessionActivity(PendingIntent pendingIntent) {
+        @NonNull
+        public U setSessionActivity(@Nullable PendingIntent pendingIntent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pendingIntent)) == null) {
@@ -644,7 +676,8 @@ public class MediaSession implements Closeable {
             return (U) invokeL.objValue;
         }
 
-        public U setSessionCallback(Executor executor, C c) {
+        @NonNull
+        public U setSessionCallback(@NonNull Executor executor, @NonNull C c) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, executor, c)) == null) {
@@ -667,13 +700,13 @@ public class MediaSession implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public abstract void onAllowedCommandsChanged(int i, SessionCommandGroup sessionCommandGroup) throws RemoteException;
+        public abstract void onAllowedCommandsChanged(int i, @NonNull SessionCommandGroup sessionCommandGroup) throws RemoteException;
 
-        public abstract void onBufferingStateChanged(int i, MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException;
+        public abstract void onBufferingStateChanged(int i, @NonNull MediaItem mediaItem, int i2, long j, long j2, long j3) throws RemoteException;
 
-        public abstract void onChildrenChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException;
+        public abstract void onChildrenChanged(int i, @NonNull String str, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) throws RemoteException;
 
-        public abstract void onCurrentMediaItemChanged(int i, MediaItem mediaItem, int i2, int i3, int i4) throws RemoteException;
+        public abstract void onCurrentMediaItemChanged(int i, @Nullable MediaItem mediaItem, int i2, int i3, int i4) throws RemoteException;
 
         public abstract void onDisconnected(int i) throws RemoteException;
 
@@ -681,7 +714,7 @@ public class MediaSession implements Closeable {
 
         public abstract void onPlaybackCompleted(int i) throws RemoteException;
 
-        public abstract void onPlaybackInfoChanged(int i, MediaController.PlaybackInfo playbackInfo) throws RemoteException;
+        public abstract void onPlaybackInfoChanged(int i, @NonNull MediaController.PlaybackInfo playbackInfo) throws RemoteException;
 
         public abstract void onPlaybackSpeedChanged(int i, long j, long j2, float f) throws RemoteException;
 
@@ -689,13 +722,13 @@ public class MediaSession implements Closeable {
 
         public abstract void onPlayerStateChanged(int i, long j, long j2, int i2) throws RemoteException;
 
-        public abstract void onPlaylistChanged(int i, List<MediaItem> list, MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException;
+        public abstract void onPlaylistChanged(int i, @NonNull List<MediaItem> list, @Nullable MediaMetadata mediaMetadata, int i2, int i3, int i4) throws RemoteException;
 
-        public abstract void onPlaylistMetadataChanged(int i, MediaMetadata mediaMetadata) throws RemoteException;
+        public abstract void onPlaylistMetadataChanged(int i, @Nullable MediaMetadata mediaMetadata) throws RemoteException;
 
         public abstract void onRepeatModeChanged(int i, int i2, int i3, int i4, int i5) throws RemoteException;
 
-        public abstract void onSearchResultChanged(int i, String str, int i2, MediaLibraryService.LibraryParams libraryParams) throws RemoteException;
+        public abstract void onSearchResultChanged(int i, @NonNull String str, int i2, @Nullable MediaLibraryService.LibraryParams libraryParams) throws RemoteException;
 
         public abstract void onSeekCompleted(int i, long j, long j2, long j3) throws RemoteException;
 
@@ -703,7 +736,7 @@ public class MediaSession implements Closeable {
 
         public abstract void onShuffleModeChanged(int i, int i2, int i3, int i4, int i5) throws RemoteException;
 
-        public abstract void onSubtitleData(int i, MediaItem mediaItem, SessionPlayer.TrackInfo trackInfo, SubtitleData subtitleData) throws RemoteException;
+        public abstract void onSubtitleData(int i, @NonNull MediaItem mediaItem, @NonNull SessionPlayer.TrackInfo trackInfo, @NonNull SubtitleData subtitleData) throws RemoteException;
 
         public abstract void onTrackDeselected(int i, SessionPlayer.TrackInfo trackInfo) throws RemoteException;
 
@@ -711,11 +744,11 @@ public class MediaSession implements Closeable {
 
         public abstract void onTracksChanged(int i, List<SessionPlayer.TrackInfo> list, SessionPlayer.TrackInfo trackInfo, SessionPlayer.TrackInfo trackInfo2, SessionPlayer.TrackInfo trackInfo3, SessionPlayer.TrackInfo trackInfo4) throws RemoteException;
 
-        public abstract void onVideoSizeChanged(int i, VideoSize videoSize) throws RemoteException;
+        public abstract void onVideoSizeChanged(int i, @NonNull VideoSize videoSize) throws RemoteException;
 
-        public abstract void sendCustomCommand(int i, SessionCommand sessionCommand, Bundle bundle) throws RemoteException;
+        public abstract void sendCustomCommand(int i, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) throws RemoteException;
 
-        public abstract void setCustomLayout(int i, List<CommandButton> list) throws RemoteException;
+        public abstract void setCustomLayout(int i, @NonNull List<CommandButton> list) throws RemoteException;
 
         public ControllerCb() {
             Interceptable interceptable = $ic;
@@ -742,7 +775,7 @@ public class MediaSession implements Closeable {
         public final boolean mIsTrusted;
         public final MediaSessionManager.RemoteUserInfo mRemoteUserInfo;
 
-        public ControllerInfo(MediaSessionManager.RemoteUserInfo remoteUserInfo, int i, boolean z, ControllerCb controllerCb, Bundle bundle) {
+        public ControllerInfo(@NonNull MediaSessionManager.RemoteUserInfo remoteUserInfo, int i, boolean z, @Nullable ControllerCb controllerCb, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -768,6 +801,7 @@ public class MediaSession implements Closeable {
             }
         }
 
+        @NonNull
         public static ControllerInfo createLegacyControllerInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -777,6 +811,7 @@ public class MediaSession implements Closeable {
             return (ControllerInfo) invokeV.objValue;
         }
 
+        @NonNull
         public Bundle getConnectionHints() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -789,6 +824,7 @@ public class MediaSession implements Closeable {
             return (Bundle) invokeV.objValue;
         }
 
+        @Nullable
         public ControllerCb getControllerCb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -798,6 +834,7 @@ public class MediaSession implements Closeable {
             return (ControllerCb) invokeV.objValue;
         }
 
+        @NonNull
         public String getPackageName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -834,6 +871,7 @@ public class MediaSession implements Closeable {
             return invokeV.intValue;
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY})
         public boolean isTrusted() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -889,6 +927,7 @@ public class MediaSession implements Closeable {
         SESSION_ID_TO_SESSION_MAP = new HashMap<>();
     }
 
+    @NonNull
     private Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -912,6 +951,7 @@ public class MediaSession implements Closeable {
         }
     }
 
+    @NonNull
     public SessionCallback getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -921,6 +961,7 @@ public class MediaSession implements Closeable {
         return (SessionCallback) invokeV.objValue;
     }
 
+    @NonNull
     public Executor getCallbackExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -930,6 +971,7 @@ public class MediaSession implements Closeable {
         return (Executor) invokeV.objValue;
     }
 
+    @NonNull
     public List<ControllerInfo> getConnectedControllers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -939,6 +981,7 @@ public class MediaSession implements Closeable {
         return (List) invokeV.objValue;
     }
 
+    @NonNull
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -948,6 +991,7 @@ public class MediaSession implements Closeable {
         return (Context) invokeV.objValue;
     }
 
+    @NonNull
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -975,6 +1019,7 @@ public class MediaSession implements Closeable {
         return (IBinder) invokeV.objValue;
     }
 
+    @NonNull
     public SessionPlayer getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -984,6 +1029,7 @@ public class MediaSession implements Closeable {
         return (SessionPlayer) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public MediaSessionCompat getSessionCompat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -993,6 +1039,7 @@ public class MediaSession implements Closeable {
         return (MediaSessionCompat) invokeV.objValue;
     }
 
+    @NonNull
     public MediaSessionCompat.Token getSessionCompatToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1002,6 +1049,7 @@ public class MediaSession implements Closeable {
         return (MediaSessionCompat.Token) invokeV.objValue;
     }
 
+    @NonNull
     public SessionToken getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1011,6 +1059,7 @@ public class MediaSession implements Closeable {
         return (SessionToken) invokeV.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean isClosed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1061,7 +1110,7 @@ public class MediaSession implements Closeable {
         return (MediaSession) invokeL.objValue;
     }
 
-    public void broadcastCustomCommand(SessionCommand sessionCommand, Bundle bundle) {
+    public void broadcastCustomCommand(@NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sessionCommand, bundle) == null) {
             if (sessionCommand != null) {
@@ -1075,7 +1124,7 @@ public class MediaSession implements Closeable {
         }
     }
 
-    public void setAllowedCommands(ControllerInfo controllerInfo, SessionCommandGroup sessionCommandGroup) {
+    public void setAllowedCommands(@NonNull ControllerInfo controllerInfo, @NonNull SessionCommandGroup sessionCommandGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, controllerInfo, sessionCommandGroup) == null) {
             if (controllerInfo != null) {
@@ -1089,7 +1138,8 @@ public class MediaSession implements Closeable {
         }
     }
 
-    public ListenableFuture<SessionResult> setCustomLayout(ControllerInfo controllerInfo, List<CommandButton> list) {
+    @NonNull
+    public ListenableFuture<SessionResult> setCustomLayout(@NonNull ControllerInfo controllerInfo, @NonNull List<CommandButton> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, controllerInfo, list)) == null) {
@@ -1113,14 +1163,15 @@ public class MediaSession implements Closeable {
         return (MediaSessionImpl) invokeCommon.objValue;
     }
 
-    public void handleControllerConnectionFromService(IMediaController iMediaController, int i, String str, int i2, int i3, Bundle bundle) {
+    public void handleControllerConnectionFromService(IMediaController iMediaController, int i, String str, int i2, int i3, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{iMediaController, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
             this.mImpl.connectFromService(iMediaController, i, str, i2, i3, bundle);
         }
     }
 
-    public ListenableFuture<SessionResult> sendCustomCommand(ControllerInfo controllerInfo, SessionCommand sessionCommand, Bundle bundle) {
+    @NonNull
+    public ListenableFuture<SessionResult> sendCustomCommand(@NonNull ControllerInfo controllerInfo, @NonNull SessionCommand sessionCommand, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, controllerInfo, sessionCommand, bundle)) == null) {
@@ -1138,6 +1189,7 @@ public class MediaSession implements Closeable {
         return (ListenableFuture) invokeLLL.objValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void setLegacyControllerConnectionTimeoutMs(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
@@ -1145,7 +1197,7 @@ public class MediaSession implements Closeable {
         }
     }
 
-    public void updatePlayer(SessionPlayer sessionPlayer) {
+    public void updatePlayer(@NonNull SessionPlayer sessionPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, sessionPlayer) == null) {
             if (sessionPlayer != null) {

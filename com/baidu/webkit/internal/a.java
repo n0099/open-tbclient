@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
@@ -26,9 +27,10 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap b;
+    public HashMap<String, Object> b;
     public WebView c;
     public String d;
+    @SuppressLint({"SdCardPath"})
     public String e;
     public boolean f;
     public String g;
@@ -78,6 +80,7 @@ public final class a {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static void a(StringBuilder sb, Object obj, String str) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, sb, obj, str) == null) || obj == null || TextUtils.isEmpty(str)) {
@@ -170,7 +173,7 @@ public final class a {
         for (String str : d().keySet()) {
             this.c.addJavascriptInterface(d().get(str), str, false);
         }
-        HashMap hashMap = this.b;
+        HashMap<String, Object> hashMap = this.b;
         if (hashMap != null) {
             hashMap.clear();
         }
@@ -220,12 +223,12 @@ public final class a {
         }
     }
 
-    public final HashMap d() {
+    public final HashMap<String, Object> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.b == null) {
-                this.b = new HashMap();
+                this.b = new HashMap<>();
             }
             return this.b;
         }

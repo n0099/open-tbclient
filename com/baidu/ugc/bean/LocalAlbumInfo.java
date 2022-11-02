@@ -1,8 +1,9 @@
 package com.baidu.ugc.bean;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.dg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +114,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new ue9().a(list);
+                return new dg9().a(list);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -130,7 +131,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new ue9().a(localAlbumInfo);
+                return new dg9().a(localAlbumInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -141,7 +142,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(LocalAlbumInfo localAlbumInfo) {
+    public int compareTo(@NonNull LocalAlbumInfo localAlbumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, localAlbumInfo)) == null) {

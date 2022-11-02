@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -12,9 +13,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.fz6;
-import com.baidu.tieba.pi6;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.o07;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,26 +24,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class GameVideoFragment extends BaseFragment implements pi6 {
+public class GameVideoFragment extends BaseFragment implements zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fz6 a;
+    public o07 a;
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a066" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -63,7 +64,7 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -73,10 +74,10 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        fz6 fz6Var;
+        o07 o07Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (fz6Var = this.a) != null) {
-            fz6Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (o07Var = this.a) != null) {
+            o07Var.v();
         }
     }
 
@@ -85,11 +86,11 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            fz6 fz6Var = this.a;
-            if (fz6Var != null) {
-                fz6Var.w();
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.w();
             }
-            s95.e().b();
+            la5.e().b();
         }
     }
 
@@ -98,9 +99,9 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            fz6 fz6Var = this.a;
-            if (fz6Var != null) {
-                fz6Var.t();
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.t();
             }
         }
     }
@@ -110,24 +111,24 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            fz6 fz6Var = this.a;
-            if (fz6Var != null) {
-                fz6Var.x();
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.x();
             }
         }
     }
 
-    @Override // com.baidu.tieba.pi6
+    @Override // com.baidu.tieba.zj6
     public void t() {
-        fz6 fz6Var;
+        o07 o07Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (fz6Var = this.a) != null) {
-            fz6Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (o07Var = this.a) != null) {
+            o07Var.y();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.zc5
-    public List getCurrentPageSourceKeyList() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vd5
+    public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -153,9 +154,9 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            fz6 fz6Var = this.a;
-            if (fz6Var != null) {
-                fz6Var.z(isPrimary());
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.z(isPrimary());
             }
         }
     }
@@ -165,9 +166,9 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            fz6 fz6Var = this.a;
-            if (fz6Var != null) {
-                fz6Var.n();
+            o07 o07Var = this.a;
+            if (o07Var != null) {
+                o07Var.n();
             }
         }
     }
@@ -179,7 +180,7 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new fz6(this, getPageContext(), getUniqueId());
+                this.a = new o07(this, getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -187,14 +188,15 @@ public class GameVideoFragment extends BaseFragment implements pi6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            fz6 fz6Var = this.a;
-            if (fz6Var != null && fz6Var.r() != null) {
+            o07 o07Var = this.a;
+            if (o07Var != null && o07Var.r() != null) {
                 if (this.a.r().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.r().getParent()).removeView(this.a.r());
                 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.myCollection.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
 public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List timeList;
+    public List<String> timeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetStoreRemindTimeSocketResponseMessage() {
@@ -39,6 +40,7 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -61,7 +63,7 @@ public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMess
         return invokeIL.objValue;
     }
 
-    public List getTimeList() {
+    public List<String> getTimeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

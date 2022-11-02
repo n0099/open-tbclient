@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class g5 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b7 a;
+    public b7<e5> a;
 
     public g5() {
         Interceptable interceptable = $ic;
@@ -25,7 +25,7 @@ public class g5 implements i7 {
                 return;
             }
         }
-        this.a = new b7(true, 3, e5.class);
+        this.a = new b7<>(true, 3, e5.class);
     }
 
     @Override // com.baidu.tieba.i7
@@ -34,7 +34,7 @@ public class g5 implements i7 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int i = this.a.b;
             for (int i2 = 0; i2 < i; i2++) {
-                ((e5) this.a.get(i2)).b();
+                this.a.get(i2).b();
             }
         }
     }
@@ -44,7 +44,7 @@ public class g5 implements i7 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i = this.a.b;
             for (int i2 = 0; i2 < i; i2++) {
-                ((e5) this.a.get(i2)).update();
+                this.a.get(i2).update();
             }
         }
     }
@@ -52,22 +52,22 @@ public class g5 implements i7 {
     public void a(n1 n1Var, i5 i5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, n1Var, i5Var) == null) {
-            b7.b it = this.a.iterator();
+            b7.b<e5> it = this.a.iterator();
             while (it.hasNext()) {
-                ((e5) it.next()).c(n1Var, i5Var);
+                it.next().c(n1Var, i5Var);
             }
         }
     }
 
-    public void f(b7 b7Var) {
+    public void f(b7<j5<?>> b7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b7Var) == null) {
-            b7.b it = this.a.iterator();
+            b7.b<e5> it = this.a.iterator();
             while (it.hasNext()) {
-                e5 e5Var = (e5) it.next();
-                b7.b it2 = b7Var.iterator();
+                e5 next = it.next();
+                b7.b<j5<?>> it2 = b7Var.iterator();
                 while (it2.hasNext()) {
-                    if (e5Var.c.h((j5) it2.next())) {
+                    if (next.c.h(it2.next())) {
                         break;
                     }
                 }
@@ -80,7 +80,7 @@ public class g5 implements i7 {
         if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
             int i = this.a.b;
             for (int i2 = 0; i2 < i; i2++) {
-                ((e5) this.a.get(i2)).update(f);
+                this.a.get(i2).update(f);
             }
         }
     }

@@ -20,11 +20,11 @@ public class a extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Rect b;
     public boolean c;
-    public InterfaceC0700a d;
+    public InterfaceC0711a d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0700a {
+    public interface InterfaceC0711a {
         void a();
 
         void a(int i);
@@ -72,10 +72,10 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC0700a interfaceC0700a) {
+    public void a(InterfaceC0711a interfaceC0711a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0700a) == null) {
-            this.d = interfaceC0700a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0711a) == null) {
+            this.d = interfaceC0711a;
         }
     }
 
@@ -87,12 +87,12 @@ public class a extends RelativeLayout {
             Activity activity = (Activity) getContext();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
             int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
-            InterfaceC0700a interfaceC0700a = this.d;
-            if (interfaceC0700a != null && size != 0) {
+            InterfaceC0711a interfaceC0711a = this.d;
+            if (interfaceC0711a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC0700a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC0711a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC0700a.a();
+                    interfaceC0711a.a();
                 }
             }
             super.onMeasure(i, i2);

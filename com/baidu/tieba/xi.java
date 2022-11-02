@@ -1,8 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.print.PrintHelper;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,172 +36,114 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FilterOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.google.protobuf.CodedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class xi {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
-    public static final byte[] c;
-    public static final byte[] d;
-    public static final byte[] e;
-    public static final byte[] f;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
+    public static Toast e;
+    public static c f;
+    public static String g;
+    public static Handler h;
+    public static Runnable i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a extends FilterOutputStream {
+    public interface c {
+        void createToastView();
+
+        View getToastContentView();
+
+        void setToastString(String str);
+    }
+
+    public static double I(double d2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Double.valueOf(d2)})) == null) ? (d2 * 3.141592653589793d) / 180.0d : invokeCommon.doubleValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
-        public byte[] c;
-        public int d;
-        public int e;
-        public boolean f;
-        public byte[] g;
-        public boolean h;
-        public int i;
-        public byte[] j;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(OutputStream outputStream, int i) {
-            super(outputStream);
-            boolean z;
-            int i2;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && xi.e != null) {
+                xi.e.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ View f;
+
+        public b(View view2, int i, int i2, int i3, int i4, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {outputStream, Integer.valueOf(i)};
+                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), view3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super((OutputStream) newInitContext.callArgs[0]);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if ((i & 8) != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.f = z;
-            boolean z2 = (i & 1) != 0;
-            this.a = z2;
-            if (z2) {
-                i2 = 3;
-            } else {
-                i2 = 4;
-            }
-            this.d = i2;
-            this.c = new byte[i2];
-            this.b = 0;
-            this.e = 0;
-            this.h = false;
-            this.g = new byte[4];
-            this.i = i;
-            this.j = xi.o(i);
+            this.a = view2;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+            this.e = i4;
+            this.f = view3;
         }
 
-        public void a() throws IOException {
-            int i;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (i = this.b) > 0) {
-                if (this.a) {
-                    OutputStream outputStream = ((FilterOutputStream) this).out;
-                    byte[] bArr = this.g;
-                    xi.i(bArr, this.c, i, this.i);
-                    outputStream.write(bArr);
-                    this.b = 0;
-                    return;
-                }
-                throw new IOException("Base64 input not properly padded.");
-            }
-        }
-
-        @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                a();
-                super.close();
-                this.c = null;
-                ((FilterOutputStream) this).out = null;
-            }
-        }
-
-        @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(int i) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (this.h) {
-                    ((FilterOutputStream) this).out.write(i);
-                } else if (this.a) {
-                    byte[] bArr = this.c;
-                    int i2 = this.b;
-                    int i3 = i2 + 1;
-                    this.b = i3;
-                    bArr[i2] = (byte) i;
-                    int i4 = this.d;
-                    if (i3 >= i4) {
-                        OutputStream outputStream = ((FilterOutputStream) this).out;
-                        byte[] bArr2 = this.g;
-                        xi.i(bArr2, bArr, i4, this.i);
-                        outputStream.write(bArr2);
-                        int i5 = this.e + 4;
-                        this.e = i5;
-                        if (this.f && i5 >= 76) {
-                            ((FilterOutputStream) this).out.write(10);
-                            this.e = 0;
-                        }
-                        this.b = 0;
-                    }
-                } else {
-                    byte[] bArr3 = this.j;
-                    int i6 = i & 127;
-                    if (bArr3[i6] > -5) {
-                        byte[] bArr4 = this.c;
-                        int i7 = this.b;
-                        int i8 = i7 + 1;
-                        this.b = i8;
-                        bArr4[i7] = (byte) i;
-                        if (i8 >= this.d) {
-                            ((FilterOutputStream) this).out.write(this.g, 0, xi.g(bArr4, 0, this.g, 0, this.i));
-                            this.b = 0;
-                        }
-                    } else if (bArr3[i6] == -5) {
-                    } else {
-                        throw new IOException("Invalid character in Base64 data.");
-                    }
-                }
-            }
-        }
-
-        @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(byte[] bArr, int i, int i2) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) {
-                if (this.h) {
-                    ((FilterOutputStream) this).out.write(bArr, i, i2);
-                    return;
-                }
-                for (int i3 = 0; i3 < i2; i3++) {
-                    write(bArr[i + i3]);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.getHitRect(rect);
+                rect.right += this.b;
+                rect.left -= this.c;
+                rect.bottom += this.d;
+                rect.top -= this.e;
+                this.f.setTouchDelegate(new TouchDelegate(rect, this.a));
             }
         }
     }
@@ -193,543 +161,741 @@ public class xi {
                 return;
             }
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        e = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
-        f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -9, -9, -9, -9, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -9, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, ExifInterface.START_CODE, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        h = new Handler(Looper.getMainLooper());
+        i = new a();
     }
 
-    public static byte[] d(String str) throws IOException {
-        InterceptResult invokeL;
+    public static boolean E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return e(str, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Looper.getMainLooper() != Looper.myLooper() || Looper.getMainLooper().getThread() != Thread.currentThread()) {
+                return false;
+            }
+            return true;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String j(byte[] bArr) {
+    public static boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return BdNetTypeUtil.isNetWorkAvailable();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static c x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
+            return f;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public static void A(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
+        }
+    }
+
+    public static void J(Context context) {
+        Intent launchIntentForPackage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+            try {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    if (packageManager != null && (launchIntentForPackage = packageManager.getLaunchIntentForPackage(context.getPackageName())) != null) {
+                        launchIntentForPackage.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                        ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).set(1, System.currentTimeMillis() + 100, PendingIntent.getActivity(context, 950731, launchIntentForPackage, LaunchTaskConstants.OTHER_PROCESS));
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            } finally {
+                System.exit(0);
+            }
+        }
+    }
+
+    public static boolean B(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return false;
+            }
             try {
-                return l(bArr, 0, bArr.length, 0);
-            } catch (IOException unused) {
+                String str = new String(bArr, 0, 16, "UTF-8");
+                if (str.indexOf("RIFF") != 0) {
+                    return false;
+                }
+                if (8 != str.indexOf("WEBPVP8 ")) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int[] s(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, context)) == null) {
+            int[] iArr = new int[2];
+            if (context == null) {
+                return iArr;
+            }
+            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            iArr[0] = defaultDisplay.getWidth();
+            iArr[1] = defaultDisplay.getHeight();
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static DisplayMetrics t(Activity activity) {
+        InterceptResult invokeL;
+        DisplayMetrics displayMetrics;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, activity)) == null) {
+            DisplayMetrics displayMetrics2 = null;
+            try {
+                displayMetrics = new DisplayMetrics();
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                return displayMetrics;
+            } catch (Exception e3) {
+                e = e3;
+                displayMetrics2 = displayMetrics;
+                BdLog.e(e.toString());
+                return displayMetrics2;
+            }
+        }
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    public static boolean C() {
+        InterceptResult invokeV;
+        String r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = Build.DISPLAY;
+            if (str != null && str.contains("Flyme") && (r = r(str)) != null && r.length() >= 3) {
+                int e2 = wg.e(r(r.substring(0, 1)), 0);
+                int e3 = wg.e(r(r.substring(1, 2)), 0);
+                if (e2 > 3 || (e2 == 3 && e3 >= 5)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0038 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [java.io.Reader] */
+    public static String o() {
+        ?? r2;
+        Throwable th;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r2 = 65569;
+            InterceptResult invokeV = interceptable.invokeV(65569, null);
+            if (invokeV != null) {
+                return (String) invokeV.objValue;
+            }
+        }
+        try {
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns1").getInputStream()));
+                try {
+                    String readLine = bufferedReader.readLine();
+                    yi.g(bufferedReader);
+                    return readLine;
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    yi.g(bufferedReader);
+                    return null;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                yi.g(r2);
+                throw th;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            r2 = 0;
+            th = th3;
+            yi.g(r2);
+            throw th;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0038 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [java.io.Reader] */
+    public static String p() {
+        ?? r2;
+        Throwable th;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            r2 = 65570;
+            InterceptResult invokeV = interceptable.invokeV(65570, null);
+            if (invokeV != null) {
+                return (String) invokeV.objValue;
+            }
+        }
+        try {
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop net.dns2").getInputStream()));
+                try {
+                    String readLine = bufferedReader.readLine();
+                    yi.g(bufferedReader);
+                    return readLine;
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    yi.g(bufferedReader);
+                    return null;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                yi.g(r2);
+                throw th;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            bufferedReader = null;
+        } catch (Throwable th3) {
+            r2 = 0;
+            th = th3;
+            yi.g(r2);
+            throw th;
+        }
+    }
+
+    public static int q() {
+        ActivityManager activityManager;
+        List<ActivityManager.RunningTaskInfo> runningTasks;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
+            try {
+                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
+                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
+                        if (runningTaskInfo != null && runningTaskInfo.topActivity != null) {
+                            return runningTaskInfo.numActivities;
+                        }
+                    }
+                    return 0;
+                }
+                return 0;
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public static String y() {
+        ActivityManager activityManager;
+        List<ActivityManager.RunningTaskInfo> runningTasks;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+            try {
+                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService("activity")) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
+                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
+                        if (runningTaskInfo != null && runningTaskInfo.topActivity != null) {
+                            return runningTaskInfo.topActivity.getClassName();
+                        }
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2);
                 return null;
             }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean D(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr == null || bArr.length < 3 || bArr[0] != 71 || bArr[1] != 73 || bArr[2] != 70) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void K(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, cVar) == null) {
+            f = cVar;
+        }
+    }
+
+    public static float i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
+            if (!a) {
+                A(context);
+            }
+            return b;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static int j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
+            if (!a) {
+                A(context);
+            }
+            return d;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+            if (!a) {
+                A(context);
+            }
+            return c;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
         }
         return (String) invokeL.objValue;
     }
 
-    public static final byte[] n(int i) {
-        InterceptResult invokeI;
+    public static Rect G(Paint paint, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
-            if ((i & 16) == 16) {
-                return c;
-            }
-            if ((i & 32) == 32) {
-                return e;
-            }
-            return a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, paint, str)) == null) {
+            Rect rect = new Rect();
+            paint.getTextBounds(str, 0, str.length(), rect);
+            return rect;
         }
-        return (byte[]) invokeI.objValue;
+        return (Rect) invokeLL.objValue;
     }
 
-    public static final byte[] o(int i) {
-        InterceptResult invokeI;
+    public static float H(Paint paint, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            if ((i & 16) == 16) {
-                return d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, paint, str)) == null) {
+            if (paint != null && str != null) {
+                return paint.measureText(str);
             }
-            if ((i & 32) == 32) {
-                return f;
-            }
-            return b;
+            return 0.0f;
         }
-        return (byte[]) invokeI.objValue;
+        return invokeLL.floatValue;
     }
 
-    public static byte[] i(byte[] bArr, byte[] bArr2, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static void L(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65545, null, bArr, bArr2, i, i2)) == null) {
-            h(bArr2, 0, i, bArr, 0, i2);
-            return bArr;
+        if (interceptable == null || interceptable.invokeLI(65548, null, context, i2) == null) {
+            M(context, context.getResources().getString(i2));
         }
-        return (byte[]) invokeLLII.objValue;
     }
 
-    public static String l(byte[] bArr, int i, int i2, int i3) throws IOException {
-        InterceptResult invokeLIII;
+    public static void M(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65548, null, bArr, i, i2, i3)) == null) {
-            byte[] m = m(bArr, i, i2, i3);
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            Q(context, str, PrintHelper.MAX_PRINT_SIZE);
+        }
+    }
+
+    public static void N(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, view2) == null) {
             try {
-                return new String(m, "US-ASCII");
-            } catch (UnsupportedEncodingException unused) {
-                return new String(m);
+                ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view2, 0);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
         }
-        return (String) invokeLIII.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0066 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0086 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x005d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:83:0x003d */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v1, types: [int] */
-    /* JADX WARN: Type inference failed for: r3v10 */
-    /* JADX WARN: Type inference failed for: r3v11 */
-    /* JADX WARN: Type inference failed for: r3v12, types: [java.io.ByteArrayInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3 */
-    /* JADX WARN: Type inference failed for: r3v4 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v7, types: [java.io.ByteArrayInputStream] */
-    /* JADX WARN: Type inference failed for: r3v8 */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:63:0x005d -> B:81:0x005d). Please submit an issue!!! */
-    public static byte[] e(String str, int i) throws IOException {
-        GZIPInputStream gZIPInputStream;
-        byte[] bytes;
-        boolean z;
-        ?? length;
+    public static void O(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            gZIPInputStream = null;
-            InterceptResult invokeLI = interceptable.invokeLI(65541, null, str, i);
-            if (invokeLI != null) {
-                return (byte[]) invokeLI.objValue;
-            }
+        if (interceptable == null || interceptable.invokeLI(65551, null, context, i2) == null) {
+            P(context, context.getResources().getString(i2));
         }
-        if (str != null) {
-            try {
-                bytes = str.getBytes("US-ASCII");
-            } catch (UnsupportedEncodingException unused) {
-                bytes = str.getBytes();
+    }
+
+    public static void P(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) {
+            Q(context, str, 2000);
+        }
+    }
+
+    public static int d(Context context, float f2) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65558, null, context, f2)) == null) {
+            if (!a) {
+                A(context);
             }
-            byte[] f2 = f(bytes, 0, bytes.length, i);
-            if ((i & 4) != 0) {
-                z = true;
-            } else {
-                z = false;
+            return (int) ((f2 * b) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
+
+    public static int e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, context, str)) == null) {
+            if (context != null && context.getResources() != null && !TextUtils.isEmpty(str)) {
+                return context.getResources().getIdentifier(str, "color", context.getPackageName());
             }
-            if (f2 != null && (length = f2.length) >= 4 && !z && 35615 == ((f2[0] & 255) | ((f2[1] << 8) & 65280))) {
-                byte[] bArr = new byte[2048];
-                ByteArrayOutputStream byteArrayOutputStream = null;
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static Field f(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, obj, str)) == null) {
+            for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
                 try {
-                    try {
-                        ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                        try {
-                            length = new ByteArrayInputStream(f2);
-                            try {
-                                gZIPInputStream = new GZIPInputStream(length);
-                                while (true) {
-                                    try {
-                                        int read = gZIPInputStream.read(bArr);
-                                        if (read < 0) {
-                                            break;
-                                        }
-                                        byteArrayOutputStream2.write(bArr, 0, read);
-                                    } catch (IOException e2) {
-                                        e = e2;
-                                        byteArrayOutputStream = byteArrayOutputStream2;
-                                        length = length;
-                                        try {
-                                            e.printStackTrace();
-                                            byteArrayOutputStream.close();
-                                            gZIPInputStream.close();
-                                            length.close();
-                                            return f2;
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception unused2) {
-                                            }
-                                            try {
-                                                gZIPInputStream.close();
-                                            } catch (Exception unused3) {
-                                            }
-                                            try {
-                                                length.close();
-                                            } catch (Exception unused4) {
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        byteArrayOutputStream = byteArrayOutputStream2;
-                                        byteArrayOutputStream.close();
-                                        gZIPInputStream.close();
-                                        length.close();
-                                        throw th;
-                                    }
-                                }
-                                f2 = byteArrayOutputStream2.toByteArray();
-                                byteArrayOutputStream2.close();
-                            } catch (IOException e3) {
-                                e = e3;
-                                gZIPInputStream = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                gZIPInputStream = null;
-                            }
-                        } catch (IOException e4) {
-                            e = e4;
-                            length = 0;
-                            gZIPInputStream = null;
-                        } catch (Throwable th4) {
-                            th = th4;
-                            length = 0;
-                            gZIPInputStream = null;
-                        }
-                    } catch (Exception unused5) {
-                    }
-                } catch (IOException e5) {
-                    e = e5;
-                    length = 0;
-                    gZIPInputStream = null;
-                } catch (Throwable th5) {
-                    th = th5;
-                    length = 0;
-                    gZIPInputStream = null;
-                }
-                try {
-                    gZIPInputStream.close();
-                } catch (Exception unused6) {
-                }
-                try {
-                    length.close();
-                } catch (Exception unused7) {
+                    Field declaredField = cls.getDeclaredField(str);
+                    declaredField.setAccessible(true);
+                    return declaredField;
+                } catch (Exception e2) {
+                    BdLog.e(e2);
                 }
             }
-            return f2;
+            return null;
         }
-        throw new NullPointerException("Input string was null.");
+        return (Field) invokeLL.objValue;
     }
 
-    public static byte[] f(byte[] bArr, int i, int i2, int i3) throws IOException {
-        InterceptResult invokeLIII;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, bArr, i, i2, i3)) == null) {
-            if (bArr != null) {
-                if (i >= 0 && (i4 = i + i2) <= bArr.length) {
-                    if (i2 == 0) {
-                        return new byte[0];
-                    }
-                    if (i2 >= 4) {
-                        byte[] o = o(i3);
-                        byte[] bArr2 = new byte[(i2 * 3) / 4];
-                        byte[] bArr3 = new byte[4];
-                        int i5 = 0;
-                        int i6 = 0;
-                        while (i < i4) {
-                            byte b2 = o[bArr[i] & 255];
-                            if (b2 >= -5) {
-                                if (b2 >= -1) {
-                                    int i7 = i5 + 1;
-                                    bArr3[i5] = bArr[i];
-                                    if (i7 > 3) {
-                                        i6 += g(bArr3, 0, bArr2, i6, i3);
-                                        if (bArr[i] == 61) {
-                                            break;
-                                        }
-                                        i5 = 0;
-                                    } else {
-                                        i5 = i7;
-                                    }
-                                }
-                                i++;
-                            } else {
-                                throw new IOException(String.format("Bad Base64 input character decimal %d in array position %d", Integer.valueOf(bArr[i] & 255), Integer.valueOf(i)));
-                            }
-                        }
-                        byte[] bArr4 = new byte[i6];
-                        System.arraycopy(bArr2, 0, bArr4, 0, i6);
-                        return bArr4;
-                    }
-                    throw new IllegalArgumentException("Base64-encoded string must have at least four characters, but length specified was " + i2);
-                }
-                throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and process %d bytes.", Integer.valueOf(bArr.length), Integer.valueOf(i), Integer.valueOf(i2)));
-            }
-            throw new NullPointerException("Cannot decode null source array.");
-        }
-        return (byte[]) invokeLIII.objValue;
-    }
-
-    public static int g(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
-        InterceptResult invokeCommon;
-        int i4;
-        int i5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (bArr != null) {
-                if (bArr2 != null) {
-                    if (i >= 0 && (i4 = i + 3) < bArr.length) {
-                        if (i2 >= 0 && (i5 = i2 + 2) < bArr2.length) {
-                            byte[] o = o(i3);
-                            int i6 = i + 2;
-                            if (bArr[i6] == 61) {
-                                bArr2[i2] = (byte) ((((o[bArr[i + 1]] & 255) << 12) | ((o[bArr[i]] & 255) << 18)) >>> 16);
-                                return 1;
-                            } else if (bArr[i4] == 61) {
-                                int i7 = ((o[bArr[i6]] & 255) << 6) | ((o[bArr[i + 1]] & 255) << 12) | ((o[bArr[i]] & 255) << 18);
-                                bArr2[i2] = (byte) (i7 >>> 16);
-                                bArr2[i2 + 1] = (byte) (i7 >>> 8);
-                                return 2;
-                            } else {
-                                int i8 = (o[bArr[i4]] & 255) | ((o[bArr[i + 1]] & 255) << 12) | ((o[bArr[i]] & 255) << 18) | ((o[bArr[i6]] & 255) << 6);
-                                bArr2[i2] = (byte) (i8 >> 16);
-                                bArr2[i2 + 1] = (byte) (i8 >> 8);
-                                bArr2[i5] = (byte) i8;
-                                return 3;
-                            }
-                        }
-                        throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
-                    }
-                    throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and still process four bytes.", Integer.valueOf(bArr.length), Integer.valueOf(i)));
-                }
-                throw new NullPointerException("Destination array was null.");
-            }
-            throw new NullPointerException("Source array was null.");
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static byte[] h(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            byte[] n = n(i4);
-            int i7 = 0;
-            if (i2 > 0) {
-                i5 = (bArr[i] << 24) >>> 8;
-            } else {
-                i5 = 0;
-            }
-            if (i2 > 1) {
-                i6 = (bArr[i + 1] << 24) >>> 16;
-            } else {
-                i6 = 0;
-            }
-            int i8 = i5 | i6;
-            if (i2 > 2) {
-                i7 = (bArr[i + 2] << 24) >>> 24;
-            }
-            int i9 = i8 | i7;
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        return bArr2;
-                    }
-                    bArr2[i3] = n[i9 >>> 18];
-                    bArr2[i3 + 1] = n[(i9 >>> 12) & 63];
-                    bArr2[i3 + 2] = n[(i9 >>> 6) & 63];
-                    bArr2[i3 + 3] = n[i9 & 63];
-                    return bArr2;
-                }
-                bArr2[i3] = n[i9 >>> 18];
-                bArr2[i3 + 1] = n[(i9 >>> 12) & 63];
-                bArr2[i3 + 2] = n[(i9 >>> 6) & 63];
-                bArr2[i3 + 3] = BaseNCodec.PAD_DEFAULT;
-                return bArr2;
-            }
-            bArr2[i3] = n[i9 >>> 18];
-            bArr2[i3 + 1] = n[(i9 >>> 12) & 63];
-            bArr2[i3 + 2] = BaseNCodec.PAD_DEFAULT;
-            bArr2[i3 + 3] = BaseNCodec.PAD_DEFAULT;
-            return bArr2;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static String k(byte[] bArr, int i) throws IOException {
+    public static int g(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, bArr, i)) == null) {
-            return l(bArr, 0, bArr.length, i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, context, i2)) == null) {
+            return context.getResources().getDimensionPixelSize(i2);
         }
-        return (String) invokeLI.objValue;
+        return invokeLI.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0040 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0044 */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v16, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v17, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v18, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v19, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v20, resolved type: java.io.ByteArrayOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static byte[] m(byte[] bArr, int i, int i2, int i3) throws IOException {
-        InterceptResult invokeLIII;
-        boolean z;
-        int i4;
-        ByteArrayOutputStream byteArrayOutputStream;
-        a aVar;
-        GZIPOutputStream gZIPOutputStream;
+    public static int k(Context context, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65549, null, bArr, i, i2, i3)) == null) {
-            if (bArr != null) {
-                if (i >= 0) {
-                    if (i2 >= 0) {
-                        if (i + i2 <= bArr.length) {
-                            if ((i3 & 2) != 0) {
-                                GZIPOutputStream gZIPOutputStream2 = null;
-                                try {
-                                    byteArrayOutputStream = new ByteArrayOutputStream();
-                                    try {
-                                        aVar = new a(byteArrayOutputStream, i3 | 1);
-                                        try {
-                                            gZIPOutputStream = new GZIPOutputStream(aVar);
-                                            try {
-                                                gZIPOutputStream.write(bArr, i, i2);
-                                                gZIPOutputStream.close();
-                                                try {
-                                                    gZIPOutputStream.close();
-                                                } catch (Exception unused) {
-                                                }
-                                                try {
-                                                    aVar.close();
-                                                } catch (Exception unused2) {
-                                                }
-                                                try {
-                                                    byteArrayOutputStream.close();
-                                                } catch (Exception unused3) {
-                                                }
-                                                return byteArrayOutputStream.toByteArray();
-                                            } catch (IOException e2) {
-                                                e = e2;
-                                                gZIPOutputStream2 = byteArrayOutputStream;
-                                                try {
-                                                    throw e;
-                                                } catch (Throwable th) {
-                                                    th = th;
-                                                    byteArrayOutputStream = gZIPOutputStream2;
-                                                    gZIPOutputStream2 = gZIPOutputStream;
-                                                    try {
-                                                        gZIPOutputStream2.close();
-                                                    } catch (Exception unused4) {
-                                                    }
-                                                    try {
-                                                        aVar.close();
-                                                    } catch (Exception unused5) {
-                                                    }
-                                                    try {
-                                                        byteArrayOutputStream.close();
-                                                    } catch (Exception unused6) {
-                                                    }
-                                                    throw th;
-                                                }
-                                            } catch (Throwable th2) {
-                                                th = th2;
-                                                gZIPOutputStream2 = gZIPOutputStream;
-                                                gZIPOutputStream2.close();
-                                                aVar.close();
-                                                byteArrayOutputStream.close();
-                                                throw th;
-                                            }
-                                        } catch (IOException e3) {
-                                            e = e3;
-                                            gZIPOutputStream = null;
-                                        } catch (Throwable th3) {
-                                            th = th3;
-                                            gZIPOutputStream2.close();
-                                            aVar.close();
-                                            byteArrayOutputStream.close();
-                                            throw th;
-                                        }
-                                    } catch (IOException e4) {
-                                        e = e4;
-                                        aVar = null;
-                                        gZIPOutputStream = null;
-                                    } catch (Throwable th4) {
-                                        th = th4;
-                                        aVar = null;
-                                    }
-                                } catch (IOException e5) {
-                                    e = e5;
-                                    aVar = null;
-                                    gZIPOutputStream = null;
-                                } catch (Throwable th5) {
-                                    th = th5;
-                                    byteArrayOutputStream = 0;
-                                    aVar = null;
-                                }
-                            } else {
-                                if ((i3 & 8) != 0) {
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                int i5 = (i2 / 3) * 4;
-                                if (i2 % 3 > 0) {
-                                    i4 = 4;
-                                } else {
-                                    i4 = 0;
-                                }
-                                int i6 = i5 + i4;
-                                if (z) {
-                                    i6 += i6 / 76;
-                                }
-                                int i7 = i6;
-                                byte[] bArr2 = new byte[i7];
-                                int i8 = i2 - 2;
-                                int i9 = 0;
-                                int i10 = 0;
-                                int i11 = 0;
-                                while (i9 < i8) {
-                                    int i12 = i9;
-                                    h(bArr, i9 + i, 3, bArr2, i10, i3);
-                                    int i13 = i11 + 4;
-                                    if (z && i13 >= 76) {
-                                        bArr2[i10 + 4] = 10;
-                                        i10++;
-                                        i11 = 0;
-                                    } else {
-                                        i11 = i13;
-                                    }
-                                    i9 = i12 + 3;
-                                    i10 += 4;
-                                }
-                                int i14 = i9;
-                                if (i14 < i2) {
-                                    h(bArr, i14 + i, i2 - i14, bArr2, i10, i3);
-                                    i10 += 4;
-                                }
-                                int i15 = i10;
-                                if (i15 <= i7 - 1) {
-                                    byte[] bArr3 = new byte[i15];
-                                    System.arraycopy(bArr2, 0, bArr3, 0, i15);
-                                    return bArr3;
-                                }
-                                return bArr2;
-                            }
-                        } else {
-                            throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(bArr.length)));
-                        }
-                    } else {
-                        throw new IllegalArgumentException("Cannot have length offset: " + i2);
-                    }
-                } else {
-                    throw new IllegalArgumentException("Cannot have negative offset: " + i);
-                }
-            } else {
-                throw new NullPointerException("Cannot serialize a null array.");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65565, null, context, z)) == null) {
+            if (!a || z) {
+                A(context);
             }
-        } else {
-            return (byte[]) invokeLIII.objValue;
+            return d;
+        }
+        return invokeLZ.intValue;
+    }
+
+    public static int m(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65567, null, context, z)) == null) {
+            if (!a || z) {
+                A(context);
+            }
+            return c;
+        }
+        return invokeLZ.intValue;
+    }
+
+    public static void Q(Context context, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65553, null, context, str, i2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
+            h.removeCallbacks(i);
+            if (e != null && Build.VERSION.SDK_INT < 28) {
+                c cVar = f;
+                if (cVar != null) {
+                    cVar.createToastView();
+                }
+                if (!str.equals(g)) {
+                    c cVar2 = f;
+                    if (cVar2 != null && cVar2.getToastContentView() != null) {
+                        f.setToastString(str);
+                        e.setView(f.getToastContentView());
+                    } else {
+                        e.setText(str);
+                    }
+                }
+                int d2 = d(BdBaseApplication.getInst().getApp(), 100.0f);
+                if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
+                    d2 = 0;
+                }
+                if (i2 == 3500) {
+                    e.setDuration(1);
+                } else {
+                    e.setDuration(0);
+                }
+                e.setGravity(17, 0, d2);
+            } else {
+                Toast toast = e;
+                if (toast != null) {
+                    toast.cancel();
+                }
+                c cVar3 = f;
+                if (cVar3 != null) {
+                    cVar3.createToastView();
+                }
+                c cVar4 = f;
+                if (cVar4 != null && cVar4.getToastContentView() != null) {
+                    Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
+                    e = toast2;
+                    hj.a(toast2);
+                    if (i2 == 3500) {
+                        e.setDuration(1);
+                    } else {
+                        e.setDuration(0);
+                    }
+                    f.setToastString(str);
+                    e.setView(f.getToastContentView());
+                } else {
+                    if (i2 == 3500) {
+                        Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
+                        e = makeText;
+                        hj.a(makeText);
+                    } else {
+                        Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+                        e = makeText2;
+                        hj.a(makeText2);
+                    }
+                    e.setText(str);
+                }
+                e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
+            }
+            g = str;
+            h.postDelayed(i, i2);
+            e.show();
+        }
+    }
+
+    public static String R(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (str.indexOf("?") < 0) {
+                    str = str + "?";
+                } else if (!str.endsWith("?") && !str.endsWith("&")) {
+                    str = str + "&";
+                }
+                return str + str2;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(Context context, View view2, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65556, null, new Object[]{context, view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int d2 = d(context, i2);
+            int d3 = d(context, i3);
+            int d4 = d(context, i4);
+            int d5 = d(context, i5);
+            View view3 = (View) view2.getParent();
+            view3.post(new b(view2, d4, d2, d5, d3, view3));
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65557, null) == null) && BdBaseApplication.getInst().isDebugMode()) {
+            if (!E()) {
+                StringBuilder sb = new StringBuilder(100);
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                for (int i2 = 1; i2 < stackTrace.length; i2++) {
+                    sb.append(stackTrace[i2].getClassName());
+                    sb.append(".");
+                    sb.append(stackTrace[i2].getMethodName());
+                    sb.append("  lines = ");
+                    sb.append(stackTrace[i2].getLineNumber());
+                    sb.append("\n");
+                }
+                BdLog.e("can not be call not thread! trace = \n" + sb.toString());
+                throw new Error("can not be call not thread! trace = " + sb.toString());
+            }
+        }
+    }
+
+    public static double h(double d2, double d3, double d4, double d5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
+            double I = I(d2);
+            double I2 = I(d4);
+            return Math.round(((Math.asin(Math.sqrt(Math.pow(Math.sin((I - I2) / 2.0d), 2.0d) + ((Math.cos(I) * Math.cos(I2)) * Math.pow(Math.sin((I(d3) - I(d5)) / 2.0d), 2.0d)))) * 2.0d) * 6378.137d) * 10000.0d) / 10000.0d;
+        }
+        return invokeCommon.doubleValue;
+    }
+
+    public static int[] n(int i2, int i3, int i4, int i5) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65568, null, i2, i3, i4, i5)) == null) {
+            if (i2 > 0 && i3 > 0 && i4 > 0 && i5 > 0) {
+                int[] iArr = new int[2];
+                if (i3 > i5) {
+                    i2 = (i2 * i5) / i3;
+                    i3 = i5;
+                }
+                if (i2 > i4) {
+                    i3 = (i3 * i4) / i2;
+                } else {
+                    i4 = i2;
+                }
+                iArr[0] = i4;
+                iArr[1] = i3;
+                return iArr;
+            }
+            return null;
+        }
+        return (int[]) invokeIIII.objValue;
+    }
+
+    public static int u(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, activity)) == null) {
+            Rect rect = new Rect();
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+            int i2 = rect.top;
+            if (i2 == 0) {
+                try {
+                    Class<?> cls = Class.forName("com.android.internal.R$dimen");
+                    return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField(SapiSystemBarTintManager.SystemBarConfig.g).get(cls.newInstance()).toString()));
+                } catch (ClassNotFoundException e2) {
+                    e2.printStackTrace();
+                    return i2;
+                } catch (IllegalAccessException e3) {
+                    e3.printStackTrace();
+                    return i2;
+                } catch (IllegalArgumentException e4) {
+                    e4.printStackTrace();
+                    return i2;
+                } catch (InstantiationException e5) {
+                    e5.printStackTrace();
+                    return i2;
+                } catch (NoSuchFieldException e6) {
+                    e6.printStackTrace();
+                    return i2;
+                } catch (NumberFormatException e7) {
+                    e7.printStackTrace();
+                    return i2;
+                } catch (SecurityException e8) {
+                    e8.printStackTrace();
+                    return i2;
+                }
+            }
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String v(TextPaint textPaint, String str, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65576, null, textPaint, str, i2)) == null) {
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i2, TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString();
+            }
+            return null;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public static int w(Paint paint, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65577, null, paint, str)) == null) {
+            if (str == null || str.length() <= 0) {
+                return 0;
+            }
+            int length = str.length();
+            float[] fArr = new float[length];
+            paint.getTextWidths(str, fArr);
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                i2 += (int) Math.ceil(fArr[i3]);
+            }
+            return i2;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void z(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65580, null, context, view2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            if (view2.getWindowToken() == null) {
+                return;
+            }
+            ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 2);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

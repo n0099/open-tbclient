@@ -3,7 +3,6 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.animation.Animation;
-import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.j;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +18,7 @@ public class SingleScaleAnimation extends Animation {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ScaleType {
+    public static final class ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType SCALE_X;
         public static final ScaleType SCALE_Y;
@@ -67,18 +66,23 @@ public class SingleScaleAnimation extends Animation {
         public static ScaleType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (ScaleType) Enum.valueOf(ScaleType.class, str) : (ScaleType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (ScaleType) Enum.valueOf(ScaleType.class, str);
+            }
+            return (ScaleType) invokeL.objValue;
         }
 
         public static ScaleType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) a.clone() : (ScaleType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (ScaleType[]) a.clone();
+            }
+            return (ScaleType[]) invokeV.objValue;
         }
     }
 
     public SingleScaleAnimation(ScaleType scaleType, float... fArr) {
-        j jVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,17 +97,18 @@ public class SingleScaleAnimation extends Animation {
                 return;
             }
         }
-        if (fArr == null || fArr.length == 0) {
-            throw new NullPointerException("BDMapSDKException: the scales is null");
+        if (fArr != null && fArr.length != 0) {
+            if (scaleType == ScaleType.SCALE_X) {
+                this.bdAnimation = new j(1, fArr);
+                return;
+            } else if (scaleType == ScaleType.SCALE_Y) {
+                this.bdAnimation = new j(2, fArr);
+                return;
+            } else {
+                return;
+            }
         }
-        if (scaleType == ScaleType.SCALE_X) {
-            jVar = new j(1, fArr);
-        } else if (scaleType != ScaleType.SCALE_Y) {
-            return;
-        } else {
-            jVar = new j(2, fArr);
-        }
-        this.bdAnimation = jVar;
+        throw new NullPointerException("BDMapSDKException: the scales is null");
     }
 
     @Override // com.baidu.mapapi.animation.Animation
@@ -146,20 +151,13 @@ public class SingleScaleAnimation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
-        c cVar;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, repeatMode) == null) {
             if (repeatMode == Animation.RepeatMode.RESTART) {
-                cVar = this.bdAnimation;
-                i = 1;
-            } else if (repeatMode != Animation.RepeatMode.REVERSE) {
-                return;
-            } else {
-                cVar = this.bdAnimation;
-                i = 2;
+                this.bdAnimation.a(1);
+            } else if (repeatMode == Animation.RepeatMode.REVERSE) {
+                this.bdAnimation.a(2);
             }
-            cVar.a(i);
         }
     }
 }

@@ -28,32 +28,32 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
+public final class FlowableFlatMapSingle<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayErrors;
-    public final Function mapper;
+    public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
     public final int maxConcurrency;
 
     /* loaded from: classes8.dex */
-    public final class FlatMapSingleSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class FlatMapSingleSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger active;
-        public final Subscriber actual;
+        public final Subscriber<? super R> actual;
         public volatile boolean cancelled;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
-        public final Function mapper;
+        public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
         public final int maxConcurrency;
-        public final AtomicReference queue;
+        public final AtomicReference<SpscLinkedArrayQueue<R>> queue;
         public final AtomicLong requested;
         public Subscription s;
         public final CompositeDisposable set;
 
         /* loaded from: classes8.dex */
-        public final class InnerObserver extends AtomicReference implements SingleObserver, Disposable {
+        public final class InnerObserver extends AtomicReference<Disposable> implements SingleObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -94,10 +94,10 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             }
 
             @Override // io.reactivex.SingleObserver
-            public void onSuccess(Object obj) {
+            public void onSuccess(R r) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                    this.this$0.innerSuccess(this, obj);
+                if (interceptable == null || interceptable.invokeL(1048580, this, r) == null) {
+                    this.this$0.innerSuccess(this, r);
                 }
             }
 
@@ -114,13 +114,13 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return DisposableHelper.isDisposed((Disposable) get());
+                    return DisposableHelper.isDisposed(get());
                 }
                 return invokeV.booleanValue;
             }
         }
 
-        public FlatMapSingleSubscriber(Subscriber subscriber, Function function, boolean z, int i) {
+        public FlatMapSingleSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             this.set = new CompositeDisposable();
             this.errors = new AtomicThrowable();
             this.active = new AtomicInteger(1);
-            this.queue = new AtomicReference();
+            this.queue = new AtomicReference<>();
         }
 
         @Override // org.reactivestreams.Subscription
@@ -157,9 +157,9 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
         }
 
         public void clear() {
-            SpscLinkedArrayQueue spscLinkedArrayQueue;
+            SpscLinkedArrayQueue<R> spscLinkedArrayQueue;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (spscLinkedArrayQueue = (SpscLinkedArrayQueue) this.queue.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (spscLinkedArrayQueue = this.queue.get()) != null) {
                 spscLinkedArrayQueue.clear();
             }
         }
@@ -171,17 +171,17 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             }
         }
 
-        public SpscLinkedArrayQueue getOrCreateQueue() {
-            SpscLinkedArrayQueue spscLinkedArrayQueue;
+        public SpscLinkedArrayQueue<R> getOrCreateQueue() {
+            SpscLinkedArrayQueue<R> spscLinkedArrayQueue;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 do {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue2 = (SpscLinkedArrayQueue) this.queue.get();
+                    SpscLinkedArrayQueue<R> spscLinkedArrayQueue2 = this.queue.get();
                     if (spscLinkedArrayQueue2 != null) {
                         return spscLinkedArrayQueue2;
                     }
-                    spscLinkedArrayQueue = new SpscLinkedArrayQueue(Flowable.bufferSize());
+                    spscLinkedArrayQueue = new SpscLinkedArrayQueue<>(Flowable.bufferSize());
                 } while (!this.queue.compareAndSet(null, spscLinkedArrayQueue));
                 return spscLinkedArrayQueue;
             }
@@ -213,7 +213,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             if (r17.delayErrors != false) goto L47;
          */
         /* JADX WARN: Code restructure failed: missing block: B:47:0x0091, code lost:
-            if (((java.lang.Throwable) r17.errors.get()) == null) goto L47;
+            if (r17.errors.get() == null) goto L47;
          */
         /* JADX WARN: Code restructure failed: missing block: B:48:0x0093, code lost:
             r2 = r17.errors.terminate();
@@ -233,7 +233,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             r6 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:54:0x00a9, code lost:
-            r7 = (io.reactivex.internal.queue.SpscLinkedArrayQueue) r3.get();
+            r7 = r3.get();
          */
         /* JADX WARN: Code restructure failed: missing block: B:55:0x00af, code lost:
             if (r7 == null) goto L63;
@@ -288,13 +288,13 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
         */
         public void drainLoop() {
             boolean z;
-            Object obj;
+            R r;
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Subscriber subscriber = this.actual;
+                Subscriber<? super R> subscriber = this.actual;
                 AtomicInteger atomicInteger = this.active;
-                AtomicReference atomicReference = this.queue;
+                AtomicReference<SpscLinkedArrayQueue<R>> atomicReference = this.queue;
                 int i = 1;
                 do {
                     long j = this.requested.get();
@@ -307,7 +307,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                         } else if (this.cancelled) {
                             clear();
                             return;
-                        } else if (!this.delayErrors && ((Throwable) this.errors.get()) != null) {
+                        } else if (!this.delayErrors && this.errors.get() != null) {
                             Throwable terminate = this.errors.terminate();
                             clear();
                             subscriber.onError(terminate);
@@ -318,13 +318,13 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                             } else {
                                 z = false;
                             }
-                            SpscLinkedArrayQueue spscLinkedArrayQueue = (SpscLinkedArrayQueue) atomicReference.get();
+                            SpscLinkedArrayQueue<R> spscLinkedArrayQueue = atomicReference.get();
                             if (spscLinkedArrayQueue != null) {
-                                obj = spscLinkedArrayQueue.poll();
+                                r = spscLinkedArrayQueue.poll();
                             } else {
-                                obj = null;
+                                r = (Object) null;
                             }
-                            if (obj == null) {
+                            if (r == null) {
                                 z2 = true;
                             } else {
                                 z2 = false;
@@ -341,7 +341,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                             } else if (z2) {
                                 break;
                             } else {
-                                subscriber.onNext(obj);
+                                subscriber.onNext(r);
                                 j2++;
                             }
                         }
@@ -350,7 +350,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void innerError(InnerObserver innerObserver, Throwable th) {
+        public void innerError(FlatMapSingleSubscriber<T, R>.InnerObserver innerObserver, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, innerObserver, th) == null) {
                 this.set.delete(innerObserver);
@@ -369,9 +369,9 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void innerSuccess(InnerObserver innerObserver, Object obj) {
+        public void innerSuccess(FlatMapSingleSubscriber<T, R>.InnerObserver innerObserver, R r) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, innerObserver, obj) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, innerObserver, r) == null) {
                 this.set.delete(innerObserver);
                 if (get() == 0) {
                     boolean z = false;
@@ -380,8 +380,8 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                             z = true;
                         }
                         if (this.requested.get() != 0) {
-                            this.actual.onNext(obj);
-                            SpscLinkedArrayQueue spscLinkedArrayQueue = (SpscLinkedArrayQueue) this.queue.get();
+                            this.actual.onNext(r);
+                            SpscLinkedArrayQueue<R> spscLinkedArrayQueue = this.queue.get();
                             if (z && (spscLinkedArrayQueue == null || spscLinkedArrayQueue.isEmpty())) {
                                 Throwable terminate = this.errors.terminate();
                                 if (terminate != null) {
@@ -397,9 +397,9 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                                 this.s.request(1L);
                             }
                         } else {
-                            SpscLinkedArrayQueue orCreateQueue = getOrCreateQueue();
+                            SpscLinkedArrayQueue<R> orCreateQueue = getOrCreateQueue();
                             synchronized (orCreateQueue) {
-                                orCreateQueue.offer(obj);
+                                orCreateQueue.offer(r);
                             }
                         }
                         if (decrementAndGet() == 0) {
@@ -408,9 +408,9 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
                         drainLoop();
                     }
                 }
-                SpscLinkedArrayQueue orCreateQueue2 = getOrCreateQueue();
+                SpscLinkedArrayQueue<R> orCreateQueue2 = getOrCreateQueue();
                 synchronized (orCreateQueue2) {
-                    orCreateQueue2.offer(obj);
+                    orCreateQueue2.offer(r);
                 }
                 this.active.decrementAndGet();
                 if (getAndIncrement() != 0) {
@@ -446,11 +446,11 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 try {
-                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(obj), "The mapper returned a null SingleSource");
+                    SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The mapper returned a null SingleSource");
                     this.active.getAndIncrement();
                     InnerObserver innerObserver = new InnerObserver(this);
                     if (!this.cancelled && this.set.add(innerObserver)) {
@@ -481,7 +481,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableFlatMapSingle(Flowable flowable, Function function, boolean z, int i) {
+    public FlowableFlatMapSingle(Flowable<T> flowable, Function<? super T, ? extends SingleSource<? extends R>> function, boolean z, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -504,7 +504,7 @@ public final class FlowableFlatMapSingle extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super R> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new FlatMapSingleSubscriber(subscriber, this.mapper, this.delayErrors, this.maxConcurrency));

@@ -1,5 +1,7 @@
 package androidx.arch.core.internal;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     public static /* synthetic */ Interceptable $ic;
@@ -22,8 +25,8 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     public Entry<K, V> mStart;
 
     /* loaded from: classes.dex */
-    public interface SupportRemove {
-        void supportRemove(Entry entry);
+    public interface SupportRemove<K, V> {
+        void supportRemove(@NonNull Entry<K, V> entry);
     }
 
     /* loaded from: classes.dex */
@@ -124,12 +127,14 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     public static class Entry<K, V> implements Map.Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
         public final K mKey;
         public Entry<K, V> mNext;
         public Entry<K, V> mPrevious;
+        @NonNull
         public final V mValue;
 
-        public Entry(K k, V v) {
+        public Entry(@NonNull K k, @NonNull V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -169,6 +174,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         @Override // java.util.Map.Entry
+        @NonNull
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -179,6 +185,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         @Override // java.util.Map.Entry
+        @NonNull
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -246,7 +253,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         @Override // androidx.arch.core.internal.SafeIterableMap.SupportRemove
-        public void supportRemove(Entry<K, V> entry) {
+        public void supportRemove(@NonNull Entry<K, V> entry) {
             Entry<K, V> entry2;
             boolean z;
             Interceptable interceptable = $ic;
@@ -378,7 +385,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         @Override // androidx.arch.core.internal.SafeIterableMap.SupportRemove
-        public void supportRemove(Entry<K, V> entry) {
+        public void supportRemove(@NonNull Entry<K, V> entry) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, entry) == null) {
                 if (this.mExpectedEnd == entry && entry == this.mNext) {
@@ -448,6 +455,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     @Override // java.lang.Iterable
+    @NonNull
     public Iterator<Map.Entry<K, V>> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -519,7 +527,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return invokeL.booleanValue;
     }
 
-    public V remove(K k) {
+    public V remove(@NonNull K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k)) == null) {
@@ -565,7 +573,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return (Entry) invokeL.objValue;
     }
 
-    public Entry<K, V> put(K k, V v) {
+    public Entry<K, V> put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) {
@@ -585,7 +593,7 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         return (Entry) invokeLL.objValue;
     }
 
-    public V putIfAbsent(K k, V v) {
+    public V putIfAbsent(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {

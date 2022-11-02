@@ -1,13 +1,17 @@
 package com.kwad.sdk.core.response.model;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.ab;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -8738827282880419389L;
     public String downloadFilePath;
@@ -17,37 +21,53 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
     public long soFarBytes;
     public long totalBytes;
     public String trace;
+    @NonNull
     public AdBaseInfo adBaseInfo = new AdBaseInfo();
+    @NonNull
     public AdvertiserInfo advertiserInfo = new AdvertiserInfo();
+    @NonNull
     public AdConversionInfo adConversionInfo = new AdConversionInfo();
+    @NonNull
     public AdMaterialInfo adMaterialInfo = new AdMaterialInfo();
-    public List adTrackInfoList = new ArrayList();
+    @NonNull
+    public List<AdTrackInfo> adTrackInfoList = new ArrayList();
+    @NonNull
     public DownloadSafeInfo downloadSafeInfo = new DownloadSafeInfo();
+    @NonNull
     public UnDownloadConf unDownloadConf = new UnDownloadConf();
     public int status = 0;
     public AdPreloadInfo adPreloadInfo = new AdPreloadInfo();
     public AdSplashInfo adSplashInfo = new AdSplashInfo();
+    @NonNull
     public AdStyleInfo adStyleInfo = new AdStyleInfo();
     public AdStyleInfo adStyleInfo2 = new AdStyleInfo();
+    @NonNull
     public AdAggregateInfo adAggregateInfo = new AdAggregateInfo();
+    @NonNull
     public AdRewardInfo adRewardInfo = new AdRewardInfo();
+    @NonNull
     public AdStyleConfInfo adStyleConfInfo = new AdStyleConfInfo();
+    @NonNull
     public FullScreenVideoInfo fullScreenVideoInfo = new FullScreenVideoInfo();
     public AdFeedInfo adFeedInfo = new AdFeedInfo();
+    @NonNull
     public AdInsertScreenInfo adInsertScreenInfo = new AdInsertScreenInfo();
+    @NonNull
     public AdProductInfo adProductInfo = new AdProductInfo();
     public AdMatrixInfo adMatrixInfo = new AdMatrixInfo();
 
-    /* loaded from: classes7.dex */
-    public class AdAggregateInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdAggregateInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 6627768757836702989L;
         public int aggregateAdType;
         public String hotTagUrl;
         public String upperTab;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdBaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdBaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1615884096720946547L;
         public String adActionBarColor;
         public String adActionDescription;
@@ -66,7 +86,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String appDownloadCountDesc;
         public String appIconUrl;
         public MaterialSize appImageSize;
-        public List appImageUrl;
+        public List<String> appImageUrl;
         public String appName;
         public String appPackageName;
         public int appScore;
@@ -84,6 +104,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int itemType;
         public String openAppLabel;
         public long packageSize;
+        @Nullable
         public String productName;
         public String sdkExtraData;
         public String showUrl;
@@ -97,8 +118,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public ABParams mABParams = new ABParams();
     }
 
-    /* loaded from: classes7.dex */
-    public class AdConversionInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdConversionInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -1623240707193173136L;
         public String appDownloadUrl;
         public boolean blockCallbackIfSpam;
@@ -115,15 +137,17 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int supportThirdDownload;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdFeedInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdFeedInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 9055595743118459339L;
         public int videoAutoPlayType;
         public int videoSoundType;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdInsertScreenInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdInsertScreenInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 5131603307173468926L;
         public int autoCloseTime;
         public int cycleAggregateDailyShowCount;
@@ -136,15 +160,18 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String retainWindowText;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdMaterialInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdMaterialInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 8841259738296866924L;
-        public List materialFeatureList = new ArrayList();
+        @NonNull
+        public List<MaterialFeature> materialFeatureList = new ArrayList();
         public int materialType;
         public boolean videoVoice;
 
-        /* loaded from: classes7.dex */
-        public class MaterialFeature extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+        @KsJson
+        /* loaded from: classes8.dex */
+        public static class MaterialFeature extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
             public static final long serialVersionUID = -1118440558210936255L;
             public String blurBackgroundUrl;
             public long commentCount;
@@ -164,7 +191,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
             public int width;
 
             @Override // com.kwad.sdk.core.response.kwai.a
-            public void afterParseJson(JSONObject jSONObject) {
+            public void afterParseJson(@Nullable JSONObject jSONObject) {
                 JSONObject optJSONObject;
                 super.afterParseJson(jSONObject);
                 if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("materialSize")) == null) {
@@ -192,15 +219,16 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class AdPreloadInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdPreloadInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -1208206464894428350L;
         public String preloadId;
         public String preloadTips;
         public int preloadType;
         public int validityPeriod;
 
-        public boolean equals(Object obj) {
+        public boolean equals(@Nullable Object obj) {
             return (obj instanceof AdPreloadInfo) && ((AdPreloadInfo) obj).preloadId.equals(this.preloadId);
         }
 
@@ -210,8 +238,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class AdRewardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdRewardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6571091401675622830L;
         public int rewardTime;
         public int showLandingPage;
@@ -220,8 +249,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public boolean recommendAggregateSwitch = false;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdSplashInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdSplashInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 6666286195277235837L;
         public int countdownShow;
         public int imageDisplaySecond;
@@ -238,8 +268,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int splashShowClickButtonSwitch = 1;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdStyleConfInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdStyleConfInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6571091401675622831L;
         public long closeDelaySeconds;
         public int fullScreenSkipShowTime;
@@ -248,15 +279,17 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int rewardSkipConfirmSwitch;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdTrackInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdTrackInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1185757456598461137L;
         public int type;
-        public List urls;
+        public List<String> urls;
     }
 
-    /* loaded from: classes7.dex */
-    public class AdvertiserInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class AdvertiserInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1779108296418044788L;
         public String adAuthorText;
         public String authorIconGuide;
@@ -270,8 +303,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String userName;
     }
 
-    /* loaded from: classes7.dex */
-    public class ComplianceInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class ComplianceInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -6420581965656630668L;
         public int actionBarType;
         public int describeBarType;
@@ -279,8 +313,9 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int titleBarTextSwitch;
     }
 
-    /* loaded from: classes7.dex */
-    public class DownloadSafeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class DownloadSafeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -1575212648797728242L;
         public String appPermissionInfoUrl;
         public String appPrivacyUrl;
@@ -295,15 +330,17 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public boolean webPageTipbarSwitch = false;
     }
 
-    /* loaded from: classes7.dex */
-    public class FullScreenVideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class FullScreenVideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -3671755605746105593L;
         public boolean fullScreenEndCardSwitch = false;
         public int showLandingPage;
     }
 
-    /* loaded from: classes7.dex */
-    public class H5Config extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class H5Config extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6055740830695990438L;
         public int apiAdTag;
         public int apiBreathLamp;
@@ -311,35 +348,40 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String tagTip;
     }
 
-    /* loaded from: classes7.dex */
-    public class MaterialSize extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class MaterialSize extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 4007237406277888273L;
         public int height;
         public int width;
     }
 
-    /* loaded from: classes7.dex */
-    public class PlayableStyleInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class PlayableStyleInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -5205269652522127614L;
         public int playableOrientation;
     }
 
-    /* loaded from: classes7.dex */
-    public class SmallAppJumpInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class SmallAppJumpInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 6640822363058234999L;
         public String mediaSmallAppId;
         public String originId;
         public String smallAppJumpUrl;
     }
 
-    /* loaded from: classes7.dex */
-    public class UnDownloadConf extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class UnDownloadConf extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 8376426919835310330L;
         public UnDownloadRegionConf unDownloadRegionConf;
     }
 
-    /* loaded from: classes7.dex */
-    public class UnDownloadRegionConf extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class UnDownloadRegionConf extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -1060670053459154853L;
         public int actionBarType;
         public int describeBarType;
@@ -347,7 +389,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         this.downloadId = ab.dI(this.adConversionInfo.appDownloadUrl);
     }

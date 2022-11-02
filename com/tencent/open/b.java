@@ -1,5 +1,6 @@
 package com.tencent.open;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
@@ -18,6 +19,7 @@ public abstract class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    @SuppressLint({"NewApi"})
     public final WebChromeClient b;
 
     public abstract void a(String str);

@@ -3,6 +3,8 @@ package androidx.fragment.app;
 import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.PagerAdapter;
@@ -27,6 +29,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     public boolean mExecutingFinishUpdate;
     public final FragmentManager mFragmentManager;
 
+    @NonNull
     public abstract Fragment getItem(int i);
 
     public long getItemId(int i) {
@@ -36,13 +39,14 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+    public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, parcelable, classLoader) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
+    @Nullable
     public Parcelable saveState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +58,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public FragmentPagerAdapter(FragmentManager fragmentManager) {
+    public FragmentPagerAdapter(@NonNull FragmentManager fragmentManager) {
         this(fragmentManager, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -75,7 +79,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void startUpdate(ViewGroup viewGroup) {
+    public void startUpdate(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, viewGroup) != null) || viewGroup.getId() != -1) {
             return;
@@ -83,7 +87,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         throw new IllegalStateException("ViewPager with adapter " + this + " requires a view id");
     }
 
-    public FragmentPagerAdapter(FragmentManager fragmentManager, int i) {
+    public FragmentPagerAdapter(@NonNull FragmentManager fragmentManager, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +118,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
             Fragment fragment = (Fragment) obj;
@@ -129,7 +133,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void finishUpdate(ViewGroup viewGroup) {
+    public void finishUpdate(@NonNull ViewGroup viewGroup) {
         FragmentTransaction fragmentTransaction;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && (fragmentTransaction = this.mCurTransaction) != null) {
@@ -146,7 +150,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
+    @NonNull
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
@@ -175,7 +180,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
+    public boolean isViewFromObject(@NonNull View view2, @NonNull Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) {
@@ -188,7 +193,7 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Fragment fragment;
         Fragment fragment2;
         Interceptable interceptable = $ic;

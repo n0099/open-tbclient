@@ -23,6 +23,7 @@ import com.facebook.common.file.FileTreeVisitor;
 import com.facebook.common.file.FileUtils;
 import com.facebook.common.internal.CountingOutputStream;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.Clock;
 import com.facebook.common.time.SystemClock;
 import java.io.File;
@@ -41,7 +42,7 @@ public class DefaultDiskStorage implements DiskStorage {
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
     public static final String DEFAULT_DISK_STORAGE_VERSION_PREFIX = "v2";
     public static final int SHARDING_BUCKET_COUNT = 100;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public static final String TEMP_FILE_EXTENSION = ".tmp";
     public static final long TEMP_FILE_LIFETIME_MS;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class DefaultDiskStorage implements DiskStorage {
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -78,7 +79,7 @@ public class DefaultDiskStorage implements DiskStorage {
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List result;
+        public final List<DiskStorage.Entry> result;
         public final /* synthetic */ DefaultDiskStorage this$0;
 
         @Override // com.facebook.common.file.FileTreeVisitor
@@ -118,7 +119,7 @@ public class DefaultDiskStorage implements DiskStorage {
             this(defaultDiskStorage);
         }
 
-        public List getEntries() {
+        public List<DiskStorage.Entry> getEntries() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -137,8 +138,9 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class EntryImpl implements DiskStorage.Entry {
+    public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String id;
@@ -221,13 +223,14 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     /* loaded from: classes7.dex */
-    public class FileInfo {
+    public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String resourceId;
+        @FileType
         public final String type;
 
-        public FileInfo(String str, String str2) {
+        public FileInfo(@FileType String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,7 +306,7 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     /* loaded from: classes7.dex */
-    public class IncompleteFileException extends IOException {
+    public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long actual;
@@ -332,11 +335,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String mResourceId;
+        @VisibleForTesting
         public final File mTemporaryFile;
         public final /* synthetic */ DefaultDiskStorage this$0;
 
@@ -676,6 +681,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return invokeL.longValue;
     }
 
+    @FileType
     @Nullable
     public static String getFileTypefromExtension(String str) {
         InterceptResult invokeL;
@@ -726,6 +732,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (File) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public File getContentFileFor(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -773,6 +780,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (String) invokeL.objValue;
     }
 
+    @VisibleForTesting
     public static String getVersionSubdirectoryName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -797,7 +805,7 @@ public class DefaultDiskStorage implements DiskStorage {
                     } catch (IOException e) {
                         e = e;
                         CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.OTHER;
-                        Class cls = TAG;
+                        Class<?> cls = TAG;
                         cacheErrorLogger.logError(cacheErrorCategory, cls, "failed to read folder to check if external: " + ((String) null), e);
                         return false;
                     }
@@ -830,7 +838,7 @@ public class DefaultDiskStorage implements DiskStorage {
                 } catch (FileUtils.CreateDirectoryException unused) {
                     CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
                     CacheErrorLogger.CacheErrorCategory cacheErrorCategory = CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR;
-                    Class cls = TAG;
+                    Class<?> cls = TAG;
                     cacheErrorLogger.logError(cacheErrorCategory, cls, "version directory could not be created: " + this.mVersionDirectory, null);
                 }
             }
@@ -850,8 +858,8 @@ public class DefaultDiskStorage implements DiskStorage {
                 if (!diskDumpInfo.typeCounts.containsKey(str)) {
                     diskDumpInfo.typeCounts.put(str, 0);
                 }
-                Map map = diskDumpInfo.typeCounts;
-                map.put(str, Integer.valueOf(((Integer) map.get(str)).intValue() + 1));
+                Map<String, Integer> map = diskDumpInfo.typeCounts;
+                map.put(str, Integer.valueOf(map.get(str).intValue() + 1));
                 diskDumpInfo.entries.add(dumpCacheEntry);
             }
             return diskDumpInfo;
@@ -885,7 +893,7 @@ public class DefaultDiskStorage implements DiskStorage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.cache.disk.DiskStorage
-    public List getEntries() throws IOException {
+    public List<DiskStorage.Entry> getEntries() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

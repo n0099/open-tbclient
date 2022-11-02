@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.p06;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.z16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public p06 g;
+    public z16 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -79,7 +79,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                     return;
                 }
                 if (this.a.g.k) {
-                    fj.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f084d);
+                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0854);
                     return;
                 }
                 CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(this.a.g.b, this.a.g.a, this.a.g.l, 3);
@@ -96,7 +96,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
                 MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 return;
             }
-            if (this.a.g.b == eh.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (this.a.g.b == wg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 z = true;
             } else {
                 z = false;
@@ -126,36 +126,36 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edb);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091612);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09170c);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090160);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09046b);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091651);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09174d);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090168);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090478);
         this.itemView.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904ae);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904bb);
         this.i = findViewById;
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(p06 p06Var) {
+    public void g(z16 z16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p06Var) == null) {
-            this.g = p06Var;
-            if (p06Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, z16Var) == null) {
+            this.g = z16Var;
+            if (z16Var == null) {
                 return;
             }
-            this.a.L(p06Var.c, 12, false);
-            this.b.setText(p06Var.d);
-            String valueOf = String.valueOf(p06Var.e);
+            this.a.K(z16Var.c, 12, false);
+            this.b.setText(z16Var.d);
+            String valueOf = String.valueOf(z16Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(p06Var.e));
+                valueOf = String.format("%04d", Long.valueOf(z16Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cf4), valueOf, Integer.valueOf(p06Var.f)), p06Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ea), StringHelper.numFormatOverWanWithNegative(p06Var.g), StringHelper.numFormatOverWanWithNegative(p06Var.h), StringHelper.numFormatOverWanWithNegative(p06Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0d0b), valueOf, Integer.valueOf(z16Var.f)), z16Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ea), StringHelper.numFormatOverWanWithNegative(z16Var.g), StringHelper.numFormatOverWanWithNegative(z16Var.h), StringHelper.numFormatOverWanWithNegative(z16Var.i)));
             i();
         }
     }

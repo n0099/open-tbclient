@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ b.a a;
+    public final /* synthetic */ b.d a;
 
-    public c(b.a aVar) {
+    public c(b.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,7 +26,7 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -34,7 +34,7 @@ public class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.a.a.k();
+                this.a.a.m();
             } catch (Exception unused) {
             }
         }

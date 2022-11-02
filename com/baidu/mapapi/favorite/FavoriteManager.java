@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
-import com.baidu.mapsdkplatform.comapi.map.i;
+import com.baidu.mapsdkplatform.comapi.map.j;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,35 +48,6 @@ public class FavoriteManager {
         return (FavoriteManager) invokeV.objValue;
     }
 
-    public int add(FavoritePoiInfo favoritePoiInfo) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, favoritePoiInfo)) == null) {
-            if (b == null) {
-                str = "you may have not call init method!";
-            } else if (favoritePoiInfo != null && favoritePoiInfo.c != null) {
-                String str2 = favoritePoiInfo.b;
-                if (str2 == null || str2.equals("")) {
-                    Log.e("baidumapsdk", "poiName can not be null or empty!");
-                    return -1;
-                }
-                FavSyncPoi a2 = a.a(favoritePoiInfo);
-                int a3 = b.a(a2.b, a2);
-                if (a3 == 1) {
-                    favoritePoiInfo.a = a2.a;
-                    favoritePoiInfo.g = Long.parseLong(a2.h);
-                }
-                return a3;
-            } else {
-                str = "object or pt can not be null!";
-            }
-            Log.e("baidumapsdk", str);
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
     public boolean clearAllFavPois() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,6 +60,54 @@ public class FavoriteManager {
             return aVar.c();
         }
         return invokeV.booleanValue;
+    }
+
+    public void destroy() {
+        com.baidu.mapsdkplatform.comapi.favrite.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (aVar = b) != null) {
+            aVar.b();
+            b = null;
+            BMapManager.destroy();
+            j.b();
+        }
+    }
+
+    public void init() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && b == null) {
+            j.a();
+            BMapManager.init();
+            b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
+        }
+    }
+
+    public int add(FavoritePoiInfo favoritePoiInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, favoritePoiInfo)) == null) {
+            if (b == null) {
+                Log.e("baidumapsdk", "you may have not call init method!");
+                return 0;
+            } else if (favoritePoiInfo != null && favoritePoiInfo.c != null) {
+                String str = favoritePoiInfo.b;
+                if (str != null && !str.equals("")) {
+                    FavSyncPoi a2 = a.a(favoritePoiInfo);
+                    int a3 = b.a(a2.b, a2);
+                    if (a3 == 1) {
+                        favoritePoiInfo.a = a2.a;
+                        favoritePoiInfo.g = Long.parseLong(a2.h);
+                    }
+                    return a3;
+                }
+                Log.e("baidumapsdk", "poiName can not be null or empty!");
+                return -1;
+            } else {
+                Log.e("baidumapsdk", "object or pt can not be null!");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 
     public boolean deleteFavPoi(String str) {
@@ -107,19 +126,7 @@ public class FavoriteManager {
         return invokeL.booleanValue;
     }
 
-    public void destroy() {
-        com.baidu.mapsdkplatform.comapi.favrite.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = b) == null) {
-            return;
-        }
-        aVar.b();
-        b = null;
-        BMapManager.destroy();
-        i.b();
-    }
-
-    public List getAllFavPois() {
+    public List<FavoritePoiInfo> getAllFavPois() {
         InterceptResult invokeV;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
@@ -169,37 +176,26 @@ public class FavoriteManager {
         return (FavoritePoiInfo) invokeL.objValue;
     }
 
-    public void init() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && b == null) {
-            i.a();
-            BMapManager.init();
-            b = com.baidu.mapsdkplatform.comapi.favrite.a.a();
-        }
-    }
-
     public boolean updateFavPoi(String str, FavoritePoiInfo favoritePoiInfo) {
         InterceptResult invokeLL;
-        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, favoritePoiInfo)) == null) {
             if (b == null) {
-                str2 = "you may have not call init method!";
-            } else if (str == null || str.equals("") || favoritePoiInfo == null) {
+                Log.e("baidumapsdk", "you may have not call init method!");
                 return false;
-            } else {
-                if (favoritePoiInfo == null || favoritePoiInfo.c == null) {
-                    str2 = "object or pt can not be null!";
-                } else {
-                    String str3 = favoritePoiInfo.b;
-                    if (str3 != null && !str3.equals("")) {
+            }
+            if (str != null && !str.equals("") && favoritePoiInfo != null) {
+                if (favoritePoiInfo != null && favoritePoiInfo.c != null) {
+                    String str2 = favoritePoiInfo.b;
+                    if (str2 != null && !str2.equals("")) {
                         favoritePoiInfo.a = str;
                         return b.b(str, a.a(favoritePoiInfo));
                     }
-                    str2 = "poiName can not be null or empty!";
+                    Log.e("baidumapsdk", "poiName can not be null or empty!");
+                    return false;
                 }
+                Log.e("baidumapsdk", "object or pt can not be null!");
             }
-            Log.e("baidumapsdk", str2);
             return false;
         }
         return invokeLL.booleanValue;

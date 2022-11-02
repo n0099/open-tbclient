@@ -17,7 +17,7 @@ public final class b extends com.kwad.sdk.core.network.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b(String str, List list) {
+    public b(String str, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

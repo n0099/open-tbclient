@@ -24,7 +24,7 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_SELECTED = 11;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map mUploadHandlers;
+    public Map<Activity, BdUploadHandler> mUploadHandlers;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdUploadFeature(Context context) {
@@ -69,11 +69,11 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            Map map = this.mUploadHandlers;
+            Map<Activity, BdUploadHandler> map = this.mUploadHandlers;
             if (map == null || map.size() <= 0) {
                 return null;
             }
-            return (BdUploadHandler) this.mUploadHandlers.get(activity);
+            return this.mUploadHandlers.get(activity);
         }
         return (BdUploadHandler) invokeL.objValue;
     }
@@ -94,10 +94,10 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     }
 
     public void onDestroy(Activity activity) {
-        Map map;
+        Map<Activity, BdUploadHandler> map;
         BdUploadHandler bdUploadHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || activity == null || (map = this.mUploadHandlers) == null || map.size() <= 0 || (bdUploadHandler = (BdUploadHandler) this.mUploadHandlers.get(activity)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || activity == null || (map = this.mUploadHandlers) == null || map.size() <= 0 || (bdUploadHandler = this.mUploadHandlers.get(activity)) == null) {
             return;
         }
         this.mUploadHandlers.remove(activity);
@@ -108,7 +108,7 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     }
 
     @Override // com.baidu.browser.sailor.feature.upload.IUploadFile
-    public void onOpenFileChooser(Activity activity, ValueCallback valueCallback) {
+    public void onOpenFileChooser(Activity activity, ValueCallback<Uri> valueCallback) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, valueCallback) == null) || activity == null) {
             return;
@@ -117,7 +117,7 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     }
 
     @Override // com.baidu.browser.sailor.feature.upload.IUploadFile
-    public void onOpenFileChooser(Activity activity, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public void onOpenFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, activity, valueCallback, fileChooserParams) == null) || activity == null) {
             return;
@@ -156,9 +156,9 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
         }
     }
 
-    public boolean openFileChooser(Activity activity, ValueCallback valueCallback) {
+    public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback) {
         InterceptResult invokeLL;
-        Map map;
+        Map<Activity, BdUploadHandler> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, activity, valueCallback)) == null) {
             boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, "") : false;
@@ -177,10 +177,10 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean openFileChooser(Activity activity, ValueCallback valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+    public boolean openFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         InterceptResult invokeLLL;
         boolean z;
-        Map map;
+        Map<Activity, BdUploadHandler> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, activity, valueCallback, fileChooserParams)) == null) {
             if (activity != null) {
@@ -204,9 +204,9 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
         return invokeLLL.booleanValue;
     }
 
-    public boolean openFileChooser(Activity activity, ValueCallback valueCallback, String str) {
+    public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str) {
         InterceptResult invokeLLL;
-        Map map;
+        Map<Activity, BdUploadHandler> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, activity, valueCallback, str)) == null) {
             boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, str) : false;
@@ -221,9 +221,9 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
         return invokeLLL.booleanValue;
     }
 
-    public boolean openFileChooser(Activity activity, ValueCallback valueCallback, String str, String str2) {
+    public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str, String str2) {
         InterceptResult invokeLLLL;
-        Map map;
+        Map<Activity, BdUploadHandler> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, activity, valueCallback, str, str2)) == null) {
             boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, str, str2) : false;

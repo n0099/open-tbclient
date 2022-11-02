@@ -12,8 +12,8 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
-public final class QuotaSaver$shouldSuspendAnything$2 extends Lambda implements Function0 {
+/* loaded from: classes3.dex */
+public final class QuotaSaver$shouldSuspendAnything$2 extends Lambda implements Function0<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$shouldSuspendAnything$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,20 +52,24 @@ public final class QuotaSaver$shouldSuspendAnything$2 extends Lambda implements 
         }
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function0
-    public /* bridge */ /* synthetic */ Object invoke() {
-        return Boolean.valueOf(invoke());
+    public /* bridge */ /* synthetic */ Boolean invoke() {
+        return Boolean.valueOf(invoke2());
     }
 
+    /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.functions.Function0
-    public final boolean invoke() {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Boolean invoke2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!QuotaSaver.l.f() && !QuotaSaver.l.j() && !QuotaSaver.l.k() && !QuotaSaver.l.h() && !QuotaSaver.l.i()) {
-                return false;
+                return null;
             }
-            return true;
+            return 1;
         }
         return invokeV.booleanValue;
     }

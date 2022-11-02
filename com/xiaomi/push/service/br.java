@@ -12,7 +12,7 @@ public class br {
 
     public static hw a(hw hwVar) {
         InterceptResult invokeL;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hwVar)) == null) {
             if (hwVar != null && (map = hwVar.f545b) != null) {

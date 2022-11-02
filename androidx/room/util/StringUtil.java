@@ -1,6 +1,8 @@
 package androidx.room.util;
 
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.room.Room;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,6 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -70,7 +73,8 @@ public class StringUtil {
         }
     }
 
-    public static String joinIntoString(List<Integer> list) {
+    @Nullable
+    public static String joinIntoString(@Nullable List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -93,7 +97,8 @@ public class StringUtil {
         return (String) invokeL.objValue;
     }
 
-    public static List<Integer> splitToIntList(String str) {
+    @Nullable
+    public static List<Integer> splitToIntList(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.msg.BIMRtcNotifyMsg;
@@ -42,7 +43,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.tieba.c80;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,13 +71,13 @@ public class BIMRtcManager {
     public static int BIM_RTC_CALL_TIMEOUT_INTERNAL = 35000;
     public static volatile AtomicInteger RTC_HEART_BEAT_FAILED_COUNT = null;
     public static final String TAG = "BIMRtcManager";
-    public static volatile Map mActionSyncSeqIdMap;
+    public static volatile Map<String, Integer> mActionSyncSeqIdMap;
     public static volatile BIMRtcEvent mBIMRtcEvent;
     public static Timer mCallTimeoutTimer;
     public static Context mContext;
     public static volatile BIMRtcManager mInstance;
-    public static List mRtcListeners;
-    public static volatile Map msgList;
+    public static List<BIMRtcListener> mRtcListeners;
+    public static volatile Map<Long, BIMRtcSendMsg> msgList;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable heartBeatRunnable;
     public Handler mRtcHandler;
@@ -218,7 +219,7 @@ public class BIMRtcManager {
         handlerThread.start();
         this.mRtcHandler = new Handler(handlerThread.getLooper());
         mActionSyncSeqIdMap.clear();
-        Class[] clsArr = {BIMRtcSendMsg.class};
+        Class<?>[] clsArr = {BIMRtcSendMsg.class};
         int[] iArr = {230};
         for (int i3 = 0; i3 < 1; i3++) {
             MessageFactory.getInstance().addType(iArr[i3], clsArr[i3]);
@@ -236,7 +237,7 @@ public class BIMRtcManager {
         }
     }
 
-    public static BIMRtcManager getInstance(Context context) {
+    public static BIMRtcManager getInstance(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
@@ -260,7 +261,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void registerRtcListener(BIMRtcListener bIMRtcListener) {
+    public void registerRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bIMRtcListener) == null) {
             if (!mRtcListeners.contains(bIMRtcListener)) {
@@ -274,7 +275,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void unRegisterRtcListener(BIMRtcListener bIMRtcListener) {
+    public void unRegisterRtcListener(@NonNull BIMRtcListener bIMRtcListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bIMRtcListener) == null) {
             mRtcListeners.remove(bIMRtcListener);
@@ -306,42 +307,42 @@ public class BIMRtcManager {
         }
     }
 
-    private void kickoffResponse(BIMKickResponseRtcInfo bIMKickResponseRtcInfo, IStatusListener iStatusListener) {
+    private void kickoffResponse(@NonNull BIMKickResponseRtcInfo bIMKickResponseRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, this, bIMKickResponseRtcInfo, iStatusListener) == null) {
             rtcSendEvent(bIMKickResponseRtcInfo, 106, iStatusListener);
         }
     }
 
-    public void answer(BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
+    public void answer(@NonNull BIMAnswerRtcInfo bIMAnswerRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bIMAnswerRtcInfo, iStatusListener) == null) {
             rtcSendEvent(bIMAnswerRtcInfo, 84, iStatusListener);
         }
     }
 
-    public void cancelCall(BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
+    public void cancelCall(@NonNull BIMCancelRtcInfo bIMCancelRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bIMCancelRtcInfo, iStatusListener) == null) {
             rtcSendEvent(bIMCancelRtcInfo, 94, iStatusListener);
         }
     }
 
-    public void clientReport(BIMClientReportInfo bIMClientReportInfo, IStatusListener iStatusListener) {
+    public void clientReport(@NonNull BIMClientReportInfo bIMClientReportInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bIMClientReportInfo, iStatusListener) == null) {
             rtcSendEvent(bIMClientReportInfo, 110, iStatusListener);
         }
     }
 
-    public void closeRoom(BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
+    public void closeRoom(@NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bIMCloseRoomRtcInfo, iStatusListener) == null) {
             rtcSendEvent(bIMCloseRoomRtcInfo, 88, iStatusListener);
         }
     }
 
-    public void createRoom(String str, BIMRtcTokenListener bIMRtcTokenListener) {
+    public void createRoom(String str, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, bIMRtcTokenListener) == null) {
             trackRequest("room/create", "c_client_request", -1, "");
@@ -507,7 +508,7 @@ public class BIMRtcManager {
         return invokeL.booleanValue;
     }
 
-    public static void notifyEvent(BIMRtcInfo bIMRtcInfo, BIMRtcListener bIMRtcListener) {
+    public static void notifyEvent(@NonNull BIMRtcInfo bIMRtcInfo, @NonNull BIMRtcListener bIMRtcListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, bIMRtcInfo, bIMRtcListener) == null) {
             LogUtils.e(TAG, "notifyEvent info :" + bIMRtcInfo.getAction());
@@ -597,7 +598,7 @@ public class BIMRtcManager {
         }
     }
 
-    public static void notifyParse(JSONObject jSONObject) {
+    public static void notifyParse(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, jSONObject) == null) {
             trackRequest(null, 231, -1, "c_get_sync info begin", -1, jSONObject.toString());
@@ -636,14 +637,14 @@ public class BIMRtcManager {
                     LogUtils.d(TAG, "<100 put, " + str2);
                     return;
                 }
-                Iterator it = mActionSyncSeqIdMap.entrySet().iterator();
+                Iterator<Map.Entry<String, Integer>> it = mActionSyncSeqIdMap.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    if (((Integer) entry.getValue()).intValue() == parseJson.getAction() && mActionSyncSeqIdMap.containsKey(entry.getKey())) {
-                        mActionSyncSeqIdMap.remove(entry.getKey());
+                    Map.Entry<String, Integer> next = it.next();
+                    if (next.getValue().intValue() == parseJson.getAction() && mActionSyncSeqIdMap.containsKey(next.getKey())) {
+                        mActionSyncSeqIdMap.remove(next.getKey());
                         break;
                     }
                 }
@@ -678,7 +679,7 @@ public class BIMRtcManager {
         }
     }
 
-    private void rtcSendEvent(BIMRtcInfo bIMRtcInfo, int i, IStatusListener iStatusListener) {
+    private void rtcSendEvent(@NonNull BIMRtcInfo bIMRtcInfo, int i, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65556, this, bIMRtcInfo, i, iStatusListener) == null) {
             LogUtils.d(TAG, "rtcSendEvent action :" + i);
@@ -701,7 +702,7 @@ public class BIMRtcManager {
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
                 creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-                c80.g(mContext).f(mContext, creatMethodIntent);
+                b80.g(mContext).f(mContext, creatMethodIntent);
                 trackRequest(bIMRtcInfo, 230, i, "c_send_request", -1);
                 mBIMRtcEvent.sdkAction = i;
                 mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();
@@ -792,7 +793,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void checkAnswerAbility(String str, String str2, BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
+    public void checkAnswerAbility(String str, String str2, @NonNull BIMRtcAnswerAbilityListener bIMRtcAnswerAbilityListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bIMRtcAnswerAbilityListener) == null) {
             BIMRtcAnswerAbilityRequest bIMRtcAnswerAbilityRequest = new BIMRtcAnswerAbilityRequest(mContext, str, str2, bIMRtcAnswerAbilityListener);
@@ -800,7 +801,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void createRoom(String str, String str2, BIMRtcTokenListener bIMRtcTokenListener) {
+    public void createRoom(String str, String str2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, bIMRtcTokenListener) == null) {
             trackRequest("room/create", "c_client_request", -1, "");
@@ -811,7 +812,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void generateToken(String str, String str2, long j, BIMRtcTokenListener bIMRtcTokenListener) {
+    public void generateToken(String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
             trackRequest("room/get_rtc_token", "c_client_request", -1, "");
@@ -827,7 +828,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void invite(BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
+    public void invite(@NonNull BIMInviteRtcInfo bIMInviteRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, bIMInviteRtcInfo, iStatusListener) == null) {
             Timer timer = mCallTimeoutTimer;
@@ -884,7 +885,7 @@ public class BIMRtcManager {
         }
     }
 
-    public void kickoff(BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
+    public void kickoff(@NonNull BIMKickRequestRtcInfo bIMKickRequestRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, bIMKickRequestRtcInfo, iStatusListener) == null) {
             BIMUser bIMUser = new BIMUser();

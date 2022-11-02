@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class p20 extends o20 {
+public final class p20 {
     public static /* synthetic */ Interceptable $ic;
+    public static p20 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.36" : (String) invokeV.objValue;
+    }
 
     public p20() {
         Interceptable interceptable = $ic;
@@ -28,51 +35,47 @@ public class p20 extends o20 {
         }
     }
 
-    public m20 d() {
+    public static p20 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new n20();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (p20.class) {
+                    if (a == null) {
+                        a = new p20();
+                    }
+                }
+            }
+            return a;
         }
-        return (m20) invokeV.objValue;
+        return (p20) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o20
-    public String a(String str) {
-        InterceptResult invokeL;
+    public void c(Context context, q20<h50> q20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c = c();
-            if (!new File(c).exists()) {
-                return null;
-            }
-            return d().a(c + File.separator + str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o20
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            String c = c();
-            File file = new File(c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            d().b(c + File.separator + str, str2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, q20Var) == null) {
+            d(context, q20Var, Looper.getMainLooper());
         }
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void e(Context context, q20<List<i50>> q20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (AppConfig.isDebug() && g9.b() && g9.c()) {
-                return g9.a().getAbsolutePath();
-            }
-            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "abjson";
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, q20Var) == null) {
+            f(context, q20Var, Looper.getMainLooper());
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void d(Context context, q20<h50> q20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, q20Var, looper) == null) {
+            o20.f(context).l(q20Var, looper);
+        }
+    }
+
+    public void f(Context context, q20<List<i50>> q20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, q20Var, looper) == null) {
+            o20.f(context).p(q20Var, looper);
+        }
     }
 }

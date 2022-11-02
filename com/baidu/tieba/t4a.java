@@ -1,76 +1,233 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import java.util.Map;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes5.dex */
-public class t4a implements u3a {
+/* loaded from: classes6.dex */
+public class t4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
-    public d5a d;
+    public Activity a;
+    public Window b;
+    public View c;
+    public View d;
+    public View e;
+    public q4a f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public ViewTreeObserver.OnGlobalLayoutListener p;
 
-    public t4a(int i, int i2, PayUIKitConfig payUIKitConfig, d5a d5aVar) {
+    /* loaded from: classes6.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t4a a;
+
+        public a(t4a t4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t4aVar;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i;
+            int i2;
+            int i3;
+            int height;
+            int i4;
+            int i5;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
+                return;
+            }
+            Rect rect = new Rect();
+            this.a.c.getWindowVisibleDisplayFrame(rect);
+            boolean z = true;
+            if (this.a.f.x) {
+                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
+                if (this.a.f.z != null) {
+                    if (height2 <= this.a.n) {
+                        z = false;
+                    }
+                    this.a.f.z.a(z, height2);
+                }
+            } else if (this.a.e != null) {
+                if (this.a.f.s) {
+                    height = this.a.d.getHeight() + this.a.l + this.a.m;
+                    i4 = rect.bottom;
+                } else if (this.a.f.n) {
+                    height = this.a.d.getHeight() + this.a.l;
+                    i4 = rect.bottom;
+                } else {
+                    height = this.a.d.getHeight();
+                    i4 = rect.bottom;
+                }
+                int i6 = height - i4;
+                if (this.a.f.e) {
+                    i5 = i6 - this.a.n;
+                } else {
+                    i5 = i6;
+                }
+                if (this.a.f.e && i6 == this.a.n) {
+                    i6 -= this.a.n;
+                }
+                if (i5 != this.a.k) {
+                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
+                    this.a.k = i5;
+                    if (this.a.f.z != null) {
+                        if (i5 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, i5);
+                    }
+                }
+            } else {
+                int height3 = this.a.d.getHeight() - rect.bottom;
+                if (this.a.f.v && this.a.f.w) {
+                    if (Build.VERSION.SDK_INT == 19 || u4a.i()) {
+                        i2 = this.a.n;
+                    } else if (this.a.f.e) {
+                        i2 = this.a.n;
+                    } else {
+                        i3 = height3;
+                        if (this.a.f.e && height3 == this.a.n) {
+                            height3 -= this.a.n;
+                        }
+                        int i7 = height3;
+                        height3 = i3;
+                        i = i7;
+                    }
+                    i3 = height3 - i2;
+                    if (this.a.f.e) {
+                        height3 -= this.a.n;
+                    }
+                    int i72 = height3;
+                    height3 = i3;
+                    i = i72;
+                } else {
+                    i = height3;
+                }
+                if (height3 != this.a.k) {
+                    if (this.a.f.s) {
+                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
+                    } else if (this.a.f.n) {
+                        this.a.d.setPadding(0, this.a.l, 0, i);
+                    } else {
+                        this.a.d.setPadding(0, 0, 0, i);
+                    }
+                    this.a.k = height3;
+                    if (this.a.f.z != null) {
+                        if (height3 <= this.a.n) {
+                            z = false;
+                        }
+                        this.a.f.z.a(z, height3);
+                    }
+                }
+            }
+        }
+    }
+
+    public t4a(Activity activity, Window window) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, d5aVar};
+            Object[] objArr = {activity, window};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
-        this.d = d5aVar;
+        this.p = new a(this);
+        this.a = activity;
+        this.b = window;
+        View decorView = window.getDecorView();
+        this.c = decorView;
+        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
+        if (frameLayout == null) {
+            return;
+        }
+        View childAt = frameLayout.getChildAt(0);
+        this.e = childAt;
+        frameLayout = childAt != null ? childAt : frameLayout;
+        this.d = frameLayout;
+        this.g = frameLayout.getPaddingLeft();
+        this.h = this.d.getPaddingTop();
+        this.i = this.d.getPaddingRight();
+        this.j = this.d.getPaddingBottom();
+        p4a p4aVar = new p4a(this.a);
+        this.l = p4aVar.i();
+        this.n = p4aVar.d();
+        this.m = p4aVar.a();
+        this.o = p4aVar.l();
     }
 
-    @Override // com.baidu.tieba.u3a
-    public void a(Activity activity, PayFlowType payFlowType, h5a h5aVar, e5a e5aVar, AppCustomExpand appCustomExpand, Map map, IPayCallback iPayCallback, String str) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, h5aVar, e5aVar, appCustomExpand, map, iPayCallback, str}) == null) {
-            d5a d5aVar = this.d;
-            if (d5aVar == null) {
-                RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
-                return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                this.b.setSoftInputMode(i);
+                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
             }
-            w2a b = d5aVar.b(payFlowType, map);
-            b.r(iPayCallback);
-            b.p(activity);
-            b.u(e5aVar.a);
-            b.w(h5aVar.a);
-            b.q(appCustomExpand);
-            b.A(str);
-            b.v(payFlowType.getTypeId());
-            PayType payType = h5aVar.a;
-            if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY || payType == PayType.DXM_PAY_H5) {
-                b.x(g5a.b(this.c));
-            }
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.b);
-            if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
-                middleRevenue.getMiddlePayService().a(b);
-            } else {
-                RLog.error("PayCoreImpl", "requestPay error middleRevenue null", new Object[0]);
-            }
+            this.a = null;
         }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
+            this.b.setSoftInputMode(i);
+            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+        }
+    }
+
+    public void r(q4a q4aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q4aVar) == null) {
+            this.f = q4aVar;
+        }
+    }
+
+    public static t4a q(Activity activity, Window window) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
+            return new t4a(activity, window);
+        }
+        return (t4a) invokeLL.objValue;
     }
 }

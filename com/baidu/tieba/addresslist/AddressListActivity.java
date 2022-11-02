@@ -76,12 +76,12 @@ public class AddressListActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d007a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            setContentView(R.layout.obfuscated_res_0x7f0d007b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b71));
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090131, new AddressListFragment()).commit();
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b7d));
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090139, new AddressListFragment()).commit();
         }
     }
 }

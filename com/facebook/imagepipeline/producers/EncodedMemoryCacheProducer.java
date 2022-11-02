@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
+import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
@@ -15,26 +16,26 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class EncodedMemoryCacheProducer implements Producer {
+public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
     public static final String PRODUCER_NAME = "EncodedMemoryCacheProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
-    public final Producer mInputProducer;
-    public final MemoryCache mMemoryCache;
+    public final Producer<EncodedImage> mInputProducer;
+    public final MemoryCache<CacheKey, PooledByteBuffer> mMemoryCache;
 
     /* loaded from: classes7.dex */
-    public class EncodedMemoryCacheConsumer extends DelegatingConsumer {
+    public static class EncodedMemoryCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean mEncodedCacheEnabled;
         public final boolean mIsMemoryCacheEnabled;
-        public final MemoryCache mMemoryCache;
+        public final MemoryCache<CacheKey, PooledByteBuffer> mMemoryCache;
         public final CacheKey mRequestedCacheKey;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EncodedMemoryCacheConsumer(Consumer consumer, MemoryCache memoryCache, CacheKey cacheKey, boolean z, boolean z2) {
+        public EncodedMemoryCacheConsumer(Consumer<EncodedImage> consumer, MemoryCache<CacheKey, PooledByteBuffer> memoryCache, CacheKey cacheKey, boolean z, boolean z2) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -69,9 +70,9 @@ public class EncodedMemoryCacheProducer implements Producer {
                         FrescoSystrace.beginSection("EncodedMemoryCacheProducer#onNewResultImpl");
                     }
                     if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
-                        CloseableReference byteBufferRef = encodedImage.getByteBufferRef();
+                        CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
                         if (byteBufferRef != null) {
-                            CloseableReference closeableReference = null;
+                            CloseableReference<PooledByteBuffer> closeableReference = null;
                             if (this.mEncodedCacheEnabled && this.mIsMemoryCacheEnabled) {
                                 closeableReference = this.mMemoryCache.cache(this.mRequestedCacheKey, byteBufferRef);
                             }
@@ -109,7 +110,7 @@ public class EncodedMemoryCacheProducer implements Producer {
         }
     }
 
-    public EncodedMemoryCacheProducer(MemoryCache memoryCache, CacheKeyFactory cacheKeyFactory, Producer producer) {
+    public EncodedMemoryCacheProducer(MemoryCache<CacheKey, PooledByteBuffer> memoryCache, CacheKeyFactory cacheKeyFactory, Producer<EncodedImage> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,8 +132,8 @@ public class EncodedMemoryCacheProducer implements Producer {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
-        Map map;
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             try {
@@ -142,8 +143,8 @@ public class EncodedMemoryCacheProducer implements Producer {
                 ProducerListener2 producerListener = producerContext.getProducerListener();
                 producerListener.onProducerStart(producerContext, PRODUCER_NAME);
                 CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(producerContext.getImageRequest(), producerContext.getCallerContext());
-                CloseableReference closeableReference = this.mMemoryCache.get(encodedCacheKey);
-                Map map2 = null;
+                CloseableReference<PooledByteBuffer> closeableReference = this.mMemoryCache.get(encodedCacheKey);
+                Map<String, String> map2 = null;
                 if (closeableReference != null) {
                     EncodedImage encodedImage = new EncodedImage(closeableReference);
                     if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {

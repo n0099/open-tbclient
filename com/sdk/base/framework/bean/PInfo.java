@@ -14,7 +14,7 @@ public class PInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-    public ArrayList imei;
+    public ArrayList<String> imei;
     public String mac;
     public String n;
     public String os;
@@ -39,7 +39,7 @@ public class PInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public ArrayList getImei() {
+    public ArrayList<String> getImei() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.imei : (ArrayList) invokeV.objValue;
@@ -70,7 +70,7 @@ public class PInfo {
         }
     }
 
-    public void setImei(ArrayList arrayList) {
+    public void setImei(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
             this.imei = arrayList;

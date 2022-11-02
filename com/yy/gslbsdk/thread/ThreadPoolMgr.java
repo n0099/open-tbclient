@@ -26,7 +26,7 @@ public class ThreadPoolMgr {
     public transient /* synthetic */ FieldHolder $fh;
     public ITaskExecutor mExecutorSvc;
     public boolean mReleaseAble;
-    public HashMap mThreadName;
+    public HashMap<String, String> mThreadName;
 
     /* loaded from: classes8.dex */
     public interface ITaskExecutor {
@@ -59,7 +59,7 @@ public class ThreadPoolMgr {
     }
 
     /* loaded from: classes8.dex */
-    public class CustomThreadPoolExecutor implements ITaskExecutor {
+    public static class CustomThreadPoolExecutor implements ITaskExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ThreadPoolExecutor mExcutorSvc;
@@ -155,7 +155,7 @@ public class ThreadPoolMgr {
     }
 
     /* loaded from: classes8.dex */
-    public class DefaultThreadFactory implements ThreadFactory {
+    public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ThreadGroup group;
@@ -212,7 +212,7 @@ public class ThreadPoolMgr {
                 return;
             }
         }
-        this.mThreadName = new HashMap();
+        this.mThreadName = new HashMap<>();
     }
 
     public static ThreadPoolMgr getInstance() {

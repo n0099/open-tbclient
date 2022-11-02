@@ -3,8 +3,8 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.xo;
+import com.baidu.tieba.po;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements eo {
+public abstract class BaseCardInfo implements wn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,9 +22,9 @@ public abstract class BaseCardInfo implements eo {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public xo trigger;
+    public po trigger;
 
-    @Override // com.baidu.tieba.eo
+    @Override // com.baidu.tieba.wn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public abstract class BaseCardInfo implements eo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class SupportType {
+    public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SupportType BOTTOM;
@@ -135,13 +135,13 @@ public abstract class BaseCardInfo implements eo {
         this.mSupportType = SupportType.NONE;
     }
 
-    public xo getTrigger() {
+    public po getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.trigger;
         }
-        return (xo) invokeV.objValue;
+        return (po) invokeV.objValue;
     }
 
     public boolean isSupportBottom() {
@@ -223,10 +223,10 @@ public abstract class BaseCardInfo implements eo {
         }
     }
 
-    public void setTrigger(xo xoVar) {
+    public void setTrigger(po poVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xoVar) == null) {
-            this.trigger = xoVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, poVar) == null) {
+            this.trigger = poVar;
         }
     }
 }

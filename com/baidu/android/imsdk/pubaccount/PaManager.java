@@ -168,7 +168,7 @@ public class PaManager extends BaseManager {
         }
     }
 
-    public static void getPaInfos(Context context, ArrayList arrayList, IGetPaInfosListener iGetPaInfosListener) {
+    public static void getPaInfos(Context context, ArrayList<Long> arrayList, IGetPaInfosListener iGetPaInfosListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, context, arrayList, iGetPaInfosListener) == null) {
             if (BaseManager.isNullContext(context)) {
@@ -205,7 +205,7 @@ public class PaManager extends BaseManager {
         PaManagerImpl.getInstance(context);
     }
 
-    public static List querySubscribedPaListSync(Context context) {
+    public static List<PaInfo> querySubscribedPaListSync(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {

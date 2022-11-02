@@ -14,7 +14,7 @@ public abstract class ImageCropCallback {
     public abstract void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropResult imageCropResult);
 
     /* loaded from: classes2.dex */
-    public abstract class ImageCropResult {
+    public static abstract class ImageCropResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

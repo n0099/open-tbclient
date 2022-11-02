@@ -71,7 +71,7 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     WebView.WebPageInfoList getPageInfo();
 
-    List getPictureUrlListExt();
+    List<String> getPictureUrlListExt();
 
     String getSelectionTextExt();
 
@@ -112,7 +112,7 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5, boolean z);
 
-    void loadUrl(String str, Map map, boolean z);
+    void loadUrl(String str, Map<String, String> map, boolean z);
 
     void mediaPlayerStatusChangedExt(int i, float f, float f2);
 

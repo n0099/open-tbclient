@@ -1,9 +1,10 @@
 package com.baidu.tieba.themeCenter.bubble.list;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.lv8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,8 +24,8 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public boolean isDefault;
-    public List mDressItemList;
-    public cu8 mRecommand;
+    public List<DressItemData> mDressItemList;
+    public lv8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListSocketResponseMessage() {
@@ -47,6 +48,7 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         boolean z;
@@ -65,9 +67,9 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    cu8 cu8Var = new cu8();
-                    this.mRecommand = cu8Var;
-                    cu8Var.d(getBubbleListResIdl.data.recommend);
+                    lv8 lv8Var = new lv8();
+                    this.mRecommand = lv8Var;
+                    lv8Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -93,7 +95,7 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List getBubbleList() {
+    public List<DressItemData> getBubbleList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -102,13 +104,13 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public cu8 getRecommand() {
+    public lv8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (cu8) invokeV.objValue;
+        return (lv8) invokeV.objValue;
     }
 
     public boolean hasMore() {

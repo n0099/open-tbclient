@@ -4,26 +4,28 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.aa2;
-import com.baidu.tieba.e73;
-import com.baidu.tieba.ga2;
-import com.baidu.tieba.im2;
-import com.baidu.tieba.jo2;
-import com.baidu.tieba.kz2;
-import com.baidu.tieba.l33;
-import com.baidu.tieba.m33;
-import com.baidu.tieba.m72;
-import com.baidu.tieba.nd2;
-import com.baidu.tieba.rw2;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.x63;
-import com.baidu.tieba.zo2;
+import com.baidu.tieba.an2;
+import com.baidu.tieba.bp2;
+import com.baidu.tieba.c03;
+import com.baidu.tieba.d43;
+import com.baidu.tieba.e43;
+import com.baidu.tieba.e82;
+import com.baidu.tieba.fe2;
+import com.baidu.tieba.jx2;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.p73;
+import com.baidu.tieba.rp2;
+import com.baidu.tieba.sa2;
+import com.baidu.tieba.w73;
+import com.baidu.tieba.ya2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,11 +37,11 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean COMBINE_PREFETCH_ON = true;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PrefetchEvent> CREATOR;
     public static final String EVENT_DATA_DEBUG_PRELOAD = "masterPreload";
     public static final String EVENT_DATA_DEBUG_SCONSOLE = "devhook";
     public static final String EVENT_DATA_EXTRA_DATA = "extraData";
@@ -87,8 +89,8 @@ public class PrefetchEvent extends SwanAppIPCData {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<PrefetchEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -131,8 +133,8 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b {
+    /* loaded from: classes3.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PrefetchEvent a;
@@ -162,7 +164,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             return (PrefetchEvent) invokeV.objValue;
         }
 
-        public b a(String str) {
+        public b a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -172,7 +174,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             return (b) invokeL.objValue;
         }
 
-        public b c(String str) {
+        public b c(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -182,7 +184,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             return (b) invokeL.objValue;
         }
 
-        public b d(String str) {
+        public b d(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -203,13 +205,13 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c extends nd2 {
+    /* loaded from: classes3.dex */
+    public static class c extends fe2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Map map, String str) {
+        public c(@Nullable Map<String, String> map, String str) {
             super(str, map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -229,7 +231,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             }
         }
 
-        public Map t() {
+        public Map<String, String> t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -247,20 +249,21 @@ public class PrefetchEvent extends SwanAppIPCData {
             return invokeV.booleanValue;
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map map = this.c;
+                Map<String, String> map = this.c;
                 if (map != null && map.size() > 0) {
                     StringBuilder sb = new StringBuilder();
-                    Set<Map.Entry> entrySet = this.c.entrySet();
+                    Set<Map.Entry<String, String>> entrySet = this.c.entrySet();
                     int size = entrySet.size();
                     int i = 0;
-                    for (Map.Entry entry : entrySet) {
-                        sb.append((String) entry.getKey());
+                    for (Map.Entry<String, String> entry : entrySet) {
+                        sb.append(entry.getKey());
                         sb.append(":");
-                        sb.append((String) entry.getValue());
+                        sb.append(entry.getValue());
                         i++;
                         if (i < size) {
                             sb.append(",");
@@ -319,7 +322,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static void recordClickPrefetchEvent() {
         HybridUbcFlow p;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && (p = rw2.p("startup")) != null) {
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && (p = jx2.p("startup")) != null) {
             p.F(new UbcFlowEvent(KEY_CLICK_PREFETCH));
         }
     }
@@ -361,12 +364,12 @@ public class PrefetchEvent extends SwanAppIPCData {
         this(parcel);
     }
 
-    public static c createMessage(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo) {
+    public static c createMessage(@NonNull PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, prefetchEvent, pMSAppInfo)) == null) {
-            if (m72.n(pMSAppInfo)) {
+            if (e82.n(pMSAppInfo)) {
                 str = MODULE;
             } else {
                 str = "preload";
@@ -387,15 +390,15 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    public static c createFromAppReadyEvent(Map map) {
+    public static c createFromAppReadyEvent(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             if (map == null) {
                 return null;
             }
-            jo2.a W = l33.K().q().W();
-            if (!m72.a(W.f0())) {
+            bp2.a W = d43.K().q().W();
+            if (!e82.a(W.f0())) {
                 return null;
             }
             recordClickPrefetchEvent();
@@ -416,14 +419,14 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     public static c createFromReLaunch(String str) {
         InterceptResult invokeL;
-        m33 b0;
+        e43 b0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.equals(str, "relaunch") || (b0 = m33.b0()) == null) {
+            if (!TextUtils.equals(str, "relaunch") || (b0 = e43.b0()) == null) {
                 return null;
             }
             PMSAppInfo f0 = b0.W().f0();
-            if (!m72.a(f0)) {
+            if (!e82.a(f0)) {
                 return null;
             }
             recordClickPrefetchEvent();
@@ -432,12 +435,12 @@ public class PrefetchEvent extends SwanAppIPCData {
             prefetchEvent.state = "click";
             prefetchEvent.scene = str;
             prefetchEvent.schema = b0.W().W();
-            prefetchEvent.pageUrl = x63.d(zo2.U(), b0.W(), b0.Q());
+            prefetchEvent.pageUrl = p73.d(rp2.U(), b0.W(), b0.Q());
             prefetchEvent.appConfig = b0.Q().n;
-            prefetchEvent.appPath = im2.e.i(b0.getAppId(), b0.k0()).getPath() + File.separator;
+            prefetchEvent.appPath = an2.e.i(b0.getAppId(), b0.k0()).getPath() + File.separator;
             prefetchEvent.pageType = b0.Q().h(prefetchEvent.pageUrl);
-            prefetchEvent.rootPath = aa2.c(b0, prefetchEvent.pageUrl);
-            prefetchEvent.isT7Available = ga2.U().p0();
+            prefetchEvent.rootPath = sa2.c(b0, prefetchEvent.pageUrl);
+            prefetchEvent.isT7Available = ya2.U().p0();
             prefetchEvent.sConsole = String.valueOf(b0.W().m0());
             prefetchEvent.version = b0.k0();
             if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
@@ -448,7 +451,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         return (c) invokeL.objValue;
     }
 
-    public static c createMessage(PrefetchEvent prefetchEvent, String str) {
+    public static c createMessage(@NonNull PrefetchEvent prefetchEvent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, prefetchEvent, str)) == null) {
@@ -476,11 +479,11 @@ public class PrefetchEvent extends SwanAppIPCData {
                 hashMap.put(EVENT_DATA_DEBUG_SCONSOLE, prefetchEvent.sConsole);
             }
             hashMap.put(EVENT_DATA_T7_AVAILABLE, String.valueOf(prefetchEvent.isT7Available));
-            kz2.a(hashMap, "prefetch event");
+            c03.a(hashMap, "prefetch event");
             if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
                 hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-                e73.a(prefetchEvent.pageUrl, hashMap);
-            } else if (wj1.a) {
+                w73.a(prefetchEvent.pageUrl, hashMap);
+            } else if (ok1.a) {
                 Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
             }
             if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {

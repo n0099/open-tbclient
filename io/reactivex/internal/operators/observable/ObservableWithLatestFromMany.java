@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
@@ -23,15 +25,18 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes8.dex */
-public final class ObservableWithLatestFromMany extends AbstractObservableWithUpstream {
+public final class ObservableWithLatestFromMany<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function combiner;
-    public final ObservableSource[] otherArray;
-    public final Iterable otherIterable;
+    @NonNull
+    public final Function<? super Object[], R> combiner;
+    @Nullable
+    public final ObservableSource<?>[] otherArray;
+    @Nullable
+    public final Iterable<? extends ObservableSource<?>> otherIterable;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ObservableWithLatestFromMany this$0;
@@ -54,31 +59,32 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
             this.this$0 = observableWithLatestFromMany;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{obj}), "The combiner returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.combiner.apply(new Object[]{t}), "The combiner returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class WithLatestFromObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class WithLatestFromObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1577321883966341961L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final Function combiner;
-        public final AtomicReference d;
+        public final Observer<? super R> actual;
+        public final Function<? super Object[], R> combiner;
+        public final AtomicReference<Disposable> d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final WithLatestInnerObserver[] observers;
-        public final AtomicReferenceArray values;
+        public final AtomicReferenceArray<Object> values;
 
-        public WithLatestFromObserver(Observer observer, Function function, int i) {
+        public WithLatestFromObserver(Observer<? super R> observer, Function<? super Object[], R> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,8 +106,8 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
                 withLatestInnerObserverArr[i4] = new WithLatestInnerObserver(this, i4);
             }
             this.observers = withLatestInnerObserverArr;
-            this.values = new AtomicReferenceArray(i);
-            this.d = new AtomicReference();
+            this.values = new AtomicReferenceArray<>(i);
+            this.d = new AtomicReference<>();
             this.error = new AtomicThrowable();
         }
 
@@ -155,7 +161,7 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.d.get());
+                return DisposableHelper.isDisposed(this.d.get());
             }
             return invokeV.booleanValue;
         }
@@ -196,35 +202,35 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
             }
         }
 
-        public void subscribe(ObservableSource[] observableSourceArr, int i) {
+        public void subscribe(ObservableSource<?>[] observableSourceArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048586, this, observableSourceArr, i) == null) {
                 WithLatestInnerObserver[] withLatestInnerObserverArr = this.observers;
-                AtomicReference atomicReference = this.d;
-                for (int i2 = 0; i2 < i && !DisposableHelper.isDisposed((Disposable) atomicReference.get()) && !this.done; i2++) {
+                AtomicReference<Disposable> atomicReference = this.d;
+                for (int i2 = 0; i2 < i && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i2++) {
                     observableSourceArr[i2].subscribe(withLatestInnerObserverArr[i2]);
                 }
             }
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) != null) || this.done) {
+            if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) != null) || this.done) {
                 return;
             }
-            AtomicReferenceArray atomicReferenceArray = this.values;
+            AtomicReferenceArray<Object> atomicReferenceArray = this.values;
             int length = atomicReferenceArray.length();
             Object[] objArr = new Object[length + 1];
             int i = 0;
-            objArr[0] = obj;
+            objArr[0] = t;
             while (i < length) {
-                Object obj2 = atomicReferenceArray.get(i);
-                if (obj2 == null) {
+                Object obj = atomicReferenceArray.get(i);
+                if (obj == null) {
                     return;
                 }
                 i++;
-                objArr[i] = obj2;
+                objArr[i] = obj;
             }
             try {
                 HalfSerializer.onNext(this.actual, ObjectHelper.requireNonNull(this.combiner.apply(objArr), "combiner returned a null value"), this, this.error);
@@ -237,15 +243,15 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
     }
 
     /* loaded from: classes8.dex */
-    public final class WithLatestInnerObserver extends AtomicReference implements Observer {
+    public static final class WithLatestInnerObserver extends AtomicReference<Disposable> implements Observer<Object> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3256684027868224024L;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean hasValue;
         public final int index;
-        public final WithLatestFromObserver parent;
+        public final WithLatestFromObserver<?, ?> parent;
 
-        public WithLatestInnerObserver(WithLatestFromObserver withLatestFromObserver, int i) {
+        public WithLatestInnerObserver(WithLatestFromObserver<?, ?> withLatestFromObserver, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +314,7 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWithLatestFromMany(ObservableSource observableSource, Iterable iterable, Function function) {
+    public ObservableWithLatestFromMany(@NonNull ObservableSource<T> observableSource, @NonNull Iterable<? extends ObservableSource<?>> iterable, @NonNull Function<? super Object[], R> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -331,7 +337,7 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWithLatestFromMany(ObservableSource observableSource, ObservableSource[] observableSourceArr, Function function) {
+    public ObservableWithLatestFromMany(@NonNull ObservableSource<T> observableSource, @NonNull ObservableSource<?>[] observableSourceArr, @NonNull Function<? super Object[], R> function) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -354,16 +360,16 @@ public final class ObservableWithLatestFromMany extends AbstractObservableWithUp
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super R> observer) {
         int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            ObservableSource[] observableSourceArr = this.otherArray;
+            ObservableSource<?>[] observableSourceArr = this.otherArray;
             if (observableSourceArr == null) {
                 observableSourceArr = new ObservableSource[8];
                 try {
                     length = 0;
-                    for (ObservableSource observableSource : this.otherIterable) {
+                    for (ObservableSource<?> observableSource : this.otherIterable) {
                         if (length == observableSourceArr.length) {
                             observableSourceArr = (ObservableSource[]) Arrays.copyOf(observableSourceArr, (length >> 1) + length);
                         }

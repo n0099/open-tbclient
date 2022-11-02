@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UKCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache mCache;
+    public LruCache<Long, Long> mCache;
 
     public UKCache(int i) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class UKCache {
             }
         }
         this.mCache = null;
-        this.mCache = new LruCache(i);
+        this.mCache = new LruCache<>(i);
     }
 
     public Long get(long j) {
@@ -38,7 +38,7 @@ public class UKCache {
             if (j < 0) {
                 return null;
             }
-            return (Long) this.mCache.get(Long.valueOf(j));
+            return this.mCache.get(Long.valueOf(j));
         }
         return (Long) invokeJ.objValue;
     }
@@ -47,7 +47,7 @@ public class UKCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
-            return (Long) this.mCache.remove(l);
+            return this.mCache.remove(l);
         }
         return (Long) invokeL.objValue;
     }

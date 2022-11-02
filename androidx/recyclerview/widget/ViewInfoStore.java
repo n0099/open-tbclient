@@ -1,5 +1,8 @@
 package androidx.recyclerview.widget;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.util.Pools;
@@ -18,16 +21,18 @@ public class ViewInfoStore {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG = false;
     public transient /* synthetic */ FieldHolder $fh;
+    @VisibleForTesting
     public final SimpleArrayMap<RecyclerView.ViewHolder, InfoRecord> mLayoutHolderMap;
+    @VisibleForTesting
     public final LongSparseArray<RecyclerView.ViewHolder> mOldChangedHolders;
 
     /* loaded from: classes.dex */
     public interface ProcessCallback {
-        void processAppeared(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+        void processAppeared(RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
 
-        void processDisappeared(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+        void processDisappeared(RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
 
-        void processPersistent(RecyclerView.ViewHolder viewHolder, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
+        void processPersistent(RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2);
 
         void unused(RecyclerView.ViewHolder viewHolder);
     }
@@ -45,7 +50,9 @@ public class ViewInfoStore {
         public static Pools.Pool<InfoRecord> sPool;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
+        @Nullable
         public RecyclerView.ItemAnimator.ItemHolderInfo postInfo;
+        @Nullable
         public RecyclerView.ItemAnimator.ItemHolderInfo preInfo;
 
         static {
@@ -90,11 +97,11 @@ public class ViewInfoStore {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                InfoRecord infoRecord = (InfoRecord) sPool.acquire();
-                if (infoRecord == null) {
+                InfoRecord acquire = sPool.acquire();
+                if (acquire == null) {
                     return new InfoRecord();
                 }
-                return infoRecord;
+                return acquire;
             }
             return (InfoRecord) invokeV.objValue;
         }
@@ -272,6 +279,7 @@ public class ViewInfoStore {
         }
     }
 
+    @Nullable
     public RecyclerView.ItemAnimator.ItemHolderInfo popFromPostLayout(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -281,6 +289,7 @@ public class ViewInfoStore {
         return (RecyclerView.ItemAnimator.ItemHolderInfo) invokeL.objValue;
     }
 
+    @Nullable
     public RecyclerView.ItemAnimator.ItemHolderInfo popFromPreLayout(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -48,7 +48,7 @@ public class ck extends al.a {
         ArrayList arrayList3;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        ArrayList arrayList6;
+        ArrayList<cj.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             arrayList = this.a.f165a;

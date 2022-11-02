@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList a;
+    public ArrayList<c> a;
     public c b;
 
     public b(Context context) {
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new ArrayList<>();
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
         this.b = cVar;
@@ -59,7 +59,7 @@ public class b {
             int size = this.a.size();
             for (int i = 0; i < size; i++) {
                 JSONObject jSONObject2 = new JSONObject();
-                ((c) this.a.get(i)).a(jSONObject2);
+                this.a.get(i).a(jSONObject2);
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("data", jSONArray);
@@ -68,7 +68,7 @@ public class b {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static void a(Context context, int i, HashMap hashMap) {
+    public static void a(Context context, int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(65538, null, context, i, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
             return;
@@ -95,7 +95,7 @@ public class b {
             e eVar = new e(i, str, str2);
             int size = this.a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                c cVar = (c) this.a.get(i2);
+                c cVar = this.a.get(i2);
                 if (cVar != null && cVar.a() == i) {
                     cVar.a(eVar);
                     return;
@@ -107,13 +107,13 @@ public class b {
         }
     }
 
-    public void a(int i, HashMap hashMap) {
+    public void a(int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
             return;
         }
-        for (Map.Entry entry : hashMap.entrySet()) {
-            a(i, (String) entry.getKey(), (String) entry.getValue());
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            a(i, entry.getKey(), entry.getValue());
         }
     }
 

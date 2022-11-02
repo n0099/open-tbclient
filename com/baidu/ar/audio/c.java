@@ -21,7 +21,7 @@ public class c {
     public AudioRecord iH;
     public AudioParams iI;
     public byte[] iJ;
-    public ArrayList iK;
+    public ArrayList<ByteBuffer> iK;
     public int iL;
     public a iM;
     public VolumeListener iN;
@@ -64,7 +64,7 @@ public class c {
     private void a(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            ByteBuffer byteBuffer = (ByteBuffer) this.iK.get(this.iL);
+            ByteBuffer byteBuffer = this.iK.get(this.iL);
             if (i == -3) {
                 com.baidu.ar.h.b.b(TAG, "Audio read error");
             } else if (this.iM != null && byteBuffer != null && byteBuffer.capacity() >= i) {
@@ -136,7 +136,7 @@ public class c {
             return;
         }
         if (this.iK == null) {
-            this.iK = new ArrayList();
+            this.iK = new ArrayList<>();
             for (int i = 0; i < this.iI.getFrameBufferCount(); i++) {
                 this.iK.add(ByteBuffer.allocate(this.iI.getFrameSize()));
             }

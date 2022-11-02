@@ -3,6 +3,8 @@ package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.core.Util;
@@ -24,8 +26,11 @@ public class RemitSyncExecutor implements Handler.Callback {
     public static final int WHAT_REMOVE_INFO = -3;
     public static final int WHAT_SYNC_BUNCH_ID = 0;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final RemitAgent agent;
-    public final Set freeToDBIdList;
+    @NonNull
+    public final Set<Integer> freeToDBIdList;
+    @NonNull
     public final Handler handler;
 
     /* loaded from: classes2.dex */
@@ -34,10 +39,10 @@ public class RemitSyncExecutor implements Handler.Callback {
 
         void syncCacheToDB(int i) throws IOException;
 
-        void syncCacheToDB(List list) throws IOException;
+        void syncCacheToDB(List<Integer> list) throws IOException;
     }
 
-    public RemitSyncExecutor(RemitAgent remitAgent) {
+    public RemitSyncExecutor(@NonNull RemitAgent remitAgent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +64,7 @@ public class RemitSyncExecutor implements Handler.Callback {
         this.handler = new Handler(handlerThread.getLooper(), this);
     }
 
-    public RemitSyncExecutor(RemitAgent remitAgent, Handler handler, Set set) {
+    public RemitSyncExecutor(@NonNull RemitAgent remitAgent, @Nullable Handler handler, @NonNull Set<Integer> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +104,7 @@ public class RemitSyncExecutor implements Handler.Callback {
                                 return true;
                             }
                         }
-                        List list = (List) message.obj;
+                        List<Integer> list = (List) message.obj;
                         try {
                             this.agent.syncCacheToDB(list);
                             this.freeToDBIdList.addAll(list);
@@ -147,7 +152,7 @@ public class RemitSyncExecutor implements Handler.Callback {
         }
     }
 
-    public void postRemoveFreeIds(List list) {
+    public void postRemoveFreeIds(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             Message obtainMessage = this.handler.obtainMessage(-1);
@@ -188,7 +193,7 @@ public class RemitSyncExecutor implements Handler.Callback {
         }
     }
 
-    public void postSync(List list) {
+    public void postSync(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             Message obtainMessage = this.handler.obtainMessage(0);

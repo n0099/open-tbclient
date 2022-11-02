@@ -18,31 +18,31 @@ import io.reactivex.internal.util.HalfSerializer;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableMergeWithCompletable extends AbstractObservableWithUpstream {
+public final class ObservableMergeWithCompletable<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource other;
 
     /* loaded from: classes8.dex */
-    public final class MergeWithObserver extends AtomicInteger implements Observer, Disposable {
+    public static final class MergeWithObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4592979584110982903L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
+        public final Observer<? super T> actual;
         public final AtomicThrowable error;
-        public final AtomicReference mainDisposable;
+        public final AtomicReference<Disposable> mainDisposable;
         public volatile boolean mainDone;
         public volatile boolean otherDone;
         public final OtherObserver otherObserver;
 
         /* loaded from: classes8.dex */
-        public final class OtherObserver extends AtomicReference implements CompletableObserver {
+        public static final class OtherObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;
             public transient /* synthetic */ FieldHolder $fh;
-            public final MergeWithObserver parent;
+            public final MergeWithObserver<?> parent;
 
-            public OtherObserver(MergeWithObserver mergeWithObserver) {
+            public OtherObserver(MergeWithObserver<?> mergeWithObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
             }
         }
 
-        public MergeWithObserver(Observer observer) {
+        public MergeWithObserver(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
                 }
             }
             this.actual = observer;
-            this.mainDisposable = new AtomicReference();
+            this.mainDisposable = new AtomicReference<>();
             this.otherObserver = new OtherObserver(this);
             this.error = new AtomicThrowable();
         }
@@ -120,7 +120,7 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) this.mainDisposable.get());
+                return DisposableHelper.isDisposed(this.mainDisposable.get());
             }
             return invokeV.booleanValue;
         }
@@ -156,10 +156,10 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                HalfSerializer.onNext(this.actual, obj, this, this.error);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                HalfSerializer.onNext(this.actual, t, this, this.error);
             }
         }
 
@@ -181,7 +181,7 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableMergeWithCompletable(Observable observable, CompletableSource completableSource) {
+    public ObservableMergeWithCompletable(Observable<T> observable, CompletableSource completableSource) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -202,7 +202,7 @@ public final class ObservableMergeWithCompletable extends AbstractObservableWith
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             MergeWithObserver mergeWithObserver = new MergeWithObserver(observer);

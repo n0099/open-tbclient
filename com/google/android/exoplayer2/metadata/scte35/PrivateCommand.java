@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 /* loaded from: classes7.dex */
 public final class PrivateCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PrivateCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] commandBytes;
     public final long identifier;
@@ -34,7 +34,7 @@ public final class PrivateCommand extends SpliceCommand {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.scte35.PrivateCommand.1
+        CREATOR = new Parcelable.Creator<PrivateCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.PrivateCommand.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,6 +53,7 @@ public final class PrivateCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PrivateCommand createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -64,6 +65,7 @@ public final class PrivateCommand extends SpliceCommand {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PrivateCommand[] newArray(int i) {
                 InterceptResult invokeI;

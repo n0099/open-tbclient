@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
@@ -34,7 +35,7 @@ public class ErrorInfoReport {
     public long publisherHandleId;
     public String remoteIp;
     public long roomId;
-    public Map serverIpMap;
+    public Map<BigInteger, String> serverIpMap;
     public long sessionId;
     public long userId;
     public long value;
@@ -57,7 +58,7 @@ public class ErrorInfoReport {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class ErrorCode {
+    public static final class ErrorCode {
         public static final /* synthetic */ ErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ErrorCode ANCHOR_LIVE_INTRERRUPT;
@@ -119,8 +120,8 @@ public class ErrorInfoReport {
             HANG_UP = new ErrorCode("HANG_UP", 15, 440, "HANG_UP");
             SET_EXTERNAL_SURFACE_ERROR = new ErrorCode("SET_EXTERNAL_SURFACE_ERROR", 16, 600, "SET_EXTERNAL_SURFACE_ERROR");
             OTHER_ERROR = new ErrorCode("OTHER_ERROR", 17, 700, "OTHER_ERROR");
-            ENTER_FAILED = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_FAILED, 18, 7000, CommonDefine.SLILoginEvent.ENTER_FAILED);
-            ENTER_TIMEOUT = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_TIMEOUT, 19, 7000, CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
+            ENTER_FAILED = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_FAILED, 18, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_FAILED);
+            ENTER_TIMEOUT = new ErrorCode(CommonDefine.SLILoginEvent.ENTER_TIMEOUT, 19, NodeType.E_PARTICLE, CommonDefine.SLILoginEvent.ENTER_TIMEOUT);
             AUDIO_STUCK = new ErrorCode("AUDIO_STUCK", 20, ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, "AUDIO_STUCK");
             VIDEO_STUCK = new ErrorCode("VIDEO_STUCK", 21, 7002, "VIDEO_STUCK");
             BAD_END_TO_END_DELAY = new ErrorCode("BAD_END_TO_END_DELAY", 22, 7003, "BAD_END_TO_END_DELAY");
@@ -384,7 +385,7 @@ public class ErrorInfoReport {
     public void reportErrorInfo(ErrorCode errorCode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, errorCode) == null) {
-            reportErrorInfo(errorCode, -1L, (String) this.serverIpMap.get(BigInteger.valueOf(this.publisherHandleId)), -1L, this.publisherHandleId);
+            reportErrorInfo(errorCode, -1L, this.serverIpMap.get(BigInteger.valueOf(this.publisherHandleId)), -1L, this.publisherHandleId);
         }
     }
 
@@ -491,7 +492,7 @@ public class ErrorInfoReport {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{errorCode, Long.valueOf(j), bigInteger, bigInteger2}) == null) {
             if (this.serverIpMap.containsKey(bigInteger)) {
-                str = (String) this.serverIpMap.get(bigInteger);
+                str = this.serverIpMap.get(bigInteger);
             } else {
                 str = "";
             }

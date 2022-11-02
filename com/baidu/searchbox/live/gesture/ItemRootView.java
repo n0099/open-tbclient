@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.util.ImmersionUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +24,7 @@ public class ItemRootView extends FrameLayout {
     public GestureDetector mGestureDetector;
 
     /* loaded from: classes2.dex */
-    public class SimpleGestureListener implements ItemGestureListener {
+    public static class SimpleGestureListener implements ItemGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,21 +36,21 @@ public class ItemRootView extends FrameLayout {
         }
 
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
-        public void onDown(MotionEvent motionEvent) {
+        public void onDown(@Nullable MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
-        public void onLongPress(MotionEvent motionEvent) {
+        public void onLongPress(@Nullable MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
-        public void onMove(MotionEvent motionEvent) {
+        public void onMove(@Nullable MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
             }
@@ -69,14 +71,14 @@ public class ItemRootView extends FrameLayout {
         }
 
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
-        public void onTouchCancel(MotionEvent motionEvent) {
+        public void onTouchCancel(@Nullable MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, motionEvent) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.gesture.ItemGestureListener
-        public void onTouchUp(MotionEvent motionEvent) {
+        public void onTouchUp(@Nullable MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
             }
@@ -98,7 +100,7 @@ public class ItemRootView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemRootView(Context context, AttributeSet attributeSet) {
+    public ItemRootView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

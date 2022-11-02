@@ -47,7 +47,7 @@ public class WebRtcAudioRecord {
 
     /* renamed from: org.webrtc.voiceengine.WebRtcAudioRecord$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -88,7 +88,7 @@ public class WebRtcAudioRecord {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AudioRecordStartErrorCode {
+    public static final class AudioRecordStartErrorCode {
         public static final /* synthetic */ AudioRecordStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AudioRecordStartErrorCode AUDIO_RECORD_START_EXCEPTION;
@@ -238,7 +238,7 @@ public class WebRtcAudioRecord {
     }
 
     /* loaded from: classes9.dex */
-    public class AudioSamples {
+    public static class AudioSamples {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int audioFormat;

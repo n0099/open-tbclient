@@ -1,6 +1,7 @@
 package com.google.android.material.shape;
 
 import android.graphics.RectF;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ public class CornerTreatment {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    public void getCornerPath(float f, float f2, ShapePath shapePath) {
+    public void getCornerPath(float f, float f2, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), shapePath}) == null) {
         }
@@ -32,14 +33,14 @@ public class CornerTreatment {
         }
     }
 
-    public void getCornerPath(ShapePath shapePath, float f, float f2, float f3) {
+    public void getCornerPath(@NonNull ShapePath shapePath, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shapePath, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             getCornerPath(f, f2, shapePath);
         }
     }
 
-    public void getCornerPath(ShapePath shapePath, float f, float f2, RectF rectF, CornerSize cornerSize) {
+    public void getCornerPath(@NonNull ShapePath shapePath, float f, float f2, @NonNull RectF rectF, @NonNull CornerSize cornerSize) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shapePath, Float.valueOf(f), Float.valueOf(f2), rectF, cornerSize}) == null) {
             getCornerPath(shapePath, f, f2, cornerSize.getCornerSize(rectF));

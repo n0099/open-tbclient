@@ -26,7 +26,7 @@ public class r {
     public Handler f828a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f829a;
+    public Map<String, Map<String, String>> f829a;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -72,8 +72,8 @@ public class r {
                 if (this.f829a != null && !TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(str2)) {
                         try {
-                            Map map = (Map) this.f829a.get(str);
-                            return map != null ? (String) map.get(str2) : "";
+                            Map<String, String> map = this.f829a.get(str);
+                            return map != null ? map.get(str2) : "";
                         } catch (Throwable unused) {
                             return "";
                         }
@@ -92,9 +92,9 @@ public class r {
                 if (this.f829a == null) {
                     this.f829a = new HashMap();
                 }
-                Map map = (Map) this.f829a.get(str);
+                Map<String, String> map = this.f829a.get(str);
                 if (map == null) {
-                    map = new HashMap();
+                    map = new HashMap<>();
                 }
                 map.put(str2, str3);
                 this.f829a.put(str, map);

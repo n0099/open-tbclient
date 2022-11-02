@@ -1,5 +1,6 @@
 package com.vivo.identifier;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class IdentifierIdLog {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static volatile boolean mDebug;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,13 +45,18 @@ public class IdentifierIdLog {
         }
     }
 
+    @Keep
     public static native void d(String str, String str2);
 
+    @Keep
     public static native void e(String str, String str2);
 
+    @Keep
     public static native void i(String str, String str2);
 
+    @Keep
     public static native boolean setDebug(boolean z);
 
+    @Keep
     public static native void w(String str, String str2);
 }

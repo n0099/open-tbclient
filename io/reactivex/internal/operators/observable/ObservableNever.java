@@ -11,9 +11,9 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.internal.disposables.EmptyDisposable;
 /* loaded from: classes8.dex */
-public final class ObservableNever extends Observable {
+public final class ObservableNever extends Observable<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Observable INSTANCE;
+    public static final Observable<Object> INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public final class ObservableNever extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super Object> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             observer.onSubscribe(EmptyDisposable.NEVER);

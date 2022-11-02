@@ -1,5 +1,6 @@
 package com.kwad.sdk.api.loader;
 
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.kwad.sdk.api.loader.a;
 import org.json.JSONObject;
@@ -8,7 +9,7 @@ public final class j {
     public static int a;
 
     /* loaded from: classes7.dex */
-    public final class a {
+    public static class a {
         public double a;
         public double b;
         public int c;
@@ -30,7 +31,7 @@ public final class j {
         public final JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("ratio", Double.valueOf(this.a));
+                jSONObject.putOpt(MapBundleKey.OfflineMapKey.OFFLINE_RATION, Double.valueOf(this.a));
                 jSONObject.putOpt("ratio_count", Double.valueOf(this.b));
                 jSONObject.putOpt("load_status", Integer.valueOf(this.c));
                 jSONObject.putOpt("update_count", Integer.valueOf(this.d));
@@ -50,8 +51,8 @@ public final class j {
         }
     }
 
-    public static void a(int i, a.C0593a c0593a, long j, int i2, String str) {
-        if (c0593a == null) {
+    public static void a(int i, a.C0604a c0604a, long j, int i2, String str) {
+        if (c0604a == null) {
             return;
         }
         a aVar = new a((byte) 0);
@@ -60,8 +61,8 @@ public final class j {
         aVar.c = i;
         aVar.d = a;
         aVar.e = Loader.get().getKsAdSDKImpl().getSDKVersion();
-        aVar.f = c0593a.e;
-        aVar.g = c0593a.b;
+        aVar.f = c0604a.e;
+        aVar.g = c0604a.b;
         aVar.h = j;
         aVar.i = i2;
         aVar.j = str;
@@ -73,33 +74,33 @@ public final class j {
         com.kwad.sdk.api.b.a("reportDynamicUpdate", a2);
     }
 
-    public static void a(a.C0593a c0593a) {
+    public static void a(a.C0604a c0604a) {
         a++;
-        a(1, c0593a, 0L, 0, "");
+        a(1, c0604a, 0L, 0, "");
     }
 
-    public static void a(a.C0593a c0593a, int i, String str) {
-        a(4, c0593a, 0L, i, str);
+    public static void a(a.C0604a c0604a, int i, String str) {
+        a(4, c0604a, 0L, i, str);
     }
 
-    public static void a(a.C0593a c0593a, long j) {
-        a(2, c0593a, j, 0, "");
+    public static void a(a.C0604a c0604a, long j) {
+        a(2, c0604a, j, 0, "");
     }
 
-    public static void a(a.C0593a c0593a, long j, String str) {
-        a(3, c0593a, j, 0, str);
+    public static void a(a.C0604a c0604a, long j, String str) {
+        a(3, c0604a, j, 0, str);
     }
 
-    public static void b(a.C0593a c0593a) {
-        a(5, c0593a, 0L, 0, "");
+    public static void b(a.C0604a c0604a) {
+        a(5, c0604a, 0L, 0, "");
     }
 
-    public static void b(a.C0593a c0593a, int i, String str) {
-        a(7, c0593a, 0L, i, str);
+    public static void b(a.C0604a c0604a, int i, String str) {
+        a(7, c0604a, 0L, i, str);
     }
 
-    public static void b(a.C0593a c0593a, long j) {
-        a(6, c0593a, j, 0, "");
+    public static void b(a.C0604a c0604a, long j) {
+        a(6, c0604a, j, 0, "");
     }
 
     public static double rl() {

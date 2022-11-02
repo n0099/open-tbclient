@@ -7,6 +7,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +101,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     public final Timeline.Window window;
 
     /* loaded from: classes7.dex */
-    public final class MediaPeriodHolder {
+    public static final class MediaPeriodHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean hasEnabledTracks;
@@ -382,7 +383,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     }
 
     /* loaded from: classes7.dex */
-    public final class MediaSourceRefreshInfo {
+    public static final class MediaSourceRefreshInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object manifest;
@@ -411,7 +412,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     }
 
     /* loaded from: classes7.dex */
-    public final class SeekPosition {
+    public static final class SeekPosition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Timeline timeline;
@@ -501,6 +502,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
+    @NonNull
     public static Format[] getFormats(TrackSelection trackSelection) {
         InterceptResult invokeL;
         int i;
@@ -957,7 +959,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private Pair getPeriodPosition(Timeline timeline, int i, long j) {
+    private Pair<Integer, Long> getPeriodPosition(Timeline timeline, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)})) == null) {
@@ -1262,7 +1264,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             int i = this.pendingPrepareCount;
             this.pendingPrepareCount = 0;
             if (this.pendingInitialSeekCount > 0) {
-                Pair resolveSeekPosition = resolveSeekPosition(this.pendingSeekPosition);
+                Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(this.pendingSeekPosition);
                 int i2 = this.pendingInitialSeekCount;
                 this.pendingInitialSeekCount = 0;
                 this.pendingSeekPosition = null;
@@ -1287,7 +1289,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     handleSourceInfoRefreshEndedPlayback(i, 0);
                     return;
                 }
-                Pair periodPosition = getPeriodPosition(timeline2, timeline2.getFirstWindowIndex(this.shuffleModeEnabled), C.TIME_UNSET);
+                Pair<Integer, Long> periodPosition = getPeriodPosition(timeline2, timeline2.getFirstWindowIndex(this.shuffleModeEnabled), C.TIME_UNSET);
                 int intValue2 = ((Integer) periodPosition.first).intValue();
                 long longValue2 = ((Long) periodPosition.second).longValue();
                 MediaSource.MediaPeriodId resolvePeriodPositionForAds2 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue2, longValue2);
@@ -1326,7 +1328,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 handleSourceInfoRefreshEndedPlayback();
                 return;
             }
-            Pair periodPosition2 = getPeriodPosition(timeline2, timeline2.getPeriod(resolveSubsequentPeriod, this.period).windowIndex, C.TIME_UNSET);
+            Pair<Integer, Long> periodPosition2 = getPeriodPosition(timeline2, timeline2.getPeriod(resolveSubsequentPeriod, this.period).windowIndex, C.TIME_UNSET);
             int intValue3 = ((Integer) periodPosition2.first).intValue();
             long longValue3 = ((Long) periodPosition2.second).longValue();
             timeline2.getPeriod(intValue3, this.period, true);
@@ -1715,7 +1717,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private Pair resolveSeekPosition(SeekPosition seekPosition) {
+    private Pair<Integer, Long> resolveSeekPosition(SeekPosition seekPosition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, seekPosition)) == null) {
@@ -1725,7 +1727,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 timeline2 = timeline;
             }
             try {
-                Pair periodPosition = timeline2.getPeriodPosition(this.window, this.period, seekPosition.windowIndex, seekPosition.windowPositionUs);
+                Pair<Integer, Long> periodPosition = timeline2.getPeriodPosition(this.window, this.period, seekPosition.windowIndex, seekPosition.windowPositionUs);
                 if (timeline == timeline2) {
                     return periodPosition;
                 }
@@ -1807,7 +1809,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 this.pendingSeekPosition = seekPosition;
                 return;
             }
-            Pair resolveSeekPosition = resolveSeekPosition(seekPosition);
+            Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(seekPosition);
             if (resolveSeekPosition == null) {
                 if (timeline.isEmpty()) {
                     i4 = 0;

@@ -40,7 +40,7 @@ public class FaceConfig implements Serializable {
     public boolean isOpenOnline;
     public boolean isSound;
     public int livenessRandomCount;
-    public List livenessTypeList;
+    public List<LivenessTypeEnum> livenessTypeList;
     public float maskValue;
     public int minFaceSize;
     public boolean noBlackCropImage;
@@ -55,7 +55,7 @@ public class FaceConfig implements Serializable {
     public float occlusionValue;
     public int outputImageType;
     public int qualityLevel;
-    public Map resPaths;
+    public Map<String, String> resPaths;
     public float scale;
     public int secType;
     public long timeDetectModule;
@@ -131,7 +131,7 @@ public class FaceConfig implements Serializable {
         this.noBlackCropImage = true;
     }
 
-    public static List getRandomList(List list, int i) {
+    public static List<LivenessTypeEnum> getRandomList(List<LivenessTypeEnum> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
@@ -247,11 +247,11 @@ public class FaceConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.livenessRandomCount : invokeV.intValue;
     }
 
-    public List getLivenessTypeList() {
+    public List<LivenessTypeEnum> getLivenessTypeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            List list = this.livenessTypeList;
+            List<LivenessTypeEnum> list = this.livenessTypeList;
             if (list == null || list.size() == 0) {
                 ArrayList arrayList = new ArrayList();
                 this.livenessTypeList = arrayList;
@@ -259,7 +259,7 @@ public class FaceConfig implements Serializable {
                 Collections.shuffle(this.livenessTypeList);
                 this.livenessTypeList = this.livenessTypeList.subList(0, getLivenessRandomCount());
             } else if (this.isLivenessRandom) {
-                List list2 = this.livenessTypeList;
+                List<LivenessTypeEnum> list2 = this.livenessTypeList;
                 return getRandomList(list2, list2.size());
             }
             return this.livenessTypeList;
@@ -345,7 +345,7 @@ public class FaceConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.qualityLevel : invokeV.intValue;
     }
 
-    public Map getResPaths() {
+    public Map<String, String> getResPaths() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.resPaths : (Map) invokeV.objValue;
@@ -534,7 +534,7 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setLivenessTypeList(List list) {
+    public void setLivenessTypeList(List<LivenessTypeEnum> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, list) == null) {
             this.livenessTypeList = list;
@@ -653,7 +653,7 @@ public class FaceConfig implements Serializable {
         }
     }
 
-    public void setResPaths(Map map) {
+    public void setResPaths(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048650, this, map) == null) {
             this.resPaths = map;

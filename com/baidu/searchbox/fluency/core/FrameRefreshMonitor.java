@@ -2,6 +2,7 @@ package com.baidu.searchbox.fluency.core;
 
 import android.app.Activity;
 import android.view.Choreographer;
+import androidx.annotation.CallSuper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
@@ -48,7 +49,7 @@ public final class FrameRefreshMonitor implements Runnable {
     public static boolean isVsyncFrame;
     public static final FrameRefreshMonitor$looperListener$1 looperListener;
     public static final Lazy mainLooperMonitor$delegate;
-    public static final HashSet observers;
+    public static final HashSet<FrameRefreshObserver> observers;
     public static long[] queueCost;
     public static Object vsyncRecevier;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public final class FrameRefreshMonitor implements Runnable {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\f\b&\u0018\u0000B\u0007¢\u0006\u0004\b\u0016\u0010\u0017J\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0007\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0007\u0010\bJG\u0010\u0011\u001a\u00020\u00032\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u00012\u0006\u0010\u000f\u001a\u00020\u00012\u0006\u0010\u0010\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\f¢\u0006\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0013\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0013\u0010\u0015¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/fluency/core/FrameRefreshMonitor$FrameRefreshObserver;", "", "beginNs", "", "dispatchBegin", "(J)V", "endNs", "dispatchEnd", "(JJ)V", "", "topPage", "startNs", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doFrame", "(Ljava/lang/String;JJZJJJ)V", "isDispatchBegin", "()Z", "Z", "<init>", "()V", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public abstract class FrameRefreshObserver {
+    public static abstract class FrameRefreshObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isDispatchBegin;
@@ -103,6 +104,7 @@ public final class FrameRefreshMonitor implements Runnable {
             }
         }
 
+        @CallSuper
         public final void dispatchEnd(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -130,7 +132,7 @@ public final class FrameRefreshMonitor implements Runnable {
         CALLBACK_TRAVERSAL = 2;
         CALLBACK_COMMIT = 4;
         CALLBACK_LAST = 4;
-        observers = new HashSet();
+        observers = new HashSet<>();
         dispatchTimeNs = new long[2];
         mainLooperMonitor$delegate = LazyKt__LazyJVMKt.lazy(FrameRefreshMonitor$mainLooperMonitor$2.INSTANCE);
         looperListener = new MainLooperMonitor.LopperDispatchListener() { // from class: com.baidu.searchbox.fluency.core.FrameRefreshMonitor$looperListener$1
@@ -371,11 +373,11 @@ public final class FrameRefreshMonitor implements Runnable {
             Logcat logcat = Logcat.INSTANCE;
             logcat.d(TAG, "[dispatchBegin] " + dispatchTimeNs[0]);
             synchronized (observers) {
-                Iterator it = observers.iterator();
+                Iterator<FrameRefreshObserver> it = observers.iterator();
                 while (it.hasNext()) {
-                    FrameRefreshObserver frameRefreshObserver = (FrameRefreshObserver) it.next();
-                    if (!frameRefreshObserver.isDispatchBegin()) {
-                        frameRefreshObserver.dispatchBegin(dispatchTimeNs[0]);
+                    FrameRefreshObserver next = it.next();
+                    if (!next.isDispatchBegin()) {
+                        next.dispatchBegin(dispatchTimeNs[0]);
                     }
                 }
                 Unit unit = Unit.INSTANCE;
@@ -435,10 +437,10 @@ public final class FrameRefreshMonitor implements Runnable {
             sb.append(jArr3[CALLBACK_TRAVERSAL]);
             logcat.d(TAG, sb.toString());
             synchronized (observers) {
-                Iterator it = observers.iterator();
+                Iterator<FrameRefreshObserver> it = observers.iterator();
                 while (it.hasNext()) {
-                    FrameRefreshObserver frameRefreshObserver = (FrameRefreshObserver) it.next();
-                    if (frameRefreshObserver.isDispatchBegin()) {
+                    FrameRefreshObserver next = it.next();
+                    if (next.isDispatchBegin()) {
                         Activity topActivity = BdBoxActivityManager.getTopActivity();
                         if (topActivity == null || (cls = topActivity.getClass()) == null || (str = cls.getName()) == null) {
                             str = "unknown";
@@ -454,7 +456,7 @@ public final class FrameRefreshMonitor implements Runnable {
                         long[] jArr6 = queueCost;
                         Intrinsics.checkNotNull(jArr6);
                         j2 = nanoTime;
-                        frameRefreshObserver.doFrame(str2, j, nanoTime, z, j5, j6, jArr6[CALLBACK_TRAVERSAL]);
+                        next.doFrame(str2, j, nanoTime, z, j5, j6, jArr6[CALLBACK_TRAVERSAL]);
                     } else {
                         j2 = nanoTime;
                     }
@@ -464,11 +466,11 @@ public final class FrameRefreshMonitor implements Runnable {
             }
             dispatchTimeNs[1] = System.nanoTime();
             synchronized (observers) {
-                Iterator it2 = observers.iterator();
+                Iterator<FrameRefreshObserver> it2 = observers.iterator();
                 while (it2.hasNext()) {
-                    FrameRefreshObserver frameRefreshObserver2 = (FrameRefreshObserver) it2.next();
-                    if (frameRefreshObserver2.isDispatchBegin()) {
-                        frameRefreshObserver2.dispatchEnd(dispatchTimeNs[0], dispatchTimeNs[1]);
+                    FrameRefreshObserver next2 = it2.next();
+                    if (next2.isDispatchBegin()) {
+                        next2.dispatchEnd(dispatchTimeNs[0], dispatchTimeNs[1]);
                     }
                 }
                 Unit unit2 = Unit.INSTANCE;

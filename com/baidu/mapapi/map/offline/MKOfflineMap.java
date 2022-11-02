@@ -2,12 +2,12 @@ package com.baidu.mapapi.map.offline;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.i;
+import com.baidu.mapsdkplatform.comapi.map.j;
+import com.baidu.mapsdkplatform.comapi.map.n;
+import com.baidu.mapsdkplatform.comapi.map.o;
 import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mapsdkplatform.comapi.map.t;
-import com.baidu.mapsdkplatform.comapi.map.u;
-import com.baidu.mapsdkplatform.comapi.map.v;
+import com.baidu.mapsdkplatform.comapi.map.s;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class MKOfflineMap {
     public static final int TYPE_VER_UPDATE = 4;
     public static final String a = "MKOfflineMap";
     public transient /* synthetic */ FieldHolder $fh;
-    public r b;
+    public o b;
     public MKOfflineMapListener c;
 
     static {
@@ -62,71 +62,27 @@ public class MKOfflineMap {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.d(0);
-            this.b.b((v) null);
+            this.b.b((s) null);
             this.b.b();
-            i.b();
+            j.b();
         }
     }
 
-    public ArrayList getAllUpdateInfo() {
+    @Deprecated
+    public int importOfflineData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList e = this.b.e();
-            if (e == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = e.iterator();
-            while (it.hasNext()) {
-                arrayList.add(OfflineMapUtil.getUpdatElementFromLocalMapElement(((u) it.next()).a()));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return importOfflineData(false);
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList getHotCityList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList c = this.b.c();
-            if (c == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = c.iterator();
-            while (it.hasNext()) {
-                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo((q) it.next()));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList getOfflineCityList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList d = this.b.d();
-            if (d == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = d.iterator();
-            while (it.hasNext()) {
-                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo((q) it.next()));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public MKOLUpdateElement getUpdateInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            u g = this.b.g(i);
+            r g = this.b.g(i);
             if (g == null) {
                 return null;
             }
@@ -135,43 +91,12 @@ public class MKOfflineMap {
         return (MKOLUpdateElement) invokeI.objValue;
     }
 
-    @Deprecated
-    public int importOfflineData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? importOfflineData(false) : invokeV.intValue;
-    }
-
-    @Deprecated
-    public int importOfflineData(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            ArrayList e = this.b.e();
-            int i2 = 0;
-            if (e != null) {
-                i2 = e.size();
-                i = i2;
-            } else {
-                i = 0;
-            }
-            this.b.a(z, true);
-            ArrayList e2 = this.b.e();
-            if (e2 != null) {
-                i = e2.size();
-            }
-            return i - i2;
-        }
-        return invokeZ.intValue;
-    }
-
     public boolean init(MKOfflineMapListener mKOfflineMapListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, mKOfflineMapListener)) == null) {
-            i.a();
-            r a2 = r.a();
+            j.a();
+            o a2 = o.a();
             this.b = a2;
             if (a2 == null) {
                 return false;
@@ -186,31 +111,139 @@ public class MKOfflineMap {
     public boolean pause(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.b.c(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return this.b.c(i);
+        }
+        return invokeI.booleanValue;
     }
 
     public boolean remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.b.e(i) : invokeI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return this.b.e(i);
+        }
+        return invokeI.booleanValue;
     }
 
-    public ArrayList searchCity(String str) {
+    public ArrayList<MKOLUpdateElement> getAllUpdateInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<r> e = this.b.e();
+            if (e == null) {
+                return null;
+            }
+            ArrayList<MKOLUpdateElement> arrayList = new ArrayList<>();
+            Iterator<r> it = e.iterator();
+            while (it.hasNext()) {
+                arrayList.add(OfflineMapUtil.getUpdatElementFromLocalMapElement(it.next().a()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<MKOLSearchRecord> getHotCityList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<n> c = this.b.c();
+            if (c == null) {
+                return null;
+            }
+            ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
+            Iterator<n> it = c.iterator();
+            while (it.hasNext()) {
+                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<MKOLSearchRecord> getOfflineCityList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<n> d = this.b.d();
+            if (d == null) {
+                return null;
+            }
+            ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
+            Iterator<n> it = d.iterator();
+            while (it.hasNext()) {
+                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Deprecated
+    public int importOfflineData(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            ArrayList<r> e = this.b.e();
+            int i2 = 0;
+            if (e != null) {
+                i2 = e.size();
+                i = i2;
+            } else {
+                i = 0;
+            }
+            this.b.a(z, true);
+            ArrayList<r> e2 = this.b.e();
+            if (e2 != null) {
+                i = e2.size();
+            }
+            return i - i2;
+        }
+        return invokeZ.intValue;
+    }
+
+    public ArrayList<MKOLSearchRecord> searchCity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            ArrayList a2 = this.b.a(str);
+            ArrayList<n> a2 = this.b.a(str);
             if (a2 == null) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList();
-            Iterator it = a2.iterator();
+            ArrayList<MKOLSearchRecord> arrayList = new ArrayList<>();
+            Iterator<n> it = a2.iterator();
             while (it.hasNext()) {
-                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo((q) it.next()));
+                arrayList.add(OfflineMapUtil.getSearchRecordFromLocalCityInfo(it.next()));
             }
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
+    }
+
+    public boolean update(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            o oVar = this.b;
+            if (oVar != null && oVar.e() != null) {
+                Iterator<r> it = this.b.e().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    q qVar = it.next().a;
+                    if (qVar.a == i) {
+                        if (qVar.j) {
+                            return this.b.f(i);
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 
     public boolean start(int i) {
@@ -218,47 +251,23 @@ public class MKOfflineMap {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            r rVar = this.b;
-            if (rVar == null) {
+            o oVar = this.b;
+            if (oVar == null) {
                 return false;
             }
-            if (rVar.e() != null) {
-                Iterator it = this.b.e().iterator();
+            if (oVar.e() != null) {
+                Iterator<r> it = this.b.e().iterator();
                 while (it.hasNext()) {
-                    t tVar = ((u) it.next()).a;
-                    if (tVar.a == i) {
-                        if (tVar.j || (i2 = tVar.l) == 2 || i2 == 3 || i2 == 6) {
-                            return this.b.b(i);
+                    q qVar = it.next().a;
+                    if (qVar.a == i) {
+                        if (!qVar.j && (i2 = qVar.l) != 2 && i2 != 3 && i2 != 6) {
+                            return false;
                         }
-                        return false;
+                        return this.b.b(i);
                     }
                 }
             }
             return this.b.a(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean update(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            r rVar = this.b;
-            if (rVar != null && rVar.e() != null) {
-                Iterator it = this.b.e().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    t tVar = ((u) it.next()).a;
-                    if (tVar.a == i) {
-                        if (tVar.j) {
-                            return this.b.f(i);
-                        }
-                    }
-                }
-            }
-            return false;
         }
         return invokeI.booleanValue;
     }

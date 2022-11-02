@@ -17,7 +17,7 @@ public class h implements Runnable {
     public int wC;
     public volatile boolean wD;
     public i[] wE;
-    public WeakReference wn;
+    public WeakReference<Context> wn;
 
     public h(Context context, Object obj, i[] iVarArr) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class h implements Runnable {
         if (iVarArr == null) {
             throw null;
         }
-        this.wn = new WeakReference(context);
+        this.wn = new WeakReference<>(context);
         this.wC = 0;
         this.wD = false;
         this.mLock = obj;
@@ -66,7 +66,7 @@ public class h implements Runnable {
             i[] iVarArr = this.wE;
             int length = iVarArr.length;
             i iVar = null;
-            List<List> list = null;
+            List<List<a>> list = null;
             int i3 = 0;
             boolean z = false;
             while (true) {
@@ -74,7 +74,7 @@ public class h implements Runnable {
                     break;
                 }
                 i iVar2 = iVarArr[i3];
-                List gn = iVar2.gn();
+                List<List<a>> gn = iVar2.gn();
                 if (iVar2.go()) {
                     z = true;
                 }
@@ -87,13 +87,13 @@ public class h implements Runnable {
                 list = gn;
             }
             if (list != null && list.size() > 0 && iVar != null) {
-                Context context = (Context) this.wn.get();
+                Context context = this.wn.get();
                 if (context == null) {
                     break;
                 }
                 try {
                     i2 = 0;
-                    for (List list2 : list) {
+                    for (List<a> list2 : list) {
                         try {
                             iVar.a(context, list2);
                             i2 += list2.size();

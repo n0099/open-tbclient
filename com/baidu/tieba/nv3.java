@@ -1,25 +1,31 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
-import com.baidu.tieba.jo2;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class nv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
 
     static {
         InterceptResult invokeClinit;
@@ -34,81 +40,152 @@ public class nv3 {
                 return;
             }
         }
-        a = wj1.a;
+        e = ok1.a;
     }
 
-    public static void a(String str, String str2, String str3, String str4, lv3 lv3Var) {
+    public nv3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, lv3Var) == null) {
-            String l = mv3.l(str2);
-            if (TextUtils.isEmpty(l)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (a) {
-                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
-            }
-            if (TextUtils.isEmpty(str)) {
+        }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public nv3(@NonNull Download download) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            mv3 mv3Var = new mv3();
-            mv3Var.m(lv3Var);
-            mv3Var.b = l;
-            mv3Var.e = str3;
-            mv3Var.v = str;
-            mv3Var.l = gh3.D();
-            if (m33.b0() != null) {
-                jo2.a W = m33.b0().W();
-                mv3Var.a = fa3.n(W.G());
-                mv3Var.f = W.H();
-                mv3Var.c = W.T();
+        }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
+        this.a = download.getUrl();
+        this.b = download.getKeyByUser();
+        String fromParam = download.getFromParam();
+        if (!TextUtils.isEmpty(fromParam)) {
+            try {
+                JSONObject jSONObject = new JSONObject(fromParam);
+                this.c = jSONObject.optString("apk_id");
+                this.d = jSONObject.optLong("download_time", System.currentTimeMillis());
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
             }
-            mv3Var.t = str4;
-            fa3.x("1245", mv3Var);
         }
     }
 
-    public static void b(String str, String str2) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(str, str2, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!Environment.getExternalStorageState().equals("mounted")) {
+                return null;
+            }
+            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(String str, String str2, String str3) {
+    public nv3 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            String l = mv3.l(str);
-            if (TextUtils.isEmpty(l)) {
-                return;
-            }
-            mv3 mv3Var = new mv3();
-            mv3Var.b = l;
-            mv3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
-            if (str3 == null) {
-                str3 = "";
-            }
-            mv3Var.a("packageName", str3);
-            fa3.x("1245", mv3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.c = str;
+            return this;
         }
+        return (nv3) invokeL.objValue;
     }
 
-    public static void d(int i, String str, String str2, String str3) {
+    public nv3 f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            String d = d04.b().d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (nv3) invokeL.objValue;
+    }
+
+    public nv3 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (nv3) invokeL.objValue;
+    }
+
+    public Download b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Download download = new Download();
+            download.setUrl(this.a);
+            download.setKeyByUser(this.b);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cuid", tm2.h0().i(tm2.c()));
-                jSONObject.put("type", i);
-                jSONObject.put("time", System.currentTimeMillis() / 1000);
-                jSONObject.put("host", tm2.n().a());
-                jSONObject.put("version", gh3.D());
-                jSONObject.put("package", str);
-                jSONObject.put("appid", str2);
-                jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) qa4.h(tm2.c()).postRequest().cookieManager(tm2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString()))).build().executeAsync(null);
-            } catch (Exception unused) {
+                jSONObject.put("apk_id", this.c);
+                jSONObject.put("download_time", this.d);
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
             }
+            download.setFromParam(jSONObject.toString());
+            download.setMimetype("application/vnd.android.package-archive");
+            download.setWifiOnly(false);
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                download.setSavedPathForUser(d);
+            }
+            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+            return download;
         }
+        return (Download) invokeV.objValue;
     }
 }

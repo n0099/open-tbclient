@@ -1,6 +1,9 @@
 package androidx.webkit.internal;
 
+import android.annotation.SuppressLint;
 import android.webkit.SafeBrowsingResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.webkit.SafeBrowsingResponseCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +22,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     public SafeBrowsingResponseBoundaryInterface mBoundaryInterface;
     public SafeBrowsingResponse mFrameworksImpl;
 
-    public SafeBrowsingResponseImpl(SafeBrowsingResponse safeBrowsingResponse) {
+    public SafeBrowsingResponseImpl(@NonNull SafeBrowsingResponse safeBrowsingResponse) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,7 +40,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
         this.mFrameworksImpl = safeBrowsingResponse;
     }
 
-    public SafeBrowsingResponseImpl(InvocationHandler invocationHandler) {
+    public SafeBrowsingResponseImpl(@NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,6 +59,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     }
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
+    @SuppressLint({"NewApi"})
     public void backToSafety(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -71,6 +75,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     }
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
+    @SuppressLint({"NewApi"})
     public void proceed(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -86,6 +91,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
     }
 
     @Override // androidx.webkit.SafeBrowsingResponseCompat
+    @SuppressLint({"NewApi"})
     public void showInterstitial(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -112,6 +118,7 @@ public class SafeBrowsingResponseImpl extends SafeBrowsingResponseCompat {
         return (SafeBrowsingResponseBoundaryInterface) invokeV.objValue;
     }
 
+    @RequiresApi(27)
     private SafeBrowsingResponse getFrameworksImpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

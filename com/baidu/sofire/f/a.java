@@ -18,25 +18,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0159a a;
+    public C0167a a;
     public SQLiteDatabase b;
     public Context c;
 
     /* renamed from: com.baidu.sofire.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0159a extends SQLiteOpenHelper {
+    public class C0167a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0159a(a aVar, Context context) {
+        public C0167a(a aVar, Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -95,7 +94,7 @@ public class a {
             }
         }
         this.c = context;
-        this.a = new C0159a(this, context);
+        this.a = new C0167a(this, context);
         a();
     }
 
@@ -116,7 +115,7 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[SGET, SGET, SGET, INVOKE, SPUT, IGET, INVOKE, SGET, SGET, SGET, INVOKE, SPUT, SGET, SGET] complete} */
-    public int a(List list) {
+    public int a(List<Integer> list) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
@@ -124,11 +123,10 @@ public class a {
             int i2 = -1;
             try {
                 this.b.beginTransaction();
-                Iterator it = list.iterator();
                 i = -1;
-                while (it.hasNext()) {
+                for (Integer num : list) {
                     try {
-                        int intValue = ((Integer) it.next()).intValue();
+                        int intValue = num.intValue();
                         SQLiteDatabase sQLiteDatabase = this.b;
                         i = sQLiteDatabase.delete("r", "a=?", new String[]{intValue + ""});
                         if (i <= 0) {
@@ -237,7 +235,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List a(int i) {
+    public List<com.baidu.sofire.g.a> a(int i) {
         InterceptResult invokeI;
         ArrayList arrayList;
         String str;
@@ -320,7 +318,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List a(boolean z, int i) {
+    public List<com.baidu.sofire.g.a> a(boolean z, int i) {
         InterceptResult invokeCommon;
         ArrayList arrayList;
         String str;

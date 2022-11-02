@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +20,13 @@ public interface IImageLoader {
 
     /* renamed from: com.kwad.components.offline.api.core.api.IImageLoader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class DisplayImageOptionsCompat {
+    public static final class DisplayImageOptionsCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int blurRadius;
@@ -50,7 +51,7 @@ public interface IImageLoader {
         public final float strokeWidth;
 
         /* loaded from: classes7.dex */
-        public class Builder {
+        public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int blurRadius;
@@ -537,11 +538,11 @@ public interface IImageLoader {
         void onLoadingStarted(String str, View view2);
     }
 
-    void loadImage(ImageView imageView, String str);
+    void loadImage(ImageView imageView, @Nullable String str);
 
-    void loadImage(ImageView imageView, String str, DisplayImageOptionsCompat displayImageOptionsCompat);
+    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat);
 
-    void loadImage(ImageView imageView, String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
+    void loadImage(ImageView imageView, @Nullable String str, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
 
-    void loadImage(ImageView imageView, String str, ImageLoadingListener imageLoadingListener);
+    void loadImage(ImageView imageView, @Nullable String str, ImageLoadingListener imageLoadingListener);
 }

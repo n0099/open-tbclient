@@ -10,6 +10,9 @@ import android.os.Parcelable;
 import android.transition.Transition;
 import android.view.View;
 import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 import androidx.core.view.InputDeviceCompat;
@@ -26,24 +29,29 @@ import com.google.android.material.shape.Shapeable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static WeakReference capturedSharedElement;
+    @Nullable
+    public static WeakReference<View> capturedSharedElement;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean entering;
+    @Nullable
     public Rect returnEndBounds;
+    @Nullable
     public ShapeProvider shapeProvider;
     public boolean sharedElementReenterTransitionEnabled;
     public boolean transparentWindowBackgroundEnabled;
 
     /* loaded from: classes7.dex */
     public interface ShapeProvider {
-        ShapeAppearanceModel provideShape(View view2);
+        @Nullable
+        ShapeAppearanceModel provideShape(@NonNull View view2);
     }
 
     /* loaded from: classes7.dex */
-    public class ShapeableViewShapeProvider implements ShapeProvider {
+    public static class ShapeableViewShapeProvider implements ShapeProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +70,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         }
 
         @Override // com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback.ShapeProvider
-        public ShapeAppearanceModel provideShape(View view2) {
+        @Nullable
+        public ShapeAppearanceModel provideShape(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
@@ -94,6 +103,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         this.shapeProvider = new ShapeableViewShapeProvider();
     }
 
+    @Nullable
     public ShapeProvider getShapeProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +202,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         }
     }
 
-    public void setShapeProvider(ShapeProvider shapeProvider) {
+    public void setShapeProvider(@Nullable ShapeProvider shapeProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shapeProvider) == null) {
             this.shapeProvider = shapeProvider;
@@ -300,16 +310,17 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     }
 
     @Override // android.app.SharedElementCallback
-    public View onCreateSnapshotView(Context context, Parcelable parcelable) {
+    @Nullable
+    public View onCreateSnapshotView(@NonNull Context context, @Nullable Parcelable parcelable) {
         InterceptResult invokeLL;
-        WeakReference weakReference;
+        WeakReference<View> weakReference;
         View view2;
         ShapeAppearanceModel provideShape;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, parcelable)) == null) {
             View onCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
-            if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view2 = (View) weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view2)) != null) {
-                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f09158b, provideShape);
+            if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view2 = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view2)) != null) {
+                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f0915ca, provideShape);
             }
             return onCreateSnapshotView;
         }
@@ -317,11 +328,11 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     }
 
     @Override // android.app.SharedElementCallback
-    public void onMapSharedElements(List list, Map map) {
+    public void onMapSharedElements(@NonNull List<String> list, @NonNull Map<String, View> map) {
         View view2;
         Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) && !list.isEmpty() && !map.isEmpty() && (view2 = (View) map.get(list.get(0))) != null && (activity = ContextUtils.getActivity(view2.getContext())) != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) && !list.isEmpty() && !map.isEmpty() && (view2 = map.get(list.get(0))) != null && (activity = ContextUtils.getActivity(view2.getContext())) != null) {
             Window window = activity.getWindow();
             if (this.entering) {
                 setUpEnterTransform(window);
@@ -339,39 +350,40 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     }
 
     @Override // android.app.SharedElementCallback
-    public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+    @Nullable
+    public Parcelable onCaptureSharedElementSnapshot(@NonNull View view2, @NonNull Matrix matrix, @NonNull RectF rectF) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, view2, matrix, rectF)) == null) {
-            capturedSharedElement = new WeakReference(view2);
+            capturedSharedElement = new WeakReference<>(view2);
             return super.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
         return (Parcelable) invokeLLL.objValue;
     }
 
     @Override // android.app.SharedElementCallback
-    public void onSharedElementEnd(List list, List list2, List list3) {
+    public void onSharedElementEnd(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, list3) == null) {
-            if (!list2.isEmpty() && (((View) list2.get(0)).getTag(R.id.obfuscated_res_0x7f09158b) instanceof View)) {
-                ((View) list2.get(0)).setTag(R.id.obfuscated_res_0x7f09158b, null);
+            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f0915ca) instanceof View)) {
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f0915ca, null);
             }
             if (!this.entering && !list2.isEmpty()) {
-                this.returnEndBounds = TransitionUtils.getRelativeBoundsRect((View) list2.get(0));
+                this.returnEndBounds = TransitionUtils.getRelativeBoundsRect(list2.get(0));
             }
             this.entering = false;
         }
     }
 
     @Override // android.app.SharedElementCallback
-    public void onSharedElementStart(List list, List list2, List list3) {
+    public void onSharedElementStart(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, list, list2, list3) == null) {
             if (!list2.isEmpty() && !list3.isEmpty()) {
-                ((View) list2.get(0)).setTag(R.id.obfuscated_res_0x7f09158b, list3.get(0));
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f0915ca, list3.get(0));
             }
             if (!this.entering && !list2.isEmpty() && this.returnEndBounds != null) {
-                View view2 = (View) list2.get(0);
+                View view2 = list2.get(0);
                 view2.measure(View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.width(), 1073741824), View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.height(), 1073741824));
                 Rect rect = this.returnEndBounds;
                 view2.layout(rect.left, rect.top, rect.right, rect.bottom);

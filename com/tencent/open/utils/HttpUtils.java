@@ -89,7 +89,7 @@ public class HttpUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class HttpStatusException extends Exception {
+    public static class HttpStatusException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "http status code error:";
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class HttpUtils {
     }
 
     /* loaded from: classes8.dex */
-    public class NetworkUnavailableException extends Exception {
+    public static class NetworkUnavailableException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "network unavailable";
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class HttpUtils {
     }
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;

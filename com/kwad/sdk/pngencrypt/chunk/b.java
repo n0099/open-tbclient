@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.zip.InflaterInputStream;
@@ -18,11 +17,9 @@ public final class b {
     public static byte[] aly = new byte[4096];
     public static Pattern alz = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
-    public static List a(List list, c cVar) {
+    public static List<PngChunk> a(List<PngChunk> list, c cVar) {
         ArrayList arrayList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            PngChunk pngChunk = (PngChunk) it.next();
+        for (PngChunk pngChunk : list) {
             if (cVar.a(pngChunk)) {
                 arrayList.add(pngChunk);
             }

@@ -18,7 +18,7 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List mVideoItemDatas;
+    public List<VideoItemData> mVideoItemDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetNaniVideoMessage() {
@@ -38,7 +38,7 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getVideoItemDatas() {
+    public List<VideoItemData> getVideoItemDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

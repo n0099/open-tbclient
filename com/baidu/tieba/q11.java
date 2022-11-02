@@ -1,42 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q11 implements s11 {
+public class q11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q11() {
+    public static void a(Cursor cursor, s11... s11VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, s11VarArr) == null) {
+            int i = 0;
+            for (s11 s11Var : s11VarArr) {
+                for (Column column : s11Var.b().c()) {
+                    p11.h(column, cursor, i);
+                    i++;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.s11
-    public void a(Runnable runnable, String str, int i, long j) {
+    public static void b(s11 s11Var, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            x11.f().m(runnable, str, i, j);
-        }
-    }
-
-    @Override // com.baidu.tieba.s11
-    public void b(Runnable runnable, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            x11.f().q(runnable, str, j);
+        if (interceptable == null || interceptable.invokeLL(65537, null, s11Var, cursor) == null) {
+            p11.i(cursor, s11Var.b().c());
         }
     }
 }

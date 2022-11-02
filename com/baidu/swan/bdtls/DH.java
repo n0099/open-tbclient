@@ -1,5 +1,6 @@
 package com.baidu.swan.bdtls;
 
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,17 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes3.dex */
 public class DH {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     public static native int getGroupId();
 
+    @Keep
     public static native int getPublicKey(int i, int i2);
 
+    @Keep
     public static native int getSecret();
 
+    @Keep
     public static native byte[] getSecretKey(int i, int i2, int i3);
 
     static {

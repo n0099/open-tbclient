@@ -11,11 +11,13 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vl8;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.gr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +66,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = fn8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -81,7 +83,7 @@ public class RadiusProgressView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RadiusProgressView(Context context, AttributeSet attributeSet) {
+    public RadiusProgressView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +107,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = fn8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -122,7 +124,7 @@ public class RadiusProgressView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RadiusProgressView(Context context, AttributeSet attributeSet, int i) {
+    public RadiusProgressView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -146,7 +148,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = fn8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -165,7 +167,7 @@ public class RadiusProgressView extends View {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wp8.RadiusProgressView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, gr8.RadiusProgressView);
             this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
             this.c = obtainStyledAttributes.getInt(1, this.c);
             this.e = obtainStyledAttributes.getColor(4, this.e);
@@ -179,23 +181,27 @@ public class RadiusProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            int color = SkinManager.getColor(R.color.CAM_X0201);
-            this.e = color;
-            this.a.setColor(color);
+            this.a.setColor(this.e);
             canvas.save();
             RectF rectF = this.i;
             int i = this.b;
             canvas.drawRoundRect(rectF, i, i, this.a);
             canvas.restore();
-            this.g = vl8.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
-            this.h = SkinManager.getColor(R.color.CAM_X0336);
-            this.f = SkinManager.getColor(R.color.CAM_X0336);
+            int[] iArr = this.m;
+            if (iArr.length > 1) {
+                iArr[0] = this.g;
+                iArr[1] = this.h;
+            }
             PointF pointF = this.k;
             float f = pointF.x;
             float f2 = pointF.y;
             PointF pointF2 = this.l;
             this.o = new LinearGradient(f, f2, pointF2.x, pointF2.y, this.m, this.n, Shader.TileMode.CLAMP);
-            this.j.right = (getWidth() * this.c) / this.d;
+            if (this.d != 0) {
+                this.j.right = ((getWidth() * this.c) * 1.0f) / this.d;
+            } else {
+                this.j.right = 0.0f;
+            }
             this.a.setShader(this.o);
             RectF rectF2 = this.j;
             int i2 = this.b;
@@ -214,8 +220,13 @@ public class RadiusProgressView extends View {
             RectF rectF = this.i;
             rectF.right = f;
             rectF.bottom = f2;
+            int i5 = this.d;
+            if (i5 != 0) {
+                this.j.right = (f * this.c) / i5;
+            } else {
+                this.j.right = 0.0f;
+            }
             RectF rectF2 = this.j;
-            rectF2.right = (f * this.c) / this.d;
             rectF2.bottom = f2;
             PointF pointF = this.k;
             pointF.x = rectF2.left;
@@ -251,9 +262,25 @@ public class RadiusProgressView extends View {
         }
     }
 
-    public void setSolidColor(int i) {
+    public void setProgressColorLeft(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            invalidate();
+        }
+    }
+
+    public void setProgressColorRight(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.h = i;
+            invalidate();
+        }
+    }
+
+    public void setSolidColor(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.e = i;
             invalidate();
         }

@@ -1,112 +1,112 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class fw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public final class a implements Camera.AutoFocusCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778441, "Lcom/baidu/tieba/fw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-        }
-
-        @Override // android.hardware.Camera.AutoFocusCallback
-        public void onAutoFocus(boolean z, Camera camera) {
-            Camera.Parameters parameters;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, camera) != null) || camera == null || (parameters = camera.getParameters()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778441, "Lcom/baidu/tieba/fw1;");
                 return;
             }
-            parameters.setFocusMode(this.a);
-            camera.setParameters(parameters);
         }
+        a = ok1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    public static Rect a(float f, float f2, float f3, int i, int i2) {
-        InterceptResult invokeCommon;
+    @NonNull
+    public static Pair<Boolean, dw1> a(es1 es1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
-            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
-            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
-            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
-            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, es1Var, str)) == null) {
+            ew1 ew1Var = new ew1();
+            boolean b2 = b(str, es1Var.a().g());
+            if (b2) {
+                ew1Var.b = 402;
+            }
+            return new Pair<>(Boolean.valueOf(b2), ew1Var);
         }
-        return (Rect) invokeCommon.objValue;
+        return (Pair) invokeLL.objValue;
     }
 
-    public static String c(Camera.Parameters parameters) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof mq1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (!a) {
+                    return false;
+                }
+                throw new RuntimeException("whitelistName is empty");
+            } else {
+                String b0 = ((mq1) callbackHandler).b0();
+                if ("ai_apps_widget".equals(b0)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(b0)) {
+                    z = !v43.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull String str) {
         InterceptResult invokeL;
-        List<String> supportedFocusModes;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
-            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
-                if (supportedFocusModes.contains("macro")) {
-                    return "macro";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
+                return true;
+            }
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (v43.g(str2 + "/" + substring)) {
+                        return false;
+                    }
                 }
-                if (supportedFocusModes.contains("continuous-picture")) {
-                    return "continuous-picture";
-                }
+                return true;
             }
-            return "auto";
+            return !v43.g(str);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) && motionEvent != null && camera != null) {
-            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
-            camera.cancelAutoFocus();
-            Camera.Parameters parameters = camera.getParameters();
-            if (parameters == null) {
-                return;
-            }
-            if (parameters.getMaxNumFocusAreas() > 0) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new Camera.Area(a2, 800));
-                parameters.setFocusAreas(arrayList);
-            }
-            String focusMode = parameters.getFocusMode();
-            parameters.setFocusMode(c(parameters));
-            camera.setParameters(parameters);
-            camera.autoFocus(new a(focusMode));
-        }
+        return invokeL.booleanValue;
     }
 }

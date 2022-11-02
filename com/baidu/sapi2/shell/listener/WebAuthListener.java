@@ -3,12 +3,13 @@ package com.baidu.sapi2.shell.listener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class WebAuthListener implements SapiCallback {
+public abstract class WebAuthListener implements SapiCallback<WebAuthResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

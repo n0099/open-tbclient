@@ -6,6 +6,10 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.TintableBackgroundView;
@@ -26,7 +30,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     public final AppCompatTextHelper mTextHelper;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckBox(Context context) {
+    public AppCompatCheckBox(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -47,7 +51,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckBox(Context context, AttributeSet attributeSet) {
+    public AppCompatCheckBox(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040133);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,7 +72,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatCheckBox(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatCheckBox(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,6 +134,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,6 +150,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,6 +166,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.widget.TintableCompoundButton
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportButtonTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,6 +182,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.widget.TintableCompoundButton
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportButtonTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -198,7 +210,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.setBackgroundResource(i);
@@ -210,7 +222,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // android.widget.CompoundButton
-    public void setButtonDrawable(int i) {
+    public void setButtonDrawable(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             setButtonDrawable(AppCompatResources.getDrawable(getContext(), i));
@@ -218,7 +230,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -227,7 +240,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -236,7 +250,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.widget.TintableCompoundButton
-    public void setSupportButtonTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportButtonTintList(@Nullable ColorStateList colorStateList) {
         AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, colorStateList) == null) && (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) != null) {
@@ -245,7 +260,8 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     @Override // androidx.core.widget.TintableCompoundButton
-    public void setSupportButtonTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportButtonTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatCompoundButtonHelper appCompatCompoundButtonHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, mode) == null) && (appCompatCompoundButtonHelper = this.mCompoundButtonHelper) != null) {

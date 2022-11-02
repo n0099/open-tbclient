@@ -97,7 +97,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class DisplayType {
+    public static final class DisplayType {
         public static final /* synthetic */ DisplayType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final DisplayType FIT_IF_BIGGER;

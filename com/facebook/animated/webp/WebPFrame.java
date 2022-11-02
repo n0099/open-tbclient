@@ -8,11 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class WebPFrame implements AnimatedImageFrame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @DoNotStrip
     public long mNativeContext;
 
     private native void nativeDispose();
@@ -35,6 +39,7 @@ public class WebPFrame implements AnimatedImageFrame {
 
     private native boolean nativeShouldDisposeToBackgroundColor();
 
+    @DoNotStrip
     public WebPFrame(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

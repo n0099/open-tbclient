@@ -6,7 +6,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tieba.lc;
+import com.baidu.tieba.kc;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -85,7 +85,7 @@ public class InitDiskTask extends LaunchTask {
                     }
                 }
             });
-            lc.f().g(TbConfig.getTempDirName());
+            kc.f().g(TbConfig.getTempDirName());
         }
     }
 }

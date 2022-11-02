@@ -1,5 +1,6 @@
 package com.facebook.common.statfs;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
@@ -19,6 +20,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.annotation.Nullable;
+import javax.annotation.concurrent.GuardedBy;
+import javax.annotation.concurrent.ThreadSafe;
+@ThreadSafe
 /* loaded from: classes7.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,11 +42,12 @@ public class StatFsHelper {
     public volatile File mInternalPath;
     @Nullable
     public volatile StatFs mInternalStatFs;
+    @GuardedBy("lock")
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class StorageType {
+    public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final StorageType EXTERNAL;
@@ -157,6 +162,7 @@ public class StatFsHelper {
         return (StatFsHelper) invokeV.objValue;
     }
 
+    @GuardedBy("lock")
     private void updateStats() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
@@ -279,6 +285,7 @@ public class StatFsHelper {
         return (StatFs) invokeLL.objValue;
     }
 
+    @SuppressLint({"DeprecatedMethod"})
     public long getAvailableStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
         StatFs statFs;
@@ -308,6 +315,7 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
+    @SuppressLint({"DeprecatedMethod"})
     public long getFreeStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
         StatFs statFs;
@@ -337,6 +345,7 @@ public class StatFsHelper {
         return invokeL.longValue;
     }
 
+    @SuppressLint({"DeprecatedMethod"})
     public long getTotalStorageSpace(StorageType storageType) {
         InterceptResult invokeL;
         StatFs statFs;

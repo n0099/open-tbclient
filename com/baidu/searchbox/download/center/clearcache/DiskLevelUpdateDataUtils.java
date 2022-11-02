@@ -3,7 +3,6 @@ package com.baidu.searchbox.download.center.clearcache;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ public final class DiskLevelUpdateDataUtils {
     public static final String DISK_MONITOR_VERSION = "disk_monitor_version";
     public static final DiskLevelUpdateDataUtils INSTANCE;
     public static final String defaultDatas;
-    public static final LinkedHashMap diskLevelDatas;
+    public static final LinkedHashMap<Integer, String> diskLevelDatas;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -79,7 +78,7 @@ public final class DiskLevelUpdateDataUtils {
             for (Integer key : diskLevelDatas.keySet()) {
                 Intrinsics.checkNotNullExpressionValue(key, "key");
                 if (diskAllSizeByG <= key.intValue()) {
-                    return (String) diskLevelDatas.get(key);
+                    return diskLevelDatas.get(key);
                 }
             }
             return "gt256";
@@ -113,7 +112,7 @@ public final class DiskLevelUpdateDataUtils {
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_CLEANUP_TIMEOUT, data.optLong("cleanupTimeout"));
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_NOTIFY_DELAYAFTERSTART, data.optLong("notifyDelayAfterStart"));
             DiskManagerSharedPrefsUtils.INSTANCE.putLong(DiskManagerSharedPrefsUtils.SP_KEY_DISK_CHECK_DURATION, data.optLong("diskCheckDuration"));
-            JSONObject optJSONObject = data.optJSONObject(PollingModel.LEVEL);
+            JSONObject optJSONObject = data.optJSONObject("level");
             if (optJSONObject != null) {
                 DiskManagerSharedPrefsUtils.INSTANCE.putString(DiskManagerSharedPrefsUtils.SP_KEY_APP_LIMIT_SWITCH, optJSONObject.optString("appLimitSwitch", "0"));
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(getCurrentDiskLevel());

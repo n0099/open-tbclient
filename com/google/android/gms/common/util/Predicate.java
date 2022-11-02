@@ -1,5 +1,10 @@
 package com.google.android.gms.common.util;
+
+import androidx.annotation.NonNull;
+import com.google.android.gms.common.annotation.KeepForSdk;
+@KeepForSdk
 /* loaded from: classes7.dex */
-public interface Predicate {
-    boolean apply(Object obj);
+public interface Predicate<T> {
+    @KeepForSdk
+    boolean apply(@NonNull T t);
 }

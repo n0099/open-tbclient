@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class f4 implements Iterable, Comparator, Comparable {
+public class f4 implements Iterable<e4>, Comparator<e4>, Comparable<f4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public final b7 b;
+    public final b7<e4> b;
     public boolean c;
 
     public f4() {
@@ -30,7 +30,7 @@ public class f4 implements Iterable, Comparator, Comparable {
                 return;
             }
         }
-        this.b = new b7();
+        this.b = new b7<>();
         this.c = true;
     }
 
@@ -52,7 +52,7 @@ public class f4 implements Iterable, Comparator, Comparable {
     }
 
     @Override // java.lang.Iterable
-    public final Iterator iterator() {
+    public final Iterator<e4> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -71,7 +71,7 @@ public class f4 implements Iterable, Comparator, Comparable {
             int i2 = 1;
             for (int i3 = 0; i3 < i; i3++) {
                 i2 = (i2 * 7) & 65535;
-                j += this.a * ((e4) this.b.get(i3)).hashCode() * i2;
+                j += this.a * this.b.get(i3).hashCode() * i2;
             }
             return (int) (j ^ (j >> 32));
         }
@@ -112,11 +112,11 @@ public class f4 implements Iterable, Comparator, Comparable {
             f4Var.i();
             int i = 0;
             while (true) {
-                b7 b7Var = this.b;
+                b7<e4> b7Var = this.b;
                 if (i >= b7Var.b) {
                     return 0;
                 }
-                int compareTo = ((e4) b7Var.get(i)).compareTo(f4Var.b.get(i));
+                int compareTo = b7Var.get(i).compareTo(f4Var.b.get(i));
                 if (compareTo != 0) {
                     if (compareTo < 0) {
                         return -1;
@@ -175,9 +175,9 @@ public class f4 implements Iterable, Comparator, Comparable {
             if (e(j)) {
                 int i = 0;
                 while (true) {
-                    b7 b7Var = this.b;
+                    b7<e4> b7Var = this.b;
                     if (i < b7Var.b) {
-                        if (((e4) b7Var.get(i)).a == j) {
+                        if (b7Var.get(i).a == j) {
                             return i;
                         }
                         i++;
@@ -225,11 +225,11 @@ public class f4 implements Iterable, Comparator, Comparable {
             f4Var.i();
             int i = 0;
             while (true) {
-                b7 b7Var = this.b;
+                b7<e4> b7Var = this.b;
                 if (i >= b7Var.b) {
                     return true;
                 }
-                if (!((e4) b7Var.get(i)).a((e4) f4Var.b.get(i))) {
+                if (!b7Var.get(i).a(f4Var.b.get(i))) {
                     return false;
                 }
                 i++;

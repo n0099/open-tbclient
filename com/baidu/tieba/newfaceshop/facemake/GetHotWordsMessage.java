@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class GetHotWordsMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mData;
+    public List<String> mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetHotWordsMessage(int i) {
@@ -37,7 +37,7 @@ public class GetHotWordsMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    private List parseHotWordsData(JSONObject jSONObject) {
+    private List<String> parseHotWordsData(JSONObject jSONObject) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class GetHotWordsMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List getData() {
+    public List<String> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

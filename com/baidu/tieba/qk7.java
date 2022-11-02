@@ -1,83 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.medialive.browser.HkWebView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.location.selectpoi.SearchLocationActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qk7 implements IBrowserView {
+public class qk7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HkWebView a;
-    public FrameLayout b;
-    public View c;
-    public View d;
-    public View e;
-    public IBrowserView.OnBrowserStatusChangeCallBack f;
-    public boolean g;
+    public nk7 a;
+    public SearchLocationActivity b;
+    public boolean c;
+    public NoDataView d;
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setDynamicDispatcherEnabled(boolean z) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setOnLongPressListener(IBrowserView.OnLongPressListener onLongPressListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onLongPressListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setStateViewVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setUpSelect(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-        }
+        return invokeI.longValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a extends WebViewClient {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qk7 a;
+        public TextView a;
+        public View b;
 
-        public a(qk7 qk7Var) {
+        public b(qk7 qk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,81 +60,21 @@ public class qk7 implements IBrowserView {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qk7Var;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.i();
-                if (this.a.f != null) {
-                    this.a.f.onHideLoading();
-                }
-                if (this.a.g) {
-                    this.a.j();
-                    if (this.a.f != null) {
-                        this.a.f.onLoadFailure();
-                    }
-                } else if (this.a.f != null) {
-                    this.a.f.onLoadSuccess();
                 }
             }
         }
 
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                super.onPageStarted(webView, str, bitmap);
-                this.a.g = false;
-                this.a.k();
-                this.a.h();
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
-                super.onReceivedError(webView, webResourceRequest, webResourceError);
-                this.a.g = true;
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
-                super.onReceivedSslError(webView, sslErrorHandler, sslError);
-                this.a.g = true;
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Activity b;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || (b = n9.g().b()) == null) {
-                    return false;
-                }
-                UrlManager.getInstance().dealOneLink((TbPageContext) w9.a(b), new String[]{str}, true);
-                return true;
-            }
-            return invokeLL.booleanValue;
+        public /* synthetic */ b(qk7 qk7Var, a aVar) {
+            this(qk7Var);
         }
     }
 
-    public qk7() {
+    public qk7(SearchLocationActivity searchLocationActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {searchLocationActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -173,171 +84,105 @@ public class qk7 implements IBrowserView {
                 return;
             }
         }
-        this.g = false;
+        this.c = false;
+        this.b = searchLocationActivity;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public boolean canGoBack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HkWebView hkWebView = this.a;
-            if (hkWebView != null && hkWebView.canGoBack()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void goBack() {
-        HkWebView hkWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hkWebView = this.a) != null) {
-            hkWebView.goBack();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void refresh() {
-        HkWebView hkWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hkWebView = this.a) != null) {
-            hkWebView.reload();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public boolean canScrollVertically(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            HkWebView hkWebView = this.a;
-            if (hkWebView != null) {
-                return hkWebView.canScrollVertically(i);
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void loadUrl(String str) {
-        HkWebView hkWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (hkWebView = this.a) != null) {
-            hkWebView.loadUrl(str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setErrorView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setLoadingView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
-            this.d = view2;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
-            this.f = onBrowserStatusChangeCallBack;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public View getView(Context context) {
+    public b b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.b == null) {
-                this.b = new FrameLayout(context);
-            }
-            if (this.e == null) {
-                View view2 = new View(context);
-                this.e = view2;
-                view2.setBackgroundColor(context.getResources().getColor(17170443));
-            }
-            if (this.a == null) {
-                HkWebView hkWebView = new HkWebView(context);
-                this.a = hkWebView;
-                hkWebView.setWebViewClient(new a(this));
-            }
-            this.b.addView(this.a);
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            b bVar = new b(this, null);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091466);
+            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091467);
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public void d(nk7 nk7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nk7Var) == null) {
+            this.a = nk7Var;
+        }
+    }
+
+    public View a(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1409), null);
+            this.d = a2;
+            a2.f(this.b.getPageContext(), skinType);
+            this.d.setVisibility(0);
+            return this.d;
         }
         return (View) invokeL.objValue;
     }
 
-    public final void h() {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d != null && this.e.getParent() != null) {
-                ((ViewGroup) this.e.getParent()).removeView(this.e);
-            }
-            View view2 = this.c;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.c.getParent()).removeView(this.c);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void i() {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d != null && this.e.getParent() != null) {
-                ((ViewGroup) this.e.getParent()).removeView(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            nk7 nk7Var = this.a;
+            if (nk7Var != null && nk7Var.a() != null && !this.a.a().isEmpty()) {
+                this.c = true;
+                return this.a.a().size();
             }
-            View view2 = this.d;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.d.getParent()).removeView(this.d);
-            }
+            this.c = false;
+            return 1;
         }
+        return invokeV.intValue;
     }
 
-    public final void j() {
-        View view2;
-        View view3;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
-                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            nk7 nk7Var = this.a;
+            if (nk7Var != null && nk7Var.a() != null && !this.a.a().isEmpty()) {
+                return this.a.a().get(i);
             }
-            if (this.b != null && (view2 = this.c) != null && view2.getParent() == null) {
-                this.b.addView(this.c, new FrameLayout.LayoutParams(-1, -1));
-            }
+            return null;
         }
+        return invokeI.objValue;
     }
 
-    public final void k() {
-        View view2;
-        View view3;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
-                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (!this.c) {
+                return a(viewGroup);
             }
-            if (this.b != null && (view2 = this.d) != null && view2.getParent() == null) {
-                this.b.addView(this.d, new FrameLayout.LayoutParams(-1, -1));
+            b bVar = null;
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
             }
+            if (bVar == null) {
+                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0577, viewGroup, false);
+                bVar = b(view2);
+                view2.setTag(bVar);
+            }
+            bVar.a.setText(this.a.a().get(i).a());
+            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

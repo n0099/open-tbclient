@@ -1,92 +1,63 @@
 package com.baidu.platform.core.e;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.share.OnGetShareUrlResultListener;
-import com.baidu.mapapi.search.share.ShareUrlResult;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.recommendstop.RecommendStopSearchOption;
+import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.platform.base.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.platform.base.d {
+public class d extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public d() {
+    public d(RecommendStopSearchOption recommendStopSearchOption) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recommendStopSearchOption};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a(recommendStopSearchOption);
     }
 
-    @Override // com.baidu.platform.base.d
-    public SearchResult a(String str) {
+    @Override // com.baidu.platform.base.e
+    public String a(com.baidu.platform.domain.c cVar) {
         InterceptResult invokeL;
-        SearchResult.ERRORNO errorno;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            ShareUrlResult shareUrlResult = new ShareUrlResult();
-            if (str != null && !str.equals("")) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.has("SDK_InnerError")) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
-                        if (optJSONObject.has("PermissionCheckError")) {
-                            shareUrlResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
-                            return shareUrlResult;
-                        } else if (optJSONObject.has("httpStateError")) {
-                            String optString = optJSONObject.optString("httpStateError");
-                            shareUrlResult.error = optString.equals("NETWORK_ERROR") ? SearchResult.ERRORNO.NETWORK_ERROR : optString.equals("REQUEST_ERROR") ? SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
-                            return shareUrlResult;
-                        }
-                    }
-                    if (!a(str, shareUrlResult, false)) {
-                        if (str == null) {
-                            shareUrlResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                        }
-                        try {
-                            JSONObject jSONObject2 = new JSONObject(str);
-                            if (str != null) {
-                                if (jSONObject2.optInt("status_sdk") != 0) {
-                                    errorno = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                                } else {
-                                    shareUrlResult.setUrl(jSONObject2.optString("shorturl"));
-                                    shareUrlResult.setType(a().ordinal());
-                                    errorno = SearchResult.ERRORNO.NO_ERROR;
-                                }
-                                shareUrlResult.error = errorno;
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            shareUrlResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                        }
-                    }
-                    return shareUrlResult;
-                } catch (Exception unused) {
-                }
-            }
-            shareUrlResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            return shareUrlResult;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            return cVar.u();
         }
-        return (SearchResult) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.platform.base.d
-    public void a(SearchResult searchResult, Object obj) {
+    private void a(RecommendStopSearchOption recommendStopSearchOption) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetShareUrlResultListener)) {
-            ((OnGetShareUrlResultListener) obj).onGetRouteShareUrlResult((ShareUrlResult) searchResult);
+        if (interceptable == null || interceptable.invokeL(65537, this, recommendStopSearchOption) == null) {
+            if (recommendStopSearchOption != null && recommendStopSearchOption.mLocation != null) {
+                LatLng latLng = new LatLng(recommendStopSearchOption.getLocation().latitude, recommendStopSearchOption.getLocation().longitude);
+                if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
+                    latLng = CoordTrans.gcjToBaidu(latLng);
+                }
+                com.baidu.platform.util.a aVar = this.a;
+                aVar.a("location", latLng.longitude + "," + latLng.latitude);
+            }
+            this.a.a("coordtype", "bd09ll");
+            this.a.a("from", "android_map_sdk");
+            this.a.a("output", "json");
         }
     }
 }

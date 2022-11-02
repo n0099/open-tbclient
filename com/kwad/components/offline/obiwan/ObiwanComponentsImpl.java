@@ -1,6 +1,7 @@
 package com.kwad.components.offline.obiwan;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +22,7 @@ public class ObiwanComponentsImpl extends DefaultOfflineCompo implements ObiwanC
     public final IObiwanOfflineCompo mOfflineCompo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObiwanComponentsImpl(IObiwanOfflineCompo iObiwanOfflineCompo) {
+    public ObiwanComponentsImpl(@NonNull IObiwanOfflineCompo iObiwanOfflineCompo) {
         super(iObiwanOfflineCompo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

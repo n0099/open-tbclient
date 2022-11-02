@@ -32,7 +32,7 @@ public class LocalDNSProtocolMgr {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            LinkedList linkedList = new LinkedList();
+            LinkedList<String> linkedList = new LinkedList<>();
             try {
                 InetAddress[] allByName = InetAddress.getAllByName(str);
                 if (allByName != null && allByName.length > 0) {

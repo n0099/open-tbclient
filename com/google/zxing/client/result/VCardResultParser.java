@@ -18,7 +18,6 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -109,14 +108,12 @@ public final class VCardResultParser extends ResultParser {
         return (String) invokeLL.objValue;
     }
 
-    public static void formatNames(Iterable iterable) {
+    public static void formatNames(Iterable<List<String>> iterable) {
         int indexOf;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, iterable) == null) && iterable != null) {
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                List list = (List) it.next();
-                String str = (String) list.get(0);
+            for (List<String> list : iterable) {
+                String str = list.get(0);
                 String[] strArr = new String[5];
                 int i = 0;
                 int i2 = 0;
@@ -137,7 +134,7 @@ public final class VCardResultParser extends ResultParser {
         }
     }
 
-    public static String[] toTypes(Collection collection) {
+    public static String[] toTypes(Collection<List<String>> collection) {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
@@ -146,13 +143,11 @@ public final class VCardResultParser extends ResultParser {
                 return null;
             }
             ArrayList arrayList = new ArrayList(collection.size());
-            Iterator it = collection.iterator();
-            while (it.hasNext()) {
-                List list = (List) it.next();
+            for (List<String> list : collection) {
                 int i = 1;
                 while (true) {
                     if (i < list.size()) {
-                        str = (String) list.get(i);
+                        str = list.get(i);
                         int indexOf = str.indexOf(61);
                         if (indexOf >= 0) {
                             if ("TYPE".equalsIgnoreCase(str.substring(0, indexOf))) {
@@ -185,25 +180,25 @@ public final class VCardResultParser extends ResultParser {
         return invokeL.booleanValue;
     }
 
-    public static String toPrimaryValue(List list) {
+    public static String toPrimaryValue(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, list)) == null) {
             if (list != null && !list.isEmpty()) {
-                return (String) list.get(0);
+                return list.get(0);
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static List matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
+    public static List<String> matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            List matchVCardPrefixedField = matchVCardPrefixedField(charSequence, str, z, z2);
+            List<List<String>> matchVCardPrefixedField = matchVCardPrefixedField(charSequence, str, z, z2);
             if (matchVCardPrefixedField != null && !matchVCardPrefixedField.isEmpty()) {
-                return (List) matchVCardPrefixedField.get(0);
+                return matchVCardPrefixedField.get(0);
             }
             return null;
         }
@@ -216,7 +211,7 @@ public final class VCardResultParser extends ResultParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List matchVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
+    public static List<List<String>> matchVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         ArrayList arrayList;
         boolean z3;
@@ -358,15 +353,14 @@ public final class VCardResultParser extends ResultParser {
         }
     }
 
-    public static String[] toPrimaryValues(Collection collection) {
+    public static String[] toPrimaryValues(Collection<List<String>> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) {
             if (collection != null && !collection.isEmpty()) {
                 ArrayList arrayList = new ArrayList(collection.size());
-                Iterator it = collection.iterator();
-                while (it.hasNext()) {
-                    String str = (String) ((List) it.next()).get(0);
+                for (List<String> list : collection) {
+                    String str = list.get(0);
                     if (str != null && !str.isEmpty()) {
                         arrayList.add(str);
                     }
@@ -383,7 +377,7 @@ public final class VCardResultParser extends ResultParser {
     public AddressBookParsedResult parse(Result result) {
         InterceptResult invokeL;
         String[] split;
-        List list;
+        List<String> list;
         String[] split2;
         String[] strArr;
         Interceptable interceptable = $ic;
@@ -393,36 +387,36 @@ public final class VCardResultParser extends ResultParser {
             if (!matcher.find() || matcher.start() != 0) {
                 return null;
             }
-            List matchVCardPrefixedField = matchVCardPrefixedField("FN", massagedText, true, false);
+            List<List<String>> matchVCardPrefixedField = matchVCardPrefixedField("FN", massagedText, true, false);
             if (matchVCardPrefixedField == null) {
                 matchVCardPrefixedField = matchVCardPrefixedField("N", massagedText, true, false);
                 formatNames(matchVCardPrefixedField);
             }
-            List matchSingleVCardPrefixedField = matchSingleVCardPrefixedField("NICKNAME", massagedText, true, false);
+            List<String> matchSingleVCardPrefixedField = matchSingleVCardPrefixedField("NICKNAME", massagedText, true, false);
             if (matchSingleVCardPrefixedField == null) {
                 split = null;
             } else {
-                split = COMMA.split((CharSequence) matchSingleVCardPrefixedField.get(0));
+                split = COMMA.split(matchSingleVCardPrefixedField.get(0));
             }
-            List matchVCardPrefixedField2 = matchVCardPrefixedField("TEL", massagedText, true, false);
-            List matchVCardPrefixedField3 = matchVCardPrefixedField("EMAIL", massagedText, true, false);
-            List matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField(WebvttDecoder.COMMENT_START, massagedText, false, false);
-            List matchVCardPrefixedField4 = matchVCardPrefixedField("ADR", massagedText, true, true);
-            List matchSingleVCardPrefixedField3 = matchSingleVCardPrefixedField("ORG", massagedText, true, true);
-            List matchSingleVCardPrefixedField4 = matchSingleVCardPrefixedField("BDAY", massagedText, true, false);
-            if (matchSingleVCardPrefixedField4 != null && !isLikeVCardDate((CharSequence) matchSingleVCardPrefixedField4.get(0))) {
+            List<List<String>> matchVCardPrefixedField2 = matchVCardPrefixedField("TEL", massagedText, true, false);
+            List<List<String>> matchVCardPrefixedField3 = matchVCardPrefixedField("EMAIL", massagedText, true, false);
+            List<String> matchSingleVCardPrefixedField2 = matchSingleVCardPrefixedField(WebvttDecoder.COMMENT_START, massagedText, false, false);
+            List<List<String>> matchVCardPrefixedField4 = matchVCardPrefixedField("ADR", massagedText, true, true);
+            List<String> matchSingleVCardPrefixedField3 = matchSingleVCardPrefixedField("ORG", massagedText, true, true);
+            List<String> matchSingleVCardPrefixedField4 = matchSingleVCardPrefixedField("BDAY", massagedText, true, false);
+            if (matchSingleVCardPrefixedField4 != null && !isLikeVCardDate(matchSingleVCardPrefixedField4.get(0))) {
                 list = null;
             } else {
                 list = matchSingleVCardPrefixedField4;
             }
-            List matchSingleVCardPrefixedField5 = matchSingleVCardPrefixedField("TITLE", massagedText, true, false);
-            List matchVCardPrefixedField5 = matchVCardPrefixedField("URL", massagedText, true, false);
-            List matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("IMPP", massagedText, true, false);
-            List matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true, false);
+            List<String> matchSingleVCardPrefixedField5 = matchSingleVCardPrefixedField("TITLE", massagedText, true, false);
+            List<List<String>> matchVCardPrefixedField5 = matchVCardPrefixedField("URL", massagedText, true, false);
+            List<String> matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("IMPP", massagedText, true, false);
+            List<String> matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true, false);
             if (matchSingleVCardPrefixedField7 == null) {
                 split2 = null;
             } else {
-                split2 = SEMICOLON_OR_COMMA.split((CharSequence) matchSingleVCardPrefixedField7.get(0));
+                split2 = SEMICOLON_OR_COMMA.split(matchSingleVCardPrefixedField7.get(0));
             }
             if (split2 != null && split2.length != 2) {
                 strArr = null;

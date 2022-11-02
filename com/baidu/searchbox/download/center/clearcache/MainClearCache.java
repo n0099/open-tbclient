@@ -28,9 +28,9 @@ public class MainClearCache extends BaseClearCache {
     public static final String EXT_KEY = "main";
     public static final long TIMEOUT = 2;
     public static BaseClearCache sDownloadClearCache;
-    public static final List sSubClearCacheList;
+    public static final List<BaseClearCache> sSubClearCacheList;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mShowClearCacheList;
+    public List<BaseClearCache> mShowClearCacheList;
 
     /* loaded from: classes2.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
@@ -101,7 +101,7 @@ public class MainClearCache extends BaseClearCache {
         sDownloadClearCache = ClearCacheRuntime.getClearCacheContext().getDownloadClearCache();
     }
 
-    public List getCalculateCacheList() {
+    public List<BaseClearCache> getCalculateCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -132,7 +132,7 @@ public class MainClearCache extends BaseClearCache {
         return invokeV.longValue;
     }
 
-    public List getSelectedClearCacheList() {
+    public List<BaseClearCache> getSelectedClearCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -424,7 +424,7 @@ public class MainClearCache extends BaseClearCache {
         return invokeV.longValue;
     }
 
-    public List getShowClearCacheList() {
+    public List<BaseClearCache> getShowClearCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -433,7 +433,7 @@ public class MainClearCache extends BaseClearCache {
         return (List) invokeV.objValue;
     }
 
-    public List getSubClearCacheList() {
+    public List<BaseClearCache> getSubClearCacheList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {

@@ -18,15 +18,15 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class BitmapMemoryCacheProducer implements Producer {
+public class BitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
     public static final String ORIGIN_SUBCATEGORY = "pipe_bg";
     public static final String PRODUCER_NAME = "BitmapMemoryCacheProducer";
     public transient /* synthetic */ FieldHolder $fh;
     public final CacheKeyFactory mCacheKeyFactory;
-    public final Producer mInputProducer;
-    public final MemoryCache mMemoryCache;
+    public final Producer<CloseableReference<CloseableImage>> mInputProducer;
+    public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
 
     public String getOriginSubcategory() {
         InterceptResult invokeV;
@@ -40,7 +40,7 @@ public class BitmapMemoryCacheProducer implements Producer {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
     }
 
-    public BitmapMemoryCacheProducer(MemoryCache memoryCache, CacheKeyFactory cacheKeyFactory, Producer producer) {
+    public BitmapMemoryCacheProducer(MemoryCache<CacheKey, CloseableImage> memoryCache, CacheKeyFactory cacheKeyFactory, Producer<CloseableReference<CloseableImage>> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,10 +69,10 @@ public class BitmapMemoryCacheProducer implements Producer {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
-        Map map;
+    public void produceResults(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext) {
+        Map<String, String> map;
         boolean isTracing;
-        Map map2;
+        Map<String, String> map2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, consumer, producerContext) == null) {
             try {
@@ -82,11 +82,11 @@ public class BitmapMemoryCacheProducer implements Producer {
                 ProducerListener2 producerListener = producerContext.getProducerListener();
                 producerListener.onProducerStart(producerContext, getProducerName());
                 CacheKey bitmapCacheKey = this.mCacheKeyFactory.getBitmapCacheKey(producerContext.getImageRequest(), producerContext.getCallerContext());
-                CloseableReference closeableReference = this.mMemoryCache.get(bitmapCacheKey);
-                Map map3 = null;
+                CloseableReference<CloseableImage> closeableReference = this.mMemoryCache.get(bitmapCacheKey);
+                Map<String, String> map3 = null;
                 if (closeableReference != null) {
-                    maybeSetExtrasFromCloseableImage((HasImageMetadata) closeableReference.get(), producerContext);
-                    boolean isOfFullQuality = ((CloseableImage) closeableReference.get()).getQualityInfo().isOfFullQuality();
+                    maybeSetExtrasFromCloseableImage(closeableReference.get(), producerContext);
+                    boolean isOfFullQuality = closeableReference.get().getQualityInfo().isOfFullQuality();
                     if (isOfFullQuality) {
                         String producerName = getProducerName();
                         if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
@@ -125,7 +125,7 @@ public class BitmapMemoryCacheProducer implements Producer {
                     }
                     return;
                 }
-                Consumer wrapConsumer = wrapConsumer(consumer, bitmapCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled());
+                Consumer<CloseableReference<CloseableImage>> wrapConsumer = wrapConsumer(consumer, bitmapCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled());
                 String producerName3 = getProducerName();
                 if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
                     map3 = ImmutableMap.of("cached_value_found", "false");
@@ -149,11 +149,11 @@ public class BitmapMemoryCacheProducer implements Producer {
         }
     }
 
-    public Consumer wrapConsumer(Consumer consumer, CacheKey cacheKey, boolean z) {
+    public Consumer<CloseableReference<CloseableImage>> wrapConsumer(Consumer<CloseableReference<CloseableImage>> consumer, CacheKey cacheKey, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, consumer, cacheKey, z)) == null) {
-            return new DelegatingConsumer(this, consumer, cacheKey, z) { // from class: com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer.1
+            return new DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>>(this, consumer, cacheKey, z) { // from class: com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BitmapMemoryCacheProducer this$0;
@@ -186,8 +186,8 @@ public class BitmapMemoryCacheProducer implements Producer {
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.imagepipeline.producers.BaseConsumer
-                public void onNewResultImpl(CloseableReference closeableReference, int i) {
-                    CloseableReference closeableReference2;
+                public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+                    CloseableReference<CloseableImage> closeableReference2;
                     boolean isTracing;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, closeableReference, i) == null) {
@@ -196,7 +196,7 @@ public class BitmapMemoryCacheProducer implements Producer {
                                 FrescoSystrace.beginSection("BitmapMemoryCacheProducer#onNewResultImpl");
                             }
                             boolean isLast = BaseConsumer.isLast(i);
-                            CloseableReference closeableReference3 = null;
+                            CloseableReference<CloseableImage> closeableReference3 = null;
                             if (closeableReference == null) {
                                 if (isLast) {
                                     getConsumer().onNewResult(null, i);
@@ -206,10 +206,10 @@ public class BitmapMemoryCacheProducer implements Producer {
                                 }
                                 return;
                             }
-                            if (!((CloseableImage) closeableReference.get()).isStateful() && !BaseConsumer.statusHasFlag(i, 8)) {
+                            if (!closeableReference.get().isStateful() && !BaseConsumer.statusHasFlag(i, 8)) {
                                 if (!isLast && (closeableReference2 = this.this$0.mMemoryCache.get(this.val$cacheKey)) != null) {
-                                    QualityInfo qualityInfo = ((CloseableImage) closeableReference.get()).getQualityInfo();
-                                    QualityInfo qualityInfo2 = ((CloseableImage) closeableReference2.get()).getQualityInfo();
+                                    QualityInfo qualityInfo = closeableReference.get().getQualityInfo();
+                                    QualityInfo qualityInfo2 = closeableReference2.get().getQualityInfo();
                                     if (!qualityInfo2.isOfFullQuality() && qualityInfo2.getQuality() < qualityInfo.getQuality()) {
                                         CloseableReference.closeSafely(closeableReference2);
                                     } else {
@@ -228,7 +228,7 @@ public class BitmapMemoryCacheProducer implements Producer {
                                 if (isLast) {
                                     getConsumer().onProgressUpdate(1.0f);
                                 }
-                                Consumer consumer2 = getConsumer();
+                                Consumer<CloseableReference<CloseableImage>> consumer2 = getConsumer();
                                 if (closeableReference3 != null) {
                                     closeableReference = closeableReference3;
                                 }

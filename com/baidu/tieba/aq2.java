@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class aq2 extends yp2 {
+public class aq2 implements bq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList B;
-    public String z;
+    public int a;
+    public int b;
+
+    @Override // com.baidu.tieba.bq2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public aq2() {
         Interceptable interceptable = $ic;
@@ -32,17 +36,30 @@ public class aq2 extends yp2 {
                 return;
             }
         }
-        this.z = "";
-        this.A = "";
+        this.a = -2;
+        this.b = -2;
     }
 
-    @Override // com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public boolean isValid() {
+    @Override // com.baidu.tieba.bq2
+    public int a() {
         InterceptResult invokeV;
-        fq2 fq2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && (fq2Var = this.j) != null && fq2Var.isValid()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.bq2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -2) {
+                ln2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            if ((this.b & 2) == 2) {
                 return true;
             }
             return false;
@@ -50,32 +67,37 @@ public class aq2 extends yp2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yp2, com.baidu.tieba.cz1, com.baidu.tieba.lt2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.bq2
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
-        }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == -2) {
+                ln2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
             }
+            if ((this.b & 1) == 1) {
+                return true;
+            }
+            return false;
         }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bq2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == -2) {
+                ln2.g0().getSwitch("swan_webview_backstage_optimize", -1);
+                this.a = -1;
+            }
+            if (this.a > -1) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

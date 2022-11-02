@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -10,9 +11,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a23;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.e23;
+import com.baidu.tieba.s23;
+import com.baidu.tieba.vh3;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdTimePicker extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +42,7 @@ public class BdTimePicker extends LinearLayout {
     public int n;
     public Paint o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
     }
 
@@ -51,8 +52,8 @@ public class BdTimePicker extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class a implements e23 {
+    /* loaded from: classes3.dex */
+    public class a implements w23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -75,7 +76,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.e23
+        @Override // com.baidu.tieba.w23
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -86,8 +87,8 @@ public class BdTimePicker extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements e23 {
+    /* loaded from: classes3.dex */
+    public class b implements w23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdTimePicker a;
@@ -110,7 +111,7 @@ public class BdTimePicker extends LinearLayout {
             this.a = bdTimePicker;
         }
 
-        @Override // com.baidu.tieba.e23
+        @Override // com.baidu.tieba.w23
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -170,6 +171,7 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @TargetApi(11)
     public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
@@ -261,13 +263,13 @@ public class BdTimePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d6, this);
-            this.l = dh3.f(context, this.l);
-            this.m = dh3.f(context, 16.0f);
-            this.n = dh3.f(context, 14.0f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d7, this);
+            this.l = vh3.f(context, this.l);
+            this.m = vh3.f(context, 16.0f);
+            this.n = vh3.f(context, 14.0f);
             j();
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921d9);
-            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09265c);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09222c);
+            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0926b4);
             this.c = wheelView3d;
             wheelView3d.setLineSpacingMultiplier(3.0f);
             this.c.setCenterTextSize(this.m);
@@ -280,7 +282,7 @@ public class BdTimePicker extends LinearLayout {
             this.c.setDividerType(WheelView3d.DividerType.FILL);
             this.c.setDividerColor(0);
             this.c.setOnItemSelectedListener(new a(this));
-            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09265d);
+            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0926b5);
             this.d = wheelView3d2;
             wheelView3d2.setLineSpacingMultiplier(3.0f);
             this.d.setCenterTextSize(this.m);
@@ -365,7 +367,7 @@ public class BdTimePicker extends LinearLayout {
                     arrayList.add(String.format("%02d", Integer.valueOf(i)));
                     i++;
                 } else {
-                    this.c.setAdapter(new a23(this.f, i2));
+                    this.c.setAdapter(new s23(this.f, i2));
                     k(this.c, this.f, this.g);
                     setHour(this.a);
                     return;
@@ -395,7 +397,7 @@ public class BdTimePicker extends LinearLayout {
                     arrayList.add(String.format("%02d", Integer.valueOf(i)));
                     i++;
                 } else {
-                    this.d.setAdapter(new a23(this.h, i2));
+                    this.d.setAdapter(new s23(this.h, i2));
                     k(this.d, this.h, this.i);
                     setMinute(this.b);
                     return;

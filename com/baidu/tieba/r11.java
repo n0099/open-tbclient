@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r11 {
+public abstract class r11 {
     public static /* synthetic */ Interceptable $ic;
-    public static r11 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public s11 a;
+
+    public abstract Column[] c();
+
+    public abstract j11[] d();
+
+    public abstract j11[][] e();
+
+    public abstract j11[] f();
+
+    public abstract String g();
 
     public r11() {
         Interceptable interceptable = $ic;
@@ -22,37 +31,25 @@ public class r11 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new p11();
-        if (!i11.a()) {
-            this.a = new q11();
         }
     }
 
-    public static r11 b() {
-        InterceptResult invokeV;
+    public static j11 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (r11.class) {
-                    if (b == null) {
-                        b = new r11();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return b(i, str, str2, i2, 0);
         }
-        return (r11) invokeV.objValue;
+        return (j11) invokeCommon.objValue;
     }
 
-    public s11 a() {
-        InterceptResult invokeV;
+    public static j11 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return new j11(i, str, str2, i2, i3);
         }
-        return (s11) invokeV.objValue;
+        return (j11) invokeCommon.objValue;
     }
 }

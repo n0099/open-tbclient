@@ -16,22 +16,22 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableIgnoreElementsCompletable extends Completable implements FuseToFlowable {
+public final class FlowableIgnoreElementsCompletable<T> extends Completable implements FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Flowable source;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class IgnoreElementsSubscriber implements FlowableSubscriber, Disposable {
+    public static final class IgnoreElementsSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
         public Subscription s;
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             }
         }
 
@@ -104,7 +104,7 @@ public final class FlowableIgnoreElementsCompletable extends Completable impleme
         }
     }
 
-    public FlowableIgnoreElementsCompletable(Flowable flowable) {
+    public FlowableIgnoreElementsCompletable(Flowable<T> flowable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public final class FlowableIgnoreElementsCompletable extends Completable impleme
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<T> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

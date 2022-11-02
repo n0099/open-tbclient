@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.a.c;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0058a {
+    public class C0059a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String pN;
@@ -36,7 +35,7 @@ public class a {
         public String pT;
         public final /* synthetic */ a pU;
 
-        public C0058a(a aVar) {
+        public C0059a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,9 +68,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C0058a qd;
-        public C0058a qe;
-        public C0058a qf;
+        public C0059a qd;
+        public C0059a qe;
+        public C0059a qf;
         public int qg;
 
         public b(a aVar) {
@@ -135,7 +134,7 @@ public class a {
             if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject("algo")) == null || (optJSONObject2 = optJSONObject.optJSONObject("algo_face")) == null) {
                 return;
             }
-            String optString = optJSONObject2.optString(PollingModel.LEVEL);
+            String optString = optJSONObject2.optString("level");
             if (!TextUtils.isEmpty(optString)) {
                 if (optString.equals("high")) {
                     i = 2;
@@ -195,51 +194,51 @@ public class a {
         return (b) invokeLL.objValue;
     }
 
-    private C0058a f(JSONObject jSONObject) {
+    private C0059a f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            C0058a c0058a = new C0058a(this);
+            C0059a c0059a = new C0059a(this);
             try {
                 String string = jSONObject.getString("track_param_0");
-                c0058a.pN = string;
+                c0059a.pN = string;
                 if (TextUtils.isEmpty(string)) {
-                    c0058a.pN = "";
+                    c0059a.pN = "";
                 } else {
-                    c0058a.pN = this.pL + c0058a.pN;
+                    c0059a.pN = this.pL + c0059a.pN;
                 }
                 String string2 = jSONObject.getString("track_param_1");
-                c0058a.pO = string2;
+                c0059a.pO = string2;
                 if (TextUtils.isEmpty(string2)) {
-                    c0058a.pO = "";
+                    c0059a.pO = "";
                 } else {
-                    c0058a.pO = this.pL + c0058a.pO;
+                    c0059a.pO = this.pL + c0059a.pO;
                 }
                 String string3 = jSONObject.getString("track_param_2");
-                c0058a.pP = string3;
+                c0059a.pP = string3;
                 if (TextUtils.isEmpty(string3)) {
-                    c0058a.pP = "";
+                    c0059a.pP = "";
                 } else {
-                    c0058a.pP = this.pL + c0058a.pP;
+                    c0059a.pP = this.pL + c0059a.pP;
                 }
                 String string4 = jSONObject.getString("track_param_3");
-                c0058a.pQ = string4;
+                c0059a.pQ = string4;
                 if (TextUtils.isEmpty(string4)) {
-                    c0058a.pQ = "";
+                    c0059a.pQ = "";
                 } else {
-                    c0058a.pQ = this.pL + c0058a.pQ;
+                    c0059a.pQ = this.pL + c0059a.pQ;
                 }
-                c0058a.pR = jSONObject.getString("trackingSmoothAlpha");
-                c0058a.pS = jSONObject.getString("trackingSmoothThreshold");
-                c0058a.pT = jSONObject.getString("trackingMouthThreshold");
-                return c0058a;
+                c0059a.pR = jSONObject.getString("trackingSmoothAlpha");
+                c0059a.pS = jSONObject.getString("trackingSmoothThreshold");
+                c0059a.pT = jSONObject.getString("trackingMouthThreshold");
+                return c0059a;
             } catch (JSONException e) {
                 com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
                 e.printStackTrace();
                 return null;
             }
         }
-        return (C0058a) invokeL.objValue;
+        return (C0059a) invokeL.objValue;
     }
 
     public b a(String str, JSONObject jSONObject) {

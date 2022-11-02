@@ -1,49 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.CountDownTimer;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
 /* loaded from: classes5.dex */
-public abstract class qw7 {
+public class qw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public float m;
-    public Direction n;
-    public Direction o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public Paint u;
-    public LifeCycleState v;
-    public CountDownTimer w;
-    public Random x;
-    public int y;
-
-    public abstract void a();
-
-    public abstract void b(Canvas canvas);
 
     public qw7() {
         Interceptable interceptable = $ic;
@@ -58,19 +31,49 @@ public abstract class qw7 {
                 return;
             }
         }
-        this.g = 255;
-        this.h = 2.0f;
-        this.i = 0;
-        this.j = 0;
-        this.k = 90;
-        this.l = 0;
-        this.m = -0.4f;
-        this.n = Direction.TOP;
-        this.o = Direction.RIGHT;
-        this.t = 0;
-        this.v = LifeCycleState.ACTIVE;
-        this.u = new Paint(1);
-        this.x = new Random();
-        this.y = TbadkCoreApplication.getInst().getSkinType();
+        b();
+        a();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            of5 of5Var = new of5(309093);
+            of5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            of5Var.g(true);
+            of5Var.h(false);
+            MessageManager.getInstance().registerTask(of5Var);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, io8.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int l = xi.l(pbChosenActivity.getPageContext().getPageActivity());
+            int j4 = xi.j(pbChosenActivity.getPageContext().getPageActivity());
+            float i = xi.i(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(j4);
+            chosenPbNetMessage.setScrW(l);
+            chosenPbNetMessage.setScr_dip(i);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        }
     }
 }

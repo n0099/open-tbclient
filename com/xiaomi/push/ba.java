@@ -77,7 +77,7 @@ public class ba implements au {
         }
     }
 
-    public void a(Map map) {
+    public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || map == null) {
             return;

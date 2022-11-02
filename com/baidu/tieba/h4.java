@@ -19,18 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class h4 implements i7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b7 a;
-    public final b7 b;
-    public final b7 c;
-    public final b7 d;
-    public final b7 e;
-    public final b7 f;
-    public x7 g;
+    public final b7<g4> a;
+    public final b7<r4> b;
+    public final b7<p4> c;
+    public final b7<Mesh> d;
+    public final b7<q4> e;
+    public final b7<i7> f;
+    public x7<u4, c7<String, Matrix4>> g;
 
     public h4() {
         Interceptable interceptable = $ic;
@@ -45,13 +44,13 @@ public class h4 implements i7 {
                 return;
             }
         }
-        this.a = new b7();
-        this.b = new b7();
-        this.c = new b7();
-        this.d = new b7();
-        this.e = new b7();
-        this.f = new b7();
-        this.g = new x7();
+        this.a = new b7<>();
+        this.b = new b7<>();
+        this.c = new b7<>();
+        this.d = new b7<>();
+        this.e = new b7<>();
+        this.f = new b7<>();
+        this.g = new x7<>();
     }
 
     public h4(w4 w4Var, p5 p5Var) {
@@ -69,13 +68,13 @@ public class h4 implements i7 {
                 return;
             }
         }
-        this.a = new b7();
-        this.b = new b7();
-        this.c = new b7();
-        this.d = new b7();
-        this.e = new b7();
-        this.f = new b7();
-        this.g = new x7();
+        this.a = new b7<>();
+        this.b = new b7<>();
+        this.c = new b7<>();
+        this.d = new b7<>();
+        this.e = new b7<>();
+        this.f = new b7<>();
+        this.g = new x7<>();
         l(w4Var, p5Var);
     }
 
@@ -84,10 +83,10 @@ public class h4 implements i7 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int i = this.b.b;
             for (int i2 = 0; i2 < i; i2++) {
-                ((r4) this.b.get(i2)).d(true);
+                this.b.get(i2).d(true);
             }
             for (int i3 = 0; i3 < i; i3++) {
-                ((r4) this.b.get(i3)).b(true);
+                this.b.get(i3).b(true);
             }
         }
     }
@@ -96,14 +95,14 @@ public class h4 implements i7 {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b7.b it = this.f.iterator();
+            b7.b<i7> it = this.f.iterator();
             while (it.hasNext()) {
-                ((i7) it.next()).dispose();
+                it.next().dispose();
             }
         }
     }
 
-    public Iterable h() {
+    public Iterable<i7> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -145,16 +144,16 @@ public class h4 implements i7 {
                 g4Var.h(new i4(770, 771, modelMaterial.h));
             }
             x7 x7Var = new x7();
-            b7 b7Var = modelMaterial.i;
+            b7<d5> b7Var = modelMaterial.i;
             if (b7Var != null) {
-                b7.b it = b7Var.iterator();
+                b7.b<d5> it = b7Var.iterator();
                 while (it.hasNext()) {
-                    d5 d5Var = (d5) it.next();
-                    if (x7Var.a(d5Var.a)) {
-                        load = (Texture) x7Var.c(d5Var.a);
+                    d5 next = it.next();
+                    if (x7Var.a(next.a)) {
+                        load = (Texture) x7Var.c(next.a);
                     } else {
-                        load = p5Var.load(d5Var.a);
-                        x7Var.i(d5Var.a, load);
+                        load = p5Var.load(next.a);
+                        x7Var.i(next.a, load);
                         this.f.a(load);
                     }
                     o5 o5Var = new o5(load);
@@ -162,31 +161,31 @@ public class h4 implements i7 {
                     o5Var.c = load.f();
                     o5Var.d = load.j();
                     o5Var.e = load.k();
-                    Vector2 vector2 = d5Var.b;
+                    Vector2 vector2 = next.b;
                     if (vector2 == null) {
                         f = 0.0f;
                     } else {
                         f = vector2.x;
                     }
-                    Vector2 vector22 = d5Var.b;
+                    Vector2 vector22 = next.b;
                     if (vector22 == null) {
                         f2 = 0.0f;
                     } else {
                         f2 = vector22.y;
                     }
-                    Vector2 vector23 = d5Var.c;
+                    Vector2 vector23 = next.c;
                     if (vector23 == null) {
                         f3 = 1.0f;
                     } else {
                         f3 = vector23.x;
                     }
-                    Vector2 vector24 = d5Var.c;
+                    Vector2 vector24 = next.c;
                     if (vector24 == null) {
                         f4 = 1.0f;
                     } else {
                         f4 = vector24.y;
                     }
-                    int i = d5Var.d;
+                    int i = next.d;
                     if (i != 2) {
                         if (i != 3) {
                             if (i != 4) {
@@ -263,35 +262,34 @@ public class h4 implements i7 {
                 this.e.a(q4Var);
             }
             mesh.j().position(0);
-            b7.b it = this.e.iterator();
+            b7.b<q4> it = this.e.iterator();
             while (it.hasNext()) {
-                ((q4) it.next()).update();
+                it.next().update();
             }
         }
     }
 
-    public void q(Iterable iterable) {
+    public void q(Iterable<z4> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, iterable) == null) {
             this.g.clear();
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                this.b.a(p((z4) it.next()));
+            for (z4 z4Var : iterable) {
+                this.b.a(p(z4Var));
             }
-            x7.a b = this.g.b();
+            x7.a<u4, c7<String, Matrix4>> b = this.g.b();
             b.c();
             while (b.hasNext()) {
-                x7.b bVar = (x7.b) b.next();
-                Object obj = bVar.a;
-                if (((u4) obj).a == null) {
-                    ((u4) obj).a = new c7(r4.class, Matrix4.class);
+                x7.b next = b.next();
+                K k = next.a;
+                if (((u4) k).a == null) {
+                    ((u4) k).a = new c7<>(r4.class, Matrix4.class);
                 }
-                ((u4) bVar.a).a.clear();
-                c7.a a = ((c7) bVar.b).a();
+                ((u4) next.a).a.clear();
+                c7.a a = ((c7) next.b).a();
                 a.iterator();
                 while (a.hasNext()) {
-                    x7.b bVar2 = (x7.b) a.next();
-                    ((u4) bVar.a).a.e(i((String) bVar2.a), new Matrix4((Matrix4) bVar2.b).inv());
+                    x7.b next2 = a.next();
+                    ((u4) next.a).a.e(i((String) next2.a), new Matrix4((Matrix4) next2.b).inv());
                 }
             }
         }
@@ -306,12 +304,11 @@ public class h4 implements i7 {
         return (r4) invokeL.objValue;
     }
 
-    public void o(Iterable iterable) {
+    public void o(Iterable<x4> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iterable) == null) {
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                g((x4) it.next());
+            for (x4 x4Var : iterable) {
+                g(x4Var);
             }
         }
     }
@@ -336,12 +333,11 @@ public class h4 implements i7 {
         }
     }
 
-    public void n(Iterable iterable, p5 p5Var) {
+    public void n(Iterable<ModelMaterial> iterable, p5 p5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, iterable, p5Var) == null) {
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                this.a.a(f((ModelMaterial) it.next(), p5Var));
+            for (ModelMaterial modelMaterial : iterable) {
+                this.a.a(f(modelMaterial, p5Var));
             }
         }
     }
@@ -355,92 +351,90 @@ public class h4 implements i7 {
         return (r4) invokeCommon.objValue;
     }
 
-    public void m(Iterable iterable) {
-        b7 b7Var;
-        b7 b7Var2;
+    public void m(Iterable<v4> iterable) {
+        b7<t4<Quaternion>> b7Var;
+        b7<t4<Vector3>> b7Var2;
         Vector3 vector3;
         Quaternion quaternion;
         Vector3 vector32;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iterable) == null) {
-            Iterator it = iterable.iterator();
-            while (it.hasNext()) {
-                v4 v4Var = (v4) it.next();
+            for (v4 v4Var : iterable) {
                 p4 p4Var = new p4();
                 String str = v4Var.a;
-                b7.b it2 = v4Var.b.iterator();
-                while (it2.hasNext()) {
-                    a5 a5Var = (a5) it2.next();
-                    r4 i = i(a5Var.a);
+                b7.b<a5> it = v4Var.b.iterator();
+                while (it.hasNext()) {
+                    a5 next = it.next();
+                    r4 i = i(next.a);
                     if (i != null) {
                         s4 s4Var = new s4();
-                        if (a5Var.b != null) {
-                            b7 b7Var3 = new b7();
+                        if (next.b != null) {
+                            b7<t4<Vector3>> b7Var3 = new b7<>();
                             s4Var.a = b7Var3;
-                            b7Var3.e(a5Var.b.b);
-                            b7.b it3 = a5Var.b.iterator();
-                            while (it3.hasNext()) {
-                                b5 b5Var = (b5) it3.next();
-                                float f = b5Var.a;
+                            b7Var3.e(next.b.b);
+                            b7.b<b5<Vector3>> it2 = next.b.iterator();
+                            while (it2.hasNext()) {
+                                b5<Vector3> next2 = it2.next();
+                                float f = next2.a;
                                 if (f > p4Var.a) {
                                     p4Var.a = f;
                                 }
-                                b7 b7Var4 = s4Var.a;
-                                float f2 = b5Var.a;
-                                Object obj = b5Var.b;
-                                if (obj == null) {
+                                b7<t4<Vector3>> b7Var4 = s4Var.a;
+                                float f2 = next2.a;
+                                Vector3 vector33 = next2.b;
+                                if (vector33 == null) {
                                     vector32 = i.d;
                                 } else {
-                                    vector32 = (Vector3) obj;
+                                    vector32 = vector33;
                                 }
-                                b7Var4.a(new t4(f2, new Vector3(vector32)));
+                                b7Var4.a(new t4<>(f2, new Vector3(vector32)));
                             }
                         }
-                        if (a5Var.c != null) {
-                            b7 b7Var5 = new b7();
+                        if (next.c != null) {
+                            b7<t4<Quaternion>> b7Var5 = new b7<>();
                             s4Var.b = b7Var5;
-                            b7Var5.e(a5Var.c.b);
-                            b7.b it4 = a5Var.c.iterator();
-                            while (it4.hasNext()) {
-                                b5 b5Var2 = (b5) it4.next();
-                                float f3 = b5Var2.a;
+                            b7Var5.e(next.c.b);
+                            b7.b<b5<Quaternion>> it3 = next.c.iterator();
+                            while (it3.hasNext()) {
+                                b5<Quaternion> next3 = it3.next();
+                                float f3 = next3.a;
                                 if (f3 > p4Var.a) {
                                     p4Var.a = f3;
                                 }
-                                b7 b7Var6 = s4Var.b;
-                                float f4 = b5Var2.a;
-                                Object obj2 = b5Var2.b;
-                                if (obj2 == null) {
+                                b7<t4<Quaternion>> b7Var6 = s4Var.b;
+                                float f4 = next3.a;
+                                Quaternion quaternion2 = next3.b;
+                                if (quaternion2 == null) {
                                     quaternion = i.e;
                                 } else {
-                                    quaternion = (Quaternion) obj2;
+                                    quaternion = quaternion2;
                                 }
-                                b7Var6.a(new t4(f4, new Quaternion(quaternion)));
+                                b7Var6.a(new t4<>(f4, new Quaternion(quaternion)));
                             }
                         }
-                        if (a5Var.d != null) {
-                            b7 b7Var7 = new b7();
+                        if (next.d != null) {
+                            b7<t4<Vector3>> b7Var7 = new b7<>();
                             s4Var.c = b7Var7;
-                            b7Var7.e(a5Var.d.b);
-                            b7.b it5 = a5Var.d.iterator();
-                            while (it5.hasNext()) {
-                                b5 b5Var3 = (b5) it5.next();
-                                float f5 = b5Var3.a;
+                            b7Var7.e(next.d.b);
+                            b7.b<b5<Vector3>> it4 = next.d.iterator();
+                            while (it4.hasNext()) {
+                                b5<Vector3> next4 = it4.next();
+                                float f5 = next4.a;
                                 if (f5 > p4Var.a) {
                                     p4Var.a = f5;
                                 }
-                                b7 b7Var8 = s4Var.c;
-                                float f6 = b5Var3.a;
-                                Object obj3 = b5Var3.b;
-                                if (obj3 == null) {
+                                b7<t4<Vector3>> b7Var8 = s4Var.c;
+                                float f6 = next4.a;
+                                Vector3 vector34 = next4.b;
+                                if (vector34 == null) {
                                     vector3 = i.f;
                                 } else {
-                                    vector3 = (Vector3) obj3;
+                                    vector3 = vector34;
                                 }
-                                b7Var8.a(new t4(f6, new Vector3(vector3)));
+                                b7Var8.a(new t4<>(f6, new Vector3(vector3)));
                             }
                         }
-                        b7 b7Var9 = s4Var.a;
+                        b7<t4<Vector3>> b7Var9 = s4Var.a;
                         if ((b7Var9 != null && b7Var9.b > 0) || (((b7Var = s4Var.b) != null && b7Var.b > 0) || ((b7Var2 = s4Var.c) != null && b7Var2.b > 0))) {
                             p4Var.b.a(s4Var);
                         }
@@ -477,9 +471,9 @@ public class h4 implements i7 {
                 for (c5 c5Var : c5VarArr) {
                     g4 g4Var = null;
                     if (c5Var.b != null) {
-                        b7.b it = this.e.iterator();
+                        b7.b<q4> it = this.e.iterator();
                         while (it.hasNext()) {
-                            q4Var = (q4) it.next();
+                            q4Var = it.next();
                             if (c5Var.b.equals(q4Var.a)) {
                                 break;
                             }
@@ -487,14 +481,14 @@ public class h4 implements i7 {
                     }
                     q4Var = null;
                     if (c5Var.a != null) {
-                        b7.b it2 = this.a.iterator();
+                        b7.b<g4> it2 = this.a.iterator();
                         while (true) {
                             if (!it2.hasNext()) {
                                 break;
                             }
-                            g4 g4Var2 = (g4) it2.next();
-                            if (c5Var.a.equals(g4Var2.d)) {
-                                g4Var = g4Var2;
+                            g4 next = it2.next();
+                            if (c5Var.a.equals(next.d)) {
+                                g4Var = next;
                                 break;
                             }
                         }
@@ -502,7 +496,7 @@ public class h4 implements i7 {
                     if (q4Var != null && g4Var != null) {
                         u4 u4Var = new u4();
                         r4Var.i.a(u4Var);
-                        c7 c7Var = c5Var.c;
+                        c7<String, Matrix4> c7Var = c5Var.c;
                         if (c7Var != null) {
                             this.g.i(u4Var, c7Var);
                         }

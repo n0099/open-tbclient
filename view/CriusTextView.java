@@ -6,6 +6,9 @@ import android.graphics.Paint;
 import android.text.Layout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.searchbox.crius.constants.NativeConstants;
@@ -27,7 +30,7 @@ public class CriusTextView extends UnifyTextView implements IOpacitySupport {
     public OpacityController d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CriusTextView(Context context) {
+    public CriusTextView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +51,7 @@ public class CriusTextView extends UnifyTextView implements IOpacitySupport {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CriusTextView(Context context, AttributeSet attributeSet) {
+    public CriusTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,7 +72,7 @@ public class CriusTextView extends UnifyTextView implements IOpacitySupport {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CriusTextView(Context context, AttributeSet attributeSet, int i) {
+    public CriusTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -140,7 +143,7 @@ public class CriusTextView extends UnifyTextView implements IOpacitySupport {
         }
     }
 
-    public void setTextDecorationColor(int i) {
+    public void setTextDecorationColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.c = i;

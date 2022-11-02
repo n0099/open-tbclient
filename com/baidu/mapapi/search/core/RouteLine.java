@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.route.BikingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
@@ -17,20 +18,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class RouteLine implements Parcelable {
+public class RouteLine<T extends RouteStep> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TYPE a;
     public RouteNode b;
     public RouteNode c;
     public String d;
-    public List e;
+    public List<T> e;
     public int f;
     public int g;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class TYPE {
+    public static final class TYPE {
         public static /* synthetic */ Interceptable $ic;
         public static final TYPE BIKINGSTEP;
         public static final TYPE DRIVESTEP;
@@ -86,19 +97,28 @@ public class RouteLine implements Parcelable {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        public static TYPE valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TYPE) Enum.valueOf(TYPE.class, str) : (TYPE) invokeL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
 
         public static TYPE[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (TYPE[]) b.clone() : (TYPE[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+                return (TYPE[]) b.clone();
+            }
+            return (TYPE[]) invokeV.objValue;
+        }
+
+        public static TYPE valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                return (TYPE) Enum.valueOf(TYPE.class, str);
+            }
+            return (TYPE) invokeL.objValue;
         }
     }
 
@@ -116,8 +136,70 @@ public class RouteLine implements Parcelable {
         }
     }
 
+    public List<T> getAllStep() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getDistance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public RouteNode getStarting() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (RouteNode) invokeV.objValue;
+    }
+
+    public RouteNode getTerminal() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (RouteNode) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public TYPE getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (TYPE) invokeV.objValue;
+    }
+
     public RouteLine(Parcel parcel) {
-        Parcelable.Creator creator;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,74 +218,23 @@ public class RouteLine implements Parcelable {
         this.b = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
         this.c = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
         this.d = parcel.readString();
-        if (readInt == 0) {
-            creator = DrivingRouteLine.DrivingStep.CREATOR;
-        } else if (readInt == 1) {
-            creator = TransitRouteLine.TransitStep.CREATOR;
-        } else if (readInt != 2) {
-            if (readInt == 3) {
-                creator = BikingRouteLine.BikingStep.CREATOR;
+        if (readInt != 0) {
+            if (readInt != 1) {
+                if (readInt != 2) {
+                    if (readInt == 3) {
+                        this.e = parcel.createTypedArrayList(BikingRouteLine.BikingStep.CREATOR);
+                    }
+                } else {
+                    this.e = parcel.createTypedArrayList(WalkingRouteLine.WalkingStep.CREATOR);
+                }
+            } else {
+                this.e = parcel.createTypedArrayList(TransitRouteLine.TransitStep.CREATOR);
             }
-            this.f = parcel.readInt();
-            this.g = parcel.readInt();
         } else {
-            creator = WalkingRouteLine.WalkingStep.CREATOR;
+            this.e = parcel.createTypedArrayList(DrivingRouteLine.DrivingStep.CREATOR);
         }
-        this.e = parcel.createTypedArrayList(creator);
         this.f = parcel.readInt();
         this.g = parcel.readInt();
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public List getAllStep() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public int getDistance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public int getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public RouteNode getStarting() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (RouteNode) invokeV.objValue;
-    }
-
-    public RouteNode getTerminal() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (RouteNode) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public TYPE getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (TYPE) invokeV.objValue;
     }
 
     public void setDistance(int i) {
@@ -227,7 +258,7 @@ public class RouteLine implements Parcelable {
         }
     }
 
-    public void setSteps(List list) {
+    public void setSteps(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.e = list;
@@ -260,7 +291,11 @@ public class RouteLine implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i) == null) {
             TYPE type = this.a;
-            parcel.writeInt(type != null ? type.a() : 10);
+            if (type != null) {
+                parcel.writeInt(type.a());
+            } else {
+                parcel.writeInt(10);
+            }
             parcel.writeValue(this.b);
             parcel.writeValue(this.c);
             parcel.writeString(this.d);

@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xa7 extends fb {
+public class xa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ya7> a;
+    public List<ya7> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xa7() {
-        super(2016007);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,50 +28,57 @@ public class xa7 extends fb {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lb
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
-        List<ImMessageCenterPojo> list;
+    @NonNull
+    public List<ya7> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            ImMessageCenterPojo imMessageCenterPojo = null;
-            if (customResponsedMessage == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.a)) {
+                arrayList.addAll(this.a);
             }
-            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
-                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
-                if (responsedMemoryListMessage.getType() == 1 && (list = (List) responsedMemoryListMessage.getData()) != null) {
-                    ImMessageCenterPojo imMessageCenterPojo2 = null;
-                    for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
-                            imMessageCenterPojo = imMessageCenterPojo3;
-                        }
-                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
-                            imMessageCenterPojo2 = imMessageCenterPojo3;
-                        }
-                    }
-                    if (imMessageCenterPojo != null) {
-                        list.remove(imMessageCenterPojo);
-                        list.add(b87.a(imMessageCenterPojo));
-                    }
-                    if (imMessageCenterPojo2 != null) {
-                        list.remove(imMessageCenterPojo2);
-                        list.add(c87.a(imMessageCenterPojo2));
+            if (!ListUtils.isEmpty(this.b)) {
+                arrayList.addAll(this.b);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = c(jSONObject, "tieba_memes");
+        this.b = c(jSONObject, "outer_memes");
+    }
+
+    @Nullable
+    public final List<ya7> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(str);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ya7 ya7Var = new ya7();
+                    ya7Var.a(optJSONArray.optJSONObject(i));
+                    if (ya7Var.isValid()) {
+                        arrayList.add(ya7Var);
                     }
                 }
+                return arrayList;
             }
-            return customResponsedMessage;
+            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 }

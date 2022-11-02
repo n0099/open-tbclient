@@ -17,9 +17,9 @@ import org.json.JSONObject;
 public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList failItems;
+    public ArrayList<String> failItems;
     public int retType;
-    public ArrayList successItems;
+    public ArrayList<String> successItems;
     public String text;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,7 +49,7 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public ArrayList getSuccessItems() {
+    public ArrayList<String> getSuccessItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -82,14 +82,14 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
                     this.retType = optJSONObject.optInt("ret_type");
                     this.text = optJSONObject.optString("text");
                     JSONArray optJSONArray = optJSONObject.optJSONArray("del_fail");
-                    this.failItems = new ArrayList();
+                    this.failItems = new ArrayList<>();
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             this.failItems.add(optJSONArray.optString(i2));
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("del_success");
-                    this.successItems = new ArrayList();
+                    this.successItems = new ArrayList<>();
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                             this.successItems.add(optJSONArray2.optString(i3));

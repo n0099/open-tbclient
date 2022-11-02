@@ -117,7 +117,7 @@ public final class MixModel {
     public interface OnMixDataLoadedCallBack {
         void onSlideListFail(Exception exc, Integer num);
 
-        void onSlideListSuccess(String str, int i, List list);
+        void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list);
 
         void onTemplateIdFail();
 
@@ -125,7 +125,7 @@ public final class MixModel {
 
         @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class DefaultImpls {
+        public static final class DefaultImpls {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -184,7 +184,9 @@ public final class MixModel {
         this.prefetchEnterSupport = z2;
     }
 
-    public final void reqLiveType(final OnMixDataLoaded onMixDataLoaded) {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidu.searchbox.live.service.MixRequestService */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void reqLiveType(final OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
         IntentData intentData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onMixDataLoaded) == null) {
@@ -199,8 +201,8 @@ public final class MixModel {
                 MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
                 MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
                 MixRequestService mixRequestService = (MixRequestService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class);
-                if (mixRequestService != null) {
-                    mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
+                if (mixRequestService != 0) {
+                    mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this, onMixDataLoaded) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
                         public static /* synthetic */ Interceptable $ic;
                         public final /* synthetic */ OnMixDataLoaded $callback;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -225,15 +227,14 @@ public final class MixModel {
                             this.$callback = onMixDataLoaded;
                         }
 
-                        /* JADX DEBUG: Method merged with bridge method */
                         /* JADX WARN: Code restructure failed: missing block: B:44:0x009e, code lost:
                             r7 = r6.this$0.mOnMixDataLoadedCallBack;
                          */
-                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                        /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.
                         */
-                        public void onMixDataLoaded(MixResult mixResult) {
+                        public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
                             MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
                             JSONObject jSONObject;
                             JSONObject jSONObject2;
@@ -306,16 +307,23 @@ public final class MixModel {
                                 }
                             }
                         }
+
+                        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                        @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                        public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
+                            onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
+                        }
                     });
                     return;
                 }
                 return;
             }
-            getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
+            getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded<MixResult<? extends LiveTypeData>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MixModel this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -334,15 +342,20 @@ public final class MixModel {
                     this.this$0 = this;
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveTypeData> mixResult) {
+                    onMixDataLoaded2((MixResult<LiveTypeData>) mixResult);
+                }
+
                 /* JADX WARN: Code restructure failed: missing block: B:11:0x0020, code lost:
                     r5 = r4.this$0.mOnMixDataLoadedCallBack;
                  */
-                @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onMixDataLoaded(MixResult mixResult) {
+                public void onMixDataLoaded2(MixResult<LiveTypeData> mixResult) {
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
                     Interceptable interceptable2 = $ic;
@@ -375,14 +388,14 @@ public final class MixModel {
         }
     }
 
-    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded onMixDataLoaded) {
+    public final void reqRoomEnter(RoomEnterParams roomEnterParams, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, roomEnterParams, onMixDataLoaded) == null) {
             getRoomApi().fetchRoomEnter(roomEnterParams, onMixDataLoaded);
         }
     }
 
-    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded onMixDataLoaded) {
+    public final void reqRoomExit(RoomExitParams roomExitParams, OnMixDataLoaded<MixResult<Boolean>> onMixDataLoaded) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, roomExitParams, onMixDataLoaded) == null) {
             getRoomApi().fetchRoomExit(roomExitParams, onMixDataLoaded);
@@ -443,6 +456,8 @@ public final class MixModel {
         return (LiveContainer.LiveItemModel) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.searchbox.live.model.MixModel */
+    /* JADX WARN: Multi-variable type inference failed */
     public static /* synthetic */ void reqLiveType$default(MixModel mixModel, OnMixDataLoaded onMixDataLoaded, int i, Object obj) {
         if ((i & 1) != 0) {
             onMixDataLoaded = null;
@@ -497,11 +512,12 @@ public final class MixModel {
                 str2 = source;
             }
             ListLogKt.log("MixLiveCell_fake_list", "queryLiveList");
-            getListApi().fetchLiveSlideList(new LiveListParamsMix(str3, str4, str, str2), new OnMixDataLoaded(this) { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
+            getListApi().fetchLiveSlideList(new LiveListParamsMix(str3, str4, str, str2), new OnMixDataLoaded<MixResult<? extends SlideListInfo>>(this) { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MixModel this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -522,7 +538,7 @@ public final class MixModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-                public void onMixDataLoaded(MixResult mixResult) {
+                public void onMixDataLoaded(MixResult<? extends SlideListInfo> mixResult) {
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
                     MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
                     LiveContainer.LiveItemModel parseLiveItemModel;
@@ -532,9 +548,9 @@ public final class MixModel {
                             ArrayList arrayList = new ArrayList();
                             MixResult.MixSuccess mixSuccess = (MixResult.MixSuccess) mixResult;
                             if (((SlideListInfo) mixSuccess.getData()).list != null && ((SlideListInfo) mixSuccess.getData()).list.size() > 0) {
-                                Iterator it = ((SlideListInfo) mixSuccess.getData()).list.iterator();
+                                Iterator<SlideListInfo.SlideInfo> it = ((SlideListInfo) mixSuccess.getData()).list.iterator();
                                 while (it.hasNext()) {
-                                    SlideListInfo.SlideInfo item = (SlideListInfo.SlideInfo) it.next();
+                                    SlideListInfo.SlideInfo item = it.next();
                                     MixModel mixModel = this.this$0;
                                     Intrinsics.checkExpressionValueIsNotNull(item, "item");
                                     parseLiveItemModel = mixModel.parseLiveItemModel(item);

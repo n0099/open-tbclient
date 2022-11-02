@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.d77;
+import com.baidu.tieba.n87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,13 +14,14 @@ import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d77 hotThreadItemListData;
+    public n87 hotThreadItemListData;
     public Page page;
-    public List thread_list;
+    public List<ThreadInfo> thread_list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicRelateThreadMessage(int i) {
@@ -56,19 +57,19 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
             DataRes dataRes = getTopicRelateThreadResIdl.data;
             this.thread_list = dataRes.thread_list;
             this.page = dataRes.page;
-            d77 d77Var = new d77();
-            this.hotThreadItemListData = d77Var;
-            d77Var.n(getTopicRelateThreadResIdl.data);
+            n87 n87Var = new n87();
+            this.hotThreadItemListData = n87Var;
+            n87Var.n(getTopicRelateThreadResIdl.data);
         }
     }
 
-    public d77 getHotThreadItemListData() {
+    public n87 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (d77) invokeV.objValue;
+        return (n87) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -80,7 +81,7 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
         return (Page) invokeV.objValue;
     }
 
-    public List getThreadList() {
+    public List<ThreadInfo> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

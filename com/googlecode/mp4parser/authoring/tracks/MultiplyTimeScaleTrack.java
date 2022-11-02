@@ -9,12 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
+import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class MultiplyTimeScaleTrack implements Track {
@@ -42,15 +43,13 @@ public class MultiplyTimeScaleTrack implements Track {
         this.timeScaleFactor = i;
     }
 
-    public static List adjustCtts(List list, int i) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
             if (list != null) {
                 ArrayList arrayList = new ArrayList(list.size());
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) it.next();
+                for (CompositionTimeToSample.Entry entry : list) {
                     arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), entry.getOffset() * i));
                 }
                 return arrayList;
@@ -61,7 +60,7 @@ public class MultiplyTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -101,7 +100,7 @@ public class MultiplyTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -121,7 +120,7 @@ public class MultiplyTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {

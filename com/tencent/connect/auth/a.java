@@ -1,5 +1,7 @@
 package com.tencent.connect.auth;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -81,16 +83,16 @@ public class a extends Dialog {
     public String q;
     public long r;
     public long s;
-    public HashMap t;
+    public HashMap<String, Runnable> t;
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0696a extends WebViewClient {
+    public class C0707a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0696a(a aVar) {
+        public C0707a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,6 +146,7 @@ public class a extends Dialog {
         }
 
         @Override // android.webkit.WebViewClient
+        @TargetApi(8)
         public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             String str;
             String str2;
@@ -166,7 +169,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0696a b;
+                    public final /* synthetic */ C0707a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -199,7 +202,7 @@ public class a extends Dialog {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SslErrorHandler a;
-                    public final /* synthetic */ C0696a b;
+                    public final /* synthetic */ C0707a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -249,7 +252,7 @@ public class a extends Dialog {
                         this.a.d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ C0696a a;
+                            public final /* synthetic */ C0707a a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -664,7 +667,7 @@ public class a extends Dialog {
             }
             b();
             e();
-            this.t = new HashMap();
+            this.t = new HashMap<>();
         }
     }
 
@@ -827,12 +830,13 @@ public class a extends Dialog {
         }
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.k.setVerticalScrollBarEnabled(false);
             this.k.setHorizontalScrollBarEnabled(false);
-            this.k.setWebViewClient(new C0696a());
+            this.k.setWebViewClient(new C0707a());
             this.k.setWebChromeClient(new WebChromeClient());
             this.k.clearFormData();
             this.k.clearSslPreferences();

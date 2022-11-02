@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,6 +33,7 @@ public final class BitmapPreFillRunner implements Runnable {
     public static final long INITIAL_BACKOFF_MS = 40;
     public static final long MAX_BACKOFF_MS;
     public static final long MAX_DURATION_MS = 32;
+    @VisibleForTesting
     public static final String TAG = "PreFillRunner";
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
@@ -39,11 +42,12 @@ public final class BitmapPreFillRunner implements Runnable {
     public final Handler handler;
     public boolean isCancelled;
     public final MemoryCache memoryCache;
-    public final Set seenTypes;
+    public final Set<PreFillType> seenTypes;
     public final PreFillQueue toPrefill;
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class Clock {
+    public static class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +76,7 @@ public final class BitmapPreFillRunner implements Runnable {
     }
 
     /* loaded from: classes7.dex */
-    public final class UniqueKey implements Key {
+    public static final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +95,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
 
         @Override // com.bumptech.glide.load.Key
-        public void updateDiskCacheKey(MessageDigest messageDigest) {
+        public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, messageDigest) == null) {
                 throw new UnsupportedOperationException();
@@ -172,6 +176,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
+    @VisibleForTesting
     public BitmapPreFillRunner(BitmapPool bitmapPool, MemoryCache memoryCache, PreFillQueue preFillQueue, Clock clock, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -208,6 +213,7 @@ public final class BitmapPreFillRunner implements Runnable {
         return invokeJ.booleanValue;
     }
 
+    @VisibleForTesting
     public boolean allocate() {
         InterceptResult invokeV;
         Bitmap createBitmap;

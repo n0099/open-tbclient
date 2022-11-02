@@ -13,11 +13,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.gg3;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.vh3;
+import com.baidu.tieba.yg3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -325,10 +326,10 @@ public class NeutralRefreshAnimView extends View {
                 return;
             }
         }
-        s = wj1.a;
-        t = dh3.g(3.5f);
+        s = ok1.a;
+        t = vh3.g(3.5f);
         u = Color.parseColor("#000000");
-        int g = dh3.g(18.0f);
+        int g = vh3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -429,7 +430,7 @@ public class NeutralRefreshAnimView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NeutralRefreshAnimView(Context context, AttributeSet attributeSet) {
+    public NeutralRefreshAnimView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -542,7 +543,7 @@ public class NeutralRefreshAnimView extends View {
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i > 0 && i2 > 0) {
-                gg3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
+                yg3.j(new a(this, i, i2), "CreateBitmapOnSizeChanged");
             }
         }
     }

@@ -11,7 +11,7 @@ import java.util.List;
 public class RuleNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mChildParts;
+    public List<RuleNode> mChildParts;
     public String mName;
 
     public RuleNode(String str) {
@@ -32,14 +32,14 @@ public class RuleNode {
         this.mName = str;
     }
 
-    public void setChildParts(List list) {
+    public void setChildParts(List<RuleNode> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.mChildParts = list;
         }
     }
 
-    public List getChildParts() {
+    public List<RuleNode> getChildParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

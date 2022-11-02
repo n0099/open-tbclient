@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
 import androidx.core.view.GravityCompat;
@@ -20,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
+public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int overlayTop;
@@ -34,7 +36,8 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_START : i : invokeI.intValue;
     }
 
-    public abstract View findFirstDependency(List list);
+    @Nullable
+    public abstract View findFirstDependency(List<View> list);
 
     public float getOverlapRatioForOffset(View view2) {
         InterceptResult invokeL;
@@ -110,7 +113,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
         return invokeL.intValue;
     }
 
-    public int getScrollRange(View view2) {
+    public int getScrollRange(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
@@ -145,7 +148,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
     }
 
     @Override // com.google.android.material.appbar.ViewOffsetBehavior
-    public void layoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048582, this, coordinatorLayout, view2, i) == null) {
             View findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view2));
@@ -171,7 +174,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior {
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onMeasureChild(CoordinatorLayout coordinatorLayout, View view2, int i, int i2, int i3, int i4) {
+    public boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         View findFirstDependency;
         int i5;

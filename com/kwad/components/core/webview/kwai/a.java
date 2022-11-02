@@ -1,5 +1,6 @@
 package com.kwad.components.core.webview.kwai;
 
+import android.annotation.TargetApi;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -43,6 +44,7 @@ public class a extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
+    @TargetApi(21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

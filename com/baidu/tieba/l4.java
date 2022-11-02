@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ public class l4 extends e4 {
     public static final long p;
     public static long q;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o5 d;
+    public final o5<Texture> d;
     public float e;
     public float f;
     public float g;
@@ -77,14 +78,14 @@ public class l4 extends e4 {
         this.h = 1.0f;
         this.i = 0;
         if (f(j2)) {
-            this.d = new o5();
+            this.d = new o5<>();
             return;
         }
         throw new GdxRuntimeException("Invalid type specified");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l4(long j2, o5 o5Var) {
+    public <T extends Texture> l4(long j2, o5<T> o5Var) {
         this(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -105,7 +106,7 @@ public class l4 extends e4 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l4(long j2, o5 o5Var, float f, float f2, float f3, float f4) {
+    public <T extends Texture> l4(long j2, o5<T> o5Var, float f, float f2, float f3, float f4) {
         this(j2, o5Var, f, f2, f3, f4, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +127,7 @@ public class l4 extends e4 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l4(long j2, o5 o5Var, float f, float f2, float f3, float f4, int i) {
+    public <T extends Texture> l4(long j2, o5<T> o5Var, float f, float f2, float f3, float f4, int i) {
         this(j2, o5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

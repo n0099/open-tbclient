@@ -18,7 +18,7 @@ public class ProxyConfig {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class LibType {
+    public static final class LibType {
         public static final /* synthetic */ LibType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final LibType NATIVE;

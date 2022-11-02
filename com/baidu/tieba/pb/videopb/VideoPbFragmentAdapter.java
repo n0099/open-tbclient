@@ -21,8 +21,8 @@ import java.util.List;
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public ArrayList b;
+    public List<String> a;
+    public ArrayList<BaseFragment> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, AbsVideoPbFragment absVideoPbFragment) {
@@ -47,13 +47,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         }
         this.a.clear();
         if (absVideoPbFragment.x4()) {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e24));
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e2c));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e3b));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e43));
         } else {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e2c));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e43));
         }
         if (this.b == null) {
-            this.b = new ArrayList();
+            this.b = new ArrayList<>();
         }
         this.b.clear();
         if (absVideoPbFragment.x4()) {
@@ -68,9 +68,9 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList arrayList = this.b;
+            ArrayList<BaseFragment> arrayList = this.b;
             if (arrayList != null && i < arrayList.size()) {
-                return (BaseFragment) this.b.get(i);
+                return this.b.get(i);
             }
             return null;
         }
@@ -92,16 +92,16 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List list = this.a;
+            List<String> list = this.a;
             if (list != null && i >= 0 && i < list.size()) {
-                return (CharSequence) this.a.get(i);
+                return this.a.get(i);
             }
             return null;
         }
         return (CharSequence) invokeI.objValue;
     }
 
-    public ArrayList c() {
+    public ArrayList<BaseFragment> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -115,7 +115,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = this.b;
+            ArrayList<BaseFragment> arrayList = this.b;
             if (arrayList == null) {
                 return 0;
             }
@@ -132,7 +132,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         }
         for (int i2 = 0; i2 < this.b.size(); i2++) {
             if (this.b.get(i2) != null) {
-                BaseFragment baseFragment = (BaseFragment) this.b.get(i2);
+                BaseFragment baseFragment = this.b.get(i2);
                 if (i2 == i) {
                     z = true;
                 } else {

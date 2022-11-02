@@ -11,6 +11,14 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import androidx.annotation.CallSuper;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
@@ -52,6 +60,7 @@ public abstract class AppCompatDelegate {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface NightMode {
     }
@@ -67,10 +76,12 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public abstract View createView(View view2, String str, Context context, AttributeSet attributeSet);
+    public abstract View createView(@Nullable View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
 
-    public abstract <T extends View> T findViewById(int i);
+    @Nullable
+    public abstract <T extends View> T findViewById(@IdRes int i);
 
+    @Nullable
     public abstract ActionBarDrawerToggle.Delegate getDrawerToggleDelegate();
 
     public int getLocalNightMode() {
@@ -84,6 +95,7 @@ public abstract class AppCompatDelegate {
 
     public abstract MenuInflater getMenuInflater();
 
+    @Nullable
     public abstract ActionBar getSupportActionBar();
 
     public abstract boolean hasWindowFeature(int i);
@@ -112,7 +124,7 @@ public abstract class AppCompatDelegate {
 
     public abstract boolean requestWindowFeature(int i);
 
-    public abstract void setContentView(int i);
+    public abstract void setContentView(@LayoutRes int i);
 
     public abstract void setContentView(View view2);
 
@@ -120,19 +132,21 @@ public abstract class AppCompatDelegate {
 
     public abstract void setHandleNativeActionModesEnabled(boolean z);
 
+    @RequiresApi(17)
     public abstract void setLocalNightMode(int i);
 
-    public abstract void setSupportActionBar(Toolbar toolbar);
+    public abstract void setSupportActionBar(@Nullable Toolbar toolbar);
 
-    public void setTheme(int i) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
         }
     }
 
-    public abstract void setTitle(CharSequence charSequence);
+    public abstract void setTitle(@Nullable CharSequence charSequence);
 
-    public abstract ActionMode startSupportActionMode(ActionMode.Callback callback);
+    @Nullable
+    public abstract ActionMode startSupportActionMode(@NonNull ActionMode.Callback callback);
 
     static {
         InterceptResult invokeClinit;
@@ -183,7 +197,7 @@ public abstract class AppCompatDelegate {
         return invokeV.booleanValue;
     }
 
-    public static void addActiveDelegate(AppCompatDelegate appCompatDelegate) {
+    public static void addActiveDelegate(@NonNull AppCompatDelegate appCompatDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, appCompatDelegate) == null) {
             synchronized (sActivityDelegatesLock) {
@@ -193,7 +207,7 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public static void removeActivityDelegate(AppCompatDelegate appCompatDelegate) {
+    public static void removeActivityDelegate(@NonNull AppCompatDelegate appCompatDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, appCompatDelegate) == null) {
             synchronized (sActivityDelegatesLock) {
@@ -221,7 +235,9 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public Context attachBaseContext2(Context context) {
+    @NonNull
+    @CallSuper
+    public Context attachBaseContext2(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -246,7 +262,8 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public static AppCompatDelegate create(Activity activity, AppCompatCallback appCompatCallback) {
+    @NonNull
+    public static AppCompatDelegate create(@NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, appCompatCallback)) == null) {
@@ -255,7 +272,8 @@ public abstract class AppCompatDelegate {
         return (AppCompatDelegate) invokeLL.objValue;
     }
 
-    public static AppCompatDelegate create(Dialog dialog, AppCompatCallback appCompatCallback) {
+    @NonNull
+    public static AppCompatDelegate create(@NonNull Dialog dialog, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, dialog, appCompatCallback)) == null) {
@@ -264,7 +282,8 @@ public abstract class AppCompatDelegate {
         return (AppCompatDelegate) invokeLL.objValue;
     }
 
-    public static AppCompatDelegate create(Context context, Activity activity, AppCompatCallback appCompatCallback) {
+    @NonNull
+    public static AppCompatDelegate create(@NonNull Context context, @NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, activity, appCompatCallback)) == null) {
@@ -273,7 +292,8 @@ public abstract class AppCompatDelegate {
         return (AppCompatDelegate) invokeLLL.objValue;
     }
 
-    public static AppCompatDelegate create(Context context, Window window, AppCompatCallback appCompatCallback) {
+    @NonNull
+    public static AppCompatDelegate create(@NonNull Context context, @NonNull Window window, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, window, appCompatCallback)) == null) {
@@ -282,7 +302,7 @@ public abstract class AppCompatDelegate {
         return (AppCompatDelegate) invokeLLL.objValue;
     }
 
-    public static void removeDelegateFromActives(AppCompatDelegate appCompatDelegate) {
+    public static void removeDelegateFromActives(@NonNull AppCompatDelegate appCompatDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, appCompatDelegate) == null) {
             synchronized (sActivityDelegatesLock) {

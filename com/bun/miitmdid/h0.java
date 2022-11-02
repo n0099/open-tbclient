@@ -1,5 +1,6 @@
 package com.bun.miitmdid;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,21 +14,30 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+@Keep
 /* loaded from: classes7.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static int a = 2;
+    @Keep
     public static int b = 6000;
+    @Keep
     public static int c = 5;
-    public static BlockingQueue d;
+    @Keep
+    public static BlockingQueue<Runnable> d;
+    @Keep
     public static ThreadFactory e;
+    @Keep
     public static ThreadPoolExecutor f;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     /* loaded from: classes7.dex */
     public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Keep
         public final AtomicInteger a;
 
         public a() {
@@ -47,6 +57,7 @@ public class h0 {
         }
 
         @Override // java.util.concurrent.ThreadFactory
+        @Keep
         public native Thread newThread(Runnable runnable);
     }
 
@@ -68,5 +79,6 @@ public class h0 {
         f = new ThreadPoolExecutor(a, c, b, TimeUnit.SECONDS, d, e);
     }
 
+    @Keep
     public static native void a(Runnable runnable);
 }

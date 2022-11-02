@@ -1,5 +1,6 @@
 package androidx.webkit;
 
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,6 +16,7 @@ public abstract class SafeBrowsingResponseCompat {
 
     public abstract void showInterstitial(boolean z);
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public SafeBrowsingResponseCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

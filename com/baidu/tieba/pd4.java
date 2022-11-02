@@ -1,90 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pd4 implements Runnable {
+public class pd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final og4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public kd4 a;
-    public AtomicBoolean b;
-    public jd4 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948058185, "Lcom/baidu/tieba/pd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948058185, "Lcom/baidu/tieba/pd4;");
-                return;
-            }
-        }
-        d = og4.e();
-    }
-
-    public pd4(AtomicBoolean atomicBoolean, kd4 kd4Var, jd4 jd4Var) {
+    public static void a(@NonNull ye4 ye4Var, @Nullable List<ed4> list, @Nullable List<fd4> list2, @NonNull zb4 zb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, kd4Var, jd4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, ye4Var, list, list2, zb4Var) == null) {
+            je4 b = rd4.b(ye4Var, zb4Var);
+            if (list != null && !list.isEmpty()) {
+                rd4.a(b, ie4.h(list, zb4Var));
             }
-        }
-        this.b = atomicBoolean;
-        this.a = kd4Var;
-        this.c = jd4Var;
-    }
-
-    public final void a(od4 od4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, od4Var) == null) {
-            this.a.a(od4Var);
-            try {
-                try {
-                    od4Var.run();
-                } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
-                }
-            } finally {
-                this.a.b(od4Var);
+            if (list2 != null && !list2.isEmpty()) {
+                rd4.a(b, ie4.e(list2, zb4Var));
             }
+            b.e();
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static void b(ze4 ze4Var, zb4 zb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (a instanceof od4) {
-                    try {
-                        a((od4) a);
-                    } catch (Throwable th) {
-                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
-                    }
-                } else {
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(65537, null, ze4Var, zb4Var) == null) {
+            rd4.c(ze4Var, zb4Var);
+        }
+    }
+
+    public static void c(af4 af4Var, zb4 zb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, af4Var, zb4Var) == null) {
+            rd4.d(af4Var, zb4Var);
+        }
+    }
+
+    public static void d(bf4 bf4Var, zb4 zb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, bf4Var, zb4Var) == null) {
+            rd4.e(bf4Var, zb4Var);
+        }
+    }
+
+    public static void e(wg4 wg4Var, zb4 zb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, wg4Var, zb4Var) == null) {
+            rd4.f(wg4Var, zb4Var);
+        }
+    }
+
+    public static synchronized void f(List<fd4> list, zb4 zb4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, zb4Var) == null) {
+            synchronized (pd4.class) {
+                rd4.g(list, zb4Var);
             }
         }
     }

@@ -10,7 +10,7 @@ import java.util.Collection;
 import org.apache.http.cookie.CookieAttributeHandler;
 import org.apache.http.cookie.CookieSpec;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractCookieSpec implements CookieSpec {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public abstract class AbstractCookieSpec implements CookieSpec {
         throw new RuntimeException("Stub!");
     }
 
-    public Collection getAttribHandlers() {
+    public Collection<CookieAttributeHandler> getAttribHandlers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

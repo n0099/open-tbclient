@@ -2,12 +2,16 @@ package androidx.transition;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.AnimatorUtils;
@@ -34,7 +38,9 @@ public abstract class Visibility extends Transition {
     public transient /* synthetic */ FieldHolder $fh;
     public int mMode;
 
+    @SuppressLint({"UniqueConstants"})
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Mode {
     }
@@ -83,14 +89,14 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionCancel(Transition transition) {
+        public void onTransitionCancel(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, transition) == null) {
             }
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionStart(Transition transition) {
+        public void onTransitionStart(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, transition) == null) {
             }
@@ -175,7 +181,7 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionEnd(Transition transition) {
+        public void onTransitionEnd(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, transition) == null) {
                 hideViewWhenNotCanceled();
@@ -184,7 +190,7 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionPause(Transition transition) {
+        public void onTransitionPause(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, transition) == null) {
                 suppressLayout(false);
@@ -192,7 +198,7 @@ public abstract class Visibility extends Transition {
         }
 
         @Override // androidx.transition.Transition.TransitionListener
-        public void onTransitionResume(Transition transition) {
+        public void onTransitionResume(@NonNull Transition transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, transition) == null) {
                 suppressLayout(true);
@@ -268,6 +274,7 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    @Nullable
     public String[] getTransitionProperties() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -278,6 +285,7 @@ public abstract class Visibility extends Transition {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"RestrictedApi"})
     public Visibility(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
@@ -388,7 +396,7 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -396,7 +404,7 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transitionValues) == null) {
             captureValues(transitionValues);
@@ -415,7 +423,8 @@ public abstract class Visibility extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    @Nullable
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, transitionValues, transitionValues2)) == null) {
@@ -500,7 +509,7 @@ public abstract class Visibility extends Transition {
             } else {
                 view2 = null;
             }
-            View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf);
+            View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8);
             if (view6 != null) {
                 view4 = null;
                 z2 = true;
@@ -581,7 +590,7 @@ public abstract class Visibility extends Transition {
                     if (onDisappear == null) {
                         ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                     } else {
-                        view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf, view6);
+                        view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8, view6);
                         addListener(new TransitionListenerAdapter(this, viewGroup, view6, view5) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -612,17 +621,17 @@ public abstract class Visibility extends Transition {
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionEnd(Transition transition) {
+                            public void onTransitionEnd(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091daf, null);
+                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091df8, null);
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
                                     transition.removeListener(this);
                                 }
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionPause(Transition transition) {
+                            public void onTransitionPause(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transition) == null) {
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
@@ -630,7 +639,7 @@ public abstract class Visibility extends Transition {
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
-                            public void onTransitionResume(Transition transition) {
+                            public void onTransitionResume(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, transition) == null) {
                                     if (this.val$finalOverlayView.getParent() == null) {

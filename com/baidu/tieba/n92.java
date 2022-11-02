@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Process;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.tieba.i92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,45 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.Executors;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class n92 {
+public class n92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static volatile n92 i;
+    public static final boolean a;
+    public static final v92 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public volatile boolean b;
-    public boolean c;
-    public boolean d;
-    public final Object e;
-    public final Object f;
-    public ArrayList g;
 
     /* loaded from: classes5.dex */
-    public interface e {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ boolean b;
-        public final /* synthetic */ n92 c;
+        public final /* synthetic */ String c;
 
-        public a(n92 n92Var, boolean z, boolean z2) {
+        public a(String str, boolean z, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n92Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {str, Boolean.valueOf(z), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,127 +45,46 @@ public final class n92 {
                     return;
                 }
             }
-            this.c = n92Var;
-            this.a = z;
-            this.b = z2;
+            this.a = str;
+            this.b = z;
+            this.c = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(10);
-                this.c.g(this.a, this.b);
-                this.c.b = true;
-                synchronized (this.c.f) {
-                    this.c.d = true;
-                    this.c.f.notifyAll();
-                    this.c.m();
+                if (n92.a) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                Set<String> m = o92.k().m(this.a, true);
+                if (m != null && m.size() > 0) {
+                    if (n92.a) {
+                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
+                    }
+                    for (String str : m) {
+                        boolean b = n92.b(this.c, this.a, str);
+                        h92 d = h92.d();
+                        String str2 = this.c;
+                        i92.b a = i92.a();
+                        a.h(RecordType.PREFETCH_PRELINK);
+                        a.f(str);
+                        a.g(b);
+                        d.f(str2, a.e());
+                        if (b) {
+                            o92.k().s(this.a, str);
+                            n92.d(this.a, str);
+                        }
+                    }
+                    if (n92.a) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
+                    }
                 }
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(n92 n92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                WebView.setWebContentsDebuggingEnabled(true);
-                Log.setMinLogLevel(3, true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n92 a;
-
-        public c(n92 n92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n92Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieSyncManager.createInstance(this.a.a);
-                BdSailor.initCookieSyncManager(this.a.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements gi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public d(n92 n92Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n92Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gi3
-        /* renamed from: a */
-        public Void create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.run();
-                return null;
-            }
-            return (Void) invokeV.objValue;
         }
     }
 
@@ -199,174 +101,57 @@ public final class n92 {
                 return;
             }
         }
-        h = wj1.a;
+        a = ok1.a;
+        b = x92.a();
     }
 
-    public void i() {
+    public static boolean b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && l()) {
-            BdSailor.getInstance().destroy();
-        }
-    }
-
-    public n92(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return false;
             }
+            return b.c(str, str2, str3);
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = new Object();
-        this.f = new Object();
-        this.g = new ArrayList();
-        this.a = context.getApplicationContext();
+        return invokeLLL.booleanValue;
     }
 
-    public static synchronized n92 h(Context context) {
-        InterceptResult invokeL;
-        n92 n92Var;
+    public static void e(String str, @NonNull String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            synchronized (n92.class) {
-                if (i == null) {
-                    i = new n92(context);
-                }
-                n92Var = i;
-            }
-            return n92Var;
-        }
-        return (n92) invokeL.objValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            j(false, z);
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
         }
     }
 
-    public void f(e eVar) {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            synchronized (this.f) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            if (!b.b()) {
+                if (a) {
+                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
                 }
-                if (!this.g.contains(eVar)) {
-                    this.g.add(eVar);
+            } else if (TextUtils.isEmpty(str2)) {
+                if (a) {
+                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
                 }
-                if (this.d) {
-                    m();
-                }
-            }
-        }
-    }
-
-    public final void g(boolean z, boolean z2) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            WebKitFactory.setNeedDownloadCloudResource(false);
-            WebKitFactory.setProcessType("1");
-            com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
-            BdSailor.getInstance().init(this.a, null, null);
-            if (h) {
-                gh3.a0(new b(this));
-            }
-            if (h && lz2.G().booleanValue()) {
-                z3 = true;
             } else {
-                z3 = false;
-            }
-            BdSailor.getInstance().setWebkitEnable(!z3);
-            BdSailor.getInstance().initWebkit("swan", false);
-            BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
-                }
-            } else if (h) {
-                android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
-            }
-            c cVar = new c(this);
-            if (z2) {
-                l33.M().post(cVar);
-            } else {
-                di3.b(new d(this, cVar));
-            }
-        }
-    }
-
-    public final void j(boolean z, boolean z2) {
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && !this.b) {
-            if (z && gh3.O()) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            synchronized (this.e) {
-                if (!this.c) {
-                    Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
-                    this.c = true;
-                }
-            }
-            if (!z) {
-                return;
-            }
-            synchronized (this.f) {
-                while (!this.d) {
-                    try {
-                        this.f.wait(1000L);
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
+                e43 q = d43.K().q();
+                if (q == null) {
+                    if (a) {
+                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
                     }
+                } else if (TextUtils.equals(q.b, str2)) {
+                    e(str, str2, q.I());
                 }
             }
         }
     }
 
-    public void m() {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f) {
-                if (h) {
-                    android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
-                }
-                Iterator it = this.g.iterator();
-                while (it.hasNext()) {
-                    ((e) it.next()).a();
-                }
-                this.g.clear();
-            }
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
+            b.a().b(str, str2, true);
         }
     }
 }

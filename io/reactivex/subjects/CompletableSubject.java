@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.annotations.CheckReturnValue;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
@@ -24,11 +25,11 @@ public final class CompletableSubject extends Completable implements Completable
     public static final CompletableDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference observers;
+    public final AtomicReference<CompletableDisposable[]> observers;
     public final AtomicBoolean once;
 
     /* loaded from: classes8.dex */
-    public final class CompletableDisposable extends AtomicReference implements Disposable {
+    public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,10 +56,10 @@ public final class CompletableSubject extends Completable implements Completable
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            CompletableSubject completableSubject;
+            CompletableSubject andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (completableSubject = (CompletableSubject) getAndSet(null)) != null) {
-                completableSubject.remove(this);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(null)) != null) {
+                andSet.remove(this);
             }
         }
 
@@ -103,6 +104,7 @@ public final class CompletableSubject extends Completable implements Completable
         return (CompletableSubject) invokeV.objValue;
     }
 
+    @Nullable
     public Throwable getThrowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -131,7 +133,7 @@ public final class CompletableSubject extends Completable implements Completable
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (((CompletableDisposable[]) this.observers.get()).length != 0) {
+            if (this.observers.get().length != 0) {
                 return true;
             }
             return false;
@@ -155,7 +157,7 @@ public final class CompletableSubject extends Completable implements Completable
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ((CompletableDisposable[]) this.observers.get()).length;
+            return this.observers.get().length;
         }
         return invokeV.intValue;
     }
@@ -165,7 +167,7 @@ public final class CompletableSubject extends Completable implements Completable
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.once.compareAndSet(false, true)) {
-                for (CompletableDisposable completableDisposable : (CompletableDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (CompletableDisposable completableDisposable : this.observers.getAndSet(TERMINATED)) {
                     completableDisposable.actual.onComplete();
                 }
             }
@@ -186,7 +188,7 @@ public final class CompletableSubject extends Completable implements Completable
             }
         }
         this.once = new AtomicBoolean();
-        this.observers = new AtomicReference(EMPTY);
+        this.observers = new AtomicReference<>(EMPTY);
     }
 
     public boolean add(CompletableDisposable completableDisposable) {
@@ -196,7 +198,7 @@ public final class CompletableSubject extends Completable implements Completable
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, completableDisposable)) == null) {
             do {
-                completableDisposableArr = (CompletableDisposable[]) this.observers.get();
+                completableDisposableArr = this.observers.get();
                 if (completableDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -225,7 +227,7 @@ public final class CompletableSubject extends Completable implements Completable
             ObjectHelper.requireNonNull(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
             if (this.once.compareAndSet(false, true)) {
                 this.error = th;
-                for (CompletableDisposable completableDisposable : (CompletableDisposable[]) this.observers.getAndSet(TERMINATED)) {
+                for (CompletableDisposable completableDisposable : this.observers.getAndSet(TERMINATED)) {
                     completableDisposable.actual.onError(th);
                 }
                 return;
@@ -262,7 +264,7 @@ public final class CompletableSubject extends Completable implements Completable
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, completableDisposable) == null) {
             do {
-                completableDisposableArr = (CompletableDisposable[]) this.observers.get();
+                completableDisposableArr = this.observers.get();
                 int length = completableDisposableArr.length;
                 if (length == 0) {
                     return;

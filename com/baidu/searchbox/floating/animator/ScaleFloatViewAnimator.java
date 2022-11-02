@@ -25,7 +25,7 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     public final long mDuration;
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
-    public Animator exitAnim(WeakReference viewRef, WindowManager.LayoutParams params, WindowManager windowManager) {
+    public Animator exitAnim(WeakReference<View> viewRef, WindowManager.LayoutParams params, WindowManager windowManager) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewRef, params, windowManager)) == null) {
@@ -75,14 +75,14 @@ public final class ScaleFloatViewAnimator implements FloatViewAnimator {
     }
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator
-    public Animator enterAnim(final WeakReference viewRef, final WindowManager.LayoutParams params, final WindowManager windowManager) {
+    public Animator enterAnim(final WeakReference<View> viewRef, final WindowManager.LayoutParams params, final WindowManager windowManager) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, viewRef, params, windowManager)) == null) {
             Intrinsics.checkNotNullParameter(viewRef, "viewRef");
             Intrinsics.checkNotNullParameter(params, "params");
             Intrinsics.checkNotNullParameter(windowManager, "windowManager");
-            View view2 = (View) viewRef.get();
+            View view2 = viewRef.get();
             if (view2 != null) {
                 Intrinsics.checkNotNullExpressionValue(view2, "viewRef.get() ?: return null");
                 ValueAnimator duration = ValueAnimator.ofObject(new RectEvaluator(), startValue(view2, params, windowManager), endValue(view2, params, windowManager)).setDuration(this.mDuration);

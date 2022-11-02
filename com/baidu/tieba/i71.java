@@ -1,359 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k71;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class i71 extends k71 {
-    public static /* synthetic */ Interceptable $ic;
+public final class i71 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] AdImageView;
+    public static final int AdImageView_adCornerRadius = 0;
+    public static final int AdImageView_borderColor = 1;
+    public static final int AdImageView_borderColorWidth = 2;
+    public static final int AdImageView_circleType = 3;
+    public static final int AdImageView_errorHolder = 4;
+    public static final int AdImageView_holder = 5;
+    public static final int AdImageView_imageScaleType = 6;
+    public static final int AdImageView_leftBottomRadius = 7;
+    public static final int AdImageView_leftTopRadius = 8;
+    public static final int AdImageView_loadingHolder = 9;
+    public static final int AdImageView_rightBottomRadius = 10;
+    public static final int AdImageView_rightTopRadius = 11;
+    public static final int[] ExpandIconView;
+    public static final int ExpandIconView_animationDuration = 0;
+    public static final int ExpandIconView_color = 1;
+    public static final int ExpandIconView_length = 2;
+    public static final int ExpandIconView_thick = 3;
+    public static final int[] NADUnifyTextView;
+    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
+    public static final int NADUnifyTextView_spannable_top_padding = 1;
+    public static final int[] NadBdThumbSeekBar;
+    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
+    public static final int[] NadEnhanceButtonView;
+    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
+    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
+    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
+    public static final int[] NadRoundProgressBar;
+    public static final int NadRoundProgressBar_max = 0;
+    public static final int NadRoundProgressBar_nad_style = 1;
+    public static final int NadRoundProgressBar_reverse = 2;
+    public static final int NadRoundProgressBar_roundColor = 3;
+    public static final int NadRoundProgressBar_roundHintTextSize = 4;
+    public static final int NadRoundProgressBar_roundMax = 5;
+    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
+    public static final int NadRoundProgressBar_roundProgressColor = 7;
+    public static final int NadRoundProgressBar_roundTextColor = 8;
+    public static final int NadRoundProgressBar_roundTextSize = 9;
+    public static final int NadRoundProgressBar_roundWidth = 10;
+    public static final int NadRoundProgressBar_textColor = 11;
+    public static final int NadRoundProgressBar_textIsDisplayable = 12;
+    public static final int NadRoundProgressBar_textSize = 13;
+    public static final int[] NadShadowViewGroup;
+    public static final int NadShadowViewGroup_containerCornerRadius = 0;
+    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
+    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
+    public static final int NadShadowViewGroup_containerShadowColor = 3;
+    public static final int NadShadowViewGroup_containerShadowRadius = 4;
+    public static final int NadShadowViewGroup_deltaX = 5;
+    public static final int NadShadowViewGroup_deltaY = 6;
+    public static final int NadShadowViewGroup_enable = 7;
+    public static final int NadShadowViewGroup_shadowAlpha = 8;
+    public static final int[] NadTextProgressView;
+    public static final int NadTextProgressView_nad_progressGravity = 0;
+    public static final int NadTextProgressView_nad_progressTextColor = 1;
+    public static final int NadTextProgressView_nad_progressTextMode = 2;
+    public static final int NadTextProgressView_nad_progressTextSize = 3;
+    public static final int[] RoundCornerRelativeLayout;
+    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
+    public static final int[] SimpleAdInfoView;
+    public static final int SimpleAdInfoView_layoutId = 0;
+    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
+    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup b;
-    public FrameLayout c;
-    public FrameLayout d;
-    public Context e;
-    public View f;
-    public List g;
-    public int h;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(View view2);
-    }
-
-    public View i(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public LinearLayout c;
-        public i71 d;
-        public final /* synthetic */ i71 e;
-
-        /* loaded from: classes4.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-            public final /* synthetic */ d b;
-
-            public a(d dVar, a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = dVar;
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.b.d.dismiss();
-                    c cVar = this.a.e;
-                    if (cVar != null) {
-                        cVar.a(view2);
-                    }
-                }
-            }
-        }
-
-        public d(i71 i71Var, View view2, i71 i71Var2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806310, "Lcom/baidu/tieba/i71;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i71Var, view2, i71Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = i71Var;
-            if (view2 != null) {
-                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e0b);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e0a);
-                this.c = (LinearLayout) view2;
-                this.d = i71Var2;
-            }
-        }
-
-        public void a(a aVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, aVar) != null) || aVar == null) {
-                return;
-            }
-            this.a.setText(aVar.a);
-            if (aVar.c > 0) {
-                this.a.setTextColor(this.e.c.getResources().getColor(aVar.c));
-            }
-            if (!TextUtils.isEmpty(aVar.b)) {
-                this.b.setVisibility(0);
-                this.b.setText(aVar.b);
-            } else {
-                this.b.setVisibility(8);
-            }
-            if (aVar.d > 0) {
-                this.b.setTextColor(this.e.c.getResources().getColor(aVar.d));
-            }
-            this.c.setOnClickListener(new a(this, aVar));
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public CharSequence a;
-        public CharSequence b;
-        public int c;
-        public int d;
-        public c e;
-
-        public a(CharSequence charSequence, int i, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {charSequence, Integer.valueOf(i), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = -1;
-            this.d = -1;
-            this.a = charSequence;
-            this.c = i;
-            this.e = cVar;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends k71.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = new ArrayList();
-            g(false);
-            h(false);
-        }
-
-        @Override // com.baidu.tieba.k71.a
-        public k71 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                i71 i71Var = (i71) super.a();
-                i71Var.l(this.f);
-                return i71Var;
-            }
-            return (k71) invokeV.objValue;
-        }
-
-        public b v(a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                if (aVar != null) {
-                    xz0.b(this.f, aVar);
-                }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i71(Context context) {
-        super(context, R.style.obfuscated_res_0x7f100136);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806310, "Lcom/baidu/tieba/i71;");
                 return;
             }
         }
-        this.g = new ArrayList();
-        this.h = 2;
-    }
-
-    public final void l(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.g.clear();
-            if (list != null) {
-                xz0.c(this.g, list);
-            }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onCreate(bundle);
-            k();
-            a().s(this.b);
-        }
-    }
-
-    public final LinearLayout g(a aVar, LinearLayout linearLayout, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, aVar, linearLayout, i)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05f4, (ViewGroup) linearLayout, false);
-            linearLayout2.setBackground(getContext().getResources().getDrawable(i));
-            new d(this, linearLayout2, this).a(aVar);
-            return linearLayout2;
-        }
-        return (LinearLayout) invokeLLI.objValue;
-    }
-
-    public final void h(List list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
-            return;
-        }
-        LinearLayout linearLayout = new LinearLayout(this.e);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        int size = list.size();
-        if (size == 0) {
-            return;
-        }
-        if (size == 1) {
-            linearLayout.setOrientation(0);
-            linearLayout.addView(g((a) list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080da4));
-        } else if (size == this.h) {
-            linearLayout.setOrientation(0);
-            linearLayout.addView(g((a) list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080da2));
-            linearLayout.addView(j(0));
-            linearLayout.addView(g((a) list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f080da6));
-        } else {
-            linearLayout.setOrientation(1);
-            for (int i = 0; i < list.size(); i++) {
-                if (i < list.size() - 1) {
-                    linearLayout.addView(g((a) list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080da0));
-                    linearLayout.addView(j(1));
-                } else if (i == list.size() - 1) {
-                    linearLayout.addView(g((a) list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080da4));
-                }
-            }
-        }
-        this.d.removeAllViews();
-        this.d.addView(linearLayout);
-    }
-
-    public final View j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            View view2 = new View(this.e);
-            view2.setBackgroundColor(this.c.getResources().getColor(R.color.obfuscated_res_0x7f060833));
-            if (i == 1) {
-                view2.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
-            } else {
-                view2.setLayoutParams(new LinearLayout.LayoutParams(1, -1));
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = getContext();
-            this.e = context;
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0622, a().c(), false);
-            this.b = viewGroup;
-            this.c = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0c);
-            this.f = this.b.findViewById(R.id.obfuscated_res_0x7f090e0d);
-            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090e09);
-            View i = i(this.c);
-            if (i != null) {
-                this.c.addView(i);
-            }
-            m();
-            h(this.g);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060833));
-        }
+        AdImageView = new int[]{R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040338, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040427, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c5};
+        ExpandIconView = new int[]{R.attr.animationDuration, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f0406fa};
+        NADUnifyTextView = new int[]{R.attr.spannable_bottom_padding, R.attr.spannable_top_padding};
+        NadBdThumbSeekBar = new int[]{R.attr.obfuscated_res_0x7f0404e3};
+        NadEnhanceButtonView = new int[]{R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f04010d, R.attr.obfuscated_res_0x7f04010f};
+        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404b9, R.attr.obfuscated_res_0x7f0404f9, R.attr.obfuscated_res_0x7f0405bc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d0, R.attr.roundProgressColor, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f0406e4, R.attr.textIsDisplayable, R.attr.obfuscated_res_0x7f0406f1};
+        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f04020b, R.attr.obfuscated_res_0x7f04020c, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f040612};
+        NadTextProgressView = new int[]{R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7, R.attr.obfuscated_res_0x7f0404f8};
+        RoundCornerRelativeLayout = new int[]{R.attr.obfuscated_res_0x7f0405d9};
+        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f04040b};
+        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.obfuscated_res_0x7f0404e4, R.attr.obfuscated_res_0x7f0404e5, R.attr.obfuscated_res_0x7f0404e6, R.attr.obfuscated_res_0x7f0404e7};
     }
 }

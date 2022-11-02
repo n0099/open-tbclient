@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
+@Keep
 /* loaded from: classes2.dex */
 public class CyberExtractor {
     public static /* synthetic */ Interceptable $ic = null;
@@ -90,7 +92,7 @@ public class CyberExtractor {
         extractorProvider.setDataSource(context, uri);
     }
 
-    public void setDataSource(Context context, Uri uri, Map map) {
+    public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, context, uri, map) == null) || (extractorProvider = this.a) == null) {

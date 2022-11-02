@@ -13,16 +13,16 @@ public interface CompletableJob extends Job {
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class DefaultImpls {
-        public static Object fold(CompletableJob completableJob, Object obj, Function2 function2) {
-            return Job.DefaultImpls.fold(completableJob, obj, function2);
+    public static final class DefaultImpls {
+        public static <R> R fold(CompletableJob completableJob, R r, Function2<? super R, ? super CoroutineContext.Element, ? extends R> function2) {
+            return (R) Job.DefaultImpls.fold(completableJob, r, function2);
         }
 
-        public static CoroutineContext.Element get(CompletableJob completableJob, CoroutineContext.Key key) {
-            return Job.DefaultImpls.get(completableJob, key);
+        public static <E extends CoroutineContext.Element> E get(CompletableJob completableJob, CoroutineContext.Key<E> key) {
+            return (E) Job.DefaultImpls.get(completableJob, key);
         }
 
-        public static CoroutineContext minusKey(CompletableJob completableJob, CoroutineContext.Key key) {
+        public static CoroutineContext minusKey(CompletableJob completableJob, CoroutineContext.Key<?> key) {
             return Job.DefaultImpls.minusKey(completableJob, key);
         }
 

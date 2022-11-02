@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.http.client.CookieStore;
 import org.apache.http.cookie.Cookie;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BasicCookieStore implements CookieStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class BasicCookieStore implements CookieStore {
     }
 
     @Override // org.apache.http.client.CookieStore
-    public synchronized List getCookies() {
+    public synchronized List<Cookie> getCookies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

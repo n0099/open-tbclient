@@ -1,6 +1,8 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
 import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -16,18 +18,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, DownloadStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final BreakpointStoreOnSQLite onSQLiteWrapper;
+    @NonNull
     public final RemitSyncToDBHelper remitHelper;
+    @NonNull
     public final BreakpointSQLiteHelper sqLiteHelper;
+    @NonNull
     public final DownloadStore sqliteCache;
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
+    @Nullable
     public BreakpointInfo getAfterCompleted(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -47,7 +53,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
         return invokeV.booleanValue;
     }
 
-    public RemitStoreOnSQLite(BreakpointStoreOnSQLite breakpointStoreOnSQLite) {
+    public RemitStoreOnSQLite(@NonNull BreakpointStoreOnSQLite breakpointStoreOnSQLite) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +98,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
         }
     }
 
-    public RemitStoreOnSQLite(RemitSyncToDBHelper remitSyncToDBHelper, BreakpointStoreOnSQLite breakpointStoreOnSQLite, DownloadStore downloadStore, BreakpointSQLiteHelper breakpointSQLiteHelper) {
+    public RemitStoreOnSQLite(@NonNull RemitSyncToDBHelper remitSyncToDBHelper, @NonNull BreakpointStoreOnSQLite breakpointStoreOnSQLite, @NonNull DownloadStore downloadStore, @NonNull BreakpointSQLiteHelper breakpointSQLiteHelper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +120,8 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo createAndInsert(DownloadTask downloadTask) throws IOException {
+    @NonNull
+    public BreakpointInfo createAndInsert(@NonNull DownloadTask downloadTask) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadTask)) == null) {
@@ -127,7 +134,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public int findOrCreateId(DownloadTask downloadTask) {
+    public int findOrCreateId(@NonNull DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadTask)) == null) {
@@ -137,6 +144,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
+    @Nullable
     public BreakpointInfo get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -147,6 +155,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
+    @Nullable
     public String getResponseFilename(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -213,7 +222,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public boolean update(BreakpointInfo breakpointInfo) throws IOException {
+    public boolean update(@NonNull BreakpointInfo breakpointInfo) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, breakpointInfo)) == null) {
@@ -226,7 +235,8 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public BreakpointInfo findAnotherInfoFromCompare(DownloadTask downloadTask, BreakpointInfo breakpointInfo) {
+    @Nullable
+    public BreakpointInfo findAnotherInfoFromCompare(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, breakpointInfo)) == null) {
@@ -236,7 +246,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(BreakpointInfo breakpointInfo, int i, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{breakpointInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (this.remitHelper.isNotFreeToDatabase(breakpointInfo.getId())) {
@@ -248,7 +258,7 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskEnd(int i, EndCause endCause, Exception exc) {
+    public void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048587, this, i, endCause, exc) == null) {
             this.sqliteCache.onTaskEnd(i, endCause, exc);
@@ -261,15 +271,14 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.sqlite.RemitSyncExecutor.RemitAgent
-    public void syncCacheToDB(List list) throws IOException {
+    public void syncCacheToDB(List<Integer> list) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
             SQLiteDatabase writableDatabase = this.sqLiteHelper.getWritableDatabase();
             writableDatabase.beginTransaction();
             try {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    syncCacheToDB(((Integer) it.next()).intValue());
+                for (Integer num : list) {
+                    syncCacheToDB(num.intValue());
                 }
                 writableDatabase.setTransactionSuccessful();
             } finally {

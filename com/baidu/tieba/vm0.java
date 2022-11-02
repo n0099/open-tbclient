@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,30 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface vm0 {
-    public static final vm0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final vm0 b = new a();
 
-    int a(String str, int i);
+    @NonNull
+    um0 a();
 
-    double b(String str, double d);
+    @NonNull
+    wm0 request();
 
     /* loaded from: classes6.dex */
-    public final class a implements vm0 {
+    public static class a implements vm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.vm0
-        public int a(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
-        }
-
-        @Override // com.baidu.tieba.vm0
-        public double b(String str, double d) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? d : invokeCommon.doubleValue;
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,6 +36,28 @@ public interface vm0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.vm0
+        @NonNull
+        public um0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return um0.a;
+            }
+            return (um0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vm0
+        @NonNull
+        public wm0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return wm0.a;
+            }
+            return (wm0) invokeV.objValue;
         }
     }
 }

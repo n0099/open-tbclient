@@ -32,8 +32,9 @@ public class f implements OnNmeaMessageListener {
     @Override // android.location.OnNmeaMessageListener
     public void onNmeaMessage(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) && this.a.b(str)) {
-            this.a.a(str);
+        if (!(interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) || this.a.M == null) {
+            return;
         }
+        this.a.M.sendMessage(this.a.M.obtainMessage(5, str));
     }
 }

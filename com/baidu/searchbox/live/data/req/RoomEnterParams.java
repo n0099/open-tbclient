@@ -271,7 +271,7 @@ public final class RoomEnterParams extends MixBaseParams {
     }
 
     @Override // com.baidu.searchbox.live.data.req.MixBaseParams
-    public Map toMap() {
+    public Map<String, String> toMap() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;

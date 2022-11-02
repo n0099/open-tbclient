@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Ref;
 import org.json.JSONArray;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", "kotlin.jvm.PlatformType", AdvanceSetting.NETWORK_TYPE, "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implements Function1 {
+public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implements Function1<Integer, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Ref.ObjectRef $protocolsArray;
@@ -40,9 +40,11 @@ public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implem
         this.$protocolsArray = objectRef;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return invoke(((Number) obj).intValue());
+    public /* bridge */ /* synthetic */ String invoke(Integer num) {
+        return invoke(num.intValue());
     }
 
     public final String invoke(int i) {

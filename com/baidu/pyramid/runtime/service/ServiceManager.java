@@ -1,6 +1,6 @@
 package com.baidu.pyramid.runtime.service;
 
-import com.baidu.tieba.if1;
+import com.baidu.tieba.ag1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,12 +25,12 @@ public class ServiceManager {
         }
     }
 
-    public static Object getService(ServiceReference serviceReference) {
+    public static <T> T getService(ServiceReference serviceReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, serviceReference)) == null) {
-            return if1.a(serviceReference);
+            return (T) ag1.a(serviceReference);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

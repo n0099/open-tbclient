@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.functions.Action;
@@ -22,7 +23,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpstream {
+public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
@@ -31,23 +32,23 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
     public final boolean unbounded;
 
     /* loaded from: classes8.dex */
-    public final class BackpressureBufferSubscriber extends BasicIntQueueSubscription implements FlowableSubscriber {
+    public static final class BackpressureBufferSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2514538129242366402L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
         public final boolean delayError;
         public volatile boolean done;
         public Throwable error;
         public final Action onOverflow;
         public boolean outputFused;
-        public final SimplePlainQueue queue;
+        public final SimplePlainQueue<T> queue;
         public final AtomicLong requested;
         public Subscription s;
 
-        public BackpressureBufferSubscriber(Subscriber subscriber, int i, boolean z, boolean z2, Action action) {
-            SimplePlainQueue spscArrayQueue;
+        public BackpressureBufferSubscriber(Subscriber<? super T> subscriber, int i, boolean z, boolean z2, Action action) {
+            SimplePlainQueue<T> spscArrayQueue;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,9 +68,9 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
             this.onOverflow = action;
             this.delayError = z2;
             if (z) {
-                spscArrayQueue = new SpscLinkedArrayQueue(i);
+                spscArrayQueue = new SpscLinkedArrayQueue<>(i);
             } else {
-                spscArrayQueue = new SpscArrayQueue(i);
+                spscArrayQueue = new SpscArrayQueue<>(i);
             }
             this.queue = spscArrayQueue;
         }
@@ -118,16 +119,17 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return this.queue.poll();
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber) {
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber<? super T> subscriber) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber})) == null) {
@@ -170,8 +172,8 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
-                SimplePlainQueue simplePlainQueue = this.queue;
-                Subscriber subscriber = this.actual;
+                SimplePlainQueue<T> simplePlainQueue = this.queue;
+                Subscriber<? super T> subscriber = this.actual;
                 int i2 = 1;
                 while (!checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
                     long j = this.requested.get();
@@ -182,8 +184,8 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
                             break;
                         }
                         boolean z2 = this.done;
-                        Object poll = simplePlainQueue.poll();
-                        if (poll == null) {
+                        Object obj = (T) simplePlainQueue.poll();
+                        if (obj == null) {
                             z = true;
                         } else {
                             z = false;
@@ -194,7 +196,7 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
                         if (z) {
                             break;
                         }
-                        subscriber.onNext(poll);
+                        subscriber.onNext(obj);
                         j2++;
                     }
                     if (i == 0 && checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
@@ -259,10 +261,10 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
-                if (!this.queue.offer(obj)) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+                if (!this.queue.offer(t)) {
                     this.s.cancel();
                     MissingBackpressureException missingBackpressureException = new MissingBackpressureException("Buffer is full");
                     try {
@@ -282,7 +284,7 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBuffer(Flowable flowable, int i, boolean z, boolean z2, Action action) {
+    public FlowableOnBackpressureBuffer(Flowable<T> flowable, int i, boolean z, boolean z2, Action action) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -306,7 +308,7 @@ public final class FlowableOnBackpressureBuffer extends AbstractFlowableWithUpst
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BackpressureBufferSubscriber(subscriber, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));

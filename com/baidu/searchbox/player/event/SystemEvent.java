@@ -1,5 +1,6 @@
 package com.baidu.searchbox.player.event;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +40,7 @@ public class SystemEvent extends VideoEvent {
         }
     }
 
-    public static VideoEvent obtainEvent(String str) {
+    public static VideoEvent obtainEvent(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {

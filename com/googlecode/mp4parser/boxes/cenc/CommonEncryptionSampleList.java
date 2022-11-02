@@ -27,17 +27,17 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes7.dex */
-public class CommonEncryptionSampleList extends AbstractList {
+public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public static Cipher cipher;
     public transient /* synthetic */ FieldHolder $fh;
-    public List auxiliaryDataFormats;
-    public List parent;
+    public List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
+    public List<Sample> parent;
     public SecretKey secretKey;
 
     /* renamed from: com.googlecode.mp4parser.boxes.cenc.CommonEncryptionSampleList$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -194,7 +194,7 @@ public class CommonEncryptionSampleList extends AbstractList {
         }
     }
 
-    public CommonEncryptionSampleList(SecretKey secretKey, List list, List list2) {
+    public CommonEncryptionSampleList(SecretKey secretKey, List<Sample> list, List<CencSampleAuxiliaryDataFormat> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +220,7 @@ public class CommonEncryptionSampleList extends AbstractList {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return new EncryptedSampleImpl(this, (Sample) this.parent.get(i), (CencSampleAuxiliaryDataFormat) this.auxiliaryDataFormats.get(i), cipher, null);
+            return new EncryptedSampleImpl(this, this.parent.get(i), this.auxiliaryDataFormats.get(i), cipher, null);
         }
         return (Sample) invokeI.objValue;
     }

@@ -1,60 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class sf4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149480, "Lcom/baidu/tieba/sf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948149480, "Lcom/baidu/tieba/sf4;");
-                return;
-            }
-        }
-        va4 b2 = xa4.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
-        }
-    }
-
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public static pf4 a(Node node) {
+        InterceptResult invokeL;
+        Class<? extends pf4> processor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            va4 b2 = xa4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timespan", i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, node)) == null) {
+            if (node == null || (processor = node.getProcessor()) == null) {
+                return null;
             }
-            return i;
-        }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            va4 b2 = xa4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timeout", i);
+            try {
+                return processor.newInstance();
+            } catch (IllegalAccessException | InstantiationException unused) {
+                return null;
             }
-            return i;
         }
-        return invokeI.longValue;
+        return (pf4) invokeL.objValue;
     }
 }

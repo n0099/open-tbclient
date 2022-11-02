@@ -1,78 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class bq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public bq4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "b122ce58b8954c27b6882f7987c08860" : (String) invokeV.objValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e9, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
     }
 
-    public static String c() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "Host-Night-Flutter-Wallet" : (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
+            this.d.K(this.c.getVideo_info().getThumbnail_url(), 10, false);
+            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09069f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090695);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa1);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa2);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092575);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a34);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return TbadkCoreApplication.getInst().getVersionName();
-        }
-        return (String) invokeV.objValue;
     }
 }

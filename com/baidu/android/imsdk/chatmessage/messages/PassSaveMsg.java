@@ -17,7 +17,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PassSaveMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PassSaveMsg> CREATOR;
     public static final String TAG = "PassSaveMsg";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class PassSaveMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassSaveMsg.1
+        CREATOR = new Parcelable.Creator<PassSaveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassSaveMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,6 +73,7 @@ public class PassSaveMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassSaveMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -84,6 +85,7 @@ public class PassSaveMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassSaveMsg[] newArray(int i) {
                 InterceptResult invokeI;

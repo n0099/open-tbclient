@@ -1,5 +1,7 @@
 package com.baidu.android.util.android;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -24,8 +26,9 @@ public abstract class WrappedClipboardManager {
 
     public abstract void setText(CharSequence charSequence);
 
+    @TargetApi(11)
     /* loaded from: classes.dex */
-    public class HoneycombClipboardManager extends WrappedClipboardManager {
+    public static class HoneycombClipboardManager extends WrappedClipboardManager {
         public static /* synthetic */ Interceptable $ic;
         public static ClipData sClipData;
         public static ClipboardManager sInstance;
@@ -46,6 +49,7 @@ public abstract class WrappedClipboardManager {
             }
         }
 
+        @SuppressLint({"ServiceCast"})
         public HoneycombClipboardManager() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {

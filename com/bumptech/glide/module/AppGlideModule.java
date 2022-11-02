@@ -1,6 +1,7 @@
 package com.bumptech.glide.module;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +15,7 @@ public abstract class AppGlideModule extends LibraryGlideModule implements Appli
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.bumptech.glide.module.AppliesOptions
-    public void applyOptions(Context context, GlideBuilder glideBuilder) {
+    public void applyOptions(@NonNull Context context, @NonNull GlideBuilder glideBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, glideBuilder) == null) {
         }

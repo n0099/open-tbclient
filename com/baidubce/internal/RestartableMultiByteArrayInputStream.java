@@ -15,11 +15,11 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int blockSize;
-    public List byteArrayList;
+    public List<byte[]> byteArrayList;
     public long length;
     public long pos;
 
-    public RestartableMultiByteArrayInputStream(List list, long j) {
+    public RestartableMultiByteArrayInputStream(List<byte[]> list, long j) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
@@ -40,19 +40,19 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
         this.pos = 0L;
         CheckUtils.isNotNull(list, "byteArrayList should not be null.");
         CheckUtils.checkArgument(!list.isEmpty(), "byteArrayList should not be empty.");
-        Iterator it = list.iterator();
+        Iterator<byte[]> it = list.iterator();
         while (true) {
             boolean z3 = false;
             if (!it.hasNext()) {
                 break;
             }
-            byte[] bArr = (byte[]) it.next();
-            CheckUtils.isNotNull(bArr, "byteArrayList should not contain null element.");
-            if (bArr.length > 0) {
+            byte[] next = it.next();
+            CheckUtils.isNotNull(next, "byteArrayList should not contain null element.");
+            if (next.length > 0) {
                 z3 = true;
             }
             CheckUtils.checkArgument(z3, "byteArrayList should not contain empty byte array.");
-            j2 += bArr.length;
+            j2 += next.length;
         }
         if (j2 >= j) {
             z = true;
@@ -60,9 +60,9 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
             z = false;
         }
         CheckUtils.checkArgument(z, "The specified length(%s) is greater than the total length(%s) of elements in byteArrayList.", Long.valueOf(j), Long.valueOf(j2));
-        this.blockSize = ((byte[]) list.get(0)).length;
+        this.blockSize = list.get(0).length;
         for (int i3 = 1; i3 < list.size() - 1; i3++) {
-            int length = ((byte[]) list.get(i3)).length;
+            int length = list.get(i3).length;
             if (length == this.blockSize) {
                 z2 = true;
             } else {
@@ -85,7 +85,7 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
             }
             int i = this.blockSize;
             this.pos = j + 1;
-            return ((byte[]) this.byteArrayList.get((int) (j / i)))[(int) (j % i)] & 255;
+            return this.byteArrayList.get((int) (j / i))[(int) (j % i)] & 255;
         }
         return invokeV.intValue;
     }
@@ -108,7 +108,7 @@ public class RestartableMultiByteArrayInputStream extends RestartableInputStream
                     }
                     int i4 = this.blockSize;
                     int i5 = (int) (j % i4);
-                    byte[] bArr2 = (byte[]) this.byteArrayList.get((int) (j / i4));
+                    byte[] bArr2 = this.byteArrayList.get((int) (j / i4));
                     int length = bArr2.length - i5;
                     if (length > i2) {
                         length = i2;

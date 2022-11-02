@@ -2,6 +2,7 @@ package com.kwad.components.ad.fullscreen;
 
 import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +23,10 @@ public final class d implements KsFullScreenVideoAd {
     public transient /* synthetic */ FieldHolder $fh;
     public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener ei;
     public AdInfo mAdInfo;
+    @NonNull
     public AdTemplate mAdTemplate;
 
-    public d(AdTemplate adTemplate) {
+    public d(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +45,7 @@ public final class d implements KsFullScreenVideoAd {
         this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
     }
 
-    private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
+    private void a(Context context, @NonNull KsVideoPlayConfig ksVideoPlayConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, ksVideoPlayConfig) == null) {
             if (!isAdEnable()) {

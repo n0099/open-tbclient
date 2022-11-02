@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class PurchaseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PurchaseInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final String data;
     public final String signature;
@@ -41,7 +41,7 @@ public class PurchaseInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
+        CREATOR = new Parcelable.Creator<PurchaseInfo>() { // from class: com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,6 +60,7 @@ public class PurchaseInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PurchaseInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -71,6 +72,7 @@ public class PurchaseInfo implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PurchaseInfo[] newArray(int i) {
                 InterceptResult invokeI;

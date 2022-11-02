@@ -1,5 +1,6 @@
 package com.baidu.sapi2.views;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -48,7 +51,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SweepLightLoadingView(Context context, AttributeSet attributeSet) {
+    public SweepLightLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -70,7 +73,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SweepLightLoadingView(Context context, AttributeSet attributeSet, int i) {
+    public SweepLightLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -94,16 +97,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0503, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0513, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d55);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091d80);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d81);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d9e);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091dc9);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091dca);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e0));
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0810aa);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0810a8);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091d7f).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a28));
+                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f2));
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0810c6);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0810c4);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091dc8).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a3a));
             }
         }
     }
@@ -111,10 +114,11 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01011e));
+            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01011f));
         }
     }
 
+    @TargetApi(11)
     private void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;

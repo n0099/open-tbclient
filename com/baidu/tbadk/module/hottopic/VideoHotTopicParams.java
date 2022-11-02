@@ -1,5 +1,7 @@
 package com.baidu.tbadk.module.hottopic;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Map;
+@Keep
 /* loaded from: classes3.dex */
 public class VideoHotTopicParams {
     public static /* synthetic */ Interceptable $ic;
@@ -83,6 +86,7 @@ public class VideoHotTopicParams {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String getThreadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

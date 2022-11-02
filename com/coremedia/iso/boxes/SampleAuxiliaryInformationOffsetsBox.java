@@ -34,7 +34,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public String auxInfoType;
     public String auxInfoTypeParameter;
-    public List offsets;
+    public List<Long> offsets;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
         return (String) invokeV.objValue;
     }
 
-    public List getOffsets() {
+    public List<Long> getOffsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -189,7 +189,7 @@ public class SampleAuxiliaryInformationOffsetsBox extends AbstractFullBox {
         }
     }
 
-    public void setOffsets(List list) {
+    public void setOffsets(List<Long> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, list));

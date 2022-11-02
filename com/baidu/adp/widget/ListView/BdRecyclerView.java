@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,21 +17,21 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fo;
-import com.baidu.tieba.go;
-import com.baidu.tieba.io;
-import com.baidu.tieba.ml;
-import com.baidu.tieba.sn;
-import com.baidu.tieba.un;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.el;
+import com.baidu.tieba.kn;
+import com.baidu.tieba.mn;
 import com.baidu.tieba.v9;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.xn;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdRecyclerView extends RecyclerView implements go {
+public class BdRecyclerView extends RecyclerView implements yn<BdRecyclerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerAdapter a;
@@ -43,28 +44,28 @@ public class BdRecyclerView extends RecyclerView implements go {
     public BdListView.s h;
     public BdListView.o i;
     public long j;
-    public sn k;
-    public sn l;
+    public kn k;
+    public kn l;
     public View m;
     public boolean n;
     public boolean o;
     public Runnable p;
     public Runnable q;
     public Runnable r;
-    public io s;
+    public ao s;
 
     /* loaded from: classes.dex */
-    public interface i {
-        void b(ViewGroup viewGroup, View view2, Object obj, int i, long j);
+    public interface i<T> {
+        void b(ViewGroup viewGroup, View view2, T t, int i, long j);
     }
 
     /* loaded from: classes.dex */
-    public interface j {
-        boolean a(ViewGroup viewGroup, View view2, Object obj, int i, long j);
+    public interface j<T> {
+        boolean a(ViewGroup viewGroup, View view2, T t, int i, long j);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.go
+    @Override // com.baidu.tieba.yn
     public BdRecyclerView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -297,8 +298,8 @@ public class BdRecyclerView extends RecyclerView implements go {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof ml) {
-                ((ml) view2).refresh();
+            if (view2 instanceof el) {
+                ((el) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -364,7 +365,7 @@ public class BdRecyclerView extends RecyclerView implements go {
     }
 
     /* loaded from: classes.dex */
-    public class d implements io {
+    public class d implements ao {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -387,7 +388,7 @@ public class BdRecyclerView extends RecyclerView implements go {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.ao
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -396,17 +397,17 @@ public class BdRecyclerView extends RecyclerView implements go {
             }
         }
 
-        @Override // com.baidu.tieba.io
-        public fo getAdapter() {
+        @Override // com.baidu.tieba.ao
+        public xn getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return (fo) invokeV.objValue;
+                return (xn) invokeV.objValue;
             }
             return this.a.a;
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.ao
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -416,7 +417,7 @@ public class BdRecyclerView extends RecyclerView implements go {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.io
+        @Override // com.baidu.tieba.ao
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -428,7 +429,7 @@ public class BdRecyclerView extends RecyclerView implements go {
     }
 
     /* loaded from: classes.dex */
-    public class e implements un.a {
+    public class e implements mn.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -451,7 +452,7 @@ public class BdRecyclerView extends RecyclerView implements go {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.baidu.tieba.un.a
+        @Override // com.baidu.tieba.mn.a
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -598,7 +599,7 @@ public class BdRecyclerView extends RecyclerView implements go {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdRecyclerView(Context context, AttributeSet attributeSet) {
+    public BdRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -638,7 +639,7 @@ public class BdRecyclerView extends RecyclerView implements go {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdRecyclerView(Context context, AttributeSet attributeSet, int i2) {
+    public BdRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -686,7 +687,7 @@ public class BdRecyclerView extends RecyclerView implements go {
         bdRecyclerAdapter.g(view2);
     }
 
-    @Override // com.baidu.tieba.go
+    @Override // com.baidu.tieba.yn
     public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -851,7 +852,7 @@ public class BdRecyclerView extends RecyclerView implements go {
         }
     }
 
-    @Override // com.baidu.tieba.go
+    @Override // com.baidu.tieba.yn
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -864,7 +865,7 @@ public class BdRecyclerView extends RecyclerView implements go {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.go
+    @Override // com.baidu.tieba.yn
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -874,7 +875,7 @@ public class BdRecyclerView extends RecyclerView implements go {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.go
+    @Override // com.baidu.tieba.yn
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -884,22 +885,22 @@ public class BdRecyclerView extends RecyclerView implements go {
         return invokeV.intValue;
     }
 
-    public fo getListAdapter() {
+    public xn getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return (fo) getAdapter();
+            return (xn) getAdapter();
         }
-        return (fo) invokeV.objValue;
+        return (xn) invokeV.objValue;
     }
 
-    public io getPreLoadHandle() {
+    public ao getPreLoadHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.s;
         }
-        return (io) invokeV.objValue;
+        return (ao) invokeV.objValue;
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
@@ -963,21 +964,21 @@ public class BdRecyclerView extends RecyclerView implements go {
         }
     }
 
-    public void setNextPage(sn snVar) {
+    public void setNextPage(kn knVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, snVar) == null) {
-            sn snVar2 = this.l;
-            if (snVar2 != null && snVar2 == snVar) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, knVar) == null) {
+            kn knVar2 = this.l;
+            if (knVar2 != null && knVar2 == knVar) {
                 return;
             }
-            sn snVar3 = this.l;
-            if (snVar3 != null && snVar3 != snVar) {
-                y(snVar3.b());
+            kn knVar3 = this.l;
+            if (knVar3 != null && knVar3 != knVar) {
+                y(knVar3.b());
                 this.l = null;
             }
-            if (snVar != null) {
-                this.a.h(snVar.b(), null, true, 0);
-                this.l = snVar;
+            if (knVar != null) {
+                this.a.h(knVar.b(), null, true, 0);
+                this.l = knVar;
             }
         }
     }

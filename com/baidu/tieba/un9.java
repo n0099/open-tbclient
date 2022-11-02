@@ -1,85 +1,162 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class un9 implements TTNativeExpressAd.AdInteractionListener {
+public class un9 implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ nn9 c;
-    public final /* synthetic */ rn9 d;
 
-    public un9(rn9 rn9Var, nn9 nn9Var) {
+    public un9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rn9Var, nn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = rn9Var;
-        this.c = nn9Var;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -2105157443:
+                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1412451668:
+                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1263692214:
+                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1071311851:
+                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -950004865:
+                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 347930415:
+                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 556489085:
+                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1168375858:
+                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1319012390:
+                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1328722634:
+                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1922685617:
+                    if (str.equals(FunAdType.CSJ_NATIVE)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2079438081:
+                    if (str.equals(FunAdType.CSJ_SPLASH)) {
+                        c = 11;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return new oo9(pid);
+                case 1:
+                    return new zo9(pid);
+                case 2:
+                    return new ap9(pid);
+                case 3:
+                    return new ko9(pid);
+                case 4:
+                    return new ep9(pid);
+                case 5:
+                    return new wn9(pid);
+                case 6:
+                    return new do9(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+                case 7:
+                    return new kp9(pid);
+                case '\b':
+                    return new uo9(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
+                case '\t':
+                    return new xn9(pid);
+                case '\n':
+                    return new jp9(pid);
+                case 11:
+                    return new yn9(pid);
+                default:
+                    LogPrinter.e("Not supported pid.type:%s", pid.type);
+                    return null;
+            }
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.AdInteractionListener
-    public void onAdDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, view2, str, i) == null) {
-            LogPrinter.e("onRenderFail message: " + str + ", code: " + i, new Object[0]);
-            this.d.onError(i, str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.d.onAdLoaded(this.c);
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

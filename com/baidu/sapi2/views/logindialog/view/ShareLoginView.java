@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
@@ -53,13 +54,13 @@ public class ShareLoginView extends RelativeLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.ShareLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0138a extends WebAuthListener {
+        public class C0146a extends WebAuthListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0138a(a aVar, long j) {
+            public C0146a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +147,7 @@ public class ShareLoginView extends RelativeLayout {
                 } else if (!this.a.i.onPreStart(false)) {
                     Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
                 } else {
-                    CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0138a(this, System.currentTimeMillis()), "quick_login");
+                    CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0146a(this, System.currentTimeMillis()), "quick_login");
                 }
             }
         }
@@ -207,7 +208,7 @@ public class ShareLoginView extends RelativeLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ShareLoginView(Context context, AttributeSet attributeSet) {
+    public ShareLoginView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -228,7 +229,7 @@ public class ShareLoginView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareLoginView(Context context, AttributeSet attributeSet, int i) {
+    public ShareLoginView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -253,12 +254,12 @@ public class ShareLoginView extends RelativeLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d7, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091da1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d16);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d17);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9c);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04e7, this);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091dea);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d60);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091de5);
             a aVar = new a(this);
             this.c.setOnClickListener(aVar);
             this.g.setOnClickListener(aVar);
@@ -279,7 +280,7 @@ public class ShareLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080eb3));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ecf));
         }
     }
 

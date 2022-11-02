@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.to5;
+import com.baidu.tieba.sp5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class TiebaUpdateService extends BdBaseService {
     public VersionData mVersionData;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -103,7 +103,7 @@ public class TiebaUpdateService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -169,7 +169,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!to5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
+                    if (!sp5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mMainApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mMainApkFileName);
@@ -217,7 +217,7 @@ public class TiebaUpdateService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask {
+    public class c extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -284,7 +284,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!to5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
+                    if (!sp5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mOtherApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mOtherApkFileName);
@@ -419,7 +419,7 @@ public class TiebaUpdateService extends BdBaseService {
                     UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), this.a.mMainApkFileName);
                     this.a.finishDownload();
                 } else if (i == 3) {
-                    fj.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f14fe);
+                    xi.O(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f151c);
                 }
             }
         }
@@ -596,7 +596,7 @@ public class TiebaUpdateService extends BdBaseService {
                         handler.sendMessageDelayed(handler.obtainMessage(1, null), 300L);
                         return;
                     }
-                    fj.M(this, R.string.obfuscated_res_0x7f0f0513);
+                    xi.O(this, R.string.obfuscated_res_0x7f0f0515);
                     if (GetFile != null) {
                         GetFile.delete();
                     }
@@ -740,13 +740,13 @@ public class TiebaUpdateService extends BdBaseService {
             if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
                 stopSelf(i);
             } else if (!this.mHasTieba && !this.mHasAs) {
-                this.info = getString(R.string.obfuscated_res_0x7f0f052a);
+                this.info = getString(R.string.obfuscated_res_0x7f0f052c);
                 downloadOtherApk();
             } else {
                 if (this.mHasTieba) {
-                    string = getString(R.string.obfuscated_res_0x7f0f141a);
+                    string = getString(R.string.obfuscated_res_0x7f0f1438);
                 } else {
-                    string = getString(R.string.obfuscated_res_0x7f0f02a9);
+                    string = getString(R.string.obfuscated_res_0x7f0f02aa);
                 }
                 downloadMainApk(string);
                 if (this.mHasOther) {

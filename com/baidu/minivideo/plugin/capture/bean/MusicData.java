@@ -136,7 +136,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             MusicCategoryBean musicCategoryBean = new MusicCategoryBean();
-            ArrayList arrayList = new ArrayList();
+            ArrayList<MusicBaseBean> arrayList = new ArrayList<>();
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {
@@ -197,7 +197,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             MusicCategoryBean musicCategoryBean = new MusicCategoryBean();
-            ArrayList arrayList = new ArrayList();
+            ArrayList<MusicBaseBean> arrayList = new ArrayList<>();
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {

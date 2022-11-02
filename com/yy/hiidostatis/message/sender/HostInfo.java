@@ -28,7 +28,7 @@ public class HostInfo implements HostManager {
     public static final String TEST_HOST = "datatest.bigda.com";
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicInteger errorCount;
-    public volatile List ips;
+    public volatile List<InetAddress> ips;
     public AtomicLong preChangeTime;
     public volatile String testServer;
     public volatile boolean useIp;
@@ -62,7 +62,7 @@ public class HostInfo implements HostManager {
         return invokeV.booleanValue;
     }
 
-    private List trans(String[] strArr) {
+    private List<InetAddress> trans(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
@@ -102,7 +102,7 @@ public class HostInfo implements HostManager {
     }
 
     @Override // com.yy.hiidostatis.message.HostManager
-    public List lookup(String str) throws UnknownHostException {
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {

@@ -22,26 +22,26 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableToListSingle extends Single implements FuseToFlowable {
+public final class FlowableToListSingle<T, U extends Collection<? super T>> extends Single<U> implements FuseToFlowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Callable collectionSupplier;
-    public final Flowable source;
+    public final Callable<U> collectionSupplier;
+    public final Flowable<T> source;
 
     /* loaded from: classes8.dex */
-    public final class ToListSubscriber implements FlowableSubscriber, Disposable {
+    public static final class ToListSubscriber<T, U extends Collection<? super T>> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SingleObserver actual;
+        public final SingleObserver<? super U> actual;
         public Subscription s;
-        public Collection value;
+        public U value;
 
-        public ToListSubscriber(SingleObserver singleObserver, Collection collection) {
+        public ToListSubscriber(SingleObserver<? super U> singleObserver, U u) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, collection};
+                Object[] objArr = {singleObserver, u};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
                 }
             }
             this.actual = singleObserver;
-            this.value = collection;
+            this.value = u;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -97,10 +97,10 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.value.add(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.value.add(t);
             }
         }
 
@@ -116,7 +116,7 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlowableToListSingle(Flowable flowable) {
+    public FlowableToListSingle(Flowable<T> flowable) {
         this(flowable, ArrayListSupplier.asCallable());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +136,7 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
         }
     }
 
-    public FlowableToListSingle(Flowable flowable, Callable callable) {
+    public FlowableToListSingle(Flowable<T> flowable, Callable<U> callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable
-    public Flowable fuseToFlowable() {
+    public Flowable<U> fuseToFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -166,7 +166,7 @@ public final class FlowableToListSingle extends Single implements FuseToFlowable
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super U> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, singleObserver) == null) {
             try {

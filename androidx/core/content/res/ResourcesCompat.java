@@ -10,6 +10,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.util.TypedValue;
+import androidx.annotation.AnyRes;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FontRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.graphics.TypefaceCompat;
@@ -30,6 +40,7 @@ import org.xmlpull.v1.XmlPullParserException;
 /* loaded from: classes.dex */
 public final class ResourcesCompat {
     public static /* synthetic */ Interceptable $ic = null;
+    @AnyRes
     public static final int ID_NULL = 0;
     public static final String TAG = "ResourcesCompat";
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,6 +50,7 @@ public final class ResourcesCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @RequiresApi(23)
         /* loaded from: classes.dex */
         public static class ImplApi23 {
             public static /* synthetic */ Interceptable $ic;
@@ -77,7 +89,7 @@ public final class ResourcesCompat {
                 }
             }
 
-            public static void rebase(Resources.Theme theme) {
+            public static void rebase(@NonNull Resources.Theme theme) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(65538, null, theme) == null) {
                     synchronized (sRebaseMethodLock) {
@@ -104,6 +116,7 @@ public final class ResourcesCompat {
             }
         }
 
+        @RequiresApi(29)
         /* loaded from: classes.dex */
         public static class ImplApi29 {
             public static /* synthetic */ Interceptable $ic;
@@ -123,7 +136,7 @@ public final class ResourcesCompat {
                 }
             }
 
-            public static void rebase(Resources.Theme theme) {
+            public static void rebase(@NonNull Resources.Theme theme) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
                     theme.rebase();
@@ -145,7 +158,7 @@ public final class ResourcesCompat {
             }
         }
 
-        public static void rebase(Resources.Theme theme) {
+        public static void rebase(@NonNull Resources.Theme theme) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
                 int i = Build.VERSION.SDK_INT;
@@ -165,7 +178,7 @@ public final class ResourcesCompat {
 
         public abstract void onFontRetrievalFailed(int i);
 
-        public abstract void onFontRetrieved(Typeface typeface);
+        public abstract void onFontRetrieved(@NonNull Typeface typeface);
 
         public FontCallback() {
             Interceptable interceptable = $ic;
@@ -181,7 +194,8 @@ public final class ResourcesCompat {
             }
         }
 
-        public final void callbackFailAsync(int i, Handler handler) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public final void callbackFailAsync(int i, @Nullable Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, handler) == null) {
                 if (handler == null) {
@@ -223,7 +237,8 @@ public final class ResourcesCompat {
             }
         }
 
-        public final void callbackSuccessAsync(Typeface typeface, Handler handler) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public final void callbackSuccessAsync(Typeface typeface, @Nullable Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface, handler) == null) {
                 if (handler == null) {
@@ -280,7 +295,8 @@ public final class ResourcesCompat {
         }
     }
 
-    public static int getColor(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
+    @ColorInt
+    public static int getColor(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, resources, i, theme)) == null) {
@@ -292,7 +308,8 @@ public final class ResourcesCompat {
         return invokeLIL.intValue;
     }
 
-    public static ColorStateList getColorStateList(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
+    @Nullable
+    public static ColorStateList getColorStateList(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, resources, i, theme)) == null) {
@@ -304,7 +321,8 @@ public final class ResourcesCompat {
         return (ColorStateList) invokeLIL.objValue;
     }
 
-    public static Drawable getDrawable(Resources resources, int i, Resources.Theme theme) throws Resources.NotFoundException {
+    @Nullable
+    public static Drawable getDrawable(@NonNull Resources resources, @DrawableRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
@@ -316,7 +334,8 @@ public final class ResourcesCompat {
         return (Drawable) invokeLIL.objValue;
     }
 
-    public static Drawable getDrawableForDensity(Resources resources, int i, int i2, Resources.Theme theme) throws Resources.NotFoundException {
+    @Nullable
+    public static Drawable getDrawableForDensity(@NonNull Resources resources, @DrawableRes int i, int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), theme})) == null) {
@@ -332,7 +351,7 @@ public final class ResourcesCompat {
         return (Drawable) invokeCommon.objValue;
     }
 
-    public static float getFloat(Resources resources, int i) {
+    public static float getFloat(@NonNull Resources resources, @DimenRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, resources, i)) == null) {
@@ -346,7 +365,8 @@ public final class ResourcesCompat {
         return invokeLI.floatValue;
     }
 
-    public static Typeface getFont(Context context, int i) throws Resources.NotFoundException {
+    @Nullable
+    public static Typeface getFont(@NonNull Context context, @FontRes int i) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
@@ -358,7 +378,8 @@ public final class ResourcesCompat {
         return (Typeface) invokeLI.objValue;
     }
 
-    public static Typeface getFont(Context context, int i, TypedValue typedValue, int i2, FontCallback fontCallback) throws Resources.NotFoundException {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface getFont(@NonNull Context context, @FontRes int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback})) == null) {
@@ -370,7 +391,7 @@ public final class ResourcesCompat {
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static void getFont(Context context, int i, FontCallback fontCallback, Handler handler) throws Resources.NotFoundException {
+    public static void getFont(@NonNull Context context, @FontRes int i, @NonNull FontCallback fontCallback, @Nullable Handler handler) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65544, null, context, i, fontCallback, handler) == null) {
             Preconditions.checkNotNull(fontCallback);
@@ -382,7 +403,7 @@ public final class ResourcesCompat {
         }
     }
 
-    public static Typeface loadFont(Context context, int i, TypedValue typedValue, int i2, FontCallback fontCallback, Handler handler, boolean z) {
+    public static Typeface loadFont(@NonNull Context context, int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
@@ -401,7 +422,7 @@ public final class ResourcesCompat {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Typeface loadFont(Context context, Resources resources, TypedValue typedValue, int i, int i2, FontCallback fontCallback, Handler handler, boolean z) {
+    public static Typeface loadFont(@NonNull Context context, Resources resources, TypedValue typedValue, int i, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, resources, typedValue, Integer.valueOf(i), Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {

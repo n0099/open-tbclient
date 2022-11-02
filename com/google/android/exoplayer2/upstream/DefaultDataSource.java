@@ -29,10 +29,10 @@ public final class DefaultDataSource implements DataSource {
     public DataSource dataSchemeDataSource;
     public DataSource dataSource;
     public DataSource fileDataSource;
-    public final TransferListener listener;
+    public final TransferListener<? super DataSource> listener;
     public DataSource rtmpDataSource;
 
-    public DefaultDataSource(Context context, TransferListener transferListener, DataSource dataSource) {
+    public DefaultDataSource(Context context, TransferListener<? super DataSource> transferListener, DataSource dataSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public final class DefaultDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDataSource(Context context, TransferListener transferListener, String str, int i, int i2, boolean z) {
+    public DefaultDataSource(Context context, TransferListener<? super DataSource> transferListener, String str, int i, int i2, boolean z) {
         this(context, transferListener, new DefaultHttpDataSource(str, null, transferListener, i, i2, z, null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -74,7 +74,7 @@ public final class DefaultDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDataSource(Context context, TransferListener transferListener, String str, boolean z) {
+    public DefaultDataSource(Context context, TransferListener<? super DataSource> transferListener, String str, boolean z) {
         this(context, transferListener, str, 8000, 8000, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

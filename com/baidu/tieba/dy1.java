@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class dy1 extends sw1 {
+public class dy1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.sw1
+    @Override // com.baidu.tieba.kx1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
@@ -33,14 +33,16 @@ public class dy1 extends sw1 {
         }
     }
 
-    @Override // com.baidu.tieba.sw1
-    public void a(tw1 tw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tw1Var, canvas) == null) {
-            int alpha = tw1Var.c.getAlpha();
-            tw1Var.c(tw1Var.c);
-            canvas.drawPath(tw1Var.f, tw1Var.c);
-            tw1Var.c.setAlpha(alpha);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) {
+            lx1Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                e12.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
+            }
         }
     }
 }

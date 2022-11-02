@@ -1,5 +1,7 @@
 package com.bumptech.glide.load.data;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,10 +18,11 @@ public final class BufferedOutputStream extends OutputStream {
     public ArrayPool arrayPool;
     public byte[] buffer;
     public int index;
+    @NonNull
     public final OutputStream out;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BufferedOutputStream(OutputStream outputStream, ArrayPool arrayPool) {
+    public BufferedOutputStream(@NonNull OutputStream outputStream, @NonNull ArrayPool arrayPool) {
         this(outputStream, arrayPool, 65536);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -39,7 +42,8 @@ public final class BufferedOutputStream extends OutputStream {
         }
     }
 
-    public BufferedOutputStream(OutputStream outputStream, ArrayPool arrayPool, int i) {
+    @VisibleForTesting
+    public BufferedOutputStream(@NonNull OutputStream outputStream, ArrayPool arrayPool, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +125,7 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr) throws IOException {
+    public void write(@NonNull byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
             write(bArr, 0, bArr.length);
@@ -129,7 +133,7 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void write(@NonNull byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             int i3 = 0;

@@ -1,5 +1,6 @@
 package com.sdk.base.framework.utils.app;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -32,7 +33,7 @@ import java.util.Stack;
 public class AppUtils extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.sdk.base.framework.utils.app.AppUtils";
-    public static Stack activityStack;
+    public static Stack<Activity> activityStack;
     public static boolean isDebug;
     public static int targetSdkVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public class AppUtils extends a {
             }
         }
         isDebug = g.b;
-        activityStack = new Stack();
+        activityStack = new Stack<>();
         targetSdkVersion = -1;
     }
 
@@ -92,6 +93,7 @@ public class AppUtils extends a {
         return (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static int getAndroidSDKVersion(Context context) {
         int i;
         InterceptResult invokeL;
@@ -218,7 +220,7 @@ public class AppUtils extends a {
         return (String) invokeV.objValue;
     }
 
-    public static Object getMetaData(Context context, String str) {
+    public static <T> T getMetaData(Context context, String str) {
         InterceptResult invokeLL;
         Bundle bundle;
         Interceptable interceptable = $ic;
@@ -231,13 +233,13 @@ public class AppUtils extends a {
                 if (applicationInfo == null || (bundle = applicationInfo.metaData) == null) {
                     return null;
                 }
-                return bundle.get(str);
+                return (T) bundle.get(str);
             } catch (Exception e) {
                 com.sdk.n.a.b(TAG, e.getMessage(), Boolean.valueOf(isDebug));
                 return null;
             }
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     public static String getPackageName() {
@@ -274,6 +276,7 @@ public class AppUtils extends a {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static int getTargetSdkVersion(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -348,13 +351,13 @@ public class AppUtils extends a {
     public Activity currentActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (Activity) activityStack.lastElement() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? activityStack.lastElement() : (Activity) invokeV.objValue;
     }
 
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            finishActivity((Activity) activityStack.lastElement());
+            finishActivity(activityStack.lastElement());
         }
     }
 
@@ -367,14 +370,14 @@ public class AppUtils extends a {
         activity.finish();
     }
 
-    public void finishActivity(Class cls) {
+    public void finishActivity(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
-            Iterator it = activityStack.iterator();
+            Iterator<Activity> it = activityStack.iterator();
             while (it.hasNext()) {
-                Activity activity = (Activity) it.next();
-                if (activity.getClass().equals(cls)) {
-                    finishActivity(activity);
+                Activity next = it.next();
+                if (next.getClass().equals(cls)) {
+                    finishActivity(next);
                 }
             }
         }
@@ -385,7 +388,7 @@ public class AppUtils extends a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             for (int i = 0; i < activityStack.size(); i++) {
                 if (activityStack.get(i) != null) {
-                    ((Activity) activityStack.get(i)).finish();
+                    activityStack.get(i).finish();
                 }
             }
             activityStack.clear();

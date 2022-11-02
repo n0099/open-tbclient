@@ -450,7 +450,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str, HashMap hashMap) {
+        public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, hashMap) == null) {
                 ThirdPartyUtil.wxAuthCodeMap.clear();
@@ -728,7 +728,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    public void a(SocialResponse socialResponse, HashMap hashMap) {
+    public void a(SocialResponse socialResponse, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, socialResponse, hashMap) == null) {
             if (socialResponse.errorCode == 302) {
@@ -736,11 +736,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 if (relativeLayout != null) {
                     relativeLayout.setVisibility(0);
                 }
-                String str = (String) hashMap.get("mkey");
-                String str2 = (String) hashMap.get("BAIDUID");
-                String str3 = (String) hashMap.get(HttpRequest.BDUSS);
-                String str4 = (String) hashMap.get("PTOKEN");
-                String str5 = (String) hashMap.get("STOKEN");
+                String str = hashMap.get("mkey");
+                String str2 = hashMap.get("BAIDUID");
+                String str3 = hashMap.get(HttpRequest.BDUSS);
+                String str4 = hashMap.get("PTOKEN");
+                String str5 = hashMap.get("STOKEN");
                 String str6 = socialResponse.userInfoXmlContent;
                 String str7 = socialResponse.nextUrl;
                 SapiWebView sapiWebView = this.sapiWebView;
@@ -807,7 +807,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    public List c() {
+    public List<PassNameValuePair> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -102,18 +103,18 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public void b(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, featureCardCompetitionSubNode) == null) {
-            this.d.L(featureCardCompetitionSubNode.competition_logo, 10, false);
-            this.b.L(featureCardCompetitionSubNode.competition_image, 10, false);
+            this.d.K(featureCardCompetitionSubNode.competition_logo, 10, false);
+            this.b.K(featureCardCompetitionSubNode.competition_image, 10, false);
             this.e.setText(featureCardCompetitionSubNode.title);
-            this.h.L(featureCardCompetitionSubNode.team1_image, 10, false);
+            this.h.K(featureCardCompetitionSubNode.team1_image, 10, false);
             this.i.setText(featureCardCompetitionSubNode.team1_name);
-            this.j.L(featureCardCompetitionSubNode.team2_image, 10, false);
+            this.j.K(featureCardCompetitionSubNode.team2_image, 10, false);
             this.k.setText(featureCardCompetitionSubNode.team2_name);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionItemView(Context context, AttributeSet attributeSet) {
+    public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -136,7 +137,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardFrsGameCompetitionItemView(Context context, AttributeSet attributeSet, int i) {
+    public CardFrsGameCompetitionItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,19 +183,19 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0188, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e6);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904e3);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904ed);
-            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904ec);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904eb);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ee);
-            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e7);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e8);
-            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904e9);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ea);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d018a, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904f3);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0904f0);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904fa);
+            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904f9);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0904f8);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904f2);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0904fb);
+            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904f4);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0904f5);
+            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0904f6);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0904f7);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0904f1);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i = (dimensionPixelSize * 21) / 9;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -205,7 +206,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i;
             this.a.setLayoutParams(layoutParams2);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08088e);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08089a);
             this.d.setDrawBorder(true);
             this.d.setDrawerType(1);
             this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));

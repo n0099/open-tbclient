@@ -50,7 +50,7 @@ public final class H262Reader implements ElementaryStreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class CsdBuffer {
+    public static final class CsdBuffer {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] START_CODE;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public final class H262Reader implements ElementaryStreamReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Pair parseCsdBuffer(CsdBuffer csdBuffer, String str) {
+    public static Pair<Format, Long> parseCsdBuffer(CsdBuffer csdBuffer, String str) {
         InterceptResult invokeLL;
         float f;
         int i;
@@ -275,7 +275,7 @@ public final class H262Reader implements ElementaryStreamReader {
                         i = 0;
                     }
                     if (this.csdBuffer.onStartCode(i3, i)) {
-                        Pair parseCsdBuffer = parseCsdBuffer(this.csdBuffer, this.formatId);
+                        Pair<Format, Long> parseCsdBuffer = parseCsdBuffer(this.csdBuffer, this.formatId);
                         this.output.format((Format) parseCsdBuffer.first);
                         this.frameDurationUs = ((Long) parseCsdBuffer.second).longValue();
                         this.hasOutputFormat = true;

@@ -10,10 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.w;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
+@KsJson
 /* loaded from: classes7.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;

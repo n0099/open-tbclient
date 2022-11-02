@@ -3,6 +3,7 @@ package com.google.android.material.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
+public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int tempLeftRightOffset;
@@ -111,21 +112,21 @@ public class ViewOffsetBehavior extends CoordinatorLayout.Behavior {
         this.tempLeftRightOffset = 0;
     }
 
-    public void layoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, view2, i) == null) {
-            coordinatorLayout.onLayoutChild(view2, i);
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, v, i) == null) {
+            coordinatorLayout.onLayoutChild(v, i);
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, View view2, int i) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, view2, i)) == null) {
-            layoutChild(coordinatorLayout, view2, i);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, v, i)) == null) {
+            layoutChild(coordinatorLayout, v, i);
             if (this.viewOffsetHelper == null) {
-                this.viewOffsetHelper = new ViewOffsetHelper(view2);
+                this.viewOffsetHelper = new ViewOffsetHelper(v);
             }
             this.viewOffsetHelper.onViewLayout();
             this.viewOffsetHelper.applyOffsets();

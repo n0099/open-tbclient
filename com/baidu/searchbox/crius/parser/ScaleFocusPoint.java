@@ -1,5 +1,6 @@
 package com.baidu.searchbox.crius.parser;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +32,8 @@ public class ScaleFocusPoint {
         this.y = 0.5f;
     }
 
-    public static ScaleFocusPoint getFocusPoint(JSONObject jSONObject) {
+    @Nullable
+    public static ScaleFocusPoint getFocusPoint(@Nullable JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {

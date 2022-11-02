@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.animated.util;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
@@ -75,6 +76,7 @@ public class AnimatedDrawableUtil {
         return (int[]) invokeL.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public int getSizeOfBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

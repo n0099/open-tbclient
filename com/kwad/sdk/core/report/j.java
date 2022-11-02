@@ -1,13 +1,13 @@
 package com.kwad.sdk.core.report;
 
 import java.util.List;
-/* loaded from: classes7.dex */
-public interface j {
-    void d(Object obj);
+/* loaded from: classes8.dex */
+public interface j<T> {
+    void d(T t);
 
-    void q(List list);
+    void q(List<T> list);
 
     long size();
 
-    List uy();
+    List<T> uy();
 }

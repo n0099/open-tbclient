@@ -18,13 +18,16 @@ public final class TextStreamsKt$readLines$1 extends Lambda implements Function1
         this.$result = arrayList;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        invoke((String) obj);
+    public /* bridge */ /* synthetic */ Unit invoke(String str) {
+        invoke2(str);
         return Unit.INSTANCE;
     }
 
-    public final void invoke(String it) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final void invoke2(String it) {
         Intrinsics.checkNotNullParameter(it, "it");
         this.$result.add(it);
     }

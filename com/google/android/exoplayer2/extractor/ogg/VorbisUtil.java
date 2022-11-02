@@ -31,7 +31,7 @@ public final class VorbisUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class CodeBook {
+    public static final class CodeBook {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int dimensions;
@@ -64,7 +64,7 @@ public final class VorbisUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class CommentHeader {
+    public static final class CommentHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String[] comments;
@@ -93,7 +93,7 @@ public final class VorbisUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class Mode {
+    public static final class Mode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean blockFlag;
@@ -124,7 +124,7 @@ public final class VorbisUtil {
     }
 
     /* loaded from: classes7.dex */
-    public final class VorbisIdHeader {
+    public static final class VorbisIdHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int bitrateMax;

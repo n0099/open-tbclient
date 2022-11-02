@@ -51,7 +51,7 @@ public class BIMConversationMsg extends BIMConversation {
 
     /* renamed from: com.baidu.android.imsdk.BIMConversationMsg$4  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,9 +143,9 @@ public class BIMConversationMsg extends BIMConversation {
                 }
             }
         };
-        ArrayList fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), 1, (ChatMsg) null);
+        ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), 1, (ChatMsg) null);
         if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
-            this.mLastChatMsg = (ChatMsg) fetchMessageSync.get(fetchMessageSync.size() - 1);
+            this.mLastChatMsg = fetchMessageSync.get(fetchMessageSync.size() - 1);
         }
     }
 
@@ -304,17 +304,17 @@ public class BIMConversationMsg extends BIMConversation {
 
                     @Override // java.lang.Runnable
                     public void run() {
-                        ArrayList fetchMessageSync;
+                        ArrayList<ChatMsg> fetchMessageSync;
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (fetchMessageSync = ChatMsgManagerImpl.getInstance(this.this$0.mContext).fetchMessageSync(this.this$0.session.getCategory(), this.this$0.session.getContacter(), 1, (ChatMsg) null)) != null && fetchMessageSync.size() > 0) {
                             if (this.this$0.mLastChatMsg != null) {
-                                if (this.this$0.mLastChatMsg != null && this.this$0.mLastChatMsg.getMsgId() >= ((ChatMsg) fetchMessageSync.get(0)).getMsgId()) {
+                                if (this.this$0.mLastChatMsg != null && this.this$0.mLastChatMsg.getMsgId() >= fetchMessageSync.get(0).getMsgId()) {
                                     return;
                                 }
-                                this.this$0.mLastChatMsg = (ChatMsg) fetchMessageSync.get(0);
+                                this.this$0.mLastChatMsg = fetchMessageSync.get(0);
                                 return;
                             }
-                            this.this$0.mLastChatMsg = (ChatMsg) fetchMessageSync.get(0);
+                            this.this$0.mLastChatMsg = fetchMessageSync.get(0);
                         }
                     }
                 });
@@ -353,7 +353,7 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
-        ArrayList fetchMessageSync;
+        ArrayList<ChatMsg> fetchMessageSync;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i), Boolean.valueOf(z), iFetchMessageListener}) == null) {
             int i2 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
@@ -371,7 +371,7 @@ public class BIMConversationMsg extends BIMConversation {
                 fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
             }
             if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
-                ChatMsg chatMsg2 = (ChatMsg) fetchMessageSync.get(fetchMessageSync.size() - 1);
+                ChatMsg chatMsg2 = fetchMessageSync.get(fetchMessageSync.size() - 1);
                 ChatMsg chatMsg3 = this.mLastChatMsg;
                 if (chatMsg3 == null || chatMsg3.getMsgId() < chatMsg2.getMsgId()) {
                     this.mLastChatMsg = chatMsg2;
@@ -393,9 +393,9 @@ public class BIMConversationMsg extends BIMConversation {
             }
             int deleteMsgs = ChatMsgManagerImpl.getInstance(this.mContext).deleteMsgs(chatMsg);
             if (this.mLastChatMsg != null && chatMsg.getMsgId() == this.mLastChatMsg.getMsgId()) {
-                ArrayList fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), 1, (ChatMsg) null);
+                ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), 1, (ChatMsg) null);
                 if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
-                    this.mLastChatMsg = (ChatMsg) fetchMessageSync.get(fetchMessageSync.size() - 1);
+                    this.mLastChatMsg = fetchMessageSync.get(fetchMessageSync.size() - 1);
                 } else {
                     this.mLastChatMsg = null;
                 }
@@ -445,7 +445,7 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void setDisturb(int i, BIMValueCallBack bIMValueCallBack) {
+    public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i, bIMValueCallBack) == null) {
             if (this.session.getCategory() == 1) {

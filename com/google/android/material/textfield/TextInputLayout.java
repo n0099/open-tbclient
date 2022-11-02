@@ -27,6 +27,16 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -87,47 +97,65 @@ public class TextInputLayout extends LinearLayout {
     public static final String LOG_TAG = "TextInputLayout";
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator animator;
+    @Nullable
     public MaterialShapeDrawable boxBackground;
+    @ColorInt
     public int boxBackgroundColor;
     public int boxBackgroundMode;
     public final int boxCollapsedPaddingTopPx;
     public final int boxLabelCutoutPaddingPx;
+    @ColorInt
     public int boxStrokeColor;
     public int boxStrokeWidthDefaultPx;
     public int boxStrokeWidthFocusedPx;
     public int boxStrokeWidthPx;
+    @Nullable
     public MaterialShapeDrawable boxUnderline;
     public final CollapsingTextHelper collapsingTextHelper;
     public boolean counterEnabled;
     public int counterMaxLength;
     public int counterOverflowTextAppearance;
+    @Nullable
     public ColorStateList counterOverflowTextColor;
     public boolean counterOverflowed;
     public int counterTextAppearance;
+    @Nullable
     public ColorStateList counterTextColor;
+    @Nullable
     public TextView counterView;
+    @ColorInt
     public int defaultFilledBackgroundColor;
     public ColorStateList defaultHintTextColor;
+    @ColorInt
     public int defaultStrokeColor;
+    @ColorInt
     public int disabledColor;
+    @ColorInt
     public int disabledFilledBackgroundColor;
     public EditText editText;
-    public final LinkedHashSet editTextAttachedListeners;
+    public final LinkedHashSet<OnEditTextAttachedListener> editTextAttachedListeners;
+    @Nullable
     public Drawable endDummyDrawable;
     public int endDummyDrawableWidth;
-    public final LinkedHashSet endIconChangedListeners;
-    public final SparseArray endIconDelegates;
+    public final LinkedHashSet<OnEndIconChangedListener> endIconChangedListeners;
+    public final SparseArray<EndIconDelegate> endIconDelegates;
+    @NonNull
     public final FrameLayout endIconFrame;
     public int endIconMode;
     public View.OnLongClickListener endIconOnLongClickListener;
     public ColorStateList endIconTintList;
     public PorterDuff.Mode endIconTintMode;
+    @NonNull
     public final CheckableImageButton endIconView;
+    @NonNull
     public final LinearLayout endLayout;
     public View.OnLongClickListener errorIconOnLongClickListener;
     public ColorStateList errorIconTintList;
+    @NonNull
     public final CheckableImageButton errorIconView;
+    @ColorInt
     public int focusedFilledBackgroundColor;
+    @ColorInt
     public int focusedStrokeColor;
     public ColorStateList focusedTextColor;
     public boolean hasEndIconTintList;
@@ -138,10 +166,13 @@ public class TextInputLayout extends LinearLayout {
     public boolean hintAnimationEnabled;
     public boolean hintEnabled;
     public boolean hintExpanded;
+    @ColorInt
     public int hoveredFilledBackgroundColor;
+    @ColorInt
     public int hoveredStrokeColor;
     public boolean inDrawableStateChanged;
     public final IndicatorViewController indicatorViewController;
+    @NonNull
     public final FrameLayout inputFrame;
     public boolean isProvidingHint;
     public Drawable originalEditTextEndDrawable;
@@ -149,21 +180,30 @@ public class TextInputLayout extends LinearLayout {
     public boolean placeholderEnabled;
     public CharSequence placeholderText;
     public int placeholderTextAppearance;
+    @Nullable
     public ColorStateList placeholderTextColor;
     public TextView placeholderTextView;
+    @Nullable
     public CharSequence prefixText;
+    @NonNull
     public final TextView prefixTextView;
     public boolean restoringSavedState;
+    @NonNull
     public ShapeAppearanceModel shapeAppearanceModel;
+    @Nullable
     public Drawable startDummyDrawable;
     public int startDummyDrawableWidth;
     public View.OnLongClickListener startIconOnLongClickListener;
     public ColorStateList startIconTintList;
     public PorterDuff.Mode startIconTintMode;
+    @NonNull
     public final CheckableImageButton startIconView;
+    @NonNull
     public final LinearLayout startLayout;
     public ColorStateList strokeErrorColor;
+    @Nullable
     public CharSequence suffixText;
+    @NonNull
     public final TextView suffixTextView;
     public final Rect tmpBoundsRect;
     public final Rect tmpRect;
@@ -176,18 +216,19 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface EndIconMode {
     }
 
     /* loaded from: classes7.dex */
     public interface OnEditTextAttachedListener {
-        void onEditTextAttached(TextInputLayout textInputLayout);
+        void onEditTextAttached(@NonNull TextInputLayout textInputLayout);
     }
 
     /* loaded from: classes7.dex */
     public interface OnEndIconChangedListener {
-        void onEndIconChanged(TextInputLayout textInputLayout, int i);
+        void onEndIconChanged(@NonNull TextInputLayout textInputLayout, int i);
     }
 
     static {
@@ -206,12 +247,12 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class AccessibilityDelegate extends AccessibilityDelegateCompat {
+    public static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final TextInputLayout layout;
 
-        public AccessibilityDelegate(TextInputLayout textInputLayout) {
+        public AccessibilityDelegate(@NonNull TextInputLayout textInputLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,7 +271,7 @@ public class TextInputLayout extends LinearLayout {
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             CharSequence charSequence;
             boolean z;
             String str;
@@ -309,10 +350,11 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class SavedState extends AbsSavedState {
+    public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public CharSequence error;
         public boolean isEndIconChecked;
 
@@ -329,7 +371,7 @@ public class TextInputLayout extends LinearLayout {
                     return;
                 }
             }
-            CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
+            CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.textfield.TextInputLayout.SavedState.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -349,7 +391,8 @@ public class TextInputLayout extends LinearLayout {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState createFromParcel(Parcel parcel) {
+                @Nullable
+                public SavedState createFromParcel(@NonNull Parcel parcel) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -360,6 +403,7 @@ public class TextInputLayout extends LinearLayout {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
+                @NonNull
                 public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
@@ -370,8 +414,10 @@ public class TextInputLayout extends LinearLayout {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.ClassLoaderCreator
-                public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
+                @NonNull
+                public SavedState createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -383,7 +429,7 @@ public class TextInputLayout extends LinearLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
+        public SavedState(@NonNull Parcel parcel, ClassLoader classLoader) {
             super(parcel, classLoader);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -425,6 +471,7 @@ public class TextInputLayout extends LinearLayout {
             }
         }
 
+        @NonNull
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -435,7 +482,7 @@ public class TextInputLayout extends LinearLayout {
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
@@ -446,7 +493,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TextInputLayout(Context context) {
+    public TextInputLayout(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -520,7 +567,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092149);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f09219c);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -546,7 +593,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.View
-    public void onRestoreInstanceState(Parcelable parcelable) {
+    public void onRestoreInstanceState(@Nullable Parcelable parcelable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048649, this, parcelable) == null) {
             if (!(parcelable instanceof SavedState)) {
@@ -594,7 +641,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setError(CharSequence charSequence) {
+    public void setError(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048687, this, charSequence) == null) {
             if (!this.indicatorViewController.isErrorEnabled()) {
@@ -612,7 +659,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TextInputLayout(Context context, AttributeSet attributeSet) {
+    public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ed);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -649,7 +696,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextInputLayout(Context context, AttributeSet attributeSet, int i) {
+    public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -671,10 +718,10 @@ public class TextInputLayout extends LinearLayout {
         this.tmpRect = new Rect();
         this.tmpBoundsRect = new Rect();
         this.tmpRectF = new RectF();
-        this.editTextAttachedListeners = new LinkedHashSet();
+        this.editTextAttachedListeners = new LinkedHashSet<>();
         this.endIconMode = 0;
-        this.endIconDelegates = new SparseArray();
-        this.endIconChangedListeners = new LinkedHashSet();
+        this.endIconDelegates = new SparseArray<>();
+        this.endIconChangedListeners = new LinkedHashSet<>();
         this.collapsingTextHelper = new CollapsingTextHelper(this);
         Context context2 = getContext();
         setOrientation(1);
@@ -739,7 +786,7 @@ public class TextInputLayout extends LinearLayout {
                 this.hoveredFilledBackgroundColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
             } else {
                 this.focusedFilledBackgroundColor = this.defaultFilledBackgroundColor;
-                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f0607fb);
+                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f0607fc);
                 this.disabledFilledBackgroundColor = colorStateList2.getColorForState(new int[]{-16842910}, -1);
                 this.hoveredFilledBackgroundColor = colorStateList2.getColorForState(new int[]{16843623}, -1);
             }
@@ -757,9 +804,9 @@ public class TextInputLayout extends LinearLayout {
         }
         ColorStateList colorStateList4 = MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, 10);
         this.focusedStrokeColor = obtainTintedStyledAttributes.getColor(10, 0);
-        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f06080d);
-        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f06080e);
-        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f060811);
+        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f06080e);
+        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f06080f);
+        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f060812);
         if (colorStateList4 != null) {
             setBoxStrokeColorStateList(colorStateList4);
         }
@@ -772,7 +819,7 @@ public class TextInputLayout extends LinearLayout {
         int resourceId = obtainTintedStyledAttributes.getResourceId(31, 0);
         CharSequence text = obtainTintedStyledAttributes.getText(26);
         boolean z = obtainTintedStyledAttributes.getBoolean(27, false);
-        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0220, (ViewGroup) this.endLayout, false);
+        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0222, (ViewGroup) this.endLayout, false);
         this.errorIconView = checkableImageButton;
         checkableImageButton.setVisibility(8);
         if (obtainTintedStyledAttributes.hasValue(28)) {
@@ -784,7 +831,7 @@ public class TextInputLayout extends LinearLayout {
         if (obtainTintedStyledAttributes.hasValue(30)) {
             setErrorIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(30, -1), null));
         }
-        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f05bf));
+        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f05c2));
         ViewCompat.setImportantForAccessibility(this.errorIconView, 2);
         this.errorIconView.setClickable(false);
         this.errorIconView.setPressable(false);
@@ -802,7 +849,7 @@ public class TextInputLayout extends LinearLayout {
         setCounterMaxLength(obtainTintedStyledAttributes.getInt(15, -1));
         this.counterTextAppearance = obtainTintedStyledAttributes.getResourceId(18, 0);
         this.counterOverflowTextAppearance = obtainTintedStyledAttributes.getResourceId(16, 0);
-        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) this.startLayout, false);
+        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0223, (ViewGroup) this.startLayout, false);
         this.startIconView = checkableImageButton2;
         checkableImageButton2.setVisibility(8);
         setStartIconOnClickListener(null);
@@ -821,7 +868,7 @@ public class TextInputLayout extends LinearLayout {
             setStartIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(58, -1), null));
         }
         setBoxBackgroundMode(obtainTintedStyledAttributes.getInt(4, 0));
-        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0220, (ViewGroup) this.endIconFrame, false);
+        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0222, (ViewGroup) this.endIconFrame, false);
         this.endIconView = checkableImageButton3;
         this.endIconFrame.addView(checkableImageButton3);
         this.endIconView.setVisibility(8);
@@ -860,14 +907,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f09214a);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f09219d);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f09214b);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f09219e);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);
@@ -917,7 +964,7 @@ public class TextInputLayout extends LinearLayout {
         ViewCompat.setImportantForAccessibility(this, 2);
     }
 
-    private void applyCutoutPadding(RectF rectF) {
+    private void applyCutoutPadding(@NonNull RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, rectF) == null) {
             float f = rectF.left;
@@ -932,9 +979,9 @@ public class TextInputLayout extends LinearLayout {
     private void dispatchOnEndIconChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65564, this, i) == null) {
-            Iterator it = this.endIconChangedListeners.iterator();
+            Iterator<OnEndIconChangedListener> it = this.endIconChangedListeners.iterator();
             while (it.hasNext()) {
-                ((OnEndIconChangedListener) it.next()).onEndIconChanged(this, i);
+                it.next().onEndIconChanged(this, i);
             }
         }
     }
@@ -949,7 +996,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private void drawHint(Canvas canvas) {
+    private void drawHint(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65566, this, canvas) == null) && this.hintEnabled) {
             this.collapsingTextHelper.draw(canvas);
@@ -967,7 +1014,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private void updateBoxUnderlineBounds(Rect rect) {
+    private void updateBoxUnderlineBounds(@NonNull Rect rect) {
         MaterialShapeDrawable materialShapeDrawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65593, this, rect) == null) && (materialShapeDrawable = this.boxUnderline) != null) {
@@ -988,7 +1035,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void addOnEditTextAttachedListener(OnEditTextAttachedListener onEditTextAttachedListener) {
+    public void addOnEditTextAttachedListener(@NonNull OnEditTextAttachedListener onEditTextAttachedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onEditTextAttachedListener) == null) {
             this.editTextAttachedListeners.add(onEditTextAttachedListener);
@@ -998,7 +1045,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void addOnEndIconChangedListener(OnEndIconChangedListener onEndIconChangedListener) {
+    public void addOnEndIconChangedListener(@NonNull OnEndIconChangedListener onEndIconChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onEndIconChangedListener) == null) {
             this.endIconChangedListeners.add(onEndIconChangedListener);
@@ -1006,7 +1053,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchRestoreInstanceState(SparseArray sparseArray) {
+    public void dispatchRestoreInstanceState(@NonNull SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sparseArray) == null) {
             this.restoringSavedState = true;
@@ -1016,7 +1063,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.View
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.draw(canvas);
@@ -1036,21 +1083,21 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void removeOnEditTextAttachedListener(OnEditTextAttachedListener onEditTextAttachedListener) {
+    public void removeOnEditTextAttachedListener(@NonNull OnEditTextAttachedListener onEditTextAttachedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048652, this, onEditTextAttachedListener) == null) {
             this.editTextAttachedListeners.remove(onEditTextAttachedListener);
         }
     }
 
-    public void removeOnEndIconChangedListener(OnEndIconChangedListener onEndIconChangedListener) {
+    public void removeOnEndIconChangedListener(@NonNull OnEndIconChangedListener onEndIconChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048653, this, onEndIconChangedListener) == null) {
             this.endIconChangedListeners.remove(onEndIconChangedListener);
         }
     }
 
-    public void setBoxBackgroundColor(int i) {
+    public void setBoxBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048654, this, i) == null) && this.boxBackgroundColor != i) {
             this.boxBackgroundColor = i;
@@ -1061,7 +1108,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxBackgroundColorResource(int i) {
+    public void setBoxBackgroundColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
             setBoxBackgroundColor(ContextCompat.getColor(getContext(), i));
@@ -1079,7 +1126,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxStrokeColor(int i) {
+    public void setBoxStrokeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048660, this, i) == null) && this.focusedStrokeColor != i) {
             this.focusedStrokeColor = i;
@@ -1087,7 +1134,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxStrokeErrorColor(ColorStateList colorStateList) {
+    public void setBoxStrokeErrorColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048662, this, colorStateList) == null) && this.strokeErrorColor != colorStateList) {
             this.strokeErrorColor = colorStateList;
@@ -1111,14 +1158,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxStrokeWidthFocusedResource(int i) {
+    public void setBoxStrokeWidthFocusedResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048665, this, i) == null) {
             setBoxStrokeWidthFocused(getResources().getDimensionPixelSize(i));
         }
     }
 
-    public void setBoxStrokeWidthResource(int i) {
+    public void setBoxStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048666, this, i) == null) {
             setBoxStrokeWidth(getResources().getDimensionPixelSize(i));
@@ -1147,7 +1194,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setCounterOverflowTextColor(ColorStateList colorStateList) {
+    public void setCounterOverflowTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048670, this, colorStateList) == null) && this.counterOverflowTextColor != colorStateList) {
             this.counterOverflowTextColor = colorStateList;
@@ -1163,7 +1210,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setCounterTextColor(ColorStateList colorStateList) {
+    public void setCounterTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048672, this, colorStateList) == null) && this.counterTextColor != colorStateList) {
             this.counterTextColor = colorStateList;
@@ -1171,7 +1218,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setDefaultHintTextColor(ColorStateList colorStateList) {
+    public void setDefaultHintTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048673, this, colorStateList) == null) {
             this.defaultHintTextColor = colorStateList;
@@ -1205,7 +1252,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setEndIconContentDescription(int i) {
+    public void setEndIconContentDescription(@StringRes int i) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048677, this, i) == null) {
@@ -1218,7 +1265,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setEndIconDrawable(int i) {
+    public void setEndIconDrawable(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048679, this, i) == null) {
@@ -1231,14 +1278,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setEndIconOnClickListener(View.OnClickListener onClickListener) {
+    public void setEndIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048682, this, onClickListener) == null) {
             setIconOnClickListener(this.endIconView, onClickListener, this.endIconOnLongClickListener);
         }
     }
 
-    public void setEndIconOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+    public void setEndIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048683, this, onLongClickListener) == null) {
             this.endIconOnLongClickListener = onLongClickListener;
@@ -1246,7 +1293,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setEndIconTintList(ColorStateList colorStateList) {
+    public void setEndIconTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048684, this, colorStateList) == null) && this.endIconTintList != colorStateList) {
             this.endIconTintList = colorStateList;
@@ -1255,7 +1302,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setEndIconTintMode(PorterDuff.Mode mode) {
+    public void setEndIconTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048685, this, mode) == null) && this.endIconTintMode != mode) {
             this.endIconTintMode = mode;
@@ -1280,7 +1327,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorContentDescription(CharSequence charSequence) {
+    public void setErrorContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048688, this, charSequence) == null) {
             this.indicatorViewController.setErrorContentDescription(charSequence);
@@ -1294,7 +1341,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorIconDrawable(int i) {
+    public void setErrorIconDrawable(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048690, this, i) == null) {
@@ -1307,14 +1354,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorIconOnClickListener(View.OnClickListener onClickListener) {
+    public void setErrorIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048692, this, onClickListener) == null) {
             setIconOnClickListener(this.errorIconView, onClickListener, this.errorIconOnLongClickListener);
         }
     }
 
-    public void setErrorIconOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+    public void setErrorIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048693, this, onLongClickListener) == null) {
             this.errorIconOnLongClickListener = onLongClickListener;
@@ -1322,7 +1369,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorIconTintList(ColorStateList colorStateList) {
+    public void setErrorIconTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048694, this, colorStateList) == null) {
             this.errorIconTintList = colorStateList;
@@ -1337,7 +1384,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorIconTintMode(PorterDuff.Mode mode) {
+    public void setErrorIconTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048695, this, mode) == null) {
             Drawable drawable = this.errorIconView.getDrawable();
@@ -1351,21 +1398,21 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setErrorTextAppearance(int i) {
+    public void setErrorTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
             this.indicatorViewController.setErrorTextAppearance(i);
         }
     }
 
-    public void setErrorTextColor(ColorStateList colorStateList) {
+    public void setErrorTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048697, this, colorStateList) == null) {
             this.indicatorViewController.setErrorViewTextColor(colorStateList);
         }
     }
 
-    public void setHelperText(CharSequence charSequence) {
+    public void setHelperText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048698, this, charSequence) == null) {
             if (TextUtils.isEmpty(charSequence)) {
@@ -1382,7 +1429,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setHelperTextColor(ColorStateList colorStateList) {
+    public void setHelperTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048699, this, colorStateList) == null) {
             this.indicatorViewController.setHelperTextViewTextColor(colorStateList);
@@ -1396,14 +1443,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setHelperTextTextAppearance(int i) {
+    public void setHelperTextTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048701, this, i) == null) {
             this.indicatorViewController.setHelperTextAppearance(i);
         }
     }
 
-    public void setHint(CharSequence charSequence) {
+    public void setHint(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048702, this, charSequence) == null) && this.hintEnabled) {
             setHintInternal(charSequence);
@@ -1418,7 +1465,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setHintTextAppearance(int i) {
+    public void setHintTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048705, this, i) == null) {
             this.collapsingTextHelper.setCollapsedTextAppearance(i);
@@ -1430,7 +1477,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setHintTextColor(ColorStateList colorStateList) {
+    public void setHintTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048706, this, colorStateList) == null) && this.focusedTextColor != colorStateList) {
             if (this.defaultHintTextColor == null) {
@@ -1444,7 +1491,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleContentDescription(int i) {
+    public void setPasswordVisibilityToggleContentDescription(@StringRes int i) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
@@ -1458,7 +1505,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleDrawable(int i) {
+    public void setPasswordVisibilityToggleDrawable(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048709, this, i) == null) {
@@ -1484,7 +1531,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleTintList(ColorStateList colorStateList) {
+    public void setPasswordVisibilityToggleTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048712, this, colorStateList) == null) {
             this.endIconTintList = colorStateList;
@@ -1494,7 +1541,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleTintMode(PorterDuff.Mode mode) {
+    public void setPasswordVisibilityToggleTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048713, this, mode) == null) {
             this.endIconTintMode = mode;
@@ -1503,7 +1550,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setPlaceholderText(CharSequence charSequence) {
+    public void setPlaceholderText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048714, this, charSequence) == null) {
             if (this.placeholderEnabled && TextUtils.isEmpty(charSequence)) {
@@ -1518,7 +1565,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setPlaceholderTextAppearance(int i) {
+    public void setPlaceholderTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048715, this, i) == null) {
             this.placeholderTextAppearance = i;
@@ -1529,7 +1576,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setPlaceholderTextColor(ColorStateList colorStateList) {
+    public void setPlaceholderTextColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048716, this, colorStateList) == null) && this.placeholderTextColor != colorStateList) {
             this.placeholderTextColor = colorStateList;
@@ -1540,7 +1587,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setPrefixText(CharSequence charSequence) {
+    public void setPrefixText(@Nullable CharSequence charSequence) {
         CharSequence charSequence2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048717, this, charSequence) == null) {
@@ -1555,14 +1602,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setPrefixTextAppearance(int i) {
+    public void setPrefixTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048718, this, i) == null) {
             TextViewCompat.setTextAppearance(this.prefixTextView, i);
         }
     }
 
-    public void setPrefixTextColor(ColorStateList colorStateList) {
+    public void setPrefixTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048719, this, colorStateList) == null) {
             this.prefixTextView.setTextColor(colorStateList);
@@ -1576,7 +1623,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setStartIconContentDescription(int i) {
+    public void setStartIconContentDescription(@StringRes int i) {
         CharSequence charSequence;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048721, this, i) == null) {
@@ -1589,7 +1636,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setStartIconDrawable(int i) {
+    public void setStartIconDrawable(@DrawableRes int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048723, this, i) == null) {
@@ -1602,14 +1649,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setStartIconOnClickListener(View.OnClickListener onClickListener) {
+    public void setStartIconOnClickListener(@Nullable View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048725, this, onClickListener) == null) {
             setIconOnClickListener(this.startIconView, onClickListener, this.startIconOnLongClickListener);
         }
     }
 
-    public void setStartIconOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+    public void setStartIconOnLongClickListener(@Nullable View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048726, this, onLongClickListener) == null) {
             this.startIconOnLongClickListener = onLongClickListener;
@@ -1617,7 +1664,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setStartIconTintList(ColorStateList colorStateList) {
+    public void setStartIconTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048727, this, colorStateList) == null) && this.startIconTintList != colorStateList) {
             this.startIconTintList = colorStateList;
@@ -1626,7 +1673,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setStartIconTintMode(PorterDuff.Mode mode) {
+    public void setStartIconTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048728, this, mode) == null) && this.startIconTintMode != mode) {
             this.startIconTintMode = mode;
@@ -1651,7 +1698,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setSuffixText(CharSequence charSequence) {
+    public void setSuffixText(@Nullable CharSequence charSequence) {
         CharSequence charSequence2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048730, this, charSequence) == null) {
@@ -1666,21 +1713,21 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setSuffixTextAppearance(int i) {
+    public void setSuffixTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048731, this, i) == null) {
             TextViewCompat.setTextAppearance(this.suffixTextView, i);
         }
     }
 
-    public void setSuffixTextColor(ColorStateList colorStateList) {
+    public void setSuffixTextColor(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048732, this, colorStateList) == null) {
             this.suffixTextView.setTextColor(colorStateList);
         }
     }
 
-    public void setTextInputAccessibilityDelegate(AccessibilityDelegate accessibilityDelegate) {
+    public void setTextInputAccessibilityDelegate(@Nullable AccessibilityDelegate accessibilityDelegate) {
         EditText editText;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048734, this, accessibilityDelegate) == null) && (editText = this.editText) != null) {
@@ -1688,7 +1735,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setTypeface(Typeface typeface) {
+    public void setTypeface(@Nullable Typeface typeface) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048735, this, typeface) == null) && typeface != this.typeface) {
             this.typeface = typeface;
@@ -1708,7 +1755,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private int calculateExpandedLabelTop(Rect rect, float f) {
+    private int calculateExpandedLabelTop(@NonNull Rect rect, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, this, rect, f)) == null) {
@@ -1720,7 +1767,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeLF.intValue;
     }
 
-    public static void recursiveSetEnabled(ViewGroup viewGroup, boolean z) {
+    public static void recursiveSetEnabled(@NonNull ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65578, null, viewGroup, z) == null) {
             int childCount = viewGroup.getChildCount();
@@ -1734,7 +1781,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public static void setIconOnLongClickListener(CheckableImageButton checkableImageButton, View.OnLongClickListener onLongClickListener) {
+    public static void setIconOnLongClickListener(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65586, null, checkableImageButton, onLongClickListener) == null) {
             checkableImageButton.setOnLongClickListener(onLongClickListener);
@@ -1881,9 +1928,9 @@ public class TextInputLayout extends LinearLayout {
     private void dispatchOnEditTextAttached() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, this) == null) {
-            Iterator it = this.editTextAttachedListeners.iterator();
+            Iterator<OnEditTextAttachedListener> it = this.editTextAttachedListeners.iterator();
             while (it.hasNext()) {
-                ((OnEditTextAttachedListener) it.next()).onEditTextAttached(this);
+                it.next().onEditTextAttached(this);
             }
         }
     }
@@ -1892,15 +1939,16 @@ public class TextInputLayout extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            EndIconDelegate endIconDelegate = (EndIconDelegate) this.endIconDelegates.get(this.endIconMode);
+            EndIconDelegate endIconDelegate = this.endIconDelegates.get(this.endIconMode);
             if (endIconDelegate == null) {
-                return (EndIconDelegate) this.endIconDelegates.get(0);
+                return this.endIconDelegates.get(0);
             }
             return endIconDelegate;
         }
         return (EndIconDelegate) invokeV.objValue;
     }
 
+    @Nullable
     private CheckableImageButton getEndIconToUpdateDummyDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2092,6 +2140,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
+    @VisibleForTesting
     public boolean cutoutIsOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2118,6 +2167,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @NonNull
     public MaterialShapeDrawable getBoxBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2194,6 +2244,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getBoxStrokeErrorColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2230,6 +2281,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public CharSequence getCounterOverflowDescription() {
         InterceptResult invokeV;
         TextView textView;
@@ -2243,6 +2295,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getCounterOverflowTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2252,6 +2305,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getCounterTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2261,6 +2315,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getDefaultHintTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2270,6 +2325,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public EditText getEditText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2279,6 +2335,7 @@ public class TextInputLayout extends LinearLayout {
         return (EditText) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getEndIconContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2288,6 +2345,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getEndIconDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2306,6 +2364,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @NonNull
     public CheckableImageButton getEndIconView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2315,6 +2374,7 @@ public class TextInputLayout extends LinearLayout {
         return (CheckableImageButton) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2327,6 +2387,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getErrorContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2336,6 +2397,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @ColorInt
     public int getErrorCurrentTextColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2345,6 +2407,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public Drawable getErrorIconDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2354,6 +2417,7 @@ public class TextInputLayout extends LinearLayout {
         return (Drawable) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public final int getErrorTextCurrentColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2363,6 +2427,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public CharSequence getHelperText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2375,6 +2440,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @ColorInt
     public int getHelperTextCurrentTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2384,6 +2450,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public CharSequence getHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2396,6 +2463,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @VisibleForTesting
     public final float getHintCollapsedTextHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2405,6 +2473,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.floatValue;
     }
 
+    @VisibleForTesting
     public final int getHintCurrentCollapsedTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2414,6 +2483,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getHintTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2423,6 +2493,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     @Deprecated
     public CharSequence getPasswordVisibilityToggleContentDescription() {
         InterceptResult invokeV;
@@ -2433,6 +2504,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     @Deprecated
     public Drawable getPasswordVisibilityToggleDrawable() {
         InterceptResult invokeV;
@@ -2443,6 +2515,7 @@ public class TextInputLayout extends LinearLayout {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getPlaceholderText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2455,6 +2528,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @StyleRes
     public int getPlaceholderTextAppearance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2464,6 +2538,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getPlaceholderTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2473,6 +2548,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getPrefixText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2482,6 +2558,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getPrefixTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2491,6 +2568,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @NonNull
     public TextView getPrefixTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2500,6 +2578,7 @@ public class TextInputLayout extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getStartIconContentDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2509,6 +2588,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getStartIconDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2518,6 +2598,7 @@ public class TextInputLayout extends LinearLayout {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getSuffixText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2527,6 +2608,7 @@ public class TextInputLayout extends LinearLayout {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getSuffixTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2536,6 +2618,7 @@ public class TextInputLayout extends LinearLayout {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @NonNull
     public TextView getSuffixTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2545,6 +2628,7 @@ public class TextInputLayout extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
+    @Nullable
     public Typeface getTypeface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2593,6 +2677,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     public final boolean isHelperTextDisplayed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2629,6 +2714,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.booleanValue;
     }
 
+    @VisibleForTesting
     public final boolean isHintExpanded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2651,6 +2737,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeV.booleanValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isProvidingHint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2750,7 +2837,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private void applyIconTint(CheckableImageButton checkableImageButton, boolean z, ColorStateList colorStateList, boolean z2, PorterDuff.Mode mode) {
+    private void applyIconTint(@NonNull CheckableImageButton checkableImageButton, boolean z, ColorStateList colorStateList, boolean z2, PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{checkableImageButton, Boolean.valueOf(z), colorStateList, Boolean.valueOf(z2), mode}) == null) {
             Drawable drawable = checkableImageButton.getDrawable();
@@ -2769,14 +2856,14 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public static void updateCounterContentDescription(Context context, TextView textView, int i, int i2, boolean z) {
+    public static void updateCounterContentDescription(@NonNull Context context, @NonNull TextView textView, int i, int i2, boolean z) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65595, null, new Object[]{context, textView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
-                i3 = R.string.obfuscated_res_0x7f0f03a6;
+                i3 = R.string.obfuscated_res_0x7f0f03a8;
             } else {
-                i3 = R.string.obfuscated_res_0x7f0f03a5;
+                i3 = R.string.obfuscated_res_0x7f0f03a7;
             }
             textView.setContentDescription(context.getString(i3, Integer.valueOf(i), Integer.valueOf(i2)));
         }
@@ -2808,7 +2895,8 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private Rect calculateCollapsedTextBounds(Rect rect) {
+    @NonNull
+    private Rect calculateCollapsedTextBounds(@NonNull Rect rect) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -2844,7 +2932,7 @@ public class TextInputLayout extends LinearLayout {
         return (Rect) invokeL.objValue;
     }
 
-    public void setBoxStrokeColorStateList(ColorStateList colorStateList) {
+    public void setBoxStrokeColorStateList(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048661, this, colorStateList) == null) {
             if (colorStateList.isStateful()) {
@@ -2865,7 +2953,7 @@ public class TextInputLayout extends LinearLayout {
             if (z) {
                 AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
                 this.counterView = appCompatTextView;
-                appCompatTextView.setId(R.id.obfuscated_res_0x7f092146);
+                appCompatTextView.setId(R.id.obfuscated_res_0x7f092199);
                 Typeface typeface = this.typeface;
                 if (typeface != null) {
                     this.counterView.setTypeface(typeface);
@@ -2904,7 +2992,7 @@ public class TextInputLayout extends LinearLayout {
                 if (z2 != this.counterOverflowed) {
                     updateCounterTextAppearanceAndColor();
                 }
-                this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03a7, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
+                this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03a9, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
             }
             if (this.editText != null && z2 != this.counterOverflowed) {
                 updateLabelState(false);
@@ -2914,7 +3002,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private int calculateExpandedLabelBottom(Rect rect, Rect rect2, float f) {
+    private int calculateExpandedLabelBottom(@NonNull Rect rect, @NonNull Rect rect2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{rect, rect2, Float.valueOf(f)})) == null) {
@@ -2927,7 +3015,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(@NonNull View view2, int i, @NonNull ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, layoutParams) == null) {
             if (view2 instanceof EditText) {
@@ -2943,7 +3031,8 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    private Rect calculateExpandedTextBounds(Rect rect) {
+    @NonNull
+    private Rect calculateExpandedTextBounds(@NonNull Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, rect)) == null) {
@@ -2983,6 +3072,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
+    @VisibleForTesting
     public void animateToExpansionFraction(float f) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeF(1048579, this, f) != null) || this.collapsingTextHelper.getExpansionFraction() == f) {
@@ -3017,7 +3107,7 @@ public class TextInputLayout extends LinearLayout {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator2) == null) {
                         this.this$0.collapsingTextHelper.setExpansionFraction(((Float) valueAnimator2.getAnimatedValue()).floatValue());
@@ -3029,7 +3119,7 @@ public class TextInputLayout extends LinearLayout {
         this.animator.start();
     }
 
-    public void setBoxBackgroundColorStateList(ColorStateList colorStateList) {
+    public void setBoxBackgroundColorStateList(@NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048656, this, colorStateList) == null) {
             int defaultColor = colorStateList.getDefaultColor();
@@ -3233,6 +3323,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.View
+    @Nullable
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         boolean z;
@@ -3279,7 +3370,7 @@ public class TextInputLayout extends LinearLayout {
         return invokeCommon.intValue;
     }
 
-    public static void setIconClickable(CheckableImageButton checkableImageButton, View.OnLongClickListener onLongClickListener) {
+    public static void setIconClickable(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnLongClickListener onLongClickListener) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65584, null, checkableImageButton, onLongClickListener) == null) {
@@ -3317,7 +3408,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void dispatchProvideAutofillStructure(ViewStructure viewStructure, int i) {
+    public void dispatchProvideAutofillStructure(@NonNull ViewStructure viewStructure, int i) {
         EditText editText;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, viewStructure, i) == null) {
@@ -3344,7 +3435,7 @@ public class TextInputLayout extends LinearLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setTextAppearanceCompatWithErrorFallback(TextView textView, int i) {
+    public void setTextAppearanceCompatWithErrorFallback(@NonNull TextView textView, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048733, this, textView, i) == null) {
             boolean z = true;
@@ -3357,7 +3448,7 @@ public class TextInputLayout extends LinearLayout {
             }
             if (z) {
                 TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001bf);
-                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06071b));
+                textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06071c));
             }
         }
     }
@@ -3415,7 +3506,7 @@ public class TextInputLayout extends LinearLayout {
                     }
 
                     @Override // android.text.TextWatcher
-                    public void afterTextChanged(Editable editable) {
+                    public void afterTextChanged(@NonNull Editable editable) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
                             TextInputLayout textInputLayout = this.this$0;
@@ -3465,7 +3556,7 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public static void setIconOnClickListener(CheckableImageButton checkableImageButton, View.OnClickListener onClickListener, View.OnLongClickListener onLongClickListener) {
+    public static void setIconOnClickListener(@NonNull CheckableImageButton checkableImageButton, @Nullable View.OnClickListener onClickListener, @Nullable View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65585, null, checkableImageButton, onClickListener, onLongClickListener) == null) {
             checkableImageButton.setOnClickListener(onClickListener);
@@ -3711,28 +3802,28 @@ public class TextInputLayout extends LinearLayout {
         }
     }
 
-    public void setBoxCornerRadiiResources(int i, int i2, int i3, int i4) {
+    public void setBoxCornerRadiiResources(@DimenRes int i, @DimenRes int i2, @DimenRes int i3, @DimenRes int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048659, this, i, i2, i3, i4) == null) {
             setBoxCornerRadii(getContext().getResources().getDimension(i), getContext().getResources().getDimension(i2), getContext().getResources().getDimension(i4), getContext().getResources().getDimension(i3));
         }
     }
 
-    public void setEndIconContentDescription(CharSequence charSequence) {
+    public void setEndIconContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048678, this, charSequence) == null) && getEndIconContentDescription() != charSequence) {
             this.endIconView.setContentDescription(charSequence);
         }
     }
 
-    public void setEndIconDrawable(Drawable drawable) {
+    public void setEndIconDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048680, this, drawable) == null) {
             this.endIconView.setImageDrawable(drawable);
         }
     }
 
-    public void setErrorIconDrawable(Drawable drawable) {
+    public void setErrorIconDrawable(@Nullable Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048691, this, drawable) == null) {
@@ -3747,7 +3838,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleContentDescription(CharSequence charSequence) {
+    public void setPasswordVisibilityToggleContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048708, this, charSequence) == null) {
             this.endIconView.setContentDescription(charSequence);
@@ -3755,21 +3846,21 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Deprecated
-    public void setPasswordVisibilityToggleDrawable(Drawable drawable) {
+    public void setPasswordVisibilityToggleDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048710, this, drawable) == null) {
             this.endIconView.setImageDrawable(drawable);
         }
     }
 
-    public void setStartIconContentDescription(CharSequence charSequence) {
+    public void setStartIconContentDescription(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048722, this, charSequence) == null) && getStartIconContentDescription() != charSequence) {
             this.startIconView.setContentDescription(charSequence);
         }
     }
 
-    public void setStartIconDrawable(Drawable drawable) {
+    public void setStartIconDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048724, this, drawable) == null) {
             this.startIconView.setImageDrawable(drawable);

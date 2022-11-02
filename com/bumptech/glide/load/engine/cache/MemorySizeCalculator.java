@@ -1,11 +1,13 @@
 package com.bumptech.glide.load.engine.cache;
 
+import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,6 +20,7 @@ import com.bumptech.glide.util.Preconditions;
 /* loaded from: classes7.dex */
 public final class MemorySizeCalculator {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final int BYTES_PER_ARGB_8888_PIXEL = 4;
     public static final int LOW_MEMORY_BYTE_ARRAY_POOL_DIVISOR = 2;
     public static final String TAG = "MemorySizeCalculator";
@@ -35,12 +38,13 @@ public final class MemorySizeCalculator {
     }
 
     /* loaded from: classes7.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
         public static final int BITMAP_POOL_TARGET_SCREENS;
         public static final float LOW_MEMORY_MAX_SIZE_MULTIPLIER = 0.33f;
         public static final float MAX_SIZE_MULTIPLIER = 0.4f;
+        @VisibleForTesting
         public static final int MEMORY_CACHE_TARGET_SCREENS = 2;
         public transient /* synthetic */ FieldHolder $fh;
         public ActivityManager activityManager;
@@ -111,6 +115,7 @@ public final class MemorySizeCalculator {
             }
         }
 
+        @VisibleForTesting
         public Builder setActivityManager(ActivityManager activityManager) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -199,6 +204,7 @@ public final class MemorySizeCalculator {
             return (Builder) invokeF.objValue;
         }
 
+        @VisibleForTesting
         public Builder setScreenDimensions(ScreenDimensions screenDimensions) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -211,7 +217,7 @@ public final class MemorySizeCalculator {
     }
 
     /* loaded from: classes7.dex */
-    public final class DisplayMetricsScreenDimensions implements ScreenDimensions {
+    public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DisplayMetrics displayMetrics;
@@ -335,6 +341,7 @@ public final class MemorySizeCalculator {
         return invokeCommon.intValue;
     }
 
+    @TargetApi(19)
     public static boolean isLowMemoryDevice(ActivityManager activityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

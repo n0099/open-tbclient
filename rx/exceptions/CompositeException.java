@@ -22,11 +22,11 @@ public final class CompositeException extends RuntimeException {
     public static final long serialVersionUID = 3026362227162912146L;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable cause;
-    public final List exceptions;
+    public final List<Throwable> exceptions;
     public final String message;
 
     /* loaded from: classes9.dex */
-    public final class CompositeExceptionCausalChain extends RuntimeException {
+    public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
         public static final long serialVersionUID = 3875212506787802066L;
@@ -55,7 +55,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes9.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,7 +79,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes9.dex */
-    public final class b extends a {
+    public static final class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PrintStream a;
@@ -122,7 +122,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes9.dex */
-    public final class c extends a {
+    public static final class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final PrintWriter a;
@@ -165,7 +165,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     @Deprecated
-    public CompositeException(String str, Collection collection) {
+    public CompositeException(String str, Collection<? extends Throwable> collection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,9 +183,7 @@ public final class CompositeException extends RuntimeException {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         ArrayList arrayList = new ArrayList();
         if (collection != null) {
-            Iterator it = collection.iterator();
-            while (it.hasNext()) {
-                Throwable th = (Throwable) it.next();
+            for (Throwable th : collection) {
                 if (th instanceof CompositeException) {
                     linkedHashSet.addAll(((CompositeException) th).getExceptions());
                 } else if (th != null) {
@@ -203,7 +201,7 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CompositeException(Collection collection) {
+    public CompositeException(Collection<? extends Throwable> collection) {
         this(null, collection);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -223,7 +221,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    private List getListOfCauses(Throwable th) {
+    private List<Throwable> getListOfCauses(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, th)) == null) {
@@ -362,19 +360,21 @@ public final class CompositeException extends RuntimeException {
                 if (this.cause == null) {
                     CompositeExceptionCausalChain compositeExceptionCausalChain = new CompositeExceptionCausalChain();
                     HashSet hashSet = new HashSet();
+                    Iterator<Throwable> it = this.exceptions.iterator();
                     CompositeExceptionCausalChain compositeExceptionCausalChain2 = compositeExceptionCausalChain;
-                    for (Throwable th2 : this.exceptions) {
-                        if (!hashSet.contains(th2)) {
-                            hashSet.add(th2);
-                            for (Throwable th3 : getListOfCauses(th2)) {
-                                if (hashSet.contains(th3)) {
-                                    th2 = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
+                    while (it.hasNext()) {
+                        Throwable next = it.next();
+                        if (!hashSet.contains(next)) {
+                            hashSet.add(next);
+                            for (Throwable th2 : getListOfCauses(next)) {
+                                if (hashSet.contains(th2)) {
+                                    next = new RuntimeException("Duplicate found in causal chain so cropping to prevent loop ...");
                                 } else {
-                                    hashSet.add(th3);
+                                    hashSet.add(th2);
                                 }
                             }
                             try {
-                                compositeExceptionCausalChain2.initCause(th2);
+                                compositeExceptionCausalChain2.initCause(next);
                             } catch (Throwable unused) {
                             }
                             compositeExceptionCausalChain2 = getRootCause(compositeExceptionCausalChain2);
@@ -389,7 +389,7 @@ public final class CompositeException extends RuntimeException {
         return (Throwable) invokeV.objValue;
     }
 
-    public List getExceptions() {
+    public List<Throwable> getExceptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

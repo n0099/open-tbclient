@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.cw4;
-import com.baidu.tieba.gw4;
+import com.baidu.tieba.dx4;
+import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +54,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cw4.p();
-            cw4.s(null, true);
-            gw4.a().j(true);
+            zw4.p();
+            zw4.s(null, true);
+            dx4.a().j(true);
         }
     }
 
@@ -64,10 +64,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cw4.s(null, true);
+            zw4.s(null, true);
             b = System.currentTimeMillis();
-            cw4.b = false;
-            gw4.a().j(false);
+            zw4.b = false;
+            dx4.a().j(false);
         }
     }
 
@@ -77,18 +77,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                cw4.l("lifecycle-1st-create", false);
-                cw4.w();
+                zw4.l("lifecycle-1st-create", false);
+                zw4.w();
                 return;
             }
-            cw4.b = true;
+            zw4.b = true;
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            cw4.k(currentTimeMillis);
-            cw4.l("lifecycle", true);
-            cw4.w();
+            zw4.k(currentTimeMillis);
+            zw4.l("lifecycle", true);
+            zw4.w();
         }
     }
 }

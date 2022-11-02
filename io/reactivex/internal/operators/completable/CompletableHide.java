@@ -18,7 +18,7 @@ public final class CompletableHide extends Completable {
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class HideCompletableObserver implements CompletableObserver, Disposable {
+    public static final class HideCompletableObserver implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;

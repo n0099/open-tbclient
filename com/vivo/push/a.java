@@ -123,7 +123,7 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public final ArrayList c(String str) {
+    public final ArrayList<String> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
@@ -228,7 +228,7 @@ public final class a {
         }
     }
 
-    public final void a(String str, ArrayList arrayList) {
+    public final void a(String str, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, arrayList) == null) {
             if (this.a == null) {

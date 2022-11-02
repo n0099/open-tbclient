@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.h;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
@@ -36,6 +37,7 @@ public class a {
         return (String) invokeLL.objValue;
     }
 
+    @SuppressLint({"DefaultLocale"})
     public static String a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

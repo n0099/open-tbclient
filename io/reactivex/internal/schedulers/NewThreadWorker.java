@@ -7,6 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableContainer;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -70,7 +72,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
     }
 
     @Override // io.reactivex.Scheduler.Worker
-    public Disposable schedule(Runnable runnable) {
+    @NonNull
+    public Disposable schedule(@NonNull Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable)) == null) {
@@ -80,7 +83,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
     }
 
     @Override // io.reactivex.Scheduler.Worker
-    public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+    @NonNull
+    public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -92,9 +96,10 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
         return (Disposable) invokeCommon.objValue;
     }
 
-    public ScheduledRunnable scheduleActual(Runnable runnable, long j, TimeUnit timeUnit, DisposableContainer disposableContainer) {
+    @NonNull
+    public ScheduledRunnable scheduleActual(Runnable runnable, long j, @NonNull TimeUnit timeUnit, @Nullable DisposableContainer disposableContainer) {
         InterceptResult invokeCommon;
-        Future schedule;
+        Future<?> schedule;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit, disposableContainer})) == null) {
             ScheduledRunnable scheduledRunnable = new ScheduledRunnable(RxJavaPlugins.onSchedule(runnable), disposableContainer);
@@ -121,7 +126,7 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
 
     public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
-        Future schedule;
+        Future<?> schedule;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(RxJavaPlugins.onSchedule(runnable));
@@ -143,7 +148,7 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
 
     public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
-        Future schedule;
+        Future<?> schedule;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);

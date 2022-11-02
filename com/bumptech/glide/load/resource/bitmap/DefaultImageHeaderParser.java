@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -69,7 +70,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         long skip(long j) throws IOException;
 
         /* loaded from: classes7.dex */
-        public final class EndOfFileException extends IOException {
+        public static final class EndOfFileException extends IOException {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 1;
             public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +96,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class ByteBufferReader implements Reader {
+    public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer byteBuffer;
@@ -172,7 +173,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class RandomAccessReader {
+    public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer data;
@@ -249,7 +250,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     /* loaded from: classes7.dex */
-    public final class StreamReader implements Reader {
+    public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final InputStream is;
@@ -400,6 +401,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         return invokeLL.intValue;
     }
 
+    @NonNull
     private ImageHeaderParser.ImageType getType(Reader reader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -488,7 +490,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(InputStream inputStream, ArrayPool arrayPool) throws IOException {
+    public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, inputStream, arrayPool)) == null) {
@@ -627,7 +629,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(ByteBuffer byteBuffer, ArrayPool arrayPool) throws IOException {
+    public int getOrientation(@NonNull ByteBuffer byteBuffer, @NonNull ArrayPool arrayPool) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer, arrayPool)) == null) {
@@ -637,7 +639,8 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public ImageHeaderParser.ImageType getType(InputStream inputStream) throws IOException {
+    @NonNull
+    public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
@@ -647,7 +650,8 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser
-    public ImageHeaderParser.ImageType getType(ByteBuffer byteBuffer) throws IOException {
+    @NonNull
+    public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, byteBuffer)) == null) {

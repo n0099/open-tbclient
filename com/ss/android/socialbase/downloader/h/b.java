@@ -1,5 +1,6 @@
 package com.ss.android.socialbase.downloader.h;
 
+import android.annotation.SuppressLint;
 import android.os.Process;
 import com.ss.android.socialbase.downloader.downloader.j;
 import com.ss.android.socialbase.downloader.exception.BaseException;
@@ -152,7 +153,7 @@ public class b implements Runnable {
                             try {
                                 try {
                                     if (!this.l) {
-                                        List a3 = com.ss.android.socialbase.downloader.i.f.a(this.f.getExtraHeaders(), this.f.geteTag(), j3, j4);
+                                        List<com.ss.android.socialbase.downloader.model.c> a3 = com.ss.android.socialbase.downloader.i.f.a(this.f.getExtraHeaders(), this.f.geteTag(), j3, j4);
                                         a3.add(new com.ss.android.socialbase.downloader.model.c("Chunk-Index", String.valueOf(bVar.s())));
                                         com.ss.android.socialbase.downloader.i.f.a(a3, this.f);
                                         com.ss.android.socialbase.downloader.i.f.b(a3, this.f);
@@ -358,6 +359,7 @@ public class b implements Runnable {
         r3.b.a(false);
      */
     @Override // java.lang.Runnable
+    @SuppressLint({"DefaultLocale"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

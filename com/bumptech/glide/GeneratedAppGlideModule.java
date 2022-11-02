@@ -1,5 +1,7 @@
 package com.bumptech.glide;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,8 +16,10 @@ public abstract class GeneratedAppGlideModule extends AppGlideModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Set getExcludedModuleClasses();
+    @NonNull
+    public abstract Set<Class<?>> getExcludedModuleClasses();
 
+    @Nullable
     public RequestManagerRetriever.RequestManagerFactory getRequestManagerFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

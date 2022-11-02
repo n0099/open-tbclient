@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z89;
+import com.baidu.tieba.ia9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.annotations.AccessedByNative;
 import java.io.IOException;
 import java.util.Locale;
 /* loaded from: classes6.dex */
@@ -37,14 +38,19 @@ public abstract class Linker {
     public static native long nativeGetRandomBaseLoadAddress();
 
     /* loaded from: classes6.dex */
-    public class LibInfo implements Parcelable {
+    public static class LibInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<LibInfo> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
+        @AccessedByNative
         public long mLoadAddress;
+        @AccessedByNative
         public long mLoadSize;
+        @AccessedByNative
         public int mRelroFd;
+        @AccessedByNative
         public long mRelroSize;
+        @AccessedByNative
         public long mRelroStart;
 
         @Override // android.os.Parcelable
@@ -58,7 +64,7 @@ public abstract class Linker {
         }
 
         /* loaded from: classes6.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<LibInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +206,7 @@ public abstract class Linker {
                     fromFd.writeToParcel(parcel, 0);
                     fromFd.close();
                 } catch (IOException e) {
-                    z89.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                    ia9.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
                 }
             }
         }

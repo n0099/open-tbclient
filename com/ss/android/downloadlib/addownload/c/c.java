@@ -11,10 +11,10 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
     public static void a() {
-        List a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());
+        List<DownloadInfo> a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());
         if (a != null && a.size() > 0) {
             for (int i = 0; i < a.size(); i++) {
-                DownloadInfo downloadInfo = (DownloadInfo) a.get(i);
+                DownloadInfo downloadInfo = a.get(i);
                 File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
                 long lastModified = file.lastModified();
                 long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;

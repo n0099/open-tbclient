@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p03;
-import com.baidu.tieba.tm2;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.h13;
+import com.baidu.tieba.ln2;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,11 +23,11 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ReplyEditorParams implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
-    public static final List DEFAULT_LIST;
+    public static final Parcelable.Creator<ReplyEditorParams> CREATOR;
+    public static final List<String> DEFAULT_LIST;
     public static final String MODULE_EMOJI = "emoji";
     public static final String MODULE_PICTURE = "image";
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ReplyEditorParams implements Parcelable {
     public final String sendText;
     public final int sendTextBgColor;
     public final int sendTextColor;
-    public List showList;
+    public List<String> showList;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -49,8 +49,8 @@ public class ReplyEditorParams implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<ReplyEditorParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public class ReplyEditorParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List list = this.showList;
+            List<String> list = this.showList;
             if (list != null && list.contains("emoji")) {
                 return true;
             }
@@ -127,7 +127,7 @@ public class ReplyEditorParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.showList;
+            List<String> list = this.showList;
             if (list != null && list.contains("image")) {
                 return true;
             }
@@ -160,7 +160,7 @@ public class ReplyEditorParams implements Parcelable {
         this.showList = parcel.createStringArrayList();
     }
 
-    public ReplyEditorParams(String str, String str2, String str3, String str4, int i, int i2, List list) {
+    public ReplyEditorParams(String str, String str2, String str3, String str4, int i, int i2, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,31 +204,31 @@ public class ReplyEditorParams implements Parcelable {
                     }
                 }
             }
-            String c = p03.c(jSONObject, "sendText", "发表");
+            String c = h13.c(jSONObject, "sendText", "发表");
             if (c.length() > 2) {
                 c = c.substring(0, 2);
             }
             String str = c;
             try {
-                i = SwanAppConfigData.t(p03.c(jSONObject, "sendTextColor", "#FFFFFF"));
+                i = SwanAppConfigData.t(h13.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e) {
-                if (wj1.a) {
+                if (ok1.a) {
                     e.printStackTrace();
                 }
                 i = -1;
             }
-            Application c2 = tm2.c();
-            String c3 = p03.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060aab);
+            Application c2 = ln2.c();
+            String c3 = h13.c(jSONObject, "sendBackgroundColor", "#3388FF");
+            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060abd);
             try {
                 i2 = SwanAppConfigData.t(c3);
             } catch (Exception e2) {
-                if (wj1.a) {
+                if (ok1.a) {
                     e2.printStackTrace();
                 }
                 i2 = color;
             }
-            String d = p03.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f1320)), 20, StringHelper.STRING_MORE);
+            String d = h13.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f133e)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove("emoji");
@@ -242,7 +242,7 @@ public class ReplyEditorParams implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List list = this.showList;
+            List<String> list = this.showList;
             if (list != null && !list.isEmpty() && (this.showList.contains("emoji") || this.showList.contains("image"))) {
                 return false;
             }

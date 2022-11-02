@@ -12,20 +12,6 @@ public class b implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     @Override // com.baidu.platform.domain.c
     public String a() {
         InterceptResult invokeV;
@@ -58,7 +44,7 @@ public class b implements c {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/geocoder/v2" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/reverse_geocoding/v3" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
@@ -114,7 +100,7 @@ public class b implements c {
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui/v1/" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/phpui2/v1/" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.platform.domain.c
@@ -150,5 +136,47 @@ public class b implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/apimap/v1/s" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.platform.domain.c
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/weather/v1/" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.platform.domain.c
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? "https://api.map.baidu.com/sdkproxy/v2/lbs_androidsdk/weather_abroad/v1/" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.platform.domain.c
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/parking/search" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.platform.domain.c
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "https://api.map.baidu.com/sdkproxy/lbs_androidsdk/polygon/v1/fuzzy_search" : (String) invokeV.objValue;
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

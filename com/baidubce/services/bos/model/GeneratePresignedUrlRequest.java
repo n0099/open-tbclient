@@ -22,8 +22,8 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     public int expirationInSeconds;
     public String key;
     public HttpMethodName method;
-    public Map requestHeaders;
-    public Map requestParameters;
+    public Map<String, String> requestHeaders;
+    public Map<String, String> requestParameters;
     public ResponseHeaderOverrides responseHeaders;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return (HttpMethodName) invokeV.objValue;
     }
 
-    public Map getRequestHeaders() {
+    public Map<String, String> getRequestHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -147,7 +147,7 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return (Map) invokeV.objValue;
     }
 
-    public Map getRequestParameters() {
+    public Map<String, String> getRequestParameters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {

@@ -1,5 +1,6 @@
 package com.facebook.imageutils;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ColorSpace;
@@ -26,7 +27,7 @@ public final class BitmapUtil {
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
     public static final int ARGB_4444_BYTES_PER_PIXEL = 2;
     public static final int ARGB_8888_BYTES_PER_PIXEL = 4;
-    public static final Pools.SynchronizedPool DECODE_BUFFERS;
+    public static final Pools.SynchronizedPool<ByteBuffer> DECODE_BUFFERS;
     public static final int DECODE_BUFFER_SIZE = 16384;
     public static final float MAX_BITMAP_SIZE = 2048.0f;
     public static final int POOL_SIZE = 12;
@@ -36,7 +37,7 @@ public final class BitmapUtil {
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public final class BitmapUtil {
                 return;
             }
         }
-        DECODE_BUFFERS = new Pools.SynchronizedPool(12);
+        DECODE_BUFFERS = new Pools.SynchronizedPool<>(12);
     }
 
     public BitmapUtil() {
@@ -110,7 +111,7 @@ public final class BitmapUtil {
     }
 
     @Nullable
-    public static Pair decodeDimensions(Uri uri) {
+    public static Pair<Integer, Integer> decodeDimensions(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
@@ -119,7 +120,7 @@ public final class BitmapUtil {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(uri.getPath(), options);
             if (options.outWidth != -1 && options.outHeight != -1) {
-                return new Pair(Integer.valueOf(options.outWidth), Integer.valueOf(options.outHeight));
+                return new Pair<>(Integer.valueOf(options.outWidth), Integer.valueOf(options.outHeight));
             }
             return null;
         }
@@ -148,6 +149,7 @@ public final class BitmapUtil {
         return invokeL.intValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static int getSizeInBytes(@Nullable Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -170,27 +172,27 @@ public final class BitmapUtil {
     }
 
     @Nullable
-    public static Pair decodeDimensions(InputStream inputStream) {
+    public static Pair<Integer, Integer> decodeDimensions(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             Preconditions.checkNotNull(inputStream);
-            ByteBuffer byteBuffer = (ByteBuffer) DECODE_BUFFERS.acquire();
-            if (byteBuffer == null) {
-                byteBuffer = ByteBuffer.allocate(16384);
+            ByteBuffer acquire = DECODE_BUFFERS.acquire();
+            if (acquire == null) {
+                acquire = ByteBuffer.allocate(16384);
             }
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             try {
-                options.inTempStorage = byteBuffer.array();
-                Pair pair = null;
+                options.inTempStorage = acquire.array();
+                Pair<Integer, Integer> pair = null;
                 BitmapFactory.decodeStream(inputStream, null, options);
                 if (options.outWidth != -1 && options.outHeight != -1) {
-                    pair = new Pair(Integer.valueOf(options.outWidth), Integer.valueOf(options.outHeight));
+                    pair = new Pair<>(Integer.valueOf(options.outWidth), Integer.valueOf(options.outHeight));
                 }
                 return pair;
             } finally {
-                DECODE_BUFFERS.release(byteBuffer);
+                DECODE_BUFFERS.release(acquire);
             }
         }
         return (Pair) invokeL.objValue;
@@ -201,14 +203,14 @@ public final class BitmapUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             Preconditions.checkNotNull(inputStream);
-            ByteBuffer byteBuffer = (ByteBuffer) DECODE_BUFFERS.acquire();
-            if (byteBuffer == null) {
-                byteBuffer = ByteBuffer.allocate(16384);
+            ByteBuffer acquire = DECODE_BUFFERS.acquire();
+            if (acquire == null) {
+                acquire = ByteBuffer.allocate(16384);
             }
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             try {
-                options.inTempStorage = byteBuffer.array();
+                options.inTempStorage = acquire.array();
                 ColorSpace colorSpace = null;
                 BitmapFactory.decodeStream(inputStream, null, options);
                 if (Build.VERSION.SDK_INT >= 26) {
@@ -216,14 +218,14 @@ public final class BitmapUtil {
                 }
                 return new ImageMetaData(options.outWidth, options.outHeight, colorSpace);
             } finally {
-                DECODE_BUFFERS.release(byteBuffer);
+                DECODE_BUFFERS.release(acquire);
             }
         }
         return (ImageMetaData) invokeL.objValue;
     }
 
     @Nullable
-    public static Pair decodeDimensions(byte[] bArr) {
+    public static Pair<Integer, Integer> decodeDimensions(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {

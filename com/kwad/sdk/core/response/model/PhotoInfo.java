@@ -1,19 +1,23 @@
 package com.kwad.sdk.core.response.model;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.s;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+@KsJson
+/* loaded from: classes8.dex */
 public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -4483350806354759008L;
     public String mOriginJString;
     public BaseInfo baseInfo = new BaseInfo();
     public VideoInfo videoInfo = new VideoInfo();
 
-    /* loaded from: classes7.dex */
-    public class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class BaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 2257669583403371065L;
         public long commentCount;
         public int contentSourceType;
@@ -31,8 +35,9 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
         public int waterMarkPosition;
     }
 
-    /* loaded from: classes7.dex */
-    public class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    @KsJson
+    /* loaded from: classes8.dex */
+    public static class VideoInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 1395696168725754442L;
         public long duration;
         public String firstFrame;
@@ -48,7 +53,7 @@ public class PhotoInfo extends com.kwad.sdk.core.response.kwai.a implements Seri
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject == null || !TextUtils.isEmpty(this.mOriginJString)) {
             return;

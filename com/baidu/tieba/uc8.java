@@ -1,27 +1,11 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.push.PushExtData;
-import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.push.PushRemindInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,195 +15,152 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class uc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final RelativeLayout b;
-    public final EMTextView c;
-    public final EMTextView d;
-    public final EMTextView e;
-    public final TbImageView f;
-    public final TBSpecificationBtn g;
-    public final TBLottieAnimationView h;
-    public final RelativeLayout i;
-    public final EMTextView j;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
     public String k;
-    public TbPageContext l;
-    public PushExtData m;
-    public PushRemindInfo n;
-    public e o;
-    public int p;
-    public boolean q;
-    public float r;
-    public float s;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public int x;
+    public int y;
+    public String z;
 
     /* loaded from: classes6.dex */
-    public interface e {
-        void a(View view2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
 
-        public a(uc8 uc8Var) {
+        public static String a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
                 }
-            }
-            this.a = uc8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.k();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        public b(uc8 uc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.k();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        public c(uc8 uc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc8Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1) {
-                        if (action == 2) {
-                            if (this.a.r == 0.0f) {
-                                this.a.r = motionEvent.getY();
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 1567) {
+                    if (hashCode != 1568) {
+                        if (hashCode != 1570) {
+                            if (hashCode != 1576) {
+                                if (hashCode != 1599) {
+                                    switch (hashCode) {
+                                        case 49:
+                                            if (str.equals("1")) {
+                                                c = 0;
+                                                break;
+                                            }
+                                            break;
+                                        case 50:
+                                            if (str.equals("2")) {
+                                                c = 2;
+                                                break;
+                                            }
+                                            break;
+                                        case 51:
+                                            if (str.equals("3")) {
+                                                c = 4;
+                                                break;
+                                            }
+                                            break;
+                                        case 52:
+                                            if (str.equals("4")) {
+                                                c = 3;
+                                                break;
+                                            }
+                                            break;
+                                        default:
+                                            switch (hashCode) {
+                                                case 54:
+                                                    if (str.equals("6")) {
+                                                        c = 7;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 55:
+                                                    if (str.equals("7")) {
+                                                        c = 1;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 56:
+                                                    if (str.equals("8")) {
+                                                        c = '\b';
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 57:
+                                                    if (str.equals("9")) {
+                                                        c = '\t';
+                                                        break;
+                                                    }
+                                                    break;
+                                            }
+                                    }
+                                } else if (str.equals("21")) {
+                                    c = '\f';
+                                }
+                            } else if (str.equals("19")) {
+                                c = '\n';
                             }
-                            this.a.s = motionEvent.getY() - this.a.r;
-                            if (this.a.s < 0.0f) {
-                                this.a.q = true;
-                            } else {
-                                this.a.q = false;
-                            }
+                        } else if (str.equals("13")) {
+                            c = 11;
                         }
-                    } else if (this.a.q && this.a.o != null) {
-                        this.a.o.a(this.a.b);
-                        return true;
+                    } else if (str.equals("11")) {
+                        c = 6;
                     }
-                } else {
-                    this.a.r = motionEvent.getY();
-                    this.a.q = false;
+                } else if (str.equals("10")) {
+                    c = 5;
                 }
-                return false;
+                switch (c) {
+                    case 0:
+                    case 1:
+                        return "a002";
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        return "a006";
+                    case 7:
+                        return "a005";
+                    case '\b':
+                    case '\t':
+                    case '\n':
+                        return "a020";
+                    case 11:
+                        return "a023";
+                    case '\f':
+                        return "a088";
+                    default:
+                        return "";
+                }
             }
-            return invokeLL.booleanValue;
+            return (String) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        public d(uc8 uc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h.playAnimation();
-            }
-        }
-    }
-
-    public uc8(TbPageContext tbPageContext) {
+    public uc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -229,213 +170,149 @@ public class uc8 {
                 return;
             }
         }
-        this.q = false;
-        this.s = 0.0f;
-        this.l = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d075c, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092296);
-        this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907aa);
-        this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092233);
-        this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09208e);
-        this.h = (TBLottieAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f090307);
-        this.f = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090306);
-        this.g = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f091c2e);
-        this.j = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09102a);
-        this.i = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091c52);
-        this.f.setPlaceHolder(1);
-        this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f.setConrers(15);
-        this.f.setRadiusById(R.string.J_X01);
-        this.f.setDrawCorner(true);
-        sy4 sy4Var = new sy4();
-        sy4Var.l(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
-        this.g.setTextSize(R.dimen.T_X08);
-        this.g.setConfig(sy4Var);
-        this.g.setOnClickListener(new a(this));
-        this.b.setOnClickListener(new b(this));
-        this.b.setOnTouchListener(new c(this));
-        n();
+        this.z = "index";
     }
 
-    public void p(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.o = eVar;
-        }
-    }
-
-    public final void k() {
+    public StatisticItem a(StatisticItem statisticItem) {
+        InterceptResult invokeL;
         String str;
-        String userId;
-        String gameId;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            UrlManager.getInstance().dealOneLink(this.l, new String[]{this.k});
-            int i = this.p;
-            if (i != 3) {
-                if (i != 6) {
-                    if (i != 7) {
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
+            if (statisticItem != null) {
+                if (!StringUtils.isNull(this.a)) {
+                    statisticItem.param("obj_locate", this.a);
+                    statisticItem.param("page_type", a.a(this.a));
+                    if (this.a.equals("21")) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
                     }
-                    str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_REJECT_CLICK;
-                } else {
-                    str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_ACCEPT_CLICK;
+                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
+                    }
                 }
-            } else {
-                str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_ATTENTION_ACCEPT_CLICK;
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem.param("tid", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem.param("fid", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    statisticItem.param("uid", this.e);
+                }
+                if (!StringUtils.isNull(this.f)) {
+                    statisticItem.param("obj_source", this.f);
+                } else {
+                    statisticItem.param("obj_source", 0);
+                }
+                if (!StringUtils.isNull(this.g)) {
+                    statisticItem.param("obj_param1", this.g);
+                } else {
+                    statisticItem.param("obj_param1", 0);
+                }
+                if (!StringUtils.isNull(this.h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
+                }
+                if (!StringUtils.isNull(this.i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
+                }
+                int i = this.j;
+                if (i > 0) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
+                }
+                if (!StringUtils.isNull(this.k)) {
+                    statisticItem.param("obj_id", this.k);
+                }
+                if (!StringUtils.isNull(this.l)) {
+                    statisticItem.param("ab_tag", this.l);
+                } else {
+                    statisticItem.param("ab_tag", 0);
+                }
+                if (!StringUtils.isNull(this.n)) {
+                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
+                }
+                if (!StringUtils.isNull(this.o)) {
+                    statisticItem.param("extra", this.o);
+                } else {
+                    statisticItem.param("extra", 0);
+                }
+                if (!StringUtils.isNull(this.p)) {
+                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
+                }
+                if (!StringUtils.isNull(this.q)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
+                }
+                if (!StringUtils.isNull(this.r)) {
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.r);
+                }
+                if (!StringUtils.isNull(this.s)) {
+                    statisticItem.param("group_id", this.s);
+                }
+                int i2 = this.x;
+                if (i2 > 0) {
+                    statisticItem.param("request_num", i2);
+                }
+                int i3 = this.y;
+                if (i3 > 0) {
+                    statisticItem.param("video_num", i3);
+                }
+                String str4 = "";
+                if (StringUtils.isNull(this.w)) {
+                    str = "";
+                } else {
+                    str = this.w;
+                }
+                statisticItem.param("obj_extra", str);
+                if (StringUtils.isNull(this.t)) {
+                    str2 = "";
+                } else {
+                    str2 = this.t;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, str2);
+                if (StringUtils.isNull(this.u)) {
+                    str3 = "";
+                } else {
+                    str3 = this.u;
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, str3);
+                if (!StringUtils.isNull(this.v)) {
+                    str4 = this.v;
+                }
+                statisticItem.param("nid", str4);
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            PushExtData pushExtData = this.m;
-            String str2 = "";
-            if (pushExtData == null) {
-                userId = "";
-            } else {
-                userId = pushExtData.getUserId();
-            }
-            StatisticItem addParam = statisticItem.addParam("uid", userId);
-            PushExtData pushExtData2 = this.m;
-            if (pushExtData2 == null) {
-                gameId = "";
-            } else {
-                gameId = pushExtData2.getGameId();
-            }
-            StatisticItem addParam2 = addParam.addParam("obj_id", gameId);
-            PushExtData pushExtData3 = this.m;
-            if (pushExtData3 != null) {
-                str2 = pushExtData3.getGameName();
-            }
-            TiebaStatic.log(addParam2.addParam("obj_name", str2));
-            e eVar = this.o;
-            if (eVar != null) {
-                eVar.a(this.g);
-            }
+            return statisticItem;
         }
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            nv4 d2 = nv4.d(this.d);
-            d2.v(R.color.CAM_X0105);
-            d2.A(R.string.F_X02);
-            d2.z(R.dimen.T_X06);
-            nv4 d3 = nv4.d(this.c);
-            d3.v(R.color.CAM_X0109);
-            d3.z(R.dimen.T_X09);
-            nv4 d4 = nv4.d(this.j);
-            d4.v(R.color.CAM_X0109);
-            d4.z(R.dimen.T_X08);
-            nv4 d5 = nv4.d(this.b);
-            d5.n(R.string.J_X05);
-            d5.m(0);
-            d5.f(R.color.CAM_X0207);
-            nv4 d6 = nv4.d(this.e);
-            d6.z(R.dimen.T_X10);
-            d6.v(R.color.CAM_X0101);
-            d6.n(R.string.J_X04);
-            d6.f(R.color.CAM_X0311);
-            SkinManager.setLottieAnimation(this.h, R.raw.card_live_header_bg);
-            this.g.k();
-        }
-    }
-
-    public void l() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tBLottieAnimationView = this.h) != null) {
-            tBLottieAnimationView.cancelAnimation();
-        }
-    }
-
-    public View m() {
+    public uc8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            uc8 uc8Var = new uc8();
+            uc8Var.a = this.a;
+            uc8Var.b = this.b;
+            uc8Var.c = this.c;
+            uc8Var.d = this.d;
+            uc8Var.e = this.e;
+            uc8Var.f = this.f;
+            uc8Var.g = this.g;
+            uc8Var.h = this.h;
+            uc8Var.i = this.i;
+            uc8Var.k = this.k;
+            uc8Var.l = this.l;
+            uc8Var.m = this.m;
+            uc8Var.n = this.n;
+            uc8Var.q = this.q;
+            uc8Var.r = this.r;
+            uc8Var.s = this.s;
+            uc8Var.t = this.t;
+            uc8Var.u = this.u;
+            uc8Var.v = this.v;
+            uc8Var.x = this.x;
+            uc8Var.y = this.y;
+            return uc8Var;
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void o(PushGeneralData pushGeneralData) {
-        int type;
-        int measureText;
-        String str;
-        String userId;
-        String gameId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pushGeneralData) == null) {
-            this.n = pushGeneralData.getForegroundShowData().getRemindInfo();
-            PushExtData extData = pushGeneralData.getForegroundShowData().getExtData();
-            this.m = extData;
-            if (extData == null) {
-                type = -1;
-            } else {
-                type = extData.getType();
-            }
-            this.p = type;
-            this.d.setText(this.n.getTitle());
-            this.c.setText(this.n.getDesc());
-            this.f.L(this.n.getImage(), 10, false);
-            this.g.setText(this.n.getBtnText());
-            this.k = this.n.getScheme();
-            if (TextUtils.isEmpty(this.n.getTagText())) {
-                this.e.setVisibility(8);
-                measureText = 0;
-            } else {
-                this.e.setVisibility(0);
-                this.e.setText(this.n.getTagText());
-                measureText = (int) this.e.getPaint().measureText(this.n.getTagText());
-            }
-            int k = fj.k(this.l.getContext());
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
-            int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-            int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-            int dimenPixelSize5 = ((((k - (dimenPixelSize * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds94)) - (dimenPixelSize2 * 3)) - measureText) - (dimenPixelSize3 * 2);
-            this.d.setMaxWidth(((dimenPixelSize5 - ((int) this.j.getPaint().measureText(this.n.getBtnText()))) - (dimenPixelSize2 * 2)) - (dimenPixelSize4 * 3));
-            int i = this.p;
-            if (i != 3) {
-                if (i != 6) {
-                    if (i != 7) {
-                        return;
-                    }
-                    str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_REJECT_SHOW;
-                } else {
-                    str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_ACCEPT_SHOW;
-                }
-            } else {
-                str = TbadkCoreStatisticKey.KEY_GAME_PLAY_PUSH_ATTENTION_SHOW;
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            PushExtData pushExtData = this.m;
-            String str2 = "";
-            if (pushExtData == null) {
-                userId = "";
-            } else {
-                userId = pushExtData.getUserId();
-            }
-            StatisticItem addParam = statisticItem.addParam("uid", userId);
-            PushExtData pushExtData2 = this.m;
-            if (pushExtData2 == null) {
-                gameId = "";
-            } else {
-                gameId = pushExtData2.getGameId();
-            }
-            StatisticItem addParam2 = addParam.addParam("obj_id", gameId);
-            PushExtData pushExtData3 = this.m;
-            if (pushExtData3 != null) {
-                str2 = pushExtData3.getGameName();
-            }
-            TiebaStatic.log(addParam2.addParam("obj_name", str2));
-            if (this.n.getIsBreathe()) {
-                this.h.setVisibility(0);
-                if (!this.h.isAnimating()) {
-                    this.h.setSpeed(0.8f);
-                    this.h.setRepeatCount(-1);
-                    this.h.post(new d(this));
-                }
-            }
-        }
+        return (uc8) invokeV.objValue;
     }
 }

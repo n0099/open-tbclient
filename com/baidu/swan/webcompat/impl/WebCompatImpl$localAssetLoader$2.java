@@ -1,8 +1,8 @@
 package com.baidu.swan.webcompat.impl;
 
 import androidx.webkit.WebViewAssetLoader;
-import com.baidu.tieba.jl4;
-import com.baidu.tieba.l33;
+import com.baidu.tieba.bm4;
+import com.baidu.tieba.d43;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroidx/webkit/WebViewAssetLoader;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Function0 {
+public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Function0<WebViewAssetLoader> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ WebCompatImpl this$0;
@@ -42,6 +42,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final WebViewAssetLoader invoke() {
         InterceptResult invokeV;
@@ -51,7 +52,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q2;
         WebViewAssetLoader.InternalStoragePathHandler m2;
         FilePathInfo l;
-        jl4 k;
+        bm4 k;
         String q3;
         String q4;
         String q5;
@@ -62,7 +63,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         WebViewAssetLoader.InternalStoragePathHandler m3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            l33 K = l33.K();
+            d43 K = d43.K();
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);

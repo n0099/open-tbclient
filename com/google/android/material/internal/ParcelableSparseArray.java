@@ -3,6 +3,9 @@ package com.google.android.material.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,10 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
-public class ParcelableSparseArray extends SparseArray implements Parcelable {
+public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ParcelableSparseArray> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // android.os.Parcelable
@@ -40,7 +44,7 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.ClassLoaderCreator() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
+        CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: com.google.android.material.internal.ParcelableSparseArray.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +64,8 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            public ParcelableSparseArray createFromParcel(Parcel parcel) {
+            @Nullable
+            public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -71,6 +76,7 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public ParcelableSparseArray[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -81,8 +87,10 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.ClassLoaderCreator
-            public ParcelableSparseArray createFromParcel(Parcel parcel, ClassLoader classLoader) {
+            @NonNull
+            public ParcelableSparseArray createFromParcel(@NonNull Parcel parcel, ClassLoader classLoader) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, classLoader)) == null) {
@@ -107,7 +115,7 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
         }
     }
 
-    public ParcelableSparseArray(Parcel parcel, ClassLoader classLoader) {
+    public ParcelableSparseArray(@NonNull Parcel parcel, @Nullable ClassLoader classLoader) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +140,7 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             int size = size();
@@ -140,7 +148,7 @@ public class ParcelableSparseArray extends SparseArray implements Parcelable {
             Parcelable[] parcelableArr = new Parcelable[size];
             for (int i2 = 0; i2 < size; i2++) {
                 iArr[i2] = keyAt(i2);
-                parcelableArr[i2] = (Parcelable) valueAt(i2);
+                parcelableArr[i2] = valueAt(i2);
             }
             parcel.writeInt(size);
             parcel.writeIntArray(iArr);

@@ -13,10 +13,10 @@ public final class f {
     public int jH;
     public boolean jI;
     public boolean jJ;
-    public final List jK;
+    public final List<String> jK;
     public String jL;
     public String jM;
-    public List jN;
+    public List<Integer> jN;
     public boolean jO;
     public long jP;
 

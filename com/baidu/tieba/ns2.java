@@ -1,220 +1,122 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ns2 extends j53 {
+public class ns2 implements ls2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public js2 c;
-    public ts2 d;
-    public ls2 e;
-    public ks2 f;
-    public qs2 g;
-    public is2 h;
-    public rs2 i;
-    public ps2 j;
-    public ss2 k;
-    public ms2 l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns2(j43 j43Var) {
-        super(j43Var, "/swanAPI/video");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j43Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012956, "Lcom/baidu/tieba/ns2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012956, "Lcom/baidu/tieba/ns2;");
                 return;
             }
         }
+        a = ok1.a;
     }
 
-    @Override // com.baidu.tieba.j53
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m33 m33Var) {
-        InterceptResult invokeLLLL;
+    public ns2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m33Var)) == null) {
-            if (j53.b) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.j53
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m33 m33Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
+    @Override // com.baidu.tieba.ls2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decode(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Bitmap bitmap;
+        Resources resourcesForApplication;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, m33Var)) == null) {
-            m02.i("VideoPlayerAction", "handleSubAction subAction : " + str + "params : " + j53.a(unitedSchemeEntity, "params"));
-            switch (str.hashCode()) {
-                case -1701478259:
-                    if (str.equals("/swanAPI/video/pause")) {
-                        c = 4;
-                        break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                    try {
+                        i = Integer.parseInt(pathSegments.get(0));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                     }
-                    c = 65535;
-                    break;
-                case -1440375597:
-                    if (str.equals("/swanAPI/video/open")) {
-                        c = 0;
-                        break;
+                }
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } else {
+                InputStream inputStream = null;
+                if (uri2.startsWith("file:///android_asset/")) {
+                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
+                } else if (uri2.startsWith("file://")) {
+                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
+                } else {
+                    try {
+                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                        try {
+                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                            ik4.d(openInputStream);
+                            bitmap = decodeStream;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = openInputStream;
+                            ik4.d(inputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                    c = 65535;
-                    break;
-                case -1440349763:
-                    if (str.equals("/swanAPI/video/play")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440267007:
-                    if (str.equals("/swanAPI/video/seek")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440252277:
-                    if (str.equals("/swanAPI/video/stop")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1145507635:
-                    if (str.equals("/swanAPI/video/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1049743086:
-                    if (str.equals("/swanAPI/video/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -274000988:
-                    if (str.equals("/swanAPI/video/fullScreen")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 711122280:
-                    if (str.equals("/swanAPI/video/sendDanmu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1568993060:
-                    if (str.equals("/swanAPI/video/playbackRate")) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+                }
             }
-            switch (c) {
-                case 0:
-                    if (this.c == null) {
-                        this.c = new js2("/swanAPI/video/open");
-                    }
-                    c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 1:
-                    if (this.d == null) {
-                        this.d = new ts2("/swanAPI/video/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 2:
-                    if (this.j == null) {
-                        this.j = new ps2("/swanAPI/video/remove");
-                    }
-                    c2 = this.j.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 3:
-                    if (this.e == null) {
-                        this.e = new ls2("/swanAPI/video/play");
-                    }
-                    c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 4:
-                    if (this.f == null) {
-                        this.f = new ks2("/swanAPI/video/pause");
-                    }
-                    c2 = this.f.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 5:
-                    if (this.g == null) {
-                        this.g = new qs2("/swanAPI/video/seek");
-                    }
-                    c2 = this.g.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 6:
-                    if (this.h == null) {
-                        this.h = new is2("/swanAPI/video/fullScreen");
-                    }
-                    c2 = this.h.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case 7:
-                    if (this.i == null) {
-                        this.i = new rs2("/swanAPI/video/sendDanmu");
-                    }
-                    c2 = this.i.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case '\b':
-                    if (this.k == null) {
-                        this.k = new ss2("/swanAPI/video/stop");
-                    }
-                    c2 = this.k.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                case '\t':
-                    if (this.l == null) {
-                        this.l = new ms2("/swanAPI/video/playbackRate");
-                    }
-                    c2 = this.l.c(context, unitedSchemeEntity, callbackHandler, m33Var);
-                    break;
-                default:
-                    c2 = false;
-                    break;
+            if (bitmap == null) {
+                if (!a) {
+                    e12.k("SkiaImageDecoder", "bitmap is null");
+                } else {
+                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+                }
             }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, m33Var)) {
-                return false;
-            }
-            return true;
+            return bitmap;
         }
-        return invokeLLLLL.booleanValue;
+        return (Bitmap) invokeLL.objValue;
     }
 }

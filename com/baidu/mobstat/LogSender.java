@@ -51,7 +51,7 @@ public class LogSender {
     public Handler g;
 
     /* loaded from: classes2.dex */
-    public class a implements Callable {
+    public class a implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LogSender a;
@@ -204,11 +204,11 @@ public class LogSender {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList a(Context context, String str) {
+    public ArrayList<String> a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str)) == null) {
-            ArrayList arrayList = new ArrayList();
+            ArrayList<String> arrayList = new ArrayList<>();
             if (context == null) {
                 return arrayList;
             }
@@ -259,7 +259,7 @@ public class LogSender {
                 }
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        Arrays.sort(strArr, new Comparator(this) { // from class: com.baidu.mobstat.LogSender.4
+                        Arrays.sort(strArr, new Comparator<String>(this) { // from class: com.baidu.mobstat.LogSender.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LogSender a;
@@ -598,13 +598,13 @@ public class LogSender {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{context, Long.valueOf(j), str}) == null) {
-            ArrayList a2 = a(context, str);
+            ArrayList<String> a2 = a(context, str);
             size = a2.size() - 1;
             j2 = 0;
             fileInputStream = null;
             while (size >= 0) {
                 try {
-                    fileInputStream = context.openFileInput((String) a2.get(size));
+                    fileInputStream = context.openFileInput(a2.get(size));
                     j2 += fileInputStream.available();
                 } catch (Exception unused) {
                 } catch (Throwable th) {
@@ -618,7 +618,7 @@ public class LogSender {
                 }
             }
             for (i = 0; i <= size; i++) {
-                bn.b(context, (String) a2.get(i));
+                bn.b(context, a2.get(i));
             }
         }
         return;

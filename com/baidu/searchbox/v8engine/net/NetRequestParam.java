@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
+@NotProguard
 /* loaded from: classes2.dex */
 public class NetRequestParam implements IHeaderMap {
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +47,7 @@ public class NetRequestParam implements IHeaderMap {
 
     /* renamed from: com.baidu.searchbox.v8engine.net.NetRequestParam$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -63,7 +65,7 @@ public class NetRequestParam implements IHeaderMap {
     private native void nativeSetUrl(long j, String str);
 
     /* loaded from: classes2.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetRequestParam mNetRequestParam;
@@ -153,12 +155,12 @@ public class NetRequestParam implements IHeaderMap {
             return this;
         }
 
-        public Builder setHeaderMap(Map map) {
+        public Builder setHeaderMap(Map<String, String> map) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    this.mNetRequestParam.mHeaderMap.addHeader((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    this.mNetRequestParam.mHeaderMap.addHeader(entry.getKey(), entry.getValue());
                 }
                 return this;
             }
@@ -167,10 +169,10 @@ public class NetRequestParam implements IHeaderMap {
     }
 
     /* loaded from: classes2.dex */
-    public class HeaderMap implements IHeaderMap {
+    public static class HeaderMap implements IHeaderMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map mMap;
+        public Map<String, String> mMap;
         public long mNativePtr;
 
         private native void nativeAddHeader(long j, String str, String str2);
@@ -208,7 +210,7 @@ public class NetRequestParam implements IHeaderMap {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                String str2 = (String) this.mMap.get(str);
+                String str2 = this.mMap.get(str);
                 if (str2 != null) {
                     return str2;
                 }
@@ -226,7 +228,7 @@ public class NetRequestParam implements IHeaderMap {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (((String) this.mMap.get(str)) != null) {
+                if (this.mMap.get(str) != null) {
                     return true;
                 }
                 long j = this.mNativePtr;
@@ -263,7 +265,7 @@ public class NetRequestParam implements IHeaderMap {
         }
 
         @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-        public Map getTransformedHeaderMap() {
+        public Map<String, String> getTransformedHeaderMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -360,7 +362,7 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    public static Map stringPairToMap(String[] strArr) {
+    public static Map<String, String> stringPairToMap(String[] strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, strArr)) == null) {
@@ -513,7 +515,7 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    private Map getJavaHeaderMap() {
+    private Map<String, String> getJavaHeaderMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
@@ -594,7 +596,7 @@ public class NetRequestParam implements IHeaderMap {
     }
 
     @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
-    public Map getTransformedHeaderMap() {
+    public Map<String, String> getTransformedHeaderMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {

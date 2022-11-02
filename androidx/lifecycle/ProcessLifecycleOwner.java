@@ -6,6 +6,9 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class ProcessLifecycleOwner implements LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final long TIMEOUT_MS = 700;
     public static final ProcessLifecycleOwner sInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,6 +51,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         sInstance = new ProcessLifecycleOwner();
     }
 
+    @NonNull
     public static LifecycleOwner get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,6 +125,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     }
 
     @Override // androidx.lifecycle.LifecycleOwner
+    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -287,7 +293,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityPreCreated(Activity activity, Bundle bundle) {
+                public void onActivityPreCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
                         activity.registerActivityLifecycleCallbacks(new EmptyActivityLifecycleCallbacks(this) { // from class: androidx.lifecycle.ProcessLifecycleOwner.3.1
@@ -314,7 +320,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                             }
 
                             @Override // android.app.Application.ActivityLifecycleCallbacks
-                            public void onActivityPostResumed(Activity activity2) {
+                            public void onActivityPostResumed(@NonNull Activity activity2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, activity2) == null) {
                                     this.this$1.this$0.activityResumed();
@@ -322,7 +328,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                             }
 
                             @Override // android.app.Application.ActivityLifecycleCallbacks
-                            public void onActivityPostStarted(Activity activity2) {
+                            public void onActivityPostStarted(@NonNull Activity activity2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity2) == null) {
                                     this.this$1.this$0.activityStarted();

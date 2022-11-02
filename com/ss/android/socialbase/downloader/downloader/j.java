@@ -11,7 +11,7 @@ public interface j {
 
     DownloadInfo a(int i, long j, String str, String str2);
 
-    List a(String str);
+    List<DownloadInfo> a(String str);
 
     void a(int i, int i2, int i3, int i4);
 
@@ -19,11 +19,11 @@ public interface j {
 
     void a(int i, int i2, long j);
 
-    void a(int i, List list);
+    void a(int i, List<com.ss.android.socialbase.downloader.model.b> list);
 
     void a(com.ss.android.socialbase.downloader.model.b bVar);
 
-    boolean a(int i, Map map);
+    boolean a(int i, Map<Long, com.ss.android.socialbase.downloader.f.i> map);
 
     boolean a(DownloadInfo downloadInfo);
 
@@ -31,11 +31,11 @@ public interface j {
 
     DownloadInfo b(int i, long j);
 
-    List b();
+    List<DownloadInfo> b();
 
-    List b(String str);
+    List<DownloadInfo> b(String str);
 
-    void b(int i, List list);
+    void b(int i, List<com.ss.android.socialbase.downloader.model.b> list);
 
     void b(DownloadInfo downloadInfo);
 
@@ -43,15 +43,15 @@ public interface j {
 
     DownloadInfo c(int i, long j);
 
-    List c(int i);
+    List<com.ss.android.socialbase.downloader.model.b> c(int i);
 
-    List c(String str);
+    List<DownloadInfo> c(String str);
 
     void c();
 
     DownloadInfo d(int i, long j);
 
-    List d(String str);
+    List<DownloadInfo> d(String str);
 
     void d(int i);
 
@@ -71,9 +71,9 @@ public interface j {
 
     DownloadInfo j(int i);
 
-    Map l(int i);
+    Map<Long, com.ss.android.socialbase.downloader.f.i> l(int i);
 
     void m(int i);
 
-    List n(int i);
+    List<com.ss.android.socialbase.downloader.f.i> n(int i);
 }

@@ -1,5 +1,6 @@
 package com.baidu.nadcore.widget;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -26,7 +27,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.l71;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,18 +58,18 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public float o;
     public float p;
     public e q;
-    public final t61 r;
+    public final l71 r;
     public double s;
     public double t;
     public boolean u;
     public boolean v;
     public boolean w;
     public final Rect x;
-    public final ArrayList y;
+    public final ArrayList<c> y;
     public boolean z;
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -96,14 +97,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public abstract void w(boolean z);
 
     /* loaded from: classes2.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isOpen;
 
         /* loaded from: classes2.dex */
-        public final class a implements Parcelable.Creator {
+        public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -224,7 +225,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] e;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,7 +485,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class d extends t61.c {
+    public class d extends l71.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -508,7 +509,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             this.b = slidingPaneLayout;
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public int d(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -522,7 +523,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             this(slidingPaneLayout);
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public void g(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -533,7 +534,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public void j(View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
@@ -541,7 +542,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public boolean n(View view2, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -557,7 +558,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return invokeLI.booleanValue;
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public int a(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
@@ -568,7 +569,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return invokeLII.intValue;
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -578,7 +579,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return this.b.f;
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public void k(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && this.b.r.y() == 0) {
@@ -596,7 +597,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public void l(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -606,7 +607,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.t61.c
+        @Override // com.baidu.tieba.l71.c
         public void m(View view2, float f, float f2) {
             int i;
             Interceptable interceptable = $ic;
@@ -636,7 +637,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class g implements f {
+    public static class g implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -664,7 +665,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class h extends g {
+    public static class h extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -761,9 +762,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 return false;
             }
             int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.h.getLayoutParams())).leftMargin + (f2 * this.k));
-            t61 t61Var = this.r;
+            l71 l71Var = this.r;
             View view2 = this.h;
-            if (!t61Var.L(view2, paddingLeft, view2.getTop())) {
+            if (!l71Var.L(view2, paddingLeft, view2.getTop())) {
                 return false;
             }
             G();
@@ -799,7 +800,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.u = true;
         this.w = true;
         this.x = new Rect();
-        this.y = new ArrayList();
+        this.y = new ArrayList<>();
         this.z = true;
         float f2 = context.getResources().getDisplayMetrics().density;
         this.d = 5;
@@ -807,13 +808,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         setWillNotDraw(false);
         ViewCompat.setAccessibilityDelegate(this, new b(this));
         ViewCompat.setImportantForAccessibility(this, 1);
-        t61 m = t61.m(this, 0.5f, new d(this, null));
+        l71 m = l71.m(this, 0.5f, new d(this, null));
         this.r = m;
         m.H(1);
         this.r.I(f2 * 400.0f);
     }
 
     @Override // android.view.ViewGroup
+    @SuppressLint({"ObsoleteSdkInt"})
     public boolean drawChild(Canvas canvas, View view2, long j) {
         InterceptResult invokeCommon;
         boolean drawChild;
@@ -1184,7 +1186,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             this.w = true;
             int size = this.y.size();
             for (int i = 0; i < size; i++) {
-                ((c) this.y.get(i)).run();
+                this.y.get(i).run();
             }
             this.y.clear();
         }
@@ -1515,6 +1517,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     @Override // android.view.View
+    @SuppressLint({"BDThrowableCheck"})
     public void onMeasure(int i, int i2) {
         int paddingTop;
         int i3;

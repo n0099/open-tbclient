@@ -2,6 +2,7 @@ package com.baidu.searchbox.fluency.ubc;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
+@Service
 /* loaded from: classes2.dex */
 public class FpsPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;

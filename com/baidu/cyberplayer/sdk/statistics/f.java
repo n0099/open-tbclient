@@ -16,7 +16,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-    public List b;
+    public List<c> b;
     public c c;
 
     public f(int i) {
@@ -53,7 +53,7 @@ public class f {
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.b.size(); i++) {
                 JSONObject jSONObject2 = new JSONObject();
-                if (((c) this.b.get(i)).a(jSONObject2) != null) {
+                if (this.b.get(i).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }

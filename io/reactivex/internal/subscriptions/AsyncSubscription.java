@@ -16,8 +16,8 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7028635084060361255L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference actual;
-    public final AtomicReference resource;
+    public final AtomicReference<Subscription> actual;
+    public final AtomicReference<Disposable> resource;
 
     public AsyncSubscription() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class AsyncSubscription extends AtomicLong implements Subscription,
                 return;
             }
         }
-        this.resource = new AtomicReference();
-        this.actual = new AtomicReference();
+        this.resource = new AtomicReference<>();
+        this.actual = new AtomicReference<>();
     }
 
     @Override // org.reactivestreams.Subscription

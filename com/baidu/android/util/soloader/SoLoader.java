@@ -44,9 +44,9 @@ public final class SoLoader implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "SoLoader";
-    public static Map releaseSoLockMap;
-    public static final Set sLoadedLibraries;
-    public static final List soSources;
+    public static Map<String, WeakReference<Lock>> releaseSoLockMap;
+    public static final Set<String> sLoadedLibraries;
+    public static final List<File> soSources;
     public transient /* synthetic */ FieldHolder $fh;
     public StringBuilder sb;
 
@@ -100,6 +100,8 @@ public final class SoLoader implements NoProGuard {
         this.sb = new StringBuilder();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
+    /* JADX WARN: Multi-variable type inference failed */
     private void addLocalSoLibraryDirectory(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
@@ -272,10 +274,10 @@ public final class SoLoader implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             synchronized (SoLoader.class) {
-                WeakReference weakReference = (WeakReference) releaseSoLockMap.get(str);
-                if (weakReference == null || (reentrantLock = (Lock) weakReference.get()) == null) {
+                WeakReference<Lock> weakReference = releaseSoLockMap.get(str);
+                if (weakReference == null || (reentrantLock = weakReference.get()) == null) {
                     reentrantLock = new ReentrantLock();
-                    releaseSoLockMap.put(str, new WeakReference(reentrantLock));
+                    releaseSoLockMap.put(str, new WeakReference<>(reentrantLock));
                 }
             }
             return reentrantLock;
@@ -290,7 +292,7 @@ public final class SoLoader implements NoProGuard {
             String fullName = SoUtils.getFullName(str);
             try {
                 if (soSources.size() != 0 && 0 < soSources.size()) {
-                    return new File((File) soSources.get(0), fullName);
+                    return new File(soSources.get(0), fullName);
                 }
                 return null;
             } catch (Exception e) {

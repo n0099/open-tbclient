@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
@@ -41,7 +42,7 @@ public final class i {
         }
     }
 
-    public static List a() {
+    public static List<String> a() {
         AssetManager assetManager;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +58,7 @@ public final class i {
         return (List) invokeV.objValue;
     }
 
-    public static List a(AssetManager assetManager) {
+    public static List<String> a(AssetManager assetManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, assetManager)) == null) {
@@ -125,6 +126,7 @@ public final class i {
         return invokeLL.booleanValue;
     }
 
+    @RequiresApi(api = 21)
     public static String[] a(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         String[] strArr;
@@ -172,7 +174,7 @@ public final class i {
         return (String) invokeL.objValue;
     }
 
-    public static List b() {
+    public static List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {

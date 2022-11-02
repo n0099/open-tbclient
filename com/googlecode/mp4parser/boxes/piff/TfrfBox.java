@@ -26,7 +26,7 @@ public class TfrfBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entries;
+    public List<Entry> entries;
 
     /* loaded from: classes7.dex */
     public class Entry {
@@ -115,7 +115,7 @@ public class TfrfBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

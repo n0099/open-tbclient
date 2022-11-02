@@ -1,10 +1,12 @@
 package android.support.v4.media;
 
+import android.annotation.SuppressLint;
 import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,10 +18,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+@SuppressLint({"BanParcelableUsage"})
 /* loaded from: classes.dex */
 public final class RatingCompat implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<RatingCompat> CREATOR;
     public static final int RATING_3_STARS = 3;
     public static final int RATING_4_STARS = 4;
     public static final int RATING_5_STARS = 5;
@@ -35,11 +38,13 @@ public final class RatingCompat implements Parcelable {
     public final float mRatingValue;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     /* loaded from: classes.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface Style {
     }
@@ -57,7 +62,7 @@ public final class RatingCompat implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: android.support.v4.media.RatingCompat.1
+        CREATOR = new Parcelable.Creator<RatingCompat>() { // from class: android.support.v4.media.RatingCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,6 +81,7 @@ public final class RatingCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RatingCompat createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -87,6 +93,7 @@ public final class RatingCompat implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public RatingCompat[] newArray(int i) {
                 InterceptResult invokeI;

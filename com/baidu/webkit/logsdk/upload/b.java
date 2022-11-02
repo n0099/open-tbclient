@@ -14,14 +14,15 @@ import java.net.URLEncoder;
 import java.util.ConcurrentModificationException;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public ConcurrentHashMap b;
+    public ConcurrentHashMap<Long, a> b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,7 +37,7 @@ public final class b {
                 return;
             }
         }
-        this.b = new ConcurrentHashMap();
+        this.b = new ConcurrentHashMap<>();
     }
 
     public static JSONObject a(a aVar, long j) {
@@ -93,40 +94,40 @@ public final class b {
                     if ("full".equals(d.a)) {
                         str = g.a(context, str3);
                     } else {
-                        HashSet hashSet = d.b;
+                        HashSet<String> hashSet = d.b;
                         if (hashSet != null) {
                             StringBuilder sb = new StringBuilder(str3);
                             if (!hashSet.isEmpty() && str3.indexOf("?") < 0) {
                                 sb.append("?");
                             }
                             com.baidu.webkit.logsdk.b c = com.baidu.webkit.logsdk.a.b.a().c();
-                            Iterator it = hashSet.iterator();
+                            Iterator<String> it = hashSet.iterator();
                             String str5 = "";
                             String str6 = "";
                             String str7 = str6;
                             String str8 = str7;
                             while (it.hasNext()) {
-                                String str9 = (String) it.next();
-                                Iterator it2 = it;
-                                String a3 = g.a(str9, context, c);
-                                if ("ua".equals(str9)) {
+                                String next = it.next();
+                                Iterator<String> it2 = it;
+                                String a3 = g.a(next, context, c);
+                                if ("ua".equals(next)) {
                                     str6 = a3;
-                                } else if ("cuid".equals(str9)) {
+                                } else if ("cuid".equals(next)) {
                                     str7 = a3;
-                                } else if ("uid".equals(str9)) {
+                                } else if ("uid".equals(next)) {
                                     str8 = a3;
                                 }
                                 if (TextUtils.isEmpty(a3)) {
-                                    int a4 = g.a(str9, context);
+                                    int a4 = g.a(next, context);
                                     if (a4 > 0) {
                                         sb.append("&");
-                                        sb.append(str9);
+                                        sb.append(next);
                                         sb.append("=");
                                         sb.append(a4);
                                     }
                                 } else {
                                     sb.append("&");
-                                    sb.append(str9);
+                                    sb.append(next);
                                     sb.append("=");
                                     sb.append(a3);
                                 }
@@ -213,7 +214,7 @@ public final class b {
             c.e("BdLogSDK", "isNetTaskAllComplete = " + this.b.isEmpty());
             try {
                 if (com.baidu.webkit.logsdk.a.a && !this.b.isEmpty()) {
-                    Iterator it = this.b.entrySet().iterator();
+                    Iterator<Map.Entry<Long, a>> it = this.b.entrySet().iterator();
                     while (it.hasNext()) {
                         c.e("BdLogSDK", "inComplete NetTask = " + it.next());
                     }

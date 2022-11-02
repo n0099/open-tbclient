@@ -13,6 +13,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,7 +57,7 @@ public abstract class JobIntentService extends Service {
         Intent getIntent();
     }
 
-    public abstract void onHandleWork(Intent intent);
+    public abstract void onHandleWork(@NonNull Intent intent);
 
     public boolean onStopCurrentWork() {
         InterceptResult invokeV;
@@ -65,6 +68,7 @@ public abstract class JobIntentService extends Service {
         return invokeV.booleanValue;
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static final class JobServiceEngineImpl extends JobServiceEngine implements CompatJobEngine {
         public static /* synthetic */ Interceptable $ic = null;
@@ -410,6 +414,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes.dex */
     public static final class JobWorkEnqueuer extends WorkEnqueuer {
         public static /* synthetic */ Interceptable $ic;
@@ -635,7 +640,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    public static void enqueueWork(Context context, ComponentName componentName, int i, Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull ComponentName componentName, int i, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65538, null, context, componentName, i, intent) == null) {
             if (intent != null) {
@@ -650,7 +655,7 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    public static void enqueueWork(Context context, Class<?> cls, int i, Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull Class<?> cls, int i, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(65539, null, context, cls, i, intent) == null) {
             enqueueWork(context, new ComponentName(context, cls), i, intent);
@@ -695,7 +700,7 @@ public abstract class JobIntentService extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, intent)) == null) {
@@ -716,7 +721,7 @@ public abstract class JobIntentService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(@Nullable Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {

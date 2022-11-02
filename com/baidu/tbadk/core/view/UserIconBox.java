@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vg;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.ng;
+import com.baidu.tieba.og;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vg<TbImageView> a;
+    public ng<TbImageView> a;
     public Context b;
     public boolean c;
     public int d;
@@ -34,8 +34,8 @@ public class UserIconBox extends LinearLayout {
     public boolean f;
 
     /* loaded from: classes3.dex */
-    public interface c {
-        vg H();
+    public interface c<T extends View> {
+        ng<TbImageView> H();
     }
 
     /* loaded from: classes3.dex */
@@ -79,7 +79,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public final class b implements wg {
+    public static class b implements og<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -108,22 +108,26 @@ public class UserIconBox extends LinearLayout {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.wg
-        public /* bridge */ /* synthetic */ Object a(Object obj) {
-            TbImageView tbImageView = (TbImageView) obj;
-            e(tbImageView);
-            return tbImageView;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.og
+        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
+            TbImageView tbImageView2 = tbImageView;
+            e(tbImageView2);
+            return tbImageView2;
         }
 
-        @Override // com.baidu.tieba.wg
-        public /* bridge */ /* synthetic */ Object c(Object obj) {
-            TbImageView tbImageView = (TbImageView) obj;
-            h(tbImageView);
-            return tbImageView;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.og
+        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
+            TbImageView tbImageView2 = tbImageView;
+            h(tbImageView2);
+            return tbImageView2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wg
+        @Override // com.baidu.tieba.og
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -149,7 +153,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wg
+        @Override // com.baidu.tieba.og
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -237,9 +241,9 @@ public class UserIconBox extends LinearLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            vg<TbImageView> vgVar = this.a;
-            if (vgVar != null) {
-                tbImageView = vgVar.b();
+            ng<TbImageView> ngVar = this.a;
+            if (ngVar != null) {
+                tbImageView = ngVar.b();
             } else {
                 tbImageView = null;
             }
@@ -285,13 +289,13 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public static vg<TbImageView> c(Context context, int i) {
+    public static ng<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            return new vg<>(new b(context), i, 0);
+            return new ng<>(new b(context), i, 0);
         }
-        return (vg) invokeLI.objValue;
+        return (ng) invokeLI.objValue;
     }
 
     public final LinearLayout.LayoutParams e(int i, int i2, int i3) {
@@ -353,7 +357,7 @@ public class UserIconBox extends LinearLayout {
                             tbImageView.setClickable(false);
                             tbImageView.setAutoChangeStyle(this.c);
                             tbImageView.setImageDrawable(null);
-                            tbImageView.H(list.get(i5).getIcon(), 21, i2, i3, false);
+                            tbImageView.G(list.get(i5).getIcon(), 21, i2, i3, false);
                         }
                     }
                 }

@@ -10,25 +10,32 @@ import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
+import kotlin.jvm.JvmField;
 import kotlinx.coroutines.AbstractCoroutine;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CoroutineExceptionHandlerKt;
 import kotlinx.coroutines.Dispatchers;
+import kotlinx.coroutines.InternalCoroutinesApi;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.intrinsics.CancellableKt;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+@InternalCoroutinesApi
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u00022\u00020\u0003B%\u0012\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u0012\u0012\u000e\u0010\u0016\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u0015¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0013\u0010\u0007\u001a\u00020\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\bJ\u0013\u0010\t\u001a\u00020\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\t\u0010\bJ\u000f\u0010\n\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\n\u0010\u0006J\u0017\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0010\u001a\u00020\u0004*\b\u0012\u0004\u0012\u00020\u00040\u000fH\u0002¢\u0006\u0004\b\u0010\u0010\u0011R\u001c\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00000\u00128\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u001e\u0010\u0016\u001a\n\u0012\u0006\b\u0000\u0012\u00028\u00000\u00158\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001a"}, d2 = {"Lkotlinx/coroutines/reactive/FlowSubscription;", ExifInterface.GPS_DIRECTION_TRUE, "Lorg/reactivestreams/Subscription;", "Lkotlinx/coroutines/AbstractCoroutine;", "", "cancel", "()V", "consumeFlow", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "flowProcessing", "onStart", "", "n", "request", "(J)V", "Lkotlinx/coroutines/CancellableContinuation;", "resumeSafely", "(Lkotlinx/coroutines/CancellableContinuation;)V", "Lkotlinx/coroutines/flow/Flow;", "flow", "Lkotlinx/coroutines/flow/Flow;", "Lorg/reactivestreams/Subscriber;", "subscriber", "Lorg/reactivestreams/Subscriber;", "<init>", "(Lkotlinx/coroutines/flow/Flow;Lorg/reactivestreams/Subscriber;)V", "kotlinx-coroutines-reactive"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowSubscription extends AbstractCoroutine implements Subscription {
-    public final Flow flow;
+public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implements Subscription {
+    @JvmField
+    public final Flow<T> flow;
     public volatile Object producer;
     public volatile long requested;
-    public final Subscriber subscriber;
+    @JvmField
+    public final Subscriber<? super T> subscriber;
     public static final AtomicLongFieldUpdater requested$FU = AtomicLongFieldUpdater.newUpdater(FlowSubscription.class, "requested");
     public static final AtomicReferenceFieldUpdater producer$FU = AtomicReferenceFieldUpdater.newUpdater(FlowSubscription.class, Object.class, "producer");
 
-    public FlowSubscription(Flow flow, Subscriber subscriber) {
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlinx.coroutines.flow.Flow<? extends T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public FlowSubscription(Flow<? extends T> flow, Subscriber<? super T> subscriber) {
         super(Dispatchers.getUnconfined(), false);
         this.flow = flow;
         this.subscriber = subscriber;
@@ -37,14 +44,14 @@ public final class FlowSubscription extends AbstractCoroutine implements Subscri
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void resumeSafely(CancellableContinuation cancellableContinuation) {
+    public final void resumeSafely(CancellableContinuation<? super Unit> cancellableContinuation) {
         Object tryResume$default = CancellableContinuation.DefaultImpls.tryResume$default(cancellableContinuation, Unit.INSTANCE, null, 2, null);
         if (tryResume$default != null) {
             cancellableContinuation.completeResume(tryResume$default);
         }
     }
 
-    public final /* synthetic */ Object consumeFlow(Continuation continuation) {
+    public final /* synthetic */ Object consumeFlow(Continuation<? super Unit> continuation) {
         Object collect = this.flow.collect(new FlowSubscription$consumeFlow$$inlined$collect$1(this), continuation);
         if (collect == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             return collect;
@@ -67,7 +74,7 @@ public final class FlowSubscription extends AbstractCoroutine implements Subscri
                 j3 = Long.MAX_VALUE;
             }
         } while (!requested$FU.compareAndSet(this, j2, j3));
-        CancellableContinuation cancellableContinuation = (CancellableContinuation) producer$FU.getAndSet(this, null);
+        CancellableContinuation<? super Unit> cancellableContinuation = (CancellableContinuation) producer$FU.getAndSet(this, null);
         if (cancellableContinuation != null) {
             resumeSafely(cancellableContinuation);
         }
@@ -94,10 +101,10 @@ public final class FlowSubscription extends AbstractCoroutine implements Subscri
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final /* synthetic */ Object flowProcessing(Continuation continuation) {
+    public final /* synthetic */ Object flowProcessing(Continuation<? super Unit> continuation) {
         FlowSubscription$flowProcessing$1 flowSubscription$flowProcessing$1;
         int i;
-        FlowSubscription flowSubscription;
+        FlowSubscription<T> flowSubscription;
         if (continuation instanceof FlowSubscription$flowProcessing$1) {
             flowSubscription$flowProcessing$1 = (FlowSubscription$flowProcessing$1) continuation;
             int i2 = flowSubscription$flowProcessing$1.label;

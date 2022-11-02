@@ -18,9 +18,9 @@ import java.util.Hashtable;
 public class GeneralProxy {
     public static /* synthetic */ Interceptable $ic;
     public static Object OBJ_KEY;
-    public static Hashtable configToolContainer;
+    public static Hashtable<String, GeneralConfigTool> configToolContainer;
     public static FlushManager mFlushManager;
-    public static Hashtable statisToolContainer;
+    public static Hashtable<String, GeneralStatisTool> statisToolContainer;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +36,8 @@ public class GeneralProxy {
                 return;
             }
         }
-        statisToolContainer = new Hashtable();
-        configToolContainer = new Hashtable();
+        statisToolContainer = new Hashtable<>();
+        configToolContainer = new Hashtable<>();
         OBJ_KEY = FlushManager.class;
     }
 
@@ -60,13 +60,13 @@ public class GeneralProxy {
         if (interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) {
             synchronized (GeneralProxy.class) {
                 try {
-                    Enumeration elements = statisToolContainer.elements();
+                    Enumeration<GeneralStatisTool> elements = statisToolContainer.elements();
                     while (elements.hasMoreElements()) {
-                        GeneralStatisTool generalStatisTool = (GeneralStatisTool) elements.nextElement();
+                        GeneralStatisTool nextElement = elements.nextElement();
                         if (z) {
-                            generalStatisTool.getTaskManager().flush(context);
+                            nextElement.getTaskManager().flush(context);
                         } else {
-                            generalStatisTool.getTaskManager().enableSend(z);
+                            nextElement.getTaskManager().enableSend(z);
                         }
                     }
                 } catch (Throwable th) {
@@ -90,9 +90,9 @@ public class GeneralProxy {
                     return;
                 }
             }
-            Enumeration elements = statisToolContainer.elements();
+            Enumeration<GeneralStatisTool> elements = statisToolContainer.elements();
             while (elements.hasMoreElements()) {
-                ((GeneralStatisTool) elements.nextElement()).getTaskManager().flush(context);
+                elements.nextElement().getTaskManager().flush(context);
             }
         }
     }
@@ -101,7 +101,7 @@ public class GeneralProxy {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, abstractConfig)) == null) {
-            GeneralConfigTool generalConfigTool = (GeneralConfigTool) configToolContainer.get(abstractConfig.getConfigKey());
+            GeneralConfigTool generalConfigTool = configToolContainer.get(abstractConfig.getConfigKey());
             if (generalConfigTool == null) {
                 GeneralConfigTool generalConfigTool2 = new GeneralConfigTool(context, abstractConfig);
                 configToolContainer.put(abstractConfig.getConfigKey(), generalConfigTool2);
@@ -151,7 +151,7 @@ public class GeneralProxy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, abstractConfig)) == null) {
             initFlushManager(context);
-            GeneralStatisTool generalStatisTool = (GeneralStatisTool) statisToolContainer.get(abstractConfig.getConfigKey());
+            GeneralStatisTool generalStatisTool = statisToolContainer.get(abstractConfig.getConfigKey());
             if (generalStatisTool == null) {
                 GeneralStatisTool generalStatisTool2 = new GeneralStatisTool(context, abstractConfig);
                 statisToolContainer.put(abstractConfig.getConfigKey(), generalStatisTool2);

@@ -19,10 +19,10 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int objType;
-    public List sortTypeList;
+    public List<String> sortTypeList;
     public int tabId;
     public String tabName;
     public int tabType;
@@ -38,7 +38,7 @@ public class SpecialLiveTabInfo implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

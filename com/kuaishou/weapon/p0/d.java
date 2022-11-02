@@ -26,7 +26,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public abstract class a {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
@@ -52,7 +52,7 @@ public class d {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends a {
+    public static class b extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] f;
         public static final int[] g;
@@ -238,7 +238,7 @@ public class d {
     }
 
     /* loaded from: classes7.dex */
-    public class c extends a {
+    public static class c extends a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int j = 19;
         public static final byte[] k;

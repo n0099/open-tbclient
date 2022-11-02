@@ -15,8 +15,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.vh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,13 +45,13 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        o = wj1.a;
+        o = ok1.a;
     }
 
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0909fa).setBottom(dh3.O(191.0f));
+            findViewById(R.id.obfuscated_res_0x7f090a0d).setBottom(vh3.O(191.0f));
         }
     }
 
@@ -203,7 +203,7 @@ public class FloatButton extends FullScreenFloatView {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) != null) || drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0909fa);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090a0d);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
@@ -212,7 +212,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonStyle(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909fa);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a0d);
             String str = "#4E4E4E";
             if (jSONObject != null) {
                 str = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "#4E4E4E");

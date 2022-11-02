@@ -2,6 +2,8 @@ package com.google.android.material.theme;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatViewInflater;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.AppCompatButton;
@@ -39,7 +41,8 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    public AppCompatAutoCompleteTextView createAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+    @NonNull
+    public AppCompatAutoCompleteTextView createAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) {
@@ -49,7 +52,8 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
-    public AppCompatButton createButton(Context context, AttributeSet attributeSet) {
+    @NonNull
+    public AppCompatButton createButton(@NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
@@ -59,6 +63,7 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
+    @NonNull
     public AppCompatCheckBox createCheckBox(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -69,6 +74,7 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
+    @NonNull
     public AppCompatRadioButton createRadioButton(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -79,6 +85,7 @@ public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     }
 
     @Override // androidx.appcompat.app.AppCompatViewInflater
+    @NonNull
     public AppCompatTextView createTextView(Context context, AttributeSet attributeSet) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

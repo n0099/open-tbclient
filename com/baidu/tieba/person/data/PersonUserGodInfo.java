@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
+import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 import tbclient.Profile.UserGodInfo;
 /* loaded from: classes5.dex */
@@ -17,7 +18,7 @@ public class PersonUserGodInfo implements Serializable {
     public static final int USER_GOD_TYPE_SINGLE = 2;
     public static final long serialVersionUID = -1538103146882985197L;
     public transient /* synthetic */ FieldHolder $fh;
-    public List forumGodList;
+    public List<ForumGodDetailInfo> forumGodList;
     public GodDetailInfo godDetailInfo;
     public int godType;
     public int sex;
@@ -36,7 +37,7 @@ public class PersonUserGodInfo implements Serializable {
         }
     }
 
-    public List getForumGodList() {
+    public List<ForumGodDetailInfo> getForumGodList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

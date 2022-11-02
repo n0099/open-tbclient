@@ -11,6 +11,8 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
+import javax.annotation.concurrent.Immutable;
+@Immutable
 /* loaded from: classes7.dex */
 public class PoolConfig {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,13 +34,13 @@ public class PoolConfig {
 
     /* renamed from: com.facebook.imagepipeline.memory.PoolConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mBitmapPoolMaxBitmapSize;

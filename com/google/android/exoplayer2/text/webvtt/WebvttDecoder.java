@@ -26,7 +26,7 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final CssParser cssParser;
     public final WebvttCueParser cueParser;
-    public final List definedStyles;
+    public final List<WebvttCssStyle> definedStyles;
     public final ParsableByteArray parsableWebvttData;
     public final WebvttCue.Builder webvttCueBuilder;
 

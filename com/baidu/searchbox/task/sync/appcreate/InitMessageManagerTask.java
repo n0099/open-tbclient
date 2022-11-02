@@ -29,24 +29,24 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ge5;
+import com.baidu.tieba.cf5;
+import com.baidu.tieba.cw8;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.ef5;
+import com.baidu.tieba.ff5;
+import com.baidu.tieba.fp4;
+import com.baidu.tieba.gf5;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.he5;
-import com.baidu.tieba.ib;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.je5;
-import com.baidu.tieba.jo8;
-import com.baidu.tieba.jw6;
-import com.baidu.tieba.ke5;
-import com.baidu.tieba.kw6;
-import com.baidu.tieba.le5;
+import com.baidu.tieba.hb;
+import com.baidu.tieba.hf5;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.no4;
-import com.baidu.tieba.pb;
-import com.baidu.tieba.re5;
-import com.baidu.tieba.tu8;
-import com.baidu.tieba.zh5;
-import com.baidu.tieba.zs4;
+import com.baidu.tieba.nf5;
+import com.baidu.tieba.ob;
+import com.baidu.tieba.qt4;
+import com.baidu.tieba.sp8;
+import com.baidu.tieba.sx6;
+import com.baidu.tieba.tx6;
+import com.baidu.tieba.wi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,12 +117,12 @@ public class InitMessageManagerTask extends LaunchTask {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jo8)) {
-                    jo8 jo8Var = (jo8) customResponsedMessage.getData();
-                    DescriptionTableInfo.setModuleSet(jo8Var.a);
-                    DescriptionTableInfo.setDescriptionTable(jo8Var.b);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof sp8)) {
+                    sp8 sp8Var = (sp8) customResponsedMessage.getData();
+                    DescriptionTableInfo.setModuleSet(sp8Var.a);
+                    DescriptionTableInfo.setDescriptionTable(sp8Var.b);
                 }
             }
         };
@@ -154,7 +154,7 @@ public class InitMessageManagerTask extends LaunchTask {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage customResponsedMessage) {
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Integer num;
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || (num = (Integer) customResponsedMessage.getData()) == null) {
@@ -177,15 +177,15 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             ReloginManager.g().k();
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.addMessageRule(new le5(0));
-            messageManager.addMessageRule(new ie5(0));
-            messageManager.addResponsedMessageRule(new ke5(0));
-            messageManager.addRemovedMessageRule(new je5(0));
-            messageManager.addResponsedMessageRule(new kw6());
-            messageManager.addResponsedMessageRule(new jw6());
-            messageManager.addResponsedMessageRule(new ge5());
-            messageManager.addResponsedMessageRule(new he5());
-            messageManager.addResponsedMessageRule(new tu8());
+            messageManager.addMessageRule(new hf5(0));
+            messageManager.addMessageRule(new ef5(0));
+            messageManager.addResponsedMessageRule(new gf5(0));
+            messageManager.addRemovedMessageRule(new ff5(0));
+            messageManager.addResponsedMessageRule(new tx6());
+            messageManager.addResponsedMessageRule(new sx6());
+            messageManager.addResponsedMessageRule(new cf5());
+            messageManager.addResponsedMessageRule(new df5());
+            messageManager.addResponsedMessageRule(new cw8());
         }
     }
 
@@ -194,9 +194,9 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             MessageManager.getInstance().registerListener(this.mDescriptionTableFixListener);
             try {
-                zh5.b().e();
+                wi5.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    no4.d().f();
+                    fp4.d().f();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -208,7 +208,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void initInterruptRule() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            MessageManager.getInstance().addMessageRule(new ib(this, 0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.2
+            MessageManager.getInstance().addMessageRule(new hb(this, 0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -235,7 +235,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.kb
+                @Override // com.baidu.tieba.jb
                 public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -248,7 +248,7 @@ public class InitMessageManagerTask extends LaunchTask {
                     return (HttpMessage) invokeLL.objValue;
                 }
             });
-            MessageManager.getInstance().addMessageRule(new pb(this, 0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.3
+            MessageManager.getInstance().addMessageRule(new ob(this, 0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -275,7 +275,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.kb
+                @Override // com.baidu.tieba.jb
                 public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -294,7 +294,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void registeDealIntentTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            re5 re5Var = new re5(2012000, new CustomMessageTask.CustomRunnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
+            nf5 nf5Var = new nf5(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -318,7 +318,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage run(CustomMessage customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
                     InterceptResult invokeL;
                     Context b;
                     Interceptable interceptable2 = $ic;
@@ -328,21 +328,21 @@ public class InitMessageManagerTask extends LaunchTask {
                         } else {
                             b = n9.g().b();
                         }
-                        UtilHelper.commenDealIntent(b, (Intent) customMessage.getData());
+                        UtilHelper.commenDealIntent(b, customMessage.getData());
                         return null;
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            re5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(re5Var);
+            nf5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(nf5Var);
         }
     }
 
     private void registeYYNotificationTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            re5 re5Var = new re5(2012100, new CustomMessageTask.CustomRunnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
+            nf5 nf5Var = new nf5(2012100, new CustomMessageTask.CustomRunnable<qt4>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -366,25 +366,25 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage run(CustomMessage customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<qt4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        UtilHelper.showYYNotification(AppRuntime.getAppContext(), (zs4) customMessage.getData(), 13);
+                        UtilHelper.showYYNotification(AppRuntime.getAppContext(), customMessage.getData(), 13);
                         return null;
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            re5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(re5Var);
+            nf5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(nf5Var);
         }
     }
 
     private void registerGoActionTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2002001, new CustomMessageTask.CustomRunnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.1
+            CustomMessageTask customMessageTask = new CustomMessageTask(2002001, new CustomMessageTask.CustomRunnable<IntentConfig>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -408,7 +408,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage run(CustomMessage customMessage) {
+                public CustomResponsedMessage<IntentConfig> run(CustomMessage<IntentConfig> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -416,21 +416,21 @@ public class InitMessageManagerTask extends LaunchTask {
                             return null;
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921565, Boolean.TRUE));
-                        IntentConfig intentConfig = (IntentConfig) customMessage.getData();
-                        if (intentConfig.asynStart()) {
-                            return new CustomResponsedMessage(customMessage.getCmd(), intentConfig);
+                        IntentConfig data = customMessage.getData();
+                        if (data.asynStart()) {
+                            return new CustomResponsedMessage<>(customMessage.getCmd(), data);
                         }
-                        Class intentClass = TbadkCoreApplication.getInst().getIntentClass(intentConfig.getClass());
+                        Class<?> intentClass = TbadkCoreApplication.getInst().getIntentClass(data.getClass());
                         if (TbadkCoreApplication.getInst().getIntentClass(AlbumActivityConfig.class) == null) {
                             TiebaStatic.log(new StatisticItem("inter_config_disappear").param("obj_param1", RegisterIntentConfigHelper.getInst().getConfigSize()));
-                        } else if ((intentConfig instanceof LoginActivityConfig) && !LoginActivityConfig.canStartActivity()) {
+                        } else if ((data instanceof LoginActivityConfig) && !LoginActivityConfig.canStartActivity()) {
                             return null;
                         }
                         if (intentClass != null) {
-                            intentConfig.setComponentClass(intentClass);
-                            intentConfig.run();
+                            data.setComponentClass(intentClass);
+                            data.run();
                         }
-                        return new CustomResponsedMessage(customMessage.getCmd(), intentConfig);
+                        return new CustomResponsedMessage<>(customMessage.getCmd(), data);
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }

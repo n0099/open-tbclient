@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.widget.ListView.SpaceItemDecoration;
@@ -22,17 +24,17 @@ import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.av6;
-import com.baidu.tieba.bv6;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.h25;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.ew6;
+import com.baidu.tieba.fw6;
+import com.baidu.tieba.jw6;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.kw6;
+import com.baidu.tieba.rx;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.va5;
 import com.baidu.tieba.view.ImageOverlayView;
-import com.baidu.tieba.vu6;
-import com.baidu.tieba.wu6;
-import com.baidu.tieba.xx;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +43,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> {
+public class FrsVoiceRoomListLayout extends LinearLayout implements sx, rx<z25> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -49,24 +51,24 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
     public PullLeftRefreshLayout c;
     public RecyclerView d;
     public HorizontalAdapter e;
-    public h25 f;
+    public z25 f;
     public PullLeftRefreshLayout.f g;
-    public vu6<wu6> h;
+    public ew6<fw6> h;
 
     /* loaded from: classes4.dex */
     public static class HorizontalAdapter extends RecyclerView.Adapter<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
-        public ArrayList<wu6> b;
-        public vu6<wu6> c;
+        public ArrayList<fw6> b;
+        public ew6<fw6> c;
 
         /* loaded from: classes4.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
-            public wu6 b;
+            public fw6 b;
             public TBLottieAnimationView c;
             public LinearLayout d;
             public TextView e;
@@ -97,27 +99,27 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
                 }
                 this.k = horizontalAdapter;
                 this.a = 3;
-                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925fd);
-                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0925fe);
-                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092601);
-                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092602);
-                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f092600);
+                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092654);
+                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092655);
+                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092658);
+                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092659);
+                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f092657);
                 int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds58);
                 this.g.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0402, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds28));
                 this.g.setStrokeStyle(1);
                 this.g.setLoadImageType(12);
-                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ff);
-                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925fc);
-                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925f9);
+                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092656);
+                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092653);
+                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092650);
                 this.itemView.setOnClickListener(this);
             }
 
-            public void a(wu6 wu6Var, int i) {
+            public void a(fw6 fw6Var, int i) {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeLI(1048576, this, wu6Var, i) != null) || wu6Var == null) {
+                if ((interceptable != null && interceptable.invokeLI(1048576, this, fw6Var, i) != null) || fw6Var == null) {
                     return;
                 }
-                this.b = wu6Var;
+                this.b = fw6Var;
                 if (this.k.c != null) {
                     this.k.c.a(this.itemView, this.b, getAdapterPosition());
                 }
@@ -133,36 +135,36 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                     if (this.a != i) {
                         SkinManager.setLottieAnimation(this.c, R.raw.lottie_voice_room_voicing_icon);
-                        nv4 d = nv4.d(this.itemView);
+                        kw4 d = kw4.d(this.itemView);
                         d.n(R.string.J_X05);
                         d.f(R.color.CAM_X0201);
-                        nv4 d2 = nv4.d(this.d);
+                        kw4 d2 = kw4.d(this.d);
                         d2.n(R.string.J_X01);
                         d2.f(R.color.CAM_X0919);
-                        nv4.d(this.e).v(R.color.CAM_X0115);
-                        nv4 d3 = nv4.d(this.f);
+                        kw4.d(this.e).v(R.color.CAM_X0115);
+                        kw4 d3 = kw4.d(this.f);
                         d3.A(R.string.F_X02);
                         d3.v(R.color.CAM_X0105);
-                        nv4 d4 = nv4.d(this.j);
+                        kw4 d4 = kw4.d(this.j);
                         d4.v(R.color.CAM_X0115);
                         d4.n(R.string.J_X01);
                         d4.f(R.color.CAM_X0919);
-                        nv4.d(this.h).v(R.color.CAM_X0108);
-                        nv4.d(this.i).v(R.color.CAM_X0108);
+                        kw4.d(this.h).v(R.color.CAM_X0108);
+                        kw4.d(this.i).v(R.color.CAM_X0108);
                     }
                     this.a = i;
                 }
             }
 
-            public final void c(wu6 wu6Var) {
+            public final void c(fw6 fw6Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wu6Var) != null) || wu6Var == null) {
+                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fw6Var) != null) || fw6Var == null) {
                     return;
                 }
-                this.f.setText(wu6Var.a);
-                this.g.setData(wu6Var.b);
-                this.h.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f15b6), wu6Var.c));
-                this.i.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f15b4), wu6Var.d));
+                this.f.setText(fw6Var.a);
+                this.g.setData(fw6Var.b);
+                this.h.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f15d4), fw6Var.c));
+                this.i.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f15d2), fw6Var.d));
                 this.c.setRepeatCount(Integer.MAX_VALUE);
                 this.c.setRepeatMode(1);
                 this.c.playAnimation();
@@ -172,7 +174,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                     Context context = this.itemView.getContext();
-                    this.itemView.getLayoutParams().width = fj.k(context) - (fj.f(context, R.dimen.M_W_X004) * 2);
+                    this.itemView.getLayoutParams().width = xi.l(context) - (xi.g(context, R.dimen.M_W_X004) * 2);
                 }
             }
 
@@ -207,14 +209,14 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
             this.a = context;
         }
 
-        public void h(vu6<wu6> vu6Var) {
+        public void h(ew6<fw6> ew6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, vu6Var) == null) {
-                this.c = vu6Var;
+            if (interceptable == null || interceptable.invokeL(1048579, this, ew6Var) == null) {
+                this.c = ew6Var;
             }
         }
 
-        public void setData(List<wu6> list) {
+        public void setData(List<fw6> list) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || list == null) {
                 return;
@@ -227,21 +229,22 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: f */
-        public void onBindViewHolder(a aVar, int i) {
+        public void onBindViewHolder(@NonNull a aVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i) == null) {
-                aVar.a((wu6) ListUtils.getItem(this.b, i), getItemCount());
+                aVar.a((fw6) ListUtils.getItem(this.b, i), getItemCount());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        @NonNull
         /* renamed from: g */
-        public a onCreateViewHolder(ViewGroup viewGroup, int i) {
+        public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                return new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0357, viewGroup, false));
+                return new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0359, viewGroup, false));
             }
             return (a) invokeLI.objValue;
         }
@@ -251,7 +254,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ArrayList<wu6> arrayList = this.b;
+                ArrayList<fw6> arrayList = this.b;
                 if (arrayList == null) {
                     return 0;
                 }
@@ -291,12 +294,12 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.f == null) {
                 return;
             }
-            ((aa5) ServiceManager.getService(aa5.a.a())).b(this.a.getContext(), Frs$From.FRS, this.a.f.b(), this.a.f.c());
+            ((va5) ServiceManager.getService(va5.a.a())).b(this.a.getContext(), Frs$From.FRS, this.a.f.b(), this.a.f.c());
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements vu6 {
+    public class b implements ew6<fw6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsVoiceRoomListLayout a;
@@ -320,23 +323,23 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vu6
+        @Override // com.baidu.tieba.ew6
         /* renamed from: c */
-        public void a(View view2, wu6 wu6Var, int i) {
+        public void a(View view2, fw6 fw6Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, wu6Var, i) == null) && wu6Var != null && this.a.f != null) {
-                bv6.a("c14457", this.a.f.b().longValue(), this.a.f.c(), wu6Var, i);
+            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, fw6Var, i) == null) && fw6Var != null && this.a.f != null) {
+                kw6.a("c14457", this.a.f.b().longValue(), this.a.f.c(), fw6Var, i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vu6
+        @Override // com.baidu.tieba.ew6
         /* renamed from: d */
-        public void b(View view2, wu6 wu6Var, int i) {
+        public void b(View view2, fw6 fw6Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, view2, wu6Var, i) == null) && wu6Var != null && this.a.f != null) {
-                ((aa5) ServiceManager.getService(aa5.a.a())).a(this.a.a, wu6Var.e);
-                bv6.a("c14458", this.a.f.b().longValue(), this.a.f.c(), wu6Var, i);
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, view2, fw6Var, i) == null) && fw6Var != null && this.a.f != null) {
+                ((va5) ServiceManager.getService(va5.a.a())).a(this.a.a, fw6Var.e);
+                kw6.a("c14458", this.a.f.b().longValue(), this.a.f.c(), fw6Var, i);
             }
         }
     }
@@ -363,7 +366,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVoiceRoomListLayout(Context context, AttributeSet attributeSet) {
+    public FrsVoiceRoomListLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -387,16 +390,16 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xx
+    @Override // com.baidu.tieba.rx
     /* renamed from: e */
-    public void a(h25 h25Var) {
+    public void a(z25 z25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h25Var) != null) || h25Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z25Var) != null) || z25Var == null) {
             return;
         }
-        this.e.setData(av6.a(h25Var.a()));
+        this.e.setData(jw6.a(z25Var.a()));
         this.d.setAdapter(this.e);
-        this.f = h25Var;
+        this.f = z25Var;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
@@ -417,14 +420,14 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0358, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035a, (ViewGroup) this, true);
             setOrientation(0);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bbf);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb7);
+            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bfe);
             this.e = new HorizontalAdapter(context);
-            int f = fj.f(context, R.dimen.M_W_X004);
-            this.d.addItemDecoration(new SpaceItemDecoration(f, f, f));
+            int g = xi.g(context, R.dimen.M_W_X004);
+            this.d.addItemDecoration(new SpaceItemDecoration(g, g, g));
             this.d.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.d.setAdapter(this.e);
             this.d.setClipChildren(false);
@@ -436,7 +439,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements yx, xx<h25> 
         }
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {

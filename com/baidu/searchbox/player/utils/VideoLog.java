@@ -3,6 +3,8 @@ package com.baidu.searchbox.player.utils;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +22,7 @@ public abstract class VideoLog {
     public final int MAX_LOG_LEN;
     public final int TAG_MAX_LEN;
 
-    public abstract boolean isLoggable(int i, String str);
+    public abstract boolean isLoggable(int i, @Nullable String str);
 
     public VideoLog() {
         Interceptable interceptable = $ic;
@@ -39,7 +41,7 @@ public abstract class VideoLog {
         this.MAX_LOG_LEN = 4096;
     }
 
-    private String getStackTraceString(Throwable th) {
+    private String getStackTraceString(@NonNull Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, th)) == null) {
@@ -61,112 +63,112 @@ public abstract class VideoLog {
         return (String) invokeL.objValue;
     }
 
-    public void d(String str) {
+    public void d(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             doLog(3, null, str, null);
         }
     }
 
-    public void e(String str) {
+    public void e(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             doLog(6, null, str, null);
         }
     }
 
-    public void i(String str) {
+    public void i(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             doLog(4, null, str, null);
         }
     }
 
-    public void v(String str) {
+    public void v(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             doLog(2, null, str, null);
         }
     }
 
-    public void w(String str) {
+    public void w(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             doLog(5, null, str, null);
         }
     }
 
-    public void d(String str, String str2) {
+    public void d(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             doLog(3, str, str2, null);
         }
     }
 
-    public void e(String str, String str2) {
+    public void e(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             doLog(6, str, str2, null);
         }
     }
 
-    public void i(String str, String str2) {
+    public void i(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             doLog(4, str, str2, null);
         }
     }
 
-    public void v(String str, String str2) {
+    public void v(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
             doLog(2, str, str2, null);
         }
     }
 
-    public void w(String str, String str2) {
+    public void w(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
             doLog(5, str, str2, null);
         }
     }
 
-    public void d(String str, Throwable th) {
+    public void d(@Nullable String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) {
             doLog(3, null, str, th);
         }
     }
 
-    public void e(String str, Throwable th) {
+    public void e(@Nullable String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, th) == null) {
             doLog(6, null, str, th);
         }
     }
 
-    public void i(String str, Throwable th) {
+    public void i(@Nullable String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, th) == null) {
             doLog(4, null, str, th);
         }
     }
 
-    public void v(String str, Throwable th) {
+    public void v(@Nullable String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, th) == null) {
             doLog(2, null, str, th);
         }
     }
 
-    public void w(String str, Throwable th) {
+    public void w(@Nullable String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, th) == null) {
             doLog(5, null, str, th);
         }
     }
 
-    public void doLog(int i, String str, String str2, Throwable th) {
+    public void doLog(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, th}) != null) || !isLoggable(i, str)) {
             return;
@@ -188,7 +190,7 @@ public abstract class VideoLog {
         }
     }
 
-    public void log(int i, String str, String str2) {
+    public void log(int i, @Nullable String str, @NonNull String str2) {
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048587, this, i, str, str2) == null) {

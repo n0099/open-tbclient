@@ -1,9 +1,12 @@
 package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
+import com.baidu.searchbox.network.outback.support.request.HttpCommonRequest;
+import com.baidu.searchbox.network.outback.support.request.HttpCommonRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public abstract class HttpCommonRequestBuilder extends Request.Builder {
+public abstract class HttpCommonRequestBuilder<T extends HttpCommonRequestBuilder, R extends HttpCommonRequest<T>> extends Request.Builder<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RequestBody requestBody;
 
-    public abstract HttpCommonRequest buildRequest();
+    public abstract R buildRequest();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HttpCommonRequestBuilder(HttpCommonRequest httpCommonRequest) {
@@ -40,7 +43,7 @@ public abstract class HttpCommonRequestBuilder extends Request.Builder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpCommonRequestBuilder(Map map) {
+    public HttpCommonRequestBuilder(Map<String, CallFactory> map) {
         super(map);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -68,23 +71,23 @@ public abstract class HttpCommonRequestBuilder extends Request.Builder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.network.outback.core.Request.Builder
-    public final HttpCommonRequest build() {
+    public final R build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ensureBody();
             return buildRequest();
         }
-        return (HttpCommonRequest) invokeV.objValue;
+        return (R) invokeV.objValue;
     }
 
-    public HttpCommonRequestBuilder requestBody(RequestBody requestBody) {
+    public T requestBody(RequestBody requestBody) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, requestBody)) == null) {
             this.requestBody = requestBody;
             return this;
         }
-        return (HttpCommonRequestBuilder) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 }

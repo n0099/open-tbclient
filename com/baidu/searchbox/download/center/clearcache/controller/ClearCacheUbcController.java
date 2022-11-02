@@ -1,5 +1,6 @@
 package com.baidu.searchbox.download.center.clearcache.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
@@ -16,6 +17,7 @@ import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.android.util.io.ZipUtils;
 import com.baidu.android.util.sp.PreferenceUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
 import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
@@ -248,7 +250,7 @@ public class ClearCacheUbcController {
                     return;
                 }
                 Log.d(TAG, "targetFileJson: " + string);
-                JSONArray optJSONArray = new JSONObject(string).optJSONArray("dir");
+                JSONArray optJSONArray = new JSONObject(string).optJSONArray(MapBundleKey.MapObjKey.OBJ_DIR);
                 if (optJSONArray != null && optJSONArray.length() != 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         String optString = optJSONArray.optString(i);
@@ -321,6 +323,7 @@ public class ClearCacheUbcController {
         }
     }
 
+    @SuppressLint({"DefaultLocale"})
     public static void reportBaiduFile(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {

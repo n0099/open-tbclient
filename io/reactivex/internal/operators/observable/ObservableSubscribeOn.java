@@ -13,20 +13,20 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableSubscribeOn extends AbstractObservableWithUpstream {
+public final class ObservableSubscribeOn<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Scheduler scheduler;
 
     /* loaded from: classes8.dex */
-    public final class SubscribeOnObserver extends AtomicReference implements Observer, Disposable {
+    public static final class SubscribeOnObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8094547886072529208L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer actual;
-        public final AtomicReference s;
+        public final Observer<? super T> actual;
+        public final AtomicReference<Disposable> s;
 
-        public SubscribeOnObserver(Observer observer) {
+        public SubscribeOnObserver(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
                 }
             }
             this.actual = observer;
-            this.s = new AtomicReference();
+            this.s = new AtomicReference<>();
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -59,7 +59,7 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -81,10 +81,10 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -108,10 +108,10 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
     public final class SubscribeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SubscribeOnObserver parent;
+        public final SubscribeOnObserver<T> parent;
         public final /* synthetic */ ObservableSubscribeOn this$0;
 
-        public SubscribeTask(ObservableSubscribeOn observableSubscribeOn, SubscribeOnObserver subscribeOnObserver) {
+        public SubscribeTask(ObservableSubscribeOn observableSubscribeOn, SubscribeOnObserver<T> subscribeOnObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSubscribeOn(ObservableSource observableSource, Scheduler scheduler) {
+    public ObservableSubscribeOn(ObservableSource<T> observableSource, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -161,7 +161,7 @@ public final class ObservableSubscribeOn extends AbstractObservableWithUpstream 
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(observer);

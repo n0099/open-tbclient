@@ -1,6 +1,7 @@
 package com.baidu.searchbox.bddownload.core.download;
 
 import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
@@ -25,7 +26,7 @@ public class BreakpointLocalCheck {
     public final long responseInstanceLength;
     public final DownloadTask task;
 
-    public BreakpointLocalCheck(DownloadTask downloadTask, BreakpointInfo breakpointInfo, long j) {
+    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,6 +72,7 @@ public class BreakpointLocalCheck {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public ResumeFailedCause getCauseOrThrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

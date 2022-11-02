@@ -14,10 +14,10 @@ public class BdStatisticsWriteConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7184457133962107119L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap item;
+    public final HashMap<String, BdStatisticsWriteConfigItem> item;
 
     /* loaded from: classes.dex */
-    public class BdStatisticsWriteChildItem implements Serializable {
+    public static class BdStatisticsWriteChildItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2371610422804472309L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,11 +50,11 @@ public class BdStatisticsWriteConfig implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class BdStatisticsWriteConfigItem implements Serializable {
+    public static class BdStatisticsWriteConfigItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4440010439026244319L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final HashMap childItem;
+        public final HashMap<String, BdStatisticsWriteChildItem> childItem;
         public boolean isExac;
         public boolean isWrite;
         public int particleNum;
@@ -76,7 +76,7 @@ public class BdStatisticsWriteConfig implements Serializable {
             this.isWrite = false;
             this.particleNum = -1;
             this.isExac = false;
-            this.childItem = new HashMap();
+            this.childItem = new HashMap<>();
         }
     }
 
@@ -93,7 +93,7 @@ public class BdStatisticsWriteConfig implements Serializable {
                 return;
             }
         }
-        this.item = new HashMap();
+        this.item = new HashMap<>();
     }
 
     public boolean isExactWriteFile(String str) {
@@ -101,7 +101,7 @@ public class BdStatisticsWriteConfig implements Serializable {
         BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bdStatisticsWriteConfigItem = (BdStatisticsWriteConfigItem) this.item.get(str)) == null || !bdStatisticsWriteConfigItem.isExac) {
+            if (TextUtils.isEmpty(str) || (bdStatisticsWriteConfigItem = this.item.get(str)) == null || !bdStatisticsWriteConfigItem.isExac) {
                 return false;
             }
             return true;
@@ -114,13 +114,13 @@ public class BdStatisticsWriteConfig implements Serializable {
         BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || (bdStatisticsWriteConfigItem = (BdStatisticsWriteConfigItem) this.item.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (bdStatisticsWriteConfigItem = this.item.get(str)) == null) {
                 return false;
             }
             if (TextUtils.isEmpty(str2)) {
                 return bdStatisticsWriteConfigItem.isWrite;
             }
-            BdStatisticsWriteChildItem bdStatisticsWriteChildItem = (BdStatisticsWriteChildItem) bdStatisticsWriteConfigItem.childItem.get(str2);
+            BdStatisticsWriteChildItem bdStatisticsWriteChildItem = bdStatisticsWriteConfigItem.childItem.get(str2);
             if (bdStatisticsWriteChildItem == null) {
                 return bdStatisticsWriteConfigItem.isWrite;
             }

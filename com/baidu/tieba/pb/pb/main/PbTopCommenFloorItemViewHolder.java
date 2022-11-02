@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -24,13 +25,13 @@ import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by7;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.gr4;
-import com.baidu.tieba.mk5;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.p08;
+import com.baidu.tieba.kl5;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.kz7;
 import com.baidu.tieba.view.VirtualImageStatusTip;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xr4;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -85,7 +86,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public TextView i;
     public FrameLayout i0;
     public TextView j;
-    public p08 j0;
+    public z18 j0;
     public TbImageView k;
     public FrameLayout k0;
     public TextView l;
@@ -171,58 +172,58 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.Z = Boolean.FALSE;
         if (tbPageContext != null && view2 != null) {
             this.c = view2;
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917fe);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f092288);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0903f0);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09181a);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925bd);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925be);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09258d);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b5);
-            this.I = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e1b);
-            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a9);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f091806);
-            this.w = view2.findViewById(R.id.obfuscated_res_0x7f091803);
-            this.x = view2.findViewById(R.id.obfuscated_res_0x7f0917f9);
-            this.y = view2.findViewById(R.id.obfuscated_res_0x7f0917f7);
-            this.z = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091804);
-            this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091805);
-            this.E = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917fa);
-            this.F = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fb);
-            AgreeView agreeView = (AgreeView) view2.findViewById(R.id.obfuscated_res_0x7f0917f8);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09183f);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0922db);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0903fd);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09185b);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092615);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e2);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260c);
+            this.I = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4a);
+            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092600);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09243c);
+            this.v = view2.findViewById(R.id.obfuscated_res_0x7f091847);
+            this.w = view2.findViewById(R.id.obfuscated_res_0x7f091844);
+            this.x = view2.findViewById(R.id.obfuscated_res_0x7f09183a);
+            this.y = view2.findViewById(R.id.obfuscated_res_0x7f091838);
+            this.z = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091845);
+            this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091846);
+            this.E = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09183b);
+            this.F = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09183c);
+            AgreeView agreeView = (AgreeView) view2.findViewById(R.id.obfuscated_res_0x7f091839);
             this.G = agreeView;
             agreeView.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
             this.G.setNormalColorResourceId(R.color.CAM_X0109);
-            this.G.u(true);
-            this.A = view2.findViewById(R.id.obfuscated_res_0x7f091860);
-            this.B = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a3f);
-            this.C = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
-            this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c65);
+            this.G.v(true);
+            this.A = view2.findViewById(R.id.obfuscated_res_0x7f0918a3);
+            this.B = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a83);
+            this.C = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a84);
+            this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092442);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cad);
             this.q0 = relativeLayout;
-            nv4 d = nv4.d(relativeLayout);
+            kw4 d = kw4.d(relativeLayout);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0204);
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4e);
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c96);
             this.r0 = relativeLayout2;
-            nv4 d2 = nv4.d(relativeLayout2);
+            kw4 d2 = kw4.d(relativeLayout2);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0905);
-            this.s0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
-            this.t0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cb);
+            this.s0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.t0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092420);
             this.v.setVisibility(8);
             this.A.setVisibility(8);
             this.B.setVisibility(0);
             this.C.setVisibility(0);
-            this.M = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917fd);
-            gr4 gr4Var = new gr4();
-            gr4Var.b = 5;
-            gr4Var.h = 8;
-            gr4Var.g = 2;
-            gr4Var.f = i;
-            this.q = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ec);
-            HeadPendantView headPendantView = (HeadPendantView) view2.findViewById(R.id.obfuscated_res_0x7f0918b8);
+            this.M = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09183e);
+            xr4 xr4Var = new xr4();
+            xr4Var.b = 5;
+            xr4Var.h = 8;
+            xr4Var.g = 2;
+            xr4Var.f = i;
+            this.q = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09172d);
+            HeadPendantView headPendantView = (HeadPendantView) view2.findViewById(R.id.obfuscated_res_0x7f0918fb);
             this.J = headPendantView;
             headPendantView.setHasPendantStyle();
             if (this.J.getHeadView() != null) {
@@ -230,69 +231,69 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                 this.J.getHeadView().setDrawBorder(true);
                 this.J.getHeadView().setPlaceHolder(1);
             }
-            this.K = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
-            this.L = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f091ec7);
-            this.r = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1a);
-            this.s = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a49);
-            this.t = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09014e);
-            this.u = (ConstrainImageGroup) view2.findViewById(R.id.obfuscated_res_0x7f090a15);
-            this.H = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a17);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919fc);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919fd);
+            this.K = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f091f11);
+            this.L = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f091f12);
+            this.r = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c61);
+            this.s = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a8d);
+            this.t = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f090156);
+            this.u = (ConstrainImageGroup) view2.findViewById(R.id.obfuscated_res_0x7f090a28);
+            this.H = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a2a);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a40);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a41);
             this.u.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
             this.u.setSingleImageRatio(0.75d);
-            this.u.setImageProcessor(new mk5(3));
-            by7 by7Var = new by7(this.r.getLayoutStrategy());
-            by7Var.o(TbConfig.getPostLineSpace(), 1.0f);
-            this.r.setLayoutStrategy(by7Var);
+            this.u.setImageProcessor(new kl5(3));
+            kz7 kz7Var = new kz7(this.r.getLayoutStrategy());
+            kz7Var.o(TbConfig.getPostLineSpace(), 1.0f);
+            this.r.setLayoutStrategy(kz7Var);
             this.r.setIsNeedResizeEmotion(true);
             this.r.setTextSize(TbConfig.getContentSize());
             this.q.setIsRound(true);
             this.q.setGodIconWidth(R.dimen.tbds36);
             this.q.setPlaceHolder(1);
             this.r.setDisplayImage(this.d, false);
-            this.r.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0907);
-            this.N = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091829);
-            this.O = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0917f4);
-            this.P = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f3);
-            this.Q = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09185c);
-            this.R = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09185d);
-            this.S = view2.findViewById(R.id.obfuscated_res_0x7f09185b);
-            this.T = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09185e);
-            this.U = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09185a);
-            this.V = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09026c);
-            this.W = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a2f);
-            this.X = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a30);
-            this.a0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919c6);
-            this.Y = (PbFloorComplaint) view2.findViewById(R.id.obfuscated_res_0x7f0917fc);
+            this.r.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d091b);
+            this.N = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186c);
+            this.O = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091835);
+            this.P = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091834);
+            this.Q = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189f);
+            this.R = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a0);
+            this.S = view2.findViewById(R.id.obfuscated_res_0x7f09189e);
+            this.T = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a1);
+            this.U = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.V = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09027d);
+            this.W = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a42);
+            this.X = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a43);
+            this.a0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a0a);
+            this.Y = (PbFloorComplaint) view2.findViewById(R.id.obfuscated_res_0x7f09183d);
             if (this.Z.booleanValue()) {
                 this.Y.setVisibility(0);
             } else {
                 this.Y.setVisibility(8);
             }
-            this.b0 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09249f);
-            this.c0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091802);
-            this.d0 = (AgreeView) view2.findViewById(R.id.obfuscated_res_0x7f091800);
-            this.e0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091801);
+            this.b0 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0924f4);
+            this.c0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091843);
+            this.d0 = (AgreeView) view2.findViewById(R.id.obfuscated_res_0x7f091841);
+            this.e0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091842);
             this.d0.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
             this.d0.setNormalColorResourceId(R.color.CAM_X0109);
-            this.d0.u(false);
+            this.d0.v(false);
             this.d0.setAgreeAlone(true);
-            this.d0.setStatisticData(gr4Var);
-            this.f0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091862);
-            this.g0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b6);
-            this.h0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090460);
-            this.i0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092448);
-            p08 p08Var = new p08(tbPageContext, this.i0);
-            this.j0 = p08Var;
-            p08Var.f = 3;
-            this.k0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092479);
-            this.l0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f0925f3);
-            this.m0 = (HeadCustomImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925dc);
-            this.n0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925dd);
-            this.o0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e22);
-            this.p0 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c67);
-            this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917da);
+            this.d0.setStatisticData(xr4Var);
+            this.f0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0918a5);
+            this.g0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260d);
+            this.h0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09046d);
+            this.i0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09249d);
+            z18 z18Var = new z18(tbPageContext, this.i0);
+            this.j0 = z18Var;
+            z18Var.f = 3;
+            this.k0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924ce);
+            this.l0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f09264a);
+            this.m0 = (HeadCustomImageView) view2.findViewById(R.id.obfuscated_res_0x7f092633);
+            this.n0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092634);
+            this.o0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e6c);
+            this.p0 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091caf);
+            this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09181b);
             e(tbPageContext);
         }
     }
@@ -312,7 +313,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             PbFloorComplaint pbFloorComplaint = this.Y;
             if (pbFloorComplaint != null) {
                 pbFloorComplaint.setBackgroundColor(R.color.CAM_X0206);
-                nv4 d = nv4.d(this.Y);
+                kw4 d = kw4.d(this.Y);
                 d.m(0);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
@@ -329,7 +330,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             } else {
                 this.v0.setImageAssetsFolder("lottie_reactions_guide_left_img_dark");
             }
-            SkinManager.setLottieAnimation(this.v0, R.raw.obfuscated_res_0x7f11004c);
+            SkinManager.setLottieAnimation(this.v0, R.raw.obfuscated_res_0x7f11004e);
         }
     }
 
@@ -353,13 +354,13 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public final void e(TbPageContext tbPageContext) {
+    public final void e(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
             this.v0 = new TBLottieAnimationView(tbPageContext.getPageActivity());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(fj.f(tbPageContext.getPageActivity(), R.dimen.tbds650), fj.f(tbPageContext.getPageActivity(), R.dimen.tbds100));
-            layoutParams.setMargins(fj.f(tbPageContext.getPageActivity(), R.dimen.tbds90), 0, 0, fj.f(tbPageContext.getPageActivity(), R.dimen.tbds10));
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f090f9d);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(xi.g(tbPageContext.getPageActivity(), R.dimen.tbds650), xi.g(tbPageContext.getPageActivity(), R.dimen.tbds100));
+            layoutParams.setMargins(xi.g(tbPageContext.getPageActivity(), R.dimen.tbds90), 0, 0, xi.g(tbPageContext.getPageActivity(), R.dimen.tbds10));
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f090fd6);
             this.b.addView(this.v0, layoutParams);
             f();
             this.v0.setVisibility(8);
@@ -373,10 +374,10 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.V.getLayoutParams();
             if (z) {
                 this.i0.setVisibility(0);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092448);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09249d);
             } else {
                 this.i0.setVisibility(8);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090f9d);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090fd6);
             }
             this.V.setLayoutParams(layoutParams);
             b();

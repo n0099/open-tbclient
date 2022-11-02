@@ -4,11 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu8;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.nv8;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ShareGridLayout extends ViewGroup implements eu8 {
+public class ShareGridLayout extends ViewGroup implements nv8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,14 +28,15 @@ public class ShareGridLayout extends ViewGroup implements eu8 {
     public int d;
     public int e;
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
+    @NonNull
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +56,7 @@ public class ShareGridLayout extends ViewGroup implements eu8 {
                 return;
             }
         }
-        f = fj.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        f = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -122,15 +124,15 @@ public class ShareGridLayout extends ViewGroup implements eu8 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.eu8
-    public void b(int i, View view2) {
+    @Override // com.baidu.tieba.nv8
+    public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
             addView(view2);
         }
     }
 
-    @Override // com.baidu.tieba.eu8
+    @Override // com.baidu.tieba.nv8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
@@ -144,7 +146,7 @@ public class ShareGridLayout extends ViewGroup implements eu8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = context;
-            d(0, fj.k(context) - (f * 2));
+            d(0, xi.l(context) - (f * 2));
         }
     }
 
@@ -152,7 +154,7 @@ public class ShareGridLayout extends ViewGroup implements eu8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int i3 = i2 - i;
-            if (fj.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
+            if (xi.l(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
                 this.d = 5;
             } else {
                 this.d = 4;

@@ -1,6 +1,8 @@
 package com.baidu.searchbox.logsystem.javacrash;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +17,11 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
     public static final String TAG = "loki-java-UncaughtExceptionHandler";
     public transient /* synthetic */ FieldHolder $fh;
     public Thread.UncaughtExceptionHandler mPreHandler;
-    public List mProcessExceptionListeners;
+    public List<ProcessExceptionListener> mProcessExceptionListeners;
 
-    public abstract void processException(Thread thread, Throwable th);
+    public abstract void processException(@NonNull Thread thread, @NonNull Throwable th);
 
-    public UncaughtExceptionHandler(List list) {
+    public UncaughtExceptionHandler(@Nullable List<ProcessExceptionListener> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +51,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
             Log.d(TAG, Log.getStackTraceString(th));
-            List list3 = this.mProcessExceptionListeners;
+            List<ProcessExceptionListener> list3 = this.mProcessExceptionListeners;
             if (list3 != null && list3.size() > 0) {
                 z = true;
             } else {

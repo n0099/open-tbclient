@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.zc2;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class ad2 {
+public class ad2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set a;
-    public static final Set b;
-    public static final Set c;
-    public static final Map d;
-    public static boolean e;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,47 +32,59 @@ public class ad2 {
                 return;
             }
         }
-        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        b = new HashSet(a);
-        c = new HashSet(b);
-        d = new HashMap();
-        e = false;
+        ln2.g0().getSwitch("swan_recovery_enable", true);
+        a = true;
     }
 
-    public static zc2 a(String str) {
+    public ad2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void c(kd2 kd2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, kd2Var) != null) || !a || kd2Var == null) {
+            return;
+        }
+        if (ProcessUtils.isMainProcess()) {
+            bd2.a(kd2Var).b();
+            jd2.b().a(kd2Var.a);
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putInt("recovery_level", kd2Var.a);
+        bundle.putStringArrayList("recovery_app_list", kd2Var.b);
+        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), ad2.class, bundle);
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            c();
-            return (zc2) d.get(str);
-        }
-        return (zc2) invokeL.objValue;
-    }
-
-    public static zc2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            zc2.b bVar = new zc2.b();
-            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(tm2.w0().a());
-            bVar.b(tm2.w0().d());
-            return bVar.a();
-        }
-        return (zc2) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!e) {
-                for (String str : c) {
-                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        d.put(str, b());
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (!a) {
+                return null;
             }
-            e = true;
+            int i = bundle.getInt("recovery_level", -1);
+            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
+            kd2 kd2Var = new kd2();
+            kd2Var.a = i;
+            if (stringArrayList != null) {
+                kd2Var.b = stringArrayList;
+            }
+            bd2.a(kd2Var).b();
+            jd2.b().a(kd2Var.a);
+            return null;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

@@ -19,11 +19,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<GroupMemberDelMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int groupnum;
     public long mMemberVersion;
-    public ArrayList members;
+    public ArrayList<String> members;
     public String operator;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -46,7 +46,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg.1
+        CREATOR = new Parcelable.Creator<GroupMemberDelMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,6 +65,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberDelMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -76,6 +77,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public GroupMemberDelMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -101,7 +103,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        this.members = new ArrayList();
+        this.members = new ArrayList<>();
         setMsgType(1004);
     }
 
@@ -114,7 +116,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         return invokeV.intValue;
     }
 
-    public ArrayList getMemberBuids() {
+    public ArrayList<String> getMemberBuids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -159,7 +161,7 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
                 return;
             }
         }
-        this.members = new ArrayList();
+        this.members = new ArrayList<>();
         this.operator = parcel.readString();
         this.groupnum = parcel.readInt();
         parcel.readList(this.members, String.class.getClassLoader());

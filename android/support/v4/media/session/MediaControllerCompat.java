@@ -27,6 +27,11 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.app.BundleCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
@@ -47,17 +52,24 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public final class MediaControllerCompat {
     public static /* synthetic */ Interceptable $ic = null;
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_ADD_QUEUE_ITEM = "android.support.v4.media.session.command.ADD_QUEUE_ITEM";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_ADD_QUEUE_ITEM_AT = "android.support.v4.media.session.command.ADD_QUEUE_ITEM_AT";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_ARGUMENT_INDEX = "android.support.v4.media.session.command.ARGUMENT_INDEX";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_ARGUMENT_MEDIA_DESCRIPTION = "android.support.v4.media.session.command.ARGUMENT_MEDIA_DESCRIPTION";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_GET_EXTRA_BINDER = "android.support.v4.media.session.command.GET_EXTRA_BINDER";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_REMOVE_QUEUE_ITEM = "android.support.v4.media.session.command.REMOVE_QUEUE_ITEM";
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public static final String COMMAND_REMOVE_QUEUE_ITEM_AT = "android.support.v4.media.session.command.REMOVE_QUEUE_ITEM_AT";
     public static final String TAG = "MediaControllerCompat";
     public transient /* synthetic */ FieldHolder $fh;
     public final MediaControllerImpl mImpl;
-    public final ConcurrentHashMap mRegisteredCallbacks;
+    public final ConcurrentHashMap<Callback, Boolean> mRegisteredCallbacks;
     public final MediaSessionCompat.Token mToken;
 
     /* loaded from: classes.dex */
@@ -84,7 +96,7 @@ public final class MediaControllerCompat {
 
         PlaybackStateCompat getPlaybackState();
 
-        List getQueue();
+        List<MediaSessionCompat.QueueItem> getQueue();
 
         CharSequence getQueueTitle();
 
@@ -116,7 +128,7 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class Callback implements IBinder.DeathRecipient {
+    public static abstract class Callback implements IBinder.DeathRecipient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaController.Callback mCallbackFwk;
@@ -153,7 +165,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        public void onQueueChanged(List list) {
+        public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             }
@@ -195,11 +207,12 @@ public final class MediaControllerCompat {
             }
         }
 
+        @RequiresApi(21)
         /* loaded from: classes.dex */
-        public class MediaControllerCallbackApi21 extends MediaController.Callback {
+        public static class MediaControllerCallbackApi21 extends MediaController.Callback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final WeakReference mCallback;
+            public final WeakReference<Callback> mCallback;
 
             public MediaControllerCallbackApi21(Callback callback) {
                 Interceptable interceptable = $ic;
@@ -216,14 +229,14 @@ public final class MediaControllerCompat {
                         return;
                     }
                 }
-                this.mCallback = new WeakReference(callback);
+                this.mCallback = new WeakReference<>(callback);
             }
 
             @Override // android.media.session.MediaController.Callback
             public void onAudioInfoChanged(MediaController.PlaybackInfo playbackInfo) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, playbackInfo) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, playbackInfo) == null) && (callback = this.mCallback.get()) != null) {
                     callback.onAudioInfoChanged(new PlaybackInfo(playbackInfo.getPlaybackType(), AudioAttributesCompat.wrap(playbackInfo.getAudioAttributes()), playbackInfo.getVolumeControl(), playbackInfo.getMaxVolume(), playbackInfo.getCurrentVolume()));
                 }
             }
@@ -233,7 +246,7 @@ public final class MediaControllerCompat {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
                     MediaSessionCompat.ensureClassLoader(bundle);
-                    Callback callback = (Callback) this.mCallback.get();
+                    Callback callback = this.mCallback.get();
                     if (callback != null) {
                         callback.onExtrasChanged(bundle);
                     }
@@ -244,7 +257,7 @@ public final class MediaControllerCompat {
             public void onMetadataChanged(MediaMetadata mediaMetadata) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaMetadata) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaMetadata) == null) && (callback = this.mCallback.get()) != null) {
                     callback.onMetadataChanged(MediaMetadataCompat.fromMediaMetadata(mediaMetadata));
                 }
             }
@@ -253,16 +266,16 @@ public final class MediaControllerCompat {
             public void onPlaybackStateChanged(PlaybackState playbackState) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, playbackState) == null) && (callback = (Callback) this.mCallback.get()) != null && callback.mIControllerCallback == null) {
+                if ((interceptable == null || interceptable.invokeL(1048579, this, playbackState) == null) && (callback = this.mCallback.get()) != null && callback.mIControllerCallback == null) {
                     callback.onPlaybackStateChanged(PlaybackStateCompat.fromPlaybackState(playbackState));
                 }
             }
 
             @Override // android.media.session.MediaController.Callback
-            public void onQueueChanged(List list) {
+            public void onQueueChanged(List<MediaSession.QueueItem> list) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && (callback = this.mCallback.get()) != null) {
                     callback.onQueueChanged(MediaSessionCompat.QueueItem.fromQueueItemList(list));
                 }
             }
@@ -271,7 +284,7 @@ public final class MediaControllerCompat {
             public void onQueueTitleChanged(CharSequence charSequence) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) && (callback = this.mCallback.get()) != null) {
                     callback.onQueueTitleChanged(charSequence);
                 }
             }
@@ -280,7 +293,7 @@ public final class MediaControllerCompat {
             public void onSessionDestroyed() {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (callback = this.mCallback.get()) != null) {
                     callback.onSessionDestroyed();
                 }
             }
@@ -290,7 +303,7 @@ public final class MediaControllerCompat {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) {
                     MediaSessionCompat.ensureClassLoader(bundle);
-                    Callback callback = (Callback) this.mCallback.get();
+                    Callback callback = this.mCallback.get();
                     if (callback != null) {
                         if (callback.mIControllerCallback == null || Build.VERSION.SDK_INT >= 23) {
                             callback.onSessionEvent(str, bundle);
@@ -396,10 +409,10 @@ public final class MediaControllerCompat {
         }
 
         /* loaded from: classes.dex */
-        public class StubCompat extends IMediaControllerCallback.Stub {
+        public static class StubCompat extends IMediaControllerCallback.Stub {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final WeakReference mCallback;
+            public final WeakReference<Callback> mCallback;
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
             public void onShuffleModeChangedRemoved(boolean z) throws RemoteException {
@@ -423,7 +436,7 @@ public final class MediaControllerCompat {
                         return;
                     }
                 }
-                this.mCallback = new WeakReference(callback);
+                this.mCallback = new WeakReference<>(callback);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
@@ -431,7 +444,7 @@ public final class MediaControllerCompat {
                 Callback callback;
                 PlaybackInfo playbackInfo;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048588, this, parcelableVolumeInfo) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048588, this, parcelableVolumeInfo) == null) && (callback = this.mCallback.get()) != null) {
                     if (parcelableVolumeInfo != null) {
                         playbackInfo = new PlaybackInfo(parcelableVolumeInfo.volumeType, parcelableVolumeInfo.audioStream, parcelableVolumeInfo.controlType, parcelableVolumeInfo.maxVolume, parcelableVolumeInfo.currentVolume);
                     } else {
@@ -445,7 +458,7 @@ public final class MediaControllerCompat {
             public void onCaptioningEnabledChanged(boolean z) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(11, Boolean.valueOf(z), null);
                 }
             }
@@ -454,7 +467,7 @@ public final class MediaControllerCompat {
             public void onExtrasChanged(Bundle bundle) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(7, bundle, null);
                 }
             }
@@ -463,7 +476,7 @@ public final class MediaControllerCompat {
             public void onMetadataChanged(MediaMetadataCompat mediaMetadataCompat) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, mediaMetadataCompat) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048579, this, mediaMetadataCompat) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(3, mediaMetadataCompat, null);
                 }
             }
@@ -472,16 +485,16 @@ public final class MediaControllerCompat {
             public void onPlaybackStateChanged(PlaybackStateCompat playbackStateCompat) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048580, this, playbackStateCompat) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048580, this, playbackStateCompat) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(2, playbackStateCompat, null);
                 }
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onQueueChanged(List list) throws RemoteException {
+            public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(5, list, null);
                 }
             }
@@ -490,7 +503,7 @@ public final class MediaControllerCompat {
             public void onQueueTitleChanged(CharSequence charSequence) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048582, this, charSequence) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048582, this, charSequence) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(6, charSequence, null);
                 }
             }
@@ -499,7 +512,7 @@ public final class MediaControllerCompat {
             public void onRepeatModeChanged(int i) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(9, Integer.valueOf(i), null);
                 }
             }
@@ -508,7 +521,7 @@ public final class MediaControllerCompat {
             public void onShuffleModeChanged(int i) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(12, Integer.valueOf(i), null);
                 }
             }
@@ -517,7 +530,7 @@ public final class MediaControllerCompat {
             public void onEvent(String str, Bundle bundle) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(1, str, bundle);
                 }
             }
@@ -526,7 +539,7 @@ public final class MediaControllerCompat {
             public void onSessionDestroyed() throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(8, null, null);
                 }
             }
@@ -535,7 +548,7 @@ public final class MediaControllerCompat {
             public void onSessionReady() throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (callback = (Callback) this.mCallback.get()) != null) {
+                if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (callback = this.mCallback.get()) != null) {
                     callback.postToHandler(13, null, null);
                 }
             }
@@ -570,6 +583,7 @@ public final class MediaControllerCompat {
             }
         }
 
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         public IMediaControllerCallback getIControllerCallback() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -609,22 +623,24 @@ public final class MediaControllerCompat {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
-    public class MediaControllerImplApi21 implements MediaControllerImpl {
+    public static class MediaControllerImplApi21 implements MediaControllerImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HashMap mCallbackMap;
+        public HashMap<Callback, ExtraCallback> mCallbackMap;
         public final MediaController mControllerFwk;
         public final Object mLock;
-        public final List mPendingCallbacks;
+        @GuardedBy("mLock")
+        public final List<Callback> mPendingCallbacks;
         public Bundle mSessionInfo;
         public final MediaSessionCompat.Token mSessionToken;
 
         /* loaded from: classes.dex */
-        public class ExtraBinderRequestResultReceiver extends ResultReceiver {
+        public static class ExtraBinderRequestResultReceiver extends ResultReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public WeakReference mMediaControllerImpl;
+            public WeakReference<MediaControllerImplApi21> mMediaControllerImpl;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public ExtraBinderRequestResultReceiver(MediaControllerImplApi21 mediaControllerImplApi21) {
@@ -644,14 +660,14 @@ public final class MediaControllerCompat {
                         return;
                     }
                 }
-                this.mMediaControllerImpl = new WeakReference(mediaControllerImplApi21);
+                this.mMediaControllerImpl = new WeakReference<>(mediaControllerImplApi21);
             }
 
             @Override // android.os.ResultReceiver
             public void onReceiveResult(int i, Bundle bundle) {
                 MediaControllerImplApi21 mediaControllerImplApi21;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) && (mediaControllerImplApi21 = (MediaControllerImplApi21) this.mMediaControllerImpl.get()) != null && bundle != null) {
+                if ((interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) && (mediaControllerImplApi21 = this.mMediaControllerImpl.get()) != null && bundle != null) {
                     synchronized (mediaControllerImplApi21.mLock) {
                         mediaControllerImplApi21.mSessionToken.setExtraBinder(IMediaSession.Stub.asInterface(BundleCompat.getBinder(bundle, MediaSessionCompat.KEY_EXTRA_BINDER)));
                         mediaControllerImplApi21.mSessionToken.setSession2Token(ParcelUtils.getVersionedParcelable(bundle, MediaSessionCompat.KEY_SESSION2_TOKEN));
@@ -662,7 +678,7 @@ public final class MediaControllerCompat {
         }
 
         /* loaded from: classes.dex */
-        public class ExtraCallback extends Callback.StubCompat {
+        public static class ExtraCallback extends Callback.StubCompat {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -703,7 +719,7 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.support.v4.media.session.MediaControllerCompat.Callback.StubCompat, android.support.v4.media.session.IMediaControllerCallback
-            public void onQueueChanged(List list) throws RemoteException {
+            public void onQueueChanged(List<MediaSessionCompat.QueueItem> list) throws RemoteException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
                     throw new AssertionError();
@@ -752,7 +768,7 @@ public final class MediaControllerCompat {
             }
             this.mLock = new Object();
             this.mPendingCallbacks = new ArrayList();
-            this.mCallbackMap = new HashMap();
+            this.mCallbackMap = new HashMap<>();
             this.mSessionToken = token;
             this.mControllerFwk = new MediaController(context, (MediaSession.Token) this.mSessionToken.getToken());
             if (this.mSessionToken.getExtraBinder() == null) {
@@ -846,7 +862,7 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public List getQueue() {
+        public List<MediaSessionCompat.QueueItem> getQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -1105,6 +1121,7 @@ public final class MediaControllerCompat {
             return (Bundle) invokeV.objValue;
         }
 
+        @GuardedBy("mLock")
         public void processPendingCallbacksLocked() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || this.mSessionToken.getExtraBinder() == null) {
@@ -1140,10 +1157,10 @@ public final class MediaControllerCompat {
                 synchronized (this.mLock) {
                     if (this.mSessionToken.getExtraBinder() != null) {
                         try {
-                            ExtraCallback extraCallback = (ExtraCallback) this.mCallbackMap.remove(callback);
-                            if (extraCallback != null) {
+                            ExtraCallback remove = this.mCallbackMap.remove(callback);
+                            if (remove != null) {
                                 callback.mIControllerCallback = null;
-                                this.mSessionToken.getExtraBinder().unregisterCallbackListener(extraCallback);
+                                this.mSessionToken.getExtraBinder().unregisterCallbackListener(remove);
                             }
                         } catch (RemoteException e) {
                             Log.e(MediaControllerCompat.TAG, "Dead object in unregisterCallback.", e);
@@ -1157,7 +1174,7 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public class MediaControllerImplBase implements MediaControllerImpl {
+    public static class MediaControllerImplBase implements MediaControllerImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IMediaSession mBinder;
@@ -1407,7 +1424,7 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public List getQueue() {
+        public List<MediaSessionCompat.QueueItem> getQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -1581,7 +1598,7 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public final class PlaybackInfo {
+    public static final class PlaybackInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PLAYBACK_TYPE_LOCAL = 1;
         public static final int PLAYBACK_TYPE_REMOTE = 2;
@@ -1613,7 +1630,7 @@ public final class MediaControllerCompat {
             }
         }
 
-        public PlaybackInfo(int i, AudioAttributesCompat audioAttributesCompat, int i2, int i3, int i4) {
+        public PlaybackInfo(int i, @NonNull AudioAttributesCompat audioAttributesCompat, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1635,6 +1652,7 @@ public final class MediaControllerCompat {
             this.mCurrentVolume = i4;
         }
 
+        @NonNull
         public AudioAttributesCompat getAudioAttributes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1692,7 +1710,7 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class TransportControls {
+    public static abstract class TransportControls {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_LEGACY_STREAM_TYPE = "android.media.session.extra.LEGACY_STREAM_TYPE";
         public transient /* synthetic */ FieldHolder $fh;
@@ -1764,8 +1782,9 @@ public final class MediaControllerCompat {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes.dex */
-    public class TransportControlsApi21 extends TransportControls {
+    public static class TransportControlsApi21 extends TransportControls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final MediaController.TransportControls mControlsFwk;
@@ -2044,7 +2063,7 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public class TransportControlsBase extends TransportControls {
+    public static class TransportControlsBase extends TransportControls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IMediaSession mBinder;
@@ -2358,7 +2377,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    public MediaControllerCompat(Context context, MediaSessionCompat.Token token) {
+    public MediaControllerCompat(Context context, @NonNull MediaSessionCompat.Token token) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2373,7 +2392,7 @@ public final class MediaControllerCompat {
                 return;
             }
         }
-        this.mRegisteredCallbacks = new ConcurrentHashMap();
+        this.mRegisteredCallbacks = new ConcurrentHashMap<>();
         if (token != null) {
             this.mToken = token;
             if (Build.VERSION.SDK_INT >= 21) {
@@ -2409,7 +2428,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    public MediaControllerCompat(Context context, MediaSessionCompat mediaSessionCompat) {
+    public MediaControllerCompat(Context context, @NonNull MediaSessionCompat mediaSessionCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2424,7 +2443,7 @@ public final class MediaControllerCompat {
                 return;
             }
         }
-        this.mRegisteredCallbacks = new ConcurrentHashMap();
+        this.mRegisteredCallbacks = new ConcurrentHashMap<>();
         if (mediaSessionCompat != null) {
             MediaSessionCompat.Token sessionToken = mediaSessionCompat.getSessionToken();
             this.mToken = sessionToken;
@@ -2439,12 +2458,12 @@ public final class MediaControllerCompat {
         throw new IllegalArgumentException("session must not be null");
     }
 
-    public static MediaControllerCompat getMediaController(Activity activity) {
+    public static MediaControllerCompat getMediaController(@NonNull Activity activity) {
         InterceptResult invokeL;
         MediaController mediaController;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f0914c9);
+            Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f091508);
             if (tag instanceof MediaControllerCompat) {
                 return (MediaControllerCompat) tag;
             }
@@ -2456,10 +2475,10 @@ public final class MediaControllerCompat {
         return (MediaControllerCompat) invokeL.objValue;
     }
 
-    public static void setMediaController(Activity activity, MediaControllerCompat mediaControllerCompat) {
+    public static void setMediaController(@NonNull Activity activity, MediaControllerCompat mediaControllerCompat) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, activity, mediaControllerCompat) == null) {
-            activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f0914c9, mediaControllerCompat);
+            activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f091508, mediaControllerCompat);
             if (Build.VERSION.SDK_INT >= 21) {
                 MediaController mediaController = null;
                 if (mediaControllerCompat != null) {
@@ -2470,7 +2489,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    public void registerCallback(Callback callback, Handler handler) {
+    public void registerCallback(@NonNull Callback callback, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, callback, handler) == null) {
             if (callback != null) {
@@ -2508,7 +2527,7 @@ public final class MediaControllerCompat {
         return invokeL.booleanValue;
     }
 
-    public void registerCallback(Callback callback) {
+    public void registerCallback(@NonNull Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, callback) == null) {
             registerCallback(callback, null);
@@ -2524,10 +2543,10 @@ public final class MediaControllerCompat {
 
     @Deprecated
     public void removeQueueItemAt(int i) {
-        List queue;
+        List<MediaSessionCompat.QueueItem> queue;
         MediaSessionCompat.QueueItem queueItem;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && (queue = getQueue()) != null && i >= 0 && i < queue.size() && (queueItem = (MediaSessionCompat.QueueItem) queue.get(i)) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && (queue = getQueue()) != null && i >= 0 && i < queue.size() && (queueItem = queue.get(i)) != null) {
             removeQueueItem(queueItem.getDescription());
         }
     }
@@ -2616,7 +2635,7 @@ public final class MediaControllerCompat {
         return (PlaybackStateCompat) invokeV.objValue;
     }
 
-    public List getQueue() {
+    public List<MediaSessionCompat.QueueItem> getQueue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -2652,6 +2671,8 @@ public final class MediaControllerCompat {
         return invokeV.intValue;
     }
 
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public VersionedParcelable getSession2Token() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2670,6 +2691,7 @@ public final class MediaControllerCompat {
         return (PendingIntent) invokeV.objValue;
     }
 
+    @NonNull
     public Bundle getSessionInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2724,7 +2746,7 @@ public final class MediaControllerCompat {
         return invokeV.booleanValue;
     }
 
-    public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
+    public void sendCommand(@NonNull String str, @Nullable Bundle bundle, @Nullable ResultReceiver resultReceiver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048603, this, str, bundle, resultReceiver) == null) {
             if (!TextUtils.isEmpty(str)) {
@@ -2735,7 +2757,7 @@ public final class MediaControllerCompat {
         }
     }
 
-    public void unregisterCallback(Callback callback) {
+    public void unregisterCallback(@NonNull Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, callback) == null) {
             if (callback != null) {

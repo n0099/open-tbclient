@@ -8,26 +8,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.MaybeObserver;
 import io.reactivex.MaybeSource;
+import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.plugins.RxJavaPlugins;
+@Experimental
 /* loaded from: classes8.dex */
-public final class MaybeDoAfterSuccess extends AbstractMaybeWithUpstream {
+public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Consumer onAfterSuccess;
+    public final Consumer<? super T> onAfterSuccess;
 
     /* loaded from: classes8.dex */
-    public final class DoAfterObserver implements MaybeObserver, Disposable {
+    public static final class DoAfterObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
-        public final Consumer onAfterSuccess;
+        public final Consumer<? super T> onAfterSuccess;
 
-        public DoAfterObserver(MaybeObserver maybeObserver, Consumer consumer) {
+        public DoAfterObserver(MaybeObserver<? super T> maybeObserver, Consumer<? super T> consumer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,12 +92,12 @@ public final class MaybeDoAfterSuccess extends AbstractMaybeWithUpstream {
         }
 
         @Override // io.reactivex.MaybeObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onSuccess(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onSuccess(t);
                 try {
-                    this.onAfterSuccess.accept(obj);
+                    this.onAfterSuccess.accept(t);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
@@ -105,7 +107,7 @@ public final class MaybeDoAfterSuccess extends AbstractMaybeWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDoAfterSuccess(MaybeSource maybeSource, Consumer consumer) {
+    public MaybeDoAfterSuccess(MaybeSource<T> maybeSource, Consumer<? super T> consumer) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,7 +128,7 @@ public final class MaybeDoAfterSuccess extends AbstractMaybeWithUpstream {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             this.source.subscribe(new DoAfterObserver(maybeObserver, this.onAfterSuccess));

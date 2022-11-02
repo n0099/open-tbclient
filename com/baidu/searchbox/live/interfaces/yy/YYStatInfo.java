@@ -20,7 +20,7 @@ public class YYStatInfo {
     public boolean isColdLaunch;
     public String loadType;
     public String roomId;
-    public HashMap statInfo;
+    public HashMap<String, Object> statInfo;
 
     public YYStatInfo() {
         Interceptable interceptable = $ic;

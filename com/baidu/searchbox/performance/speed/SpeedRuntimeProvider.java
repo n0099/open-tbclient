@@ -7,7 +7,7 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.gf1;
+import com.baidu.tieba.yf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
-public class SpeedRuntimeProvider extends gf1 {
+public class SpeedRuntimeProvider extends yf1<ISpeedContext> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAIN_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.MainTabActivity";
     public static final String SCHEMA_ACTIVITY_NAME = "com.baidu.tieba.tblauncher.SchemaRouteActivity";
@@ -37,7 +37,8 @@ public class SpeedRuntimeProvider extends gf1 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gf1
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.yf1
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,7 +83,7 @@ public class SpeedRuntimeProvider extends gf1 {
                 }
 
                 @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-                public void launchData(HashMap hashMap) {
+                public void launchData(HashMap<String, String> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048587, this, hashMap) == null) {
                     }

@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.mobstat.Config;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes3.dex */
-public class bk2 {
+public class bk2 extends yh2<pk2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
+
+    @Override // com.baidu.tieba.yh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCheekThin" : (String) invokeV.objValue;
+    }
 
     public bk2() {
         Interceptable interceptable = $ic;
@@ -31,21 +35,18 @@ public class bk2 {
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull pk2 pk2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.b);
-                jSONObject.put(Config.EVENT_ATTR, this.c);
-                jSONObject.put("role", this.d);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, pk2Var) == null) {
+            String str = command.what;
+            d(pk2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Integer) {
+                pk2Var.J(((Integer) obj).intValue());
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

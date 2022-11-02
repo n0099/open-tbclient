@@ -18,7 +18,7 @@ public final class UserAccount {
     public String bduss;
     public String displayname;
     public String email;
-    public HashMap extFields;
+    public HashMap<String, String> extFields;
     public String nickName;
     public String phone;
     public String protrait;
@@ -67,7 +67,7 @@ public final class UserAccount {
         return (String) invokeV.objValue;
     }
 
-    public final HashMap getExtFields() {
+    public final HashMap<String, String> getExtFields() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -151,7 +151,7 @@ public final class UserAccount {
         }
     }
 
-    public final void setExtFields(HashMap hashMap) {
+    public final void setExtFields(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) {
             this.extFields = hashMap;

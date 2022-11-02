@@ -1,85 +1,114 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ju0 implements bu0 {
+public class ju0 extends gu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final or0 a;
-    public ViewGroup b;
 
-    public ju0(or0 or0Var) {
+    public ju0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {or0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = or0Var;
     }
 
-    public final void b(Activity activity) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            activity.getWindow().addFlags(128);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(iu0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int M = this.a.M();
-            int J = this.a.J();
-            if (M <= 0 || J <= 0 || M > J) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(iu0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(iu0.w(StatisticsEvent.ACTION_PLAYER_START));
+        }
+    }
+
+    public void d(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
+            mu0 w = iu0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
+            w.n(2, String.valueOf(obj));
+            w.n(4, Integer.valueOf(i2));
+            c(w);
+        }
+    }
+
+    public void e(int i, int i2, Object obj) {
+        mu0 w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904 && i != 956) {
+                        if (i != 10009) {
+                            if (i != 11004) {
+                                if (i != 11005) {
+                                    w = null;
+                                } else {
+                                    w = iu0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
+                                }
+                            } else {
+                                w = iu0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                                w.n(4, Integer.valueOf(i2));
+                            }
+                        } else {
+                            w = iu0.w("statistics_player_carlton");
+                            w.n(2, String.valueOf(obj));
+                        }
+                    } else {
+                        w = iu0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                        w.n(2, String.valueOf(obj));
+                    }
+                } else {
+                    w = iu0.w(StatisticsEvent.ACTION_BUFFER_END);
+                }
+            } else {
+                w = iu0.w(StatisticsEvent.ACTION_BUFFER_START);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bu0
-    public void switchToFullStyle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = this.a.n();
-            this.a.Y0(true);
-            Activity activity = this.a.getActivity();
-            if (a()) {
-                wy0.a(activity, this.a.X0());
+            if (w != null) {
+                c(w);
             }
-            b(activity);
-            gz0.b(activity, this.a.v());
         }
     }
 
-    @Override // com.baidu.tieba.bu0
-    public void switchToNormalStyle() {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            mu0 w = iu0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
+            w.n(1, Integer.valueOf(i));
+            c(w);
         }
-        this.b = this.a.n();
-        this.a.Y0(false);
-        wy0.b(this.a.getActivity());
-        gz0.k(this.a.v());
-        gz0.j(this.a.n());
-        gz0.c(this.a.v(), this.b);
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            mu0 w = iu0.w(StatisticsEvent.ACTION_PLAYER_STOP);
+            w.n(1, Integer.valueOf(i));
+            c(w);
+        }
     }
 }

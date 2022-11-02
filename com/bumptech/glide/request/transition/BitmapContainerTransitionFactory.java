@@ -2,6 +2,7 @@ package com.bumptech.glide.request.transition;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,21 +11,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes7.dex */
-public abstract class BitmapContainerTransitionFactory implements TransitionFactory {
+public abstract class BitmapContainerTransitionFactory<R> implements TransitionFactory<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TransitionFactory realFactory;
+    public final TransitionFactory<Drawable> realFactory;
 
-    public abstract Bitmap getBitmap(Object obj);
+    public abstract Bitmap getBitmap(R r);
 
     /* loaded from: classes7.dex */
-    public final class BitmapGlideAnimation implements Transition {
+    public final class BitmapGlideAnimation implements Transition<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BitmapContainerTransitionFactory this$0;
-        public final Transition transition;
+        public final Transition<Drawable> transition;
 
-        public BitmapGlideAnimation(BitmapContainerTransitionFactory bitmapContainerTransitionFactory, Transition transition) {
+        public BitmapGlideAnimation(BitmapContainerTransitionFactory bitmapContainerTransitionFactory, Transition<Drawable> transition) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,17 +45,17 @@ public abstract class BitmapContainerTransitionFactory implements TransitionFact
         }
 
         @Override // com.bumptech.glide.request.transition.Transition
-        public boolean transition(Object obj, Transition.ViewAdapter viewAdapter) {
+        public boolean transition(R r, Transition.ViewAdapter viewAdapter) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, viewAdapter)) == null) {
-                return this.transition.transition(new BitmapDrawable(viewAdapter.getView().getResources(), this.this$0.getBitmap(obj)), viewAdapter);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r, viewAdapter)) == null) {
+                return this.transition.transition(new BitmapDrawable(viewAdapter.getView().getResources(), this.this$0.getBitmap(r)), viewAdapter);
             }
             return invokeLL.booleanValue;
         }
     }
 
-    public BitmapContainerTransitionFactory(TransitionFactory transitionFactory) {
+    public BitmapContainerTransitionFactory(TransitionFactory<Drawable> transitionFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +74,7 @@ public abstract class BitmapContainerTransitionFactory implements TransitionFact
     }
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition build(DataSource dataSource, boolean z) {
+    public Transition<R> build(DataSource dataSource, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {

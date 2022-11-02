@@ -7,7 +7,7 @@ import kotlinx.coroutines.internal.ArrayQueue;
 /* loaded from: classes8.dex */
 public abstract class EventLoop extends CoroutineDispatcher {
     public boolean shared;
-    public ArrayQueue unconfinedQueue;
+    public ArrayQueue<DispatchedTask<?>> unconfinedQueue;
     public long useCount;
 
     private final long delta(boolean z) {
@@ -22,7 +22,7 @@ public abstract class EventLoop extends CoroutineDispatcher {
     }
 
     public long getNextTime() {
-        ArrayQueue arrayQueue = this.unconfinedQueue;
+        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
         if (arrayQueue == null || arrayQueue.isEmpty()) {
             return Long.MAX_VALUE;
         }
@@ -48,7 +48,7 @@ public abstract class EventLoop extends CoroutineDispatcher {
     }
 
     public final boolean isUnconfinedQueueEmpty() {
-        ArrayQueue arrayQueue = this.unconfinedQueue;
+        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
         if (arrayQueue != null) {
             return arrayQueue.isEmpty();
         }
@@ -63,12 +63,12 @@ public abstract class EventLoop extends CoroutineDispatcher {
     }
 
     public final boolean processUnconfinedEvent() {
-        DispatchedTask dispatchedTask;
-        ArrayQueue arrayQueue = this.unconfinedQueue;
-        if (arrayQueue == null || (dispatchedTask = (DispatchedTask) arrayQueue.removeFirstOrNull()) == null) {
+        DispatchedTask<?> removeFirstOrNull;
+        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
+        if (arrayQueue == null || (removeFirstOrNull = arrayQueue.removeFirstOrNull()) == null) {
             return false;
         }
-        dispatchedTask.run();
+        removeFirstOrNull.run();
         return true;
     }
 
@@ -116,10 +116,10 @@ public abstract class EventLoop extends CoroutineDispatcher {
         }
     }
 
-    public final void dispatchUnconfined(DispatchedTask dispatchedTask) {
-        ArrayQueue arrayQueue = this.unconfinedQueue;
+    public final void dispatchUnconfined(DispatchedTask<?> dispatchedTask) {
+        ArrayQueue<DispatchedTask<?>> arrayQueue = this.unconfinedQueue;
         if (arrayQueue == null) {
-            arrayQueue = new ArrayQueue();
+            arrayQueue = new ArrayQueue<>();
             this.unconfinedQueue = arrayQueue;
         }
         arrayQueue.addLast(dispatchedTask);

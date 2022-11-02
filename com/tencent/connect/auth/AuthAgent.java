@@ -82,9 +82,9 @@ public class AuthAgent extends BaseApi {
     public transient /* synthetic */ FieldHolder $fh;
     public IUiListener a;
     public String d;
-    public WeakReference e;
+    public WeakReference<Activity> e;
 
-    private void a(Bundle bundle, Map map) {
+    private void a(Bundle bundle, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, bundle, map) == null) {
         }
@@ -94,7 +94,7 @@ public class AuthAgent extends BaseApi {
     public class b extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<IUiListener> a;
         public final /* synthetic */ AuthAgent b;
         public final String c;
         public final String d;
@@ -146,7 +146,7 @@ public class AuthAgent extends BaseApi {
             this.c = "sendinstall";
             this.d = "installwording";
             this.e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
-            this.a = new WeakReference(iUiListener);
+            this.a = new WeakReference<>(iUiListener);
         }
 
         private Drawable a(String str, Context context) {
@@ -451,7 +451,7 @@ public class AuthAgent extends BaseApi {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.get() != null) {
-                ((IUiListener) this.a.get()).onCancel();
+                this.a.get().onCancel();
             }
         }
 
@@ -483,7 +483,7 @@ public class AuthAgent extends BaseApi {
                         SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode + "xx,showConfirmDialog=" + z);
                         if (!z) {
                         }
-                        iUiListener = (IUiListener) this.a.get();
+                        iUiListener = this.a.get();
                         if (iUiListener == null) {
                         }
                     }
@@ -493,11 +493,11 @@ public class AuthAgent extends BaseApi {
                 String decode2 = URLDecoder.decode(str);
                 SLog.i("openSDK_LOG.AuthAgent", " WORDING = " + decode2 + "xx,showConfirmDialog=" + z);
                 if (!z && !TextUtils.isEmpty(decode2)) {
-                    a(decode2, (IUiListener) this.a.get(), obj);
+                    a(decode2, this.a.get(), obj);
                     SLog.i("openSDK_LOG.AuthAgent", " WORDING is not empty and return");
                     return;
                 }
-                iUiListener = (IUiListener) this.a.get();
+                iUiListener = this.a.get();
                 if (iUiListener == null) {
                     if (this.b.c != null) {
                         z2 = this.b.c.saveSession(jSONObject);
@@ -519,7 +519,7 @@ public class AuthAgent extends BaseApi {
         public void onError(UiError uiError) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, uiError) == null) && this.a.get() != null) {
-                ((IUiListener) this.a.get()).onError(uiError);
+                this.a.get().onError(uiError);
             }
         }
     }
@@ -920,7 +920,7 @@ public class AuthAgent extends BaseApi {
         return (String) invokeL.objValue;
     }
 
-    private boolean a(Activity activity, Fragment fragment, Map map, boolean z, Object[] objArr) {
+    private boolean a(Activity activity, Fragment fragment, Map<String, Object> map, boolean z, Object[] objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{activity, fragment, map, Boolean.valueOf(z), objArr})) == null) {
@@ -1011,12 +1011,12 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    public int doLogin(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2, Map map) {
+    public int doLogin(Activity activity, String str, IUiListener iUiListener, boolean z, Fragment fragment, boolean z2, Map<String, Object> map) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{activity, str, iUiListener, Boolean.valueOf(z), fragment, Boolean.valueOf(z2), map})) == null) {
             this.d = str;
-            this.e = new WeakReference(activity);
+            this.e = new WeakReference<>(activity);
             this.a = iUiListener;
             Object[] objArr = new Object[2];
             if (!activity.getIntent().getBooleanExtra(KEY_FORCE_QR_LOGIN, false) && !g.a(activity, this.c.getAppId()).b("C_LoginWeb") && a(activity, fragment, map, z, objArr)) {

@@ -30,13 +30,13 @@ public final class Detector {
 
     /* renamed from: com.google.zxing.datamatrix.detector.Detector$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class ResultPointsAndTransitions {
+    public static final class ResultPointsAndTransitions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ResultPoint from;
@@ -105,7 +105,7 @@ public final class Detector {
     }
 
     /* loaded from: classes7.dex */
-    public final class ResultPointsAndTransitionsComparator implements Serializable, Comparator {
+    public static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -234,10 +234,10 @@ public final class Detector {
         return invokeLL.intValue;
     }
 
-    public static void increment(Map map, ResultPoint resultPoint) {
+    public static void increment(Map<ResultPoint, Integer> map, ResultPoint resultPoint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, resultPoint) == null) {
-            Integer num = (Integer) map.get(resultPoint);
+            Integer num = map.get(resultPoint);
             int i = 1;
             if (num != null) {
                 i = 1 + num.intValue();

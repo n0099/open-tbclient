@@ -48,7 +48,7 @@ public class IMPaSubscribedListMsg extends Message {
         setType(104);
     }
 
-    private void localSyncSubscribedPaList(Context context, List list) {
+    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65537, this, context, list) != null) || list == null) {
             return;
@@ -59,19 +59,17 @@ public class IMPaSubscribedListMsg extends Message {
         }
         List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
         ArrayList arrayList = new ArrayList();
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            PaInfo paInfo = (PaInfo) it.next();
+        for (PaInfo paInfo : list) {
             boolean z = false;
             if (querySubscribedPaList != null) {
-                Iterator it2 = querySubscribedPaList.iterator();
+                Iterator<PaInfo> it = querySubscribedPaList.iterator();
                 while (true) {
-                    if (!it2.hasNext()) {
+                    if (!it.hasNext()) {
                         break;
                     }
-                    PaInfo paInfo2 = (PaInfo) it2.next();
-                    if (paInfo.getPaId() == paInfo2.getPaId()) {
-                        querySubscribedPaList.remove(paInfo2);
+                    PaInfo next = it.next();
+                    if (paInfo.getPaId() == next.getPaId()) {
+                        querySubscribedPaList.remove(next);
                         PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
                         z = true;
                         break;
@@ -83,13 +81,13 @@ public class IMPaSubscribedListMsg extends Message {
             }
         }
         if (querySubscribedPaList != null) {
-            for (PaInfo paInfo3 : querySubscribedPaList) {
-                PaInfoDBManager.getInstance(context).unSubscribePa(paInfo3.getPaId());
+            for (PaInfo paInfo2 : querySubscribedPaList) {
+                PaInfoDBManager.getInstance(context).unSubscribePa(paInfo2.getPaId());
             }
         }
-        Iterator it3 = arrayList.iterator();
-        while (it3.hasNext()) {
-            PaInfoDBManager.getInstance(context).subscribePa((PaInfo) it3.next());
+        Iterator it2 = arrayList.iterator();
+        while (it2.hasNext()) {
+            PaInfoDBManager.getInstance(context).subscribePa((PaInfo) it2.next());
         }
     }
 
@@ -123,7 +121,7 @@ public class IMPaSubscribedListMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
-            List list = null;
+            List<PaInfo> list = null;
             if (i == 0) {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");

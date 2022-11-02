@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hs9;
-import com.baidu.tieba.is9;
+import com.baidu.tieba.qt9;
+import com.baidu.tieba.rt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public class Availability {
+    public static class Availability {
         public static final /* synthetic */ Availability[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Availability SUPPORTED_APK_TOO_OLD;
@@ -121,7 +121,7 @@ public class ArCoreApk {
             this.nativeCode = i2;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, hs9 hs9Var) {
+        public /* synthetic */ Availability(String str, int i, int i2, qt9 qt9Var) {
             this(str, i, i2);
         }
 
@@ -164,7 +164,7 @@ public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class InstallBehavior {
+    public static final class InstallBehavior {
         public static final /* synthetic */ InstallBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InstallBehavior OPTIONAL;
@@ -251,7 +251,7 @@ public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class InstallStatus {
+    public static final class InstallStatus {
         public static final /* synthetic */ InstallStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final InstallStatus INSTALLED;
@@ -338,7 +338,7 @@ public class ArCoreApk {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
-    public final class UserMessageType {
+    public static final class UserMessageType {
         public static final /* synthetic */ UserMessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final UserMessageType APPLICATION;
@@ -443,7 +443,7 @@ public class ArCoreApk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return is9.d();
+            return rt9.d();
         }
         return (ArCoreApk) invokeV.objValue;
     }

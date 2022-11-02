@@ -28,14 +28,14 @@ import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer {
+public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
     public static final Rect MINI_THUMBNAIL_DIMENSIONS;
     public static final int NO_THUMBNAIL = 0;
     public static final String PRODUCER_NAME = "LocalContentUriThumbnailFetchProducer";
     public static final String[] PROJECTION;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public static final String[] THUMBNAIL_PROJECTION;
     public transient /* synthetic */ FieldHolder $fh;
     public final ContentResolver mContentResolver;

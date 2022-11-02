@@ -1,7 +1,9 @@
 package com.airbnb.lottie.parser.moshi;
+
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public final class JsonDataException extends RuntimeException {
-    public JsonDataException(String str) {
+    public JsonDataException(@Nullable String str) {
         super(str);
     }
 }

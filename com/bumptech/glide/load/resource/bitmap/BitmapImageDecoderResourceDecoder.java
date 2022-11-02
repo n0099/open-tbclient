@@ -3,6 +3,7 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
 import android.util.Log;
+import androidx.annotation.RequiresApi;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,8 +15,9 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import com.bumptech.glide.load.resource.ImageDecoderResourceDecoder;
 import java.io.IOException;
+@RequiresApi(api = 28)
 /* loaded from: classes7.dex */
-public final class BitmapImageDecoderResourceDecoder extends ImageDecoderResourceDecoder {
+public final class BitmapImageDecoderResourceDecoder extends ImageDecoderResourceDecoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapImageDecoder";
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +40,7 @@ public final class BitmapImageDecoderResourceDecoder extends ImageDecoderResourc
     }
 
     @Override // com.bumptech.glide.load.resource.ImageDecoderResourceDecoder
-    public Resource decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException {
+    public Resource<Bitmap> decode(ImageDecoder.Source source, int i, int i2, ImageDecoder.OnHeaderDecodedListener onHeaderDecodedListener) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{source, Integer.valueOf(i), Integer.valueOf(i2), onHeaderDecodedListener})) == null) {

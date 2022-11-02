@@ -8,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.Box;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
@@ -25,17 +27,17 @@ public class ReplaceSampleTrack extends AbstractTrack {
     public Track origTrack;
     public Sample sampleContent;
     public long sampleNumber;
-    public List samples;
+    public List<Sample> samples;
 
     /* renamed from: com.googlecode.mp4parser.authoring.tracks.ReplaceSampleTrack$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class ReplaceASingleEntryList extends AbstractList {
+    public class ReplaceASingleEntryList extends AbstractList<Sample> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplaceSampleTrack this$0;
@@ -71,7 +73,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
                 if (this.this$0.sampleNumber == i) {
                     return this.this$0.sampleContent;
                 }
-                return (Sample) this.this$0.origTrack.getSamples().get(i);
+                return this.this$0.origTrack.getSamples().get(i);
             }
             return (Sample) invokeI.objValue;
         }
@@ -109,7 +111,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,7 +141,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -173,7 +175,7 @@ public class ReplaceSampleTrack extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

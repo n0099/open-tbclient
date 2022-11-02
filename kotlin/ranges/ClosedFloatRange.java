@@ -19,9 +19,10 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
         this._endInclusive = f2;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable, java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedFloatingPointRange
-    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Comparable comparable, Comparable comparable2) {
-        return lessThanOrEquals(((Number) comparable).floatValue(), ((Number) comparable2).floatValue());
+    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Float f, Float f2) {
+        return lessThanOrEquals(f.floatValue(), f2.floatValue());
     }
 
     public boolean contains(float f) {

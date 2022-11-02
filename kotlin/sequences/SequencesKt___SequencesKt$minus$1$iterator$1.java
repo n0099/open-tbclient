@@ -20,17 +20,20 @@ public final class SequencesKt___SequencesKt$minus$1$iterator$1 extends Lambda i
         this.$removed = booleanRef;
     }
 
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Object invoke(Object obj) {
-        return Boolean.valueOf(invoke((SequencesKt___SequencesKt$minus$1$iterator$1) obj));
+    public /* bridge */ /* synthetic */ Boolean invoke(Object obj) {
+        return Boolean.valueOf(invoke2((SequencesKt___SequencesKt$minus$1$iterator$1) obj));
     }
 
+    /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public final boolean invoke(T t) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final Boolean invoke2(T t) {
         if (this.$removed.element || !Intrinsics.areEqual(t, this.this$0.$element)) {
-            return true;
+            return 1;
         }
         this.$removed.element = true;
-        return false;
+        return null;
     }
 }

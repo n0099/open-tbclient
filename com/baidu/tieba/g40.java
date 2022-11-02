@@ -1,68 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Map;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class g40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Map map) {
-        InterceptResult invokeL;
-        String encode;
+    public static void a(byte[] bArr, byte[] bArr2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("start should be more than zero!");
             }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = (String) map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                    }
-                } else {
-                    encode = "";
-                }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("dst array should not be null or empty");
             }
-            return sb.toString();
+            if (bArr2 == null || bArr2.length == 0) {
+                throw new IllegalArgumentException("src array should not be null or empty");
+            }
+            if (bArr.length < bArr2.length) {
+                throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
+            }
+            if (bArr.length >= bArr2.length + i) {
+                System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
+                return;
+            }
+            throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str, Map map) {
-        InterceptResult invokeLL;
+    public static byte[] b(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("original array should not be null or empty");
             }
-            String a = a(map);
-            if (TextUtils.isEmpty(a)) {
-                return str;
+            if (i >= 0) {
+                return Arrays.copyOf(bArr, i);
             }
-            if (!str.contains("?")) {
-                return str + "?" + a;
-            }
-            if (str.lastIndexOf("?") == str.length() - 1) {
-                return str + a;
-            }
-            return str + "&" + a;
+            throw new IllegalArgumentException("length should be more than zero!");
         }
-        return (String) invokeLL.objValue;
+        return (byte[]) invokeLI.objValue;
     }
 }

@@ -17,14 +17,14 @@ import io.reactivex.internal.operators.single.SingleZipArray;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
-public final class SingleZipIterable extends Single {
+public final class SingleZipIterable<T, R> extends Single<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable sources;
-    public final Function zipper;
+    public final Iterable<? extends SingleSource<? extends T>> sources;
+    public final Function<? super Object[], ? extends R> zipper;
 
     /* loaded from: classes8.dex */
-    public final class SingletonArrayFunc implements Function {
+    public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleZipIterable this$0;
@@ -47,18 +47,19 @@ public final class SingleZipIterable extends Single {
             this.this$0 = singleZipIterable;
         }
 
+        /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.functions.Function
-        public Object apply(Object obj) throws Exception {
+        public R apply(T t) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                return ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{obj}), "The zipper returned a null value");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+                return (R) ObjectHelper.requireNonNull(this.this$0.zipper.apply(new Object[]{t}), "The zipper returned a null value");
             }
-            return invokeL.objValue;
+            return (R) invokeL.objValue;
         }
     }
 
-    public SingleZipIterable(Iterable iterable, Function function) {
+    public SingleZipIterable(Iterable<? extends SingleSource<? extends T>> iterable, Function<? super Object[], ? extends R> function) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,13 +79,13 @@ public final class SingleZipIterable extends Single {
     }
 
     @Override // io.reactivex.Single
-    public void subscribeActual(SingleObserver singleObserver) {
+    public void subscribeActual(SingleObserver<? super R> singleObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, singleObserver) == null) {
             SingleSource[] singleSourceArr = new SingleSource[8];
             try {
                 int i = 0;
-                for (SingleSource singleSource : this.sources) {
+                for (SingleSource<? extends T> singleSource : this.sources) {
                     if (singleSource == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), singleObserver);
                         return;

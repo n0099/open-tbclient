@@ -27,13 +27,13 @@ public final class Version {
 
     /* renamed from: com.google.zxing.datamatrix.decoder.Version$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public final class ECB {
+    public static final class ECB {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int count;
@@ -82,7 +82,7 @@ public final class Version {
     }
 
     /* loaded from: classes7.dex */
-    public final class ECBlocks {
+    public static final class ECBlocks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ECB[] ecBlocks;

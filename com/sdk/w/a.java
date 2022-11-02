@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.o.f;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a implements com.sdk.e.a {
+public class a implements com.sdk.e.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
@@ -49,13 +49,13 @@ public class a implements com.sdk.e.a {
     /* JADX WARN: Type inference failed for: r11v2, types: [java.lang.Object, java.lang.String] */
     /* JADX WARN: Type inference failed for: r11v3, types: [java.lang.String] */
     @Override // com.sdk.e.a
-    public void onSuccess(int i, String str, int i2, Object obj, String str2) {
+    public void onSuccess(int i, String str, int i2, T t, String str2) {
         Context context;
         long longValue;
         Context context2;
         Context unused;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
             context = this.b.d;
             Long b = com.sdk.j.a.b(context, "access_limit_count");
             if (b == null) {
@@ -66,23 +66,23 @@ public class a implements com.sdk.e.a {
             com.sdk.j.a.a(context, "access_limit_count", Long.valueOf(longValue));
             if (i == 0) {
                 context2 = this.b.d;
-                com.sdk.b.a.a(context2, this.a, com.sdk.b.a.a(obj, str2), f.b.b.a());
+                com.sdk.b.a.a(context2, this.a, com.sdk.b.a.a(t, str2), f.b.b.a());
                 try {
                     unused = this.b.d;
-                    obj = com.sdk.t.a.a(String.valueOf(obj));
-                    if (obj == 0) {
-                        this.b.a(1, "SDK解密异常", 302001, obj, str2);
+                    t = com.sdk.t.a.a(String.valueOf(t));
+                    if (t == 0) {
+                        this.b.a(1, "SDK解密异常", 302001, t, str2);
                         return;
                     }
-                    JSONObject jSONObject = new JSONObject((String) obj);
+                    JSONObject jSONObject = new JSONObject((String) t);
                     if (this.a == 1) {
                         jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                        obj = jSONObject.toString();
+                        t = jSONObject.toString();
                     }
                 } catch (Exception unused2) {
                 }
             }
-            this.b.a(i, str, i2, obj, str2);
+            this.b.a(i, str, i2, t, str2);
         }
     }
 }

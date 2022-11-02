@@ -23,7 +23,7 @@ public final class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -58,10 +58,10 @@ public final class k {
     }
 
     /* loaded from: classes8.dex */
-    public final class b implements ServiceConnection {
+    public static final class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final LinkedBlockingQueue a;
+        public final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f818a;
@@ -80,7 +80,7 @@ public final class k {
                 }
             }
             this.f818a = false;
-            this.a = new LinkedBlockingQueue(1);
+            this.a = new LinkedBlockingQueue<>(1);
         }
 
         public /* synthetic */ b(l lVar) {
@@ -95,7 +95,7 @@ public final class k {
                     throw new IllegalStateException();
                 }
                 this.f818a = true;
-                return (IBinder) this.a.poll(30000L, TimeUnit.MILLISECONDS);
+                return this.a.poll(30000L, TimeUnit.MILLISECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -120,7 +120,7 @@ public final class k {
     }
 
     /* loaded from: classes8.dex */
-    public final class c implements IInterface {
+    public static final class c implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IBinder a;

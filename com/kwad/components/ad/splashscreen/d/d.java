@@ -1,6 +1,7 @@
 package com.kwad.components.ad.splashscreen.d;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ public final class d extends com.kwad.components.core.widget.kwai.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(View view2, int i) {
+    public d(@NonNull View view2, int i) {
         super(view2, 70);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

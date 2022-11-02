@@ -31,7 +31,7 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansMemberRequest";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList mBuids;
+    public ArrayList<String> mBuids;
     public String mGroupId;
     public String mKey;
 
@@ -138,7 +138,7 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMQueryFansMemberRequest(Context context, String str, String str2, ArrayList arrayList) {
+    public IMQueryFansMemberRequest(Context context, String str, String str2, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,12 +168,12 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
             sb.append("method=get_members");
             sb.append("&group_id=");
             sb.append(this.mGroupId);
-            ArrayList arrayList = this.mBuids;
+            ArrayList<String> arrayList = this.mBuids;
             if (arrayList != null && arrayList.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                Iterator it = this.mBuids.iterator();
+                Iterator<String> it = this.mBuids.iterator();
                 while (it.hasNext()) {
-                    jSONArray.put(Utility.transBDUID((String) it.next()));
+                    jSONArray.put(Utility.transBDUID(it.next()));
                 }
                 sb.append("&members=");
                 sb.append(jSONArray.toString());
@@ -188,7 +188,7 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
-            Pair transErrorCode = transErrorCode(i, bArr, th);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);

@@ -44,7 +44,7 @@ public class Detector {
         this.image = bitMatrix;
     }
 
-    public final DetectorResult detect(Map map) throws NotFoundException, FormatException {
+    public final DetectorResult detect(Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         InterceptResult invokeL;
         ResultPointCallback resultPointCallback;
         Interceptable interceptable = $ic;

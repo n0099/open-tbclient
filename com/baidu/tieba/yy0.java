@@ -1,64 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public final class yy0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -2;
+public class yy0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<ty0> a;
+    public final sr0 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948346361, "Lcom/baidu/tieba/yy0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public yy0(@NonNull sr0 sr0Var) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sr0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948346361, "Lcom/baidu/tieba/yy0;");
+        this.a = new ArrayList<>();
+        this.b = sr0Var;
+    }
+
+    public void a(ty0 ty0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ty0Var) == null) {
+            ty0Var.c(b().x());
+            ty0Var.b(this);
+            this.a.add(ty0Var);
         }
     }
 
-    public static void a(ClarityUrlList clarityUrlList) {
-        ClarityUrlList.c cVar;
+    @NonNull
+    public sr0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
-            Iterator it = clarityUrlList.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    cVar = (ClarityUrlList.c) it.next();
-                    if ("auto".equals(cVar.c())) {
-                        break;
-                    }
-                } else {
-                    cVar = null;
-                    break;
-                }
-            }
-            if (cVar != null) {
-                clarityUrlList.remove(cVar);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (sr0) invokeV.objValue;
     }
 
-    public static lx0 b(ClarityUrlList clarityUrlList, double d) {
-        InterceptResult invokeCommon;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
-            a(clarityUrlList);
-            int f = lz0.f(a);
-            a = f;
-            return lz0.g(clarityUrlList, f, d, false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Iterator<ty0> it = this.a.iterator();
+            while (it.hasNext()) {
+                ty0 next = it.next();
+                next.e();
+                next.f();
+                next.m();
+            }
+            this.a.clear();
         }
-        return (lx0) invokeCommon.objValue;
     }
 }

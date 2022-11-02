@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.jy5;
-import com.baidu.tieba.ki6;
+import com.baidu.tieba.tz5;
+import com.baidu.tieba.uj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class AlaPersonCenterActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public final class a extends CustomMessageListener {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,22 +54,22 @@ public class AlaPersonCenterActivityStatic {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ki6)) {
+            if (!(data instanceof uj6)) {
                 return;
             }
-            ki6 ki6Var = (ki6) data;
-            jy5 jy5Var = new jy5();
-            jy5Var.i(ki6Var.c());
-            jy5Var.j(ki6Var.d());
-            jy5Var.h(ki6Var.b());
-            jy5Var.k(ki6Var.e());
-            jy5Var.g(ki6Var);
+            uj6 uj6Var = (uj6) data;
+            tz5 tz5Var = new tz5();
+            tz5Var.i(uj6Var.c());
+            tz5Var.j(uj6Var.d());
+            tz5Var.h(uj6Var.b());
+            tz5Var.k(uj6Var.e());
+            tz5Var.g(uj6Var);
         }
     }
 

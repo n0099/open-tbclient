@@ -1,6 +1,5 @@
 package com.kwad.sdk.collector;
 
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,14 +18,13 @@ public final class g {
         this.state = i;
     }
 
-    public static JSONArray l(List list) {
+    public static JSONArray l(List<g> list) {
         JSONArray jSONArray = new JSONArray();
         if (list == null) {
             return jSONArray;
         }
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            jSONArray.put(((g) it.next()).toJson());
+        for (g gVar : list) {
+            jSONArray.put(gVar.toJson());
         }
         return jSONArray;
     }

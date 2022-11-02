@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.view;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f6a;
+import com.baidu.tieba.o7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends f6a {
+public interface IYYPayResultView extends o7a {
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -24,7 +24,7 @@ public interface IYYPayResultView extends f6a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class Result {
+    public static final class Result {
         public static final /* synthetic */ Result[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Result PAY_FAIL;
@@ -91,7 +91,7 @@ public interface IYYPayResultView extends f6a {
     }
 
     /* loaded from: classes9.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Result a;
@@ -134,7 +134,7 @@ public interface IYYPayResultView extends f6a {
     }
 
     /* loaded from: classes9.dex */
-    public class c {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;

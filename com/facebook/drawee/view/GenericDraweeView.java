@@ -1,5 +1,6 @@
 package com.facebook.drawee.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
@@ -13,7 +14,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyInflater;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class GenericDraweeView extends DraweeView {
+public class GenericDraweeView extends DraweeView<GenericDraweeHierarchy> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,6 +99,7 @@ public class GenericDraweeView extends DraweeView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @TargetApi(21)
     public GenericDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;

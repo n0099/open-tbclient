@@ -32,7 +32,7 @@ public final class CacheDataSink implements DataSink {
     public FileOutputStream underlyingFileOutputStream;
 
     /* loaded from: classes7.dex */
-    public class CacheDataSinkException extends Cache.CacheException {
+    public static class CacheDataSinkException extends Cache.CacheException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

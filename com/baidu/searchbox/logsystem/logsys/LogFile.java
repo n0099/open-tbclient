@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.logsys;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +21,7 @@ public class LogFile {
         }
     }
 
-    public LogFile(File file) {
+    public LogFile(@NonNull File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,7 +41,7 @@ public class LogFile {
         this.mFile = file;
     }
 
-    public LogFile(File file, boolean z) {
+    public LogFile(@NonNull File file, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,7 +62,7 @@ public class LogFile {
         this.mCanDelete = z;
     }
 
-    public LogFile(File file, boolean z, boolean z2) {
+    public LogFile(@NonNull File file, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

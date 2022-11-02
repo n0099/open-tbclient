@@ -33,19 +33,19 @@ public final class PushMsgInfo extends Message {
     public final Long pushTime;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<PushMsgInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String et;
         public Long groupId;
         public Integer groupType;
-        public List msgInfo;
+        public List<MsgInfo> msgInfo;
         public Long pushTime;
 
         public Builder() {
@@ -146,7 +146,7 @@ public final class PushMsgInfo extends Message {
             } else {
                 this.groupId = l;
             }
-            List list = builder.msgInfo;
+            List<MsgInfo> list = builder.msgInfo;
             if (list == null) {
                 this.msgInfo = DEFAULT_MSGINFO;
             } else {

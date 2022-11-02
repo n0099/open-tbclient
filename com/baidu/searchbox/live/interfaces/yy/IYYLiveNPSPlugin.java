@@ -1,6 +1,7 @@
 package com.baidu.searchbox.live.interfaces.yy;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.callback.ILiveDiskClearCacheCallback;
@@ -29,7 +30,7 @@ public interface IYYLiveNPSPlugin {
     @Deprecated
     void clearLiveResourceSize(Context context);
 
-    void dispatchHostEvent(Context context, String str, Map map);
+    void dispatchHostEvent(Context context, String str, Map<String, Object> map);
 
     void dispatchYYLiveRouter(Context context, String str);
 
@@ -46,15 +47,15 @@ public interface IYYLiveNPSPlugin {
 
     boolean isLoaded();
 
-    void loadPlugin(Context context, LiveLoadStatusCallback liveLoadStatusCallback);
+    void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback);
 
     void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
 
-    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2);
+    void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2);
 
-    void startYYActivity(Context context);
+    void startYYActivity(@NonNull Context context);
 
     void startYYCustomerServiceActivity(Context context, String str);
 
@@ -65,7 +66,7 @@ public interface IYYLiveNPSPlugin {
     void updateStatInfo(YYStatInfo yYStatInfo);
 
     /* loaded from: classes2.dex */
-    public class Empty implements IYYLiveNPSPlugin {
+    public static class Empty implements IYYLiveNPSPlugin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +92,7 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void dispatchHostEvent(Context context, String str, Map map) {
+        public void dispatchHostEvent(Context context, String str, Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, context, str, map) == null) {
             }
@@ -159,7 +160,7 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void loadPlugin(Context context, LiveLoadStatusCallback liveLoadStatusCallback) {
+        public void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, context, liveLoadStatusCallback) == null) {
             }
@@ -180,14 +181,14 @@ public interface IYYLiveNPSPlugin {
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map map, Map map2) {
+        public void startPayment(Context context, IPaymentStateCallback iPaymentStateCallback, IPaymentLogDelegate iPaymentLogDelegate, String str, Long l, Boolean bool, Map<String, String> map, Map<String, Object> map2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{context, iPaymentStateCallback, iPaymentLogDelegate, str, l, bool, map, map2}) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
-        public void startYYActivity(Context context) {
+        public void startYYActivity(@NonNull Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             }

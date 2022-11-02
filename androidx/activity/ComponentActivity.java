@@ -5,6 +5,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import androidx.annotation.CallSuper;
+import androidx.annotation.ContentView;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.HasDefaultViewModelProviderFactory;
 import androidx.lifecycle.Lifecycle;
@@ -29,6 +35,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ComponentActivity extends androidx.core.app.ComponentActivity implements LifecycleOwner, ViewModelStoreOwner, HasDefaultViewModelProviderFactory, SavedStateRegistryOwner, OnBackPressedDispatcherOwner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @LayoutRes
     public int mContentLayoutId;
     public ViewModelProvider.Factory mDefaultFactory;
     public final LifecycleRegistry mLifecycleRegistry;
@@ -36,6 +43,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     public final SavedStateRegistryController mSavedStateRegistryController;
     public ViewModelStore mViewModelStore;
 
+    @Nullable
     @Deprecated
     public Object onRetainCustomNonConfigurationInstance() {
         InterceptResult invokeV;
@@ -141,7 +149,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                     }
 
                     @Override // androidx.lifecycle.LifecycleEventObserver
-                    public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                    public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                         View view2;
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_STOP) {
@@ -182,7 +190,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                 }
 
                 @Override // androidx.lifecycle.LifecycleEventObserver
-                public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+                public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, lifecycleOwner, event) == null) && event == Lifecycle.Event.ON_DESTROY && !this.this$0.isChangingConfigurations()) {
                         this.this$0.getViewModelStore().clear();
@@ -200,7 +208,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ComponentActivity(int i) {
+    @ContentView
+    public ComponentActivity(@LayoutRes int i) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -221,7 +230,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
@@ -235,7 +244,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
+    @CallSuper
+    public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             Lifecycle lifecycle = getLifecycle();
@@ -248,6 +258,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.lifecycle.HasDefaultViewModelProviderFactory
+    @NonNull
     public ViewModelProvider.Factory getDefaultViewModelProviderFactory() {
         InterceptResult invokeV;
         Bundle bundle;
@@ -271,6 +282,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.lifecycle.ViewModelStoreOwner
+    @NonNull
     public ViewModelStore getViewModelStore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -293,6 +305,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // android.app.Activity
+    @Nullable
     public final Object onRetainNonConfigurationInstance() {
         InterceptResult invokeV;
         NonConfigurationInstances nonConfigurationInstances;
@@ -314,6 +327,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         return invokeV.objValue;
     }
 
+    @Nullable
     @Deprecated
     public Object getLastCustomNonConfigurationInstance() {
         InterceptResult invokeV;
@@ -329,6 +343,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.core.app.ComponentActivity, androidx.lifecycle.LifecycleOwner
+    @NonNull
     public Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -339,6 +354,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.activity.OnBackPressedDispatcherOwner
+    @NonNull
     public final OnBackPressedDispatcher getOnBackPressedDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -349,6 +365,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // androidx.savedstate.SavedStateRegistryOwner
+    @NonNull
     public final SavedStateRegistry getSavedStateRegistry() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -359,6 +376,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
     }
 
     @Override // android.app.Activity
+    @MainThread
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

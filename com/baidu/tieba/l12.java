@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.an2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class l12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,144 +31,89 @@ public class l12 {
                 return;
             }
         }
-        a = wj1.a;
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        Throwable th;
-        IOException e;
+    public static an2.g a(bp2 bp2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (l12.class) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "start cpu monitor thread");
-                }
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                    try {
-                        try {
-                            String c = c(bufferedReader);
-                            if (a) {
-                                Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                            }
-                            qj4.d(bufferedReader);
-                            return c;
-                        } catch (IOException e2) {
-                            e = e2;
-                            if (a) {
-                                Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                            }
-                            qj4.d(bufferedReader);
-                            return "";
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        qj4.d(bufferedReader);
-                        throw th;
-                    }
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                    e = e3;
-                } catch (Throwable th3) {
-                    bufferedReader = null;
-                    th = th3;
-                    qj4.d(bufferedReader);
-                    throw th;
-                }
-            }
-        } else {
-            return (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bp2Var)) == null) {
+            File d = d();
+            n12.e().f("unzipstart");
+            an2.M(b(), d, bp2Var);
+            n12.e().f("unzipend");
+            an2.g gVar = new an2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = q43.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            e12.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
+        return (an2.g) invokeL.objValue;
     }
 
-    public static float b() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
-            }
+            return new File(c(), "local_debug.swan");
         }
-        return invokeV.floatValue;
+        return (File) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.baidu.tieba.l12.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
-        InterceptResult invokeL;
-        char read;
-        boolean z;
+    public static File c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT >= 26) {
-                boolean z2 = true;
-                int i2 = 0;
-                int i3 = 0;
-                while (true) {
-                    char read2 = (char) bufferedReader.read();
-                    if (z2 && read2 != ' ') {
-                        i2++;
-                    }
-                    if (i2 == 9) {
-                        if (read2 != '.' && read2 != ' ') {
-                            cArr[i3] = read2;
-                            i3++;
-                        }
-                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                        return i + "%";
-                    }
-                    if (read2 == ' ') {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
-                        z2 = z;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            int i4 = 0;
-            do {
-                read = (char) bufferedReader.read();
-                if (read != ' ' && i4 != 4) {
-                    cArr[i4] = read;
-                    i4++;
-                } else {
-                    i4 = 0;
-                }
-                if (read == '%') {
-                    break;
-                }
-            } while (read != 65535);
-            return String.valueOf(cArr, 0, i4);
+            return file;
         }
-        return (String) invokeL.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d() + File.separator + a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+        }
+        return invokeV.booleanValue;
     }
 }

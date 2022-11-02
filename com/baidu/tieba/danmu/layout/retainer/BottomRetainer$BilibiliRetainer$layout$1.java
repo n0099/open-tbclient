@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
+import com.baidu.tieba.c86;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
-import com.baidu.tieba.s66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,14 +13,14 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class BottomRetainer$BilibiliRetainer$layout$1 extends Lambda implements Function1 {
+public final class BottomRetainer$BilibiliRetainer$layout$1 extends Lambda implements Function1<c86.d, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ s66.c $state;
+    public final /* synthetic */ c86.c $state;
     public final /* synthetic */ BottomRetainer.BilibiliRetainer this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomRetainer$BilibiliRetainer$layout$1(BottomRetainer.BilibiliRetainer bilibiliRetainer, s66.c cVar) {
+    public BottomRetainer$BilibiliRetainer$layout$1(BottomRetainer.BilibiliRetainer bilibiliRetainer, c86.c cVar) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +43,7 @@ public final class BottomRetainer$BilibiliRetainer$layout$1 extends Lambda imple
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Boolean invoke(s66.d dVar) {
+    public final Boolean invoke(c86.d dVar) {
         InterceptResult invokeL;
         boolean z;
         boolean z2;

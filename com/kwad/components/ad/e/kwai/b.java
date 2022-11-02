@@ -1,5 +1,7 @@
 package com.kwad.components.ad.e.kwai;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,11 +14,17 @@ import com.kwad.sdk.core.view.AdBasePvFrameLayout;
 public final class b extends com.kwad.sdk.mvp.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public KsNativeAd.VideoPlayListener jA;
+    @NonNull
     public c.a jC;
+    @NonNull
     public AdBasePvFrameLayout jK;
+    @NonNull
     public com.kwad.components.ad.e.b.a jM;
+    @NonNull
     public AdTemplate mAdTemplate;
+    @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     public b() {

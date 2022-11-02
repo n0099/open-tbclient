@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.ho9;
-import com.baidu.tieba.jo9;
+import com.baidu.tieba.qp9;
+import com.baidu.tieba.sp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class GdtModule implements Module {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements PersonalRecommendObserver {
+    public static class a implements PersonalRecommendObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,9 +69,9 @@ public class GdtModule implements Module {
             GDTAdSdk.init(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
             GlobalSetting.setPersonalizedState(!funAdConfig.runtimeAdConfig.personalRecommendStatus ? 1 : 0);
-            GdtHelper.sGdtNativeContainerCreator = ho9.b;
+            GdtHelper.sGdtNativeContainerCreator = qp9.b;
             funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-            return new jo9();
+            return new sp9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

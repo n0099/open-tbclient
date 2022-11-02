@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes7.dex */
-public class BranchOnSeparateImagesProducer implements Producer {
+public class BranchOnSeparateImagesProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Producer mInputProducer1;
-    public final Producer mInputProducer2;
+    public final Producer<EncodedImage> mInputProducer1;
+    public final Producer<EncodedImage> mInputProducer2;
 
     /* renamed from: com.facebook.imagepipeline.producers.BranchOnSeparateImagesProducer$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class OnFirstImageConsumer extends DelegatingConsumer {
+    public class OnFirstImageConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ProducerContext mProducerContext;
         public final /* synthetic */ BranchOnSeparateImagesProducer this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public OnFirstImageConsumer(BranchOnSeparateImagesProducer branchOnSeparateImagesProducer, Consumer consumer, ProducerContext producerContext) {
+        public OnFirstImageConsumer(BranchOnSeparateImagesProducer branchOnSeparateImagesProducer, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
             super(consumer);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -85,7 +85,7 @@ public class BranchOnSeparateImagesProducer implements Producer {
         }
     }
 
-    public BranchOnSeparateImagesProducer(Producer producer, Producer producer2) {
+    public BranchOnSeparateImagesProducer(Producer<EncodedImage> producer, Producer<EncodedImage> producer2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class BranchOnSeparateImagesProducer implements Producer {
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer
-    public void produceResults(Consumer consumer, ProducerContext producerContext) {
+    public void produceResults(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, consumer, producerContext) == null) {
             this.mInputProducer1.produceResults(new OnFirstImageConsumer(this, consumer, producerContext, null), producerContext);

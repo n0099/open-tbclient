@@ -19,9 +19,9 @@ public interface ILiveRecSubTabAdapter {
         void onItemViewShow(LiveRoomEntity liveRoomEntity, int i);
     }
 
-    void addNew(List list);
+    void addNew(List<LiveRoomEntity> list);
 
-    RecyclerView.Adapter createAdapter(Context context);
+    RecyclerView.Adapter<RecyclerView.ViewHolder> createAdapter(Context context);
 
     void notifyDataSetChanged();
 

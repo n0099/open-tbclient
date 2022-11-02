@@ -2,8 +2,8 @@ package com.baidu.location.e;
 
 import android.content.Context;
 import android.os.Build;
-import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,19 +13,50 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static int i;
-    public static b j;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String e = null;
+    public static String f = null;
+    public static String g = null;
+    public static String h = null;
+    public static int i = 0;
+    public static int j = -2;
+    public static long k = -1;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
     public String d;
-    public boolean k;
+    public boolean l;
+
+    /* renamed from: com.baidu.location.e.b$1  reason: invalid class name */
+    /* loaded from: classes2.dex */
+    public /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes2.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(905560498, "Lcom/baidu/location/e/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(905560498, "Lcom/baidu/location/e/b$a;");
+                    return;
+                }
+            }
+            a = new b(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,22 +90,20 @@ public class b {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.k = false;
+        this.l = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
         }
     }
 
+    public /* synthetic */ b(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
-                j = new b();
-            }
-            return j;
-        }
-        return (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (b) invokeV.objValue;
     }
 
     public String a(boolean z) {
@@ -85,39 +114,37 @@ public class b {
 
     /* JADX WARN: Removed duplicated region for block: B:53:0x00c5  */
     /* JADX WARN: Removed duplicated region for block: B:56:0x00d3  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00fe  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x011c  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x010e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String a(boolean z, String str) {
         InterceptResult invokeZL;
-        String c;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
             StringBuffer stringBuffer = new StringBuffer(256);
             stringBuffer.append("&sdk=");
-            stringBuffer.append(7.93f);
+            stringBuffer.append(9.363f);
             if (z) {
-                if (k.g.equals("all")) {
-                    stringBuffer.append("&addr=allj");
+                if (k.e.equals("all")) {
+                    stringBuffer.append("&addr=allj2");
                 }
-                if (k.i) {
+                if (k.h) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.h || k.k || k.l || k.j) {
+                if (k.g || k.j || k.k || k.i) {
                     stringBuffer.append("&sema=");
-                    if (k.h) {
+                    if (k.g) {
                         stringBuffer.append("aptag|");
                     }
-                    if (k.j) {
-                        stringBuffer.append("aptagd|");
+                    if (k.i) {
+                        stringBuffer.append("aptagd2|");
                     }
-                    if (k.k) {
+                    if (k.j) {
                         stringBuffer.append("poiregion|");
                     }
-                    if (k.l) {
+                    if (k.k) {
                         stringBuffer.append("regular");
                     }
                 }
@@ -129,9 +156,9 @@ public class b {
                     stringBuffer.append("&coor=");
                 }
                 stringBuffer.append(str);
-                String j2 = com.baidu.location.c.e.j();
-                if (j2 != null) {
-                    stringBuffer.append(j2);
+                String l = com.baidu.location.c.e.l();
+                if (l != null) {
+                    stringBuffer.append(l);
                 }
             }
             if (this.c != null) {
@@ -152,11 +179,6 @@ public class b {
                 stringBuffer.append("&lt=1");
                 stringBuffer.append("&mb=");
                 stringBuffer.append(Build.MODEL);
-                c = k.c();
-                if (c != null) {
-                    stringBuffer.append("&laip=");
-                    stringBuffer.append(c);
-                }
                 stringBuffer.append("&resid=");
                 stringBuffer.append("12");
                 stringBuffer.append("&os=A");
@@ -183,9 +205,6 @@ public class b {
             stringBuffer.append("&lt=1");
             stringBuffer.append("&mb=");
             stringBuffer.append(Build.MODEL);
-            c = k.c();
-            if (c != null) {
-            }
             stringBuffer.append("&resid=");
             stringBuffer.append("12");
             stringBuffer.append("&os=A");
@@ -199,11 +218,11 @@ public class b {
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || context == null || this.k) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || context == null || this.l) {
             return;
         }
         try {
-            this.c = CommonParam.getCUID(context);
+            this.c = LBSAuthManager.getInstance(context).getCUID();
         } catch (Exception unused) {
             this.c = null;
         }
@@ -212,8 +231,8 @@ public class b {
         } catch (Exception unused2) {
             e = null;
         }
-        k.o = "" + this.c;
-        this.k = true;
+        k.n = "" + this.c;
+        this.l = true;
     }
 
     public void a(String str, String str2) {
@@ -222,5 +241,36 @@ public class b {
             f = str;
             e = str2;
         }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(200);
+            if (this.c != null) {
+                stringBuffer.append("&cu=");
+                str = this.c;
+            } else {
+                stringBuffer.append("&im=");
+                str = this.a;
+            }
+            stringBuffer.append(str);
+            try {
+                stringBuffer.append("&mb=");
+                stringBuffer.append(Build.MODEL);
+            } catch (Exception unused) {
+            }
+            stringBuffer.append("&pack=");
+            try {
+                stringBuffer.append(e);
+            } catch (Exception unused2) {
+            }
+            stringBuffer.append("&sdk=");
+            stringBuffer.append(9.363f);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -66,7 +66,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer) || (num = (Integer) customResponsedMessage.getData()) == null) {
@@ -157,9 +157,9 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
         this.i = new a(this, 2921397);
         this.b = view2;
         this.a = viewGroup;
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906dc);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908e3);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c1);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ea);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908f3);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091701);
         SkinManager.setImageResource(this.e, R.drawable.new_pic_emotion_06);
         this.i.setTag(j);
         MessageManager.getInstance().registerListener(this.i);

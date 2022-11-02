@@ -31,9 +31,9 @@ public final class BdEventBusCore {
     public final String TAG;
     public final Lazy asyncPoster$delegate;
     public final Lazy backgroundPoster$delegate;
-    public ConcurrentHashMap eventBySubscriber;
+    public ConcurrentHashMap<Object, CopyOnWriteArrayList<Object>> eventBySubscriber;
     public final Lazy mainHandlerPoster$delegate;
-    public ConcurrentHashMap subscriptionsInfoByEventType;
+    public ConcurrentHashMap<Object, CopyOnWriteArrayList<SubscriptionInfo>> subscriptionsInfoByEventType;
 
     private final AsyncPoster getAsyncPoster() {
         InterceptResult invokeV;
@@ -61,10 +61,10 @@ public final class BdEventBusCore {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0007\b\u0000\u0018\u0000B\u0007¢\u0006\u0004\b\u0007\u0010\bR\u001f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/bdeventbus/core/BdEventBusCore$PostingThreadState;", "", "", "eventQueue", "Ljava/util/List;", "getEventQueue", "()Ljava/util/List;", "<init>", "()V", "lib-bd-event-bus_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class PostingThreadState {
+    public static final class PostingThreadState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List eventQueue;
+        public final List<Object> eventQueue;
 
         public PostingThreadState() {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public final class BdEventBusCore {
             this.eventQueue = new ArrayList();
         }
 
-        public final List getEventQueue() {
+        public final List<Object> getEventQueue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -107,8 +107,8 @@ public final class BdEventBusCore {
         }
         this.LAZY_SUBSCRIBE_MSG = 1;
         this.TAG = "BdEventBusCore";
-        this.subscriptionsInfoByEventType = new ConcurrentHashMap();
-        this.eventBySubscriber = new ConcurrentHashMap();
+        this.subscriptionsInfoByEventType = new ConcurrentHashMap<>();
+        this.eventBySubscriber = new ConcurrentHashMap<>();
         this.DEFAULT_EXECUTOR_SERVICE$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$DEFAULT_EXECUTOR_SERVICE$2.INSTANCE);
         this.mainHandlerPoster$delegate = LazyKt__LazyJVMKt.lazy(BdEventBusCore$mainHandlerPoster$2.INSTANCE);
         this.backgroundPoster$delegate = LazyKt__LazyJVMKt.lazy(new BdEventBusCore$backgroundPoster$2(this));
@@ -116,12 +116,12 @@ public final class BdEventBusCore {
     }
 
     private final void postSingleEvent(Object obj) {
-        CopyOnWriteArrayList copyOnWriteArrayList;
+        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, obj) == null) && (copyOnWriteArrayList = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(obj.getClass())) != null && !copyOnWriteArrayList.isEmpty()) {
-            Iterator it = copyOnWriteArrayList.iterator();
+        if ((interceptable == null || interceptable.invokeL(65541, this, obj) == null) && (copyOnWriteArrayList = this.subscriptionsInfoByEventType.get(obj.getClass())) != null && !copyOnWriteArrayList.isEmpty()) {
+            Iterator<SubscriptionInfo> it = copyOnWriteArrayList.iterator();
             while (it.hasNext()) {
-                SubscriptionInfo subscription = (SubscriptionInfo) it.next();
+                SubscriptionInfo subscription = it.next();
                 int threadMode = subscription.getThreadMode();
                 if (threadMode != 0) {
                     if (threadMode != 1) {
@@ -161,17 +161,17 @@ public final class BdEventBusCore {
     private final void subscribe(SubscriptionInfo subscriptionInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, subscriptionInfo) == null) {
-            CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(subscriptionInfo.getEventType());
+            CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList = this.subscriptionsInfoByEventType.get(subscriptionInfo.getEventType());
             if (copyOnWriteArrayList != null) {
                 if (!copyOnWriteArrayList.contains(subscriptionInfo)) {
                     copyOnWriteArrayList.add(subscriptionInfo);
                 }
             } else {
-                CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
+                CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = new CopyOnWriteArrayList<>();
                 copyOnWriteArrayList2.add(subscriptionInfo);
                 this.subscriptionsInfoByEventType.put(subscriptionInfo.getEventType(), copyOnWriteArrayList2);
             }
-            CopyOnWriteArrayList copyOnWriteArrayList3 = (CopyOnWriteArrayList) this.eventBySubscriber.get(subscriptionInfo.getSubscriber());
+            CopyOnWriteArrayList<Object> copyOnWriteArrayList3 = this.eventBySubscriber.get(subscriptionInfo.getSubscriber());
             if (copyOnWriteArrayList3 != null) {
                 if (!copyOnWriteArrayList3.contains(subscriptionInfo.getEventType())) {
                     copyOnWriteArrayList3.add(subscriptionInfo.getEventType());
@@ -179,7 +179,7 @@ public final class BdEventBusCore {
                 }
                 return;
             }
-            CopyOnWriteArrayList copyOnWriteArrayList4 = new CopyOnWriteArrayList();
+            CopyOnWriteArrayList<Object> copyOnWriteArrayList4 = new CopyOnWriteArrayList<>();
             copyOnWriteArrayList4.add(subscriptionInfo.getEventType());
             this.eventBySubscriber.put(subscriptionInfo.getSubscriber(), copyOnWriteArrayList4);
         }
@@ -202,7 +202,7 @@ public final class BdEventBusCore {
         }
     }
 
-    public final void subscribe$lib_bd_event_bus_release(Object subscriber, Class eventType, int i, Action action) {
+    public final void subscribe$lib_bd_event_bus_release(Object subscriber, Class<?> eventType, int i, Action<Object> action) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, subscriber, eventType, i, action) == null) {
             Intrinsics.checkNotNullParameter(subscriber, "subscriber");
@@ -217,11 +217,11 @@ public final class BdEventBusCore {
         if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
             synchronized (this) {
                 Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-                CopyOnWriteArrayList copyOnWriteArrayList = (CopyOnWriteArrayList) this.eventBySubscriber.get(subscriber);
+                CopyOnWriteArrayList<Object> copyOnWriteArrayList = this.eventBySubscriber.get(subscriber);
                 if (copyOnWriteArrayList != null) {
-                    Iterator it = copyOnWriteArrayList.iterator();
+                    Iterator<Object> it = copyOnWriteArrayList.iterator();
                     while (it.hasNext()) {
-                        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = (CopyOnWriteArrayList) this.subscriptionsInfoByEventType.get(it.next());
+                        CopyOnWriteArrayList<SubscriptionInfo> copyOnWriteArrayList2 = this.subscriptionsInfoByEventType.get(it.next());
                         if (copyOnWriteArrayList2 != null) {
                             for (SubscriptionInfo subscriptionInfo : copyOnWriteArrayList2) {
                                 if (Intrinsics.areEqual(subscriptionInfo.getSubscriber(), subscriber)) {

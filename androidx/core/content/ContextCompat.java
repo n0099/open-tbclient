@@ -61,6 +61,11 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.CaptioningManager;
 import android.view.inputmethod.InputMethodManager;
 import android.view.textservice.TextServicesManager;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
@@ -193,7 +198,7 @@ public class ContextCompat {
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler mHandler;
 
-        public MainHandlerExecutor(Handler handler) {
+        public MainHandlerExecutor(@NonNull Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,7 +256,7 @@ public class ContextCompat {
         }
     }
 
-    public static int checkSelfPermission(Context context, String str) {
+    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
@@ -263,7 +268,8 @@ public class ContextCompat {
         return invokeLL.intValue;
     }
 
-    public static int getColor(Context context, int i) {
+    @ColorInt
+    public static int getColor(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
@@ -275,7 +281,8 @@ public class ContextCompat {
         return invokeLI.intValue;
     }
 
-    public static ColorStateList getColorStateList(Context context, int i) {
+    @Nullable
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
@@ -287,7 +294,8 @@ public class ContextCompat {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static File[] getExternalFilesDirs(Context context, String str) {
+    @NonNull
+    public static File[] getExternalFilesDirs(@NonNull Context context, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
@@ -296,7 +304,8 @@ public class ContextCompat {
         return (File[]) invokeLL.objValue;
     }
 
-    public static <T> T getSystemService(Context context, Class<T> cls) {
+    @Nullable
+    public static <T> T getSystemService(@NonNull Context context, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, context, cls)) == null) {
@@ -312,7 +321,8 @@ public class ContextCompat {
         return (T) invokeLL.objValue;
     }
 
-    public static String getSystemServiceName(Context context, Class<?> cls) {
+    @Nullable
+    public static String getSystemServiceName(@NonNull Context context, @NonNull Class<?> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, cls)) == null) {
@@ -324,7 +334,7 @@ public class ContextCompat {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean startActivities(Context context, Intent[] intentArr) {
+    public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, context, intentArr)) == null) {
@@ -333,7 +343,7 @@ public class ContextCompat {
         return invokeLL.booleanValue;
     }
 
-    public static void startForegroundService(Context context, Intent intent) {
+    public static void startForegroundService(@NonNull Context context, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, context, intent) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
@@ -344,7 +354,8 @@ public class ContextCompat {
         }
     }
 
-    public static Context createDeviceProtectedStorageContext(Context context) {
+    @Nullable
+    public static Context createDeviceProtectedStorageContext(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
@@ -356,7 +367,7 @@ public class ContextCompat {
         return (Context) invokeL.objValue;
     }
 
-    public static File getCodeCacheDir(Context context) {
+    public static File getCodeCacheDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
@@ -368,7 +379,8 @@ public class ContextCompat {
         return (File) invokeL.objValue;
     }
 
-    public static File getDataDir(Context context) {
+    @Nullable
+    public static File getDataDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -384,7 +396,8 @@ public class ContextCompat {
         return (File) invokeL.objValue;
     }
 
-    public static File[] getExternalCacheDirs(Context context) {
+    @NonNull
+    public static File[] getExternalCacheDirs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
@@ -405,7 +418,8 @@ public class ContextCompat {
         return (Executor) invokeL.objValue;
     }
 
-    public static File getNoBackupFilesDir(Context context) {
+    @Nullable
+    public static File getNoBackupFilesDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
@@ -417,7 +431,8 @@ public class ContextCompat {
         return (File) invokeL.objValue;
     }
 
-    public static File[] getObbDirs(Context context) {
+    @NonNull
+    public static File[] getObbDirs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
@@ -426,7 +441,7 @@ public class ContextCompat {
         return (File[]) invokeL.objValue;
     }
 
-    public static boolean isDeviceProtectedStorage(Context context) {
+    public static boolean isDeviceProtectedStorage(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
@@ -456,7 +471,8 @@ public class ContextCompat {
         return (File) invokeL.objValue;
     }
 
-    public static Drawable getDrawable(Context context, int i) {
+    @Nullable
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         int i2;
         Interceptable interceptable = $ic;
@@ -480,7 +496,7 @@ public class ContextCompat {
         return (Drawable) invokeLI.objValue;
     }
 
-    public static boolean startActivities(Context context, Intent[] intentArr, Bundle bundle) {
+    public static boolean startActivities(@NonNull Context context, @NonNull Intent[] intentArr, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, intentArr, bundle)) == null) {
@@ -494,7 +510,7 @@ public class ContextCompat {
         return invokeLLL.booleanValue;
     }
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+    public static void startActivity(@NonNull Context context, @NonNull Intent intent, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, context, intent, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 16) {

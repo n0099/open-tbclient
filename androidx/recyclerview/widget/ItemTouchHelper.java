@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.view.animation.Interpolator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -55,6 +57,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     public transient /* synthetic */ FieldHolder $fh;
     public int mActionState;
     public int mActivePointerId;
+    @NonNull
     public Callback mCallback;
     public RecyclerView.ChildDrawingOrderCallback mChildDrawingOrderCallback;
     public List<Integer> mDistances;
@@ -86,11 +89,11 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
 
     /* loaded from: classes.dex */
     public interface ViewDropHandler {
-        void prepareForDrop(View view2, View view3, int i, int i2);
+        void prepareForDrop(@NonNull View view2, @NonNull View view3, int i, int i2);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-    public void onChildViewAttachedToWindow(View view2) {
+    public void onChildViewAttachedToWindow(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
         }
@@ -137,7 +140,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) ? i2 << (i * 8) : invokeII.intValue;
         }
 
-        public boolean canDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
+        public boolean canDropOver(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, recyclerView, viewHolder, viewHolder2)) == null) {
@@ -177,7 +180,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeV.intValue;
         }
 
-        public float getMoveThreshold(RecyclerView.ViewHolder viewHolder) {
+        public float getMoveThreshold(@NonNull RecyclerView.ViewHolder viewHolder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewHolder)) == null) {
@@ -186,7 +189,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeL.floatValue;
         }
 
-        public abstract int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder);
+        public abstract int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder);
 
         public float getSwipeEscapeVelocity(float f) {
             InterceptResult invokeF;
@@ -194,7 +197,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) ? f : invokeF.floatValue;
         }
 
-        public float getSwipeThreshold(RecyclerView.ViewHolder viewHolder) {
+        public float getSwipeThreshold(@NonNull RecyclerView.ViewHolder viewHolder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewHolder)) == null) {
@@ -227,9 +230,9 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeV.booleanValue;
         }
 
-        public abstract boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2);
+        public abstract boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2);
 
-        public abstract void onSwiped(RecyclerView.ViewHolder viewHolder, int i);
+        public abstract void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i);
 
         static {
             InterceptResult invokeClinit;
@@ -316,6 +319,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             this.mCachedMaxScrollSpeed = -1;
         }
 
+        @NonNull
         public static ItemTouchUIUtil getDefaultUIUtil() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -346,7 +350,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeII.intValue;
         }
 
-        public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, viewHolder) == null) {
                 ItemTouchUIUtilImpl.INSTANCE.clearView(viewHolder.itemView);
@@ -386,14 +390,14 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeLL.booleanValue;
         }
 
-        public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int i) {
+        public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048599, this, viewHolder, i) == null) && viewHolder != null) {
                 ItemTouchUIUtilImpl.INSTANCE.onSelected(viewHolder.itemView);
             }
         }
 
-        public RecyclerView.ViewHolder chooseDropTarget(RecyclerView.ViewHolder viewHolder, List<RecyclerView.ViewHolder> list, int i, int i2) {
+        public RecyclerView.ViewHolder chooseDropTarget(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull List<RecyclerView.ViewHolder> list, int i, int i2) {
             InterceptResult invokeLLII;
             int bottom;
             int abs;
@@ -436,7 +440,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return (RecyclerView.ViewHolder) invokeLLII.objValue;
         }
 
-        public long getAnimationDuration(RecyclerView recyclerView, int i, float f, float f2) {
+        public long getAnimationDuration(@NonNull RecyclerView recyclerView, int i, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{recyclerView, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
@@ -455,7 +459,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeCommon.longValue;
         }
 
-        public int interpolateOutOfBoundsScroll(RecyclerView recyclerView, int i, int i2, int i3, long j) {
+        public int interpolateOutOfBoundsScroll(@NonNull RecyclerView recyclerView, int i, int i2, int i3, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{recyclerView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
@@ -476,14 +480,14 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeCommon.intValue;
         }
 
-        public void onChildDraw(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float f, float f2, int i, boolean z) {
+        public void onChildDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float f, float f2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{canvas, recyclerView, viewHolder, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 ItemTouchUIUtilImpl.INSTANCE.onDraw(canvas, recyclerView, viewHolder.itemView, f, f2, i, z);
             }
         }
 
-        public void onChildDrawOver(Canvas canvas, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float f, float f2, int i, boolean z) {
+        public void onChildDrawOver(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float f, float f2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{canvas, recyclerView, viewHolder, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 ItemTouchUIUtilImpl.INSTANCE.onDrawOver(canvas, recyclerView, viewHolder.itemView, f, f2, i, z);
@@ -539,7 +543,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             }
         }
 
-        public void onMoved(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, int i, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4) {
+        public void onMoved(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, int i, @NonNull RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{recyclerView, viewHolder, Integer.valueOf(i), viewHolder2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
@@ -829,7 +833,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             this.mDefaultDragDirs = i;
         }
 
-        public int getDragDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public int getDragDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, viewHolder)) == null) {
@@ -839,7 +843,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
 
         @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-        public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, viewHolder)) == null) {
@@ -848,7 +852,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             return invokeLL.intValue;
         }
 
-        public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+        public int getSwipeDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, viewHolder)) == null) {
@@ -872,7 +876,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    public ItemTouchHelper(Callback callback) {
+    public ItemTouchHelper(@NonNull Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -970,7 +974,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
                 InterceptResult invokeLL;
                 int findPointerIndex;
                 RecoverAnimation findAnimation;
@@ -1020,7 +1024,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
                     this.this$0.mGestureDetector.onTouchEvent(motionEvent);
@@ -1473,7 +1477,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    public void attachToRecyclerView(RecyclerView recyclerView) {
+    public void attachToRecyclerView(@Nullable RecyclerView recyclerView) {
         RecyclerView recyclerView2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, recyclerView) != null) || (recyclerView2 = this.mRecyclerView) == recyclerView) {
@@ -1511,7 +1515,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-    public void onChildViewDetachedFromWindow(View view2) {
+    public void onChildViewDetachedFromWindow(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
             removeChildDrawingOrderCallbackIfNecessary(view2);
@@ -1531,7 +1535,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    public void startDrag(RecyclerView.ViewHolder viewHolder) {
+    public void startDrag(@NonNull RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, viewHolder) == null) {
             if (!this.mCallback.hasDragFlag(this.mRecyclerView, viewHolder)) {
@@ -1547,7 +1551,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         }
     }
 
-    public void startSwipe(RecyclerView.ViewHolder viewHolder) {
+    public void startSwipe(@NonNull RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, viewHolder) == null) {
             if (!this.mCallback.hasSwipeFlag(this.mRecyclerView, viewHolder)) {
@@ -1864,7 +1868,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void select(RecyclerView.ViewHolder viewHolder, int i) {
+    public void select(@Nullable RecyclerView.ViewHolder viewHolder, int i) {
         boolean z;
         ViewParent parent;
         boolean z2;

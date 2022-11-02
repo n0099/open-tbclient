@@ -1,179 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 /* loaded from: classes3.dex */
 public class cj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Long a;
-    public static Long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cj0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-888601278, "Lcom/baidu/tieba/cj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-888601278, "Lcom/baidu/tieba/cj0$b;");
-                    return;
-                }
-            }
-            a = new cj0(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676544, "Lcom/baidu/tieba/cj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947676544, "Lcom/baidu/tieba/cj0;");
-                return;
-            }
-        }
-        a = 30000L;
-        b = null;
-    }
-
-    public cj0() {
+    public static void a(@Nullable Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        b = Long.valueOf(System.currentTimeMillis());
-    }
-
-    public static cj0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (cj0) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "uad_sys_useragent" + aj0.a().u();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ cj0(a aVar) {
-        this();
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            String f = f();
-            SharedPreferences.Editor edit = aj0.b().getSharedPreferences("uad_useragent", 0).edit();
-            edit.putString(f, str);
-            edit.apply();
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String property = System.getProperty("http.agent");
-            if (TextUtils.isEmpty(property)) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int length = property.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = property.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        String a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String d = d();
-            if (!TextUtils.isEmpty(d)) {
-                return d;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
             try {
-                if (Build.VERSION.SDK_INT < 19) {
-                    a2 = a();
-                } else if (a31.e() && System.currentTimeMillis() - b.longValue() < a.longValue()) {
-                    return a() + " " + aj0.a().x().toLowerCase() + "/" + aj0.a().u() + " (Baidu; P1 " + aj0.a().b() + ") nadcorevendor/5.8.0.17";
-                } else {
-                    a2 = WebSettings.getDefaultUserAgent(aj0.b());
-                }
+                closeable.close();
             } catch (Throwable unused) {
-                a2 = a();
             }
-            String str = a2 + " " + aj0.a().x().toLowerCase() + "/" + aj0.a().u() + " (Baidu; P1 " + aj0.a().b() + ") nadcorevendor/5.8.0.17";
-            e(str);
-            return str;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SharedPreferences sharedPreferences = aj0.b().getSharedPreferences("uad_useragent", 0);
-            String string = sharedPreferences.getString(f(), null);
-            if (TextUtils.isEmpty(string) && sharedPreferences.getAll().size() > 0) {
-                sharedPreferences.edit().clear().apply();
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
     }
 }

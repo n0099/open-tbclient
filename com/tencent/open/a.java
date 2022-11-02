@@ -22,18 +22,18 @@ import java.util.List;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, b> a;
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0699a {
+    public static class C0710a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<WebView> a;
         public long b;
         public String c;
 
-        public C0699a(WebView webView, long j, String str) {
+        public C0710a(WebView webView, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public class a {
                     return;
                 }
             }
-            this.a = new WeakReference(webView);
+            this.a = new WeakReference<>(webView);
             this.b = j;
             this.c = str;
         }
@@ -56,7 +56,7 @@ public class a {
         public void a() {
             WebView webView;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (webView = (WebView) this.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (webView = this.a.get()) == null) {
                 return;
             }
             webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.b + ",{'r':1,'result':'no such method'})");
@@ -66,7 +66,7 @@ public class a {
             WebView webView;
             String obj2;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || (webView = (WebView) this.a.get()) == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || (webView = this.a.get()) == null) {
                 return;
             }
             if (obj instanceof String) {
@@ -87,14 +87,14 @@ public class a {
         public void a(String str) {
             WebView webView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (webView = (WebView) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (webView = this.a.get()) != null) {
                 webView.loadUrl("javascript:" + str);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -130,12 +130,12 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List list, C0699a c0699a) {
+        public void call(String str, List<String> list, C0710a c0710a) {
             String str2;
             Method method;
             Object invoke;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c0699a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c0710a) == null) {
                 Method[] declaredMethods = getClass().getDeclaredMethods();
                 int length = declaredMethods.length;
                 int i = 0;
@@ -183,21 +183,21 @@ public class a {
                         Class<?> returnType = method.getReturnType();
                         SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                         if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                            if (c0699a != null && customCallback()) {
+                            if (c0710a != null && customCallback()) {
                                 if (invoke != null) {
                                     str2 = invoke.toString();
                                 }
-                                c0699a.a(str2);
+                                c0710a.a(str2);
                             }
                         }
                     } catch (Exception e) {
                         SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e);
-                        if (c0699a != null) {
-                            c0699a.a();
+                        if (c0710a != null) {
+                            c0710a.a();
                         }
                     }
-                } else if (c0699a != null) {
-                    c0699a.a();
+                } else if (c0710a != null) {
+                    c0710a.a();
                 }
             }
         }
@@ -216,7 +216,7 @@ public class a {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new HashMap<>();
     }
 
     public void a(b bVar, String str) {
@@ -226,27 +226,27 @@ public class a {
         }
     }
 
-    public void a(String str, String str2, List list, C0699a c0699a) {
+    public void a(String str, String str2, List<String> list, C0710a c0710a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c0699a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c0710a) == null) {
             SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    list.set(i, URLDecoder.decode((String) list.get(i), "UTF-8"));
+                    list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }
-            b bVar = (b) this.a.get(str);
+            b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
-                bVar.call(str2, list, c0699a);
+                bVar.call(str2, list, c0710a);
                 return;
             }
             SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-            if (c0699a != null) {
-                c0699a.a();
+            if (c0710a != null) {
+                c0710a.a();
             }
         }
     }
@@ -263,10 +263,10 @@ public class a {
             if (arrayList.size() < 6) {
                 return false;
             }
-            List subList = arrayList.subList(4, arrayList.size() - 1);
-            C0699a c0699a = new C0699a(webView, 4L, str);
+            List<String> subList = arrayList.subList(4, arrayList.size() - 1);
+            C0710a c0710a = new C0710a(webView, 4L, str);
             webView.getUrl();
-            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0699a);
+            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0710a);
             return true;
         }
         return invokeLL.booleanValue;

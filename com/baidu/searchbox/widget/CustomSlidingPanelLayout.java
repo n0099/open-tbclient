@@ -24,7 +24,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public boolean mNightMode;
     public SlideInterceptor mSlideInterceptor;
     public double mSlideRegionFactor;
-    public WeakReference mTopActivity;
+    public WeakReference<Activity> mTopActivity;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomSlidingPanelLayout(Context context) {
@@ -54,7 +54,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void attachActivity(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && Build.VERSION.SDK_INT >= 21 && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            this.mTopActivity = new WeakReference(activity);
+            this.mTopActivity = new WeakReference<>(activity);
             activity.getWindow().getDecorView().setBackgroundColor(0);
             if (!this.mForceActivityTransparent) {
                 convertActivityFromTranslucent();
@@ -179,9 +179,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void convertActivityFromTranslucent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            WeakReference weakReference = this.mTopActivity;
+            WeakReference<Activity> weakReference = this.mTopActivity;
             if (weakReference != null && weakReference.get() != null) {
-                SlideUtil.convertFromTranslucent((Activity) this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
+                SlideUtil.convertFromTranslucent(this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CustomSlidingPanelLayout this$0;
@@ -228,9 +228,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public void convertActivityToTranslucent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference weakReference = this.mTopActivity;
+            WeakReference<Activity> weakReference = this.mTopActivity;
             if (weakReference != null && weakReference.get() != null) {
-                SlideUtil.convertToTranslucent((Activity) this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
+                SlideUtil.convertToTranslucent(this.mTopActivity.get(), new OnTranslucentListener(this) { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CustomSlidingPanelLayout this$0;

@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.web;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -486,6 +487,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         return (View) invokeV.objValue;
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {

@@ -43,7 +43,7 @@ public final class p extends z {
             if (!ClientConfigManagerImpl.getInstance(this.a).isEnablePush()) {
                 com.vivo.push.util.p.d("OnMessageTask", "command  " + oVar + " is ignore by disable push ");
                 com.vivo.push.b.x xVar = new com.vivo.push.b.x(1020L);
-                HashMap hashMap = new HashMap();
+                HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("messageID", String.valueOf(oVar2.f()));
                 Context context = this.a;
                 String b = com.vivo.push.util.z.b(context, context.getPackageName());
@@ -54,7 +54,7 @@ public final class p extends z {
                 com.vivo.push.e.a().a(xVar);
             } else if (com.vivo.push.e.a().g() && !a(com.vivo.push.util.z.c(this.a), oVar2.d(), oVar2.i())) {
                 com.vivo.push.b.x xVar2 = new com.vivo.push.b.x(1021L);
-                HashMap hashMap2 = new HashMap();
+                HashMap<String, String> hashMap2 = new HashMap<>();
                 hashMap2.put("messageID", String.valueOf(oVar2.f()));
                 Context context2 = this.a;
                 String b2 = com.vivo.push.util.z.b(context2, context2.getPackageName());

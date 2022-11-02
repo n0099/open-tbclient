@@ -75,10 +75,10 @@ public class o {
         }
     }
 
-    public static final void a(Context context, iu iuVar, boolean z, int i) {
+    public static final <T extends iu<T, ?>> void a(Context context, T t, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, iuVar, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            byte[] a = it.a(iuVar);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, t, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            byte[] a = it.a(t);
             if (a == null) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("send message fail, because msgBytes is null.");
                 return;

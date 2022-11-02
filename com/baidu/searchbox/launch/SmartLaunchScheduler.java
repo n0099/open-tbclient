@@ -35,9 +35,9 @@ public class SmartLaunchScheduler {
     public transient /* synthetic */ FieldHolder $fh;
     public int idleDelayTaskCount;
     public int idleTaskCount;
-    public LinkedList mIdleQueue;
+    public LinkedList<SmartLaunchTask> mIdleQueue;
     public Handler mMainHandler;
-    public List mRegisterTaskList;
+    public List<SmartLaunchTask> mRegisterTaskList;
 
     private void init() {
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class SmartLaunchScheduler {
                 return;
             }
         }
-        this.mIdleQueue = new LinkedList();
+        this.mIdleQueue = new LinkedList<>();
         this.mRegisterTaskList = new ArrayList();
         this.mMainHandler = null;
         this.idleTaskCount = 0;
@@ -125,7 +125,7 @@ public class SmartLaunchScheduler {
         return (Handler) invokeV.objValue;
     }
 
-    public List getRegisteredPersonalLaunchTasks() {
+    public List<SmartLaunchTask> getRegisteredPersonalLaunchTasks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -159,10 +159,10 @@ public class SmartLaunchScheduler {
             if (i == 1) {
                 this.mIdleQueue.add(0, smartLaunchTask);
             }
-            List dependency = smartLaunchTask.getDependency();
+            List<SmartLaunchTask> dependency = smartLaunchTask.getDependency();
             if (dependency != null && dependency.size() > 0) {
                 for (int i2 = 0; i2 < dependency.size(); i2++) {
-                    SmartLaunchTask smartLaunchTask2 = (SmartLaunchTask) dependency.get(i2);
+                    SmartLaunchTask smartLaunchTask2 = dependency.get(i2);
                     smartLaunchTask2.setScore(smartLaunchTask.getScore());
                     schedule(smartLaunchTask2, i);
                 }

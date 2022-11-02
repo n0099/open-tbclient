@@ -32,10 +32,10 @@ public final class HttpsHelper {
     public SSLSocketFactory mSSLSocketFactory;
 
     /* loaded from: classes8.dex */
-    public class CustomX509TrustManager implements X509TrustManager {
+    public static class CustomX509TrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List mTrustManagers;
+        public List<X509TrustManager> mTrustManagers;
 
         public CustomX509TrustManager(KeyStore... keyStoreArr) {
             TrustManager[] trustManagers;
@@ -83,7 +83,7 @@ public final class HttpsHelper {
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, x509CertificateArr, str) == null) {
-                ((X509TrustManager) this.mTrustManagers.get(0)).checkClientTrusted(x509CertificateArr, str);
+                this.mTrustManagers.get(0).checkClientTrusted(x509CertificateArr, str);
             }
         }
 

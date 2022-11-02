@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.AudioAttributesCompat;
@@ -65,6 +67,7 @@ public class AudioFocusRequestCompat {
             setFocusGain(i);
         }
 
+        @NonNull
         public Builder setFocusGain(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -81,7 +84,7 @@ public class AudioFocusRequestCompat {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder(AudioFocusRequestCompat audioFocusRequestCompat) {
+        public Builder(@NonNull AudioFocusRequestCompat audioFocusRequestCompat) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +123,8 @@ public class AudioFocusRequestCompat {
             return (AudioFocusRequestCompat) invokeV.objValue;
         }
 
-        public Builder setAudioAttributes(AudioAttributesCompat audioAttributesCompat) {
+        @NonNull
+        public Builder setAudioAttributes(@NonNull AudioAttributesCompat audioAttributesCompat) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, audioAttributesCompat)) == null) {
@@ -133,7 +137,8 @@ public class AudioFocusRequestCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setOnAudioFocusChangeListener(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener) {
+        @NonNull
+        public Builder setOnAudioFocusChangeListener(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, onAudioFocusChangeListener)) == null) {
@@ -142,6 +147,7 @@ public class AudioFocusRequestCompat {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setWillPauseWhenDucked(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -152,7 +158,8 @@ public class AudioFocusRequestCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setOnAudioFocusChangeListener(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, Handler handler) {
+        @NonNull
+        public Builder setOnAudioFocusChangeListener(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, @NonNull Handler handler) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, onAudioFocusChangeListener, handler)) == null) {
@@ -178,7 +185,7 @@ public class AudioFocusRequestCompat {
         public final Handler mHandler;
         public final AudioManager.OnAudioFocusChangeListener mListener;
 
-        public OnAudioFocusChangeListenerHandlerCompat(AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, Handler handler) {
+        public OnAudioFocusChangeListenerHandlerCompat(@NonNull AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener, @NonNull Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,6 +244,7 @@ public class AudioFocusRequestCompat {
         FOCUS_DEFAULT_ATTR = new AudioAttributesCompat.Builder().setUsage(1).build();
     }
 
+    @RequiresApi(21)
     public AudioAttributes getAudioAttributes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,6 +258,7 @@ public class AudioFocusRequestCompat {
         return (AudioAttributes) invokeV.objValue;
     }
 
+    @NonNull
     public AudioAttributesCompat getAudioAttributesCompat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -259,6 +268,7 @@ public class AudioFocusRequestCompat {
         return (AudioAttributesCompat) invokeV.objValue;
     }
 
+    @RequiresApi(26)
     public AudioFocusRequest getAudioFocusRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -268,6 +278,7 @@ public class AudioFocusRequestCompat {
         return (AudioFocusRequest) invokeV.objValue;
     }
 
+    @NonNull
     public Handler getFocusChangeHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -286,6 +297,7 @@ public class AudioFocusRequestCompat {
         return invokeV.intValue;
     }
 
+    @NonNull
     public AudioManager.OnAudioFocusChangeListener getOnAudioFocusChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

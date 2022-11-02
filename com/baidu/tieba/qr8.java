@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qr8 extends CustomMessageListener {
+public abstract class qr8 implements Comparable<qr8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qr8(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public qr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage customResponsedMessage) {
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(qr8 qr8Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            q65 q65Var = null;
-            if (customResponsedMessage.getData() instanceof q65) {
-                q65Var = (q65) customResponsedMessage.getData();
-            }
-            if (q65Var != null && q65Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new p65(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092015), q65Var).m();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qr8Var)) == null) {
+            return this.a - qr8Var.a;
         }
+        return invokeL.intValue;
     }
 }

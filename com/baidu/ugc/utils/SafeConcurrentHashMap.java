@@ -1,5 +1,6 @@
 package com.baidu.ugc.utils;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +27,7 @@ public class SafeConcurrentHashMap<K, V> extends ConcurrentHashMap<K, V> {
     }
 
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
-    public V put(K k, V v) {
+    public V put(@NonNull K k, @NonNull V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, v)) == null) {

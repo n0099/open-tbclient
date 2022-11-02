@@ -19,8 +19,8 @@ public class ByteArrayInfoMng {
     public static int mMaxByteSize = 100;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mAllocateMemory;
-    public Queue mByteArrayGetList;
-    public Queue mByteArrayRecycleList;
+    public Queue<ByteArrayInfo> mByteArrayGetList;
+    public Queue<ByteArrayInfo> mByteArrayRecycleList;
     public int mCurDataCount;
 
     static {
@@ -71,8 +71,8 @@ public class ByteArrayInfoMng {
                         this.mByteArrayRecycleList.clear();
                     }
                 }
-                ByteArrayInfo byteArrayInfo = (ByteArrayInfo) this.mByteArrayGetList.poll();
-                if (byteArrayInfo == null) {
+                ByteArrayInfo poll = this.mByteArrayGetList.poll();
+                if (poll == null) {
                     if (this.mCurDataCount >= mMaxByteSize * 2) {
                         try {
                             Thread.sleep(200L);
@@ -81,11 +81,11 @@ public class ByteArrayInfoMng {
                         }
                         return getByteArray();
                     }
-                    byteArrayInfo = new ByteArrayInfo();
+                    poll = new ByteArrayInfo();
                     this.mCurDataCount++;
                 }
-                byteArrayInfo.mRecycled = false;
-                return byteArrayInfo;
+                poll.mRecycled = false;
+                return poll;
             }
         }
         return (ByteArrayInfo) invokeV.objValue;
@@ -104,7 +104,7 @@ public class ByteArrayInfoMng {
     }
 
     public void recycle(ByteArrayInfo byteArrayInfo) {
-        Queue queue;
+        Queue<ByteArrayInfo> queue;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteArrayInfo) == null) && byteArrayInfo != null && (queue = this.mByteArrayRecycleList) != null) {
             synchronized (queue) {

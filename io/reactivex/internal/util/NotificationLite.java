@@ -24,16 +24,18 @@ public final class NotificationLite {
     public static final NotificationLite COMPLETE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Object getValue(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> T getValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? obj : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, obj)) == null) ? obj : (T) invokeL.objValue;
     }
 
-    public static Object next(Object obj) {
+    public static <T> Object next(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, obj)) == null) ? obj : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, t)) == null) ? t : invokeL.objValue;
     }
 
     @Override // java.lang.Enum
@@ -44,7 +46,7 @@ public final class NotificationLite {
     }
 
     /* loaded from: classes8.dex */
-    public final class DisposableNotification implements Serializable {
+    public static final class DisposableNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7482590109178395495L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +81,7 @@ public final class NotificationLite {
     }
 
     /* loaded from: classes8.dex */
-    public final class ErrorNotification implements Serializable {
+    public static final class ErrorNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8759979445933046293L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +137,7 @@ public final class NotificationLite {
     }
 
     /* loaded from: classes8.dex */
-    public final class SubscriptionNotification implements Serializable {
+    public static final class SubscriptionNotification implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1322257508628817540L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +226,7 @@ public final class NotificationLite {
         }
     }
 
-    public static boolean accept(Object obj, Observer observer) {
+    public static <T> boolean accept(Object obj, Observer<? super T> observer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, observer)) == null) {
@@ -242,7 +244,7 @@ public final class NotificationLite {
         return invokeLL.booleanValue;
     }
 
-    public static boolean accept(Object obj, Subscriber subscriber) {
+    public static <T> boolean accept(Object obj, Subscriber<? super T> subscriber) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, subscriber)) == null) {
@@ -260,7 +262,7 @@ public final class NotificationLite {
         return invokeLL.booleanValue;
     }
 
-    public static boolean acceptFull(Object obj, Observer observer) {
+    public static <T> boolean acceptFull(Object obj, Observer<? super T> observer) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, observer)) == null) {
@@ -281,7 +283,7 @@ public final class NotificationLite {
         return invokeLL.booleanValue;
     }
 
-    public static boolean acceptFull(Object obj, Subscriber subscriber) {
+    public static <T> boolean acceptFull(Object obj, Subscriber<? super T> subscriber) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, subscriber)) == null) {

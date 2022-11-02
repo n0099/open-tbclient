@@ -34,11 +34,11 @@ public class EC3SpecificBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_8 = null;
     public transient /* synthetic */ FieldHolder $fh;
     public int dataRate;
-    public List entries;
+    public List<Entry> entries;
     public int numIndSub;
 
     /* loaded from: classes7.dex */
-    public class Entry {
+    public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int acmod;
@@ -101,7 +101,7 @@ public class EC3SpecificBox extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public List getEntries() {
+    public List<Entry> getEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -242,7 +242,7 @@ public class EC3SpecificBox extends AbstractBox {
         }
     }
 
-    public void setEntries(List list) {
+    public void setEntries(List<Entry> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, list));

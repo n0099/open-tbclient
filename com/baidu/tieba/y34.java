@@ -2,10 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.p43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,114 +11,159 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import java.io.IOException;
-import java.util.Locale;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.baidu.webkit.internal.CfgFileUtils;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y34 {
+public final class y34 extends n43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static String c;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public tv1 a;
-
-    public static /* synthetic */ String f(String str) {
-        return str;
-    }
+    public int b;
+    public b c;
+    public c d;
+    public String e;
+    public s04 f;
+    public r24 g;
 
     /* loaded from: classes6.dex */
-    public class a implements yj1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a44 a;
-        public final /* synthetic */ y34 b;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
 
-        public a(y34 y34Var, a44 a44Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y34Var, a44Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = y34Var;
-            this.a = a44Var;
         }
 
-        @Override // com.baidu.tieba.yj1
-        public void onResult(int i) {
+        public static a c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    if (y34.b) {
-                        Log.d("ShareVideoApi", "login fail");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static a b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                a aVar = new a();
+                aVar.b = jSONObject.optString("root");
+                aVar.a = jSONObject.optString("name");
+                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
+                    if (aVar.b.endsWith(".js")) {
+                        String[] split = aVar.b.split(File.separator);
+                        if (split.length < 1) {
+                            return c();
+                        }
+                        aVar.d = split[split.length - 1];
+                        aVar.c = "";
+                        for (int i = 0; i < split.length - 1; i++) {
+                            aVar.c += split[i] + File.separator;
+                        }
+                    } else {
+                        String str = aVar.b;
+                        aVar.c = str;
+                        if (!str.endsWith(File.separator)) {
+                            aVar.c += File.separator;
+                        }
+                        aVar.d = "index.js";
                     }
-                    this.b.j("shareVideo: fail, no login in");
-                    return;
+                    return aVar;
                 }
-                if (y34.b) {
-                    Log.d("ShareVideoApi", "login success");
-                }
-                this.b.h(this.a);
+                return c();
             }
+            return (a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements z34 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y34 a;
+        public List<a> a;
+        public HashMap<String, Boolean> b;
 
-        public b(y34 y34Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y34Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = y34Var;
         }
 
-        @Override // com.baidu.tieba.z34
-        public void a(a44 a44Var, String str) {
+        public static b c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, a44Var, str) == null) {
-                if (y34.b) {
-                    Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", a44Var, str));
-                }
-                this.a.j(str);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                b bVar = new b();
+                bVar.a = new ArrayList();
+                bVar.b = new HashMap<>();
+                return bVar;
             }
+            return (b) invokeV.objValue;
+        }
+
+        public static b b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    b bVar = new b();
+                    bVar.a = new ArrayList();
+                    bVar.b = new HashMap<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            bVar.a.add(a.b(optJSONObject));
+                        }
+                    }
+                    return bVar;
+                }
+                return c();
+            }
+            return (b) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class c implements Callback {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public HashMap<String, String> a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -136,36 +179,41 @@ public class y34 {
             }
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        public static c c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (y34.b) {
-                    iOException.printStackTrace();
-                }
-                y34.g();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                c cVar = new c();
+                cVar.a = new HashMap<>();
+                return cVar;
             }
+            return (c) invokeV.objValue;
         }
 
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
+        public static c b(JSONObject jSONObject, b bVar) {
+            InterceptResult invokeLL;
+            List<a> list;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
-                    if (jSONObject == null) {
-                        y34.g();
-                        return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
+                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
+                    if (optJSONObject == null) {
+                        return c();
                     }
-                    String unused = y34.c = jSONObject.optString("community_id");
-                    y34.f(jSONObject.optString("url"));
-                } catch (JSONException e) {
-                    if (y34.b) {
-                        e.printStackTrace();
+                    c cVar = new c();
+                    cVar.a = new HashMap<>();
+                    for (a aVar : bVar.a) {
+                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                            HashMap<String, String> hashMap = cVar.a;
+                            String str = aVar.b;
+                            hashMap.put(str, optJSONObject.optString(str));
+                        }
                     }
-                    y34.g();
+                    return cVar;
                 }
+                return c();
             }
+            return (c) invokeLL.objValue;
         }
     }
 
@@ -182,191 +230,72 @@ public class y34 {
                 return;
             }
         }
-        b = wj1.a;
-        String str = g02.c() + "/webpage";
-        c = "";
+        h = ok1.a;
     }
 
-    public y34(JsObject jsObject) {
+    public y34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = tv1.F(jsObject);
     }
 
-    public static void g() {
+    public static y34 a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            c = "";
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oa3 oa3Var = new oa3();
-            oa3Var.b = "shareVideo";
-            oa3Var.e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-            fa3.h(oa3Var);
-        }
-    }
-
-    public final void h(a44 a44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a44Var) == null) {
-            d04.i().a(a44Var, new b(this));
-        }
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || this.a == null) {
-            return;
-        }
-        vx3 vx3Var = new vx3();
-        vx3Var.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-        y54.call(this.a, false, vx3Var);
-        i();
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            t14 t14Var = (t14) m33.M().i0();
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            y34 y34Var = new y34();
             try {
-                jSONObject.put("app_type", 0);
-                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, m33.g0());
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
+                JSONObject jSONObject = new JSONObject(str);
+                y34Var.a = p43.a.a(jSONObject);
+                String optString = jSONObject.optString("deviceOrientation", "portrait");
+                boolean z = false;
+                y34Var.b = 0;
+                if (TextUtils.equals(optString, "landscape")) {
+                    y34Var.b = 1;
                 }
-            }
-            HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/ugc/query_community_by_app").newBuilder();
-            newBuilder.addQueryParameter("data", jSONObject.toString());
-            t14Var.call(new Request.Builder().url(newBuilder.build()).build(), new c());
-        }
-    }
-
-    public final a44 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a == null) {
-                i();
-                return null;
-            } else if (m33.M() == null) {
-                j("shareVideo: fail, swanApp is null");
-                return null;
-            } else {
-                String B = this.a.B(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
-                if (TextUtils.isEmpty(B)) {
-                    j("shareVideo: videoPath is invalid");
-                    return null;
+                jSONObject.optBoolean("showStatusBar", false);
+                jSONObject.optString("workers");
+                b b2 = b.b(jSONObject);
+                y34Var.c = b2;
+                y34Var.d = c.b(jSONObject, b2);
+                y34Var.e = jSONObject.optString("openDataContext");
+                y34Var.f = new s04(jSONObject);
+                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    z = true;
                 }
-                String B2 = wf2.B(B);
-                if (TextUtils.isEmpty(B2)) {
-                    j("shareVideo: videoPath is invalid");
-                    return null;
-                }
-                a44 a44Var = new a44();
-                a44Var.a = B2;
-                a44Var.c = this.a.B("title");
-                a44Var.b = this.a.B("query");
-                b44 b44Var = new b44();
-                b44Var.a = this.a.y("clipMaxDuration", 30L);
-                b44Var.b = this.a.y("clipMinDuration", 3L);
-                b44Var.c = this.a.B("topicSource");
-                b44Var.d = this.a.C("publishTitle", tm2.c().getResources().getString(R.string.obfuscated_res_0x7f0f136c));
-                b44Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
-                b44Var.i = this.a.r("sourceType", 1);
-                b44Var.j = this.a.C("sourceFrom", "tiny");
-                b44Var.g = this.a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                b44Var.f = this.a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                b44Var.h = this.a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
-                b44Var.k = this.a.C("publishType", "9");
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, m33.g0());
-                    jSONObject.put("frame_type", l33.K().k());
-                    jSONObject.put("query", a44Var.b);
-                    if (m33.M() != null && m33.M().Y() != null) {
-                        jSONObject.put("title", m33.M().Y().K());
-                    }
-                } catch (JSONException e) {
-                    if (b) {
-                        Log.d("ShareVideoApi", e.toString());
-                    }
-                }
-                jSONObject.toString();
-                if (!TextUtils.isEmpty(c)) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("id", c);
-                        if (m33.M() != null && m33.M().Y() != null) {
-                            jSONObject2.put("name", m33.M().Y().K());
-                        }
-                        jSONObject2.put("type", "interest");
-                        jSONObject2.put("post_id", "");
-                    } catch (JSONException e2) {
-                        if (b) {
-                            Log.d("ShareVideoApi", e2.toString());
-                        }
-                    }
-                    JSONArray jSONArray = new JSONArray();
-                    jSONArray.put(jSONObject2);
-                    JSONObject jSONObject3 = new JSONObject();
-                    try {
-                        jSONObject3.put("tag", jSONArray);
-                    } catch (JSONException e3) {
-                        if (b) {
-                            Log.d("ShareVideoApi", e3.toString());
-                        }
-                    }
-                    b44Var.l = jSONObject3.toString();
-                    b44Var.m = -1;
+                HybridUbcFlow p = jx2.p("startup");
+                if (z) {
+                    str2 = "1";
                 } else {
-                    b44Var.m = 0;
+                    str2 = "0";
                 }
-                a44Var.e = b44Var;
-                return a44Var;
+                p.D("preload_resources", str2);
+                y34Var.g = new r24(optJSONArray);
+                JSONObject optJSONObject = jSONObject.optJSONObject("setting");
+                if (optJSONObject != null) {
+                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+                }
+                return y34Var;
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
+                }
+                return null;
             }
         }
-        return (a44) invokeV.objValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            oa3 oa3Var = new oa3();
-            oa3Var.b = "shareVideo";
-            fa3.h(oa3Var);
-            a44 k = k();
-            if (k == null) {
-                return;
-            }
-            zj1 N = m33.M().N();
-            if (N.e(tm2.c())) {
-                h(k);
-                return;
-            }
-            SwanAppActivity activity = zo2.U().getActivity();
-            if (activity == null) {
-                j("shareVideo: swanAppActivity is null");
-            } else {
-                N.f(activity, null, new a(this, k));
-            }
-        }
+        return (y34) invokeL.objValue;
     }
 }

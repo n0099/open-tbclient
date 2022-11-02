@@ -1,116 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.hybrid.BridgeHandler;
+import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class px4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ox4 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+public abstract class px4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
+    public final gx4 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948077405, "Lcom/baidu/tieba/px4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public abstract void c(qx4 qx4Var);
+
+    public abstract void e(String str, BridgeHandler bridgeHandler);
+
+    public px4(WebView webView, gx4 gx4Var) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, gx4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948077405, "Lcom/baidu/tieba/px4;");
+        this.a = webView;
+        this.b = gx4Var;
+    }
+
+    public final void d(NamedBridgeHandler namedBridgeHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
+            e(namedBridgeHandler.scope(), namedBridgeHandler);
         }
     }
 
-    public static int a() {
+    public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ox4 ox4Var = a;
-            if (ox4Var == null) {
-                return -1;
-            }
-            return ox4Var.getCurrentTabType();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
         }
-        return invokeV.intValue;
-    }
-
-    public static Class b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ox4 ox4Var = a;
-            if (ox4Var == null) {
-                return null;
-            }
-            return ox4Var.d();
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ox4 ox4Var = a;
-            if (ox4Var == null) {
-                return null;
-            }
-            return ox4Var.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(Context context) {
-        ox4 ox4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (ox4Var = a) == null) {
-            return;
-        }
-        ox4Var.a(context);
-    }
-
-    public static void h(ox4 ox4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, ox4Var) == null) {
-            a = ox4Var;
-        }
-    }
-
-    public static void e(Context context, int i) {
-        ox4 ox4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (ox4Var = a) == null) {
-            return;
-        }
-        ox4Var.b(context, i);
-    }
-
-    public static void f(Context context, int i, boolean z) {
-        ox4 ox4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (ox4Var = a) == null) {
-            return;
-        }
-        ox4Var.c(context, i, z);
-    }
-
-    public static void g(Context context, int i, boolean z) {
-        ox4 ox4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (ox4Var = a) == null) {
-            return;
-        }
-        ox4Var.e(context, i, z);
+        return (Context) invokeV.objValue;
     }
 }

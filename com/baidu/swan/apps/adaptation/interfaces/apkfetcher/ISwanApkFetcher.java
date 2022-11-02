@@ -1,9 +1,11 @@
 package com.baidu.swan.apps.adaptation.interfaces.apkfetcher;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.op1;
-import com.baidu.tieba.u33;
+import com.baidu.tieba.gq1;
+import com.baidu.tieba.m43;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,25 +22,25 @@ public interface ISwanApkFetcher {
 
     boolean D();
 
-    void F(String str, a aVar);
+    void F(@NonNull String str, @Nullable a aVar);
 
-    void d(String str, op1 op1Var);
+    void d(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void e(String str, op1 op1Var);
+    void e(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void f(String str, op1 op1Var);
+    void f(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void g(String str, a aVar);
+    void g(@NonNull String str, @Nullable a aVar);
 
-    void h(String str, op1 op1Var);
+    void h(@NonNull String str, @NonNull gq1 gq1Var);
 
-    void j(String str, op1 op1Var);
+    void j(@NonNull String str, @NonNull gq1 gq1Var);
 
     void release();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class FetchStates {
+    public static final class FetchStates {
         public static final /* synthetic */ FetchStates[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final FetchStates DELETED;
@@ -119,7 +121,7 @@ public interface ISwanApkFetcher {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends u33 implements ISwanApkFetcher {
+    public static class b extends m43 implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,51 +136,51 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void F(String str, a aVar) {
+        public void F(@NonNull String str, @Nullable a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(String str, op1 op1Var) {
+        public void d(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, op1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(String str, op1 op1Var) {
+        public void e(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, op1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(String str, op1 op1Var) {
+        public void f(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, op1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void g(String str, a aVar) {
+        public void g(@NonNull String str, @Nullable a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void h(String str, op1 op1Var) {
+        public void h(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, op1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, gq1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void j(String str, op1 op1Var) {
+        public void j(@NonNull String str, @NonNull gq1 gq1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, op1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, gq1Var) == null) {
             }
         }
 

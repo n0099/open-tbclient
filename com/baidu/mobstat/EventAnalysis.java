@@ -19,17 +19,17 @@ import org.json.JSONObject;
 public class EventAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map a;
+    public Map<String, a> a;
 
     /* renamed from: com.baidu.mobstat.EventAnalysis$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -80,7 +80,7 @@ public class EventAnalysis {
         return (String) invokeLL.objValue;
     }
 
-    private void a(Context context, long j, String str, String str2, int i, long j2, long j3, ExtraInfo extraInfo, Map map, boolean z) {
+    private void a(Context context, long j, String str, String str2, int i, long j2, long j3, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(65538, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), extraInfo, map, Boolean.valueOf(z)}) != null) || !bu.a().e()) {
             return;
@@ -108,7 +108,7 @@ public class EventAnalysis {
     /* JADX WARN: Code restructure failed: missing block: B:7:0x001f, code lost:
         if (r37.equals("") != false) goto L5;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x0177, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0178, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L92;
      */
     /*
@@ -600,7 +600,7 @@ public class EventAnalysis {
         }
     }
 
-    public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, String str4, int i2, int i3, ExtraInfo extraInfo, Map map, boolean z) {
+    public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, String str4, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), str3, str4, Integer.valueOf(i2), Integer.valueOf(i3), extraInfo, map, Boolean.valueOf(z)})) == null) {
@@ -609,7 +609,7 @@ public class EventAnalysis {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i2, int i3, ExtraInfo extraInfo, Map map, String str7, String str8, boolean z) {
+    public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, String str7, String str8, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), str3, jSONArray, jSONArray2, str4, str5, str6, Integer.valueOf(i2), Integer.valueOf(i3), extraInfo, map, str7, str8, Boolean.valueOf(z)})) == null) {
@@ -618,7 +618,7 @@ public class EventAnalysis {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    public static JSONObject getEvent(Context context, long j, String str, String str2, String str3, int i, long j2, long j3, String str4, JSONArray jSONArray, JSONArray jSONArray2, String str5, String str6, String str7, int i2, int i3, ExtraInfo extraInfo, Map map, String str8, String str9, boolean z, JSONObject jSONObject, String str10, JSONArray jSONArray3) {
+    public static JSONObject getEvent(Context context, long j, String str, String str2, String str3, int i, long j2, long j3, String str4, JSONArray jSONArray, JSONArray jSONArray2, String str5, String str6, String str7, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, String str8, String str9, boolean z, JSONObject jSONObject, String str10, JSONArray jSONArray3) {
         InterceptResult invokeCommon;
         int i4;
         Object obj;
@@ -658,13 +658,13 @@ public class EventAnalysis {
                 }
                 if (map != null) {
                     JSONArray jSONArray4 = new JSONArray();
-                    for (Map.Entry entry : map.entrySet()) {
-                        String str11 = (String) entry.getKey();
-                        String str12 = (String) entry.getValue();
-                        if (!TextUtils.isEmpty(str11) && !TextUtils.isEmpty(str12) && !a(str12, 1024)) {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        String key = entry.getKey();
+                        String value = entry.getValue();
+                        if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value) && !a(value, 1024)) {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("k", str11);
-                            jSONObject3.put("v", str12);
+                            jSONObject3.put("k", key);
+                            jSONObject3.put("v", value);
                             jSONArray4.put(jSONObject3);
                         }
                     }
@@ -695,7 +695,7 @@ public class EventAnalysis {
         return (JSONObject) invokeCommon.objValue;
     }
 
-    public void flushEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map map, boolean z) {
+    public void flushEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), jSONArray, jSONArray2, str3, str4, str5, map, Boolean.valueOf(z)}) != null) || !bu.a().e()) {
             return;
@@ -704,7 +704,7 @@ public class EventAnalysis {
         DataCore.instance().flush(context);
     }
 
-    public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), extraInfo, map, Boolean.valueOf(z)}) != null) || !bu.a().e()) {
             return;
@@ -712,7 +712,7 @@ public class EventAnalysis {
         a(context, j, str, str2, i, j2, 0L, extraInfo, map, z);
     }
 
-    public void onEventDuration(Context context, long j, String str, String str2, long j2, long j3, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEventDuration(Context context, long j, String str, String str2, long j2, long j3, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), str, str2, Long.valueOf(j2), Long.valueOf(j3), extraInfo, map, Boolean.valueOf(z)}) != null) || !bu.a().e() || j3 <= 0) {
             return;
@@ -720,7 +720,7 @@ public class EventAnalysis {
         a(context, j, str, str2, 1, j2, j3, extraInfo, map, z);
     }
 
-    public void onEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map map, boolean z) {
+    public void onEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Long.valueOf(j2), jSONArray, jSONArray2, str3, str4, str5, map, Boolean.valueOf(z)}) != null) || !bu.a().e()) {
             return;
@@ -728,7 +728,7 @@ public class EventAnalysis {
         flushEvent(context, j, str, str2, i, j2, jSONArray, jSONArray2, str3, str4, str5, map, z);
     }
 
-    public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map map, boolean z) {
+    public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), str, str2, Long.valueOf(j2), extraInfo, map, Boolean.valueOf(z)}) == null) {
             String a2 = a(str, str2);
@@ -736,7 +736,7 @@ public class EventAnalysis {
                 this.a.remove(a2);
                 return;
             }
-            a aVar = (a) this.a.get(a2);
+            a aVar = this.a.get(a2);
             if (aVar == null) {
                 bb c = bb.c();
                 c.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");

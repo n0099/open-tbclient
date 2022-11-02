@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteFullException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -83,7 +85,8 @@ public class PmsContentProviderImpl {
         this.mContext = context;
     }
 
-    public static String getType(Uri uri) {
+    @Nullable
+    public static String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
@@ -156,7 +159,7 @@ public class PmsContentProviderImpl {
         return invokeLLL.longValue;
     }
 
-    public int delete(Uri uri, String str, String[] strArr) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
@@ -177,7 +180,7 @@ public class PmsContentProviderImpl {
         return invokeLLL.intValue;
     }
 
-    public static Cursor queryExt(Context context, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public static Cursor queryExt(Context context, Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
@@ -191,7 +194,7 @@ public class PmsContentProviderImpl {
         return (Cursor) invokeCommon.objValue;
     }
 
-    public static Cursor queryExt(Context context, String str, String[] strArr) {
+    public static Cursor queryExt(Context context, String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, strArr)) == null) {
@@ -219,7 +222,8 @@ public class PmsContentProviderImpl {
         return invokeLLLLL.intValue;
     }
 
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
@@ -241,7 +245,8 @@ public class PmsContentProviderImpl {
         return (Uri) invokeLL.objValue;
     }
 
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
@@ -267,7 +272,7 @@ public class PmsContentProviderImpl {
         return (Cursor) invokeLLLLL.objValue;
     }
 
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {

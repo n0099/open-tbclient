@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.mode.SubscribeResult;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class PushAdapter implements PushCallback {
@@ -27,7 +28,7 @@ public class PushAdapter implements PushCallback {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetAliases(int i, List list) {
+    public void onGetAliases(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
         }
@@ -48,14 +49,14 @@ public class PushAdapter implements PushCallback {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetTags(int i, List list) {
+    public void onGetTags(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
         }
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetUserAccounts(int i, List list) {
+    public void onGetUserAccounts(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
         }
@@ -69,7 +70,7 @@ public class PushAdapter implements PushCallback {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetAliases(int i, List list) {
+    public void onSetAliases(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {
         }
@@ -83,14 +84,14 @@ public class PushAdapter implements PushCallback {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetTags(int i, List list) {
+    public void onSetTags(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) {
         }
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetUserAccounts(int i, List list) {
+    public void onSetUserAccounts(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i, list) == null) {
         }
@@ -104,21 +105,21 @@ public class PushAdapter implements PushCallback {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetAliases(int i, List list) {
+    public void onUnsetAliases(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048587, this, i, list) == null) {
         }
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetTags(int i, List list) {
+    public void onUnsetTags(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, list) == null) {
         }
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetUserAccounts(int i, List list) {
+    public void onUnsetUserAccounts(int i, List<SubscribeResult> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048589, this, i, list) == null) {
         }

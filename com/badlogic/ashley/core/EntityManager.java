@@ -20,14 +20,14 @@ public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public q0 a;
-    public b7 b;
-    public y7 c;
-    public z0 d;
-    public b7 e;
+    public b7<p0> b;
+    public y7<p0> c;
+    public z0<p0> d;
+    public b7<EntityOperation> e;
     public b f;
 
     /* loaded from: classes.dex */
-    public class EntityOperation implements a8.a {
+    public static class EntityOperation implements a8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
@@ -35,7 +35,7 @@ public class EntityManager {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes.dex */
-        public final class Type {
+        public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
             public static final Type Add;
@@ -129,7 +129,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class EntityManager {
     }
 
     /* loaded from: classes.dex */
-    public class b extends a8 {
+    public static class b extends a8<EntityOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,10 +215,10 @@ public class EntityManager {
                 return;
             }
         }
-        this.b = new b7(false, 16);
-        this.c = new y7();
-        this.d = new z0(this.b);
-        this.e = new b7(false, 16);
+        this.b = new b7<>(false, 16);
+        this.c = new y7<>();
+        this.d = new z0<>(this.b);
+        this.e = new b7<>(false, 16);
         this.f = new b(null);
         this.a = q0Var;
     }
@@ -227,10 +227,10 @@ public class EntityManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, p0Var, z) == null) {
             if (z) {
-                EntityOperation entityOperation = (EntityOperation) this.f.e();
-                entityOperation.b = p0Var;
-                entityOperation.a = EntityOperation.Type.Add;
-                this.e.a(entityOperation);
+                EntityOperation e = this.f.e();
+                e.b = p0Var;
+                e.a = EntityOperation.Type.Add;
+                this.e.a(e);
                 return;
             }
             b(p0Var);
@@ -245,10 +245,10 @@ public class EntityManager {
                     return;
                 }
                 p0Var.c = true;
-                EntityOperation entityOperation = (EntityOperation) this.f.e();
-                entityOperation.b = p0Var;
-                entityOperation.a = EntityOperation.Type.Remove;
-                this.e.a(entityOperation);
+                EntityOperation e = this.f.e();
+                e.b = p0Var;
+                e.a = EntityOperation.Type.Remove;
+                this.e.a(e);
                 return;
             }
             f(p0Var);
@@ -268,7 +268,7 @@ public class EntityManager {
         }
     }
 
-    public z0 c() {
+    public z0<p0> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -282,9 +282,9 @@ public class EntityManager {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int i = 0;
             while (true) {
-                b7 b7Var = this.e;
+                b7<EntityOperation> b7Var = this.e;
                 if (i < b7Var.b) {
-                    EntityOperation entityOperation = (EntityOperation) b7Var.get(i);
+                    EntityOperation entityOperation = b7Var.get(i);
                     int i2 = a.a[entityOperation.a.ordinal()];
                     if (i2 != 1) {
                         if (i2 != 2) {
@@ -292,9 +292,9 @@ public class EntityManager {
                                 throw new AssertionError("Unexpected EntityOperation type");
                             }
                             while (true) {
-                                b7 b7Var2 = this.b;
+                                b7<p0> b7Var2 = this.b;
                                 if (b7Var2.b > 0) {
-                                    f((p0) b7Var2.f());
+                                    f(b7Var2.f());
                                 }
                             }
                         } else {

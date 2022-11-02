@@ -3,6 +3,7 @@ package com.baidu.mapapi.search.poi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.base.LanguageType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PoiNearbySearchOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean mIsExtendAdcode;
     public String mKeyword;
+    public LanguageType mLanguageType;
     public LatLng mLocation;
     public int mPageCapacity;
     public int mPageNum;
@@ -46,13 +49,35 @@ public class PoiNearbySearchOption {
         this.mScope = 1;
         this.mRadiusLimit = false;
         this.mPoiFilter = null;
+        this.mIsExtendAdcode = true;
+        this.mLanguageType = LanguageType.LanguageTypeChinese;
+    }
+
+    public PoiNearbySearchOption extendAdcode(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.mIsExtendAdcode = z;
+            return this;
+        }
+        return (PoiNearbySearchOption) invokeZ.objValue;
     }
 
     public PoiNearbySearchOption keyword(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             this.mKeyword = str;
+            return this;
+        }
+        return (PoiNearbySearchOption) invokeL.objValue;
+    }
+
+    public PoiNearbySearchOption language(LanguageType languageType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, languageType)) == null) {
+            this.mLanguageType = languageType;
             return this;
         }
         return (PoiNearbySearchOption) invokeL.objValue;
@@ -61,7 +86,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption location(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, latLng)) == null) {
             this.mLocation = latLng;
             return this;
         }
@@ -71,7 +96,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption pageCapacity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             this.mPageCapacity = i;
             return this;
         }
@@ -81,7 +106,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption pageNum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             this.mPageNum = i;
             return this;
         }
@@ -91,7 +116,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption poiFilter(PoiFilter poiFilter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, poiFilter)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, poiFilter)) == null) {
             this.mPoiFilter = poiFilter;
             return this;
         }
@@ -101,7 +126,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption radius(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             this.mRadius = i;
             return this;
         }
@@ -111,7 +136,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption radiusLimit(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
             this.mRadiusLimit = z;
             return this;
         }
@@ -121,7 +146,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption scope(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             this.mScope = i;
             return this;
         }
@@ -131,7 +156,7 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption sortType(PoiSortType poiSortType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, poiSortType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, poiSortType)) == null) {
             if (poiSortType != null) {
                 this.sortType = poiSortType;
             }
@@ -143,10 +168,19 @@ public class PoiNearbySearchOption {
     public PoiNearbySearchOption tag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             this.mTag = str;
             return this;
         }
         return (PoiNearbySearchOption) invokeL.objValue;
+    }
+
+    public boolean isExtendAdcode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mIsExtendAdcode;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,6 +1,10 @@
 package androidx.core.provider;
 
 import android.util.Base64;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +24,7 @@ public final class FontRequest {
     public final String mProviderPackage;
     public final String mQuery;
 
-    public FontRequest(String str, String str2, String str3, int i) {
+    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +54,7 @@ public final class FontRequest {
         this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 
-    public FontRequest(String str, String str2, String str3, List<List<byte[]>> list) {
+    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull List<List<byte[]>> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,6 +77,7 @@ public final class FontRequest {
         this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 
+    @Nullable
     public List<List<byte[]>> getCertificates() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,6 +87,7 @@ public final class FontRequest {
         return (List) invokeV.objValue;
     }
 
+    @ArrayRes
     public int getCertificatesArrayResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,6 +97,7 @@ public final class FontRequest {
         return invokeV.intValue;
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public String getIdentifier() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,6 +107,7 @@ public final class FontRequest {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public String getProviderAuthority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,6 +117,7 @@ public final class FontRequest {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public String getProviderPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,6 +127,7 @@ public final class FontRequest {
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public String getQuery() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

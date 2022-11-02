@@ -8,18 +8,18 @@ import com.baidu.nadcore.component.AbsComponentPlugin;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.do0;
-import com.baidu.tieba.go0;
-import com.baidu.tieba.i01;
-import com.baidu.tieba.jo0;
+import com.baidu.tieba.f61;
+import com.baidu.tieba.hp0;
 import com.baidu.tieba.ko0;
-import com.baidu.tieba.n51;
+import com.baidu.tieba.lo0;
+import com.baidu.tieba.mo0;
+import com.baidu.tieba.p01;
 import com.baidu.tieba.so0;
-import com.baidu.tieba.vn0;
-import com.baidu.tieba.wn0;
-import com.baidu.tieba.xn0;
-import com.baidu.tieba.yi0;
-import com.baidu.tieba.yz0;
+import com.baidu.tieba.vo0;
+import com.baidu.tieba.xi0;
+import com.baidu.tieba.yo0;
+import com.baidu.tieba.z01;
+import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,15 +38,15 @@ public final class AlsComponent extends AbsComponentPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
-    public final so0 e;
+    public final hp0 e;
     public boolean f;
     public boolean g;
     public final Lazy h;
 
-    public final go0 k() {
+    public final vo0 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (go0) this.h.getValue() : (go0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (vo0) this.h.getValue() : (vo0) invokeV.objValue;
     }
 
     public AlsComponent() {
@@ -62,32 +62,32 @@ public final class AlsComponent extends AbsComponentPlugin {
                 return;
             }
         }
-        this.e = new so0();
+        this.e = new hp0();
         this.h = LazyKt__LazyJVMKt.lazy(new AlsComponent$alsService$2(this));
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(yi0 event) {
+    public void b(xi0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.b(event);
             String a = event.a();
-            if (Intrinsics.areEqual(a, xn0.class.getSimpleName())) {
-                l((xn0) event);
-            } else if (Intrinsics.areEqual(a, do0.class.getSimpleName())) {
-                m((do0) event);
-            } else if (Intrinsics.areEqual(a, wn0.class.getSimpleName())) {
+            if (Intrinsics.areEqual(a, mo0.class.getSimpleName())) {
+                l((mo0) event);
+            } else if (Intrinsics.areEqual(a, so0.class.getSimpleName())) {
+                m((so0) event);
+            } else if (Intrinsics.areEqual(a, lo0.class.getSimpleName())) {
                 if (this.e.b() == 0) {
                     this.e.h(System.currentTimeMillis());
                 }
                 if (!this.g) {
                     this.g = true;
-                    jo0 jo0Var = (jo0) j().p(jo0.class);
-                    if (jo0Var != null && jo0Var.k()) {
+                    yo0 yo0Var = (yo0) j().p(yo0.class);
+                    if (yo0Var != null && yo0Var.k()) {
                         long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                        so0 so0Var = this.e;
-                        so0Var.i(so0Var.c() + max);
+                        hp0 hp0Var = this.e;
+                        hp0Var.i(hp0Var.c() + max);
                     }
                 }
             }
@@ -99,14 +99,14 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.d();
-            j().s(go0.class, k());
+            j().s(vo0.class, k());
         }
     }
 
-    public final void l(xn0 xn0Var) {
+    public final void l(mo0 mo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xn0Var) == null) {
-            int i = vn0.$EnumSwitchMapping$0[xn0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048579, this, mo0Var) == null) {
+            int i = ko0.$EnumSwitchMapping$0[mo0Var.getType().ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     this.g = false;
@@ -143,10 +143,10 @@ public final class AlsComponent extends AbsComponentPlugin {
         }
     }
 
-    public final void m(do0 do0Var) {
+    public final void m(so0 so0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, do0Var) == null) {
-            int i = vn0.$EnumSwitchMapping$1[do0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048580, this, so0Var) == null) {
+            int i = ko0.$EnumSwitchMapping$1[so0Var.getType().ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     q();
@@ -154,8 +154,8 @@ public final class AlsComponent extends AbsComponentPlugin {
                 }
                 return;
             }
-            jo0 jo0Var = (jo0) j().p(jo0.class);
-            if (jo0Var != null && !jo0Var.k()) {
+            yo0 yo0Var = (yo0) j().p(yo0.class);
+            if (yo0Var != null && !yo0Var.k()) {
                 this.e.h(System.currentTimeMillis());
             } else {
                 this.e.g(System.currentTimeMillis());
@@ -177,14 +177,14 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            jo0 jo0Var = (jo0) j().p(jo0.class);
-            if (jo0Var == null || !jo0Var.k()) {
+            yo0 yo0Var = (yo0) j().p(yo0.class);
+            if (yo0Var == null || !yo0Var.k()) {
                 return;
             }
             this.e.j(System.currentTimeMillis());
             long max = Math.max(this.e.d() - Math.max(this.e.e(), this.e.f()), 0L);
-            so0 so0Var = this.e;
-            so0Var.i(so0Var.c() + max);
+            hp0 hp0Var = this.e;
+            hp0Var.i(hp0Var.c() + max);
         }
     }
 
@@ -193,8 +193,8 @@ public final class AlsComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            jo0 jo0Var = (jo0) j().p(jo0.class);
-            if (jo0Var == null || !jo0Var.k()) {
+            yo0 yo0Var = (yo0) j().p(yo0.class);
+            if (yo0Var == null || !yo0Var.k()) {
                 return;
             }
             this.e.k(System.currentTimeMillis());
@@ -221,25 +221,25 @@ public final class AlsComponent extends AbsComponentPlugin {
             if (!TextUtils.isEmpty(ext1)) {
                 u.k(ext1);
             }
-            i01.b(u);
+            z01.b(u);
         }
     }
 
     public final void q() {
-        n51 g;
+        f61 g;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            jo0 jo0Var = (jo0) j().p(jo0.class);
-            if (jo0Var == null || jo0Var.k()) {
+            yo0 yo0Var = (yo0) j().p(yo0.class);
+            if (yo0Var == null || yo0Var.k()) {
                 long max = Math.max(System.currentTimeMillis() - Math.max(this.e.e(), this.e.f()), 0L);
-                so0 so0Var = this.e;
-                so0Var.i(so0Var.c() + max);
+                hp0 hp0Var = this.e;
+                hp0Var.i(hp0Var.c() + max);
             }
-            ko0 ko0Var = (ko0) j().p(ko0.class);
-            if (ko0Var != null && (g = ko0Var.b().g()) != null && (jSONObject = g.d) != null) {
-                yz0.e(jSONObject, "immersive_video_stay_time", this.e.c());
-                yz0.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
+            zo0 zo0Var = (zo0) j().p(zo0.class);
+            if (zo0Var != null && (g = zo0Var.b().g()) != null && (jSONObject = g.d) != null) {
+                p01.e(jSONObject, "immersive_video_stay_time", this.e.c());
+                p01.e(jSONObject, "immersive_webview_first_show_time", this.e.b());
             }
         }
     }

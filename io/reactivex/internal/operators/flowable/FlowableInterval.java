@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableInterval extends Flowable {
+public final class FlowableInterval extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long initialDelay;
@@ -28,15 +28,15 @@ public final class FlowableInterval extends Flowable {
     public final TimeUnit unit;
 
     /* loaded from: classes8.dex */
-    public final class IntervalSubscriber extends AtomicLong implements Subscription, Runnable {
+    public static final class IntervalSubscriber extends AtomicLong implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super Long> actual;
         public long count;
-        public final AtomicReference resource;
+        public final AtomicReference<Disposable> resource;
 
-        public IntervalSubscriber(Subscriber subscriber) {
+        public IntervalSubscriber(Subscriber<? super Long> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public final class FlowableInterval extends Flowable {
                     return;
                 }
             }
-            this.resource = new AtomicReference();
+            this.resource = new AtomicReference<>();
             this.actual = subscriber;
         }
 
@@ -83,14 +83,14 @@ public final class FlowableInterval extends Flowable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.resource.get() != DisposableHelper.DISPOSED) {
                 if (get() != 0) {
-                    Subscriber subscriber = this.actual;
+                    Subscriber<? super Long> subscriber = this.actual;
                     long j = this.count;
                     this.count = j + 1;
                     subscriber.onNext(Long.valueOf(j));
                     BackpressureHelper.produced(this, 1L);
                     return;
                 }
-                Subscriber subscriber2 = this.actual;
+                Subscriber<? super Long> subscriber2 = this.actual;
                 subscriber2.onError(new MissingBackpressureException("Can't deliver value " + this.count + " due to lack of requests"));
                 DisposableHelper.dispose(this.resource);
             }
@@ -119,7 +119,7 @@ public final class FlowableInterval extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super Long> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             IntervalSubscriber intervalSubscriber = new IntervalSubscriber(subscriber);

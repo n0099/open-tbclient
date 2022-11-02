@@ -51,11 +51,11 @@ public class DBTaskManager {
         return (DBTaskManager) invokeL.objValue;
     }
 
-    public Future submitForInsertOperation(Runnable runnable, Object obj) {
+    public <T> Future<T> submitForInsertOperation(Runnable runnable, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, runnable, obj)) == null) {
-            return this.writeService.submit(runnable, obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, runnable, t)) == null) {
+            return this.writeService.submit(runnable, t);
         }
         return (Future) invokeLL.objValue;
     }

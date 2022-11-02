@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.FontAssetDelegate;
 import com.airbnb.lottie.model.MutablePair;
 import com.airbnb.lottie.utils.Logger;
@@ -12,13 +13,14 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class FontAssetManager {
     public final AssetManager assetManager;
+    @Nullable
     public FontAssetDelegate delegate;
-    public final MutablePair tempPair = new MutablePair();
-    public final Map fontMap = new HashMap();
-    public final Map fontFamilies = new HashMap();
+    public final MutablePair<String> tempPair = new MutablePair<>();
+    public final Map<MutablePair<String>, Typeface> fontMap = new HashMap();
+    public final Map<String, Typeface> fontFamilies = new HashMap();
     public String defaultFontFileExtension = ".ttf";
 
-    public FontAssetManager(Drawable.Callback callback, FontAssetDelegate fontAssetDelegate) {
+    public FontAssetManager(Drawable.Callback callback, @Nullable FontAssetDelegate fontAssetDelegate) {
         this.delegate = fontAssetDelegate;
         if (!(callback instanceof View)) {
             Logger.warning("LottieDrawable must be inside of a view for images to work.");
@@ -30,7 +32,7 @@ public class FontAssetManager {
 
     private Typeface getFontFamily(String str) {
         String fontPath;
-        Typeface typeface = (Typeface) this.fontFamilies.get(str);
+        Typeface typeface = this.fontFamilies.get(str);
         if (typeface != null) {
             return typeface;
         }
@@ -71,7 +73,7 @@ public class FontAssetManager {
 
     public Typeface getTypeface(String str, String str2) {
         this.tempPair.set(str, str2);
-        Typeface typeface = (Typeface) this.fontMap.get(this.tempPair);
+        Typeface typeface = this.fontMap.get(this.tempPair);
         if (typeface != null) {
             return typeface;
         }
@@ -84,7 +86,7 @@ public class FontAssetManager {
         this.defaultFontFileExtension = str;
     }
 
-    public void setDelegate(FontAssetDelegate fontAssetDelegate) {
+    public void setDelegate(@Nullable FontAssetDelegate fontAssetDelegate) {
         this.delegate = fontAssetDelegate;
     }
 }

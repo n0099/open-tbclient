@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,7 +48,7 @@ public class TransitionValues {
         return invokeV.intValue;
     }
 
-    public TransitionValues(View view2) {
+    public TransitionValues(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

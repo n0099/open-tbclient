@@ -1,7 +1,6 @@
 package com.vivo.push.b;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +13,12 @@ import java.util.HashMap;
 public final class x extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap a;
+    public HashMap<String, String> a;
     public long b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x() {
-        super(IMConstants.IM_MSG_TYPE_SHIELD_ME);
+        super(2012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +65,7 @@ public final class x extends com.vivo.push.o {
         this.b = j;
     }
 
-    public final void a(HashMap hashMap) {
+    public final void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
             this.a = hashMap;
@@ -101,9 +100,9 @@ public final class x extends com.vivo.push.o {
             StringBuilder sb = new StringBuilder("report message reportType:");
             sb.append(this.b);
             sb.append(",msgId:");
-            String str = (String) this.a.get("messageID");
+            String str = this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {
-                str = (String) this.a.get("message_id");
+                str = this.a.get("message_id");
             }
             sb.append(str);
             com.vivo.push.util.p.d("ReporterCommand", sb.toString());

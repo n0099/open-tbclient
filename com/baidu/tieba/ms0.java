@@ -1,108 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ms0 extends ns0 {
+public final class ms0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs0 c;
+    public final List<ls0> a;
 
-    public ms0() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof ms0) && Intrinsics.areEqual(this.a, ((ms0) obj).a);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ls0> list = this.a;
+            if (list != null) {
+                return list.hashCode();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "AuthHostModel(hostItemList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ms0(List<ls0> hostItemList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hostItemList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(hostItemList, "hostItemList");
+        this.a = hostItemList;
     }
 
-    public void A() {
-        gs0 gs0Var;
+    public final List<ls0> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onVideoSwitchToHalf();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.tieba.ns0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.r();
-            this.c = null;
-        }
-    }
-
-    public void t() {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onBeforeSwitchToFull();
-        }
-    }
-
-    public void u() {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onBeforeSwitchToHalf();
-        }
-    }
-
-    public void v() {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onGestureActionEnd();
-        }
-    }
-
-    public void w() {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onGestureActionStart();
-        }
-    }
-
-    public void z() {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onVideoSwitchToFull();
-        }
-    }
-
-    public boolean x(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            gs0 gs0Var = this.c;
-            if (gs0Var != null) {
-                return gs0Var.onGestureDoubleClick(motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void y(boolean z) {
-        gs0 gs0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (gs0Var = this.c) != null) {
-            gs0Var.onPanelVisibilityChanged(z);
-        }
+        return (List) invokeV.objValue;
     }
 }

@@ -74,13 +74,13 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap m99a(String str) {
+    public static HashMap<String, String> m99a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
             return (HashMap) invokeL.objValue;
         }
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap<>();
         if (TextUtils.isEmpty(str) || !new File(str).exists()) {
             return hashMap;
         }
@@ -139,7 +139,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List a(Context context, String str) {
+    public static List<String> a(Context context, String str) {
         InterceptResult invokeLL;
         File file;
         RandomAccessFile randomAccessFile;
@@ -280,8 +280,7 @@ public class e {
     /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.util.HashMap, java.lang.Object] */
-    public static void a(String str, HashMap hashMap) {
+    public static void a(String str, HashMap<String, String> hashMap) {
         ?? r1;
         Throwable th;
         BufferedWriter bufferedWriter;
@@ -293,7 +292,7 @@ public class e {
                 return;
             }
         }
-        if (TextUtils.isEmpty(str) || hashMap == 0 || hashMap.size() == 0) {
+        if (TextUtils.isEmpty(str) || hashMap == null || hashMap.size() == 0) {
             return;
         }
         File file = new File(str);
@@ -305,7 +304,7 @@ public class e {
                 bufferedWriter = new BufferedWriter(new FileWriter(file));
                 try {
                     for (String str2 : hashMap.keySet()) {
-                        bufferedWriter.write(str2 + "%%%" + ((String) hashMap.get(str2)));
+                        bufferedWriter.write(str2 + "%%%" + hashMap.get(str2));
                         bufferedWriter.newLine();
                     }
                 } catch (Exception e2) {
@@ -347,7 +346,7 @@ public class e {
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap m99a = m99a(str);
+            HashMap<String, String> m99a = m99a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a = a((PerfClientReport) aVar);
@@ -396,11 +395,11 @@ public class e {
         ab.a(randomAccessFile);
     }
 
-    public static void a(HashMap hashMap, String str, long j, long j2) {
+    public static void a(HashMap<String, String> hashMap, String str, long j, long j2) {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{hashMap, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            String str2 = (String) hashMap.get(str);
+            String str2 = hashMap.get(str);
             if (TextUtils.isEmpty(str2)) {
                 sb = new StringBuilder();
             } else {

@@ -1,5 +1,6 @@
 package com.baidu.live.feed.search.model.data;
 
+import androidx.annotation.NonNull;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,9 +16,9 @@ public class LiveSearchSuggestionsBean {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasmore;
     public LiveErrorInfo liveErrorInfo;
-    public List mSearchResultList;
+    public List<LiveSearchResultInfo> mSearchResultList;
     public String question;
-    public List suggestionList;
+    public List<LiveSearchSuggestion> suggestionList;
 
     public LiveSearchSuggestionsBean() {
         Interceptable interceptable = $ic;
@@ -35,7 +36,7 @@ public class LiveSearchSuggestionsBean {
         this.hasmore = false;
     }
 
-    public void parse(JSONObject jSONObject) {
+    public void parse(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             LiveErrorInfo liveErrorInfo = new LiveErrorInfo();

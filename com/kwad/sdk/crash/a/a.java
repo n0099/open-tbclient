@@ -1,11 +1,11 @@
 package com.kwad.sdk.crash.a;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static boolean a(StackTraceElement[] stackTraceElementArr) {
         if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
@@ -32,7 +32,7 @@ public final class a {
         return z;
     }
 
-    public static boolean a(StackTraceElement[] stackTraceElementArr, String str) {
+    public static boolean a(@NonNull StackTraceElement[] stackTraceElementArr, String str) {
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
             String className = stackTraceElement.getClassName();
             if (!TextUtils.isEmpty(className) && className.contains(str)) {
@@ -54,7 +54,7 @@ public final class a {
         return false;
     }
 
-    public static boolean i(Throwable th) {
+    public static boolean i(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);
         for (int i = 0; i < 5; i++) {
             arrayList.add(th.getStackTrace());
@@ -66,10 +66,9 @@ public final class a {
         return u(arrayList);
     }
 
-    public static boolean u(List list) {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            if (a((StackTraceElement[]) it.next())) {
+    public static boolean u(@NonNull List<StackTraceElement[]> list) {
+        for (StackTraceElement[] stackTraceElementArr : list) {
+            if (a(stackTraceElementArr)) {
                 return true;
             }
         }

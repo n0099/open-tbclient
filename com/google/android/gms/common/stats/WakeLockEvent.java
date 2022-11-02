@@ -3,6 +3,7 @@ package com.google.android.gms.common.stats;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,30 +12,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import java.util.List;
 import javax.annotation.Nullable;
+@KeepForSdk
+@SafeParcelable.Class(creator = "WakeLockEventCreator")
 @Deprecated
 /* loaded from: classes7.dex */
 public final class WakeLockEvent extends StatsEvent {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    @NonNull
+    public static final Parcelable.Creator<WakeLockEvent> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.VersionField(id = 1)
     public final int zza;
+    @SafeParcelable.Field(getter = "getTimeMillis", id = 2)
     public final long zzb;
+    @SafeParcelable.Field(getter = "getEventType", id = 11)
     public int zzc;
+    @SafeParcelable.Field(getter = "getWakeLockName", id = 4)
     public final String zzd;
+    @SafeParcelable.Field(getter = "getSecondaryWakeLockName", id = 10)
     public final String zze;
+    @SafeParcelable.Field(getter = "getCodePackage", id = 17)
     public final String zzf;
+    @SafeParcelable.Field(getter = "getWakeLockType", id = 5)
     public final int zzg;
     @Nullable
-    public final List zzh;
+    @SafeParcelable.Field(getter = "getCallingPackages", id = 6)
+    public final List<String> zzh;
+    @SafeParcelable.Field(getter = "getEventKey", id = 12)
     public final String zzi;
+    @SafeParcelable.Field(getter = "getElapsedRealtime", id = 8)
     public final long zzj;
+    @SafeParcelable.Field(getter = "getDeviceState", id = 14)
     public int zzk;
+    @SafeParcelable.Field(getter = "getHostPackage", id = 13)
     public final String zzl;
+    @SafeParcelable.Field(getter = "getBeginPowerPercentage", id = 15)
     public final float zzm;
+    @SafeParcelable.Field(getter = "getTimeout", id = 16)
     public final long zzn;
+    @SafeParcelable.Field(getter = "getAcquiredWithTimeout", id = 18)
     public final boolean zzo;
     public long zzp;
 
@@ -54,7 +75,8 @@ public final class WakeLockEvent extends StatsEvent {
         CREATOR = new zza();
     }
 
-    public WakeLockEvent(int i, long j, int i2, String str, int i3, @Nullable List list, String str2, long j2, int i4, String str3, String str4, float f, long j3, String str5, boolean z) {
+    @SafeParcelable.Constructor
+    public WakeLockEvent(@SafeParcelable.Param(id = 1) int i, @SafeParcelable.Param(id = 2) long j, @SafeParcelable.Param(id = 11) int i2, @SafeParcelable.Param(id = 4) String str, @SafeParcelable.Param(id = 5) int i3, @SafeParcelable.Param(id = 6) @Nullable List<String> list, @SafeParcelable.Param(id = 12) String str2, @SafeParcelable.Param(id = 8) long j2, @SafeParcelable.Param(id = 14) int i4, @SafeParcelable.Param(id = 10) String str3, @SafeParcelable.Param(id = 13) String str4, @SafeParcelable.Param(id = 15) float f, @SafeParcelable.Param(id = 16) long j3, @SafeParcelable.Param(id = 17) String str5, @SafeParcelable.Param(id = 18) boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +131,7 @@ public final class WakeLockEvent extends StatsEvent {
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(Parcel parcel, int i) {
+    public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
             int beginObjectHeader = SafeParcelWriter.beginObjectHeader(parcel);
@@ -133,12 +155,13 @@ public final class WakeLockEvent extends StatsEvent {
     }
 
     @Override // com.google.android.gms.common.stats.StatsEvent
+    @NonNull
     public final String zzd() {
         InterceptResult invokeV;
         String join;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List list = this.zzh;
+            List<String> list = this.zzh;
             String str = this.zzd;
             int i = this.zzg;
             String str2 = "";

@@ -1,10 +1,12 @@
 package com.baidu.tieba.im.data;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.eh;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +126,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public static ShareForumMsgData ofForumData(ForumData forumData) {
+    public static ShareForumMsgData ofForumData(@NonNull ForumData forumData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, forumData)) == null) {
@@ -132,7 +134,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
                 return null;
             }
             ShareForumMsgData shareForumMsgData = new ShareForumMsgData();
-            shareForumMsgData.forum_id = eh.g(forumData.getId(), 0L);
+            shareForumMsgData.forum_id = wg.g(forumData.getId(), 0L);
             shareForumMsgData.forum_name = forumData.getName();
             shareForumMsgData.avatar = forumData.getImage_url();
             shareForumMsgData.thread_count = forumData.getThread_num();
@@ -143,6 +145,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
         return (ShareForumMsgData) invokeL.objValue;
     }
 
+    @Nullable
     public static ShareForumMsgData ofImForumInfo(ForumInfo forumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -154,7 +157,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
             shareForumMsgData.forum_id = forumInfo.forumId.longValue();
             shareForumMsgData.forum_name = forumInfo.forumName;
             shareForumMsgData.avatar = forumInfo.avatar;
-            shareForumMsgData.thread_count = eh.e(forumInfo.threadNum, 0);
+            shareForumMsgData.thread_count = wg.e(forumInfo.threadNum, 0);
             shareForumMsgData.member_count = forumInfo.memberCount.intValue();
             shareForumMsgData.slogan = forumInfo.slogan;
             return shareForumMsgData;

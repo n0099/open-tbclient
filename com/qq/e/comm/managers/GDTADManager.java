@@ -82,7 +82,7 @@ public class GDTADManager implements IGDTAdManager {
     }
 
     /* loaded from: classes8.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static GDTADManager a;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,159 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class eb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eb1 {
+    void a(Activity activity, String str, String str2);
 
-    /* loaded from: classes3.dex */
-    public final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wb1 a;
+    void aLiAuth(Activity activity, String str, lb1<JSONObject> lb1Var);
 
-        /* renamed from: com.baidu.tieba.eb1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0222a extends wb1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONArray a;
-            public final /* synthetic */ a b;
+    boolean b(Context context);
 
-            public C0222a(a aVar, JSONArray jSONArray) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONArray};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = jSONArray;
-            }
+    void c(Activity activity, String str, za1 za1Var);
 
-            @Override // com.baidu.tieba.wb1
-            public void a(int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                    wb1 wb1Var = this.b.a;
-                    if (wb1Var != null) {
-                        wb1Var.a(i, str);
-                    }
-                    if (i == 1) {
-                        eb1.e(this.a);
-                    }
-                }
-            }
-        }
+    void d(Context context, JSONObject jSONObject, za1 za1Var);
 
-        public a(wb1 wb1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wb1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wb1Var;
-        }
+    void e(Activity activity, String str, za1 za1Var);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            JSONArray c;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (c = eb1.c()) == null) {
-                return;
-            }
-            ab1.d(c, new C0222a(this, c));
-        }
-    }
+    void f(Context context, JSONObject jSONObject);
 
-    public static void f(wb1 wb1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, wb1Var) == null) {
-            dc1.a(new a(wb1Var));
-        }
-    }
+    void g(Bundle bundle);
 
-    public static synchronized JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (eb1.class) {
-                File file = new File(pc1.a().getFilesDir(), "poly_cashier_commission_record_cache.json");
-                JSONArray jSONArray = null;
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    JSONArray jSONArray2 = new JSONArray(jc1.b(file));
-                    try {
-                        file.delete();
-                    } catch (JSONException unused) {
-                    }
-                    jSONArray = jSONArray2;
-                } catch (JSONException unused2) {
-                }
-                return jSONArray;
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
+    void h(String str);
 
-    public static void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
-        } catch (JSONException unused) {
-        }
-        JSONArray c = c();
-        if (c == null) {
-            c = new JSONArray();
-        }
-        c.put(jSONObject);
-        if (c.length() > 100) {
-            c.remove(0);
-        }
-        e(c);
-    }
+    void i(Activity activity, JSONObject jSONObject, za1 za1Var);
 
-    public static synchronized void e(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) {
-            synchronized (eb1.class) {
-                if (jSONArray != null) {
-                    if (jSONArray.length() != 0) {
-                        jc1.d(jSONArray.toString(), new File(pc1.a().getFilesDir(), "poly_cashier_commission_record_cache.json"));
-                    }
-                }
-            }
-        }
-    }
+    String j(Context context);
 }

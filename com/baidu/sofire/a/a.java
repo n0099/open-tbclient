@@ -1,6 +1,7 @@
 package com.baidu.sofire.a;
 
 import android.accounts.NetworkErrorException;
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -56,11 +57,11 @@ public class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public final class C0155a extends Callback {
+    public static class C0163a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0155a() {
+        public C0163a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +175,7 @@ public class a {
                         a2.b.commit();
                         a2.b.putLong("pu_cl_fd", System.currentTimeMillis());
                         a2.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003112", (Map) hashMap, false);
+                        com.baidu.sofire.k.a.a(context, "1003112", (Map<String, Object>) hashMap, false);
                     } else if (com.baidu.sofire.k.a.m(context)) {
                         a2.c(a2.k() + 1);
                     } else {
@@ -207,7 +208,7 @@ public class a {
                         a3.b.commit();
                         a3.b.putLong("se_ae_fd", System.currentTimeMillis());
                         a3.b.commit();
-                        com.baidu.sofire.k.a.a(context, "1003119", (Map) hashMap2, false);
+                        com.baidu.sofire.k.a.a(context, "1003119", (Map<String, Object>) hashMap2, false);
                     } else {
                         a3.b.putInt("mo_ae_fa_ct", a3.a.getInt("mo_ae_fa_ct", 0) + 1);
                         a3.b.commit();
@@ -277,6 +278,7 @@ public class a {
         return (String) invokeLZ.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
@@ -290,6 +292,7 @@ public class a {
         }
     }
 
+    @SuppressLint({"NewApi"})
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
@@ -323,6 +326,7 @@ public class a {
         }
     }
 
+    @SuppressLint({"WrongConstant"})
     public static void a(Context context, int i, boolean z) {
         PendingIntent service;
         long j;
@@ -389,7 +393,7 @@ public class a {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", "152");
                         hashMap.put("1", p[0]);
-                        com.baidu.sofire.k.a.a(context.getApplicationContext(), "1014115", (Map) hashMap, false);
+                        com.baidu.sofire.k.a.a(context.getApplicationContext(), "1014115", (Map<String, Object>) hashMap, false);
                         break;
                     }
                     k kVar = k.f;
@@ -397,7 +401,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0155a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.e.a(100028, "onReceiveAwakeMessage", new C0163a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }
@@ -529,6 +533,7 @@ public class a {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(16:7|8|9|10|11|12|(1:14)(1:33)|15|(8:17|(1:19)|21|22|23|24|25|27)(1:32)|20|21|22|23|24|25|27) */
+    @SuppressLint({"WrongConstant"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

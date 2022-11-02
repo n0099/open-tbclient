@@ -1,5 +1,6 @@
 package tv.athena.revenue.payui.model;
 
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.api.MiddleRevenueConfig;
+@Keep
 /* loaded from: classes9.dex */
 public class PayUIKitConfig {
     public static /* synthetic */ Interceptable $ic;
@@ -15,8 +17,9 @@ public class PayUIKitConfig {
     public MiddleRevenueConfig revenueConfig;
     public ThemeColorConfig themeColorConfig;
 
+    @Keep
     /* loaded from: classes9.dex */
-    public class PayUIKitConfigBuilder {
+    public static class PayUIKitConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageLoaderSupplier imageLoaderSupplier;

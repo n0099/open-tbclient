@@ -40,7 +40,7 @@ public class HttpUtil {
     }
 
     /* loaded from: classes8.dex */
-    public class HttpResp {
+    public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean isSucceed;
@@ -100,7 +100,7 @@ public class HttpUtil {
         }
     }
 
-    public static String get(String str, Map map) throws IOException {
+    public static String get(String str, Map<String, String> map) throws IOException {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class HttpUtil {
             if (map != null && map.size() > 0) {
                 StringBuffer stringBuffer = new StringBuffer();
                 int i = 0;
-                for (Map.Entry entry : map.entrySet()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
                     int i2 = i + 1;
                     if (i > 0) {
                         stringBuffer.append("&");
                     }
-                    stringBuffer.append((String) entry.getKey());
+                    stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
-                    stringBuffer.append((String) entry.getValue());
+                    stringBuffer.append(entry.getValue());
                     i = i2;
                 }
                 str2 = stringBuffer.toString();
@@ -435,7 +435,7 @@ public class HttpUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpResp postFileByUrlConn(String str, Map map, Map map2) throws Exception {
+    public static HttpResp postFileByUrlConn(String str, Map<String, String> map, Map<String, String> map2) throws Exception {
         InterceptResult invokeLLL;
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
@@ -464,18 +464,18 @@ public class HttpUtil {
                 if (map != null) {
                     try {
                         StringBuffer stringBuffer = new StringBuffer();
-                        for (Map.Entry entry : map.entrySet()) {
-                            String str2 = (String) entry.getKey();
-                            String str3 = (String) entry.getValue();
-                            if (str3 != null) {
+                        for (Map.Entry<String, String> entry : map.entrySet()) {
+                            String key = entry.getKey();
+                            String value = entry.getValue();
+                            if (value != null) {
                                 stringBuffer.append("\r\n");
                                 stringBuffer.append("--");
                                 stringBuffer.append(format);
                                 stringBuffer.append("\r\n");
                                 stringBuffer.append("Content-Disposition: form-data; name=\"");
-                                stringBuffer.append(str2);
+                                stringBuffer.append(key);
                                 stringBuffer.append("\"\r\n\r\n");
-                                stringBuffer.append(str3);
+                                stringBuffer.append(value);
                             }
                         }
                         dataOutputStream.write(stringBuffer.toString().getBytes());
@@ -494,18 +494,18 @@ public class HttpUtil {
                 }
                 if (map2 != null) {
                     StringBuffer stringBuffer2 = new StringBuffer();
-                    for (Map.Entry entry2 : map2.entrySet()) {
-                        String str4 = (String) entry2.getKey();
-                        String str5 = (String) entry2.getValue();
-                        if (str5 != null) {
-                            File file = new File(str5);
+                    for (Map.Entry<String, String> entry2 : map2.entrySet()) {
+                        String key2 = entry2.getKey();
+                        String value2 = entry2.getValue();
+                        if (value2 != null) {
+                            File file = new File(value2);
                             stringBuffer2.setLength(0);
                             stringBuffer2.append("\r\n");
                             stringBuffer2.append("--");
                             stringBuffer2.append(format);
                             stringBuffer2.append("\r\n");
                             stringBuffer2.append("Content-Disposition: form-data; name=\"");
-                            stringBuffer2.append(str4);
+                            stringBuffer2.append(key2);
                             stringBuffer2.append("\"; filename=\"");
                             stringBuffer2.append(file.getName());
                             stringBuffer2.append("\"\r\n");

@@ -11,7 +11,7 @@ import com.facebook.common.logging.FLog;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class BitmapPoolBackend extends LruBucketsPoolBackend {
+public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapPoolBackend";
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class BitmapPoolBackend extends LruBucketsPoolBackend {
     public void put(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) && isReusable(bitmap)) {
-            super.put((Object) bitmap);
+            super.put((BitmapPoolBackend) bitmap);
         }
     }
 

@@ -1,5 +1,6 @@
 package androidx.constraintlayout.helper.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -194,6 +195,7 @@ public class Flow extends VirtualLayout {
     }
 
     @Override // androidx.constraintlayout.widget.ConstraintHelper, android.view.View
+    @SuppressLint({"WrongCall"})
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {

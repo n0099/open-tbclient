@@ -1,6 +1,7 @@
 package com.kwad.components.ad.reward.k;
 
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +39,7 @@ public abstract class d {
         }
     }
 
-    public final void b(u uVar) {
+    public final void b(@NonNull u uVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uVar) == null) {
             a(uVar);

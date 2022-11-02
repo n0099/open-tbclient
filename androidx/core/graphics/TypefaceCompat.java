@@ -1,11 +1,15 @@
 package androidx.core.graphics;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.collection.LruCache;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.content.res.ResourcesCompat;
@@ -18,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"NewApi"})
 /* loaded from: classes.dex */
 public class TypefaceCompat {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +74,8 @@ public class TypefaceCompat {
         }
     }
 
-    public static Typeface create(Context context, Typeface typeface, int i) {
+    @NonNull
+    public static Typeface create(@NonNull Context context, @Nullable Typeface typeface, int i) {
         InterceptResult invokeLLI;
         Typeface bestFontFromFamily;
         Interceptable interceptable = $ic;
@@ -85,7 +91,9 @@ public class TypefaceCompat {
         return (Typeface) invokeLLI.objValue;
     }
 
-    public static Typeface findFromCache(Resources resources, int i, int i2) {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface findFromCache(@NonNull Resources resources, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, resources, i, i2)) == null) {
@@ -94,6 +102,7 @@ public class TypefaceCompat {
         return (Typeface) invokeLII.objValue;
     }
 
+    @Nullable
     public static Typeface getBestFontFromFamily(Context context, Typeface typeface, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -107,7 +116,9 @@ public class TypefaceCompat {
         return (Typeface) invokeLLI.objValue;
     }
 
-    public static Typeface createFromFontInfo(Context context, CancellationSignal cancellationSignal, FontsContractCompat.FontInfo[] fontInfoArr, int i) {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface createFromFontInfo(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, context, cancellationSignal, fontInfoArr, i)) == null) {
@@ -116,7 +127,9 @@ public class TypefaceCompat {
         return (Typeface) invokeLLLI.objValue;
     }
 
-    public static Typeface createFromResourcesFamilyXml(Context context, FontResourcesParserCompat.FamilyResourceEntry familyResourceEntry, Resources resources, int i, int i2, ResourcesCompat.FontCallback fontCallback, Handler handler, boolean z) {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface createFromResourcesFamilyXml(@NonNull Context context, @NonNull FontResourcesParserCompat.FamilyResourceEntry familyResourceEntry, @NonNull Resources resources, int i, int i2, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Typeface createFromFontFamilyFilesResourceEntry;
         int i3;
@@ -152,7 +165,9 @@ public class TypefaceCompat {
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Typeface createFromResourcesFontFile(@NonNull Context context, @NonNull Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {

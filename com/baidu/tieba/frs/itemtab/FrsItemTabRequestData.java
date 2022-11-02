@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.tc5;
+import com.baidu.tieba.vi5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,13 +15,13 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements xb5 {
+public class FrsItemTabRequestData extends OrmObject implements tc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.wb5
-    public HashMap v() {
+    @Override // com.baidu.tieba.sc5
+    public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -30,8 +30,8 @@ public class FrsItemTabRequestData extends OrmObject implements xb5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wb5
-    public HashMap x() {
+    @Override // com.baidu.tieba.sc5
+    public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -54,17 +54,17 @@ public class FrsItemTabRequestData extends OrmObject implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.zb5
+    @Override // com.baidu.tieba.vc5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(fj.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(fj.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) fj.h(TbadkCoreApplication.getInst()));
-            yh5.c(builder, true, false, true);
+            builder.scr_h = Integer.valueOf(xi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(xi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) xi.i(TbadkCoreApplication.getInst()));
+            vi5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

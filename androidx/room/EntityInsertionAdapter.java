@@ -1,5 +1,6 @@
 package androidx.room;
 
+import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.sqlite.db.SupportSQLiteStatement;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
     public static /* synthetic */ Interceptable $ic;

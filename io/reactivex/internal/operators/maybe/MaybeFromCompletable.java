@@ -14,19 +14,19 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.HasUpstreamCompletableSource;
 /* loaded from: classes8.dex */
-public final class MaybeFromCompletable extends Maybe implements HasUpstreamCompletableSource {
+public final class MaybeFromCompletable<T> extends Maybe<T> implements HasUpstreamCompletableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
     /* loaded from: classes8.dex */
-    public final class FromCompletableObserver implements CompletableObserver, Disposable {
+    public static final class FromCompletableObserver<T> implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
         public Disposable d;
 
-        public FromCompletableObserver(MaybeObserver maybeObserver) {
+        public FromCompletableObserver(MaybeObserver<? super T> maybeObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public final class MaybeFromCompletable extends Maybe implements HasUpstreamComp
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, maybeObserver) == null) {
             this.source.subscribe(new FromCompletableObserver(maybeObserver));

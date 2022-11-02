@@ -2,6 +2,8 @@ package com.bumptech.glide.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +24,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public int readSoFar;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLengthInputStream(InputStream inputStream, long j) {
+    public ContentLengthInputStream(@NonNull InputStream inputStream, long j) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -56,7 +58,8 @@ public final class ContentLengthInputStream extends FilterInputStream {
         return invokeI.intValue;
     }
 
-    public static InputStream obtain(InputStream inputStream, long j) {
+    @NonNull
+    public static InputStream obtain(@NonNull InputStream inputStream, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) {
@@ -65,7 +68,8 @@ public final class ContentLengthInputStream extends FilterInputStream {
         return (InputStream) invokeLJ.objValue;
     }
 
-    public static InputStream obtain(InputStream inputStream, String str) {
+    @NonNull
+    public static InputStream obtain(@NonNull InputStream inputStream, @Nullable String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
@@ -74,7 +78,7 @@ public final class ContentLengthInputStream extends FilterInputStream {
         return (InputStream) invokeLL.objValue;
     }
 
-    public static int parseContentLength(String str) {
+    public static int parseContentLength(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

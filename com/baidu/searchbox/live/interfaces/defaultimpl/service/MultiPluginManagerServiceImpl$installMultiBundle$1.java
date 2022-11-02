@@ -94,6 +94,7 @@ public final class MultiPluginManagerServiceImpl$installMultiBundle$1 implements
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MultiPluginManagerServiceImpl$installMultiBundle$1 this$0;
 
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {

@@ -1,5 +1,6 @@
 package com.baidu.swan.bdtls;
 
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
+@Keep
 /* loaded from: classes3.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Keep
     public static native byte[] decrypt(byte[] bArr, byte[] bArr2);
 
+    @Keep
     public static native byte[] encrypt(byte[] bArr, byte[] bArr2);
 
     static {

@@ -22,10 +22,10 @@ public class e {
     public static volatile e d;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
-    public BlockingQueue b;
+    public BlockingQueue<Runnable> b;
 
     /* loaded from: classes2.dex */
-    public class a implements ThreadFactory {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;

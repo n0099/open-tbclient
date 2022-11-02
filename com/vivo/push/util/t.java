@@ -56,7 +56,7 @@ public final class t {
                 p.d("PushPackageUtils", "get system push info :".concat(String.valueOf(d)));
                 return d;
             }
-            List e = e(applicationContext);
+            List<String> e = e(applicationContext);
             com.vivo.push.model.b f2 = f(applicationContext, applicationContext.getPackageName());
             if (e.size() <= 0) {
                 if (f2 != null && f2.d()) {
@@ -85,7 +85,7 @@ public final class t {
                 }
                 int size = e.size();
                 for (int i = 0; i < size; i++) {
-                    String str = (String) e.get(i);
+                    String str = e.get(i);
                     if (!TextUtils.isEmpty(str) && (f = f(applicationContext, str)) != null) {
                         hashMap.put(str, f);
                         if (f.d()) {
@@ -458,7 +458,7 @@ public final class t {
         return (com.vivo.push.model.b) invokeL.objValue;
     }
 
-    public static List e(Context context) {
+    public static List<String> e(Context context) {
         InterceptResult invokeL;
         List<ResolveInfo> list;
         Interceptable interceptable = $ic;

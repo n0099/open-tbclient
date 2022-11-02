@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class MediaModel implements Parcelable, Comparable {
+/* loaded from: classes3.dex */
+public class MediaModel implements Parcelable, Comparable<Object> {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MediaModel> CREATOR;
     public static final String TYPE_IMAGE = "image";
     public static final String TYPE_VIDEO = "video";
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class MediaModel implements Parcelable, Comparable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<MediaModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

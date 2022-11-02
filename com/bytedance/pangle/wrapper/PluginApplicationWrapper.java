@@ -1,10 +1,13 @@
 package com.bytedance.pangle.wrapper;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
+@Keep
+@SuppressLint({"MissingSuperCall", "NewApi"})
 /* loaded from: classes7.dex */
 public class PluginApplicationWrapper extends Application {
     public static /* synthetic */ Interceptable $ic;
@@ -81,7 +86,7 @@ public class PluginApplicationWrapper extends Application {
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
+    public void onConfigurationChanged(@NonNull Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, configuration) == null) {
             this.mOriginApplication.onConfigurationChanged(configuration);

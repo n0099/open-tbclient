@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class BaseContentUploader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,7 +26,7 @@ public abstract class BaseContentUploader {
     public static final String UPLOAD_URL_PATH = "/fetchlog/appupstream";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void uploadDataRequestASync(String str, String str2, Map map, ResponseCallback responseCallback);
+    public abstract void uploadDataRequestASync(String str, String str2, Map<String, String> map, ResponseCallback<JSONObject> responseCallback);
 
     static {
         InterceptResult invokeClinit;

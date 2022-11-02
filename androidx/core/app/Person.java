@@ -4,6 +4,10 @@ import android.app.Person;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,22 +26,30 @@ public class Person {
     public static final String NAME_KEY = "name";
     public static final String URI_KEY = "uri";
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public IconCompat mIcon;
     public boolean mIsBot;
     public boolean mIsImportant;
+    @Nullable
     public String mKey;
+    @Nullable
     public CharSequence mName;
+    @Nullable
     public String mUri;
 
     /* loaded from: classes.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public IconCompat mIcon;
         public boolean mIsBot;
         public boolean mIsImportant;
+        @Nullable
         public String mKey;
+        @Nullable
         public CharSequence mName;
+        @Nullable
         public String mUri;
 
         public Builder() {
@@ -54,6 +66,7 @@ public class Person {
             }
         }
 
+        @NonNull
         public Person build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -86,6 +99,7 @@ public class Person {
             this.mIsImportant = person.mIsImportant;
         }
 
+        @NonNull
         public Builder setBot(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -96,7 +110,8 @@ public class Person {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setIcon(IconCompat iconCompat) {
+        @NonNull
+        public Builder setIcon(@Nullable IconCompat iconCompat) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iconCompat)) == null) {
@@ -106,6 +121,7 @@ public class Person {
             return (Builder) invokeL.objValue;
         }
 
+        @NonNull
         public Builder setImportant(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -116,7 +132,8 @@ public class Person {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setKey(String str) {
+        @NonNull
+        public Builder setKey(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -126,7 +143,8 @@ public class Person {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setName(CharSequence charSequence) {
+        @NonNull
+        public Builder setName(@Nullable CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, charSequence)) == null) {
@@ -136,7 +154,8 @@ public class Person {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setUri(String str) {
+        @NonNull
+        public Builder setUri(@Nullable String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -170,7 +189,10 @@ public class Person {
         this.mIsImportant = builder.mIsImportant;
     }
 
-    public static Person fromAndroidPerson(android.app.Person person) {
+    @NonNull
+    @RequiresApi(28)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Person fromAndroidPerson(@NonNull android.app.Person person) {
         InterceptResult invokeL;
         IconCompat iconCompat;
         Interceptable interceptable = $ic;
@@ -186,7 +208,8 @@ public class Person {
         return (Person) invokeL.objValue;
     }
 
-    public static Person fromBundle(Bundle bundle) {
+    @NonNull
+    public static Person fromBundle(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         IconCompat iconCompat;
         Interceptable interceptable = $ic;
@@ -203,7 +226,10 @@ public class Person {
         return (Person) invokeL.objValue;
     }
 
-    public static Person fromPersistableBundle(PersistableBundle persistableBundle) {
+    @NonNull
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public static Person fromPersistableBundle(@NonNull PersistableBundle persistableBundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, persistableBundle)) == null) {
@@ -212,6 +238,7 @@ public class Person {
         return (Person) invokeL.objValue;
     }
 
+    @Nullable
     public IconCompat getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -221,6 +248,7 @@ public class Person {
         return (IconCompat) invokeV.objValue;
     }
 
+    @Nullable
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -230,6 +258,7 @@ public class Person {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public CharSequence getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -239,6 +268,7 @@ public class Person {
         return (CharSequence) invokeV.objValue;
     }
 
+    @Nullable
     public String getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -266,6 +296,7 @@ public class Person {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     public Builder toBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,6 +306,9 @@ public class Person {
         return (Builder) invokeV.objValue;
     }
 
+    @NonNull
+    @RequiresApi(28)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public android.app.Person toAndroidPerson() {
         InterceptResult invokeV;
         Icon icon;
@@ -291,6 +325,7 @@ public class Person {
         return (android.app.Person) invokeV.objValue;
     }
 
+    @NonNull
     public Bundle toBundle() {
         InterceptResult invokeV;
         Bundle bundle;
@@ -314,6 +349,9 @@ public class Person {
         return (Bundle) invokeV.objValue;
     }
 
+    @NonNull
+    @RequiresApi(22)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PersistableBundle toPersistableBundle() {
         InterceptResult invokeV;
         String str;

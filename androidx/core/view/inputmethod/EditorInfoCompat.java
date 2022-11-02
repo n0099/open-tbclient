@@ -3,6 +3,8 @@ package androidx.core.view.inputmethod;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -52,6 +54,7 @@ public final class EditorInfoCompat {
         }
     }
 
+    @NonNull
     public static String[] getContentMimeTypes(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -106,7 +109,7 @@ public final class EditorInfoCompat {
         return invokeL.intValue;
     }
 
-    public static void setContentMimeTypes(EditorInfo editorInfo, String[] strArr) {
+    public static void setContentMimeTypes(@NonNull EditorInfo editorInfo, @Nullable String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, editorInfo, strArr) == null) {
             if (Build.VERSION.SDK_INT >= 25) {

@@ -6,6 +6,7 @@ import com.baidu.pass.ecommerce.common.mvp.BasePresenter;
 import com.baidu.pass.ecommerce.common.request.NetCallback;
 import com.baidu.pass.ecommerce.request.AddressRequestFactory;
 import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
+import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddrSelectorResponseParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
@@ -19,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AddrListPagerPresenter extends BasePresenter {
+public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -138,21 +139,21 @@ public class AddrListPagerPresenter extends BasePresenter {
         }
     }
 
-    public List makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {
+    public List<AddressBean> makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, addressEntity, str)) == null) {
             if (addressEntity == null) {
                 return null;
             }
-            List list = addressEntity.list;
+            List<AddressBean> list = addressEntity.list;
             if (list != null && !list.isEmpty() && !TextUtils.isEmpty(str)) {
                 int i = 0;
                 while (true) {
                     if (i >= list.size()) {
                         break;
                     }
-                    AddressBean addressBean = (AddressBean) list.get(i);
+                    AddressBean addressBean = list.get(i);
                     if (addressBean != null && str.equals(addressBean.id)) {
                         addressEntity.selectedId = addressBean.id;
                         addressEntity.selectedName = addressBean.name;

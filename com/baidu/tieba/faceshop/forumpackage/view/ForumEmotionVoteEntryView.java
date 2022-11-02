@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
@@ -97,23 +96,21 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b0, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090acf);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b2, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ae2);
             this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a70);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090ad0);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a83);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090ae3);
         }
     }
 
-    public void setAvatarList(List list) {
+    public void setAvatarList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.c.removeAllViews();
             if (list != null && !list.isEmpty()) {
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    String str = (String) it.next();
+                for (String str : list) {
                     if (!StringUtils.isNull(str)) {
                         TbImageView tbImageView = new TbImageView(getContext());
                         tbImageView.setDrawerType(1);
@@ -123,7 +120,7 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
                         layoutParams.leftMargin = this.b;
                         layoutParams.gravity = 17;
-                        tbImageView.L(str, 10, false);
+                        tbImageView.K(str, 10, false);
                         this.c.addView(tbImageView, layoutParams);
                     }
                 }

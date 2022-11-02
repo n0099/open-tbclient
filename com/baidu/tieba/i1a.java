@@ -1,52 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.jz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class i1a extends k1a {
+public class i1a implements tz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long h;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
+    public final tz9 a;
+    public final jz9.a b;
+    public final long c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802032, "Lcom/baidu/tieba/i1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802032, "Lcom/baidu/tieba/i1a;");
-                return;
-            }
-        }
-        h = u1a.a(i1a.class, "consumerIndex");
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i1a(int i) {
-        super(i);
+    public i1a(tz9 tz9Var, jz9.a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            Object[] objArr = {tz9Var, aVar, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tz9Var;
+        this.b = aVar;
+        this.c = j;
+    }
+
+    @Override // com.baidu.tieba.tz9
+    public void call() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+            return;
+        }
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                sz9.c(e);
+                throw null;
+            }
+        }
+        if (this.b.isUnsubscribed()) {
+            return;
+        }
+        this.a.call();
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class ConfigModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List mConfigActions;
+    public List<ConfigAction> mConfigActions;
     public String mModule;
 
     public ConfigModule() {
@@ -28,7 +28,7 @@ public class ConfigModule {
         }
     }
 
-    public List getConfigActions() {
+    public List<ConfigAction> getConfigActions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -46,7 +46,7 @@ public class ConfigModule {
         return (String) invokeV.objValue;
     }
 
-    public ConfigModule(String str, List list) {
+    public ConfigModule(String str, List<ConfigAction> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public class ConfigModule {
         this.mConfigActions = list;
     }
 
-    public void setConfigActions(List list) {
+    public void setConfigActions(List<ConfigAction> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.mConfigActions = list;

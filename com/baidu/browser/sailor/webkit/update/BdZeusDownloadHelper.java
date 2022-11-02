@@ -3,11 +3,12 @@ package com.baidu.browser.sailor.webkit.update;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorClient;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.tieba.ex;
+import com.baidu.tieba.ww;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,6 +66,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloadCancel(String str, long j, long j2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
@@ -77,6 +79,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloadFail(String str, long j, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), str2, str3}) == null) {
@@ -91,6 +94,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloadPause(String str, long j, long j2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
@@ -100,6 +104,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloadStart(String str, long j, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
@@ -108,6 +113,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloadSuccess(String str, String str2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
@@ -139,7 +145,7 @@ public final class BdZeusDownloadHelper {
                     bdZeusDownloadHelper2.e(bdZeusDownloadHelper2.b, this.this$0.d);
                 } else {
                     Log.i(EngineManager.LOG_TAG, " begine check md5");
-                    String a = ex.a(BdZeusDownloadHelper.i);
+                    String a = ww.a(BdZeusDownloadHelper.i);
                     if (a == null || !a.equalsIgnoreCase(this.this$0.d)) {
                         WebKitFactory.getLoadErrorCode().addDownloadInfo(1011);
                         Log.i(EngineManager.LOG_TAG, " check md5 failed ");
@@ -156,6 +162,7 @@ public final class BdZeusDownloadHelper {
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
+        @Keep
         public void onDownloading(String str, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -167,8 +174,10 @@ public final class BdZeusDownloadHelper {
         }
     }
 
+    /* JADX WARN: $VALUES field not found */
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
-    public final class a extends Enum {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 1;
         public static final int b = 2;

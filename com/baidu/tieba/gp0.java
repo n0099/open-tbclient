@@ -1,293 +1,157 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.util.UriUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class gp0 {
+public final class gp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gp0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void e(int i, int i2, String str, String str2, int i3, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3}) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801474, "Lcom/baidu/tieba/gp0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947801474, "Lcom/baidu/tieba/gp0;");
+                return;
+            }
         }
+        a = new gp0();
     }
 
-    /* loaded from: classes4.dex */
-    public /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-768543579, "Lcom/baidu/tieba/gp0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-768543579, "Lcom/baidu/tieba/gp0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AdBaseModel.STYLE.values().length];
-            a = iArr;
-            try {
-                iArr[AdBaseModel.STYLE.SMALL_IMAGE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdBaseModel.STYLE.BIG_IMAGE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdBaseModel.STYLE.PORTRAIT_VIDEO.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdBaseModel.STYLE.VIDEO.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdBaseModel.STYLE.THREE_IMAGE.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[AdBaseModel.STYLE.FLOAT.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[AdBaseModel.STYLE.MAX.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[AdBaseModel.STYLE.REWARD_VIDEO_LP.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[AdBaseModel.STYLE.REWARD_VIDEO_LP_IMPL.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
+    public gp0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static List a(JSONObject jSONObject, String[] strArr) throws ParseError {
-        InterceptResult invokeLL;
-        String str;
+    public final void a(@NonNull FrameLayout.LayoutParams layoutParams, int i, int i2, double d, double d2, boolean z, double d3) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, strArr)) == null) {
-            if (jSONObject != null) {
-                String optString = jSONObject.optString("locCode");
-                if (!TextUtils.isEmpty(optString)) {
-                    int length = strArr.length;
-                    int i = 0;
-                    while (true) {
-                        if (i >= length) {
-                            str = "";
-                            break;
-                        }
-                        str = strArr[i];
-                        if (!TextUtils.isEmpty(str) && optString.startsWith(str)) {
-                            break;
-                        }
-                        i++;
-                    }
-                    if (!TextUtils.isEmpty(str)) {
-                        JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
-                        if (optJSONArray != null && optJSONArray.length() != 0) {
-                            ArrayList arrayList = new ArrayList();
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                try {
-                                    AdBaseModel b = b(str, optJSONArray.optJSONObject(i2));
-                                    if (b.c == null) {
-                                        xz0.b(arrayList, b);
-                                    }
-                                } catch (ParseError e) {
-                                    f(e, 0, null);
-                                }
-                            }
-                            return arrayList;
-                        }
-                        throw ParseError.parseError(34, "", str);
-                    }
-                    throw ParseError.parseError(46, "", optString + "#" + TextUtils.join("#", strArr));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{layoutParams, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Double.valueOf(d3)}) == null) {
+            Intrinsics.checkNotNullParameter(layoutParams, "layoutParams");
+            if (d2 > 0 && i > 0 && i2 > 0) {
+                layoutParams.width = c(i, i2, d, d2, z);
+                layoutParams.height = b(i, i2, d, d2, z);
+                int g = g(d2, i2, d3);
+                if (g >= 0) {
+                    layoutParams.topMargin = g;
                 }
-                throw ParseError.parseError(33, "");
+                if (g < 0 && !z) {
+                    i3 = 17;
+                } else {
+                    i3 = 48;
+                }
+                layoutParams.gravity = i3;
             }
-            throw ParseError.parseError(32, "");
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static AdBaseModel b(String str, JSONObject jSONObject) throws ParseError {
-        InterceptResult invokeLL;
+    public final int b(int i, int i2, double d, double d2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (jSONObject != null) {
-                boolean z = true;
-                if (jSONObject.optInt("advisible", 1) != 0) {
-                    z = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z)})) == null) {
+            int max = Math.max(i2 - f(d, z), 0);
+            if (d2 >= 1.77d && z) {
+                if (d <= 2.0d && d >= 1.3d && d2 > d) {
+                    return d(i, i2, d2);
                 }
-                String str2 = null;
-                if (z && jSONObject.has("ext_info")) {
-                    str2 = jSONObject.optString("ext_info", null);
-                }
-                if (str2 == null) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("extra");
-                    if (optJSONArray != null && optJSONArray.length() != 0) {
-                        int length = optJSONArray.length();
-                        int i = 0;
-                        while (true) {
-                            if (i >= length) {
-                                break;
-                            }
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                String optString = optJSONObject.optString("k");
-                                String optString2 = optJSONObject.optString("v");
-                                if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
-                                    str2 = optString2;
-                                    break;
-                                }
-                            }
-                            i++;
-                        }
-                    } else {
-                        throw ParseError.parseError(36, "", str);
-                    }
-                }
-                if (str2 != null) {
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("material");
-                    if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(0);
-                        if (optJSONObject2 != null) {
-                            try {
-                                JSONArray jSONArray = new JSONArray(optJSONObject2.optString("info"));
-                                if (jSONArray.length() != 0) {
-                                    JSONObject optJSONObject3 = jSONArray.optJSONObject(0);
-                                    if (optJSONObject3 != null) {
-                                        int optInt = jSONObject.optInt("floor");
-                                        AdBaseModel d = d(str, optInt, optJSONObject3, str2);
-                                        if (d != null) {
-                                            d.n = optJSONObject2.optInt("imTimeSign", -1);
-                                            ParseError parseError = d.c;
-                                            if (parseError != null) {
-                                                f(parseError, jSONObject.optInt("floor"), d.f.d);
-                                                return d;
-                                            }
-                                            return d;
-                                        } else if (z) {
-                                            return new AdBaseModel(dp0.a(str, optInt, new JSONObject(), new JSONObject(), str2), new JSONObject());
-                                        } else {
-                                            throw ParseError.contentError(24, "", str2);
-                                        }
-                                    }
-                                    throw ParseError.parseError(41, str2, str);
-                                }
-                                throw ParseError.parseError(40, str2, str);
-                            } catch (JSONException unused) {
-                                throw ParseError.parseError(40, str2, str);
-                            }
-                        }
-                        throw ParseError.parseError(39, str2, str);
-                    }
-                    throw ParseError.parseError(38, str2, str);
-                }
-                throw ParseError.parseError(37, "", str);
+                return max;
             }
-            throw ParseError.parseError(35, "", str);
+            return d(i, i2, d2);
         }
-        return (AdBaseModel) invokeLL.objValue;
+        return invokeCommon.intValue;
     }
 
-    public static AdBaseModel[] c(String str, String[] strArr) throws ParseError {
-        InterceptResult invokeLL;
+    public final int c(int i, int i2, double d, double d2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject optJSONObject = yz0.c(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-                if (optJSONObject != null) {
-                    if (optJSONObject.optInt("status", 0) == 0) {
-                        JSONArray optJSONArray = optJSONObject.optJSONArray(LaunchStatsUtils.AD);
-                        if (optJSONArray != null) {
-                            int length = optJSONArray.length();
-                            ArrayList arrayList = new ArrayList();
-                            for (int i = 0; i < length; i++) {
-                                try {
-                                    xz0.c(arrayList, a(optJSONArray.optJSONObject(i), strArr));
-                                } catch (ParseError e) {
-                                    f(e, 0, null);
-                                }
-                            }
-                            return (AdBaseModel[]) arrayList.toArray(new AdBaseModel[0]);
-                        }
-                        throw ParseError.parseError(44, "");
-                    }
-                    throw ParseError.parseError(42, "");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z)})) == null) {
+            if (d2 >= 1.77d && z) {
+                if (d > 2.0d) {
+                    return e(i, i2, d2);
                 }
-                throw ParseError.parseError(31, "");
+                if (d < 1.3d) {
+                    return e(i, i2, d2);
+                }
+                if (d2 <= d) {
+                    return e(i, i2, d2);
+                }
+                return i;
             }
-            throw ParseError.parseError(29, "");
+            return i;
         }
-        return (AdBaseModel[]) invokeLL.objValue;
+        return invokeCommon.intValue;
     }
 
-    public static AdBaseModel d(String str, int i, JSONObject jSONObject, String str2) throws ParseError {
-        InterceptResult invokeLILL;
+    public final int d(int i, int i2, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65539, null, str, i, jSONObject, str2)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-            if (optJSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            if (i > 0 && i2 > 0 && d > 0) {
+                return Math.min((int) (i * d), i2);
             }
-            dp0 a2 = dp0.a(str, i, jSONObject, optJSONObject, str2);
-            switch (a.a[a2.a.ordinal()]) {
-                case 1:
-                case 2:
-                    return new to0(a2, jSONObject);
-                case 3:
-                    return new ep0(a2, jSONObject);
-                case 4:
-                    return new lp0(a2, jSONObject);
-                case 5:
-                    return new ip0(a2, jSONObject);
-                case 6:
-                case 7:
-                case 8:
-                    return new AdBaseModel(a2, jSONObject);
-                case 9:
-                    return new hp0(a2, jSONObject);
-                default:
-                    throw ParseError.contentError(23, a2.a.value);
-            }
+            return i2;
         }
-        return (AdBaseModel) invokeLILL.objValue;
+        return invokeCommon.intValue;
     }
 
-    public static void f(ParseError parseError, int i, String str) {
+    public final int e(int i, int i2, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, parseError, i, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = parseError.mExtraParam;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            if (i > 0 && i2 > 0 && d > 0) {
+                return Math.min((int) (i2 / d), i);
             }
-            String str2 = parseError.mPid;
-            e(parseError.mType, parseError.mReason, parseError.mTplName, str2, i, str);
+            return i;
         }
+        return invokeCommon.intValue;
+    }
+
+    public final int f(double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            if (z && d > 2.0d) {
+                return m31.c.a(zi0.b(), 52.0f);
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final int g(double d, int i, double d2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d), Integer.valueOf(i), Double.valueOf(d2)})) == null) {
+            if (i > 0 && d2 >= 0 && d2 <= 1) {
+                return Math.min((int) (i * d2), Math.max((int) ((i - m31.c.a(zi0.b(), 200)) - (m31.c.e(zi0.b()) * d)), 0));
+            }
+            return -1;
+        }
+        return invokeCommon.intValue;
     }
 }

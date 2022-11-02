@@ -2,12 +2,15 @@ package com.kwad.components.core.webview.jshandler;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,8 +22,9 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
     public a MU;
     public Handler mHandler;
 
+    @KsJson
     /* loaded from: classes7.dex */
-    public final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+    public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3445790097441569428L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +39,9 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         public int width;
         public double widthRation;
 
+        @KsJson
         /* loaded from: classes7.dex */
-        public class KSAdJSCornerModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
+        public static class KSAdJSCornerModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1503191931449786332L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +80,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         }
 
         @Override // com.kwad.sdk.core.response.kwai.a
-        public final void afterParseJson(JSONObject jSONObject) {
+        public final void afterParseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 super.afterParseJson(jSONObject);
@@ -114,7 +119,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
-    public final void a(String str, com.kwad.sdk.core.webview.kwai.c cVar) {
+    public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
             try {
@@ -160,6 +165,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
+    @NonNull
     public final String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

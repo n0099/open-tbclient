@@ -22,19 +22,19 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ObservableCreate extends Observable {
+public final class ObservableCreate<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ObservableOnSubscribe source;
+    public final ObservableOnSubscribe<T> source;
 
     /* loaded from: classes8.dex */
-    public final class CreateEmitter extends AtomicReference implements ObservableEmitter, Disposable {
+    public static final class CreateEmitter<T> extends AtomicReference<Disposable> implements ObservableEmitter<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3434801548987643227L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Observer observer;
+        public final Observer<? super T> observer;
 
-        public CreateEmitter(Observer observer) {
+        public CreateEmitter(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,13 +61,13 @@ public final class ObservableCreate extends Observable {
         }
 
         @Override // io.reactivex.Emitter
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-                if (obj == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+                if (t == null) {
                     onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                 } else if (!isDisposed()) {
-                    this.observer.onNext(obj);
+                    this.observer.onNext(t);
                 }
             }
         }
@@ -124,7 +124,7 @@ public final class ObservableCreate extends Observable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return DisposableHelper.isDisposed((Disposable) get());
+                return DisposableHelper.isDisposed(get());
             }
             return invokeV.booleanValue;
         }
@@ -142,7 +142,7 @@ public final class ObservableCreate extends Observable {
         }
 
         @Override // io.reactivex.ObservableEmitter
-        public ObservableEmitter serialize() {
+        public ObservableEmitter<T> serialize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -153,23 +153,23 @@ public final class ObservableCreate extends Observable {
     }
 
     /* loaded from: classes8.dex */
-    public final class SerializedEmitter extends AtomicInteger implements ObservableEmitter {
+    public static final class SerializedEmitter<T> extends AtomicInteger implements ObservableEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4883307006032401862L;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile boolean done;
-        public final ObservableEmitter emitter;
+        public final ObservableEmitter<T> emitter;
         public final AtomicThrowable error;
-        public final SpscLinkedArrayQueue queue;
+        public final SpscLinkedArrayQueue<T> queue;
 
         @Override // io.reactivex.ObservableEmitter
-        public ObservableEmitter serialize() {
+        public ObservableEmitter<T> serialize() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (ObservableEmitter) invokeV.objValue;
         }
 
-        public SerializedEmitter(ObservableEmitter observableEmitter) {
+        public SerializedEmitter(ObservableEmitter<T> observableEmitter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,7 +186,7 @@ public final class ObservableCreate extends Observable {
             }
             this.emitter = observableEmitter;
             this.error = new AtomicThrowable();
-            this.queue = new SpscLinkedArrayQueue(16);
+            this.queue = new SpscLinkedArrayQueue<>(16);
         }
 
         @Override // io.reactivex.ObservableEmitter
@@ -239,8 +239,8 @@ public final class ObservableCreate extends Observable {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ObservableEmitter observableEmitter = this.emitter;
-                SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                ObservableEmitter<T> observableEmitter = this.emitter;
+                SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.error;
                 int i = 1;
                 while (!observableEmitter.isDisposed()) {
@@ -250,7 +250,7 @@ public final class ObservableCreate extends Observable {
                         return;
                     }
                     boolean z2 = this.done;
-                    Object poll = spscLinkedArrayQueue.poll();
+                    T poll = spscLinkedArrayQueue.poll();
                     if (poll == null) {
                         z = true;
                     } else {
@@ -297,22 +297,22 @@ public final class ObservableCreate extends Observable {
         }
 
         @Override // io.reactivex.Emitter
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && !this.emitter.isDisposed() && !this.done) {
-                if (obj == null) {
+            if ((interceptable == null || interceptable.invokeL(1048581, this, t) == null) && !this.emitter.isDisposed() && !this.done) {
+                if (t == null) {
                     onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
                     return;
                 }
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.emitter.onNext(obj);
+                    this.emitter.onNext(t);
                     if (decrementAndGet() == 0) {
                         return;
                     }
                 } else {
-                    SpscLinkedArrayQueue spscLinkedArrayQueue = this.queue;
+                    SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
                     synchronized (spscLinkedArrayQueue) {
-                        spscLinkedArrayQueue.offer(obj);
+                        spscLinkedArrayQueue.offer(t);
                     }
                     if (getAndIncrement() != 0) {
                         return;
@@ -323,7 +323,7 @@ public final class ObservableCreate extends Observable {
         }
     }
 
-    public ObservableCreate(ObservableOnSubscribe observableOnSubscribe) {
+    public ObservableCreate(ObservableOnSubscribe<T> observableOnSubscribe) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -342,7 +342,7 @@ public final class ObservableCreate extends Observable {
     }
 
     @Override // io.reactivex.Observable
-    public void subscribeActual(Observer observer) {
+    public void subscribeActual(Observer<? super T> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             CreateEmitter createEmitter = new CreateEmitter(observer);

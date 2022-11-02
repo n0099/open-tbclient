@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class PassMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PassMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
@@ -57,7 +57,7 @@ public class PassMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassMsg.1
+        CREATOR = new Parcelable.Creator<PassMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,6 +76,7 @@ public class PassMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -87,6 +88,7 @@ public class PassMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public PassMsg[] newArray(int i) {
                 InterceptResult invokeI;

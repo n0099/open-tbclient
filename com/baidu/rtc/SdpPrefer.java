@@ -22,7 +22,7 @@ public class SdpPrefer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class AudioSdpAttribute {
+    public static class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean cbr;

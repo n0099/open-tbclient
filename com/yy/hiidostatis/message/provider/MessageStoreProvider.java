@@ -13,10 +13,10 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class MessageStoreProvider implements Provider {
+public class MessageStoreProvider implements Provider<MessageStore> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap caches;
+    public ConcurrentHashMap<String, MessageStore> caches;
 
     public MessageStoreProvider() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,22 @@ public class MessageStoreProvider implements Provider {
                 return;
             }
         }
-        this.caches = new ConcurrentHashMap();
+        this.caches = new ConcurrentHashMap<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.yy.hiidostatis.provider.Provider
     public MessageStore generate(MessageConfig messageConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, messageConfig)) == null) {
-            MessageStore messageStore = (MessageStore) this.caches.get(messageConfig.getAppkey());
+            MessageStore messageStore = this.caches.get(messageConfig.getAppkey());
             if (messageStore != null) {
                 return messageStore;
             }
             synchronized (this) {
-                MessageStore messageStore2 = (MessageStore) this.caches.get(messageConfig.getAppkey());
+                MessageStore messageStore2 = this.caches.get(messageConfig.getAppkey());
                 if (messageStore2 != null) {
                     return messageStore2;
                 }

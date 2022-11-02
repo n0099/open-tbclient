@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import androidx.annotation.RequiresPermission;
 import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,13 +23,13 @@ public class VibrateUtils {
 
     /* renamed from: com.baidu.android.util.android.VibrateUtils$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int[] amplitudes;
@@ -114,6 +115,7 @@ public class VibrateUtils {
         return invokeV.booleanValue;
     }
 
+    @RequiresPermission("android.permission.VIBRATE")
     public void cancelVibrator() {
         Vibrator vibrator;
         Interceptable interceptable = $ic;
@@ -122,6 +124,7 @@ public class VibrateUtils {
         }
     }
 
+    @RequiresPermission("android.permission.VIBRATE")
     public void vibrateStart() {
         Vibrator vibrator;
         long[] jArr;

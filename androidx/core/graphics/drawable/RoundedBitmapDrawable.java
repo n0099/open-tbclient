@@ -12,6 +12,8 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,6 +109,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         return invokeV.intValue;
     }
 
+    @Nullable
     public final Bitmap getBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,6 +167,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         return invokeV.intValue;
     }
 
+    @NonNull
     public final Paint getPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -201,7 +205,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || (bitmap = this.mBitmap) == null) {
@@ -354,14 +358,14 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setTargetDensity(Canvas canvas) {
+    public void setTargetDensity(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, canvas) == null) {
             setTargetDensity(canvas.getDensity());
         }
     }
 
-    public void setTargetDensity(DisplayMetrics displayMetrics) {
+    public void setTargetDensity(@NonNull DisplayMetrics displayMetrics) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, displayMetrics) == null) {
             setTargetDensity(displayMetrics.densityDpi);

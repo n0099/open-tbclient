@@ -172,14 +172,14 @@ public final class SapiContext implements NoProguard {
         if (currentAccount != null && !TextUtils.isEmpty(sapiAccount.uid) && sapiAccount.uid.equals(currentAccount.uid)) {
             setCurrentAccount(null);
         }
-        List loginAccounts = getLoginAccounts();
+        List<SapiAccount> loginAccounts = getLoginAccounts();
         if (loginAccounts.contains(sapiAccount)) {
             loginAccounts.remove(sapiAccount);
             setLoginAccounts(loginAccounts);
         }
     }
 
-    private void setLoginAccounts(List list) {
+    private void setLoginAccounts(List<SapiAccount> list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65541, this, list) == null) && (jSONArray = SapiAccount.toJSONArray(list)) != null) {
@@ -389,7 +389,7 @@ public final class SapiContext implements NoProguard {
         return invokeV.booleanValue;
     }
 
-    public List getAuthorizedDomains() {
+    public List<String> getAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -398,7 +398,7 @@ public final class SapiContext implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public List getAuthorizedDomainsForPtoken() {
+    public List<String> getAuthorizedDomainsForPtoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -407,7 +407,7 @@ public final class SapiContext implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public Map getAuthorizedPackages() {
+    public Map<String, String> getAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -416,7 +416,7 @@ public final class SapiContext implements NoProguard {
         return (Map) invokeV.objValue;
     }
 
-    public List getAuthorizedPackagesForUA() {
+    public List<String> getAuthorizedPackagesForUA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
@@ -434,7 +434,7 @@ public final class SapiContext implements NoProguard {
         return invokeV.intValue;
     }
 
-    public List getCuidAuthorizedDomains() {
+    public List<String> getCuidAuthorizedDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -476,7 +476,7 @@ public final class SapiContext implements NoProguard {
         return invokeV.longValue;
     }
 
-    public List getDiExceptIndex() {
+    public List<Integer> getDiExceptIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
@@ -548,7 +548,7 @@ public final class SapiContext implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public List getOpenBdussDomains() {
+    public List<String> getOpenBdussDomains() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
@@ -557,7 +557,7 @@ public final class SapiContext implements NoProguard {
         return (List) invokeV.objValue;
     }
 
-    public Map getOrderAuthorizedPackages() {
+    public Map<String, Integer> getOrderAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
@@ -593,7 +593,7 @@ public final class SapiContext implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public Map getSCAuthorizedPackages() {
+    public Map<String, String> getSCAuthorizedPackages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
@@ -654,7 +654,7 @@ public final class SapiContext implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public List getTouchidLoginRecord() {
+    public List<String> getTouchidLoginRecord() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
@@ -771,8 +771,8 @@ public final class SapiContext implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            List loginCookieDiKeys = getSapiOptions().getLoginCookieDiKeys();
-            if (loginCookieDiKeys.size() == 1 && ((String) loginCookieDiKeys.get(0)).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
+            List<String> loginCookieDiKeys = getSapiOptions().getLoginCookieDiKeys();
+            if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
                 return SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
             }
             return SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
@@ -787,7 +787,7 @@ public final class SapiContext implements NoProguard {
         if ((interceptable != null && interceptable.invokeL(1048576, this, sapiAccount) != null) || sapiAccount == null) {
             return;
         }
-        List loginAccounts = getLoginAccounts();
+        List<SapiAccount> loginAccounts = getLoginAccounts();
         Collections.reverse(loginAccounts);
         if (!loginAccounts.contains(sapiAccount)) {
             if (loginAccounts.size() < 5) {
@@ -828,10 +828,10 @@ public final class SapiContext implements NoProguard {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount) != null) || sapiAccount == null) {
             return;
         }
-        List touchidAccounts = getTouchidAccounts();
-        Iterator it = touchidAccounts.iterator();
+        List<SapiAccount> touchidAccounts = getTouchidAccounts();
+        Iterator<SapiAccount> it = touchidAccounts.iterator();
         while (it.hasNext()) {
-            if (sapiAccount.equals((SapiAccount) it.next())) {
+            if (sapiAccount.equals(it.next())) {
                 it.remove();
             }
         }
@@ -844,10 +844,10 @@ public final class SapiContext implements NoProguard {
         if ((interceptable != null && interceptable.invokeL(1048637, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        List touchidAccounts = getTouchidAccounts();
-        Iterator it = touchidAccounts.iterator();
+        List<SapiAccount> touchidAccounts = getTouchidAccounts();
+        Iterator<SapiAccount> it = touchidAccounts.iterator();
         while (it.hasNext()) {
-            if (str.equals(((SapiAccount) it.next()).email)) {
+            if (str.equals(it.next().email)) {
                 it.remove();
             }
         }
@@ -935,7 +935,7 @@ public final class SapiContext implements NoProguard {
         return (String) invokeV.objValue;
     }
 
-    public List getTouchidAccounts() {
+    public List<SapiAccount> getTouchidAccounts() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -1029,7 +1029,7 @@ public final class SapiContext implements NoProguard {
         return (SapiAccount) invokeV.objValue;
     }
 
-    public List getLoginAccounts() {
+    public List<SapiAccount> getLoginAccounts() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -1049,7 +1049,7 @@ public final class SapiContext implements NoProguard {
             }
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    List fromJSONArray = SapiAccount.fromJSONArray(new JSONArray(str));
+                    List<SapiAccount> fromJSONArray = SapiAccount.fromJSONArray(new JSONArray(str));
                     Collections.reverse(fromJSONArray);
                     return fromJSONArray;
                 } catch (Exception unused) {

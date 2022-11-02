@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetRemindLiveRooms.YyLiveInfoSimple;
 import tbclient.YyExt;
 /* loaded from: classes3.dex */
 public class LiveRemindFloatViewData implements Serializable {
@@ -18,7 +19,7 @@ public class LiveRemindFloatViewData implements Serializable {
     public String desc;
     public String mBtnText;
     public YyExt mExt;
-    public ArrayList mLiveInfoList;
+    public ArrayList<YyLiveInfoSimple> mLiveInfoList;
     public Long mRoomId;
     public String mUsername;
     public String portrait;
@@ -37,7 +38,7 @@ public class LiveRemindFloatViewData implements Serializable {
                 return;
             }
         }
-        this.mLiveInfoList = new ArrayList();
+        this.mLiveInfoList = new ArrayList<>();
     }
 
     public String getBtnText() {
@@ -67,7 +68,7 @@ public class LiveRemindFloatViewData implements Serializable {
         return (YyExt) invokeV.objValue;
     }
 
-    public ArrayList getLiveInfoList() {
+    public ArrayList<YyLiveInfoSimple> getLiveInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -133,7 +134,7 @@ public class LiveRemindFloatViewData implements Serializable {
         }
     }
 
-    public void setLiveInfoList(List list) {
+    public void setLiveInfoList(List<YyLiveInfoSimple> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             this.mLiveInfoList.clear();

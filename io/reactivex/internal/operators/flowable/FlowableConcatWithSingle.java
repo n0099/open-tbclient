@@ -16,21 +16,21 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream {
+public final class FlowableConcatWithSingle<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SingleSource other;
+    public final SingleSource<? extends T> other;
 
     /* loaded from: classes8.dex */
-    public final class ConcatWithSubscriber extends SinglePostCompleteSubscriber implements SingleObserver {
+    public static final class ConcatWithSubscriber<T> extends SinglePostCompleteSubscriber<T, T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7346385463600070225L;
         public transient /* synthetic */ FieldHolder $fh;
-        public SingleSource other;
-        public final AtomicReference otherDisposable;
+        public SingleSource<? extends T> other;
+        public final AtomicReference<Disposable> otherDisposable;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ConcatWithSubscriber(Subscriber subscriber, SingleSource singleSource) {
+        public ConcatWithSubscriber(Subscriber<? super T> subscriber, SingleSource<? extends T> singleSource) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -48,7 +48,7 @@ public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream
                 }
             }
             this.other = singleSource;
-            this.otherDisposable = new AtomicReference();
+            this.otherDisposable = new AtomicReference<>();
         }
 
         @Override // io.reactivex.internal.subscribers.SinglePostCompleteSubscriber, org.reactivestreams.Subscription
@@ -65,7 +65,7 @@ public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.s = SubscriptionHelper.CANCELLED;
-                SingleSource singleSource = this.other;
+                SingleSource<? extends T> singleSource = this.other;
                 this.other = null;
                 singleSource.subscribe(this);
             }
@@ -80,11 +80,11 @@ public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
                 this.produced++;
-                this.actual.onNext(obj);
+                this.actual.onNext(t);
             }
         }
 
@@ -97,16 +97,16 @@ public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream
         }
 
         @Override // io.reactivex.SingleObserver
-        public void onSuccess(Object obj) {
+        public void onSuccess(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                complete(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                complete(t);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatWithSingle(Flowable flowable, SingleSource singleSource) {
+    public FlowableConcatWithSingle(Flowable<T> flowable, SingleSource<? extends T> singleSource) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -127,7 +127,7 @@ public final class FlowableConcatWithSingle extends AbstractFlowableWithUpstream
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new ConcatWithSubscriber(subscriber, this.other));

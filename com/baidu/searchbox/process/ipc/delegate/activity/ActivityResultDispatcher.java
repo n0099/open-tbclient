@@ -3,6 +3,7 @@ package com.baidu.searchbox.process.ipc.delegate.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.util.Set;
 public class ActivityResultDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set mConsumers;
+    public final Set<ActivityResultConsumer> mConsumers;
     public final Activity mHolder;
     public final int mRequestCode;
 
@@ -39,7 +40,7 @@ public class ActivityResultDispatcher {
         this.mRequestCode = i;
     }
 
-    public synchronized void addConsumer(ActivityResultConsumer activityResultConsumer) {
+    public synchronized void addConsumer(@Nullable ActivityResultConsumer activityResultConsumer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activityResultConsumer) == null) {
             synchronized (this) {

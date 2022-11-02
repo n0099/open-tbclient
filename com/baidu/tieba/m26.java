@@ -1,12 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
-public interface m26 {
-    String from();
+import android.content.res.Resources;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class m26 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void m(TbPageContext tbPageContext, BdUniqueId bdUniqueId);
-
-    void setFrom(String str);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            return (int) (i * Resources.getSystem().getDisplayMetrics().density);
+        }
+        return invokeI.intValue;
+    }
 }

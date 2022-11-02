@@ -1,124 +1,103 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.listener.RequestListener;
-import com.facebook.imagepipeline.request.ImageRequest;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class hp3 implements RequestListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public z72 a;
+public interface hp3 {
+    String a(Context context);
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerEvent(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-        }
-    }
+    String b(Context context);
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithCancellation(String str, String str2, Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
-        }
-    }
+    String c(Context context);
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
-        }
-    }
+    String d(Context context);
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithSuccess(String str, String str2, Map map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
-        }
-    }
+    String getDeviceId(Context context);
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerStart(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class a implements hp3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final hp3 a;
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onUltimateProducerReached(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public boolean requiresExtraMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public hp3(z72 z72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z72Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // com.baidu.tieba.hp3
+        public String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.a(context);
             }
+            return (String) invokeL.objValue;
         }
-        this.a = z72Var;
-    }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestCancellation(String str) {
-        z72 z72Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (z72Var = this.a) != null) {
-            z72Var.onCancel(str);
+        @Override // com.baidu.tieba.hp3
+        public String b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.b(context);
+            }
+            return (String) invokeL.objValue;
         }
-    }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        z72 z72Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) && (z72Var = this.a) != null) {
-            z72Var.c(imageRequest, th);
+        @Override // com.baidu.tieba.hp3
+        public String c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.c(context);
+            }
+            return (String) invokeL.objValue;
         }
-    }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        z72 z72Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) && (z72Var = this.a) != null) {
-            z72Var.a(imageRequest);
+        @Override // com.baidu.tieba.hp3
+        public String d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.d(context);
+            }
+            return (String) invokeL.objValue;
         }
-    }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
-        z72 z72Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) && (z72Var = this.a) != null) {
-            z72Var.b(imageRequest);
+        @Override // com.baidu.tieba.hp3
+        public String getDeviceId(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.getDeviceId(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public a(hp3 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
         }
     }
 }

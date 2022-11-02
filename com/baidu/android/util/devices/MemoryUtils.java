@@ -28,7 +28,7 @@ public class MemoryUtils {
     public static final String THREADS = "Threads";
     public static final String VMPEAK = "VmPeak";
     public static final String VMSIZE = "VmSize";
-    public static HashSet mVssKeys;
+    public static HashSet<String> mVssKeys;
     public static long sJavaMaxMemory;
     public static long sTotalMemory;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class MemoryUtils {
                 return;
             }
         }
-        mVssKeys = new HashSet() { // from class: com.baidu.android.util.devices.MemoryUtils.1
+        mVssKeys = new HashSet<String>() { // from class: com.baidu.android.util.devices.MemoryUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -194,7 +194,7 @@ public class MemoryUtils {
         return invokeV.longValue;
     }
 
-    public static Map parseProcStatus() {
+    public static Map<String, String> parseProcStatus() {
         InterceptResult invokeV;
         FileReader fileReader;
         Interceptable interceptable = $ic;

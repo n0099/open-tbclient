@@ -44,10 +44,10 @@ public class PayFlowEventContentImpl implements PayEventStatistics.IPayFlowEvent
         if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) != null) || (act = (build = new PayFlowContent.PayFlowContentBuilder().setAbstractHiidoContent(this.mBaseHiidoContent).setEventId(str).setCode(str2).setMsg(str3).setOrderId(str4).setPurchaceTime(str5).setProductId(str6).setPayEntraceId(str7).setPayTraceId(str8).build()).getAct()) == null) {
             return;
         }
-        Map mapContent = build.getMapContent();
+        Map<String, String> mapContent = build.getMapContent();
         StatisContent statisContent = new StatisContent();
-        for (Map.Entry entry : mapContent.entrySet()) {
-            statisContent.put((String) entry.getKey(), (String) entry.getValue());
+        for (Map.Entry<String, String> entry : mapContent.entrySet()) {
+            statisContent.put(entry.getKey(), entry.getValue());
         }
         RLog.debug("PayFlowEventContentImpl", "reportPayFlow statisContent:" + statisContent.toString());
         HiidoSDKApi.reportStatisticContent(act, statisContent);

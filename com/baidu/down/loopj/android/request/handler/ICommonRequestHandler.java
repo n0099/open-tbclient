@@ -39,7 +39,7 @@ public interface ICommonRequestHandler {
 
     String onGetResponseHeader(String str);
 
-    void onHandleFollowRedirect(HashSet hashSet) throws RedirectException;
+    void onHandleFollowRedirect(HashSet<String> hashSet) throws RedirectException;
 
     void onRemoveRequestHeader(String str);
 

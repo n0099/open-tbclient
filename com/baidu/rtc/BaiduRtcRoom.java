@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class BaiduRtcRoom {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList mInstanceList;
+    public static ArrayList<BaiduRtcRoomImp> mInstanceList;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -252,7 +252,7 @@ public abstract class BaiduRtcRoom {
     public abstract void upLoadLog();
 
     /* loaded from: classes2.dex */
-    public class RoomInfo {
+    public static class RoomInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String MediaServerURL;
@@ -278,7 +278,7 @@ public abstract class BaiduRtcRoom {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcLiveTransferMode {
+    public static final class RtcLiveTransferMode {
         public static final /* synthetic */ RtcLiveTransferMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
@@ -343,7 +343,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* loaded from: classes2.dex */
-    public class RtcRoomAudioLevel {
+    public static class RtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String nicName;
@@ -370,7 +370,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* loaded from: classes2.dex */
-    public class RtcRoomUserInfo {
+    public static class RtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String attribute;
@@ -394,7 +394,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* loaded from: classes2.dex */
-    public class RtcRoomVideoDimension {
+    public static class RtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int videoHeight;
@@ -418,7 +418,7 @@ public abstract class BaiduRtcRoom {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcSoundMode {
+    public static final class RtcSoundMode {
         public static final /* synthetic */ RtcSoundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcSoundMode RTC_SOUND_MODE_EAR;
@@ -484,7 +484,7 @@ public abstract class BaiduRtcRoom {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RtcVideoFormat {
+    public static final class RtcVideoFormat {
         public static final /* synthetic */ RtcVideoFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final RtcVideoFormat RTC_VIDEO_FORMAT_RGBA;
@@ -549,7 +549,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* loaded from: classes2.dex */
-    public class UserList {
+    public static class UserList {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long[] Listeners;
@@ -596,7 +596,7 @@ public abstract class BaiduRtcRoom {
                 return;
             }
         }
-        mInstanceList = new ArrayList();
+        mInstanceList = new ArrayList<>();
     }
 
     public BaiduRtcRoom() {

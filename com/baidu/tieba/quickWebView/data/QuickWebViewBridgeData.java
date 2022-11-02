@@ -12,7 +12,7 @@ public class QuickWebViewBridgeData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     public long begin;
     public String callBack;
-    public Map data;
+    public Map<String, String> data;
     public String fr;
     public String module;
     public String type;

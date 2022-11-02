@@ -1,5 +1,6 @@
 package com.baidu.nadcore.video.videoplayer.ui.full;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -13,12 +14,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.q61;
+import com.baidu.tieba.i71;
+import com.baidu.tieba.v41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +70,7 @@ public class BdThumbSeekBar extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeeBarStatus {
+    public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeeBarStatus None;
@@ -134,7 +136,7 @@ public class BdThumbSeekBar extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class BdSeekBarStyle {
+    public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final BdSeekBarStyle LINE;
@@ -200,7 +202,7 @@ public class BdThumbSeekBar extends View {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class SeekBarDirect {
+    public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final SeekBarDirect Horizontal;
@@ -265,7 +267,7 @@ public class BdThumbSeekBar extends View {
     }
 
     /* loaded from: classes2.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +311,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = d41.d(0.0f);
+        y = v41.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -448,7 +450,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q61.NadBdThumbSeekBar);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, i71.NadBdThumbSeekBar);
         int i5 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i5 != 1) {
@@ -463,23 +465,23 @@ public class BdThumbSeekBar extends View {
         Paint paint = new Paint();
         this.d = paint;
         paint.setAntiAlias(true);
-        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060882));
+        this.d.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060891));
         Paint paint2 = new Paint();
         this.r = paint2;
         paint2.setAntiAlias(true);
-        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060884));
+        this.r.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060893));
         Paint paint3 = new Paint();
         this.s = paint3;
         paint3.setAntiAlias(true);
-        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060883));
+        this.s.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060892));
         this.o = 100.0f;
         this.p = 0.0f;
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e38);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e53);
             }
-            this.l = d41.a(0.0f);
+            this.l = v41.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);
@@ -740,7 +742,7 @@ public class BdThumbSeekBar extends View {
         }
     }
 
-    public void setStyle(BdSeekBarStyle bdSeekBarStyle) {
+    public void setStyle(@NonNull BdSeekBarStyle bdSeekBarStyle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bdSeekBarStyle) == null) {
             this.t = bdSeekBarStyle;
@@ -860,6 +862,7 @@ public class BdThumbSeekBar extends View {
         if (r6 != 3) goto L23;
      */
     @Override // android.view.View
+    @SuppressLint({"ClickableViewAccessibility"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

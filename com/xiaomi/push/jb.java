@@ -40,7 +40,7 @@ public class jb extends jf {
     public byte[] h;
 
     /* loaded from: classes8.dex */
-    public class a implements jh {
+    public static class a implements jh {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;

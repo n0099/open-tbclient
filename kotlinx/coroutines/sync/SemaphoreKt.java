@@ -47,7 +47,7 @@ public final class SemaphoreKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Object withPermit(Semaphore semaphore, Function0 function0, Continuation continuation) {
+    public static final <T> Object withPermit(Semaphore semaphore, Function0<? extends T> function0, Continuation<? super T> continuation) {
         SemaphoreKt$withPermit$1 semaphoreKt$withPermit$1;
         int i;
         try {

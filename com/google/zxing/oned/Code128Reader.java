@@ -161,7 +161,7 @@ public final class Code128Reader extends OneDReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeILL;
         boolean z;
         char c;

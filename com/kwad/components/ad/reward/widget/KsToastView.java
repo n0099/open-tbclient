@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +45,7 @@ public class KsToastView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsToastView(Context context, AttributeSet attributeSet) {
+    public KsToastView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -69,7 +70,7 @@ public class KsToastView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsToastView(Context context, AttributeSet attributeSet, int i) {
+    public KsToastView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,8 +127,8 @@ public class KsToastView extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0438, this);
-            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f091203);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0443, this);
+            this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f09123d);
         }
     }
 

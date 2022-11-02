@@ -18,7 +18,7 @@ public interface IVoyagerCallback extends IInterface {
     void onSuccess(String str, String str2) throws RemoteException;
 
     /* loaded from: classes6.dex */
-    public abstract class Stub extends Binder implements IVoyagerCallback {
+    public static abstract class Stub extends Binder implements IVoyagerCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerCallback";
         public static final int TRANSACTION_onFailure = 2;
@@ -33,7 +33,7 @@ public interface IVoyagerCallback extends IInterface {
         }
 
         /* loaded from: classes6.dex */
-        public class Proxy implements IVoyagerCallback {
+        public static class Proxy implements IVoyagerCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public interface IVoyagerCallback extends IInterface {
     }
 
     /* loaded from: classes6.dex */
-    public class Default implements IVoyagerCallback {
+    public static class Default implements IVoyagerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

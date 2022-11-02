@@ -38,7 +38,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
-    public static ThreadLocal dateFormatThreadLocal;
+    public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
     public static volatile Locale locale;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +70,7 @@ public class Util {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        dateFormatThreadLocal = new ThreadLocal() { // from class: com.yy.hiidostatis.inner.util.Util.1
+        dateFormatThreadLocal = new ThreadLocal<Map<String, SimpleDateFormat>>() { // from class: com.yy.hiidostatis.inner.util.Util.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +90,7 @@ public class Util {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.lang.ThreadLocal
-            public Map initialValue() {
+            public Map<String, SimpleDateFormat> initialValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -301,7 +301,7 @@ public class Util {
         }
     }
 
-    public static boolean empty(Collection collection) {
+    public static boolean empty(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, collection)) == null) {
@@ -313,7 +313,7 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasData(Collection collection) {
+    public static boolean hasData(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, collection)) == null) {
@@ -334,11 +334,11 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasData(Object... objArr) {
+    public static <T> boolean hasData(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, objArr)) == null) {
-            return !empty(objArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, tArr)) == null) {
+            return !empty(tArr);
         }
         return invokeL.booleanValue;
     }
@@ -355,11 +355,11 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static boolean empty(Object... objArr) {
+    public static <T> boolean empty(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, objArr)) == null) {
-            if (objArr != null && objArr.length != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
                 return false;
             }
             return true;
@@ -469,8 +469,8 @@ public class Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            Map map = (Map) dateFormatThreadLocal.get();
-            SimpleDateFormat simpleDateFormat = (SimpleDateFormat) map.get(str);
+            Map<String, SimpleDateFormat> map = dateFormatThreadLocal.get();
+            SimpleDateFormat simpleDateFormat = map.get(str);
             if (simpleDateFormat == null) {
                 if (locale == null) {
                     simpleDateFormat = new SimpleDateFormat(str);
@@ -484,7 +484,7 @@ public class Util {
         return (SimpleDateFormat) invokeL.objValue;
     }
 
-    public static Map parseParams(String str) {
+    public static Map<String, String> parseParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {

@@ -29,7 +29,7 @@ public abstract class AbstractHttpManager {
     public static final String TAG = "Outback";
     public transient /* synthetic */ FieldHolder $fh;
     public CallFactory callFactory;
-    public Map callFactoryMap;
+    public Map<String, CallFactory> callFactoryMap;
     public CallFactoryParams callFactoryParams;
     public Context context;
     public CallFactory defaultCallFactory;
@@ -91,7 +91,7 @@ public abstract class AbstractHttpManager {
         }
     }
 
-    public Map getCallFactoryMap() {
+    public Map<String, CallFactory> getCallFactoryMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -29,10 +29,10 @@ public class b {
     public String f71a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map f72a;
+    public Map<String, a> f72a;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -336,7 +336,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (this.f72a.containsKey(str)) {
-                return (a) this.f72a.get(str);
+                return this.f72a.get(str);
             }
             String str2 = "hybrid_app_info_" + str;
             SharedPreferences a2 = a(this.f69a);

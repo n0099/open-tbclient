@@ -1,5 +1,6 @@
 package com.google.android.material.datepicker;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,9 @@ public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Long fixedTimeMs;
+    @Nullable
     public final TimeZone fixedTimeZone;
 
     static {
@@ -53,7 +56,7 @@ public class TimeSource {
         return (Calendar) invokeV.objValue;
     }
 
-    public TimeSource(Long l, TimeZone timeZone) {
+    public TimeSource(@Nullable Long l, @Nullable TimeZone timeZone) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +84,7 @@ public class TimeSource {
         return (TimeSource) invokeJ.objValue;
     }
 
-    public Calendar now(TimeZone timeZone) {
+    public Calendar now(@Nullable TimeZone timeZone) {
         InterceptResult invokeL;
         Calendar calendar;
         Interceptable interceptable = $ic;
@@ -100,7 +103,7 @@ public class TimeSource {
         return (Calendar) invokeL.objValue;
     }
 
-    public static TimeSource fixed(long j, TimeZone timeZone) {
+    public static TimeSource fixed(long j, @Nullable TimeZone timeZone) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, timeZone)) == null) {

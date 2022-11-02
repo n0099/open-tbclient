@@ -2,6 +2,7 @@ package com.google.android.material.datepicker;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,9 +17,10 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CompositeDateValidator> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List validators;
+    @NonNull
+    public final List<CalendarConstraints.DateValidator> validators;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -43,7 +45,7 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
+        CREATOR = new Parcelable.Creator<CompositeDateValidator>() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,8 +64,10 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public CompositeDateValidator createFromParcel(Parcel parcel) {
+            @NonNull
+            public CompositeDateValidator createFromParcel(@NonNull Parcel parcel) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) {
@@ -73,7 +77,9 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
+            @NonNull
             public CompositeDateValidator[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
@@ -94,7 +100,7 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
         return invokeV.intValue;
     }
 
-    public CompositeDateValidator(List list) {
+    public CompositeDateValidator(@NonNull List<CalendarConstraints.DateValidator> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +118,8 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
         this.validators = list;
     }
 
-    public static CalendarConstraints.DateValidator allOf(List list) {
+    @NonNull
+    public static CalendarConstraints.DateValidator allOf(@NonNull List<CalendarConstraints.DateValidator> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -152,7 +159,7 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeList(this.validators);

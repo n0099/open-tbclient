@@ -65,12 +65,18 @@ public final class LogoPosition {
     public static LogoPosition valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (LogoPosition) Enum.valueOf(LogoPosition.class, str) : (LogoPosition) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return (LogoPosition) Enum.valueOf(LogoPosition.class, str);
+        }
+        return (LogoPosition) invokeL.objValue;
     }
 
     public static LogoPosition[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LogoPosition[]) a.clone() : (LogoPosition[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (LogoPosition[]) a.clone();
+        }
+        return (LogoPosition[]) invokeV.objValue;
     }
 }

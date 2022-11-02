@@ -1,5 +1,7 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +36,8 @@ public class RichContentHelper {
         }
     }
 
-    public static List toData(JSONArray jSONArray) {
+    @NonNull
+    public static List<Object> toData(@Nullable JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
@@ -61,7 +64,8 @@ public class RichContentHelper {
         return (List) invokeL.objValue;
     }
 
-    public static JSONArray toJson(List list) {
+    @NonNull
+    public static JSONArray toJson(@Nullable List<Object> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {

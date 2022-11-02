@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface ik8 {
-    void onError(String str, ErrorData errorData);
+public class ik8 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile hk8 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onNoData(ErrorData errorData);
-
-    void onSucc(String str, List list, List list2);
+    public static synchronized hk8 a() {
+        InterceptResult invokeV;
+        hk8 hk8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ik8.class) {
+                if (a == null) {
+                    a = new hk8();
+                }
+                hk8Var = a;
+            }
+            return hk8Var;
+        }
+        return (hk8) invokeV.objValue;
+    }
 }

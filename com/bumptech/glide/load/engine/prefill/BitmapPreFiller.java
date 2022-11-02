@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.prefill;
 
 import android.graphics.Bitmap;
+import androidx.annotation.VisibleForTesting;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,6 +52,7 @@ public final class BitmapPreFiller {
         return invokeL.intValue;
     }
 
+    @VisibleForTesting
     public PreFillQueue generateAllocationOrder(PreFillType... preFillTypeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

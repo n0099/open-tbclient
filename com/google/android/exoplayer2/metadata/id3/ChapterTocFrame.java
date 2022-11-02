@@ -15,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes7.dex */
 public final class ChapterTocFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<ChapterTocFrame> CREATOR;
     public static final String ID = "CTOC";
     public transient /* synthetic */ FieldHolder $fh;
     public final String[] children;
@@ -37,7 +37,7 @@ public final class ChapterTocFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.ChapterTocFrame.1
+        CREATOR = new Parcelable.Creator<ChapterTocFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.ChapterTocFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,6 +56,7 @@ public final class ChapterTocFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChapterTocFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -67,6 +68,7 @@ public final class ChapterTocFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public ChapterTocFrame[] newArray(int i) {
                 InterceptResult invokeI;

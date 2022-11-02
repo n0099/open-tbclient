@@ -17,18 +17,19 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
+import kotlinx.coroutines.Deferred;
 @Metadata(d1 = {"\u0000\u0004\n\u0002\b\u0003\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u00012\u0006\u0010\u0002\u001a\u0002H\u0001H\u008a@"}, d2 = {"<anonymous>", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.Utils$amb$2$1", f = "Utils.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes6.dex */
-public final class Utils$amb$2$1 extends SuspendLambda implements Function2 {
+public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, Continuation<? super T>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List $jobs;
+    public final /* synthetic */ List<Deferred<T>> $jobs;
     public /* synthetic */ Object L$0;
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Utils$amb$2$1(List list, Continuation continuation) {
+    public Utils$amb$2$1(List<? extends Deferred<? extends T>> list, Continuation<? super Utils$amb$2$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -50,7 +51,7 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2 {
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
-    public final Continuation create(Object obj, Continuation continuation) {
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) {
@@ -61,12 +62,15 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2 {
         return (Continuation) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(Object obj, Continuation continuation) {
+    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
+        return invoke((Utils$amb$2$1) obj, (Continuation<? super Utils$amb$2$1>) obj2);
+    }
+
+    public final Object invoke(T t, Continuation<? super T> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, continuation)) == null) ? ((Utils$amb$2$1) create(obj, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, continuation)) == null) ? ((Utils$amb$2$1) create(t, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

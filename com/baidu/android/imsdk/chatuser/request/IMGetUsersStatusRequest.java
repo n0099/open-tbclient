@@ -107,11 +107,11 @@ public class IMGetUsersStatusRequest extends Message {
                     return;
                 }
             }
-            ArrayList arrayList = null;
+            ArrayList<UserStatus> arrayList = null;
             if (i == 0) {
                 try {
                     if (jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
-                        ArrayList arrayList2 = new ArrayList();
+                        ArrayList<UserStatus> arrayList2 = new ArrayList<>();
                         for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i3);

@@ -2,11 +2,12 @@ package com.baidu.tieba.hottopic.controller;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class HotTopicModel extends BdBaseModel {
+public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 0;

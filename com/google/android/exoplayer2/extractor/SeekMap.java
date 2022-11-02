@@ -15,7 +15,7 @@ public interface SeekMap {
     boolean isSeekable();
 
     /* loaded from: classes7.dex */
-    public final class Unseekable implements SeekMap {
+    public static final class Unseekable implements SeekMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long durationUs;

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -137,7 +138,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view2, View view3, int i, int i2) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view2, @NonNull View view3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{coordinatorLayout, appBarLayout, view2, view3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
@@ -171,13 +172,13 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
                 VideoPbViewModel videoPbViewModel = this.b;
                 if (videoPbViewModel != null) {
                     if (i > -5) {
-                        MutableLiveData e = videoPbViewModel.e();
-                        if (e == null || e.getValue() == 0 || !((Boolean) e.getValue()).booleanValue()) {
+                        MutableLiveData<Boolean> e = videoPbViewModel.e();
+                        if (e == null || e.getValue() == null || !e.getValue().booleanValue()) {
                             this.b.u(true);
                         }
                     } else {
-                        MutableLiveData e2 = videoPbViewModel.e();
-                        if (e2 == null || e2.getValue() == 0 || ((Boolean) e2.getValue()).booleanValue()) {
+                        MutableLiveData<Boolean> e2 = videoPbViewModel.e();
+                        if (e2 == null || e2.getValue() == null || e2.getValue().booleanValue()) {
                             this.b.u(false);
                         }
                     }

@@ -26,10 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public final class DecodeHelper {
+public final class DecodeHelper<Transcode> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List cacheKeys;
+    public final List<Key> cacheKeys;
     public DecodeJob.DiskCacheProvider diskCacheProvider;
     public DiskCacheStrategy diskCacheStrategy;
     public GlideContext glideContext;
@@ -38,14 +38,14 @@ public final class DecodeHelper {
     public boolean isLoadDataSet;
     public boolean isScaleOnlyOrNoTransform;
     public boolean isTransformationRequired;
-    public final List loadData;
+    public final List<ModelLoader.LoadData<?>> loadData;
     public Object model;
     public Options options;
     public Priority priority;
-    public Class resourceClass;
+    public Class<?> resourceClass;
     public Key signature;
-    public Class transcodeClass;
-    public Map transformations;
+    public Class<Transcode> transcodeClass;
+    public Map<Class<?>, Transformation<?>> transformations;
     public int width;
 
     public DecodeHelper() {
@@ -120,7 +120,7 @@ public final class DecodeHelper {
         return invokeV.intValue;
     }
 
-    public Class getModelClass() {
+    public Class<?> getModelClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -147,7 +147,7 @@ public final class DecodeHelper {
         return (Priority) invokeV.objValue;
     }
 
-    public List getRegisteredResourceClasses() {
+    public List<Class<?>> getRegisteredResourceClasses() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -165,11 +165,12 @@ public final class DecodeHelper {
         return (Key) invokeV.objValue;
     }
 
-    public Class getTranscodeClass() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.lang.Class<Transcode>, java.lang.Class<?> */
+    public Class<?> getTranscodeClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.transcodeClass;
+            return (Class<Transcode>) this.transcodeClass;
         }
         return (Class) invokeV.objValue;
     }
@@ -192,17 +193,17 @@ public final class DecodeHelper {
         return invokeV.booleanValue;
     }
 
-    public List getCacheKeys() {
+    public List<Key> getCacheKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!this.isCacheKeysSet) {
                 this.isCacheKeysSet = true;
                 this.cacheKeys.clear();
-                List loadData = getLoadData();
+                List<ModelLoader.LoadData<?>> loadData = getLoadData();
                 int size = loadData.size();
                 for (int i = 0; i < size; i++) {
-                    ModelLoader.LoadData loadData2 = (ModelLoader.LoadData) loadData.get(i);
+                    ModelLoader.LoadData<?> loadData2 = loadData.get(i);
                     if (!this.cacheKeys.contains(loadData2.sourceKey)) {
                         this.cacheKeys.add(loadData2.sourceKey);
                     }
@@ -218,7 +219,7 @@ public final class DecodeHelper {
         return (List) invokeV.objValue;
     }
 
-    public List getLoadData() {
+    public List<ModelLoader.LoadData<?>> getLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -228,7 +229,7 @@ public final class DecodeHelper {
                 List modelLoaders = this.glideContext.getRegistry().getModelLoaders(this.model);
                 int size = modelLoaders.size();
                 for (int i = 0; i < size; i++) {
-                    ModelLoader.LoadData buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
+                    ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
                     if (buildLoadData != null) {
                         this.loadData.add(buildLoadData);
                     }
@@ -239,7 +240,7 @@ public final class DecodeHelper {
         return (List) invokeV.objValue;
     }
 
-    public LoadPath getLoadPath(Class cls) {
+    public <Data> LoadPath<Data, ?, Transcode> getLoadPath(Class<Data> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
@@ -248,7 +249,7 @@ public final class DecodeHelper {
         return (LoadPath) invokeL.objValue;
     }
 
-    public List getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
+    public List<ModelLoader<File, ?>> getModelLoaders(File file) throws Registry.NoModelLoaderAvailableException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, file)) == null) {
@@ -257,7 +258,7 @@ public final class DecodeHelper {
         return (List) invokeL.objValue;
     }
 
-    public ResourceEncoder getResultEncoder(Resource resource) {
+    public <Z> ResourceEncoder<Z> getResultEncoder(Resource<Z> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, resource)) == null) {
@@ -266,16 +267,18 @@ public final class DecodeHelper {
         return (ResourceEncoder) invokeL.objValue;
     }
 
-    public Encoder getSourceEncoder(Object obj) throws Registry.NoSourceEncoderAvailableException {
+    public <X> Encoder<X> getSourceEncoder(X x) throws Registry.NoSourceEncoderAvailableException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
-            return this.glideContext.getRegistry().getSourceEncoder(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, x)) == null) {
+            return this.glideContext.getRegistry().getSourceEncoder(x);
         }
         return (Encoder) invokeL.objValue;
     }
 
-    public boolean hasLoadPath(Class cls) {
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.Class<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean hasLoadPath(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, cls)) == null) {
@@ -287,7 +290,7 @@ public final class DecodeHelper {
         return invokeL.booleanValue;
     }
 
-    public boolean isResourceEncoderAvailable(Resource resource) {
+    public boolean isResourceEncoderAvailable(Resource<?> resource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, resource)) == null) {
@@ -300,10 +303,10 @@ public final class DecodeHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, key)) == null) {
-            List loadData = getLoadData();
+            List<ModelLoader.LoadData<?>> loadData = getLoadData();
             int size = loadData.size();
             for (int i = 0; i < size; i++) {
-                if (((ModelLoader.LoadData) loadData.get(i)).sourceKey.equals(key)) {
+                if (loadData.get(i).sourceKey.equals(key)) {
                     return true;
                 }
             }
@@ -312,20 +315,20 @@ public final class DecodeHelper {
         return invokeL.booleanValue;
     }
 
-    public Transformation getTransformation(Class cls) {
+    public <Z> Transformation<Z> getTransformation(Class<Z> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, cls)) == null) {
-            Transformation transformation = (Transformation) this.transformations.get(cls);
+            Transformation<Z> transformation = (Transformation<Z>) this.transformations.get(cls);
             if (transformation == null) {
-                Iterator it = this.transformations.entrySet().iterator();
+                Iterator<Map.Entry<Class<?>, Transformation<?>>> it = this.transformations.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    if (((Class) entry.getKey()).isAssignableFrom(cls)) {
-                        transformation = (Transformation) entry.getValue();
+                    Map.Entry<Class<?>, Transformation<?>> next = it.next();
+                    if (next.getKey().isAssignableFrom(cls)) {
+                        transformation = (Transformation<Z>) next.getValue();
                         break;
                     }
                 }
@@ -341,7 +344,7 @@ public final class DecodeHelper {
         return (Transformation) invokeL.objValue;
     }
 
-    public void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class cls, Class cls2, Priority priority, Options options, Map map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
+    public <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{glideContext, obj, key, Integer.valueOf(i), Integer.valueOf(i2), diskCacheStrategy, cls, cls2, priority, options, map, Boolean.valueOf(z), Boolean.valueOf(z2), diskCacheProvider}) == null) {
             this.glideContext = glideContext;

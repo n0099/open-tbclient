@@ -3,8 +3,9 @@ package com.kwad.sdk.core.b.kwai;
 import com.kwad.sdk.core.download.DownloadParams;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class bp implements com.kwad.sdk.core.d {
-    public static void a(DownloadParams downloadParams, JSONObject jSONObject) {
+public final class bp implements com.kwad.sdk.core.d<DownloadParams> {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    public static void a2(DownloadParams downloadParams, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
@@ -55,7 +56,8 @@ public final class bp implements com.kwad.sdk.core.d {
         downloadParams.downloadPlace = jSONObject.optInt("downloadPlace");
     }
 
-    public static JSONObject b(DownloadParams downloadParams, JSONObject jSONObject) {
+    /* renamed from: b  reason: avoid collision after fix types in other method */
+    public static JSONObject b2(DownloadParams downloadParams, JSONObject jSONObject) {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
@@ -122,13 +124,15 @@ public final class bp implements com.kwad.sdk.core.d {
         return jSONObject;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ void a(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        a((DownloadParams) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ void a(DownloadParams downloadParams, JSONObject jSONObject) {
+        a2(downloadParams, jSONObject);
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.kwad.sdk.core.b, org.json.JSONObject] */
     @Override // com.kwad.sdk.core.d
-    public final /* bridge */ /* synthetic */ JSONObject b(com.kwad.sdk.core.b bVar, JSONObject jSONObject) {
-        return b((DownloadParams) bVar, jSONObject);
+    public final /* bridge */ /* synthetic */ JSONObject b(DownloadParams downloadParams, JSONObject jSONObject) {
+        return b2(downloadParams, jSONObject);
     }
 }

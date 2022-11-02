@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.media.MediaFormat;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -26,7 +28,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public final class Format implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Format> CREATOR;
     public static final int NO_VALUE = -1;
     public static final long OFFSET_SAMPLE_RELATIVE = Long.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +45,7 @@ public final class Format implements Parcelable {
     public int hashCode;
     public final int height;
     public final String id;
-    public final List initializationData;
+    public final List<byte[]> initializationData;
     public final String language;
     public final int maxInputSize;
     public final Metadata metadata;
@@ -81,7 +83,7 @@ public final class Format implements Parcelable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.Format.1
+        CREATOR = new Parcelable.Creator<Format>() { // from class: com.google.android.exoplayer2.Format.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,6 +102,7 @@ public final class Format implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Format createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -111,6 +114,7 @@ public final class Format implements Parcelable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public Format[] newArray(int i) {
                 InterceptResult invokeI;
@@ -207,7 +211,7 @@ public final class Format implements Parcelable {
                 Format format = (Format) obj;
                 if (this.bitrate == format.bitrate && this.maxInputSize == format.maxInputSize && this.width == format.width && this.height == format.height && this.frameRate == format.frameRate && this.rotationDegrees == format.rotationDegrees && this.pixelWidthHeightRatio == format.pixelWidthHeightRatio && this.stereoMode == format.stereoMode && this.channelCount == format.channelCount && this.sampleRate == format.sampleRate && this.pcmEncoding == format.pcmEncoding && this.encoderDelay == format.encoderDelay && this.encoderPadding == format.encoderPadding && this.subsampleOffsetUs == format.subsampleOffsetUs && this.selectionFlags == format.selectionFlags && Util.areEqual(this.id, format.id) && Util.areEqual(this.language, format.language) && this.accessibilityChannel == format.accessibilityChannel && Util.areEqual(this.containerMimeType, format.containerMimeType) && Util.areEqual(this.sampleMimeType, format.sampleMimeType) && Util.areEqual(this.codecs, format.codecs) && Util.areEqual(this.drmInitData, format.drmInitData) && Util.areEqual(this.metadata, format.metadata) && Util.areEqual(this.colorInfo, format.colorInfo) && Arrays.equals(this.projectionData, format.projectionData) && this.initializationData.size() == format.initializationData.size()) {
                     for (int i = 0; i < this.initializationData.size(); i++) {
-                        if (!Arrays.equals((byte[]) this.initializationData.get(i), (byte[]) format.initializationData.get(i))) {
+                        if (!Arrays.equals(this.initializationData.get(i), format.initializationData.get(i))) {
                             return false;
                         }
                     }
@@ -219,8 +223,8 @@ public final class Format implements Parcelable {
         return invokeL.booleanValue;
     }
 
-    public Format(String str, String str2, String str3, String str4, int i, int i2, int i3, int i4, float f, int i5, float f2, byte[] bArr, int i6, ColorInfo colorInfo, int i7, int i8, int i9, int i10, int i11, int i12, String str5, int i13, long j, List list, DrmInitData drmInitData, Metadata metadata) {
-        List list2;
+    public Format(String str, String str2, String str3, String str4, int i, int i2, int i3, int i4, float f, int i5, float f2, byte[] bArr, int i6, ColorInfo colorInfo, int i7, int i8, int i9, int i10, int i11, int i12, String str5, int i13, long j, List<byte[]> list, DrmInitData drmInitData, Metadata metadata) {
+        List<byte[]> list2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +272,7 @@ public final class Format implements Parcelable {
         this.metadata = metadata;
     }
 
-    public static Format createAudioContainerFormat(String str, String str2, String str3, String str4, int i, int i2, int i3, List list, int i4, String str5) {
+    public static Format createAudioContainerFormat(String str, String str2, String str3, String str4, int i, int i2, int i3, List<byte[]> list, int i4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), list, Integer.valueOf(i4), str5})) == null) {
@@ -277,7 +281,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createTextSampleFormat(String str, String str2, String str3, int i, int i2, String str4, int i3, DrmInitData drmInitData, long j, List list) {
+    public static Format createTextSampleFormat(String str, String str2, String str3, int i, int i2, String str4, int i3, DrmInitData drmInitData, long j, List<byte[]> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), str4, Integer.valueOf(i3), drmInitData, Long.valueOf(j), list})) == null) {
@@ -286,7 +290,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createVideoContainerFormat(String str, String str2, String str3, String str4, int i, int i2, int i3, float f, List list, int i4) {
+    public static Format createVideoContainerFormat(String str, String str2, String str3, String str4, int i, int i2, int i3, float f, List<byte[]> list, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), list, Integer.valueOf(i4)})) == null) {
@@ -295,7 +299,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List list, DrmInitData drmInitData) {
+    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List<byte[]> list, DrmInitData drmInitData) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), list, drmInitData})) == null) {
@@ -304,7 +308,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, int i5, int i6, int i7, List list, DrmInitData drmInitData, int i8, String str4, Metadata metadata) {
+    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, int i5, int i6, int i7, List<byte[]> list, DrmInitData drmInitData, int i8, String str4, Metadata metadata) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), list, drmInitData, Integer.valueOf(i8), str4, metadata})) == null) {
@@ -313,7 +317,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List list, int i5, float f2, byte[] bArr, int i6, ColorInfo colorInfo, DrmInitData drmInitData) {
+    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List<byte[]> list, int i5, float f2, byte[] bArr, int i6, ColorInfo colorInfo, DrmInitData drmInitData) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), list, Integer.valueOf(i5), Float.valueOf(f2), bArr, Integer.valueOf(i6), colorInfo, drmInitData})) == null) {
@@ -322,7 +326,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, int i5, List list, DrmInitData drmInitData, int i6, String str4) {
+    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, int i5, List<byte[]> list, DrmInitData drmInitData, int i6, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), list, drmInitData, Integer.valueOf(i6), str4})) == null) {
@@ -331,7 +335,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List list, int i5, float f2, DrmInitData drmInitData) {
+    public static Format createVideoSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, float f, List<byte[]> list, int i5, float f2, DrmInitData drmInitData) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), list, Integer.valueOf(i5), Float.valueOf(f2), drmInitData})) == null) {
@@ -340,7 +344,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, List list, DrmInitData drmInitData, int i5, String str4) {
+    public static Format createAudioSampleFormat(String str, String str2, String str3, int i, int i2, int i3, int i4, List<byte[]> list, DrmInitData drmInitData, int i5, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list, drmInitData, Integer.valueOf(i5), str4})) == null) {
@@ -358,7 +362,7 @@ public final class Format implements Parcelable {
         return (Format) invokeCommon.objValue;
     }
 
-    public static Format createImageSampleFormat(String str, String str2, String str3, int i, List list, String str4, DrmInitData drmInitData) {
+    public static Format createImageSampleFormat(String str, String str2, String str3, int i, List<byte[]> list, String str4, DrmInitData drmInitData) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, Integer.valueOf(i), list, str4, drmInitData})) == null) {
@@ -533,6 +537,7 @@ public final class Format implements Parcelable {
         return (Format) invokeJ.objValue;
     }
 
+    @TargetApi(16)
     public static void maybeSetByteBufferV16(MediaFormat mediaFormat, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65559, null, mediaFormat, str, bArr) == null) && bArr != null) {
@@ -540,6 +545,7 @@ public final class Format implements Parcelable {
         }
     }
 
+    @TargetApi(16)
     public static void maybeSetFloatV16(MediaFormat mediaFormat, String str, float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{mediaFormat, str, Float.valueOf(f)}) == null) && f != -1.0f) {
@@ -547,6 +553,7 @@ public final class Format implements Parcelable {
         }
     }
 
+    @TargetApi(16)
     public static void maybeSetIntegerV16(MediaFormat mediaFormat, String str, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(65562, null, mediaFormat, str, i) == null) && i != -1) {
@@ -554,6 +561,7 @@ public final class Format implements Parcelable {
         }
     }
 
+    @TargetApi(16)
     public static void maybeSetStringV16(MediaFormat mediaFormat, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65563, null, mediaFormat, str, str2) == null) && str2 != null) {
@@ -561,6 +569,7 @@ public final class Format implements Parcelable {
         }
     }
 
+    @TargetApi(24)
     public static void maybeSetColorInfoV24(MediaFormat mediaFormat, ColorInfo colorInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65560, null, mediaFormat, colorInfo) != null) || colorInfo == null) {
@@ -674,6 +683,8 @@ public final class Format implements Parcelable {
         return (Format) invokeII.objValue;
     }
 
+    @SuppressLint({"InlinedApi"})
+    @TargetApi(16)
     public final MediaFormat getFrameworkMediaFormatV16() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -689,7 +700,7 @@ public final class Format implements Parcelable {
             maybeSetIntegerV16(mediaFormat, "channel-count", this.channelCount);
             maybeSetIntegerV16(mediaFormat, "sample-rate", this.sampleRate);
             for (int i = 0; i < this.initializationData.size(); i++) {
-                mediaFormat.setByteBuffer("csd-" + i, ByteBuffer.wrap((byte[]) this.initializationData.get(i)));
+                mediaFormat.setByteBuffer("csd-" + i, ByteBuffer.wrap(this.initializationData.get(i)));
             }
             maybeSetColorInfoV24(mediaFormat, this.colorInfo);
             return mediaFormat;
@@ -811,7 +822,7 @@ public final class Format implements Parcelable {
             int size = this.initializationData.size();
             parcel.writeInt(size);
             for (int i3 = 0; i3 < size; i3++) {
-                parcel.writeByteArray((byte[]) this.initializationData.get(i3));
+                parcel.writeByteArray(this.initializationData.get(i3));
             }
             parcel.writeParcelable(this.drmInitData, 0);
             parcel.writeParcelable(this.metadata, 0);

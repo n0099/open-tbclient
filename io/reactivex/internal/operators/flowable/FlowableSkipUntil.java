@@ -19,25 +19,25 @@ import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
+public final class FlowableSkipUntil<T, U> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Publisher other;
+    public final Publisher<U> other;
 
     /* loaded from: classes8.dex */
-    public final class SkipUntilMainSubscriber extends AtomicInteger implements ConditionalSubscriber, Subscription {
+    public static final class SkipUntilMainSubscriber<T> extends AtomicInteger implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6270983465606289181L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final AtomicThrowable error;
         public volatile boolean gate;
-        public final OtherSubscriber other;
+        public final SkipUntilMainSubscriber<T>.OtherSubscriber other;
         public final AtomicLong requested;
-        public final AtomicReference s;
+        public final AtomicReference<Subscription> s;
 
         /* loaded from: classes8.dex */
-        public final class OtherSubscriber extends AtomicReference implements FlowableSubscriber {
+        public final class OtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5592042965931999169L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                     this.this$0.gate = true;
-                    ((Subscription) get()).cancel();
+                    get().cancel();
                 }
             }
 
@@ -97,7 +97,7 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
             }
         }
 
-        public SkipUntilMainSubscriber(Subscriber subscriber) {
+        public SkipUntilMainSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
                 }
             }
             this.actual = subscriber;
-            this.s = new AtomicReference();
+            this.s = new AtomicReference<>();
             this.requested = new AtomicLong();
             this.other = new OtherSubscriber(this);
             this.error = new AtomicThrowable();
@@ -147,10 +147,10 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && !tryOnNext(obj)) {
-                ((Subscription) this.s.get()).request(1L);
+            if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && !tryOnNext(t)) {
+                this.s.get().request(1L);
             }
         }
 
@@ -171,12 +171,12 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
                 if (this.gate) {
-                    HalfSerializer.onNext(this.actual, obj, this, this.error);
+                    HalfSerializer.onNext(this.actual, t, this, this.error);
                     return true;
                 }
                 return false;
@@ -186,7 +186,7 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkipUntil(Flowable flowable, Publisher publisher) {
+    public FlowableSkipUntil(Flowable<T> flowable, Publisher<U> publisher) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -207,7 +207,7 @@ public final class FlowableSkipUntil extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(subscriber);

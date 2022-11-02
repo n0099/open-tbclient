@@ -53,7 +53,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public abstract boolean isInAlphabet(byte b);
 
     /* loaded from: classes8.dex */
-    public class Context {
+    public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] buffer;

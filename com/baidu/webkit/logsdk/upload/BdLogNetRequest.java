@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BdLogNetRequest implements INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT = 30000;

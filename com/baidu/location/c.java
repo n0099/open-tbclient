@@ -1,6 +1,6 @@
 package com.baidu.location;
 
-import android.content.Context;
+import com.baidu.location.e.k;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,24 +31,17 @@ public class c extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        com.baidu.location.b.c cVar;
-        com.baidu.location.b.c cVar2;
-        com.baidu.location.b.c cVar3;
-        Context context;
-        LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cVar = this.a.C;
-            if (cVar == null) {
-                LocationClient locationClient = this.a;
-                context = this.a.f;
-                locationClientOption = this.a.d;
-                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.a);
-            }
-            cVar2 = this.a.C;
-            if (cVar2 != null) {
-                cVar3 = this.a.C;
-                cVar3.c();
+            try {
+                if (this.a.D != null) {
+                    if (k.f(this.a.f) > 0) {
+                        this.a.D.a();
+                    }
+                    this.a.D.c();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

@@ -36,7 +36,7 @@ public class VUIParameters {
     public boolean video_signal_type_present_flag;
 
     /* loaded from: classes7.dex */
-    public class BitstreamRestriction {
+    public static class BitstreamRestriction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int log2_max_mv_length_horizontal;

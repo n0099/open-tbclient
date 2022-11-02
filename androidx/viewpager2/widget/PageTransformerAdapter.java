@@ -1,6 +1,7 @@
 package androidx.viewpager2.widget;
 
 import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager2.widget.ViewPager2;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,7 +50,7 @@ public final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallbac
         this.mLayoutManager = linearLayoutManager;
     }
 
-    public void setPageTransformer(ViewPager2.PageTransformer pageTransformer) {
+    public void setPageTransformer(@Nullable ViewPager2.PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pageTransformer) == null) {
             this.mPageTransformer = pageTransformer;

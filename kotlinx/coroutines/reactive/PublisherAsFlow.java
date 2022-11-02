@@ -20,13 +20,13 @@ import kotlinx.coroutines.flow.internal.SendingCollector;
 import org.reactivestreams.Publisher;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\b\b\u0002\u0018\u0000*\b\b\u0000\u0010\u0002*\u00020\u00012\u00020\u0003B)\u0012\f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00000\u0017\u0012\b\b\u0002\u0010\u0012\u001a\u00020\t\u0012\b\b\u0002\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b \u0010!J!\u0010\u0007\u001a\u00020\u00062\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\bJ)\u0010\u000b\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\t2\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\fJ!\u0010\r\u001a\u00020\u00062\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00028\u00000\u0004H\u0082@ø\u0001\u0000¢\u0006\u0004\b\r\u0010\bJ!\u0010\u0010\u001a\u00020\u00062\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\u000eH\u0094@ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011J%\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u00032\u0006\u0010\u0012\u001a\u00020\t2\u0006\u0010\u0014\u001a\u00020\u0013H\u0014¢\u0006\u0004\b\u0015\u0010\u0016R\u001c\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00000\u00178\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0018\u0010\u0019R\u001c\u0010\u001f\u001a\u00020\u001a8B@\u0002X\u0082\u0004¢\u0006\f\u0012\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001b\u0010\u001c\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\""}, d2 = {"Lkotlinx/coroutines/reactive/PublisherAsFlow;", "", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/flow/internal/ChannelFlow;", "Lkotlinx/coroutines/flow/FlowCollector;", "collector", "", "collect", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlin/coroutines/CoroutineContext;", "injectContext", "collectImpl", "(Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "collectSlowPath", "Lkotlinx/coroutines/channels/ProducerScope;", "scope", "collectTo", "(Lkotlinx/coroutines/channels/ProducerScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "context", "", "capacity", "create", "(Lkotlin/coroutines/CoroutineContext;I)Lkotlinx/coroutines/flow/internal/ChannelFlow;", "Lorg/reactivestreams/Publisher;", "publisher", "Lorg/reactivestreams/Publisher;", "", "getRequestSize", "()J", "requestSize$annotations", "()V", "requestSize", "<init>", "(Lorg/reactivestreams/Publisher;Lkotlin/coroutines/CoroutineContext;I)V", "kotlinx-coroutines-reactive"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class PublisherAsFlow extends ChannelFlow {
-    public final Publisher publisher;
+public final class PublisherAsFlow<T> extends ChannelFlow<T> {
+    public final Publisher<T> publisher;
 
     public static /* synthetic */ void requestSize$annotations() {
     }
 
-    public PublisherAsFlow(Publisher publisher, CoroutineContext coroutineContext, int i) {
+    public PublisherAsFlow(Publisher<T> publisher, CoroutineContext coroutineContext, int i) {
         super(coroutineContext, i);
         this.publisher = publisher;
     }
@@ -62,7 +62,7 @@ public final class PublisherAsFlow extends ChannelFlow {
     }
 
     @Override // kotlinx.coroutines.flow.internal.ChannelFlow, kotlinx.coroutines.flow.Flow
-    public Object collect(FlowCollector flowCollector, Continuation continuation) {
+    public Object collect(FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {
         CoroutineContext context = continuation.getContext();
         ContinuationInterceptor continuationInterceptor = (ContinuationInterceptor) this.context.get(ContinuationInterceptor.Key);
         if (continuationInterceptor != null && !Intrinsics.areEqual(continuationInterceptor, (ContinuationInterceptor) context.get(ContinuationInterceptor.Key))) {
@@ -97,15 +97,15 @@ public final class PublisherAsFlow extends ChannelFlow {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final /* synthetic */ Object collectImpl(CoroutineContext coroutineContext, FlowCollector flowCollector, Continuation continuation) {
+    public final /* synthetic */ Object collectImpl(CoroutineContext coroutineContext, FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {
         PublisherAsFlow$collectImpl$1 publisherAsFlow$collectImpl$1;
         ReactiveSubscriber reactiveSubscriber;
         CoroutineContext coroutineContext2;
         ReactiveSubscriber reactiveSubscriber2;
-        PublisherAsFlow publisherAsFlow;
+        PublisherAsFlow<T> publisherAsFlow;
         long j;
-        FlowCollector flowCollector2;
-        PublisherAsFlow publisherAsFlow2;
+        FlowCollector<? super T> flowCollector2;
+        PublisherAsFlow<T> publisherAsFlow2;
         CoroutineContext coroutineContext3;
         FlowCollector flowCollector3;
         long j2;
@@ -126,12 +126,13 @@ public final class PublisherAsFlow extends ChannelFlow {
                                 Object obj2 = publisherAsFlow$collectImpl$1.L$4;
                                 j2 = publisherAsFlow$collectImpl$1.J$0;
                                 ReactiveSubscriber reactiveSubscriber4 = (ReactiveSubscriber) publisherAsFlow$collectImpl$1.L$3;
-                                flowCollector3 = (FlowCollector) publisherAsFlow$collectImpl$1.L$2;
+                                FlowCollector<? super T> flowCollector4 = (FlowCollector) publisherAsFlow$collectImpl$1.L$2;
                                 coroutineContext3 = (CoroutineContext) publisherAsFlow$collectImpl$1.L$1;
                                 publisherAsFlow2 = (PublisherAsFlow) publisherAsFlow$collectImpl$1.L$0;
                                 ResultKt.throwOnFailure(obj);
                                 reactiveSubscriber = reactiveSubscriber4;
-                                flowCollector2 = flowCollector3;
+                                FlowCollector<? super T> flowCollector5 = flowCollector4;
+                                flowCollector2 = flowCollector5;
                                 long j3 = j2 + 1;
                                 if (j3 == publisherAsFlow2.getRequestSize()) {
                                     reactiveSubscriber.makeRequest();
@@ -167,11 +168,13 @@ public final class PublisherAsFlow extends ChannelFlow {
                                     publisherAsFlow$collectImpl$1.J$0 = j2;
                                     publisherAsFlow$collectImpl$1.L$4 = obj;
                                     publisherAsFlow$collectImpl$1.label = 2;
+                                    Object emit = flowCollector3.emit(obj, publisherAsFlow$collectImpl$1);
                                     reactiveSubscriber = reactiveSubscriber3;
-                                    if (flowCollector3.emit(obj, publisherAsFlow$collectImpl$1) == coroutine_suspended) {
+                                    flowCollector5 = flowCollector3;
+                                    if (emit == coroutine_suspended) {
                                         return coroutine_suspended;
                                     }
-                                    flowCollector2 = flowCollector3;
+                                    flowCollector2 = flowCollector5;
                                     long j32 = j2 + 1;
                                     if (j32 == publisherAsFlow2.getRequestSize()) {
                                     }
@@ -199,11 +202,12 @@ public final class PublisherAsFlow extends ChannelFlow {
                         } else {
                             j2 = publisherAsFlow$collectImpl$1.J$0;
                             ReactiveSubscriber reactiveSubscriber5 = (ReactiveSubscriber) publisherAsFlow$collectImpl$1.L$3;
-                            flowCollector3 = (FlowCollector) publisherAsFlow$collectImpl$1.L$2;
+                            FlowCollector flowCollector6 = (FlowCollector) publisherAsFlow$collectImpl$1.L$2;
                             coroutineContext3 = (CoroutineContext) publisherAsFlow$collectImpl$1.L$1;
                             publisherAsFlow2 = (PublisherAsFlow) publisherAsFlow$collectImpl$1.L$0;
                             ResultKt.throwOnFailure(obj);
                             reactiveSubscriber3 = reactiveSubscriber5;
+                            flowCollector3 = flowCollector6;
                             if (obj == null) {
                             }
                         }
@@ -240,7 +244,7 @@ public final class PublisherAsFlow extends ChannelFlow {
         reactiveSubscriber = publisherAsFlow$collectImpl$1.label;
     }
 
-    public final /* synthetic */ Object collectSlowPath(FlowCollector flowCollector, Continuation continuation) {
+    public final /* synthetic */ Object collectSlowPath(FlowCollector<? super T> flowCollector, Continuation<? super Unit> continuation) {
         Object coroutineScope = CoroutineScopeKt.coroutineScope(new PublisherAsFlow$collectSlowPath$2(this, flowCollector, null), continuation);
         if (coroutineScope == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             return coroutineScope;
@@ -249,7 +253,7 @@ public final class PublisherAsFlow extends ChannelFlow {
     }
 
     @Override // kotlinx.coroutines.flow.internal.ChannelFlow
-    public Object collectTo(ProducerScope producerScope, Continuation continuation) {
+    public Object collectTo(ProducerScope<? super T> producerScope, Continuation<? super Unit> continuation) {
         Object collectImpl = collectImpl(producerScope.getCoroutineContext(), new SendingCollector(producerScope.getChannel()), continuation);
         if (collectImpl == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             return collectImpl;
@@ -258,7 +262,7 @@ public final class PublisherAsFlow extends ChannelFlow {
     }
 
     @Override // kotlinx.coroutines.flow.internal.ChannelFlow
-    public ChannelFlow create(CoroutineContext coroutineContext, int i) {
+    public ChannelFlow<T> create(CoroutineContext coroutineContext, int i) {
         return new PublisherAsFlow(this.publisher, coroutineContext, i);
     }
 }

@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
 /* loaded from: classes7.dex */
-public class ViewAnimationFactory implements TransitionFactory {
+public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Transition transition;
+    public Transition<R> transition;
     public final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
     /* loaded from: classes7.dex */
-    public class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+    public static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Animation animation;
@@ -53,7 +53,7 @@ public class ViewAnimationFactory implements TransitionFactory {
     }
 
     /* loaded from: classes7.dex */
-    public class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
+    public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int animationId;
@@ -146,7 +146,7 @@ public class ViewAnimationFactory implements TransitionFactory {
     }
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition build(DataSource dataSource, boolean z) {
+    public Transition<R> build(DataSource dataSource, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {

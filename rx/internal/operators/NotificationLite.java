@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yx9;
+import com.baidu.tieba.hz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public final class NotificationLite {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
-    public final class OnErrorSentinel implements Serializable {
+    public static final class OnErrorSentinel implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,22 +126,22 @@ public final class NotificationLite {
         return invokeV.objValue;
     }
 
-    public static boolean a(yx9 yx9Var, Object obj) {
+    public static <T> boolean a(hz9<? super T> hz9Var, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, yx9Var, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, hz9Var, obj)) == null) {
             if (obj == a) {
-                yx9Var.onCompleted();
+                hz9Var.onCompleted();
                 return true;
             } else if (obj == b) {
-                yx9Var.onNext(null);
+                hz9Var.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    yx9Var.onError(((OnErrorSentinel) obj).e);
+                    hz9Var.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                yx9Var.onNext(obj);
+                hz9Var.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");
@@ -168,7 +168,9 @@ public final class NotificationLite {
         return (Throwable) invokeL.objValue;
     }
 
-    public static Object e(Object obj) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> T e(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
@@ -177,7 +179,7 @@ public final class NotificationLite {
             }
             return obj;
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
     public static boolean f(Object obj) {
@@ -201,14 +203,14 @@ public final class NotificationLite {
         return invokeL.booleanValue;
     }
 
-    public static Object h(Object obj) {
+    public static <T> Object h(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
-            if (obj == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) {
+            if (t == null) {
                 return b;
             }
-            return obj;
+            return t;
         }
         return invokeL.objValue;
     }

@@ -1,5 +1,6 @@
 package com.google.android.material.shape;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +48,7 @@ public class RoundedCornerTreatment extends CornerTreatment {
     }
 
     @Override // com.google.android.material.shape.CornerTreatment
-    public void getCornerPath(ShapePath shapePath, float f, float f2, float f3) {
+    public void getCornerPath(@NonNull ShapePath shapePath, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapePath, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             shapePath.reset(0.0f, f3 * f2, 180.0f, 180.0f - f);

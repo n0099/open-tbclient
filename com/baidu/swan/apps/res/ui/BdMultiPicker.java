@@ -12,10 +12,10 @@ import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh3;
-import com.baidu.tieba.e23;
-import com.baidu.tieba.wj1;
-import com.baidu.tieba.z13;
+import com.baidu.tieba.ok1;
+import com.baidu.tieba.r23;
+import com.baidu.tieba.vh3;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdMultiPicker extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean l;
@@ -42,15 +42,15 @@ public class BdMultiPicker extends LinearLayout {
     public int h;
     public int i;
     public int j;
-    public e23 k;
+    public w23 k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject);
     }
 
-    /* loaded from: classes2.dex */
-    public class a implements e23 {
+    /* loaded from: classes3.dex */
+    public class a implements w23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdMultiPicker a;
@@ -73,7 +73,7 @@ public class BdMultiPicker extends LinearLayout {
             this.a = bdMultiPicker;
         }
 
-        @Override // com.baidu.tieba.e23
+        @Override // com.baidu.tieba.w23
         public void a(WheelView3d wheelView3d, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, wheelView3d, i) == null) {
@@ -115,7 +115,7 @@ public class BdMultiPicker extends LinearLayout {
                 return;
             }
         }
-        l = wj1.a;
+        l = ok1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -235,7 +235,7 @@ public class BdMultiPicker extends LinearLayout {
                 Log.d("BdMultiPicker", "update wheel UI dataArray : " + jSONArray);
             }
             wheelView3d.setCyclic(false);
-            wheelView3d.setAdapter(new z13(arrayList));
+            wheelView3d.setAdapter(new r23(arrayList));
             wheelView3d.setCurrentItem(i2);
         }
     }
@@ -275,18 +275,18 @@ public class BdMultiPicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bd, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09265a);
-            this.g = dh3.f(context, this.g);
-            this.j = dh3.f(context, this.j);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00be, this);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926b2);
+            this.g = vh3.f(context, this.g);
+            this.j = vh3.f(context, this.j);
         }
     }
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.h = dh3.f(context, 16.0f);
-            this.i = dh3.f(context, 14.0f);
+            this.h = vh3.f(context, 16.0f);
+            this.i = vh3.f(context, 14.0f);
             for (int i = 0; i < this.d; i++) {
                 WheelView3d wheelView3d = new WheelView3d(context);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -404,7 +404,7 @@ public class BdMultiPicker extends LinearLayout {
                 arrayList.add("");
             }
             WheelView3d wheelView3d = (WheelView3d) this.a.getChildAt(i);
-            wheelView3d.setAdapter(new z13(arrayList));
+            wheelView3d.setAdapter(new r23(arrayList));
             wheelView3d.setCurrentItem(this.c.optInt(i));
             wheelView3d.setCyclic(false);
         }

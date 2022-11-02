@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.upstream.cache;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,9 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import java.io.File;
 /* loaded from: classes7.dex */
-public class CacheSpan implements Comparable {
+public class CacheSpan implements Comparable<CacheSpan> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final File file;
     public final boolean isCached;
     public final String key;
@@ -40,7 +43,7 @@ public class CacheSpan implements Comparable {
         }
     }
 
-    public CacheSpan(String str, long j, long j2, long j3, File file) {
+    public CacheSpan(String str, long j, long j2, long j3, @Nullable File file) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -71,7 +74,7 @@ public class CacheSpan implements Comparable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
-    public int compareTo(CacheSpan cacheSpan) {
+    public int compareTo(@NonNull CacheSpan cacheSpan) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cacheSpan)) == null) {

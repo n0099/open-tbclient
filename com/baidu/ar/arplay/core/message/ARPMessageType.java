@@ -80,7 +80,7 @@ public class ARPMessageType {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class ARPLuaSdkBridgeMessageType {
+    public static class ARPLuaSdkBridgeMessageType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_TYPE_SDK_LUA_GAME_CONFIG = 1001;
         public static final int MSG_TYPE_WEBVIEW_OPERATION = 10800;
@@ -102,7 +102,7 @@ public class ARPMessageType {
     }
 
     /* loaded from: classes.dex */
-    public class ARPMessageParamKeys {
+    public static class ARPMessageParamKeys {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MAP_NPC_KEY_NAME = "script";
         public static final String MODEL_COLOR_KEY = "model_color";

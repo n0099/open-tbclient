@@ -12,7 +12,7 @@ import com.sdk.d.e;
 import java.net.HttpURLConnection;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public class c extends e.c {
+public class c extends e.c<Params, Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ e b;
@@ -38,11 +38,13 @@ public class c extends e.c {
         this.b = eVar;
     }
 
+    /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, Result] */
     @Override // java.util.concurrent.Callable
-    public Object call() {
+    public Result call() {
         InterceptResult invokeV;
         AtomicBoolean atomicBoolean;
-        Object a;
+        ?? a;
         Object[] objArr;
         boolean z;
         Interceptable interceptable = $ic;
@@ -93,7 +95,7 @@ public class c extends e.c {
                     eVar2.a(3, 302002, "网络访问异常");
                 }
             }
-            a = eVar.a((Object) null);
+            a = eVar.a((e) null);
             return a;
         }
         return invokeV.objValue;

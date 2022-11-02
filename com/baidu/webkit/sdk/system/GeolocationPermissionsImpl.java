@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.GeolocationPermissions;
-/* loaded from: classes6.dex */
+import java.util.Set;
+/* loaded from: classes7.dex */
 public final class GeolocationPermissionsImpl extends GeolocationPermissions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class CallbackWrapper implements GeolocationPermissions.Callback {
+    /* loaded from: classes7.dex */
+    public static class CallbackWrapper implements GeolocationPermissions.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final GeolocationPermissions.Callback mCallback;
@@ -85,7 +86,7 @@ public final class GeolocationPermissionsImpl extends GeolocationPermissions {
     }
 
     @Override // com.baidu.webkit.sdk.GeolocationPermissions
-    public final void getAllowed(String str, ValueCallback valueCallback) {
+    public final void getAllowed(String str, ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) {
             android.webkit.GeolocationPermissions.getInstance().getAllowed(str, valueCallback);
@@ -93,7 +94,7 @@ public final class GeolocationPermissionsImpl extends GeolocationPermissions {
     }
 
     @Override // com.baidu.webkit.sdk.GeolocationPermissions
-    public final void getOrigins(ValueCallback valueCallback) {
+    public final void getOrigins(ValueCallback<Set<String>> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, valueCallback) == null) {
             android.webkit.GeolocationPermissions.getInstance().getOrigins(valueCallback);

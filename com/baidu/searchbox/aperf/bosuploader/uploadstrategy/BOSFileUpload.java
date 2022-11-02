@@ -1,6 +1,9 @@
 package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 
+import androidx.annotation.NonNull;
 import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
 import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
 import com.baidu.searchbox.aperf.bosuploader.UploadUrlListener;
@@ -10,6 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+@Singleton
+@Service
 /* loaded from: classes2.dex */
 public class BOSFileUpload extends BaseFileUpload {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +36,7 @@ public class BOSFileUpload extends BaseFileUpload {
     }
 
     @Override // com.baidu.searchbox.aperf.bosuploader.uploadstrategy.BaseFileUpload
-    public ResponseEntity uploadSync(String str, File file) {
+    public ResponseEntity uploadSync(@NonNull String str, @NonNull File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {

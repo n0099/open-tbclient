@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.util;
 
+import android.annotation.TargetApi;
 import android.os.Trace;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,6 +33,7 @@ public final class TraceUtil {
         }
     }
 
+    @TargetApi(18)
     public static void endSectionV18() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
@@ -46,6 +48,7 @@ public final class TraceUtil {
         }
     }
 
+    @TargetApi(18)
     public static void beginSectionV18(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {

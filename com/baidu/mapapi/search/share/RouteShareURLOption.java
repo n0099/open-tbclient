@@ -21,7 +21,7 @@ public class RouteShareURLOption {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class RouteShareMode {
+    public static final class RouteShareMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RouteShareMode BUS_ROUTE_SHARE_MODE;
         public static final RouteShareMode CAR_ROUTE_SHARE_MODE;
@@ -77,19 +77,28 @@ public class RouteShareURLOption {
         public static RouteShareMode valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RouteShareMode) Enum.valueOf(RouteShareMode.class, str) : (RouteShareMode) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (RouteShareMode) Enum.valueOf(RouteShareMode.class, str);
+            }
+            return (RouteShareMode) invokeL.objValue;
         }
 
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) b.clone() : (RouteShareMode[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (RouteShareMode[]) b.clone();
+            }
+            return (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -112,6 +121,15 @@ public class RouteShareURLOption {
         this.mCityCode = -1;
     }
 
+    public RouteShareMode getmMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mMode;
+        }
+        return (RouteShareMode) invokeV.objValue;
+    }
+
     public RouteShareURLOption cityCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -130,12 +148,6 @@ public class RouteShareURLOption {
             return this;
         }
         return (RouteShareURLOption) invokeL.objValue;
-    }
-
-    public RouteShareMode getmMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMode : (RouteShareMode) invokeV.objValue;
     }
 
     public RouteShareURLOption pn(int i) {

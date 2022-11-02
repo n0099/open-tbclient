@@ -3,6 +3,11 @@ package androidx.room;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import androidx.arch.core.internal.SafeIterableMap;
 import androidx.collection.ArrayMap;
 import androidx.collection.ArraySet;
@@ -30,8 +35,10 @@ import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes.dex */
 public class InvalidationTracker {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final String CLEANUP_SQL = "DELETE FROM room_table_modification_log WHERE version NOT IN( SELECT MAX(version) FROM room_table_modification_log GROUP BY table_id)";
     public static final String CREATE_VERSION_TABLE_SQL = "CREATE TEMP TABLE room_table_modification_log(version INTEGER PRIMARY KEY AUTOINCREMENT, table_id INTEGER)";
+    @VisibleForTesting
     public static final String SELECT_UPDATED_TABLES_SQL = "SELECT * FROM room_table_modification_log WHERE version  > ? ORDER BY version ASC;";
     public static final String TABLE_ID_COLUMN_NAME = "table_id";
     public static final String[] TRIGGERS;
@@ -43,12 +50,18 @@ public class InvalidationTracker {
     public volatile boolean mInitialized;
     public long mMaxVersion;
     public ObservedTableTracker mObservedTableTracker;
+    @VisibleForTesting
     public final SafeIterableMap<Observer, ObserverWrapper> mObserverMap;
     public AtomicBoolean mPendingRefresh;
     public Object[] mQueryArgs;
+    @VisibleForTesting
     public Runnable mRefreshRunnable;
+    @NonNull
+    @VisibleForTesting
     public ArrayMap<String, Integer> mTableIdLookup;
     public String[] mTableNames;
+    @NonNull
+    @VisibleForTesting
     public long[] mTableVersions;
 
     /* loaded from: classes.dex */
@@ -87,6 +100,7 @@ public class InvalidationTracker {
             Arrays.fill(this.mTriggerStates, false);
         }
 
+        @Nullable
         public int[] getTablesToSync() {
             InterceptResult invokeV;
             boolean z;
@@ -186,9 +200,9 @@ public class InvalidationTracker {
         public transient /* synthetic */ FieldHolder $fh;
         public final String[] mTables;
 
-        public abstract void onInvalidated(Set<String> set);
+        public abstract void onInvalidated(@NonNull Set<String> set);
 
-        public Observer(String str, String... strArr) {
+        public Observer(@NonNull String str, String... strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +222,7 @@ public class InvalidationTracker {
             strArr2[strArr.length] = str;
         }
 
-        public Observer(String[] strArr) {
+        public Observer(@NonNull String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -322,7 +336,7 @@ public class InvalidationTracker {
         }
 
         @Override // androidx.room.InvalidationTracker.Observer
-        public void onInvalidated(Set<String> set) {
+        public void onInvalidated(@NonNull Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, set) == null) {
                 Observer observer = this.mDelegateRef.get();
@@ -358,6 +372,8 @@ public class InvalidationTracker {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @WorkerThread
     public void refreshVersionsSync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -374,6 +390,7 @@ public class InvalidationTracker {
         syncTriggers(this.mDatabase.getOpenHelper().getWritableDatabase());
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public InvalidationTracker(RoomDatabase roomDatabase, String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -556,7 +573,8 @@ public class InvalidationTracker {
         }
     }
 
-    public void addObserver(Observer observer) {
+    @WorkerThread
+    public void addObserver(@NonNull Observer observer) {
         ObserverWrapper putIfAbsent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
@@ -620,6 +638,7 @@ public class InvalidationTracker {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void addWeakObserver(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observer) == null) {
@@ -627,7 +646,8 @@ public class InvalidationTracker {
         }
     }
 
-    public void removeObserver(Observer observer) {
+    @WorkerThread
+    public void removeObserver(@NonNull Observer observer) {
         ObserverWrapper remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {

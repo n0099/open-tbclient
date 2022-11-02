@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableSubscriber;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Action;
 import io.reactivex.internal.fuseable.ConditionalSubscriber;
@@ -18,24 +20,25 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+@Experimental
 /* loaded from: classes8.dex */
-public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
+public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onFinally;
 
     /* loaded from: classes8.dex */
-    public final class DoFinallyConditionalSubscriber extends BasicIntQueueSubscription implements ConditionalSubscriber {
+    public static final class DoFinallyConditionalSubscriber<T> extends BasicIntQueueSubscription<T> implements ConditionalSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ConditionalSubscriber actual;
+        public final ConditionalSubscriber<? super T> actual;
         public final Action onFinally;
-        public QueueSubscription qs;
+        public QueueSubscription<T> qs;
         public Subscription s;
         public boolean syncFused;
 
-        public DoFinallyConditionalSubscriber(ConditionalSubscriber conditionalSubscriber, Action action) {
+        public DoFinallyConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,17 +94,18 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll == null && this.syncFused) {
                     runFinally();
                 }
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         public void runFinally() {
@@ -126,10 +130,10 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -158,7 +162,7 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-                QueueSubscription queueSubscription = this.qs;
+                QueueSubscription<T> queueSubscription = this.qs;
                 boolean z = false;
                 if (queueSubscription == null || (i & 4) != 0) {
                     return 0;
@@ -176,28 +180,28 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
-        public boolean tryOnNext(Object obj) {
+        public boolean tryOnNext(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
-                return this.actual.tryOnNext(obj);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, t)) == null) {
+                return this.actual.tryOnNext(t);
             }
             return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public final class DoFinallySubscriber extends BasicIntQueueSubscription implements FlowableSubscriber {
+    public static final class DoFinallySubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public final Action onFinally;
-        public QueueSubscription qs;
+        public QueueSubscription<T> qs;
         public Subscription s;
         public boolean syncFused;
 
-        public DoFinallySubscriber(Subscriber subscriber, Action action) {
+        public DoFinallySubscriber(Subscriber<? super T> subscriber, Action action) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -253,17 +257,18 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
-        public Object poll() throws Exception {
+        @Nullable
+        public T poll() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                Object poll = this.qs.poll();
+                T poll = this.qs.poll();
                 if (poll == null && this.syncFused) {
                     runFinally();
                 }
                 return poll;
             }
-            return invokeV.objValue;
+            return (T) invokeV.objValue;
         }
 
         public void runFinally() {
@@ -288,10 +293,10 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.actual.onNext(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.actual.onNext(t);
             }
         }
 
@@ -320,7 +325,7 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-                QueueSubscription queueSubscription = this.qs;
+                QueueSubscription<T> queueSubscription = this.qs;
                 boolean z = false;
                 if (queueSubscription == null || (i & 4) != 0) {
                     return 0;
@@ -339,7 +344,7 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDoFinally(Flowable flowable, Action action) {
+    public FlowableDoFinally(Flowable<T> flowable, Action action) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -360,7 +365,7 @@ public final class FlowableDoFinally extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             if (subscriber instanceof ConditionalSubscriber) {

@@ -462,10 +462,10 @@ public class SmartLaunchStats {
                     jSONObject2.put("process_available_time", -1L);
                 }
                 jSONObject2.put("device_score", ScheduleStrategy.getDeviceScore());
-                List registeredPersonalLaunchTasks = SmartLaunchScheduler.getInstance().getRegisteredPersonalLaunchTasks();
+                List<SmartLaunchTask> registeredPersonalLaunchTasks = SmartLaunchScheduler.getInstance().getRegisteredPersonalLaunchTasks();
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < registeredPersonalLaunchTasks.size(); i++) {
-                    SmartLaunchTask smartLaunchTask = (SmartLaunchTask) registeredPersonalLaunchTasks.get(i);
+                    registeredPersonalLaunchTasks.get(i);
                 }
                 jSONObject2.put("count", 0);
                 jSONObject2.put(UBC_BUSINESS_KEY, jSONArray);

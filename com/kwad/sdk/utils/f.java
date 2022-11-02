@@ -13,9 +13,14 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.WorkerThread;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.collector.c;
+import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -61,12 +66,12 @@ public final class f {
     public static Messenger amL;
     public static volatile ExecutorService amM;
     public static volatile AppStatusRules amN;
-    public static WeakReference amO;
+    public static WeakReference<Context> amO;
     public static com.kwad.sdk.collector.h amP;
 
     /* renamed from: com.kwad.sdk.utils.f$2  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass2 implements Runnable {
+    public static class AnonymousClass2 implements Runnable {
         public final /* synthetic */ Context gC;
 
         public AnonymousClass2(Context context) {
@@ -121,8 +126,8 @@ public final class f {
     }
 
     /* loaded from: classes8.dex */
-    public final class a implements com.kwad.sdk.core.b {
-        public List amV = new ArrayList();
+    public static class a implements com.kwad.sdk.core.b {
+        public List<Long> amV = new ArrayList();
         public String appName;
         public String packageName;
 
@@ -138,7 +143,8 @@ public final class f {
             this.amV.add(Long.valueOf(j));
         }
 
-        public static JSONArray y(List list) {
+        @Nullable
+        public static JSONArray y(List<com.kwad.sdk.collector.model.b> list) {
             List<a> list2;
             try {
                 list2 = z(list);
@@ -156,14 +162,13 @@ public final class f {
             return jSONArray;
         }
 
-        public static List z(List list) {
+        @Nullable
+        public static List<a> z(List<com.kwad.sdk.collector.model.b> list) {
             a aVar;
             if (list != null && list.size() != 0) {
                 HashMap hashMap = new HashMap();
                 try {
-                    Iterator it = list.iterator();
-                    while (it.hasNext()) {
-                        com.kwad.sdk.collector.model.b bVar = (com.kwad.sdk.collector.model.b) it.next();
+                    for (com.kwad.sdk.collector.model.b bVar : list) {
                         String b = com.kwad.sdk.collector.model.c.b(bVar);
                         if (hashMap.containsKey(b)) {
                             aVar = (a) hashMap.get(b);
@@ -186,7 +191,7 @@ public final class f {
         }
 
         @Override // com.kwad.sdk.core.b
-        public final void parseJson(JSONObject jSONObject) {
+        public final void parseJson(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
@@ -222,23 +227,23 @@ public final class f {
 
     /* loaded from: classes8.dex */
     public interface b {
-        void m(List list);
+        void m(List<com.kwad.sdk.collector.model.b> list);
     }
 
     /* loaded from: classes8.dex */
-    public final class c extends Handler {
-        public c(Looper looper) {
+    public static class c extends Handler {
+        public c(@NonNull Looper looper) {
             super(looper);
         }
 
-        public static void A(List list) {
+        public static void A(List<a> list) {
             if (list == null) {
                 return;
             }
             f.amP.c(r.B(list));
         }
 
-        public static void a(ArrayList arrayList) {
+        public static void a(ArrayList<com.kwad.sdk.collector.model.b> arrayList) {
             JSONArray y;
             if (arrayList == null || (y = a.y(arrayList)) == null) {
                 return;
@@ -254,13 +259,14 @@ public final class f {
             if (data != null) {
                 try {
                     if (data.containsKey("resultJson")) {
-                        list = r.a(data.getString("resultJson"), new com.kwad.sdk.core.c() { // from class: com.kwad.sdk.utils.f.c.1
+                        list = r.a(data.getString("resultJson"), new com.kwad.sdk.core.c<a>() { // from class: com.kwad.sdk.utils.f.c.1
                             public static a zg() {
                                 return new a();
                             }
 
+                            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                             @Override // com.kwad.sdk.core.c
-                            public final /* synthetic */ com.kwad.sdk.core.b qt() {
+                            public final /* synthetic */ a qt() {
                                 return zg();
                             }
                         });
@@ -285,13 +291,14 @@ public final class f {
                 if (data.containsKey("allStrategyJson")) {
                     String string = data.getString("allStrategyJson");
                     if (string != null) {
-                        list2 = r.a(string, new com.kwad.sdk.core.c() { // from class: com.kwad.sdk.utils.f.c.2
+                        list2 = r.a(string, new com.kwad.sdk.core.c<AppStatusRules.Strategy>() { // from class: com.kwad.sdk.utils.f.c.2
                             public static AppStatusRules.Strategy zh() {
                                 return new AppStatusRules.Strategy();
                             }
 
+                            /* JADX DEBUG: Return type fixed from 'com.kwad.sdk.core.b' to match base method */
                             @Override // com.kwad.sdk.core.c
-                            public final /* synthetic */ com.kwad.sdk.core.b qt() {
+                            public final /* synthetic */ AppStatusRules.Strategy qt() {
                                 return zh();
                             }
                         });
@@ -316,7 +323,7 @@ public final class f {
         }
 
         @Override // android.os.Handler
-        public final void handleMessage(Message message) {
+        public final void handleMessage(@NonNull Message message) {
             super.handleMessage(message);
             if (message.what != 101) {
                 return;
@@ -330,14 +337,14 @@ public final class f {
     }
 
     /* loaded from: classes8.dex */
-    public final class d implements b {
+    public static class d implements b {
         public b amX = null;
 
         public d(b bVar) {
         }
 
         @Override // com.kwad.sdk.utils.f.b
-        public final void m(List list) {
+        public final void m(List<com.kwad.sdk.collector.model.b> list) {
             JSONArray y = a.y(list);
             if (y != null) {
                 f.amP.c(y);
@@ -349,7 +356,8 @@ public final class f {
         }
     }
 
-    public static List a(AppStatusRules.Strategy strategy, Map map) {
+    @NonNull
+    public static List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
         boolean isNeedLaunch = strategy.isNeedLaunch();
         com.kwad.sdk.core.e.b.d("AppStatusHelper", "analysisByFile, strategy: " + strategy.getName() + ", needLaunch: " + isNeedLaunch);
         return !isNeedLaunch ? new ArrayList() : com.kwad.sdk.collector.b.rp().a(strategy, map);
@@ -363,7 +371,7 @@ public final class f {
         boolean isInMainProcess = SystemUtil.isInMainProcess(context);
         com.kwad.sdk.core.e.b.d("AppStatusHelper", "isMainProcess: " + isInMainProcess);
         if (isInMainProcess) {
-            amO = new WeakReference(context);
+            amO = new WeakReference<>(context);
             if (MX == null) {
                 MX = new Handler(Looper.getMainLooper());
             }
@@ -401,6 +409,7 @@ public final class f {
         });
     }
 
+    @WorkerThread
     public static void b(Context context, AppStatusRules appStatusRules) {
         File file = new File(context.getFilesDir(), "LOCAL_APP_STATUS_RULES_JSON");
         String jSONObject = appStatusRules.toJson().toString();
@@ -410,12 +419,15 @@ public final class f {
         com.kwad.sdk.crash.utils.g.g(file.getAbsolutePath(), com.kwad.sdk.core.a.c.bN(jSONObject), false);
     }
 
+    @WorkerThread
     public static void bS(Context context) {
         if (amN == null) {
             amN = bT(context);
         }
     }
 
+    @Nullable
+    @WorkerThread
     public static AppStatusRules bT(Context context) {
         File file = new File(context.getFilesDir(), "LOCAL_APP_STATUS_RULES_JSON");
         if (file.exists()) {
@@ -451,7 +463,8 @@ public final class f {
         }
     }
 
-    public static List bV(Context context) {
+    @WorkerThread
+    public static List<com.kwad.sdk.collector.model.b> bV(Context context) {
         if (az.dy(context)) {
             if (amN == null) {
                 amN = bT(context);
@@ -461,13 +474,14 @@ public final class f {
         return new ArrayList();
     }
 
-    public static List bW(Context context) {
+    @RequiresPermission("android.permission.WRITE_EXTERNAL_STORAGE")
+    public static List<com.kwad.sdk.collector.model.b> bW(Context context) {
         ArrayList arrayList = new ArrayList();
         if (aq.Ae() || com.kwad.sdk.core.config.d.i(PlaybackStateCompat.ACTION_PLAY_FROM_URI) || com.kwad.sdk.utils.c.bQ(context)) {
             return arrayList;
         }
         AppStatusRules yV = yV();
-        Map cT = ar.cT(context);
+        Map<String, InstalledAppInfoManager.AppPackageInfo> cT = ar.cT(context);
         for (AppStatusRules.Strategy strategy : com.kwad.sdk.collector.i.c(yV)) {
             arrayList.addAll(a(strategy, cT));
             strategy.setNeedSaveLaunchTime(System.currentTimeMillis());
@@ -491,7 +505,7 @@ public final class f {
         });
     }
 
-    public static List x(List list) {
+    public static List<com.kwad.sdk.collector.model.b> x(List<com.kwad.sdk.collector.model.b> list) {
         return list.isEmpty() ? list : new ArrayList(new LinkedHashSet(list));
     }
 

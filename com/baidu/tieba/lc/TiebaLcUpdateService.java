@@ -2,11 +2,12 @@ package com.baidu.tieba.lc;
 
 import android.content.Intent;
 import android.os.IBinder;
+import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tieba.eg7;
+import com.baidu.tieba.oh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,9 +18,10 @@ import java.io.Serializable;
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg7 mLcUpdateAsyncTask;
+    public oh7 mLcUpdateAsyncTask;
 
     @Override // android.app.Service
+    @Nullable
     public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -55,9 +57,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            eg7 eg7Var = this.mLcUpdateAsyncTask;
-            if (eg7Var != null) {
-                eg7Var.cancel();
+            oh7 oh7Var = this.mLcUpdateAsyncTask;
+            if (oh7Var != null) {
+                oh7Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();
@@ -69,14 +71,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if ((interceptable != null && interceptable.invokeL(65537, this, clientUpdateInfo) != null) || clientUpdateInfo == null) {
             return;
         }
-        eg7 eg7Var = this.mLcUpdateAsyncTask;
-        if (eg7Var != null) {
-            eg7Var.cancel();
+        oh7 oh7Var = this.mLcUpdateAsyncTask;
+        if (oh7Var != null) {
+            oh7Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        eg7 eg7Var2 = new eg7(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = eg7Var2;
-        eg7Var2.execute(new String[0]);
+        oh7 oh7Var2 = new oh7(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = oh7Var2;
+        oh7Var2.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service

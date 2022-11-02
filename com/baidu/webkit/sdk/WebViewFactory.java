@@ -1,5 +1,6 @@
 package com.baidu.webkit.sdk;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -10,6 +11,7 @@ import android.os.Looper;
 import android.os.Process;
 import android.os.StrictMode;
 import android.util.AndroidRuntimeException;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -38,7 +40,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
@@ -91,7 +93,7 @@ public final class WebViewFactory {
     public static boolean sforceMainProcessNoZeus;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -460,6 +462,7 @@ public final class WebViewFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? mNetProbeObject : (INetProbeInterface) invokeV.objValue;
     }
 
+    @SuppressLint({"NewApi"})
     public static File getOptFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1274,6 +1277,7 @@ public final class WebViewFactory {
         }
     }
 
+    @RequiresApi(api = 8)
     public static boolean installZesEngineIfNeeded(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Context context;

@@ -8,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.time.MonotonicClock;
 import com.facebook.common.time.RealtimeSinceBootClock;
 import com.facebook.common.util.UriUtil;
+import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.NetworkFetcher;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,7 +25,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
+public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlConnectionNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_TIME = "fetch_time";
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -39,7 +41,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
     public int mHttpConnectionTimeout;
     public final MonotonicClock mMonotonicClock;
     @Nullable
-    public final Map mRequestHeaders;
+    public final Map<String, String> mRequestHeaders;
     @Nullable
     public String mUserAgent;
 
@@ -70,7 +72,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
     }
 
     /* loaded from: classes7.dex */
-    public class HttpUrlConnectionNetworkFetchState extends FetchState {
+    public static class HttpUrlConnectionNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long fetchCompleteTime;
@@ -78,7 +80,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
         public long submitTime;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpUrlConnectionNetworkFetchState(Consumer consumer, ProducerContext producerContext) {
+        public HttpUrlConnectionNetworkFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
             super(consumer, producerContext);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -101,7 +103,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpUrlConnectionNetworkFetcher() {
-        this((String) null, (Map) null, RealtimeSinceBootClock.get());
+        this((String) null, (Map<String, String>) null, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +122,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpUrlConnectionNetworkFetcher(int i) {
-        this((String) null, (Map) null, RealtimeSinceBootClock.get());
+        this((String) null, (Map<String, String>) null, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +144,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HttpUrlConnectionNetworkFetcher(String str, int i) {
-        this(str, (Map) null, RealtimeSinceBootClock.get());
+        this(str, (Map<String, String>) null, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,6 +175,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
     /* JADX WARN: Type inference failed for: r0v6, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, com.facebook.imagepipeline.producers.NetworkFetcher$Callback] */
+    @VisibleForTesting
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -246,7 +249,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map getExtraMap(HttpUrlConnectionNetworkFetchState httpUrlConnectionNetworkFetchState, int i) {
+    public Map<String, String> getExtraMap(HttpUrlConnectionNetworkFetchState httpUrlConnectionNetworkFetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, httpUrlConnectionNetworkFetchState, i)) == null) {
@@ -261,7 +264,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher(String str, @Nullable Map map, int i) {
+    public HttpUrlConnectionNetworkFetcher(String str, @Nullable Map<String, String> map, int i) {
         this(str, map, RealtimeSinceBootClock.get());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -282,7 +285,8 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
         this.mHttpConnectionTimeout = i;
     }
 
-    public HttpUrlConnectionNetworkFetcher(@Nullable String str, @Nullable Map map, MonotonicClock monotonicClock) {
+    @VisibleForTesting
+    public HttpUrlConnectionNetworkFetcher(@Nullable String str, @Nullable Map<String, String> map, MonotonicClock monotonicClock) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -314,10 +318,10 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
             if (str != null) {
                 openConnectionTo.setRequestProperty("User-Agent", str);
             }
-            Map map = this.mRequestHeaders;
+            Map<String, String> map = this.mRequestHeaders;
             if (map != null) {
-                for (Map.Entry entry : map.entrySet()) {
-                    openConnectionTo.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    openConnectionTo.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
             openConnectionTo.setConnectTimeout(this.mHttpConnectionTimeout);
@@ -359,6 +363,12 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
         return (String) invokeLL.objValue;
     }
 
+    @Override // com.facebook.imagepipeline.producers.NetworkFetcher
+    public /* bridge */ /* synthetic */ FetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+        return createFetchState((Consumer<EncodedImage>) consumer, producerContext);
+    }
+
+    @VisibleForTesting
     public static HttpURLConnection openConnectionTo(Uri uri) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -368,9 +378,8 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher {
         return (HttpURLConnection) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.NetworkFetcher
-    public HttpUrlConnectionNetworkFetchState createFetchState(Consumer consumer, ProducerContext producerContext) {
+    public HttpUrlConnectionNetworkFetchState createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, producerContext)) == null) {

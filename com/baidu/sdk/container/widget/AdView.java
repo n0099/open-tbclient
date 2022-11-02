@@ -1,5 +1,6 @@
 package com.baidu.sdk.container.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.KeyEvent;
 import android.widget.RelativeLayout;
@@ -21,6 +22,7 @@ public class AdView extends RelativeLayout {
 
         void onAttachedToWindow();
 
+        @SuppressLint({"MissingSuperCall"})
         void onDetachedFromWindow();
 
         boolean onKeyDown(int i, KeyEvent keyEvent);

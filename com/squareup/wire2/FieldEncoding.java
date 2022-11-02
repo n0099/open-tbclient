@@ -23,7 +23,7 @@ public final class FieldEncoding {
     public final int value;
 
     /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public final class FieldEncoding {
         return (FieldEncoding[]) invokeV.objValue;
     }
 
-    public ProtoAdapter rawProtoAdapter() {
+    public ProtoAdapter<?> rawProtoAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

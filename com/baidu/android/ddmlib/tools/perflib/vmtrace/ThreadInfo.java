@@ -1,5 +1,7 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +16,7 @@ public class ThreadInfo {
     public final String mName;
     public final Call mTopLevelCall;
 
-    public ThreadInfo(int i, String str, Call call) {
+    public ThreadInfo(int i, @NonNull String str, @Nullable Call call) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,6 +45,7 @@ public class ThreadInfo {
         return invokeV.intValue;
     }
 
+    @NonNull
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,6 +55,7 @@ public class ThreadInfo {
         return (String) invokeV.objValue;
     }
 
+    @Nullable
     public Call getTopLevelCall() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -22,13 +22,18 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import kotlin.Deprecated;
 import kotlin.DeprecatedSinceKotlin;
+import kotlin.ExperimentalStdlibApi;
+import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
+import kotlin.OverloadResolutionByLambdaReturnType;
 import kotlin.Pair;
 import kotlin.ReplaceWith;
+import kotlin.SinceKotlin;
 import kotlin.TuplesKt;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.Unit;
+import kotlin.WasExperimental;
 import kotlin.collections.CollectionsKt__CollectionsJVMKt;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt__IterablesKt;
@@ -41,6 +46,8 @@ import kotlin.collections.MapsKt__MapsJVMKt;
 import kotlin.collections.SetsKt__SetsJVMKt;
 import kotlin.collections.SetsKt__SetsKt;
 import kotlin.collections.SlidingWindowKt;
+import kotlin.internal.InlineOnly;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -58,7 +65,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(all, "$this$all");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < all.length(); i++) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(all.charAt(i)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(all.charAt(i))).booleanValue()) {
                 return false;
             }
         }
@@ -69,18 +76,20 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(any, "$this$any");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < any.length(); i++) {
-            if (((Boolean) predicate.invoke(Character.valueOf(any.charAt(i)))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(any.charAt(i))).booleanValue()) {
                 return true;
             }
         }
         return false;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final List<String> chunked(CharSequence chunked, int i) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         return windowed(chunked, i, i, true);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final Sequence<String> chunkedSequence(CharSequence chunkedSequence, int i) {
         Intrinsics.checkNotNullParameter(chunkedSequence, "$this$chunkedSequence");
         return chunkedSequence(chunkedSequence, i, StringsKt___StringsKt$chunkedSequence$1.INSTANCE);
@@ -91,7 +100,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int i = 0;
         for (int i2 = 0; i2 < count.length(); i2++) {
-            if (((Boolean) predicate.invoke(Character.valueOf(count.charAt(i2)))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(count.charAt(i2))).booleanValue()) {
                 i++;
             }
         }
@@ -102,13 +111,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(dropLastWhile.charAt(lastIndex)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(dropLastWhile.charAt(lastIndex))).booleanValue()) {
                 return dropLastWhile.subSequence(0, lastIndex + 1);
             }
         }
         return "";
     }
 
+    @InlineOnly
     public static final Character elementAtOrNull(CharSequence charSequence, int i) {
         return getOrNull(charSequence, i);
     }
@@ -120,7 +130,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int length = filter.length();
         for (int i = 0; i < length; i++) {
             char charAt = filter.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
         }
@@ -133,23 +143,25 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < filterNot.length(); i++) {
             char charAt = filterNot.charAt(i);
-            if (!((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
         }
         return sb;
     }
 
+    @InlineOnly
     public static final Character find(CharSequence charSequence, Function1<? super Character, Boolean> function1) {
         for (int i = 0; i < charSequence.length(); i++) {
             char charAt = charSequence.charAt(i);
-            if (((Boolean) function1.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (function1.invoke(Character.valueOf(charAt)).booleanValue()) {
                 return Character.valueOf(charAt);
             }
         }
         return null;
     }
 
+    @InlineOnly
     public static final Character findLast(CharSequence charSequence, Function1<? super Character, Boolean> function1) {
         char charAt;
         int length = charSequence.length();
@@ -160,7 +172,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) function1.invoke(Character.valueOf(charAt))).booleanValue());
+        } while (!function1.invoke(Character.valueOf(charAt)).booleanValue());
         return Character.valueOf(charAt);
     }
 
@@ -169,19 +181,21 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < first.length(); i++) {
             char charAt = first.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 return charAt;
             }
         }
         throw new NoSuchElementException("Char sequence contains no character matching the predicate.");
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <R> R firstNotNullOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         R r;
         int i = 0;
         while (true) {
             if (i < charSequence.length()) {
-                r = (R) function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                r = function1.invoke(Character.valueOf(charSequence.charAt(i)));
                 if (r != null) {
                     break;
                 }
@@ -197,11 +211,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException("No element of the char sequence was transformed to a non-null value.");
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
     public static final <R> R firstNotNullOfOrNull(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         for (int i = 0; i < charSequence.length(); i++) {
-            R r = (R) function1.invoke(Character.valueOf(charSequence.charAt(i)));
-            if (r != null) {
-                return r;
+            R invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+            if (invoke != null) {
+                return invoke;
             }
         }
         return null;
@@ -212,7 +228,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < firstOrNull.length(); i++) {
             char charAt = firstOrNull.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 return Character.valueOf(charAt);
             }
         }
@@ -224,11 +240,15 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < flatMap.length(); i++) {
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) transform.invoke(Character.valueOf(flatMap.charAt(i))));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, transform.invoke(Character.valueOf(flatMap.charAt(i))));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterable")
+    @OverloadResolutionByLambdaReturnType
     public static final <R> List<R> flatMapIndexedIterable(CharSequence charSequence, Function2<? super Integer, ? super Character, ? extends Iterable<? extends R>> function2) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
@@ -236,7 +256,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             char charAt = charSequence.charAt(i2);
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(arrayList, (Iterable) function2.invoke(valueOf, Character.valueOf(charAt)));
+            CollectionsKt__MutableCollectionsKt.addAll(arrayList, function2.invoke(valueOf, Character.valueOf(charAt)));
         }
         return arrayList;
     }
@@ -269,6 +289,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return null;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <K> Grouping<Character, K> groupingBy(final CharSequence groupingBy, final Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupingBy, "$this$groupingBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -278,9 +299,10 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
                 return keySelector.invoke(Character.valueOf(c));
             }
 
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
             @Override // kotlin.collections.Grouping
-            public /* bridge */ /* synthetic */ Object keyOf(Object obj) {
-                return keyOf(((Character) obj).charValue());
+            public /* bridge */ /* synthetic */ Object keyOf(Character ch) {
+                return keyOf(ch.charValue());
             }
 
             @Override // kotlin.collections.Grouping
@@ -295,7 +317,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = indexOfFirst.length();
         for (int i = 0; i < length; i++) {
-            if (((Boolean) predicate.invoke(Character.valueOf(indexOfFirst.charAt(i)))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(indexOfFirst.charAt(i))).booleanValue()) {
                 return i;
             }
         }
@@ -306,7 +328,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(indexOfLast, "$this$indexOfLast");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int length = indexOfLast.length() - 1; length >= 0; length--) {
-            if (((Boolean) predicate.invoke(Character.valueOf(indexOfLast.charAt(length)))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(indexOfLast.charAt(length))).booleanValue()) {
                 return length;
             }
         }
@@ -325,7 +347,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             } else {
                 throw new NoSuchElementException("Char sequence contains no character matching the predicate.");
             }
-        } while (!((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue());
+        } while (!predicate.invoke(Character.valueOf(charAt)).booleanValue());
         return charAt;
     }
 
@@ -341,7 +363,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             } else {
                 return null;
             }
-        } while (!((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue());
+        } while (!predicate.invoke(Character.valueOf(charAt)).booleanValue());
         return Character.valueOf(charAt);
     }
 
@@ -360,7 +382,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(transform, "transform");
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < mapNotNull.length(); i++) {
-            Object invoke = transform.invoke(Character.valueOf(mapNotNull.charAt(i)));
+            R invoke = transform.invoke(Character.valueOf(mapNotNull.charAt(i)));
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -388,13 +410,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(none, "$this$none");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < none.length(); i++) {
-            if (((Boolean) predicate.invoke(Character.valueOf(none.charAt(i)))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(none.charAt(i))).booleanValue()) {
                 return false;
             }
         }
         return true;
     }
 
+    @SinceKotlin(version = "1.1")
     public static final <S extends CharSequence> S onEach(S onEach, Function1<? super Character, Unit> action) {
         Intrinsics.checkNotNullParameter(onEach, "$this$onEach");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -404,6 +427,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return onEach;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <S extends CharSequence> S onEachIndexed(S onEachIndexed, Function2<? super Integer, ? super Character, Unit> action) {
         Intrinsics.checkNotNullParameter(onEachIndexed, "$this$onEachIndexed");
         Intrinsics.checkNotNullParameter(action, "action");
@@ -417,6 +441,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return onEachIndexed;
     }
 
+    @SinceKotlin(version = "1.3")
     public static final char random(CharSequence random, Random random2) {
         boolean z;
         Intrinsics.checkNotNullParameter(random, "$this$random");
@@ -432,6 +457,8 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException("Char sequence is empty.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character randomOrNull(CharSequence randomOrNull, Random random) {
         boolean z;
         Intrinsics.checkNotNullParameter(randomOrNull, "$this$randomOrNull");
@@ -463,7 +490,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         int i = 0;
         for (int i2 = 0; i2 < sumBy.length(); i2++) {
-            i += ((Number) selector.invoke(Character.valueOf(sumBy.charAt(i2)))).intValue();
+            i += selector.invoke(Character.valueOf(sumBy.charAt(i2))).intValue();
         }
         return i;
     }
@@ -475,47 +502,69 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(selector, "selector");
         double d = 0.0d;
         for (int i = 0; i < sumByDouble.length(); i++) {
-            d += ((Number) selector.invoke(Character.valueOf(sumByDouble.charAt(i)))).doubleValue();
+            d += selector.invoke(Character.valueOf(sumByDouble.charAt(i))).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfDouble")
+    @OverloadResolutionByLambdaReturnType
     public static final double sumOfDouble(CharSequence charSequence, Function1<? super Character, Double> function1) {
         double d = 0;
         for (int i = 0; i < charSequence.length(); i++) {
-            d += ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).doubleValue();
+            d += function1.invoke(Character.valueOf(charSequence.charAt(i))).doubleValue();
         }
         return d;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfInt")
+    @OverloadResolutionByLambdaReturnType
     public static final int sumOfInt(CharSequence charSequence, Function1<? super Character, Integer> function1) {
         int i = 0;
         for (int i2 = 0; i2 < charSequence.length(); i2++) {
-            i += ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i2)))).intValue();
+            i += function1.invoke(Character.valueOf(charSequence.charAt(i2))).intValue();
         }
         return i;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "sumOfLong")
+    @OverloadResolutionByLambdaReturnType
     public static final long sumOfLong(CharSequence charSequence, Function1<? super Character, Long> function1) {
         long j = 0;
         for (int i = 0; i < charSequence.length(); i++) {
-            j += ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).longValue();
+            j += function1.invoke(Character.valueOf(charSequence.charAt(i))).longValue();
         }
         return j;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfUInt")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final int sumOfUInt(CharSequence charSequence, Function1<? super Character, UInt> function1) {
         int m792constructorimpl = UInt.m792constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + ((UInt) function1.invoke(Character.valueOf(charSequence.charAt(i)))).m843unboximpl());
+            m792constructorimpl = UInt.m792constructorimpl(m792constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m843unboximpl());
         }
         return m792constructorimpl;
     }
 
+    @SinceKotlin(version = "1.5")
+    @InlineOnly
+    @JvmName(name = "sumOfULong")
+    @OverloadResolutionByLambdaReturnType
+    @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final long sumOfULong(CharSequence charSequence, Function1<? super Character, ULong> function1) {
         long m870constructorimpl = ULong.m870constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + ((ULong) function1.invoke(Character.valueOf(charSequence.charAt(i)))).m921unboximpl());
+            m870constructorimpl = ULong.m870constructorimpl(m870constructorimpl + function1.invoke(Character.valueOf(charSequence.charAt(i))).m921unboximpl());
         }
         return m870constructorimpl;
     }
@@ -577,6 +626,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         };
     }
 
+    @InlineOnly
     public static final int count(CharSequence charSequence) {
         return charSequence.length();
     }
@@ -659,10 +709,15 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return false;
     }
 
+    @SinceKotlin(version = "1.3")
+    @InlineOnly
     public static final char random(CharSequence charSequence) {
         return random(charSequence, Random.Default);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
+    @InlineOnly
     public static final Character randomOrNull(CharSequence charSequence) {
         return randomOrNull(charSequence, Random.Default);
     }
@@ -721,21 +776,17 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return new IndexingIterable(new StringsKt___StringsKt$withIndex$1(withIndex));
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associate(CharSequence associate, Function1<? super Character, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associate, "$this$associate");
         Intrinsics.checkNotNullParameter(transform, "transform");
         LinkedHashMap linkedHashMap = new LinkedHashMap(RangesKt___RangesKt.coerceAtLeast(MapsKt__MapsJVMKt.mapCapacity(associate.length()), 16));
         for (int i = 0; i < associate.length(); i++) {
-            Pair pair = (Pair) transform.invoke(Character.valueOf(associate.charAt(i)));
-            linkedHashMap.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Character.valueOf(associate.charAt(i)));
+            linkedHashMap.put(invoke.getFirst(), invoke.getSecond());
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, Character> associateBy(CharSequence associateBy, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -747,8 +798,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <V> Map<Character, V> associateWith(CharSequence associateWith, Function1<? super Character, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWith, "$this$associateWith");
         Intrinsics.checkNotNullParameter(valueSelector, "valueSelector");
@@ -792,7 +842,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(dropLastWhile, "$this$dropLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(dropLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(dropLastWhile.charAt(lastIndex)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(dropLastWhile.charAt(lastIndex))).booleanValue()) {
                 String substring = dropLastWhile.substring(0, lastIndex + 1);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 return substring;
@@ -806,7 +856,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = dropWhile.length();
         for (int i = 0; i < length; i++) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(dropWhile.charAt(i)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(dropWhile.charAt(i))).booleanValue()) {
                 return dropWhile.subSequence(i, dropWhile.length());
             }
         }
@@ -820,7 +870,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int length = filter.length();
         for (int i = 0; i < length; i++) {
             char charAt = filter.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
         }
@@ -838,7 +888,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         while (i < filterIndexed.length()) {
             char charAt = filterIndexed.charAt(i);
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
             i++;
@@ -853,7 +903,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < filterNot.length(); i++) {
             char charAt = filterNot.charAt(i);
-            if (!((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
         }
@@ -862,15 +912,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return sb2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K> Map<K, List<Character>> groupBy(CharSequence groupBy, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (int i = 0; i < groupBy.length(); i++) {
             char charAt = groupBy.charAt(i);
-            Object invoke = keySelector.invoke(Character.valueOf(charAt));
+            K invoke = keySelector.invoke(Character.valueOf(charAt));
             Object obj = linkedHashMap.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -903,7 +951,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int i2 = 0;
         while (i < mapIndexedNotNull.length()) {
             int i3 = i2 + 1;
-            Object invoke = transform.invoke(Integer.valueOf(i2), Character.valueOf(mapIndexedNotNull.charAt(i)));
+            R invoke = transform.invoke(Integer.valueOf(i2), Character.valueOf(mapIndexedNotNull.charAt(i)));
             if (invoke != null) {
                 arrayList.add(invoke);
             }
@@ -913,8 +961,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1962maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
@@ -925,13 +974,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+            R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Character.valueOf(charSequence.charAt(i)));
-                    if (r.compareTo(r3) < 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                    if (invoke.compareTo(invoke2) < 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -939,13 +988,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R maxOfOrNull(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -957,13 +1007,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+        R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Character.valueOf(charSequence.charAt(i)));
-                if (r.compareTo(r3) < 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                if (invoke.compareTo(invoke2) < 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -971,9 +1021,10 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character maxWithOrNull(CharSequence maxWithOrNull, Comparator<? super Character> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxWithOrNull, "$this$maxWithOrNull");
@@ -1004,8 +1055,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final <R extends Comparable<? super R>> R m1966minOf(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
@@ -1016,13 +1068,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            R r = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+            R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    ?? r3 = (Comparable) function1.invoke(Character.valueOf(charSequence.charAt(i)));
-                    if (r.compareTo(r3) > 0) {
-                        r = r3;
+                    R invoke2 = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                    if (invoke.compareTo(invoke2) > 0) {
+                        invoke = invoke2;
                     }
                     if (i == lastIndex) {
                         break;
@@ -1030,13 +1082,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
                     i++;
                 }
             }
-            return r;
+            return invoke;
         }
         throw new NoSuchElementException();
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Comparable, java.lang.Object] */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R extends Comparable<? super R>> R minOfOrNull(CharSequence charSequence, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -1048,13 +1101,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        R r = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+        R invoke = function1.invoke(Character.valueOf(charSequence.charAt(0)));
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                ?? r3 = (Comparable) function1.invoke(Character.valueOf(charSequence.charAt(i)));
-                if (r.compareTo(r3) > 0) {
-                    r = r3;
+                R invoke2 = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                if (invoke.compareTo(invoke2) > 0) {
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -1062,9 +1115,10 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
                 i++;
             }
         }
-        return r;
+        return invoke;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character minWithOrNull(CharSequence minWithOrNull, Comparator<? super Character> comparator) {
         boolean z;
         Intrinsics.checkNotNullParameter(minWithOrNull, "$this$minWithOrNull");
@@ -1102,7 +1156,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         StringBuilder sb2 = new StringBuilder();
         for (int i = 0; i < partition.length(); i++) {
             char charAt = partition.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             } else {
                 sb2.append(charAt);
@@ -1126,7 +1180,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             int lastIndex = StringsKt__StringsKt.getLastIndex(reduce);
             if (1 <= lastIndex) {
                 while (true) {
-                    charAt = ((Character) operation.invoke(Character.valueOf(charAt), Character.valueOf(reduce.charAt(i)))).charValue();
+                    charAt = operation.invoke(Character.valueOf(charAt), Character.valueOf(reduce.charAt(i))).charValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -1138,6 +1192,8 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new UnsupportedOperationException("Empty char sequence can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character reduceOrNull(CharSequence reduceOrNull, Function2<? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceOrNull, "$this$reduceOrNull");
@@ -1155,7 +1211,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int lastIndex = StringsKt__StringsKt.getLastIndex(reduceOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                charAt = ((Character) operation.invoke(Character.valueOf(charAt), Character.valueOf(reduceOrNull.charAt(i)))).charValue();
+                charAt = operation.invoke(Character.valueOf(charAt), Character.valueOf(reduceOrNull.charAt(i))).charValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -1172,7 +1228,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex >= 0) {
             char charAt = reduceRight.charAt(lastIndex);
             for (int i = lastIndex - 1; i >= 0; i--) {
-                charAt = ((Character) operation.invoke(Character.valueOf(reduceRight.charAt(i)), Character.valueOf(charAt))).charValue();
+                charAt = operation.invoke(Character.valueOf(reduceRight.charAt(i)), Character.valueOf(charAt)).charValue();
             }
             return charAt;
         }
@@ -1186,13 +1242,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex >= 0) {
             char charAt = reduceRightIndexed.charAt(lastIndex);
             for (int i = lastIndex - 1; i >= 0; i--) {
-                charAt = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexed.charAt(i)), Character.valueOf(charAt))).charValue();
+                charAt = operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexed.charAt(i)), Character.valueOf(charAt)).charValue();
             }
             return charAt;
         }
         throw new UnsupportedOperationException("Empty char sequence can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character reduceRightIndexedOrNull(CharSequence reduceRightIndexedOrNull, Function3<? super Integer, ? super Character, ? super Character, Character> operation) {
         Intrinsics.checkNotNullParameter(reduceRightIndexedOrNull, "$this$reduceRightIndexedOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1202,11 +1259,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         }
         char charAt = reduceRightIndexedOrNull.charAt(lastIndex);
         for (int i = lastIndex - 1; i >= 0; i--) {
-            charAt = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexedOrNull.charAt(i)), Character.valueOf(charAt))).charValue();
+            charAt = operation.invoke(Integer.valueOf(i), Character.valueOf(reduceRightIndexedOrNull.charAt(i)), Character.valueOf(charAt)).charValue();
         }
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final Character reduceRightOrNull(CharSequence reduceRightOrNull, Function2<? super Character, ? super Character, Character> operation) {
         Intrinsics.checkNotNullParameter(reduceRightOrNull, "$this$reduceRightOrNull");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1216,7 +1275,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         }
         char charAt = reduceRightOrNull.charAt(lastIndex);
         for (int i = lastIndex - 1; i >= 0; i--) {
-            charAt = ((Character) operation.invoke(Character.valueOf(reduceRightOrNull.charAt(i)), Character.valueOf(charAt))).charValue();
+            charAt = operation.invoke(Character.valueOf(reduceRightOrNull.charAt(i)), Character.valueOf(charAt)).charValue();
         }
         return Character.valueOf(charAt);
     }
@@ -1228,7 +1287,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         boolean z = false;
         for (int i = 0; i < singleOrNull.length(); i++) {
             char charAt = singleOrNull.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 if (z) {
                     return null;
                 }
@@ -1289,7 +1348,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(takeLastWhile.charAt(lastIndex)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(takeLastWhile.charAt(lastIndex))).booleanValue()) {
                 return takeLastWhile.subSequence(lastIndex + 1, takeLastWhile.length());
             }
         }
@@ -1301,7 +1360,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = takeWhile.length();
         for (int i = 0; i < length; i++) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(takeWhile.charAt(i)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(takeWhile.charAt(i))).booleanValue()) {
                 return takeWhile.subSequence(0, i);
             }
         }
@@ -1319,6 +1378,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> zipWithNext(CharSequence zipWithNext, Function2<? super Character, ? super Character, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         Intrinsics.checkNotNullParameter(transform, "transform");
@@ -1335,8 +1395,6 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, V> associateBy(CharSequence associateBy, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateBy, "$this$associateBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -1349,15 +1407,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateTo(CharSequence associateTo, M destination, Function1<? super Character, ? extends Pair<? extends K, ? extends V>> transform) {
         Intrinsics.checkNotNullParameter(associateTo, "$this$associateTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (int i = 0; i < associateTo.length(); i++) {
-            Pair pair = (Pair) transform.invoke(Character.valueOf(associateTo.charAt(i)));
-            destination.put(pair.getFirst(), pair.getSecond());
+            Pair<? extends K, ? extends V> invoke = transform.invoke(Character.valueOf(associateTo.charAt(i)));
+            destination.put(invoke.getFirst(), invoke.getSecond());
         }
         return destination;
     }
@@ -1371,7 +1427,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         while (i < filterIndexedTo.length()) {
             char charAt = filterIndexedTo.charAt(i);
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt)).booleanValue()) {
                 destination.append(charAt);
             }
             i++;
@@ -1380,8 +1436,6 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.util.LinkedHashMap */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V> Map<K, List<V>> groupBy(CharSequence groupBy, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(groupBy, "$this$groupBy");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
@@ -1389,26 +1443,24 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         for (int i = 0; i < groupBy.length(); i++) {
             char charAt = groupBy.charAt(i);
-            Object invoke = keySelector.invoke(Character.valueOf(charAt));
-            Object obj = linkedHashMap.get(invoke);
-            if (obj == null) {
-                obj = new ArrayList();
-                linkedHashMap.put(invoke, obj);
+            K invoke = keySelector.invoke(Character.valueOf(charAt));
+            List<V> list = linkedHashMap.get(invoke);
+            if (list == null) {
+                list = new ArrayList<>();
+                linkedHashMap.put(invoke, list);
             }
-            ((List) obj).add(valueTransform.invoke(Character.valueOf(charAt)));
+            list.add(valueTransform.invoke(Character.valueOf(charAt)));
         }
         return linkedHashMap;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: M extends java.util.Map<? super K, java.util.List<java.lang.Character>> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, List<Character>>> M groupByTo(CharSequence groupByTo, M destination, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(groupByTo, "$this$groupByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(keySelector, "keySelector");
         for (int i = 0; i < groupByTo.length(); i++) {
             char charAt = groupByTo.charAt(i);
-            Object invoke = keySelector.invoke(Character.valueOf(charAt));
+            K invoke = keySelector.invoke(Character.valueOf(charAt));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -1427,7 +1479,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int i2 = 0;
         while (i < mapIndexedNotNullTo.length()) {
             int i3 = i2 + 1;
-            Object invoke = transform.invoke(Integer.valueOf(i2), Character.valueOf(mapIndexedNotNullTo.charAt(i)));
+            R invoke = transform.invoke(Integer.valueOf(i2), Character.valueOf(mapIndexedNotNullTo.charAt(i)));
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -1437,6 +1489,12 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWith(CharSequence charSequence, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -1446,13 +1504,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+            Object obj = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                    R invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
                     if (comparator.compare(obj, invoke) < 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -1465,6 +1523,12 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R maxOfWithOrNull(CharSequence charSequence, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -1476,13 +1540,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+        Object obj = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                R invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
                 if (comparator.compare(obj, invoke) < 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -1493,6 +1557,12 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWith(CharSequence charSequence, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -1502,13 +1572,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            Object obj = (Object) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+            Object obj = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    Object invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                    R invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
                     if (comparator.compare(obj, invoke) > 0) {
-                        obj = (R) invoke;
+                        obj = invoke;
                     }
                     if (i == lastIndex) {
                         break;
@@ -1521,6 +1591,12 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.Object */
+    /* JADX DEBUG: Type inference failed for r0v13. Raw type applied. Possible types: R, ? super R */
+    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final <R> R minOfWithOrNull(CharSequence charSequence, Comparator<? super R> comparator, Function1<? super Character, ? extends R> function1) {
         boolean z;
         int i = 1;
@@ -1532,13 +1608,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        Object obj = (Object) function1.invoke(Character.valueOf(charSequence.charAt(0)));
+        Object obj = (R) function1.invoke(Character.valueOf(charSequence.charAt(0)));
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                Object invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
+                R invoke = function1.invoke(Character.valueOf(charSequence.charAt(i)));
                 if (comparator.compare(obj, invoke) > 0) {
-                    obj = (R) invoke;
+                    obj = invoke;
                 }
                 if (i == lastIndex) {
                     break;
@@ -1549,6 +1625,8 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return (R) obj;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
     public static final <R> List<R> runningFold(CharSequence runningFold, R r, Function2<? super R, ? super Character, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningFold, "$this$runningFold");
@@ -1564,12 +1642,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         ArrayList arrayList = new ArrayList(runningFold.length() + 1);
         arrayList.add(r);
         for (int i = 0; i < runningFold.length(); i++) {
-            r = (R) operation.invoke(r, Character.valueOf(runningFold.charAt(i)));
+            r = operation.invoke(r, Character.valueOf(runningFold.charAt(i)));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
     public static final <R> List<R> runningFoldIndexed(CharSequence runningFoldIndexed, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningFoldIndexed, "$this$runningFoldIndexed");
@@ -1586,12 +1666,15 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         arrayList.add(r);
         int length = runningFoldIndexed.length();
         for (int i = 0; i < length; i++) {
-            r = (R) operation.invoke(Integer.valueOf(i), r, Character.valueOf(runningFoldIndexed.charAt(i)));
+            r = operation.invoke(Integer.valueOf(i), r, Character.valueOf(runningFoldIndexed.charAt(i)));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <R> List<R> scan(CharSequence scan, R r, Function2<? super R, ? super Character, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(scan, "$this$scan");
@@ -1607,7 +1690,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         ArrayList arrayList = new ArrayList(scan.length() + 1);
         arrayList.add(r);
         for (int i = 0; i < scan.length(); i++) {
-            r = (R) operation.invoke(r, Character.valueOf(scan.charAt(i)));
+            r = operation.invoke(r, Character.valueOf(scan.charAt(i)));
             arrayList.add(r);
         }
         return arrayList;
@@ -1625,8 +1708,6 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, ? super java.lang.Character> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, M extends Map<? super K, ? super Character>> M associateByTo(CharSequence associateByTo, M destination, Function1<? super Character, ? extends K> keySelector) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -1638,8 +1719,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super java.lang.Character, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
+    @SinceKotlin(version = "1.3")
     public static final <V, M extends Map<? super Character, ? super V>> M associateWithTo(CharSequence associateWithTo, M destination, Function1<? super Character, ? extends V> valueSelector) {
         Intrinsics.checkNotNullParameter(associateWithTo, "$this$associateWithTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -1651,23 +1731,26 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> chunked(CharSequence chunked, int i, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunked, "$this$chunked");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return windowed(chunked, i, i, true, transform);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <R> Sequence<R> chunkedSequence(CharSequence chunkedSequence, int i, Function1<? super CharSequence, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(chunkedSequence, "$this$chunkedSequence");
         Intrinsics.checkNotNullParameter(transform, "transform");
         return windowedSequence(chunkedSequence, i, i, true, transform);
     }
 
+    @InlineOnly
     public static final char elementAtOrElse(CharSequence charSequence, int i, Function1<? super Integer, Character> function1) {
         if (i >= 0 && i <= StringsKt__StringsKt.getLastIndex(charSequence)) {
             return charSequence.charAt(i);
         }
-        return ((Character) function1.invoke(Integer.valueOf(i))).charValue();
+        return function1.invoke(Integer.valueOf(i)).charValue();
     }
 
     public static final <C extends Appendable> C filterNotTo(CharSequence filterNotTo, C destination, Function1<? super Character, Boolean> predicate) {
@@ -1676,7 +1759,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int i = 0; i < filterNotTo.length(); i++) {
             char charAt = filterNotTo.charAt(i);
-            if (!((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 destination.append(charAt);
             }
         }
@@ -1690,20 +1773,24 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int length = filterTo.length();
         for (int i = 0; i < length; i++) {
             char charAt = filterTo.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 destination.append(charAt);
             }
         }
         return destination;
     }
 
+    @SinceKotlin(version = "1.4")
+    @InlineOnly
+    @JvmName(name = "flatMapIndexedIterableTo")
+    @OverloadResolutionByLambdaReturnType
     public static final <R, C extends Collection<? super R>> C flatMapIndexedIterableTo(CharSequence charSequence, C c, Function2<? super Integer, ? super Character, ? extends Iterable<? extends R>> function2) {
         int i = 0;
         for (int i2 = 0; i2 < charSequence.length(); i2++) {
             char charAt = charSequence.charAt(i2);
             Integer valueOf = Integer.valueOf(i);
             i++;
-            CollectionsKt__MutableCollectionsKt.addAll(c, (Iterable) function2.invoke(valueOf, Character.valueOf(charAt)));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(valueOf, Character.valueOf(charAt)));
         }
         return c;
     }
@@ -1713,20 +1800,22 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (int i = 0; i < flatMapTo.length(); i++) {
-            CollectionsKt__MutableCollectionsKt.addAll(destination, (Iterable) transform.invoke(Character.valueOf(flatMapTo.charAt(i))));
+            CollectionsKt__MutableCollectionsKt.addAll(destination, transform.invoke(Character.valueOf(flatMapTo.charAt(i))));
         }
         return destination;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R fold(CharSequence fold, R r, Function2<? super R, ? super Character, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(fold, "$this$fold");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int i = 0; i < fold.length(); i++) {
-            r = (R) operation.invoke(r, Character.valueOf(fold.charAt(i)));
+            r = operation.invoke(r, Character.valueOf(fold.charAt(i)));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r5v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldIndexed(CharSequence foldIndexed, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldIndexed, "$this$foldIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
@@ -1735,34 +1824,37 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             char charAt = foldIndexed.charAt(i2);
             Integer valueOf = Integer.valueOf(i);
             i++;
-            r = (R) operation.invoke(valueOf, r, Character.valueOf(charAt));
+            r = operation.invoke(valueOf, r, Character.valueOf(charAt));
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r3v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRight(CharSequence foldRight, R r, Function2<? super Character, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRight, "$this$foldRight");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(foldRight); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Character.valueOf(foldRight.charAt(lastIndex)), r);
+            r = operation.invoke(Character.valueOf(foldRight.charAt(lastIndex)), r);
         }
         return r;
     }
 
+    /* JADX DEBUG: Type inference failed for r4v4. Raw type applied. Possible types: R, ? super R */
     public static final <R> R foldRightIndexed(CharSequence foldRightIndexed, R r, Function3<? super Integer, ? super Character, ? super R, ? extends R> operation) {
         Intrinsics.checkNotNullParameter(foldRightIndexed, "$this$foldRightIndexed");
         Intrinsics.checkNotNullParameter(operation, "operation");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(foldRightIndexed); lastIndex >= 0; lastIndex--) {
-            r = (R) operation.invoke(Integer.valueOf(lastIndex), Character.valueOf(foldRightIndexed.charAt(lastIndex)), r);
+            r = operation.invoke(Integer.valueOf(lastIndex), Character.valueOf(foldRightIndexed.charAt(lastIndex)), r);
         }
         return r;
     }
 
+    @InlineOnly
     public static final char getOrElse(CharSequence charSequence, int i, Function1<? super Integer, Character> function1) {
         if (i >= 0 && i <= StringsKt__StringsKt.getLastIndex(charSequence)) {
             return charSequence.charAt(i);
         }
-        return ((Character) function1.invoke(Integer.valueOf(i))).charValue();
+        return function1.invoke(Integer.valueOf(i)).charValue();
     }
 
     public static final <R, C extends Collection<? super R>> C mapIndexedTo(CharSequence mapIndexedTo, C destination, Function2<? super Integer, ? super Character, ? extends R> transform) {
@@ -1784,7 +1876,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(destination, "destination");
         Intrinsics.checkNotNullParameter(transform, "transform");
         for (int i = 0; i < mapNotNullTo.length(); i++) {
-            Object invoke = transform.invoke(Character.valueOf(mapNotNullTo.charAt(i)));
+            R invoke = transform.invoke(Character.valueOf(mapNotNullTo.charAt(i)));
             if (invoke != null) {
                 destination.add(invoke);
             }
@@ -1802,8 +1894,6 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return destination;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: M extends java.util.Map<? super K, ? super V> */
-    /* JADX WARN: Multi-variable type inference failed */
     public static final <K, V, M extends Map<? super K, ? super V>> M associateByTo(CharSequence associateByTo, M destination, Function1<? super Character, ? extends K> keySelector, Function1<? super Character, ? extends V> valueTransform) {
         Intrinsics.checkNotNullParameter(associateByTo, "$this$associateByTo");
         Intrinsics.checkNotNullParameter(destination, "destination");
@@ -1825,7 +1915,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(valueTransform, "valueTransform");
         for (int i = 0; i < groupByTo.length(); i++) {
             char charAt = groupByTo.charAt(i);
-            Object invoke = keySelector.invoke(Character.valueOf(charAt));
+            K invoke = keySelector.invoke(Character.valueOf(charAt));
             Object obj = destination.get(invoke);
             if (obj == null) {
                 obj = new ArrayList();
@@ -1871,7 +1961,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = dropWhile.length();
         for (int i = 0; i < length; i++) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(dropWhile.charAt(i)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(dropWhile.charAt(i))).booleanValue()) {
                 String substring = dropWhile.substring(i);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 return substring;
@@ -1889,7 +1979,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         while (i < filterIndexed.length()) {
             char charAt = filterIndexed.charAt(i);
             int i3 = i2 + 1;
-            if (((Boolean) predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Integer.valueOf(i2), Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             }
             i++;
@@ -1937,7 +2027,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(takeLastWhile, "$this$takeLastWhile");
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         for (int lastIndex = StringsKt__StringsKt.getLastIndex(takeLastWhile); lastIndex >= 0; lastIndex--) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(takeLastWhile.charAt(lastIndex)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(takeLastWhile.charAt(lastIndex))).booleanValue()) {
                 String substring = takeLastWhile.substring(lastIndex + 1);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 return substring;
@@ -1951,7 +2041,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         Intrinsics.checkNotNullParameter(predicate, "predicate");
         int length = takeWhile.length();
         for (int i = 0; i < length; i++) {
-            if (!((Boolean) predicate.invoke(Character.valueOf(takeWhile.charAt(i)))).booleanValue()) {
+            if (!predicate.invoke(Character.valueOf(takeWhile.charAt(i))).booleanValue()) {
                 String substring = takeWhile.substring(0, i);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 return substring;
@@ -1980,14 +2070,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(charAt);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(charAt));
+        R invoke = selector.invoke(Character.valueOf(charAt));
         if (1 <= lastIndex) {
             while (true) {
                 char charAt2 = maxBy.charAt(i);
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(charAt2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Character.valueOf(charAt2));
+                if (invoke.compareTo(invoke2) < 0) {
                     charAt = charAt2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -1998,6 +2088,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Character maxByOrNull(CharSequence maxByOrNull, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxByOrNull, "$this$maxByOrNull");
@@ -2016,14 +2107,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(charAt);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(charAt));
+        R invoke = selector.invoke(Character.valueOf(charAt));
         if (1 <= lastIndex) {
             while (true) {
                 char charAt2 = maxByOrNull.charAt(i);
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(charAt2));
-                if (comparable.compareTo(comparable2) < 0) {
+                R invoke2 = selector.invoke(Character.valueOf(charAt2));
+                if (invoke.compareTo(invoke2) < 0) {
                     charAt = charAt2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -2034,6 +2125,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double maxOf(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
@@ -2043,11 +2137,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).doubleValue();
+            double doubleValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).doubleValue();
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).doubleValue());
+                    doubleValue = Math.max(doubleValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -2059,6 +2153,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Double m1963maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
@@ -2071,11 +2168,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).doubleValue();
+        double doubleValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).doubleValue();
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.max(doubleValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).doubleValue());
+                doubleValue = Math.max(doubleValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -2105,14 +2202,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(charAt);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(charAt));
+        R invoke = selector.invoke(Character.valueOf(charAt));
         if (1 <= lastIndex) {
             while (true) {
                 char charAt2 = minBy.charAt(i);
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(charAt2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Character.valueOf(charAt2));
+                if (invoke.compareTo(invoke2) > 0) {
                     charAt = charAt2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -2123,6 +2220,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final <R extends Comparable<? super R>> Character minByOrNull(CharSequence minByOrNull, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(minByOrNull, "$this$minByOrNull");
@@ -2141,14 +2239,14 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (lastIndex == 0) {
             return Character.valueOf(charAt);
         }
-        Comparable comparable = (Comparable) selector.invoke(Character.valueOf(charAt));
+        R invoke = selector.invoke(Character.valueOf(charAt));
         if (1 <= lastIndex) {
             while (true) {
                 char charAt2 = minByOrNull.charAt(i);
-                Comparable comparable2 = (Comparable) selector.invoke(Character.valueOf(charAt2));
-                if (comparable.compareTo(comparable2) > 0) {
+                R invoke2 = selector.invoke(Character.valueOf(charAt2));
+                if (invoke.compareTo(invoke2) > 0) {
                     charAt = charAt2;
-                    comparable = comparable2;
+                    invoke = invoke2;
                 }
                 if (i == lastIndex) {
                     break;
@@ -2159,6 +2257,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     public static final double minOf(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
         int i = 1;
@@ -2168,11 +2269,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            double doubleValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).doubleValue();
+            double doubleValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).doubleValue();
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).doubleValue());
+                    doubleValue = Math.min(doubleValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).doubleValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -2184,6 +2285,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Double m1967minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> function1) {
         boolean z;
@@ -2196,11 +2300,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        double doubleValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).doubleValue();
+        double doubleValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).doubleValue();
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                doubleValue = Math.min(doubleValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).doubleValue());
+                doubleValue = Math.min(doubleValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).doubleValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -2218,7 +2322,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int length = partition.length();
         for (int i = 0; i < length; i++) {
             char charAt = partition.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 sb.append(charAt);
             } else {
                 sb2.append(charAt);
@@ -2246,7 +2350,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             int lastIndex = StringsKt__StringsKt.getLastIndex(reduceIndexed);
             if (1 <= lastIndex) {
                 while (true) {
-                    charAt = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(reduceIndexed.charAt(i)))).charValue();
+                    charAt = operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(reduceIndexed.charAt(i))).charValue();
                     if (i == lastIndex) {
                         break;
                     }
@@ -2258,6 +2362,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new UnsupportedOperationException("Empty char sequence can't be reduced.");
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character reduceIndexedOrNull(CharSequence reduceIndexedOrNull, Function3<? super Integer, ? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(reduceIndexedOrNull, "$this$reduceIndexedOrNull");
@@ -2275,7 +2380,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         int lastIndex = StringsKt__StringsKt.getLastIndex(reduceIndexedOrNull);
         if (1 <= lastIndex) {
             while (true) {
-                charAt = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(reduceIndexedOrNull.charAt(i)))).charValue();
+                charAt = operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(reduceIndexedOrNull.charAt(i))).charValue();
                 if (i == lastIndex) {
                     break;
                 }
@@ -2285,6 +2390,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final List<Character> runningReduce(CharSequence runningReduce, Function2<? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningReduce, "$this$runningReduce");
@@ -2302,12 +2408,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         arrayList.add(Character.valueOf(charAt));
         int length = runningReduce.length();
         for (int i = 1; i < length; i++) {
-            charAt = ((Character) operation.invoke(Character.valueOf(charAt), Character.valueOf(runningReduce.charAt(i)))).charValue();
+            charAt = operation.invoke(Character.valueOf(charAt), Character.valueOf(runningReduce.charAt(i))).charValue();
             arrayList.add(Character.valueOf(charAt));
         }
         return arrayList;
     }
 
+    @SinceKotlin(version = "1.4")
     public static final List<Character> runningReduceIndexed(CharSequence runningReduceIndexed, Function3<? super Integer, ? super Character, ? super Character, Character> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(runningReduceIndexed, "$this$runningReduceIndexed");
@@ -2325,7 +2432,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         arrayList.add(Character.valueOf(charAt));
         int length = runningReduceIndexed.length();
         for (int i = 1; i < length; i++) {
-            charAt = ((Character) operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(runningReduceIndexed.charAt(i)))).charValue();
+            charAt = operation.invoke(Integer.valueOf(i), Character.valueOf(charAt), Character.valueOf(runningReduceIndexed.charAt(i))).charValue();
             arrayList.add(Character.valueOf(charAt));
         }
         return arrayList;
@@ -2338,7 +2445,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         boolean z = false;
         for (int i = 0; i < single.length(); i++) {
             char charAt = single.charAt(i);
-            if (((Boolean) predicate.invoke(Character.valueOf(charAt))).booleanValue()) {
+            if (predicate.invoke(Character.valueOf(charAt)).booleanValue()) {
                 if (!z) {
                     ch = Character.valueOf(charAt);
                     z = true;
@@ -2356,6 +2463,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException("Char sequence contains no character matching the predicate.");
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
     public static final float m1961maxOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
@@ -2366,11 +2476,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).floatValue();
+            float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.max(floatValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).floatValue());
+                    floatValue = Math.max(floatValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -2382,6 +2492,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
     public static final Float m1964maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
@@ -2394,11 +2507,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).floatValue();
+        float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.max(floatValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).floatValue());
+                floatValue = Math.max(floatValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -2408,6 +2521,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
     public static final float m1965minOf(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
@@ -2418,11 +2534,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
             z = false;
         }
         if (!z) {
-            float floatValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).floatValue();
+            float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
             int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
             if (1 <= lastIndex) {
                 while (true) {
-                    floatValue = Math.min(floatValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).floatValue());
+                    floatValue = Math.min(floatValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).floatValue());
                     if (i == lastIndex) {
                         break;
                     }
@@ -2434,6 +2550,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NoSuchElementException();
     }
 
+    @SinceKotlin(version = "1.4")
+    @OverloadResolutionByLambdaReturnType
+    @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
     public static final Float m1968minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> function1) {
         boolean z;
@@ -2446,11 +2565,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         if (z) {
             return null;
         }
-        float floatValue = ((Number) function1.invoke(Character.valueOf(charSequence.charAt(0)))).floatValue();
+        float floatValue = function1.invoke(Character.valueOf(charSequence.charAt(0))).floatValue();
         int lastIndex = StringsKt__StringsKt.getLastIndex(charSequence);
         if (1 <= lastIndex) {
             while (true) {
-                floatValue = Math.min(floatValue, ((Number) function1.invoke(Character.valueOf(charSequence.charAt(i)))).floatValue());
+                floatValue = Math.min(floatValue, function1.invoke(Character.valueOf(charSequence.charAt(i))).floatValue());
                 if (i == lastIndex) {
                     break;
                 }
@@ -2460,6 +2579,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Float.valueOf(floatValue);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character maxOrNull(CharSequence maxOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
@@ -2489,6 +2609,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return Character.valueOf(charAt);
     }
 
+    @SinceKotlin(version = "1.4")
     public static final Character minOrNull(CharSequence minOrNull) {
         boolean z;
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
@@ -2530,6 +2651,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return SetsKt__SetsKt.emptySet();
     }
 
+    @SinceKotlin(version = "1.2")
     public static final List<Pair<Character, Character>> zipWithNext(CharSequence zipWithNext) {
         Intrinsics.checkNotNullParameter(zipWithNext, "$this$zipWithNext");
         int length = zipWithNext.length() - 1;
@@ -2546,6 +2668,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return arrayList;
     }
 
+    @InlineOnly
     public static final String reversed(String str) {
         if (str != null) {
             return reversed((CharSequence) str).toString();
@@ -2553,6 +2676,9 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         throw new NullPointerException("null cannot be cast to non-null type kotlin.CharSequence");
     }
 
+    /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: R, ? super R */
+    @SinceKotlin(version = "1.4")
+    @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     public static final <R> List<R> scanIndexed(CharSequence scanIndexed, R r, Function3<? super Integer, ? super R, ? super Character, ? extends R> operation) {
         boolean z;
         Intrinsics.checkNotNullParameter(scanIndexed, "$this$scanIndexed");
@@ -2569,12 +2695,13 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         arrayList.add(r);
         int length = scanIndexed.length();
         for (int i = 0; i < length; i++) {
-            r = (R) operation.invoke(Integer.valueOf(i), r, Character.valueOf(scanIndexed.charAt(i)));
+            r = operation.invoke(Integer.valueOf(i), r, Character.valueOf(scanIndexed.charAt(i)));
             arrayList.add(r);
         }
         return arrayList;
     }
 
+    @InlineOnly
     public static final String slice(String str, Iterable<Integer> iterable) {
         if (str != null) {
             return slice((CharSequence) str, iterable).toString();
@@ -2591,16 +2718,19 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return StringsKt__StringsKt.substring(slice, indices);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final List<String> windowed(CharSequence windowed, int i, int i2, boolean z) {
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
         return windowed(windowed, i, i2, z, StringsKt___StringsKt$windowed$1.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final Sequence<String> windowedSequence(CharSequence windowedSequence, int i, int i2, boolean z) {
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");
         return windowedSequence(windowedSequence, i, i2, z, StringsKt___StringsKt$windowedSequence$1.INSTANCE);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <R> List<R> windowed(CharSequence windowed, int i, int i2, boolean z, Function1<? super CharSequence, ? extends R> transform) {
         int i3;
         Intrinsics.checkNotNullParameter(windowed, "$this$windowed");
@@ -2669,6 +2799,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
         return windowedSequence(charSequence, i, i2, z, function1);
     }
 
+    @SinceKotlin(version = "1.2")
     public static final <R> Sequence<R> windowedSequence(CharSequence windowedSequence, int i, int i2, boolean z, Function1<? super CharSequence, ? extends R> transform) {
         IntRange until;
         Intrinsics.checkNotNullParameter(windowedSequence, "$this$windowedSequence");

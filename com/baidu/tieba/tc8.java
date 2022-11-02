@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.lifecycle.Lifecycle;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.arch.utils.LiveActivityHelper;
-import com.baidu.tieba.push.PushExtData;
-import com.baidu.tieba.push.PushRemindInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,15 +12,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes5.dex */
+import java.util.LinkedHashMap;
+/* loaded from: classes6.dex */
 public class tc8 {
     public static /* synthetic */ Interceptable $ic;
+    public static tc8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set a;
+    public LinkedHashMap<String, Integer> a;
+    public CustomMessageListener b;
 
-    /* loaded from: classes5.dex */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948176512, "Lcom/baidu/tieba/tc8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948176512, "Lcom/baidu/tieba/tc8;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,44 +65,12 @@ public class tc8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
-            cu4 cu4Var;
-            Activity activity;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof cu4) || (cu4Var = (cu4) customResponsedMessage.getData()) == null || (activity = cu4Var.b) == null || cu4Var.c == null || !LiveActivityHelper.MIX_ACTIVITY_NAME.equals(activity.getClass().getName())) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                 return;
             }
-            if (!Lifecycle.Event.ON_START.equals(cu4Var.c)) {
-                if (Lifecycle.Event.ON_DESTROY.equals(cu4Var.c)) {
-                    this.a.a.remove(cu4Var.b);
-                }
-            } else if (this.a.a.contains(cu4Var.b)) {
-            } else {
-                this.a.a.add(cu4Var.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tc8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-408132030, "Lcom/baidu/tieba/tc8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-408132030, "Lcom/baidu/tieba/tc8$b;");
-                    return;
-                }
-            }
-            a = new tc8();
+            this.a.a.clear();
         }
     }
 
@@ -98,38 +78,71 @@ public class tc8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
+        this.a = new LinkedHashMap<>(150, 0.75f, true);
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static tc8 b() {
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a.remove(str);
+    }
+
+    public static tc8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (tc8.class) {
+                    if (c == null) {
+                        c = new tc8();
+                    }
+                }
+            }
+            return c;
         }
         return (tc8) invokeV.objValue;
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2921698));
+            this.a.clear();
         }
     }
 
-    public void d(PushExtData pushExtData, PushRemindInfo pushRemindInfo) {
+    public void update(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushExtData, pushRemindInfo) == null) && !this.a.isEmpty()) {
-            new sc8((Activity) this.a.toArray()[0], pushExtData, pushRemindInfo).s();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            if (i == 0 && this.a.containsKey(str)) {
+                return;
+            }
+            this.a.put(str, Integer.valueOf(i));
         }
     }
 }

@@ -33,15 +33,15 @@ public final class FastServiceLoader {
     public static final FastServiceLoader INSTANCE = new FastServiceLoader();
     public static final String PREFIX = "META-INF/services/";
 
-    private final MainDispatcherFactory createInstanceOf(Class cls, String str) {
+    private final MainDispatcherFactory createInstanceOf(Class<MainDispatcherFactory> cls, String str) {
         try {
-            return (MainDispatcherFactory) cls.cast(Class.forName(str, true, cls.getClassLoader()).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
+            return cls.cast(Class.forName(str, true, cls.getClassLoader()).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
         } catch (ClassNotFoundException unused) {
             return null;
         }
     }
 
-    private final List load(Class cls, ClassLoader classLoader) {
+    private final <S> List<S> load(Class<S> cls, ClassLoader classLoader) {
         try {
             return loadProviders$kotlinx_coroutines_core(cls, classLoader);
         } catch (Throwable unused) {
@@ -51,9 +51,9 @@ public final class FastServiceLoader {
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    private final Object use(JarFile jarFile, Function1 function1) {
+    private final <R> R use(JarFile jarFile, Function1<? super JarFile, ? extends R> function1) {
         try {
-            Object invoke = function1.invoke(jarFile);
+            R invoke = function1.invoke(jarFile);
             InlineMarker.finallyStart(1);
             jarFile.close();
             InlineMarker.finallyEnd(1);
@@ -75,7 +75,7 @@ public final class FastServiceLoader {
         }
     }
 
-    private final Object getProviderInstance(String str, ClassLoader classLoader, Class cls) {
+    private final <S> S getProviderInstance(String str, ClassLoader classLoader, Class<S> cls) {
         Class<?> cls2 = Class.forName(str, false, classLoader);
         if (cls.isAssignableFrom(cls2)) {
             return cls.cast(cls2.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
@@ -86,7 +86,7 @@ public final class FastServiceLoader {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    private final List parse(URL url) {
+    private final List<String> parse(URL url) {
         String url2 = url.toString();
         if (StringsKt__StringsJVMKt.startsWith$default(url2, "jar", false, 2, null)) {
             String substringBefore$default = StringsKt__StringsKt.substringBefore$default(StringsKt__StringsKt.substringAfter$default(url2, "jar:file:", (String) null, 2, (Object) null), '!', (String) null, 2, (Object) null);
@@ -94,7 +94,7 @@ public final class FastServiceLoader {
             JarFile jarFile = new JarFile(substringBefore$default, false);
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(jarFile.getInputStream(new ZipEntry(substringAfter$default)), "UTF-8"));
-                List parseFile = INSTANCE.parseFile(bufferedReader);
+                List<String> parseFile = INSTANCE.parseFile(bufferedReader);
                 CloseableKt.closeFinally(bufferedReader, null);
                 jarFile.close();
                 return parseFile;
@@ -114,7 +114,7 @@ public final class FastServiceLoader {
         }
         BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(url.openStream()));
         try {
-            List parseFile2 = INSTANCE.parseFile(bufferedReader2);
+            List<String> parseFile2 = INSTANCE.parseFile(bufferedReader2);
             CloseableKt.closeFinally(bufferedReader2, null);
             return parseFile2;
         } catch (Throwable th4) {
@@ -127,7 +127,7 @@ public final class FastServiceLoader {
         }
     }
 
-    private final List parseFile(BufferedReader bufferedReader) {
+    private final List<String> parseFile(BufferedReader bufferedReader) {
         boolean z;
         boolean z2;
         LinkedHashSet linkedHashSet = new LinkedHashSet();
@@ -176,7 +176,7 @@ public final class FastServiceLoader {
         }
     }
 
-    public final List loadMainDispatcherFactory$kotlinx_coroutines_core() {
+    public final List<MainDispatcherFactory> loadMainDispatcherFactory$kotlinx_coroutines_core() {
         MainDispatcherFactory mainDispatcherFactory;
         if (!FastServiceLoaderKt.getANDROID_DETECTED()) {
             return load(MainDispatcherFactory.class, MainDispatcherFactory.class.getClassLoader());
@@ -206,7 +206,7 @@ public final class FastServiceLoader {
         }
     }
 
-    public final List loadProviders$kotlinx_coroutines_core(Class cls, ClassLoader classLoader) {
+    public final <S> List<S> loadProviders$kotlinx_coroutines_core(Class<S> cls, ClassLoader classLoader) {
         ArrayList<URL> list = Collections.list(classLoader.getResources(PREFIX + cls.getName()));
         Intrinsics.checkExpressionValueIsNotNull(list, "java.util.Collections.list(this)");
         ArrayList arrayList = new ArrayList();

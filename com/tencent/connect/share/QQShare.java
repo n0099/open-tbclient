@@ -114,7 +114,7 @@ public class QQShare extends BaseApi {
                             public final /* synthetic */ QQShare f;
 
                             @Override // com.tencent.open.utils.d
-                            public void a(int i, ArrayList arrayList) {
+                            public void a(int i, ArrayList<String> arrayList) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, arrayList) == null) {
                                 }
@@ -225,7 +225,7 @@ public class QQShare extends BaseApi {
                             }
 
                             @Override // com.tencent.open.utils.d
-                            public void a(int i, ArrayList arrayList) {
+                            public void a(int i, ArrayList<String> arrayList) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, arrayList) == null) {
                                     if (i == 0) {

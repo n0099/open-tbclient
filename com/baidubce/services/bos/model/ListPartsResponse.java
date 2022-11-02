@@ -23,7 +23,7 @@ public class ListPartsResponse extends BosResponse {
     public int nextPartNumberMarker;
     public User owner;
     public int partNumberMarker;
-    public List parts;
+    public List<PartSummary> parts;
     public String storageClass;
     public String uploadId;
 
@@ -104,7 +104,7 @@ public class ListPartsResponse extends BosResponse {
         return invokeV.intValue;
     }
 
-    public List getParts() {
+    public List<PartSummary> getParts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -192,7 +192,7 @@ public class ListPartsResponse extends BosResponse {
         }
     }
 
-    public void setParts(List list) {
+    public void setParts(List<PartSummary> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.parts = list;

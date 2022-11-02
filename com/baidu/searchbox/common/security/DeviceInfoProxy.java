@@ -1,5 +1,6 @@
 package com.baidu.searchbox.common.security;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
@@ -105,6 +106,7 @@ public class DeviceInfoProxy {
         return invokeL.intValue;
     }
 
+    @SuppressLint({"MissingPermission", "HardwareIds"})
     public static String realImei(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -122,6 +124,7 @@ public class DeviceInfoProxy {
         return (String) invokeL.objValue;
     }
 
+    @SuppressLint({"HardwareIds"})
     public static String realImsi(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

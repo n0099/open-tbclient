@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ReadCacheRespMsg extends CustomResponsedMessage {
+public class ReadCacheRespMsg<T> extends CustomResponsedMessage<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,13 +31,13 @@ public class ReadCacheRespMsg extends CustomResponsedMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadCacheRespMsg(int i, Object obj) {
-        super(i, obj);
+    public ReadCacheRespMsg(int i, T t) {
+        super(i, t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj};
+            Object[] objArr = {Integer.valueOf(i), t};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

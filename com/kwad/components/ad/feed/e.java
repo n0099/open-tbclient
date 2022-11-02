@@ -1,5 +1,6 @@
 package com.kwad.components.ad.feed;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +28,7 @@ public final class e {
 
     /* renamed from: com.kwad.components.ad.feed.e$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public final class AnonymousClass1 extends com.kwad.components.core.k.c {
+    public static class AnonymousClass1 extends com.kwad.components.core.k.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ KsLoadManager.FeedAdListener cT;
@@ -55,7 +56,7 @@ public final class e {
         }
 
         @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
-        public final void a(AdResultData adResultData) {
+        public final void a(@NonNull AdResultData adResultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, adResultData) == null) {
                 ArrayList arrayList = new ArrayList();
@@ -213,13 +214,13 @@ public final class e {
         }
     }
 
-    public static void a(KsScene ksScene, KsLoadManager.FeedAdListener feedAdListener, boolean z) {
+    public static void a(KsScene ksScene, @NonNull KsLoadManager.FeedAdListener feedAdListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(65536, null, ksScene, feedAdListener, z) == null) {
             boolean a = m.oF().a(ksScene, "loadConfigFeedAd");
             ksScene.setAdStyle(1);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0571a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
+            KsAdLoadManager.a(new a.C0582a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
         }
     }
 }

@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
+import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -21,6 +23,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.proxy.app.AdWebViewActivity;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
+@Keep
 /* loaded from: classes7.dex */
 public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,14 +51,14 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0910dc);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091116);
             String stringExtra = getIntent().getStringExtra("key_page_title");
             this.title = stringExtra;
             if (!TextUtils.isEmpty(stringExtra)) {
                 this.mTitle.setText(this.title);
             }
-            findViewById(R.id.obfuscated_res_0x7f0910de).setVisibility(8);
-            findViewById(R.id.obfuscated_res_0x7f0910dd).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
+            findViewById(R.id.obfuscated_res_0x7f091118).setVisibility(8);
+            findViewById(R.id.obfuscated_res_0x7f091117).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.SimpleWebViewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SimpleWebViewActivity Gc;
@@ -92,7 +95,7 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     private void initWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09122f);
+            KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091269);
             this.mAdWebView = ksAdWebView;
             p.b(ksAdWebView);
         }
@@ -163,11 +166,11 @@ public class SimpleWebViewActivity extends com.kwad.components.core.i.a {
     }
 
     @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
-    public void onCreate(Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0406);
+            setContentView(R.layout.obfuscated_res_0x7f0d0411);
             initView();
             initWebView();
             loadUrl();

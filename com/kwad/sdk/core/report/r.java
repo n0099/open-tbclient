@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.report;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface r {
     boolean h(long j);
 

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class FragmentTabWidget extends LinearLayout {
     public boolean z;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -433,8 +433,8 @@ public class FragmentTabWidget extends LinearLayout {
             paint.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-            this.l = fj.d(getContext(), 1.0f);
-            this.m = fj.d(getContext(), 2.0f);
+            this.l = xi.d(getContext(), 1.0f);
+            this.m = xi.d(getContext(), 2.0f);
             this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;

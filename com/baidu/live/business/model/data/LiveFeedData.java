@@ -89,7 +89,7 @@ public class LiveFeedData {
         if (optJSONObject4 != null) {
             LiveFollowWrapData liveFollowWrapData2 = new LiveFollowWrapData();
             liveFollowWrapData2.parserJson(optJSONObject4);
-            List list = liveFollowWrapData2.followList;
+            List<LiveFollowEntity> list = liveFollowWrapData2.followList;
             if (list != null && !list.isEmpty()) {
                 this.followWrapData = liveFollowWrapData2;
             }

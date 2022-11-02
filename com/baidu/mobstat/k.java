@@ -281,7 +281,7 @@ public abstract class k {
         }
     }
 
-    private int a(Context context, List list, ArrayList arrayList, ArrayList arrayList2, int i, int i2) {
+    private int a(Context context, List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, list, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
@@ -292,15 +292,15 @@ public abstract class k {
                 if (c2 < i2) {
                     i2 = c2;
                 }
-                ArrayList a2 = a(context, i2, i4);
+                ArrayList<i> a2 = a(context, i2, i4);
                 if (i4 == 0 && a2.size() != 0) {
-                    arrayList2.add((i) a2.get(0));
+                    arrayList2.add(a2.get(0));
                 }
-                Iterator it = a2.iterator();
+                Iterator<i> it = a2.iterator();
                 while (it.hasNext()) {
-                    i iVar = (i) it.next();
-                    long a3 = iVar.a();
-                    String b2 = iVar.b();
+                    i next = it.next();
+                    long a3 = next.a();
+                    String b2 = next.b();
                     int length = b2.length() + i3;
                     if (length > i) {
                         break;
@@ -399,7 +399,7 @@ public abstract class k {
         return (String) invokeV.objValue;
     }
 
-    public synchronized int a(Context context, ArrayList arrayList) {
+    public synchronized int a(Context context, ArrayList<Long> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, arrayList)) == null) {
@@ -423,7 +423,7 @@ public abstract class k {
                         int i2 = 0;
                         while (i < size) {
                             try {
-                                if (!jVar.b(((Long) arrayList.get(i)).longValue())) {
+                                if (!jVar.b(arrayList.get(i).longValue())) {
                                     if (jVar != null) {
                                         jVar.close();
                                     }
@@ -469,12 +469,12 @@ public abstract class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized ArrayList a(Context context, int i, int i2) {
+    public synchronized ArrayList<i> a(Context context, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, context, i, i2)) == null) {
             synchronized (this) {
-                ArrayList arrayList = new ArrayList();
+                ArrayList<i> arrayList = new ArrayList<>();
                 j jVar = null;
                 try {
                     jVar = a(context);
@@ -494,18 +494,18 @@ public abstract class k {
         }
     }
 
-    public synchronized List a(Context context, int i) {
+    public synchronized List<String> a(Context context, int i) {
         InterceptResult invokeLI;
-        List arrayList;
+        List<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
+                arrayList = new ArrayList<>();
+                ArrayList<Long> arrayList2 = new ArrayList<>();
+                ArrayList<i> arrayList3 = new ArrayList<>();
                 a(context, arrayList, arrayList2, arrayList3, i, 500);
                 if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
-                    i iVar = (i) arrayList3.get(0);
+                    i iVar = arrayList3.get(0);
                     long a2 = iVar.a();
                     String b2 = iVar.b();
                     arrayList2.add(Long.valueOf(a2));

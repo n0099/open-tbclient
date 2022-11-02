@@ -1,5 +1,7 @@
 package androidx.collection;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,8 +26,10 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     public static final int[] INT;
     public static final Object[] OBJECT;
     public static final String TAG = "ArraySet";
+    @Nullable
     public static Object[] sBaseCache;
     public static int sBaseCacheSize;
+    @Nullable
     public static Object[] sTwiceBaseCache;
     public static int sTwiceBaseCacheSize;
     public transient /* synthetic */ FieldHolder $fh;
@@ -249,6 +253,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
+    @NonNull
     public Object[] toArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,7 +290,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         this.mSize = 0;
     }
 
-    public void addAll(ArraySet<? extends E> arraySet) {
+    public void addAll(@NonNull ArraySet<? extends E> arraySet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) {
             int i = arraySet.mSize;
@@ -334,7 +339,8 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public <T> T[] toArray(T[] tArr) {
+    @NonNull
+    public <T> T[] toArray(@NonNull T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, tArr)) == null) {
@@ -353,7 +359,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ArraySet(ArraySet<E> arraySet) {
+    public ArraySet(@Nullable ArraySet<E> arraySet) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -376,7 +382,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ArraySet(Collection<E> collection) {
+    public ArraySet(@Nullable Collection<E> collection) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -434,7 +440,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean add(E e) {
+    public boolean add(@Nullable E e) {
         InterceptResult invokeL;
         int i;
         int indexOf;
@@ -659,7 +665,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean addAll(Collection<? extends E> collection) {
+    public boolean addAll(@NonNull Collection<? extends E> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
@@ -674,7 +680,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean contains(Object obj) {
+    public boolean contains(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
@@ -687,7 +693,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean containsAll(Collection<?> collection) {
+    public boolean containsAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
@@ -719,7 +725,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         }
     }
 
-    public int indexOf(Object obj) {
+    public int indexOf(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
@@ -732,7 +738,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean remove(Object obj) {
+    public boolean remove(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
@@ -746,7 +752,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         return invokeL.booleanValue;
     }
 
-    public boolean removeAll(ArraySet<? extends E> arraySet) {
+    public boolean removeAll(@NonNull ArraySet<? extends E> arraySet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, arraySet)) == null) {
@@ -764,7 +770,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean retainAll(Collection<?> collection) {
+    public boolean retainAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, collection)) == null) {
@@ -780,6 +786,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public E valueAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -790,7 +797,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     }
 
     @Override // java.util.Collection, java.util.Set
-    public boolean removeAll(Collection<?> collection) {
+    public boolean removeAll(@NonNull Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, collection)) == null) {

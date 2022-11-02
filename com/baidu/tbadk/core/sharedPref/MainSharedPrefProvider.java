@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.jy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.Map;
 public class MainSharedPrefProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SoftReference a;
+    public SoftReference<Map<String, String>> a;
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -85,11 +85,11 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     public final boolean a(String str) {
         InterceptResult invokeL;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SoftReference softReference = this.a;
-            if (softReference != null && (map = (Map) softReference.get()) != null) {
+            SoftReference<Map<String, String>> softReference = this.a;
+            if (softReference != null && (map = softReference.get()) != null) {
                 return map.containsKey(str);
             }
             return false;
@@ -99,12 +99,12 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     public final String b(String str) {
         InterceptResult invokeL;
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            SoftReference softReference = this.a;
-            if (softReference != null && (map = (Map) softReference.get()) != null) {
-                return (String) map.get(str);
+            SoftReference<Map<String, String>> softReference = this.a;
+            if (softReference != null && (map = softReference.get()) != null) {
+                return map.get(str);
             }
             return null;
         }
@@ -116,9 +116,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = tx4.k.length;
+                int length = jy4.k.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(tx4.k[i])) {
+                    if (str.equals(jy4.k[i])) {
                         return true;
                     }
                 }
@@ -129,10 +129,10 @@ public class MainSharedPrefProvider extends ContentProvider {
     }
 
     public final void e(String str) {
-        SoftReference softReference;
-        Map map;
+        SoftReference<Map<String, String>> softReference;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (softReference = this.a) != null && (map = (Map) softReference.get()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (softReference = this.a) != null && (map = softReference.get()) != null) {
             map.remove(str);
         }
     }
@@ -173,18 +173,18 @@ public class MainSharedPrefProvider extends ContentProvider {
     }
 
     public final void g(String str, String str2) {
-        Map map;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            SoftReference softReference = this.a;
+            SoftReference<Map<String, String>> softReference = this.a;
             if (softReference == null) {
-                map = new HashMap();
-                this.a = new SoftReference(map);
+                map = new HashMap<>();
+                this.a = new SoftReference<>(map);
             } else {
-                map = (Map) softReference.get();
+                map = softReference.get();
                 if (map == null) {
-                    map = new HashMap();
-                    this.a = new SoftReference(map);
+                    map = new HashMap<>();
+                    this.a = new SoftReference<>(map);
                 }
             }
             map.put(str, str2);

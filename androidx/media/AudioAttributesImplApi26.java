@@ -1,12 +1,17 @@
 package androidx.media;
 
 import android.media.AudioAttributes;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.media.AudioAttributesImplApi21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(26)
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes.dex */
 public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,6 +38,7 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
         }
 
         @Override // androidx.media.AudioAttributesImplApi21.Builder, androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public AudioAttributesImpl build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -64,6 +70,7 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media.AudioAttributesImplApi21.Builder, androidx.media.AudioAttributesImpl.Builder
+        @NonNull
         public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -75,6 +82,7 @@ public class AudioAttributesImplApi26 extends AudioAttributesImplApi21 {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public AudioAttributesImplApi26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

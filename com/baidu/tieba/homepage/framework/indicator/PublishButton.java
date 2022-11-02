@@ -2,6 +2,7 @@ package com.baidu.tieba.homepage.framework.indicator;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -39,7 +40,7 @@ public class PublishButton extends TBSpecificationBtn {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishButton(Context context, AttributeSet attributeSet) {
+    public PublishButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -62,7 +63,7 @@ public class PublishButton extends TBSpecificationBtn {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishButton(Context context, AttributeSet attributeSet, int i) {
+    public PublishButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -88,7 +89,7 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0882));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f088c));
         }
     }
 

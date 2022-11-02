@@ -16,24 +16,24 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpstream {
+public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public final class BackpressureLatestSubscriber extends AtomicInteger implements FlowableSubscriber, Subscription {
+    public static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 163080509307634843L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber actual;
+        public final Subscriber<? super T> actual;
         public volatile boolean cancelled;
-        public final AtomicReference current;
+        public final AtomicReference<T> current;
         public volatile boolean done;
         public Throwable error;
         public final AtomicLong requested;
         public Subscription s;
 
-        public BackpressureLatestSubscriber(Subscriber subscriber) {
+        public BackpressureLatestSubscriber(Subscriber<? super T> subscriber) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
                 }
             }
             this.requested = new AtomicLong();
-            this.current = new AtomicReference();
+            this.current = new AtomicReference<>();
             this.actual = subscriber;
         }
 
@@ -74,7 +74,7 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
             }
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, Subscriber subscriber, AtomicReference atomicReference) {
+        public boolean checkTerminated(boolean z, boolean z2, Subscriber<?> subscriber, AtomicReference<T> atomicReference) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), subscriber, atomicReference})) == null) {
@@ -136,9 +136,9 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.actual;
+            Subscriber<? super T> subscriber = this.actual;
             AtomicLong atomicLong = this.requested;
-            AtomicReference atomicReference = this.current;
+            AtomicReference<T> atomicReference = this.current;
             int i = 1;
             do {
                 long j = 0;
@@ -148,8 +148,8 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
                         break;
                     }
                     boolean z3 = this.done;
-                    Object andSet = atomicReference.getAndSet(null);
-                    if (andSet == null) {
+                    Object obj = (T) atomicReference.getAndSet(null);
+                    if (obj == null) {
                         z = true;
                     } else {
                         z = false;
@@ -160,7 +160,7 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
                     if (z) {
                         break;
                     }
-                    subscriber.onNext(andSet);
+                    subscriber.onNext(obj);
                     j++;
                 }
             } while (i != 0);
@@ -177,10 +177,10 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.current.lazySet(obj);
+            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+                this.current.lazySet(t);
                 drain();
             }
         }
@@ -206,7 +206,7 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureLatest(Flowable flowable) {
+    public FlowableOnBackpressureLatest(Flowable<T> flowable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -226,7 +226,7 @@ public final class FlowableOnBackpressureLatest extends AbstractFlowableWithUpst
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             this.source.subscribe((FlowableSubscriber) new BackpressureLatestSubscriber(subscriber));

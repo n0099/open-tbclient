@@ -5,13 +5,14 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.hh1;
+import com.baidu.tieba.zh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+@NotProguard
 /* loaded from: classes2.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,7 +40,7 @@ public class WebGLImageLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public class NetValueCallback implements ValueCallback {
+    public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WebGLImage mImage;
@@ -241,6 +243,7 @@ public class WebGLImageLoader {
         }
     }
 
+    @NonNull
     public static String getRealBdFilePath(V8Engine v8Engine, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -540,7 +543,7 @@ public class WebGLImageLoader {
             ImageBitmapBean imageBitmapBean = null;
             if (obj instanceof String) {
                 String str2 = (String) obj;
-                if (hh1.b(str2)) {
+                if (zh1.b(str2)) {
                     decodeStream = BitmapFactory.decodeFile(str2, options);
                     if (decodeStream == null) {
                         decodeStream = BitmapFactory.decodeFile(str2);

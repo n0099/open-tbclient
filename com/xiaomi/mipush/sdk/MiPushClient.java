@@ -40,7 +40,6 @@ import com.xiaomi.push.ij;
 import com.xiaomi.push.in;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.ir;
-import com.xiaomi.push.iu;
 import com.xiaomi.push.service.ba;
 import com.xiaomi.push.service.bd;
 import com.xiaomi.push.service.receivers.NetworkStatusReceiver;
@@ -68,7 +67,7 @@ public abstract class MiPushClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class CodeResult {
+    public static class CodeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long resultCode;
@@ -104,13 +103,13 @@ public abstract class MiPushClient {
     }
 
     /* loaded from: classes8.dex */
-    public interface ICallbackResult {
-        void onResult(Object obj);
+    public interface ICallbackResult<R> {
+        void onResult(R r);
     }
 
     @Deprecated
     /* loaded from: classes8.dex */
-    public abstract class MiPushClientCallback {
+    public static abstract class MiPushClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String category;
@@ -135,7 +134,7 @@ public abstract class MiPushClient {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.category : (String) invokeV.objValue;
         }
 
-        public void onCommandResult(String str, long j, String str2, List list) {
+        public void onCommandResult(String str, long j, String str2, List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), str2, list}) == null) {
             }
@@ -180,7 +179,7 @@ public abstract class MiPushClient {
     }
 
     /* loaded from: classes8.dex */
-    public class TokenResult {
+    public static class TokenResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long resultCode;
@@ -231,15 +230,15 @@ public abstract class MiPushClient {
     }
 
     /* loaded from: classes8.dex */
-    public interface UPSRegisterCallBack extends ICallbackResult {
+    public interface UPSRegisterCallBack extends ICallbackResult<TokenResult> {
     }
 
     /* loaded from: classes8.dex */
-    public interface UPSTurnCallBack extends ICallbackResult {
+    public interface UPSTurnCallBack extends ICallbackResult<CodeResult> {
     }
 
     /* loaded from: classes8.dex */
-    public interface UPSUnRegisterCallBack extends ICallbackResult {
+    public interface UPSUnRegisterCallBack extends ICallbackResult<TokenResult> {
     }
 
     static {
@@ -453,17 +452,17 @@ public abstract class MiPushClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, context) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("mipush_extra", 0).edit();
-            Iterator it = getAllAlias(context).iterator();
+            Iterator<String> it = getAllAlias(context).iterator();
             while (it.hasNext()) {
-                edit.remove("alias_" + ((String) it.next()));
+                edit.remove("alias_" + it.next());
             }
-            Iterator it2 = getAllUserAccount(context).iterator();
+            Iterator<String> it2 = getAllUserAccount(context).iterator();
             while (it2.hasNext()) {
-                edit.remove("account_" + ((String) it2.next()));
+                edit.remove("account_" + it2.next());
             }
-            Iterator it3 = getAllTopic(context).iterator();
+            Iterator<String> it3 = getAllTopic(context).iterator();
             while (it3.hasNext()) {
-                edit.remove("topic_" + ((String) it3.next()));
+                edit.remove("topic_" + it3.next());
             }
             edit.remove(Constants.EXTRA_KEY_ACCEPT_TIME);
             edit.commit();
@@ -518,7 +517,7 @@ public abstract class MiPushClient {
         return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) ? context.getSharedPreferences("mipush_extra", 0).getString(Constants.EXTRA_KEY_ACCEPT_TIME, "00:00-23:59") : (String) invokeL.objValue;
     }
 
-    public static List getAllAlias(Context context) {
+    public static List<String> getAllAlias(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
@@ -533,7 +532,7 @@ public abstract class MiPushClient {
         return (List) invokeL.objValue;
     }
 
-    public static List getAllTopic(Context context) {
+    public static List<String> getAllTopic(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
@@ -548,7 +547,7 @@ public abstract class MiPushClient {
         return (List) invokeL.objValue;
     }
 
-    public static List getAllUserAccount(Context context) {
+    public static List<String> getAllUserAccount(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
@@ -791,7 +790,7 @@ public abstract class MiPushClient {
                         if (!TextUtils.isEmpty(e2)) {
                             iiVar.f645a.put("deviceid", e2);
                         }
-                        ao.a(sContext).a((iu) iiVar, hj.i, false, (hw) null);
+                        ao.a(sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }
                     if (!com.xiaomi.push.n.m568a(sContext, "update_devId", false)) {
                         updateImeiOrOaid();
@@ -803,7 +802,7 @@ public abstract class MiPushClient {
                         iiVar2.c(ht.j.f506a);
                         iiVar2.a(bd.a());
                         iiVar2.a(false);
-                        ao.a(sContext).a((iu) iiVar2, hj.i, false, (hw) null, false);
+                        ao.a(sContext).a((ao) iiVar2, hj.i, false, (hw) null, false);
                         addPullNotificationTime(sContext);
                     }
                 }
@@ -1086,7 +1085,7 @@ public abstract class MiPushClient {
             iiVar.d(context.getPackageName());
             iiVar.a(bd.a());
             iiVar.a(false);
-            ao.a(context).a((iu) iiVar, hj.i, false, (hw) null, false);
+            ao.a(context).a((ao) iiVar, hj.i, false, (hw) null, false);
         }
     }
 
@@ -1145,7 +1144,7 @@ public abstract class MiPushClient {
             iiVar.c("bar:click");
             iiVar.a(str);
             iiVar.a(false);
-            ao.a(context).a((iu) iiVar, hj.i, false, hwVar);
+            ao.a(context).a((ao) iiVar, hj.i, false, hwVar);
         }
     }
 
@@ -1275,7 +1274,7 @@ public abstract class MiPushClient {
         }
     }
 
-    public static void setCommand(Context context, String str, ArrayList arrayList, String str2) {
+    public static void setCommand(Context context, String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(65604, null, context, str, arrayList, str2) == null) || TextUtils.isEmpty(b.m131a(context).m132a())) {
             return;
@@ -1285,14 +1284,14 @@ public abstract class MiPushClient {
         idVar.a(a);
         idVar.b(b.m131a(context).m132a());
         idVar.c(str);
-        Iterator it = arrayList.iterator();
+        Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            idVar.m456a((String) it.next());
+            idVar.m456a(it.next());
         }
         idVar.e(str2);
         idVar.d(context.getPackageName());
         com.xiaomi.channel.commonutils.logger.b.e("cmd:" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-        ao.a(context).a(idVar, hj.j, (hw) null);
+        ao.a(context).a((ao) idVar, hj.j, (hw) null);
     }
 
     public static void setLocalNotificationType(Context context, int i) {
@@ -1351,7 +1350,7 @@ public abstract class MiPushClient {
         inVar.d(context.getPackageName());
         inVar.e(str2);
         com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ey.g + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-        ao.a(context).a(inVar, hj.c, (hw) null);
+        ao.a(context).a((ao) inVar, hj.c, (hw) null);
     }
 
     public static void syncAssembleCOSPushToken(Context context) {
@@ -1485,7 +1484,7 @@ public abstract class MiPushClient {
             irVar.d(context.getPackageName());
             irVar.e(str2);
             com.xiaomi.channel.commonutils.logger.b.e("cmd:" + ey.h + StringUtil.ARRAY_ELEMENT_SEPARATOR + a);
-            ao.a(context).a(irVar, hj.d, (hw) null);
+            ao.a(context).a((ao) irVar, hj.d, (hw) null);
         }
     }
 
@@ -1539,7 +1538,7 @@ public abstract class MiPushClient {
                         if (a >= 0) {
                             iiVar.m481a().put("space_id", Integer.toString(a));
                         }
-                        ao.a(MiPushClient.sContext).a((iu) iiVar, hj.i, false, (hw) null);
+                        ao.a(MiPushClient.sContext).a((ao) iiVar, hj.i, false, (hw) null);
                     }
                 }
             }).start();

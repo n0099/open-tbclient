@@ -11,7 +11,7 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J!\u0010\u0005\u001a\u00020\u00042\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "Lkotlinx/coroutines/flow/FlowCollector;", "collector", "", "collect", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes8.dex */
-public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow {
+public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow<T> {
     public final /* synthetic */ int $count$inlined;
     public final /* synthetic */ Flow $this_take$inlined;
 
@@ -19,7 +19,7 @@ public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow {
     @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$take$$inlined$unsafeFlow$1", f = "Limit.kt", i = {0, 0, 0, 0, 0, 0}, l = {116}, m = "collect", n = {"this", "collector", "continuation", "$receiver", "consumed", "$this$collect$iv"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$5"})
     /* renamed from: kotlinx.coroutines.flow.FlowKt__LimitKt$take$$inlined$unsafeFlow$1$1  reason: invalid class name */
     /* loaded from: classes8.dex */
-    public final class AnonymousClass1 extends ContinuationImpl {
+    public static final class AnonymousClass1 extends ContinuationImpl {
         public Object L$0;
         public Object L$1;
         public Object L$2;
@@ -89,20 +89,20 @@ public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow {
                     final Ref.IntRef intRef2 = new Ref.IntRef();
                     intRef2.element = 0;
                     Flow flow2 = this.$this_take$inlined;
-                    FlowCollector flowCollector4 = new FlowCollector() { // from class: kotlinx.coroutines.flow.FlowKt__LimitKt$take$$inlined$unsafeFlow$1$lambda$1
+                    Object obj2 = new FlowCollector<T>() { // from class: kotlinx.coroutines.flow.FlowKt__LimitKt$take$$inlined$unsafeFlow$1$lambda$1
                         @Override // kotlinx.coroutines.flow.FlowCollector
-                        public Object emit(Object obj2, Continuation continuation3) {
+                        public Object emit(Object obj3, Continuation continuation3) {
                             Ref.IntRef intRef3 = intRef2;
                             int i3 = intRef3.element + 1;
                             intRef3.element = i3;
                             if (i3 < this.$count$inlined) {
-                                Object emit = FlowCollector.this.emit(obj2, continuation3);
+                                Object emit = FlowCollector.this.emit(obj3, continuation3);
                                 if (emit == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                                     return emit;
                                 }
                                 return Unit.INSTANCE;
                             }
-                            Object emitAbort$FlowKt__LimitKt = FlowKt__LimitKt.emitAbort$FlowKt__LimitKt(FlowCollector.this, obj2, continuation3);
+                            Object emitAbort$FlowKt__LimitKt = FlowKt__LimitKt.emitAbort$FlowKt__LimitKt(FlowCollector.this, obj3, continuation3);
                             if (emitAbort$FlowKt__LimitKt == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                                 return emitAbort$FlowKt__LimitKt;
                             }
@@ -116,7 +116,7 @@ public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow {
                     anonymousClass1.L$4 = intRef2;
                     anonymousClass1.L$5 = flow2;
                     anonymousClass1.label = 1;
-                    Object collect = flow2.collect(flowCollector4, anonymousClass1);
+                    Object collect = flow2.collect(obj2, anonymousClass1);
                     flowCollector = collect;
                     if (collect == coroutine_suspended) {
                         return coroutine_suspended;
@@ -126,7 +126,7 @@ public final class FlowKt__LimitKt$take$$inlined$unsafeFlow$1 implements Flow {
             }
         }
         anonymousClass1 = new AnonymousClass1(continuation);
-        Object obj2 = anonymousClass1.result;
+        Object obj3 = anonymousClass1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         i = anonymousClass1.label;
         if (i == 0) {

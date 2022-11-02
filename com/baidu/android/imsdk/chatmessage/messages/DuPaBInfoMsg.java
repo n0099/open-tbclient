@@ -24,7 +24,7 @@ public class DuPaBInfoMsg extends ChatMsg {
     public static final String B_LATITUDE = "latitude";
     public static final String B_LONGITUDE = "longitude";
     public static final String B_TIME = "time";
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DuPaBInfoMsg> CREATOR;
     public static final String TAG = "DuPaBInfoMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public int action;
@@ -64,7 +64,7 @@ public class DuPaBInfoMsg extends ChatMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg.1
+        CREATOR = new Parcelable.Creator<DuPaBInfoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,6 +83,7 @@ public class DuPaBInfoMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBInfoMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -94,6 +95,7 @@ public class DuPaBInfoMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaBInfoMsg[] newArray(int i) {
                 InterceptResult invokeI;

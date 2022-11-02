@@ -1,9 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface vu6<T> {
-    void a(View view2, T t, int i);
+public class vu6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2, T t, int i);
+    public static void a(TbPageContext<?> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
+        }
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) && !UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) && str2 != null) {
+            ew8.a(tbPageContext, str2);
+        }
+    }
 }

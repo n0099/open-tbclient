@@ -1,11 +1,12 @@
 package com.baidu.tieba.enterForum.message;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,18 +18,21 @@ import tbclient.Error;
 import tbclient.ForumCreateInfo;
 import tbclient.ForumGuide.DataRes;
 import tbclient.ForumGuide.ForumGuideResIdl;
-/* loaded from: classes3.dex */
+import tbclient.ForumGuide.HotSearch;
+import tbclient.ForumGuide.LikeForum;
+import tbclient.ThreadInfo;
+/* loaded from: classes4.dex */
 public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumCreateInfo forumCreateInfo;
-    public List hotSearches;
+    public List<HotSearch> hotSearches;
     public Integer isLogin;
-    public List likeForum;
+    public List<LikeForum> likeForum;
     public Integer msignLevel;
     public String msignText;
     public Integer msignValid;
-    public List voiceRoomList;
+    public List<ThreadInfo> voiceRoomList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumGuideSocketResponseMessage() {
@@ -57,7 +61,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         return (ForumCreateInfo) invokeV.objValue;
     }
 
-    public List getHotSearches() {
+    public List<HotSearch> getHotSearches() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -75,7 +79,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public List getLikeForum() {
+    public List<LikeForum> getLikeForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -111,7 +115,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public List getVoiceRoomList() {
+    public List<ThreadInfo> getVoiceRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -125,12 +129,13 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            ou4.f();
-            ou4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
+            hv4.f();
+            hv4.e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).i(EnterForumModel.FORUMRGUIDE_CACHE_KEY, bArr, 86400000L);
         }
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         String str;
@@ -175,7 +180,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setHotSearches(List list) {
+    public void setHotSearches(List<HotSearch> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.hotSearches = list;
@@ -189,7 +194,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setLikeForum(List list) {
+    public void setLikeForum(List<LikeForum> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.likeForum = list;
@@ -217,7 +222,7 @@ public class ForumGuideSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setVoiceRoomList(List list) {
+    public void setVoiceRoomList(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
             this.voiceRoomList = list;

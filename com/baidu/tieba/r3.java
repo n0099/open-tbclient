@@ -13,7 +13,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class r3 extends p3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map j;
+    public static final Map<Application, b7<r3>> j;
     public transient /* synthetic */ FieldHolder $fh;
     public s3 i;
 
@@ -62,13 +62,13 @@ public class r3 extends p3 {
     }
 
     public static void t(Application application) {
-        b7 b7Var;
+        b7<r3> b7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, application) != null) || (b7Var = (b7) j.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, application) != null) || (b7Var = j.get(application)) == null) {
             return;
         }
         for (int i = 0; i < b7Var.b; i++) {
-            ((r3) b7Var.get(i)).w();
+            b7Var.get(i).w();
         }
     }
 

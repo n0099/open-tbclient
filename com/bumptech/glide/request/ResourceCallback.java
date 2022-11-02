@@ -9,5 +9,5 @@ public interface ResourceCallback {
 
     void onLoadFailed(GlideException glideException);
 
-    void onResourceReady(Resource resource, DataSource dataSource, boolean z);
+    void onResourceReady(Resource<?> resource, DataSource dataSource, boolean z);
 }

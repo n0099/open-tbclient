@@ -34,11 +34,11 @@ public class AddressStatUtil {
         }
     }
 
-    public static HashMap getCommonParamsMap() {
+    public static HashMap<String, String> getCommonParamsMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
+            HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("scene", "api");
             AddressManageDTO addressManageDTO = EcommerceRouter.getInstance().getAddressManageDTO();
             if (addressManageDTO != null) {
@@ -64,7 +64,7 @@ public class AddressStatUtil {
     public static void statAddressOption(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            HashMap commonParamsMap = getCommonParamsMap();
+            HashMap<String, String> commonParamsMap = getCommonParamsMap();
             Log.d(TAG, "statAddressOption key=" + str);
             AddressManagerStat.statExtMap.put(str, "1");
             StatService.onEvent(str, commonParamsMap);
@@ -74,7 +74,7 @@ public class AddressStatUtil {
     public static void statAddressOption(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
-            HashMap commonParamsMap = getCommonParamsMap();
+            HashMap<String, String> commonParamsMap = getCommonParamsMap();
             commonParamsMap.put("time", "" + j);
             Log.d(TAG, "statAddressOption key=" + str + " time=" + j);
             AddressManagerStat.statExtMap.put(str, "1");
@@ -82,10 +82,10 @@ public class AddressStatUtil {
         }
     }
 
-    public static void statAddressOption(String str, HashMap hashMap) {
+    public static void statAddressOption(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, hashMap) == null) {
-            HashMap commonParamsMap = getCommonParamsMap();
+            HashMap<String, String> commonParamsMap = getCommonParamsMap();
             commonParamsMap.putAll(hashMap);
             Log.d(TAG, "statAddressOption key=" + str);
             AddressManagerStat.statExtMap.put(str, hashMap);

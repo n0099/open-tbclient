@@ -9,6 +9,7 @@ import com.ss.android.socialbase.downloader.depend.af;
 import com.ss.android.socialbase.downloader.depend.ak;
 import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
+import com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService;
 import com.ss.android.socialbase.downloader.downloader.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
@@ -17,7 +18,7 @@ import java.util.List;
 public class o implements com.ss.android.socialbase.downloader.downloader.m, com.ss.android.socialbase.downloader.downloader.n {
     public static final String a = "o";
     public volatile com.ss.android.socialbase.downloader.downloader.i b;
-    public com.ss.android.socialbase.downloader.downloader.o c;
+    public com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> c;
     public com.ss.android.socialbase.downloader.downloader.m d = new p();
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
@@ -25,7 +26,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     public o() {
-        com.ss.android.socialbase.downloader.downloader.o z = com.ss.android.socialbase.downloader.downloader.c.z();
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> z = com.ss.android.socialbase.downloader.downloader.c.z();
         this.c = z;
         z.a(this);
     }
@@ -63,7 +64,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List d() {
+    public List<DownloadInfo> d() {
         if (this.b == null) {
             return this.d.d();
         }
@@ -116,7 +117,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void startService() {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.c;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.c;
         if (oVar != null) {
             oVar.startService();
         }
@@ -145,7 +146,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List a(String str) {
+    public List<DownloadInfo> a(String str) {
         if (this.b == null) {
             return this.d.a(str);
         }
@@ -158,7 +159,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List b(String str) {
+    public List<DownloadInfo> b(String str) {
         if (this.b == null) {
             return this.d.b(str);
         }
@@ -171,7 +172,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List c(String str) {
+    public List<DownloadInfo> c(String str) {
         if (this.b == null) {
             return this.d.c(str);
         }
@@ -184,7 +185,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List d(String str) {
+    public List<DownloadInfo> d(String str) {
         if (this.b == null) {
             return this.d.d(str);
         }
@@ -249,7 +250,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List i(int i) {
+    public List<com.ss.android.socialbase.downloader.model.b> i(int i) {
         if (this.b == null) {
             return this.d.i(i);
         }
@@ -276,7 +277,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void k(int i) {
-        com.ss.android.socialbase.downloader.downloader.o oVar = this.c;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar = this.c;
         if (oVar != null) {
             oVar.a(i);
         }
@@ -400,7 +401,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void b(DownloadTask downloadTask) {
-        com.ss.android.socialbase.downloader.downloader.o oVar;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         if (downloadTask != null && (oVar = this.c) != null) {
             oVar.c(downloadTask);
         }
@@ -431,7 +432,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public List e(String str) {
+    public List<DownloadInfo> e(String str) {
         if (this.b != null) {
             try {
                 return this.b.d(str);
@@ -455,7 +456,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void b(int i, List list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         if (this.b == null) {
             this.d.b(i, list);
             return;
@@ -615,7 +616,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void a(int i, List list) {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         if (this.b == null) {
             return;
         }
@@ -647,7 +648,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
                 public void a(int i, int i2) {
                     if (i2 == 1) {
                         Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).pause(i);
-                        List i3 = l.a(false).i(i);
+                        List<com.ss.android.socialbase.downloader.model.b> i3 = l.a(false).i(i);
                         if (i3 != null) {
                             l.a(true).a(i, com.ss.android.socialbase.downloader.i.f.a(i3));
                         }
@@ -660,7 +661,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void b(List list) {
+    public void b(List<String> list) {
         if (this.b == null) {
             this.d.b(list);
             return;
@@ -711,7 +712,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(DownloadTask downloadTask) {
-        com.ss.android.socialbase.downloader.downloader.o oVar;
+        com.ss.android.socialbase.downloader.downloader.o<IndependentProcessDownloadService> oVar;
         if (downloadTask != null && (oVar = this.c) != null) {
             oVar.b(downloadTask);
         }
@@ -731,7 +732,7 @@ public class o implements com.ss.android.socialbase.downloader.downloader.m, com
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.m
-    public void a(List list) {
+    public void a(List<String> list) {
         if (this.b == null) {
             this.d.a(list);
             return;

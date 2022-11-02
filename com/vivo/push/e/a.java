@@ -14,11 +14,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList b;
+    public ArrayList<String> b;
 
     /* renamed from: com.vivo.push.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0703a {
+    public static class C0714a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,23 +70,23 @@ public final class a {
             }
         }
         this.b = null;
-        this.b = new ArrayList();
+        this.b = new ArrayList<>();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return C0703a.a;
+            return C0714a.a;
         }
         return (a) invokeV.objValue;
     }
 
-    public final ArrayList b() {
+    public final ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ArrayList(this.b);
+            return new ArrayList<>(this.b);
         }
         return (ArrayList) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = this.b;
+            ArrayList<String> arrayList = this.b;
             if (arrayList != null && arrayList.size() != 0) {
                 return true;
             }

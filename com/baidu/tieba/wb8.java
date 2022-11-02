@@ -1,64 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.vb8;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wb8 extends vb8.b {
+public class wb8 extends fx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int d;
-    public final String e;
+    public bd8 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wb8(int i, String str, int i2, String str2) {
-        super(i, str);
+    public wb8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), str2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = i2;
-        this.e = str2;
     }
 
-    @Override // com.baidu.tieba.vb8.b, com.baidu.tieba.vb8
-    public JSONObject a() {
+    @Override // com.baidu.tieba.fx, com.baidu.tieba.vy
+    public zc8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject a = super.a();
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (this.d != -4399) {
-                    jSONObject.put("code", this.d);
-                }
-                if (!StringUtils.isNull(this.e)) {
-                    jSONObject.put("msg", this.e);
-                }
-                a.put("ext", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return a;
+            bd8 bd8Var = new bd8(this.b, this.i);
+            this.z = bd8Var;
+            return bd8Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (zc8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vy
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.v();
+        }
+    }
+
+    @Override // com.baidu.tieba.vy
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.w();
+        }
     }
 }

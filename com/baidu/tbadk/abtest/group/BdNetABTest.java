@@ -17,7 +17,7 @@ public class BdNetABTest extends AbsGroupUbsABTest {
     public static final BdUniqueId ABTEST_GROUP_KEY;
     public static final String BD_NET_SID_A = "12_23_net_a";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -49,13 +49,13 @@ public class BdNetABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         this.mABTestList = arrayList;
         arrayList.add(BD_NET_SID_A);
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

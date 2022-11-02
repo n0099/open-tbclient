@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class TreeDocumentFile extends DocumentFile {
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +25,7 @@ public class TreeDocumentFile extends DocumentFile {
     public Uri mUri;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TreeDocumentFile(DocumentFile documentFile, Context context, Uri uri) {
+    public TreeDocumentFile(@Nullable DocumentFile documentFile, Context context, Uri uri) {
         super(documentFile);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +46,7 @@ public class TreeDocumentFile extends DocumentFile {
         this.mUri = uri;
     }
 
-    public static void closeQuietly(AutoCloseable autoCloseable) {
+    public static void closeQuietly(@Nullable AutoCloseable autoCloseable) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, autoCloseable) == null) && autoCloseable != null) {
             try {
@@ -56,6 +59,7 @@ public class TreeDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public DocumentFile createDirectory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -87,6 +91,7 @@ public class TreeDocumentFile extends DocumentFile {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public static Uri createFile(Context context, Uri uri, String str, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -145,6 +150,7 @@ public class TreeDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -155,6 +161,7 @@ public class TreeDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,6 +232,7 @@ public class TreeDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
+    @Nullable
     public DocumentFile createFile(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

@@ -1,77 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.style.LineHeightSpan;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class wy1 implements LineHeightSpan {
+public class wy1 extends kx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public Path a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286810, "Lcom/baidu/tieba/wy1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948286810, "Lcom/baidu/tieba/wy1;");
-                return;
-            }
-        }
-        b = wj1.a;
-    }
-
-    public wy1(int i) {
+    public wy1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = i;
     }
 
-    @Override // android.text.style.LineHeightSpan
-    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-        int i5;
+    @Override // com.baidu.tieba.kx1
+    public void a(lx1 lx1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
-            }
-            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, lx1Var, canvas) == null) && this.a != null) {
+            int alpha = lx1Var.c.getAlpha();
+            lx1Var.c(lx1Var.c);
+            canvas.drawPath(this.a, lx1Var.c);
+            lx1Var.c.setAlpha(alpha);
+        }
+    }
+
+    @Override // com.baidu.tieba.kx1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = vh3.g((float) jSONArray.optDouble(0));
+                    int g2 = vh3.g((float) jSONArray.optDouble(1));
+                    int g3 = vh3.g((float) jSONArray.optDouble(2));
+                    int g4 = vh3.g((float) jSONArray.optDouble(3));
+                    Path path = new Path();
+                    this.a = path;
+                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
                 }
-                int i6 = (this.a - i5) / 2;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
-                }
-                fontMetricsInt.descent += i6;
-                fontMetricsInt.ascent -= i6;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
+            } catch (Exception e) {
+                if (ok1.a) {
+                    e.printStackTrace();
                 }
             }
         }

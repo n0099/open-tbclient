@@ -1,5 +1,6 @@
 package com.baidu.swan.ubc;
 
+import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
@@ -8,12 +9,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tieba.bj4;
-import com.baidu.tieba.fj4;
-import com.baidu.tieba.mj4;
-import com.baidu.tieba.si4;
-import com.baidu.tieba.ve1;
-import com.baidu.tieba.zi4;
+import com.baidu.tieba.ek4;
+import com.baidu.tieba.kj4;
+import com.baidu.tieba.nf1;
+import com.baidu.tieba.rj4;
+import com.baidu.tieba.tj4;
+import com.baidu.tieba.xj4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,10 +28,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@SuppressLint({"SyntheticAccessor"})
 /* loaded from: classes3.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<Flow> CREATOR;
     public static final boolean DEBUG = false;
     public static final int INVALID_HANDLE = -1;
     public static final String TAG = "UBCFlow";
@@ -39,9 +41,9 @@ public class Flow implements Parcelable {
     public String mId;
     public boolean mIsSampled;
     public int mOption;
-    public HashMap mSlotMaps;
+    public HashMap<String, Slot> mSlotMaps;
     public long mStartTime;
-    public zi4 mUbcContext;
+    public rj4 mUbcContext;
     public boolean mValid;
 
     @Override // android.os.Parcelable
@@ -55,7 +57,7 @@ public class Flow implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,8 +184,8 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
-        this.mSlotMaps = new HashMap();
-        this.mUbcContext = si4.g();
+        this.mSlotMaps = new HashMap<>();
+        this.mUbcContext = kj4.g();
         this.mId = "";
         this.mHandle = -1;
         this.mOption = 0;
@@ -207,8 +209,8 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
-        this.mSlotMaps = new HashMap();
-        this.mUbcContext = si4.g();
+        this.mSlotMaps = new HashMap<>();
+        this.mUbcContext = kj4.g();
         this.mId = parcel.readString();
         this.mHandle = parcel.readInt();
         this.mOption = parcel.readInt();
@@ -243,8 +245,8 @@ public class Flow implements Parcelable {
             }
         }
         this.mValid = true;
-        this.mSlotMaps = new HashMap();
-        this.mUbcContext = si4.g();
+        this.mSlotMaps = new HashMap<>();
+        this.mUbcContext = kj4.g();
         this.mId = str;
         this.mHandle = i;
         this.mOption = i2;
@@ -277,19 +279,19 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
-            if (mj4.a()) {
-                bj4.f().m(this.mId, str, this.mHandle, str2, this.mOption);
+        if (nf1.g()) {
+            if (ek4.a()) {
+                tj4.f().m(this.mId, str, this.mHandle, str2, this.mOption);
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.g(this.mId, str, this.mHandle, str2, this.mOption);
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.g(this.mId, str, this.mHandle, str2, this.mOption);
                 return;
             }
             return;
         }
         try {
-            si4.f().flowAddEvent(this, str, str2);
+            kj4.f().flowAddEvent(this, str, str2);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -300,19 +302,19 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
-            if (mj4.a()) {
-                bj4.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
+        if (nf1.g()) {
+            if (ek4.a()) {
+                tj4.f().n(this.mId, str, this.mHandle, str2, j, this.mOption);
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.n(this.mId, str, this.mHandle, str2, j, this.mOption);
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.n(this.mId, str, this.mHandle, str2, j, this.mOption);
                 return;
             }
             return;
         }
         try {
-            si4.f().flowAddEventWithTime(this, str, str2, j);
+            kj4.f().flowAddEventWithTime(this, str, str2, j);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -323,19 +325,19 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
-            if (mj4.a()) {
-                bj4.f().c(this.mId, this.mHandle);
+        if (nf1.g()) {
+            if (ek4.a()) {
+                tj4.f().c(this.mId, this.mHandle);
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.f(this.mId, this.mHandle);
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.f(this.mId, this.mHandle);
                 return;
             }
             return;
         }
         try {
-            si4.f().flowCancel(this);
+            kj4.f().flowCancel(this);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -346,33 +348,33 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
+        if (nf1.g()) {
             JSONArray jSONArray = new JSONArray();
-            HashMap hashMap = this.mSlotMaps;
+            HashMap<String, Slot> hashMap = this.mSlotMaps;
             if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    Slot slot = (Slot) entry.getValue();
-                    if (slot.isBegin() && !slot.isEnded()) {
-                        slot.setEnd(System.currentTimeMillis());
+                for (Map.Entry<String, Slot> entry : hashMap.entrySet()) {
+                    Slot value = entry.getValue();
+                    if (value.isBegin() && !value.isEnded()) {
+                        value.setEnd(System.currentTimeMillis());
                     }
-                    JSONObject jSONObject = ((Slot) entry.getValue()).getJSONObject();
+                    JSONObject jSONObject = entry.getValue().getJSONObject();
                     if (jSONObject != null) {
                         jSONArray.put(jSONObject);
                     }
                 }
             }
-            if (mj4.a()) {
-                bj4.f().e(this.mId, this.mHandle, jSONArray);
+            if (ek4.a()) {
+                tj4.f().e(this.mId, this.mHandle, jSONArray);
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.e(this.mId, this.mHandle, jSONArray);
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.e(this.mId, this.mHandle, jSONArray);
                 return;
             }
             return;
         }
         try {
-            si4.f().flowEnd(this);
+            kj4.f().flowEnd(this);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -381,19 +383,19 @@ public class Flow implements Parcelable {
     public final void endSlot(String str) {
         Slot slot;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mValid && !TextUtils.isEmpty(str) && (slot = (Slot) this.mSlotMaps.get(str)) != null && slot.isBegin()) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.mValid && !TextUtils.isEmpty(str) && (slot = this.mSlotMaps.get(str)) != null && slot.isBegin()) {
             slot.setEnd(System.currentTimeMillis());
             slot.clean();
         }
     }
 
-    public void setValue(Map map) {
+    public void setValue(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                for (Map.Entry entry : map.entrySet()) {
-                    jSONObject.put((String) entry.getKey(), entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException unused) {
             }
@@ -406,19 +408,19 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
-            if (mj4.a()) {
-                bj4.f().p(this.mId, this.mHandle, str);
+        if (nf1.g()) {
+            if (ek4.a()) {
+                tj4.f().p(this.mId, this.mHandle, str);
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.i(this.mId, this.mHandle, str);
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.i(this.mId, this.mHandle, str);
                 return;
             }
             return;
         }
         try {
-            si4.f().flowSetValue(this, fj4.b(str));
+            kj4.f().flowSetValue(this, xj4.b(str));
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -429,7 +431,7 @@ public class Flow implements Parcelable {
         if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || !this.mValid) {
             return;
         }
-        if (ve1.g()) {
+        if (nf1.g()) {
             JSONObject jSONObject = new JSONObject();
             try {
                 float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -448,18 +450,18 @@ public class Flow implements Parcelable {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (mj4.a()) {
-                bj4.f().p(this.mId, this.mHandle, jSONObject.toString());
+            if (ek4.a()) {
+                tj4.f().p(this.mId, this.mHandle, jSONObject.toString());
             }
-            zi4 zi4Var = this.mUbcContext;
-            if (zi4Var != null && !this.mIsSampled) {
-                zi4Var.i(this.mId, this.mHandle, jSONObject.toString());
+            rj4 rj4Var = this.mUbcContext;
+            if (rj4Var != null && !this.mIsSampled) {
+                rj4Var.i(this.mId, this.mHandle, jSONObject.toString());
                 return;
             }
             return;
         }
         try {
-            si4.f().flowSetValueWithDuration(this, fj4.b(str));
+            kj4.f().flowSetValueWithDuration(this, xj4.b(str));
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -468,7 +470,7 @@ public class Flow implements Parcelable {
     public final void startSlot(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048594, this, str, jSONObject) == null) && this.mValid && !TextUtils.isEmpty(str)) {
-            Slot slot = (Slot) this.mSlotMaps.get(str);
+            Slot slot = this.mSlotMaps.get(str);
             if (slot == null) {
                 this.mSlotMaps.put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
                 return;

@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
@@ -18,7 +19,7 @@ public class LruBitmapPool implements BitmapPool {
     public int mMaxBitmapSize;
     public final int mMaxPoolSize;
     public final PoolStatsTracker mPoolStatsTracker;
-    public final PoolBackend mStrategy;
+    public final PoolBackend<Bitmap> mStrategy;
 
     public LruBitmapPool(int i, int i2, PoolStatsTracker poolStatsTracker, @Nullable MemoryTrimmableRegistry memoryTrimmableRegistry) {
         Interceptable interceptable = $ic;
@@ -44,6 +45,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
+    @VisibleForTesting
     private Bitmap alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -77,12 +79,12 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     private synchronized void trimTo(int i) {
-        Bitmap bitmap;
+        Bitmap pop;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
             synchronized (this) {
-                while (this.mCurrentSize > i && (bitmap = (Bitmap) this.mStrategy.pop()) != null) {
-                    int size = this.mStrategy.getSize(bitmap);
+                while (this.mCurrentSize > i && (pop = this.mStrategy.pop()) != null) {
+                    int size = this.mStrategy.getSize(pop);
                     this.mCurrentSize -= size;
                     this.mPoolStatsTracker.onFree(size);
                 }
@@ -91,6 +93,7 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
     public synchronized Bitmap get(int i) {
         InterceptResult invokeI;
@@ -100,7 +103,7 @@ public class LruBitmapPool implements BitmapPool {
                 if (this.mCurrentSize > this.mMaxPoolSize) {
                     trimTo(this.mMaxPoolSize);
                 }
-                Bitmap bitmap = (Bitmap) this.mStrategy.get(i);
+                Bitmap bitmap = this.mStrategy.get(i);
                 if (bitmap != null) {
                     int size = this.mStrategy.getSize(bitmap);
                     this.mCurrentSize -= size;

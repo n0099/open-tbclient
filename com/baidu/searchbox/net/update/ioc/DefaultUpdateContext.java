@@ -21,7 +21,7 @@ public class DefaultUpdateContext implements IUpdateContext {
     }
 
     @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
-    public List getCustomUpdateBlackList() {
+    public List<String> getCustomUpdateBlackList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

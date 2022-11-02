@@ -33,7 +33,7 @@ public interface AudioProcessor {
     void reset();
 
     /* loaded from: classes7.dex */
-    public final class UnhandledFormatException extends Exception {
+    public static final class UnhandledFormatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

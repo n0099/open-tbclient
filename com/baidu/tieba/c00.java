@@ -1,96 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.SecureRandom;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.ShortBufferException;
 /* loaded from: classes3.dex */
-public class c00 {
+public final class c00 implements d00 {
     public static /* synthetic */ Interceptable $ic;
-    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
-    public e00 a;
+    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620806, "Lcom/baidu/tieba/c00;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620806, "Lcom/baidu/tieba/c00;");
-                return;
-            }
-        }
-        b = new SecureRandom();
-    }
-
-    public c00() {
+    public c00(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new e00(new b00(), 16);
+        this.a = i;
     }
 
-    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.d00
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
-            c00 c00Var = new c00();
-            c00Var.a(2, bArr, bArr2);
-            return c00Var.b(bArr3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
         }
-        return (byte[]) invokeLLL.objValue;
+        return invokeI.intValue;
     }
 
-    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.d00
+    public int a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
-            c00 c00Var = new c00();
-            c00Var.a(1, bArr, bArr2);
-            return c00Var.b(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public void a(int i, byte[] bArr, byte[] bArr2) throws InvalidAlgorithmParameterException, InvalidKeyException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
-            this.a.d(i, bArr, bArr2, b);
-        }
-    }
-
-    public final byte[] b(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.e(bArr, 0, bArr.length);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
             }
-            throw new IllegalArgumentException("Null input buffer");
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
+            }
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
+                }
+            }
+            return i3;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeLII.intValue;
+    }
+
+    @Override // com.baidu.tieba.d00
+    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
+            return;
+        }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
+        }
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
+        }
     }
 }

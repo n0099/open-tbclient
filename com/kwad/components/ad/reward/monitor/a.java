@@ -2,6 +2,7 @@ package com.kwad.components.ad.reward.monitor;
 
 import android.content.Context;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,7 +91,7 @@ public final class a {
         }
     }
 
-    public static void a(boolean z, AdTemplate adTemplate, int i, long j) {
+    public static void a(boolean z, @NonNull AdTemplate adTemplate, int i, long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), adTemplate, Integer.valueOf(i), Long.valueOf(j)}) == null) || j <= 0) {
             return;

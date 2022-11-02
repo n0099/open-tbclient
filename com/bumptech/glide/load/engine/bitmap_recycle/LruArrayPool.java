@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,21 +19,22 @@ import java.util.TreeMap;
 public final class LruArrayPool implements ArrayPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 4194304;
+    @VisibleForTesting
     public static final int MAX_OVER_SIZE_MULTIPLE = 8;
     public static final int SINGLE_ARRAY_MAX_SIZE_DIVISOR = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map adapters;
+    public final Map<Class<?>, ArrayAdapterInterface<?>> adapters;
     public int currentSize;
-    public final GroupedLinkedMap groupedMap;
+    public final GroupedLinkedMap<Key, Object> groupedMap;
     public final KeyPool keyPool;
     public final int maxSize;
-    public final Map sortedSizes;
+    public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* loaded from: classes7.dex */
-    public final class Key implements Poolable {
+    public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Class arrayClass;
+        public Class<?> arrayClass;
         public final KeyPool pool;
         public int size;
 
@@ -75,7 +78,7 @@ public final class LruArrayPool implements ArrayPool {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 int i2 = this.size * 31;
-                Class cls = this.arrayClass;
+                Class<?> cls = this.arrayClass;
                 if (cls != null) {
                     i = cls.hashCode();
                 } else {
@@ -94,7 +97,7 @@ public final class LruArrayPool implements ArrayPool {
             }
         }
 
-        public void init(int i, Class cls) {
+        public void init(int i, Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, cls) == null) {
                 this.size = i;
@@ -113,7 +116,7 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     /* loaded from: classes7.dex */
-    public final class KeyPool extends BaseKeyPool {
+    public static final class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,6 +135,7 @@ public final class LruArrayPool implements ArrayPool {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.bumptech.glide.load.engine.bitmap_recycle.BaseKeyPool
         public Key create() {
             InterceptResult invokeV;
@@ -142,11 +146,11 @@ public final class LruArrayPool implements ArrayPool {
             return (Key) invokeV.objValue;
         }
 
-        public Key get(int i, Class cls) {
+        public Key get(int i, Class<?> cls) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, cls)) == null) {
-                Key key = (Key) get();
+                Key key = get();
                 key.init(i, cls);
                 return key;
             }
@@ -154,6 +158,7 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
+    @VisibleForTesting
     public LruArrayPool() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -167,7 +172,7 @@ public final class LruArrayPool implements ArrayPool {
                 return;
             }
         }
-        this.groupedMap = new GroupedLinkedMap();
+        this.groupedMap = new GroupedLinkedMap<>();
         this.keyPool = new KeyPool();
         this.sortedSizes = new HashMap();
         this.adapters = new HashMap();
@@ -189,7 +194,7 @@ public final class LruArrayPool implements ArrayPool {
                 return;
             }
         }
-        this.groupedMap = new GroupedLinkedMap();
+        this.groupedMap = new GroupedLinkedMap<>();
         this.keyPool = new KeyPool();
         this.sortedSizes = new HashMap();
         this.adapters = new HashMap();
@@ -212,30 +217,30 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    private ArrayAdapterInterface getAdapterFromType(Class cls) {
+    private <T> ArrayAdapterInterface<T> getAdapterFromType(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, cls)) == null) {
-            ArrayAdapterInterface arrayAdapterInterface = (ArrayAdapterInterface) this.adapters.get(cls);
-            if (arrayAdapterInterface == null) {
+            IntegerArrayAdapter integerArrayAdapter = (ArrayAdapterInterface<T>) this.adapters.get(cls);
+            if (integerArrayAdapter == null) {
                 if (cls.equals(int[].class)) {
-                    arrayAdapterInterface = new IntegerArrayAdapter();
+                    integerArrayAdapter = new IntegerArrayAdapter();
                 } else if (cls.equals(byte[].class)) {
-                    arrayAdapterInterface = new ByteArrayAdapter();
+                    integerArrayAdapter = new ByteArrayAdapter();
                 } else {
                     throw new IllegalArgumentException("No array pool found for: " + cls.getSimpleName());
                 }
-                this.adapters.put(cls, arrayAdapterInterface);
+                this.adapters.put(cls, integerArrayAdapter);
             }
-            return arrayAdapterInterface;
+            return integerArrayAdapter;
         }
         return (ArrayAdapterInterface) invokeL.objValue;
     }
 
-    private void decrementArrayOfSize(int i, Class cls) {
+    private void decrementArrayOfSize(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, cls) == null) {
-            NavigableMap sizesForAdapter = getSizesForAdapter(cls);
+            NavigableMap<Integer, Integer> sizesForAdapter = getSizesForAdapter(cls);
             Integer num = (Integer) sizesForAdapter.get(Integer.valueOf(i));
             if (num != null) {
                 if (num.intValue() == 1) {
@@ -250,25 +255,25 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    private Object getForKey(Key key, Class cls) {
+    private <T> T getForKey(Key key, Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, key, cls)) == null) {
-            ArrayAdapterInterface adapterFromType = getAdapterFromType(cls);
-            Object arrayForKey = getArrayForKey(key);
-            if (arrayForKey != null) {
-                this.currentSize -= adapterFromType.getArrayLength(arrayForKey) * adapterFromType.getElementSizeInBytes();
-                decrementArrayOfSize(adapterFromType.getArrayLength(arrayForKey), cls);
+            ArrayAdapterInterface<T> adapterFromType = getAdapterFromType(cls);
+            T t = (T) getArrayForKey(key);
+            if (t != null) {
+                this.currentSize -= adapterFromType.getArrayLength(t) * adapterFromType.getElementSizeInBytes();
+                decrementArrayOfSize(adapterFromType.getArrayLength(t), cls);
             }
-            if (arrayForKey == null) {
+            if (t == null) {
                 if (Log.isLoggable(adapterFromType.getTag(), 2)) {
                     Log.v(adapterFromType.getTag(), "Allocated " + key.size + " bytes");
                 }
                 return adapterFromType.newArray(key.size);
             }
-            return arrayForKey;
+            return t;
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 
     private void evict() {
@@ -301,29 +306,30 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    private ArrayAdapterInterface getAdapterFromObject(Object obj) {
+    private <T> ArrayAdapterInterface<T> getAdapterFromObject(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, obj)) == null) {
-            return getAdapterFromType(obj.getClass());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, t)) == null) {
+            return getAdapterFromType(t.getClass());
         }
         return (ArrayAdapterInterface) invokeL.objValue;
     }
 
-    private Object getArrayForKey(Key key) {
+    @Nullable
+    private <T> T getArrayForKey(Key key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, key)) == null) {
-            return this.groupedMap.get(key);
+            return (T) this.groupedMap.get(key);
         }
-        return invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    private NavigableMap getSizesForAdapter(Class cls) {
+    private NavigableMap<Integer, Integer> getSizesForAdapter(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, cls)) == null) {
-            NavigableMap navigableMap = (NavigableMap) this.sortedSizes.get(cls);
+            NavigableMap<Integer, Integer> navigableMap = this.sortedSizes.get(cls);
             if (navigableMap == null) {
                 TreeMap treeMap = new TreeMap();
                 this.sortedSizes.put(cls, treeMap);
@@ -377,47 +383,47 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized Object getExact(int i, Class cls) {
+    public synchronized <T> T getExact(int i, Class<T> cls) {
         InterceptResult invokeIL;
-        Object forKey;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, cls)) == null) {
             synchronized (this) {
-                forKey = getForKey(this.keyPool.get(i, cls), cls);
+                t = (T) getForKey(this.keyPool.get(i, cls), cls);
             }
-            return forKey;
+            return t;
         }
-        return invokeIL.objValue;
+        return (T) invokeIL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
     @Deprecated
-    public void put(Object obj, Class cls) {
+    public <T> void put(T t, Class<T> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, cls) == null) {
-            put(obj);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, t, cls) == null) {
+            put(t);
         }
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized Object get(int i, Class cls) {
+    public synchronized <T> T get(int i, Class<T> cls) {
         InterceptResult invokeIL;
         Key key;
-        Object forKey;
+        T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cls)) == null) {
             synchronized (this) {
-                Integer num = (Integer) getSizesForAdapter(cls).ceilingKey(Integer.valueOf(i));
-                if (mayFillRequest(i, num)) {
-                    key = this.keyPool.get(num.intValue(), cls);
+                Integer ceilingKey = getSizesForAdapter(cls).ceilingKey(Integer.valueOf(i));
+                if (mayFillRequest(i, ceilingKey)) {
+                    key = this.keyPool.get(ceilingKey.intValue(), cls);
                 } else {
                     key = this.keyPool.get(i, cls);
                 }
-                forKey = getForKey(key, cls);
+                t = (T) getForKey(key, cls);
             }
-            return forKey;
+            return t;
         }
-        return invokeIL.objValue;
+        return (T) invokeIL.objValue;
     }
 
     public int getCurrentSize() {
@@ -425,9 +431,9 @@ public final class LruArrayPool implements ArrayPool {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int i = 0;
-            for (Class cls : this.sortedSizes.keySet()) {
-                for (Integer num : ((NavigableMap) this.sortedSizes.get(cls)).keySet()) {
-                    i += num.intValue() * ((Integer) ((NavigableMap) this.sortedSizes.get(cls)).get(num)).intValue() * getAdapterFromType(cls).getElementSizeInBytes();
+            for (Class<?> cls : this.sortedSizes.keySet()) {
+                for (Integer num : this.sortedSizes.get(cls).keySet()) {
+                    i += num.intValue() * ((Integer) this.sortedSizes.get(cls).get(num)).intValue() * getAdapterFromType(cls).getElementSizeInBytes();
                 }
             }
             return i;
@@ -436,20 +442,20 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized void put(Object obj) {
+    public synchronized <T> void put(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             synchronized (this) {
-                Class<?> cls = obj.getClass();
-                ArrayAdapterInterface adapterFromType = getAdapterFromType(cls);
-                int arrayLength = adapterFromType.getArrayLength(obj);
+                Class<?> cls = t.getClass();
+                ArrayAdapterInterface<T> adapterFromType = getAdapterFromType(cls);
+                int arrayLength = adapterFromType.getArrayLength(t);
                 int elementSizeInBytes = adapterFromType.getElementSizeInBytes() * arrayLength;
                 if (!isSmallEnoughForReuse(elementSizeInBytes)) {
                     return;
                 }
                 Key key = this.keyPool.get(arrayLength, cls);
-                this.groupedMap.put(key, obj);
-                NavigableMap sizesForAdapter = getSizesForAdapter(cls);
+                this.groupedMap.put(key, t);
+                NavigableMap<Integer, Integer> sizesForAdapter = getSizesForAdapter(cls);
                 Integer num = (Integer) sizesForAdapter.get(Integer.valueOf(key.size));
                 Integer valueOf = Integer.valueOf(key.size);
                 int i = 1;

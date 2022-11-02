@@ -1,7 +1,9 @@
 package com.baidu.android.common.others.url;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Patterns;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -106,7 +108,7 @@ public class UrlUtil {
         return (String) invokeLLL.objValue;
     }
 
-    public static String addParam(String str, Map map) {
+    public static String addParam(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
@@ -125,7 +127,7 @@ public class UrlUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static String deleteParam(String str, Set set) {
+    public static String deleteParam(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, set)) == null) {
@@ -149,7 +151,7 @@ public class UrlUtil {
         return (String) invokeLL.objValue;
     }
 
-    public static String deleteParamAllowAll(String str, Set set) {
+    public static String deleteParamAllowAll(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, set)) == null) {
@@ -244,7 +246,7 @@ public class UrlUtil {
         return (String) invokeLLL.objValue;
     }
 
-    public static String appendParams(String str, Map map) {
+    public static String appendParams(String str, @NonNull Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, map)) == null) {
@@ -258,7 +260,7 @@ public class UrlUtil {
             for (String str2 : map.keySet()) {
                 stringBuffer.append(str2);
                 stringBuffer.append("=");
-                stringBuffer.append((String) map.get(str2));
+                stringBuffer.append(map.get(str2));
                 stringBuffer.append("&");
             }
             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -443,7 +445,7 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String deleteQueryParam(String str, Set set) {
+    public static String deleteQueryParam(String str, Set<String> set) {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;
@@ -532,7 +534,8 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static Map stringToMap(String str) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static Map<String, String> stringToMap(String str) {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
@@ -584,7 +587,8 @@ public class UrlUtil {
         return (String) invokeLLLL.objValue;
     }
 
-    public static String mapToString(Map map) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static String mapToString(Map<String, String> map) {
         InterceptResult invokeL;
         String encode;
         String str;
@@ -598,7 +602,7 @@ public class UrlUtil {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
-                String str3 = (String) map.get(str2);
+                String str3 = map.get(str2);
                 if (str2 == null) {
                     encode = "";
                 } else {

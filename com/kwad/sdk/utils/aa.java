@@ -2,11 +2,13 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 /* loaded from: classes8.dex */
 public final class aa {
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public int anF;
         public int anG;
         public int anH;
@@ -78,7 +80,7 @@ public final class aa {
         }
     }
 
-    public static String R(Context context, String str) {
+    public static String R(@Nullable Context context, String str) {
         return str.replace("__TS__", String.valueOf(bb.dz(context)));
     }
 
@@ -86,6 +88,7 @@ public final class aa {
         return TextUtils.isEmpty(str) ? str : str.replace("__SCREEN_WIDTH__", String.valueOf(j.getScreenWidth(context))).replace("__SCREEN_HEIGHT__", String.valueOf(j.getScreenHeight(context))).replace("__DEVICE_WIDTH__", String.valueOf(j.cd(context))).replace("__DEVICE_HEIGHT__", String.valueOf(j.ce(context)));
     }
 
+    @WorkerThread
     public static String a(String str, a aVar) {
         return (TextUtils.isEmpty(str) || aVar == null) ? str : str.replace("__WIDTH__", bC(aVar.getWidth())).replace("__HEIGHT__", bC(aVar.getHeight())).replace("__DOWN_X__", bC(aVar.zH())).replace("__DOWN_Y__", bC(aVar.zI())).replace("__UP_X__", bC(aVar.zJ())).replace("__UP_Y__", bC(aVar.zK()));
     }

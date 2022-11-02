@@ -22,23 +22,23 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* loaded from: classes8.dex */
-public final class FlowableCache extends AbstractFlowableWithUpstream {
+public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean once;
-    public final CacheState state;
+    public final CacheState<T> state;
 
     /* loaded from: classes8.dex */
-    public final class CacheState extends LinkedArrayList implements FlowableSubscriber {
+    public static final class CacheState<T> extends LinkedArrayList implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final ReplaySubscription[] EMPTY;
         public static final ReplaySubscription[] TERMINATED;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference connection;
+        public final AtomicReference<Subscription> connection;
         public volatile boolean isConnected;
-        public final Flowable source;
+        public final Flowable<T> source;
         public boolean sourceDone;
-        public final AtomicReference subscribers;
+        public final AtomicReference<ReplaySubscription<T>[]> subscribers;
 
         static {
             InterceptResult invokeClinit;
@@ -66,7 +66,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CacheState(Flowable flowable, int i) {
+        public CacheState(Flowable<T> flowable, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -83,19 +83,19 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
                     return;
                 }
             }
-            this.connection = new AtomicReference();
+            this.connection = new AtomicReference<>();
             this.source = flowable;
-            this.subscribers = new AtomicReference(EMPTY);
+            this.subscribers = new AtomicReference<>(EMPTY);
         }
 
-        public boolean addChild(ReplaySubscription replaySubscription) {
-            ReplaySubscription[] replaySubscriptionArr;
-            ReplaySubscription[] replaySubscriptionArr2;
+        public boolean addChild(ReplaySubscription<T> replaySubscription) {
+            ReplaySubscription<T>[] replaySubscriptionArr;
+            ReplaySubscription<T>[] replaySubscriptionArr2;
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, replaySubscription)) == null) {
                 do {
-                    replaySubscriptionArr = (ReplaySubscription[]) this.subscribers.get();
+                    replaySubscriptionArr = this.subscribers.get();
                     if (replaySubscriptionArr == TERMINATED) {
                         return false;
                     }
@@ -110,11 +110,11 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
         }
 
         @Override // org.reactivestreams.Subscriber
-        public void onNext(Object obj) {
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, obj) == null) && !this.sourceDone) {
-                add(NotificationLite.next(obj));
-                for (ReplaySubscription replaySubscription : (ReplaySubscription[]) this.subscribers.get()) {
+            if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && !this.sourceDone) {
+                add(NotificationLite.next(t));
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.get()) {
                     replaySubscription.replay();
                 }
             }
@@ -135,7 +135,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
                 this.sourceDone = true;
                 add(NotificationLite.complete());
                 SubscriptionHelper.cancel(this.connection);
-                for (ReplaySubscription replaySubscription : (ReplaySubscription[]) this.subscribers.getAndSet(TERMINATED)) {
+                for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(TERMINATED)) {
                     replaySubscription.replay();
                 }
             }
@@ -149,7 +149,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
                     this.sourceDone = true;
                     add(NotificationLite.error(th));
                     SubscriptionHelper.cancel(this.connection);
-                    for (ReplaySubscription replaySubscription : (ReplaySubscription[]) this.subscribers.getAndSet(TERMINATED)) {
+                    for (ReplaySubscription<T> replaySubscription : this.subscribers.getAndSet(TERMINATED)) {
                         replaySubscription.replay();
                     }
                     return;
@@ -158,13 +158,15 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
             }
         }
 
-        public void removeChild(ReplaySubscription replaySubscription) {
-            ReplaySubscription[] replaySubscriptionArr;
+        /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.flowable.FlowableCache$ReplaySubscription<T>[]> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void removeChild(ReplaySubscription<T> replaySubscription) {
+            ReplaySubscription<T>[] replaySubscriptionArr;
             ReplaySubscription[] replaySubscriptionArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, replaySubscription) == null) {
                 do {
-                    replaySubscriptionArr = (ReplaySubscription[]) this.subscribers.get();
+                    replaySubscriptionArr = this.subscribers.get();
                     int length = replaySubscriptionArr.length;
                     if (length == 0) {
                         return;
@@ -198,20 +200,20 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
     }
 
     /* loaded from: classes8.dex */
-    public final class ReplaySubscription extends AtomicInteger implements Subscription {
+    public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long CANCELLED = Long.MIN_VALUE;
         public static final long serialVersionUID = -2557562030197141021L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Subscriber child;
+        public final Subscriber<? super T> child;
         public Object[] currentBuffer;
         public int currentIndexInBuffer;
         public long emitted;
         public int index;
         public final AtomicLong requested;
-        public final CacheState state;
+        public final CacheState<T> state;
 
-        public ReplaySubscription(Subscriber subscriber, CacheState cacheState) {
+        public ReplaySubscription(Subscriber<? super T> subscriber, CacheState<T> cacheState) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +246,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || getAndIncrement() != 0) {
                 return;
             }
-            Subscriber subscriber = this.child;
+            Subscriber<? super T> subscriber = this.child;
             AtomicLong atomicLong = this.requested;
             long j = this.emitted;
             int i = 1;
@@ -316,7 +318,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableCache(Flowable flowable, int i) {
+    public FlowableCache(Flowable<T> flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -333,7 +335,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
                 return;
             }
         }
-        this.state = new CacheState(flowable, i);
+        this.state = new CacheState<>(flowable, i);
         this.once = new AtomicBoolean();
     }
 
@@ -350,7 +352,7 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (((ReplaySubscription[]) this.state.subscribers.get()).length != 0) {
+            if (this.state.subscribers.get().length != 0) {
                 return true;
             }
             return false;
@@ -368,11 +370,11 @@ public final class FlowableCache extends AbstractFlowableWithUpstream {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super T> subscriber) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, subscriber) == null) {
-            ReplaySubscription replaySubscription = new ReplaySubscription(subscriber, this.state);
+            ReplaySubscription<T> replaySubscription = new ReplaySubscription<>(subscriber, this.state);
             subscriber.onSubscribe(replaySubscription);
             if (this.state.addChild(replaySubscription) && replaySubscription.requested.get() == Long.MIN_VALUE) {
                 this.state.removeChild(replaySubscription);

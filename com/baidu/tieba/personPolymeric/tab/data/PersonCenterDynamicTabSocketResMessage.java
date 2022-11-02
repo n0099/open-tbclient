@@ -1,5 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -21,7 +22,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List mThreadDataList;
+    public List<ThreadData> mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabSocketResMessage() {
@@ -45,6 +46,7 @@ public class PersonCenterDynamicTabSocketResMessage extends SocketResponsedMessa
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;

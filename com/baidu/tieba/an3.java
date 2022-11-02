@@ -1,114 +1,72 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pc4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class an3 extends cn3 {
+public class an3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public pc4.c f;
-    public String g;
-    public int h;
 
-    @Override // com.baidu.tieba.cn3
-    public void e(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620899, "Lcom/baidu/tieba/an3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947620899, "Lcom/baidu/tieba/an3;");
+                return;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.cn3
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-        }
+        a = ok1.a;
     }
 
     public an3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = null;
-        this.e = null;
-        this.f = null;
     }
 
-    @Override // com.baidu.tieba.cn3
-    public String b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k(this.d, this.e, this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.cn3
-    public void h(byte[] bArr) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("Content-Type", "application/json");
-            if (this.a) {
-                if (!TextUtils.equals(b(), "GET")) {
-                    str = "Bdtls";
-                } else {
-                    str = Base64.encodeToString(bArr, 2);
-                }
-                hashMap.put("Bdtls", str);
-            } else {
-                hashMap.put("Bdtls-Downgrade", "1");
+            ln2.g0().getSwitch("game_bdtls_switcher", false);
+            if (a) {
+                e12.i("BDTLS", "isBdtlsSwitch=false");
             }
-            this.f.a(hashMap, bArr, this.d);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void k(String str, String str2, pc4.c cVar) {
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, cVar) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"))) {
+                return true;
+            }
+            return false;
         }
-        this.d = str;
-        this.e = str2;
-        this.f = cVar;
-        if (str2 == null) {
-            this.g = "GET";
-        } else {
-            this.g = "POST";
-        }
-        if (im3.a) {
-            Log.d("BDTLS", "requestPost url=" + str);
-            Log.d("BDTLS", "requestPost body=" + str2);
-        }
-        a(this.e);
+        return invokeL.booleanValue;
     }
 }

@@ -20,7 +20,7 @@ public class AspectRatioMeasure {
     }
 
     /* loaded from: classes7.dex */
-    public class Spec {
+    public static class Spec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int height;

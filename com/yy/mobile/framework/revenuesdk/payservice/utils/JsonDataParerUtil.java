@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
@@ -192,13 +191,11 @@ public class JsonDataParerUtil {
         return invokeL.longValue;
     }
 
-    public static PurchaseInfo getPurchaseInfoByProductId(String str, List list) {
+    public static PurchaseInfo getPurchaseInfoByProductId(String str, List<PurchaseInfo> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, list)) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                PurchaseInfo purchaseInfo = (PurchaseInfo) it.next();
+            for (PurchaseInfo purchaseInfo : list) {
                 try {
                 } catch (JSONException e) {
                     e.printStackTrace();

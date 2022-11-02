@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce.view.addressdialog;
 
+import com.baidu.sapi2.ecommerce.result.AddressBean;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +16,11 @@ public class ElementNode {
     public ElementNode pre;
 
     /* loaded from: classes2.dex */
-    public class AddressEntity {
+    public static class AddressEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List hotlists;
-        public List list;
+        public List<AddressBean> hotlists;
+        public List<AddressBean> list;
         public String selectedId;
         public String selectedName;
         public int selectedPosition;
@@ -59,7 +60,7 @@ public class ElementNode {
             this.selectedType = str3;
         }
 
-        public AddressEntity(List list, List list2) {
+        public AddressEntity(List<AddressBean> list, List<AddressBean> list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

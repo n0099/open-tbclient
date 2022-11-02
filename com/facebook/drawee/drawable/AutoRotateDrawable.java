@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
 /* loaded from: classes7.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -20,6 +21,7 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     public boolean mClockwise;
     public int mInterval;
     public boolean mIsScheduled;
+    @VisibleForTesting
     public float mRotationAngle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -12,7 +12,7 @@ public class GetOpenBdussDTO implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String clientId;
-    public List targetTplList;
+    public List<String> targetTplList;
 
     public GetOpenBdussDTO() {
         Interceptable interceptable = $ic;

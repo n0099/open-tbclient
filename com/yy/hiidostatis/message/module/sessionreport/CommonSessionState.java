@@ -16,8 +16,8 @@ import java.util.Map;
 public class CommonSessionState implements SessionReport.StatisContentAble {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Map extras;
-    public volatile Map stateStore;
+    public volatile Map<String, Map<String, String>> extras;
+    public volatile Map<String, Map<String, CalValue>> stateStore;
 
     public CommonSessionState() {
         Interceptable interceptable = $ic;
@@ -48,21 +48,21 @@ public class CommonSessionState implements SessionReport.StatisContentAble {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Map map = (Map) this.stateStore.get(str);
+            Map<String, CalValue> map = this.stateStore.get(str);
             if (map != null) {
-                return (CalValue) map.get(str2);
+                return map.get(str2);
             }
             return null;
         }
         return (CalValue) invokeLL.objValue;
     }
 
-    public void put(String str, String str2, CalValue calValue, Map map) {
+    public void put(String str, String str2, CalValue calValue, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, calValue, map) == null) {
-            Map map2 = (Map) this.stateStore.get(str);
+            Map<String, CalValue> map2 = this.stateStore.get(str);
             if (map2 == null) {
-                map2 = new HashMap();
+                map2 = new HashMap<>();
                 this.stateStore.put(str, map2);
             }
             map2.put(str2, calValue);
@@ -73,21 +73,21 @@ public class CommonSessionState implements SessionReport.StatisContentAble {
     }
 
     @Override // com.yy.hiidostatis.message.SessionReport.StatisContentAble
-    public List toStatisContent(String str, String str2) {
+    public List<StatisContent> toStatisContent(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            Map map = this.stateStore;
-            Map map2 = this.extras;
+            Map<String, Map<String, CalValue>> map = this.stateStore;
+            Map<String, Map<String, String>> map2 = this.extras;
             this.stateStore = new HashMap();
             this.extras = new HashMap();
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry<String, Map<String, CalValue>> entry : map.entrySet()) {
                 try {
                     StatisContent statisContent = new StatisContent(str);
                     statisContent.put("eventid", str2);
-                    if (!((String) entry.getKey()).isEmpty()) {
-                        for (String str3 : ((String) entry.getKey()).split(",")) {
+                    if (!entry.getKey().isEmpty()) {
+                        for (String str3 : entry.getKey().split(",")) {
                             String[] split = str3.split("=");
                             try {
                                 statisContent.put(split[0], split[1]);
@@ -96,17 +96,17 @@ public class CommonSessionState implements SessionReport.StatisContentAble {
                             }
                         }
                     }
-                    Map map3 = (Map) map2.get(entry.getKey());
+                    Map<String, String> map3 = map2.get(entry.getKey());
                     if (map3 != null && !map3.isEmpty()) {
-                        for (Map.Entry entry2 : map3.entrySet()) {
-                            statisContent.put((String) entry2.getKey(), (String) entry2.getValue());
+                        for (Map.Entry<String, String> entry2 : map3.entrySet()) {
+                            statisContent.put(entry2.getKey(), entry2.getValue());
                         }
                     }
-                    for (Map.Entry entry3 : ((Map) entry.getValue()).entrySet()) {
-                        if (((CalValue) entry3.getValue()).value instanceof Long) {
-                            statisContent.put((String) entry3.getKey(), ((CalValue) entry3.getValue()).value.longValue());
+                    for (Map.Entry<String, CalValue> entry3 : entry.getValue().entrySet()) {
+                        if (entry3.getValue().value instanceof Long) {
+                            statisContent.put(entry3.getKey(), entry3.getValue().value.longValue());
                         } else {
-                            statisContent.put((String) entry3.getKey(), ((CalValue) entry3.getValue()).value.doubleValue());
+                            statisContent.put(entry3.getKey(), entry3.getValue().value.doubleValue());
                         }
                     }
                     arrayList.add(statisContent);

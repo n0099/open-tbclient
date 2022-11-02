@@ -152,15 +152,15 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, HashMap hashMap) {
+    public void a(Context context, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, hashMap) == null) {
-            for (Map.Entry entry : hashMap.entrySet()) {
+            for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (((String) entry.getKey()).equals(PushConstants.EXTRA_BDUSS_ACTION)) {
+                if (entry.getKey().equals(PushConstants.EXTRA_BDUSS_ACTION)) {
                     i.a(context, PushConstants.EXTRA_BDUSS_ACTION, entry.getValue().toString());
                 } else {
-                    c.a(context, (String) entry.getKey(), entry.getValue().toString(), Long.valueOf(currentTimeMillis));
+                    c.a(context, entry.getKey(), entry.getValue().toString(), Long.valueOf(currentTimeMillis));
                 }
             }
         }
@@ -179,14 +179,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap b(Context context, HashMap hashMap) {
+    public HashMap<String, Object> b(Context context, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, context, hashMap)) == null) {
-            Iterator it = hashMap.entrySet().iterator();
+            Iterator<Map.Entry<String, Object>> it = hashMap.entrySet().iterator();
             while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
-                if (entry.getValue() == null || (!c.d(context, (String) entry.getKey(), entry.getValue().toString()) && !((String) entry.getKey()).equals(PushConstants.EXTRA_BDUSS_ACTION))) {
+                Map.Entry<String, Object> next = it.next();
+                if (next.getValue() == null || (!c.d(context, next.getKey(), next.getValue().toString()) && !next.getKey().equals(PushConstants.EXTRA_BDUSS_ACTION))) {
                     it.remove();
                 }
             }
@@ -246,7 +246,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String c(Context context, HashMap hashMap) {
+    public String c(Context context, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, context, hashMap)) == null) {
@@ -258,8 +258,8 @@ public class b {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    jSONObject2.put((String) entry.getKey(), entry.getValue());
+                for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
+                    jSONObject2.put(entry.getKey(), entry.getValue());
                 }
                 JSONArray a3 = k.a(jSONObject2.toString(), 3, 2);
                 jSONObject.put("info", a3);
@@ -397,7 +397,7 @@ public class b {
         });
     }
 
-    public void a(Context context, HashMap hashMap, UploadDataListener uploadDataListener) {
+    public void a(Context context, HashMap<String, Object> hashMap, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap, uploadDataListener) == null) {
             HashMap hashMap2 = new HashMap();

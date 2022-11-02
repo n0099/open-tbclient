@@ -1,32 +1,221 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.View;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.result.OAuthResult;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.j93;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface wk1 {
-    SwanCoreVersion m();
+public class wk1 extends b63 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    lg2 n(SwanAppActivity swanAppActivity, String str);
+    /* loaded from: classes6.dex */
+    public class a implements xi3<h93<j93.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e43 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ UnitedSchemeEntity g;
+        public final /* synthetic */ wk1 h;
 
-    u62 o(fi3 fi3Var);
+        public a(wk1 wk1Var, e43 e43Var, Context context, boolean z, String str, CallbackHandler callbackHandler, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wk1Var, e43Var, context, Boolean.valueOf(z), str, callbackHandler, str2, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = wk1Var;
+            this.a = e43Var;
+            this.b = context;
+            this.c = z;
+            this.d = str;
+            this.e = callbackHandler;
+            this.f = str2;
+            this.g = unitedSchemeEntity;
+        }
 
-    void p(Intent intent);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xi3
+        /* renamed from: b */
+        public void a(h93<j93.e> h93Var) {
+            Context w;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h93Var) == null) {
+                boolean e = this.a.N().e(this.b);
+                if (!c93.h(h93Var)) {
+                    if (!e && !this.c) {
+                        xa3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 5, this.d);
+                    }
+                    c93.q(h93Var, this.e, this.f);
+                    return;
+                }
+                e12.i("chooseInvoiceTitle", OAuthResult.RESULT_MSG_SUCCESS);
+                Context context = this.b;
+                if (context instanceof Activity) {
+                    w = (Activity) context;
+                } else {
+                    w = this.a.w();
+                }
+                Context context2 = w;
+                if (context2 == null) {
+                    UnitedSchemeUtility.safeCallback(this.e, this.g, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString(), this.f);
+                    return;
+                }
+                if (e && !this.c) {
+                    xa3.S("success", 5, this.d);
+                }
+                this.h.k(context2, this.e, this.g, this.a, this.f, this.d);
+            }
+        }
+    }
 
-    View q(s22 s22Var);
+    /* loaded from: classes6.dex */
+    public class b implements xk1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
 
-    void r(V8ExceptionInfo v8ExceptionInfo);
+        public b(wk1 wk1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wk1Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+        }
 
-    void release();
+        @Override // com.baidu.tieba.xk1
+        public void a(int i) {
+            String jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    e12.i("chooseInvoiceTitle", "choose invoice cancel");
+                    jSONObject = UnitedSchemeUtility.wrapCallbackParams(1002, "choose invoice cancel").toString();
+                } else {
+                    e12.i("chooseInvoiceTitle", "choose invoice failed");
+                    jSONObject = UnitedSchemeUtility.wrapCallbackParams(1003, "choose invoice failed").toString();
+                }
+                UnitedSchemeUtility.safeCallback(this.a, this.b, jSONObject, this.c);
+            }
+        }
 
-    ExtensionCore s();
+        @Override // com.baidu.tieba.xk1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                e12.i("chooseInvoiceTitle", "choose success");
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.c);
+            }
+        }
+    }
 
-    yd2 t();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wk1(b53 b53Var) {
+        super(b53Var, "/swanAPI/chooseInvoiceTitle");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b53Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    int u(String str, long j);
+    @Override // com.baidu.tieba.b63
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e43 e43Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, e43Var)) == null) {
+            e12.i("chooseInvoiceTitle", "发票调起");
+            if (e43Var == null) {
+                e12.c("chooseInvoiceTitle", "empty swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            } else if (e43Var.n0()) {
+                if (b63.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    e12.c("chooseInvoiceTitle", "empty joParams");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    e12.c("chooseInvoiceTitle", "empty cb");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    return false;
+                }
+                String optString2 = optParamsAsJo.optString("invokeFrom");
+                boolean e = e43Var.N().e(context);
+                if (!e) {
+                    xa3.S("show", 5, optString2);
+                }
+                e43Var.e0().h(context, "mapp_choose_invoice", c93.j(optParamsAsJo), new a(this, e43Var, context, e, optString2, callbackHandler, optString, unitedSchemeEntity));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
 
-    void v(String str, boolean z);
+    public final void k(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, e43 e43Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, callbackHandler, unitedSchemeEntity, e43Var, str, str2}) == null) {
+            ln2.k0().a(context, e43Var.b, e43Var.O(), new b(this, callbackHandler, unitedSchemeEntity, str));
+        }
+    }
 }

@@ -16,7 +16,7 @@ public final class Result {
     public final BarcodeFormat format;
     public final int numBits;
     public final byte[] rawBytes;
-    public Map resultMetadata;
+    public Map<ResultMetadataType, Object> resultMetadata;
     public ResultPoint[] resultPoints;
     public final String text;
     public final long timestamp;
@@ -111,10 +111,10 @@ public final class Result {
         }
     }
 
-    public void putAllMetadata(Map map) {
+    public void putAllMetadata(Map<ResultMetadataType, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) && map != null) {
-            Map map2 = this.resultMetadata;
+            Map<ResultMetadataType, Object> map2 = this.resultMetadata;
             if (map2 == null) {
                 this.resultMetadata = map;
             } else {
@@ -150,7 +150,7 @@ public final class Result {
         return (byte[]) invokeV.objValue;
     }
 
-    public Map getResultMetadata() {
+    public Map<ResultMetadataType, Object> getResultMetadata() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

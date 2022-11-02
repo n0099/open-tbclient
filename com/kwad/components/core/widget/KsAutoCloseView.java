@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -75,7 +77,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsAutoCloseView(Context context, AttributeSet attributeSet) {
+    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -100,7 +102,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KsAutoCloseView(Context context, AttributeSet attributeSet, int i) {
+    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -125,6 +127,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 21)
     public KsAutoCloseView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
@@ -152,9 +155,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     private void L(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d040d, this);
-            this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f091063);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091062);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0418, this);
+            this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f09109d);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09109c);
             this.Ps = imageView;
             imageView.setOnClickListener(this);
         }

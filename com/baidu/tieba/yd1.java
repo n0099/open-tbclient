@@ -1,104 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.tf1;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class yd1 {
+public class yd1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<PayChannelEntity> a;
+    public Context b;
 
-    public static tf1 a(ce1 ce1Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ce1Var)) == null) {
-            tf1.b bVar = new tf1.b(ce1Var.e(), ce1Var.g);
-            bVar.t("rsplash");
-            boolean z3 = false;
-            if (ce1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.m(c());
-            if (ce1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.o(z2);
-            bVar.n(d(ce1Var.m));
-            bVar.B(ce1Var.n * 1000);
-            bVar.z(1);
-            bVar.E(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.x(false);
-            bVar.c(ce1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.A(72);
-            bVar.y(30);
-            bVar.D(68);
-            bVar.C(30);
-            bVar.h(17);
-            bVar.q(ce1Var.z);
-            if (ce1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.w(z3);
-            bVar.b(ce1Var.B);
-            bVar.p(ce1Var.d());
-            bVar.r("跳转详情页或第三方应用");
-            if (ce1Var.g()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.s(b);
-            bVar.j(ce1Var.H);
-            bVar.l(ce1Var.G);
-            bVar.k(ce1Var.I);
-            bVar.v(ce1Var.M);
-            bVar.u(ce1Var.N);
-            return bVar.a();
-        }
-        return (tf1) invokeL.objValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return od1.a().b();
-        }
-        return invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return od1.a().c();
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d(int i) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return od1.a().h();
-            }
-            return od1.a().g();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        return invokeI.intValue;
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a4d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a51);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a52);
+        }
+    }
+
+    public yd1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public PayChannelEntity getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (PayChannelEntity) invokeI.objValue;
+    }
+
+    public void b(List<PayChannelEntity> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<PayChannelEntity> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            PayChannelEntity item = getItem(i);
+            if (item == null) {
+                return view2;
+            }
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0237, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
+            }
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                yb1.b().a(aVar.a, item.getIcon());
+                aVar.b.setText(item.getDisplayName());
+                if (item.getIsSelected() == 1) {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080450);
+                } else {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f08129a);
+                }
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

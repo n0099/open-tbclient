@@ -2,6 +2,7 @@ package com.airbnb.lottie.utils;
 
 import android.graphics.Path;
 import android.graphics.PointF;
+import androidx.annotation.FloatRange;
 import com.airbnb.lottie.animation.content.KeyPathElementContent;
 import com.airbnb.lottie.model.CubicCurveData;
 import com.airbnb.lottie.model.KeyPath;
@@ -15,15 +16,15 @@ public class MiscUtils {
         return f >= f2 && f <= f3;
     }
 
-    public static double lerp(double d, double d2, double d3) {
+    public static double lerp(double d, double d2, @FloatRange(from = 0.0d, to = 1.0d) double d3) {
         return d + (d3 * (d2 - d));
     }
 
-    public static float lerp(float f, float f2, float f3) {
+    public static float lerp(float f, float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
         return f + (f3 * (f2 - f));
     }
 
-    public static int lerp(int i, int i2, float f) {
+    public static int lerp(int i, int i2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         return (int) (i + (f * (i2 - i)));
     }
 
@@ -72,7 +73,7 @@ public class MiscUtils {
         path.moveTo(initialPoint.x, initialPoint.y);
         pathFromDataCurrentPoint.set(initialPoint.x, initialPoint.y);
         for (int i = 0; i < shapeData.getCurves().size(); i++) {
-            CubicCurveData cubicCurveData = (CubicCurveData) shapeData.getCurves().get(i);
+            CubicCurveData cubicCurveData = shapeData.getCurves().get(i);
             PointF controlPoint1 = cubicCurveData.getControlPoint1();
             PointF controlPoint2 = cubicCurveData.getControlPoint2();
             PointF vertex = cubicCurveData.getVertex();
@@ -88,7 +89,7 @@ public class MiscUtils {
         }
     }
 
-    public static void resolveKeyPath(KeyPath keyPath, int i, List list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
+    public static void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
         if (keyPath.fullyResolvesTo(keyPathElementContent.getName(), i)) {
             list.add(keyPath2.addKey(keyPathElementContent.getName()).resolve(keyPathElementContent));
         }

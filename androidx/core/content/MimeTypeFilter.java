@@ -1,5 +1,7 @@
 package androidx.core.content;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +28,8 @@ public final class MimeTypeFilter {
         }
     }
 
-    public static String matches(String str, String[] strArr) {
+    @Nullable
+    public static String matches(@Nullable String str, @NonNull String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, strArr)) == null) {
@@ -44,7 +47,8 @@ public final class MimeTypeFilter {
         return (String) invokeLL.objValue;
     }
 
-    public static String matches(String[] strArr, String str) {
+    @Nullable
+    public static String matches(@Nullable String[] strArr, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, strArr, str)) == null) {
@@ -62,7 +66,7 @@ public final class MimeTypeFilter {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean matches(String str, String str2) {
+    public static boolean matches(@Nullable String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
@@ -74,7 +78,8 @@ public final class MimeTypeFilter {
         return invokeLL.booleanValue;
     }
 
-    public static String[] matchesMany(String[] strArr, String str) {
+    @NonNull
+    public static String[] matchesMany(@Nullable String[] strArr, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, str)) == null) {
@@ -93,7 +98,7 @@ public final class MimeTypeFilter {
         return (String[]) invokeLL.objValue;
     }
 
-    public static boolean mimeTypeAgainstFilter(String[] strArr, String[] strArr2) {
+    public static boolean mimeTypeAgainstFilter(@NonNull String[] strArr, @NonNull String[] strArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strArr, strArr2)) == null) {

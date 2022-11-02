@@ -5,6 +5,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.Touch;
 import android.view.MotionEvent;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ public class BdLinkTouchMovementMethod extends LinkMovementMethod {
         return (BdLinkTouchMovementMethod) invokeV.objValue;
     }
 
-    public void clearSpanUiStatus(TextView textView) {
+    public void clearSpanUiStatus(@Nullable TextView textView) {
         BdLinkTouchDecorHelper bdLinkTouchDecorHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, textView) == null) && textView != null && (bdLinkTouchDecorHelper = this.mBdLinkTouchDecorHelper) != null) {

@@ -1,17 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tp0 {
+public class tp0 extends aq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Application application) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tp0(@NonNull sp0 sp0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(sp0Var, jSONObject);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, application) == null) {
-            ze1.b(application);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sp0Var, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((sp0) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 }

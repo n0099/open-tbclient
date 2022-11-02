@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.tieba.dw;
+import com.baidu.tieba.vv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
     }
 
     /* loaded from: classes.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +117,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             if (this.taskInfo.isVisitAction()) {
                 json.put("duration", this.duration);
             }
-            json.put("duplicateId", dw.a.b(this.duplicateId));
+            json.put("duplicateId", vv.a.b(this.duplicateId));
             return json;
         }
         return (JSONObject) invokeV.objValue;

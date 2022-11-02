@@ -2,16 +2,17 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import com.kwad.sdk.core.imageloader.cache.memory.MemoryCache;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
+import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MemoryCacheUtils {
     public static final String URI_AND_SIZE_SEPARATOR = "_";
     public static final String WIDTH_AND_HEIGHT_SEPARATOR = "x";
 
-    public static Comparator createFuzzyKeyComparator() {
-        return new Comparator() { // from class: com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils.1
+    public static Comparator<String> createFuzzyKeyComparator() {
+        return new Comparator<String>() { // from class: com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public final int compare(String str, String str2) {
@@ -20,7 +21,7 @@ public final class MemoryCacheUtils {
         };
     }
 
-    public static List findCacheKeysForImageUri(String str, MemoryCache memoryCache) {
+    public static List<String> findCacheKeysForImageUri(String str, MemoryCache memoryCache) {
         ArrayList arrayList = new ArrayList();
         for (String str2 : memoryCache.keys()) {
             if (str2.startsWith(str)) {
@@ -30,7 +31,7 @@ public final class MemoryCacheUtils {
         return arrayList;
     }
 
-    public static List findCachedBitmapsForImageUri(String str, MemoryCache memoryCache) {
+    public static List<DecodedResult> findCachedBitmapsForImageUri(String str, MemoryCache memoryCache) {
         ArrayList arrayList = new ArrayList();
         for (String str2 : memoryCache.keys()) {
             if (str2.startsWith(str)) {

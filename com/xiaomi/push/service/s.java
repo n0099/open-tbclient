@@ -67,16 +67,16 @@ public class s extends XMPushService.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a = this.a.a(this.f1003a);
-            ArrayList a2 = bz.a(this.f1004a, this.f1003a, a, 32768);
+            ArrayList<ii> a2 = bz.a(this.f1004a, this.f1003a, a, 32768);
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
                 return;
             }
-            Iterator it = a2.iterator();
+            Iterator<ii> it = a2.iterator();
             while (it.hasNext()) {
-                ii iiVar = (ii) it.next();
-                iiVar.a("uploadWay", "longXMPushService");
-                Cif a3 = ah.a(this.f1003a, a, iiVar, hj.i);
+                ii next = it.next();
+                next.a("uploadWay", "longXMPushService");
+                Cif a3 = ah.a(this.f1003a, a, next, hj.i);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1003a, this.b)) {
                     if (a3.m465a() == null) {
                         hw hwVar = new hw();

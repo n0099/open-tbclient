@@ -12,15 +12,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import javax.annotation.Nullable;
+@SafeParcelable.Class(creator = "GoogleCertificatesLookupResponseCreator")
 /* loaded from: classes7.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<zzq> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    @SafeParcelable.Field(getter = "getResult", id = 1)
     public final boolean zza;
     @Nullable
+    @SafeParcelable.Field(getter = "getErrorMessage", id = 2)
     public final String zzb;
+    @SafeParcelable.Field(getter = "getStatusValue", id = 3)
     public final int zzc;
 
     static {
@@ -52,7 +57,8 @@ public final class zzq extends AbstractSafeParcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.zza : invokeV.booleanValue;
     }
 
-    public zzq(boolean z, String str, int i) {
+    @SafeParcelable.Constructor
+    public zzq(@SafeParcelable.Param(id = 1) boolean z, @SafeParcelable.Param(id = 2) String str, @SafeParcelable.Param(id = 3) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

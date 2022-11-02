@@ -1,6 +1,8 @@
 package androidx.media2.session;
 
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.versionedparcelable.VersionedParcelable;
@@ -43,6 +45,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             this.mCommands = new HashSet();
         }
 
+        @NonNull
         public SessionCommandGroup build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,7 +55,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (SessionCommandGroup) invokeV.objValue;
         }
 
-        public Builder(SessionCommandGroup sessionCommandGroup) {
+        public Builder(@NonNull SessionCommandGroup sessionCommandGroup) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,6 +77,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             throw new NullPointerException("commandGroup shouldn't be null");
         }
 
+        @NonNull
         public Builder addAllPredefinedCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -101,6 +105,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             }
         }
 
+        @NonNull
         public Builder addAllLibraryCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -111,6 +116,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder addAllPlayerBasicCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -121,6 +127,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder addAllPlayerCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -132,6 +139,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder addAllPlayerPlaylistCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -142,6 +150,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder addAllSessionCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -152,6 +161,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
+        @NonNull
         public Builder addAllVolumeCommands(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -162,7 +172,8 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder addCommand(SessionCommand sessionCommand) {
+        @NonNull
+        public Builder addCommand(@NonNull SessionCommand sessionCommand) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sessionCommand)) == null) {
@@ -175,7 +186,8 @@ public final class SessionCommandGroup implements VersionedParcelable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder removeCommand(SessionCommand sessionCommand) {
+        @NonNull
+        public Builder removeCommand(@NonNull SessionCommand sessionCommand) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, sessionCommand)) == null) {
@@ -205,6 +217,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
         this.mCommands = new HashSet();
     }
 
+    @NonNull
     public Set<SessionCommand> getCommands() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -223,7 +236,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
         return invokeV.intValue;
     }
 
-    public SessionCommandGroup(Collection<SessionCommand> collection) {
+    public SessionCommandGroup(@Nullable Collection<SessionCommand> collection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,7 +298,7 @@ public final class SessionCommandGroup implements VersionedParcelable {
         return invokeL.booleanValue;
     }
 
-    public boolean hasCommand(SessionCommand sessionCommand) {
+    public boolean hasCommand(@NonNull SessionCommand sessionCommand) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sessionCommand)) == null) {

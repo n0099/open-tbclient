@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.internal.Constants;
@@ -115,7 +116,7 @@ public class ContentUtil {
         return null;
     }
 
-    public static STSInfo createSTSInfo(JSONObject jSONObject) {
+    public static STSInfo createSTSInfo(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
@@ -160,7 +161,7 @@ public class ContentUtil {
                     }
                 }
                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                Collections.sort(arrayList, new Comparator() { // from class: com.baidu.searchbox.aperf.bosuploader.ContentUtil.1
+                Collections.sort(arrayList, new Comparator<Map.Entry<String, String>>() { // from class: com.baidu.searchbox.aperf.bosuploader.ContentUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,11 +181,11 @@ public class ContentUtil {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.util.Comparator
-                    public int compare(Map.Entry entry, Map.Entry entry2) {
+                    public int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry, entry2)) == null) {
-                            return ((String) entry.getKey()).compareTo((String) entry2.getKey());
+                            return entry.getKey().compareTo(entry2.getKey());
                         }
                         return invokeLL.intValue;
                     }

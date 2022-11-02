@@ -24,7 +24,7 @@ public final class SingleInternalHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class NoSuchElementCallable implements Callable {
+    public static final class NoSuchElementCallable implements Callable<NoSuchElementException> {
         public static final /* synthetic */ NoSuchElementCallable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NoSuchElementCallable INSTANCE;
@@ -99,7 +99,7 @@ public final class SingleInternalHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class ToFlowable implements Function {
+    public static final class ToFlowable implements Function<SingleSource, Publisher> {
         public static final /* synthetic */ ToFlowable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ToFlowable INSTANCE;
@@ -173,12 +173,12 @@ public final class SingleInternalHelper {
     }
 
     /* loaded from: classes8.dex */
-    public final class ToFlowableIterable implements Iterable {
+    public static final class ToFlowableIterable<T> implements Iterable<Flowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Iterable sources;
+        public final Iterable<? extends SingleSource<? extends T>> sources;
 
-        public ToFlowableIterable(Iterable iterable) {
+        public ToFlowableIterable(Iterable<? extends SingleSource<? extends T>> iterable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +197,7 @@ public final class SingleInternalHelper {
         }
 
         @Override // java.lang.Iterable
-        public Iterator iterator() {
+        public Iterator<Flowable<T>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -208,12 +208,12 @@ public final class SingleInternalHelper {
     }
 
     /* loaded from: classes8.dex */
-    public final class ToFlowableIterator implements Iterator {
+    public static final class ToFlowableIterator<T> implements Iterator<Flowable<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Iterator sit;
+        public final Iterator<? extends SingleSource<? extends T>> sit;
 
-        public ToFlowableIterator(Iterator it) {
+        public ToFlowableIterator(Iterator<? extends SingleSource<? extends T>> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -243,11 +243,11 @@ public final class SingleInternalHelper {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        public Flowable next() {
+        public Flowable<T> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new SingleToFlowable((SingleSource) this.sit.next());
+                return new SingleToFlowable(this.sit.next());
             }
             return (Flowable) invokeV.objValue;
         }
@@ -263,7 +263,7 @@ public final class SingleInternalHelper {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class ToObservable implements Function {
+    public static final class ToObservable implements Function<SingleSource, Observable> {
         public static final /* synthetic */ ToObservable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ToObservable INSTANCE;
@@ -352,7 +352,7 @@ public final class SingleInternalHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static Callable emptyThrower() {
+    public static <T> Callable<NoSuchElementException> emptyThrower() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -361,7 +361,7 @@ public final class SingleInternalHelper {
         return (Callable) invokeV.objValue;
     }
 
-    public static Function toFlowable() {
+    public static <T> Function<SingleSource<? extends T>, Publisher<? extends T>> toFlowable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
@@ -370,7 +370,7 @@ public final class SingleInternalHelper {
         return (Function) invokeV.objValue;
     }
 
-    public static Function toObservable() {
+    public static <T> Function<SingleSource<? extends T>, Observable<? extends T>> toObservable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -379,7 +379,7 @@ public final class SingleInternalHelper {
         return (Function) invokeV.objValue;
     }
 
-    public static Iterable iterableToFlowable(Iterable iterable) {
+    public static <T> Iterable<? extends Flowable<T>> iterableToFlowable(Iterable<? extends SingleSource<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iterable)) == null) {

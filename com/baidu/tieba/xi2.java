@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,21 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xi2 extends gh2 {
+public class xi2 extends yh2<ok2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
+    @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
     }
 
     public xi2() {
@@ -38,45 +35,15 @@ public class xi2 extends gh2 {
         }
     }
 
-    @Override // com.baidu.tieba.gh2
-    public void c(ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.obj = new JSONObject();
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gh2
+    @Override // com.baidu.tieba.yh2
     /* renamed from: e */
-    public void a(ZeusPlugin.Command command, xj2 xj2Var) {
-        JSONObject a;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ok2 ok2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, xj2Var) == null) {
-            ArrayList v = xj2Var.v();
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            if (v != null) {
-                Iterator it = v.iterator();
-                while (it.hasNext()) {
-                    zj2 zj2Var = (zj2) it.next();
-                    if (zj2Var == null) {
-                        a = null;
-                    } else {
-                        a = zj2Var.a();
-                    }
-                    if (a != null) {
-                        jSONArray.put(a);
-                    }
-                }
-            }
-            try {
-                jSONObject.put("audioLevels", jSONArray);
-            } catch (JSONException unused) {
-            }
-            command.obj = jSONObject;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ok2Var) == null) {
+            command.ret = ok2Var.getVideoHeight();
             String str = command.what;
-            d(xj2Var, str, "" + command.obj, true);
+            d(ok2Var, str, "Height: " + command.ret, true);
         }
     }
 }

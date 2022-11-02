@@ -1,12 +1,13 @@
 package com.kwad.sdk.crash.report;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
 import com.kwad.sdk.utils.o;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends d {
     /* JADX WARN: Removed duplicated region for block: B:18:0x004f  */
     /* JADX WARN: Removed duplicated region for block: B:27:0x00d8  */
@@ -14,7 +15,7 @@ public final class f extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final ExceptionMessage a(File file, File file2, File file3, String str) {
+    public final ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
         String str2;
         JavaExceptionMessage javaExceptionMessage;
         Exception e;

@@ -5,9 +5,11 @@ import android.webkit.WebResourceResponse;
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.WebViewAssetLoader;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jl4;
-import com.baidu.tieba.kl4;
-import com.baidu.tieba.m02;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.bm4;
+import com.baidu.tieba.cm4;
+import com.baidu.tieba.e12;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +25,11 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u0000 52\u00020\u0001:\u00015B\u0007¢\u0006\u0004\b3\u00104J\u0017\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0003\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ9\u0010\u0011\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\n2\u0016\u0010\u0010\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001b\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0013\u0010\u0016\u001a\u00020\u0002*\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0005R\u001f\u0010\u001c\u001a\u0004\u0018\u00010\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001bR\u001f\u0010!\u001a\u0004\u0018\u00010\u001d8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u0019\u001a\u0004\b\u001f\u0010 R\u001d\u0010$\u001a\u00020\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0019\u001a\u0004\b#\u0010\u001bR\u001d\u0010)\u001a\u00020%8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u0019\u001a\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0019\u001a\u0004\b+\u0010,R\u001d\u00102\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0019\u001a\u0004\b0\u00101¨\u00066"}, d2 = {"Lcom/baidu/swan/webcompat/impl/WebCompatImpl;", "Lcom/baidu/tieba/kl4;", "", "url", "getWebCompatUrl", "(Ljava/lang/String;)Ljava/lang/String;", "", "isExternalFilesUrl", "(Ljava/lang/String;)Z", "Landroid/net/Uri;", "Landroid/webkit/WebResourceResponse;", "shouldInterceptRequest", "(Landroid/net/Uri;)Landroid/webkit/WebResourceResponse;", "Target", "response", "Lkotlin/Function1;", "transform", "transformResponse", "(Landroid/webkit/WebResourceResponse;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "algorithm", "hashString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "pathForHandler", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo$delegate", "Lkotlin/Lazy;", "getExternalFilePathInfo", "()Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler$delegate", "getExternalStorageFilesPathHandler", "()Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler", "internalFilePathInfo$delegate", "getInternalFilePathInfo", "internalFilePathInfo", "Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler$delegate", "getInternalStorageFilesPathHandler", "()Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler", "localAssetDomain$delegate", "getLocalAssetDomain", "()Ljava/lang/String;", "localAssetDomain", "Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader$delegate", "getLocalAssetLoader", "()Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader", "<init>", "()V", "Companion", "webcompat-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Singleton
+@Service
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u0000 52\u00020\u0001:\u00015B\u0007¢\u0006\u0004\b3\u00104J\u0017\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0003\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ9\u0010\u0011\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\n2\u0016\u0010\u0010\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001b\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0013\u0010\u0016\u001a\u00020\u0002*\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0005R\u001f\u0010\u001c\u001a\u0004\u0018\u00010\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001bR\u001f\u0010!\u001a\u0004\u0018\u00010\u001d8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u0019\u001a\u0004\b\u001f\u0010 R\u001d\u0010$\u001a\u00020\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0019\u001a\u0004\b#\u0010\u001bR\u001d\u0010)\u001a\u00020%8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u0019\u001a\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0019\u001a\u0004\b+\u0010,R\u001d\u00102\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0019\u001a\u0004\b0\u00101¨\u00066"}, d2 = {"Lcom/baidu/swan/webcompat/impl/WebCompatImpl;", "Lcom/baidu/tieba/cm4;", "", "url", "getWebCompatUrl", "(Ljava/lang/String;)Ljava/lang/String;", "", "isExternalFilesUrl", "(Ljava/lang/String;)Z", "Landroid/net/Uri;", "Landroid/webkit/WebResourceResponse;", "shouldInterceptRequest", "(Landroid/net/Uri;)Landroid/webkit/WebResourceResponse;", "Target", "response", "Lkotlin/Function1;", "transform", "transformResponse", "(Landroid/webkit/WebResourceResponse;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "algorithm", "hashString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "pathForHandler", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo$delegate", "Lkotlin/Lazy;", "getExternalFilePathInfo", "()Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler$delegate", "getExternalStorageFilesPathHandler", "()Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler", "internalFilePathInfo$delegate", "getInternalFilePathInfo", "internalFilePathInfo", "Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler$delegate", "getInternalStorageFilesPathHandler", "()Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler", "localAssetDomain$delegate", "getLocalAssetDomain", "()Ljava/lang/String;", "localAssetDomain", "Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader$delegate", "getLocalAssetLoader", "()Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader", "<init>", "()V", "Companion", "webcompat-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class WebCompatImpl implements kl4 {
+public final class WebCompatImpl implements cm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
@@ -56,10 +60,10 @@ public final class WebCompatImpl implements kl4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (FilePathInfo) this.b.getValue() : (FilePathInfo) invokeV.objValue;
     }
 
-    public final jl4 k() {
+    public final bm4 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (jl4) this.e.getValue() : (jl4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (bm4) this.e.getValue() : (bm4) invokeV.objValue;
     }
 
     public final FilePathInfo l() {
@@ -122,18 +126,18 @@ public final class WebCompatImpl implements kl4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kl4
-    public Object c(WebResourceResponse webResourceResponse, Function1 transform) {
+    @Override // com.baidu.tieba.cm4
+    public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
             Intrinsics.checkNotNullParameter(transform, "transform");
             return transform.invoke(webResourceResponse);
         }
-        return invokeLL.objValue;
+        return (Target) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kl4
+    @Override // com.baidu.tieba.cm4
     public String a(String url) {
         InterceptResult invokeL;
         String str;
@@ -147,15 +151,15 @@ public final class WebCompatImpl implements kl4 {
             if (StringsKt__StringsJVMKt.startsWith(url, b, true)) {
                 String b2 = l().b();
                 Intrinsics.checkNotNullExpressionValue(b2, "internalFilePathInfo.filesUrl");
-                str = webCompatImpl$getWebCompatUrl$1.invoke(b2, "internal_files");
+                str = webCompatImpl$getWebCompatUrl$1.invoke2(b2, "internal_files");
             } else if (StringsKt__StringsJVMKt.startsWith(url, "files", true)) {
-                str = webCompatImpl$getWebCompatUrl$1.invoke("files", "internal_files");
+                str = webCompatImpl$getWebCompatUrl$1.invoke2("files", "internal_files");
             } else if (StringsKt__StringsJVMKt.startsWith(url, "file:///android_asset/", true)) {
-                str = webCompatImpl$getWebCompatUrl$1.invoke("file:///android_asset/", AssetUriLoader.ASSET_PATH_SEGMENT);
+                str = webCompatImpl$getWebCompatUrl$1.invoke2("file:///android_asset/", AssetUriLoader.ASSET_PATH_SEGMENT);
             } else if (StringsKt__StringsJVMKt.startsWith(url, "file:///android_res/", true)) {
-                str = webCompatImpl$getWebCompatUrl$1.invoke("file:///android_res/", "android_res");
+                str = webCompatImpl$getWebCompatUrl$1.invoke2("file:///android_res/", "android_res");
             } else if (p(url)) {
-                str = webCompatImpl$getWebCompatUrl$2.invoke();
+                str = webCompatImpl$getWebCompatUrl$2.invoke2();
             } else {
                 str = url;
             }
@@ -166,20 +170,20 @@ public final class WebCompatImpl implements kl4 {
             sb.append(url);
             sb.append("\n > to   url = ");
             sb.append(str);
-            m02.i("WebCompatImpl", sb.toString());
+            e12.i("WebCompatImpl", sb.toString());
             return str;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.kl4
+    @Override // com.baidu.tieba.cm4
     public WebResourceResponse b(Uri url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
             WebResourceResponse shouldInterceptRequest = o().shouldInterceptRequest(url);
-            m02.i("WebCompatImpl", "shouldInterceptRequest response=" + shouldInterceptRequest + " for url=" + url);
+            e12.i("WebCompatImpl", "shouldInterceptRequest response=" + shouldInterceptRequest + " for url=" + url);
             return shouldInterceptRequest;
         }
         return (WebResourceResponse) invokeL.objValue;

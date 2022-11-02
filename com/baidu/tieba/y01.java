@@ -1,305 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.nadcore.sweetsqlite.IntegerColumn;
 import com.baidu.nadcore.sweetsqlite.LongColumn;
 import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y01 {
+public final class y01 extends r11 {
     public static /* synthetic */ Interceptable $ic;
+    public static final j11 A;
+    public static final j11[] B;
+    public static final j11[][] C;
+    public static final j11[] D;
+    public static final j11 o;
+    public static final j11 p;
+    public static final j11 q;
+    public static final j11 r;
+    public static final j11 s;
+    public static final j11 t;
+    public static final j11 u;
+    public static final j11 v;
+    public static final j11 w;
+    public static final j11 x;
+    public static final j11 y;
+    public static final j11 z;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringColumn a;
+    public final IntegerColumn b;
+    public final IntegerColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final IntegerColumn g;
+    public final IntegerColumn h;
+    public final LongColumn i;
+    public final LongColumn j;
+    public final StringColumn k;
+    public final StringColumn l;
+    public final StringColumn m;
+    public final Column[] n;
 
-    public static void a(Object obj, Class... clsArr) {
+    @Override // com.baidu.tieba.r11
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, clsArr) == null) {
-            for (Class cls : clsArr) {
-                if (cls == obj.getClass()) {
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("Expected " + Arrays.toString(clsArr) + ", but got" + obj.getClass().getName());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
     }
 
-    public static ContentValues b(Column[] columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues();
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type != 1) {
-                        if (type != 2) {
-                            if (type != 3) {
-                                if (type == 4) {
-                                    contentValues.put(column.field.b, ((StringColumn) column).getValue());
-                                } else {
-                                    throw new IllegalStateException("Unsupported type:" + column.type());
-                                }
-                            } else {
-                                contentValues.put(column.field.b, Long.valueOf(((LongColumn) column).getValue()));
-                            }
-                        } else {
-                            contentValues.put(column.field.b, Integer.valueOf(((IntegerColumn) column).getValue()));
-                        }
-                    } else {
-                        contentValues.put(column.field.b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276239, "Lcom/baidu/tieba/y01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public static ContentValues e(Column... columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues(columnArr.length);
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type != 1) {
-                        if (type != 2) {
-                            if (type != 3) {
-                                if (type == 4) {
-                                    contentValues.put(column.field.b, s01.d(column));
-                                } else {
-                                    throw new IllegalArgumentException("Unsupported column type.");
-                                }
-                            } else {
-                                contentValues.put(column.field.b, Long.valueOf(s01.c(column)));
-                            }
-                        } else {
-                            contentValues.put(column.field.b, Integer.valueOf(s01.b(column)));
-                        }
-                    } else {
-                        contentValues.put(column.field.b, Integer.valueOf(s01.a(column) ? 1 : 0));
-                    }
-                } else {
-                    throw new IllegalArgumentException("All columns must be initialized.");
-                }
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public static ContentValues c(s01[] s01VarArr, Object[] objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, s01VarArr, objArr)) == null) {
-            if (s01VarArr.length == objArr.length) {
-                ContentValues contentValues = new ContentValues();
-                for (int i = 0; i < s01VarArr.length; i++) {
-                    s01 s01Var = s01VarArr[i];
-                    Object obj = objArr[i];
-                    int i2 = s01Var.a;
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 == 4) {
-                                    a(obj, String.class, CharSequence.class);
-                                    contentValues.put(s01Var.b, (String) obj);
-                                } else {
-                                    throw new IllegalArgumentException("Unsupported field type.");
-                                }
-                            } else {
-                                a(obj, Long.class, Integer.class, Short.class, Byte.class);
-                                contentValues.put(s01Var.b, Long.valueOf(((Long) obj).longValue()));
-                            }
-                        } else {
-                            a(obj, Integer.class, Short.class, Byte.class);
-                            contentValues.put(s01Var.b, Integer.valueOf(((Integer) obj).intValue()));
-                        }
-                    } else {
-                        a(obj, Boolean.class);
-                        contentValues.put(s01Var.b, Boolean.valueOf(((Boolean) obj).booleanValue()));
-                    }
-                }
-                return contentValues;
-            }
-            throw new IllegalArgumentException("invalid columns & values pair.");
-        }
-        return (ContentValues) invokeLL.objValue;
-    }
-
-    public static Column[] d(b11 b11Var, s01... s01VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, b11Var, s01VarArr)) == null) {
-            Column[] columnArr = new Column[s01VarArr.length];
-            for (int i = 0; i < s01VarArr.length; i++) {
-                columnArr[i] = b11Var.b().c()[r01.a(b11Var.b().d(), s01VarArr[i])];
-            }
-            return columnArr;
-        }
-        return (Column[]) invokeLL.objValue;
-    }
-
-    public static void f(Column column, Column column2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, column, column2) == null) && column.type() == column2.type()) {
-            column2.isAssignedValue = column.isAssignedValue;
-            int type = column.type();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            ((StringColumn) column2).value = ((StringColumn) column).value;
-                            return;
-                        }
-                        throw new IllegalStateException("Unsupported type:" + column.type());
-                    }
-                    ((LongColumn) column2).value = ((LongColumn) column).value;
-                    return;
-                }
-                ((IntegerColumn) column2).value = ((IntegerColumn) column).value;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948276239, "Lcom/baidu/tieba/y01;");
                 return;
             }
-            ((BooleanColumn) column2).value = ((BooleanColumn) column).value;
         }
+        o = r11.b(4, "key", "                   key", 0, 2);
+        p = r11.a(2, "task_id", "               task_id", 1);
+        q = r11.a(2, "status", "                status", 2);
+        r = r11.a(4, "package_name", "          package_name", 3);
+        s = r11.a(4, "url", "                   url", 4);
+        t = r11.a(4, "file", "                  file", 5);
+        u = r11.a(2, "progress", "              progress", 6);
+        v = r11.a(2, "v_progress", "            v_progress", 7);
+        w = r11.a(3, "start_download_time", "   start_download_time", 8);
+        x = r11.a(3, "finished_download_time", "finished_download_time", 9);
+        y = r11.a(4, "mt", "                    mt", 10);
+        z = r11.a(4, "ctrl", "                  ctrl", 11);
+        j11 a = r11.a(4, "extra", "                 extra", 12);
+        A = a;
+        j11 j11Var = o;
+        B = new j11[]{j11Var, p, q, r, s, t, u, v, w, x, y, z, a};
+        C = new j11[0];
+        D = new j11[]{j11Var};
     }
 
-    public static boolean g(BooleanColumn booleanColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
+    public y01() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, booleanColumn, cursor, i)) == null) {
-            boolean z2 = true;
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                if (cursor.getInt(i) <= 0) {
-                    z2 = false;
-                }
-                booleanColumn.setValue(z2);
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static void j(Cursor cursor, Column[] columnArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, cursor, columnArr, i) == null) {
-            if (!cursor.isBeforeFirst() && !cursor.isAfterLast()) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    columnArr[i2].clear();
-                    h(columnArr[i2], cursor, i2);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new IllegalStateException("cursor is not in range.");
         }
+        this.a = new StringColumn(o);
+        this.b = new IntegerColumn(p);
+        this.c = new IntegerColumn(q);
+        this.d = new StringColumn(r);
+        this.e = new StringColumn(s);
+        this.f = new StringColumn(t);
+        this.g = new IntegerColumn(u);
+        this.h = new IntegerColumn(v);
+        this.i = new LongColumn(w);
+        this.j = new LongColumn(x);
+        this.k = new StringColumn(y);
+        this.l = new StringColumn(z);
+        StringColumn stringColumn = new StringColumn(A);
+        this.m = stringColumn;
+        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
     }
 
-    public static void h(Column column, Cursor cursor, int i) {
+    @Override // com.baidu.tieba.r11
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, column, cursor, i) == null) {
-            int type = column.type();
-            if (type != 1) {
-                if (type != 2) {
-                    if (type != 3) {
-                        if (type == 4) {
-                            m((StringColumn) column, cursor, i);
-                            return;
-                        }
-                        throw new IllegalStateException("Unsupported type:" + column.type());
-                    }
-                    l((LongColumn) column, cursor, i);
-                    return;
-                }
-                k((IntegerColumn) column, cursor, i);
-                return;
-            }
-            g((BooleanColumn) column, cursor, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
         }
+        return (Column[]) invokeV.objValue;
     }
 
-    public static void i(Cursor cursor, Column[] columnArr) {
+    @Override // com.baidu.tieba.r11
+    public j11[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, cursor, columnArr) == null) {
-            j(cursor, columnArr, columnArr.length);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return B;
         }
+        return (j11[]) invokeV.objValue;
     }
 
-    public static boolean k(IntegerColumn integerColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
+    @Override // com.baidu.tieba.r11
+    public j11[][] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, integerColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                integerColumn.setValue(cursor.getInt(i));
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return C;
         }
-        return invokeLLI.booleanValue;
+        return (j11[][]) invokeV.objValue;
     }
 
-    public static boolean l(LongColumn longColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
+    @Override // com.baidu.tieba.r11
+    public j11[] f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, longColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                longColumn.setValue(cursor.getLong(i));
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return D;
         }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean m(StringColumn stringColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65548, null, stringColumn, cursor, i)) == null) {
-            if (i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                stringColumn.setValue(cursor.getString(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean n(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, column)) == null) {
-            if (column != null && column.field.d == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (j11[]) invokeV.objValue;
     }
 }

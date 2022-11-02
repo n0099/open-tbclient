@@ -1,5 +1,7 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +13,14 @@ import com.google.android.exoplayer2.util.Util;
 public final class Descriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final String id;
+    @NonNull
     public final String schemeIdUri;
+    @Nullable
     public final String value;
 
-    public Descriptor(String str, String str2, String str3) {
+    public Descriptor(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

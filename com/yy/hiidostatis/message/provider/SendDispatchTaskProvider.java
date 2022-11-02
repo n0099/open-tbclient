@@ -18,7 +18,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class SendDispatchTaskProvider implements Provider {
+public class SendDispatchTaskProvider implements Provider<Task> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SendMsgDispatcher dispatcher;
@@ -38,6 +38,7 @@ public class SendDispatchTaskProvider implements Provider {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.yy.hiidostatis.provider.Provider
     public Task generate(MessageConfig messageConfig) {
         InterceptResult invokeL;

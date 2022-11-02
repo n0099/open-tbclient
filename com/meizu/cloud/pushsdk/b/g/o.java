@@ -24,7 +24,7 @@ public final class o {
         return true;
     }
 
-    public static void b(Throwable th) throws Throwable {
+    public static <T extends Throwable> void b(Throwable th) throws Throwable {
         throw th;
     }
 }

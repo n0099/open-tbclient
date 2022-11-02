@@ -15,14 +15,14 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo8;
+import com.baidu.tieba.kp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public bo8 c;
+    public kp8 c;
     public int d;
     public int e;
     public int f;
@@ -53,11 +53,11 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public View u;
     public int v;
     public boolean w;
-    public ArrayList x;
+    public ArrayList<View> x;
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface c {
     }
 
@@ -67,7 +67,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
         new Rect();
         this.s = 10;
-        this.x = new ArrayList();
+        this.x = new ArrayList<>();
         this.B = false;
         this.C = true;
         this.D = new a(this);
@@ -232,7 +232,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
         new Rect();
         this.s = 10;
-        this.x = new ArrayList();
+        this.x = new ArrayList<>();
         this.B = false;
         this.C = true;
         this.D = new a(this);
@@ -260,7 +260,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
         new Rect();
         this.s = 10;
-        this.x = new ArrayList();
+        this.x = new ArrayList<>();
         this.B = false;
         this.C = true;
         this.D = new a(this);
@@ -316,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(bo8 bo8Var) {
+    public void setDragController(kp8 kp8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, bo8Var) == null) {
-            this.c = bo8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, kp8Var) == null) {
+            this.c = kp8Var;
         }
     }
 
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        bo8 bo8Var;
+        kp8 kp8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (bo8Var = this.c) != null) {
-                    bo8Var.d();
+                if ((this.o || this.p) && (kp8Var = this.c) != null) {
+                    kp8Var.d();
                     return;
                 }
                 return;
@@ -756,7 +756,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.x.size() > 0) {
-                view2 = (View) this.x.remove(0);
+                view2 = this.x.remove(0);
             } else {
                 view2 = null;
             }

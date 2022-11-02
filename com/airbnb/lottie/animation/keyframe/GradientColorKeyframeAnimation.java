@@ -4,20 +4,24 @@ import com.airbnb.lottie.model.content.GradientColor;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GradientColorKeyframeAnimation extends KeyframeAnimation {
+public class GradientColorKeyframeAnimation extends KeyframeAnimation<GradientColor> {
     public final GradientColor gradientColor;
 
-    public GradientColorKeyframeAnimation(List list) {
+    public GradientColorKeyframeAnimation(List<Keyframe<GradientColor>> list) {
         super(list);
-        GradientColor gradientColor = (GradientColor) ((Keyframe) list.get(0)).startValue;
+        GradientColor gradientColor = list.get(0).startValue;
         int size = gradientColor != null ? gradientColor.getSize() : 0;
         this.gradientColor = new GradientColor(new float[size], new int[size]);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public GradientColor getValue(Keyframe keyframe, float f) {
-        this.gradientColor.lerp((GradientColor) keyframe.startValue, (GradientColor) keyframe.endValue, f);
+    public GradientColor getValue(Keyframe<GradientColor> keyframe, float f) {
+        this.gradientColor.lerp(keyframe.startValue, keyframe.endValue, f);
         return this.gradientColor;
+    }
+
+    @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
+    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
+        return getValue((Keyframe<GradientColor>) keyframe, f);
     }
 }

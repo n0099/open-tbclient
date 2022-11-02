@@ -47,24 +47,24 @@ public class cx extends cr {
     }
 
     @Override // com.xiaomi.push.cr
-    public synchronized ArrayList a(boolean z) {
+    public synchronized ArrayList<String> a(boolean z) {
         InterceptResult invokeZ;
-        ArrayList arrayList;
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             synchronized (this) {
-                arrayList = new ArrayList();
+                arrayList = new ArrayList<>();
                 if (this.a != null) {
                     arrayList.addAll(this.a.a(true));
                 }
                 synchronized (cv.b) {
-                    cr crVar = (cr) cv.b.get(((cr) this).f184b);
+                    cr crVar = cv.b.get(((cr) this).f184b);
                     if (crVar != null) {
-                        Iterator it = crVar.a(true).iterator();
+                        Iterator<String> it = crVar.a(true).iterator();
                         while (it.hasNext()) {
-                            String str = (String) it.next();
-                            if (arrayList.indexOf(str) == -1) {
-                                arrayList.add(str);
+                            String next = it.next();
+                            if (arrayList.indexOf(next) == -1) {
+                                arrayList.add(next);
                             }
                         }
                         arrayList.remove(((cr) this).f184b);

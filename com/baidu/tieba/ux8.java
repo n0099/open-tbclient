@@ -1,120 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.hx8;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ux8 implements tx8 {
+public class ux8 implements cx8, hx8.c, j56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rx8 a;
-    public qx8 b;
-    public TbPageContext c;
+    public BaseActivity a;
+    public uw8 b;
+    public gx8 c;
+    public SelectMusicModel d;
+    public String e;
 
-    @Override // com.baidu.tieba.tx8
-    public void onDestroy() {
+    @Override // com.baidu.tieba.cx8
+    public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.tx8
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ ux8 b;
-
-        public a(ux8 ux8Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux8Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ux8Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vi.a(this.a.x);
-                fj.N(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f045c));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ux8 a;
-
-        public b(ux8 ux8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ux8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ux8Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
-            }
-            this.a.h();
-        }
-    }
-
-    public ux8(TbPageContext tbPageContext, qx8 qx8Var, Intent intent) {
+    public ux8(uw8 uw8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qx8Var, intent};
+            Object[] objArr = {uw8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,104 +47,139 @@ public class ux8 implements tx8 {
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.b = qx8Var;
-        sx8 sx8Var = new sx8();
-        this.a = sx8Var;
-        sx8Var.b(intent);
-        this.a.e(tbPageContext.getUniqueId());
+        this.b = uw8Var;
+        this.a = uw8Var.a;
     }
 
-    @Override // com.baidu.tieba.tx8
-    public void a() {
+    public final void a(String str) {
+        uw8 uw8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (uw8Var = this.b) == null) {
             return;
         }
-        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
+        if (uw8Var.b()) {
+            this.b.c();
+            this.b = null;
             return;
         }
-        i();
+        this.e = str;
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(this.e);
+        videoInfo.setThumbPath(this.b.c);
+        uw8 uw8Var2 = this.b;
+        if (uw8Var2 != null) {
+            uw8Var2.f(videoInfo);
+        }
     }
 
-    @Override // com.baidu.tieba.tx8
     public void b() {
-        rx8 rx8Var;
+        uw8 uw8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (rx8Var = this.a) != null) {
-            ux4.k().u(ux4.o(rx8Var.c()), false);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (uw8Var = this.b) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void c() {
-        rx8 rx8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (rx8Var = this.a) != null && this.b != null) {
-            this.b.J0(rx8Var.getVideoUrl());
+        if (uw8Var.b()) {
+            this.b.c();
+            this.b = null;
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void d() {
-        qx8 qx8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (qx8Var = this.b) != null) {
-            qx8Var.showErrorView();
-        }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void e() {
-        qx8 qx8Var;
-        rx8 rx8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (qx8Var = this.b) != null && (rx8Var = this.a) != null) {
-            qx8Var.r0(rx8Var.a(), this.a.g());
-        }
-    }
-
-    public final void h() {
-        rx8 rx8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (rx8Var = this.a) != null && this.b != null) {
-            this.b.F0(rx8Var.getVideoUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void onClose() {
-        qx8 qx8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (qx8Var = this.b) != null) {
-            qx8Var.f0();
-        }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = this.a.d();
-            shareItem.w = this.a.i();
-            shareItem.x = this.a.f();
-            shareItem.y = this.a.f();
-            if (!ej.isEmpty(this.a.h())) {
-                shareItem.z = Uri.parse(this.a.h());
+        if (StringUtils.isNull(this.b.d)) {
+            uw8 uw8Var2 = this.b;
+            if (!uw8Var2.e) {
+                o1(uw8Var2.b, -4399, "");
+                return;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setOnDismissListener(new b(this));
-            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        }
+        if (this.d == null) {
+            this.d = new SelectMusicModel(this.a.getPageContext(), this);
+        }
+        SelectMusicModel selectMusicModel = this.d;
+        uw8 uw8Var3 = this.b;
+        selectMusicModel.C(uw8Var3.b, uw8Var3.d, vw8.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !uw8Var3.e);
+    }
+
+    @Override // com.baidu.tieba.j56
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            uw8 uw8Var = this.b;
+            if (uw8Var != null) {
+                uw8Var.i(true);
+            }
+            gx8 gx8Var = this.c;
+            if (gx8Var != null && gx8Var.f()) {
+                this.c.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cx8
+    public void o1(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
+            uw8 uw8Var = this.b;
+            if (uw8Var != null && uw8Var.b()) {
+                this.b.c();
+                this.b = null;
+            } else if (TextUtils.isEmpty(str)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0b14);
+                uw8 uw8Var2 = this.b;
+                if (uw8Var2 != null) {
+                    uw8Var2.g(i, str2);
+                }
+            } else {
+                uw8 uw8Var3 = this.b;
+                if (uw8Var3 != null) {
+                    uw8Var3.h();
+                }
+                if (!StringUtils.isNull(this.b.f)) {
+                    if (!StringHelper.equals(str, this.b.b)) {
+                        this.b.g = str;
+                    }
+                    if (this.c == null) {
+                        gx8 gx8Var = new gx8(this.a.getActivity());
+                        this.c = gx8Var;
+                        gx8Var.i(this);
+                    }
+                    this.c.g(str, this.b.f);
+                    return;
+                }
+                uw8 uw8Var4 = this.b;
+                if (uw8Var4 != null) {
+                    uw8Var4.e();
+                }
+                a(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hx8.c
+    public void onGenFilterVideoFail(int i, String str) {
+        uw8 uw8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (uw8Var = this.b) != null) {
+            uw8Var.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.hx8.c
+    public void onGenFilterVideoRecordError(int i, String str) {
+        uw8 uw8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (uw8Var = this.b) != null) {
+            uw8Var.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.hx8.c
+    public void onGenFilterVideoSuccess(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            uw8 uw8Var = this.b;
+            if (uw8Var != null) {
+                uw8Var.e();
+            }
+            a(str);
         }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView a;
     public TextView b;
     public View c;
-    public eo d;
+    public wn d;
     public int e;
     public View.OnClickListener f;
 
@@ -46,44 +46,44 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919be);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a02);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916e9);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e7);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f09172a);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223a);
     }
 
-    public void a(eo eoVar) {
+    public void a(wn wnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, eoVar) != null) || !(eoVar instanceof z45)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, wnVar) != null) || !(wnVar instanceof s55)) {
             return;
         }
-        this.d = eoVar;
-        z45 z45Var = (z45) eoVar;
-        if (z45Var.c()) {
-            String b = z45Var.b();
+        this.d = wnVar;
+        s55 s55Var = (s55) wnVar;
+        if (s55Var.c()) {
+            String b = s55Var.b();
             this.b.setVisibility(0);
             if (StringUtils.isNull(b)) {
                 this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
             } else {
-                this.a.L(b, 25, false);
+                this.a.K(b, 25, false);
             }
         } else {
-            this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080bf3);
+            this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080c0d);
             this.b.setVisibility(8);
-            this.a.L(z45Var.b(), 10, false);
+            this.a.K(s55Var.b(), 10, false);
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public eo b() {
+    public wn b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (eo) invokeV.objValue;
+        return (wn) invokeV.objValue;
     }
 
     public void c(int i) {

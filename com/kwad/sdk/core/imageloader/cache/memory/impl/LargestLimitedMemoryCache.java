@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LargestLimitedMemoryCache extends LimitedMemoryCache {
-    public final Map valueSizes;
+    public final Map<DecodedResult, Integer> valueSizes;
 
     public LargestLimitedMemoryCache(int i) {
         super(i);
@@ -24,7 +24,7 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.BaseMemoryCache
-    public Reference createReference(DecodedResult decodedResult) {
+    public Reference<DecodedResult> createReference(DecodedResult decodedResult) {
         return new WeakReference(decodedResult);
     }
 
@@ -54,19 +54,19 @@ public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.LimitedMemoryCache
     public DecodedResult removeNext() {
         DecodedResult decodedResult;
-        Set<Map.Entry> entrySet = this.valueSizes.entrySet();
+        Set<Map.Entry<DecodedResult, Integer>> entrySet = this.valueSizes.entrySet();
         synchronized (this.valueSizes) {
             decodedResult = null;
             Integer num = null;
-            for (Map.Entry entry : entrySet) {
+            for (Map.Entry<DecodedResult, Integer> entry : entrySet) {
                 if (decodedResult == null) {
-                    decodedResult = (DecodedResult) entry.getKey();
-                    num = (Integer) entry.getValue();
+                    decodedResult = entry.getKey();
+                    num = entry.getValue();
                 } else {
-                    Integer num2 = (Integer) entry.getValue();
-                    if (num2.intValue() > num.intValue()) {
-                        decodedResult = (DecodedResult) entry.getKey();
-                        num = num2;
+                    Integer value = entry.getValue();
+                    if (value.intValue() > num.intValue()) {
+                        decodedResult = entry.getKey();
+                        num = value;
                     }
                 }
             }

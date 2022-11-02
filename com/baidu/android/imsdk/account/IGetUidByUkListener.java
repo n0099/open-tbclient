@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface IGetUidByUkListener extends IMListener {
-    void onGetUidByUkResult(int i, String str, long[] jArr, Map map);
+    void onGetUidByUkResult(int i, String str, long[] jArr, Map<Long, Long> map);
 }

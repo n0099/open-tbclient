@@ -1,8 +1,10 @@
 package com.kwad.components.core.c.kwai;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,32 +17,34 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes7.dex */
 public final class a extends KSFrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final b DG;
-    public final b.C0568b DH;
+    public final b.C0579b DH;
     public d DI;
-    public InterfaceC0567a DJ;
+    public InterfaceC0578a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0567a {
+    public interface InterfaceC0578a {
         void mp();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b bVar, b.C0568b c0568b) {
-        super(c0568b.context);
+    public a(@Nullable b bVar, b.C0579b c0579b) {
+        super(c0579b.context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, c0568b};
+            Object[] objArr = {bVar, c0579b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,10 +56,10 @@ public final class a extends KSFrameLayout {
             }
         }
         this.DG = bVar;
-        this.DH = c0568b;
-        this.mAdTemplate = c0568b.adTemplate;
-        FrameLayout.inflate(c0568b.context, R.layout.obfuscated_res_0x7f0d0414, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
+        this.DH = c0579b;
+        this.mAdTemplate = c0579b.adTemplate;
+        FrameLayout.inflate(c0579b.context, R.layout.obfuscated_res_0x7f0d041f, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
     }
 
     public static Presenter ap() {
@@ -121,17 +125,17 @@ public final class a extends KSFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            InterfaceC0567a interfaceC0567a = this.DJ;
-            if (interfaceC0567a != null) {
-                interfaceC0567a.mp();
+            InterfaceC0578a interfaceC0578a = this.DJ;
+            if (interfaceC0578a != null) {
+                interfaceC0578a.mp();
             }
         }
     }
 
-    public final void setChangeListener(InterfaceC0567a interfaceC0567a) {
+    public final void setChangeListener(InterfaceC0578a interfaceC0578a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0567a) == null) {
-            this.DJ = interfaceC0567a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, interfaceC0578a) == null) {
+            this.DJ = interfaceC0578a;
         }
     }
 }

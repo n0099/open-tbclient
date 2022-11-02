@@ -8,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
+import com.coremedia.iso.boxes.CompositionTimeToSample;
+import com.coremedia.iso.boxes.SampleDependencyTypeBox;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
@@ -32,17 +34,17 @@ public class EC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FRAMES_PER_MMAP = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public List bitStreamInfos;
+    public List<BitStreamInfo> bitStreamInfos;
     public int bitrate;
     public final DataSource dataSource;
     public long[] decodingTimes;
     public int frameSize;
     public SampleDescriptionBox sampleDescriptionBox;
-    public List samples;
+    public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getCompositionTimeEntries() {
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -59,7 +61,7 @@ public class EC3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List getSampleDependencies() {
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -89,7 +91,7 @@ public class EC3TrackImpl extends AbstractTrack {
     }
 
     /* loaded from: classes7.dex */
-    public class BitStreamInfo extends EC3SpecificBox.Entry {
+    public static class BitStreamInfo extends EC3SpecificBox.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int bitrate;
@@ -159,7 +161,7 @@ public class EC3TrackImpl extends AbstractTrack {
             }
         }
         if (this.bitStreamInfos.size() != 0) {
-            int i3 = ((BitStreamInfo) this.bitStreamInfos.get(0)).samplerate;
+            int i3 = this.bitStreamInfos.get(0).samplerate;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE9);
             audioSampleEntry.setChannelCount(2);
@@ -204,7 +206,7 @@ public class EC3TrackImpl extends AbstractTrack {
             this.trackMetaData.setTimescale(j);
             this.trackMetaData.setVolume(1.0f);
             dataSource.position(0L);
-            List readSamples = readSamples();
+            List<Sample> readSamples = readSamples();
             this.samples = readSamples;
             long[] jArr = new long[readSamples.size()];
             this.decodingTimes = jArr;
@@ -214,7 +216,7 @@ public class EC3TrackImpl extends AbstractTrack {
         throw new IOException();
     }
 
-    private List readSamples() throws IOException {
+    private List<Sample> readSamples() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -531,7 +533,7 @@ public class EC3TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List getSamples() {
+    public List<Sample> getSamples() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {

@@ -92,7 +92,7 @@ public class VOAR extends c {
                 }
 
                 @Override // com.baidu.ar.vo.a
-                public void b(int i, HashMap hashMap) {
+                public void b(int i, HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, hashMap) == null) {
                         this.yr.b(i, hashMap);
@@ -100,7 +100,7 @@ public class VOAR extends c {
                 }
 
                 @Override // com.baidu.ar.vo.a
-                public void d(HashMap hashMap) {
+                public void d(HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
                         this.yr.d(hashMap);
@@ -114,7 +114,7 @@ public class VOAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(int i, int i2, HashMap hashMap) {
+    public void c(int i, int i2, HashMap<String, Object> hashMap) {
         b bVar;
         com.baidu.ar.vo.c.b s;
         boolean z;
@@ -258,7 +258,7 @@ public class VOAR extends c {
             }
 
             @Override // com.baidu.ar.lua.c
-            public void a(int i, int i2, HashMap hashMap) {
+            public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
                     r.runOnUiThread(new Runnable(this, i, i2, hashMap) { // from class: com.baidu.ar.vo.VOAR.5.1
@@ -302,7 +302,7 @@ public class VOAR extends c {
             }
 
             @Override // com.baidu.ar.lua.c
-            public List n() {
+            public List<Integer> n() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -386,7 +386,7 @@ public class VOAR extends c {
         return invokeV.floatValue;
     }
 
-    private com.baidu.ar.vo.c.b s(HashMap hashMap) {
+    private com.baidu.ar.vo.c.b s(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, hashMap)) == null) {
@@ -463,7 +463,7 @@ public class VOAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void setup(HashMap hashMap) {
+    public void setup(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
             super.setup(hashMap);

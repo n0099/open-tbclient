@@ -18,7 +18,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class BonusNoImgMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<BonusNoImgMsg> CREATOR;
     public static final String TAG = "BonusNoImgMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mDescription;
@@ -52,7 +52,7 @@ public class BonusNoImgMsg extends NormalMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusNoImgMsg.1
+        CREATOR = new Parcelable.Creator<BonusNoImgMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.BonusNoImgMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,6 +71,7 @@ public class BonusNoImgMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusNoImgMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -82,6 +83,7 @@ public class BonusNoImgMsg extends NormalMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public BonusNoImgMsg[] newArray(int i) {
                 InterceptResult invokeI;

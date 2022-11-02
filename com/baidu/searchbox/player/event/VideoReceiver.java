@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +43,7 @@ public class VideoReceiver extends BroadcastReceiver {
         void onVolumeChanged(int i);
     }
 
-    public VideoReceiver(VideoReceiverListener videoReceiverListener) {
+    public VideoReceiver(@NonNull VideoReceiverListener videoReceiverListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class VideoReceiver extends BroadcastReceiver {
         this.mListener = videoReceiverListener;
     }
 
-    private void onVolumeChanged(Context context) {
+    private void onVolumeChanged(@NonNull Context context) {
         AudioManager audioManager;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65538, this, context) != null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
@@ -210,7 +210,7 @@ public class VideoReceiver extends BroadcastReceiver {
                     return;
                 }
             case 7:
-                int intExtra2 = (intent.getIntExtra(PollingModel.LEVEL, 0) * 100) / intent.getIntExtra("scale", 1);
+                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
                 BdBatteryUtils.batter_level = intExtra2;
                 this.mListener.onBatteryChanged(intExtra2);
                 return;

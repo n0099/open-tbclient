@@ -88,19 +88,19 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map map) {
+        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
             String str4;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
                 if (i == 0) {
                     if (map != null) {
-                        str4 = (String) map.get(AsyncChatTask.PUT_URL);
-                        String str5 = (String) map.get(AsyncChatTask.GET_URL);
+                        str4 = map.get(AsyncChatTask.PUT_URL);
+                        map.get(AsyncChatTask.GET_URL);
                     } else {
                         str4 = "";
                     }
-                    String str6 = str4;
-                    IFileUploadListener iFileUploadListener = new IFileUploadListener(this, str6) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.2.1
+                    String str5 = str4;
+                    IFileUploadListener iFileUploadListener = new IFileUploadListener(this, str5) { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 this$1;
@@ -118,7 +118,7 @@ public class RetrieveFileJob extends IRetrieveJob {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str6};
+                                Object[] objArr = {this, str5};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -129,14 +129,14 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 }
                             }
                             this.this$1 = this;
-                            this.val$remotUrl = str6;
+                            this.val$remotUrl = str5;
                         }
 
                         @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                        public void onFailed(int i2, String str7) {
+                        public void onFailed(int i2, String str6) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str7) == null) {
-                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str7);
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str6) == null) {
+                                LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str6);
                                 if (i2 != 1005) {
                                     this.this$1.this$0.mRetryCount.incrementAndGet();
                                     AnonymousClass2 anonymousClass2 = this.this$1;
@@ -205,7 +205,7 @@ public class RetrieveFileJob extends IRetrieveJob {
                         }
                     };
                     if (this.this$0.isUpload(this.val$context, this.val$filePath, this.val$fileBean)) {
-                        ChatMsgManager.uploadFile(this.val$context, str6, this.val$filePath, "application/octet-stream", str2, str3, iFileUploadListener);
+                        ChatMsgManager.uploadFile(this.val$context, str5, this.val$filePath, "application/octet-stream", str2, str3, iFileUploadListener);
                         return;
                     }
                     RetrieveReportImpl retrieveReportImpl = RetrieveReportImpl.getInstance(this.val$context);
@@ -236,7 +236,7 @@ public class RetrieveFileJob extends IRetrieveJob {
         this.mRetryCount = new AtomicInteger(0);
     }
 
-    private void deleteZip(Context context, List list) {
+    private void deleteZip(Context context, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, list) == null) {
             File file = new File(context.getFilesDir(), FETCH_FILE_ZIP);
@@ -353,9 +353,9 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
     }
 
-    private File getZipFile(List list, JSONObject jSONObject, RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
+    private File getZipFile(List<String> list, JSONObject jSONObject, RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
         InterceptResult invokeLLLL;
-        Iterator it;
+        Iterator<String> it;
         String str;
         String str2;
         String replace;
@@ -371,31 +371,31 @@ public class RetrieveFileJob extends IRetrieveJob {
                 ArrayList arrayList = new ArrayList(list.size());
                 long j2 = 0;
                 long j3 = retrieveFileBean.mMaxFileSize * 1000;
-                Iterator it2 = list.iterator();
+                Iterator<String> it2 = list.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
                     }
-                    String str6 = (String) it2.next();
-                    if (TextUtils.isEmpty(str6)) {
+                    String next = it2.next();
+                    if (TextUtils.isEmpty(next)) {
                         str = str3;
                         str2 = str4;
                         it = it2;
                     } else {
-                        if (str6.startsWith(str4)) {
+                        if (next.startsWith(str4)) {
                             StringBuilder sb = new StringBuilder();
                             it = it2;
                             sb.append(context.getExternalFilesDir(str5).getParent());
                             sb.append(File.separatorChar);
-                            replace = str6.replace(str4, sb.toString());
+                            replace = next.replace(str4, sb.toString());
                         } else {
                             it = it2;
-                            if (str6.startsWith(str3)) {
-                                replace = str6.replace(str3, context.getFilesDir().getParent() + File.separatorChar);
+                            if (next.startsWith(str3)) {
+                                replace = next.replace(str3, context.getFilesDir().getParent() + File.separatorChar);
                             } else {
                                 str = str3;
                                 str2 = str4;
-                                generateMetaInfo(str6, "4", str6 + " error", null, null, true, jSONObject);
+                                generateMetaInfo(next, "4", next + " error", null, null, true, jSONObject);
                             }
                         }
                         LogUtils.d(TAG, "retrieve--> 回捞路径：" + replace);
@@ -531,7 +531,7 @@ public class RetrieveFileJob extends IRetrieveJob {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startRetrieveFile(RetrieveFileData.RetrieveFileBean retrieveFileBean, Context context) {
-        List list;
+        List<String> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, this, retrieveFileBean, context) == null) && (list = retrieveFileBean.mPathList) != null && list.size() != 0) {
             deleteZip(context, list);

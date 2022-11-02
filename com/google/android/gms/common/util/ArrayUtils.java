@@ -1,17 +1,21 @@
 package com.google.android.gms.common.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Objects;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
+@VisibleForTesting
+@KeepForSdk
 /* loaded from: classes7.dex */
 public final class ArrayUtils {
     public static /* synthetic */ Interceptable $ic;
@@ -31,31 +35,35 @@ public final class ArrayUtils {
         }
     }
 
-    public static Object[] concat(Object[]... objArr) {
+    @NonNull
+    @KeepForSdk
+    public static <T> T[] concat(@NonNull T[]... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            if (objArr.length != 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tArr)) == null) {
+            if (tArr.length != 0) {
                 int i = 0;
-                for (Object[] objArr2 : objArr) {
-                    i += objArr2.length;
+                for (T[] tArr2 : tArr) {
+                    i += tArr2.length;
                 }
-                Object[] copyOf = Arrays.copyOf(objArr[0], i);
-                int length = objArr[0].length;
-                for (int i2 = 1; i2 < objArr.length; i2++) {
-                    Object[] objArr3 = objArr[i2];
-                    int length2 = objArr3.length;
-                    System.arraycopy(objArr3, 0, copyOf, length, length2);
+                T[] tArr3 = (T[]) Arrays.copyOf(tArr[0], i);
+                int length = tArr[0].length;
+                for (int i2 = 1; i2 < tArr.length; i2++) {
+                    T[] tArr4 = tArr[i2];
+                    int length2 = tArr4.length;
+                    System.arraycopy(tArr4, 0, tArr3, length, length2);
                     length += length2;
                 }
-                return copyOf;
+                return tArr3;
             }
-            return (Object[]) Array.newInstance(objArr.getClass(), 0);
+            return (T[]) ((Object[]) Array.newInstance(tArr.getClass(), 0));
         }
-        return (Object[]) invokeL.objValue;
+        return (T[]) ((Object[]) invokeL.objValue);
     }
 
-    public static byte[] concatByteArrays(byte[]... bArr) {
+    @NonNull
+    @KeepForSdk
+    public static byte[] concatByteArrays(@NonNull byte[]... bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
@@ -79,16 +87,17 @@ public final class ArrayUtils {
         return (byte[]) invokeL.objValue;
     }
 
-    public static int[] toPrimitiveArray(Collection collection) {
+    @NonNull
+    @KeepForSdk
+    public static int[] toPrimitiveArray(@NonNull Collection<Integer> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) {
             int i = 0;
             if (collection != null && collection.size() != 0) {
                 int[] iArr = new int[collection.size()];
-                Iterator it = collection.iterator();
-                while (it.hasNext()) {
-                    iArr[i] = ((Integer) it.next()).intValue();
+                for (Integer num : collection) {
+                    iArr[i] = num.intValue();
                     i++;
                 }
                 return iArr;
@@ -98,7 +107,8 @@ public final class ArrayUtils {
         return (int[]) invokeL.objValue;
     }
 
-    public static boolean contains(int[] iArr, int i) {
+    @KeepForSdk
+    public static boolean contains(@NonNull int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, iArr, i)) == null) {
@@ -115,7 +125,8 @@ public final class ArrayUtils {
         return invokeLI.booleanValue;
     }
 
-    public static void writeArray(StringBuilder sb, double[] dArr) {
+    @KeepForSdk
+    public static void writeArray(@NonNull StringBuilder sb, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, sb, dArr) == null) {
             int length = dArr.length;
@@ -128,7 +139,8 @@ public final class ArrayUtils {
         }
     }
 
-    public static void writeStringArray(StringBuilder sb, String[] strArr) {
+    @KeepForSdk
+    public static void writeStringArray(@NonNull StringBuilder sb, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, sb, strArr) == null) {
             int length = strArr.length;
@@ -143,13 +155,14 @@ public final class ArrayUtils {
         }
     }
 
-    public static boolean contains(Object[] objArr, Object obj) {
+    @KeepForSdk
+    public static <T> boolean contains(@NonNull T[] tArr, @NonNull T t) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr, obj)) == null) {
-            if (objArr != null) {
-                i = objArr.length;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tArr, t)) == null) {
+            if (tArr != null) {
+                i = tArr.length;
             } else {
                 i = 0;
             }
@@ -157,7 +170,7 @@ public final class ArrayUtils {
             while (true) {
                 if (i2 >= i) {
                     break;
-                } else if (Objects.equal(objArr[i2], obj)) {
+                } else if (Objects.equal(tArr[i2], t)) {
                     if (i2 >= 0) {
                         return true;
                     }
@@ -170,7 +183,8 @@ public final class ArrayUtils {
         return invokeLL.booleanValue;
     }
 
-    public static void writeArray(StringBuilder sb, float[] fArr) {
+    @KeepForSdk
+    public static void writeArray(@NonNull StringBuilder sb, @NonNull float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, sb, fArr) == null) {
             int length = fArr.length;
@@ -183,71 +197,79 @@ public final class ArrayUtils {
         }
     }
 
-    public static ArrayList newArrayList() {
+    @NonNull
+    @KeepForSdk
+    public static <T> ArrayList<T> newArrayList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return new ArrayList();
+            return new ArrayList<>();
         }
         return (ArrayList) invokeV.objValue;
     }
 
-    public static Object[] removeAll(Object[] objArr, Object... objArr2) {
+    @Nullable
+    @KeepForSdk
+    public static <T> T[] removeAll(@NonNull T[] tArr, @NonNull T... tArr2) {
         InterceptResult invokeLL;
         int length;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, objArr, objArr2)) == null) {
-            if (objArr == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, tArr, tArr2)) == null) {
+            if (tArr == null) {
                 return null;
             }
-            if (objArr2 != null && (length = objArr2.length) != 0) {
-                Object[] objArr3 = (Object[]) Array.newInstance(objArr2.getClass().getComponentType(), objArr.length);
+            if (tArr2 != null && (length = tArr2.length) != 0) {
+                T[] tArr3 = (T[]) ((Object[]) Array.newInstance(tArr2.getClass().getComponentType(), tArr.length));
                 if (length == 1) {
                     i = 0;
-                    for (Object obj : objArr) {
-                        if (!Objects.equal(objArr2[0], obj)) {
-                            objArr3[i] = obj;
+                    for (T t : tArr) {
+                        if (!Objects.equal(tArr2[0], t)) {
+                            tArr3[i] = t;
                             i++;
                         }
                     }
                 } else {
                     int i2 = 0;
-                    for (Object obj2 : objArr) {
-                        if (!contains(objArr2, obj2)) {
-                            objArr3[i2] = obj2;
+                    for (T t2 : tArr) {
+                        if (!contains(tArr2, t2)) {
+                            tArr3[i2] = t2;
                             i2++;
                         }
                     }
                     i = i2;
                 }
-                if (objArr3 == null) {
+                if (tArr3 == null) {
                     return null;
                 }
-                if (i == objArr3.length) {
-                    return objArr3;
+                if (i == tArr3.length) {
+                    return tArr3;
                 }
-                return Arrays.copyOf(objArr3, i);
+                return (T[]) Arrays.copyOf(tArr3, i);
             }
-            return Arrays.copyOf(objArr, objArr.length);
+            return (T[]) Arrays.copyOf(tArr, tArr.length);
         }
-        return (Object[]) invokeLL.objValue;
+        return (T[]) ((Object[]) invokeLL.objValue);
     }
 
-    public static ArrayList toArrayList(Object[] objArr) {
+    @NonNull
+    @KeepForSdk
+    public static <T> ArrayList<T> toArrayList(@NonNull T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, objArr)) == null) {
-            ArrayList arrayList = new ArrayList(objArr.length);
-            for (Object obj : objArr) {
-                arrayList.add(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, tArr)) == null) {
+            ArrayList<T> arrayList = new ArrayList<>(tArr.length);
+            for (T t : tArr) {
+                arrayList.add(t);
             }
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
     }
 
-    public static Integer[] toWrapperArray(int[] iArr) {
+    @Nullable
+    @KeepForSdk
+    public static Integer[] toWrapperArray(@NonNull int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, iArr)) == null) {
@@ -264,7 +286,8 @@ public final class ArrayUtils {
         return (Integer[]) invokeL.objValue;
     }
 
-    public static void writeArray(StringBuilder sb, int[] iArr) {
+    @KeepForSdk
+    public static void writeArray(@NonNull StringBuilder sb, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, sb, iArr) == null) {
             int length = iArr.length;
@@ -277,7 +300,8 @@ public final class ArrayUtils {
         }
     }
 
-    public static void writeArray(StringBuilder sb, long[] jArr) {
+    @KeepForSdk
+    public static void writeArray(@NonNull StringBuilder sb, @NonNull long[] jArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, sb, jArr) == null) {
             int length = jArr.length;
@@ -290,20 +314,22 @@ public final class ArrayUtils {
         }
     }
 
-    public static void writeArray(StringBuilder sb, Object[] objArr) {
+    @KeepForSdk
+    public static <T> void writeArray(@NonNull StringBuilder sb, @NonNull T[] tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, sb, objArr) == null) {
-            int length = objArr.length;
+        if (interceptable == null || interceptable.invokeLL(65550, null, sb, tArr) == null) {
+            int length = tArr.length;
             for (int i = 0; i < length; i++) {
                 if (i != 0) {
                     sb.append(",");
                 }
-                sb.append(objArr[i]);
+                sb.append(tArr[i]);
             }
         }
     }
 
-    public static void writeArray(StringBuilder sb, boolean[] zArr) {
+    @KeepForSdk
+    public static void writeArray(@NonNull StringBuilder sb, @NonNull boolean[] zArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, null, sb, zArr) == null) {
             int length = zArr.length;

@@ -1,6 +1,7 @@
 package com.kwad.components.ad.e;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +46,7 @@ public class a extends com.kwad.sdk.components.d implements f {
     }
 
     @Override // com.kwad.components.ad.a.f
-    public final void loadNativeAd(KsScene ksScene, KsLoadManager.NativeAdListener nativeAdListener) {
+    public final void loadNativeAd(KsScene ksScene, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ksScene, nativeAdListener) == null) {
             b.loadNativeAd(ksScene, nativeAdListener);
@@ -53,7 +54,7 @@ public class a extends com.kwad.sdk.components.d implements f {
     }
 
     @Override // com.kwad.components.ad.a.f
-    public final void loadNativeAd(String str, KsLoadManager.NativeAdListener nativeAdListener) {
+    public final void loadNativeAd(String str, @NonNull KsLoadManager.NativeAdListener nativeAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, nativeAdListener) == null) {
             b.loadNativeAd(str, nativeAdListener);

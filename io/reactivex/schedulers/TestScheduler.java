@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.disposables.Disposables;
 import io.reactivex.internal.disposables.EmptyDisposable;
@@ -19,7 +20,7 @@ public final class TestScheduler extends Scheduler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long counter;
-    public final Queue queue;
+    public final Queue<TimedRunnable> queue;
     public volatile long time;
 
     /* loaded from: classes8.dex */
@@ -83,7 +84,7 @@ public final class TestScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public long now(TimeUnit timeUnit) {
+        public long now(@NonNull TimeUnit timeUnit) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeUnit)) == null) {
@@ -111,7 +112,8 @@ public final class TestScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, runnable)) == null) {
@@ -129,7 +131,8 @@ public final class TestScheduler extends Scheduler {
         }
 
         @Override // io.reactivex.Scheduler.Worker
-        public Disposable schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
@@ -149,7 +152,7 @@ public final class TestScheduler extends Scheduler {
     }
 
     /* loaded from: classes8.dex */
-    public final class TimedRunnable implements Comparable {
+    public static final class TimedRunnable implements Comparable<TimedRunnable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long count;
@@ -221,6 +224,7 @@ public final class TestScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
+    @NonNull
     public Scheduler.Worker createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -260,11 +264,11 @@ public final class TestScheduler extends Scheduler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
             while (true) {
-                TimedRunnable timedRunnable = (TimedRunnable) this.queue.peek();
-                if (timedRunnable == null) {
+                TimedRunnable peek = this.queue.peek();
+                if (peek == null) {
                     break;
                 }
-                long j2 = timedRunnable.time;
+                long j2 = peek.time;
                 if (j2 > j) {
                     break;
                 }
@@ -272,9 +276,9 @@ public final class TestScheduler extends Scheduler {
                     j2 = this.time;
                 }
                 this.time = j2;
-                this.queue.remove(timedRunnable);
-                if (!timedRunnable.scheduler.disposed) {
-                    timedRunnable.run.run();
+                this.queue.remove(peek);
+                if (!peek.scheduler.disposed) {
+                    peek.run.run();
                 }
             }
             this.time = j;
@@ -296,7 +300,7 @@ public final class TestScheduler extends Scheduler {
     }
 
     @Override // io.reactivex.Scheduler
-    public long now(TimeUnit timeUnit) {
+    public long now(@NonNull TimeUnit timeUnit) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, timeUnit)) == null) {

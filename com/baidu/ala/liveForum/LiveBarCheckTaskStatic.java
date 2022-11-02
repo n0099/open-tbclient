@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class LiveBarCheckTaskStatic implements CustomMessageTask.CustomRunnable {
+public class LiveBarCheckTaskStatic implements CustomMessageTask.CustomRunnable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,24 +50,24 @@ public class LiveBarCheckTaskStatic implements CustomMessageTask.CustomRunnable 
         }
     }
 
-    public CustomResponsedMessage commitResult(int i, boolean z) {
+    public CustomResponsedMessage<Boolean> commitResult(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return new CustomResponsedMessage(i, Boolean.valueOf(z));
+            return new CustomResponsedMessage<>(i, Boolean.valueOf(z));
         }
         return (CustomResponsedMessage) invokeCommon.objValue;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage run(CustomMessage customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<Long> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
             if (customMessage == null) {
                 return null;
             }
-            return commitResult(customMessage.getCmd(), TbSingleton.getInstance().checkLiveForumByFid(((Long) customMessage.getData()).longValue()));
+            return commitResult(customMessage.getCmd(), TbSingleton.getInstance().checkLiveForumByFid(customMessage.getData().longValue()));
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

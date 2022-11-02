@@ -1,6 +1,8 @@
 package androidx.fragment.app;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.LogWriter;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
@@ -29,7 +31,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BackStackRecord(FragmentManager fragmentManager) {
+    public BackStackRecord(@NonNull FragmentManager fragmentManager) {
         super(r0, r1);
         ClassLoader classLoader;
         Interceptable interceptable = $ic;
@@ -169,6 +171,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentManager.BackStackEntry
+    @Nullable
     public CharSequence getBreadCrumbShortTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,6 +195,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentManager.BackStackEntry
+    @Nullable
     public CharSequence getBreadCrumbTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,6 +229,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentManager.BackStackEntry
+    @Nullable
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -269,7 +274,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction detach(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction detach(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fragment)) == null) {
@@ -283,7 +289,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction hide(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction hide(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, fragment)) == null) {
@@ -319,7 +326,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction remove(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction remove(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, fragment)) == null) {
@@ -333,7 +341,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction setPrimaryNavigationFragment(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction setPrimaryNavigationFragment(@Nullable Fragment fragment) {
         InterceptResult invokeL;
         FragmentManager fragmentManager;
         Interceptable interceptable = $ic;
@@ -347,7 +356,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction show(Fragment fragment) {
+    @NonNull
+    public FragmentTransaction show(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, fragment)) == null) {
@@ -361,7 +371,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public void doAddOp(int i, Fragment fragment, String str, int i2) {
+    public void doAddOp(int i, Fragment fragment, @Nullable String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), fragment, str, Integer.valueOf(i2)}) == null) {
             super.doAddOp(i, fragment, str, i2);
@@ -690,7 +700,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentManager.OpGenerator
-    public boolean generateOps(ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2) {
+    public boolean generateOps(@NonNull ArrayList<BackStackRecord> arrayList, @NonNull ArrayList<Boolean> arrayList2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, arrayList, arrayList2)) == null) {
@@ -751,7 +761,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public FragmentTransaction setMaxLifecycle(Fragment fragment, Lifecycle.State state) {
+    @NonNull
+    public FragmentTransaction setMaxLifecycle(@NonNull Fragment fragment, @NonNull Lifecycle.State state) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, fragment, state)) == null) {

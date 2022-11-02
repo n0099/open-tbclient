@@ -1,5 +1,6 @@
 package com.baidu.sofire.face.a;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
@@ -51,6 +52,7 @@ public class a {
         }
     }
 
+    @SuppressLint({"MissingPermission"})
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -109,6 +111,7 @@ public class a {
     /* JADX WARN: Removed duplicated region for block: B:66:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:74:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:84:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

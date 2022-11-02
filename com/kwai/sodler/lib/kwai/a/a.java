@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.v8engine.V8Engine;
@@ -21,13 +22,13 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map axH;
+    public static Map<String, Resources> axH;
     public static final Object axI;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public final class C0632a {
+    public static final class C0643a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +51,7 @@ public final class a {
     }
 
     /* loaded from: classes8.dex */
-    public final class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +64,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0632a.b(resources, assetManager);
+                        return C0643a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -88,7 +89,7 @@ public final class a {
     }
 
     /* loaded from: classes8.dex */
-    public final class c {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +102,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0632a.b(resources, assetManager);
+                        return C0643a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -126,7 +127,7 @@ public final class a {
     }
 
     /* loaded from: classes8.dex */
-    public final class d {
+    public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,7 +140,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0632a.b(resources, assetManager);
+                        return C0643a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -164,7 +165,7 @@ public final class a {
     }
 
     /* loaded from: classes8.dex */
-    public final class e {
+    public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,7 +178,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0632a.b(resources, assetManager);
+                        return C0643a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -202,7 +203,7 @@ public final class a {
     }
 
     /* loaded from: classes8.dex */
-    public final class f {
+    public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,7 +216,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0632a.b(resources, assetManager);
+                        return C0643a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -271,7 +272,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, assetManager, displayMetrics, configuration)) == null) {
             Resources resources = context.getResources();
-            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0632a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
+            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0643a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
         }
         return (Resources) invokeLLLL.objValue;
     }
@@ -317,13 +318,14 @@ public final class a {
         return invokeLL.intValue;
     }
 
+    @NonNull
     public static Resources c(Context context, Resources resources, String str) {
         InterceptResult invokeLLL;
         Resources resources2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, resources, str)) == null) {
             synchronized (axI) {
-                resources2 = (Resources) axH.get(str);
+                resources2 = axH.get(str);
                 if (resources2 == null) {
                     resources2 = d(context, resources, str);
                     if (resources2 == null) {

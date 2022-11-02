@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.sx;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements yx {
+public class CardItemInfoBriefLayout extends FrameLayout implements sx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -100,11 +100,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements yx {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05ed);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05f0);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f0659);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f065c);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -154,16 +154,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements yx {
         f();
     }
 
-    @Override // com.baidu.tieba.yx
+    @Override // com.baidu.tieba.sx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            nv4 d = nv4.d(this);
+            kw4 d = kw4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            nv4.d(this.a).v(R.color.CAM_X0105);
-            nv4.d(this.b).v(R.color.CAM_X0304);
+            kw4.d(this.a).v(R.color.CAM_X0105);
+            kw4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 
@@ -203,23 +203,23 @@ public class CardItemInfoBriefLayout extends FrameLayout implements yx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            setPadding(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+            setPadding(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(getContext());
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05ed))));
-            nv4 d = nv4.d(this.a);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05f0))));
+            kw4 d = kw4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
-            this.a.setPadding(0, 0, 0, fj.f(getContext(), R.dimen.M_H_X005));
+            this.a.setPadding(0, 0, 0, xi.g(getContext(), R.dimen.M_H_X005));
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05ed);
-            nv4.d(this.a).z(R.dimen.T_X07);
-            this.b.setPadding(fj.f(getContext(), R.dimen.M_W_X005), fj.f(getContext(), R.dimen.M_H_X005), 0, fj.f(getContext(), R.dimen.M_H_X005));
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05f0);
+            kw4.d(this.a).z(R.dimen.T_X07);
+            this.b.setPadding(xi.g(getContext(), R.dimen.M_W_X005), xi.g(getContext(), R.dimen.M_H_X005), 0, xi.g(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;

@@ -32,11 +32,11 @@ public final class ConcurrentKt {
         REMOVE_FUTURE_ON_CANCEL = method;
     }
 
-    public static final List subscriberList() {
+    public static final <E> List<E> subscriberList() {
         return new CopyOnWriteArrayList();
     }
 
-    public static final Set identitySet(int i) {
+    public static final <E> Set<E> identitySet(int i) {
         return Collections.newSetFromMap(new IdentityHashMap(i));
     }
 
@@ -57,7 +57,7 @@ public final class ConcurrentKt {
         }
     }
 
-    public static final Object withLock(ReentrantLock reentrantLock, Function0 function0) {
+    public static final <T> T withLock(ReentrantLock reentrantLock, Function0<? extends T> function0) {
         reentrantLock.lock();
         try {
             return function0.invoke();

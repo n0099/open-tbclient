@@ -1,7 +1,9 @@
 package androidx.transition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +32,8 @@ public class CanvasUtils {
         }
     }
 
-    public static void enableZ(Canvas canvas, boolean z) {
+    @SuppressLint({"SoonBlockedPrivateApi"})
+    public static void enableZ(@NonNull Canvas canvas, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) && (i = Build.VERSION.SDK_INT) >= 21) {

@@ -2,6 +2,8 @@ package kotlin.internal;
 
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import kotlin.Metadata;
+import kotlin.PublishedApi;
+import kotlin.SinceKotlin;
 import kotlin.UInt;
 import kotlin.ULong;
 import kotlin.UnsignedKt;
@@ -32,6 +34,8 @@ public final class UProgressionUtilKt {
         return m870constructorimpl;
     }
 
+    @SinceKotlin(version = "1.3")
+    @PublishedApi
     /* renamed from: getProgressionLastElement-7ftBX0g  reason: not valid java name */
     public static final long m1888getProgressionLastElement7ftBX0g(long j, long j2, long j3) {
         int i = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
@@ -50,6 +54,8 @@ public final class UProgressionUtilKt {
         }
     }
 
+    @SinceKotlin(version = "1.3")
+    @PublishedApi
     /* renamed from: getProgressionLastElement-Nkh28Cs  reason: not valid java name */
     public static final int m1889getProgressionLastElementNkh28Cs(int i, int i2, int i3) {
         if (i3 > 0) {

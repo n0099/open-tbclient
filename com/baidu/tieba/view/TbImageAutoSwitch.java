@@ -77,12 +77,12 @@ public class TbImageAutoSwitch extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class d {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View[] a;
         public AnimatorSet b;
-        public final List c;
+        public final List<Animator> c;
         public c d;
         public PropertyValuesHolder e;
         public PropertyValuesHolder f;
@@ -199,7 +199,7 @@ public class TbImageAutoSwitch extends FrameLayout {
             this.b = animatorSet;
             animatorSet.setDuration(i);
             this.b.addListener(this.n);
-            List list = this.c;
+            List<Animator> list = this.c;
             View[] viewArr = this.a;
             list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr[viewArr.length - 1], this.e, this.f, this.g, this.h));
             for (int length = this.a.length - 2; length >= 0; length--) {
@@ -295,10 +295,10 @@ public class TbImageAutoSwitch extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends TimerTask {
+    public static class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<f> a;
 
         public e(f fVar) {
             Interceptable interceptable = $ic;
@@ -315,24 +315,24 @@ public class TbImageAutoSwitch extends FrameLayout {
                     return;
                 }
             }
-            this.a = new WeakReference(fVar);
+            this.a = new WeakReference<>(fVar);
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             f fVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fVar = (f) this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fVar = this.a.get()) != null) {
                 fVar.sendEmptyMessage(1);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f extends Handler {
+    public static class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference a;
+        public WeakReference<TbImageAutoSwitch> a;
 
         public f(TbImageAutoSwitch tbImageAutoSwitch) {
             Interceptable interceptable = $ic;
@@ -349,7 +349,7 @@ public class TbImageAutoSwitch extends FrameLayout {
                     return;
                 }
             }
-            this.a = new WeakReference(tbImageAutoSwitch);
+            this.a = new WeakReference<>(tbImageAutoSwitch);
         }
 
         @Override // android.os.Handler
@@ -357,7 +357,7 @@ public class TbImageAutoSwitch extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.get();
+                TbImageAutoSwitch tbImageAutoSwitch = this.a.get();
                 if (tbImageAutoSwitch == null) {
                     return;
                 }
@@ -490,7 +490,7 @@ public class TbImageAutoSwitch extends FrameLayout {
         }
     }
 
-    public List getChildViews() {
+    public List<View> getChildViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -6,24 +6,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public abstract class ReferenceDisposable extends AtomicReference implements Disposable {
+public abstract class ReferenceDisposable<T> extends AtomicReference<T> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6537757548749041217L;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void onDisposed(Object obj);
+    public abstract void onDisposed(@NonNull T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReferenceDisposable(Object obj) {
-        super(ObjectHelper.requireNonNull(obj, "value is null"));
+    public ReferenceDisposable(T t) {
+        super(ObjectHelper.requireNonNull(t, "value is null"));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +39,7 @@ public abstract class ReferenceDisposable extends AtomicReference implements Dis
 
     @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
-        Object andSet;
+        T andSet;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && get() != null && (andSet = getAndSet(null)) != null) {
             onDisposed(andSet);

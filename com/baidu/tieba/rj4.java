@@ -1,109 +1,57 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import android.content.Context;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class rj4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final List a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rj4 {
+    String a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123533, "Lcom/baidu/tieba/rj4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948123533, "Lcom/baidu/tieba/rj4;");
-                return;
-            }
-        }
-        a = Arrays.asList("TAH-AN00", "TET-AN00");
-    }
+    String b();
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            double b = b(activity) * 0.5199999809265137d;
-            if (b < 1148.0d) {
-                return 1148;
-            }
-            return (int) b;
-        }
-        return invokeL.intValue;
-    }
+    boolean c(String str);
 
-    public static double b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!c(activity)) {
-                return 0.0d;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.widthPixels;
-        }
-        return invokeL.doubleValue;
-    }
+    ExecutorService d();
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void e(String str, int i, JSONArray jSONArray);
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MANUFACTURER;
-            String str2 = Build.MODEL;
-            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : a) {
-                    if (str2.contains(str3)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void f(String str, int i);
 
-    public static boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            double d = displayMetrics.widthPixels;
-            double d2 = displayMetrics.heightPixels;
-            if (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void g(String str, String str2, int i, String str3, int i2);
+
+    String getAppId();
+
+    String getAppVersion();
+
+    String getDeviceId(Context context);
+
+    String getScene();
+
+    String h();
+
+    void i(String str, int i, String str2);
+
+    boolean j();
+
+    int k();
+
+    sj4 l();
+
+    String m();
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
+
+    String o(Context context);
+
+    boolean p();
+
+    boolean q();
+
+    boolean r();
+
+    String s();
+
+    String t();
+
+    String u(Context context);
 }

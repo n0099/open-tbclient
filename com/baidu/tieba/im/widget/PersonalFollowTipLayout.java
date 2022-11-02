@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -21,12 +22,13 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.m05;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.sy4;
-import com.baidu.tieba.ux4;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public wz4 g;
+    public m05 g;
     public UserData h;
 
     /* loaded from: classes4.dex */
@@ -75,7 +77,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.b();
                 if (this.a.h != null) {
-                    ux4 k = ux4.k();
+                    ky4 k = ky4.k();
                     k.x("im_personal_follow_tip_close_last_time_" + this.a.h.getUserId(), System.currentTimeMillis());
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_PERSON_FOLLOW_TIP_CLOSE_BTN_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
@@ -232,12 +234,12 @@ public class PersonalFollowTipLayout extends RelativeLayout {
         }
     }
 
-    public void f(r9 r9Var) {
+    public void f(r9<MsglistActivity<?>> r9Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, r9Var) == null) && (r9Var instanceof TbPageContext)) {
-            wz4 wz4Var = new wz4((TbPageContext) r9Var, this.f);
-            this.g = wz4Var;
-            wz4Var.k(true);
+            m05 m05Var = new m05((TbPageContext) r9Var, this.f);
+            this.g = m05Var;
+            m05Var.k(true);
         }
     }
 
@@ -251,29 +253,29 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04be, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f09192f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091931);
-            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09248f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09192e);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a36);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ce, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091972);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091974);
+            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0924e4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091971);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a49);
             this.e = imageView;
             imageView.setOnClickListener(new a(this));
-            FollowUserButton followUserButton = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f091995);
+            FollowUserButton followUserButton = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f0919d9);
             this.f = followUserButton;
             followUserButton.setClickableUnLike(false);
             this.f.setOnClickEvent(new b(this));
             this.c.setAutoChangeStyle(false);
             this.c.setDrawerType(1);
-            this.c.setRadius(fj.f(getContext(), R.dimen.tbds83));
+            this.c.setRadius(xi.g(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f22);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f3e);
             h();
         }
     }
 
-    public void e(UserData userData) {
+    public void e(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
             if (userData.getRelation() != 1 && userData.getRelation() != 2 && !userData.isBlocked()) {
@@ -282,7 +284,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
                     userData.setIsLike(false);
                     this.g.n(userData);
                     j(userData);
-                    this.c.L(userData.getPortrait(), 12, false);
+                    this.c.K(userData.getPortrait(), 12, false);
                     return;
                 }
                 return;
@@ -299,7 +301,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             if (this.h == null) {
                 return false;
             }
-            ux4 k = ux4.k();
+            ky4 k = ky4.k();
             long m = k.m("im_personal_follow_tip_close_last_time_" + this.h.getUserId(), 0L);
             if (m != 0 && System.currentTimeMillis() - m <= 86400000) {
                 return false;
@@ -312,14 +314,14 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            nv4 d = nv4.d(this.d);
+            kw4 d = kw4.d(this.d);
             d.z(R.dimen.T_X12);
             d.v(R.color.CAM_X0107);
             d.A(R.string.F_X01);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0111, null);
-            nv4.d(this).f(R.color.CAM_X0204);
-            nv4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            nv4 d2 = nv4.d(this.b);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0111, null);
+            kw4.d(this).f(R.color.CAM_X0204);
+            kw4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            kw4 d2 = kw4.d(this.b);
             d2.e(R.string.A_X07);
             d2.f(R.color.CAM_X0208);
             this.f.r(TbadkCoreApplication.getInst().getSkinType());
@@ -341,20 +343,20 @@ public class PersonalFollowTipLayout extends RelativeLayout {
         return invokeV.booleanValue;
     }
 
-    public final void j(UserData userData) {
+    public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            sy4 sy4Var = new sy4();
-            sy4Var.i(R.drawable.obfuscated_res_0x7f080952, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            sy4Var.h(R.color.CAM_X0101);
-            sy4Var.g(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            sy4Var.f(fj.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(sy4Var);
+            iz4 iz4Var = new iz4();
+            iz4Var.i(R.drawable.obfuscated_res_0x7f080969, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            iz4Var.h(R.color.CAM_X0101);
+            iz4Var.g(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            iz4Var.f(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(iz4Var);
             this.f.r(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
-                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
+                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b1));
             } else {
-                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02cf));
+                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02d0));
             }
         }
     }

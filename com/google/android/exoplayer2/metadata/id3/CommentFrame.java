@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 /* loaded from: classes7.dex */
 public final class CommentFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<CommentFrame> CREATOR;
     public static final String ID = "COMM";
     public transient /* synthetic */ FieldHolder $fh;
     public final String description;
@@ -34,7 +34,7 @@ public final class CommentFrame extends Id3Frame {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.google.android.exoplayer2.metadata.id3.CommentFrame.1
+        CREATOR = new Parcelable.Creator<CommentFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.CommentFrame.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,6 +53,7 @@ public final class CommentFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CommentFrame createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -64,6 +65,7 @@ public final class CommentFrame extends Id3Frame {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public CommentFrame[] newArray(int i) {
                 InterceptResult invokeI;

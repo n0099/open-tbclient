@@ -1,45 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class af7 {
+public class af7 extends qd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af7() {
+        super(fd7.j(), 2001149);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = ej.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((bd7) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            String urlDecode = ej.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

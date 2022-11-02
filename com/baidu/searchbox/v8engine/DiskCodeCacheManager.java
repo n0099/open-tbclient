@@ -44,7 +44,7 @@ public class DiskCodeCacheManager {
         }
     }
 
-    public static boolean addDiskCodeCacheBusId(Map map, File file) {
+    public static boolean addDiskCodeCacheBusId(Map<String, String> map, File file) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -262,7 +262,7 @@ public class DiskCodeCacheManager {
                 if (codeCacheSetting.id == null) {
                     sb.append("Id is null.");
                 }
-                ArrayList arrayList = codeCacheSetting.pathList;
+                ArrayList<String> arrayList = codeCacheSetting.pathList;
                 if (arrayList == null || arrayList.size() == 0) {
                     sb.append("PathList is null or empty");
                 }

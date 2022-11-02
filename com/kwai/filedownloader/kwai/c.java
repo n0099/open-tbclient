@@ -15,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class c implements com.kwai.filedownloader.kwai.b {
@@ -23,7 +24,7 @@ public final class c implements com.kwai.filedownloader.kwai.b {
     public URLConnection atL;
 
     /* loaded from: classes8.dex */
-    public final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Proxy atM;
@@ -32,7 +33,7 @@ public final class c implements com.kwai.filedownloader.kwai.b {
     }
 
     /* loaded from: classes8.dex */
-    public final class b implements c.b {
+    public static class b implements c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a atP;
@@ -133,14 +134,14 @@ public final class c implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public final Map U() {
+    public final Map<String, List<String>> U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.atL.getRequestProperties() : (Map) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public final Map V() {
+    public final Map<String, List<String>> V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.atL.getHeaderFields() : (Map) invokeV.objValue;

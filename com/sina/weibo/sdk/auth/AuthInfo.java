@@ -18,7 +18,7 @@ import java.io.Serializable;
 /* loaded from: classes8.dex */
 public class AuthInfo implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<AuthInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppKey;
     public String mKeyHash;
@@ -49,7 +49,7 @@ public class AuthInfo implements Parcelable, Serializable {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
+        CREATOR = new Parcelable.Creator<AuthInfo>() { // from class: com.sina.weibo.sdk.auth.AuthInfo.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,6 +68,7 @@ public class AuthInfo implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AuthInfo createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -79,6 +80,7 @@ public class AuthInfo implements Parcelable, Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public AuthInfo[] newArray(int i) {
                 InterceptResult invokeI;

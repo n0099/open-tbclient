@@ -205,7 +205,7 @@ public class PatchInstallInfo {
         }
     }
 
-    public List getOrderedDexList() {
+    public List<File> getOrderedDexList() {
         ArrayList arrayList = new ArrayList();
         File file = new File(this.mPatchDir, "classes.jar");
         if (file.exists()) {
@@ -225,12 +225,12 @@ public class PatchInstallInfo {
 
     public String getDexPath() {
         if (Build.VERSION.SDK_INT <= 19 && getDexCount() > 1) {
-            List orderedDexList = getOrderedDexList();
+            List<File> orderedDexList = getOrderedDexList();
             if (orderedDexList != null && orderedDexList.size() != 0) {
                 StringBuilder sb = new StringBuilder();
-                Iterator it = orderedDexList.iterator();
+                Iterator<File> it = orderedDexList.iterator();
                 while (it.hasNext()) {
-                    sb.append(((File) it.next()).getAbsoluteFile());
+                    sb.append(it.next().getAbsoluteFile());
                     if (it.hasNext()) {
                         sb.append(File.pathSeparator);
                     }
@@ -242,9 +242,9 @@ public class PatchInstallInfo {
         return getPatchFile().getAbsolutePath();
     }
 
-    public HashMap readOptDigests() {
+    public HashMap<String, String> readOptDigests() {
         File file = new File(getPatchDir(), ".opt_dig");
-        HashMap hashMap = new HashMap();
+        HashMap<String, String> hashMap = new HashMap<>();
         BufferedReader bufferedReader = null;
         try {
             try {

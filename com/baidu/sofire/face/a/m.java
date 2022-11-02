@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import android.view.SurfaceHolder;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -142,7 +141,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
 
         @Override // java.lang.Runnable
         public void run() {
-            Pair pair;
+            Pair<Integer, Object> pair;
             Activity activity;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -283,7 +282,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                         this.a.y.setDisplayOrientation(a);
                     } catch (Throwable unused) {
                     }
-                    this.a.z.set(Key.ROTATION, a);
+                    this.a.z.set("rotation", a);
                     m mVar5 = this.a;
                     Point a2 = com.baidu.sofire.face.c.a.a(mVar5.z, mVar5.x, mVar5.w);
                     m mVar6 = this.a;
@@ -328,7 +327,7 @@ public class m implements SurfaceHolder.Callback, Camera.PreviewCallback, Camera
                     }
                     mVar16.y.startPreview();
                     this.a.D = true;
-                    Pair callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.l);
+                    Pair<Integer, Object> callSync = FH.callSync(1, "scrc", new Class[]{String.class}, this.a.l);
                     if (callSync != null && ((Integer) callSync.first).intValue() == 0) {
                         this.a.t = true;
                     }

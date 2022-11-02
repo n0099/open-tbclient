@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.LPaint;
@@ -15,7 +16,8 @@ import com.airbnb.lottie.animation.keyframe.ValueCallbackKeyframeAnimation;
 import com.airbnb.lottie.value.LottieValueCallback;
 /* loaded from: classes.dex */
 public class SolidLayer extends BaseLayer {
-    public BaseKeyframeAnimation colorFilterAnimation;
+    @Nullable
+    public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
     public final Layer layerModel;
     public final Paint paint;
     public final Path path;
@@ -35,9 +37,9 @@ public class SolidLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
-    public void addValueCallback(Object obj, LottieValueCallback lottieValueCallback) {
-        super.addValueCallback(obj, lottieValueCallback);
-        if (obj == LottieProperty.COLOR_FILTER) {
+    public <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback) {
+        super.addValueCallback(t, lottieValueCallback);
+        if (t == LottieProperty.COLOR_FILTER) {
             if (lottieValueCallback == null) {
                 this.colorFilterAnimation = null;
             } else {
@@ -56,13 +58,13 @@ public class SolidLayer extends BaseLayer {
         if (this.transform.getOpacity() == null) {
             intValue = 100;
         } else {
-            intValue = ((Integer) this.transform.getOpacity().getValue()).intValue();
+            intValue = this.transform.getOpacity().getValue().intValue();
         }
         int i2 = (int) ((i / 255.0f) * (((alpha / 255.0f) * intValue) / 100.0f) * 255.0f);
         this.paint.setAlpha(i2);
-        BaseKeyframeAnimation baseKeyframeAnimation = this.colorFilterAnimation;
+        BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
         if (baseKeyframeAnimation != null) {
-            this.paint.setColorFilter((ColorFilter) baseKeyframeAnimation.getValue());
+            this.paint.setColorFilter(baseKeyframeAnimation.getValue());
         }
         if (i2 > 0) {
             float[] fArr = this.points;

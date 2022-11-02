@@ -1,269 +1,181 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.MutableLiveData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class g38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uv7 a;
-    public uv7 b;
-    public boolean c;
-    public MutableLiveData d;
-    public Rect e;
-    public boolean f;
-    public String g;
-    public LinkedList h;
-    public MutableLiveData i;
-    public MutableLiveData j;
-    public MutableLiveData k;
-    public MutableLiveData l;
-    public MutableLiveData m;
-    public MutableLiveData n;
 
-    public g38() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new MutableLiveData();
-        this.h = new LinkedList();
-        this.i = new MutableLiveData();
-        this.j = new MutableLiveData();
-        this.k = new MutableLiveData();
-        this.l = new MutableLiveData();
-        new MutableLiveData();
-        this.m = new MutableLiveData();
-        this.n = new MutableLiveData();
-    }
+    /* loaded from: classes4.dex */
+    public static class a implements ol5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbModel a;
+        public final /* synthetic */ DetailInfoAndReplyFragment b;
 
-    public MutableLiveData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public uv7 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (uv7) invokeV.objValue;
-    }
-
-    public uv7 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (uv7) invokeV.objValue;
-    }
-
-    public MutableLiveData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public MutableLiveData e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.l;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public MutableLiveData g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public Rect h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public MutableLiveData i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.i;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public MutableLiveData j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public LinkedList k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.h;
-        }
-        return (LinkedList) invokeV.objValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public MutableLiveData n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.m;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public void o(uv7 uv7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, uv7Var) == null) {
-            this.b = uv7Var;
-            if (uv7Var != null) {
-                this.d.setValue(uv7Var.P());
-                if (!ListUtils.isEmpty(uv7Var.f())) {
-                    w((ThreadData) uv7Var.f().get(0));
+        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = pbModel;
+            this.b = detailInfoAndReplyFragment;
+        }
+
+        @Override // com.baidu.tieba.ol5
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.l2(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.ol5
+        public void b(List<String> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.S1() == null) {
+                return;
+            }
+            ArrayList<PostData> H = this.a.S1().H();
+            if (!ListUtils.isEmpty(H) && !ListUtils.isEmpty(list)) {
+                Iterator<PostData> it = H.iterator();
+                while (it.hasNext()) {
+                    PostData next = it.next();
+                    int i = 0;
+                    while (true) {
+                        if (i >= list.size()) {
+                            break;
+                        } else if (TextUtils.equals(list.get(i), next.M())) {
+                            it.remove();
+                            if (this.a.S1().Q() != null) {
+                                this.a.S1().Q().setReply_num(this.a.S1().Q().getReply_num() - 1);
+                            }
+                        } else {
+                            i++;
+                        }
+                    }
+                }
+                this.b.T1();
+            }
         }
     }
 
-    public void p(uv7 uv7Var) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, uv7Var) == null) {
-            this.a = uv7Var;
-            o(uv7Var);
-            this.i.setValue(null);
-            this.d.setValue(uv7Var.P());
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            nl5.b().a();
         }
     }
 
-    public void q(boolean z) {
+    public static ql5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
+            if (detailInfoAndReplyFragment != null && pbModel != null) {
+                ql5 ql5Var = new ql5();
+                if (pbModel.S1() != null && pbModel.S1().l() != null) {
+                    if (pbModel.S1().l().getDeletedReasonInfo() != null) {
+                        ql5Var.p(pbModel.S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
+                        ql5Var.o(pbModel.S1().l().getDeletedReasonInfo().is_boomgrow.intValue());
+                    }
+                    ql5Var.l(pbModel.S1().l().getId());
+                    ql5Var.m(pbModel.S1().l().getName());
+                    ql5Var.k(pbModel.S1().l().getImage_url());
+                    ql5Var.t(pbModel.S1().l().getUser_level());
+                }
+                if (pbModel.S1() != null && pbModel.S1().o() != null) {
+                    ql5Var.n(pbModel.S1().o().has_forum_rule.intValue());
+                }
+                if (pbModel.S1() != null && pbModel.S1().X() != null) {
+                    ql5Var.s(pbModel.S1().X());
+                }
+                ql5Var.q(new a(pbModel, detailInfoAndReplyFragment));
+                if (pbModel.S1() != null) {
+                    AntiData d = pbModel.S1().d();
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    if (d != null && d.getDelThreadInfoList() != null) {
+                        List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
+                        for (int i = 0; i < delThreadInfoList.size(); i++) {
+                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                            }
+                        }
+                    }
+                    ql5Var.r(sparseArray);
+                }
+                return ql5Var;
+            }
+            return null;
+        }
+        return (ql5) invokeLL.objValue;
+    }
+
+    public static boolean c(dx7 dx7Var, PostData postData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dx7Var, postData)) == null) {
+            if (dx7Var != null && postData != null) {
+                sl5 sl5Var = new sl5();
+                sl5Var.d(postData.I() + "");
+                if (dx7Var.Q() != null) {
+                    sl5Var.f(dx7Var.Q().getId());
+                }
+                sl5Var.e(postData.M());
+                return nl5.b().c(sl5Var);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) && tbPageContext != null && pbModel != null && detailInfoAndReplyFragment != null && detailInfoAndReplyFragment.getView() != null) {
+            nl5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
+            nl5.b().d(2);
         }
     }
 
-    public void r(boolean z) {
+    public static boolean e(PostData postData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.k.setValue(Boolean.valueOf(z));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
+            if (postData == null) {
+                return false;
+            }
+            return nl5.b().f(postData.M());
         }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.m.setValue(Boolean.valueOf(z));
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.l.postValue(Boolean.valueOf(z));
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void w(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, threadData) == null) {
-            this.j.setValue(threadData);
-        }
-    }
-
-    public void x(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
-            this.e = rect;
-        }
-    }
-
-    public void y(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) {
-            this.i.setValue(threadData);
-        }
+        return invokeL.booleanValue;
     }
 }

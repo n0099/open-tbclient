@@ -2,6 +2,7 @@ package androidx.core.content;
 
 import android.content.Intent;
 import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +30,8 @@ public final class IntentCompat {
         }
     }
 
-    public static Intent makeMainSelectorActivity(String str, String str2) {
+    @NonNull
+    public static Intent makeMainSelectorActivity(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {

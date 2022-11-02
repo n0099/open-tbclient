@@ -1,7 +1,6 @@
 package com.qq.e.ads;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +59,7 @@ public final class ContentAdType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (LaunchStatsUtils.AD.equals(str)) {
+            if ("ad".equals(str)) {
                 return AD;
             }
             if ("information".equals(str)) {

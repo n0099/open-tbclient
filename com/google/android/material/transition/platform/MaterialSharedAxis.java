@@ -4,6 +4,10 @@ import android.animation.Animator;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import androidx.core.view.GravityCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +16,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+@RequiresApi(21)
 /* loaded from: classes7.dex */
-public final class MaterialSharedAxis extends MaterialVisibility {
+public final class MaterialSharedAxis extends MaterialVisibility<VisibilityAnimatorProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int X = 0;
     public static final int Y = 1;
@@ -23,6 +28,7 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     public final boolean forward;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
     public @interface Axis {
     }
@@ -99,11 +105,13 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
+    @NonNull
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getPrimaryAnimatorProvider() {
         return super.getPrimaryAnimatorProvider();
     }
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
+    @Nullable
     public /* bridge */ /* synthetic */ VisibilityAnimatorProvider getSecondaryAnimatorProvider() {
         return super.getSecondaryAnimatorProvider();
     }
@@ -128,7 +136,7 @@ public final class MaterialSharedAxis extends MaterialVisibility {
     }
 
     @Override // com.google.android.material.transition.platform.MaterialVisibility
-    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(VisibilityAnimatorProvider visibilityAnimatorProvider) {
+    public /* bridge */ /* synthetic */ void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {
         super.setSecondaryAnimatorProvider(visibilityAnimatorProvider);
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.editortools.pb;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.r9;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class DataModel extends BdBaseModel {
+public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +46,7 @@ public abstract class DataModel extends BdBaseModel {
     public abstract String getFromForumId();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataModel(r9 r9Var) {
+    public DataModel(r9<T> r9Var) {
         super(r9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -76,6 +77,7 @@ public abstract class DataModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

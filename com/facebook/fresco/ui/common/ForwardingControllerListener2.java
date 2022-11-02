@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class ForwardingControllerListener2 extends BaseControllerListener2 {
+public class ForwardingControllerListener2<I> extends BaseControllerListener2<I> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FwdControllerListener2";
     public transient /* synthetic */ FieldHolder $fh;
-    public final List mListeners;
+    public final List<ControllerListener2<I>> mListeners;
 
     public ForwardingControllerListener2() {
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener2 controllerListener2 = (ControllerListener2) this.mListeners.get(i);
+                    ControllerListener2<I> controllerListener2 = this.mListeners.get(i);
                     if (controllerListener2 != null) {
                         controllerListener2.onRelease(str, extras);
                     }
@@ -69,7 +69,7 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
         }
     }
 
-    public synchronized void addListener(ControllerListener2 controllerListener2) {
+    public synchronized void addListener(ControllerListener2<I> controllerListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, controllerListener2) == null) {
             synchronized (this) {
@@ -78,7 +78,7 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
         }
     }
 
-    public synchronized void removeListener(ControllerListener2 controllerListener2) {
+    public synchronized void removeListener(ControllerListener2<I> controllerListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, controllerListener2) == null) {
             synchronized (this) {
@@ -97,7 +97,7 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener2 controllerListener2 = (ControllerListener2) this.mListeners.get(i);
+                    ControllerListener2<I> controllerListener2 = this.mListeners.get(i);
                     if (controllerListener2 != null) {
                         controllerListener2.onFailure(str, th, extras);
                     }
@@ -109,15 +109,15 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
     }
 
     @Override // com.facebook.fresco.ui.common.BaseControllerListener2, com.facebook.fresco.ui.common.ControllerListener2
-    public void onFinalImageSet(String str, @Nullable Object obj, ControllerListener2.Extras extras) {
+    public void onFinalImageSet(String str, @Nullable I i, ControllerListener2.Extras extras) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, obj, extras) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, i, extras) == null) {
             int size = this.mListeners.size();
-            for (int i = 0; i < size; i++) {
+            for (int i2 = 0; i2 < size; i2++) {
                 try {
-                    ControllerListener2 controllerListener2 = (ControllerListener2) this.mListeners.get(i);
+                    ControllerListener2<I> controllerListener2 = this.mListeners.get(i2);
                     if (controllerListener2 != null) {
-                        controllerListener2.onFinalImageSet(str, obj, extras);
+                        controllerListener2.onFinalImageSet(str, i, extras);
                     }
                 } catch (Exception e) {
                     onException("ForwardingControllerListener2 exception in onFinalImageSet", e);
@@ -133,7 +133,7 @@ public class ForwardingControllerListener2 extends BaseControllerListener2 {
             int size = this.mListeners.size();
             for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener2 controllerListener2 = (ControllerListener2) this.mListeners.get(i);
+                    ControllerListener2<I> controllerListener2 = this.mListeners.get(i);
                     if (controllerListener2 != null) {
                         controllerListener2.onSubmit(str, obj, extras);
                     }

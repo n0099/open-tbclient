@@ -1,12 +1,13 @@
 package com.kwad.sdk.core.a;
 
+import androidx.annotation.NonNull;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public final class d {
     public static h XC;
 
-    public static void a(String str, Map map, String str2) {
+    public static void a(String str, Map<String, String> map, String str2) {
         nc().a(str, map, str2);
     }
 
@@ -14,7 +15,7 @@ public final class d {
         return nc().bM(str);
     }
 
-    public static void c(Map map) {
+    public static void c(@NonNull Map<String, String> map) {
         nc().c(map);
     }
 

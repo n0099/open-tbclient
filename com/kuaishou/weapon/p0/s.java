@@ -44,9 +44,9 @@ public class s {
     public static s c;
     public static Application d;
     public static Random e;
-    public static Map f;
-    public static Map g;
-    public static List h;
+    public static Map<String, t> f;
+    public static Map<String, t> g;
+    public static List<Integer> h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
@@ -84,19 +84,19 @@ public class s {
         }
     }
 
-    private Pair a(String str, String str2) {
+    private Pair<Boolean, String> a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return new Pair(Boolean.FALSE, "");
+                return new Pair<>(Boolean.FALSE, "");
             }
             File file = new File(str2);
             if (n3.a(file)) {
                 String a = g.a(file);
-                return TextUtils.isEmpty(a) ? new Pair(Boolean.FALSE, "") : !a.equalsIgnoreCase(str) ? new Pair(Boolean.FALSE, a) : new Pair(Boolean.TRUE, "");
+                return TextUtils.isEmpty(a) ? new Pair<>(Boolean.FALSE, "") : !a.equalsIgnoreCase(str) ? new Pair<>(Boolean.FALSE, a) : new Pair<>(Boolean.TRUE, "");
             }
-            return new Pair(Boolean.FALSE, "");
+            return new Pair<>(Boolean.FALSE, "");
         }
         return (Pair) invokeLL.objValue;
     }
@@ -123,7 +123,7 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(t tVar, String str, String str2, HashSet hashSet, byte[] bArr, StringBuilder sb, boolean z) {
+    private void a(t tVar, String str, String str2, HashSet<String> hashSet, byte[] bArr, StringBuilder sb, boolean z) {
         FileOutputStream fileOutputStream;
         String str3;
         int read;
@@ -255,7 +255,7 @@ public class s {
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x0089 */
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x01a2 */
     /* JADX DEBUG: Null dom frontier in handler: all -> 0x02a2 */
-    /* JADX DEBUG: Null dom frontier in handler: all -> 0x043e */
+    /* JADX DEBUG: Null dom frontier in handler: all -> 0x043c */
     /* JADX WARN: Can't wrap try/catch for region: R(7:29|(1:217)(13:33|34|35|(4:37|38|(6:56|57|58|(3:59|60|(1:62)(1:63))|64|65)|53)|214|38|(2:40|42)|56|57|58|(4:59|60|(0)(0)|62)|64|65)|66|67|(5:101|89|90|91|53)(11:72|73|74|(4:76|77|78|(2:80|81)(1:92))|93|(1:95)|96|97|90|91|53)|26|27) */
     /* JADX WARN: Code restructure failed: missing block: B:121:0x021f, code lost:
         if (r14 != null) goto L185;
@@ -322,9 +322,9 @@ public class s {
     /* JADX WARN: Removed duplicated region for block: B:138:0x0252  */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:20:0x004a  */
-    /* JADX WARN: Removed duplicated region for block: B:214:0x0448  */
-    /* JADX WARN: Removed duplicated region for block: B:216:0x044d  */
-    /* JADX WARN: Removed duplicated region for block: B:218:0x0452  */
+    /* JADX WARN: Removed duplicated region for block: B:214:0x0446  */
+    /* JADX WARN: Removed duplicated region for block: B:216:0x044b  */
+    /* JADX WARN: Removed duplicated region for block: B:218:0x0450  */
     /* JADX WARN: Removed duplicated region for block: B:263:0x011e A[EDGE_INSN: B:263:0x011e->B:57:0x011e ?: BREAK  , SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:27:0x0068 A[Catch: all -> 0x01c9, IOException -> 0x01d4, EOFException -> 0x01da, FileNotFoundException | ZipException -> 0x01e0, TryCatch #17 {EOFException -> 0x01da, FileNotFoundException | ZipException -> 0x01e0, IOException -> 0x01d4, all -> 0x01c9, blocks: (B:25:0x0062, B:27:0x0068, B:29:0x007a, B:31:0x0080, B:37:0x008a, B:39:0x0090, B:41:0x0096, B:43:0x009c, B:45:0x00a4, B:47:0x00ac, B:49:0x00b2, B:51:0x00ba, B:53:0x00cb, B:87:0x01ac, B:89:0x01b2), top: B:254:0x0062 }] */
     /* JADX WARN: Removed duplicated region for block: B:56:0x0119 A[Catch: all -> 0x0125, IOException -> 0x0128, EOFException -> 0x012d, FileNotFoundException | ZipException -> 0x0132, LOOP:1: B:252:0x0113->B:56:0x0119, LOOP_END, TryCatch #18 {EOFException -> 0x012d, FileNotFoundException | ZipException -> 0x0132, IOException -> 0x0128, all -> 0x0125, blocks: (B:54:0x0113, B:56:0x0119, B:57:0x011e), top: B:252:0x0113 }] */
@@ -346,7 +346,7 @@ public class s {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(t tVar, String str, String str2, boolean z) {
-        HashSet hashSet;
+        HashSet<String> hashSet;
         boolean z2;
         String replace;
         StringBuilder sb;
@@ -372,7 +372,7 @@ public class s {
             return;
         }
         String str6 = str;
-        hashSet = new HashSet();
+        hashSet = new HashSet<>();
         try {
             try {
                 try {
@@ -740,7 +740,7 @@ public class s {
             synchronized (this) {
                 if (tVar != null) {
                     if (!TextUtils.isEmpty(tVar.e)) {
-                        t tVar2 = (t) f.get(tVar.e);
+                        t tVar2 = f.get(tVar.e);
                         if (tVar2 != null) {
                             if (tVar2.d.equals(tVar.d)) {
                                 return true;
@@ -795,10 +795,10 @@ public class s {
                                 }
                                 return true;
                             } catch (Throwable unused) {
+                                d(tVar.e);
                                 return false;
                             }
                         } catch (Throwable unused2) {
-                            d(tVar.e);
                             return false;
                         }
                     }
@@ -841,7 +841,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return (t) g.get(str);
+                return g.get(str);
             } catch (Throwable unused) {
                 return null;
             }
@@ -849,7 +849,7 @@ public class s {
         return (t) invokeL.objValue;
     }
 
-    public Map a() {
+    public Map<String, t> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g : (Map) invokeV.objValue;
@@ -871,7 +871,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return (t) f.get(str);
+                return f.get(str);
             } catch (Throwable unused) {
                 return null;
             }
@@ -883,7 +883,7 @@ public class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            t tVar = (t) g.get(str);
+            t tVar = g.get(str);
             if (tVar != null) {
                 f.remove(tVar.e);
                 g.remove(str);
@@ -904,7 +904,7 @@ public class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            t tVar = (t) f.get(str);
+            t tVar = f.get(str);
             if (tVar != null) {
                 f.remove(str);
                 g.remove(tVar.c);

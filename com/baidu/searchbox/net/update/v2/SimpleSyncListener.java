@@ -40,13 +40,13 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
         Companion = new Companion(null);
     }
 
-    public abstract boolean executeBusinessCommand(Context context, String str, String str2, ActionData actionData);
+    public abstract boolean executeBusinessCommand(Context context, String str, String str2, ActionData<JSONObject> actionData);
 
     public abstract void setLocationVersion(String str, String str2, String str3);
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003¨\u0006\u0007"}, d2 = {"Lcom/baidu/searchbox/net/update/v2/SimpleSyncListener$Companion;", "", "DEFAULT_VERSION", "Ljava/lang/String;", "DEFAULT_VERSION_OFFLINE", "<init>", "()V", "lib-update-api_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,6 @@ public abstract class SimpleSyncListener extends JSONObjectCommandListener {
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.String, com.baidu.searchbox.net.update.v2.ActionData] */
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
         InterceptResult invokeLLLL;

@@ -19,7 +19,7 @@ public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String sO;
-    public List sP;
+    public List<String> sP;
     public a sQ;
     public boolean sR;
 
@@ -63,7 +63,7 @@ public class c extends b {
         }
     }
 
-    private List fh() {
+    private List<String> fh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {

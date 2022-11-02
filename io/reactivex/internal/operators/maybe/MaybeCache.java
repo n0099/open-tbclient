@@ -14,15 +14,15 @@ import io.reactivex.MaybeSource;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class MaybeCache extends Maybe implements MaybeObserver {
+public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheDisposable[] EMPTY;
     public static final CacheDisposable[] TERMINATED;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;
-    public final AtomicReference observers;
-    public final AtomicReference source;
-    public Object value;
+    public final AtomicReference<CacheDisposable<T>[]> observers;
+    public final AtomicReference<MaybeSource<T>> source;
+    public T value;
 
     @Override // io.reactivex.MaybeObserver
     public void onSubscribe(Disposable disposable) {
@@ -32,14 +32,14 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
     }
 
     /* loaded from: classes8.dex */
-    public final class CacheDisposable extends AtomicReference implements Disposable {
+    public static final class CacheDisposable<T> extends AtomicReference<MaybeCache<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5791853038359966195L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final MaybeObserver actual;
+        public final MaybeObserver<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CacheDisposable(MaybeObserver maybeObserver, MaybeCache maybeCache) {
+        public CacheDisposable(MaybeObserver<? super T> maybeObserver, MaybeCache<T> maybeCache) {
             super(maybeCache);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,10 +61,10 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            MaybeCache maybeCache;
+            MaybeCache<T> andSet;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maybeCache = (MaybeCache) getAndSet(null)) != null) {
-                maybeCache.remove(this);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (andSet = getAndSet(null)) != null) {
+                andSet.remove(this);
             }
         }
 
@@ -101,10 +101,10 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
 
     @Override // io.reactivex.MaybeObserver
     public void onComplete() {
-        CacheDisposable[] cacheDisposableArr;
+        CacheDisposable<T>[] andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (CacheDisposable cacheDisposable : (CacheDisposable[]) this.observers.getAndSet(TERMINATED)) {
+            for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
                 if (!cacheDisposable.isDisposed()) {
                     cacheDisposable.actual.onComplete();
                 }
@@ -112,7 +112,7 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
         }
     }
 
-    public MaybeCache(MaybeSource maybeSource) {
+    public MaybeCache(MaybeSource<T> maybeSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,18 +127,18 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
                 return;
             }
         }
-        this.source = new AtomicReference(maybeSource);
-        this.observers = new AtomicReference(EMPTY);
+        this.source = new AtomicReference<>(maybeSource);
+        this.observers = new AtomicReference<>(EMPTY);
     }
 
-    public boolean add(CacheDisposable cacheDisposable) {
-        CacheDisposable[] cacheDisposableArr;
-        CacheDisposable[] cacheDisposableArr2;
+    public boolean add(CacheDisposable<T> cacheDisposable) {
+        CacheDisposable<T>[] cacheDisposableArr;
+        CacheDisposable<T>[] cacheDisposableArr2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cacheDisposable)) == null) {
             do {
-                cacheDisposableArr = (CacheDisposable[]) this.observers.get();
+                cacheDisposableArr = this.observers.get();
                 if (cacheDisposableArr == TERMINATED) {
                     return false;
                 }
@@ -154,11 +154,11 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
 
     @Override // io.reactivex.MaybeObserver
     public void onError(Throwable th) {
-        CacheDisposable[] cacheDisposableArr;
+        CacheDisposable<T>[] andSet;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             this.error = th;
-            for (CacheDisposable cacheDisposable : (CacheDisposable[]) this.observers.getAndSet(TERMINATED)) {
+            for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
                 if (!cacheDisposable.isDisposed()) {
                     cacheDisposable.actual.onError(th);
                 }
@@ -167,26 +167,28 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
     }
 
     @Override // io.reactivex.MaybeObserver
-    public void onSuccess(Object obj) {
-        CacheDisposable[] cacheDisposableArr;
+    public void onSuccess(T t) {
+        CacheDisposable<T>[] andSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.value = obj;
-            for (CacheDisposable cacheDisposable : (CacheDisposable[]) this.observers.getAndSet(TERMINATED)) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
+            this.value = t;
+            for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
                 if (!cacheDisposable.isDisposed()) {
-                    cacheDisposable.actual.onSuccess(obj);
+                    cacheDisposable.actual.onSuccess(t);
                 }
             }
         }
     }
 
-    public void remove(CacheDisposable cacheDisposable) {
-        CacheDisposable[] cacheDisposableArr;
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.maybe.MaybeCache$CacheDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void remove(CacheDisposable<T> cacheDisposable) {
+        CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable[] cacheDisposableArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cacheDisposable) == null) {
             do {
-                cacheDisposableArr = (CacheDisposable[]) this.observers.get();
+                cacheDisposableArr = this.observers.get();
                 int length = cacheDisposableArr.length;
                 if (length == 0) {
                     return;
@@ -219,19 +221,19 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
     }
 
     @Override // io.reactivex.Maybe
-    public void subscribeActual(MaybeObserver maybeObserver) {
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, maybeObserver) == null) {
-            CacheDisposable cacheDisposable = new CacheDisposable(maybeObserver, this);
+            CacheDisposable<T> cacheDisposable = new CacheDisposable<>(maybeObserver, this);
             maybeObserver.onSubscribe(cacheDisposable);
             if (add(cacheDisposable)) {
                 if (cacheDisposable.isDisposed()) {
                     remove(cacheDisposable);
                     return;
                 }
-                MaybeSource maybeSource = (MaybeSource) this.source.getAndSet(null);
-                if (maybeSource != null) {
-                    maybeSource.subscribe(this);
+                MaybeSource<T> andSet = this.source.getAndSet(null);
+                if (andSet != null) {
+                    andSet.subscribe(this);
                 }
             } else if (!cacheDisposable.isDisposed()) {
                 Throwable th = this.error;
@@ -239,7 +241,7 @@ public final class MaybeCache extends Maybe implements MaybeObserver {
                     maybeObserver.onError(th);
                     return;
                 }
-                Object obj = this.value;
+                Object obj = (T) this.value;
                 if (obj != null) {
                     maybeObserver.onSuccess(obj);
                 } else {

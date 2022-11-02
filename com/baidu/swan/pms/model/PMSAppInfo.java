@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lc4;
-import com.baidu.tieba.mc4;
+import com.baidu.tieba.dd4;
+import com.baidu.tieba.ed4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<PMSAppInfo> CREATOR;
     public static final long DEFAULT_SWAN_APP_PKG_MAX_AGE = 432000;
     public static final int ORIENTATION_LANDSCAPE = 1;
     public static final int ORIENTATION_PORTRAIT = 0;
@@ -81,7 +81,7 @@ public class PMSAppInfo implements Parcelable {
     }
 
     /* loaded from: classes3.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -336,28 +336,28 @@ public class PMSAppInfo implements Parcelable {
         updateInstallSrc(pMSAppInfo.getInstallSrc());
     }
 
-    public void copyMainPkgInfo(lc4 lc4Var) {
+    public void copyMainPkgInfo(dd4 dd4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lc4Var) != null) || lc4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dd4Var) != null) || dd4Var == null) {
             return;
         }
-        this.appId = lc4Var.g;
-        this.versionCode = lc4Var.i;
-        this.versionName = lc4Var.j;
-        this.type = lc4Var.o;
-        this.pkgSize = lc4Var.k;
+        this.appId = dd4Var.g;
+        this.versionCode = dd4Var.i;
+        this.versionName = dd4Var.j;
+        this.type = dd4Var.o;
+        this.pkgSize = dd4Var.k;
     }
 
-    public void copySubPkgInfo(mc4 mc4Var) {
+    public void copySubPkgInfo(ed4 ed4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, mc4Var) != null) || mc4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, ed4Var) != null) || ed4Var == null) {
             return;
         }
-        this.appId = mc4Var.o;
-        this.versionCode = mc4Var.i;
-        this.versionName = mc4Var.j;
-        this.type = mc4Var.q;
-        this.pkgSize = mc4Var.k;
+        this.appId = ed4Var.o;
+        this.versionCode = ed4Var.i;
+        this.versionName = ed4Var.j;
+        this.type = ed4Var.q;
+        this.pkgSize = ed4Var.k;
     }
 
     public void countLaunch(long j) {

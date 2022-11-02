@@ -9,16 +9,16 @@ import io.reactivex.functions.Function;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 /* loaded from: classes8.dex */
-public final class FlowableFlatMapPublisher extends Flowable {
+public final class FlowableFlatMapPublisher<T, U> extends Flowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bufferSize;
     public final boolean delayErrors;
-    public final Function mapper;
+    public final Function<? super T, ? extends Publisher<? extends U>> mapper;
     public final int maxConcurrency;
-    public final Publisher source;
+    public final Publisher<T> source;
 
-    public FlowableFlatMapPublisher(Publisher publisher, Function function, boolean z, int i, int i2) {
+    public FlowableFlatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends U>> function, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +41,7 @@ public final class FlowableFlatMapPublisher extends Flowable {
     }
 
     @Override // io.reactivex.Flowable
-    public void subscribeActual(Subscriber subscriber) {
+    public void subscribeActual(Subscriber<? super U> subscriber) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, subscriber) != null) || FlowableScalarXMap.tryScalarXMapSubscribe(this.source, subscriber, this.mapper)) {
             return;

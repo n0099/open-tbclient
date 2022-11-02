@@ -77,7 +77,7 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         return (Boolean) invokeV.objValue;
     }
 
-    public List queryAll() {
+    public List<DBItemModel.LaunchTimeItemModel> queryAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -163,7 +163,7 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List query(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
+    public List<DBItemModel.LaunchTimeItemModel> query(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
         InterceptResult invokeL;
         Cursor cursor;
         Cursor query;
@@ -241,7 +241,7 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List queryLast(int i) {
+    public List<DBItemModel.LaunchTimeItemModel> queryLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {

@@ -39,14 +39,14 @@ public class HttpRetryStatistic {
         }
     }
 
-    public static String buidTaskRetryStatistic(ConcurrentHashMap concurrentHashMap, int i, long j, String str, String str2) {
+    public static String buidTaskRetryStatistic(ConcurrentHashMap<Integer, String> concurrentHashMap, int i, long j, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{concurrentHashMap, Integer.valueOf(i), Long.valueOf(j), str, str2})) == null) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry : concurrentHashMap.entrySet()) {
-                sb.append(THREAD + ((Integer) entry.getKey()) + "\n");
-                sb.append(DATA + ((String) entry.getValue()) + "\n");
+            for (Map.Entry<Integer, String> entry : concurrentHashMap.entrySet()) {
+                sb.append(THREAD + entry.getKey() + "\n");
+                sb.append(DATA + entry.getValue() + "\n");
             }
             sb.append(RETYR_MODE + i + "\n");
             sb.append(RETRY_DOWNLOAD_FLOW_TIME + j + "\n");

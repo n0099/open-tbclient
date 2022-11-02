@@ -40,7 +40,7 @@ public final class H264Reader implements ElementaryStreamReader {
 
     /* renamed from: com.google.android.exoplayer2.extractor.ts.H264Reader$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -53,7 +53,7 @@ public final class H264Reader implements ElementaryStreamReader {
     }
 
     /* loaded from: classes7.dex */
-    public final class SampleReader {
+    public static final class SampleReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_BUFFER_SIZE = 128;
         public static final int NAL_UNIT_TYPE_AUD = 9;
@@ -71,17 +71,17 @@ public final class H264Reader implements ElementaryStreamReader {
         public long nalUnitTimeUs;
         public int nalUnitType;
         public final TrackOutput output;
-        public final SparseArray pps;
+        public final SparseArray<NalUnitUtil.PpsData> pps;
         public SliceHeaderData previousSliceHeader;
         public boolean readingSample;
         public boolean sampleIsKeyframe;
         public long samplePosition;
         public long sampleTimeUs;
         public SliceHeaderData sliceHeader;
-        public final SparseArray sps;
+        public final SparseArray<NalUnitUtil.SpsData> sps;
 
         /* loaded from: classes7.dex */
-        public final class SliceHeaderData {
+        public static final class SliceHeaderData {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int SLICE_TYPE_ALL_I = 7;
             public static final int SLICE_TYPE_I = 2;
@@ -225,8 +225,8 @@ public final class H264Reader implements ElementaryStreamReader {
             this.output = trackOutput;
             this.allowNonIdrKeyframes = z;
             this.detectAccessUnits = z2;
-            this.sps = new SparseArray();
-            this.pps = new SparseArray();
+            this.sps = new SparseArray<>();
+            this.pps = new SparseArray<>();
             this.previousSliceHeader = new SliceHeaderData(null);
             this.sliceHeader = new SliceHeaderData(null);
             byte[] bArr = new byte[128];
@@ -316,8 +316,8 @@ public final class H264Reader implements ElementaryStreamReader {
                     this.isFilling = false;
                     return;
                 }
-                NalUnitUtil.PpsData ppsData = (NalUnitUtil.PpsData) this.pps.get(readUnsignedExpGolombCodedInt2);
-                NalUnitUtil.SpsData spsData = (NalUnitUtil.SpsData) this.sps.get(ppsData.seqParameterSetId);
+                NalUnitUtil.PpsData ppsData = this.pps.get(readUnsignedExpGolombCodedInt2);
+                NalUnitUtil.SpsData spsData = this.sps.get(ppsData.seqParameterSetId);
                 if (spsData.separateColorPlaneFlag) {
                     if (!this.bitArray.canReadBits(2)) {
                         return;

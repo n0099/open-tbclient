@@ -4,11 +4,11 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public interface DataSource {
+public interface DataSource<T> {
     boolean close();
 
     @Nullable
-    Map getExtras();
+    Map<String, Object> getExtras();
 
     @Nullable
     Throwable getFailureCause();
@@ -16,7 +16,7 @@ public interface DataSource {
     float getProgress();
 
     @Nullable
-    Object getResult();
+    T getResult();
 
     boolean hasFailed();
 
@@ -28,5 +28,5 @@ public interface DataSource {
 
     boolean isFinished();
 
-    void subscribe(DataSubscriber dataSubscriber, Executor executor);
+    void subscribe(DataSubscriber<T> dataSubscriber, Executor executor);
 }

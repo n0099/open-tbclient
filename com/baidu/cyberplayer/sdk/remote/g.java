@@ -28,14 +28,14 @@ public class g {
     public c b;
     public String c;
     public int d;
-    public Class e;
+    public Class<?> e;
     public final Object f;
-    public ArrayList g;
+    public ArrayList<WeakReference<b>> g;
     public ServiceConnection h;
     public IBinder.DeathRecipient i;
 
     /* loaded from: classes2.dex */
-    public class a extends c.a {
+    public static class a extends c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RemotePlayerService a;
@@ -197,7 +197,7 @@ public class g {
             }
         }
         this.f = new Object();
-        this.g = new ArrayList();
+        this.g = new ArrayList<>();
         this.h = new ServiceConnection(this) { // from class: com.baidu.cyberplayer.sdk.remote.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -346,12 +346,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             synchronized (this.f) {
-                this.g.add(new WeakReference(bVar));
+                this.g.add(new WeakReference<>(bVar));
             }
         }
     }
 
-    public void a(Class cls, String str, int i, Map map) {
+    public void a(Class<?> cls, String str, int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLIL(1048579, this, cls, str, i, map) == null) || cls == null) {
             return;
@@ -416,9 +416,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             synchronized (this.f) {
-                Iterator it = this.g.iterator();
+                Iterator<WeakReference<b>> it = this.g.iterator();
                 while (it.hasNext()) {
-                    b bVar2 = (b) ((WeakReference) it.next()).get();
+                    b bVar2 = it.next().get();
                     if (bVar2 == null || bVar2.equals(bVar)) {
                         it.remove();
                     }

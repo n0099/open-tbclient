@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.jc;
+import com.baidu.tieba.ic;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public BaseActivity.LoadDataCallBack d;
 
     /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -61,7 +61,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask {
+    public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SystemHelpSettingModel a;
@@ -95,7 +95,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                e05.a();
+                u05.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -125,7 +125,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask {
+    public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SystemHelpSettingModel a;
@@ -159,10 +159,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                jc jcVar = new jc();
-                String a = jcVar.a("image", true, false, true);
+                ic icVar = new ic();
+                String a = icVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a2 = jcVar.a("images", true, false, true);
+                String a2 = icVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
                 long directorySize = FileHelper.getDirectorySize(a, false);
                 long directorySize2 = FileHelper.getDirectorySize(a2, false);
@@ -177,7 +177,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j2 = directorySize + directorySize3 + fileSize + directorySize2 + j;
                 float f = ((float) j2) + 0.0f;
                 if (j2 >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0ad2);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.c.getString(R.string.obfuscated_res_0x7f0f0ade);
                 }
                 return "";
             }

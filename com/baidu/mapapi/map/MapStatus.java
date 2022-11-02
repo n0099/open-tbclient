@@ -8,8 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.mapapi.model.inner.GeoPoint;
-import com.baidu.mapsdkplatform.comapi.map.ab;
+import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +19,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class MapStatus implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<MapStatus> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public ab a;
+    public com.baidu.mapsdkplatform.comapi.map.x a;
     public double b;
     public final LatLngBounds bound;
     public double c;
@@ -33,8 +32,18 @@ public final class MapStatus implements Parcelable {
     public WinRound winRound;
     public final float zoom;
 
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes2.dex */
-    public final class Builder {
+    public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
@@ -46,6 +55,18 @@ public final class MapStatus implements Parcelable {
         public double g;
         public double h;
         public final float i;
+
+        private float a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(65538, this, f)) == null) {
+                if (15.0f == f) {
+                    return 15.5f;
+                }
+                return f;
+            }
+            return invokeF.floatValue;
+        }
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -104,22 +125,13 @@ public final class MapStatus implements Parcelable {
             this.h = mapStatus.b();
         }
 
-        private float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(65538, this, f)) == null) {
-                if (15.0f == f) {
-                    return 15.5f;
-                }
-                return f;
-            }
-            return invokeF.floatValue;
-        }
-
         public MapStatus build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new MapStatus(this.a, this.b, this.c, this.d, this.e, this.f) : (MapStatus) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new MapStatus(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+            return (MapStatus) invokeV.objValue;
         }
 
         public Builder overlook(float f) {
@@ -186,7 +198,34 @@ public final class MapStatus implements Parcelable {
                 return;
             }
         }
-        CREATOR = new k();
+        CREATOR = new p();
+    }
+
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public double b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public com.baidu.mapsdkplatform.comapi.map.x c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return b(new com.baidu.mapsdkplatform.comapi.map.x());
+        }
+        return (com.baidu.mapsdkplatform.comapi.map.x) invokeV.objValue;
     }
 
     public MapStatus(float f, LatLng latLng, float f2, float f3, Point point, double d, double d2, LatLngBounds latLngBounds) {
@@ -241,12 +280,12 @@ public final class MapStatus implements Parcelable {
         this.bound = latLngBounds;
     }
 
-    public MapStatus(float f, LatLng latLng, float f2, float f3, Point point, ab abVar, double d, double d2, LatLngBounds latLngBounds, WinRound winRound) {
+    public MapStatus(float f, LatLng latLng, float f2, float f3, Point point, com.baidu.mapsdkplatform.comapi.map.x xVar, double d, double d2, LatLngBounds latLngBounds, WinRound winRound) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Float.valueOf(f), latLng, Float.valueOf(f2), Float.valueOf(f3), point, abVar, Double.valueOf(d), Double.valueOf(d2), latLngBounds, winRound};
+            Object[] objArr = {Float.valueOf(f), latLng, Float.valueOf(f2), Float.valueOf(f3), point, xVar, Double.valueOf(d), Double.valueOf(d2), latLngBounds, winRound};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -261,7 +300,7 @@ public final class MapStatus implements Parcelable {
         this.overlook = f2;
         this.zoom = f3;
         this.targetScreen = point;
-        this.a = abVar;
+        this.a = xVar;
         this.b = d;
         this.c = d2;
         this.bound = latLngBounds;
@@ -293,97 +332,65 @@ public final class MapStatus implements Parcelable {
         this.c = parcel.readDouble();
     }
 
-    public static MapStatus a(ab abVar) {
+    public static MapStatus a(com.baidu.mapsdkplatform.comapi.map.x xVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, abVar)) == null) {
-            if (abVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xVar)) == null) {
+            if (xVar == null) {
                 return null;
             }
-            float f = abVar.b;
-            double d = abVar.e;
-            double d2 = abVar.d;
+            float f = xVar.b;
+            double d = xVar.e;
+            double d2 = xVar.d;
             LatLng mc2ll = CoordUtil.mc2ll(new GeoPoint(d, d2));
-            float f2 = abVar.c;
-            float f3 = abVar.a;
-            Point point = new Point(abVar.f, abVar.g);
-            com.baidu.mapapi.model.inner.Point point2 = abVar.k.e;
-            LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(point2.y, point2.x));
-            com.baidu.mapapi.model.inner.Point point3 = abVar.k.f;
-            LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(point3.y, point3.x));
-            com.baidu.mapapi.model.inner.Point point4 = abVar.k.h;
-            LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(point4.y, point4.x));
-            com.baidu.mapapi.model.inner.Point point5 = abVar.k.g;
-            LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(point5.y, point5.x));
+            float f2 = xVar.c;
+            float f3 = xVar.a;
+            Point point = new Point(xVar.f, xVar.g);
+            LatLng mc2ll2 = CoordUtil.mc2ll(new GeoPoint(xVar.k.e.getDoubleY(), xVar.k.e.getDoubleX()));
+            LatLng mc2ll3 = CoordUtil.mc2ll(new GeoPoint(xVar.k.f.getDoubleY(), xVar.k.f.getDoubleX()));
+            LatLng mc2ll4 = CoordUtil.mc2ll(new GeoPoint(xVar.k.h.getDoubleY(), xVar.k.h.getDoubleX()));
+            LatLng mc2ll5 = CoordUtil.mc2ll(new GeoPoint(xVar.k.g.getDoubleY(), xVar.k.g.getDoubleX()));
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(mc2ll2);
             builder.include(mc2ll3);
             builder.include(mc2ll4);
             builder.include(mc2ll5);
-            return new MapStatus(f, mc2ll, f2, f3, point, abVar, d2, d, builder.build(), abVar.j);
+            return new MapStatus(f, mc2ll, f2, f3, point, xVar, d2, d, builder.build(), xVar.j);
         }
         return (MapStatus) invokeL.objValue;
     }
 
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.doubleValue;
-    }
-
-    public double b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.doubleValue;
-    }
-
-    public ab b(ab abVar) {
+    public com.baidu.mapsdkplatform.comapi.map.x b(com.baidu.mapsdkplatform.comapi.map.x xVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abVar)) == null) {
-            if (abVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xVar)) == null) {
+            if (xVar == null) {
                 return null;
             }
             float f = this.rotate;
             if (f != -2.1474836E9f) {
-                abVar.b = (int) f;
+                xVar.b = (int) f;
             }
             float f2 = this.zoom;
             if (f2 != -2.1474836E9f) {
-                abVar.a = f2;
+                xVar.a = f2;
             }
             float f3 = this.overlook;
             if (f3 != -2.1474836E9f) {
-                abVar.c = (int) f3;
+                xVar.c = (int) f3;
             }
             if (this.target != null) {
-                abVar.d = this.b;
-                abVar.e = this.c;
+                xVar.d = this.b;
+                xVar.e = this.c;
             }
             Point point = this.targetScreen;
             if (point != null) {
-                abVar.f = point.x;
-                abVar.g = point.y;
+                xVar.f = point.x;
+                xVar.g = point.y;
             }
-            return abVar;
+            return xVar;
         }
-        return (ab) invokeL.objValue;
-    }
-
-    public ab c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(new ab()) : (ab) invokeV.objValue;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return (com.baidu.mapsdkplatform.comapi.map.x) invokeL.objValue;
     }
 
     public String toString() {

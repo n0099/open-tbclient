@@ -1,182 +1,214 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes6.dex */
-public class x91 {
+public class x91 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Class a(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x91(Context context) {
+        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return Class.forName(str);
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public static Field b(Class cls, String str) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            for (Class cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Field declaredField = cls2.getDeclaredField(str);
-                    i(declaredField, true);
-                    return declaredField;
-                } catch (NoSuchFieldException unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Field field = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Field field2 = cls3.getField(str);
-                    if (field == null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    aa1.a(z, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    field = field2;
-                } catch (NoSuchFieldException unused2) {
-                }
-            }
-            return field;
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method c(Class cls, String str, Class... clsArr) {
-        InterceptResult invokeLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, clsArr)) == null) {
-            for (Class cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
-                    i(declaredMethod, true);
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            Method method = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Method method2 = cls3.getMethod(str, clsArr);
-                    if (method == null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    aa1.a(z, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    method = method2;
-                } catch (NoSuchMethodException unused2) {
-                }
-            }
-            return method;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object d(Object obj, String str, Class[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, obj, str, clsArr, objArr)) == null) {
-            Method c = c(obj.getClass(), str, clsArr);
-            c.setAccessible(true);
-            return c.invoke(obj, objArr);
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static void j(Class cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65545, null, cls, obj, str, obj2) == null) {
-            l(b(cls, str), obj, obj2);
         }
     }
 
-    public static Object e(Class cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLLL;
+    public final void d(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj, str)) == null) {
-            return g(b(cls, str), obj);
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static void k(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, obj, str, obj2) == null) {
-            j(obj.getClass(), obj, str, obj2);
-        }
-    }
-
-    public static void l(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, field, obj, obj2) == null) {
-            field.set(obj, obj2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_url");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_md5");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
     }
 
-    public static Object f(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLL;
+    public final void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
-            return e(obj.getClass(), obj, str);
-        }
-        return invokeLL.objValue;
-    }
-
-    public static Object g(Field field, Object obj) throws IllegalAccessException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, field, obj)) == null) {
-            return field.get(obj);
-        }
-        return invokeLL.objValue;
-    }
-
-    public static void i(AccessibleObject accessibleObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65544, null, accessibleObject, z) == null) && accessibleObject.isAccessible() != z) {
-            accessibleObject.setAccessible(z);
-        }
-    }
-
-    public static void h(Field field) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, field) == null) {
-            if (field != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aa1.a(z, "The field must not be null", new Object[0]);
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
             try {
-                if (Modifier.isFinal(field.getModifiers())) {
-                    Field declaredField = Field.class.getDeclaredField("modifiers");
-                    boolean z2 = !declaredField.isAccessible();
-                    if (z2) {
-                        declaredField.setAccessible(true);
-                    }
-                    declaredField.setInt(field, field.getModifiers() & (-17));
-                    if (z2) {
-                        declaredField.setAccessible(false);
-                    }
-                }
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        }
+    }
+
+    public final void b(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("sub_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("dependency");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("main_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+        }
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("silence_update");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("wifionly");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(g());
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
+            f(sQLiteDatabase);
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY," + EmotionResourceInfo.JSON_KEY_PKG_NAME + " TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT," + MapBundleKey.MapObjKey.OBJ_SL_VISI + " INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0," + PackageTable.ABI + " INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1,patch_url TEXT,patch_md5 TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                c(sQLiteDatabase);
+                                return;
+                            }
+                            return;
+                        }
+                        a(sQLiteDatabase);
+                        c(sQLiteDatabase);
+                        return;
+                    }
+                    d(sQLiteDatabase);
+                    a(sQLiteDatabase);
+                    c(sQLiteDatabase);
+                    return;
+                }
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+                return;
+            }
+            b(sQLiteDatabase);
+            e(sQLiteDatabase);
+            d(sQLiteDatabase);
+            a(sQLiteDatabase);
+            c(sQLiteDatabase);
         }
     }
 }

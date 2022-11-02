@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.ui;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -32,8 +33,8 @@ public final class SubtitleView extends View implements TextOutput {
     public boolean applyEmbeddedFontSizes;
     public boolean applyEmbeddedStyles;
     public float bottomPaddingFraction;
-    public List cues;
-    public final List painters;
+    public List<Cue> cues;
+    public final List<SubtitlePainter> painters;
     public CaptionStyleCompat style;
     public float textSize;
     public int textSizeType;
@@ -59,7 +60,7 @@ public final class SubtitleView extends View implements TextOutput {
         }
     }
 
-    public void setCues(List list) {
+    public void setCues(List<Cue> list) {
         int size;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || this.cues == list) {
@@ -105,6 +106,7 @@ public final class SubtitleView extends View implements TextOutput {
         this.bottomPaddingFraction = 0.08f;
     }
 
+    @TargetApi(19)
     private float getUserCaptionFontScaleV19() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,6 +116,7 @@ public final class SubtitleView extends View implements TextOutput {
         return invokeV.floatValue;
     }
 
+    @TargetApi(19)
     private CaptionStyleCompat getUserCaptionStyleV19() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,7 +185,7 @@ public final class SubtitleView extends View implements TextOutput {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            List list = this.cues;
+            List<Cue> list = this.cues;
             int i2 = 0;
             if (list == null) {
                 size = 0;
@@ -214,7 +217,7 @@ public final class SubtitleView extends View implements TextOutput {
                 while (i2 < size) {
                     int i4 = paddingBottom;
                     int i5 = right;
-                    ((SubtitlePainter) this.painters.get(i2)).draw((Cue) this.cues.get(i2), this.applyEmbeddedStyles, this.applyEmbeddedFontSizes, this.style, f, this.bottomPaddingFraction, canvas, left, paddingTop, i5, i4);
+                    this.painters.get(i2).draw(this.cues.get(i2), this.applyEmbeddedStyles, this.applyEmbeddedFontSizes, this.style, f, this.bottomPaddingFraction, canvas, left, paddingTop, i5, i4);
                     i2++;
                     paddingBottom = i4;
                     right = i5;
@@ -224,7 +227,7 @@ public final class SubtitleView extends View implements TextOutput {
     }
 
     @Override // com.google.android.exoplayer2.text.TextOutput
-    public void onCues(List list) {
+    public void onCues(List<Cue> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             setCues(list);

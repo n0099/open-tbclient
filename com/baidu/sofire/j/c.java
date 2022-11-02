@@ -163,7 +163,7 @@ public class c implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -298,7 +298,7 @@ public class c implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {

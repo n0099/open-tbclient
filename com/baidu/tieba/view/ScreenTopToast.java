@@ -11,14 +11,15 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hh;
-import com.baidu.tieba.sy4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -161,7 +162,7 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ScreenTopToast(Context context, AttributeSet attributeSet) {
+    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -182,7 +183,7 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScreenTopToast(Context context, AttributeSet attributeSet, int i) {
+    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -277,7 +278,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hh.a().removeCallbacks(this.g);
+            zg.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -289,12 +290,12 @@ public class ScreenTopToast extends LinearLayout {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078f, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc0);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbf);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dbe);
-            this.d.setConfig(new sy4());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a4, this);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091e09);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e0a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e08);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091e07);
+            this.d.setConfig(new iz4());
             f();
             h();
         }
@@ -326,6 +327,6 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        hh.a().postDelayed(this.g, 5000L);
+        zg.a().postDelayed(this.g, 5000L);
     }
 }

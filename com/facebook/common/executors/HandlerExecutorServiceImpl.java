@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
@@ -67,11 +69,11 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.AbstractExecutorService
-    public ScheduledFutureImpl newTaskFor(Callable callable) {
+    public <T> ScheduledFutureImpl<T> newTaskFor(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, callable)) == null) {
-            return new ScheduledFutureImpl(this.mHandler, callable);
+            return new ScheduledFutureImpl<>(this.mHandler, callable);
         }
         return (ScheduledFutureImpl) invokeL.objValue;
     }
@@ -86,15 +88,19 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
         return invokeJL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.AbstractExecutorService
-    public ScheduledFutureImpl newTaskFor(Runnable runnable, @Nullable Object obj) {
+    public <T> ScheduledFutureImpl<T> newTaskFor(Runnable runnable, @Nullable T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, runnable, obj)) == null) {
-            return new ScheduledFutureImpl(this.mHandler, runnable, obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, runnable, t)) == null) {
+            return new ScheduledFutureImpl<>(this.mHandler, runnable, t);
         }
         return (ScheduledFutureImpl) invokeLL.objValue;
+    }
+
+    @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
+    public /* bridge */ /* synthetic */ Future submit(Runnable runnable, @Nullable Object obj) {
+        return submit(runnable, (Runnable) obj);
     }
 
     @Override // com.facebook.common.executors.HandlerExecutorService
@@ -127,7 +133,7 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public List shutdownNow() {
+    public List<Runnable> shutdownNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -136,14 +142,18 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
         return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.concurrent.AbstractExecutorService
+    public /* bridge */ /* synthetic */ RunnableFuture newTaskFor(Runnable runnable, @Nullable Object obj) {
+        return newTaskFor(runnable, (Runnable) obj);
+    }
+
     @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
-    public ScheduledFuture submit(Runnable runnable, @Nullable Object obj) {
+    public <T> ScheduledFuture<T> submit(Runnable runnable, @Nullable T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, runnable, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, runnable, t)) == null) {
             if (runnable != null) {
-                ScheduledFutureImpl newTaskFor = newTaskFor(runnable, obj);
+                ScheduledFutureImpl<T> newTaskFor = newTaskFor(runnable, (Runnable) t);
                 execute(newTaskFor);
                 return newTaskFor;
             }
@@ -153,11 +163,11 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+    public ScheduledFuture<?> schedule(Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledFutureImpl newTaskFor = newTaskFor(runnable, (Object) null);
+            ScheduledFutureImpl newTaskFor = newTaskFor(runnable, (Runnable) null);
             this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j));
             return newTaskFor;
         }
@@ -165,11 +175,11 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture schedule(Callable callable, long j, TimeUnit timeUnit) {
+    public <V> ScheduledFuture<V> schedule(Callable<V> callable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledFutureImpl newTaskFor = newTaskFor(callable);
+            ScheduledFutureImpl newTaskFor = newTaskFor((Callable) callable);
             this.mHandler.postDelayed(newTaskFor, timeUnit.toMillis(j));
             return newTaskFor;
         }
@@ -177,7 +187,7 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture scheduleAtFixedRate(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public ScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
@@ -187,7 +197,7 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public ScheduledFuture scheduleWithFixedDelay(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public ScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
@@ -198,23 +208,23 @@ public class HandlerExecutorServiceImpl extends AbstractExecutorService implemen
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
-    public ScheduledFuture submit(Runnable runnable) {
+    public ScheduledFuture<?> submit(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, runnable)) == null) {
-            return submit(runnable, (Object) null);
+            return submit(runnable, (Runnable) null);
         }
         return (ScheduledFuture) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.AbstractExecutorService, java.util.concurrent.ExecutorService
-    public ScheduledFuture submit(Callable callable) {
+    public <T> ScheduledFuture<T> submit(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, callable)) == null) {
             if (callable != null) {
-                ScheduledFutureImpl newTaskFor = newTaskFor(callable);
+                ScheduledFutureImpl<T> newTaskFor = newTaskFor((Callable) callable);
                 execute(newTaskFor);
                 return newTaskFor;
             }

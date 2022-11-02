@@ -66,6 +66,33 @@ public final class BitmapDescriptor {
         return (byte[]) invokeV.objValue;
     }
 
+    public void clearCache() {
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bundle = this.b) != null) {
+            bundle.clear();
+            this.b = null;
+        }
+    }
+
+    public Bitmap getBitmap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public void recycle() {
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bitmap = this.a) != null && !bitmap.isRecycled()) {
+            this.a.recycle();
+            this.a = null;
+        }
+    }
+
     public Bundle b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,21 +126,5 @@ public final class BitmapDescriptor {
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
         return (Bundle) invokeV.objValue;
-    }
-
-    public Bitmap getBitmap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
-    }
-
-    public void recycle() {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bitmap = this.a) == null || bitmap.isRecycled()) {
-            return;
-        }
-        this.a.recycle();
-        this.a = null;
     }
 }

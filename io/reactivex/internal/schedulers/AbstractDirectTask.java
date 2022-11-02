@@ -15,10 +15,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public abstract class AbstractDirectTask extends AtomicReference implements Disposable, SchedulerRunnableIntrospection {
+public abstract class AbstractDirectTask extends AtomicReference<Future<?>> implements Disposable, SchedulerRunnableIntrospection {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final FutureTask DISPOSED;
-    public static final FutureTask FINISHED;
+    public static final FutureTask<Void> DISPOSED;
+    public static final FutureTask<Void> FINISHED;
     public static final long serialVersionUID = 1811839108042568751L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Runnable runnable;
@@ -37,17 +37,17 @@ public abstract class AbstractDirectTask extends AtomicReference implements Disp
                 return;
             }
         }
-        FINISHED = new FutureTask(Functions.EMPTY_RUNNABLE, null);
-        DISPOSED = new FutureTask(Functions.EMPTY_RUNNABLE, null);
+        FINISHED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
+        DISPOSED = new FutureTask<>(Functions.EMPTY_RUNNABLE, null);
     }
 
     @Override // io.reactivex.disposables.Disposable
     public final void dispose() {
-        Future future;
-        FutureTask futureTask;
+        Future<?> future;
+        FutureTask<Void> futureTask;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (future = (Future) get()) != FINISHED && future != (futureTask = DISPOSED) && compareAndSet(future, futureTask) && future != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (future = get()) != FINISHED && future != (futureTask = DISPOSED) && compareAndSet(future, futureTask) && future != null) {
             if (this.runner != Thread.currentThread()) {
                 z = true;
             } else {
@@ -90,7 +90,7 @@ public abstract class AbstractDirectTask extends AtomicReference implements Disp
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Future future = (Future) get();
+            Future<?> future = get();
             if (future != FINISHED && future != DISPOSED) {
                 return false;
             }
@@ -99,13 +99,13 @@ public abstract class AbstractDirectTask extends AtomicReference implements Disp
         return invokeV.booleanValue;
     }
 
-    public final void setFuture(Future future) {
-        Future future2;
+    public final void setFuture(Future<?> future) {
+        Future<?> future2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, future) == null) {
             do {
-                future2 = (Future) get();
+                future2 = get();
                 if (future2 != FINISHED) {
                     if (future2 == DISPOSED) {
                         if (this.runner != Thread.currentThread()) {

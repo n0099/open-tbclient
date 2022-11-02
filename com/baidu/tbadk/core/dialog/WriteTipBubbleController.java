@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.dialog;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e46;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.p56;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public e46 b;
+    public p56 b;
     public b c;
 
     /* loaded from: classes3.dex */
@@ -29,7 +30,7 @@ public class WriteTipBubbleController {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public final class ANCHOR_VIEW_FROM {
+    public static final class ANCHOR_VIEW_FROM {
         public static final /* synthetic */ ANCHOR_VIEW_FROM[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final ANCHOR_VIEW_FROM FROM_EDITOR_TOOL;
@@ -153,20 +154,20 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        e46 e46Var;
+        p56 p56Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e46Var = this.b) != null) {
-            e46Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p56Var = this.b) != null) {
+            p56Var.h();
         }
     }
 
-    public void d(View view2, String str, String str2, ANCHOR_VIEW_FROM anchor_view_from) {
+    public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !ej.isEmpty(str) && !ej.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !wi.isEmpty(str) && !wi.isEmpty(str2)) {
             if (this.b == null) {
-                e46 e46Var = new e46(this.a, view2);
-                this.b = e46Var;
-                e46Var.L(R.drawable.pic_post_findlink);
+                p56 p56Var = new p56(this.a, view2);
+                this.b = p56Var;
+                p56Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);

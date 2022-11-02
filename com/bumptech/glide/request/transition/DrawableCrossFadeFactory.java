@@ -1,5 +1,6 @@
 package com.bumptech.glide.request.transition;
 
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 /* loaded from: classes7.dex */
-public class DrawableCrossFadeFactory implements TransitionFactory {
+public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int duration;
@@ -16,7 +17,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory {
     public DrawableCrossFadeTransition resourceTransition;
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_DURATION_MS = 300;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +99,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory {
         this.isCrossFadeEnabled = z;
     }
 
-    private Transition getResourceTransition() {
+    private Transition<Drawable> getResourceTransition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
@@ -111,7 +112,7 @@ public class DrawableCrossFadeFactory implements TransitionFactory {
     }
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition build(DataSource dataSource, boolean z) {
+    public Transition<Drawable> build(DataSource dataSource, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, dataSource, z)) == null) {

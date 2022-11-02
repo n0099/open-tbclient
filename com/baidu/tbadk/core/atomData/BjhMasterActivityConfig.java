@@ -2,6 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Application;
 import android.content.Context;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -22,11 +25,12 @@ public class BjhMasterActivityConfig extends IntentConfig {
     public final TiebaExtra tiebaExtra;
 
     /* loaded from: classes3.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    @Keep
     /* loaded from: classes3.dex */
     public static final class TiebaExtra implements Serializable {
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +69,7 @@ public class BjhMasterActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BjhMasterActivityConfig(Application application, String str, String str2) {
+    public BjhMasterActivityConfig(@NonNull Application application, @Nullable String str, @Nullable String str2) {
         super(application);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -95,6 +99,7 @@ public class BjhMasterActivityConfig extends IntentConfig {
         tiebaExtra2.uid = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
     }
 
+    @NonNull
     public String getTiebaExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

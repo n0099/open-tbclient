@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class UnitedSchemeBaseAction {
+public abstract class UnitedSchemeBaseAction<DispatcherT extends UnitedSchemeAbsDispatcher> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnitedSchemeBaseAction";
     public transient /* synthetic */ FieldHolder $fh;
-    public final UnitedSchemeAbsDispatcher dispatcher;
+    public final DispatcherT dispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -34,12 +35,12 @@ public abstract class UnitedSchemeBaseAction {
 
     public abstract boolean handle(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
-    public UnitedSchemeBaseAction(UnitedSchemeAbsDispatcher unitedSchemeAbsDispatcher) {
+    public UnitedSchemeBaseAction(DispatcherT dispatchert) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeAbsDispatcher};
+            Object[] objArr = {dispatchert};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,6 +50,6 @@ public abstract class UnitedSchemeBaseAction {
                 return;
             }
         }
-        this.dispatcher = unitedSchemeAbsDispatcher;
+        this.dispatcher = dispatchert;
     }
 }

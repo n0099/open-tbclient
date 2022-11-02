@@ -1,107 +1,315 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import java.util.EnumMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hd8 {
+public class hd8 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map a;
+    public static hn p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinearLayout a;
+    public final LinearLayout b;
+    public final LinearLayout c;
+    public final ColumnLayout d;
+    public final ColumnLayout e;
+    public a f;
+    public int g;
+    public LinearLayout h;
+    public HeadImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
+    public TbPageContext<?> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819981, "Lcom/baidu/tieba/hd8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819981, "Lcom/baidu/tieba/hd8;");
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(View view2);
+    }
+
+    public hd8(View view2, TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        a = enumMap;
-        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
-        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        a.put(EncodeHintType.MARGIN, 0);
+        this.o = tbPageContext;
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922e8);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a74);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092520);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c3f);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090aab);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c30);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fc3);
+        this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fd7);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fcd);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c6);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09194d);
+        this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09069c);
+        this.g = xi.d(view2.getContext(), 42.0f);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setOnClickListener(this);
+        }
+        this.i.setOnClickListener(this);
+        this.j.setOnClickListener(this);
+        this.l.setOnClickListener(this);
+        this.m.setOnClickListener(this);
+        this.d.setOnClickListener(this);
+        this.e.setOnClickListener(this);
+        this.m.setText(R.string.obfuscated_res_0x7f0f102e);
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
-        InterceptResult invokeLL;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
-            if (bitmap != null && bitmap2 != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int width2 = bitmap2.getWidth();
-                int height2 = bitmap2.getHeight();
-                float f = ((width * 1.0f) / 5.0f) / width2;
-                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                try {
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas.scale(f, f, width / 2, height / 2);
-                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
-                    canvas.save();
-                    canvas.restore();
-                    return createBitmap;
-                } catch (Exception unused) {
-                    return null;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.b, R.color.CAM_X0201);
+            TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.n, R.drawable.obfuscated_res_0x7f080948, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090aab) {
+                TbPageContext<?> tbPageContext = this.o;
+                if (tbPageContext != null) {
+                    tbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.o.getPageActivity()).createNormalCfg((String) view2.getTag(), "")));
+                    return;
                 }
+                return;
             }
-            return bitmap;
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a(view2);
+            }
         }
-        return (Bitmap) invokeLL.objValue;
     }
 
-    public static Bitmap b(String str, int i) {
-        InterceptResult invokeLI;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            return c(str, i, -16777216, -1, null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String str2 = q;
+            if (str2 != null && !str2.equals(str)) {
+                p = null;
+            }
+            hn hnVar = p;
+            if (hnVar != null) {
+                this.i.setImageBitmap(hnVar.p());
+                q = str;
+                return;
+            }
+            HeadImageView headImageView = this.i;
+            int i = this.g;
+            headImageView.G(str, 12, i, i, false);
         }
-        return (Bitmap) invokeLI.objValue;
     }
 
-    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
-        InterceptResult invokeCommon;
+    public void c(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x000d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x009c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x009e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x009f  */
+    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r11v10, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v7, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v8, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r11v9, types: [android.widget.TextView] */
+    /* JADX WARN: Type inference failed for: r12v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r12v1 */
+    /* JADX WARN: Type inference failed for: r12v12 */
+    /* JADX WARN: Type inference failed for: r12v2 */
+    /* JADX WARN: Type inference failed for: r12v20 */
+    /* JADX WARN: Type inference failed for: r12v21 */
+    /* JADX WARN: Type inference failed for: r12v5 */
+    /* JADX WARN: Type inference failed for: r12v6, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r2v11 */
+    /* JADX WARN: Type inference failed for: r2v13 */
+    /* JADX WARN: Type inference failed for: r2v14 */
+    /* JADX WARN: Type inference failed for: r2v15 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.Object[]] */
+    /* JADX WARN: Type inference failed for: r3v11 */
+    /* JADX WARN: Type inference failed for: r3v13 */
+    /* JADX WARN: Type inference failed for: r3v14 */
+    /* JADX WARN: Type inference failed for: r3v4 */
+    /* JADX WARN: Type inference failed for: r3v6 */
+    /* JADX WARN: Type inference failed for: r3v9, types: [java.lang.CharSequence, java.lang.Object] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void d(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
+        CharSequence charSequence;
+        CharSequence charSequence2;
+        CharSequence charSequence3;
+        CharSequence charSequence4;
+        CharSequence charSequence5;
+        String str2;
+        String str3;
+        ?? r0 = $ic;
+        if (r0 != 0) {
+            charSequence = new Object[]{postInfoList, Boolean.valueOf((boolean) z), str};
+            if (r0.invokeCommon(1048579, this, charSequence) != null) {
+                return;
+            }
+        }
+        String[] strArr = new String[4];
+        CharSequence charSequence6 = 1000;
+        charSequence6 = 1000;
+        boolean z2 = true;
+        CharSequence charSequence7 = null;
+        try {
             try {
-                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
-                int[] iArr = new int[i * i];
-                for (int i4 = 0; i4 < i; i4++) {
-                    for (int i5 = 0; i5 < i; i5++) {
-                        if (encode.get(i5, i4)) {
-                            iArr[(i4 * i) + i5] = i2;
+                try {
+                    try {
+                        if (z != 0) {
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str3 = postInfoList.user_name;
+                            } else {
+                                str3 = postInfoList.name_show;
+                            }
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.post_id);
+                            String formatTime = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str4 = postInfoList.forum_name;
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                            charSequence6 = formatTime;
+                            charSequence = str4;
+                            z = str3;
                         } else {
-                            iArr[(i4 * i) + i5] = i3;
+                            if (StringUtils.isNull(postInfoList.name_show)) {
+                                str2 = postInfoList.user_name;
+                            } else {
+                                str2 = postInfoList.name_show;
+                            }
+                            strArr[0] = String.valueOf(postInfoList.thread_id);
+                            strArr[1] = String.valueOf(postInfoList.content[0].post_id);
+                            strArr[2] = String.valueOf(postInfoList.content[0].post_type);
+                            strArr[3] = String.valueOf(postInfoList.thread_type);
+                            String formatTime2 = StringHelper.getFormatTime(postInfoList.create_time * 1000);
+                            String str5 = postInfoList.forum_name;
+                            charSequence7 = String.valueOf(postInfoList.reply_num);
+                            charSequence6 = formatTime2;
+                            charSequence = str5;
+                            z = str2;
+                        }
+                    } catch (Exception unused) {
+                        charSequence2 = charSequence7;
+                        charSequence3 = charSequence2;
+                        charSequence5 = charSequence6;
+                        charSequence4 = z;
+                        charSequence7 = charSequence4;
+                        charSequence6 = charSequence5;
+                        charSequence = charSequence3;
+                        z = charSequence7;
+                        z2 = false;
+                        charSequence7 = charSequence2;
+                        if (!z2) {
                         }
                     }
+                } catch (Exception unused2) {
+                    charSequence2 = null;
+                    charSequence6 = null;
+                    charSequence = null;
+                    z = charSequence7;
+                    z2 = false;
+                    charSequence7 = charSequence2;
+                    if (!z2) {
+                    }
                 }
-                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
-                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
-                return a(createBitmap, bitmap);
-            } catch (Exception unused) {
-                return null;
+            } catch (Exception unused3) {
+                charSequence2 = charSequence7;
+                charSequence5 = charSequence6;
+                charSequence3 = charSequence;
+                charSequence4 = z;
+                charSequence7 = charSequence4;
+                charSequence6 = charSequence5;
+                charSequence = charSequence3;
+                z = charSequence7;
+                z2 = false;
+                charSequence7 = charSequence2;
+                if (!z2) {
+                }
+            }
+        } catch (Exception unused4) {
+            charSequence2 = charSequence7;
+            CharSequence charSequence8 = charSequence2;
+            charSequence3 = charSequence8;
+            charSequence5 = charSequence8;
+            charSequence4 = z;
+            charSequence7 = charSequence4;
+            charSequence6 = charSequence5;
+            charSequence = charSequence3;
+            z = charSequence7;
+            z2 = false;
+            charSequence7 = charSequence2;
+            if (!z2) {
             }
         }
-        return (Bitmap) invokeCommon.objValue;
+        if (!z2) {
+            return;
+        }
+        this.j.setText(z);
+        this.k.setText(charSequence6);
+        this.l.setText(charSequence);
+        this.l.setTag(charSequence);
+        this.m.setText(charSequence7);
+        this.m.setTag(strArr);
+        this.l.setOnClickListener(this);
+        b(str);
+        LinearLayout linearLayout = this.c;
+        if (linearLayout != null) {
+            linearLayout.setTag(strArr);
+        }
+        this.d.setTag(strArr);
+        this.e.setTag(strArr);
     }
 }

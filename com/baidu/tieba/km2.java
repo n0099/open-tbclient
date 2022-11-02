@@ -1,414 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.po2;
-import com.baidu.tieba.q33;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.channels.Pipe;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class km2 extends u33 {
+public class km2 extends om2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map b;
-    public final po2 c;
-    public final po2 d;
+    public final im2 a;
 
-    /* loaded from: classes4.dex */
-    public class a implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ km2 a;
-
-        public a(km2 km2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = km2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) != null) {
-                return;
-            }
-            fVar.h(this.a);
-            this.a.b.put(fVar.a, fVar);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yh3 a;
-        public final /* synthetic */ km2 b;
-
-        public b(km2 km2Var, yh3 yh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km2Var, yh3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = km2Var;
-            this.a = yh3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if ("on_progress".equals(str)) {
-                    this.b.A((q33.a) new q33.a("installer_on_progress").v(" event_params_installer_progress", this.a.j()));
-                } else if ("pump_finish".equals(str)) {
-                    this.b.p("installer_on_pump_finish");
-                } else if ("finish".equals(str)) {
-                    this.b.p("installer_on_finish");
-                } else if ("start".equals(str)) {
-                    this.b.p("installer_on_start");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yh3 a;
-
-        public c(km2 km2Var, yh3 yh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km2Var, yh3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yh3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                this.a.d(fVar);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(km2 km2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                fVar.f();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean[] a;
-
-        public e(km2 km2Var, boolean[] zArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {km2Var, zArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zArr;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: b */
-        public void a(f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-                boolean[] zArr = this.a;
-                zArr[0] = fVar.d() & zArr[0];
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public abstract class f implements fi3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Bundle b;
-        public km2 c;
-
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public abstract boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle);
-
-        public f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new Bundle();
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fi3
-        /* renamed from: e */
-        public void a(Pipe.SourceChannel sourceChannel) {
-            km2 km2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, sourceChannel) == null) && (km2Var = this.c) != null && g(sourceChannel, km2Var.c.D())) {
-                i();
-            }
-        }
-
-        public final void h(km2 km2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, km2Var) == null) {
-                this.c = km2Var;
-            }
-        }
-
-        public Bundle c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (Bundle) invokeV.objValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return c().getBoolean("flag_is_ok");
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.b.putBoolean("flag_is_ok", true);
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917817, "Lcom/baidu/tieba/km2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917817, "Lcom/baidu/tieba/km2;");
-                return;
-            }
-        }
-        e = wj1.a;
-    }
-
-    public km2() {
+    public km2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap();
-        this.c = new po2.a();
-        this.d = new po2.a();
+        this.a = new im2();
     }
 
-    public boolean N() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.om2, com.baidu.tieba.nm2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isEmpty() || this.d.e("flag_is_ok", false)) {
-                return true;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
+            if (this.a.f()) {
+                this.a.k();
+                jm2.e();
+                return;
             }
-            boolean[] zArr = {true};
-            L(new e(this, zArr));
-            this.d.t("flag_is_ok", zArr[0]);
-            return zArr[0];
-        }
-        return invokeV.booleanValue;
-    }
-
-    public km2 J(f... fVarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVarArr)) == null) {
-            ei3.d(new a(this), fVarArr);
-            return this;
-        }
-        return (km2) invokeL.objValue;
-    }
-
-    public km2 K(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.c.update(bundle);
-            return this;
-        }
-        return (km2) invokeL.objValue;
-    }
-
-    public final void L(fi3 fi3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fi3Var) == null) {
-            ei3.c(fi3Var, this.b.values());
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && e) {
-            ro2.d(this.c.o("launch_id", "")).f(str).b("SwanInstaller");
-            Log.i("SwanInstaller", str);
-        }
-    }
-
-    public synchronized km2 M(ReadableByteChannel readableByteChannel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, readableByteChannel)) == null) {
-            synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.d.b();
-                yh3 yh3Var = new yh3();
-                yh3Var.o(32768);
-                yh3Var.q(30L, TimeUnit.SECONDS);
-                yh3Var.g(this.c.D());
-                yh3Var.p(new b(this, yh3Var));
-                L(new c(this, yh3Var));
-                O("connect: " + readableByteChannel + " at: " + currentTimeMillis);
-                yh3Var.h(readableByteChannel);
-                boolean N = N();
-                if (e) {
-                    O("allOk: " + N + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                if (!N) {
-                    L(new d(this));
-                }
+            im2 im2Var = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            return this;
+            im2Var.g("fmpArrived", str);
         }
-        return (km2) invokeL.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c();
+            if (this.a.e("fmpArrived")) {
+                this.a.k();
+                jm2.e();
+            }
+        }
     }
 }

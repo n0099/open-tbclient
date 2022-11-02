@@ -34,7 +34,7 @@ public final class FixedTrackSelection extends BaseTrackSelection {
     }
 
     /* loaded from: classes7.dex */
-    public final class Factory implements TrackSelection.Factory {
+    public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object data;

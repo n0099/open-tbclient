@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.Elem;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
@@ -19,12 +20,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes8.dex */
-public class Info implements Serializable {
+public class Info<T extends Elem> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_ELEM = "|";
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List elems;
+    public List<T> elems;
 
     public Info() {
         Interceptable interceptable = $ic;
@@ -58,7 +59,7 @@ public class Info implements Serializable {
         return invokeV.intValue;
     }
 
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -90,39 +91,39 @@ public class Info implements Serializable {
         }
     }
 
-    public void add(Info info) {
+    public void add(Info<T> info) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, info) == null) {
-            Iterator it = info.iterator();
+            Iterator<T> it = info.iterator();
             while (it.hasNext()) {
-                addElem((Elem) it.next());
+                addElem(it.next());
             }
         }
     }
 
-    public void addElem(Elem elem) {
+    public void addElem(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elem) != null) || elem == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
             return;
         }
-        this.elems.add(elem);
+        this.elems.add(t);
     }
 
-    public Elem getElem(int i) {
+    public T getElem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (Elem) this.elems.get(i);
+            return this.elems.get(i);
         }
-        return (Elem) invokeI.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public void removeElem(Elem elem) {
+    public void removeElem(T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, elem) != null) || elem == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || t == null) {
             return;
         }
-        this.elems.remove(elem);
+        this.elems.remove(t);
     }
 
     public String getResult() {
@@ -133,8 +134,8 @@ public class Info implements Serializable {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (Elem elem : this.elems) {
-                sb.append(Util.replaceEncode(elem.getStringRep(), "|"));
+            for (T t : this.elems) {
+                sb.append(Util.replaceEncode(t.getStringRep(), "|"));
                 sb.append("|");
             }
             String sb2 = sb.toString();
@@ -152,8 +153,8 @@ public class Info implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (Elem elem : this.elems) {
-                sb.append(elem.toString());
+            for (T t : this.elems) {
+                sb.append(t.toString());
                 sb.append(" ");
             }
             sb.append(PreferencesUtil.RIGHT_MOUNT);

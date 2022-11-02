@@ -21,17 +21,17 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class DuPaEvaluationMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<DuPaEvaluationMsg> CREATOR;
     public static final String TAG = "DuPaEvaluationMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String mCallbackKey;
-    public List mItems;
+    public List<EvaluationItem> mItems;
     public String mText;
 
     /* loaded from: classes.dex */
-    public class EvaluationItem implements Parcelable {
+    public static class EvaluationItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
-        public static final Parcelable.Creator CREATOR;
+        public static final Parcelable.Creator<EvaluationItem> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public String mCallbackKey;
         public String mTitle;
@@ -59,7 +59,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
                     return;
                 }
             }
-            CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.EvaluationItem.1
+            CREATOR = new Parcelable.Creator<EvaluationItem>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.EvaluationItem.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,6 +78,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public EvaluationItem createFromParcel(Parcel parcel) {
                     InterceptResult invokeL;
@@ -89,6 +90,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 public EvaluationItem[] newArray(int i) {
                     InterceptResult invokeI;
@@ -176,7 +178,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
                 return;
             }
         }
-        CREATOR = new Parcelable.Creator() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.1
+        CREATOR = new Parcelable.Creator<DuPaEvaluationMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaEvaluationMsg.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -195,6 +197,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaEvaluationMsg createFromParcel(Parcel parcel) {
                 InterceptResult invokeL;
@@ -206,6 +209,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public DuPaEvaluationMsg[] newArray(int i) {
                 InterceptResult invokeI;
@@ -250,7 +254,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
         return (String) invokeV.objValue;
     }
 
-    public List getEvaluationItems() {
+    public List<EvaluationItem> getEvaluationItems() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

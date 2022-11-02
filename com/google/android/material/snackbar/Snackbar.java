@@ -15,6 +15,12 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Dimension;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StringRes;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,17 +34,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 /* loaded from: classes7.dex */
-public class Snackbar extends BaseTransientBottomBar {
+public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] SNACKBAR_BUTTON_STYLE_ATTR;
     public static final int[] SNACKBAR_CONTENT_STYLE_ATTRS;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final AccessibilityManager accessibilityManager;
-    public BaseTransientBottomBar.BaseCallback callback;
+    @Nullable
+    public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
     /* loaded from: classes7.dex */
-    public class Callback extends BaseTransientBottomBar.BaseCallback {
+    public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -78,8 +86,9 @@ public class Snackbar extends BaseTransientBottomBar {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes7.dex */
-    public final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
+    public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,27 +150,27 @@ public class Snackbar extends BaseTransientBottomBar {
         }
 
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout, android.view.View
-        public /* bridge */ /* synthetic */ void setBackground(Drawable drawable) {
+        public /* bridge */ /* synthetic */ void setBackground(@Nullable Drawable drawable) {
             super.setBackground(drawable);
         }
 
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout, android.view.View
-        public /* bridge */ /* synthetic */ void setBackgroundDrawable(Drawable drawable) {
+        public /* bridge */ /* synthetic */ void setBackgroundDrawable(@Nullable Drawable drawable) {
             super.setBackgroundDrawable(drawable);
         }
 
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout, android.view.View
-        public /* bridge */ /* synthetic */ void setBackgroundTintList(ColorStateList colorStateList) {
+        public /* bridge */ /* synthetic */ void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
             super.setBackgroundTintList(colorStateList);
         }
 
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout, android.view.View
-        public /* bridge */ /* synthetic */ void setBackgroundTintMode(PorterDuff.Mode mode) {
+        public /* bridge */ /* synthetic */ void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
             super.setBackgroundTintMode(mode);
         }
 
         @Override // com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout, android.view.View
-        public /* bridge */ /* synthetic */ void setOnClickListener(View.OnClickListener onClickListener) {
+        public /* bridge */ /* synthetic */ void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
             super.setOnClickListener(onClickListener);
         }
     }
@@ -210,7 +219,7 @@ public class Snackbar extends BaseTransientBottomBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Snackbar(ViewGroup viewGroup, View view2, ContentViewCallback contentViewCallback) {
+    public Snackbar(@NonNull ViewGroup viewGroup, @NonNull View view2, @NonNull ContentViewCallback contentViewCallback) {
         super(viewGroup, view2, contentViewCallback);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -231,7 +240,8 @@ public class Snackbar extends BaseTransientBottomBar {
         this.accessibilityManager = (AccessibilityManager) viewGroup.getContext().getSystemService("accessibility");
     }
 
-    public static Snackbar make(View view2, CharSequence charSequence, int i) {
+    @NonNull
+    public static Snackbar make(@NonNull View view2, @NonNull CharSequence charSequence, int i) {
         InterceptResult invokeLLI;
         int i2;
         Interceptable interceptable = $ic;
@@ -240,9 +250,9 @@ public class Snackbar extends BaseTransientBottomBar {
             if (findSuitableParent != null) {
                 LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
                 if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                    i2 = R.layout.obfuscated_res_0x7f0d05ba;
+                    i2 = R.layout.obfuscated_res_0x7f0d05ca;
                 } else {
-                    i2 = R.layout.obfuscated_res_0x7f0d0216;
+                    i2 = R.layout.obfuscated_res_0x7f0d0218;
                 }
                 SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) from.inflate(i2, findSuitableParent, false);
                 Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
@@ -255,6 +265,7 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeLLI.objValue;
     }
 
+    @Nullable
     public static ViewGroup findSuitableParent(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -287,7 +298,7 @@ public class Snackbar extends BaseTransientBottomBar {
     }
 
     @Deprecated
-    public static boolean hasSnackbarButtonStyleAttr(Context context) {
+    public static boolean hasSnackbarButtonStyleAttr(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
@@ -302,7 +313,7 @@ public class Snackbar extends BaseTransientBottomBar {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasSnackbarContentStyleAttrs(Context context) {
+    public static boolean hasSnackbarContentStyleAttrs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -318,17 +329,19 @@ public class Snackbar extends BaseTransientBottomBar {
         return invokeL.booleanValue;
     }
 
-    public Snackbar setActionTextColor(int i) {
+    @NonNull
+    public Snackbar setActionTextColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getActionView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getActionView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
     }
 
-    public Snackbar setBackgroundTint(int i) {
+    @NonNull
+    public Snackbar setBackgroundTint(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
@@ -337,32 +350,35 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeI.objValue;
     }
 
-    public Snackbar setBackgroundTintList(ColorStateList colorStateList) {
+    @NonNull
+    public Snackbar setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorStateList)) == null) {
-            this.f1075view.setBackgroundTintList(colorStateList);
+            this.f1076view.setBackgroundTintList(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
     }
 
-    public Snackbar setBackgroundTintMode(PorterDuff.Mode mode) {
+    @NonNull
+    public Snackbar setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, mode)) == null) {
-            this.f1075view.setBackgroundTintMode(mode);
+            this.f1076view.setBackgroundTintMode(mode);
             return this;
         }
         return (Snackbar) invokeL.objValue;
     }
 
+    @NonNull
     @Deprecated
-    public Snackbar setCallback(Callback callback) {
+    public Snackbar setCallback(@Nullable Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, callback)) == null) {
-            BaseTransientBottomBar.BaseCallback baseCallback = this.callback;
+            BaseTransientBottomBar.BaseCallback<Snackbar> baseCallback = this.callback;
             if (baseCallback != null) {
                 removeCallback(baseCallback);
             }
@@ -375,17 +391,19 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeL.objValue;
     }
 
-    public Snackbar setMaxInlineActionWidth(int i) {
+    @NonNull
+    public Snackbar setMaxInlineActionWidth(@Dimension int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).setMaxInlineActionWidth(i);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).setMaxInlineActionWidth(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
     }
 
-    public Snackbar setText(int i) {
+    @NonNull
+    public Snackbar setText(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
@@ -394,17 +412,19 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeI.objValue;
     }
 
-    public Snackbar setTextColor(int i) {
+    @NonNull
+    public Snackbar setTextColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getMessageView().setTextColor(i);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getMessageView().setTextColor(i);
             return this;
         }
         return (Snackbar) invokeI.objValue;
     }
 
-    public static Snackbar make(View view2, int i, int i2) {
+    @NonNull
+    public static Snackbar make(@NonNull View view2, @StringRes int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, view2, i, i2)) == null) {
@@ -439,7 +459,8 @@ public class Snackbar extends BaseTransientBottomBar {
         }
     }
 
-    public Snackbar setAction(int i, View.OnClickListener onClickListener) {
+    @NonNull
+    public Snackbar setAction(@StringRes int i, View.OnClickListener onClickListener) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, onClickListener)) == null) {
@@ -448,11 +469,12 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeIL.objValue;
     }
 
-    public Snackbar setAction(CharSequence charSequence, View.OnClickListener onClickListener) {
+    @NonNull
+    public Snackbar setAction(@Nullable CharSequence charSequence, @Nullable View.OnClickListener onClickListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-            Button actionView = ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getActionView();
+            Button actionView = ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getActionView();
             if (!TextUtils.isEmpty(charSequence) && onClickListener != null) {
                 this.hasAction = true;
                 actionView.setVisibility(0);
@@ -501,31 +523,34 @@ public class Snackbar extends BaseTransientBottomBar {
         return (Snackbar) invokeLL.objValue;
     }
 
+    @NonNull
     public Snackbar setActionTextColor(ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getActionView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getActionView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;
     }
 
-    public Snackbar setText(CharSequence charSequence) {
+    @NonNull
+    public Snackbar setText(@NonNull CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, charSequence)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getMessageView().setText(charSequence);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getMessageView().setText(charSequence);
             return this;
         }
         return (Snackbar) invokeL.objValue;
     }
 
+    @NonNull
     public Snackbar setTextColor(ColorStateList colorStateList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, colorStateList)) == null) {
-            ((SnackbarContentLayout) this.f1075view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
+            ((SnackbarContentLayout) this.f1076view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
             return this;
         }
         return (Snackbar) invokeL.objValue;

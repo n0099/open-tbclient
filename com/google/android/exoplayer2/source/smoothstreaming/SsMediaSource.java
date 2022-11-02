@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class SsMediaSource implements MediaSource, Loader.Callback {
+public final class SsMediaSource implements MediaSource, Loader.Callback<ParsingLoadable<SsManifest>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_MS = 30000;
     public static final int DEFAULT_MIN_LOADABLE_RETRY_COUNT = 3;
@@ -49,10 +49,10 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
     public long manifestLoadStartTimestamp;
     public Loader manifestLoader;
     public LoaderErrorThrower manifestLoaderErrorThrower;
-    public final ParsingLoadable.Parser manifestParser;
+    public final ParsingLoadable.Parser<? extends SsManifest> manifestParser;
     public Handler manifestRefreshHandler;
     public final Uri manifestUri;
-    public final ArrayList mediaPeriods;
+    public final ArrayList<SsMediaPeriod> mediaPeriods;
     public final int minLoadableRetryCount;
     public MediaSource.Listener sourceListener;
 
@@ -192,7 +192,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SsMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+    public SsMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
         this(null, uri, factory, parser, factory2, i, j, handler, adaptiveMediaSourceEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -212,7 +212,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
         }
     }
 
-    public SsMediaSource(SsManifest ssManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+    public SsMediaSource(SsManifest ssManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -247,7 +247,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
         this.minLoadableRetryCount = i;
         this.livePresentationDelayMs = j;
         this.eventDispatcher = new AdaptiveMediaSourceEventListener.EventDispatcher(handler, adaptiveMediaSourceEventListener);
-        this.mediaPeriods = new ArrayList();
+        this.mediaPeriods = new ArrayList<>();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -309,7 +309,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             for (int i = 0; i < this.mediaPeriods.size(); i++) {
-                ((SsMediaPeriod) this.mediaPeriods.get(i)).updateManifest(this.manifest);
+                this.mediaPeriods.get(i).updateManifest(this.manifest);
             }
             long j3 = Long.MIN_VALUE;
             long j4 = Long.MAX_VALUE;
@@ -375,7 +375,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(ParsingLoadable parsingLoadable, long j, long j2, boolean z) {
+    public void onLoadCanceled(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
@@ -384,11 +384,11 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(ParsingLoadable parsingLoadable, long j, long j2) {
+    public void onLoadCompleted(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
-            this.manifest = (SsManifest) parsingLoadable.getResult();
+            this.manifest = parsingLoadable.getResult();
             this.manifestLoadStartTimestamp = j - j2;
             processManifest();
             scheduleManifestRefresh();
@@ -416,7 +416,7 @@ public final class SsMediaSource implements MediaSource, Loader.Callback {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(ParsingLoadable parsingLoadable, long j, long j2, IOException iOException) {
+    public int onLoadError(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {

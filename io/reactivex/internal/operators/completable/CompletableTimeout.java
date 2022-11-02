@@ -122,7 +122,7 @@ public final class CompletableTimeout extends Completable {
     }
 
     /* loaded from: classes8.dex */
-    public final class TimeOutObserver implements CompletableObserver {
+    public static final class TimeOutObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicBoolean once;

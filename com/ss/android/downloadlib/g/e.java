@@ -1,6 +1,7 @@
 package com.ss.android.downloadlib.g;
 
-import com.baidu.searchbox.launch.LaunchStatsUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadModel;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -13,7 +14,7 @@ public class e {
         return com.ss.android.socialbase.downloader.g.a.a(i).a("storage_min_size", 0L);
     }
 
-    public static int c(DownloadModel downloadModel) {
+    public static int c(@NonNull DownloadModel downloadModel) {
         return a(b(downloadModel));
     }
 
@@ -45,10 +46,11 @@ public class e {
         return true;
     }
 
-    public static int a(com.ss.android.socialbase.downloader.g.a aVar) {
+    public static int a(@NonNull com.ss.android.socialbase.downloader.g.a aVar) {
         return aVar.a("external_storage_permission_path_type", 0);
     }
 
+    @NonNull
     public static com.ss.android.socialbase.downloader.g.a b(DownloadModel downloadModel) {
         return com.ss.android.socialbase.downloader.g.a.a(a(downloadModel));
     }
@@ -57,6 +59,7 @@ public class e {
         return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_fetch_apk_head_time_out", 800L);
     }
 
+    @NonNull
     public static com.ss.android.socialbase.downloader.g.a a(com.ss.android.downloadad.api.a.a aVar) {
         if (aVar == null) {
             return com.ss.android.socialbase.downloader.g.a.c();
@@ -73,8 +76,9 @@ public class e {
         return com.ss.android.socialbase.downloader.g.a.c();
     }
 
+    @Nullable
     public static JSONObject a() {
-        return com.ss.android.downloadlib.addownload.j.i().optJSONObject(LaunchStatsUtils.AD);
+        return com.ss.android.downloadlib.addownload.j.i().optJSONObject("ad");
     }
 
     public static boolean b() {

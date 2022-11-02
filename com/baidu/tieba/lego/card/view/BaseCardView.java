@@ -1,12 +1,13 @@
 package com.baidu.tieba.lego.card.view;
 
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class BaseCardView extends BaseLegoCardView {
+/* loaded from: classes5.dex */
+public abstract class BaseCardView<T extends BaseCardInfo> extends BaseLegoCardView<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

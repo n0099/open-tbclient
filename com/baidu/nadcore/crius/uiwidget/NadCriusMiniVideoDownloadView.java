@@ -2,19 +2,21 @@ package com.baidu.nadcore.crius.uiwidget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.nadcore.business.uitemplate.NadEnhanceButtonDownloadView;
-import com.baidu.tieba.vj0;
+import com.baidu.tieba.uj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements vj0 {
+public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView implements uj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadCriusMiniVideoDownloadView(Context context) {
+    public NadCriusMiniVideoDownloadView(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -34,7 +36,7 @@ public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadCriusMiniVideoDownloadView(Context context, AttributeSet attributeSet) {
+    public NadCriusMiniVideoDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -55,7 +57,7 @@ public class NadCriusMiniVideoDownloadView extends NadEnhanceButtonDownloadView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadCriusMiniVideoDownloadView(Context context, AttributeSet attributeSet, int i) {
+    public NadCriusMiniVideoDownloadView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

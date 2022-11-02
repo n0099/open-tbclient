@@ -8,11 +8,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.xk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +25,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public zj5 b;
+    public xk5 b;
     public View c;
     public int d;
     public int e;
@@ -63,12 +65,12 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0191a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0200a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0191a(a aVar) {
+            public C0200a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +160,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
                 this.a = i;
@@ -174,7 +176,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                     ValueAnimator ofInt = ValueAnimator.ofInt(this.c, 0);
                     this.d = ofInt;
                     ofInt.setDuration(100L);
-                    this.d.addUpdateListener(new C0191a(this));
+                    this.d.addUpdateListener(new C0200a(this));
                     this.d.addListener(new b(this));
                     this.d.start();
                 }
@@ -182,7 +184,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
                 this.c = i;
@@ -380,7 +382,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullLeftRefreshLayout(Context context) {
+    public PullLeftRefreshLayout(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -404,7 +406,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullLeftRefreshLayout(Context context, AttributeSet attributeSet) {
+    public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -429,7 +431,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullLeftRefreshLayout(Context context, AttributeSet attributeSet, int i) {
+    public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -482,11 +484,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(zj5 zj5Var) {
+    public void setRefreshViewAndListener(xk5 xk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, zj5Var) == null) {
-            this.b = zj5Var;
-            this.c = zj5Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, xk5Var) == null) {
+            this.b = xk5Var;
+            this.c = xk5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);
@@ -654,9 +656,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            zj5 zj5Var = this.b;
-                            if (zj5Var != null) {
-                                zj5Var.b(this.c);
+                            xk5 xk5Var = this.b;
+                            if (xk5Var != null) {
+                                xk5Var.b(this.c);
                             }
                             return true;
                         }
@@ -712,9 +714,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            zj5 zj5Var = this.b;
-                            if (zj5Var != null) {
-                                zj5Var.b(this.c);
+                            xk5 xk5Var = this.b;
+                            if (xk5Var != null) {
+                                xk5Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -722,21 +724,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                zj5 zj5Var2 = this.b;
-                                if (zj5Var2 != null) {
-                                    zj5Var2.a(this.c);
+                                xk5 xk5Var2 = this.b;
+                                if (xk5Var2 != null) {
+                                    xk5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    zj5 zj5Var3 = this.b;
-                                    if (zj5Var3 != null) {
-                                        zj5Var3.a(this.c);
+                                    xk5 xk5Var3 = this.b;
+                                    if (xk5Var3 != null) {
+                                        xk5Var3.a(this.c);
                                     }
                                 } else {
-                                    zj5 zj5Var4 = this.b;
-                                    if (zj5Var4 != null) {
-                                        zj5Var4.b(this.c);
+                                    xk5 xk5Var4 = this.b;
+                                    if (xk5Var4 != null) {
+                                        xk5Var4.b(this.c);
                                     }
                                 }
                             }

@@ -20,13 +20,16 @@ public final class CombinedContext$writeReplace$1 extends Lambda implements Func
         this.$index = intRef;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function2
-    public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        invoke((Unit) obj, (CoroutineContext.Element) obj2);
+    public /* bridge */ /* synthetic */ Unit invoke(Unit unit, CoroutineContext.Element element) {
+        invoke2(unit, element);
         return Unit.INSTANCE;
     }
 
-    public final void invoke(Unit unit, CoroutineContext.Element element) {
+    /* renamed from: invoke  reason: avoid collision after fix types in other method */
+    public final void invoke2(Unit unit, CoroutineContext.Element element) {
         Intrinsics.checkNotNullParameter(unit, "<anonymous parameter 0>");
         Intrinsics.checkNotNullParameter(element, "element");
         CoroutineContext[] coroutineContextArr = this.$elements;

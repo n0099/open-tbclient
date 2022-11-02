@@ -1,9 +1,10 @@
 package com.baidu.tbadk.BdToken;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wl4;
+import com.baidu.tieba.om4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import tbclient.DecryptCode.DecryptCodeResIdl;
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl4 decryptData;
+    public om4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeSocketRespMsg(int i) {
@@ -38,6 +39,7 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -45,9 +47,9 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    wl4 wl4Var = new wl4();
-                    this.decryptData = wl4Var;
-                    wl4Var.h(decryptCodeResIdl.data);
+                    om4 om4Var = new om4();
+                    this.decryptData = om4Var;
+                    om4Var.h(decryptCodeResIdl.data);
                 }
                 return decryptCodeResIdl;
             } catch (Throwable th) {
@@ -58,12 +60,12 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public wl4 getDecryptData() {
+    public om4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.decryptData;
         }
-        return (wl4) invokeV.objValue;
+        return (om4) invokeV.objValue;
     }
 }

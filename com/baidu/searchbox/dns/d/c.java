@@ -24,7 +24,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes2.dex */
-public class c extends com.baidu.searchbox.dns.d.c.b {
+public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a.b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static String L = null;
     public static long M = -1;
@@ -62,7 +62,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements HostnameVerifier {
+    public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -234,7 +234,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b {
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
-    public Map getParameters() {
+    public Map<String, Object> getParameters() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;

@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class bu {
     public static /* synthetic */ Interceptable $ic;
@@ -24,11 +25,11 @@ public class bu {
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-    public List d;
+    public List<PermissionEnum> d;
     public String e;
     public String f;
     public String g;
-    public List h;
+    public List<JSONObject> h;
 
     static {
         InterceptResult invokeClinit;

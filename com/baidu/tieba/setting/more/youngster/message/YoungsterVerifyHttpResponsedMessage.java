@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more.youngster.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.qh8;
+import com.baidu.tieba.aj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qh8 mSearchMajorResultData;
+    public aj8 mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YoungsterVerifyHttpResponsedMessage() {
@@ -34,13 +34,13 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
         }
     }
 
-    public qh8 getData() {
+    public aj8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mSearchMajorResultData;
         }
-        return (qh8) invokeV.objValue;
+        return (aj8) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -50,9 +50,9 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                qh8 qh8Var = new qh8();
-                this.mSearchMajorResultData = qh8Var;
-                qh8Var.a(optJSONObject);
+                aj8 aj8Var = new aj8();
+                this.mSearchMajorResultData = aj8Var;
+                aj8Var.a(optJSONObject);
             }
         }
     }

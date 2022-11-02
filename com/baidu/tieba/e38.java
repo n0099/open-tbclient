@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface e38 {
-    AbsVideoPbFragment B();
+public class e38 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    PbModel.h B0();
-
-    PbModel K();
-
-    AbsPbActivity P();
-
-    void finish();
-
-    TbPageContext getPageContext();
-
-    PbFragment k1();
-
-    void registerListener(MessageListener messageListener);
+    public static final void a(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, str5) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.addParam("fid", str2);
+            statisticItem.addParam("tid", str3);
+            statisticItem.addParam("uid", str4);
+            statisticItem.addParam("obj_source", str5);
+            TiebaStatic.log(statisticItem);
+        }
+    }
 }

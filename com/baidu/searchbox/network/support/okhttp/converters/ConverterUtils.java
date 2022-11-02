@@ -1,5 +1,6 @@
 package com.baidu.searchbox.network.support.okhttp.converters;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ public class ConverterUtils {
         return (RuntimeException) invokeLLL.objValue;
     }
 
-    public static RuntimeException methodError(String str, Throwable th, String str2, Object... objArr) {
+    public static RuntimeException methodError(String str, @Nullable Throwable th, String str2, Object... objArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, th, str2, objArr)) == null) {
@@ -43,15 +44,15 @@ public class ConverterUtils {
         return (RuntimeException) invokeLLLL.objValue;
     }
 
-    public static Object requireNonNull(Object obj, String str) {
+    public static <T> T requireNonNull(T t, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
-            if (obj != null) {
-                return obj;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, t, str)) == null) {
+            if (t != null) {
+                return t;
             }
             throw new NullPointerException(str);
         }
-        return invokeLL.objValue;
+        return (T) invokeLL.objValue;
     }
 }

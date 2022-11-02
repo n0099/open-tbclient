@@ -29,12 +29,12 @@ public final class PmsConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class EnvParam {
+    public static final class EnvParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public final class Key {
+        public static final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String CPU_ABI = "cpu_abi";
             public static final String CPU_FEATURE = "cpu_feature";
@@ -73,7 +73,7 @@ public final class PmsConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class Statistic {
+    public static final class Statistic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATISTIC_CHANNELID = "channel_id";
         public static final String STATISTIC_CHANNELIDS = "channel_ids";
@@ -89,7 +89,7 @@ public final class PmsConstant {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes2.dex */
-        public final class Key {
+        public static final class Key {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_DETAIL = "detail";
             public static final String REV_EXT = "ext";
@@ -120,7 +120,7 @@ public final class PmsConstant {
         }
 
         /* loaded from: classes2.dex */
-        public final class UBC {
+        public static final class UBC {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String UBC_REV_ID = "645";
             public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public final class PmsConstant {
         }
 
         /* loaded from: classes2.dex */
-        public final class Value {
+        public static final class Value {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String REV_FROM = "research";
             public static final String REV_ITEM_VALID = "1";
@@ -181,7 +181,7 @@ public final class PmsConstant {
     }
 
     /* loaded from: classes2.dex */
-    public final class DynamicDBVersion {
+    public static final class DynamicDBVersion {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DB_VERSION_10_6_0 = 1;
         public static final int DB_VERSION_12_12_0 = 2;

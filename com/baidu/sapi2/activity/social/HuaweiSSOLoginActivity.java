@@ -67,7 +67,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f10aa);
+            setTitleText(R.string.obfuscated_res_0x7f0f10c5);
             try {
                 d();
             } catch (Exception e) {
@@ -99,7 +99,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f10a1));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f10bc));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -146,7 +146,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                     b(authHuaweiId.getAccessToken());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1096));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f10b1));
                 String str3 = p;
                 Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
             } else if (i == 1003) {
@@ -159,11 +159,11 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
                     b(authHuaweiId2.getAuthorizationCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1096));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f10b1));
                 String str5 = p;
                 Log.i(str5, "signIn get code failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
             } else {
-                a(-202, getString(R.string.obfuscated_res_0x7f0f10a1));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f10bc));
             }
         }
     }

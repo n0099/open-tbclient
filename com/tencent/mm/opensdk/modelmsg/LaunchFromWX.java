@@ -16,7 +16,7 @@ public class LaunchFromWX {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class Req extends BaseReq {
+    public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
         public static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
@@ -117,7 +117,7 @@ public class LaunchFromWX {
     }
 
     /* loaded from: classes8.dex */
-    public class Resp extends BaseResp {
+    public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

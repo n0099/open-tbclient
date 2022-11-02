@@ -1,102 +1,141 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetTails.ColorInfo;
-import tbclient.GetTails.ResData;
-import tbclient.GetTails.TailInfo;
-/* loaded from: classes3.dex */
-public class eo7 {
+/* loaded from: classes4.dex */
+public class eo7 extends p9<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List a;
-    public List b;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public do7 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public eo7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eo7(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0165);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091299);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.obfuscated_res_0x7f0f0555);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0166, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0906ea);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090d3f);
+        do7 do7Var = new do7(tbPageContext);
+        this.e = do7Var;
+        this.c.setAdapter((ListAdapter) do7Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09048f);
     }
 
-    public List a() {
+    public do7 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (List) invokeV.objValue;
+        return (do7) invokeV.objValue;
     }
 
-    public List b() {
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (List) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void c(ResData resData) {
-        List<TailInfo> list;
+    public GridView l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        for (TailInfo tailInfo : list) {
-            if (e(tailInfo)) {
-                TailData tailData = new TailData();
-                tailData.setContent(tailInfo.tailContent);
-                tailData.setFontColor(tailInfo.fontColor);
-                tailData.setFontType(tailInfo.fontKeyName);
-                tailData.setId(tailInfo.tailId.intValue());
-                boolean z = true;
-                if (tailInfo.is_selected.intValue() != 1) {
-                    z = false;
-                }
-                tailData.setSelected(z);
-                b().add(tailData);
-            }
-        }
-        d(resData.default_color);
-        for (ColorInfo colorInfo : resData.colorList) {
-            a().add(colorInfo.fontColor);
+        return (GridView) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.setVisibility(8);
         }
     }
 
-    public final boolean e(TailInfo tailInfo) {
-        InterceptResult invokeL;
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tailInfo)) == null) {
-            Integer num = tailInfo.tailId;
-            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g.setVisibility(0);
         }
-        return invokeL.booleanValue;
+    }
+
+    public BubbleListData.BubbleData m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            do7 do7Var = this.e;
+            if (do7Var == null) {
+                return null;
+            }
+            return do7Var.getItem(i);
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
+    }
+
+    public void o(List<BubbleListData.BubbleData> list, boolean z) {
+        do7 do7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, list, z) == null) && (do7Var = this.e) != null) {
+            do7Var.d(z);
+            this.e.c(list);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            qq4 layoutMode = this.f.getLayoutMode();
+            boolean z = true;
+            if (i != 1) {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.f.getLayoutMode().k(this.b);
+        }
     }
 }

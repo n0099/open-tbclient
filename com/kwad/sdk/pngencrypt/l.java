@@ -4,8 +4,8 @@ public final class l {
     public final k akJ;
     public final int[] ala;
 
-    public static h yv() {
-        return new h() { // from class: com.kwad.sdk.pngencrypt.l.1
+    public static h<l> yv() {
+        return new h<l>() { // from class: com.kwad.sdk.pngencrypt.l.1
         };
     }
 

@@ -43,31 +43,31 @@ public class LoginHistoryLoginModel {
     }
 
     public static void delBdussLoginHistoryInfo(String str) {
-        List loadHistoryAccounts;
+        List<AccountLoginAction> loadHistoryAccounts;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str) || (loadHistoryAccounts = loadHistoryAccounts()) == null) {
             return;
         }
-        Iterator it = loadHistoryAccounts.iterator();
+        Iterator<AccountLoginAction> it = loadHistoryAccounts.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(str, SecurityUtil.md5(((AccountLoginAction) it.next()).sapiAccount.bduss.getBytes(), false))) {
+            if (TextUtils.equals(str, SecurityUtil.md5(it.next().sapiAccount.bduss.getBytes(), false))) {
                 it.remove();
             }
         }
         SapiContext.getInstance().setLoginHistoryUserInfo(AccountLoginAction.convertActionList2Json(loadHistoryAccounts));
     }
 
-    public static List getAvailableLoginHistoryItems() {
+    public static List<LoginHistoryItem> getAvailableLoginHistoryItems() {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            List loadHistoryAccounts = loadHistoryAccounts();
+            List<AccountLoginAction> loadHistoryAccounts = loadHistoryAccounts();
             if (loadHistoryAccounts != null && loadHistoryAccounts.size() != 0) {
                 ArrayList arrayList = new ArrayList();
                 int size = loadHistoryAccounts.size();
                 for (int i = 0; i < size; i++) {
-                    AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i);
+                    AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i);
                     int i2 = 0;
                     while (true) {
                         if (i2 < arrayList.size()) {
@@ -97,7 +97,7 @@ public class LoginHistoryLoginModel {
         return (List) invokeV.objValue;
     }
 
-    public static List loadHistoryAccounts() {
+    public static List<AccountLoginAction> loadHistoryAccounts() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {

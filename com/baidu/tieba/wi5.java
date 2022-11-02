@@ -1,105 +1,157 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class wi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final byte[] b;
+    public static wi5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CustomMessageListener a;
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wi5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wi5 wi5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wi5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wi5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                this.a.d();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948271558, "Lcom/baidu/tieba/wi5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271558, "Lcom/baidu/tieba/wi5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948271558, "Lcom/baidu/tieba/wi5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        b = new byte[1];
+    }
+
+    public wi5() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948271558, "Lcom/baidu/tieba/wi5;");
-        }
-    }
-
-    public static void a(int i, int i2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            int i3 = 1;
-            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                z = true;
-            } else {
-                z = false;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            StatisticItem statisticItem = new StatisticItem("c10605");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!z) {
-                i3 = 2;
+        }
+        BdNetTypeUtil.init();
+    }
+
+    public static wi5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (b) {
+                    if (c == null) {
+                        c = new wi5();
+                    }
+                }
             }
-            statisticItem.param("obj_id", i3);
-            if (z) {
-                statisticItem.param("obj_locate", i);
-            } else {
-                statisticItem.param("obj_param1", i2);
+            return c;
+        }
+        return (wi5) invokeV.objValue;
+    }
+
+    public final CustomMessageListener c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this, 2000994);
+        }
+        return (CustomMessageListener) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = c();
+                    MessageManager.getInstance().registerListener(this.a);
+                }
+            } catch (Exception e) {
+                this.a = null;
+                BdLog.e(e.getMessage());
             }
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            int i = 1;
-            a = true;
-            StatisticItem statisticItem = new StatisticItem("c14994");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual()) {
-                i = 2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
+                if (isNetWorkAvailable) {
+                    if (BdNetTypeUtil.isWifiNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(true);
+                        eh8.e().f();
+                    } else if (BdNetTypeUtil.isMobileNet()) {
+                        TbImageHelper.getInstance().setNetworkIsWifi(false);
+                    }
+                }
+                NoNetworkView.setIsHasNetwork(isNetWorkAvailable);
+                CompatibleUtile.dealWebView(null);
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 1);
-            TiebaStatic.log(statisticItem);
         }
     }
 }

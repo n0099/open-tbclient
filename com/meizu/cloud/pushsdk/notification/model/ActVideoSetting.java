@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.meizu.cloud.pushsdk.notification.model.ActVideoSetting.1
+    public static final Parcelable.Creator<ActVideoSetting> CREATOR = new Parcelable.Creator<ActVideoSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.ActVideoSetting.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */

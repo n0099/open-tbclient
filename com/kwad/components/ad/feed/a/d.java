@@ -13,6 +13,8 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,7 +38,7 @@ public final class d extends FrameLayout {
     public ImageView dz;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d(Context context) {
+    public d(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -57,7 +59,7 @@ public final class d extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d(Context context, AttributeSet attributeSet) {
+    public d(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, null, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,7 +80,7 @@ public final class d extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(Context context, AttributeSet attributeSet, int i) {
+    public d(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -103,10 +105,10 @@ public final class d extends FrameLayout {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0448, this);
-            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b4);
-            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091102);
-            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b1);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0453, this);
+            this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f1);
+            this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f09113c);
+            this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ee);
         }
     }
 
@@ -256,7 +258,7 @@ public final class d extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ROTATION, 0.0f, -10.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, -10.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f));
             AnimatorSet animatorSet = new AnimatorSet();
@@ -271,7 +273,7 @@ public final class d extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ROTATION, -10.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "rotation", -10.0f, 0.0f);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, -com.kwad.sdk.b.kwai.a.a(getContext(), 9.5f), 0.0f);
             AnimatorSet animatorSet = new AnimatorSet();

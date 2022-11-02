@@ -1,13 +1,14 @@
 package com.kwad.sdk.core.report;
 
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class c extends com.kwad.sdk.core.response.kwai.a {
     public String ZR;
     public JSONObject ZS;
 
     @Override // com.kwad.sdk.core.response.kwai.a
-    public void afterParseJson(JSONObject jSONObject) {
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         super.afterParseJson(jSONObject);
         if (jSONObject != null) {
             this.ZS = jSONObject.optJSONObject("mMergeJsonData");

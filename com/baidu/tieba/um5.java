@@ -1,24 +1,88 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes6.dex */
-public final class um5 extends Handler {
+public class um5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+    public int a;
+    public TiebaPlusInfo b;
+    public TiePlusStat.ThreadType c;
+    public String d;
+    public String e;
+    public TiePlusStat.StatType f;
+    public TiePlusStat.LandingType g;
+    public TiePlusStat.CardBtnType h;
+    public TiePlusStat.RichTextType i;
+    public ThreadData j;
+    public int k;
 
-    public um5(WheelView wheelView) {
+    @NonNull
+    public um5 a(@Nullable PostData postData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, postData)) == null) ? this : (um5) invokeL.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-370357073, "Lcom/baidu/tieba/um5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-370357073, "Lcom/baidu/tieba/um5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[TiePlusStat.Locate.values().length];
+            a = iArr;
+            try {
+                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[TiePlusStat.Locate.PB.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    public um5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,26 +92,185 @@ public final class um5 extends Handler {
                 return;
             }
         }
-        this.a = wheelView;
+        this.h = null;
+        this.i = TiePlusStat.RichTextType.LINK;
+        this.k = -1;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    public TiePlusStat.CardBtnType d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i != 1000) {
-                if (i != 2000) {
-                    if (i == 3000) {
-                        this.a.n();
-                        return;
-                    }
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (TiePlusStat.CardBtnType) invokeV.objValue;
+    }
+
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return String.valueOf(this.j.getDispatchedForumId());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            zi5.c(!TextUtils.isEmpty(this.e));
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.LandingType g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (TiePlusStat.LandingType) invokeV.objValue;
+    }
+
+    public TiePlusStat.RichTextType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (TiePlusStat.RichTextType) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.StatType j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            zi5.b(this.f);
+            return this.f;
+        }
+        return (TiePlusStat.StatType) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.ThreadType l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (TiePlusStat.ThreadType) invokeV.objValue;
+    }
+
+    @NonNull
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiebaPlusInfo n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (TiebaPlusInfo) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public static um5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
+            int intValue = tiebaPlusInfo.jump_type.intValue();
+            um5 um5Var = new um5();
+            um5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
+            um5Var.g = TiePlusStat.LandingType.create(intValue);
+            um5Var.i = TiePlusStat.RichTextType.create(i);
+            um5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
+            um5Var.b = tiebaPlusInfo;
+            um5Var.c = TiePlusStat.ThreadType.create(threadData);
+            um5Var.d = threadData.getTid();
+            um5Var.e = String.valueOf(threadData.getFid());
+            um5Var.j = threadData;
+            return um5Var;
+        }
+        return (um5) invokeILL.objValue;
+    }
+
+    public um5 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.k = i;
+            return this;
+        }
+        return (um5) invokeI.objValue;
+    }
+
+    public int i(@NonNull TiePlusStat.Locate locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
+            int i = a.a[locate.ordinal()];
+            if (i != 1 && i != 2) {
+                if (i != 3 && i != 4) {
+                    return -1;
                 }
-                this.a.r(WheelView.ACTION.FLING);
-                return;
+                return this.k;
             }
-            this.a.invalidate();
+            return k().statFloor;
+        }
+        return invokeL.intValue;
+    }
+
+    public void p(TiePlusStat.RichTextType richTextType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
+            this.i = richTextType;
+        }
+    }
+
+    public void q(@NonNull TiePlusStat.StatType statType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
+            this.f = statType;
+        }
+    }
+
+    public void r(TiebaPlusInfo tiebaPlusInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
+            this.b = tiebaPlusInfo;
         }
     }
 }

@@ -19,6 +19,8 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
@@ -72,38 +74,50 @@ public class FloatingActionButtonImpl {
     public static final float SHOW_SCALE = 1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public int animState;
+    @Nullable
     public BorderDrawable borderDrawable;
+    @Nullable
     public Drawable contentBackground;
+    @Nullable
     public Animator currentAnimator;
+    @Nullable
     public MotionSpec defaultHideMotionSpec;
+    @Nullable
     public MotionSpec defaultShowMotionSpec;
     public float elevation;
     public boolean ensureMinTouchTargetSize;
-    public ArrayList hideListeners;
+    public ArrayList<Animator.AnimatorListener> hideListeners;
+    @Nullable
     public MotionSpec hideMotionSpec;
     public float hoveredFocusedTranslationZ;
     public float imageMatrixScale;
     public int maxImageSize;
     public int minTouchTargetSize;
+    @Nullable
     public ViewTreeObserver.OnPreDrawListener preDrawListener;
     public float pressedTranslationZ;
+    @Nullable
     public Drawable rippleDrawable;
     public float rotation;
     public boolean shadowPaddingEnabled;
     public final ShadowViewDelegate shadowViewDelegate;
+    @Nullable
     public ShapeAppearanceModel shapeAppearance;
+    @Nullable
     public MaterialShapeDrawable shapeDrawable;
-    public ArrayList showListeners;
+    public ArrayList<Animator.AnimatorListener> showListeners;
+    @Nullable
     public MotionSpec showMotionSpec;
+    @NonNull
     public final StateListAnimator stateListAnimator;
     public final Matrix tmpMatrix;
     public final Rect tmpRect;
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
-    public ArrayList transformationCallbacks;
+    public ArrayList<InternalTransformationCallback> transformationCallbacks;
 
     /* renamed from: view  reason: collision with root package name */
-    public final FloatingActionButton f1073view;
+    public final FloatingActionButton f1074view;
 
     /* loaded from: classes7.dex */
     public interface InternalTransformationCallback {
@@ -340,7 +354,7 @@ public class FloatingActionButtonImpl {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
             float elevation;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueAnimator) == null) {
@@ -406,7 +420,7 @@ public class FloatingActionButtonImpl {
         this.tmpRectF1 = new RectF();
         this.tmpRectF2 = new RectF();
         this.tmpMatrix = new Matrix();
-        this.f1073view = floatingActionButton;
+        this.f1074view = floatingActionButton;
         this.shadowViewDelegate = shadowViewDelegate;
         StateListAnimator stateListAnimator = new StateListAnimator();
         this.stateListAnimator = stateListAnimator;
@@ -416,14 +430,14 @@ public class FloatingActionButtonImpl {
         this.stateListAnimator.addState(HOVERED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToHoveredFocusedTranslationZAnimation(this)));
         this.stateListAnimator.addState(ENABLED_STATE_SET, createElevationAnimator(new ResetElevationAnimation(this)));
         this.stateListAnimator.addState(EMPTY_STATE_SET, createElevationAnimator(new DisabledElevationAnimation(this)));
-        this.rotation = this.f1073view.getRotation();
+        this.rotation = this.f1074view.getRotation();
     }
 
-    private void calculateImageMatrixFromScale(float f, Matrix matrix) {
+    private void calculateImageMatrixFromScale(float f, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f), matrix}) == null) {
             matrix.reset();
-            Drawable drawable = this.f1073view.getDrawable();
+            Drawable drawable = this.f1074view.getDrawable();
             if (drawable != null && this.maxImageSize != 0) {
                 RectF rectF = this.tmpRectF1;
                 RectF rectF2 = this.tmpRectF2;
@@ -437,24 +451,25 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    private AnimatorSet createAnimator(MotionSpec motionSpec, float f, float f2, float f3) {
+    @NonNull
+    private AnimatorSet createAnimator(@NonNull MotionSpec motionSpec, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{motionSpec, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             ArrayList arrayList = new ArrayList();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f1073view, View.ALPHA, f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f1074view, View.ALPHA, f);
             motionSpec.getTiming(NativeConstants.OPACITY).apply(ofFloat);
             arrayList.add(ofFloat);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f1073view, View.SCALE_X, f2);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f1074view, View.SCALE_X, f2);
             motionSpec.getTiming("scale").apply(ofFloat2);
             workAroundOreoBug(ofFloat2);
             arrayList.add(ofFloat2);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f1073view, View.SCALE_Y, f2);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f1074view, View.SCALE_Y, f2);
             motionSpec.getTiming("scale").apply(ofFloat3);
             workAroundOreoBug(ofFloat3);
             arrayList.add(ofFloat3);
             calculateImageMatrixFromScale(f3, this.tmpMatrix);
-            ObjectAnimator ofObject = ObjectAnimator.ofObject(this.f1073view, new ImageMatrixProperty(), new MatrixEvaluator(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
+            ObjectAnimator ofObject = ObjectAnimator.ofObject(this.f1074view, new ImageMatrixProperty(), new MatrixEvaluator(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FloatingActionButtonImpl this$0;
@@ -478,8 +493,9 @@ public class FloatingActionButtonImpl {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.android.material.animation.MatrixEvaluator, android.animation.TypeEvaluator
-                public Matrix evaluate(float f4, Matrix matrix, Matrix matrix2) {
+                public Matrix evaluate(float f4, @NonNull Matrix matrix, @NonNull Matrix matrix2) {
                     InterceptResult invokeCommon2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && (invokeCommon2 = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f4), matrix, matrix2})) != null) {
@@ -498,7 +514,8 @@ public class FloatingActionButtonImpl {
         return (AnimatorSet) invokeCommon.objValue;
     }
 
-    private ValueAnimator createElevationAnimator(ShadowAnimatorImpl shadowAnimatorImpl) {
+    @NonNull
+    private ValueAnimator createElevationAnimator(@NonNull ShadowAnimatorImpl shadowAnimatorImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, shadowAnimatorImpl)) == null) {
@@ -513,7 +530,7 @@ public class FloatingActionButtonImpl {
         return (ValueAnimator) invokeL.objValue;
     }
 
-    public void onPaddingUpdated(Rect rect) {
+    public void onPaddingUpdated(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
             Preconditions.checkNotNull(this.contentBackground, "Didn't initialize content background");
@@ -530,7 +547,7 @@ public class FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             if (this.defaultHideMotionSpec == null) {
-                this.defaultHideMotionSpec = MotionSpec.createFromResource(this.f1073view.getContext(), R.animator.obfuscated_res_0x7f020001);
+                this.defaultHideMotionSpec = MotionSpec.createFromResource(this.f1074view.getContext(), R.animator.obfuscated_res_0x7f020001);
             }
             return (MotionSpec) Preconditions.checkNotNull(this.defaultHideMotionSpec);
         }
@@ -542,13 +559,14 @@ public class FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             if (this.defaultShowMotionSpec == null) {
-                this.defaultShowMotionSpec = MotionSpec.createFromResource(this.f1073view.getContext(), R.animator.obfuscated_res_0x7f020002);
+                this.defaultShowMotionSpec = MotionSpec.createFromResource(this.f1074view.getContext(), R.animator.obfuscated_res_0x7f020002);
             }
             return (MotionSpec) Preconditions.checkNotNull(this.defaultShowMotionSpec);
         }
         return (MotionSpec) invokeV.objValue;
     }
 
+    @NonNull
     private ViewTreeObserver.OnPreDrawListener getOrCreatePreDrawListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -598,7 +616,7 @@ public class FloatingActionButtonImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            if (ViewCompat.isLaidOut(this.f1073view) && !this.f1073view.isInEditMode()) {
+            if (ViewCompat.isLaidOut(this.f1074view) && !this.f1074view.isInEditMode()) {
                 return true;
             }
             return false;
@@ -615,6 +633,7 @@ public class FloatingActionButtonImpl {
         return (MaterialShapeDrawable) invokeV.objValue;
     }
 
+    @Nullable
     public final Drawable getContentBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -642,6 +661,7 @@ public class FloatingActionButtonImpl {
         return invokeV.booleanValue;
     }
 
+    @Nullable
     public final MotionSpec getHideMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -669,6 +689,7 @@ public class FloatingActionButtonImpl {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public final ShapeAppearanceModel getShapeAppearance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -678,6 +699,7 @@ public class FloatingActionButtonImpl {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @Nullable
     public final MotionSpec getShowMotionSpec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -691,7 +713,7 @@ public class FloatingActionButtonImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f1073view.getVisibility() == 0) {
+            if (this.f1074view.getVisibility() == 0) {
                 if (this.animState != 1) {
                     return false;
                 }
@@ -709,7 +731,7 @@ public class FloatingActionButtonImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.f1073view.getVisibility() != 0) {
+            if (this.f1074view.getVisibility() != 0) {
                 if (this.animState != 2) {
                     return false;
                 }
@@ -735,10 +757,10 @@ public class FloatingActionButtonImpl {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
             if (materialShapeDrawable != null) {
-                MaterialShapeUtils.setParentAbsoluteElevation(this.f1073view, materialShapeDrawable);
+                MaterialShapeUtils.setParentAbsoluteElevation(this.f1074view, materialShapeDrawable);
             }
             if (requirePreDrawListener()) {
-                this.f1073view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
+                this.f1074view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
             }
         }
     }
@@ -746,7 +768,7 @@ public class FloatingActionButtonImpl {
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            ViewTreeObserver viewTreeObserver = this.f1073view.getViewTreeObserver();
+            ViewTreeObserver viewTreeObserver = this.f1074view.getViewTreeObserver();
             ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
             if (onPreDrawListener != null) {
                 viewTreeObserver.removeOnPreDrawListener(onPreDrawListener);
@@ -758,7 +780,7 @@ public class FloatingActionButtonImpl {
     public void onPreDraw() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            float rotation = this.f1073view.getRotation();
+            float rotation = this.f1074view.getRotation();
             if (this.rotation != rotation) {
                 this.rotation = rotation;
                 updateFromViewRotation();
@@ -767,23 +789,23 @@ public class FloatingActionButtonImpl {
     }
 
     public void onScaleChanged() {
-        ArrayList arrayList;
+        ArrayList<InternalTransformationCallback> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (arrayList = this.transformationCallbacks) != null) {
-            Iterator it = arrayList.iterator();
+            Iterator<InternalTransformationCallback> it = arrayList.iterator();
             while (it.hasNext()) {
-                ((InternalTransformationCallback) it.next()).onScaleChanged();
+                it.next().onScaleChanged();
             }
         }
     }
 
     public void onTranslationChanged() {
-        ArrayList arrayList;
+        ArrayList<InternalTransformationCallback> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (arrayList = this.transformationCallbacks) != null) {
-            Iterator it = arrayList.iterator();
+            Iterator<InternalTransformationCallback> it = arrayList.iterator();
             while (it.hasNext()) {
-                ((InternalTransformationCallback) it.next()).onTranslationChanged();
+                it.next().onTranslationChanged();
             }
         }
     }
@@ -792,7 +814,7 @@ public class FloatingActionButtonImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            if (this.ensureMinTouchTargetSize && this.f1073view.getSizeDimension() < this.minTouchTargetSize) {
+            if (this.ensureMinTouchTargetSize && this.f1074view.getSizeDimension() < this.minTouchTargetSize) {
                 return false;
             }
             return true;
@@ -822,7 +844,7 @@ public class FloatingActionButtonImpl {
         if ((interceptable != null && interceptable.invokeL(65548, this, objectAnimator) != null) || Build.VERSION.SDK_INT != 26) {
             return;
         }
-        objectAnimator.setEvaluator(new TypeEvaluator(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
+        objectAnimator.setEvaluator(new TypeEvaluator<Float>(this) { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public FloatEvaluator floatEvaluator;
@@ -864,31 +886,31 @@ public class FloatingActionButtonImpl {
         });
     }
 
-    public void addOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
             if (this.hideListeners == null) {
-                this.hideListeners = new ArrayList();
+                this.hideListeners = new ArrayList<>();
             }
             this.hideListeners.add(animatorListener);
         }
     }
 
-    public void addOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
+    public void addOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animatorListener) == null) {
             if (this.showListeners == null) {
-                this.showListeners = new ArrayList();
+                this.showListeners = new ArrayList<>();
             }
             this.showListeners.add(animatorListener);
         }
     }
 
-    public void addTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
+    public void addTransformationCallback(@NonNull InternalTransformationCallback internalTransformationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, internalTransformationCallback) == null) {
             if (this.transformationCallbacks == null) {
-                this.transformationCallbacks = new ArrayList();
+                this.transformationCallbacks = new ArrayList<>();
             }
             this.transformationCallbacks.add(internalTransformationCallback);
         }
@@ -901,8 +923,8 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void removeOnHideAnimationListener(Animator.AnimatorListener animatorListener) {
-        ArrayList arrayList;
+    public void removeOnHideAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
+        ArrayList<Animator.AnimatorListener> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048603, this, animatorListener) != null) || (arrayList = this.hideListeners) == null) {
             return;
@@ -910,8 +932,8 @@ public class FloatingActionButtonImpl {
         arrayList.remove(animatorListener);
     }
 
-    public void removeOnShowAnimationListener(Animator.AnimatorListener animatorListener) {
-        ArrayList arrayList;
+    public void removeOnShowAnimationListener(@NonNull Animator.AnimatorListener animatorListener) {
+        ArrayList<Animator.AnimatorListener> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048604, this, animatorListener) != null) || (arrayList = this.showListeners) == null) {
             return;
@@ -919,8 +941,8 @@ public class FloatingActionButtonImpl {
         arrayList.remove(animatorListener);
     }
 
-    public void removeTransformationCallback(InternalTransformationCallback internalTransformationCallback) {
-        ArrayList arrayList;
+    public void removeTransformationCallback(@NonNull InternalTransformationCallback internalTransformationCallback) {
+        ArrayList<InternalTransformationCallback> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048605, this, internalTransformationCallback) != null) || (arrayList = this.transformationCallbacks) == null) {
             return;
@@ -928,7 +950,7 @@ public class FloatingActionButtonImpl {
         arrayList.remove(internalTransformationCallback);
     }
 
-    public void setBackgroundTintList(ColorStateList colorStateList) {
+    public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, colorStateList) == null) {
             MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
@@ -942,7 +964,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void setBackgroundTintMode(PorterDuff.Mode mode) {
+    public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         MaterialShapeDrawable materialShapeDrawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048608, this, mode) == null) && (materialShapeDrawable = this.shapeDrawable) != null) {
@@ -965,7 +987,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public final void setHideMotionSpec(MotionSpec motionSpec) {
+    public final void setHideMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, motionSpec) == null) {
             this.hideMotionSpec = motionSpec;
@@ -986,7 +1008,7 @@ public class FloatingActionButtonImpl {
             this.imageMatrixScale = f;
             Matrix matrix = this.tmpMatrix;
             calculateImageMatrixFromScale(f, matrix);
-            this.f1073view.setImageMatrix(matrix);
+            this.f1074view.setImageMatrix(matrix);
         }
     }
 
@@ -1013,7 +1035,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048617, this, colorStateList) == null) && (drawable = this.rippleDrawable) != null) {
@@ -1029,7 +1051,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public final void setShapeAppearance(ShapeAppearanceModel shapeAppearanceModel) {
+    public final void setShapeAppearance(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, shapeAppearanceModel) == null) {
             this.shapeAppearance = shapeAppearanceModel;
@@ -1048,7 +1070,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public final void setShowMotionSpec(MotionSpec motionSpec) {
+    public final void setShowMotionSpec(@Nullable MotionSpec motionSpec) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, motionSpec) == null) {
             this.showMotionSpec = motionSpec;
@@ -1063,13 +1085,13 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void getPadding(Rect rect) {
+    public void getPadding(@NonNull Rect rect) {
         int i;
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
             if (this.ensureMinTouchTargetSize) {
-                i = (this.minTouchTargetSize - this.f1073view.getSizeDimension()) / 2;
+                i = (this.minTouchTargetSize - this.f1074view.getSizeDimension()) / 2;
             } else {
                 i = 0;
             }
@@ -1084,7 +1106,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void hide(InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
+    public void hide(@Nullable InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048589, this, internalVisibilityChangedListener, z) != null) || isOrWillBeHidden()) {
@@ -1140,7 +1162,7 @@ public class FloatingActionButtonImpl {
                 public void onAnimationStart(Animator animator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator2) == null) {
-                        this.this$0.f1073view.internalSetVisibility(0, this.val$fromUser);
+                        this.this$0.f1074view.internalSetVisibility(0, this.val$fromUser);
                         this.this$0.animState = 1;
                         this.this$0.currentAnimator = animator2;
                         this.cancelled = false;
@@ -1155,7 +1177,7 @@ public class FloatingActionButtonImpl {
                         this.this$0.animState = 0;
                         this.this$0.currentAnimator = null;
                         if (!this.cancelled) {
-                            FloatingActionButton floatingActionButton = this.this$0.f1073view;
+                            FloatingActionButton floatingActionButton = this.this$0.f1074view;
                             if (this.val$fromUser) {
                                 i2 = 8;
                             } else {
@@ -1170,17 +1192,17 @@ public class FloatingActionButtonImpl {
                     }
                 }
             });
-            ArrayList arrayList = this.hideListeners;
+            ArrayList<Animator.AnimatorListener> arrayList = this.hideListeners;
             if (arrayList != null) {
-                Iterator it = arrayList.iterator();
+                Iterator<Animator.AnimatorListener> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    createAnimator.addListener((Animator.AnimatorListener) it.next());
+                    createAnimator.addListener(it.next());
                 }
             }
             createAnimator.start();
             return;
         }
-        FloatingActionButton floatingActionButton = this.f1073view;
+        FloatingActionButton floatingActionButton = this.f1074view;
         if (z) {
             i = 8;
         } else {
@@ -1192,7 +1214,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void show(InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
+    public void show(@Nullable InternalVisibilityChangedListener internalVisibilityChangedListener, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048623, this, internalVisibilityChangedListener, z) != null) || isOrWillBeShown()) {
             return;
@@ -1202,10 +1224,10 @@ public class FloatingActionButtonImpl {
             animator.cancel();
         }
         if (shouldAnimateVisibilityChange()) {
-            if (this.f1073view.getVisibility() != 0) {
-                this.f1073view.setAlpha(0.0f);
-                this.f1073view.setScaleY(0.0f);
-                this.f1073view.setScaleX(0.0f);
+            if (this.f1074view.getVisibility() != 0) {
+                this.f1074view.setAlpha(0.0f);
+                this.f1074view.setScaleY(0.0f);
+                this.f1074view.setScaleX(0.0f);
                 setImageMatrixScale(0.0f);
             }
             MotionSpec motionSpec = this.showMotionSpec;
@@ -1258,33 +1280,33 @@ public class FloatingActionButtonImpl {
                 public void onAnimationStart(Animator animator2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator2) == null) {
-                        this.this$0.f1073view.internalSetVisibility(0, this.val$fromUser);
+                        this.this$0.f1074view.internalSetVisibility(0, this.val$fromUser);
                         this.this$0.animState = 2;
                         this.this$0.currentAnimator = animator2;
                     }
                 }
             });
-            ArrayList arrayList = this.showListeners;
+            ArrayList<Animator.AnimatorListener> arrayList = this.showListeners;
             if (arrayList != null) {
-                Iterator it = arrayList.iterator();
+                Iterator<Animator.AnimatorListener> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    createAnimator.addListener((Animator.AnimatorListener) it.next());
+                    createAnimator.addListener(it.next());
                 }
             }
             createAnimator.start();
             return;
         }
-        this.f1073view.internalSetVisibility(0, z);
-        this.f1073view.setAlpha(1.0f);
-        this.f1073view.setScaleY(1.0f);
-        this.f1073view.setScaleX(1.0f);
+        this.f1074view.internalSetVisibility(0, z);
+        this.f1074view.setAlpha(1.0f);
+        this.f1074view.setScaleY(1.0f);
+        this.f1074view.setScaleX(1.0f);
         setImageMatrixScale(1.0f);
         if (internalVisibilityChangedListener != null) {
             internalVisibilityChangedListener.onShown();
         }
     }
 
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048590, this, colorStateList, mode, colorStateList2, i) == null) {
             MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
@@ -1294,7 +1316,7 @@ public class FloatingActionButtonImpl {
                 this.shapeDrawable.setTintMode(mode);
             }
             this.shapeDrawable.setShadowColor(-12303292);
-            this.shapeDrawable.initializeElevationOverlay(this.f1073view.getContext());
+            this.shapeDrawable.initializeElevationOverlay(this.f1074view.getContext());
             RippleDrawableCompat rippleDrawableCompat = new RippleDrawableCompat(this.shapeDrawable.getShapeAppearanceModel());
             rippleDrawableCompat.setTintList(RippleUtils.sanitizeRippleDrawableColor(colorStateList2));
             this.rippleDrawable = rippleDrawableCompat;
@@ -1315,11 +1337,11 @@ public class FloatingActionButtonImpl {
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             if (Build.VERSION.SDK_INT == 19) {
                 if (this.rotation % 90.0f != 0.0f) {
-                    if (this.f1073view.getLayerType() != 1) {
-                        this.f1073view.setLayerType(1, null);
+                    if (this.f1074view.getLayerType() != 1) {
+                        this.f1074view.setLayerType(1, null);
                     }
-                } else if (this.f1073view.getLayerType() != 0) {
-                    this.f1073view.setLayerType(0, null);
+                } else if (this.f1074view.getLayerType() != 0) {
+                    this.f1074view.setLayerType(0, null);
                 }
             }
             MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;

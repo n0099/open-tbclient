@@ -1,5 +1,7 @@
 package com.kwad.components.ad.reward.h;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,10 +16,10 @@ public final class l extends com.kwad.components.core.webview.jshandler.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long ss;
-    public WeakReference tR;
+    public WeakReference<com.kwad.components.ad.reward.k> tR;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.c.a.c cVar, com.kwad.components.ad.reward.k kVar, long j, com.kwad.sdk.core.webview.a.kwai.a aVar) {
+    public l(@NonNull com.kwad.sdk.core.webview.b bVar, @Nullable com.kwad.components.core.c.a.c cVar, @Nullable com.kwad.components.ad.reward.k kVar, long j, @Nullable com.kwad.sdk.core.webview.a.kwai.a aVar) {
         super(bVar, cVar, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,7 +40,7 @@ public final class l extends com.kwad.components.core.webview.jshandler.f {
         this.ss = -1L;
         this.ss = j;
         if (kVar != null) {
-            this.tR = new WeakReference(kVar);
+            this.tR = new WeakReference<>(kVar);
         }
     }
 
@@ -46,6 +48,7 @@ public final class l extends com.kwad.components.core.webview.jshandler.f {
         if (r0 > 0) goto L8;
      */
     @Override // com.kwad.components.core.webview.jshandler.f
+    @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -54,8 +57,8 @@ public final class l extends com.kwad.components.core.webview.jshandler.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, adTemplate)) == null) {
             u.b a = super.a(aVar, adTemplate);
-            WeakReference weakReference = this.tR;
-            long j = (weakReference == null || weakReference.get() == null) ? this.ss : ((com.kwad.components.ad.reward.k) this.tR.get()).eF.getPlayDuration();
+            WeakReference<com.kwad.components.ad.reward.k> weakReference = this.tR;
+            long j = (weakReference == null || weakReference.get() == null) ? this.ss : this.tR.get().eF.getPlayDuration();
             a.ss = j;
             return a;
         }

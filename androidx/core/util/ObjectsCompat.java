@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.os.Build;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +28,7 @@ public class ObjectsCompat {
         }
     }
 
-    public static boolean equals(Object obj, Object obj2) {
+    public static boolean equals(@Nullable Object obj, @Nullable Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, obj2)) == null) {
@@ -42,7 +43,7 @@ public class ObjectsCompat {
         return invokeLL.booleanValue;
     }
 
-    public static int hash(Object... objArr) {
+    public static int hash(@Nullable Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, objArr)) == null) {
@@ -54,7 +55,7 @@ public class ObjectsCompat {
         return invokeL.intValue;
     }
 
-    public static int hashCode(Object obj) {
+    public static int hashCode(@Nullable Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {

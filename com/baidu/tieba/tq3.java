@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tq3 implements an1 {
+public class tq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tq3() {
+    public static synchronized sq3 a() {
+        InterceptResult invokeV;
+        sq3 sq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tq3.class) {
+                if (a == null) {
+                    a = new sq3();
+                }
+                sq3Var = a;
             }
+            return sq3Var;
         }
-    }
-
-    @Override // com.baidu.tieba.an1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
-        }
-        return (String) invokeL.objValue;
+        return (sq3) invokeV.objValue;
     }
 }

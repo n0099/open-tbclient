@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.oe5;
+import com.baidu.tieba.kf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void Y0() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
@@ -41,7 +41,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public RelevanceItemSearchView b1() {
+    public RelevanceItemSearchView d1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -63,7 +63,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public oe5 M0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public kf5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -71,13 +71,34 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.k = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (oe5) invokeLL.objValue;
+        return (kf5) invokeLL.objValue;
     }
 
-    public boolean c1(View view2, MotionEvent motionEvent) {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                View currentFocus = getCurrentFocus();
+                if (f1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
+                }
+                return super.dispatchTouchEvent(motionEvent);
+            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
+                return true;
+            } else {
+                return onTouchEvent(motionEvent);
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean f1(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
             if (view2 == null || !(view2 instanceof EditText)) {
                 return false;
             }
@@ -93,26 +114,5 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             return true;
         }
         return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                View currentFocus = getCurrentFocus();
-                if (c1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
-                    inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-                }
-                return super.dispatchTouchEvent(motionEvent);
-            } else if (getWindow().superDispatchTouchEvent(motionEvent)) {
-                return true;
-            } else {
-                return onTouchEvent(motionEvent);
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

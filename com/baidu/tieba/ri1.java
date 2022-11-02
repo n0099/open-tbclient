@@ -1,21 +1,64 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class ri1 implements pi1 {
+public class ri1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ri1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public HandlerThread a;
+    public Handler b;
 
-    public abstract void b();
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ri1 ri1Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ri1Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                oi1 oi1Var = new oi1();
+                oi1Var.a = message.arg2;
+                int i = message.arg1;
+                if (i == -1) {
+                    i = pi1.j().a();
+                }
+                pi1.j().c(message.what, 3, 2019, i, "out time.", oi1Var, true);
+            }
+        }
+    }
+
     public ri1() {
-        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,49 +66,45 @@ public abstract class ri1 implements pi1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        HandlerThread handlerThread = new HandlerThread("callback-handler");
+        this.a = handlerThread;
+        this.b = null;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static ri1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
-        }
-    }
-
-    public ri1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ri1.class) {
+                    if (c == null) {
+                        c = new ri1();
+                    }
+                }
             }
+            return c;
         }
-        this.a = i;
+        return (ri1) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(ri1 ri1Var) {
-        InterceptResult invokeL;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ri1Var)) == null) {
-            return ri1Var.a - this.a;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.removeMessages(i);
         }
-        return invokeL.intValue;
+    }
+
+    public void c(Message message, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
+            this.b.sendMessageDelayed(message, j);
+        }
     }
 }

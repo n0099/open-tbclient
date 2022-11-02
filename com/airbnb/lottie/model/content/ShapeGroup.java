@@ -9,16 +9,16 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ShapeGroup implements ContentModel {
     public final boolean hidden;
-    public final List items;
+    public final List<ContentModel> items;
     public final String name;
 
-    public ShapeGroup(String str, List list, boolean z) {
+    public ShapeGroup(String str, List<ContentModel> list, boolean z) {
         this.name = str;
         this.items = list;
         this.hidden = z;
     }
 
-    public List getItems() {
+    public List<ContentModel> getItems() {
         return this.items;
     }
 

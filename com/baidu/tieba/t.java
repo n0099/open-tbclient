@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public class t {
         return (s) invokeV.objValue;
     }
 
-    public static Object b(Class cls, Class[] clsArr, Object[] objArr) {
+    public static Object b(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, clsArr, objArr)) == null) {
             try {
-                Constructor declaredConstructor = cls.getDeclaredConstructor(clsArr);
+                Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);
                 declaredConstructor.setAccessible(true);
                 return declaredConstructor.newInstance(objArr);
             } catch (Exception e) {
@@ -109,17 +109,17 @@ public class t {
         return invokeLL.objValue;
     }
 
-    public static boolean f(Object[] objArr, Object obj) {
+    public static <T> boolean f(T[] tArr, T t) {
         InterceptResult invokeLL;
         int i;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, objArr, obj)) == null) {
-            if (objArr != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, tArr, t)) == null) {
+            if (tArr != null) {
                 i = 0;
-                while (i < objArr.length) {
-                    Object obj2 = objArr[i];
-                    if (obj2 != obj && (obj2 == null || !obj2.equals(obj))) {
+                while (i < tArr.length) {
+                    T t2 = tArr[i];
+                    if (t2 != t && (t2 == null || !t2.equals(t))) {
                         z = false;
                     } else {
                         z = true;

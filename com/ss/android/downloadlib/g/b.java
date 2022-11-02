@@ -1,40 +1,42 @@
 package com.ss.android.downloadlib.g;
 
+import android.annotation.TargetApi;
 import android.os.AsyncTask;
 /* loaded from: classes8.dex */
 public class b {
-    public static final a a = new C0659b();
+    public static final a a = new C0670b();
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public a() {
         }
 
-        public void a(AsyncTask asyncTask, Object... objArr) {
+        public <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
             try {
-                asyncTask.execute(objArr);
+                asyncTask.execute(tArr);
             } catch (Throwable unused) {
             }
         }
     }
 
+    @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0659b extends a {
-        public C0659b() {
+    public static class C0670b extends a {
+        public C0670b() {
             super();
         }
 
         @Override // com.ss.android.downloadlib.g.b.a
-        public void a(AsyncTask asyncTask, Object... objArr) {
+        public <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
             try {
-                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, objArr);
+                asyncTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, tArr);
             } catch (Throwable unused) {
             }
         }
     }
 
-    public static void a(AsyncTask asyncTask, Object... objArr) {
-        a.a(asyncTask, objArr);
+    public static <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
+        a.a(asyncTask, tArr);
     }
 }

@@ -564,7 +564,7 @@ public class BasicBehaviorController {
         loadStoredAsync();
     }
 
-    public static boolean empty(Info info) {
+    public static boolean empty(Info<?> info) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, info)) == null) {

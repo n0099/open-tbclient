@@ -13,7 +13,7 @@ import com.facebook.fresco.animation.frame.FrameScheduler;
 /* loaded from: classes7.dex */
 public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.DrawListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Class TAG;
+    public static final Class<?> TAG;
     public transient /* synthetic */ FieldHolder $fh;
     public int mDrawCalls;
     public int mDuplicateFrames;

@@ -1,37 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class jy5 extends p95 {
+public class jy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaPersonCenterFragment c;
+    public r9 a;
+    public final List<jn> b;
+    public BdTypeMultiColumnListView c;
+    public ky5 d;
+    public ny5 e;
 
-    @Override // com.baidu.tieba.p95
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public jy5() {
+    public jy5(r9 r9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,74 +34,42 @@ public class jy5 extends p95 {
                 return;
             }
         }
-        this.c = new AlaPersonCenterFragment();
-        b().a = this.c;
+        this.b = new ArrayList();
+        this.a = r9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.p95
-    public q95 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q95 q95Var = new q95();
-            q95Var.e = 5;
-            q95Var.b = R.string.obfuscated_res_0x7f0f0226;
-            q95Var.i = q95.k;
-            return q95Var;
-        }
-        return (q95) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p95
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ed, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(ki6 ki6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ki6Var) != null) || ki6Var == null || !ki6Var.h(5)) {
-            return;
-        }
-        ki6Var.a(this);
-    }
-
-    public void h(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
-            alaPersonCenterFragment.q1(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new ky5((TbPageContext) this.a, qy5.b);
+            this.e = new ny5((TbPageContext) this.a, qy5.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    public void i(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
+    public void b(zu5 zu5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
-            alaPersonCenterFragment.r1(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zu5Var) == null) {
+            ky5 ky5Var = this.d;
+            if (ky5Var != null) {
+                ky5Var.u(zu5Var);
+            }
+            ny5 ny5Var = this.e;
+            if (ny5Var != null) {
+                ny5Var.u(zu5Var);
+            }
         }
     }
 
-    public void j(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
+    public void c(List<wn> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
-            alaPersonCenterFragment.s1(str);
-        }
-    }
-
-    public void k(String str) {
-        AlaPersonCenterFragment alaPersonCenterFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
-            alaPersonCenterFragment.t1(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
         }
     }
 }

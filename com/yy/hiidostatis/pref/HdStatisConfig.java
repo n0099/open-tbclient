@@ -18,7 +18,7 @@ public class HdStatisConfig extends AbstractConfig {
     public static final String META_DATA_KEY_CHANNEL = "HIIDO_CHANNEL";
     public static final String PREF_CPAGE = "PREF_CPAGE";
     public static final String SDK_TYPE = "11";
-    public static Hashtable table;
+    public static Hashtable<String, AbstractConfig> table;
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppkey;
 
@@ -35,7 +35,7 @@ public class HdStatisConfig extends AbstractConfig {
                 return;
             }
         }
-        table = new Hashtable();
+        table = new Hashtable<>();
     }
 
     @Override // com.yy.hiidostatis.inner.AbstractConfig
@@ -91,7 +91,7 @@ public class HdStatisConfig extends AbstractConfig {
             if (!table.containsKey(str)) {
                 table.put(str, new HdStatisConfig(str));
             }
-            return (AbstractConfig) table.get(str);
+            return table.get(str);
         }
         return (AbstractConfig) invokeL.objValue;
     }

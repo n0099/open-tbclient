@@ -14,7 +14,7 @@ public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
 
     String getECPMLevel();
 
-    Map getExtraInfo();
+    Map<String, Object> getExtraInfo();
 
     int getVideoDuration();
 

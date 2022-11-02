@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import kotlin.Metadata;
@@ -43,7 +42,7 @@ public final class LiveRoomInfoStatPlugin {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
     public String currentRoomId;
-    public final HashMap liveItemModels;
+    public final HashMap<String, LiveItemModelWrapper> liveItemModels;
     public final MiniUniqueId mixUniqueId;
     public JSONArray recoveryUploadIds;
 
@@ -71,7 +70,7 @@ public final class LiveRoomInfoStatPlugin {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\b\u0002\u0018\u0000 \b2\u00020\u0001:\u0002\b\tB\u001b\b\u0002\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002\u0012\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "Lcom/baidu/searchbox/player/utils/SharedPrefsWrapper;", "Landroid/content/Context;", "context", "", "fileName", "<init>", "(Landroid/content/Context;Ljava/lang/String;)V", "Companion", "Holder", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class LiveRoomInfoStatPreferences extends SharedPrefsWrapper {
+    public static final class LiveRoomInfoStatPreferences extends SharedPrefsWrapper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Companion Companion;
         public static final String PREF_NAME = "live_room_info_stat";
@@ -95,7 +94,7 @@ public final class LiveRoomInfoStatPlugin {
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\b\u0010\tR\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0013\u0010\u0007\u001a\u00020\u00048F@\u0006¢\u0006\u0006\u001a\u0004\b\u0005\u0010\u0006¨\u0006\n"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences$Companion;", "", "PREF_NAME", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "getInstance", "()Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", Transition.MATCH_INSTANCE_STR, "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class Companion {
+        public static final class Companion {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +128,7 @@ public final class LiveRoomInfoStatPlugin {
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\bÂ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0006\u0010\u0007R\u0019\u0010\u0002\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005¨\u0006\b"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences$Holder;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "INSTANCE", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "getINSTANCE", "()Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveRoomInfoStatPreferences;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
-        public final class Holder {
+        public static final class Holder {
             public static /* synthetic */ Interceptable $ic;
             public static final Holder INSTANCE;
 
@@ -205,7 +204,7 @@ public final class LiveRoomInfoStatPlugin {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$Companion;", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class Companion {
+    public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +229,7 @@ public final class LiveRoomInfoStatPlugin {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\f\b\u0002\u0018\u0000B\u0007¢\u0006\u0004\b\u000b\u0010\fR\"\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u0004\b\u0006\u0010\u0007R\"\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\b\u0010\u0003\u001a\u0004\b\t\u0010\u0005\"\u0004\b\n\u0010\u0007¨\u0006\r"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$DisplayPart;", "", "slidInTs", "J", "getSlidInTs", "()J", "setSlidInTs", "(J)V", "slidOutTs", "getSlidOutTs", "setSlidOutTs", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class DisplayPart {
+    public static final class DisplayPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long slidInTs;
@@ -285,10 +284,10 @@ public final class LiveRoomInfoStatPlugin {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\f\b\u0002\u0018\u0000B\u0007¢\u0006\u0004\b \u0010!J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u000f\u0010\u0005\u001a\u0004\u0018\u00010\u0004¢\u0006\u0004\b\u0005\u0010\u0006R(\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR\"\u0010\u0010\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R$\u0010\u0017\u001a\u0004\u0018\u00010\u00168\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u0010\u0018\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001cR\"\u0010\u001d\u001a\u00020\u000f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u0011\u001a\u0004\b\u001e\u0010\u0013\"\u0004\b\u001f\u0010\u0015¨\u0006\""}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$LiveItemModelWrapper;", "", "calculateDisplayTs", "()J", "Lorg/json/JSONObject;", "getUploadId", "()Lorg/json/JSONObject;", "", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin$DisplayPart;", "displayParts", "Ljava/util/List;", "getDisplayParts", "()Ljava/util/List;", "setDisplayParts", "(Ljava/util/List;)V", "", "hasShow", "Z", "getHasShow", "()Z", "setHasShow", "(Z)V", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "liveItemModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getLiveItemModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setLiveItemModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "slidReported", "getSlidReported", "setSlidReported", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
-    public final class LiveItemModelWrapper {
+    public static final class LiveItemModelWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List displayParts;
+        public List<DisplayPart> displayParts;
         public boolean hasShow;
         public LiveContainer.LiveItemModel liveItemModel;
         public boolean slidReported;
@@ -309,7 +308,7 @@ public final class LiveRoomInfoStatPlugin {
             this.displayParts = new ArrayList();
         }
 
-        public final List getDisplayParts() {
+        public final List<DisplayPart> getDisplayParts() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -381,7 +380,7 @@ public final class LiveRoomInfoStatPlugin {
                 jSONObject.put("id", sb.toString());
                 jSONObject.put("show", 1);
                 if (this.displayParts.size() > 0) {
-                    currentTimeMillis = ((DisplayPart) this.displayParts.get(0)).getSlidInTs();
+                    currentTimeMillis = this.displayParts.get(0).getSlidInTs();
                 } else {
                     currentTimeMillis = System.currentTimeMillis();
                 }
@@ -395,7 +394,7 @@ public final class LiveRoomInfoStatPlugin {
             return (JSONObject) invokeV.objValue;
         }
 
-        public final void setDisplayParts(List list) {
+        public final void setDisplayParts(List<DisplayPart> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
                 this.displayParts = list;
@@ -441,7 +440,7 @@ public final class LiveRoomInfoStatPlugin {
         }
         this.context = context;
         this.mixUniqueId = miniUniqueId;
-        this.liveItemModels = new HashMap();
+        this.liveItemModels = new HashMap<>();
     }
 
     public final void dispatchFirstLiveItemModelAction(LiveContainer.LiveItemModel liveItemModel) {
@@ -479,6 +478,7 @@ public final class LiveRoomInfoStatPlugin {
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveRoomInfoStatPlugin this$0;
 
+                /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
@@ -585,12 +585,10 @@ public final class LiveRoomInfoStatPlugin {
         }
     }
 
-    public final void dispatchListResult(String str, int i, List list) {
+    public final void dispatchListResult(String str, int i, List<LiveContainer.LiveItemModel> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, list) == null) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                LiveContainer.LiveItemModel liveItemModel = (LiveContainer.LiveItemModel) it.next();
+            for (LiveContainer.LiveItemModel liveItemModel : list) {
                 LiveItemModelWrapper liveItemModelWrapper = new LiveItemModelWrapper();
                 liveItemModelWrapper.setLiveItemModel(liveItemModel);
                 this.liveItemModels.put(liveItemModel.getRoomId(), liveItemModelWrapper);
@@ -604,29 +602,29 @@ public final class LiveRoomInfoStatPlugin {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveItemModel) == null) {
             String str = this.currentRoomId;
             if (str != null) {
-                HashMap hashMap = this.liveItemModels;
+                HashMap<String, LiveItemModelWrapper> hashMap = this.liveItemModels;
                 if (str == null) {
                     Intrinsics.throwNpe();
                 }
-                LiveItemModelWrapper liveItemModelWrapper = (LiveItemModelWrapper) hashMap.get(str);
+                LiveItemModelWrapper liveItemModelWrapper = hashMap.get(str);
                 if (liveItemModelWrapper != null && (size = liveItemModelWrapper.getDisplayParts().size()) > 0) {
-                    ((DisplayPart) liveItemModelWrapper.getDisplayParts().get(size - 1)).setSlidOutTs(System.currentTimeMillis());
+                    liveItemModelWrapper.getDisplayParts().get(size - 1).setSlidOutTs(System.currentTimeMillis());
                 }
                 this.currentRoomId = null;
                 if (MiniShellRuntime.INSTANCE.isDebug()) {
-                    for (Map.Entry entry : this.liveItemModels.entrySet()) {
-                        Log.d(TAG, "roomId = " + ((String) entry.getKey()) + ", showTs = " + ((LiveItemModelWrapper) entry.getValue()).calculateDisplayTs() + "\n");
+                    for (Map.Entry<String, LiveItemModelWrapper> entry : this.liveItemModels.entrySet()) {
+                        Log.d(TAG, "roomId = " + entry.getKey() + ", showTs = " + entry.getValue().calculateDisplayTs() + "\n");
                     }
                 }
             }
             String roomId = liveItemModel.getRoomId();
             this.currentRoomId = roomId;
             if (roomId != null) {
-                HashMap hashMap2 = this.liveItemModels;
+                HashMap<String, LiveItemModelWrapper> hashMap2 = this.liveItemModels;
                 if (roomId == null) {
                     Intrinsics.throwNpe();
                 }
-                LiveItemModelWrapper liveItemModelWrapper2 = (LiveItemModelWrapper) hashMap2.get(roomId);
+                LiveItemModelWrapper liveItemModelWrapper2 = hashMap2.get(roomId);
                 if (liveItemModelWrapper2 != null) {
                     DisplayPart displayPart = new DisplayPart();
                     displayPart.setSlidInTs(System.currentTimeMillis());

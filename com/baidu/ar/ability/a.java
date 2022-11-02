@@ -13,8 +13,8 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Map bv;
-    public static volatile Map bw;
+    public static volatile Map<String, Integer> bv;
+    public static volatile Map<String, Integer> bw;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class a {
         bw = aa();
     }
 
-    public static Map Z() {
+    public static Map<String, Integer> Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -48,7 +48,7 @@ public class a {
         return (Map) invokeV.objValue;
     }
 
-    public static Map aa() {
+    public static Map<String, Integer> aa() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -75,7 +75,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (bv.containsKey(str)) {
-                return ARAuth.checkFeatureAuth(((Integer) bv.get(str)).intValue());
+                return ARAuth.checkFeatureAuth(bv.get(str).intValue());
             }
             return true;
         }
@@ -87,7 +87,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (bw.containsKey(str)) {
-                return ARAuth.checkFeatureAuth(((Integer) bw.get(str)).intValue());
+                return ARAuth.checkFeatureAuth(bw.get(str).intValue());
             }
             return true;
         }
@@ -99,7 +99,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (bw.containsKey(str)) {
-                return ARAuth.enableFeature(((Integer) bw.get(str)).intValue());
+                return ARAuth.enableFeature(bw.get(str).intValue());
             }
             return true;
         }

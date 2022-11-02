@@ -9,7 +9,7 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes8.dex */
-public final class BlockingIgnoringReceiver extends CountDownLatch implements Consumer, Action {
+public final class BlockingIgnoringReceiver extends CountDownLatch implements Consumer<Throwable>, Action {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Throwable error;

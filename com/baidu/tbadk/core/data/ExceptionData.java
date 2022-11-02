@@ -10,7 +10,7 @@ import java.util.Map;
 public class ExceptionData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map appendInfoMap;
+    public Map<String, String> appendInfoMap;
     public String info;
     public Throwable mExcep;
 

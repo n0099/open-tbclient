@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.tieba.dt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class et implements ft {
+/* loaded from: classes4.dex */
+public abstract class et<VM extends dt<? extends ToastViewData>> implements xs<ToastViewData, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

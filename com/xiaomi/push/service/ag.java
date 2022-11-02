@@ -18,7 +18,7 @@ public class ag {
 
     /* loaded from: classes8.dex */
     public interface a {
-        Map a(Context context, Cif cif);
+        Map<String, String> a(Context context, Cif cif);
 
         /* renamed from: a  reason: collision with other method in class */
         void m602a(Context context, Cif cif);
@@ -36,7 +36,7 @@ public class ag {
         boolean m603a(Cif cif);
     }
 
-    public static Map a(Context context, Cif cif) {
+    public static Map<String, String> a(Context context, Cif cif) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cif)) == null) {

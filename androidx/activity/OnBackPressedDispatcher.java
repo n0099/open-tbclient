@@ -1,5 +1,9 @@
 package androidx.activity;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -15,6 +19,7 @@ import java.util.Iterator;
 public final class OnBackPressedDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
     public final Runnable mFallbackOnBackPressed;
     public final ArrayDeque<OnBackPressedCallback> mOnBackPressedCallbacks;
 
@@ -22,12 +27,13 @@ public final class OnBackPressedDispatcher {
     public class LifecycleOnBackPressedCancellable implements LifecycleEventObserver, Cancellable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public Cancellable mCurrentCancellable;
         public final Lifecycle mLifecycle;
         public final OnBackPressedCallback mOnBackPressedCallback;
         public final /* synthetic */ OnBackPressedDispatcher this$0;
 
-        public LifecycleOnBackPressedCancellable(OnBackPressedDispatcher onBackPressedDispatcher, Lifecycle lifecycle, OnBackPressedCallback onBackPressedCallback) {
+        public LifecycleOnBackPressedCancellable(@NonNull OnBackPressedDispatcher onBackPressedDispatcher, @NonNull Lifecycle lifecycle, OnBackPressedCallback onBackPressedCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +69,7 @@ public final class OnBackPressedDispatcher {
         }
 
         @Override // androidx.lifecycle.LifecycleEventObserver
-        public void onStateChanged(LifecycleOwner lifecycleOwner, Lifecycle.Event event) {
+        public void onStateChanged(@NonNull LifecycleOwner lifecycleOwner, @NonNull Lifecycle.Event event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lifecycleOwner, event) == null) {
                 if (event == Lifecycle.Event.ON_START) {
@@ -134,6 +140,7 @@ public final class OnBackPressedDispatcher {
         }
     }
 
+    @MainThread
     public boolean hasEnabledCallbacks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +156,7 @@ public final class OnBackPressedDispatcher {
         return invokeV.booleanValue;
     }
 
-    public OnBackPressedDispatcher(Runnable runnable) {
+    public OnBackPressedDispatcher(@Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,14 +175,17 @@ public final class OnBackPressedDispatcher {
         this.mFallbackOnBackPressed = runnable;
     }
 
-    public void addCallback(OnBackPressedCallback onBackPressedCallback) {
+    @MainThread
+    public void addCallback(@NonNull OnBackPressedCallback onBackPressedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onBackPressedCallback) == null) {
             addCancellableCallback(onBackPressedCallback);
         }
     }
 
-    public Cancellable addCancellableCallback(OnBackPressedCallback onBackPressedCallback) {
+    @NonNull
+    @MainThread
+    public Cancellable addCancellableCallback(@NonNull OnBackPressedCallback onBackPressedCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onBackPressedCallback)) == null) {
@@ -187,7 +197,9 @@ public final class OnBackPressedDispatcher {
         return (Cancellable) invokeL.objValue;
     }
 
-    public void addCallback(LifecycleOwner lifecycleOwner, OnBackPressedCallback onBackPressedCallback) {
+    @SuppressLint({"LambdaLast"})
+    @MainThread
+    public void addCallback(@NonNull LifecycleOwner lifecycleOwner, @NonNull OnBackPressedCallback onBackPressedCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lifecycleOwner, onBackPressedCallback) == null) {
             Lifecycle lifecycle = lifecycleOwner.getLifecycle();
@@ -198,6 +210,7 @@ public final class OnBackPressedDispatcher {
         }
     }
 
+    @MainThread
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

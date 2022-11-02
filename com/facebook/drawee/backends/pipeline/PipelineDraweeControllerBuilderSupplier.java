@@ -7,23 +7,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.common.CacheKey;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Supplier;
 import com.facebook.drawee.backends.pipeline.info.ImagePerfDataListener;
 import com.facebook.drawee.components.DeferredReleaser;
+import com.facebook.drawee.controller.ControllerListener;
+import com.facebook.fresco.ui.common.ControllerListener2;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
+import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public class PipelineDraweeControllerBuilderSupplier implements Supplier {
+public class PipelineDraweeControllerBuilderSupplier implements Supplier<PipelineDraweeControllerBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set mBoundControllerListeners;
-    public final Set mBoundControllerListeners2;
+    public final Set<ControllerListener> mBoundControllerListeners;
+    public final Set<ControllerListener2> mBoundControllerListeners2;
     public final Context mContext;
     @Nullable
     public final ImagePerfDataListener mDefaultImagePerfDataListener;
@@ -93,9 +97,9 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier {
         }
     }
 
-    public PipelineDraweeControllerBuilderSupplier(Context context, ImagePipelineFactory imagePipelineFactory, Set set, Set set2, @Nullable DraweeConfig draweeConfig) {
-        ImmutableList immutableList;
-        Supplier supplier;
+    public PipelineDraweeControllerBuilderSupplier(Context context, ImagePipelineFactory imagePipelineFactory, Set<ControllerListener> set, Set<ControllerListener2> set2, @Nullable DraweeConfig draweeConfig) {
+        ImmutableList<DrawableFactory> immutableList;
+        Supplier<Boolean> supplier;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +126,7 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier {
         DeferredReleaser deferredReleaser = DeferredReleaser.getInstance();
         DrawableFactory animatedDrawableFactory = imagePipelineFactory.getAnimatedDrawableFactory(context);
         UiThreadImmediateExecutorService uiThreadImmediateExecutorService = UiThreadImmediateExecutorService.getInstance();
-        MemoryCache bitmapMemoryCache = this.mImagePipeline.getBitmapMemoryCache();
+        MemoryCache<CacheKey, CloseableImage> bitmapMemoryCache = this.mImagePipeline.getBitmapMemoryCache();
         if (draweeConfig != null) {
             immutableList = draweeConfig.getCustomDrawableFactories();
         } else {
@@ -140,6 +144,7 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.internal.Supplier
     public PipelineDraweeControllerBuilder get() {
         InterceptResult invokeV;

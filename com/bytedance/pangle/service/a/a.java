@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,12 +28,12 @@ public class a extends d.a {
     public static volatile a b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-    public final HashMap c;
-    public final HashMap d;
-    public final C0498a e;
-    public final HashMap f;
-    public final HashSet g;
-    public final HashSet h;
+    public final HashMap<ComponentName, IBinder> c;
+    public final HashMap<ComponentName, b> d;
+    public final C0509a<Intent> e;
+    public final HashMap<ComponentName, com.bytedance.pangle.service.a> f;
+    public final HashSet<ComponentName> g;
+    public final HashSet<ComponentName> h;
 
     @Override // com.bytedance.pangle.d.a, android.os.IInterface
     public IBinder asBinder() {
@@ -46,12 +47,12 @@ public class a extends d.a {
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C0498a extends HashMap {
+    public class C0509a<T> extends HashMap<f, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0498a(a aVar) {
+        public C0509a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +71,7 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
-        public final boolean containsKey(Object obj) {
+        public final boolean containsKey(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -95,19 +96,20 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
-        public final Object remove(Object obj) {
+        @Nullable
+        public final T remove(@Nullable Object obj) {
             InterceptResult invokeL;
             f fVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                Object remove = super.remove(obj);
-                if (remove != null) {
-                    return remove;
+                T t = (T) super.remove(obj);
+                if (t != null) {
+                    return t;
                 }
-                Iterator it = keySet().iterator();
+                Iterator<f> it = keySet().iterator();
                 while (true) {
                     if (it.hasNext()) {
-                        fVar = (f) it.next();
+                        fVar = it.next();
                         try {
                         } catch (RemoteException e) {
                             e.printStackTrace();
@@ -120,14 +122,14 @@ public class a extends d.a {
                         break;
                     }
                 }
-                return super.remove(fVar);
+                return (T) super.remove(fVar);
             }
-            return invokeL.objValue;
+            return (T) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public final class b extends HashSet {
+    public class b extends HashSet<f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
@@ -151,7 +153,7 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
-        public final boolean contains(Object obj) {
+        public final boolean contains(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -161,13 +163,13 @@ public class a extends d.a {
                 if (!(obj instanceof f)) {
                     return false;
                 }
-                Iterator it = iterator();
+                Iterator<f> it = iterator();
                 while (it.hasNext()) {
                     try {
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
-                    if (((f) it.next()).a() == ((f) obj).a()) {
+                    if (it.next().a() == ((f) obj).a()) {
                         return true;
                     }
                 }
@@ -177,7 +179,7 @@ public class a extends d.a {
         }
 
         @Override // java.util.HashSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
-        public final boolean remove(Object obj) {
+        public final boolean remove(@Nullable Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
@@ -185,18 +187,18 @@ public class a extends d.a {
                     return true;
                 }
                 f fVar = null;
-                Iterator it = iterator();
+                Iterator<f> it = iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    f fVar2 = (f) it.next();
+                    f next = it.next();
                     try {
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
-                    if (fVar2.a() == ((f) obj).a()) {
-                        fVar = fVar2;
+                    if (next.a() == ((f) obj).a()) {
+                        fVar = next;
                         break;
                     }
                 }
@@ -219,12 +221,12 @@ public class a extends d.a {
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = new C0498a(this);
-        this.f = new HashMap();
-        this.g = new HashSet();
-        this.h = new HashSet();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
+        this.e = new C0509a<>(this);
+        this.f = new HashMap<>();
+        this.g = new HashSet<>();
+        this.h = new HashSet<>();
         this.a = new Handler(Looper.getMainLooper());
     }
 
@@ -255,15 +257,15 @@ public class a extends d.a {
                     }
                     this.f.put(component, d);
                 }
-                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(component);
+                com.bytedance.pangle.service.a aVar = this.f.get(component);
                 if (!this.c.containsKey(component)) {
                     this.c.put(component, aVar.onBind(intent));
                 }
-                IBinder iBinder = (IBinder) this.c.get(component);
+                IBinder iBinder = this.c.get(component);
                 if (iBinder != null) {
                     if (this.d.containsKey(component)) {
-                        if (!((b) this.d.get(component)).contains(fVar)) {
-                            ((b) this.d.get(component)).add(fVar);
+                        if (!this.d.get(component).contains(fVar)) {
+                            this.d.get(component).add(fVar);
                             this.e.put(fVar, intent);
                             fVar.a(component, iBinder);
                         }
@@ -303,15 +305,15 @@ public class a extends d.a {
         if (interceptable == null || interceptable.invokeL(65542, this, fVar) == null) {
             synchronized (this) {
                 for (ComponentName componentName : this.d.keySet()) {
-                    b bVar = (b) this.d.get(componentName);
+                    b bVar = this.d.get(componentName);
                     if (bVar.contains(fVar)) {
                         bVar.remove(fVar);
-                        Intent intent = (Intent) this.e.remove(fVar);
+                        Intent remove = this.e.remove(fVar);
                         if (bVar.size() == 0) {
                             this.d.remove(componentName);
-                            com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(componentName);
+                            com.bytedance.pangle.service.a aVar = this.f.get(componentName);
                             if (aVar != null) {
-                                aVar.onUnbind(intent);
+                                aVar.onUnbind(remove);
                             }
                         }
                         b(componentName);
@@ -357,7 +359,7 @@ public class a extends d.a {
                     this.f.put(component, d);
                     this.g.add(component);
                 }
-                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.get(component);
+                com.bytedance.pangle.service.a aVar = this.f.get(component);
                 if (aVar != null) {
                     aVar.onStartCommand(intent, 0, 0);
                 }
@@ -417,12 +419,12 @@ public class a extends d.a {
     private void c(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, componentName) == null) {
-            com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) this.f.remove(componentName);
+            com.bytedance.pangle.service.a remove = this.f.remove(componentName);
             this.h.remove(componentName);
             this.c.remove(componentName);
             this.g.remove(componentName);
-            if (aVar != null) {
-                aVar.onDestroy();
+            if (remove != null) {
+                remove.onDestroy();
             }
         }
     }

@@ -1,5 +1,6 @@
 package androidx.appcompat.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
@@ -25,6 +26,11 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ContextThemeWrapper;
@@ -60,6 +66,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     public SpinnerAdapter mTempAdapter;
     public final Rect mTempRect;
 
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public interface SpinnerPopup {
         void dismiss();
@@ -91,11 +98,13 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         void show(int i, int i2);
     }
 
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public class DialogPopup implements SpinnerPopup, DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ListAdapter mListAdapter;
+        @VisibleForTesting
         public AlertDialog mPopup;
         public CharSequence mPrompt;
         public final /* synthetic */ AppCompatSpinner this$0;
@@ -301,7 +310,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             return invokeV.intValue;
         }
 
-        public DropDownAdapter(SpinnerAdapter spinnerAdapter, Resources.Theme theme) {
+        public DropDownAdapter(@Nullable SpinnerAdapter spinnerAdapter, @Nullable Resources.Theme theme) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -475,6 +484,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         }
     }
 
+    @VisibleForTesting
     /* loaded from: classes.dex */
     public class DropdownPopup extends ListPopupWindow implements SpinnerPopup {
         public static /* synthetic */ Interceptable $ic;
@@ -947,6 +957,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
         return invokeV.intValue;
     }
 
+    @VisibleForTesting
     public final SpinnerPopup getInternalPopup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -998,6 +1009,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1012,6 +1025,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
+    @Nullable
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1086,7 +1101,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSpinner(Context context) {
+    public AppCompatSpinner(@NonNull Context context) {
         this(context, (AttributeSet) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1127,7 +1142,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSpinner(Context context, int i) {
+    public AppCompatSpinner(@NonNull Context context, int i) {
         this(context, null, R.attr.obfuscated_res_0x7f040647, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1148,7 +1163,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSpinner(Context context, AttributeSet attributeSet) {
+    public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.obfuscated_res_0x7f040647);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1169,7 +1184,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSpinner(Context context, AttributeSet attributeSet, int i) {
+    public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         this(context, attributeSet, i, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1190,7 +1205,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AppCompatSpinner(Context context, AttributeSet attributeSet, int i, int i2) {
+    public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         this(context, attributeSet, i, i2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1223,7 +1238,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public AppCompatSpinner(Context context, AttributeSet attributeSet, int i, int i2, Resources.Theme theme) {
+    public AppCompatSpinner(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2, Resources.Theme theme) {
         super(context, attributeSet, i);
         TypedArray typedArray;
         Interceptable interceptable = $ic;
@@ -1326,6 +1341,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
                         }
 
                         @Override // androidx.appcompat.widget.ForwardingListener
+                        @SuppressLint({"SyntheticAccessor"})
                         public boolean onForwardingStarted() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -1348,7 +1364,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
             CharSequence[] textArray = obtainStyledAttributes.getTextArray(0);
             if (textArray != null) {
                 ArrayAdapter arrayAdapter = new ArrayAdapter(context, 17367048, textArray);
-                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d0809);
+                arrayAdapter.setDropDownViewResource(R.layout.obfuscated_res_0x7f0d081e);
                 setAdapter((SpinnerAdapter) arrayAdapter);
             }
             obtainStyledAttributes.recycle();
@@ -1493,7 +1509,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             super.setBackgroundResource(i);
@@ -1557,7 +1573,7 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // android.widget.Spinner
-    public void setPopupBackgroundResource(int i) {
+    public void setPopupBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             setPopupBackgroundDrawable(AppCompatResources.getDrawable(getPopupContext(), i));
@@ -1578,7 +1594,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintList(ColorStateList colorStateList) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048603, this, colorStateList) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {
@@ -1587,7 +1604,8 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    public void setSupportBackgroundTintMode(PorterDuff.Mode mode) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048604, this, mode) == null) && (appCompatBackgroundHelper = this.mBackgroundTintHelper) != null) {

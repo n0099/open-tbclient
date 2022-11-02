@@ -1,5 +1,7 @@
 package androidx.media2.common;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.Preconditions;
 import androidx.media2.common.MediaItem;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +22,7 @@ public class CallbackMediaItem extends MediaItem {
         public transient /* synthetic */ FieldHolder $fh;
         public DataSourceCallback mDataSourceCallback;
 
-        public Builder(DataSourceCallback dataSourceCallback) {
+        public Builder(@NonNull DataSourceCallback dataSourceCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,6 +43,7 @@ public class CallbackMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public Builder setEndPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -52,7 +55,8 @@ public class CallbackMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
-        public Builder setMetadata(MediaMetadata mediaMetadata) {
+        @NonNull
+        public Builder setMetadata(@Nullable MediaMetadata mediaMetadata) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mediaMetadata)) == null) {
@@ -63,6 +67,7 @@ public class CallbackMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public Builder setStartPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
@@ -74,6 +79,7 @@ public class CallbackMediaItem extends MediaItem {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.media2.common.MediaItem.Builder
+        @NonNull
         public CallbackMediaItem build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -105,6 +111,7 @@ public class CallbackMediaItem extends MediaItem {
         this.mDataSourceCallback = builder.mDataSourceCallback;
     }
 
+    @NonNull
     public DataSourceCallback getDataSourceCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

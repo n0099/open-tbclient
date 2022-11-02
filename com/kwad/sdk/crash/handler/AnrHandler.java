@@ -6,6 +6,9 @@ import android.os.FileObserver;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Printer;
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.kwad.sdk.crash.model.message.AnrExceptionMessage;
 import com.kwad.sdk.crash.model.message.AnrReason;
 import com.kwad.sdk.crash.report.e;
@@ -23,7 +26,8 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+@Keep
+/* loaded from: classes8.dex */
 public final class AnrHandler extends b {
     public static final String ANR_HAPPENED_BEGIN = "------ ANR Happened Begin ------\n";
     public static final String DEFAULT_TRACE_ROOT = "/data/anr/";
@@ -37,15 +41,15 @@ public final class AnrHandler extends b {
     public static final Pattern PID_PATTERN = Pattern.compile("-{5}\\spid\\s\\d+\\sat\\s\\d+-\\d+-\\d+\\s\\d{2}:\\d{2}:\\d{2}\\s-{5}");
     public static final boolean DUMP_FROM_SIG_QUIT = SystemUtil.bD(21);
 
-    /* loaded from: classes7.dex */
-    public final class a {
+    /* loaded from: classes8.dex */
+    public static class a {
         public static final AnrHandler ahn = new AnrHandler();
     }
 
     public AnrHandler() {
     }
 
-    public static synchronized void dumpAnr(String str, int i) {
+    public static synchronized void dumpAnr(@Nullable String str, int i) {
         synchronized (AnrHandler.class) {
             com.kwad.sdk.core.e.b.d(TAG, "ANR dumpAnr tracePath=" + str + " index=" + i);
             AnrExceptionMessage anrExceptionMessage = new AnrExceptionMessage();
@@ -81,7 +85,7 @@ public final class AnrHandler extends b {
         }
     }
 
-    public static void dumpAnrReason(String str, int i, AnrExceptionMessage anrExceptionMessage, boolean z) {
+    public static void dumpAnrReason(@Nullable String str, int i, @NonNull AnrExceptionMessage anrExceptionMessage, boolean z) {
         com.kwad.sdk.core.e.b.d(TAG, "ANR dumpAnrReason tracePath=" + str + " index=" + i + " dirReady=" + z);
         e uploader = getInstance().getUploader();
         try {
@@ -148,7 +152,7 @@ public final class AnrHandler extends b {
         }
     }
 
-    public static void getAnrReason(String str, final File file) {
+    public static void getAnrReason(@Nullable String str, final File file) {
         com.kwad.sdk.core.e.b.d(TAG, "ANR getAnrReason");
         if (str == null) {
             g.schedule(new Runnable() { // from class: com.kwad.sdk.crash.handler.AnrHandler.3
@@ -162,7 +166,7 @@ public final class AnrHandler extends b {
         }
     }
 
-    public static void getAnrReasonInner(String str, File file) {
+    public static void getAnrReasonInner(@Nullable String str, File file) {
         com.kwad.sdk.core.e.b.d(TAG, "ANR getAnrReasonInner");
         e uploader = getInstance().getUploader();
         if (str != null) {
@@ -224,6 +228,7 @@ public final class AnrHandler extends b {
 
     public static native void install(String str, int i);
 
+    @Keep
     public static void onCallFromNative(int i) {
         com.kwad.sdk.core.e.b.d(TAG, "ANR onCallFromNative index=" + i);
         dumpAnr(null, i);
@@ -285,7 +290,7 @@ public final class AnrHandler extends b {
         com.kwad.sdk.core.e.b.d(TAG, "ANR watchTraceFile");
         FileObserver fileObserver = new FileObserver(DEFAULT_TRACE_ROOT, 8) { // from class: com.kwad.sdk.crash.handler.AnrHandler.1
             @Override // android.os.FileObserver
-            public final void onEvent(int i, String str) {
+            public final void onEvent(int i, @Nullable String str) {
                 if (str != null) {
                     AnrHandler.this.onTraceFileWritten(AnrHandler.DEFAULT_TRACE_ROOT + str);
                 }
@@ -327,7 +332,7 @@ public final class AnrHandler extends b {
     }
 
     @Override // com.kwad.sdk.crash.handler.b
-    public final void reportException(File[] fileArr, CountDownLatch countDownLatch) {
+    public final void reportException(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch) {
         com.kwad.sdk.crash.report.b bVar = new com.kwad.sdk.crash.report.b();
         bVar.a(getUploader());
         for (File file : fileArr) {

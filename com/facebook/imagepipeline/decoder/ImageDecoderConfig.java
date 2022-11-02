@@ -15,22 +15,22 @@ import java.util.Map;
 public class ImageDecoderConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map mCustomImageDecoders;
-    public final List mCustomImageFormats;
+    public final Map<ImageFormat, ImageDecoder> mCustomImageDecoders;
+    public final List<ImageFormat.FormatChecker> mCustomImageFormats;
 
     /* renamed from: com.facebook.imagepipeline.decoder.ImageDecoderConfig$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes7.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Map mCustomImageDecoders;
-        public List mCustomImageFormats;
+        public Map<ImageFormat, ImageDecoder> mCustomImageDecoders;
+        public List<ImageFormat.FormatChecker> mCustomImageFormats;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class ImageDecoderConfig {
         return (Builder) invokeV.objValue;
     }
 
-    public Map getCustomImageDecoders() {
+    public Map<ImageFormat, ImageDecoder> getCustomImageDecoders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -124,7 +124,7 @@ public class ImageDecoderConfig {
         return (Map) invokeV.objValue;
     }
 
-    public List getCustomImageFormats() {
+    public List<ImageFormat.FormatChecker> getCustomImageFormats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.hg;
-import com.baidu.tieba.ig;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,6 +41,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
@@ -87,18 +88,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, ig igVar) {
+    public void logStatInBackground(int i, ag agVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, igVar) == null) && igVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, agVar) == null) && agVar.d().size() > 0) {
             int i2 = 1;
-            hg hgVar = (hg) igVar.d().get(igVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(igVar.d().size() - 1);
+            zf zfVar = agVar.d().get(agVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(agVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = hgVar.b;
-            statisticsData.mTime = hgVar.f;
-            statisticsData.mTimesNum = hgVar.e;
-            if (igVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = zfVar.b;
+            statisticsData.mTime = zfVar.f;
+            statisticsData.mTimesNum = zfVar.e;
+            if (agVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;

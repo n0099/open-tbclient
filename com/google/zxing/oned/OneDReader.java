@@ -26,7 +26,7 @@ public abstract class OneDReader implements Reader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Result decodeRow(int i, BitArray bitArray, Map map) throws NotFoundException, ChecksumException, FormatException;
+    public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
 
     @Override // com.google.zxing.Reader
     public void reset() {
@@ -49,13 +49,13 @@ public abstract class OneDReader implements Reader {
         }
     }
 
-    private Result doDecode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException {
+    private Result doDecode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         boolean z;
         int i;
         int i2;
         boolean z2;
-        Map map2;
+        Map<DecodeHintType, ?> map2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, binaryBitmap, map)) == null) {
@@ -270,7 +270,7 @@ public abstract class OneDReader implements Reader {
     }
 
     @Override // com.google.zxing.Reader
-    public Result decode(BinaryBitmap binaryBitmap, Map map) throws NotFoundException, FormatException {
+    public Result decode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException {
         boolean z;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -286,7 +286,7 @@ public abstract class OneDReader implements Reader {
                 if (z && binaryBitmap.isRotateSupported()) {
                     BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                     Result doDecode = doDecode(rotateCounterClockwise, map);
-                    Map resultMetadata = doDecode.getResultMetadata();
+                    Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
                     int i = 270;
                     if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
                         i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;

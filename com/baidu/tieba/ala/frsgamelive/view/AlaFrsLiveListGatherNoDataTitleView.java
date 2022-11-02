@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ex5;
-import com.baidu.tieba.p16;
+import com.baidu.tieba.oy5;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends p16 {
+public class AlaFrsLiveListGatherNoDataTitleView extends z26<oy5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -24,11 +24,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends p16 {
     public TbPageContext k;
     public int l;
 
-    @Override // com.baidu.tieba.p16
+    @Override // com.baidu.tieba.z26
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f3 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,7 +39,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends p16 {
     }
 
     /* loaded from: classes3.dex */
-    public class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
+    public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends p16 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaFrsLiveListGatherNoDataTitleView(TbPageContext tbPageContext) {
+    public AlaFrsLiveListGatherNoDataTitleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -85,23 +85,23 @@ public class AlaFrsLiveListGatherNoDataTitleView extends p16 {
         this.l = 3;
         this.k = tbPageContext;
         View k = k();
-        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b31);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b32);
+        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b44);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b45);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p16
+    @Override // com.baidu.tieba.z26
     /* renamed from: r */
-    public void l(ex5 ex5Var) {
+    public void l(oy5 oy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ex5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, oy5Var) == null) {
             m(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.p16
-    public void m(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.z26
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.l != i) {
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);

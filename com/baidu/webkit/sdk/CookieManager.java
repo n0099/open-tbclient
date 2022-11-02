@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CookieManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -137,7 +137,7 @@ public class CookieManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? !WebViewFactory.hasProvider() ? "" : WebViewFactory.getProvider().getCookieManager().getCookie(str) : (String) invokeL.objValue;
     }
 
-    public void getCookieAsync(String str, ValueCallback valueCallback) {
+    public void getCookieAsync(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, valueCallback) == null) {
             if (WebViewFactory.hasProvider()) {
@@ -168,7 +168,7 @@ public class CookieManager {
         }
     }
 
-    public void removeAllCookies(ValueCallback valueCallback) {
+    public void removeAllCookies(ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().removeAllCookies(valueCallback);
@@ -191,7 +191,7 @@ public class CookieManager {
         }
     }
 
-    public void removeSessionCookies(ValueCallback valueCallback) {
+    public void removeSessionCookies(ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().removeSessionCookies(valueCallback);
@@ -226,14 +226,14 @@ public class CookieManager {
         }
     }
 
-    public void setCookie(String str, String str2, ValueCallback valueCallback) {
+    public void setCookie(String str, String str2, ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048594, this, str, str2, valueCallback) == null) && WebViewFactory.hasProvider()) {
             WebViewFactory.getProvider().getCookieManager().setCookie(str, str2, valueCallback);
         }
     }
 
-    public void setCookieAsync(String str, String str2, ValueCallback valueCallback) {
+    public void setCookieAsync(String str, String str2, ValueCallback<Boolean> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048595, this, str, str2, valueCallback) == null) {
             setCookie(str, str2, valueCallback);

@@ -1,81 +1,100 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dl5 extends cl5 {
+public class dl5 implements og<yk5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiDelPostMenuView c;
-    public ViewGroup d;
+    public int a;
 
-    public dl5(TbPageContext tbPageContext, ViewGroup viewGroup, sk5 sk5Var) {
+    public yk5 e(yk5 yk5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yk5Var)) == null) ? yk5Var : (yk5) invokeL.objValue;
+    }
+
+    public yk5 i(yk5 yk5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yk5Var)) == null) ? yk5Var : (yk5) invokeL.objValue;
+    }
+
+    public dl5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, sk5Var};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = viewGroup;
-        al5 al5Var = new al5(tbPageContext, new tk5(sk5Var));
-        this.b = al5Var;
-        al5Var.d(this);
-        this.c = new MultiDelPostMenuView(tbPageContext, this);
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.cl5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
-            return;
-        }
-        this.a = false;
-        MultiDelPostMenuView multiDelPostMenuView = this.c;
-        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
-            this.d.removeView(this.c);
-        }
-        zk5 zk5Var = this.b;
-        if (zk5Var != null) {
-            zk5Var.dismiss();
-        }
-        this.c = null;
-        this.d = null;
-        this.b = null;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.og
+    public /* bridge */ /* synthetic */ yk5 a(yk5 yk5Var) {
+        yk5 yk5Var2 = yk5Var;
+        e(yk5Var2);
+        return yk5Var2;
     }
 
-    @Override // com.baidu.tieba.cl5
-    public void d(int i) {
-        MultiDelPostMenuView multiDelPostMenuView;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.og
+    public /* bridge */ /* synthetic */ yk5 c(yk5 yk5Var) {
+        yk5 yk5Var2 = yk5Var;
+        i(yk5Var2);
+        return yk5Var2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.og
+    /* renamed from: f */
+    public void b(yk5 yk5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
-            multiDelPostMenuView.setDelCount(i);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, yk5Var) == null) && yk5Var != null && yk5Var.b() != null) {
+            yk5Var.b().recycle();
         }
     }
 
-    @Override // com.baidu.tieba.cl5
-    public void e() {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
         }
-        this.a = true;
-        ViewGroup viewGroup = this.d;
-        if (viewGroup != null) {
-            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.og
+    /* renamed from: h */
+    public yk5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new yk5(this.a);
+        }
+        return (yk5) invokeV.objValue;
     }
 }

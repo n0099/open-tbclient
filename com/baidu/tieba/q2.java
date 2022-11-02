@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
 import android.opengl.GLES30;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.IntBuffer;
+@TargetApi(18)
 /* loaded from: classes5.dex */
 public class q2 extends p2 implements o3 {
     public static /* synthetic */ Interceptable $ic;

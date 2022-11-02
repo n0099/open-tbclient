@@ -3,6 +3,8 @@ package androidx.cardview.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.view.View;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@RequiresApi(21)
 /* loaded from: classes.dex */
 public class CardViewApi21Impl implements CardViewImpl {
     public static /* synthetic */ Interceptable $ic;
@@ -134,7 +137,7 @@ public class CardViewApi21Impl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setBackgroundColor(CardViewDelegate cardViewDelegate, ColorStateList colorStateList) {
+    public void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, cardViewDelegate, colorStateList) == null) {
             getCardBackground(cardViewDelegate).setColor(colorStateList);

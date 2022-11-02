@@ -1,5 +1,7 @@
 package io.reactivex.functions;
+
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes8.dex */
-public interface Predicate {
-    boolean test(Object obj) throws Exception;
+public interface Predicate<T> {
+    boolean test(@NonNull T t) throws Exception;
 }

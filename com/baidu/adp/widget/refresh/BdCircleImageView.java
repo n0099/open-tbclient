@@ -1,5 +1,6 @@
 package com.baidu.adp.widget.refresh;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -87,6 +88,7 @@ public class BdCircleImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"WrongConstant"})
     public BdCircleImageView(Context context, int i) {
         super(context);
         ShapeDrawable shapeDrawable;

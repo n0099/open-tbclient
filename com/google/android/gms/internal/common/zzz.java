@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public abstract class zzz extends zzak {
+public abstract class zzz<E> extends zzak<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int zza;
@@ -42,7 +42,7 @@ public abstract class zzz extends zzak {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zzb - 1 : invokeV.intValue;
     }
 
-    public abstract Object zza(int i);
+    public abstract E zza(int i);
 
     public zzz(int i, int i2) {
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public abstract class zzz extends zzak {
     }
 
     @Override // java.util.Iterator, java.util.ListIterator
-    public final Object next() {
+    public final E next() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -76,11 +76,11 @@ public abstract class zzz extends zzak {
             }
             throw new NoSuchElementException();
         }
-        return invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 
     @Override // java.util.ListIterator
-    public final Object previous() {
+    public final E previous() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -91,6 +91,6 @@ public abstract class zzz extends zzak {
             }
             throw new NoSuchElementException();
         }
-        return invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 }

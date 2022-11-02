@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0071 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0074 */
@@ -30,7 +30,7 @@ public final class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List a(String[] strArr, int i) {
+    public static List<String> a(String[] strArr, int i) {
         Process process;
         OutputStream outputStream;
         InputStream inputStream;

@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.http.Headers;
 import android.text.TextUtils;
@@ -30,6 +31,7 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
+@SuppressLint({"TrulyRandom"})
 /* loaded from: classes.dex */
 public class HttpHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -50,7 +52,7 @@ public class HttpHelper {
 
         String getContentType();
 
-        Map getHeaders();
+        Map<String, String> getHeaders();
 
         String getHost();
 
@@ -86,7 +88,7 @@ public class HttpHelper {
     }
 
     /* loaded from: classes.dex */
-    public class ResponseResult {
+    public static class ResponseResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mErrorCode;
@@ -189,7 +191,7 @@ public class HttpHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         InterceptResult invokeCommon;
         String str2;
         HttpURLConnection httpURLConnection;
@@ -397,7 +399,7 @@ public class HttpHelper {
         }
     }
 
-    public static void executor(int i, String str, byte[] bArr, Map map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) == null) {
@@ -445,22 +447,22 @@ public class HttpHelper {
         }
     }
 
-    public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map map) {
+    public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(65543, null, str, httpURLConnection, map) != null) || map == null) {
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
             try {
-                if (((String) entry.getKey()).equalsIgnoreCase("Cookie")) {
-                    CookieManager.getInstance().setCookie(str, (String) entry.getValue());
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), CookieManager.getInstance().getCookie(str));
+                if (entry.getKey().equalsIgnoreCase("Cookie")) {
+                    CookieManager.getInstance().setCookie(str, entry.getValue());
+                    httpURLConnection.setRequestProperty(entry.getKey(), CookieManager.getInstance().getCookie(str));
                 } else {
-                    httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                httpURLConnection.setRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
     }

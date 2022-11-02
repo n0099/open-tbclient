@@ -1,9 +1,13 @@
 package androidx.core.telephony.mbms;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.os.LocaleList;
 import android.telephony.mbms.ServiceInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +33,10 @@ public final class MbmsHelper {
         }
     }
 
-    public static CharSequence getBestNameForService(Context context, ServiceInfo serviceInfo) {
+    @Nullable
+    @SuppressLint({"BanTargetApiAnnotation"})
+    @TargetApi(28)
+    public static CharSequence getBestNameForService(@NonNull Context context, @NonNull ServiceInfo serviceInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, serviceInfo)) == null) {

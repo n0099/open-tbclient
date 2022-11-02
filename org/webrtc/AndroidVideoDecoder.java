@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rx9;
+import com.baidu.tieba.az9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
@@ -46,7 +46,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public int colorFormat;
     public ThreadUtils.ThreadChecker decoderThreadChecker;
     public final Object dimensionLock;
-    public final BlockingDeque frameInfos;
+    public final BlockingDeque<FrameInfo> frameInfos;
     public boolean hasDecodedFirstFrame;
     public int height;
     public boolean keyFrameRequired;
@@ -71,8 +71,9 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public int width;
 
     @Override // org.webrtc.VideoDecoder
+    @CalledByNative
     public /* synthetic */ long createNativeVideoDecoder() {
-        return rx9.$default$createNativeVideoDecoder(this);
+        return az9.$default$createNativeVideoDecoder(this);
     }
 
     @Override // org.webrtc.VideoDecoder
@@ -85,8 +86,8 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class DecodedTextureMetadata {
+    /* loaded from: classes9.dex */
+    public static class DecodedTextureMetadata {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Integer decodeTimeMs;
@@ -112,8 +113,8 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class FrameInfo {
+    /* loaded from: classes9.dex */
+    public static class FrameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeStartTimeMs;
@@ -583,12 +584,12 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                 } else if (dequeueOutputBuffer < 0) {
                     Logging.v(TAG, "dequeueOutputBuffer returned " + dequeueOutputBuffer);
                 } else {
-                    FrameInfo frameInfo = (FrameInfo) this.frameInfos.poll();
+                    FrameInfo poll = this.frameInfos.poll();
                     Integer num = null;
                     int i = 0;
-                    if (frameInfo != null) {
-                        num = Integer.valueOf((int) (SystemClock.elapsedRealtime() - frameInfo.decodeStartTimeMs));
-                        i = frameInfo.rotation;
+                    if (poll != null) {
+                        num = Integer.valueOf((int) (SystemClock.elapsedRealtime() - poll.decodeStartTimeMs));
+                        i = poll.rotation;
                     }
                     this.hasDecodedFirstFrame = true;
                     if (this.surfaceTextureHelper != null) {

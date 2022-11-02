@@ -2,27 +2,27 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rf;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.ky4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class PicReqSwitch extends rf {
+public class PicReqSwitch extends jf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PIC_REQ_SWITCH_KEY = "pic_req_switch_key";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class PicReqSwitch extends rf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class PicReqSwitch extends rf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pic_req_switch_key" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,12 +85,12 @@ public class PicReqSwitch extends rf {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rf
+    @Override // com.baidu.tieba.jf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ux4.k().l("key_pic_req_switch", 0);
+            return ky4.k().l("key_pic_req_switch", 0);
         }
         return invokeV.intValue;
     }

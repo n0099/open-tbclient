@@ -5,8 +5,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n09;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.w19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class MusicPlayer {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
-    public final class MusicPlayerState {
+    public static final class MusicPlayerState {
         public static final /* synthetic */ MusicPlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final MusicPlayerState ERROR;
@@ -147,7 +147,7 @@ public class MusicPlayer {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                n09.b().d(this.a);
+                w19.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
                 this.b.a.setLooping(true);
                 this.b.a.start();

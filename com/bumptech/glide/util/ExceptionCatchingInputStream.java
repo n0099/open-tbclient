@@ -1,5 +1,7 @@
 package com.bumptech.glide.util;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +18,7 @@ import java.util.Queue;
 /* loaded from: classes7.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final Queue QUEUE;
+    public static final Queue<ExceptionCatchingInputStream> QUEUE;
     public transient /* synthetic */ FieldHolder $fh;
     public IOException exception;
     public InputStream wrapped;
@@ -78,6 +80,7 @@ public class ExceptionCatchingInputStream extends InputStream {
         }
     }
 
+    @Nullable
     public IOException getException() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,19 +136,20 @@ public class ExceptionCatchingInputStream extends InputStream {
         }
     }
 
-    public static ExceptionCatchingInputStream obtain(InputStream inputStream) {
+    @NonNull
+    public static ExceptionCatchingInputStream obtain(@NonNull InputStream inputStream) {
         InterceptResult invokeL;
-        ExceptionCatchingInputStream exceptionCatchingInputStream;
+        ExceptionCatchingInputStream poll;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             synchronized (QUEUE) {
-                exceptionCatchingInputStream = (ExceptionCatchingInputStream) QUEUE.poll();
+                poll = QUEUE.poll();
             }
-            if (exceptionCatchingInputStream == null) {
-                exceptionCatchingInputStream = new ExceptionCatchingInputStream();
+            if (poll == null) {
+                poll = new ExceptionCatchingInputStream();
             }
-            exceptionCatchingInputStream.setInputStream(inputStream);
-            return exceptionCatchingInputStream;
+            poll.setInputStream(inputStream);
+            return poll;
         }
         return (ExceptionCatchingInputStream) invokeL.objValue;
     }
@@ -173,7 +177,7 @@ public class ExceptionCatchingInputStream extends InputStream {
         return invokeL.intValue;
     }
 
-    public void setInputStream(InputStream inputStream) {
+    public void setInputStream(@NonNull InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, inputStream) == null) {
             this.wrapped = inputStream;

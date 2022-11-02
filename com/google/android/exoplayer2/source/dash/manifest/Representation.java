@@ -21,14 +21,14 @@ public abstract class Representation {
     public final String baseUrl;
     public final String contentId;
     public final Format format;
-    public final List inbandEventStreams;
+    public final List<Descriptor> inbandEventStreams;
     public final RangedUri initializationUri;
     public final long presentationTimeOffsetUs;
     public final long revisionId;
 
     /* renamed from: com.google.android.exoplayer2.source.dash.manifest.Representation$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -40,7 +40,7 @@ public abstract class Representation {
     public abstract RangedUri getIndexUri();
 
     /* loaded from: classes7.dex */
-    public class MultiSegmentRepresentation extends Representation implements DashSegmentIndex {
+    public static class MultiSegmentRepresentation extends Representation implements DashSegmentIndex {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SegmentBase.MultiSegmentBase segmentBase;
@@ -73,7 +73,7 @@ public abstract class Representation {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MultiSegmentRepresentation(String str, long j, Format format, String str2, SegmentBase.MultiSegmentBase multiSegmentBase, List list) {
+        public MultiSegmentRepresentation(String str, long j, Format format, String str2, SegmentBase.MultiSegmentBase multiSegmentBase, List<Descriptor> list) {
             super(str, j, format, str2, multiSegmentBase, list, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -166,7 +166,7 @@ public abstract class Representation {
     }
 
     /* loaded from: classes7.dex */
-    public class SingleSegmentRepresentation extends Representation {
+    public static class SingleSegmentRepresentation extends Representation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String cacheKey;
@@ -176,7 +176,7 @@ public abstract class Representation {
         public final Uri uri;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SingleSegmentRepresentation(String str, long j, Format format, String str2, SegmentBase.SingleSegmentBase singleSegmentBase, List list, String str3, long j2) {
+        public SingleSegmentRepresentation(String str, long j, Format format, String str2, SegmentBase.SingleSegmentBase singleSegmentBase, List<Descriptor> list, String str3, long j2) {
             super(str, j, format, str2, singleSegmentBase, list, null);
             String str4;
             Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public abstract class Representation {
             this.segmentIndex = this.indexUri == null ? new SingleSegmentIndex(new RangedUri(null, 0L, j2)) : null;
         }
 
-        public static SingleSegmentRepresentation newInstance(String str, long j, Format format, String str2, long j2, long j3, long j4, long j5, List list, String str3, long j6) {
+        public static SingleSegmentRepresentation newInstance(String str, long j, Format format, String str2, long j2, long j3, long j4, long j5, List<Descriptor> list, String str3, long j6) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), format, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), list, str3, Long.valueOf(j6)})) == null) {
@@ -249,8 +249,8 @@ public abstract class Representation {
         }
     }
 
-    public Representation(String str, long j, Format format, String str2, SegmentBase segmentBase, List list) {
-        List unmodifiableList;
+    public Representation(String str, long j, Format format, String str2, SegmentBase segmentBase, List<Descriptor> list) {
+        List<Descriptor> unmodifiableList;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -292,7 +292,7 @@ public abstract class Representation {
         return (Representation) invokeCommon.objValue;
     }
 
-    public static Representation newInstance(String str, long j, Format format, String str2, SegmentBase segmentBase, List list) {
+    public static Representation newInstance(String str, long j, Format format, String str2, SegmentBase segmentBase, List<Descriptor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j), format, str2, segmentBase, list})) == null) {
@@ -301,7 +301,7 @@ public abstract class Representation {
         return (Representation) invokeCommon.objValue;
     }
 
-    public static Representation newInstance(String str, long j, Format format, String str2, SegmentBase segmentBase, List list, String str3) {
+    public static Representation newInstance(String str, long j, Format format, String str2, SegmentBase segmentBase, List<Descriptor> list, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), format, str2, segmentBase, list, str3})) == null) {

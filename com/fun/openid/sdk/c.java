@@ -32,7 +32,7 @@ public class c {
     public ServiceConnection e = new a(this);
 
     /* loaded from: classes7.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,22 +88,22 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c0508a;
+            com.fun.openid.sdk.a c0519a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 c cVar = this.a;
-                int i = a.AbstractBinderC0507a.a;
+                int i = a.AbstractBinderC0518a.a;
                 if (iBinder == null) {
-                    c0508a = null;
+                    c0519a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
                     if (queryLocalInterface != null && (queryLocalInterface instanceof com.fun.openid.sdk.a)) {
-                        c0508a = (com.fun.openid.sdk.a) queryLocalInterface;
+                        c0519a = (com.fun.openid.sdk.a) queryLocalInterface;
                     } else {
-                        c0508a = new a.AbstractBinderC0507a.C0508a(iBinder);
+                        c0519a = new a.AbstractBinderC0518a.C0519a(iBinder);
                     }
                 }
-                cVar.a = c0508a;
+                cVar.a = c0519a;
                 synchronized (this.a.d) {
                     this.a.d.notify();
                 }
@@ -148,8 +148,8 @@ public class c {
             com.fun.openid.sdk.a aVar = this.a;
             String str3 = this.b;
             String str4 = this.c;
-            a.AbstractBinderC0507a.C0508a c0508a = (a.AbstractBinderC0507a.C0508a) aVar;
-            c0508a.getClass();
+            a.AbstractBinderC0518a.C0519a c0519a = (a.AbstractBinderC0518a.C0519a) aVar;
+            c0519a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -157,7 +157,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c0508a.a.transact(1, obtain, obtain2, 0);
+                c0519a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

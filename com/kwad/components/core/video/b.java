@@ -5,6 +5,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Surface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,15 +37,15 @@ public final class b {
     public Runnable JJ;
     public com.kwad.sdk.contentalliance.kwai.kwai.b JK;
     public int JL;
-    public List JM;
+    public List<c.d> JM;
     public final AtomicBoolean JN;
     public boolean JO;
-    public volatile List JP;
-    public volatile List JQ;
+    public volatile List<g> JP;
+    public volatile List<c.e> JQ;
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0607c JU;
+    public c.InterfaceC0618c JU;
     public c.d JV;
     public c.a JW;
     public int Jn;
@@ -55,6 +58,7 @@ public final class b {
 
     /* loaded from: classes7.dex */
     public interface a {
+        @WorkerThread
         void onReleaseSuccess();
     }
 
@@ -74,7 +78,7 @@ public final class b {
         JE = new AtomicInteger(0);
     }
 
-    public b(DetailVideoView detailVideoView) {
+    public b(@Nullable DetailVideoView detailVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +210,7 @@ public final class b {
                 }
             }
         };
-        this.JU = new c.InterfaceC0607c(this) { // from class: com.kwad.components.core.video.b.5
+        this.JU = new c.InterfaceC0618c(this) { // from class: com.kwad.components.core.video.b.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b JX;
@@ -229,7 +233,7 @@ public final class b {
                 this.JX = this;
             }
 
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0607c
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0618c
             public final boolean j(int i3, int i4) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
@@ -378,7 +382,7 @@ public final class b {
         }
     }
 
-    private void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar, boolean z, DetailVideoView detailVideoView, com.kwad.sdk.core.video.kwai.c cVar) {
+    private void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar, boolean z, @NonNull DetailVideoView detailVideoView, @NonNull com.kwad.sdk.core.video.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{bVar, Boolean.valueOf(z), detailVideoView, cVar}) == null) {
             com.kwad.sdk.core.e.b.i(this.TAG, "initMediaPlayer");
@@ -504,7 +508,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeV(65559, this) == null) || (cVar = this.JG) == null) {
             return;
         }
-        cVar.a((c.InterfaceC0607c) null);
+        cVar.a((c.InterfaceC0618c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);
@@ -673,7 +677,7 @@ public final class b {
         }
     }
 
-    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
+    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             try {
@@ -690,14 +694,14 @@ public final class b {
         }
     }
 
-    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar, DetailVideoView detailVideoView) {
+    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar, @NonNull DetailVideoView detailVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bVar, detailVideoView) == null) {
             a(bVar, true, false, detailVideoView);
         }
     }
 
-    public final void a(com.kwad.sdk.contentalliance.kwai.kwai.b bVar, boolean z, boolean z2, DetailVideoView detailVideoView) {
+    public final void a(@NonNull com.kwad.sdk.contentalliance.kwai.kwai.b bVar, boolean z, boolean z2, @NonNull DetailVideoView detailVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bVar, Boolean.valueOf(z), Boolean.valueOf(z2), detailVideoView}) == null) {
             String str = this.TAG;
@@ -729,13 +733,13 @@ public final class b {
     public final void a(com.kwad.sdk.core.video.kwai.c cVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, i, i2) == null) {
-            Iterator it = this.JM.iterator();
+            Iterator<c.d> it = this.JM.iterator();
             while (it.hasNext()) {
-                c.d dVar = (c.d) it.next();
-                if (dVar == null) {
+                c.d next = it.next();
+                if (next == null) {
                     it.remove();
                 } else {
-                    dVar.k(i, i2);
+                    next.k(i, i2);
                 }
             }
         }

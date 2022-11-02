@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.bw5;
+import com.baidu.tieba.lx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List followList;
+    public List<lx5> followList;
     public boolean hasMore;
     public int pn;
-    public List recommendList;
+    public List<lx5> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,9 +63,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            bw5 bw5Var = new bw5();
-                            bw5Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(bw5Var);
+                            lx5 lx5Var = new lx5();
+                            lx5Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(lx5Var);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            bw5 bw5Var2 = new bw5();
-                            bw5Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(bw5Var2);
+                            lx5 lx5Var2 = new lx5();
+                            lx5Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(lx5Var2);
                         }
                     }
                 }

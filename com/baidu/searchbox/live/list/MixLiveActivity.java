@@ -501,6 +501,7 @@ public class MixLiveActivity extends LiveBaseActivity {
                 iMixActivityInterface2.beforeCreate(this, bundle);
             }
             ImmersionUtils.setupNavBarStyleImmersiveStickyWithLightStatusBar(this);
+            LiveActivityUtil.fixTiebaWindowSoftInputMode(this);
             int releaseFixedOrientation = MiniScreenOrientationCompat.releaseFixedOrientation(this);
             super.onCreate(null);
             MiniScreenOrientationCompat.fixedOrientation(this, releaseFixedOrientation);

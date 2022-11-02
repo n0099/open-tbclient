@@ -15,7 +15,7 @@ import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class UserItemData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<UserItemData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String agree_num;
     public String auth;
@@ -44,7 +44,7 @@ public class UserItemData implements Serializable, Parcelable {
     }
 
     /* loaded from: classes6.dex */
-    public final class a implements Parcelable.Creator {
+    public static class a implements Parcelable.Creator<UserItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

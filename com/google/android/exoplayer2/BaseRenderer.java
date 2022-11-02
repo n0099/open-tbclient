@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +117,7 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
         this.readEndOfStream = true;
     }
 
-    public static boolean supportsFormatDrm(DrmSessionManager drmSessionManager, DrmInitData drmInitData) {
+    public static boolean supportsFormatDrm(@Nullable DrmSessionManager<?> drmSessionManager, @Nullable DrmInitData drmInitData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, drmSessionManager, drmInitData)) == null) {

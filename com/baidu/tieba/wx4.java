@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ApiReplaceUtil.java */
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.data.LiveRemindData;
+import java.util.List;
+import tbclient.AlaLiveInfo;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class wx4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wx4 {
+    IconPopData getIconPopData();
 
-    public static boolean $default$forceApi(ApiReplaceUtil.Getter.Action action) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, action)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    LevePopData getLevePopData();
+
+    List<AlaLiveInfo> getLiveFollowSecondFloor();
+
+    List<AlaLiveInfo> getLiveIndexSecondFloor();
+
+    List<AlaLiveInfo> getLivePicSecondFloor();
+
+    LiveRemindData getLiveRemindData();
 }

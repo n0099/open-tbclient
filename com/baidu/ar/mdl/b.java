@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray cD;
+    public SparseArray<a> cD;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,7 +38,7 @@ public class b {
                 return;
             }
         }
-        this.cD = new SparseArray();
+        this.cD = new SparseArray<>();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:43:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -126,7 +127,7 @@ public class b {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
                     int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
-                    File file = new File(str2, jSONObject2.getString("dir"));
+                    File file = new File(str2, jSONObject2.getString(MapBundleKey.MapObjKey.OBJ_DIR));
                     String optString = jSONObject2.optString("design_model", "");
                     if (!TextUtils.isEmpty(optString)) {
                         file = new File(file, optString);
@@ -196,7 +197,7 @@ public class b {
         a(a, str, z);
     }
 
-    public SparseArray fm() {
+    public SparseArray<a> fm() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.cD : (SparseArray) invokeV.objValue;

@@ -1,8 +1,9 @@
 package com.baidu.tieba.frs.forumRule.message;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sm6;
+import com.baidu.tieba.do6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm6 mForumRuleDetailData;
+    public do6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -35,16 +36,17 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public sm6 getmForumRuleDetailData() {
+    public do6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumRuleDetailData;
         }
-        return (sm6) invokeV.objValue;
+        return (do6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
+    @Nullable
     public Object decodeInBackGroundNeedResult(int i, byte[] bArr) throws Exception {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -60,9 +62,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    sm6 sm6Var = new sm6();
-                    this.mForumRuleDetailData = sm6Var;
-                    sm6Var.q(forumRuleDetailResIdl.data);
+                    do6 do6Var = new do6();
+                    this.mForumRuleDetailData = do6Var;
+                    do6Var.q(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;

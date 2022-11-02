@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.FieldSet;
+import java.lang.Comparable;
 import java.util.AbstractMap;
 import java.util.AbstractSet;
 import java.util.ArrayList;
@@ -22,20 +23,20 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public class SmallSortedMap extends AbstractMap {
+public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List entryList;
+    public List<SmallSortedMap<K, V>.Entry> entryList;
     public boolean isImmutable;
-    public volatile EntrySet lazyEntrySet;
+    public volatile SmallSortedMap<K, V>.EntrySet lazyEntrySet;
     public final int maxArraySize;
-    public Map overflowEntries;
+    public Map<K, V> overflowEntries;
 
     /* loaded from: classes7.dex */
-    public class EmptySet {
+    public static class EmptySet {
         public static /* synthetic */ Interceptable $ic;
-        public static final Iterable ITERABLE;
-        public static final Iterator ITERATOR;
+        public static final Iterable<Object> ITERABLE;
+        public static final Iterator<Object> ITERATOR;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +52,7 @@ public class SmallSortedMap extends AbstractMap {
                     return;
                 }
             }
-            ITERATOR = new Iterator() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.1
+            ITERATOR = new Iterator<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -97,7 +98,7 @@ public class SmallSortedMap extends AbstractMap {
                     }
                 }
             };
-            ITERABLE = new Iterable() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.2
+            ITERABLE = new Iterable<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,7 +117,7 @@ public class SmallSortedMap extends AbstractMap {
                 }
 
                 @Override // java.lang.Iterable
-                public Iterator iterator() {
+                public Iterator<Object> iterator() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
@@ -141,30 +142,30 @@ public class SmallSortedMap extends AbstractMap {
             }
         }
 
-        public static Iterable iterable() {
+        public static <T> Iterable<T> iterable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return ITERABLE;
+                return (Iterable<T>) ITERABLE;
             }
             return (Iterable) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class Entry implements Map.Entry, Comparable {
+    public class Entry implements Map.Entry<K, V>, Comparable<SmallSortedMap<K, V>.Entry> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Comparable key;
+        public final K key;
         public final /* synthetic */ SmallSortedMap this$0;
-        public Object value;
+        public V value;
 
-        public Entry(SmallSortedMap smallSortedMap, Comparable comparable, Object obj) {
+        public Entry(SmallSortedMap smallSortedMap, K k, V v) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {smallSortedMap, comparable, obj};
+                Object[] objArr = {smallSortedMap, k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -175,13 +176,13 @@ public class SmallSortedMap extends AbstractMap {
                 }
             }
             this.this$0 = smallSortedMap;
-            this.key = comparable;
-            this.value = obj;
+            this.key = k;
+            this.value = v;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Entry(SmallSortedMap smallSortedMap, Map.Entry entry) {
-            this(smallSortedMap, (Comparable) entry.getKey(), entry.getValue());
+        public Entry(SmallSortedMap smallSortedMap, Map.Entry<K, V> entry) {
+            this(smallSortedMap, entry.getKey(), entry.getValue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,9 +216,7 @@ public class SmallSortedMap extends AbstractMap {
             return invokeLL.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        public int compareTo(Entry entry) {
+        public int compareTo(SmallSortedMap<K, V>.Entry entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
@@ -227,16 +226,21 @@ public class SmallSortedMap extends AbstractMap {
         }
 
         @Override // java.util.Map.Entry
-        public Object setValue(Object obj) {
+        public V setValue(V v) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, v)) == null) {
                 this.this$0.checkMutable();
-                Object obj2 = this.value;
-                this.value = obj;
-                return obj2;
+                V v2 = this.value;
+                this.value = v;
+                return v2;
             }
-            return invokeL.objValue;
+            return (V) invokeL.objValue;
+        }
+
+        @Override // java.lang.Comparable
+        public /* bridge */ /* synthetic */ int compareTo(Object obj) {
+            return compareTo((Entry) ((Entry) obj));
         }
 
         @Override // java.util.Map.Entry
@@ -261,23 +265,23 @@ public class SmallSortedMap extends AbstractMap {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Map.Entry
-        public Comparable getKey() {
+        public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.key;
             }
-            return (Comparable) invokeV.objValue;
+            return (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
-        public Object getValue() {
+        public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return this.value;
             }
-            return invokeV.objValue;
+            return (V) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
@@ -286,16 +290,16 @@ public class SmallSortedMap extends AbstractMap {
             int hashCode;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                Comparable comparable = this.key;
+                K k = this.key;
                 int i = 0;
-                if (comparable == null) {
+                if (k == null) {
                     hashCode = 0;
                 } else {
-                    hashCode = comparable.hashCode();
+                    hashCode = k.hashCode();
                 }
-                Object obj = this.value;
-                if (obj != null) {
-                    i = obj.hashCode();
+                V v = this.value;
+                if (v != null) {
+                    i = v.hashCode();
                 }
                 return hashCode ^ i;
             }
@@ -313,10 +317,10 @@ public class SmallSortedMap extends AbstractMap {
     }
 
     /* loaded from: classes7.dex */
-    public class EntryIterator implements Iterator {
+    public class EntryIterator implements Iterator<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Iterator lazyOverflowIterator;
+        public Iterator<Map.Entry<K, V>> lazyOverflowIterator;
         public boolean nextCalledBeforeRemove;
         public int pos;
         public final /* synthetic */ SmallSortedMap this$0;
@@ -340,7 +344,7 @@ public class SmallSortedMap extends AbstractMap {
             this.pos = -1;
         }
 
-        private Iterator getOverflowIterator() {
+        private Iterator<Map.Entry<K, V>> getOverflowIterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -367,7 +371,7 @@ public class SmallSortedMap extends AbstractMap {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
-        public Map.Entry next() {
+        public Map.Entry<K, V> next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -377,7 +381,7 @@ public class SmallSortedMap extends AbstractMap {
                 if (i < this.this$0.entryList.size()) {
                     return (Map.Entry) this.this$0.entryList.get(this.pos);
                 }
-                return (Map.Entry) getOverflowIterator().next();
+                return getOverflowIterator().next();
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -405,7 +409,7 @@ public class SmallSortedMap extends AbstractMap {
     }
 
     /* loaded from: classes7.dex */
-    public class EntrySet extends AbstractSet {
+    public class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmallSortedMap this$0;
@@ -426,6 +430,11 @@ public class SmallSortedMap extends AbstractMap {
                 }
             }
             this.this$0 = smallSortedMap;
+        }
+
+        @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
+        public /* bridge */ /* synthetic */ boolean add(Object obj) {
+            return add((Map.Entry) ((Map.Entry) obj));
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -459,14 +468,12 @@ public class SmallSortedMap extends AbstractMap {
             return invokeL.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-        public boolean add(Map.Entry entry) {
+        public boolean add(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) {
                 if (!contains(entry)) {
-                    this.this$0.put((Comparable) entry.getKey(), entry.getValue());
+                    this.this$0.put((SmallSortedMap) entry.getKey(), (K) entry.getValue());
                     return true;
                 }
                 return false;
@@ -483,7 +490,7 @@ public class SmallSortedMap extends AbstractMap {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
-        public Iterator iterator() {
+        public Iterator<Map.Entry<K, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -523,11 +530,18 @@ public class SmallSortedMap extends AbstractMap {
         this.overflowEntries = Collections.emptyMap();
     }
 
-    public static SmallSortedMap newFieldMap(int i) {
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.protobuf.SmallSortedMap<K extends java.lang.Comparable<K>, V> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // java.util.AbstractMap, java.util.Map
+    public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
+        return put((SmallSortedMap<K, V>) ((Comparable) obj), (Comparable) obj2);
+    }
+
+    public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            return new SmallSortedMap(i) { // from class: com.google.protobuf.SmallSortedMap.1
+            return (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i) { // from class: com.google.protobuf.SmallSortedMap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -558,12 +572,14 @@ public class SmallSortedMap extends AbstractMap {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (!isImmutable()) {
                             for (int i2 = 0; i2 < getNumArrayEntries(); i2++) {
-                                Map.Entry arrayEntryAt = getArrayEntryAt(i2);
+                                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = getArrayEntryAt(i2);
                                 if (((FieldSet.FieldDescriptorLite) arrayEntryAt.getKey()).isRepeated()) {
                                     arrayEntryAt.setValue(Collections.unmodifiableList((List) arrayEntryAt.getValue()));
                                 }
                             }
-                            for (Map.Entry entry : getOverflowEntries()) {
+                            Iterator it = getOverflowEntries().iterator();
+                            while (it.hasNext()) {
+                                Map.Entry entry = (Map.Entry) it.next();
                                 if (((FieldSet.FieldDescriptorLite) entry.getKey()).isRepeated()) {
                                     entry.setValue(Collections.unmodifiableList((List) entry.getValue()));
                                 }
@@ -575,22 +591,24 @@ public class SmallSortedMap extends AbstractMap {
 
                 @Override // com.google.protobuf.SmallSortedMap, java.util.AbstractMap, java.util.Map
                 public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
-                    return super.put((Comparable) ((FieldSet.FieldDescriptorLite) obj), obj2);
+                    return super.put((AnonymousClass1) ((FieldSet.FieldDescriptorLite) obj), (FieldSet.FieldDescriptorLite) obj2);
                 }
             };
         }
         return (SmallSortedMap) invokeI.objValue;
     }
 
-    public static SmallSortedMap newInstanceForTest(int i) {
+    public static <K extends Comparable<K>, V> SmallSortedMap<K, V> newInstanceForTest(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
-            return new SmallSortedMap(i);
+            return new SmallSortedMap<>(i);
         }
         return (SmallSortedMap) invokeI.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.protobuf.SmallSortedMap<K extends java.lang.Comparable<K>, V> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.AbstractMap, java.util.Map
     public boolean containsKey(Object obj) {
         InterceptResult invokeL;
@@ -605,32 +623,36 @@ public class SmallSortedMap extends AbstractMap {
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.protobuf.SmallSortedMap<K extends java.lang.Comparable<K>, V> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.AbstractMap, java.util.Map
-    public Object get(Object obj) {
+    public V get(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Comparable comparable = (Comparable) obj;
             int binarySearchInArray = binarySearchInArray(comparable);
             if (binarySearchInArray >= 0) {
-                return ((Entry) this.entryList.get(binarySearchInArray)).getValue();
+                return this.entryList.get(binarySearchInArray).getValue();
             }
             return this.overflowEntries.get(comparable);
         }
-        return invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
-    public Map.Entry getArrayEntryAt(int i) {
+    public Map.Entry<K, V> getArrayEntryAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return (Map.Entry) this.entryList.get(i);
+            return this.entryList.get(i);
         }
         return (Map.Entry) invokeI.objValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.google.protobuf.SmallSortedMap<K extends java.lang.Comparable<K>, V> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.AbstractMap, java.util.Map
-    public Object remove(Object obj) {
+    public V remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
@@ -638,23 +660,23 @@ public class SmallSortedMap extends AbstractMap {
             Comparable comparable = (Comparable) obj;
             int binarySearchInArray = binarySearchInArray(comparable);
             if (binarySearchInArray >= 0) {
-                return removeArrayEntryAt(binarySearchInArray);
+                return (V) removeArrayEntryAt(binarySearchInArray);
             }
             if (this.overflowEntries.isEmpty()) {
                 return null;
             }
             return this.overflowEntries.remove(comparable);
         }
-        return invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
-    private int binarySearchInArray(Comparable comparable) {
+    private int binarySearchInArray(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, comparable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, k)) == null) {
             int size = this.entryList.size() - 1;
             if (size >= 0) {
-                int compareTo = comparable.compareTo(((Entry) this.entryList.get(size)).getKey());
+                int compareTo = k.compareTo(this.entryList.get(size).getKey());
                 if (compareTo > 0) {
                     return -(size + 2);
                 }
@@ -665,7 +687,7 @@ public class SmallSortedMap extends AbstractMap {
             int i = 0;
             while (i <= size) {
                 int i2 = (i + size) / 2;
-                int compareTo2 = comparable.compareTo(((Entry) this.entryList.get(i2)).getKey());
+                int compareTo2 = k.compareTo(this.entryList.get(i2).getKey());
                 if (compareTo2 < 0) {
                     size = i2 - 1;
                 } else if (compareTo2 > 0) {
@@ -680,20 +702,20 @@ public class SmallSortedMap extends AbstractMap {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Object removeArrayEntryAt(int i) {
+    public V removeArrayEntryAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             checkMutable();
-            Object value = ((Entry) this.entryList.remove(i)).getValue();
+            V value = this.entryList.remove(i).getValue();
             if (!this.overflowEntries.isEmpty()) {
-                Iterator it = getOverflowEntriesMutable().entrySet().iterator();
-                this.entryList.add(new Entry(this, (Map.Entry) it.next()));
+                Iterator<Map.Entry<K, V>> it = getOverflowEntriesMutable().entrySet().iterator();
+                this.entryList.add(new Entry(this, it.next()));
                 it.remove();
             }
             return value;
         }
-        return invokeI.objValue;
+        return (V) invokeI.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -715,7 +737,7 @@ public class SmallSortedMap extends AbstractMap {
         }
     }
 
-    private SortedMap getOverflowEntriesMutable() {
+    private SortedMap<K, V> getOverflowEntriesMutable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
@@ -743,7 +765,7 @@ public class SmallSortedMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Set entrySet() {
+    public Set<Map.Entry<K, V>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -773,7 +795,7 @@ public class SmallSortedMap extends AbstractMap {
         return invokeV.intValue;
     }
 
-    public Iterable getOverflowEntries() {
+    public Iterable<Map.Entry<K, V>> getOverflowEntries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -795,7 +817,7 @@ public class SmallSortedMap extends AbstractMap {
     }
 
     public void makeImmutable() {
-        Map unmodifiableMap;
+        Map<K, V> unmodifiableMap;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.isImmutable) {
             if (this.overflowEntries.isEmpty()) {
@@ -818,31 +840,29 @@ public class SmallSortedMap extends AbstractMap {
         return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractMap, java.util.Map
-    public Object put(Comparable comparable, Object obj) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, comparable, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, k, v)) == null) {
             checkMutable();
-            int binarySearchInArray = binarySearchInArray(comparable);
+            int binarySearchInArray = binarySearchInArray(k);
             if (binarySearchInArray >= 0) {
-                return ((Entry) this.entryList.get(binarySearchInArray)).setValue(obj);
+                return this.entryList.get(binarySearchInArray).setValue(v);
             }
             ensureEntryArrayMutable();
             int i = -(binarySearchInArray + 1);
             if (i >= this.maxArraySize) {
-                return getOverflowEntriesMutable().put(comparable, obj);
+                return getOverflowEntriesMutable().put(k, v);
             }
             int size = this.entryList.size();
             int i2 = this.maxArraySize;
             if (size == i2) {
-                Entry entry = (Entry) this.entryList.remove(i2 - 1);
-                getOverflowEntriesMutable().put(entry.getKey(), entry.getValue());
+                SmallSortedMap<K, V>.Entry remove = this.entryList.remove(i2 - 1);
+                getOverflowEntriesMutable().put((K) remove.getKey(), remove.getValue());
             }
-            this.entryList.add(i, new Entry(this, comparable, obj));
+            this.entryList.add(i, new Entry(this, k, v));
             return null;
         }
-        return invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 }

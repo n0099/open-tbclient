@@ -12,13 +12,16 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
+import com.baidu.tieba.jc7;
+import com.baidu.tieba.tb7;
+import com.baidu.tieba.wb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class OfficialBarFeedActivity extends BaseActivity implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
+public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OfficialBarFeedMsglistView a;
@@ -82,7 +85,7 @@ public class OfficialBarFeedActivity extends BaseActivity implements OfficialBar
         }
     }
 
-    public final void y1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.a = new OfficialBarFeedMsglistView(this);
@@ -108,13 +111,13 @@ public class OfficialBarFeedActivity extends BaseActivity implements OfficialBar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            y1();
+            x1();
             initData();
         }
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<wb7> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, longSparseArray) == null) {
             this.a.s(longSparseArray);
@@ -122,7 +125,7 @@ public class OfficialBarFeedActivity extends BaseActivity implements OfficialBar
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onListDataLoad(List list, List list2) {
+    public void onListDataLoad(List<jc7> list, List<tb7> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
             this.a.r(list, list2);

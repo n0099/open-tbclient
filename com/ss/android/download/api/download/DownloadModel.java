@@ -22,9 +22,9 @@ public interface DownloadModel {
 
     String getAppIcon();
 
-    List getBackupUrls();
+    List<String> getBackupUrls();
 
-    List getClickTrackUrl();
+    List<String> getClickTrackUrl();
 
     DeepLink getDeepLink();
 
@@ -48,7 +48,7 @@ public interface DownloadModel {
 
     int getFunnelType();
 
-    Map getHeaders();
+    Map<String, String> getHeaders();
 
     long getId();
 

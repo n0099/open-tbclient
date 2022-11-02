@@ -29,7 +29,7 @@ public class NetStateManager {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class NetState {
+    public static final class NetState {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final NetState Mobile;
@@ -165,14 +165,14 @@ public class NetStateManager {
         }
     }
 
-    public static Pair getAPN() {
+    public static Pair<String, Integer> getAPN() {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             Uri parse = Uri.parse("content://telephony/carriers/preferapn");
             Context context = mContext;
-            Pair pair = null;
+            Pair<String, Integer> pair = null;
             if (context != null) {
                 cursor = context.getContentResolver().query(parse, null, null, null, null);
             } else {
@@ -181,7 +181,7 @@ public class NetStateManager {
             if (cursor != null && cursor.moveToFirst()) {
                 String string = cursor.getString(cursor.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
                 if (string != null && string.trim().length() > 0) {
-                    pair = new Pair(string, 80);
+                    pair = new Pair<>(string, 80);
                 }
                 cursor.close();
             }

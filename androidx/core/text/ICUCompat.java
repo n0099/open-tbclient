@@ -3,6 +3,7 @@ package androidx.core.text;
 import android.icu.util.ULocale;
 import android.os.Build;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -108,6 +109,7 @@ public final class ICUCompat {
         return (String) invokeL.objValue;
     }
 
+    @Nullable
     public static String maximizeAndGetScript(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

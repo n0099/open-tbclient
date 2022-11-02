@@ -1,61 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
-import com.baidu.swan.game.guide.view.GameGuideViewContainer;
-import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class rt3 implements w04 {
+public class rt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements GamenowRecommendPopView.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameCloseGuidePopView.e a;
-
-        public a(rt3 rt3Var, GameCloseGuidePopView.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rt3Var, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
-        public void a() {
-            GameCloseGuidePopView.e eVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (eVar = this.a) == null) {
-                return;
-            }
-            eVar.a();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,82 +27,125 @@ public class rt3 implements w04 {
                 return;
             }
         }
-        boolean z = wj1.a;
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("100000", "请求格式错误");
+        a.put("101000", "请求ID信息缺失");
+        a.put("101001", "请求ID不符合约定格式");
+        a.put("101002", "请求的trftp信息缺失");
+        a.put("101003", "请求的sdk版本信息有误");
+        a.put("101004", "请求的referer信息有误");
+        a.put("101005", "请求的appid不合法");
+        a.put("103000", "应用信息缺失");
+        a.put("103010", "应用ID信息缺失");
+        a.put("103011", "应用ID信息错误，MSSP未收录");
+        a.put("103012", "应用ID无效，MSSP上未生效");
+        a.put("103020", "应用ID无效，渠道ID信息错误");
+        a.put("103030", "应用版本信息缺失");
+        a.put("103040", "应用主版本信息缺失");
+        a.put("103050", "应用操作系统信息缺失");
+        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
+        a.put("104000", "设备信息缺失");
+        a.put("104010", "设备类型信息缺失");
+        a.put("104011", "设备类型信息错误");
+        a.put("104020", "操作系统信息缺失");
+        a.put("104021", "操作系统信息错误");
+        a.put("104030", "操作系统版本信息缺失");
+        a.put("104040", "操作系统主版本信息缺失");
+        a.put("104050", "厂商信息缺失");
+        a.put("104060", "设备型号信息缺失");
+        a.put("104070", "设备唯一标识符缺失");
+        a.put("104071", "设备唯一标识符错误");
+        a.put("104080", "android id 缺失");
+        a.put("104081", "android id 格式错误");
+        a.put("104090", "设备屏幕尺寸信息缺失");
+        a.put("104100", "设备屏幕尺寸宽度缺失");
+        a.put("104110", "设备屏幕尺寸高度缺失");
+        a.put("105000", "网络环境信息缺失");
+        a.put("105010", "网络地址信息缺失");
+        a.put("105011", "网络地址信息格式错误");
+        a.put("105020", "网络连接类型缺失");
+        a.put("105021", "网络连接类型错误");
+        a.put("105030", "网络运营商类型缺失");
+        a.put("105031", "网络运营商类型错误");
+        a.put("105040", "Wi-Fi热点地址信息缺失");
+        a.put("105041", "Wi-Fi热点地址信息格式错误");
+        a.put("105050", "Wi-Fi热点信号强度信息缺失");
+        a.put("105060", "Wi-Fi热点名称缺失");
+        a.put("105070", "Wi-Fi连接状态信息缺失");
+        a.put("106000", "坐标类型信息缺失");
+        a.put("106001", "坐标类型信息错误");
+        a.put("106010", "经度信息缺失");
+        a.put("106020", "纬度信息缺失");
+        a.put("106030", "定位时间戳信息缺失");
+        a.put("107000", "广告位ID缺失");
+        a.put("107001", "广告位ID未收录");
+        a.put("107002", "广告位ID未启用");
+        a.put("107003", "广告位ID与应用ID不匹配");
+        a.put("107010", "广告位尺寸信息缺失");
+        a.put("107020", "广告位尺寸宽度缺失");
+        a.put("107030", "广告位尺寸高度缺失");
+        a.put("107040", "广告位信息缺失");
+        a.put("107050", "视频广告的网络条件无法满足");
+        a.put("107051", "视频标题名称过长");
+        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
+        a.put("200000", "无广告返回");
+        a.put("201000", "无广告数据");
+        a.put("201010", "广告无签名");
+        a.put("201020", "广告创意类型信息缺失");
+        a.put("201021", "广告创意类型信息无法识别");
+        a.put("201030", "广告动作类型信息缺失");
+        a.put("201031", "广告动作类型信息无法识别");
+        a.put("201040", "曝光汇报地址丢失");
+        a.put("201050", "点击响应地址丢失");
+        a.put("201060", "推广标题丢失");
+        a.put("201070", "推广描述丢失");
+        a.put("201080", "推广应用包名丢失");
+        a.put("201090", "推广应用包大小丢失");
+        a.put("201100", "推广图标丢失");
+        a.put("201110", "推广图片丢失");
+        a.put("3010000", "广告组件挂载失败");
+        a.put("3010001", "播放器内部错误");
+        a.put("3010002", "广告请求失败");
+        a.put("3010003", "网络连接错误");
+        a.put("3010004", "没有可以展示的广告");
+        a.put("3010005", "广告正在拉取中，不能重复请求");
+        a.put("3010006", "广告正在展示中，不能请求广告");
+        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
+        a.put("4010000", "广告组件准备完成");
+        a.put("3010008", "播放地址为空");
+        a.put("3010009", "激励视频重复调用create错误");
+        a.put("3010010", "没有可以show的banner广告");
+        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
+        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
+        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
     }
 
-    public rt3() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = a.get(str);
+            if (str2 == null) {
+                str2 = "";
             }
+            return b(str, str2);
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.w04
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wt3.n().t();
-        }
-    }
-
-    @Override // com.baidu.tieba.w04
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            wt3.n().u();
-        }
-    }
-
-    @Override // com.baidu.tieba.w04
-    public View a(Context context, GameCloseGuidePopView.e eVar) {
+    public static String b(String str, String str2) {
         InterceptResult invokeLL;
-        lt3 lt3Var;
-        GameGuideConfigInfo z;
-        GameGuideConfigInfo.CloseInfo closeInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
-            if (context == null || (lt3Var = lt3.o) == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.equals("3010012", str)) {
+                return String.format(str2, Long.valueOf(ws3.a().h() / 1000));
             }
-            String I = lt3Var.I();
-            if ((!TextUtils.equals(I, qt3.a) && gh3.F(context, I)) || (z = lt3.o.z()) == null || (closeInfo = z.closeInfo) == null) {
-                return null;
+            if (TextUtils.equals("3010013", str)) {
+                return String.format(str2, Long.valueOf(ws3.a().f() / 1000));
             }
-            int i = closeInfo.type;
-            ArrayList arrayList = closeInfo.gameList;
-            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
-                return null;
-            }
-            if (i != 0 && i != 1) {
-                if (i == 2) {
-                    iu3.n().c("gbADialogShow");
-                }
-            } else {
-                iu3.n().c("gbBDialogShow");
-            }
-            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
-            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
-            return gamenowRecommendPopView;
+            return str2;
         }
-        return (View) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.w04
-    public void b(int i) {
-        lt3 lt3Var;
-        GameGuideViewContainer B;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (lt3Var = lt3.o) != null && (B = lt3Var.B()) != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
-            layoutParams.rightMargin = i;
-            B.setLayoutParams(layoutParams);
-        }
+        return (String) invokeLL.objValue;
     }
 }

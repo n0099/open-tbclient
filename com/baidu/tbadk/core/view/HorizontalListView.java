@@ -17,7 +17,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
-public class HorizontalListView extends AdapterView {
+public class HorizontalListView extends AdapterView<ListAdapter> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -39,7 +39,7 @@ public class HorizontalListView extends AdapterView {
     public int h;
     public Scroller i;
     public GestureDetector j;
-    public Queue k;
+    public Queue<View> k;
     public AdapterView.OnItemSelectedListener l;
     public AdapterView.OnItemClickListener m;
     public AdapterView.OnItemLongClickListener n;
@@ -503,7 +503,7 @@ public class HorizontalListView extends AdapterView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             while (i + i2 > 0 && (i3 = this.c) >= 0) {
-                View view2 = this.b.getView(i3, (View) this.k.poll(), this);
+                View view2 = this.b.getView(i3, this.k.poll(), this);
                 i(view2, 0);
                 i -= view2.getMeasuredWidth();
                 this.c--;
@@ -572,7 +572,7 @@ public class HorizontalListView extends AdapterView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
             while (i + i2 < getWidth() && this.d < this.b.getCount()) {
-                View view2 = this.b.getView(this.d, (View) this.k.poll(), this);
+                View view2 = this.b.getView(this.d, this.k.poll(), this);
                 i(view2, -1);
                 i += view2.getMeasuredWidth();
                 if (this.d == this.b.getCount() - 1) {
@@ -597,11 +597,11 @@ public class HorizontalListView extends AdapterView {
             int paddingLeft = getPaddingLeft() + getPaddingRight();
             int count = this.b.getCount();
             for (int i3 = 0; i3 < count; i3++) {
-                View view3 = (View) this.k.poll();
-                if (view3 == null) {
+                View poll = this.k.poll();
+                if (poll == null) {
                     view2 = this.b.getView(i3, null, this);
                 } else {
-                    view2 = this.b.getView(i3, view3, this);
+                    view2 = this.b.getView(i3, poll, this);
                 }
                 view2.measure(i, 0);
                 paddingLeft += view2.getMeasuredWidth();
@@ -624,7 +624,7 @@ public class HorizontalListView extends AdapterView {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = fj.k(getContext()) / 2;
+                this.q = xi.l(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }
@@ -649,12 +649,12 @@ public class HorizontalListView extends AdapterView {
                         if (action != 2) {
                             SwipeBackLayout.c cVar = this.w;
                             if (cVar != null) {
-                                cVar.b0();
+                                cVar.a0();
                             }
                         } else {
                             SwipeBackLayout.c cVar2 = this.w;
                             if (cVar2 != null) {
-                                cVar2.G0();
+                                cVar2.F0();
                             }
                             j(motionEvent);
                             if (this.v) {
@@ -670,7 +670,7 @@ public class HorizontalListView extends AdapterView {
                             this.t = MotionEventCompat.getY(motionEvent, actionIndex);
                             SwipeBackLayout.c cVar3 = this.w;
                             if (cVar3 != null) {
-                                cVar3.G0();
+                                cVar3.F0();
                             }
                         }
                     }
@@ -679,7 +679,7 @@ public class HorizontalListView extends AdapterView {
                 this.v = false;
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.b0();
+                    cVar4.a0();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -704,12 +704,12 @@ public class HorizontalListView extends AdapterView {
                     if (action != 2) {
                         SwipeBackLayout.c cVar = this.w;
                         if (cVar != null) {
-                            cVar.b0();
+                            cVar.a0();
                         }
                     } else {
                         SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
-                            cVar2.G0();
+                            cVar2.F0();
                         }
                         if (!this.v) {
                             j(motionEvent);
@@ -722,14 +722,14 @@ public class HorizontalListView extends AdapterView {
                     this.v = false;
                     SwipeBackLayout.c cVar3 = this.w;
                     if (cVar3 != null) {
-                        cVar3.b0();
+                        cVar3.a0();
                     }
                 }
             } else {
                 this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.G0();
+                    cVar4.F0();
                 }
             }
             return super.onTouchEvent(motionEvent);

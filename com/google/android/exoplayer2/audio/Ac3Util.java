@@ -34,7 +34,7 @@ public final class Ac3Util {
 
     /* renamed from: com.google.android.exoplayer2.audio.Ac3Util$1  reason: invalid class name */
     /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -49,7 +49,7 @@ public final class Ac3Util {
     }
 
     /* loaded from: classes7.dex */
-    public final class Ac3SyncFrameInfo {
+    public static final class Ac3SyncFrameInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STREAM_TYPE_TYPE0 = 0;
         public static final int STREAM_TYPE_TYPE1 = 1;

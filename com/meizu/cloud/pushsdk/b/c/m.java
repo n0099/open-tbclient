@@ -63,7 +63,7 @@ public class m {
         }
     }
 
-    public static List a(List list) {
+    public static <T> List<T> a(List<T> list) {
         return Collections.unmodifiableList(new ArrayList(list));
     }
 

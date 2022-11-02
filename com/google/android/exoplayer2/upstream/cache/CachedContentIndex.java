@@ -49,8 +49,8 @@ public class CachedContentIndex {
     public boolean changed;
     public final Cipher cipher;
     public final boolean encrypt;
-    public final SparseArray idToKey;
-    public final HashMap keyToContent;
+    public final SparseArray<String> idToKey;
+    public final HashMap<String, CachedContent> keyToContent;
     public final SecretKeySpec secretKeySpec;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class CachedContentIndex {
         }
     }
 
-    public static int getNewId(SparseArray sparseArray) {
+    public static int getNewId(SparseArray<String> sparseArray) {
         InterceptResult invokeL;
         int keyAt;
         Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class CachedContentIndex {
             this.cipher = null;
             this.secretKeySpec = null;
         }
-        this.keyToContent = new HashMap();
-        this.idToKey = new SparseArray();
+        this.keyToContent = new HashMap<>();
+        this.idToKey = new SparseArray<>();
         this.atomicFile = new AtomicFile(new File(file, FILE_NAME));
     }
 
@@ -190,7 +190,7 @@ public class CachedContentIndex {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return (CachedContent) this.keyToContent.get(str);
+            return this.keyToContent.get(str);
         }
         return (CachedContent) invokeL.objValue;
     }
@@ -212,17 +212,17 @@ public class CachedContentIndex {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return (String) this.idToKey.get(i);
+            return this.idToKey.get(i);
         }
         return (String) invokeI.objValue;
     }
 
     public void removeEmpty(String str) {
-        CachedContent cachedContent;
+        CachedContent remove;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (cachedContent = (CachedContent) this.keyToContent.remove(str)) != null) {
-            Assertions.checkState(cachedContent.isEmpty());
-            this.idToKey.remove(cachedContent.id);
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (remove = this.keyToContent.remove(str)) != null) {
+            Assertions.checkState(remove.isEmpty());
+            this.idToKey.remove(remove.id);
             this.changed = true;
         }
     }
@@ -269,7 +269,7 @@ public class CachedContentIndex {
         return (Cipher) invokeV.objValue;
     }
 
-    public Collection getAll() {
+    public Collection<CachedContent> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -278,7 +278,7 @@ public class CachedContentIndex {
         return (Collection) invokeV.objValue;
     }
 
-    public Set getKeys() {
+    public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -473,7 +473,7 @@ public class CachedContentIndex {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CachedContent cachedContent = (CachedContent) this.keyToContent.get(str);
+            CachedContent cachedContent = this.keyToContent.get(str);
             if (cachedContent == null) {
                 return addNew(str, -1L);
             }

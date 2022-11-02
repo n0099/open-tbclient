@@ -13,10 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class TrainInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<TrainInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
     public String b;
+
+    @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +41,7 @@ public class TrainInfo extends TransitBaseInfo {
                 return;
             }
         }
-        CREATOR = new n();
+        CREATOR = new p();
     }
 
     public TrainInfo() {
@@ -46,6 +56,24 @@ public class TrainInfo extends TransitBaseInfo {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public String getBooking() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public double getPrice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.doubleValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,34 +98,24 @@ public class TrainInfo extends TransitBaseInfo {
         this.b = parcel.readString();
     }
 
-    public void a(double d) {
+    public void setBooking(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.a = d;
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.b = str;
         }
     }
 
-    @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
-    public int describeContents() {
-        InterceptResult invokeV;
+    public void setPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.a = d;
         }
-        return invokeV.intValue;
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
             parcel.writeString(this.b);

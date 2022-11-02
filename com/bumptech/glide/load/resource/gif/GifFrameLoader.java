@@ -6,6 +6,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +39,7 @@ public class GifFrameLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BitmapPool bitmapPool;
-    public final List callbacks;
+    public final List<FrameCallback> callbacks;
     public DelayTarget current;
     public Bitmap firstFrame;
     public int firstFrameSize;
@@ -47,12 +50,13 @@ public class GifFrameLoader {
     public boolean isLoadPending;
     public boolean isRunning;
     public DelayTarget next;
+    @Nullable
     public OnEveryFrameListener onEveryFrameListener;
     public DelayTarget pendingTarget;
-    public RequestBuilder requestBuilder;
+    public RequestBuilder<Bitmap> requestBuilder;
     public final RequestManager requestManager;
     public boolean startFromFirstFrame;
-    public Transformation transformation;
+    public Transformation<Bitmap> transformation;
     public int width;
 
     /* loaded from: classes7.dex */
@@ -60,13 +64,15 @@ public class GifFrameLoader {
         void onFrameReady();
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
 
+    @VisibleForTesting
     /* loaded from: classes7.dex */
-    public class DelayTarget extends CustomTarget {
+    public static class DelayTarget extends CustomTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Handler handler;
@@ -104,21 +110,24 @@ public class GifFrameLoader {
         }
 
         @Override // com.bumptech.glide.request.target.Target
-        public void onLoadCleared(Drawable drawable) {
+        public void onLoadCleared(@Nullable Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
                 this.resource = null;
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.bumptech.glide.request.target.Target
-        public void onResourceReady(Bitmap bitmap, Transition transition) {
+        public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, transition) == null) {
                 this.resource = bitmap;
                 this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.targetTime);
             }
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public /* bridge */ /* synthetic */ void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
+            onResourceReady((Bitmap) obj, (Transition<? super Bitmap>) transition);
         }
     }
 
@@ -169,7 +178,7 @@ public class GifFrameLoader {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation transformation, Bitmap bitmap) {
+    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
         this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i, i2), transformation, bitmap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -189,7 +198,7 @@ public class GifFrameLoader {
         }
     }
 
-    public GifFrameLoader(BitmapPool bitmapPool, RequestManager requestManager, GifDecoder gifDecoder, Handler handler, RequestBuilder requestBuilder, Transformation transformation, Bitmap bitmap) {
+    public GifFrameLoader(BitmapPool bitmapPool, RequestManager requestManager, GifDecoder gifDecoder, Handler handler, RequestBuilder<Bitmap> requestBuilder, Transformation<Bitmap> transformation, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -302,7 +311,7 @@ public class GifFrameLoader {
         return invokeV.intValue;
     }
 
-    public Transformation getFrameTransformation() {
+    public Transformation<Bitmap> getFrameTransformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -360,11 +369,11 @@ public class GifFrameLoader {
         }
     }
 
-    public static RequestBuilder getRequestBuilder(RequestManager requestManager, int i, int i2) {
+    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, requestManager, i, i2)) == null) {
-            return requestManager.asBitmap().apply(((RequestOptions) ((RequestOptions) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true)).skipMemoryCache(true)).override(i, i2));
+            return requestManager.asBitmap().apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
         }
         return (RequestBuilder) invokeLII.objValue;
     }
@@ -393,7 +402,7 @@ public class GifFrameLoader {
             long uptimeMillis = SystemClock.uptimeMillis() + this.gifDecoder.getNextDelay();
             this.gifDecoder.advance();
             this.next = new DelayTarget(this.handler, this.gifDecoder.getCurrentFrameIndex(), uptimeMillis);
-            this.requestBuilder.apply((BaseRequestOptions) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into(this.next);
+            this.requestBuilder.apply((BaseRequestOptions<?>) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
         }
     }
 
@@ -423,6 +432,7 @@ public class GifFrameLoader {
         }
     }
 
+    @VisibleForTesting
     public void onFrameReady(DelayTarget delayTarget) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, delayTarget) == null) {
@@ -445,7 +455,7 @@ public class GifFrameLoader {
                     DelayTarget delayTarget2 = this.current;
                     this.current = delayTarget;
                     for (int size = this.callbacks.size() - 1; size >= 0; size--) {
-                        ((FrameCallback) this.callbacks.get(size)).onFrameReady();
+                        this.callbacks.get(size).onFrameReady();
                     }
                     if (delayTarget2 != null) {
                         this.handler.obtainMessage(2, delayTarget2).sendToTarget();
@@ -456,19 +466,20 @@ public class GifFrameLoader {
         }
     }
 
-    public void setFrameTransformation(Transformation transformation, Bitmap bitmap) {
+    public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, transformation, bitmap) == null) {
             this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
             this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
-            this.requestBuilder = this.requestBuilder.apply(new RequestOptions().transform(transformation));
+            this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
             this.firstFrameSize = Util.getBitmapByteSize(bitmap);
             this.width = bitmap.getWidth();
             this.height = bitmap.getHeight();
         }
     }
 
-    public void setOnEveryFrameReadyListener(OnEveryFrameListener onEveryFrameListener) {
+    @VisibleForTesting
+    public void setOnEveryFrameReadyListener(@Nullable OnEveryFrameListener onEveryFrameListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, onEveryFrameListener) == null) {
             this.onEveryFrameListener = onEveryFrameListener;

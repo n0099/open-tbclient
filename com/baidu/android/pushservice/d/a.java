@@ -29,19 +29,19 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.d.a$1  reason: invalid class name */
     /* loaded from: classes.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0020a implements Interceptor {
+    public class C0021a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0020a(a aVar) {
+        public C0021a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public class a {
             this.a = aVar;
         }
 
-        public /* synthetic */ C0020a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0021a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -95,7 +95,7 @@ public class a {
                 return;
             }
         }
-        this.b = new OkHttpClient.Builder().addInterceptor(new C0020a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.b = new OkHttpClient.Builder().addInterceptor(new C0021a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
@@ -134,7 +134,7 @@ public class a {
         return (Headers) invokeLL.objValue;
     }
 
-    public static Headers a(HashMap hashMap) {
+    public static Headers a(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
@@ -143,8 +143,8 @@ public class a {
             }
             try {
                 Headers.Builder builder = new Headers.Builder();
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    builder.add((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    builder.add(entry.getKey(), entry.getValue());
                 }
                 return builder.build();
             } catch (Exception unused) {
@@ -167,7 +167,7 @@ public class a {
         return (Bitmap) invokeL.objValue;
     }
 
-    public b a(String str, String str2, String str3, HashMap hashMap, String str4) {
+    public b a(String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
         InterceptResult invokeLLLLL;
         Request.Builder headers;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class a {
         return (b) invokeLLLLL.objValue;
     }
 
-    public b a(String str, String str2, HashMap hashMap, String str3, String str4) {
+    public b a(String str, String str2, HashMap<String, String> hashMap, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Request.Builder headers;
         Interceptable interceptable = $ic;

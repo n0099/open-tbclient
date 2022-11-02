@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.source;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,11 +50,13 @@ public final class SampleQueue implements TrackOutput {
     }
 
     /* loaded from: classes7.dex */
-    public final class AllocationNode {
+    public static final class AllocationNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
         public Allocation allocation;
         public final long endPosition;
+        @Nullable
         public AllocationNode next;
         public final long startPosition;
         public boolean wasInitialized;

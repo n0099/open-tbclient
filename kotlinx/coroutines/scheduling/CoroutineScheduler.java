@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.concurrent.locks.LockSupport;
 import kotlin.Metadata;
 import kotlin.Unit;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.random.Random;
@@ -39,15 +40,23 @@ public final class CoroutineScheduler implements Executor, Closeable {
     public static final int TERMINATED = 1;
     public volatile int _isTerminated;
     public volatile long controlState;
+    @JvmField
     public final int corePoolSize;
+    @JvmField
     public final GlobalQueue globalBlockingQueue;
+    @JvmField
     public final GlobalQueue globalCpuQueue;
+    @JvmField
     public final long idleWorkerKeepAliveNs;
+    @JvmField
     public final int maxPoolSize;
     public volatile long parkedWorkersStack;
+    @JvmField
     public final String schedulerName;
-    public final AtomicReferenceArray workers;
+    @JvmField
+    public final AtomicReferenceArray<Worker> workers;
     public static final Companion Companion = new Companion(null);
+    @JvmField
     public static final Symbol NOT_IN_STACK = new Symbol("NOT_IN_STACK");
     public static final AtomicLongFieldUpdater parkedWorkersStack$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "parkedWorkersStack");
     public static final AtomicLongFieldUpdater controlState$FU = AtomicLongFieldUpdater.newUpdater(CoroutineScheduler.class, "controlState");
@@ -94,7 +103,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\n\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0002\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006R\u0016\u0010\u0007\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0006R\u0016\u0010\b\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\t\u0010\u0006R\u0016\u0010\n\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\n\u0010\u0003R\u0016\u0010\u000b\u001a\u00020\u00048\u0000@\u0000X\u0080T¢\u0006\u0006\n\u0004\b\u000b\u0010\u0006R\u0016\u0010\f\u001a\u00020\u00048\u0000@\u0000X\u0080T¢\u0006\u0006\n\u0004\b\f\u0010\u0006R\u0016\u0010\u000e\u001a\u00020\r8\u0006@\u0007X\u0087\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0010\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0010\u0010\u0006R\u0016\u0010\u0011\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0011\u0010\u0003R\u0016\u0010\u0012\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0003R\u0016\u0010\u0013\u001a\u00020\u00018\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0013\u0010\u0003R\u0016\u0010\u0014\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0014\u0010\u0006¨\u0006\u0017"}, d2 = {"Lkotlinx/coroutines/scheduling/CoroutineScheduler$Companion;", "", "BLOCKING_MASK", "J", "", "BLOCKING_SHIFT", "I", "CLAIMED", "CPU_PERMITS_MASK", "CPU_PERMITS_SHIFT", "CREATED_MASK", "MAX_SUPPORTED_POOL_SIZE", "MIN_SUPPORTED_POOL_SIZE", "Lkotlinx/coroutines/internal/Symbol;", "NOT_IN_STACK", "Lkotlinx/coroutines/internal/Symbol;", "PARKED", "PARKED_INDEX_MASK", "PARKED_VERSION_INC", "PARKED_VERSION_MASK", "TERMINATED", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
-    public final class Companion {
+    public static final class Companion {
         public Companion() {
         }
 
@@ -108,15 +117,19 @@ public final class CoroutineScheduler implements Executor, Closeable {
     public final class Worker extends Thread {
         public static final AtomicIntegerFieldUpdater workerCtl$FU = AtomicIntegerFieldUpdater.newUpdater(Worker.class, "workerCtl");
         public volatile int indexInArray;
+        @JvmField
         public final WorkQueue localQueue;
+        @JvmField
         public boolean mayHaveLocalTasks;
         public long minDelayUntilStealableTaskNs;
         public volatile Object nextParkedWorker;
         public int rngState;
+        @JvmField
         public WorkerState state;
         public long terminationDeadline;
         public volatile int workerCtl;
 
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public Worker() {
             setDaemon(true);
             this.localQueue = new WorkQueue();
@@ -262,22 +275,22 @@ public final class CoroutineScheduler implements Executor, Closeable {
         }
 
         public final Task findTask(boolean z) {
-            Task task;
+            Task removeFirstOrNull;
             if (tryAcquireCpuPermit()) {
                 return findAnyTask(z);
             }
             if (z) {
-                task = this.localQueue.poll();
-                if (task == null) {
-                    task = (Task) CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+                removeFirstOrNull = this.localQueue.poll();
+                if (removeFirstOrNull == null) {
+                    removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
                 }
             } else {
-                task = (Task) CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+                removeFirstOrNull = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
             }
-            if (task == null) {
+            if (removeFirstOrNull == null) {
                 return trySteal(true);
             }
-            return task;
+            return removeFirstOrNull;
         }
 
         private final boolean inStack() {
@@ -317,17 +330,17 @@ public final class CoroutineScheduler implements Executor, Closeable {
 
         private final Task pollGlobalQueues() {
             if (nextInt$kotlinx_coroutines_core(2) == 0) {
-                Task task = (Task) CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
-                if (task != null) {
-                    return task;
+                Task removeFirstOrNull = CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
+                if (removeFirstOrNull != null) {
+                    return removeFirstOrNull;
                 }
-                return (Task) CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+                return CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
             }
-            Task task2 = (Task) CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
-            if (task2 != null) {
-                return task2;
+            Task removeFirstOrNull2 = CoroutineScheduler.this.globalBlockingQueue.removeFirstOrNull();
+            if (removeFirstOrNull2 != null) {
+                return removeFirstOrNull2;
             }
-            return (Task) CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
+            return CoroutineScheduler.this.globalCpuQueue.removeFirstOrNull();
         }
 
         private final void runWorker() {
@@ -430,7 +443,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 if (nextInt$kotlinx_coroutines_core > createdWorkers) {
                     nextInt$kotlinx_coroutines_core = 1;
                 }
-                Worker worker = (Worker) CoroutineScheduler.this.workers.get(nextInt$kotlinx_coroutines_core);
+                Worker worker = CoroutineScheduler.this.workers.get(nextInt$kotlinx_coroutines_core);
                 if (worker != null && worker != this) {
                     if (DebugKt.getASSERTIONS_ENABLED()) {
                         if (this.localQueue.getSize$kotlinx_coroutines_core() == 0) {
@@ -478,14 +491,14 @@ public final class CoroutineScheduler implements Executor, Closeable {
                 CoroutineScheduler.this.parkedWorkersStackTopUpdate$kotlinx_coroutines_core(this, i, 0);
                 int andDecrement = (int) (CoroutineScheduler.controlState$FU.getAndDecrement(CoroutineScheduler.this) & 2097151);
                 if (andDecrement != i) {
-                    Object obj = CoroutineScheduler.this.workers.get(andDecrement);
-                    if (obj == null) {
+                    Worker worker = CoroutineScheduler.this.workers.get(andDecrement);
+                    if (worker == null) {
                         Intrinsics.throwNpe();
                     }
-                    Worker worker = (Worker) obj;
-                    CoroutineScheduler.this.workers.set(i, worker);
-                    worker.setIndexInArray(i);
-                    CoroutineScheduler.this.parkedWorkersStackTopUpdate$kotlinx_coroutines_core(worker, andDecrement, i);
+                    Worker worker2 = worker;
+                    CoroutineScheduler.this.workers.set(i, worker2);
+                    worker2.setIndexInArray(i);
+                    CoroutineScheduler.this.parkedWorkersStackTopUpdate$kotlinx_coroutines_core(worker2, andDecrement, i);
                 }
                 CoroutineScheduler.this.workers.set(andDecrement, null);
                 Unit unit = Unit.INSTANCE;
@@ -567,7 +580,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         shutdown(10000L);
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [int, boolean] */
     public final boolean isTerminated() {
         return this._isTerminated;
     }
@@ -615,7 +628,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                         this.globalCpuQueue = new GlobalQueue();
                         this.globalBlockingQueue = new GlobalQueue();
                         this.parkedWorkersStack = 0L;
-                        this.workers = new AtomicReferenceArray(this.maxPoolSize + 1);
+                        this.workers = new AtomicReferenceArray<>(this.maxPoolSize + 1);
                         this.controlState = this.corePoolSize << 42;
                         this._isTerminated = 0;
                         return;
@@ -768,7 +781,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
     private final Worker parkedWorkersStackPop() {
         while (true) {
             long j = this.parkedWorkersStack;
-            Worker worker = (Worker) this.workers.get((int) (2097151 & j));
+            Worker worker = this.workers.get((int) (2097151 & j));
             if (worker != null) {
                 long j2 = (2097152 + j) & PARKED_VERSION_MASK;
                 int parkedWorkersStackNextIndex = parkedWorkersStackNextIndex(worker);
@@ -884,7 +897,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
     */
     public final void shutdown(long j) {
         int i;
-        Task task;
+        Task removeFirstOrNull;
         boolean z;
         boolean z2 = false;
         if (!_isTerminated$FU.compareAndSet(this, 0, 1)) {
@@ -897,17 +910,17 @@ public final class CoroutineScheduler implements Executor, Closeable {
         if (1 <= i) {
             int i2 = 1;
             while (true) {
-                Object obj = this.workers.get(i2);
-                if (obj == null) {
+                Worker worker = this.workers.get(i2);
+                if (worker == null) {
                     Intrinsics.throwNpe();
                 }
-                Worker worker = (Worker) obj;
-                if (worker != currentWorker) {
-                    while (worker.isAlive()) {
-                        LockSupport.unpark(worker);
-                        worker.join(j);
+                Worker worker2 = worker;
+                if (worker2 != currentWorker) {
+                    while (worker2.isAlive()) {
+                        LockSupport.unpark(worker2);
+                        worker2.join(j);
                     }
-                    WorkerState workerState = worker.state;
+                    WorkerState workerState = worker2.state;
                     if (DebugKt.getASSERTIONS_ENABLED()) {
                         if (workerState == WorkerState.TERMINATED) {
                             z = true;
@@ -918,7 +931,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
                             throw new AssertionError();
                         }
                     }
-                    worker.localQueue.offloadAllWorkTo(this.globalBlockingQueue);
+                    worker2.localQueue.offloadAllWorkTo(this.globalBlockingQueue);
                 }
                 if (i2 == i) {
                     break;
@@ -930,16 +943,16 @@ public final class CoroutineScheduler implements Executor, Closeable {
         this.globalCpuQueue.close();
         while (true) {
             if (currentWorker != null) {
-                task = currentWorker.findTask(true);
+                removeFirstOrNull = currentWorker.findTask(true);
             }
-            task = (Task) this.globalCpuQueue.removeFirstOrNull();
-            if (task == null) {
-                task = (Task) this.globalBlockingQueue.removeFirstOrNull();
+            removeFirstOrNull = this.globalCpuQueue.removeFirstOrNull();
+            if (removeFirstOrNull == null) {
+                removeFirstOrNull = this.globalBlockingQueue.removeFirstOrNull();
             }
-            if (task == null) {
+            if (removeFirstOrNull == null) {
                 break;
             }
-            runSafely(task);
+            runSafely(removeFirstOrNull);
         }
         if (currentWorker != null) {
             currentWorker.tryReleaseCpu$kotlinx_coroutines_core(WorkerState.TERMINATED);
@@ -965,7 +978,7 @@ public final class CoroutineScheduler implements Executor, Closeable {
         int i4 = 0;
         int i5 = 0;
         for (int i6 = 1; i6 < length; i6++) {
-            Worker worker = (Worker) this.workers.get(i6);
+            Worker worker = this.workers.get(i6);
             if (worker != null) {
                 int size$kotlinx_coroutines_core = worker.localQueue.getSize$kotlinx_coroutines_core();
                 int i7 = WhenMappings.$EnumSwitchMapping$0[worker.state.ordinal()];

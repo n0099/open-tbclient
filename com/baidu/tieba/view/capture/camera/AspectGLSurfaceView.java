@@ -5,6 +5,8 @@ import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,7 +85,7 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AspectGLSurfaceView(Context context) {
+    public AspectGLSurfaceView(@NonNull Context context) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -104,7 +106,7 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AspectGLSurfaceView(Context context, AttributeSet attributeSet) {
+    public AspectGLSurfaceView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

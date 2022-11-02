@@ -13,8 +13,8 @@ import java.util.List;
 public class Grant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List grantee;
-    public List permission;
+    public List<Grantee> grantee;
+    public List<Permission> permission;
 
     public Grant() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class Grant {
         }
     }
 
-    public List getGrantee() {
+    public List<Grantee> getGrantee() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -39,7 +39,7 @@ public class Grant {
         return (List) invokeV.objValue;
     }
 
-    public List getPermission() {
+    public List<Permission> getPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -53,7 +53,7 @@ public class Grant {
         int hashCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List list = this.grantee;
+            List<Grantee> list = this.grantee;
             int i = 0;
             if (list == null) {
                 hashCode = 0;
@@ -61,7 +61,7 @@ public class Grant {
                 hashCode = list.hashCode();
             }
             int i2 = (hashCode + 31) * 31;
-            List list2 = this.permission;
+            List<Permission> list2 = this.permission;
             if (list2 != null) {
                 i = list2.hashCode();
             }
@@ -70,7 +70,7 @@ public class Grant {
         return invokeV.intValue;
     }
 
-    public Grant(List list, List list2) {
+    public Grant(List<Grantee> list, List<Permission> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class Grant {
                 return false;
             }
             Grant grant = (Grant) obj;
-            List list = this.grantee;
+            List<Grantee> list = this.grantee;
             if (list == null) {
                 if (grant.grantee != null) {
                     return false;
@@ -133,21 +133,21 @@ public class Grant {
         return invokeL.booleanValue;
     }
 
-    public void setGrantee(List list) {
+    public void setGrantee(List<Grantee> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.grantee = list;
         }
     }
 
-    public void setPermission(List list) {
+    public void setPermission(List<Permission> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.permission = list;
         }
     }
 
-    public Grant withGrantee(List list) {
+    public Grant withGrantee(List<Grantee> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
@@ -157,7 +157,7 @@ public class Grant {
         return (Grant) invokeL.objValue;
     }
 
-    public Grant withPermission(List list) {
+    public Grant withPermission(List<Permission> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list)) == null) {

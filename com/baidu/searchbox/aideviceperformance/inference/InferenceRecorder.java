@@ -17,7 +17,7 @@ public class InferenceRecorder {
     public static volatile InferenceRecorder mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCount;
-    public Map mInferenceMap;
+    public Map<String, Integer> mInferenceMap;
 
     public InferenceRecorder() {
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class InferenceRecorder {
                 }
                 int i = 0;
                 if (this.mInferenceMap.containsKey(str)) {
-                    i = ((Integer) this.mInferenceMap.get(str)).intValue();
+                    i = this.mInferenceMap.get(str).intValue();
                 }
                 this.mInferenceMap.put(str, Integer.valueOf(i + 1));
                 this.mCount++;
@@ -94,7 +94,7 @@ public class InferenceRecorder {
                     return;
                 }
                 if (this.mInferenceMap.containsKey(str)) {
-                    int intValue = ((Integer) this.mInferenceMap.get(str)).intValue();
+                    int intValue = this.mInferenceMap.get(str).intValue();
                     if (intValue > 0 && this.mCount > 0) {
                         int i = intValue - 1;
                         if (i == 0) {

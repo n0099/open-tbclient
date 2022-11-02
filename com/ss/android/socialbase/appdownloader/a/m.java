@@ -14,15 +14,15 @@ public class m extends a {
         super(context, aVar, str);
     }
 
-    public static String a(Map map) {
+    public static String a(Map<String, String> map) {
         if (map == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        for (Map.Entry entry : map.entrySet()) {
-            stringBuffer.append((String) entry.getKey());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            stringBuffer.append(entry.getKey());
             stringBuffer.append("=");
-            stringBuffer.append(URLEncoder.encode((String) entry.getValue()));
+            stringBuffer.append(URLEncoder.encode(entry.getValue()));
             stringBuffer.append("&");
         }
         String stringBuffer2 = stringBuffer.toString();

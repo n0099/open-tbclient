@@ -4,9 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +27,7 @@ public class LayerContainer extends FrameLayout {
     public BDVideoPlayer mPlayer;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LayerContainer(Context context) {
+    public LayerContainer(@NonNull Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,7 +47,8 @@ public class LayerContainer extends FrameLayout {
         init();
     }
 
-    public void attachKernelLayer(AbsLayer absLayer) {
+    @PublicMethod
+    public void attachKernelLayer(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, absLayer) == null) {
             detachLayer(absLayer);
@@ -57,7 +62,7 @@ public class LayerContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LayerContainer(Context context, AttributeSet attributeSet) {
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -78,7 +83,8 @@ public class LayerContainer extends FrameLayout {
         init();
     }
 
-    public void addLayer(AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+    @PublicMethod
+    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer, layoutParams) != null) || this.mLayers.contains(absLayer)) {
             return;
@@ -92,7 +98,8 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
-    public void detachLayer(AbsLayer absLayer, boolean z) {
+    @PublicMethod
+    public void detachLayer(@NonNull AbsLayer absLayer, boolean z) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, absLayer, z) == null) {
@@ -107,7 +114,8 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
-    public void insertLayer(AbsLayer absLayer, int i) {
+    @PublicMethod
+    public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, absLayer, i) == null) {
             detachLayer(absLayer);
@@ -121,7 +129,7 @@ public class LayerContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LayerContainer(Context context, AttributeSet attributeSet, int i) {
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -150,6 +158,8 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
+    @NonNull
+    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,6 +178,7 @@ public class LayerContainer extends FrameLayout {
         return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
+    @PublicMethod
     public ArrayList<AbsLayer> getLayerList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -188,6 +199,7 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
+    @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -200,35 +212,37 @@ public class LayerContainer extends FrameLayout {
         }
     }
 
-    public void addLayer(AbsLayer absLayer) {
+    @PublicMethod
+    public void addLayer(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, absLayer) == null) {
             addLayer(absLayer, getContainerParams());
         }
     }
 
-    public void attachLayerMessenger(AbsLayer absLayer) {
+    public void attachLayerMessenger(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, absLayer) == null) {
             absLayer.attachMessenger(getBindPlayer().getMessenger());
         }
     }
 
-    public void bindPlayer(BDVideoPlayer bDVideoPlayer) {
+    public void bindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bDVideoPlayer) == null) {
             this.mPlayer = bDVideoPlayer;
         }
     }
 
-    public void detachLayer(AbsLayer absLayer) {
+    @PublicMethod
+    public void detachLayer(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, absLayer) == null) {
             detachLayer(absLayer, false);
         }
     }
 
-    public void detachLayerMessenger(AbsLayer absLayer) {
+    public void detachLayerMessenger(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, absLayer) == null) {
             absLayer.detachMessenger();
@@ -236,7 +250,7 @@ public class LayerContainer extends FrameLayout {
     }
 
     @Deprecated
-    public void detachLayer(ILayer iLayer) {
+    public void detachLayer(@NonNull ILayer iLayer) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, iLayer) == null) && (iLayer instanceof AbsLayer)) {
             detachLayer((AbsLayer) iLayer, false);
@@ -244,14 +258,15 @@ public class LayerContainer extends FrameLayout {
     }
 
     @Deprecated
-    public void detachLayer(ILayer iLayer, boolean z) {
+    public void detachLayer(@NonNull ILayer iLayer, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLayer, z) == null) && (iLayer instanceof AbsLayer)) {
             detachLayer((AbsLayer) iLayer, z);
         }
     }
 
-    public void insertLayer(AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
+    @PublicMethod
+    public void insertLayer(@NonNull AbsLayer absLayer, @Nullable FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048590, this, absLayer, layoutParams) != null) || this.mLayers.contains(absLayer)) {
             return;

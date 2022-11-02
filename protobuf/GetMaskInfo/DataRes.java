@@ -27,18 +27,18 @@ public final class DataRes extends Message {
     public final List<UserInfo> users;
 
     /* loaded from: classes9.dex */
-    public /* synthetic */ class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes9.dex */
-    public final class Builder extends Message.Builder {
+    public static final class Builder extends Message.Builder<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Integer isMask;
         public String list;
-        public List users;
+        public List<UserInfo> users;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public final class DataRes extends Message {
             } else {
                 this.list = str;
             }
-            List list = builder.users;
+            List<UserInfo> list = builder.users;
             if (list == null) {
                 this.users = DEFAULT_USERS;
                 return;

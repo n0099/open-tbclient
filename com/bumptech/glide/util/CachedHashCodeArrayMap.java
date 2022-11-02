@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class CachedHashCodeArrayMap extends ArrayMap {
+public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int hashCode;
@@ -51,29 +51,29 @@ public final class CachedHashCodeArrayMap extends ArrayMap {
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
-    public Object put(Object obj, Object obj2) {
+    public V put(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
             this.hashCode = 0;
-            return super.put(obj, obj2);
+            return (V) super.put(k, v);
         }
-        return invokeLL.objValue;
+        return (V) invokeLL.objValue;
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public Object setValueAt(int i, Object obj) {
+    public V setValueAt(int i, V v) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, v)) == null) {
             this.hashCode = 0;
-            return super.setValueAt(i, obj);
+            return (V) super.setValueAt(i, v);
         }
-        return invokeIL.objValue;
+        return (V) invokeIL.objValue;
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public void putAll(SimpleArrayMap simpleArrayMap) {
+    public void putAll(SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, simpleArrayMap) == null) {
             this.hashCode = 0;
@@ -82,13 +82,13 @@ public final class CachedHashCodeArrayMap extends ArrayMap {
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public Object removeAt(int i) {
+    public V removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             this.hashCode = 0;
-            return super.removeAt(i);
+            return (V) super.removeAt(i);
         }
-        return invokeI.objValue;
+        return (V) invokeI.objValue;
     }
 }

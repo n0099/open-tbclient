@@ -9,13 +9,13 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes8.dex */
-public class BasicPoolEntryRef extends WeakReference {
+/* loaded from: classes9.dex */
+public class BasicPoolEntryRef extends WeakReference<BasicPoolEntry> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BasicPoolEntryRef(BasicPoolEntry basicPoolEntry, ReferenceQueue referenceQueue) {
+    public BasicPoolEntryRef(BasicPoolEntry basicPoolEntry, ReferenceQueue<Object> referenceQueue) {
         super(null, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {

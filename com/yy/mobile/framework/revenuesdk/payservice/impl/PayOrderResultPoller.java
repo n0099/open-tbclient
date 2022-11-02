@@ -86,7 +86,7 @@ public class PayOrderResultPoller {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollingModeInfo, pollerListener) == null) {
             RLog.info("PayResultPoller", "doGetPayResult has hasPolledTimes:" + pollingModeInfo.hasPolledTimes);
-            this.payService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult(this, pollingModeInfo, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollerListener) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayOrderResultPoller.2
+            this.payService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult<GetChargeOrderStatusResult>(this, pollingModeInfo, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollerListener) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayOrderResultPoller.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayOrderResultPoller this$0;
@@ -177,9 +177,9 @@ public class PayOrderResultPoller {
             currencyChargeMessage.cid = chargeCurrencyReqParams.getCid();
             currencyChargeMessage.payChannel = chargeCurrencyReqParams.getPayChannel();
             currencyChargeMessage.payMethod = chargeCurrencyReqParams.getPayMethod();
-            List list = getChargeOrderStatusResult.giftbags;
+            List<GiftBagsInfo> list = getChargeOrderStatusResult.giftbags;
             if (list != null && list.size() > 0) {
-                currencyChargeMessage.giftBagsInfo = (GiftBagsInfo) getChargeOrderStatusResult.giftbags.get(0);
+                currencyChargeMessage.giftBagsInfo = getChargeOrderStatusResult.giftbags.get(0);
             }
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 this.payServiceCallback.onCurrencyChargeMessage(currencyChargeMessage);

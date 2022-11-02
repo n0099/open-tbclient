@@ -16,7 +16,7 @@ public class RequestHandle {
     public static final int MAX_REDIRECT_COUNT = 16;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map map, InputStream inputStream, int i, Request request) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +34,7 @@ public class RequestHandle {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map map, InputStream inputStream, int i, Request request, Connection connection) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request, Connection connection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +146,7 @@ public class RequestHandle {
         }
     }
 
-    public boolean setupRedirect(String str, int i, Map map) {
+    public boolean setupRedirect(String str, int i, Map<String, String> map) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, str, i, map)) == null) {

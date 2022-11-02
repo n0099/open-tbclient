@@ -2,6 +2,10 @@ package androidx.webkit;
 
 import android.os.Handler;
 import android.webkit.WebMessagePort;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,22 +18,25 @@ public abstract class WebMessagePortCompat {
 
     public abstract void close();
 
+    @RequiresApi(23)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public abstract WebMessagePort getFrameworkPort();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public abstract InvocationHandler getInvocationHandler();
 
-    public abstract void postMessage(WebMessageCompat webMessageCompat);
+    public abstract void postMessage(@NonNull WebMessageCompat webMessageCompat);
 
-    public abstract void setWebMessageCallback(Handler handler, WebMessageCallbackCompat webMessageCallbackCompat);
+    public abstract void setWebMessageCallback(@Nullable Handler handler, @NonNull WebMessageCallbackCompat webMessageCallbackCompat);
 
-    public abstract void setWebMessageCallback(WebMessageCallbackCompat webMessageCallbackCompat);
+    public abstract void setWebMessageCallback(@NonNull WebMessageCallbackCompat webMessageCallbackCompat);
 
     /* loaded from: classes.dex */
     public static abstract class WebMessageCallbackCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public void onMessage(WebMessagePortCompat webMessagePortCompat, WebMessageCompat webMessageCompat) {
+        public void onMessage(@NonNull WebMessagePortCompat webMessagePortCompat, @Nullable WebMessageCompat webMessageCompat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webMessagePortCompat, webMessageCompat) == null) {
             }
@@ -50,6 +57,7 @@ public abstract class WebMessagePortCompat {
         }
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public WebMessagePortCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

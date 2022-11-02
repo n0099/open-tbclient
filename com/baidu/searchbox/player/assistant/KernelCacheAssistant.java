@@ -1,6 +1,7 @@
 package com.baidu.searchbox.player.assistant;
 
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,17 +17,17 @@ public class KernelCacheAssistant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_REUSE_KERNEL_ID = "videoPlayerReuseID";
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap mKernelCache;
+    public final HashMap<String, BaseKernelLayer> mKernelCache;
 
     /* renamed from: com.baidu.searchbox.player.assistant.KernelCacheAssistant$1  reason: invalid class name */
     /* loaded from: classes2.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes2.dex */
-    public final class Holder {
+    public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final KernelCacheAssistant mInstance;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class KernelCacheAssistant {
                 return;
             }
         }
-        this.mKernelCache = new HashMap(2);
+        this.mKernelCache = new HashMap<>(2);
     }
 
     public static KernelCacheAssistant get() {
@@ -103,16 +104,17 @@ public class KernelCacheAssistant {
         this();
     }
 
-    public BaseKernelLayer getCache(String str) {
+    @Nullable
+    public BaseKernelLayer getCache(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return (BaseKernelLayer) this.mKernelCache.get(str);
+            return this.mKernelCache.get(str);
         }
         return (BaseKernelLayer) invokeL.objValue;
     }
 
-    public boolean isInCache(BaseKernelLayer baseKernelLayer) {
+    public boolean isInCache(@Nullable BaseKernelLayer baseKernelLayer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseKernelLayer)) == null) {
@@ -121,16 +123,17 @@ public class KernelCacheAssistant {
         return invokeL.booleanValue;
     }
 
+    @Nullable
     public BaseKernelLayer removeCache(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (BaseKernelLayer) this.mKernelCache.remove(str);
+            return this.mKernelCache.remove(str);
         }
         return (BaseKernelLayer) invokeL.objValue;
     }
 
-    public void putCache(String str, BaseKernelLayer baseKernelLayer) {
+    public void putCache(@Nullable String str, @Nullable BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, baseKernelLayer) == null) && baseKernelLayer != null && !TextUtils.isEmpty(str)) {
             this.mKernelCache.put(str, baseKernelLayer);

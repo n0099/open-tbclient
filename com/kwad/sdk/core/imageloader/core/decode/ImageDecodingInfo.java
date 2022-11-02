@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.decode;
 
+import android.annotation.TargetApi;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptions;
@@ -8,7 +9,7 @@ import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageDecodingInfo {
     public final boolean considerExifParams;
     public final BitmapFactory.Options decodingOptions = new BitmapFactory.Options();
@@ -56,10 +57,12 @@ public class ImageDecodingInfo {
         }
     }
 
+    @TargetApi(10)
     private void copyOptions10(BitmapFactory.Options options, BitmapFactory.Options options2) {
         options2.inPreferQualityOverSpeed = options.inPreferQualityOverSpeed;
     }
 
+    @TargetApi(11)
     private void copyOptions11(BitmapFactory.Options options, BitmapFactory.Options options2) {
         options2.inBitmap = options.inBitmap;
         options2.inMutable = options.inMutable;

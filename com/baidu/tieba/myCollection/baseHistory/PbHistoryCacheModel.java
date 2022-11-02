@@ -3,14 +3,14 @@ package com.baidu.tieba.myCollection.baseHistory;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.oq7;
+import com.baidu.tieba.xr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbHistoryCacheModel extends CacheModel {
+public class PbHistoryCacheModel extends CacheModel<xr7, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,11 +62,11 @@ public class PbHistoryCacheModel extends CacheModel {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class K() {
+    public Class<xr7> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return oq7.class;
+            return xr7.class;
         }
         return (Class) invokeV.objValue;
     }

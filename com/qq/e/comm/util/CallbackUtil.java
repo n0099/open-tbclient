@@ -13,7 +13,7 @@ import java.util.Map;
 /* loaded from: classes8.dex */
 public class CallbackUtil {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map a;
+    public static final Map<String, Boolean> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -88,7 +88,7 @@ public class CallbackUtil {
                 }
                 sb = sb2.toString();
             }
-            Boolean bool = (Boolean) a.get(sb);
+            Boolean bool = a.get(sb);
             if (bool == null) {
                 try {
                     cls.getDeclaredMethod(str, clsArr);

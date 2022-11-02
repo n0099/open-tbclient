@@ -52,7 +52,7 @@ public class BaseSsoHandler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
-    public final class AuthType {
+    public static final class AuthType {
         public static final /* synthetic */ AuthType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AuthType ALL;

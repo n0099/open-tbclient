@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NoNetworkMoreActivity extends BaseActivity {
+public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class NoNetworkMoreActivity extends BaseActivity {
             int id = view2.getId();
             if (view2 == this.a) {
                 finish();
-            } else if (id == R.id.obfuscated_res_0x7f091671) {
+            } else if (id == R.id.obfuscated_res_0x7f0916b0) {
                 startActivity(new Intent("android.settings.SETTINGS"));
                 finish();
             }
@@ -66,29 +66,29 @@ public class NoNetworkMoreActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0663);
-            y1();
+            setContentView(R.layout.obfuscated_res_0x7f0d0678);
+            x1();
         }
     }
 
-    public void y1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092604);
             this.b = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.a = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ca2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091555);
-            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca4));
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0cb9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091594);
+            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cbb));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.c.setText(spannableString);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091556);
-            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ca5));
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091595);
+            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cbc));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.d.setText(spannableString2);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091671)).setOnClickListener(this);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0916b0)).setOnClickListener(this);
         }
     }
 }

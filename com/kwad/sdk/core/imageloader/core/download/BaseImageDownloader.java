@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.download;
 
+import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseImageDownloader implements ImageDownloader {
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
     public static final int BUFFER_SIZE = 32768;
@@ -35,8 +36,8 @@ public class BaseImageDownloader implements ImageDownloader {
     public final int readTimeout;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
 
         static {
@@ -83,6 +84,7 @@ public class BaseImageDownloader implements ImageDownloader {
         this.readTimeout = i2;
     }
 
+    @TargetApi(8)
     private InputStream getVideoThumbnailStream(String str) {
         Bitmap createVideoThumbnail;
         if (Build.VERSION.SDK_INT < 8 || (createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(str, 2)) == null) {

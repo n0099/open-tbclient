@@ -12,7 +12,7 @@ public final class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i.i()) {
+            if (k.a().i()) {
                 return "WIFI";
             }
             switch (i) {

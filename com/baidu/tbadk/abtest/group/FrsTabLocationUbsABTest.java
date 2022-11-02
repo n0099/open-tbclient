@@ -19,7 +19,7 @@ public class FrsTabLocationUbsABTest extends AbsGroupUbsABTest {
     public static final String FRS_TAB_LOCATION_SID_B = "12_2_frs_default_tab_b";
     public static final String FRS_TAB_LOCATION_SID_C = "12_2_frs_default_tab_c";
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList mABTestList;
+    public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
 
     static {
@@ -39,7 +39,7 @@ public class FrsTabLocationUbsABTest extends AbsGroupUbsABTest {
     }
 
     @Override // com.baidu.tbadk.abtest.group.AbsGroupUbsABTest
-    public ArrayList getABTestKeys() {
+    public ArrayList<String> getABTestKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class FrsTabLocationUbsABTest extends AbsGroupUbsABTest {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList(3);
+        ArrayList<String> arrayList = new ArrayList<>(3);
         this.mABTestList = arrayList;
         arrayList.add(FRS_TAB_LOCATION_SID_A);
         this.mABTestList.add(FRS_TAB_LOCATION_SID_B);

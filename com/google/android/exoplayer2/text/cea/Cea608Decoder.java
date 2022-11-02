@@ -74,10 +74,10 @@ public final class Cea608Decoder extends CeaDecoder {
     public int captionMode;
     public int captionRowCount;
     public final ParsableByteArray ccData;
-    public final LinkedList cueBuilders;
-    public List cues;
+    public final LinkedList<CueBuilder> cueBuilders;
+    public List<Cue> cues;
     public CueBuilder currentCueBuilder;
-    public List lastCues;
+    public List<Cue> lastCues;
     public final int packetLength;
     public byte repeatableControlCc1;
     public byte repeatableControlCc2;
@@ -129,7 +129,7 @@ public final class Cea608Decoder extends CeaDecoder {
     }
 
     /* loaded from: classes7.dex */
-    public class CueBuilder {
+    public static class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BASE_ROW = 15;
         public static final int POSITION_UNSET = -1;
@@ -139,15 +139,15 @@ public final class Cea608Decoder extends CeaDecoder {
         public int captionRowCount;
         public final SpannableStringBuilder captionStringBuilder;
         public int indent;
-        public final List midrowStyles;
-        public final List preambleStyles;
-        public final List rolledUpCaptions;
+        public final List<CueStyle> midrowStyles;
+        public final List<CharacterStyle> preambleStyles;
+        public final List<SpannableString> rolledUpCaptions;
         public int row;
         public int tabOffset;
         public int underlineStartPosition;
 
         /* loaded from: classes7.dex */
-        public class CueStyle {
+        public static class CueStyle {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int nextStyleIncrement;
@@ -309,11 +309,11 @@ public final class Cea608Decoder extends CeaDecoder {
                     this.captionStringBuilder.setSpan(this.preambleStyles.get(i2), 0, length, 33);
                 }
                 for (int i3 = 0; i3 < this.midrowStyles.size(); i3++) {
-                    CueStyle cueStyle = (CueStyle) this.midrowStyles.get(i3);
+                    CueStyle cueStyle = this.midrowStyles.get(i3);
                     int size = this.midrowStyles.size();
                     int i4 = cueStyle.nextStyleIncrement;
                     if (i3 < size - i4) {
-                        i = ((CueStyle) this.midrowStyles.get(i4 + i3)).start;
+                        i = this.midrowStyles.get(i4 + i3).start;
                     } else {
                         i = length;
                     }
@@ -429,7 +429,7 @@ public final class Cea608Decoder extends CeaDecoder {
             }
         }
         this.ccData = new ParsableByteArray();
-        this.cueBuilders = new LinkedList();
+        this.cueBuilders = new LinkedList<>();
         this.currentCueBuilder = new CueBuilder(0, 4);
         if (MimeTypes.APPLICATION_MP4CEA608.equals(str)) {
             i2 = 2;
@@ -533,13 +533,13 @@ public final class Cea608Decoder extends CeaDecoder {
         super.setPositionUs(j);
     }
 
-    private List getDisplayCues() {
+    private List<Cue> getDisplayCues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.cueBuilders.size(); i++) {
-                Cue build = ((CueBuilder) this.cueBuilders.get(i)).build();
+                Cue build = this.cueBuilders.get(i).build();
                 if (build != null) {
                     arrayList.add(build);
                 }
@@ -681,7 +681,7 @@ public final class Cea608Decoder extends CeaDecoder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List list = this.cues;
+            List<Cue> list = this.cues;
             this.lastCues = list;
             return new CeaSubtitle(list);
         }

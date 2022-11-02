@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ public class CoordinateConverter {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
-    public final class CoordType {
+    public static final class CoordType {
         public static final /* synthetic */ CoordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final CoordType BD09LL;
@@ -74,13 +73,19 @@ public class CoordinateConverter {
         public static CoordType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (CoordType) Enum.valueOf(CoordType.class, str) : (CoordType) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return (CoordType) Enum.valueOf(CoordType.class, str);
+            }
+            return (CoordType) invokeL.objValue;
         }
 
         public static CoordType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) $VALUES.clone() : (CoordType[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return (CoordType[]) $VALUES.clone();
+            }
+            return (CoordType[]) invokeV.objValue;
         }
     }
 
@@ -101,31 +106,28 @@ public class CoordinateConverter {
     public static LatLng a(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, latLng)) == null) ? a(latLng, CoordinateType.WGS84) : (LatLng) invokeL.objValue;
-    }
-
-    public static LatLng a(LatLng latLng, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, latLng, str)) == null) {
-            if (latLng == null) {
-                return null;
-            }
-            return CoordUtil.Coordinate_encryptEx((float) latLng.longitude, (float) latLng.latitude, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, latLng)) == null) {
+            return a(latLng, "wgs84");
         }
-        return (LatLng) invokeLL.objValue;
+        return (LatLng) invokeL.objValue;
     }
 
     public static LatLng b(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, latLng)) == null) ? a(latLng, "gcj02") : (LatLng) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, latLng)) == null) {
+            return a(latLng, "gcj02");
+        }
+        return (LatLng) invokeL.objValue;
     }
 
     public static LatLng c(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, latLng)) == null) ? a(latLng, CoordinateType.BD09MC) : (LatLng) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, latLng)) == null) {
+            return a(latLng, "bd09mc");
+        }
+        return (LatLng) invokeL.objValue;
     }
 
     public static LatLng d(LatLng latLng) {
@@ -138,6 +140,38 @@ public class CoordinateConverter {
             return CoordTrans.baiduToGcj(latLng);
         }
         return (LatLng) invokeL.objValue;
+    }
+
+    public CoordinateConverter coord(LatLng latLng) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
+            this.a = latLng;
+            return this;
+        }
+        return (CoordinateConverter) invokeL.objValue;
+    }
+
+    public CoordinateConverter from(CoordType coordType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
+            this.b = coordType;
+            return this;
+        }
+        return (CoordinateConverter) invokeL.objValue;
+    }
+
+    public static LatLng a(LatLng latLng, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, latLng, str)) == null) {
+            if (latLng == null) {
+                return null;
+            }
+            return CoordUtil.Coordinate_encryptEx((float) latLng.longitude, (float) latLng.latitude, str);
+        }
+        return (LatLng) invokeLL.objValue;
     }
 
     public LatLng convert() {
@@ -166,25 +200,5 @@ public class CoordinateConverter {
             return b(this.a);
         }
         return (LatLng) invokeV.objValue;
-    }
-
-    public CoordinateConverter coord(LatLng latLng) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.a = latLng;
-            return this;
-        }
-        return (CoordinateConverter) invokeL.objValue;
-    }
-
-    public CoordinateConverter from(CoordType coordType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.b = coordType;
-            return this;
-        }
-        return (CoordinateConverter) invokeL.objValue;
     }
 }

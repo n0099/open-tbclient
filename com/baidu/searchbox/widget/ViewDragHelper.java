@@ -67,7 +67,7 @@ public class ViewDragHelper {
     public VelocityTracker mVelocityTracker;
 
     /* loaded from: classes2.dex */
-    public abstract class Callback {
+    public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

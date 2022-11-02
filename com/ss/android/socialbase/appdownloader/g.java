@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 public final class g {
 
     /* loaded from: classes8.dex */
-    public class a {
+    public static class a {
         public String a;
         public String b;
         public Drawable c;

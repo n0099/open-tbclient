@@ -11,6 +11,14 @@ import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Dimension;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RestrictTo;
+import androidx.annotation.StyleRes;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -31,6 +39,7 @@ import com.google.android.material.shape.CutCornerTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class MaterialCardViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,24 +49,41 @@ public class MaterialCardViewHelper {
     public static final double COS_45;
     public static final int DEFAULT_STROKE_VALUE = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
     public final MaterialShapeDrawable bgDrawable;
     public boolean checkable;
+    @Nullable
     public Drawable checkedIcon;
+    @Dimension
     public final int checkedIconMargin;
+    @Dimension
     public final int checkedIconSize;
+    @Nullable
     public ColorStateList checkedIconTint;
+    @Nullable
     public LayerDrawable clickableForegroundDrawable;
+    @Nullable
     public MaterialShapeDrawable compatRippleDrawable;
+    @Nullable
     public Drawable fgDrawable;
+    @NonNull
     public final MaterialShapeDrawable foregroundContentDrawable;
+    @Nullable
     public MaterialShapeDrawable foregroundShapeDrawable;
     public boolean isBackgroundOverwritten;
+    @NonNull
     public final MaterialCardView materialCardView;
+    @Nullable
     public ColorStateList rippleColor;
+    @Nullable
     public Drawable rippleDrawable;
+    @Nullable
     public ShapeAppearanceModel shapeAppearanceModel;
+    @Nullable
     public ColorStateList strokeColor;
+    @Dimension
     public int strokeWidth;
+    @NonNull
     public final Rect userContentPadding;
 
     static {
@@ -77,6 +103,7 @@ public class MaterialCardViewHelper {
         COS_45 = Math.cos(Math.toRadians(45.0d));
     }
 
+    @NonNull
     private Drawable getClickableForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +114,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091588);
+                layerDrawable.setId(2, R.id.obfuscated_res_0x7f0915c7);
             }
             return this.clickableForegroundDrawable;
         }
@@ -131,7 +158,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public MaterialCardViewHelper(MaterialCardView materialCardView, AttributeSet attributeSet, int i, int i2) {
+    public MaterialCardViewHelper(@NonNull MaterialCardView materialCardView, AttributeSet attributeSet, int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,6 +261,7 @@ public class MaterialCardViewHelper {
         return invokeV.booleanValue;
     }
 
+    @NonNull
     private Drawable createCheckedIconLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,6 +276,7 @@ public class MaterialCardViewHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @NonNull
     private Drawable createCompatRippleDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -262,6 +291,7 @@ public class MaterialCardViewHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @NonNull
     private Drawable createForegroundRippleDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -275,6 +305,7 @@ public class MaterialCardViewHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @NonNull
     private MaterialShapeDrawable createForegroundShapeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -323,6 +354,7 @@ public class MaterialCardViewHelper {
         }
     }
 
+    @RequiresApi(api = 23)
     public void forceRippleRedraw() {
         Drawable drawable;
         Interceptable interceptable = $ic;
@@ -334,6 +366,7 @@ public class MaterialCardViewHelper {
         }
     }
 
+    @NonNull
     public MaterialShapeDrawable getBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,6 +394,7 @@ public class MaterialCardViewHelper {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Nullable
     public Drawable getCheckedIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -370,6 +404,7 @@ public class MaterialCardViewHelper {
         return (Drawable) invokeV.objValue;
     }
 
+    @Nullable
     public ColorStateList getCheckedIconTint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -388,6 +423,7 @@ public class MaterialCardViewHelper {
         return invokeV.floatValue;
     }
 
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -397,6 +433,7 @@ public class MaterialCardViewHelper {
         return invokeV.floatValue;
     }
 
+    @Nullable
     public ColorStateList getRippleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,6 +452,7 @@ public class MaterialCardViewHelper {
         return (ShapeAppearanceModel) invokeV.objValue;
     }
 
+    @ColorInt
     public int getStrokeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -428,6 +466,7 @@ public class MaterialCardViewHelper {
         return invokeV.intValue;
     }
 
+    @Nullable
     public ColorStateList getStrokeColorStateList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -437,6 +476,7 @@ public class MaterialCardViewHelper {
         return (ColorStateList) invokeV.objValue;
     }
 
+    @Dimension
     public int getStrokeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -446,6 +486,7 @@ public class MaterialCardViewHelper {
         return invokeV.intValue;
     }
 
+    @NonNull
     public Rect getUserContentPadding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -514,6 +555,7 @@ public class MaterialCardViewHelper {
         }
     }
 
+    @NonNull
     private Drawable insetDrawable(Drawable drawable) {
         InterceptResult invokeL;
         boolean z;
@@ -606,7 +648,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setCheckedIcon(Drawable drawable) {
+    public void setCheckedIcon(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, drawable) == null) {
             this.checkedIcon = drawable;
@@ -616,7 +658,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091588, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f0915c7, createCheckedIconLayer());
             }
         }
     }
@@ -635,7 +677,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setShapeAppearanceModel(ShapeAppearanceModel shapeAppearanceModel) {
+    public void setShapeAppearanceModel(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, shapeAppearanceModel) == null) {
             this.shapeAppearanceModel = shapeAppearanceModel;
@@ -657,7 +699,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void loadFromAttributes(TypedArray typedArray) {
+    public void loadFromAttributes(@NonNull TypedArray typedArray) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, typedArray) == null) {
@@ -738,7 +780,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setCardForegroundColor(ColorStateList colorStateList) {
+    public void setCardForegroundColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, colorStateList) == null) {
             MaterialShapeDrawable materialShapeDrawable = this.foregroundContentDrawable;
@@ -756,7 +798,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setCheckedIconTint(ColorStateList colorStateList) {
+    public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, colorStateList) == null) {
             this.checkedIconTint = colorStateList;
@@ -767,7 +809,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setProgress(float f) {
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             this.bgDrawable.setInterpolation(f);
@@ -782,7 +824,7 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void setRippleColor(ColorStateList colorStateList) {
+    public void setRippleColor(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, colorStateList) == null) {
             this.rippleColor = colorStateList;
@@ -799,7 +841,7 @@ public class MaterialCardViewHelper {
         updateStroke();
     }
 
-    public void setStrokeWidth(int i) {
+    public void setStrokeWidth(@Dimension int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048605, this, i) != null) || i == this.strokeWidth) {
             return;

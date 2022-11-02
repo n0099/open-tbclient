@@ -3,6 +3,9 @@ package androidx.core.content;
 import android.content.Context;
 import android.os.Binder;
 import android.os.Process;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.app.AppOpsManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,6 +24,7 @@ public final class PermissionChecker {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface PermissionResult {
     }
@@ -39,7 +43,7 @@ public final class PermissionChecker {
         }
     }
 
-    public static int checkCallingOrSelfPermission(Context context, String str) {
+    public static int checkCallingOrSelfPermission(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         String str2;
         Interceptable interceptable = $ic;
@@ -54,7 +58,7 @@ public final class PermissionChecker {
         return invokeLL.intValue;
     }
 
-    public static int checkSelfPermission(Context context, String str) {
+    public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
@@ -63,7 +67,7 @@ public final class PermissionChecker {
         return invokeLL.intValue;
     }
 
-    public static int checkCallingPermission(Context context, String str, String str2) {
+    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
@@ -75,7 +79,7 @@ public final class PermissionChecker {
         return invokeLLL.intValue;
     }
 
-    public static int checkPermission(Context context, String str, int i, int i2, String str2) {
+    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {

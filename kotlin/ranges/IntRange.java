@@ -71,9 +71,10 @@ public final class IntRange extends IntProgression implements ClosedRange<Intege
         return false;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
-    public /* bridge */ /* synthetic */ boolean contains(Comparable comparable) {
-        return contains(((Number) comparable).intValue());
+    public /* bridge */ /* synthetic */ boolean contains(Integer num) {
+        return contains(num.intValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

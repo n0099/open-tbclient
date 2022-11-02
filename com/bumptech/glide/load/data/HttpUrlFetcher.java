@@ -2,6 +2,8 @@ package com.bumptech.glide.load.data;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,11 +28,14 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class HttpUrlFetcher implements DataFetcher {
+public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
+    @VisibleForTesting
     public static final HttpUrlConnectionFactory DEFAULT_CONNECTION_FACTORY;
+    @VisibleForTesting
     public static final int INVALID_STATUS_CODE = -1;
     public static final int MAXIMUM_REDIRECTS = 5;
+    @VisibleForTesting
     public static final String REDIRECT_HEADER_FIELD = "Location";
     public static final String TAG = "HttpUrlFetcher";
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +52,7 @@ public class HttpUrlFetcher implements DataFetcher {
     }
 
     /* loaded from: classes7.dex */
-    public class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
+    public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,7 +125,8 @@ public class HttpUrlFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public Class getDataClass() {
+    @NonNull
+    public Class<InputStream> getDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -130,6 +136,7 @@ public class HttpUrlFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
+    @NonNull
     public DataSource getDataSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,14 +167,14 @@ public class HttpUrlFetcher implements DataFetcher {
         }
     }
 
-    private HttpURLConnection buildAndConfigureConnection(URL url, Map map) throws HttpException {
+    private HttpURLConnection buildAndConfigureConnection(URL url, Map<String, String> map) throws HttpException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, url, map)) == null) {
             try {
                 HttpURLConnection build = this.connectionFactory.build(url);
-                for (Map.Entry entry : map.entrySet()) {
-                    build.addRequestProperty((String) entry.getKey(), (String) entry.getValue());
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    build.addRequestProperty(entry.getKey(), entry.getValue());
                 }
                 build.setConnectTimeout(this.timeout);
                 build.setReadTimeout(this.timeout);
@@ -182,6 +189,7 @@ public class HttpUrlFetcher implements DataFetcher {
         return (HttpURLConnection) invokeLL.objValue;
     }
 
+    @VisibleForTesting
     public HttpUrlFetcher(GlideUrl glideUrl, int i, HttpUrlConnectionFactory httpUrlConnectionFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -264,7 +272,7 @@ public class HttpUrlFetcher implements DataFetcher {
         return (InputStream) invokeL.objValue;
     }
 
-    private InputStream loadDataWithRedirects(URL url, int i, URL url2, Map map) throws HttpException {
+    private InputStream loadDataWithRedirects(URL url, int i, URL url2, Map<String, String> map) throws HttpException {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65544, this, url, i, url2, map)) == null) {
@@ -320,7 +328,7 @@ public class HttpUrlFetcher implements DataFetcher {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(Priority priority, DataFetcher.DataCallback dataCallback) {
+    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super InputStream> dataCallback) {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, priority, dataCallback) == null) {

@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.sg;
-import com.baidu.tieba.yi5;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,12 +31,12 @@ public class ThirdStatisticHelper {
     public static final int MAX_DIRECT_TIMES = 3;
     public static final int REQUEST_COST_URL_TYPE = 2;
     public static final int REQUEST_SHOW_URL_TYPE = 1;
-    public static final Map cookieCacheMap;
+    public static final Map<String, String> cookieCacheMap;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.core.util.ThirdStatisticHelper$1  reason: invalid class name */
     /* loaded from: classes3.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -49,7 +49,7 @@ public class ThirdStatisticHelper {
     }
 
     /* loaded from: classes3.dex */
-    public class ThirdStatisticAsyncTask extends BdAsyncTask {
+    public static class ThirdStatisticAsyncTask extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,7 +79,7 @@ public class ThirdStatisticHelper {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 if (strArr != null && strArr.length != 0) {
                     try {
-                        new sg().g(strArr[0], 3, 30000, 3000);
+                        new kg().g(strArr[0], 3, 30000, 3000);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -91,7 +91,7 @@ public class ThirdStatisticHelper {
     }
 
     /* loaded from: classes3.dex */
-    public class TiePlusStaticTask extends BdAsyncTask {
+    public static class TiePlusStaticTask extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int mRequestType;
@@ -119,12 +119,12 @@ public class ThirdStatisticHelper {
             this.mTiePlusStatisCallback = tiePlusStatisCallback;
         }
 
-        private String getAllCookies(Map map) {
+        private String getAllCookies(Map<String, List<String>> map) {
             InterceptResult invokeL;
             List<String> list;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, map)) == null) {
-                if (map == null || (list = (List) map.get("Set-Cookie")) == null) {
+                if (map == null || (list = map.get("Set-Cookie")) == null) {
                     return null;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -152,7 +152,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", yi5.b());
+                httpURLConnection.setRequestProperty("User-Agent", xj5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -255,7 +255,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            dh.f(httpURLConnection);
+                            vg.f(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -274,7 +274,7 @@ public class ThirdStatisticHelper {
                                 }
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                dh.f(httpURLConnection);
+                                vg.f(httpURLConnection);
                             }
                         } else if (httpURLConnection != null) {
                             String headerField = httpURLConnection.getHeaderField("Location");
@@ -288,7 +288,7 @@ public class ThirdStatisticHelper {
                                 httpURLConnection.connect();
                                 i = httpURLConnection.getResponseCode();
                                 requestStatistic(i2 + 1, String.valueOf(i));
-                                dh.f(httpURLConnection);
+                                vg.f(httpURLConnection);
                             }
                         }
                     }

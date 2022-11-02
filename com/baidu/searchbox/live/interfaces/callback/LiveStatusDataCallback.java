@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class LiveStatusDataCallback {
+public abstract class LiveStatusDataCallback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract void onError(Throwable th);
 
-    public abstract void onResult(Object obj);
+    public abstract void onResult(T t);
 
     public LiveStatusDataCallback() {
         Interceptable interceptable = $ic;

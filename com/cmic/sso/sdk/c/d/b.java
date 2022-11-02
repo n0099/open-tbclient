@@ -7,16 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Map b;
+    public Map<String, List<String>> b;
     public String c;
 
-    public b(int i, Map map, String str) {
+    public b(int i, Map<String, List<String>> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,11 +46,11 @@ public class b {
         return invokeV.intValue;
     }
 
-    public Map b() {
+    public Map<String, List<String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map map = this.b;
+            Map<String, List<String>> map = this.b;
             if (map == null) {
                 return new HashMap();
             }

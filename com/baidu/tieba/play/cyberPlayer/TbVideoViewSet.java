@@ -11,8 +11,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
     public static TbVideoViewSet c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LRULinkedHashMap a;
+    public LRULinkedHashMap<String, TbVideoViewContainer> a;
     public boolean b;
 
     /* loaded from: classes5.dex */
@@ -54,7 +54,7 @@ public class TbVideoViewSet {
     }
 
     /* loaded from: classes5.dex */
-    public class LRULinkedHashMap extends LinkedHashMap {
+    public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
         public static final long serialVersionUID = 1;
@@ -84,10 +84,10 @@ public class TbVideoViewSet {
         }
 
         @Override // java.util.LinkedHashMap
-        public boolean removeEldestEntry(Map.Entry entry) {
+        public boolean removeEldestEntry(Map.Entry<K, TbVideoViewContainer> entry) {
             InterceptResult invokeL;
             boolean z;
-            TbVideoViewContainer tbVideoViewContainer;
+            TbVideoViewContainer value;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
                 if (size() > 3) {
@@ -95,9 +95,9 @@ public class TbVideoViewSet {
                 } else {
                     z = false;
                 }
-                if (z && (tbVideoViewContainer = (TbVideoViewContainer) entry.getValue()) != null) {
+                if (z && (value = entry.getValue()) != null) {
                     this.this$0.b = true;
-                    tbVideoViewContainer.getControl().stopPlayback();
+                    value.getControl().stopPlayback();
                     this.this$0.b = false;
                 }
                 return z;
@@ -133,7 +133,7 @@ public class TbVideoViewSet {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean)) {
                 ((Boolean) customResponsedMessage.getData()).booleanValue();
@@ -154,7 +154,7 @@ public class TbVideoViewSet {
                 return;
             }
         }
-        this.a = new LRULinkedHashMap(this);
+        this.a = new LRULinkedHashMap<>(this);
         MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
@@ -162,8 +162,8 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!ej.isEmpty(str) && this.a.containsKey(str)) {
-                return (TbVideoViewContainer) this.a.get(str);
+            if (!wi.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
             }
             return null;
         }
@@ -171,10 +171,10 @@ public class TbVideoViewSet {
     }
 
     public void e(String str) {
-        TbVideoViewContainer tbVideoViewContainer;
+        TbVideoViewContainer remove;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !this.b && this.a.containsKey(str) && (tbVideoViewContainer = (TbVideoViewContainer) this.a.remove(str)) != null) {
-            tbVideoViewContainer.getControl().stopPlayback();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !this.b && this.a.containsKey(str) && (remove = this.a.remove(str)) != null) {
+            remove.getControl().stopPlayback();
         }
     }
 
@@ -198,7 +198,7 @@ public class TbVideoViewSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbVideoViewContainer, str) == null) {
             if (this.a.containsKey(str) && tbVideoViewContainer != this.a.get(str)) {
-                TbVideoViewContainer tbVideoViewContainer2 = (TbVideoViewContainer) this.a.get(str);
+                TbVideoViewContainer tbVideoViewContainer2 = this.a.get(str);
                 if (tbVideoViewContainer2 != null && tbVideoViewContainer2.getControl().isPlaying()) {
                     tbVideoViewContainer2.getControl().stopPlayback();
                 }
@@ -215,7 +215,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.b && !ej.isEmpty(str2)) {
+                if (!this.b && !wi.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

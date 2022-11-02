@@ -1,44 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes3.dex */
 public class av6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List a(List list) {
-        InterceptResult invokeL;
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                VoiceRoom voiceRoom = (VoiceRoom) it.next();
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    wu6 wu6Var = new wu6();
-                    wu6Var.a = voiceRoom.room_name;
-                    wu6Var.c = String.valueOf(voiceRoom.talker_num);
-                    wu6Var.d = String.valueOf(voiceRoom.joined_num);
-                    wu6Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    wu6Var.b = arrayList2;
-                    arrayList.add(wu6Var);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
+            if (!z || frsFragment == null || TextUtils.isEmpty(str) || !frsFragment.isAdded() || !dv6.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+                return true;
             }
-            return arrayList;
+            Intent intent = new Intent();
+            intent.putExtra(DealIntentService.KEY_CLASS, 2);
+            intent.putExtra("fname", str);
+            intent.putExtra(str2, "short_cut");
+            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

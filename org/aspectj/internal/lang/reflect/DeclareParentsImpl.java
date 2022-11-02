@@ -10,11 +10,11 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareParents;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeclareParentsImpl implements DeclareParents {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AjType declaringType;
+    public AjType<?> declaringType;
     public String firstMissingTypeName;
     public boolean isExtends;
     public Type[] parents;
@@ -22,7 +22,7 @@ public class DeclareParentsImpl implements DeclareParents {
     public String parentsString;
     public TypePattern targetTypesPattern;
 
-    public DeclareParentsImpl(String str, String str2, boolean z, AjType ajType) {
+    public DeclareParentsImpl(String str, String str2, boolean z, AjType<?> ajType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

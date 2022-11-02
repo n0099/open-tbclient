@@ -32,7 +32,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
     /* renamed from: org.webrtc.audio.JavaAudioDeviceModule$1  reason: invalid class name */
     /* loaded from: classes9.dex */
-    public /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -74,7 +74,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AudioRecordStartErrorCode {
+    public static final class AudioRecordStartErrorCode {
         public static final /* synthetic */ AudioRecordStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AudioRecordStartErrorCode AUDIO_RECORD_START_EXCEPTION;
@@ -139,7 +139,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /* loaded from: classes9.dex */
-    public class AudioSamples {
+    public static class AudioSamples {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int audioFormat;
@@ -207,7 +207,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public final class AudioTrackStartErrorCode {
+    public static final class AudioTrackStartErrorCode {
         public static final /* synthetic */ AudioTrackStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AudioTrackStartErrorCode AUDIO_TRACK_START_EXCEPTION;
@@ -272,7 +272,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /* loaded from: classes9.dex */
-    public class Builder {
+    public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int audioContentType;

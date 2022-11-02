@@ -16,11 +16,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
 /* loaded from: classes7.dex */
-public class LazyStringArrayList extends AbstractList implements LazyStringList, RandomAccess {
+public class LazyStringArrayList extends AbstractList<String> implements LazyStringList, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public static final LazyStringList EMPTY;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List list;
+    public final List<Object> list;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +64,7 @@ public class LazyStringArrayList extends AbstractList implements LazyStringList,
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public List getUnderlyingElements() {
+    public List<?> getUnderlyingElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -102,7 +102,7 @@ public class LazyStringArrayList extends AbstractList implements LazyStringList,
         addAll(lazyStringList);
     }
 
-    public LazyStringArrayList(List list) {
+    public LazyStringArrayList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class LazyStringArrayList extends AbstractList implements LazyStringList,
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean addAll(Collection collection) {
+    public boolean addAll(Collection<? extends String> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
@@ -168,7 +168,7 @@ public class LazyStringArrayList extends AbstractList implements LazyStringList,
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public boolean addAll(int i, Collection collection) {
+    public boolean addAll(int i, Collection<? extends String> collection) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, collection)) == null) {

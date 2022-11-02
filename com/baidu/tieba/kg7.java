@@ -1,13 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface kg7 {
-    void a(ICardInfo iCardInfo);
+public class kg7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    kg7 b(String str, int i);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String urlDecode = wi.getUrlDecode(str);
+            if (urlDecode == null) {
+                return urlDecode;
+            }
+            int lastIndexOf = urlDecode.lastIndexOf("/");
+            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
+                return null;
+            }
+            return urlDecode.substring(lastIndexOf + 1, indexOf);
+        }
+        return (String) invokeL.objValue;
+    }
 
-    kg7 c(String str, long j);
-
-    kg7 d(String str, String str2);
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            String urlDecode = wi.getUrlDecode(str);
+            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

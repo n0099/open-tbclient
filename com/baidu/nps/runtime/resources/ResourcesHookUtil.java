@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tieba.x91;
+import com.baidu.tieba.pa1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +22,9 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class ResourcesHookUtil {
     public static /* synthetic */ Interceptable $ic;
-    public static Map sAddedAssetsMap;
-    public static Map sAddedGroupMap;
-    public static Map sGroupRecoveryRecord;
+    public static Map<String, Set<Integer>> sAddedAssetsMap;
+    public static Map<String, Set<String>> sAddedGroupMap;
+    public static Map<String, Set<Integer>> sGroupRecoveryRecord;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,7 +61,7 @@ public class ResourcesHookUtil {
 
     public static synchronized boolean ensureResourcesReadyForNPS(Resources resources) {
         InterceptResult invokeL;
-        Set set;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, resources)) == null) {
             synchronized (ResourcesHookUtil.class) {
@@ -75,13 +75,13 @@ public class ResourcesHookUtil {
                     AssetManager assets = resources.getAssets();
                     int hashCode = assets.hashCode();
                     for (String str : sAddedAssetsMap.keySet()) {
-                        if (!TextUtils.isEmpty(str) && ((set = (Set) sAddedAssetsMap.get(str)) == null || !set.contains(Integer.valueOf(hashCode)))) {
+                        if (!TextUtils.isEmpty(str) && ((set = sAddedAssetsMap.get(str)) == null || !set.contains(Integer.valueOf(hashCode)))) {
                             if (!new File(str).exists()) {
                                 return false;
                             }
-                            x91.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            pa1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
-                                set = new HashSet();
+                                set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
                             }
                             set.add(Integer.valueOf(hashCode));
@@ -102,7 +102,7 @@ public class ResourcesHookUtil {
         return invokeL.booleanValue;
     }
 
-    public static Set getRecoveryAssetsPathByGroup(int i, String str) {
+    public static Set<String> getRecoveryAssetsPathByGroup(int i, String str) {
         InterceptResult invokeIL;
         Set<String> set;
         Interceptable interceptable = $ic;
@@ -111,9 +111,9 @@ public class ResourcesHookUtil {
                 return null;
             }
             HashSet hashSet = new HashSet();
-            if (!sAddedAssetsMap.isEmpty() && (set = (Set) sAddedGroupMap.get(str)) != null && !set.isEmpty()) {
+            if (!sAddedAssetsMap.isEmpty() && (set = sAddedGroupMap.get(str)) != null && !set.isEmpty()) {
                 for (String str2 : set) {
-                    Set set2 = (Set) sAddedAssetsMap.get(str2);
+                    Set<Integer> set2 = sAddedAssetsMap.get(str2);
                     if (set2 != null && set2.contains(Integer.valueOf(i))) {
                         hashSet.add(str2);
                     }
@@ -162,7 +162,7 @@ public class ResourcesHookUtil {
                     return false;
                 }
                 int hashCode = assetManager.hashCode();
-                Set set = (Set) sAddedAssetsMap.get(str);
+                Set<Integer> set = sAddedAssetsMap.get(str);
                 if (set != null && set.contains(Integer.valueOf(hashCode))) {
                     return true;
                 }
@@ -170,9 +170,9 @@ public class ResourcesHookUtil {
                     return false;
                 }
                 try {
-                    x91.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                    pa1.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                     if (set == null) {
-                        set = new HashSet();
+                        set = new HashSet<>();
                         sAddedAssetsMap.put(str, set);
                         if (!TextUtils.isEmpty(str2)) {
                             recordAddByGroup(str2, str);
@@ -207,7 +207,7 @@ public class ResourcesHookUtil {
                 }
                 AssetManager assets = resources.getAssets();
                 int hashCode = assets.hashCode();
-                Set set = (Set) sAddedAssetsMap.get(str);
+                Set<Integer> set = sAddedAssetsMap.get(str);
                 if (set != null && set.contains(Integer.valueOf(hashCode))) {
                     return true;
                 }
@@ -215,9 +215,9 @@ public class ResourcesHookUtil {
                     return false;
                 }
                 try {
-                    x91.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                    pa1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                     if (set == null) {
-                        set = new HashSet();
+                        set = new HashSet<>();
                         sAddedAssetsMap.put(str, set);
                         if (!TextUtils.isEmpty(str2)) {
                             recordAddByGroup(str2, str);
@@ -250,7 +250,7 @@ public class ResourcesHookUtil {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                Set set = (Set) sGroupRecoveryRecord.get(str);
+                Set<Integer> set = sGroupRecoveryRecord.get(str);
                 boolean z = true;
                 if (set != null && set.contains(Integer.valueOf(assetManager.hashCode()))) {
                     return true;
@@ -262,7 +262,7 @@ public class ResourcesHookUtil {
                     }
                 }
                 if (set == null) {
-                    set = new HashSet();
+                    set = new HashSet<>();
                     sGroupRecoveryRecord.put(str, set);
                 }
                 set.add(Integer.valueOf(assetManager.hashCode()));
@@ -275,9 +275,9 @@ public class ResourcesHookUtil {
     public static void recordAddByGroup(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && !TextUtils.isEmpty(str)) {
-            Set set = (Set) sAddedGroupMap.get(str);
+            Set<String> set = sAddedGroupMap.get(str);
             if (set == null) {
-                set = new HashSet();
+                set = new HashSet<>();
                 sAddedGroupMap.put(str, set);
             }
             if (!set.contains(str2)) {

@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.sy9;
-import com.baidu.tieba.zx9;
+import com.baidu.tieba.b0a;
+import com.baidu.tieba.iz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorZip$ZipProducer extends AtomicLong implements zx9 {
+public final class OperatorZip$ZipProducer<R> extends AtomicLong implements iz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1216676403723546796L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OperatorZip$Zip zipper;
+    public final OperatorZip$Zip<R> zipper;
 
-    public OperatorZip$ZipProducer(OperatorZip$Zip operatorZip$Zip) {
+    public OperatorZip$ZipProducer(OperatorZip$Zip<R> operatorZip$Zip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,11 +32,11 @@ public final class OperatorZip$ZipProducer extends AtomicLong implements zx9 {
         this.zipper = operatorZip$Zip;
     }
 
-    @Override // com.baidu.tieba.zx9
+    @Override // com.baidu.tieba.iz9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            sy9.b(this, j);
+            b0a.b(this, j);
             this.zipper.tick();
         }
     }

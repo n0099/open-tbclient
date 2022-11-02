@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.wj1;
+import com.baidu.tieba.ok1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAR_DESC = "sign";
@@ -26,7 +26,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public static final String BEAR_NAME = "name";
     public static final String BEAR_URL = "url";
     public static final String BEAR_VIP_TYPE = "v_type";
-    public static final Parcelable.Creator CREATOR;
+    public static final Parcelable.Creator<SwanAppBearInfo> CREATOR;
     public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
     public String bearDesc;
@@ -46,8 +46,8 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
-    public final class a implements Parcelable.Creator {
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<SwanAppBearInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,7 +103,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = wj1.a;
+        DEBUG = ok1.a;
         CREATOR = new a();
     }
 

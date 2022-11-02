@@ -2,9 +2,9 @@ package com.kwad.sdk.f.kwai;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements c {
-    public List ams;
+    public List<c> ams;
     public boolean enabled;
 
     public a() {
@@ -15,7 +15,7 @@ public abstract class a implements c {
         this.enabled = z;
     }
 
-    private List getChildren() {
+    private List<c> getChildren() {
         return this.ams;
     }
 

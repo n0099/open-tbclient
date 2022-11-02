@@ -39,7 +39,7 @@ public class dj implements LoggerInterface {
     public static final SimpleDateFormat f222a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static List f223a;
+    public static List<Pair<String, Throwable>> f223a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -158,10 +158,10 @@ public class dj implements LoggerInterface {
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(file, "log1.txt"), true)));
                     while (!f223a.isEmpty()) {
                         try {
-                            Pair pair = (Pair) f223a.remove(0);
-                            String str = (String) pair.first;
-                            if (pair.second != null) {
-                                str = (str + "\n") + Log.getStackTraceString((Throwable) pair.second);
+                            Pair<String, Throwable> remove = f223a.remove(0);
+                            String str = (String) remove.first;
+                            if (remove.second != null) {
+                                str = (str + "\n") + Log.getStackTraceString((Throwable) remove.second);
                             }
                             bufferedWriter2.write(str + "\n");
                         } catch (Exception e3) {

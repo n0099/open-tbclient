@@ -15,19 +15,19 @@ import com.zui.deviceidservice.IDeviceidInterface;
 public interface t extends IInterface {
 
     /* loaded from: classes7.dex */
-    public abstract class a extends Binder implements t {
+    public static abstract class a extends Binder implements t {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0509a implements t {
+        public static class C0520a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0509a(IBinder iBinder) {
+            public C0520a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
